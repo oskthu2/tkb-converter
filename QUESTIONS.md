@@ -6,13 +6,15 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 
 ## itintegration.engagementindex v1.0.9
 
-**Status:** in-progress
+**Status:** blocked
 **Senast uppdaterad:** 2026-03-19
 
 ### Blockerare (kräver svar innan IG kan anses komplett)
 
 - [ ] **[BLOCK-EI-001]** *(Flyttad till extern issue-lista — se `EXTERNAL_ISSUES.md` EXT-001)*
   Kardinalitetsdiskrepans för fält `clinicalProcessInterestId` i FindContent Request: TKB-fälttabellen anger `0..1`, men informationsmodellen och XSD anger `1..1`. FSH-modellen använder `0..1` (säkrare alternativ). Kräver beslut från domänexpert/förvaltning — kandidat för Jira-ärende.
+
+- [ ] **[BLOCK-EI-004]** SUSHI-kompilering misslyckades: `hl7.fhir.r4.core#4.0.1` kan inte laddas ner från packages.fhir.org (nätverksåtkomst blockerad i nuvarande miljö). Kör manuellt: `cd igs/TKB_itintegration_engagementindex && sushi .` i en miljö med internetåtkomst. Alternativt: installera paketet lokalt via `fhir install hl7.fhir.r4.core#4.0.1` eller kopiera från ~/.fhir/packages/ på en annan maskin.
 
 - [x] **[BLOCK-EI-002]** *(Löst 2026-03-19)* Fälten `creationTime`, `updateTime` och `owner` är nu inkluderade i `UpdateRequest`-modellen med tydlig dokumentation om att konsumenten INTE ska sätta dessa fält — de sätts automatiskt av engagemangsindexinstansen.
 
