@@ -1,0 +1,75 @@
+{
+  "domain_id": "clinicalprocess.activityprescription.actoutcome",
+  "domain_title": "clinicalprocess: activityprescription: actoutcome",
+  "domain_version": "2.2.1",
+  "bitbucket_tag": "2.2.1",
+  "rivta_namespace_base": "urn:riv:clinicalprocess:activityprescription:actoutcome",
+  "word_document": "igs/TKB_clinicalprocess_activityprescription_actoutcome/source/rivta-domains-riv.clinicalprocess.activityprescription.actoutcome-f7071f290e57/docs/TKB_clinicalprocess_activityprescription_actoutcome.docx",
+  "xsd_files": [
+    "schemas/core_components/clinicalprocess_activityprescription_actoutcome_2.2.xsd",
+    "schemas/core_components/clinicalprocess_activityprescription_actoutcome_2.1_ext.xsd",
+    "schemas/core_components/clinicalprocess_activityprescription_actoutcome_enum_2.0.xsd",
+    "schemas/interactions/GetMedicationHistoryInteraction/GetMedicationHistoryResponder_2.2.xsd",
+    "schemas/interactions/GetVaccinationHistoryInteraction/GetVaccinationHistoryResponder_2.0.xsd"
+  ],
+  "wsdl_files": [
+    "schemas/interactions/GetMedicationHistoryInteraction/GetMedicationHistoryInteraction_2.2_RIVTABP21.wsdl",
+    "schemas/interactions/GetVaccinationHistoryInteraction/GetVaccinationHistoryInteraction_2.0_RIVTABP21.wsdl"
+  ],
+  "contracts": [
+    {
+      "section_number": "7.1",
+      "id": "GetVaccinationHistory",
+      "version": "2.0",
+      "rivta_namespace": "urn:riv:clinicalprocess:activityprescription:actoutcome:GetVaccinationHistoryResponder:2",
+      "description": "Tjänsten returnerar ordinerade och/eller administrerade vaccinationer för en patient.",
+      "contract_specific_codesystems": []
+    },
+    {
+      "section_number": "7.2",
+      "id": "GetMedicationHistory",
+      "version": "2.2",
+      "rivta_namespace": "urn:riv:clinicalprocess:activityprescription:actoutcome:GetMedicationHistoryResponder:2",
+      "description": "Tjänsten returnerar ordinerade, förskrivna och/eller administrerade läkemedel för en patient.",
+      "contract_specific_codesystems": [
+        {
+          "name": "TypeOfPrescriptionEnum",
+          "codes": [
+            {"code": "I", "display": "Insättningsordination"},
+            {"code": "U", "display": "Utsättningsordination"}
+          ]
+        },
+        {
+          "name": "PrescriptionStatusEnum",
+          "codes": [
+            {"code": "Active", "display": "Aktiv ordination"},
+            {"code": "Inactive", "display": "Inaktiv ordination"}
+          ]
+        },
+        {
+          "name": "NonReplaceableEnum",
+          "codes": [
+            {"code": "Prescriber", "display": "Förskrivare"},
+            {"code": "Patient", "display": "Patient"}
+          ]
+        }
+      ]
+    }
+  ],
+  "shared_codesystems": [
+    {
+      "name": "ResultCodeEnum",
+      "codes": [
+        {"code": "OK", "display": "OK"},
+        {"code": "ERROR", "display": "Fel"},
+        {"code": "INFO", "display": "Info"}
+      ]
+    },
+    {
+      "name": "ErrorCodeEnum",
+      "codes": [
+        {"code": "INVALID_REQUEST", "display": "Ogiltig begäran"}
+      ]
+    }
+  ]
+}

@@ -213,3 +213,48 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 - [ ] **[TODO-PRESC-006]** `GetDispensedDrugs` (7.9) — request innehåller fältet `typeOfResponse` av typen `DispensedDrugsTypeOfResponseEnum` (TEXT/MULTIMEDIA/BOTH). Lägg till binding i en eventuell request-modell och verifiera att `DispensedDrugsTypeOfResponseVS` är korrekt. Relevant sektion: TKB avsnitt 7.9, fältregler.
 
 - [ ] **[TODO-PRESC-007]** Parsa `VIS_clinicalprocess_activityprescription_dosage.docx` för att förstå koppling mellan ordination (prescribe-domänen) och dosering (dosage-domänen). Detta kan vara nödvändigt för att komplettera FSH-modellerna med Dosage-strukturen. Se ASSUME-PRESC-007.
+
+---
+
+## clinicalprocess.activityprescription.actoutcome v2.2.1
+
+**Status:** blocked (SUSHI kan inte köras utan nätverksåtkomst)
+**Senast uppdaterad:** 2026-03-19
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-ACT-001]** SUSHI-kompilering kan inte köras i nuvarande miljö: `hl7.fhir.r4.core#4.0.1` kräver nätverksåtkomst för att laddas ner från packages.fhir.org. Kör manuellt: `cd igs/TKB_clinicalprocess_activityprescription_actoutcome && sushi .` i en miljö med internetåtkomst. IG-innehåll (pagecontent + FSH-modeller för 2 kontrakt + 5 CodeSystems + 5 ValueSets) är komplett.
+
+- [ ] **[BLOCK-ACT-002]** GetMedicationHistory — fälttabellen (Table 16, 659 rader) är extremt komplex med djupt nästlade typer `DispensationAuthorizationType`, `AdministrationType` och `RelationType` (varsamma rader 315, 405 resp. 621 i tabellen). Dessa är inte fullständigt extraherade i FSH-modellen — de är representerade som `BackboneElement` med kommentar "kontrollera manuellt". Beslut krävs: ska separata FSH `Logical:`-typer skapas för dessa komplexa undertyper, eller räcker kommentarerna i den existerande modellen?
+
+- [ ] **[BLOCK-ACT-003]** GetMedicationHistory — fältet `drug` (DrugChoiceType) är ett XOR-val mellan fem alternativ: `unstructuredDrugInformation`, `merchandise`, `drugArticle`, `drug` och `generics`. Exakt ett av dessa ska anges. FHIR kan inte uttrycka XOR-kardinalitet direkt (alla är `0..1`). FSH-modellen dokumenterar villkoret i fältbeskrivningen. Beslut: ska en FHIR-invariant `Exactly one of unstructured/merchandise/drugArticle/drug/generics must be present` läggas till? Relevant sektion: TKB avsnitt 7.2, fältregler rad 128.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-ACT-001]** GetMedicationHistory version i TKB-dokumentet: avsnitt 7.2.1 anger version "2.1" men domänversionen är 2.2.1 och WSDL-filen heter `GetMedicationHistoryInteraction_2.2_RIVTABP21.wsdl`. Antagandet gjordes att kontraktsversionen är 2.2 (i enlighet med WSDL och XSD-schema) och att texten "2.1" i avsnitt 7.2.1 är ett redaktionellt fel i TKB-dokumentet. Verifiera med domänexpert.
+
+- [ ] **[ASSUME-ACT-002]** `TypeOfPrescriptionEnum` (I/U) har inte en kopplad OID i XSD-schemat. Kodsystemet har skapats som ett Inera-internt CodeSystem med canonical `https://fhir.inera.se/CodeSystem/typeofprescription`. Verifiera om ett nationellt OID finns registrerat för detta kodverk.
+
+- [ ] **[ASSUME-ACT-003]** XOR-villkor för `DrugChoiceType.drug` (se BLOCK-ACT-003) har modellerats som fem separata `0..1`-fält utan FHIR-invariant. Antagandet att dokumentation i fältbeskrivningen är tillräckligt som interimslösning. Verifiera om formell invariant krävs för publicering.
+
+- [ ] **[ASSUME-ACT-004]** `vaccineName` i GetVaccinationHistory refererar till NPL-id med OID `1.2.752.129.2.1.5.2`. TKB anger "I code ska anges företrädelsevis NPL-id". Antagandet gjordes att NPL-id är rekommenderat men inte obligatoriskt, och att lokala kodverk accepteras. FSH-modellen har `CodeableConcept` utan fast binding. Verifiera om ett ValueSet med NPL-id som preferred binding ska skapas.
+
+- [ ] **[ASSUME-ACT-005]** `gender` i `AdditionalPatientInformationType` (båda kontrakten) refererar till KV Kön (OID 1.2.752.129.2.2.1.1). Inget eget CodeSystem har skapats — nationellt kodverk förväntas. Canonical URL för KV Kön i FHIR-kontext är okänd (möjliga alternativ: `urn:oid:1.2.752.129.2.2.1.1` eller Socialstyrelsens FHIR canonical). Verifiera rätt canonical URL.
+
+- [ ] **[ASSUME-ACT-006]** Engagemangsindex-attributen (Categorization) för de två kontrakten är `caa-gvh` (GetVaccinationHistory) och `caa-gmh` (GetMedicationHistory). Dessa är extraherade från TKB tabell 8. Antagandet att dessa värden är stabila och korrekta för registrering i EI. Verifiera med EI-förvaltning.
+
+### TODO (kan göras utan input)
+
+- [ ] **[TODO-ACT-001]** Parsa `AB_clinicalprocess_activityprescription_actoutcome.docx` (tillämpningsanvisningen) för kompletterande fältregler och implementationsdetaljer för GetMedicationHistory. Lägg till nyckelinformation från AB-dokumentet i IG:ns avsnitt 7.2.
+
+- [ ] **[TODO-ACT-002]** GetMedicationHistory `DispensationAuthorizationType` (rad 315 i fälttabellen) och `AdministrationType` (rad 405) är komplexa undertyper med egna nästlade strukturer. Extrahera dessa som separata FSH `Logical:` typer (`MedicationDispensationAuthorization` och `MedicationAdministration`) för att ge mer komplett informationsmodell.
+
+- [ ] **[TODO-ACT-003]** GetMedicationHistory `RelationType` (rad 621) — sambandsklass. Extrahera och skapa FSH `Logical: MedicationRelation`. Relevant sektion: TKB avsnitt 7.2, fältregler rad 621.
+
+- [ ] **[TODO-ACT-004]** Parsa schematron-filer för ytterligare begränsningsregler. TKB tabell 14 (GetVaccinationHistory, 9 rader) och tabell 17 (GetMedicationHistory, 23 rader) listar schematron-regler. Extrahera dessa och dokumentera i IG:ns övriga-regler-avsnitt samt överväg om de ska läggas till som FHIR-invarianter.
+
+- [ ] **[TODO-ACT-005]** `riskCategory` och `patientAdverseEffect` i GetVaccinationHistory används med CVType (CodeableConcept). Kodverk för dessa är inte specificerade i TKB. Lägg till kommentarer i FSH-modellen om förväntade kodverk (t.ex. SNOMED CT för biverkningar).
+
+- [ ] **[TODO-ACT-006]** `typeOfVaccine` och `vaccineTargetDisease` i GetVaccinationHistory refererar till vaccinklassificering respektive sjukdomsklassificering. Lägg till kommentarer om lämpliga internationella kodverk (t.ex. SNOMED CT, ATC, Folkhälsomyndighetens vaccinregisterkoder).
+
+- [ ] **[TODO-ACT-007]** SjD-dokumenten (`SjD_TK_GetMedicationHistory_2.1.docx`, `SjD_TK_GetVaccinationHistory_2.0.docx`) är inte parsade. Dessa kan innehålla systemskiftesspecifika regler. Lägg till referenser i respektive kontraktssektion i IG:n.
