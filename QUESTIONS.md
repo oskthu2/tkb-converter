@@ -121,3 +121,48 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 - [ ] **[TODO-CHAO-005]** Kontrollera att `ExaminationStatusCodeCS` koden `#Pagaende` matchar vad källsystem faktiskt skickar. Om källsystem skickar det svenska `Pågående` (med å) behöver CodeSystem-koden ändras för att FHIR-valideringen ska fungera korrekt.
 
 - [ ] **[TODO-CHAO-006]** `SjD_TK_GetReferralOutcome_3.2.docx` och `SjD_TK_GetImagingOutcome_1.0.docx` är inte parsade. Dessa kan innehålla systemskiftesspecifika regler. Lägg till referenser i respektive kontraktssektion i IG:n.
+
+---
+
+## clinicalprocess.healthcond.description v3.0.5
+
+**Status:** blocked (SUSHI kan inte köras utan nätverksåtkomst)
+**Senast uppdaterad:** 2026-03-19
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-DESC-001]** SUSHI-kompilering kan inte köras i nuvarande miljö: `hl7.fhir.r4.core#4.0.1` kräver nätverksåtkomst för att laddas ner från packages.fhir.org. Kör manuellt: `cd igs/TKB_clinicalprocess_healthcond_description && sushi .` i en miljö med internetåtkomst. IG-innehåll (pagecontent + FSH-modeller) är komplett.
+
+- [ ] **[BLOCK-DESC-002]** `se.inera.rivta.core: current` är angivet som beroende i sushi-config.yaml men paketets faktiska existens i FHIR-paketregistret är overifierad (se även BLOCK-EI-003 för engagemangsindex). Om paketet inte finns: ta bort beroendet och skapa lokala kopior av gemensamma bastyper (IIType, CVType, etc.) eller referera direkt till `hl7.fhir.r4.core`-typer.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-DESC-001]** `diagnosisCode.codeSystem` i GetDiagnosis är inte explicit angiven i TKB. Antagandet gjordes att diagnoser normalt kodas med ICD-10-SE. Canonical URL för ICD-10-SE i svensk FHIR-kontext är okänd — `http://hl7.org/fhir/sid/icd-10` är den internationella URL:en. Verifieras att rätt OID eller canonical URL används för svensk ICD-10-SE.
+
+- [ ] **[ASSUME-DESC-002]** `typeOfAlertInformation` i GetAlertInformation är av typen CVType med kod från "lokalt kodverk eller nationell standard" (TKB avsnitt 7.3.4). Kodsystem-URL och OID är inte angiven i TKB eller XSD. FSH-modellen använder `CodeableConcept` utan binding. Verifieras vilket kodverk (nationellt eller lokalt) som normalt används för typer av uppmärksamhetssignaler i Sverige.
+
+- [ ] **[ASSUME-DESC-003]** `healthcareProfessionalCareUnitHSAId` (regel 1) är villkorlig i GetDiagnosis, GetAlertInformation och GetFunctionalStatus — modellerad som `0..1` (säkrare alternativ). Villkoret är "Se regel 1" utan explicit specifikation i TKB-tabellen. Verifieras om FHIR-invariant ska läggas till eller om `0..1` med kommentar är tillräckligt.
+
+- [ ] **[ASSUME-DESC-004]** `clinicalDocumentNoteText` och `multimediaEntry` i GetCareDocumentation är ömsesidigt uteslutande (XSD-regel: careDocumentationBody [sch]). Båda är modellerade som `0..1` med kommentar om uteslutning. En FHIR-invariant för att formellt uttrycka denna begränsning har INTE skapats — detta kräver ett beslut om huruvida invarianter ska läggas till generellt eller om kommentarer i beskrivning är tillräckligt.
+
+- [ ] **[ASSUME-DESC-005]** `disability.disabilityAssessment` i GetFunctionalStatus refererar till ICF-kodsystem med OID `1.2.752.116.1.1.3` (nationellt). Inget lokalt CodeSystem för ICF har skapats (det är ett externt standardkodsystem). Canonical URL för ICF i svensk FHIR-kontext: verifieras om `http://hl7.org/fhir/sid/icf` eller OID-URI `urn:oid:1.2.752.116.1.1.3` ska användas.
+
+- [ ] **[ASSUME-DESC-006]** Versionen "3.0.5" är TKB-dokumentversionen, inte enskilda kontraktsversioner. GetCareDocumentation är v3.0, de övriga tre är v2.0. IG-versionen är satt till 3.0.5 (TKB-version) som identifierar hela domänpaketets revision. Verifiera att detta är rätt versionssättningsstrategi för publicering.
+
+- [ ] **[ASSUME-DESC-007]** GetCareDocumentation-kontraktet hämtades via Bitbucket-tagg `3.0.5` (lateste tag) eftersom Bitbucket downloads-API returnerade tom lista (inga publicerade zip-filer). Det faktiska zip-innehållet är identiskt med källkoden i taggen. Verifieras att tag `3.0.5` representerar den senaste stabila versionen av domänen.
+
+### TODO (kan göras utan input)
+
+- [ ] **[TODO-DESC-001]** Lägg till FHIR-invarianter för ömsesidiga uteslutningar i GetCareDocumentation: `clinicalDocumentNoteText` XOR `multimediaEntry`, och `multimediaEntry/value` XOR `multimediaEntry/reference`. Kräver FSH `Invariant:` resurser och `obeys`-regler på BackboneElement-nivå.
+
+- [ ] **[TODO-DESC-002]** Lägg till FHIR-invariant för `healthcareProfessionalCareUnitHSAId` (regel 1) i GetDiagnosis, GetAlertInformation och GetFunctionalStatus när villkorsspecifikationen är känd (se ASSUME-DESC-003).
+
+- [ ] **[TODO-DESC-003]** Lägg till binding för `typeOfAlertInformation.coding.system` i GetAlertInformation när rätt kodsystem är identifierat (se ASSUME-DESC-002). Skapa ett externt ValueSet eller referens till nationellt kodverk.
+
+- [ ] **[TODO-DESC-004]** `MultimediaType.mediaType` bör bindas till en ValueSet med tillåtna MIME-typer (definierade i `MediaTypeEnum` i enum XSD v2.1). Skapa ett ValueSet `MediaTypeVS` baserat på enum-värdena och lägg till binding i `GetCareDocumentation.careDocumentation.body.multimediaEntry.mediaType`.
+
+- [ ] **[TODO-DESC-005]** Parsa SjD-dokumenten (`SjD_TK_GetCareDocumentation_3.0.docx`, `SjD_TK_GetDiagnosis_2.0.docx`, `SjD_TK_GetAlertInformation_2.0.docx`, `SjD_TK_GetFunctionalStatus_2.0.docx`) för systemskiftesspecifika regler och komplettera IG-sidorna med eventuella tillägg.
+
+- [ ] **[TODO-DESC-006]** `DissentingOpinion` i GetCareDocumentation: personId root-OID för personnummer angiven som `1.2.752.129.2.1.3.1`. Lägg till en kommentar i FSH-modellen med OID-lista för samordningsnummer och nationellt reservnummer när dessa är verifierade.
+
+- [ ] **[TODO-DESC-007]** Kontrollera XSD-filer för GetAlertInformationResponder_2.0.xsd för att identifiera eventuella ytterligare fält i `alertInformationBody` som inte täcks av TKB-tabellen (tabellen avbröts vid rad 50 i extraktion — ytterligare fält kan finnas).
