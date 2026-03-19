@@ -11,11 +11,12 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 
 ### Blockerare (kräver svar innan IG kan anses komplett)
 
-- [ ] **[BLOCK-EI-001]** Kardinalitetsdiskrepans för fält `clinicalProcessInterestId` i FindContent Request: TKB-fälttabellen anger kardinalitet `0..1`, men informationsmodellen och XSD anger `1..1`. FSH-modellen har modellerats med `0..1` (säkrare alternativ), men detta kan vara felaktigt. Behöver verifieras mot auktoritativ XSD-fil och/eller domänexpert innan IG kan anses korrekt. Relevant sektion: TKB avsnitt 7.1 (FindContent), fälttabell för Request.
+- [ ] **[BLOCK-EI-001]** *(Flyttad till extern issue-lista — se `EXTERNAL_ISSUES.md` EXT-001)*
+  Kardinalitetsdiskrepans för fält `clinicalProcessInterestId` i FindContent Request: TKB-fälttabellen anger `0..1`, men informationsmodellen och XSD anger `1..1`. FSH-modellen använder `0..1` (säkrare alternativ). Kräver beslut från domänexpert/förvaltning — kandidat för Jira-ärende.
 
-- [ ] **[BLOCK-EI-002]** Fälten `creationTime`, `updateTime` och `owner` i Update-kontraktets request: TKB noterar explicit (Table 12) att konsumenten SKA INTE sätta dessa fält — de genereras av engagemangsindexinstansen. Dessa fält finns dock i XSD-typen `EngagementType`. Det är oklart om den logiska FSH-modellen för UpdateRequest ska exkludera dessa fält helt, eller inkludera dem med en förklarande invariant/notering om att de inte får sättas av konsumenten. Utan ett tydligt beslut här kan IG:n ge missvisande information till implementerare.
+- [x] **[BLOCK-EI-002]** *(Löst 2026-03-19)* Fälten `creationTime`, `updateTime` och `owner` är nu inkluderade i `UpdateRequest`-modellen med tydlig dokumentation om att konsumenten INTE ska sätta dessa fält — de sätts automatiskt av engagemangsindexinstansen.
 
-- [ ] **[BLOCK-EI-003]** `se.inera.rivta.core`-paketet refereras som FHIR-dependency i `sushi-config.yaml`. Det är oklart om detta paket är publicerat och tillgängligt på `packages.fhir.org` (eller annan FHIR-paketregistry). Om paketet saknas kommer SUSHI att misslyckas med ett dependency-fel och IG:n kan inte byggas. Verifiera att paketet finns och att rätt version anges, eller ersätt med korrekt paketidentitet.
+- [x] **[BLOCK-EI-003]** *(Löst 2026-03-19)* `se.inera.rivta.core`-paketet existerar inte i referens-IGs (bekräftat via `https://bitbucket.org/ineraservices/fhir`). Beroendet har tagits bort från `sushi-config.yaml`. Referens-IGs använder `dependencies: {}` eller enbart `hl7.fhir.r4.core`.
 
 ### Antaganden gjorda (verifiera med domänexpert)
 

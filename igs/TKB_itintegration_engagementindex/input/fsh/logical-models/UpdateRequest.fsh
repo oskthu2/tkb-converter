@@ -12,10 +12,9 @@ Description: """
   indexposter i ett engagemangsindex. Flera engagemangstransaktioner
   kan paketeras i ett och samma anrop (max 1000 poster i nationell instans).
 
-  OBS: Fälten creationTime, updateTime och owner ingår INTE i Update-begäran.
-  Dessa sätts av engagemangsindex och ska INTE skickas av konsumenten.
-  Observera att dessa fält kan finnas i XSD-typen EngagementType men ska
-  lämnas tomma / ej populeras i Update-anrop.
+  Alla fält i EngagementType-typen ingår i modellen, inklusive fält som
+  sätts av engagemangsindex och INTE ska populeras av konsumenten
+  (creationTime, updateTime, owner). Se respektive fältbeskrivning.
 """
 Characteristics: #can-be-target
 
@@ -108,4 +107,28 @@ Characteristics: #can-be-target
     OBS: Kan innehålla organisationsnummer, HSA-id eller källsystemsintern identitet —
     ingen entydig FHIR Identifier-typ. Modelleras som string; se öppen fråga om korrekt typ.
     Kardinalitet: Obligatorisk.
+    """
+
+* engagementTransaction.engagement.creationTime 0..1 dateTime "Skapandetidpunkt (sätts av EI)"
+    """
+    Tidpunkt då engagemangsposten skapades i engagemangsindexet.
+    KONSUMENTEN SKA INTE SÄTTA DETTA FÄLT — det sätts automatiskt av engagemangsindex
+    vid mottagning av Update-anropet. Om fältet populeras av konsumenten ignoreras värdet.
+    Kardinalitet: Valfri (från konsumentperspektiv; alltid populerad i lagrat engagemang).
+    """
+
+* engagementTransaction.engagement.updateTime 0..1 dateTime "Uppdateringstidpunkt (sätts av EI)"
+    """
+    Tidpunkt då engagemangsposten senast uppdaterades i engagemangsindexet.
+    KONSUMENTEN SKA INTE SÄTTA DETTA FÄLT — det sätts automatiskt av engagemangsindex
+    vid mottagning av Update-anropet. Om fältet populeras av konsumenten ignoreras värdet.
+    Kardinalitet: Valfri (från konsumentperspektiv; alltid populerad i lagrat engagemang).
+    """
+
+* engagementTransaction.engagement.owner 0..1 string "Ägare (sätts av EI)"
+    """
+    Identitet för den engagemangsindexinstans som äger posten (logisk adress för EI-instansen).
+    KONSUMENTEN SKA INTE SÄTTA DETTA FÄLT — det sätts automatiskt av engagemangsindex
+    vid mottagning av Update-anropet. Om fältet populeras av konsumenten ignoreras värdet.
+    Kardinalitet: Valfri (från konsumentperspektiv; alltid populerad i lagrat engagemang).
     """
