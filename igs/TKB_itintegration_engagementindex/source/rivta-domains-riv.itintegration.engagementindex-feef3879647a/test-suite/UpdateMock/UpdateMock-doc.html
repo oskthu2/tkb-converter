@@ -1,0 +1,48 @@
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head>
+<body>
+<h1>Mock-tjänst för Update 1.0</h1>
+
+<h2>Om mock-tjänsten</h2>
+<p>Detta dokument beskriver mock-tjänsten för Update 1.0. Mock-tjänsten ger stöd i form av automatiska och manuella kontroller för att verifiera implementationen innan integrationen med den nationella tjänsteplattformen.<br>
+Mock-tjänsten använder SoapUI för att kunna köras. Dokumentation om SoapUI hittas här: <a target="blank" href="https://www.soapui.org/getting-started/introduction.html">www.soapui.org</a>.<br>
+Klicka på <a target="blank" href="https://www.soapui.org/downloads/soapui.html">den här länken</a> för att ladda hem en gratisversion av SoapUI. Installera enligt anvisning.</p>
+
+<h2>Förberedelser</h2>
+<p><ul>
+<li>Gå till mappen <b>test-suite</b> i release-paketet</li>
+<li>Kopiera filen <b>‘soapui-support-N.N.NN.jar’</b> ('N.N.NN' är versionsnummer) till mappen <b>/bin/ext</b> där Soap-UI är installerat (leta efter mappen <b>/Program Files/Smartbear</b>)</li>
+<li>Öppna SoapUI och importera SoapUI-projektet (<b>test-suite/UpdateMock/UpdateMock-soapui-project.xml</b>) (välj ‘Import Project’ från menyn 'File')</li>
+<li>Mock-tjänsten kommer som standard att kopplas till URL <b>http://localhost:8088/mockUpdateResponderBinding</b>. Detta kan ändras i SoapUI-projektet vid behov.</li>
+<li>Starta mock-tjänsten i SoapUI.</li>
+<li>Konfigurera det testade systemet så att Update-anrop skickas till mock-tjänsten.</li>
+<li>Du bör nu kunna börja använda mock-tjänsten.</li>
+</ul></p>
+
+<h2>Förberedelser för varje tjänstedomän</h2>
+<p>Det finns domänspecifika krav på hur Update skall användas. Vissa av dessa krav finns i Schematron-format och dessa distribureas med respektive tjänstedomäns releasepaket.
+Följ nedanstående instruktion för att använda Schematron-filerna tillsammans med mock-tjänsten.</p>
+<ul>
+<li>Leta fram aktuell kravfil i mappen <b>schemas/engagementindex</b> i domänens releasepaket</li>
+<li>Kopiera filen till mappen <b>UpdateMock/schematron</b></li>
+<li>Upprepa för alla tjänstedomäner som skall testas (flera Schematron-filer kan användas samtidigt utan konflikt)</li>
+</ul>
+
+<h2>Funktionalitet</h2>
+<p>När ett anrop når mocktjänsten sker följande:</p>
+<h3>1. Schema-validering</h3>
+<p>Anropet kontrolleras mot tjänstekontraktets schema.</p>
+<h3>2. Schematron-validering</h3>
+<p>Anropet kontrolleras mot Schematron-krav. Alla krav i alla filer i mappen schematron utvärderas.</p>
+<h3>3. Validering av posters unikhet</h3>
+<p>Kontrollerar att alla poster i anropet har en unik nyckel.</p>
+<h3>4. Loggning till fil</h3>
+<p>Mottagna poster och resultat av validering loggas till en fil för att underlätta ytterligare manuell validering. Filen lagras i den katalog som anges i mockdata.xml(default C:\Temp\SOAP-UI\UpdateMock) om logTestData sätts till true.</p>
+<h3>5. Svar</h3>
+<p>Svar på Update-anropet skickas. I svaret sätts resultCode till OK om de automatiska valideringarna är godkända.
+Vid fel i validering sätts resultCode till ERROR med beskrivning av felet i fältet comment.</p>
+
+<h2>Testanvisning</h2>
+<p>Ytterligare anvisningar för testning av tjänstekonsument av Update finns i dokumentet UpdateMock-testanvisning.html document.</p>
+</body>
+</html>
