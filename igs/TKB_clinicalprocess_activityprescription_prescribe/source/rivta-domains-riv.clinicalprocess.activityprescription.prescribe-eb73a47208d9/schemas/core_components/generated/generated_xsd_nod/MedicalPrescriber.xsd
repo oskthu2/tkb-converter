@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="urn:riv:clinicalprocess:activityprescription:prescribe:2"
+    xmlns:fhir="http://hl7.org/fhir"
+    xmlns:dosage='urn:riv:clinicalprocess:activityprescription:prescribe:2'
+    targetNamespace="urn:riv:clinicalprocess:activityprescription:prescribe:2" elementFormDefault="qualified"
+    attributeFormDefault="unqualified" version="2.0">
+    
+    
+
+    <xs:complexType name="MedicalPrescriber">
+        <xs:sequence>
+            <xs:element name="personalPrescriptionCode" type="xs:string" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Förskrivarens individuella förskrivarkod (7 tecken), legitimationskod (6 tecken) eller förskrivarens gruppförskrivarkod då individuell kod saknas. <br/>Obligatorisk parameter om teknisk sprit eller läkemedel förskrivs.<br/>Gruppförskrivarkod används då förskrivaren saknar individuell förskrivarkod men via sin roll har erhållit förskrivningsrätt. Kan exempelvis vara en AT-läkare eller förskrivare med förordnande. Förskrivarkoden definieras av Socialstyrelsen och gruppförskrivarkoden definieras av EHM.<br/>För användare som har gruppförskrivarkod gäller:<br/>befattningskod är obligatorisk <br/>För läkare (LK) - yrkeskod (dvs LK) är obligatorisk.<br/>Vid övriga yrken – yrkeskod och giltig legitimationskod är obligatoriska<br/><br/>Valideras i AFF<br/>HSA: förskrivarkod, även kallat personalPrescriptionCode <br/>RR: förskrivarkod</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="legitimationCode" type="xs:string" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Förskrivarens 7-ställiga förskrivarkod alternativt 6-ställiga legitimationskod. Legitimationskod för förskrivare är annars de 6 första siffrorna i förskrivarkoden.<br/>Se gruppförskrivarkod för villkor.<br/>HSA: Legitimationskod för leg.vårdpersonal (sjuksköterskor) saknas i HSA. Det finns grupplegitimationskoder som kan användas.<br/>yrkeskodGruppkodyrkeskod klartext<br/>SJ971000Sjuksköterska<br/>AP972000Apotekare<br/>RC973000Receptarie<br/>RR: legitimationskod</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="hsaTitleCode" type="xs:string" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Yrkeskod som definierar vilken typ av legitimation som användaren innehar.<br/>Se gruppförskrivarkod för villkor.<br/>Kontrolleras i receptregistret att personen har angiven yrkeskod.<br/>Valideras i AFF<br/>HSA:Legitimerad yrkesgrupp, även kallad hsaTitle innehåller yrkeskoden i klartext. Detta fält (yrkeskod) avser dock motsvarande tvåställiga kod. Se:“HSA Innehåll Legitimerad Yrkesgrupp” på se www.inera.se/hsa.<br/>Notera också att samma användare kan inneha flera yrkesgrupper, t.ex. både Läkare och Sjuksköterska.<br/>RR: yrkeskod</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="hsaTitle" type="xs:string" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Förskrivarens yrke i klartext. <br/>Fylls i av NOD vid läsning från LF. Krav vid presentation.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="speciallityCodes" type="xs:string" minOccurs="0" maxOccurs="unbounded" >
+                <xs:annotation> <xs:documentation>Förskrivarens specialiteter i klartext. <br/>Fylls i av NOD vid läsning från LF. Krav vid presentation.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="paTitleCode" type="xs:string" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Förskrivarens befattningskod.<br/>Se gruppförskrivarkod för villkor.<br/>HSA: befattningskod, även kallat paTitleCode.<br/>Notera också att samma användare kan inneha flera befattningskoder.<br/>RR: befattningskod</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="givenName" type="xs:string" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Förskrivarens tilltalsnamn.<br/>HSA: tilltalsnamn (givenName)<br/>RR: förnamn</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="familyName" type="xs:string" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Förskrivarens efternamn.<br/>Valideras i AFF <br/>HSA: efternamn<br/>RR: efternamn</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="placeOfWork" type="tns:PlaceOfWork" minOccurs="0" maxOccurs="1" >
+            </xs:element>
+            <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MedicalPrescriber_setter">
+        <xs:sequence>
+            <xs:element name="personalPrescriptionCode" type="xs:string" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Förskrivarens individuella förskrivarkod (7 tecken), legitimationskod (6 tecken) eller förskrivarens gruppförskrivarkod då individuell kod saknas. <br/>Obligatorisk parameter om teknisk sprit eller läkemedel förskrivs.<br/>Gruppförskrivarkod används då förskrivaren saknar individuell förskrivarkod men via sin roll har erhållit förskrivningsrätt. Kan exempelvis vara en AT-läkare eller förskrivare med förordnande. Förskrivarkoden definieras av Socialstyrelsen och gruppförskrivarkoden definieras av EHM.<br/>För användare som har gruppförskrivarkod gäller:<br/>befattningskod är obligatorisk <br/>För läkare (LK) - yrkeskod (dvs LK) är obligatorisk.<br/>Vid övriga yrken – yrkeskod och giltig legitimationskod är obligatoriska<br/><br/>Valideras i AFF<br/>HSA: förskrivarkod, även kallat personalPrescriptionCode <br/>RR: förskrivarkod</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="legitimationCode" type="xs:string" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Förskrivarens 7-ställiga förskrivarkod alternativt 6-ställiga legitimationskod. Legitimationskod för förskrivare är annars de 6 första siffrorna i förskrivarkoden.<br/>Se gruppförskrivarkod för villkor.<br/>HSA: Legitimationskod för leg.vårdpersonal (sjuksköterskor) saknas i HSA. Det finns grupplegitimationskoder som kan användas.<br/>yrkeskodGruppkodyrkeskod klartext<br/>SJ971000Sjuksköterska<br/>AP972000Apotekare<br/>RC973000Receptarie<br/>RR: legitimationskod</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="hsaTitleCode" type="xs:string" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Yrkeskod som definierar vilken typ av legitimation som användaren innehar.<br/>Se gruppförskrivarkod för villkor.<br/>Kontrolleras i receptregistret att personen har angiven yrkeskod.<br/>Valideras i AFF<br/>HSA:Legitimerad yrkesgrupp, även kallad hsaTitle innehåller yrkeskoden i klartext. Detta fält (yrkeskod) avser dock motsvarande tvåställiga kod. Se:“HSA Innehåll Legitimerad Yrkesgrupp” på se www.inera.se/hsa.<br/>Notera också att samma användare kan inneha flera yrkesgrupper, t.ex. både Läkare och Sjuksköterska.<br/>RR: yrkeskod</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="paTitleCode" type="xs:string" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Förskrivarens befattningskod.<br/>Se gruppförskrivarkod för villkor.<br/>HSA: befattningskod, även kallat paTitleCode.<br/>Notera också att samma användare kan inneha flera befattningskoder.<br/>RR: befattningskod</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="givenName" type="xs:string" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Förskrivarens tilltalsnamn.<br/>HSA: tilltalsnamn (givenName)<br/>RR: förnamn</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="familyName" type="xs:string" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Förskrivarens efternamn.<br/>Valideras i AFF <br/>HSA: efternamn<br/>RR: efternamn</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="placeOfWork" type="tns:PlaceOfWork" minOccurs="0" maxOccurs="1" >
+            </xs:element>
+            <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+
+</xs:schema>

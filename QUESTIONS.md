@@ -166,3 +166,50 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 - [ ] **[TODO-DESC-006]** `DissentingOpinion` i GetCareDocumentation: personId root-OID för personnummer angiven som `1.2.752.129.2.1.3.1`. Lägg till en kommentar i FSH-modellen med OID-lista för samordningsnummer och nationellt reservnummer när dessa är verifierade.
 
 - [ ] **[TODO-DESC-007]** Kontrollera XSD-filer för GetAlertInformationResponder_2.0.xsd för att identifiera eventuella ytterligare fält i `alertInformationBody` som inte täcks av TKB-tabellen (tabellen avbröts vid rad 50 i extraktion — ytterligare fält kan finnas).
+
+---
+
+## clinicalprocess.activityprescription.prescribe v2.0
+
+**Status:** blocked (SUSHI kan inte köras utan nätverksåtkomst)
+**Senast uppdaterad:** 2026-03-19
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-PRESC-001]** SUSHI-kompilering kan inte köras i nuvarande miljö: `hl7.fhir.r4.core#4.0.1` kräver nätverksåtkomst för att laddas ner från packages.fhir.org. Kör manuellt: `cd igs/TKB_clinicalprocess_activityprescription_prescribe && sushi .` i en miljö med internetåtkomst. IG-innehåll (pagecontent + FSH-modeller för 15 kontrakt + 7 CodeSystems + 7 ValueSets) är komplett.
+
+- [ ] **[BLOCK-PRESC-002]** Domänen är märkt som version 2.0 (från filnamnet i zip-taggen `clinicalprocess_activityprescription_prescribe_2.0_RC1` — **RC1 = Release Candidate**). Det är oklart om detta är den officiella stabila versionen eller om en godkänd 2.0 final finns. Verifiera med domänförvaltning att RC1-taggen är den gällande produktionssatta versionen. Relevant: TKB-dokumentet avsnitt 2 nämner version 2.0 men har ingen explicit stabilitetsmarkering.
+
+- [ ] **[BLOCK-PRESC-003]** Domänens XSD-schema refererar till externa scheman i `generated/generated_xsd_nod/` (bl.a. `MedicationPrescription.xsd`, `MedicationDispenseAuthorization.xsd` etc.) och `generated/generated_xsd_dosage/` (Dosage-schema). Dessa typer är inte inkluderade i FSH-modellerna — de är refererade som `BackboneElement`. Beslut krävs: ska separata FSH `Logical:`-typer skapas för t.ex. `MedicationPrescription`, `MedicationDispenseAuthorization` och `Dosage`? Detta skulle ge ett mer komplett informationsmodell men kräver betydande arbete.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-PRESC-001]** `patientInformation` i RegisterMedicationPrescription och RegisterMedicationDispenseAuthorization kan innehålla antingen personnummer (`patientId`) eller demografiska uppgifter (namn, födelsedatum, kön, adress). Antagandet gjordes att exakt ett av dessa alternativ ska anges (XOR-villkor). FSH-modellen har `patientId 0..1` och demografiska fält som `0..1`. Verifiera om en FHIR-invariant ska formalisera detta XOR-villkor. Relevant sektion: TKB avsnitt 7.2 och 7.6, fältregler `patientInformation`.
+
+- [ ] **[ASSUME-PRESC-002]** `medicationStatus`-filtret i GetMedicationPrescriptions refererar till FHIR MedicationRequest status-koder (`http://www.hl7.org/fhir/valueset-medicationrequest-status.html`). Detta är en ovanlig direkt referens till FHIR-kodverk från ett RIV-TA-kontrakt (troligtvis ett designval i version 2.0). Antagandet gjordes att FHIR-status-URL:en är korrekt. Verifiera att implementatörer ska använda FHIR `active|on-hold|cancelled|completed|entered-in-error|stopped|draft|unknown` för detta filter.
+
+- [ ] **[ASSUME-PRESC-003]** `medicationListVersion` är av typen `Identifier` i TKB-fälttabellerna. Från avsnitt 5 (Formatregler) framgår att versionen är ett UUID. FSH-modellen har mappat detta till `Identifier`. Verifiera om `string` eller `id` (FHIR primitive) är mer korrekt givet att det är ett UUID-värde utan separat system-URI.
+
+- [ ] **[ASSUME-PRESC-004]** `GenderEnum` i XSD-schemat definierar koderna `Male`, `Female`, `Unspecified` (engelska). Antagandet gjordes att dessa koder är domenspecifika och inte mappar direkt till FHIR `AdministrativeGender` (som använder `male`, `female`, `other`, `unknown` — lowercase). FSH-modellen skapar ett eget `GenderCS` med engelska koder. Verifiera om FHIR:s AdministrativeGender-kodverk ska användas istället för att öka interoperabilitet.
+
+- [ ] **[ASSUME-PRESC-005]** `EHMAuthenticationSupplement` är ett EHM-specifikt (Elektronisk HandelsMatch / apoteksystemet) fält i `GetMedicationDispenseAuthorizationsRequest`. Det används "enbart då NOD anropar underliggande tjänst" (enligt TKB-fälttabellen). FSH-modellen har modellerat detta som `BackboneElement` med `0..1` kardinalitet. Verifiera om detta fält ska modelleras mer detaljerat (läs `EHMAuthenticationSupplement.xsd`) eller om det är tillräckligt att dokumentera det som valfritt EHM-specifikt fält.
+
+- [ ] **[ASSUME-PRESC-006]** Domänen innehåller kontrakt för **apoteksinteraktion** (expedieringsunderlag, uthämtade läkemedel, samtycken) som hör till NOD-ekosystemet (Nationell Ordinationsdatabas). Dessa kontrakt skiljer sig funktionellt från de "rena" ordinationskontrakten. FSH-modellerna behandlar alla 15 kontrakt enhetligt. Verifiera om apoteksinteraktionskontrakten (7.5–7.12) ska ha separata modellgrupperingar eller FHIR-profiler.
+
+- [ ] **[ASSUME-PRESC-007]** `Dosage`-typen refereras i MedicationPrescription (se `clinicalprocess_activityprescription_dosage_2.0.xsd`) men är inte inkluderad i FSH-modellerna. Antagandet gjordes att Dosage är en komplex extern domän (RIVTA dosage-domän) som inte ska dupliceras i denna IG. FSH-modellen refererar Dosage-strukturen som `BackboneElement`. Verifiera om dosage-schemat ska importeras eller om en referens till `clinicalprocess:activityprescription:dosage`-domänen är tillräcklig.
+
+### TODO (kan göras utan input)
+
+- [ ] **[TODO-PRESC-001]** `MediaTypeEnum` i enum XSD definierar 20 MIME-typer. Skapa ett ValueSet `MediaTypeVS` baserat på dessa och bind `dispensedDrugMultimedia.mediaType` i GetDispensedDrugs. Relevant sektion: TKB avsnitt 7.9, fältregler för multimedia-svarstyp.
+
+- [ ] **[TODO-PRESC-002]** `DiscontinueMedication`-kontraktet (7.3) — fälttabellen innehåller `RevocationEnum` för utsättningsorsak. Extrahera koderna från `RevocationEnum.xsd` och skapa `RevocationCodeCS` + `RevocationCodeVS`. Lägg till binding i `DiscontinueMedication.medicationPrescription.revocation.revocationReason`.
+
+- [ ] **[TODO-PRESC-003]** Tillämpningsanvisningen `VIS_clinicalprocess_activityprescription_prescribe.docx` och arbetsbok `AB_clinicalprocess_activityprescription_prescribe.docx` är inte parsade. Dessa kan innehålla kompletterande fältregler och implementationsdetaljer. Lägg till referenser till dessa dokument i IG:ns sektion 1 (Inledning).
+
+- [ ] **[TODO-PRESC-004]** `SetMedicationListReviewed` (7.13) och `SetMedicationListReviewNeeded` (7.14) har i princip identisk request-struktur (patientId + medicationListVersion + reviewer-info). Verifiera om de kan dela en gemensam request-modell `SetMedicationListReviewBaseRequest` eller om de ska modelleras separat.
+
+- [ ] **[TODO-PRESC-005]** `CheckMedicationListVersion` (7.15) och `GetDispensedDrugsConsent` (7.10) är enkla kontrakt med minimal request (2 fält). FSH request-modeller har inte skapats för dessa (under gränsen för 3-4 fält). Dokumentationen av request-fälten finns i `7-tjanstekontrakt.md` avsnitt 7.10.3 och 7.15.3.
+
+- [ ] **[TODO-PRESC-006]** `GetDispensedDrugs` (7.9) — request innehåller fältet `typeOfResponse` av typen `DispensedDrugsTypeOfResponseEnum` (TEXT/MULTIMEDIA/BOTH). Lägg till binding i en eventuell request-modell och verifiera att `DispensedDrugsTypeOfResponseVS` är korrekt. Relevant sektion: TKB avsnitt 7.9, fältregler.
+
+- [ ] **[TODO-PRESC-007]** Parsa `VIS_clinicalprocess_activityprescription_dosage.docx` för att förstå koppling mellan ordination (prescribe-domänen) och dosering (dosage-domänen). Detta kan vara nödvändigt för att komplettera FSH-modellerna med Dosage-strukturen. Se ASSUME-PRESC-007.
