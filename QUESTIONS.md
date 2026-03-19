@@ -43,3 +43,34 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 - [ ] **[TODO-EI-004]** Verifiera att `mostRecentContent`-fältet (typ `TS`, format `YYYYMMDDhhmmss`) är korrekt mappat till FHIR `dateTime` i FSH-modellerna. TKB version 1.0.9 tog bort alla regler kring uppdatering av `MostRecentContent` — notera detta i fältbeskrivningen och referera till respektive tjänstedomäns TKB för domänspecifika regler.
 
 - [ ] **[TODO-EI-005]** Kontrollera att FHIR-representationen av `registeredResidentIdentification` (personnummer/samordningsnummer/nationellt reservnummer, 12 tecken) är korrekt modellerad som `Identifier` med lämpliga OID-system-URL:er. Formatreglerna i TKB avsnitt 5 (regexp `[0-9]{8}[0-9A-Zptf]{4}`) bör eventuellt uttryckas som en FHIR-invariant på identifieraren.
+
+---
+
+## clinicalprocess.logistics.logistics v3.0.13
+
+**Status:** blocked
+**Senast uppdaterad:** 2026-03-19
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-CLL-001]** SUSHI-kompilering misslyckades: `hl7.fhir.r4.core#4.0.1` kan inte laddas ner från packages.fhir.org (nätverksåtkomst blockerad i nuvarande miljö). Kör manuellt: `cd igs/TKB_clinicalprocess_logistics_logistics && sushi .` i en miljö med internetåtkomst. Alternativt: installera paketet lokalt via `fhir install hl7.fhir.r4.core#4.0.1` eller kopiera från ~/.fhir/packages/ på en annan maskin.
+
+- [ ] **[BLOCK-CLL-002]** Villkorlig kardinalitet för `sourceSystemHSAId` i request för båda kontrakten: fältet är `0..1` i XSD men enligt fältregelstabellen i TKB är det tvingande (villkorligt obligatoriskt) om `careContactId` angivits eller vid begäran på reservnummer. FSH-modellen använder `0..1` (säkrare alternativ). Beslut behövs: ska en FHIR-invariant modellera villkoret, eller räcker dokumentation i fältbeskrivningen? Relevant sektion: TKB avsnitt 7.1 och 7.2, fältregler för sourceSystemHSAId.
+
+- [ ] **[BLOCK-CLL-003]** Villkorlig kardinalitet för `content.value`/`content.reference` i `CarePlanBodyType` (GetCarePlans): antingen `value` eller `reference` ska anges, men ej båda. Detta är ett XOR-villkor som inte kan uttryckas direkt i FSH-kardinaliteten (båda är `0..1`). FSH-modellen dokumenterar villkoret i fältbeskrivningarna. Beslut: ska en FHIR-invariant `Exactly one of value or reference must be present` läggas till på `carePlan.content`? Relevant sektion: TKB avsnitt 7.2, fältregler för CarePlanBody.content.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-CLL-001]** `careContactCode` och `careContactStatus` i GetCareContacts är mappade till `CodeableConcept` (FHIR). TKB anger CVType som underliggande RIV-TA-typ. Antagandet gjordes att CVType → CodeableConcept är korrekt mappning eftersom CVType innehåller code, codeSystem, displayName och originalText. Verifiera att detta är acceptabelt eller om en annan FHIR-typ är mer lämplig.
+
+- [ ] **[ASSUME-CLL-002]** `typeOfCarePlan` i GetCarePlans är i XSD-schemat av typen `TypeOfCarePlanEnum` (en enkel string-enum), men TKB-fälttabellen anger att attributnamnet i XSD är `typeOfCarePlanEnum`. FSH-modellen använder fältnamnet `typeOfCarePlan` (kortform) och binder det till `TypeOfCarePlanVS`. Verifieras att fältnamnet i FSH-modellen överensstämmer med hur konsumenter förväntar sig att se fältet benämnt. Relevant sektion: TKB avsnitt 7.2, fältregler rad 45 (OBS-notering).
+
+- [ ] **[ASSUME-CLL-003]** `participatingCareUnitHSAId` i `CarePlanBodyType` är av typen `IIType` i XSD (root + extension). Mappning vald: FHIR `Identifier` (system = root OID, value = extension). Om root-fältet alltid innehåller en känd OID för HSA-id-rymden (`urn:oid:1.2.752.129.2.1.4.1`) kan `system` sättas till denna OID. Verifieras om OID för HSA-id-rymden ska vara fast i modellen eller om det varierar per källsystem.
+
+### TODO (kan göras utan input)
+
+- [ ] **[TODO-CLL-001]** `CareContactCodeEnum` i XSD-schemat (`clinicalprocess_logistics_logistics_enum_3.0.xsd`) definierar numeriska koder (1=Besök, 2=Telefon, 3=Vårdtillfälle, 4=Dagsjukvård, 5=Annan) för vårdkontakttyp. TKB avsnitt 7.1 hänvisar dock till KV Vårdkontakttyp (OID 1.2.752.129.2.2.2.x) som ett CV-kodverk snarare än enumen. Skapa ett FSH CodeSystem för `CareContactCodeEnum` och ett ValueSet, eller verifiera att det externa KV Vårdkontakttyp-kodverket täcker samma värden.
+
+- [ ] **[TODO-CLL-002]** `AdditionalPatientInformation.gender` binder till KV Kön (OID 1.2.752.129.2.2.1.1). Verifiera canonical URL för detta kodverk och lägg till en explicit `from`-bindning i FSH-modellen när canonical-URL är bekräftad.
+
+- [ ] **[TODO-CLL-003]** `MediaTypeEnum` i XSD-schemat definierar ett komplett set MIME-typer (25 värden). TKB avsnitt 7.2 begränsar tillåtna format till: text/plain, text/html, image/jpeg, image/png, application/pdf. Skapa ett begränsat ValueSet `AllowedMediaTypeVS` med de fem tillåtna värdena och bind `carePlan.content.mediaType` till detta ValueSet, alternativt lägg till en invariant.
