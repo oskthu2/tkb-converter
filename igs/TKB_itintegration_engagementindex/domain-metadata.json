@@ -1,0 +1,446 @@
+{
+  "domain_id": "itintegration.engagementindex",
+  "domain_title": "itintegration: engagementindex",
+  "domain_version": "1.0.9",
+  "rivta_namespace_base": "urn:riv:itintegration:engagementindex",
+  "sections": {
+    "1_inledning": "Detta är beskrivningen av tjänstekontrakten i tjänstedomänen\nitintegration: engagementindex:\nTjänstekontrakten är baserade på RIVTA 2.1 [R2] och reglerade genom arkitekturella beslut [R1].\nTjänstekontraktsbeskrivningen är en kravspecifikation. Den skall fungera som ett teknikneutralt, formellt regelverk som reglerar integrationskrav för parter (tjänstekonsumenter och tjänsteproducenter) som avser ansluta system för samverkan enligt dessa tjänstekontrakt. Tjänstekontraktsbeskrivningen är också ett viktigt underlag för skapande av de tekniska kontrakten (scheman och WSDL-filer).\nDetta dokument kompletterar reglerna i de tekniska kontrakten. Tjänsteproducenter och tjänstekonsumenter ska m.a.o. följa såväl de maskintolkbara reglerna i de tekniska kontrakten, så väl som de regler som uttrycks verbalt i detta dokument.\nSvenskt namn\nEngagemangsindex\nBeskrivning\nEngagemangsindex (EI) är en stödtjänst som används i syftet att underlätta lokalisering av patientinformation som kan vara spritt över flera informationskällor.\nFrån indexet får tjänstekonsumenten information om vilka tjänsteproducenter som har information om den specifika patienten. Det räcker därmed att tjänstekonsumenten anropar dessa istället för att anropa alla tänkbara tjänsteproducenter och fråga vilka av dem som faktiskt har information om den specifika patienten.\nIndexet i sig innehåller inte någon detaljerad patientinformation.\nDetta dokument beskriver tjänstekontrakten i tjänstedomänen “itintegration.engagementindex”.\nDen svenska namnet på tjänstedomänen är ”infrastruktur:tjänsteförmedlingstjänster:engagemangsindex”.\nDet finns målgruppsanpassade avsnitt nedan för följande målgrupper:\nFörvaltare och utvecklare av engagemangsindexinstanser (samtliga tjänstekontrakt)\nAnvändare som behöver uppdatera informationen i index (konsumenter av tjänstekontraktet Update)\nAnvändare som behöver använda informationen i index (konsumenter av tjänstekontraktet FindContent)\nTjänstekontrakten är baserade på RIVTA 2.1 [Ref2] och reglerade genom arkitekturella beslut [Ref1].\nTjänstedomänen omfattar tjänstekontrakt för att stödja konsumtion av engagemangsinformation, uppdatering av engagemangsinformation och notifiering av prenumeranter av engagemangsinformation.\nTjänstekontraktsbeskrivningen är en specifikation. Den skall fungera som ett teknikneutralt, formellt regelverk som reglerar integrationskrav för parter (tjänstekonsumenter och tjänsteproducenter) som avser ansluta system för samverkan enligt dessa tjänstekontrakt.\nDet kan finnas flera instanser som kan samverka till exempel en nationell instans samt instanser hos part som tillämpar nationella referensarkitekturen.\nRespektive ägare av en instans av ett engagemangsindex beslutar om regelverk för informationens användning och hantering. Engagemangsindex som ingår i nationell samverkan kan påverkas av gemensamt överenskomna regler gällande uppdatering och användning.\nMerparten av de regler som beskrivs här avser användning av engagemangsindex i nationell samverkan. Lokal användning för andra ändamål utformar sina egna regler och policys.\nDen nationella Referensarkitektur för vård och omsorg - T-boken [Ref4], beskriver engagemangsindex i ett sammanhang. Syftet kan sammanfattas till att skapa förutsättningar för att sammanställa information ur ett nationellt eller lokalt (baserat på lokala instanser) patientperspektiv.\nDetta dokument kompletterar reglerna i de tekniska kontrakten (WSDL-filer och XML-scheman). Tjänsteproducenter och tjänstekonsumenter ska m.a.o. följa såväl de maskintolkbara reglerna i de tekniska kontrakten, som de regler som uttrycks i detta dokument. Tjänsteproducenter och konsumenter ska följa regelverket i RIV-TA [Ref9].",
+    "2_versionsinformation": "Denna revision av tjänstekontraktsbeskrivningen handlar om domänen itintegration: engagementindex:  . Observera att version för detta dokument och domänen måste vara lika. Detta för att spårbarheten inte skall brytas.\nVersion 1.0.9\nFörändring av reglerna för användning av tjänstekontrakten i olika instansieringar av engagemangsindex. De viktigaste ändringarna listas nedan.\nProcessNotification\nFörändringar kring regler för tjänstekontraktets användning i olika instanser\nNationellt engagemangsindex slutar skicka (agera tjänstekonsument) till ProcessNotification. Det gäller såväl till lokala engagemangsindex såsom verksamhetssystem.\nNationellt engagemangsindex tar emot (agerar tjänsteproducent av) ProcessNotification där lokala engagemangsindex agerar avsändare. På detta sätt kan ett lokalt engagemangsindex uppdatera nationellt engagemangsindex.\nRegler för användning av ProcessNotification kopplat till ett lokalt engagemangsindex inom en region bestäms av regionen självt.\nNuvarande användning inom Formulärtjänsten och Tidbokning/Kallelser får ett tidsbegränsat undantag från reglerna ovan, och kan tillsvidare fortsätta använda ProcessNotification som idag.\nAttributet MostRecentContent\nAlla regler kring uppdatering av MostRecentContent tas bort ur tjänstekontraktsbeskrivning för engagemangsindex. OM en specifik tjänstedomän har ett behov av sådana regler får dessa anges i denna domäns tjänstekontraktsbeskrivning.\nDetta leder till att för de domäner som inte definierar användning av MostRecentContent så behöver ett källsystem endast hantera poster i engagemangsindex när den första informationsförekomsten, för en patient, uppstår och när den sista försvinner.\nAttributet DataController\nFör att underlätta för vårdgivare att ansluta till de tjänstekontrakt som använder engagemangsindex tilläts tidigare att de angav källsystemets HSA-id i attributet DataController. För att underlätta personuppgiftsbehandlingen är detta inte längre självklart tillåtet. Anslutande part ska antingen ange organisationsnummer eller HSA-id för personuppgiftsansvarig organisation eller en identitet som personuppgiftsansvarig organisation eller källsystemsansvarig organisation enkelt kan koppla till den personuppgiftsansvariga organisationen. Avvikelser från detta vid nyanslutning ska hanteras som en avvikelse, d.v.s. analyseras noggrant för att säkerställa att det är en acceptabel lösning i det specifika fallet.\nMålgruppsanpassning\nRegelverk och engagemangsindex tjänstekontraktsbeskrivning skall struktureras på ett sådant sätt att det blir lättare för olika målgrupper att ta till sig informationen. Det inbegriper ett förtydligande av vad som är regler som enbart gäller nationellt engagemangsindex, samt vad en region själva kan besluta kring ett lokalt engagemangsindex.\nDenna version beskriver inte hur aggregerande tjänster implementeras. För stöd kring detta hänvisas till RIV Tekniska Anvisningar - Tjänsteplattform [Ref 7] samt Teknisk dokumentation - Nationell Aggregeringsplattform (SKLTP) [Ref 6].\nReglerna är nu uppdelade på respektive målgrupp och har därmed fått ny numrering och det har också gjorts en översyn av reglerna rent generellt i de fall de varit otydliga eller motsägelsefulla. Reglerna har dessutom försetts med målgruppsprefix för att vara lättare att skilja ut kR för konsument och pR för producent. Nedan finns en tabell där det tidigare reglerna mappas mot ny numrering eller om de utgår.\nDe identifierade målgrupperna är:\nUtvecklare och förvaltare av Engagemangsindex\nDenna målgrupp behöver agera producent utifrån flera/alla tjänstekontrakt och kan i vissa fall, beroende på struktur, behöva agera både konsument och producent för ProcessNotification.\nTjänstekonsumenter av Update kontraktet\nDetta är den bredaste målgruppen eftersom den består av de källsystem som ska populera ett index.\nTjänstekonsumenter av FindContent kontraktet\nDen här gruppen är främst aggregerande tjänster i respektive tjänsteplattform men mot lokala index kan, beroende på lokala regler, även andra tillämpningar/parter vara aktuella.\nFör stöd i mappning av skillnader i regler mellan 1.0.6 och 1.0.7 se sista kapitlet\nOförändrade tjänstekontrakt\nAlla\nNya tjänstekontrakt\nInga\nFörändrade tjänstekontrakt\nInga\nUtgångna tjänstekontrakt\nInga\nVersion tidigare\n1.0.8",
+    "3_tjanstedomanens_arkitektur": "Roll i arkitekturen\nEngagemangsindex är en stödtjänst vars primära syfte är att stödja realisering av aggregerande tjänster genom att samla information om vilka källsystem som har information av en viss typ för en individ. Frågor mot indexet är personcentrerade.\nTabell 1 Beskrivning av tjänstekontrakt i domänen\nInformationsmodellen finns beskriven i separat kapitel\nUppdatering och konsolidering\nEngagemangsindex är (enligt T-boken [Ref4]) en stödtjänst som kan finnas i flera instanser. Det kan finnas en nationell instans samt flera andra instanser hos parter som tillämpar nationella referensarkitekturen. Nedanstående figur beskriver logiskt sambandet mellan instanserna.\nMed hjälp av uppdateringskontraktet (Update) kan verksamhetssystem skapa indexposter i enlighet med regelverk för respektive tjänstedomän. Uppdatering kan ske antingen direkt i det nationella indexet eller i en lokal instans.\nFör att nationellt engagemangsindex ska kunna erbjuda sina tjänstekonsumenter en konsoliderad vy av invånarens engagemang, inklusive de som registrerats i en lokal instans, kopplas de olika instanserna av index samman med hjälp av notifieringskontraktet (ProcessNotification).\nOm det finns situationer där det finns flera engagemangsindex lokalt så kan även dessa agera utifrån en hierarki och i ett sådant fall så ska en lokal ”toppnod” agera producent av ProcessNotification gentemot övriga lokala engagemangsindex och som konsument mot nationellt engagemangsindex.\nExempel på struktur där flera lokala instanser organiseras i hierarki och den “översta” instansen ansvara för uppdatering av nationell instans\nFlöden\nFöljande flöden illustrerar den tänkta användningen av ett engagemangsindex.\nSkapa, uppdatera och radera indexpost\nKontraktet Update används vid såväl skapande, uppdatering och radering av indexposter.\nSkapa indexpost\nUppdatera indexpost\nRadera indexpost\nVid makulering i källsystem som har en indexpost för den aktuella personen så behöver det övervägas om det fortfarande finns någon information (av den aktuella typen) kvar i källsystemet.\nOm det inte gör det ska indexposten raderas annars behövs som princip ingen åtgärd om inte den aktuella tjänstedomänens regler ställer krav på uppdatering.\nFör att radera indexposten anropas Update med samma uppgifter för instansens unikhet som befintlig post och deleteFlag sätts till true.\nPoster konsolideras till nationellt engagemangsindex\nNär lokala index som ingår i nationell samverkan uppdateras så ska uppdateringarna konsolideras till nationell instans, detta görs med kontraktet ProcessNotification.\nPoster skapas eller uppdateras\nNär ett verksamhetsystem lägger till eller uppdaterar en post i ett lokalt index så skapas indexposten lokalt och en notifiering med den skapade postens innehåll skickas till nationell instans\nPoster raderas\nNär ett verksamhetssystem tar bort en post i ett lokalt index så skickas en notifiering med postens innehåll (med attributet deleteFlag=true till nationell instans som raderar sin kopia\nKonsolidera information via engagemangsindex\nEtt index som ingår i nationell samverkan behöver stödja notifiering av indexuppdateringar för att kunna uppdatera centrala/nationella instanser. I engagemangsindexinstanser som bygger på SKLTP [R5] registreras prenumeranter genom att konfigureras som tjänsteproducenter till ProcessNotification.\nNotifiera om uppdatering\nNär ett index uppdateras, notifierar det sina prenumeranter så att dessa kan skapa eller uppdatera motsvarande poster i sin instans.\nNotifiera indexhändelse om radering\nNär ett index mottar en uppdatering som begär att en indexpost raderas så notifieras övriga index om detta innan posten raderas\nExempel på samverkande index där det första tar emot en uppdatering som ska konsolideras till ett annat index. Det första indexet agerar då tjänstekonsument för kontraktet ProcessNotification och anropar det mottagande indexet som agerar tjänsteproducent.\nAnvända indexinformation\nExempel: Aggregering av patientbunden information från flera källsystem eller verksamheter.\nVid användningsmönster aggregering används engagemangsindex som en stödtjänst för realisering av aggregerande tjänster. Aggregerande tjänster är konsumenter av FindContent. Alla interaktioner med Engagemangsindex sker inom en tjänsteplattform. Exemplet beskriver vare sig aspekter kring adressering eller alla ingående komponenter som t ex tjänsteplattformar. För information om detta hänvisas till T-boken [Ref4]\nFiguren nedan visar strukturen för exemplet.\nSekvensdiagram som visar hur en aggregerad tjänst anropas av en applikation och sedan använder engagemangsindex för att lokalisera information i två verksamhetssystem och därefter hämta och aggregera informationen och returnera den till den anropande applikationen. Aggregerande tjänst anropar alla de verksamhetssystem som har eftersökt information parallellt.",
+    "4_tjanstedomanens_krav_och_regler": "Dessa krav och regler gäller alla tjänstekontrakt i hela tjänstedomänen om inte undantag görs för specifika tjänstekontrakt senare i dokumentet.\nInformationssäkerhet och juridik\nLagring av uppgifter i Engagemangsindex är att anses som en vårdgivares behandling av personuppgifter inom hälso- och sjukvården enligt Patientdatalagen [Ref8] 1 kap. §1. Varje vårdgivare är personuppgiftsansvarig för sina egna uppgifter i Engagemangsindex.\nEngagemangsindexinformation klassas som patientuppgift. Det betyder att ett engagemangsindex är ett personregister. Engagemangsindexinformation består inte av direkt klinisk information, men kan ändå röja patientens vårdbehov. Om en invånare till exempel har bokad tid hos en psykologmottagning, kommer detta att kunna konstateras genom informationen i engagemangsindex.\nInformationen i nationell instans av engagemangsindex får inte spridas till lokala instanser så uppdateringsriktningen är enbart från lokal till nationell instans. Detta på grund av att ägarskapet av informationen i nationell instans är delat mellan många informationsägare och det krävs personuppgiftsavtal mellan parterna om en informationsägare ska ta del av en annan informationsägares information.\nPersonuppgiftsansvar\nVarje post ska innehålla information om personuppgiftsansvarig organisation. Det anges i fältet Data Controller. Om ett källsystem betjänar flera personuppgiftsansvariga organisationer ska källsystemet säkerställa att Engagemangsindexposterna speglar detta så att antalet Engagemangsindexposter blir det samma som om varje PU-ansvarig organisation hade använt ett eget källsystem.\nGrundregeln är att personuppgiftsansvarig organisation anger ett värde i fältet Data Controller som möjliggör för dem att ta sitt ansvar och fullgöra sin roll som personuppgiftsansvarig för information i engagemangsindex.\nPersonuppgiftsbehandlingens syfte och ändamål\nInformationen i Engagemangsindex får endast använda i syfte att lokalisera informationskällor med avsikt att anropa dessa för att hämta den faktiska information som pekas ut av engagemangsindexposterna. Konsumenter av index får ignorera poster som anses irrelevanta men filtrering ska i första hand ske genom att konsumenten anger kriterier i anropet till indexets söktjänst. Informationen i Engagemangsindex får alltså inte utsökas eller bearbetas i annat syfte, eller lagras undan för framtida bearbetning. Det gäller oavsett om sökning sker med hjälp av FindContent-interaktionen eller indirekt via användning av aggregerande tjänster i en tjänsteplattform.\nNationella Krav och Regler\nRegler kring användning som uttrycks i detta dokument gäller för den av Inera förvaltade nationella instansen som innehåller information från flera huvudmän.\nAnvändningen av FindContent i den nationella instansen av engagemangsindex är begränsad till aggregerande tjänster i den nationella tjänsteplattformen.\nAnvändning av ProcessNotification i nationell instans avgränsas till att agera producent för att ta emot information från andra index.\nLokala Krav och Regler\nEftersom Engagemangsindex som stödtjänst kan finnas i flera olika instanser och dessa kan ha olika omfattning gällande huvudmän så kan varje instans definiera egna regler för hur instansen får användas.\nFelhantering\nVid ett tekniskt fel levereras ett generellt undantag (SOAP-Exception). Exempel på felsituationer som rapporteras som tekniskt fel kan vara deadlock i databasen eller följdeffekter av programmeringsfel. Denna information bör loggas av tjänstekonsumenten. Informationen är inte riktad till användaren.\nVid ett logiskt fel i de uppdaterande tjänsterna levereras ResultCode och comment.\nResultCode kan vara:\nOK \nTransaktionen har utförts enligt uppdraget i frågemeddelandet.\nINFO \nTransaktionen har utförts enligt uppdraget i frågemeddelandet, men det finns ett meddelande med ytterligare information.\nERROR\nTransaktionen har INTE kunnat utföras enligt uppdrag i frågemeddelandet p.g.a. logiskt fel.\nDe logiska fel som skall returneras finns beskrivna under övriga regler för respektive kontrakt.\nIcke funktionella krav\nSLA krav\nSLA anges av respektive systeminstans",
+    "5_tjanstedomanens_meddelandemodeller": "Här beskrivs de meddelandemodeller som tjänstekontrakten bygger på. För varje meddelandemodell beskrivs hur mappning ser ut delvis mot V-TIM, här version 2.2 samt mot schema (XSD) för tjänstekontrakt.\nV-MIM\nDenna mappning görs av respektive tillämpande tjänstedomän.\nInformationsmodell\nFöljande tabell beskriver innehållet i en engagemangspost:\nVarje tillämpande tjänstedomän preciserar betydelsen för de fält som är markerade med asterisk i informationsmodellen.\nFormatregler\nFormat för Datum\nDatum anges alltid på formatet ”ÅÅÅÅMMDD”, vilket motsvarar den ISO 8601 och ISO 8824-kompatibla formatbeskrivningen ”YYYYMMDD”.\nFormat för tidpunkter\nTidpunkter anges alltid på formatet ”ÅÅÅÅMMDDttmmss”, vilket motsvara den ISO 8601 och ISO 8824-kompatibla formatbeskrivningen ”YYYYMMDDhhmmss”.\nTidszon för tidpunkter\nTidszon anges inte i meddelandeformaten. All information om datum och tidpunkter som utbyts via tjänsterna ska ange datum och tidpunkter i den tidszon som gäller/gällde i Sverige vid den tidpunkt som respektive datum- eller tidpunktsfält bär information om. Såväl tjänstekonsumenter som tjänsteproducenter skall med andra ord förutsätta att datum och tidpunkter som utbyts är i tidszonerna CET (svensk normaltid) respektive CEST (svensk normaltid med justering för sommartid).\nNationell accepterad personidentitet\nPerson- eller samordningsnummer enligt skatteverkets definition (12 tecken).\nNationellt reservnummer enligt Ineras definition (12 tecken), se referens Ref3\nValidering enligt format(xml-regexp):\n[0-9]{8}[0-9A-Zptf]{4}\nFormat för personnummer (registeredResidentIdentIdentification)\nPersonnummer anges enligt format CCYYMMDDNNNN.\nFormat för samordningsnummer (registeredResidentIdentIdentification)\nSamordningsnummer anges enligt format CCYYMMDDNNNN.\nDe inledande sex siffrorna utgår från personens födelsetid (år, månad och dag). Därefter följer ett tresiffrigt individnummer som motsvarar födelsenumret i ett personnummer. Individnumret hämtas slumpvis ur en serie 001-999 för alla som är födda samma dag. Numret är udda för män och jämnt för kvinnor. Siffran för födelsedag ökas med talet 60 och en kontrollsiffra beräknas på samma sätt som för ett personnummer.\nExempel\nSamordningsnummer för en man som är född den 3 oktober 1970 och har individnummer 239 blir\n19701003\n+60\n————---\n197010632391\nFormat för nationell reservidentitet (registeredResidentIdentIdentification)\nXXYYMMDDNNGC. Se informationsspecifikationen i domänen strategicresourcemanagement.persons.person för mer information om formatet [Ref3].",
+    "6_gemensamma_informationskomponenter": "Domänspecifika attribut\nEtt antal av attributen i tjänstekontrakten för engagemangsindex definieras endast tekniskt avseende namn, typ och multiplicitet. Användningen av dessa attribut i tjänstekontrakten definieras av den tjänstedomän som informationen avser. Krav och regler beskrivs i respektive tjänstedomäns tjänstekontraktsbeskrivning.\nDetta innebär att ett attribut som tekniskt sett är valfritt (multiplicitet 0..1 eller 0..*) kan vara obligatoriskt i en viss tjänstedomän. Kravet kan uttryckas via skrivningar i tjänstekontraktsbeskrivning och ibland kompletterat med schematronfiler.\nNotera också att vissa attribut kan vara tekniskt obligatoriska men inte användas inom domänen. I dessa fall sätts attributet till NA (för Not Applicable) för att indikera detta men ändå tekniskt uppfylla tjänstekontraktet.\nUpdate\nVersion\n1.0\nFältregler\nNedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.\nBegäran\nSvar\nFindContent\nBegäran\nSvar\nProcessNotification\nBegäran\nSvar"
+  },
+  "contracts": [
+    {
+      "section_number": "7.1",
+      "id": "FindContent",
+      "display_name": "Hämta/sök poster från Engagemangsindex",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:itintegration:engagementindex:FindContent:1",
+      "description": "Tjänst som en applikation använder för att begära information från ett engagemangsindex. Tjänstekontraktet FindContent används för att söka fram och hämta indexinformation. Sökresultatet filtreras baserat på attribut i begäran. Används primärt av aggregerande tjänster i tjänsteplattformen.",
+      "request_fields": [
+        {
+          "name": "registeredResidentIdentification",
+          "type": "Nationell accepterad personidentitet",
+          "cardinality": "1..1",
+          "description": "Enligt formatregler i meddelandemodellen"
+        },
+        {
+          "name": "serviceDomain",
+          "type": "URN",
+          "cardinality": "1..1",
+          "description": "Namnrymd för Tjänstedomän  exempel: urn:riv:clinicalprocess:activity:request"
+        },
+        {
+          "name": "categorization",
+          "type": "String",
+          "cardinality": "0..1",
+          "description": "Kodverk enligt tjänstedomänens dokumentation."
+        },
+        {
+          "name": "logicalAddress",
+          "type": "String",
+          "cardinality": "0..1",
+          "description": "Enligt tjänstedomänens dokumentation."
+        },
+        {
+          "name": "engagementTransaction .engagement.businessObjectInstanceIdentifier",
+          "type": "String",
+          "cardinality": "0..1",
+          "description": "Enligt tjänstedomänens dokumentation."
+        },
+        {
+          "name": "clinicalProcessInterestId",
+          "type": "String",
+          "cardinality": "0..1",
+          "description": "Enligt tjänstedomänens dokumentation"
+        },
+        {
+          "name": "mostRecentContent",
+          "type": "TS",
+          "cardinality": "0..1",
+          "description": "YYYYMMDDhhmmss."
+        },
+        {
+          "name": "sourceSystem",
+          "type": "HSA-id",
+          "cardinality": "0..1",
+          "description": "Källsystemet som innehåller den information som EI-posten pekar ut. I regel det vårdsystem som skapade informationen eller det system hos vårdgivaren som är master för informationen."
+        },
+        {
+          "name": "dataController",
+          "type": "String",
+          "cardinality": "0..1",
+          "description": "Identitet för den PUA som ansvarar för postens innehåll.  I första hand organisationsnummer eller HSA-id för den PUA som ansvarar för postens innehåll, i andra hand en källsystemsintern identitet för PUA. (Tidigare har även källsystemets HSA-id tillåtits.) Viktigt att välja ett värde som PUA kan använda för att fullgöra sin roll som personuppgiftsansvarig för sin information i engagemangsindex."
+        },
+        {
+          "name": "owner",
+          "type": "HSA-id",
+          "cardinality": "0..1",
+          "description": "HSA-id för den organisations vars index tog emot uppdateringsbegäran."
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "engagement",
+          "type": "EngagementType",
+          "cardinality": "0..*",
+          "description": ""
+        },
+        {
+          "name": "engagement.registeredResidentIdentification",
+          "type": "Nationell accepterad personidentitet",
+          "cardinality": "1..1",
+          "description": "Enligt formatregler i meddelandemodell"
+        },
+        {
+          "name": "engagement.serviceDomain",
+          "type": "URN",
+          "cardinality": "1..1",
+          "description": "Namnrymd för Tjänstedomän  exempel: urn:riv:clinicalprocess:activity:request"
+        },
+        {
+          "name": "engagement.categorization",
+          "type": "String",
+          "cardinality": "1..1",
+          "description": "Enligt tjänstedomänens dokumentation."
+        },
+        {
+          "name": "engagement.logicalAddress",
+          "type": "String",
+          "cardinality": "1..1",
+          "description": "Enligt tjänstedomänens dokumentation."
+        },
+        {
+          "name": "engagementTransaction .engagement.businessObjectInstanceIdentifier",
+          "type": "String",
+          "cardinality": "1..1",
+          "description": "Enligt tjänstedomänens dokumentation."
+        },
+        {
+          "name": "engagement.clinicalProcessInterestId",
+          "type": "String",
+          "cardinality": "0..1",
+          "description": "Enligt tjänstedomänens dokumentation."
+        },
+        {
+          "name": "engagement.mostRecentContent",
+          "type": "TS",
+          "cardinality": "0..1",
+          "description": "YYYYMMDDhhmmss"
+        },
+        {
+          "name": "engagement.sourceSystem",
+          "type": "HSA-id",
+          "cardinality": "1..1",
+          "description": "Källsystemet som innehåller den information som EI-posten pekar ut. I regel det vårdsystem som skapade informationen eller det system hos vårdgivaren som är master för informationen."
+        },
+        {
+          "name": "engagement.creationTime",
+          "type": "TS",
+          "cardinality": "1..1",
+          "description": "YYYYMMDDhhmmss"
+        },
+        {
+          "name": "engagement.updateTime",
+          "type": "TS",
+          "cardinality": "0..1",
+          "description": "YYYYMMDDhhmmss"
+        },
+        {
+          "name": "engagement.dataController",
+          "type": "String",
+          "cardinality": "1..1",
+          "description": "Identitet för den PUA som ansvarar för postens innehåll.  I första hand organisationsnummer eller HSA-id för den PUA som ansvarar för postens innehåll, i andra hand en källsystemsintern identitet för PUA. (Tidigare har även källsystemets HSA-id tillåtits.) Viktigt att välja ett värde som PUA kan använda för att fullgöra sin roll som personuppgiftsansvarig för sin information i engagemangsindex."
+        },
+        {
+          "name": "engagement.owner",
+          "type": "HSA-id",
+          "cardinality": "1..1",
+          "description": "HSA-id för den organisations vars index tog emot uppdateringsbegäran."
+        }
+      ],
+      "shared_components_refs": [
+        "informationsmodell (avsnitt 5/Tjänstedomänens meddelandemodeller)"
+      ],
+      "other_rules": "kR1: För den nationella EI-instansen är åtkomst till tjänsten FindContent begränsad till aggregerande tjänster realiserade i den nationella aggregeringsplattformen.\nkR2: Tjänstekonsumenter ska inte spara innehållet i svaret för senare användning utan ska hämta relaterade poster från källsystemen och behandla dessa i enlighet med syftet.\npR1 (producent): Engagemangsindex validerar begäran enligt regler som specificerats per attribut. Felaktigheter betraktas som programmeringsfel hos tjänstekonsument och signaleras som tekniskt fel.\npR2 (producent): Attribut som anges i begäran används för att filtrera svaret till poster som har exakt matchning.",
+      "error_codes": [
+        {
+          "code": "OK",
+          "description": "Transaktionen har utförts enligt uppdraget i frågemeddelandet."
+        },
+        {
+          "code": "INFO",
+          "description": "Transaktionen har utförts enligt uppdraget i frågemeddelandet, men det finns ett meddelande med ytterligare information."
+        },
+        {
+          "code": "ERROR",
+          "description": "Transaktionen har INTE kunnat utföras enligt uppdrag i frågemeddelandet p.g.a. logiskt fel."
+        }
+      ],
+      "contract_specific_codesystems": [],
+      "open_questions_from_parsing": [
+        "TKB saknar explicit numrering för avsnitt 7.x — kontrakten är beskrivna i separata kapitel per målgrupp. Sektionsnummer 7.1/7.2/7.3 är tilldelade av parsern.",
+        "Fältet 'clinicalProcessInterestId' har kardinalitet 0..1 i FindContent Request men 1..1 i informationsmodellen — behöver verifiering mot XSD.",
+        "FindContent Response saknar explicita fältregler för fälten creationTime och updateTime i TKB-tabellen — dessa är med i XSD-schema men ej i fälttabellen."
+      ]
+    },
+    {
+      "section_number": "7.2",
+      "id": "Update",
+      "display_name": "Uppdatera Engagemangsindex",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:itintegration:engagementindex:Update:1",
+      "description": "Definierar en tjänst som konsumenter kan använda för att uppdatera en engagemangsindexinstans. Med hjälp av uppdateringskontraktet (Update) kan källsystem (vårddokumentationssystem, tidbokningssystem m.fl.) skapa indexposter enligt regelverk för respektive tjänstedomän. Kontraktet Update används vid såväl skapande, uppdatering och radering av indexposter.",
+      "request_fields": [
+        {
+          "name": "engagementTransaction",
+          "type": "EngagementTransactionType",
+          "cardinality": "1..*",
+          "description": ""
+        },
+        {
+          "name": "engagementTransaction.deleteFlag",
+          "type": "Boolean",
+          "cardinality": "1..1",
+          "description": "True anger att posten ska tas bort. False anger att posten ska skapas/uppdateras."
+        },
+        {
+          "name": "engagementTransaction .engagement",
+          "type": "EngagementType",
+          "cardinality": "1..1",
+          "description": ""
+        },
+        {
+          "name": "engagementTransaction .engagement.registeredResidentIdentification",
+          "type": "Nationell accepterad personidentitet",
+          "cardinality": "1..1",
+          "description": "Enligt formatregler i meddelandemodellen"
+        },
+        {
+          "name": "engagementTransaction .engagement.serviceDomain",
+          "type": "URN",
+          "cardinality": "1..1",
+          "description": "Namnrymd för Tjänstedomän  exempel: urn:riv:clinicalprocess:activity:request"
+        },
+        {
+          "name": "engagementTransaction .engagement.categorization",
+          "type": "String",
+          "cardinality": "1..1",
+          "description": "Enligt tjänstedomänens dokumentation."
+        },
+        {
+          "name": "engagementTransaction .engagement.logicalAddress",
+          "type": "String",
+          "cardinality": "1..1",
+          "description": "Enligt tjänstedomänens dokumentation."
+        },
+        {
+          "name": "engagementTransaction .engagement.businessObjectInstanceIdentifier",
+          "type": "String",
+          "cardinality": "1..1",
+          "description": "Enligt tjänstedomänens dokumentation."
+        },
+        {
+          "name": "engagementTransaction .engagement.clinicalProcess InterestId",
+          "type": "String",
+          "cardinality": "1..1",
+          "description": "Enligt tjänstedomänens dokumentation."
+        },
+        {
+          "name": "engagementTransaction .engagement.mostRecentContent",
+          "type": "TS",
+          "cardinality": "0..1",
+          "description": "Enligt tjänstedomänens dokumentation."
+        },
+        {
+          "name": "engagementTransaction .engagement.sourceSystem",
+          "type": "HSA-id",
+          "cardinality": "1..1",
+          "description": "Källsystemet som innehåller den information som EI-posten pekar ut. I regel det vårdsystem som skapade informationen eller det system hos vårdgivaren som är master för informationen."
+        },
+        {
+          "name": "engagementTransaction .engagement.dataController",
+          "type": "String",
+          "cardinality": "1..1",
+          "description": "Identitet för den PUA som ansvarar för postens innehåll.  I första hand organisations-nummer eller HSA-id för den PUA som ansvarar för postens innehåll, i andra hand en källsystemsintern identitet för PUA. (Tidigare har även källsystemets HSA-id tillåtits.) Viktigt att välja ett värde som PUA kan använda för att fullgöra sin roll som personuppgifts-ansvarig för sin information i engagemangsindex."
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "ResultCode",
+          "type": "Kodverk",
+          "cardinality": "1..1",
+          "description": "Status enligt generell regel."
+        },
+        {
+          "name": "comment",
+          "type": "String",
+          "cardinality": "0..1",
+          "description": "Meddelande enligt generell regel"
+        }
+      ],
+      "shared_components_refs": [
+        "informationsmodell (avsnitt 5/Tjänstedomänens meddelandemodeller)"
+      ],
+      "other_rules": "kR1: Alla poster i en begäran måste vara sinsemellan unika med avseende på de element som är del av postens unikhet. Om duplikat hittas returneras ResultCode ERROR.\nkR2: För poster som ska raderas ska deleteFlag sättas till true.\nkR3: Om tjänstekonsumenten vid anrop har mer än 1 post så bör dessa paketeras i samma anrop. Max antal poster per anrop avgörs av respektive instans (nationellt: 1000).\nkR4: Hantering av lokala reservidentiteter — när en lokal reservidentitet kopplas till nationellt accepterad personidentitet ska EI-poster skapas.\npR1-pR7 (producent): Se fullständiga regler i teknisk beskrivning.",
+      "error_codes": [
+        {
+          "code": "OK",
+          "description": "Transaktionen har utförts enligt uppdraget i frågemeddelandet."
+        },
+        {
+          "code": "INFO",
+          "description": "Transaktionen har utförts enligt uppdraget i frågemeddelandet, men det finns ett meddelande med ytterligare information."
+        },
+        {
+          "code": "ERROR",
+          "description": "Transaktionen har INTE kunnat utföras enligt uppdrag i frågemeddelandet p.g.a. logiskt fel."
+        }
+      ],
+      "contract_specific_codesystems": [],
+      "open_questions_from_parsing": [
+        "Fälten engagementTransaction.engagement.creationTime, updateTime och owner ska INTE inkluderas i Update-begäran (de genereras av EI) men finns i XSD-typen — TKB noterar detta explicit i en fotnot (Table 12). Behöver hanteras i logisk modell.",
+        "Fältet dataController tillåter organisationsnummer, HSA-id eller källsystemsintern identitet — ingen entydig FHIR-typ. ASSUME: Identifier med system = urn:oid (HSA) eller annat system."
+      ]
+    },
+    {
+      "section_number": "7.3",
+      "id": "ProcessNotification",
+      "display_name": "Notifiering om indexuppdateringar",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:itintegration:engagementindex:ProcessNotification:1",
+      "description": "Syftet med kontraktet är att kunna konsolidera indexinformation från flera index. Engagemangsindex agerar i rollen som tjänsteproducent för att ta emot information om förändringar i ett annat engagemangsindex. Engagemangsindex agerar som tjänstekonsument för att skicka förändringar till andra engagemangsindex. Kontraktet används för konsolidering av indexinformation från lokala instanser till nationell instans.",
+      "request_fields": [
+        {
+          "name": "engagementTransaction",
+          "type": "EngagementTransactionType",
+          "cardinality": "1..*",
+          "description": ""
+        },
+        {
+          "name": "engagementTransaction.deleteFlag",
+          "type": "Boolean",
+          "cardinality": "1..1",
+          "description": "”true” anger att posten ska tas bort. False anger att posten ska skapas/uppdateras."
+        },
+        {
+          "name": "engagementTransaction .engagement",
+          "type": "EngagementType",
+          "cardinality": "1..1",
+          "description": ""
+        },
+        {
+          "name": "engagementTransaction .engagement.registeredResidentIdentification",
+          "type": "Nationell accepterad personidentitet",
+          "cardinality": "1..1",
+          "description": "Enligt formatregler i meddelandemodell"
+        },
+        {
+          "name": "engagementTransaction .engagement.serviceDomain",
+          "type": "URN",
+          "cardinality": "1..1",
+          "description": "Namnrymd för Tjänstedomän  exempel: urn:riv:clinicalprocess:activity:request"
+        },
+        {
+          "name": "engagementTransaction .engagement.categorization",
+          "type": "String",
+          "cardinality": "1..1",
+          "description": "Enligt tjänstedomänens dokumentation."
+        },
+        {
+          "name": "engagementTransaction .engagement.logicalAddress",
+          "type": "String",
+          "cardinality": "1..1",
+          "description": "Enligt tjänstedomänens dokumentation."
+        },
+        {
+          "name": "engagementTransaction .engagement.businessObjectInstanceIdentifier",
+          "type": "String",
+          "cardinality": "1..1",
+          "description": "Enligt tjänstedomänens dokumentation."
+        },
+        {
+          "name": "engagementTransaction .engagement.clinicalProcessInterestId",
+          "type": "HSA-id",
+          "cardinality": "1..1",
+          "description": "Enligt tjänstedomänens dokumentation."
+        },
+        {
+          "name": "engagementTransaction .engagement.mostRecentContent",
+          "type": "TS",
+          "cardinality": "0..1",
+          "description": "Enligt tjänstedomänens dokumentation."
+        },
+        {
+          "name": "engagementTransaction .engagement.sourceSystem",
+          "type": "HSA-id",
+          "cardinality": "1..1",
+          "description": "Källsystemet som innehåller den information som EI-posten pekar ut. I regel det vårdsystem som skapade informationen eller det system hos vårdgivaren som är master för informationen."
+        },
+        {
+          "name": "engagementTransaction .engagement.creationTime",
+          "type": "TS",
+          "cardinality": "1..1",
+          "description": "YYYYMMDDhhmmss"
+        },
+        {
+          "name": "engagementTransaction .engagement.updateTime",
+          "type": "TS",
+          "cardinality": "1..1",
+          "description": "YYYYMMDDhhmmss"
+        },
+        {
+          "name": "engagementTransaction .engagement.dataController",
+          "type": "String",
+          "cardinality": "1..1",
+          "description": "Identitet för den PUA som ansvarar för postens innehåll.  I första hand organisations-nummer eller HSA-id för den PUA som ansvarar för postens innehåll, i andra hand en källsystemsintern identitet för PUA. (Tidigare har även källsystemets HSA-id tillåtits.) Viktigt att välja ett värde som PUA kan använda för att fullgöra sin roll som personuppgifts-ansvarig för sin information i engagemangsindex."
+        },
+        {
+          "name": "engagementTransaction .engagement.owner",
+          "type": "HSA-id",
+          "cardinality": "1..1",
+          "description": "HSA-id för den organisations vars index tog emot ursprunglig uppdateringsbegäran."
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "ResultCode",
+          "type": "Kodverk",
+          "cardinality": "1..1",
+          "description": "Status enligt generell regel."
+        },
+        {
+          "name": "comment",
+          "type": "String",
+          "cardinality": "0..1",
+          "description": "Meddelande enligt generell regel"
+        }
+      ],
+      "shared_components_refs": [
+        "informationsmodell (avsnitt 5/Tjänstedomänens meddelandemodeller)"
+      ],
+      "other_rules": "kR1 (konsument): Innehållet i begäran ska exakt spegla begäran i ursprunglig Update, förutom att även owner, creationTime, updateTime ska anges.\nkR2 (konsument): För poster som ska tas bort sätts deleteFlag = true.\npR1 (producent): Producenten ska inte generera fälten owner, creationTime och updateTime själv utan använda de värdena som finns i begäran.\npR2 (producent): För poster med deleteFlag = true ska borttag göras.\npR3 (producent): Efter framgångsrik lagring ska producenten notifiera prenumeranter.\npR4 (producent): Om notifiering mottas där owner är samma som instansen ska ingen uppdatering eller notifiering ske (undvika rundgång).",
+      "error_codes": [
+        {
+          "code": "OK",
+          "description": "Transaktionen har utförts enligt uppdraget i frågemeddelandet."
+        },
+        {
+          "code": "INFO",
+          "description": "Transaktionen har utförts enligt uppdraget i frågemeddelandet, men det finns ett meddelande med ytterligare information."
+        },
+        {
+          "code": "ERROR",
+          "description": "Transaktionen har INTE kunnat utföras enligt uppdrag i frågemeddelandet p.g.a. logiskt fel."
+        }
+      ],
+      "contract_specific_codesystems": [],
+      "open_questions_from_parsing": [
+        "ProcessNotification används i dubbel roll (producent OCH konsument) av engagemangsindex — detta är ovanligt i RIV-TA och kan behöva förklaras i FHIR IG.",
+        "Nationellt engagemangsindex ska fr.o.m. version 1.0.9 INTE längre agera konsument (skicka) ProcessNotification till lokala index. Nationellt index är enbart producent. Behöver tydliggöras i IG."
+      ]
+    }
+  ]
+}
