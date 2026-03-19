@@ -1,0 +1,2068 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="GetCareDocumentationMock 3.0" resourceRoot="${projectDir}" soapui-version="5.7.2" abortOnError="false" runType="SEQUENTIAL" id="bcb525f0-241f-4bbc-baf6-78aeb4b55d6b" updated="2.1.0 20170726-1100" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="GetCareDocumentationResponderBinding" type="wsdl" bindingName="{urn:riv:clinicalprocess:healthcond:description:GetCareDocumentation:3:rivtabp21}GetCareDocumentationResponderBinding" soapVersion="1_1" anonymous="optional" definition="../../schemas/interactions/GetCareDocumentationInteraction/GetCareDocumentationInteraction_3.0_RIVTABP21.wsdl" id="53b6e2a1-dcf6-4101-b6aa-9b425137e3dd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    
+    <con:definitionCache type="TEXT" rootPart="file:/C:/NMT/Repon/NMT%20Gitrepo/riv.clinicalprocess.healthcond.description/schemas/interactions/GetCareDocumentationInteraction/GetCareDocumentationInteraction_3.0_RIVTABP21.wsdl"><con:part><con:url>file:/C:/NMT/Repon/NMT%20Gitrepo/riv.clinicalprocess.healthcond.description/schemas/interactions/GetCareDocumentationInteraction/GetCareDocumentationInteraction_3.0_RIVTABP21.wsdl</con:url><con:content><![CDATA[<!--Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.-->
+<wsdl:definitions name="GetCareDocumentationInteraction" targetNamespace="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentation:3:rivtabp21" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tjsr="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3" xmlns:tjsi="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationInitiator:3" xmlns:tns="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentation:3:rivtabp21" xmlns:itr="urn:riv:itintegration:registry:1">
+  <wsdl:documentation>Tjänsteinteraktionens namn: GetCareDocumentationInteraction
+	Beskrivning:
+      Returnerar hälso- och sjukvårdsdokument för en patient.
+	Revisioner:
+	Tjänstedomän: clinicalprocess:healthcond:description
+	Tjänsteinteraktionstyp: Fråga-Svar
+	WS-profil: RIVTABP21
+	Förvaltas av: Sveriges Kommuner och Landsting</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema targetNamespace="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentation:3:rivtabp21">
+      <xs:import schemaLocation="GetCareDocumentationResponder_3.0.xsd" namespace="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3"/>
+      <xs:import schemaLocation="../../core_components/itintegration_registry_1.0.xsd" namespace="urn:riv:itintegration:registry:1"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCareDocumentationRequest">
+    <wsdl:part name="LogicalAddress" element="itr:LogicalAddress">
+      <wsdl:documentation>National: The HSA-id of Inera AB ("national" aggregation service)
+			Regional: The HSA-id of Inera AB (regional aggregation service)
+			Specific Source system: The HSA-id of the source system</wsdl:documentation>
+    </wsdl:part>
+    <wsdl:part name="parameters" element="tjsr:GetCareDocumentation"/>
+  </wsdl:message>
+  <wsdl:message name="GetCareDocumentationResponse">
+    <wsdl:part name="parameters" element="tjsr:GetCareDocumentationResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="GetCareDocumentationResponderInterface">
+    <wsdl:operation name="GetCareDocumentation">
+      <wsdl:input message="tns:GetCareDocumentationRequest"/>
+      <wsdl:output message="tns:GetCareDocumentationResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetCareDocumentationResponderBinding" type="tns:GetCareDocumentationResponderInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetCareDocumentation">
+      <soap:operation soapAction="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3:GetCareDocumentation" style="document"/>
+      <wsdl:input>
+        <soap:header use="literal" message="tns:GetCareDocumentationRequest" part="LogicalAddress"/>
+        <soap:body use="literal" parts="parameters"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GetCareDocumentationResponderService">
+    <wsdl:port name="GetCareDocumentationResponderPort" binding="tns:GetCareDocumentationResponderBinding">
+      <soap:address location="http://tempuri.org"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:\C:\NMT\Repon\NMT%20Gitrepo\riv.clinicalprocess.healthcond.description\schemas\interactions\GetCareDocumentationInteraction\GetCareDocumentationResponder_3.0.xsd</con:url><con:content><![CDATA[<!--Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.-->
+<xs:schema targetNamespace="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3" xmlns:core="urn:riv:clinicalprocess:healthcond:description:3" xmlns:codes="urn:riv:clinicalprocess:healthcond:description:enums:3">
+  <xs:import schemaLocation="../../core_components/clinicalprocess_healthcond_description_3.0.xsd" namespace="urn:riv:clinicalprocess:healthcond:description:3"/>
+  <xs:import schemaLocation="../../core_components/clinicalprocess_healthcond_description_enum_3.0.xsd" namespace="urn:riv:clinicalprocess:healthcond:description:enums:3"/>
+  <xs:element name="GetCareDocumentation" type="tns:GetCareDocumentationType"/>
+  <xs:element name="GetCareDocumentationResponse" type="tns:GetCareDocumentationResponseType"/>
+  <xs:complexType name="GetCareDocumentationType">
+    <xs:sequence>
+      <xs:element name="careUnit" type="core:IIType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="healthcareProvider" type="core:IIType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="patientId" type="core:IIType"/>
+      <xs:element name="datePeriod" type="core:DatePeriodType" minOccurs="0"/>
+      <xs:element name="sourceSystemId" type="core:IIType" minOccurs="0"/>
+      <xs:element name="hasMoreReference" type="xs:string" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetCareDocumentationResponseType">
+    <xs:annotation>
+      <xs:documentation>careDocumentation: 
+					De vårddokument som matchar begäran.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="careDocumentation" type="core:CareDocumentationType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="hasMore" type="tns:HasMoreType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="result" type="core:ResultType"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HasMoreType">
+    <xs:sequence>
+      <xs:element name="logicalAddress" type="xs:string" minOccurs="1"/>
+      <xs:element name="reference" type="xs:string" minOccurs="1"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:\C:\NMT\Repon\NMT%20Gitrepo\riv.clinicalprocess.healthcond.description\schemas\core_components\clinicalprocess_healthcond_description_3.0.xsd</con:url><con:content><![CDATA[<!--Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.-->
+<xs:schema targetNamespace="urn:riv:clinicalprocess:healthcond:description:3" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:riv:clinicalprocess:healthcond:description:3" xmlns:codes="urn:riv:clinicalprocess:healthcond:description:enums:3">
+  <xs:import schemaLocation="./clinicalprocess_healthcond_description_enum_3.0.xsd" namespace="urn:riv:clinicalprocess:healthcond:description:enums:3"/>
+  <!--Below: Types used exclusively by service contract GetCareDocumentation-->
+  <xs:complexType name="CareDocumentationType">
+    <xs:sequence>
+      <xs:element name="header" type="tns:HeaderType"/>
+      <xs:element name="body" type="tns:CareDocumentationBodyType"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CareDocumentationBodyType">
+    <xs:sequence>
+      <xs:element name="clinicalDocumentNoteCode" type="tns:CVType"/>
+      <xs:element name="clinicalDocumentNoteTitle" type="xs:string" minOccurs="0"/>
+      <xs:element name="clinicalDocumentNoteText" type="xs:string" minOccurs="0"/>
+      <xs:element name="multimediaEntry" type="tns:MultimediaType" minOccurs="0"/>
+      <xs:element name="dissentingOpinion" type="tns:DissentingOpinionType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DissentingOpinionType">
+    <xs:sequence>
+      <xs:element name="opinionId" type="tns:IIType" minOccurs="0"/>
+      <xs:element name="authorTime" type="tns:TimeStampType"/>
+      <xs:element name="opinion" type="xs:string"/>
+      <xs:element name="personId" type="tns:IIType"/>
+      <xs:element name="personName" type="xs:string"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--Below: Common header used in service contracts for JoL (Journal- och Läkemedel).
+
+        Version: JoL Header Fältregler_v2.2-->
+  <xs:complexType name="HeaderType">
+    <xs:sequence>
+      <xs:element name="accessControlHeader" type="tns:AccessControlHeaderType"/>
+      <xs:element name="sourceSystemId" type="tns:IIType"/>
+      <xs:element name="record" type="tns:RecordType"/>
+      <xs:element name="author" type="tns:AuthorType" minOccurs="0"/>
+      <xs:element name="signature" type="tns:SignatureType" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AccessControlHeaderType">
+    <xs:sequence>
+      <xs:element name="accountableHealthcareProvider" type="tns:IIType" minOccurs="0"/>
+      <xs:element name="accountableCareUnit" type="tns:IIType" minOccurs="0"/>
+      <xs:element name="patientId" type="tns:IIType"/>
+      <xs:element name="careProcessId" type="tns:IIType" minOccurs="0"/>
+      <xs:element name="blockComparisonTime" type="tns:TimeStampType"/>
+      <xs:element name="approvedForPatient" type="xs:boolean"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RecordType">
+    <xs:sequence>
+      <xs:element name="id" type="tns:IIType"/>
+      <xs:element name="timestamp" type="tns:TimeStampType"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AuthorType">
+    <xs:sequence>
+      <xs:element name="id" type="tns:IIType" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="timestamp" type="tns:TimeStampType"/>
+      <xs:element name="byRole" type="tns:CVType" minOccurs="0"/>
+      <xs:element name="orgUnit" type="tns:OrgUnitType" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SignatureType">
+    <xs:sequence>
+      <xs:element name="id" type="tns:IIType" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="timestamp" type="tns:TimeStampType"/>
+      <xs:element name="byRole" type="tns:CVType" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--Below: only helper types allowed.
+        
+        A helper type is a type used in one ore more of the domain schema common types.
+        It can also be a type used in two or more service schemas.
+
+        Types are defined in version 17 of "De facto-konventioner för datatyper".-->
+  <xs:complexType name="DatePeriodType">
+    <xs:annotation>
+      <xs:documentation>Används för att specificera ett datumintervall
+                med hjälp av start- och slutdatum.
+
+                start:
+                Startdatum på formatet ÅÅÅÅMMDD
+                end:
+                Slutdatum på formatet ÅÅÅÅMMDD</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="start" type="tns:DateType"/>
+      <xs:element name="end" type="tns:DateType"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="DateType">
+    <xs:annotation>
+      <xs:documentation>Formatet är ÅÅÅÅMMDD</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="MultimediaType">
+    <xs:sequence>
+      <xs:element name="mediaType" type="xs:string"/>
+      <xs:element name="value" type="xs:base64Binary" minOccurs="0"/>
+      <xs:element name="reference" type="xs:anyURI" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="TimeStampType">
+    <xs:annotation>
+      <xs:documentation>A quantity specifying a point on the axis of natural time.
+                A point in time is most often represented as a calendar
+                expression.
+
+                The time has the format YYYYMMDDhhmmss</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])(0[0-9]|1[0-9]|2[0123])([0-5])([0-9])([0-5])([0-9])"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="CVType">
+    <xs:sequence>
+      <xs:element name="code" type="xs:string" minOccurs="0"/>
+      <xs:element name="codeSystem" type="xs:string" minOccurs="0"/>
+      <xs:element name="codeSystemName" type="xs:string" minOccurs="0"/>
+      <xs:element name="codeSystemVersion" type="xs:string" minOccurs="0"/>
+      <xs:element name="displayName" type="xs:string" minOccurs="0"/>
+      <xs:element name="originalText" type="xs:string" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IIType">
+    <xs:sequence>
+      <xs:element name="root" type="xs:string"/>
+      <xs:element name="extension" type="xs:string" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResultType">
+    <xs:sequence>
+      <xs:element name="resultCode" type="codes:ResultCodeEnum" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="resultText" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrgUnitType">
+    <xs:sequence>
+      <xs:element name="orgUnitHSAId" type="tns:HSAIdType" minOccurs="0"/>
+      <xs:element name="orgUnitName" type="xs:string" minOccurs="0"/>
+      <xs:element name="orgUnitTelecom" type="xs:string" minOccurs="0"/>
+      <xs:element name="orgUnitEmail" type="xs:string" minOccurs="0"/>
+      <xs:element name="orgUnitAddress" type="xs:string" minOccurs="0"/>
+      <xs:element name="orgUnitLocation" type="xs:string" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="HSAIdType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:\C:\NMT\Repon\NMT%20Gitrepo\riv.clinicalprocess.healthcond.description\schemas\core_components\clinicalprocess_healthcond_description_enum_3.0.xsd</con:url><con:content><![CDATA[<!--Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.-->
+<xs:schema targetNamespace="urn:riv:clinicalprocess:healthcond:description:enums:3" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:riv:clinicalprocess:healthcond:description:enums:3">
+  <xs:simpleType name="ResultCodeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK"/>
+      <xs:enumeration value="ERROR"/>
+      <xs:enumeration value="INFO"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:\C:\NMT\Repon\NMT%20Gitrepo\riv.clinicalprocess.healthcond.description\schemas\core_components\itintegration_registry_1.0.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="urn:riv:itintegration:registry:1" elementFormDefault="qualified" version="1.0" xmlns="urn:riv:itintegration:registry:1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>Beskrivning: 	Grundläggande informationsobjekt för domänen itintegration:registry (adressering av tjänster)
+			
+			Revisionshistorik: 2011-06-27 Mats Ekhammar, Callista Enterprise AB
+				Added ServiceContractType
+			
+			Datum:			2011-05-04
+			Beskrivning:	Initial version
+			Författare:		marcus.krantz@callistaenterprise.se</xs:documentation>
+  </xs:annotation>
+  <xs:element name="LogicalAddress" type="LogicalAddressType"/>
+  <xs:element name="ServiceContract" type="ServiceContractType"/>
+  <xs:simpleType name="LogicalAddressType">
+    <xs:annotation>
+      <xs:documentation>Defines the type for logical address according to national reference architecture.
+				Superseeds wsa:To as type for logical address header in RIVTA 2.1.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:complexType name="ServiceContractType">
+    <xs:annotation>
+      <xs:documentation>Type which describes a service contract. Used in interaction GetSupportedServiceContracts.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ServiceContractNamespace" type="xs:anyURI"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints>
+      <con:endpoint>${webServiceUrl}</con:endpoint>
+      <con:endpoint>http://tempuri.org</con:endpoint>
+    </con:endpoints>
+    <con:operation isOneWay="false" action="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3:GetCareDocumentation" name="GetCareDocumentation" bindingOperationName="GetCareDocumentation" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="3a9c4b25-f4ae-4b59-bc78-3401532f2080">
+      <con:settings/>
+    </con:operation>
+  </con:interface>
+  <con:mockService port="8088" path="/mockGetCareDocumentationResponderBinding" host="localhost" name="GetCareDocumentation MockService" id="e51b6336-be1e-41d0-817a-6a02ca4e72ab">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting>
+    </con:settings>
+    <con:constraints>
+      <con:congestion>0</con:congestion>
+      <con:inputBandwidth>-1</con:inputBandwidth>
+      <con:outputBandwidth>-1</con:outputBandwidth>
+      <con:maxThreadPoolCapacity>20</con:maxThreadPoolCapacity>
+      <con:coreThreadPoolCapacity>5</con:coreThreadPoolCapacity>
+      <con:virtError>
+        <con:start>0</con:start>
+        <con:endless>true</con:endless>
+      </con:virtError>
+    </con:constraints>
+    <con:dataSources/>
+    <con:headerValidator type="NONE"/>
+    <con:mockOperation name="GetCareDocumentation" interface="GetCareDocumentationResponderBinding" operation="GetCareDocumentation" id="06b746ec-98c4-4610-abe5-a830425c3b81">
+      <con:settings/>
+      <con:dispatchPath>import com.eviware.soapui.support.XmlHolder
+import com.eviware.soapui.impl.wsdl.support.wsdl.WsdlContext
+import com.eviware.soapui.impl.wsdl.support.wsdl.WsdlValidator
+import com.eviware.soapui.impl.wsdl.panels.mockoperation.WsdlMockRequestMessageExchange
+
+synchronized(mockRequest.context.mockService){
+def mockService = mockOperation.mockService
+
+def wsdlcontext = context.mockService.getMockedInterfaces()[0].getDefinitionContext();
+def validator = new WsdlValidator(wsdlcontext);
+def msgExchange = new WsdlMockRequestMessageExchange(mockRequest, mockOperation); 
+def errors = validator.assertRequest(msgExchange, false);
+
+def msg = ""
+if (errors.length > 0) {
+	errors.each {
+		log.error("Incoming request contains error ${it.toString()}")
+		msg += "${it.toString()}\n"
+	}
+	context.validationMessages = msg
+	return "SoapFault-Request"
+}
+
+def holder = new XmlHolder( mockRequest.requestContent )
+holder.namespaces['soapenv'] = 'http://schemas.xmlsoap.org/soap/envelope/'
+holder.namespaces['urn'] = 'urn:riv:itintegration:registry:1'
+holder.namespaces['urn1'] = 'urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3'
+holder.namespaces['urn2'] = 'urn:riv:clinicalprocess:healthcond:description:3'
+
+def patientId = holder.getNodeValue('/soapenv:Envelope/soapenv:Body/urn1:GetCareDocumentation/urn1:patientId/urn2:extension')
+def patientIdType = holder.getNodeValue('/soapenv:Envelope/soapenv:Body/urn1:GetCareDocumentation/urn1:patientId/urn2:root')
+def careGiverHSAId = holder.getNodeValue('/soapenv:Envelope/soapenv:Body/urn1:GetCareDocumentation/urn1:healthcareProvider/urn2:extension')
+def careUnitHSAId = holder.getNodeValue('/soapenv:Envelope/soapenv:Body/urn1:GetCareDocumentation/urn1:careUnit/urn2:extension')
+def sourceSystemHSAId = holder.getNodeValue('/soapenv:Envelope/soapenv:Body/urn1:GetCareDocumentation/urn1:sourceSystemId/urn2:extension')
+def careContactId = holder.getNodeValue('/soapenv:Envelope/soapenv:Body/urn1:GetCareDocumentation/urn1:careContactId')
+
+context.patientId = patientId
+context.patientIdType = patientIdType
+context.careGiverHSAId = careGiverHSAId ?: "careGiverHSAId"
+context.careUnitHSAId = careUnitHSAId ?: "careUnitHSAId"
+context.sourceSystemHSAId = sourceSystemHSAId ?: "sourceSystemHSAId"
+context.careContactId = careContactId ?: "careContactId"
+
+if (mockRequest.requestHeaders['x-mock-response'] != null){
+	return mockRequest.requestHeaders['x-mock-response'][0]
+}
+else{
+	//Kontrollera schema och schematron för request
+	mh = new se.skl.rivta.tksupport.soapui.MockHelper(mockRequest, mockOperation, log)
+	def validationErrors = mh.getSchemaErrorsInRequest() ?: mh.getSchematronErrorsInRequest("constraints.xml")
+	if (validationErrors != null){
+		context.validationMessages = validationErrors.toString()
+		return "Response ERROR"
+	}
+}
+
+}</con:dispatchPath>
+      <con:dispatchStyle>SCRIPT</con:dispatchStyle>
+      <con:defaultResponse>BasicResponse</con:defaultResponse>
+      <con:dispatchXPath/>
+      <con:routeScript/>
+      
+      
+      
+      
+      
+      
+      
+      <con:response name="BasicResponse" id="776f47ec-49e0-4558-82c0-bbcdfc093221" httpResponseStatus="200" encoding="UTF-8" dataSource="">
+        <con:settings/>
+        <con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"  xmlns:urn="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3" xmlns:urn1="urn:riv:clinicalprocess:healthcond:description:3">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:GetCareDocumentationResponse>
+         <!--Signerad-->
+         <urn:careDocumentation>
+            <urn1:header>
+               <urn1:accessControlHeader>
+                  <urn1:accountableHealthcareProvider>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careGiverHSAId}</urn1:extension>
+                  </urn1:accountableHealthcareProvider>
+                  <urn1:accountableCareUnit>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careUnitHSAId}</urn1:extension>
+                  </urn1:accountableCareUnit>
+                  <urn1:patientId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>${patientId}</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:patientId>
+                  <urn1:blockComparisonTime>20170101100000</urn1:blockComparisonTime>
+                  <urn1:approvedForPatient>true</urn1:approvedForPatient>
+                  <!--You may enter ANY elements at this point-->
+               </urn1:accessControlHeader>
+               <urn1:sourceSystemId>
+                  <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                  <urn1:extension>${sourceSystemHSAId}</urn1:extension>
+               </urn1:sourceSystemId>
+               <urn1:record>
+                  <urn1:id>
+                     <urn1:root>CareContact-123</urn1:root>
+                  </urn1:id>
+                  <urn1:timestamp>20170101100000</urn1:timestamp>
+               </urn1:record>
+               <urn1:author>
+                  <urn1:id>
+                     <urn1:root>?</urn1:root>
+                     <urn1:extension>?</urn1:extension>
+                  </urn1:id>
+                  <urn1:name>?</urn1:name>
+                  <urn1:timestamp>20071212010101</urn1:timestamp>
+                  <urn1:byRole>
+                     <urn1:code>206017</urn1:code>
+                     <urn1:codeSystem>1.2.752.129.2.2.1.4</urn1:codeSystem>
+                     <urn1:displayName>Sjuksköterska, medicin/kirurgi</urn1:displayName>
+                  </urn1:byRole>
+                  <!--Optional:-->
+                  <urn1:orgUnit>
+                     <!--Optional:-->
+                     <urn1:orgUnitHSAId>?</urn1:orgUnitHSAId>
+                     <!--Optional:-->
+                     <urn1:orgUnitName>?</urn1:orgUnitName>
+                     <!--Optional:-->
+                     <urn1:orgUnitTelecom>?</urn1:orgUnitTelecom>
+                     <!--Optional:-->
+                     <urn1:orgUnitEmail>?</urn1:orgUnitEmail>
+                     <!--Optional:-->
+                     <urn1:orgUnitAddress>?</urn1:orgUnitAddress>
+                     <!--Optional:-->
+                     <urn1:orgUnitLocation>?</urn1:orgUnitLocation>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:orgUnit>
+                  <!--You may enter ANY elements at this point-->
+               </urn1:author>
+               <urn1:signature>
+                  <urn1:id>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>SE132457689</urn1:extension>
+                  </urn1:id>
+                  <urn1:name>?</urn1:name>
+                  <urn1:timestamp>20071212010101</urn1:timestamp>
+                  <urn1:byRole>
+                     <urn1:code>201010</urn1:code>
+                     <urn1:codeSystem>1.2.752.129.2.2.1.4</urn1:codeSystem>
+                     <urn1:displayName>Överläkare</urn1:displayName>
+                  </urn1:byRole>
+               </urn1:signature>
+            </urn1:header>
+            <urn1:body>
+               <urn1:clinicalDocumentNoteCode>
+                  <urn1:code>utr</urn1:code>
+                  <urn1:codeSystem>1.2.752.129.2.2.2.11</urn1:codeSystem>
+                  <urn1:codeSystemName>KV Anteckningstyp</urn1:codeSystemName>
+                  <urn1:codeSystemVersion>1.0</urn1:codeSystemVersion>
+                  <urn1:displayName>Utredning</urn1:displayName>
+               </urn1:clinicalDocumentNoteCode>
+               <urn1:clinicalDocumentNoteTitle>Title</urn1:clinicalDocumentNoteTitle>
+               <urn1:clinicalDocumentNoteText><![CDATA[åäö<>><&]]]]>><![CDATA[</urn1:clinicalDocumentNoteText>
+               <urn1:dissentingOpinion>
+                  <urn1:opinionId>
+                     <urn1:root>?</urn1:root>
+                     <urn1:extension>?</urn1:extension>
+                  </urn1:opinionId>
+                  <urn1:authorTime>20071212010101</urn1:authorTime>
+                  <urn1:opinion>?</urn1:opinion>
+                  <urn1:personId>
+                     <urn1:root>?</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>?</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:personId>
+                  <urn1:personName>?</urn1:personName>
+                  <!--You may enter ANY elements at this point-->
+               </urn1:dissentingOpinion>
+               <!--You may enter ANY elements at this point-->
+            </urn1:body>
+         </urn:careDocumentation>
+         <!--Osignerad-->
+         <urn:careDocumentation>
+            <urn1:header>
+               <urn1:accessControlHeader>
+                  <urn1:accountableHealthcareProvider>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careGiverHSAId}</urn1:extension>
+                  </urn1:accountableHealthcareProvider>
+                  <urn1:accountableCareUnit>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careUnitHSAId}</urn1:extension>
+                  </urn1:accountableCareUnit>
+                  <urn1:patientId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>${patientId}</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:patientId>
+                  <urn1:blockComparisonTime>20170101100000</urn1:blockComparisonTime>
+                  <urn1:approvedForPatient>false</urn1:approvedForPatient>
+                  <!--You may enter ANY elements at this point-->
+               </urn1:accessControlHeader>
+               <urn1:sourceSystemId>
+                  <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                  <urn1:extension>${sourceSystemHSAId}</urn1:extension>
+               </urn1:sourceSystemId>
+               <urn1:record>
+                  <urn1:id>
+                     <urn1:root>CareContact-124</urn1:root>
+                  </urn1:id>
+                  <urn1:timestamp>20170101100000</urn1:timestamp>
+               </urn1:record>
+               <urn1:author>
+                  <urn1:id>
+                     <urn1:root>?</urn1:root>
+                     <urn1:extension>?</urn1:extension>
+                  </urn1:id>
+                  <urn1:name>?</urn1:name>
+                  <urn1:timestamp>20071212010101</urn1:timestamp>
+                  <urn1:byRole>
+                     <urn1:code>206017</urn1:code>
+                     <urn1:codeSystem>1.2.752.129.2.2.1.4</urn1:codeSystem>
+                     <urn1:displayName>Sjuksköterska, medicin/kirurgi</urn1:displayName>
+                  </urn1:byRole>
+               </urn1:author>
+            </urn1:header>
+            <urn1:body>
+               <urn1:clinicalDocumentNoteCode>
+                  <urn1:code>utr</urn1:code>
+                  <urn1:codeSystem>1.2.752.129.2.2.2.11</urn1:codeSystem>
+                  <urn1:codeSystemName>KV Anteckningstyp</urn1:codeSystemName>
+                  <urn1:codeSystemVersion>1.0</urn1:codeSystemVersion>
+                  <urn1:displayName>Utredning</urn1:displayName>
+               </urn1:clinicalDocumentNoteCode>
+               <urn1:clinicalDocumentNoteTitle>Title</urn1:clinicalDocumentNoteTitle>
+               <urn1:clinicalDocumentNoteText>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;article&gt;
+    &lt;info&gt;
+        &lt;title&gt;…&lt;/title&gt;
+    &lt;/info&gt;
+    &lt;para&gt; … &lt;/para&gt;
+    &lt;para&gt; … &lt;/para&gt;
+    &lt;section&gt;
+        &lt;title&gt;…&lt;/title&gt;
+        &lt;para&gt; … &lt;/para&gt;
+        &lt;para&gt; … &lt;/para&gt;
+    &lt;/section&gt;
+    &lt;section&gt;
+        &lt;title&gt;…&lt;/title&gt;
+        &lt;para&gt; … &lt;/para&gt;
+        &lt;para&gt; … &lt;/para&gt;
+        &lt;section&gt;
+            &lt;title&gt;…&lt;/title&gt;
+            &lt;para&gt; … &lt;/para&gt;
+            &lt;para&gt; … &lt;/para&gt;
+            &lt;para&gt; … &lt;/para&gt;
+            &lt;/section&gt;
+    &lt;/section&gt;
+    &lt;bibliography&gt; … &lt;/bibliography&gt;
+    &lt;itemizedlist mark='opencircle'&gt;
+        &lt;listitem&gt;
+	        &lt;para&gt;
+		       TeX and LaTeX
+	        &lt;/para&gt;
+        &lt;/listitem&gt;
+        &lt;listitem override='bullet'&gt;
+	        &lt;para&gt;
+		       Troff
+	        &lt;/para&gt;
+        &lt;/listitem&gt;
+        &lt;listitem&gt;
+	        &lt;para&gt;
+		       Lout
+	        &lt;/para&gt;
+        &lt;/listitem&gt;
+    &lt;/itemizedlist&gt;
+&lt;/article&gt;
+			</urn1:clinicalDocumentNoteText>
+               <urn1:dissentingOpinion>
+                  <urn1:opinionId>
+                     <urn1:root>?</urn1:root>
+                     <urn1:extension>?</urn1:extension>
+                  </urn1:opinionId>
+                  <urn1:authorTime>20071212010101</urn1:authorTime>
+                  <urn1:opinion>?</urn1:opinion>
+                  <urn1:personId>
+                     <urn1:root>?</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>?</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:personId>
+                  <urn1:personName>?</urn1:personName>
+                  <!--You may enter ANY elements at this point-->
+               </urn1:dissentingOpinion>
+               <!--You may enter ANY elements at this point-->
+            </urn1:body>
+         </urn:careDocumentation>
+         <!--Låst-->
+         <urn:careDocumentation>
+            <urn1:header>
+               <urn1:accessControlHeader>
+                  <urn1:accountableHealthcareProvider>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careGiverHSAId}</urn1:extension>
+                  </urn1:accountableHealthcareProvider>
+                  <urn1:accountableCareUnit>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careUnitHSAId}</urn1:extension>
+                  </urn1:accountableCareUnit>
+                  <urn1:patientId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>${patientId}</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:patientId>
+                  <urn1:blockComparisonTime>20170101100000</urn1:blockComparisonTime>
+                  <urn1:approvedForPatient>false</urn1:approvedForPatient>
+                  <!--You may enter ANY elements at this point-->
+               </urn1:accessControlHeader>
+               <urn1:sourceSystemId>
+                  <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                  <urn1:extension>${sourceSystemHSAId}</urn1:extension>
+               </urn1:sourceSystemId>
+               <urn1:record>
+                  <urn1:id>
+                     <urn1:root>CareContact-125</urn1:root>
+                  </urn1:id>
+                  <urn1:timestamp>20170101100000</urn1:timestamp>
+               </urn1:record>
+               <urn1:author>
+                  <urn1:id>
+                     <urn1:root>?</urn1:root>
+                     <urn1:extension>?</urn1:extension>
+                  </urn1:id>
+                  <urn1:name>?</urn1:name>
+                  <urn1:timestamp>20071212010101</urn1:timestamp>
+                  <urn1:byRole>
+                     <urn1:code>206017</urn1:code>
+                     <urn1:codeSystem>1.2.752.129.2.2.1.4</urn1:codeSystem>
+                     <urn1:displayName>Sjuksköterska, medicin/kirurgi</urn1:displayName>
+                  </urn1:byRole>
+               </urn1:author>
+            </urn1:header>
+            <urn1:body>
+               <urn1:clinicalDocumentNoteCode>
+                  <urn1:code>utr</urn1:code>
+                  <urn1:codeSystem>1.2.752.129.2.2.2.11</urn1:codeSystem>
+                  <urn1:codeSystemName>KV Anteckningstyp</urn1:codeSystemName>
+                  <urn1:codeSystemVersion>1.0</urn1:codeSystemVersion>
+                  <urn1:displayName>Utredning</urn1:displayName>
+               </urn1:clinicalDocumentNoteCode>
+               <urn1:clinicalDocumentNoteTitle>Title</urn1:clinicalDocumentNoteTitle>
+               <urn1:clinicalDocumentNoteText><![CDATA[åäö<>><&]]]]>><![CDATA[</urn1:clinicalDocumentNoteText>
+               <urn1:dissentingOpinion>
+                  <urn1:opinionId>
+                     <urn1:root>?</urn1:root>
+                     <urn1:extension>?</urn1:extension>
+                  </urn1:opinionId>
+                  <urn1:authorTime>20071212010101</urn1:authorTime>
+                  <urn1:opinion>?</urn1:opinion>
+                  <urn1:personId>
+                     <urn1:root>?</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>?</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:personId>
+                  <urn1:personName>?</urn1:personName>
+                  <!--You may enter ANY elements at this point-->
+               </urn1:dissentingOpinion>
+               <!--You may enter ANY elements at this point-->
+            </urn1:body>
+         </urn:careDocumentation>
+         <urn:result>
+            <urn1:resultCode>OK</urn1:resultCode>
+         </urn:result>
+      </urn:GetCareDocumentationResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:2:GetCareDocumentation"/>
+      </con:response>
+      
+      
+      
+      
+      
+      
+      <con:response name="SOAP Exception" id="7b9d3fe1-60bf-4d46-8920-904be237e448" httpResponseStatus="500" encoding="UTF-8" dataSource="">
+        <con:settings/>
+        <con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" >
+   <soapenv:Header/>
+   <soapenv:Body>
+      <soapenv:Fault>
+         <soapenv:Code>
+            <soapenv:Value>error code</soapenv:Value>
+         </soapenv:Code>
+         <soapenv:Reason>
+            <soapenv:Text>Technical error occurred</soapenv:Text>
+         </soapenv:Reason>
+      </soapenv:Fault>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:2:GetCareDocumentation"/>
+      </con:response>
+      
+      
+      
+      
+      
+      
+      <con:response name="Response ERROR" id="5652ff78-6017-4115-a1cf-47ab996287b5" httpResponseStatus="500" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <soapenv:Fault>
+      <faultcode>server</faultcode>
+      <faultstring xml:lang="SE">Valideringsfel</faultstring>
+      <!--Optional:-->
+      <faultactor>1</faultactor>
+      <!--Optional:-->
+      <detail>
+      	<text>${validationMessages}</text>
+      </detail>
+    </soapenv:Fault>
+  </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:2:GetCareDocumentation"/></con:response><con:response name="Empty Response" id="776f47ec-49e0-4558-82c0-bbcdfc093221" httpResponseStatus="200" encoding="UTF-8" dataSource="">
+        <con:settings/>
+        <con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"  xmlns:urn="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3" xmlns:urn1="urn:riv:clinicalprocess:healthcond:description:3">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:GetCareDocumentationResponse>
+         <urn:result>
+            <urn1:resultCode>OK</urn1:resultCode>
+         </urn:result>
+      </urn:GetCareDocumentationResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3:GetCareDocumentation"/>
+      </con:response><con:response name="TimeBlasterResponse" id="776f47ec-49e0-4558-82c0-bbcdfc093221" httpResponseStatus="200" encoding="UTF-8" dataSource="">
+        <con:settings/>
+        <con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"  xmlns:urn="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3" xmlns:urn1="urn:riv:clinicalprocess:healthcond:description:3">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:GetCareDocumentationResponse>
+         <!--Signerad-->
+         <urn:careDocumentation>
+            <urn1:header>
+               <urn1:accessControlHeader>
+                  <urn1:accountableHealthcareProvider>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careGiverHSAId}</urn1:extension>
+                  </urn1:accountableHealthcareProvider>
+                  <urn1:accountableCareUnit>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careUnitHSAId}</urn1:extension>
+                  </urn1:accountableCareUnit>
+                  <urn1:patientId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>${patientId}</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:patientId>
+                  <urn1:blockComparisonTime>20170101100000</urn1:blockComparisonTime>
+                  <urn1:approvedForPatient>true</urn1:approvedForPatient>
+                  <!--You may enter ANY elements at this point-->
+               </urn1:accessControlHeader>
+               <urn1:sourceSystemId>
+                  <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                  <urn1:extension>${sourceSystemHSAId}</urn1:extension>
+               </urn1:sourceSystemId>
+               <urn1:record>
+                  <urn1:id>
+                     <urn1:root>CareContact-234</urn1:root>
+                  </urn1:id>
+                  <urn1:timestamp>20210101000001</urn1:timestamp>
+               </urn1:record>
+               <urn1:author>
+                  <urn1:id>
+                     <urn1:root>?</urn1:root>
+                     <urn1:extension>?</urn1:extension>
+                  </urn1:id>
+                  <urn1:name>?</urn1:name>
+                  <urn1:timestamp>20210102000002</urn1:timestamp>
+                  <urn1:byRole>
+                     <urn1:code>206017</urn1:code>
+                     <urn1:codeSystem>1.2.752.129.2.2.1.4</urn1:codeSystem>
+                     <urn1:displayName>Sjuksköterska, medicin/kirurgi</urn1:displayName>
+                  </urn1:byRole>
+               </urn1:author>
+               <urn1:signature>
+                  <urn1:id>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>SE132457689</urn1:extension>
+                  </urn1:id>
+                  <urn1:name>?</urn1:name>
+                  <urn1:timestamp>20210103000003</urn1:timestamp>
+                  <urn1:byRole>
+                     <urn1:code>206017</urn1:code>
+                     <urn1:codeSystem>1.2.752.129.2.2.1.4</urn1:codeSystem>
+                     <urn1:displayName>Sjuksköterska, medicin/kirurgi</urn1:displayName>
+                  </urn1:byRole>
+               </urn1:signature>
+            </urn1:header>
+            <urn1:body>
+               <urn1:clinicalDocumentNoteCode>
+                  <urn1:code>utr</urn1:code>
+                  <urn1:codeSystem>1.2.752.129.2.2.2.11</urn1:codeSystem>
+                  <urn1:codeSystemName>KV Anteckningstyp</urn1:codeSystemName>
+                  <urn1:codeSystemVersion>1.0</urn1:codeSystemVersion>
+                  <urn1:displayName>Utredning</urn1:displayName>
+               </urn1:clinicalDocumentNoteCode>
+               <urn1:clinicalDocumentNoteTitle>Title</urn1:clinicalDocumentNoteTitle>
+               <urn1:clinicalDocumentNoteText><![CDATA[åäö<>><&]]]]>><![CDATA[</urn1:clinicalDocumentNoteText>
+               <urn1:dissentingOpinion>
+                  <urn1:authorTime>20210104000004</urn1:authorTime>
+                  <urn1:opinion>Opinion 1</urn1:opinion>
+                  <urn1:personId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <urn1:extension>${patientId}</urn1:extension>
+                  </urn1:personId>
+                  <urn1:personName>Test Testsson</urn1:personName>
+               </urn1:dissentingOpinion>
+               <urn1:dissentingOpinion>
+                  <urn1:authorTime>20210105000005</urn1:authorTime>
+                  <urn1:opinion>Opinion 1</urn1:opinion>
+                  <urn1:personId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <urn1:extension>${patientId}</urn1:extension>
+                  </urn1:personId>
+                  <urn1:personName>Test Testsson</urn1:personName>
+               </urn1:dissentingOpinion>
+               <urn1:dissentingOpinion>
+                  <urn1:authorTime>20210106000006</urn1:authorTime>
+                  <urn1:opinion>Opinion 1</urn1:opinion>
+                  <urn1:personId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <urn1:extension>${patientId}</urn1:extension>
+                  </urn1:personId>
+                  <urn1:personName>Test Testsson</urn1:personName>
+               </urn1:dissentingOpinion>
+            </urn1:body>
+         </urn:careDocumentation>
+         <urn:result>
+            <urn1:resultCode>OK</urn1:resultCode>
+         </urn:result>
+      </urn:GetCareDocumentationResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3:GetCareDocumentation"/>
+      </con:response><con:response name="ClinicalDocumentNoteCodeResponse" id="776f47ec-49e0-4558-82c0-bbcdfc093221" httpResponseStatus="200" encoding="UTF-8" dataSource="">
+        <con:settings/>
+        <con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"  xmlns:urn="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3" xmlns:urn1="urn:riv:clinicalprocess:healthcond:description:3">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:GetCareDocumentationResponse>
+         <!--Utredning-->
+         <urn:careDocumentation>
+            <urn1:header>
+               <urn1:accessControlHeader>
+                  <urn1:accountableHealthcareProvider>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careGiverHSAId}</urn1:extension>
+                  </urn1:accountableHealthcareProvider>
+                  <urn1:accountableCareUnit>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careUnitHSAId}</urn1:extension>
+                  </urn1:accountableCareUnit>
+                  <urn1:patientId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>${patientId}</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:patientId>
+                  <urn1:blockComparisonTime>20170101100000</urn1:blockComparisonTime>
+                  <urn1:approvedForPatient>true</urn1:approvedForPatient>
+               </urn1:accessControlHeader>
+               <urn1:sourceSystemId>
+                  <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                  <urn1:extension>${sourceSystemHSAId}</urn1:extension>
+               </urn1:sourceSystemId>
+               <urn1:record>
+                  <urn1:id>
+                     <urn1:root>CareContact-345</urn1:root>
+                  </urn1:id>
+                  <urn1:timestamp>20210101000001</urn1:timestamp>
+               </urn1:record>
+            </urn1:header>
+            <urn1:body>
+               <urn1:clinicalDocumentNoteCode>
+                  <urn1:code>utr</urn1:code>
+                  <urn1:codeSystem>1.2.752.129.2.2.2.11</urn1:codeSystem>
+                  <urn1:codeSystemName>KV Anteckningstyp</urn1:codeSystemName>
+                  <urn1:codeSystemVersion>1.0</urn1:codeSystemVersion>
+                  <urn1:displayName>Utredning</urn1:displayName>
+               </urn1:clinicalDocumentNoteCode>
+               <urn1:clinicalDocumentNoteTitle>Title</urn1:clinicalDocumentNoteTitle>
+               <urn1:clinicalDocumentNoteText>Utredning</urn1:clinicalDocumentNoteText>
+            </urn1:body>
+         </urn:careDocumentation>
+         <!--Behandling-->
+         <urn:careDocumentation>
+            <urn1:header>
+               <urn1:accessControlHeader>
+                  <urn1:accountableHealthcareProvider>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careGiverHSAId}</urn1:extension>
+                  </urn1:accountableHealthcareProvider>
+                  <urn1:accountableCareUnit>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careUnitHSAId}</urn1:extension>
+                  </urn1:accountableCareUnit>
+                  <urn1:patientId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>${patientId}</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:patientId>
+                  <urn1:blockComparisonTime>20170101100000</urn1:blockComparisonTime>
+                  <urn1:approvedForPatient>true</urn1:approvedForPatient>
+               </urn1:accessControlHeader>
+               <urn1:sourceSystemId>
+                  <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                  <urn1:extension>${sourceSystemHSAId}</urn1:extension>
+               </urn1:sourceSystemId>
+               <urn1:record>
+                  <urn1:id>
+                     <urn1:root>CareContact-346</urn1:root>
+                  </urn1:id>
+                  <urn1:timestamp>20210101000001</urn1:timestamp>
+               </urn1:record>
+            </urn1:header>
+            <urn1:body>
+               <urn1:clinicalDocumentNoteCode>
+                  <urn1:code>atb</urn1:code>
+                  <urn1:codeSystem>1.2.752.129.2.2.2.11</urn1:codeSystem>
+                  <urn1:codeSystemName>KV Anteckningstyp</urn1:codeSystemName>
+                  <urn1:codeSystemVersion>1.0</urn1:codeSystemVersion>
+                  <urn1:displayName>Åtgärd/Behandling</urn1:displayName>
+               </urn1:clinicalDocumentNoteCode>
+               <urn1:clinicalDocumentNoteTitle>Title</urn1:clinicalDocumentNoteTitle>
+               <urn1:clinicalDocumentNoteText>Behandling</urn1:clinicalDocumentNoteText>
+            </urn1:body>
+         </urn:careDocumentation>
+         <!--Sammanfattning-->
+         <urn:careDocumentation>
+            <urn1:header>
+               <urn1:accessControlHeader>
+                  <urn1:accountableHealthcareProvider>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careGiverHSAId}</urn1:extension>
+                  </urn1:accountableHealthcareProvider>
+                  <urn1:accountableCareUnit>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careUnitHSAId}</urn1:extension>
+                  </urn1:accountableCareUnit>
+                  <urn1:patientId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>${patientId}</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:patientId>
+                  <urn1:blockComparisonTime>20170101100000</urn1:blockComparisonTime>
+                  <urn1:approvedForPatient>true</urn1:approvedForPatient>
+               </urn1:accessControlHeader>
+               <urn1:sourceSystemId>
+                  <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                  <urn1:extension>${sourceSystemHSAId}</urn1:extension>
+               </urn1:sourceSystemId>
+               <urn1:record>
+                  <urn1:id>
+                     <urn1:root>CareContact-347</urn1:root>
+                  </urn1:id>
+                  <urn1:timestamp>20210101000001</urn1:timestamp>
+               </urn1:record>
+            </urn1:header>
+            <urn1:body>
+               <urn1:clinicalDocumentNoteCode>
+                  <urn1:code>sam</urn1:code>
+                  <urn1:codeSystem>1.2.752.129.2.2.2.11</urn1:codeSystem>
+                  <urn1:codeSystemName>KV Anteckningstyp</urn1:codeSystemName>
+                  <urn1:codeSystemVersion>1.0</urn1:codeSystemVersion>
+                  <urn1:displayName>Sammanfattning</urn1:displayName>
+               </urn1:clinicalDocumentNoteCode>
+               <urn1:clinicalDocumentNoteTitle>Title</urn1:clinicalDocumentNoteTitle>
+               <urn1:clinicalDocumentNoteText>Sammanfattning</urn1:clinicalDocumentNoteText>
+            </urn1:body>
+         </urn:careDocumentation>
+         <!--Samordning-->
+         <urn:careDocumentation>
+            <urn1:header>
+               <urn1:accessControlHeader>
+                  <urn1:accountableHealthcareProvider>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careGiverHSAId}</urn1:extension>
+                  </urn1:accountableHealthcareProvider>
+                  <urn1:accountableCareUnit>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careUnitHSAId}</urn1:extension>
+                  </urn1:accountableCareUnit>
+                  <urn1:patientId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>${patientId}</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:patientId>
+                  <urn1:blockComparisonTime>20170101100000</urn1:blockComparisonTime>
+                  <urn1:approvedForPatient>true</urn1:approvedForPatient>
+               </urn1:accessControlHeader>
+               <urn1:sourceSystemId>
+                  <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                  <urn1:extension>${sourceSystemHSAId}</urn1:extension>
+               </urn1:sourceSystemId>
+               <urn1:record>
+                  <urn1:id>
+                     <urn1:root>CareContact-348</urn1:root>
+                  </urn1:id>
+                  <urn1:timestamp>20210101000001</urn1:timestamp>
+               </urn1:record>
+            </urn1:header>
+            <urn1:body>
+               <urn1:clinicalDocumentNoteCode>
+                  <urn1:code>sao</urn1:code>
+                  <urn1:codeSystem>1.2.752.129.2.2.2.11</urn1:codeSystem>
+                  <urn1:codeSystemName>KV Anteckningstyp</urn1:codeSystemName>
+                  <urn1:codeSystemVersion>1.0</urn1:codeSystemVersion>
+                  <urn1:displayName>Samordning</urn1:displayName>
+               </urn1:clinicalDocumentNoteCode>
+               <urn1:clinicalDocumentNoteTitle>Title</urn1:clinicalDocumentNoteTitle>
+               <urn1:clinicalDocumentNoteText>Samordning</urn1:clinicalDocumentNoteText>
+            </urn1:body>
+         </urn:careDocumentation>
+         <!--Inskrivning-->
+         <urn:careDocumentation>
+            <urn1:header>
+               <urn1:accessControlHeader>
+                  <urn1:accountableHealthcareProvider>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careGiverHSAId}</urn1:extension>
+                  </urn1:accountableHealthcareProvider>
+                  <urn1:accountableCareUnit>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careUnitHSAId}</urn1:extension>
+                  </urn1:accountableCareUnit>
+                  <urn1:patientId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>${patientId}</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:patientId>
+                  <urn1:blockComparisonTime>20170101100000</urn1:blockComparisonTime>
+                  <urn1:approvedForPatient>true</urn1:approvedForPatient>
+               </urn1:accessControlHeader>
+               <urn1:sourceSystemId>
+                  <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                  <urn1:extension>${sourceSystemHSAId}</urn1:extension>
+               </urn1:sourceSystemId>
+               <urn1:record>
+                  <urn1:id>
+                     <urn1:root>CareContact-349</urn1:root>
+                  </urn1:id>
+                  <urn1:timestamp>20210101000001</urn1:timestamp>
+               </urn1:record>
+            </urn1:header>
+            <urn1:body>
+               <urn1:clinicalDocumentNoteCode>
+                  <urn1:code>ins</urn1:code>
+                  <urn1:codeSystem>1.2.752.129.2.2.2.11</urn1:codeSystem>
+                  <urn1:codeSystemName>KV Anteckningstyp</urn1:codeSystemName>
+                  <urn1:codeSystemVersion>1.0</urn1:codeSystemVersion>
+                  <urn1:displayName>Inskrivning</urn1:displayName>
+               </urn1:clinicalDocumentNoteCode>
+               <urn1:clinicalDocumentNoteTitle>Title</urn1:clinicalDocumentNoteTitle>
+               <urn1:clinicalDocumentNoteText>Inskrivning</urn1:clinicalDocumentNoteText>
+            </urn1:body>
+         </urn:careDocumentation>
+         <!--Slutanteckning-->
+         <urn:careDocumentation>
+            <urn1:header>
+               <urn1:accessControlHeader>
+                  <urn1:accountableHealthcareProvider>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careGiverHSAId}</urn1:extension>
+                  </urn1:accountableHealthcareProvider>
+                  <urn1:accountableCareUnit>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careUnitHSAId}</urn1:extension>
+                  </urn1:accountableCareUnit>
+                  <urn1:patientId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>${patientId}</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:patientId>
+                  <urn1:blockComparisonTime>20170101100000</urn1:blockComparisonTime>
+                  <urn1:approvedForPatient>true</urn1:approvedForPatient>
+               </urn1:accessControlHeader>
+               <urn1:sourceSystemId>
+                  <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                  <urn1:extension>${sourceSystemHSAId}</urn1:extension>
+               </urn1:sourceSystemId>
+               <urn1:record>
+                  <urn1:id>
+                     <urn1:root>CareContact-350</urn1:root>
+                  </urn1:id>
+                  <urn1:timestamp>20210101000001</urn1:timestamp>
+               </urn1:record>
+            </urn1:header>
+            <urn1:body>
+               <urn1:clinicalDocumentNoteCode>
+                  <urn1:code>slu</urn1:code>
+                  <urn1:codeSystem>1.2.752.129.2.2.2.11</urn1:codeSystem>
+                  <urn1:codeSystemName>KV Anteckningstyp</urn1:codeSystemName>
+                  <urn1:codeSystemVersion>1.0</urn1:codeSystemVersion>
+                  <urn1:displayName>Slutanteckning</urn1:displayName>
+               </urn1:clinicalDocumentNoteCode>
+               <urn1:clinicalDocumentNoteTitle>Title</urn1:clinicalDocumentNoteTitle>
+               <urn1:clinicalDocumentNoteText>Slutanteckning</urn1:clinicalDocumentNoteText>
+            </urn1:body>
+         </urn:careDocumentation>
+         <!--Anteckning Utan Fysiskt Möte-->
+         <urn:careDocumentation>
+            <urn1:header>
+               <urn1:accessControlHeader>
+                  <urn1:accountableHealthcareProvider>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careGiverHSAId}</urn1:extension>
+                  </urn1:accountableHealthcareProvider>
+                  <urn1:accountableCareUnit>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careUnitHSAId}</urn1:extension>
+                  </urn1:accountableCareUnit>
+                  <urn1:patientId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>${patientId}</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:patientId>
+                  <urn1:blockComparisonTime>20170101100000</urn1:blockComparisonTime>
+                  <urn1:approvedForPatient>true</urn1:approvedForPatient>
+               </urn1:accessControlHeader>
+               <urn1:sourceSystemId>
+                  <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                  <urn1:extension>${sourceSystemHSAId}</urn1:extension>
+               </urn1:sourceSystemId>
+               <urn1:record>
+                  <urn1:id>
+                     <urn1:root>CareContact-351</urn1:root>
+                  </urn1:id>
+                  <urn1:timestamp>20210101000001</urn1:timestamp>
+               </urn1:record>
+            </urn1:header>
+            <urn1:body>
+               <urn1:clinicalDocumentNoteCode>
+                  <urn1:code>auf</urn1:code>
+                  <urn1:codeSystem>1.2.752.129.2.2.2.11</urn1:codeSystem>
+                  <urn1:codeSystemName>KV Anteckningstyp</urn1:codeSystemName>
+                  <urn1:codeSystemVersion>1.0</urn1:codeSystemVersion>
+                  <urn1:displayName>Anteckning utan fysiskt möte</urn1:displayName>
+               </urn1:clinicalDocumentNoteCode>
+               <urn1:clinicalDocumentNoteTitle>Title</urn1:clinicalDocumentNoteTitle>
+               <urn1:clinicalDocumentNoteText>Anteckning Utan Fysiskt Möte</urn1:clinicalDocumentNoteText>
+            </urn1:body>
+         </urn:careDocumentation>
+         <!--Slutenvårdsanteckning-->
+         <urn:careDocumentation>
+            <urn1:header>
+               <urn1:accessControlHeader>
+                  <urn1:accountableHealthcareProvider>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careGiverHSAId}</urn1:extension>
+                  </urn1:accountableHealthcareProvider>
+                  <urn1:accountableCareUnit>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careUnitHSAId}</urn1:extension>
+                  </urn1:accountableCareUnit>
+                  <urn1:patientId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>${patientId}</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:patientId>
+                  <urn1:blockComparisonTime>20170101100000</urn1:blockComparisonTime>
+                  <urn1:approvedForPatient>true</urn1:approvedForPatient>
+               </urn1:accessControlHeader>
+               <urn1:sourceSystemId>
+                  <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                  <urn1:extension>${sourceSystemHSAId}</urn1:extension>
+               </urn1:sourceSystemId>
+               <urn1:record>
+                  <urn1:id>
+                     <urn1:root>CareContact-352</urn1:root>
+                  </urn1:id>
+                  <urn1:timestamp>20210101000001</urn1:timestamp>
+               </urn1:record>
+            </urn1:header>
+            <urn1:body>
+               <urn1:clinicalDocumentNoteCode>
+                  <urn1:code>sva</urn1:code>
+                  <urn1:codeSystem>1.2.752.129.2.2.2.11</urn1:codeSystem>
+                  <urn1:codeSystemName>KV Anteckningstyp</urn1:codeSystemName>
+                  <urn1:codeSystemVersion>1.0</urn1:codeSystemVersion>
+                  <urn1:displayName>Slutenvårdsanteckning</urn1:displayName>
+               </urn1:clinicalDocumentNoteCode>
+               <urn1:clinicalDocumentNoteTitle>Title</urn1:clinicalDocumentNoteTitle>
+               <urn1:clinicalDocumentNoteText>Slutenvårdsanteckning</urn1:clinicalDocumentNoteText>
+            </urn1:body>
+         </urn:careDocumentation>
+         <!--Besöksanteckning-->
+         <urn:careDocumentation>
+            <urn1:header>
+               <urn1:accessControlHeader>
+                  <urn1:accountableHealthcareProvider>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careGiverHSAId}</urn1:extension>
+                  </urn1:accountableHealthcareProvider>
+                  <urn1:accountableCareUnit>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careUnitHSAId}</urn1:extension>
+                  </urn1:accountableCareUnit>
+                  <urn1:patientId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>${patientId}</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:patientId>
+                  <urn1:blockComparisonTime>20170101100000</urn1:blockComparisonTime>
+                  <urn1:approvedForPatient>true</urn1:approvedForPatient>
+               </urn1:accessControlHeader>
+               <urn1:sourceSystemId>
+                  <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                  <urn1:extension>${sourceSystemHSAId}</urn1:extension>
+               </urn1:sourceSystemId>
+               <urn1:record>
+                  <urn1:id>
+                     <urn1:root>CareContact-353</urn1:root>
+                  </urn1:id>
+                  <urn1:timestamp>20210101000001</urn1:timestamp>
+               </urn1:record>
+            </urn1:header>
+            <urn1:body>
+               <urn1:clinicalDocumentNoteCode>
+                  <urn1:code>bes</urn1:code>
+                  <urn1:codeSystem>1.2.752.129.2.2.2.11</urn1:codeSystem>
+                  <urn1:codeSystemName>KV Anteckningstyp</urn1:codeSystemName>
+                  <urn1:codeSystemVersion>1.0</urn1:codeSystemVersion>
+                  <urn1:displayName>Besöksanteckning</urn1:displayName>
+               </urn1:clinicalDocumentNoteCode>
+               <urn1:clinicalDocumentNoteTitle>Title</urn1:clinicalDocumentNoteTitle>
+               <urn1:clinicalDocumentNoteText>Besöksanteckning</urn1:clinicalDocumentNoteText>
+            </urn1:body>
+         </urn:careDocumentation>
+         <urn:result>
+            <urn1:resultCode>OK</urn1:resultCode>
+         </urn:result>
+      </urn:GetCareDocumentationResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3:GetCareDocumentation"/>
+      </con:response><con:response name="MultimediaResponse" id="776f47ec-49e0-4558-82c0-bbcdfc093221" httpResponseStatus="200" encoding="UTF-8" dataSource="">
+        <con:settings/>
+        <con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"  xmlns:urn="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3" xmlns:urn1="urn:riv:clinicalprocess:healthcond:description:3">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:GetCareDocumentationResponse>
+         <urn:careDocumentation>
+            <urn1:header>
+               <urn1:accessControlHeader>
+                  <urn1:accountableHealthcareProvider>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careGiverHSAId}</urn1:extension>
+                  </urn1:accountableHealthcareProvider>
+                  <urn1:accountableCareUnit>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careUnitHSAId}</urn1:extension>
+                  </urn1:accountableCareUnit>
+                  <urn1:patientId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>${patientId}</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:patientId>
+                  <urn1:blockComparisonTime>20170101100000</urn1:blockComparisonTime>
+                  <urn1:approvedForPatient>true</urn1:approvedForPatient>
+                  <!--You may enter ANY elements at this point-->
+               </urn1:accessControlHeader>
+               <urn1:sourceSystemId>
+                  <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                  <urn1:extension>${sourceSystemHSAId}</urn1:extension>
+               </urn1:sourceSystemId>
+               <urn1:record>
+                  <urn1:id>
+                     <urn1:root>CareContact-456</urn1:root>
+                  </urn1:id>
+                  <urn1:timestamp>20170101100000</urn1:timestamp>
+               </urn1:record>
+               <urn1:author>
+                  <urn1:id>
+                     <urn1:root>?</urn1:root>
+                     <urn1:extension>?</urn1:extension>
+                  </urn1:id>
+                  <urn1:name>?</urn1:name>
+                  <urn1:timestamp>20071212010101</urn1:timestamp>
+                  <urn1:byRole>
+                     <urn1:code>206017</urn1:code>
+                     <urn1:codeSystem>1.2.752.129.2.2.1.4</urn1:codeSystem>
+                     <urn1:displayName>Sjuksköterska, medicin/kirurgi</urn1:displayName>
+                  </urn1:byRole>
+               </urn1:author>
+               <urn1:signature>
+                  <urn1:id>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>SE132457689</urn1:extension>
+                  </urn1:id>
+                  <urn1:name>?</urn1:name>
+                  <urn1:timestamp>20071212010101</urn1:timestamp>
+                  <urn1:byRole>
+                     <urn1:code>206017</urn1:code>
+                     <urn1:codeSystem>1.2.752.129.2.2.1.4</urn1:codeSystem>
+                     <urn1:displayName>Sjuksköterska, medicin/kirurgi</urn1:displayName>
+                  </urn1:byRole>
+               </urn1:signature>
+            </urn1:header>
+            <urn1:body>
+               <urn1:clinicalDocumentNoteCode>
+                  <urn1:code>utr</urn1:code>
+                  <urn1:codeSystem>1.2.752.129.2.2.2.11</urn1:codeSystem>
+                  <urn1:codeSystemName>KV Anteckningstyp</urn1:codeSystemName>
+                  <urn1:codeSystemVersion>1.0</urn1:codeSystemVersion>
+                  <urn1:displayName>Utredning</urn1:displayName>
+               </urn1:clinicalDocumentNoteCode>
+               <urn1:clinicalDocumentNoteTitle>Title</urn1:clinicalDocumentNoteTitle>
+               <urn1:multimediaEntry>
+                  <urn1:mediaType>image/png</urn1:mediaType>
+                  <urn1:value>iVBORw0KGgoAAAANSUhEUgAAACgAAAAYCAMAAAC/Wk/yAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlY
+WR5ccllPAAAAyxpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVz
+VNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg
+6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NjcyOSwgMjAxMi8wNS8wMy0xMzo0MDowMyAg
+ICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1ze
+W50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYW
+RvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyI
+geG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHht
+cDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIEVsZW1lbnRzIDEyLjAgTWFjaW50b3NoIiB4bXBNTTpJb
+nN0YW5jZUlEPSJ4bXAuaWlkOjExMDhGMkVGN0ZEQzExRTU5Q0U3QjM1N0YyMUZERDI4IiB4bXBNTTpEb2N1bW
+VudElEPSJ4bXAuZGlkOjExMDhGMkYwN0ZEQzExRTU5Q0U3QjM1N0YyMUZERDI4Ij4gPHhtcE1NOkRlcml2ZWR
+Gcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MTEwOEYyRUQ3RkRDMTFFNTlDRTdCMzU3RjIxRkREMjgi
+IHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MTEwOEYyRUU3RkRDMTFFNTlDRTdCMzU3RjIxRkREMjgiLz4gP
+C9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5uPE
+kYAAAAYFBMVEVCQUGvrq/a29sZGBjvhhyJiYbfYSQYpKfk5ub4zJ6r293////g39/v8fHrqlvHx8fruJi/4+h
+iyM/y/P339/fx5+X8/PxRs7f98eX++vj+9fL//Pqfnp/63MBzcnLT0tLhjtFbAAABPUlEQVR42oyS65KDIAyF
+gYBQLqKV0gso7/+Wm9B2Z3emo80PIMdvToKEuS+Dvfb7Ok2Xcgg+JjlgXI7AVcqByFZ2wXKSPYZh3ndEbuygD
+nkPfEi5lvsolb7u3/okT6Uss9balgNwdctstb6WfcdVjm62Z61N3gdvo5zOyNnDl7mN2J+el0NwWay1y3dvnf
+N3QxGqd4a7plSjlG/Ko8hTrjGLuin+BhtUx2EDBiBcwp1BRJEzqA0oUy8wAs8cWEwcalaAtoxlAaSQr2OQ3o4
+ExuQMgoyJJhR4D69Z9Xxj4Rd0Fas5DzVhfeqh4Zm+1Z6Hf44dzLAl400oooMKtobLBxDbe/6w1kHK8h+Qbh1z
+d8TrC1OZoDOBwquPpd19w6awfnfMkTpUbzCJ4IJIqAsachOjeYqomNhQTu5HgAEADb0qvmvhoMsAAAAASUVOR
+K5CYII=</urn1:value>
+               </urn1:multimediaEntry>
+               <urn1:dissentingOpinion>
+                  <urn1:opinionId>
+                     <urn1:root>?</urn1:root>
+                     <urn1:extension>?</urn1:extension>
+                  </urn1:opinionId>
+                  <urn1:authorTime>20071212010101</urn1:authorTime>
+                  <urn1:opinion>?</urn1:opinion>
+                  <urn1:personId>
+                     <urn1:root>?</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>?</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:personId>
+                  <urn1:personName>?</urn1:personName>
+                  <!--You may enter ANY elements at this point-->
+               </urn1:dissentingOpinion>
+               <!--You may enter ANY elements at this point-->
+            </urn1:body>
+         </urn:careDocumentation>
+         <urn:careDocumentation>
+            <urn1:header>
+               <urn1:accessControlHeader>
+                  <urn1:accountableHealthcareProvider>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careGiverHSAId}</urn1:extension>
+                  </urn1:accountableHealthcareProvider>
+                  <urn1:accountableCareUnit>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careUnitHSAId}</urn1:extension>
+                  </urn1:accountableCareUnit>
+                  <urn1:patientId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>${patientId}</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:patientId>
+                  <urn1:blockComparisonTime>20170101100000</urn1:blockComparisonTime>
+                  <urn1:approvedForPatient>true</urn1:approvedForPatient>
+                  <!--You may enter ANY elements at this point-->
+               </urn1:accessControlHeader>
+               <urn1:sourceSystemId>
+                  <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                  <urn1:extension>${sourceSystemHSAId}</urn1:extension>
+               </urn1:sourceSystemId>
+               <urn1:record>
+                  <urn1:id>
+                     <urn1:root>CareContact-457</urn1:root>
+                  </urn1:id>
+                  <urn1:timestamp>20170101100000</urn1:timestamp>
+               </urn1:record>
+               <urn1:author>
+                  <urn1:id>
+                     <urn1:root>?</urn1:root>
+                     <urn1:extension>?</urn1:extension>
+                  </urn1:id>
+                  <urn1:name>?</urn1:name>
+                  <urn1:timestamp>20071212010101</urn1:timestamp>
+                  <urn1:byRole>
+                     <urn1:code>206017</urn1:code>
+                     <urn1:codeSystem>1.2.752.129.2.2.1.4</urn1:codeSystem>
+                     <urn1:displayName>Sjuksköterska, medicin/kirurgi</urn1:displayName>
+                  </urn1:byRole>
+               </urn1:author>
+               <urn1:signature>
+                  <urn1:id>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>SE132457689</urn1:extension>
+                  </urn1:id>
+                  <urn1:name>?</urn1:name>
+                  <urn1:timestamp>20071212010101</urn1:timestamp>
+                  <urn1:byRole>
+                     <urn1:code>206017</urn1:code>
+                     <urn1:codeSystem>1.2.752.129.2.2.1.4</urn1:codeSystem>
+                     <urn1:displayName>Sjuksköterska, medicin/kirurgi</urn1:displayName>
+                  </urn1:byRole>
+               </urn1:signature>
+            </urn1:header>
+            <urn1:body>
+               <urn1:clinicalDocumentNoteCode>
+                  <urn1:code>utr</urn1:code>
+                  <urn1:codeSystem>1.2.752.129.2.2.2.11</urn1:codeSystem>
+                  <urn1:codeSystemName>KV Anteckningstyp</urn1:codeSystemName>
+                  <urn1:codeSystemVersion>1.0</urn1:codeSystemVersion>
+                  <urn1:displayName>Utredning</urn1:displayName>
+               </urn1:clinicalDocumentNoteCode>
+               <urn1:clinicalDocumentNoteTitle>Title</urn1:clinicalDocumentNoteTitle>
+               <urn1:multimediaEntry>
+                  <urn1:mediaType>text/xml</urn1:mediaType>
+                  <urn1:reference>https://test.esb.ntjp.se/vp/clinicalprocess/healthcond/description/GetCareDocumentation/2/rivtabp21?wsdl</urn1:reference>
+               </urn1:multimediaEntry>
+               <urn1:dissentingOpinion>
+                  <urn1:opinionId>
+                     <urn1:root>?</urn1:root>
+                     <urn1:extension>?</urn1:extension>
+                  </urn1:opinionId>
+                  <urn1:authorTime>20071212010101</urn1:authorTime>
+                  <urn1:opinion>?</urn1:opinion>
+                  <urn1:personId>
+                     <urn1:root>?</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>?</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:personId>
+                  <urn1:personName>?</urn1:personName>
+                  <!--You may enter ANY elements at this point-->
+               </urn1:dissentingOpinion>
+               <!--You may enter ANY elements at this point-->
+            </urn1:body>
+         </urn:careDocumentation>
+         <urn:result>
+            <urn1:resultCode>OK</urn1:resultCode>
+         </urn:result>
+      </urn:GetCareDocumentationResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3:GetCareDocumentation"/>
+      </con:response><con:response name="BasicResponse Filtered" id="776f47ec-49e0-4558-82c0-bbcdfc093221" httpResponseStatus="200" encoding="UTF-8" dataSource="">
+        <con:settings/>
+        <con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"  xmlns:urn="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3" xmlns:urn1="urn:riv:clinicalprocess:healthcond:description:3">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:GetCareDocumentationResponse>
+         <!--Signerad-->
+         <urn:careDocumentation>
+            <urn1:header>
+               <urn1:accessControlHeader>
+                  <urn1:accountableHealthcareProvider>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careGiverHSAId}</urn1:extension>
+                  </urn1:accountableHealthcareProvider>
+                  <urn1:accountableCareUnit>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careUnitHSAId}</urn1:extension>
+                  </urn1:accountableCareUnit>
+                  <urn1:patientId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>${patientId}</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:patientId>
+                  <urn1:blockComparisonTime>20170101100000</urn1:blockComparisonTime>
+                  <urn1:approvedForPatient>true</urn1:approvedForPatient>
+                  <!--You may enter ANY elements at this point-->
+               </urn1:accessControlHeader>
+               <urn1:sourceSystemId>
+                  <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                  <urn1:extension>${sourceSystemHSAId}</urn1:extension>
+               </urn1:sourceSystemId>
+               <urn1:record>
+                  <urn1:id>
+                     <urn1:root>CareContact-678</urn1:root>
+                  </urn1:id>
+                  <urn1:timestamp>20170101100000</urn1:timestamp>
+               </urn1:record>
+               <urn1:author>
+                  <urn1:id>
+                     <urn1:root>?</urn1:root>
+                     <urn1:extension>?</urn1:extension>
+                  </urn1:id>
+                  <urn1:name>?</urn1:name>
+                  <urn1:timestamp>20071212010101</urn1:timestamp>
+                  <urn1:byRole>
+                     <urn1:code>206017</urn1:code>
+                     <urn1:codeSystem>1.2.752.129.2.2.1.4</urn1:codeSystem>
+                     <urn1:displayName>Sjuksköterska, medicin/kirurgi</urn1:displayName>
+                  </urn1:byRole>
+               </urn1:author>
+               <urn1:signature>
+                  <urn1:id>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>SE132457689</urn1:extension>
+                  </urn1:id>
+                  <urn1:name>?</urn1:name>
+                  <urn1:timestamp>20071212010101</urn1:timestamp>
+                  <urn1:byRole>
+                     <urn1:code>206017</urn1:code>
+                     <urn1:codeSystem>1.2.752.129.2.2.1.4</urn1:codeSystem>
+                     <urn1:displayName>Sjuksköterska, medicin/kirurgi</urn1:displayName>
+                  </urn1:byRole>
+               </urn1:signature>
+            </urn1:header>
+            <urn1:body>
+               <urn1:clinicalDocumentNoteCode>
+                  <urn1:code>utr</urn1:code>
+                  <urn1:codeSystem>1.2.752.129.2.2.2.11</urn1:codeSystem>
+                  <urn1:codeSystemName>KV Anteckningstyp</urn1:codeSystemName>
+                  <urn1:codeSystemVersion>1.0</urn1:codeSystemVersion>
+                  <urn1:displayName>Utredning</urn1:displayName>
+               </urn1:clinicalDocumentNoteCode>
+               <urn1:clinicalDocumentNoteTitle>Title</urn1:clinicalDocumentNoteTitle>
+               <urn1:clinicalDocumentNoteText><![CDATA[åäö<>><&]]]]>><![CDATA[</urn1:clinicalDocumentNoteText>
+               <urn1:dissentingOpinion>
+                  <urn1:opinionId>
+                     <urn1:root>?</urn1:root>
+                     <urn1:extension>?</urn1:extension>
+                  </urn1:opinionId>
+                  <urn1:authorTime>20071212010101</urn1:authorTime>
+                  <urn1:opinion>?</urn1:opinion>
+                  <urn1:personId>
+                     <urn1:root>?</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>?</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:personId>
+                  <urn1:personName>?</urn1:personName>
+                  <!--You may enter ANY elements at this point-->
+               </urn1:dissentingOpinion>
+               <!--You may enter ANY elements at this point-->
+            </urn1:body>
+         </urn:careDocumentation>
+         <!--Osignerad-->
+         <urn:careDocumentation>
+            <urn1:header>
+               <urn1:accessControlHeader>
+                  <urn1:accountableHealthcareProvider>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careGiverHSAId}</urn1:extension>
+                  </urn1:accountableHealthcareProvider>
+                  <urn1:accountableCareUnit>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careUnitHSAId}</urn1:extension>
+                  </urn1:accountableCareUnit>
+                  <urn1:patientId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>${patientId}</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:patientId>
+                  <urn1:blockComparisonTime>20170101100000</urn1:blockComparisonTime>
+                  <urn1:approvedForPatient>false</urn1:approvedForPatient>
+                  <!--You may enter ANY elements at this point-->
+               </urn1:accessControlHeader>
+               <urn1:sourceSystemId>
+                  <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                  <urn1:extension>${sourceSystemHSAId}</urn1:extension>
+               </urn1:sourceSystemId>
+               <urn1:record>
+                  <urn1:id>
+                     <urn1:root>CareContact-679</urn1:root>
+                  </urn1:id>
+                  <urn1:timestamp>20170101100000</urn1:timestamp>
+               </urn1:record>
+               <urn1:author>
+                  <urn1:id>
+                     <urn1:root>?</urn1:root>
+                     <urn1:extension>?</urn1:extension>
+                  </urn1:id>
+                  <urn1:name>?</urn1:name>
+                  <urn1:timestamp>20071212010101</urn1:timestamp>
+                  <urn1:byRole>
+                     <urn1:code>206017</urn1:code>
+                     <urn1:codeSystem>1.2.752.129.2.2.1.4</urn1:codeSystem>
+                     <urn1:displayName>Sjuksköterska, medicin/kirurgi</urn1:displayName>
+                  </urn1:byRole>
+               </urn1:author>
+            </urn1:header>
+            <urn1:body>
+               <urn1:clinicalDocumentNoteCode>
+                  <urn1:code>utr</urn1:code>
+                  <urn1:codeSystem>1.2.752.129.2.2.2.11</urn1:codeSystem>
+                  <urn1:codeSystemName>KV Anteckningstyp</urn1:codeSystemName>
+                  <urn1:codeSystemVersion>1.0</urn1:codeSystemVersion>
+                  <urn1:displayName>Utredning</urn1:displayName>
+               </urn1:clinicalDocumentNoteCode>
+               <urn1:clinicalDocumentNoteTitle>Title</urn1:clinicalDocumentNoteTitle>
+               <urn1:clinicalDocumentNoteText>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;article&gt;
+    &lt;info&gt;
+        &lt;title&gt;…&lt;/title&gt;
+    &lt;/info&gt;
+    &lt;para&gt; … &lt;/para&gt;
+    &lt;para&gt; … &lt;/para&gt;
+    &lt;section&gt;
+        &lt;title&gt;…&lt;/title&gt;
+        &lt;para&gt; … &lt;/para&gt;
+        &lt;para&gt; … &lt;/para&gt;
+    &lt;/section&gt;
+    &lt;section&gt;
+        &lt;title&gt;…&lt;/title&gt;
+        &lt;para&gt; … &lt;/para&gt;
+        &lt;para&gt; … &lt;/para&gt;
+        &lt;section&gt;
+            &lt;title&gt;…&lt;/title&gt;
+            &lt;para&gt; … &lt;/para&gt;
+            &lt;para&gt; … &lt;/para&gt;
+            &lt;para&gt; … &lt;/para&gt;
+            &lt;/section&gt;
+    &lt;/section&gt;
+    &lt;bibliography&gt; … &lt;/bibliography&gt;
+&lt;/article&gt;
+			</urn1:clinicalDocumentNoteText>
+               <urn1:dissentingOpinion>
+                  <urn1:opinionId>
+                     <urn1:root>?</urn1:root>
+                     <urn1:extension>?</urn1:extension>
+                  </urn1:opinionId>
+                  <urn1:authorTime>20071212010101</urn1:authorTime>
+                  <urn1:opinion>?</urn1:opinion>
+                  <urn1:personId>
+                     <urn1:root>?</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>?</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:personId>
+                  <urn1:personName>?</urn1:personName>
+                  <!--You may enter ANY elements at this point-->
+               </urn1:dissentingOpinion>
+               <!--You may enter ANY elements at this point-->
+            </urn1:body>
+         </urn:careDocumentation>
+         <urn:result>
+            <urn1:resultCode>OK</urn1:resultCode>
+         </urn:result>
+      </urn:GetCareDocumentationResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3:GetCareDocumentation"/>
+      </con:response><con:response name="HasMore" id="776f47ec-49e0-4558-82c0-bbcdfc093221" httpResponseStatus="200" encoding="UTF-8" dataSource="">
+        <con:settings/>
+        <con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"  xmlns:urn="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3" xmlns:urn1="urn:riv:clinicalprocess:healthcond:description:3">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:GetCareDocumentationResponse>
+         <!--Signerad-->
+         <urn:careDocumentation>
+            <urn1:header>
+               <urn1:accessControlHeader>
+                  <urn1:accountableHealthcareProvider>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careGiverHSAId}</urn1:extension>
+                  </urn1:accountableHealthcareProvider>
+                  <urn1:accountableCareUnit>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careUnitHSAId}</urn1:extension>
+                  </urn1:accountableCareUnit>
+                  <urn1:patientId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>${patientId}</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:patientId>
+                  <urn1:blockComparisonTime>20170101100000</urn1:blockComparisonTime>
+                  <urn1:approvedForPatient>true</urn1:approvedForPatient>
+                  <!--You may enter ANY elements at this point-->
+               </urn1:accessControlHeader>
+               <urn1:sourceSystemId>
+                  <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                  <urn1:extension>${sourceSystemHSAId}</urn1:extension>
+               </urn1:sourceSystemId>
+               <urn1:record>
+                  <urn1:id>
+                     <urn1:root>CareContact-567</urn1:root>
+                  </urn1:id>
+                  <urn1:timestamp>20170101100000</urn1:timestamp>
+               </urn1:record>
+               <urn1:author>
+                  <urn1:id>
+                     <urn1:root>?</urn1:root>
+                     <urn1:extension>?</urn1:extension>
+                  </urn1:id>
+                  <urn1:name>?</urn1:name>
+                  <urn1:timestamp>20071212010101</urn1:timestamp>
+                  <urn1:byRole>
+                     <urn1:code>206017</urn1:code>
+                     <urn1:codeSystem>1.2.752.129.2.2.1.4</urn1:codeSystem>
+                     <urn1:displayName>Sjuksköterska, medicin/kirurgi</urn1:displayName>
+                  </urn1:byRole>
+               </urn1:author>
+               <urn1:signature>
+                  <urn1:id>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>SE132457689</urn1:extension>
+                  </urn1:id>
+                  <urn1:name>?</urn1:name>
+                  <urn1:timestamp>20071212010101</urn1:timestamp>
+                  <urn1:byRole>
+                     <urn1:code>206017</urn1:code>
+                     <urn1:codeSystem>1.2.752.129.2.2.1.4</urn1:codeSystem>
+                     <urn1:displayName>Sjuksköterska, medicin/kirurgi</urn1:displayName>
+                  </urn1:byRole>
+               </urn1:signature>
+            </urn1:header>
+            <urn1:body>
+               <urn1:clinicalDocumentNoteCode>
+                  <urn1:code>utr</urn1:code>
+                  <urn1:codeSystem>1.2.752.129.2.2.2.11</urn1:codeSystem>
+                  <urn1:codeSystemName>KV Anteckningstyp</urn1:codeSystemName>
+                  <urn1:codeSystemVersion>1.0</urn1:codeSystemVersion>
+                  <urn1:displayName>Utredning</urn1:displayName>
+               </urn1:clinicalDocumentNoteCode>
+               <urn1:clinicalDocumentNoteTitle>Title</urn1:clinicalDocumentNoteTitle>
+               <urn1:clinicalDocumentNoteText><![CDATA[åäö<>><&]]]]>><![CDATA[</urn1:clinicalDocumentNoteText>
+               <urn1:dissentingOpinion>
+                  <urn1:opinionId>
+                     <urn1:root>?</urn1:root>
+                     <urn1:extension>?</urn1:extension>
+                  </urn1:opinionId>
+                  <urn1:authorTime>20071212010101</urn1:authorTime>
+                  <urn1:opinion>?</urn1:opinion>
+                  <urn1:personId>
+                     <urn1:root>?</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>?</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:personId>
+                  <urn1:personName>?</urn1:personName>
+                  <!--You may enter ANY elements at this point-->
+               </urn1:dissentingOpinion>
+               <!--You may enter ANY elements at this point-->
+            </urn1:body>
+         </urn:careDocumentation>
+         <!--Osignerad-->
+         <urn:careDocumentation>
+            <urn1:header>
+               <urn1:accessControlHeader>
+                  <urn1:accountableHealthcareProvider>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careGiverHSAId}</urn1:extension>
+                  </urn1:accountableHealthcareProvider>
+                  <urn1:accountableCareUnit>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careUnitHSAId}</urn1:extension>
+                  </urn1:accountableCareUnit>
+                  <urn1:patientId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>${patientId}</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:patientId>
+                  <urn1:blockComparisonTime>20170101100000</urn1:blockComparisonTime>
+                  <urn1:approvedForPatient>false</urn1:approvedForPatient>
+                  <!--You may enter ANY elements at this point-->
+               </urn1:accessControlHeader>
+               <urn1:sourceSystemId>
+                  <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                  <urn1:extension>${sourceSystemHSAId}</urn1:extension>
+               </urn1:sourceSystemId>
+               <urn1:record>
+                  <urn1:id>
+                     <urn1:root>CareContact-568</urn1:root>
+                  </urn1:id>
+                  <urn1:timestamp>20170101100000</urn1:timestamp>
+               </urn1:record>
+               <urn1:author>
+                  <urn1:id>
+                     <urn1:root>?</urn1:root>
+                     <urn1:extension>?</urn1:extension>
+                  </urn1:id>
+                  <urn1:name>?</urn1:name>
+                  <urn1:timestamp>20071212010101</urn1:timestamp>
+                  <urn1:byRole>
+                     <urn1:code>206017</urn1:code>
+                     <urn1:codeSystem>1.2.752.129.2.2.1.4</urn1:codeSystem>
+                     <urn1:displayName>Sjuksköterska, medicin/kirurgi</urn1:displayName>
+                  </urn1:byRole>
+               </urn1:author>
+            </urn1:header>
+            <urn1:body>
+               <urn1:clinicalDocumentNoteCode>
+                  <urn1:code>utr</urn1:code>
+                  <urn1:codeSystem>1.2.752.129.2.2.2.11</urn1:codeSystem>
+                  <urn1:codeSystemName>KV Anteckningstyp</urn1:codeSystemName>
+                  <urn1:codeSystemVersion>1.0</urn1:codeSystemVersion>
+                  <urn1:displayName>Utredning</urn1:displayName>
+               </urn1:clinicalDocumentNoteCode>
+               <urn1:clinicalDocumentNoteTitle>Title</urn1:clinicalDocumentNoteTitle>
+               <urn1:clinicalDocumentNoteText>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;article&gt;
+    &lt;info&gt;
+        &lt;title&gt;…&lt;/title&gt;
+    &lt;/info&gt;
+    &lt;para&gt; … &lt;/para&gt;
+    &lt;para&gt; … &lt;/para&gt;
+    &lt;section&gt;
+        &lt;title&gt;…&lt;/title&gt;
+        &lt;para&gt; … &lt;/para&gt;
+        &lt;para&gt; … &lt;/para&gt;
+    &lt;/section&gt;
+    &lt;section&gt;
+        &lt;title&gt;…&lt;/title&gt;
+        &lt;para&gt; … &lt;/para&gt;
+        &lt;para&gt; … &lt;/para&gt;
+        &lt;section&gt;
+            &lt;title&gt;…&lt;/title&gt;
+            &lt;para&gt; … &lt;/para&gt;
+            &lt;para&gt; … &lt;/para&gt;
+            &lt;para&gt; … &lt;/para&gt;
+            &lt;/section&gt;
+    &lt;/section&gt;
+    &lt;bibliography&gt; … &lt;/bibliography&gt;
+&lt;/article&gt;
+			</urn1:clinicalDocumentNoteText>
+               <urn1:dissentingOpinion>
+                  <urn1:opinionId>
+                     <urn1:root>?</urn1:root>
+                     <urn1:extension>?</urn1:extension>
+                  </urn1:opinionId>
+                  <urn1:authorTime>20071212010101</urn1:authorTime>
+                  <urn1:opinion>?</urn1:opinion>
+                  <urn1:personId>
+                     <urn1:root>?</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>?</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:personId>
+                  <urn1:personName>?</urn1:personName>
+                  <!--You may enter ANY elements at this point-->
+               </urn1:dissentingOpinion>
+               <!--You may enter ANY elements at this point-->
+            </urn1:body>
+         </urn:careDocumentation>
+         <urn:hasMore>
+            <urn:logicalAddress>SE12345-F6789</urn:logicalAddress>
+            <urn:reference>abcdefg&amp;hijklmno</urn:reference>
+         </urn:hasMore>
+         <urn:result>
+            <urn1:resultCode>OK</urn1:resultCode>
+         </urn:result>
+      </urn:GetCareDocumentationResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3:GetCareDocumentation"/>
+      </con:response><con:response name="HasMoreNoMore" id="776f47ec-49e0-4558-82c0-bbcdfc093221" httpResponseStatus="200" encoding="UTF-8" dataSource="">
+        <con:settings/>
+        <con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"  xmlns:urn="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3" xmlns:urn1="urn:riv:clinicalprocess:healthcond:description:3">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:GetCareDocumentationResponse>
+         <!--Låst-->
+         <urn:careDocumentation>
+            <urn1:header>
+               <urn1:accessControlHeader>
+                  <urn1:accountableHealthcareProvider>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careGiverHSAId}</urn1:extension>
+                  </urn1:accountableHealthcareProvider>
+                  <urn1:accountableCareUnit>
+                     <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                     <urn1:extension>${careUnitHSAId}</urn1:extension>
+                  </urn1:accountableCareUnit>
+                  <urn1:patientId>
+                     <urn1:root>${patientIdType}</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>${patientId}</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:patientId>
+                  <urn1:blockComparisonTime>20170101100000</urn1:blockComparisonTime>
+                  <urn1:approvedForPatient>false</urn1:approvedForPatient>
+                  <!--You may enter ANY elements at this point-->
+               </urn1:accessControlHeader>
+               <urn1:sourceSystemId>
+                  <urn1:root>1.2.752.129.2.1.4.1</urn1:root>
+                  <urn1:extension>${sourceSystemHSAId}</urn1:extension>
+               </urn1:sourceSystemId>
+               <urn1:record>
+                  <urn1:id>
+                     <urn1:root>CareContact-569</urn1:root>
+                  </urn1:id>
+                  <urn1:timestamp>20170101100000</urn1:timestamp>
+               </urn1:record>
+               <urn1:author>
+                  <urn1:id>
+                     <urn1:root>?</urn1:root>
+                     <urn1:extension>?</urn1:extension>
+                  </urn1:id>
+                  <urn1:name>?</urn1:name>
+                  <urn1:timestamp>20071212010101</urn1:timestamp>
+                  <urn1:byRole>
+                     <urn1:code>206017</urn1:code>
+                     <urn1:codeSystem>1.2.752.129.2.2.1.4</urn1:codeSystem>
+                     <urn1:displayName>Sjuksköterska, medicin/kirurgi</urn1:displayName>
+                  </urn1:byRole>
+               </urn1:author>
+            </urn1:header>
+            <urn1:body>
+               <urn1:clinicalDocumentNoteCode>
+                  <urn1:code>utr</urn1:code>
+                  <urn1:codeSystem>1.2.752.129.2.2.2.11</urn1:codeSystem>
+                  <urn1:codeSystemName>KV Anteckningstyp</urn1:codeSystemName>
+                  <urn1:codeSystemVersion>1.0</urn1:codeSystemVersion>
+                  <urn1:displayName>Utredning</urn1:displayName>
+               </urn1:clinicalDocumentNoteCode>
+               <urn1:clinicalDocumentNoteTitle>Title</urn1:clinicalDocumentNoteTitle>
+               <urn1:clinicalDocumentNoteText><![CDATA[åäö<>><&]]]]>><![CDATA[</urn1:clinicalDocumentNoteText>
+               <urn1:dissentingOpinion>
+                  <urn1:opinionId>
+                     <urn1:root>?</urn1:root>
+                     <urn1:extension>?</urn1:extension>
+                  </urn1:opinionId>
+                  <urn1:authorTime>20071212010101</urn1:authorTime>
+                  <urn1:opinion>?</urn1:opinion>
+                  <urn1:personId>
+                     <urn1:root>?</urn1:root>
+                     <!--Optional:-->
+                     <urn1:extension>?</urn1:extension>
+                     <!--You may enter ANY elements at this point-->
+                  </urn1:personId>
+                  <urn1:personName>?</urn1:personName>
+                  <!--You may enter ANY elements at this point-->
+               </urn1:dissentingOpinion>
+               <!--You may enter ANY elements at this point-->
+            </urn1:body>
+         </urn:careDocumentation>
+         <urn:result>
+            <urn1:resultCode>OK</urn1:resultCode>
+         </urn:result>
+      </urn:GetCareDocumentationResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3:GetCareDocumentation"/>
+      </con:response><con:dispatchConfig/>
+    </con:mockOperation>
+    <con:properties/>
+  </con:mockService>
+  <con:requirements/>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:reporting>
+    <con:xmlTemplates/>
+    <con:parameters/>
+  </con:reporting>
+  <con:sensitiveInformation/>
+  <con:authRepository/>
+  <con:tags/>
+</con:soapui-project>

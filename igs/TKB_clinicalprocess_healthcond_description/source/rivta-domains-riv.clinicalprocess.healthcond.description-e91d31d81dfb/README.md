@@ -1,0 +1,2 @@
+* Instruktioner för hur man kommer igång med bitbucket http://rivta.se/bitbucket/git-sourcetree.html
+# [Till release notes](https://inera.atlassian.net/wiki/spaces/OITOF/pages/268174569/clinicalprocess+healthcond+description+tillst+ndsbeskrivning)

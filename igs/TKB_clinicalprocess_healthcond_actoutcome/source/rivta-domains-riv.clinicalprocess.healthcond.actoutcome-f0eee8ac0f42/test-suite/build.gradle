@@ -1,0 +1,22 @@
+import javax.xml.transform.stream.StreamSource
+import javax.xml.transform.stream.StreamResult
+import javax.xml.transform.TransformerFactory
+
+task generateDocumentation << {
+	def xslt= new File("TK-doc.xsl").getText()
+	def transformer = TransformerFactory.newInstance().newTransformer(new StreamSource(new StringReader(xslt)))
+
+	def pattern = ~/data.xml/
+	def dirname="."
+
+	new File("$dirname").eachDirRecurse { dir ->
+		dir.eachFileMatch(pattern) { source ->
+			println "Generating documenation from $source"
+				dir = source.parent
+				def destination = source.parent + "/" + source.parent + '-doc.html'
+				def xml = source.getText()
+				def html = new FileOutputStream(destination)
+				transformer.transform(new StreamSource(new StringReader(xml)), new StreamResult(html))
+		}
+	}
+}

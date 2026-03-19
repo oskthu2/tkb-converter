@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="/Users/khaled/Projects/xspec/src/schemas/xspec.rnc type="application/relax-ng-compact-syntax"?>
+<!-- 
+XSpec is used to verify the schematron rules contained in constrains.xml
+@see https://github.com/xspec/xspec/wiki for more information
+-->
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="constraints.xml"
+    xmlns:urn1="urn:riv:clinicalprocess:healthcond:actoutcome:4"
+    xmlns:urn="riv:clinicalprocess:healthcond:actoutcome:GetLaboratoryOrderOutcomeResponder">
+    <x:scenario label="Valid">
+        <x:scenario label="Correct scenario 1">
+            <x:context href="test/positive/chemistry.xml"/>
+            <x:expect-valid/>
+        </x:scenario>
+        <x:scenario label="Correct scenario 2">
+            <x:context href="test/positive/micro_no_.xml"/>
+            <x:expect-valid/>
+        </x:scenario>
+        <x:scenario label="Correct scenario 3">
+            <x:context href="test/positive/micro_with_resistance.xml"/>
+            <x:expect-valid/>
+        </x:scenario>
+        <x:scenario label="Correct scenario 4">
+            <x:context href="test/positive/drug_analysis.xml"/>
+            <x:expect-valid/>
+        </x:scenario>
+        <x:scenario label="Correct scenario_5">
+            <x:context href="test/positive/multi_disciplinary.xml"/>
+            <x:expect-valid/>
+        </x:scenario>
+        <x:scenario label="Correct scenario_6">
+            <x:context href="test/positive/immunology.xml"/>
+            <x:expect-valid/>
+        </x:scenario>
+        <x:scenario label="Correct scenario_7">
+            <x:context href="test/positive/clinical_chemistry.xml"/>
+            <x:expect-valid/>
+        </x:scenario>
+        <x:scenario label="Correct scenario_8">
+            <x:context href="test/positive/microbiology_culture.xml"/>
+            <x:expect-valid/>
+        </x:scenario>
+        <x:scenario label="Correct scenario_9">
+            <x:context href="test/positive/serology.xml"/>
+            <x:expect-valid/>
+        </x:scenario>
+    </x:scenario>
+
+    <x:scenario label="rule001">
+        <x:scenario label="Verify request with valid PNR, NRID, SNR">
+            <x:context>
+                <urn1:GetLaboratoryOrderOutcome>
+                    <urn1:patientId>
+                        <urn1:root>1.2.752.97.3.1.3</urn1:root>
+                        <urn1:extension>123456789</urn1:extension>
+                    </urn1:patientId>
+                </urn1:GetLaboratoryOrderOutcome>
+            </x:context>
+            <x:expect-assert id="rule001"/>
+        </x:scenario>
+    </x:scenario>
+
+    <x:scenario label="rule002">
+        <x:scenario label="Verify request with local RID">
+            <x:context>
+                <urn1:GetLaboratoryOrderOutcome>
+                    <urn1:patientId>
+                        <urn1:root>some.oid</urn1:root>
+                        <urn1:extension>123456789</urn1:extension>
+                    </urn1:patientId>
+                </urn1:GetLaboratoryOrderOutcome>
+            </x:context>
+            <x:expect-assert id="rule002"/>
+        </x:scenario>
+        <x:scenario label="correct rule002">
+            <x:context>
+                <urn1:GetLaboratoryOrderOutcome>
+                    <urn1:patientId>
+                        <urn1:root>some.oid</urn1:root>
+                        <urn1:extension>1.2.752.97.3.1.3</urn1:extension>
+                    </urn1:patientId>
+                    <urn1:sourceSystemHSAId>1</urn1:sourceSystemHSAId>
+                    <urn1:logicalAddress>1</urn1:logicalAddress>
+                </urn1:GetLaboratoryOrderOutcome>
+            </x:context>
+            <x:expect-not-assert id="rule002"/>
+        </x:scenario>
+    </x:scenario>
+
+    <x:scenario label="rule003">
+        <x:scenario label="Verify careContactId in request">
+            <x:context>
+                <urn1:GetLaboratoryOrderOutcome>
+                    <urn1:careContactId>1</urn1:careContactId>
+                </urn1:GetLaboratoryOrderOutcome>
+            </x:context>
+            <x:expect-assert id="rule003"/>
+        </x:scenario>
+        <x:scenario label="Verify careContactId in request">
+            <x:context>
+                <urn1:GetLaboratoryOrderOutcome>
+                    <urn1:careContactId>1</urn1:careContactId>
+                    <urn1:sourceSystemHSAId>1</urn1:sourceSystemHSAId>
+                </urn1:GetLaboratoryOrderOutcome>
+            </x:context>
+            <x:expect-not-assert id="rule003"/>
+        </x:scenario>
+    </x:scenario>
+
+
+    <x:scenario label="rule004">
+        <x:scenario label="header/record/title may not be used.">
+            <x:context>
+                <urn1:header>
+                    <urn1:record>
+                        <urn1:title>title</urn1:title>
+                    </urn1:record>
+                </urn1:header>
+            </x:context>
+            <x:expect-assert id="rule004"/>
+        </x:scenario>
+    </x:scenario>
+
+
+    <x:scenario label="rule005">
+        <x:scenario label="incorrect rule005">
+            <x:context>
+                <urn1:header>
+                    <urn1:origin>origin</urn1:origin>
+                </urn1:header>
+            </x:context>
+            <x:expect-assert id="rule005"/>
+        </x:scenario>
+    </x:scenario>
+
+    <x:scenario label="rule007">
+        <x:scenario label="should violate rule007">
+            <x:context>
+                <urn1:specimen>
+                    <urn1:anatomicalLocation>
+                        <urn1:code>?</urn1:code>
+                        <urn1:codeSystem>oid.SCT</urn1:codeSystem>
+                    </urn1:anatomicalLocation>
+                    <urn1:anatomicalLocationText>
+                        <urn1:code>?</urn1:code>
+                        <urn1:codeSystem>oid.SCT</urn1:codeSystem>
+                    </urn1:anatomicalLocationText>
+                </urn1:specimen>
+            </x:context>
+            <x:expect-assert id="rule007"/>
+        </x:scenario>
+        <x:scenario label="no anatomicalLocation should violate rule007">
+            <x:context>
+                <urn1:specimen> </urn1:specimen>
+            </x:context>
+            <x:expect-assert id="rule007"/>
+        </x:scenario>
+        <x:scenario label="should not violate rule007">
+            <x:context>
+                <urn1:specimen>
+                    <urn1:anatomicalLocation>
+                        <urn1:code>?</urn1:code>
+                        <urn1:codeSystem>oid.SCT</urn1:codeSystem>
+                    </urn1:anatomicalLocation>
+                </urn1:specimen>
+            </x:context>
+            <x:expect-not-assert id="rule007"/>
+        </x:scenario>
+        <x:scenario label="should not violate rule007">
+            <x:context>
+                <urn1:specimen>
+                    <urn1:anatomicalLocationText>location</urn1:anatomicalLocationText>
+                </urn1:specimen>
+            </x:context>
+            <x:expect-not-assert id="rule007"/>
+        </x:scenario>
+    </x:scenario>
+
+    <x:scenario label="rule008">
+        <x:scenario label="should violate rule008">
+            <x:context>
+                <urn1:specimen>
+                    <urn1:material>
+                        <urn1:code>?</urn1:code>
+                        <urn1:codeSystem>oid.SCT</urn1:codeSystem>
+                    </urn1:material>
+                    <urn1:materialText>
+                        <urn1:code>?</urn1:code>
+                        <urn1:codeSystem>oid.SCT</urn1:codeSystem>
+                    </urn1:materialText>
+                </urn1:specimen>
+            </x:context>
+            <x:expect-assert id="rule008"/>
+        </x:scenario>
+        <x:scenario label="no material should not violate rule008">
+            <x:context>
+                <urn1:specimen> </urn1:specimen>
+            </x:context>
+            <x:expect-not-assert id="rule008"/>
+        </x:scenario>
+        <x:scenario label="should not violate rule008">
+            <x:context>
+                <urn1:specimen>
+                    <urn1:material>
+                        <urn1:code>?</urn1:code>
+                        <urn1:codeSystem>oid.SCT</urn1:codeSystem>
+                    </urn1:material>
+                </urn1:specimen>
+            </x:context>
+            <x:expect-not-assert id="rule008"/>
+        </x:scenario>
+        <x:scenario label="should not violate rule008">
+            <x:context>
+                <urn1:specimen>
+                    <urn1:materialText>location</urn1:materialText>
+                </urn1:specimen>
+            </x:context>
+            <x:expect-not-assert id="rule008"/>
+        </x:scenario>
+    </x:scenario>
+
+    <x:scenario label="rule009">
+        <x:scenario label="should violate rule009">
+            <x:context>
+                <urn1:reference>
+                    <urn1:interval>
+                        <urn1:code>?</urn1:code>
+                        <urn1:codeSystem>oid.SCT</urn1:codeSystem>
+                    </urn1:interval>
+                    <urn1:description>
+                        <urn1:code>?</urn1:code>
+                        <urn1:codeSystem>oid.SCT</urn1:codeSystem>
+                    </urn1:description>
+                </urn1:reference>
+            </x:context>
+            <x:expect-assert id="rule009"/>
+        </x:scenario>
+        <x:scenario label="no anatomicalLocation should violate rule009">
+            <x:context>
+                <urn1:reference> </urn1:reference>
+            </x:context>
+            <x:expect-assert id="rule009"/>
+        </x:scenario>
+        <x:scenario label="should not violate rule009">
+            <x:context>
+                <urn1:reference>
+                    <urn1:interval>
+                        <urn1:code>?</urn1:code>
+                        <urn1:codeSystem>oid.SCT</urn1:codeSystem>
+                    </urn1:interval>
+                </urn1:reference>
+            </x:context>
+            <x:expect-not-assert id="rule009"/>
+        </x:scenario>
+        <x:scenario label="should not violate rule009">
+            <x:context>
+                <urn1:reference>
+                    <urn1:description>location</urn1:description>
+                </urn1:reference>
+            </x:context>
+            <x:expect-not-assert id="rule009"/>
+        </x:scenario>
+    </x:scenario>
+
+    <x:scenario label="rule010">
+        <x:scenario label="should violate rule010">
+            <x:context>
+                <urn1:result>
+                    <urn1:value>
+                        <urn1:CV/>
+                        <urn1:PQ/>
+                    </urn1:value>
+                </urn1:result>
+            </x:context>
+            <x:expect-assert id="rule010"/>
+        </x:scenario>
+        <x:scenario label="no child to value should violate rule010">
+            <x:context>
+                <urn1:result>
+                    <urn1:value/>
+                </urn1:result>
+            </x:context>
+            <x:expect-assert id="rule010"/>
+        </x:scenario>
+        <x:scenario label="should not violate rule010">
+            <x:context>
+                <urn1:result>
+                    <urn1:value>
+                        <urn1:CV/>
+                    </urn1:value>
+                </urn1:result>
+            </x:context>
+            <x:expect-not-assert id="rule010"/>
+        </x:scenario>
+        <x:scenario label="should not violate rule010">
+            <x:context>
+                <urn1:result>
+                    <urn1:value>
+                        <urn1:PQ/>
+                    </urn1:value>
+                </urn1:result>
+            </x:context>
+            <x:expect-not-assert id="rule010"/>
+        </x:scenario>
+    </x:scenario>
+    <x:scenario label="rule011">
+        <x:scenario label="should not violate rule011">
+            <x:context>
+                <urn1:header>
+                    <urn1:accessControlHeader>
+                        <urn1:lockTime/>
+                    </urn1:accessControlHeader>
+                    <urn1:signature>
+                        <urn1:by>
+                            <urn1:id/>
+                        </urn1:by>
+                    </urn1:signature>
+                </urn1:header>
+            </x:context>
+            <x:expect-not-assert id="rule011"/>
+        </x:scenario>
+        <x:scenario label="No locktime and no signature is ok">
+            <x:context>
+                <header>
+                </header>
+            </x:context>
+            <x:expect-not-assert id="rule011"/>
+        </x:scenario>
+        <x:scenario label="signature without locktime is not ok">
+            <x:context>
+                <urn1:accessControlHeader>
+                    <urn1:signature/>
+                </urn1:accessControlHeader>
+            </x:context>
+            <x:expect-assert id="rule011"/>
+        </x:scenario>
+    </x:scenario>
+
+    <x:scenario label="rule012">
+        <x:scenario label="should violate rule012">
+            <x:context>
+                <urn1:patient>
+                    <urn1:id>
+                        <urn1:root>1.2.752.129.2.1.3.3</urn1:root>
+                        <urn1:extension>123456789</urn1:extension>
+                    </urn1:id>
+                </urn1:patient>
+            </x:context>
+            <x:expect-assert id="rule012"/>
+        </x:scenario>
+        <x:scenario label="should violate rule012">
+            <x:context>
+                <urn1:patient>
+                    <urn1:id>
+                        <urn1:root>1.2.752.74.9.1</urn1:root>
+                        <urn1:extension>123456789</urn1:extension>
+                    </urn1:id>
+                </urn1:patient>
+            </x:context>
+            <x:expect-assert id="rule012"/>
+        </x:scenario>
+        <x:scenario label="should not violate rule012">
+            <x:context>
+                <urn1:patient>
+                    <urn1:id>
+                        <urn1:root>1.2.752.74.9.1</urn1:root>
+                        <urn1:extension>123456789</urn1:extension>
+                    </urn1:id>
+                    <urn1:timeOfBirth>20120101</urn1:timeOfBirth>
+                </urn1:patient>
+            </x:context>
+            <x:expect-not-assert id="rule012"/>
+        </x:scenario>
+        <x:scenario label="should not violate rule012">
+            <x:context>
+                <urn1:patient>
+                    <urn1:id>
+                        <urn1:root>1.2.752.129.2.1.3.1</urn1:root>
+                        <urn1:extension>123456789</urn1:extension>
+                    </urn1:id>
+                </urn1:patient>
+            </x:context>
+            <x:expect-not-assert id="rule012"/>
+        </x:scenario>
+    </x:scenario>
+
+</x:description>
