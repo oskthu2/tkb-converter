@@ -2,6 +2,8 @@
 
 Du är orchestrator för ett agentteam vars uppdrag är att konvertera Ineras tjänstekontrakt (RIV-TA) till FHIR Implementation Guides.
 
+**Ambitionsnivå:** En IG ska vara en **komplett, högkvalitativ representation av hela TKB:n** — inte bara en FHIR-modell av payloaden. Det innebär att all text, alla tabeller och alla illustrationer från källdokumentet ska finnas med i IG:n. En läsare ska kunna ersätta Word-dokumentet med IG:n som källa.
+
 **Viktigt om strukturen:** En TKB (Tjänstekontraktsbeskrivning) beskriver en hel tjänstedomän och kan innehålla flera tjänstekontrakt (t.ex. GetCareDocumentation, GetDiagnosis och GetAlertInformation i samma dokument). En TKB → en FHIR IG. Alla tjänstekontrakt inom domänen samlas i IG:ns sektion 7, med ett underavsnitt per kontrakt (7.1, 7.2, 7.3...). Varje kontrakt får en egen logisk modell i FSH.
 
 Zip-filerna hämtas från Bitbuckets `rivta-domains`-workspace via Bitbucket API — **inte** via rivta.se/tkview som är en JavaScript SPA som inte kan skrapas med HTTP.
@@ -114,9 +116,58 @@ unzip /tmp/{slug}.zip -d igs/TKB_{domain_id}/source/
 
 ---
 
+## Steg 1.5 — Dokumentkonvertering med docx_to_md.py
+
+**Direkt efter Fetcher-agenten, innan Parser-agenten**, kör konverteringsverktyget på TKB-dokumentet. Detta ger IG Builder-agenten rik, komplett markdown att arbeta med direkt — inklusive tabeller och bilder.
+
+```bash
+python3 docx_to_md.py \
+  "igs/TKB_{domain_id}/source/{subfolder}/docs/TKB_{domain_id}.docx" \
+  "igs/TKB_{domain_id}/docx-converted/"
+```
+
+Verktyget producerar:
+```
+igs/TKB_{domain_id}/docx-converted/
+├── full-document.md       ← hela TKB:n som markdown (text + tabeller + bildlänkar)
+├── structure.json         ← rubrikhierarki
+├── images/                ← extraherade bildfiler (PNG, JPEG, SVG)
+│   ├── img_001.png
+│   └── img_002.png
+└── sections/
+    ├── 1-inledning.md
+    ├── 2-versionsinformation.md
+    ├── 3-tjanstedomanens-arkitektur.md
+    ├── 4-tjanstedomanens-krav-och-regler.md
+    ├── 5-tjanstedomanens-meddelandemodeller.md
+    ├── 6-gemensamma-informationskomponenter.md
+    └── 7-tjanstekontrakt.md
+```
+
+**Viktigt:** Om TKB-dokumentet heter något annat än `TKB_{domain_id}.docx`, finn det med:
+```bash
+find "igs/TKB_{domain_id}/source/" -name "TKB_*.docx" | head -1
+```
+
+Felhantering:
+- `python-docx` ej installerat → `pip install python-docx` och försök igen
+- Filen hittas inte → logga BLOCK, gå vidare
+
+---
+
 ## Steg 2 — Parser-agent
 
-En TKB innehåller alltid en fast rubrikstruktur med numrerade avsnitt. Agenten ska extrahera **hela domänstrukturen**, inklusive alla tjänstekontrakt i avsnitt 7.
+En TKB innehåller alltid en fast rubrikstruktur med numrerade avsnitt. Agenten kombinerar **konverterad markdown** (från docx_to_md.py) med direkt dokumentläsning via python-docx för strukturerad metadata.
+
+**Parser-agenten ska:**
+
+1. Läs `igs/TKB_{domain_id}/docx-converted/structure.json` för rubrikhierarkin
+2. Använd sektionsfilerna i `docx-converted/sections/` för textinnehåll (inkl. tabeller och bilder)
+3. Identifiera kontrakt i avsnitt 7 via structure.json (rubrik nivå 2 under "Tjänstekontrakt")
+4. Per kontrakt: extrahera request-fälttabell och response-fälttabell från `sections/7-tjanstekontrakt.md`
+5. Identifiera kontraktsspecifika kodverk (underavsnitt med "Kodsystem" i titeln)
+6. Extrahera alla tvetydigheter som `open_questions_from_parsing`
+7. Om ett avsnitt saknas: notera det men krascha inte
 
 **Förväntat resultat (domain-metadata.json per TKB):**
 ```json
@@ -125,13 +176,14 @@ En TKB innehåller alltid en fast rubrikstruktur med numrerade avsnitt. Agenten 
   "domain_title": "clinicalprocess: healthcond: description",
   "domain_version": "4.0",
   "rivta_namespace_base": "urn:riv:clinicalprocess:healthcond:description",
+  "docx_converted_dir": "igs/TKB_clinicalprocess_healthcond_description/docx-converted/",
   "sections": {
-    "1_inledning": "...",
-    "2_versionsinformation": "...",
-    "3_tjanstedomanens_arkitektur": "...",
-    "4_tjanstedomanens_krav_och_regler": "...",
-    "5_tjanstedomanens_meddelandemodeller": "...",
-    "6_gemensamma_informationskomponenter": "..."
+    "1_inledning": "igs/.../docx-converted/sections/1-inledning.md",
+    "2_versionsinformation": "igs/.../docx-converted/sections/2-versionsinformation.md",
+    "3_tjanstedomanens_arkitektur": "igs/.../docx-converted/sections/3-tjanstedomanens-arkitektur.md",
+    "4_tjanstedomanens_krav_och_regler": "igs/.../docx-converted/sections/4-tjanstedomanens-krav-och-regler.md",
+    "5_tjanstedomanens_meddelandemodeller": "igs/.../docx-converted/sections/5-tjanstedomanens-meddelandemodeller.md",
+    "6_gemensamma_informationskomponenter": "igs/.../docx-converted/sections/6-gemensamma-informationskomponenter.md"
   },
   "contracts": [
     {
@@ -162,26 +214,36 @@ En TKB innehåller alltid en fast rubrikstruktur med numrerade avsnitt. Agenten 
     },
     {
       "section_number": "7.2",
-      "id": "GetDiagnosis",
-      ...
+      "id": "GetDiagnosis"
     }
   ]
 }
 ```
 
-**Parser-agenten ska:**
-- Identifiera alla numrerade avsnitt (1–7) och extrahera deras textinnehåll för direkt återanvändning i IG:ns sidor
-- I avsnitt 7: identifiera varje underavsnitt (7.1, 7.2...) som ett separat tjänstekontrakt
-- Per kontrakt: extrahera request-fälttabell och response-fälttabell separat
-- Identifiera kontraktsspecifika kodverk som definieras i underavsnitt (t.ex. "7.2.6 Kodsystem - DiagnosisType")
-- Extrahera alla tvetydigheter som `open_questions_from_parsing`
-- Om ett avsnitt saknas: notera det men krascha inte
-
 ---
 
 ## Steg 3 — IG Builder-agent
 
-IG:ns sidstruktur följer TKB:ns rubriknumrering exakt — detta är konventionen i era publicerade IGs (se `ineraservices.bitbucket.io/TKB_clinicalprocess_healthcond_description`).
+IG:ns sidstruktur följer TKB:ns rubriknumrering exakt. **Målet är att IG:n ska vara en komplett, högkvalitativ representation av hela TKB:n** — inte bara en sammanfattning. Det innebär att:
+
+- Alla tabeller från TKB:n ska finnas med som Markdown-tabeller
+- Alla illustrationer/diagram ska finnas med som inbäddade bilder (`{% include img.html img="..." %}` eller standard Markdown `![](images/...)`)
+- Rubrikstrukturen ska spegla TKB:ns exakta hierarki
+- Textinnehåll ska återges fullständigt — inget ska utelämnas eller sammanfattas
+
+**Ge agenten:**
+- `domain-metadata.json` (med sökvägar till konverterade sektionsfiler)
+- Sökvägen till `docx-converted/sections/` (klara Markdown-filer per sektion)
+- Sökvägen till `docx-converted/images/` (bildfiler)
+
+**Agentens arbetsordning:**
+1. Skapa katalogstruktur
+2. Kopiera bilder: `cp -r igs/TKB_{domain_id}/docx-converted/images/ igs/TKB_{domain_id}/input/images/`
+3. Skriv `sushi-config.yaml` och `ig.ini`
+4. Skriv `input/includes/menu.xml`
+5. Skriv `input/pagecontent/index.md`
+6. **Kopiera och anpassa sektionerna 1–6:** ta innehållet från `docx-converted/sections/{n}-*.md` direkt och lägg det i `input/pagecontent/{n}-*.md`. Lägg till FHIR IG-header om nödvändigt. Justera bildlänkar så att de pekar på `images/` (relativ sökväg i FHIR IG).
+7. Bygg `input/pagecontent/7-tjanstekontrakt.md` — kombinera konverterat innehåll från `docx-converted/sections/7-tjanstekontrakt.md` med FSH-länklista per kontrakt.
 
 **Katalogstruktur per domän:**
 
@@ -189,19 +251,24 @@ IG:ns sidstruktur följer TKB:ns rubriknumrering exakt — detta är konventione
 igs/TKB_{domain_id}/
 ├── sushi-config.yaml
 ├── ig.ini
+├── docx-converted/          ← producerad av docx_to_md.py (steg 1.5)
+│   ├── full-document.md
+│   ├── structure.json
+│   ├── images/
+│   └── sections/
 └── input/
     ├── fsh/
     │   └── (fylls av Model Builder)
     ├── pagecontent/
-    │   ├── index.md                              ← Hem / Översikt
-    │   ├── 1-inledning.md                        ← TKB avsnitt 1
-    │   ├── 2-versionsinformation.md              ← TKB avsnitt 2
-    │   ├── 3-tjanstedomanens-arkitektur.md       ← TKB avsnitt 3
-    │   ├── 4-tjanstedomanens-krav-och-regler.md  ← TKB avsnitt 4
-    │   ├── 5-tjanstedomanens-meddelandemodeller.md ← TKB avsnitt 5
-    │   ├── 6-gemensamma-informationskomponenter.md ← TKB avsnitt 6
-    │   └── 7-tjanstekontrakt.md                  ← Alla kontrakt, 7.1 / 7.2 / 7.3...
-    ├── images/
+    │   ├── index.md                              ← Hem / Översikt (genererad)
+    │   ├── 1-inledning.md                        ← direkt från docx-converted/sections/
+    │   ├── 2-versionsinformation.md              ← direkt från docx-converted/sections/
+    │   ├── 3-tjanstedomanens-arkitektur.md       ← direkt från docx-converted/sections/
+    │   ├── 4-tjanstedomanens-krav-och-regler.md  ← direkt från docx-converted/sections/
+    │   ├── 5-tjanstedomanens-meddelandemodeller.md ← direkt från docx-converted/sections/
+    │   ├── 6-gemensamma-informationskomponenter.md ← direkt från docx-converted/sections/
+    │   └── 7-tjanstekontrakt.md                  ← docx-konverterat + FSH-artefaktlänkar
+    ├── images/                                   ← kopierat från docx-converted/images/
     └── includes/
         └── menu.xml
 ```
@@ -271,14 +338,17 @@ copyright: >-
 
 ### Sidmallar
 
-**index.md** — kort översikt med länklista:
+**index.md** — genererad, kort översikt med länklista:
 ```markdown
 # {domain_title}
 
 ## Översikt
 
-Detta är en FHIR Implementation Guide genererad från TKB-dokumentation
-för tjänstedomänen **{domain_title}** version {domain_version}.
+FHIR Implementation Guide för tjänstedomänen **{domain_title}** version {domain_version}.
+Genererad från Ineras Tjänstekontraktsbeskrivning (TKB).
+
+Domänen innehåller följande tjänstekontrakt:
+{lista med kontrakt-ID och version, en rad per kontrakt}
 
 ## Innehåll
 
@@ -289,59 +359,33 @@ för tjänstedomänen **{domain_title}** version {domain_version}.
 * [5 Tjänstedomänens meddelandemodeller](5-tjanstedomanens-meddelandemodeller.html)
 * [6 Gemensamma informationskomponenter](6-gemensamma-informationskomponenter.html)
 * [7 Tjänstekontrakt](7-tjanstekontrakt.html)
+* [Artefakter](artifacts.html)
 ```
 
-**1-inledning.md till 6-gemensamma-informationskomponenter.md** — fyll med extraherad text direkt från TKB-avsnittet. Konvertera tabeller till Markdown-tabeller. Bevara rubrikstruktur.
+**Sidor 1–6** — kopiera **ordagrant** från `docx-converted/sections/{n}-*.md`.
+- Bevara all text, alla tabeller och alla bildlänkar
+- Bildlänkar pekar redan på `images/filename` — kontrollera att sökvägarna stämmer
+- Ändra inte rubriknivåer eller text
 
-**7-tjanstekontrakt.md** — ett underavsnitt per kontrakt, i TKB-ordning:
+**7-tjanstekontrakt.md** — kombinera konverterat innehåll med FHIR-artefaktlänkar:
+
+Bas: kopiera `docx-converted/sections/7-tjanstekontrakt.md` **ordagrant**.
+
+Sedan, för varje kontrakt, lägg till ett avsnitt **"FHIR-artefakter"** direkt efter kontrakets sista underavsnitt:
+
 ```markdown
-# 7 Tjänstekontrakt
+### FHIR-artefakter för {ContractId}
 
-## 7.1 {ContractId}
+Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:
 
-### 7.1.1 Version
-
-Version: {version}
-
-### 7.1.2 Beskrivning
-
-{description}
-
-### 7.1.3 Gemensamma informationskomponenter
-
-{shared_components_text — eller utelämna avsnittet om det saknas i TKB}
-
-### 7.1.4 Fältregler
-
-**Request — {ContractId}Request**
-
-| Fält | Typ | Kardinalitet | Beskrivning |
-|------|-----|-------------|-------------|
-| patientId | II | 1..1 | ... |
-
-**Response — {ContractId}Response**
-
-| Fält | Typ | Kardinalitet | Beskrivning |
-|------|-----|-------------|-------------|
-| ... | ... | ... | ... |
-
-### 7.1.5 Övriga regler
-
-{other_rules}
-
-### 7.1.6 Logiska fel
-
-{error_codes}
-
-### 7.1.7 Kodsystem — {KodverkNamn}
-
-{kodverk_tabell — inkludera bara om kontraktet definierar egna kodsystem}
-
----
-
-## 7.2 {ContractId2}
-...
+* **Logisk modell (response):** [StructureDefinition/{contractid}](StructureDefinition-{contractid}.html)
+* **Logisk modell (request):** [StructureDefinition/{contractid}-request](StructureDefinition-{contractid}-request.html) _(om request-modell skapats)_
+{för varje kodverk:}
+* **Kodsystem:** [CodeSystem/{kodverk-slug}-cs](CodeSystem-{kodverk-slug}-cs.html)
+* **ValueSet:** [ValueSet/{kodverk-slug}-vs](ValueSet-{kodverk-slug}-vs.html)
 ```
+
+**Bildlänkar i FHIR IG context:** FHIR IG-publiceringsramverket stöder standard Markdown-bilder. Bildfilerna ska ligga i `input/images/`. Länkformat: `![Bildtext](images/img_001.png)`.
 
 ---
 
