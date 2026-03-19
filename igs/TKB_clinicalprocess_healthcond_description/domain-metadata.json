@@ -1,0 +1,564 @@
+{
+  "domain_id": "clinicalprocess.healthcond.description",
+  "domain_title": "clinicalprocess: healthcond: description",
+  "domain_version": "3.0.5",
+  "rivta_namespace_base": "urn:riv:clinicalprocess:healthcond:description",
+  "sections": {
+    "1_inledning": [
+      "Detta är beskrivningen av tjänstekontrakten i tjänstedomänen",
+      "clinicalprocess: healthcond: description",
+      "Tjänstekontrakten är baserade på RIVTA 2.1 [R2] och reglerade genom arkitekturella beslut [R1].",
+      "Tjänstekontraktsbeskrivningen är en kravspecifikation. Den skall fungera som ett teknikneutralt, formellt regelverk som reglerar integrationskrav för parter (tjänstekonsumenter och tjänsteproducenter) som avser ansluta system för samverkan enligt dessa tjänstekontrakt. Tjänstekontraktsbeskrivningen är också ett viktigt underlag för skapande av de tekniska kontrakten (scheman och WSDL-filer).",
+      "Detta dokument kompletterar reglerna i de tekniska kontrakten. Tjänsteproducenter och tjänstekonsumenter ska m.a.o. följa såväl de maskintolkbara reglerna i de tekniska kontrakten, så väl som de regler som uttrycks verbalt i detta dokument.",
+      "Svenskt namn",
+      "Vård- och omsorg kärnprocess:hantera hälsorelaterade tillstånd:tillståndsbeskrivning",
+      "Tillståndsbeskrivning",
+      "Beskrivning",
+      "Denna domän hantera information som beskriver patientens hälsotillstånd, till exempel vårdanteckningar, diagnoser, uppmärksamhetsinformation och funktionsstatus. Domänen syftar till att tillmötesgå vårdprofessionens behov av direktåtkomst till patientens vårdinformation (så kallad sammanhållen journalföring) såväl som patientens egen åtkomst till sin vårdinformation.",
+      "Tjänstekontrakten i denna domän hanterar specifikt patientens journalanteckningar, och klinisk information som beskriver patientens hälsotillstånd, exempelvis vårdanteckningar, diagnoser, uppmärksamhetsinformation (som innefattar bland annat allvarliga allergier och allvarliga sjukdomar) samt funktionsstatus. Domänens kontrakt stödjer tjänsteinteraktioner där konsumenten är i behov av att läsa informationen från ett eller flera källsystem."
+    ],
+    "2_versionsinformation": [
+      "Denna revision av tjänstekontraktsbeskrivningen handlar om domänen clinicalprocess: healthcond: description. Observera att version för detta dokument och domänen måste vara lika. Detta för att spårbarheten inte skall brytas.",
+      "Version 3.0.5",
+      "Oförändrade tjänstekontrakt",
+      "GetDiagnosis, version 2.0",
+      "GetAlertInformation, version 2.0",
+      "GetFunctionalStatus, version 2.0",
+      "Nya tjänstekontrakt",
+      "Följande nya tjänstekontrakt finns från och med denna version:\nInga nya kontrakt har tillkommit i denna version",
+      "Förändrade tjänstekontrakt",
+      "GetCareDocumentation, version 3.0",
+      "Nedan redovisas kompatibilitet mellan konsument och producent för tjänstekontrakten som finns i flera versioner. Kompatibilitet avser här såväl format som semantik. För definition av kompatibilitet mellan format, se RIV Tekniska Anvisningar, Översikt.",
+      "Utgångna tjänstekontrakt",
+      "Inga tjänstekontrakt har utgått.",
+      "Version tidigare",
+      "3.0.2"
+    ],
+    "3_tjanstedomanens_arkitektur": [
+      "I detta avsnitt beskrivs hur T-boken tillämpats i tjänstedomänen. Avsnittet syftar till att ge läsaren överblick och förståelse. Avsnittet innehåller inga regler, men ger ett sammanhang för de regler som beskrivs i övriga delar av dokumentet.",
+      "Tjänsterna för beskrivning av hälsorelaterade tillstånd erbjuder sökning av information i hälso- och sjukvårdsgivarnas system för patientadministration och vårddokumentation. Utgångspunkten för tjänsterna i denna tjänstedomän är i första hand patientens och professionens behov av direktåtkomst till en patients hälso- och sjukvårdshistorik sett ur ett nationellt eller ett regionalt perspektiv. I båda fallen är syftet att historisk information sammanställs från det eller de källsystem där det finns historik via s.k. aggregerande tjänster, snarare än att begära information från ett specifikt system eller en specifik verksamhet.",
+      "Tjänstekontrakten erbjuder även möjlighet att nå information från ett specifikt system eller en specifik verksamhet. Behovet av att rikta en fråga till ett specifikt system uppstår främst när tjänstekonsumenten också är prenumerant på notifieringar från engagemangsindex och på det sättet (via ProcessNotification) får information om en händelse i ett specifikt system. Det är då ändamålsenligt att adressera det specifika systemet, istället för den aggregerande tjänsten.",
+      "Följande flödesmodeller beskriver översiktligt hur tjänstekontrakten är tänkta att användas. Tjänstekonsument (K) och tjänsteproducenter (P) är markerade i figurerna.",
+      "Flöden",
+      "Nedanstående diagram visar hur flödet principiellt ser ut när information ur kontrakt i tjänstedomänen efterfrågas och hanteras.",
+      "Arbetsflöde",
+      "Figur 1 Exempel: Adressering vid anrop till aggregerande tjänst från patienttjänst (t.ex. från Mina Vårdkontakters tjänst för journalåtkomst).",
+      "Figur 2 Exempel: Adressering vid anrop till aggregerande vårdgivartjänst (t.ex. från NPÖ-tillämpningen).",
+      "Roller",
+      "Sekvensdiagram",
+      "Figur 3 Sekvensdiagram över sökning efter information där GetAlertInformation används som exempel men samma princip gäller för alla kontrakt i tjänstedomänen, diagrammet visar på två alternativa sekvenser där det första alternativet gäller när aggregerande tjänster adresseras och det andra alternativet gäller när källsystemet adresseras.",
+      "Roller",
+      "Obligatoriska kontrakt",
+      "Domänen definierar inga flöden och har därmed inga obligatoriska kontrakt att uppfylla.",
+      "Adressering",
+      "Tjänstedomänen tillämpar källsystem-adressering. Observera att tjänstekonsumenter främst anropar aggregerande tjänster. Tjänstekonsumenten adresserar därför den aggregerande tjänsten med antingen nationellt HSA-id (Ineras HSA-id) eller HSA-id för aktuell huvudman om det är en regional/huvudmanna-specifik (t.ex. ”regional”) aggregerande tjänst som ska adresseras.",
+      "Det finns också fall då en tjänstekonsument adresserar ett källsystem. Det förutsätter att tjänstekonsumenten känner till källsystemets HSA-id. Det sker genom att ett sådant anrop föregås av ett anrop till en aggregerande tjänst (källsystemets HSA-id finns då i svarsmeddelandet) eller genom att tjänstekonsumenten är producent för Engagemangsindex notifieringskontrakt (ProcessNotification). Notifieringen innehåller information om en händelse rörande en patients information i ett specifikt källsystem. Genom att använda informationen om källsystemets HSA-id kan tjänstekonsumenten direktadressera källsystemet i syfte att hämta information om den händelse som just notifierats för patienten.",
+      "Adressering sker i enlighet med RIV Tekniska Anvisningar Översikt, Rev E, avsnitt 8.3, där mer information kan hittas.",
+      "Vid partiell datahämtning ska anropen efter det första anropet direktadresseras till tjänsteproducenten.",
+      "Sammanfattning av adresseringsmodell",
+      "Aggregering och engagemangsindex",
+      "Det behövs en aggregerande tjänst för varje tjänstekontrakt som läser data i denna domän. Aggregerande tjänster har samma tjänstekontrakt och anropsadress som en traditionell virtuell tjänst, men nås via olika logiska adresser.",
+      "Om ett källsystemets HSA-id anges som logisk adress, kommer frågemeddelandet att dirigeras vidare direkt till källsystemet utav tjänsteplattformen utan att passera en aggregerande tjänst.",
+      "Om logisk adress HSA-id för Inera eller en huvudman kommer anropet att dirigeras till aggregerande tjänsten som i sin tur – efter att ha konsulterat engagemangsindex – vidarebefordrar frågan till de källsystem som har information om patienten."
+    ],
+    "4_tjanstedomanens_krav_och_regler": [
+      "Dessa gäller alla tjänstekontrakt i hela tjänstedomänen om inte undantag görs för specifika tjänstekontrakt senare i dokumentet.",
+      "Uppdatering av engagemangsindex",
+      "Alla källsystem ska uppdatera engagemangsindex. Engagemangsindex ska uppdateras så snart en händelse inträffar som påverkar indexposterna enligt beskrivningen nedan.\nAll uppdatering av engagemangsindex sker genom att källsystemet anropar engagemangsindex genom tjänstekontraktet",
+      "urn:riv:itintegration:engagementindex:UpdateResponder:1 (”index-push”).",
+      "Ladda hem engagemangsindex WSDL (se referens [R8]), scheman och tjänstekontraktsbeskrivning för detaljer.",
+      "Följande regler gäller för innehållet i begäran till engagemangsindex för uppdateringar som rör denna tjänstedomän:",
+      "Regler för tilldelning av värde i fältet Categorization i engagemangsposten för tjänstekontrakt i denna domän.",
+      "En tjänsteproducent av GetFunctionalStatus måste använda samma värde för categorization i en Update som för elementet assessmentCategory i svaret.",
+      "Informationssäkerhet och juridik",
+      "Medarbetarens direktåtkomst",
+      "Vid sammanhållen journalföring ansvarar verksamheten som erbjuder sina medarbetare direktåtkomst till sammanhållen journal för att patientdatalagen efterlevs. Det innebär bl.a. att spärrkontroll kan behöva genomföras innan information kan visas. Det innebär också att regelverket för samtycke, vårdrelation och åtkomstloggning måste följas. Dessutom finns krav från Integritetsskyddsmyndigheten om ytterligare teknisk åtkomstkontroll.",
+      "HSLF-FS 2016:40 [R9] ställer också krav (via handboken \"Journalföring och behandling av personuppgifter i hälso- och sjukvården\" [R10]) på att medarbetaren är starkt autentiserad om medarbetarens inloggning sker i nät som delas med flera vårdgivare och att uppdragsval görs i samband med autentisering (vårdenhet).",
+      "Det kompletta regelverket finns i handboken samt i anvisningar för tillgänglig patient.",
+      "Observera att tjänstekontrakten i sig inte påtvingar sammanhållen journalföring. Krav rörande sammanhållen journalföring och eller krav på spärrhantering uppstår först om tjänstekonsumenten (e-tjänsten) för medarbetaren tillgängliggör information som härrör från andra vårdgivare (sammanhållen journalföring) eller andra vårdenheter inom egna vårdgivaren (spärrkrav).",
+      "Patientens direktåtkomst",
+      "Alla tjänstekontrakten i denna tjänstedomän har en svarsflagga som anger om verksamheten (informationsägaren) godkänt att informationen får visas för patient. Det kan t.ex. ha skett genom menprövning eller rådrum. För vissa tjänstekontrakt, såsom hälso- och sjukvårdskontakter, kanske informationsägaren policymässigt har menprövat all information. Det är varje vårdgivares ansvar att tjänsteproducenten sätter ”kan visas för patient”-flaggan i enlighet med vårdgivarens verksamhetsregler.",
+      "Generellt",
+      "Tjänsteproducenten ansvarar för att information endast lämnas ut till de tjänstekonsumenter som informationsägaren godkänt. Det är inte ett juridiskt krav, men tydliggörs här eftersom det avviker från T-boken i det att tjänsteplattformen då inte ansvarar för den tekniska åtkomstkontrollen (ej möjligt när systembaserad adressering tillämpas). Om informationsägaren har behov av att reglera åtkomst per tjänstekonsument, ska tjänsteproducenten filtrera svaret enligt informationsägarens önskemål. Observera att det är regionala policyer snarare än lagar och förordningar som styr i vilken grad tjänsteproducenten ska begränsa åtkomst för en viss tjänstekonsument. Kunskapen om tjänstekonsumentens (tjänstens) identitet (d.v.s. ursprunglig tjänstekonsument i anropskedjan) får bara användas för teknisk åtkomstbegränsning på så sätt att svaret blir som om de vårdenheter vars verksamhetschef inte godkänner aktuell tjänstekonsument varit exkluderade i frågan.",
+      "Icke funktionella krav",
+      "Det är den informationsproducerande vårdgivarens ansvar att endast ett källsystem tillhandahåller informationen via lästjänst och engagemangsindex där patientdata lagras i flera källsystem. Konsumenter som är anslutna till flera majorversioner av samma kontrakt måste hantera dubblettborttagning mellan dessa. Detta sker genom att jämföra identiteter på postnivå och endast behålla en av de poster som returnerats, se referens [R17].",
+      "SLA krav",
+      "Följande generella SLA-krav gäller för alla tjänsteproducenter som tillhandahåller tjänster. Dessa krav gäller där inget annat anges för ett specifikt tjänstekontrakt.",
+      "Övriga krav och regler",
+      "Gemensamma konsumentregler",
+      "R1: Filtrera enligt flagga ”approvedForPatient”\nR2: Tillämpa regelverk enl. PDL",
+      "Gemensamma producentregler",
+      "R3: Filtrera enligt RIVTA-headern LogicalAddress. Svarsmeddelandet får endast innehålla information som skapats i det källsystem som anges av frågemeddelandets LogicalAddress.",
+      "Format för datum och tidpunkter",
+      "Datum anges alltid på formatet ”ÅÅÅÅMMDD”, vilket motsvarar ISO 8601-kompatibla formatbeskrivningen ”YYYYMMDD”.",
+      "Tidpunkter anges alltid på formatet ”ÅÅÅÅMMDDttmmss”, vilket motsvarar den ISO 8601-kompatibla formatbeskrivningen ”YYYYMMDDhhmmss”.",
+      "Tidszon för tidpunkter",
+      "Tidszon anges inte i meddelandeformaten. All information om datum och tidpunkter som utbyts via tjänsterna ska ange datum och tidpunkter i den tidszon som gäller/gällde i Sverige vid den tidpunkt som respektive datum- eller tidpunktsfält bär information om. Såväl tjänstekonsumenter som tjänsteproducenter ska med andra ord förutsätta att datum och tidpunkter som utbyts är i tidszonerna CET (svensk normaltid) respektive CEST (svensk normaltid med justering för sommartid).",
+      "Partiell datahämtning direktadresseras (Övriga krav och regler)",
+      "Om en tjänstekonsument väljer att hämta ytterligare information från en tjänsteproducent som signalerat att detta finns med hasMore, så måste detta göras med direktadressering. hasMoreReference får alltså inte användas vid anrop till aggregerande tjänst.",
+      "Dubblettkontroll vid partiell datahämtning görs av tjänstekonsument (övriga krav och regler)",
+      "Vid partiell leverans av information är det tjänstekonsumentens ansvar att hantera eventuella dubbletter om sådana skulle skickas i efterföljande anrop. Det kan exempelvis ske om information som redan levererats i tidigare anrop förändrats. Med dubblett avses information med samma unika identifierare (record.id i JoL-headern).",
+      "Felhantering",
+      "Krav på en tjänsteproducent",
+      "Logiska fel",
+      "Respektive kontrakt beskriver närmare hur logiska fel ska hanteras.",
+      "Tekniska fel",
+      "Vid ett tekniskt fel levereras ett generellt undantag (Soap Fault). Exempel på detta kan vara deadlock i databasen eller följdeffekter av programmeringsfel. Tekniska fel får inte förmedla personuppgifter. Istället rekommenderas att ett log-id förmedlas, som ger möjlighet för tjänsteproducentens förvaltning att bistå tjänstekonsumentens förvaltning med felsökning. Ett log-id bör vara en UUID. Ett log-id får under inga omständigheter förmedla information som är spårbar till patienten.",
+      "Krav på en tjänstekonsument",
+      "Logiska fel",
+      "Inga krav på konsument",
+      "Tekniska fel",
+      "Inga krav på konsument"
+    ],
+    "5_tjanstedomanens_meddelandemodeller": [
+      "Här beskrivs de modeller som beskriver informationsinnehållet i tjänstekontrakten inom tjänstedomänen. Varje tjänstekontrakt ska ha en (1..1) egen meddelandemodell som uttömmande beskriver informationen som tjänstekontraktet bär. För varje meddelandemodell beskrivs hur mappning ser ut mot tjänstekontraktets schema (XSD).",
+      "MIM Journalanteckning",
+      "Modellen är en UML-representation av XSD-schemat. Någon mappning mellan XSD och MIM är därmed inte inkluderad.",
+      "Nedan beskrivs mappning mellan MIM/ XSD och informationsmodellen i informationsspecifikationen.",
+      "MIM Diagnos",
+      "MIM Uppmärksamhetsinformation",
+      "MIM Funktionsstatus"
+    ],
+    "6_gemensamma_informationskomponenter": [
+      "I tjänstekontraktsbeskrivningarna används ett antal komponenter som är gemensamma för vissa meddelanden i flera domäner eller inom denna domän. Observera att med anledning av att tjänstekontrakten även kan stödjas av producentsystem som saknar (fullständig) HSA-id-information så är HSA-id-attribut i beskrivningarna nedan valfria. Se även avsnittet ”Informationssäkerhet och juridik” ovan.",
+      "De gemensamma typerna beskrivs i bilaga/bilagor med namn ”Bilaga Gemensamma_typer_<version>.pdf”. Hänvisad <version> anges vid respektive tjänstekontrakt i kapitlet Tjänstekontrakt."
+    ]
+  },
+  "contracts": [
+    {
+      "section_number": "7.1",
+      "id": "GetCareDocumentation",
+      "display_name": "Hämta journalanteckningar",
+      "version": "3.0",
+      "rivta_namespace": "urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3",
+      "description": "GetCareDocumentation returnerar journalanteckningar för en patient. Sådana anteckningar är av typerna utredning, åtgärd/behandling, sammanfattning, samordning, inskrivning, slutanteckning, anteckning utan fysiskt möte, slutenvårdsanteckning och besöksanteckning.",
+      "fields": [
+        {
+          "name": "careUnit",
+          "type": "IIType",
+          "description": "Filtrering på vårdenhet vilket motsvarar accountableCareUnit i svaret.  root sätts till OID(1.2.752.129.2.1.4.1) för HSA extension sätts till HSA-id på vårdenhet.",
+          "cardinality": "0..*",
+          "section": "Begäran"
+        },
+        {
+          "name": "healthcareProvider",
+          "type": "IIType",
+          "description": "Filtrering på vårdgivare vilket motsvarar accountableHealthcareProvider i svaret.  root sätts till OID (1.2.752.129.2.1.4.1) för HSA extension sätts till HSA-id på vårdgivare.",
+          "cardinality": "0..*",
+          "section": "Begäran"
+        },
+        {
+          "name": "patientId",
+          "type": "IIType",
+          "description": "Id för patienten där fältet extension sätts till patientens identitetsbeteckning. Anges med 12 tecken utan avskiljare.  Tjänsteproducenten ska i svaret leverera all information om patienten på en begä",
+          "cardinality": "1..1",
+          "section": "Begäran"
+        },
+        {
+          "name": "datePeriod",
+          "type": "DatePeriodType",
+          "description": "Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där någon av tidpunkterna record.timestamp, author.timestamp, signature.timestamp i headern eller d",
+          "cardinality": "0..1",
+          "section": "Begäran"
+        },
+        {
+          "name": "sourceSystemId",
+          "type": "IIType",
+          "description": "Begränsar sökningen till anteckningar som är skapade i det angivna källsystemet. Tjänsteproducenten förväntas enbart returnera poster som tillhör efterfrågat källsystem.  Fältet root sätts till OID fö",
+          "cardinality": "0..1",
+          "section": "Begäran"
+        },
+        {
+          "name": "hasMoreReference",
+          "type": "string",
+          "description": "Kan anges av tjänstekonsument när man tidigare fått ett hasMore-svar från tjänsteproducent att det finns ytterligare information att hämta. Se även regel hasMoreReference.",
+          "cardinality": "0..1",
+          "section": "Begäran"
+        },
+        {
+          "name": "careDocumentation",
+          "type": "CareDocumentationType",
+          "description": "De anteckningar som matchar begäran.",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "name": "hasMore",
+          "type": "HasMoreType",
+          "description": "Anges av tjänsteproducent när det finns ytterligare information att hämta.   Not: Vid svar från tjänsteproducent är kardinaliteten 0..1.  Se även regel Partiell datahämtning.",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "name": "result",
+          "type": "ResultType",
+          "description": "Innehåller information om det gick bra eller ej att besvara förfrågan.  Se avsnitt 7.1.7 för beskrivning av hantering vid logiska fel.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        }
+      ],
+      "error_codes": [
+        [
+          "Begäran",
+          "Begäran",
+          "Begäran"
+        ],
+        [
+          "hasMoreReference",
+          "<hasMoreReference>",
+          "Anropet skall göras direktadresserat till den logiska adressen som tjänsteproducenten levererat i <hasMore/logicalAddress>. hasMoreReference ska vara identiskt med den referens som tjänsteproducenten levererat i <hasMore/reference>.  Övriga anropsparametrar ska vara identiska med anropet som föranledde hasMore-svar."
+        ],
+        [
+          "sourceSystemId",
+          "<sourceSystemId>",
+          "Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header).  Det innebär i praktiken att aggregerande tjänster inte används när detta fält anges.  Ska anges vid begäran på reservnummer."
+        ],
+        [
+          "Svar",
+          "Svar",
+          "Svar"
+        ],
+        [
+          "Spärrhantering",
+          "<header/accessControlHeader/ accountableHealthcareProvider>  <header/accessControlHeader/ accountableCareUnit>",
+          "Uppgifterna krävs för spärrhantering, åtkomstkontroll samt loggning enligt PDL. Om HSA-id för vårdenhet inte kan lämnas kommer elementet inte visas upp av konsumenter inom sammanhållen journalföring."
+        ],
+        [
+          "Verify unique recordId [sch]",
+          "<header/record/id>",
+          "Identifieraren ska vara unik. Samma id får inte förekomma flera gånger."
+        ],
+        [
+          "careDocumentationBody [sch]",
+          "<clinicalDocumentNoteText>  <multimediaEntry>",
+          "Endast ett av attributen clinicalDocumentNoteText och multimediaEntry ska anges."
+        ],
+        [
+          "Binära bilagor",
+          "<multimediaEntry>",
+          "Producenter av GetCareDocumentation måste följa de generella riktlinjer för binära bilagor, se referens [R16]."
+        ],
+        [
+          "multimediaEntry [sch]",
+          "<multimediaEntry/value>  <multimediaEntry/reference>",
+          "Endast ett av attributen value och reference ska anges."
+        ],
+        [
+          "Partiell datahämtning",
+          "<hasMore>",
+          "Får enbart användas när antalet poster är så många att tjänsteproducenten riskerar att inte kunna svara inom 27 sekunder eller när storleken på svaret inte ryms inom gällande regelverk [R2]. De poster som levereras måste vara de senaste posterna.  Vid svar från tjänsteproducent är kardinaliteten 0..1."
+        ],
+        [
+          "Referensens giltighetstid",
+          "<hasMore/reference>",
+          "Referensen ska vara giltig i minst en timme."
+        ],
+        [
+          "Allmänna regler",
+          "Allmänna regler",
+          "Allmänna regler"
+        ],
+        [
+          "Verify non-empty elements [sch]",
+          "Alla element i svaret.",
+          "Tomma värden får inte anges."
+        ],
+        [
+          "pattern.CvType [sch]",
+          "Alla element som använder datatypen CVType.",
+          "code och/eller originalText ska anges Om code anges ska även codeSystem anges Om codeSystem anges ska även code anges codeSystem ska vara en OID Om codeSystemName anges ska även code samt codeSystem anges Om codeSystemVersion anges ska även code samt codeSystem anges Om displayName anges ska även code samt codeSystem anges"
+        ]
+      ],
+      "contract_specific_codesystems": [
+        {
+          "name": "ClinicalDocumentNoteCodeCS",
+          "oid": "1.2.752.129.2.2.2.11",
+          "description": "Kod för typ av anteckning (KV Anteckningstyp)",
+          "codes": [
+            {
+              "code": "utr",
+              "display": "Utredning"
+            },
+            {
+              "code": "atb",
+              "display": "Åtgärd/Behandling"
+            },
+            {
+              "code": "sam",
+              "display": "Sammanfattning"
+            },
+            {
+              "code": "sao",
+              "display": "Samordning"
+            },
+            {
+              "code": "ins",
+              "display": "Inskrivning"
+            },
+            {
+              "code": "slu",
+              "display": "Slutanteckning"
+            },
+            {
+              "code": "auf",
+              "display": "Anteckning utan fysiskt möte"
+            },
+            {
+              "code": "sva",
+              "display": "Slutenvårdsanteckning"
+            },
+            {
+              "code": "bes",
+              "display": "Besöksanteckning"
+            }
+          ]
+        }
+      ],
+      "open_questions_from_parsing": [
+        "clinicalDocumentNoteText och multimediaEntry är ömsesidigt uteslutande (XSD-regel) — modelleras som 0..1 vardera med kommentar",
+        "MultimediaType value/reference ömsesidigt uteslutande"
+      ]
+    },
+    {
+      "section_number": "7.2",
+      "id": "GetDiagnosis",
+      "display_name": "Hämta diagnoser",
+      "version": "2.0",
+      "rivta_namespace": "urn:riv:clinicalprocess:healthcond:description:GetDiagnosisResponder:2",
+      "description": "GetDiagnosis returnerar registrerade diagnoser för en patient inklusive en diagnoskod per ursprungligt diagnosticeringstillfälle.",
+      "fields": [
+        {
+          "name": "careUnitHSAId",
+          "type": "HSAIdType",
+          "description": "Filtrering på vårdenhet vilket motsvarar careUnitHSAId i healthcareProfessionalType.",
+          "cardinality": "0..*",
+          "section": "Begäran"
+        },
+        {
+          "name": "patientId",
+          "type": "PersonIdType",
+          "description": "Id för patienten där fältet id sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.  Fältet type sätts till OID för typ av identifierare.  1) För personnummer ska Skatteverkets OI",
+          "cardinality": "1..1",
+          "section": "Begäran"
+        },
+        {
+          "name": "timePeriod",
+          "type": "DatePeriodType",
+          "description": "Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där någon av tidpunkterna authorTime, signatureTime eller diagnosisTime i svaret ligger inom sökint",
+          "cardinality": "0..1",
+          "section": "Begäran"
+        },
+        {
+          "name": "sourceSystemHSAId",
+          "type": "HSAIdType",
+          "description": "Begränsar sökningen till diagnoser som tillgängliggörs av angivet källsystem.  Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header). ",
+          "cardinality": "0..1",
+          "section": "Begäran"
+        },
+        {
+          "name": "careContactId",
+          "type": "string",
+          "description": "Begränsar sökningen till de diagnoser som dokumenterades vid hälso- och sjukvårdskontakt.",
+          "cardinality": "0..*",
+          "section": "Begäran"
+        },
+        {
+          "name": "diagnosis",
+          "type": "DiagnosisType",
+          "description": "De diagnoser som matchar begäran.",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "name": "result",
+          "type": "ResultType",
+          "description": "Innehåller information om begäran gick bra eller ej, en P av 2.1 måste skicka med resultType, för kompabilitet mellan K 2.1 och P 2.0 är den satt till icke obligatorisk i wsdl.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        }
+      ],
+      "error_codes": [
+        [
+          "Ogiltig begäran",
+          "INVALID_REQUEST",
+          "Informationsmängden som skickats är ej korrekt utifrån de regler som gäller för tjänstekontraktet. En förklarande result.message kan närmare peka på vilken regel som ej efterföljts.  En omsändning av information kommer att ge samma fel."
+        ]
+      ],
+      "contract_specific_codesystems": [
+        {
+          "name": "DiagnosisTypeCS",
+          "description": "Typ av diagnos (huvud/bidiagnos)",
+          "codes": [
+            {
+              "code": "Huvuddiagnos",
+              "display": "Huvuddiagnos"
+            },
+            {
+              "code": "Bidiagnos",
+              "display": "Bidiagnos"
+            }
+          ]
+        }
+      ],
+      "open_questions_from_parsing": [
+        "diagnosCode/codeSystem OID ej specificerad — antas vara ICD-10-SE men verifiering behövs"
+      ]
+    },
+    {
+      "section_number": "7.3",
+      "id": "GetAlertInformation",
+      "display_name": "Hämta uppmärksamhetsinformation",
+      "version": "2.0",
+      "rivta_namespace": "urn:riv:clinicalprocess:healthcond:description:GetAlertInformationResponder:2",
+      "description": "GetAlertInformation returnerar uppmärksamhetsinformation för en patient, exempelvis överkänslighet mot läkemedel, allvarlig sjukdom eller vårdbegränsningar.",
+      "fields": [
+        {
+          "name": "careUnitHSAId",
+          "type": "HSAIdType",
+          "description": "Filtrering på vårdenhet vilket motsvarar careUnitHSAId i HealthcareProfessionalType.",
+          "cardinality": "0..*",
+          "section": "Begäran"
+        },
+        {
+          "name": "patientId",
+          "type": "PersonIdType",
+          "description": "Id för patienten där fältet id sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.  Fältet type sätts till OID för typ av identifierare.  1) För personnummer ska Skatteverkets OI",
+          "cardinality": "1..1",
+          "section": "Begäran"
+        },
+        {
+          "name": "timePeriod",
+          "type": "DatePeriodType",
+          "description": "Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där datumintervallet, som startar vid validityTimePeriod.start och slutar vid obsoleteTime eller va",
+          "cardinality": "0..1",
+          "section": "Begäran"
+        },
+        {
+          "name": "sourceSystemHSAId",
+          "type": "HSAIdType",
+          "description": "Begränsar sökningen till uppmärksamhetsinformation som tillgängliggörs av angivet källsystem.  Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex",
+          "cardinality": "0..1",
+          "section": "Begäran"
+        },
+        {
+          "name": "careContactId",
+          "type": "string",
+          "description": "Begränsar sökningen till den uppmärksamhetsinformation som dokumenterades vid hälso- och sjukvårds kontakt.",
+          "cardinality": "0..*",
+          "section": "Begäran"
+        },
+        {
+          "name": "alertInformation",
+          "type": "AlertInformationType",
+          "description": "Den uppmärksamhetsinformation som matchar begäran.",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "name": "result",
+          "type": "ResultType",
+          "description": "Innehåller information om begäran gick bra eller ej, en P av 2.1 måste skicka med resultType, för kompabilitet mellan K 2.1 och P 2.0 är den satt till icke obligatorisk i wsdl.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        }
+      ],
+      "error_codes": [
+        [
+          "Ogiltig begäran",
+          "INVALID_REQUEST",
+          "Informationsmängden som skickats är ej korrekt utifrån de regler som gäller för tjänstekontraktet. En förklarande result.message kan närmare peka på vilken regel som ej efterföljts.  En omsändning av information kommer att ge samma fel."
+        ]
+      ],
+      "contract_specific_codesystems": [],
+      "open_questions_from_parsing": [
+        "typeOfAlertInformation CVType — kodsystem för typer av uppmärksamhetssignal är lokalt/externt, OID okänd"
+      ]
+    },
+    {
+      "section_number": "7.4",
+      "id": "GetFunctionalStatus",
+      "display_name": "Hämta funktionsstatus",
+      "version": "2.0",
+      "rivta_namespace": "urn:riv:clinicalprocess:healthcond:description:GetFunctionalStatusResponder:2",
+      "description": "GetFunctionalStatus returnerar dokumenterade bedömning av funktionsnedsättningar och/eller aktivitetsförmåga för en patient.",
+      "fields": [
+        {
+          "name": "careUnitHSAId",
+          "type": "HSAIdType",
+          "description": "Filtrering på vårdenhet vilket motsvarar careUnitHSAId i healthcareProfessionalType.",
+          "cardinality": "0..*",
+          "section": "Begäran"
+        },
+        {
+          "name": "patientId",
+          "type": "PersonIdType",
+          "description": "Id för patienten där fältet id sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.  Fältet type sätts till OID för typ av identifierare.  1) För personnummer ska Skatteverkets OI",
+          "cardinality": "1..1",
+          "section": "Begäran"
+        },
+        {
+          "name": "datePeriod",
+          "type": "DatePeriodType",
+          "description": "Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där documentTime i svaret ligger inom sökintervallets start- och slutdatumet.  Notera att sökinterv",
+          "cardinality": "0..1",
+          "section": "Begäran"
+        },
+        {
+          "name": "sourceSystemHSAId",
+          "type": "HSAIdType",
+          "description": "Begränsar sökningen till information om funktionsstatus som tillgängliggörs av angivet källsystem.  Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuverterin",
+          "cardinality": "0..1",
+          "section": "Begäran"
+        },
+        {
+          "name": "careContactId",
+          "type": "string",
+          "description": "Begränsar sökningen till de funktionsstatusobjekt som dokumenterades vid angiven hälso- och sjukvårdskontakt.",
+          "cardinality": "0..*",
+          "section": "Begäran"
+        },
+        {
+          "name": "functionalStatusAssessment",
+          "type": "FunctionalStatusAssessmentTime",
+          "description": "De funktionsstatusbedömningar som matchar begäran.",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "name": "result",
+          "type": "ResultType",
+          "description": "Innehåller information om begäran gick bra eller ej.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        }
+      ],
+      "error_codes": [
+        [
+          "Ogiltig begäran",
+          "INVALID_REQUEST",
+          "Informationsmängden som skickats är ej korrekt utifrån de regler som gäller för tjänstekontraktet. En förklarande result.message kan närmare peka på vilken regel som ej efterföljts.  En omsändning av information kommer att ge samma fel."
+        ]
+      ],
+      "contract_specific_codesystems": [
+        {
+          "name": "AssessmentCategoryCS",
+          "description": "Bedömningskategori (PADL / funktionsnedsättning)",
+          "codes": [
+            {
+              "code": "pad-pad",
+              "display": "PADL-bedömning"
+            },
+            {
+              "code": "fun-fun",
+              "display": "Funktionsnedsättningsbedömning"
+            }
+          ]
+        }
+      ],
+      "open_questions_from_parsing": [
+        "assessmentCategory: engagemangsindex categorization ska matcha — ASSUME att assessmentCategory kodsystem är AssessmentCategoryCS",
+        "disability.disabilityAssessment uses ICF OID 1.2.752.116.1.1.3 — extern standard, ingen lokal CS behövs"
+      ]
+    }
+  ]
+}

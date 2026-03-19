@@ -1,0 +1,3822 @@
+{
+  "domain_id": "clinicalprocess.healthcond.actoutcome",
+  "domain_title": "clinicalprocess: healthcond: actoutcome",
+  "domain_version": "4.2.2",
+  "rivta_namespace_base": "urn:riv:clinicalprocess:healthcond:actoutcome",
+  "bitbucket_slug": "riv.clinicalprocess.healthcond.actoutcome",
+  "zip_url": "https://bitbucket.org/rivta-domains/riv.clinicalprocess.healthcond.actoutcome/get/4.2.2.zip",
+  "sections": {
+    "1_inledning": "Inledning Detta är beskrivningen av tjänstekontrakten i tjänstedomänen clinicalprocess: healthcond: actoutcome Denna domän hanterar information gällande utfall av olika undersökningar och aktiviteter, till exempel laboratoriesvar och bilddiagnostik. Tjänstekontrakten är baserade på RIVTA 2.1 [R2] och reglerade genom arkitekturella beslut [R1]. Tjänstekontraktsbeskrivningen är en kravspecifikation. Den ska fungera som ett teknikneutralt, formellt regelverk som reglerar integrationskrav för parter (tjänstekonsumenter och tjänsteproducenter) som avser ansluta system för samverkan enligt dessa tjänstekontrakt. Detta dokument kompletterar reglerna i de tekniska kontrakten. Tjänsteproducenter och tjänstekonsumenter ska m.a.o. följa såväl de maskintolkbara reglerna i de tekniska kontrakten, såväl som de regler som uttrycks verbalt i detta dokument. Svenskt namn vård- och omsorg kärnprocess: hantera hälsorelaterade tillstånd: utfall av aktivitet utfall av aktivitet",
+    "2_versionsinformation": "Versionsinformation Denna revision av tjänstekontraktsbeskrivningen handlar om domänen clinicalprocess: healthcond: actoutcome. Observera att version för detta dokument och domänen måste vara lika. Detta för att spårbarheten inte ska brytas. Version 4.2.2 Nya tjänstekontrakt Inga nya tjänstekontrakt. Förändrade tjänstekontrakt GetLaboratoryOrderOutcome är uppdaterad från 4.1 till 4.2 GetReferralOutcome är uppdaterad från 3.1 till 3.2 Nedan redovisas kompatibilitet mellan tjänstekonsument och tjänsteproducent för tjänstekontrakten som finns i flera versioner. Kompatibilitet avser här såväl format som semantik. För definition av kompatibilitet mellan format, se RIV Tekniska Anvisningar, Översikt. Utgångna tjänstekontrakt Inga tjänstekontrakt har utgått. Version tidigare 4.2.1",
+    "3_tjanstedomanens_arkitektur": "Tjänstedomänens arkitektur I detta avsnitt beskrivs hur T-boken tillämpats i tjänstedomänen. Avsnittet syftar till att ge läsaren överblick och förståelse. Avsnittet innehåller inga regler, men ger ett sammanhang för de regler som beskrivs i övriga delar av dokumentet. Tjänsterna för beskrivning av hälsorelaterade tillstånd erbjuder sökning av information i vårdgivarnas system för patientadministration och vårddokumentation. Utgångspunkten för tjänsterna i denna tjänstedomän är i första hand patientens och professionens behov av direktåtkomst till en patients hälso- och sjukvårdshistorik sett ur ett nationellt eller ett regionalt perspektiv. I båda fallen är syftet att historisk information sammanställs från det eller de källsystem där det finns historik via s.k. aggregerande tjänster, snarare än att begära information från ett specifikt system eller en specifik verksamhet. Tjänstekontrakten erbjuder även möjlighet att nå information från ett specifikt system eller en specifik verksamhet. Behovet av att rikta en fråga till ett specifikt system uppstår främst när tjänstekonsumenten också är prenumerant på notifieringar från engagemangsindex och på det sättet (via ProcessNotification) får information om en händelse i ett specifikt system. Det är då ändamålsenligt att adressera det specifika systemet, istället för den aggregerande tjänsten. Följande flödesmodeller beskriver översiktligt hur tjänstekontrakten är tänkta att användas. Tjänstekonsument (K) och tjänsteproducenter (P) är markerade i figurerna. Flöden Nedanstående diagram visar hur flödet principiellt ser ut när information ur kontrakt i tjänstedomänen efterfrågas och hanteras. Arbetsflöde Figur 1. Exempel: Adressering vid anrop till aggregerande vårdgivartjänst (t.ex. från NPÖ). Figur 2. Exempel: Adressering vid anrop till aggregerande tjänst från patienttjänst (t.ex. från 1177 Journal). Roller Sekvensdiagram Figur 3. Sekvensdiagram över sökning efter information där GetMaternityMedicalHistory används som exempel men samma princip gäller för alla läskontrakt i tjänstedomänen, diagrammet visar på två alternativa sekvenser där det första alternativet gäller när aggregerande tjänster adresseras och det andra alternativet gäller när källsystemet adresseras direkt av tjänstekonsument. Obligatoriska kontrakt Tjänstedomänen specificerar inga flöden, alla tjänstekontrakt är frivilliga. Adressering Tjänstedomänen tillämpar källsystem-adressering. Observera att tjänstekonsumenter främst anropar aggregerande tjänster. Tjänstekonsumenten adresserar den aggregerande tjänsten med antingen nationellt HSA-id (Ineras HSA-id) eller HSA-id för aktuell huvudman om det är en regional- eller huvudmanna-specifik (t.ex. ”regional”) aggregerande tjänst som ska adresseras. Det finns också fall då en tjänstekonsument adresserar ett källsystem. Det förutsätter att tjänstekonsumenten känner till källsystemets HSA-id. Det sker genom att ett sådant anrop föregås av ett anrop till en aggregerande tjänst (källsystemets HSA-id finns då i svarsmeddelandet) eller genom att tjänstekonsumenten är producent för Engagemangsindex notifieringskontrakt (ProcessNotification). Notifieringen innehåller information om en händelse rörande en patients information i ett specifikt källsystem. Genom att använda informationen om källsystemets HSA-id kan tjänstekonsumenten direktadressera källsystemet i syfte att hämta information om den händelse som just notifierats för patienten. Adressering sker i enlighet med RIV Tekniska Anvisningar Översikt, Rev PD2, avsnitt 8.3 [R2], där mer information kan hittas. Sammanfattning av adresseringsmodell Aggregering och engagemangsindex Det behövs en aggregerande tjänst för varje tjänstekontrakt som läser data i denna domän. Aggregerande tjänster har samma tjänstekontrakt och anropsadress som en traditionell virtuell tjänst, men nås via olika logiska adresser. Om ett källsystems HSA-id anges som logisk adress, kommer frågemeddelandet att dirigeras vidare direkt till källsystemet av tjänsteplattformen utan att passera en aggregerande tjänst. Om logisk adress är HSA-id för Inera eller en huvudman kommer anropet att dirigeras till aggregerande tjänsten som i sin tur – efter att ha konsulterat engagemangsindex – vidarebefordrar frågan till de källsystem som har information om patienten. Annat Det finns ej annat att beskriva kring tjänstedomänens arkitektur.",
+    "4_tjanstedomanens_krav_och_regler": "Tjänstedomänens krav och regler Dessa gäller alla tjänstekontrakt i hela tjänstedomänen om inte undantag görs för specifika tjänstekontrakt senare i dokumentet. Uppdatering av engagemangsindex Alla källsystem ska uppdatera engagemangsindex. Engagemangsindex ska uppdateras så snart en händelse inträffar som påverkar indexposterna enligt beskrivningen nedan. All uppdatering av engagemangsindex sker genom att källsystemet anropar engagemangsindex genom tjänstekontraktet urn:riv:itintegration:engagementindex:UpdateResponder:1 (”index-push”). Ladda hem Engagemangsindex WSDL, scheman och tjänstekontraktsbeskrivning, för detaljer se referens [R2]. Följande regler gäller för innehållet i begäran till engagemangsindex för uppdateringar som rör denna tjänstedomän: Regler för tilldelning av värde i fältet Categorization i engagemangsposten i denna domän: Informationssäkerhet och juridik Medarbetarens direktåtkomst Vid sammanhållen journalföring ansvarar verksamheten som erbjuder sina medarbetare direktåtkomst till detta för att patientdatalagen efterlevs. Det innebär bl.a. att spärrkontroll kan behöva genomföras innan information kan visas. Det innebär också att regelverket för samtycke, vårdrelation och åtkomstloggning måste följas. Dessutom finns krav från Integritetsskyddsmyndigheten om ytterligare teknisk åtkomstkontroll. HSLF-FS 2016:40 ställer också krav (via ”Handbok vid tillämpningen av Socialstyrelsens föreskrifter och allmänna råd (HSLF-FS 2016:40) om journalföring och behandling av personuppgifter i hälso- och sjukvården”, se referens R4) på att medarbetaren är starkt autentiserad om medarbetarens inloggning sker i nät som delas med flera vårdgivare och att uppdragsval görs i samband med autentisering (vårdenhet). Det kompletta regelverket finns i handboken samt i anvisningar för tillgänglig patient. Observera att tjänstekontrakten i sig inte påtvingar sammanhållen journalföring. Krav rörande sammanhållen journalföring och eller krav på spärrhantering uppstår först om tjänstekonsumenten (e-tjänsten) för medarbetaren tillgängliggör information som härrör från andra vårdgivare (sammanhållen journalföring) eller andra vårdenheter inom egna vårdgivaren (spärrkrav). Patientens direktåtkomst Alla tjänstekontrakten i denna tjänstedomän har en svarsflagga som anger om verksamheten (informationsägaren) godkänt att informationen får visas för patient. Det kan t.ex. ha skett genom menprövning eller rådrum. För vissa informationsmängder, exempelvis vårdkontakter, kan informationsägaren policymässigt har menprövat all information. Det är varje vårdgivares ansvar att tjänsteproducenten sätter ”kan visas för patient”-flaggan i enlighet med vårdgivarens verksamhetsregler. Generellt Tjänsteproducenten ansvarar för att information endast lämnas ut till de tjänstekonsumenter som informationsägaren godkänt. Det är inte ett juridiskt krav, men tydliggörs här eftersom det avviker från T-boken i det att tjänsteplattformen då inte ansvarar för den tekniska åtkomstkontrollen (ej möjligt när systembaserad adressering tillämpas). Om informationsägaren har behov av att reglera åtkomst per tjänstekonsument, ska tjänsteproducenten filtrera svaret enligt informationsägarens önskemål. Observera att det är regionala policyer snarare än lagar och förordningar som styr i vilken grad tjänsteproducenten ska begränsa åtkomst för en viss tjänstekonsument. Kunskapen om tjänstekonsumentens (tjänstens) identitet (dvs. ursprunglig tjänstekonsument i anropskedjan) får bara användas för teknisk åtkomstbegränsning på så sätt att svaret blir som om de vårdenheter vars verksamhetschef inte godkänner aktuell tjänstekonsument varit exkluderade i frågan. Icke funktionella krav Det är den informationsproducerande vårdgivarens ansvar att endast ett källsystem tillhandahåller informationen via lästjänst och engagemangsindex där patientdata lagras i flera källsystem. Konsumenter som är anslutna till flera majorversioner av samma kontrakt måste hantera dubblettborttagning mellan dessa. Detta sker genom att jämföra identiteter på postnivå och endast behålla en av de poster som returnerats, se R9. SLA krav Följande generella SLA-krav gäller för alla tjänsteproducenter som tillhandahåller tjänster. Dessa krav gäller där inget annat anges för ett specifikt tjänstekontrakt. Följande SLA-krav gäller för producenter av tjänstekontrakten i denna domän. Övriga krav Gemensamma konsumentregler R1: Filtrera enligt flagga ”approvedForPatient” R2: Tillämpa regelverk enl. PDL R3: Aggregerande sökning förutsätter användning av individens senast gällande huvudidentitet, användning av andra identiteter för individ är enbart tillåten i vid anrop till ett källsystem. Gemensamma producentregler R1: Filtrera enligt RIVTA-headern LogicalAddress. Svarsmeddelandet får endast innehålla information som skapats i det källsystem som anges av frågemeddelandets LogicalAddress. R2: Tjänsteproducenten ska i svaret leverera all information på en begäran riktad mot en giltig personidentifierare, dvs. även information som tidigare har registrerats på andra till individen kopplade identiteter (lokal reservidentitet, tidigare samordningsnummer eller tidigare personnummer) Felhantering Krav på en tjänsteproducent Logiska fel N/A Tekniska fel Vid ett tekniskt fel levereras ett generellt undantag (SOAP Fault). Exempel på detta kan vara deadlock i databasen eller följdeffekter av programmeringsfel. Tekniska fel får inte förmedla personuppgifter. Istället rekommenderas att ett logg-id förmedlas, som ger möjlighet för tjänsteproducentens förvaltning att bistå tjänstekonsumentens förvaltning med felsökning. Ett logg-id bör vara en UUID. Krav på en tjänstekonsument Logiska fel Inga krav på konsument. Tekniska fel Inga krav på konsument.",
+    "5_gemensamma_informationskomponenter": "Gemensamma informationskomponenter Gemensamma informationskomponenter är typer gemensamma för användning i tjänstekontrakt i flera domäner. Nedan listas de gemensamma typer som används i domänen. Dessa är hämtade från version 20 av de gemensamma datatyperna [R8]. CVType En CVType är en referens till ett begrepp som definieras i ett externt kodverk (kodsystem, terminologi eller ontologi). Se vanligt förekommande kodverk [R3]. En CVType kan innehålla en enkel kod, det vill säga en hänvisning till ett begrepp som definieras direkt av det refererade kodverket, eller den kan innehålla ett uttryck i någon syntax definierad av det refererade kodverket som kan utvärderas, exempelvis begreppet \"vänster fot\" som är ett postkoordinerat uttryck byggt från den primära koden \"FOT\" och bestämningen \"VÄNSTER\". Regler CVType code code ska vara en exakt match till en kod eller ett uttryck definierat av kodverket, som refereras till i codeSystem. Om kodverket definierar en kod eller ett uttryck som inkluderar mellanslag, ska koden inkludera mellanslaget. Ett uttryck kan endast användas där kodverket antingen definierar en uttryckssyntax, eller där det finns en allmänt accepterad syntax för kodverket. Det åligger det mottagande systemet att bedöma om man kontrollerar huruvida det är ett uttryck som har skickats istället för en enkel kod, och utvärdera uttrycket istället för att behandla uttrycket som en kod. I vissa fall kan det vara oklart eller tvetydigt om koden representerar en enda symbol eller ett uttryck. Detta uppstår vanligtvis där kodverket definierar ett uttrycksspråk och sedan definierar prekoordinerade begrepp med symboler som matchar deras uttryck, t.ex. UCUM. I andra fall är det säkert att behandla uttrycket som en symbol. Det finns ingen garanti för att detta alltid är säkert: definitionerna i kodverket bör alltid konsulteras för att avgöra hur man ska hantera potentiella uttryck. codeSystem Kodverk ska refereras till genom en globalt unik identifierare, som möjliggör entydig hänvisning till standardkodverk eller andra lokala kodverk. Identifieraren ska vara en Universally Unique Identifier (UUID), Object Identifier (OID), eller Uniform Resource Identifier (URI). En CVType som har ett kodattribut ska ha ett kodverk som specificerar begreppsystemet som definierar koden. codeSystemName Syftet med ett kodverksnamn är att hjälpa en mänsklig tolkare av en kod att tolka codeSystem. Tjänstekonsumenter och tjänsteproducenter som använder codeSystemName ska INTE funktionellt förlita sig på kodverkets namn. Dessutom KAN de välja att inte implementera kodverkets namn men ska INTE avvisa instanser då namnet finns. codeSystemVersion Olika versioner av ett kodverk måste vara kompatibla. Per definition ska en kod ha samma betydelse i alla versioner av ett kodverk. Mellan versioner kan koder inaktiveras men inte tas bort eller återanvändas. Om klartexten av en kod ändras måste den fortfarande vara kompatibel (lika) mellan olika kodverksversioner. displayName Om ifylld, ska klartexten vara den läsbara representationen av koden eller uttrycket som definieras av kodverket vid tiden för datainmatningen. Om kodverket inte definierar en klartext för koden eller uttrycket, kan ingen tillhandahållas. Tjänstekonsumenter och tjänsteproducenter som hävdar direkt eller indirekt överensstämmelse KAN välja att inte implementera klartext men ska INTE avvisa instanser då klartext finns. Huvudsyfte med klartexten är att stödja implementationsfelsökning, men kan även användas till andra tillämpningsspecifika ändamål som till exempel visning för användaren i gränssnittet. originalText\nDet finns två godkända tillämpningar av elementet originalText: OriginalText kan användas för att beskriva det en användare angav och som representeras av koden. I en situation där användaren dikterar eller skriver text är originalText den text som matats in eller yttrats av användaren. OriginalText kan användas i de fall producenten avser ange ett värde som saknar kod. I dessa fall motsvarar originalText benämningen för värdet som saknar kod. Behov att tillföra nya koder till kodverket förmedlas till den som ansvarar för kodverkets innehåll. OriginalText ska vara den exakta text så som den presenteras i originalkällan utan att på något sätt bearbetas eller omvandlas. Således ska originalText representeras i vanlig textform. DatePeriodType Ett datumintervall anges normalt sett med ett start- och ett slutdatum, men öppna intervall är tillåtna. Huruvida ändpunkterna inkluderas i intervallet eller ej bör tydligt beskrivas vid varje enskild tillämpning. DateType Datum anges som en sträng med formatet ”ÅÅÅÅMMDD”. Detta motsvarar den ISO 8601 och ISO 8824-kompatibla formatbeskrivningen ”YYYYMMDD”. Tidszon anges inte. Datum ska anges i tidszonerna CET (svensk normaltid) respektive CEST (svensk normaltid med justering för sommartid). HSAIdType IIType En IIType är en numerisk eller alfanumerisk sträng som kan härledas till ett enskilt objekt eller entitet i ett känt system. Exempel är ett personnummer eller ett vårdkontakts-id. Se identifierare i nationella tjänstekontrakt [R3]. Regler för IIType root\nNär root används som en identifierare av en namnrymd ska identifieraren vara en Universally Unique Identifier (UUID), Object Identifier (OID), eller Uniform Resource Identifier (URI). extension\nVissa scheman för identifierare definierar formateringsmöjligheter för deras kodvärden. Till exempel så skrivs personnumret vanligtvis med bindestreck, 19121212-1212. Bindestrecket bär dock ingen betydelse och kan utelämnas, som i 191212121212. PersonIdType Person-id är vanligtvis ett personnummer, men kan även vara samordningsnummer eller reservnummer. Syftar till att identifiera en privatperson. PQIntervalType Typ som baseras på datatypen IVL_PQ enligt HL7, och som beskriver överföring av intervaller av mätbara värden (”Physical Quantity”). Ett intervall som är öppet i ena änden kan anges. Tillåtna värden för ”unit” bestäms av http://unitsofmeasure.org/ucum.html. Dimension ska preciseras av fältregel vid tillämpning (ex. ”Massa”). Vaksamhet skall iakttagas vid konvertering mellan enheter. Notera att den specialiserade datatypen decimal-primitive används istället för xmltyperna double/decimal. Decimal-primitive behåller signifikanta avslutande 0:or, till skillnad från de föregående. Denna lösning är tagen från HL7 FHIR Release 4 - datatyper. PQType Typ som baseras på datatypen PQ enligt HL7, och som beskriver överföring av mätbara värden (”Physical Quantity”). Tillåtna värden för ”unit” bestäms av http://unitsofmeasure.org/ucum.html. Dimension ska preciseras av fältregel vid tillämpning (ex. ”Massa”). Vaksamhet skall iakttagas vid konvertering mellan enheter. Notera att den specialiserade datatypen decimal-primitive används istället för xmltyperna double/decimal. Decimal-primitive behåller signifikanta avslutande 0:or, till skillnad från de föregående. Denna lösning är tagen från HL7 FHIR Release 4 - datatyper. TimePeriodType Ett tidsintervall anges normalt sett med en start- och en sluttidpunkt, men öppna intervall är tillåtna. Huruvida ändpunkterna inkluderas i intervallet eller ej bör tydligt beskrivas vid varje enskild tillämpning. TimeStampType Tidpunkt anges som en sträng med formatet ”ÅÅÅÅMMDDttmmss”. Detta motsvarar den ISO 8601 och ISO 8824-kompatibla formatbeskrivningen ”YYYYMMDDhhmmss”. Tidszon anges inte. Tidpunkt ska anges i tidszonerna CET (svensk normaltid) respektive CEST (svensk normaltid med justering för sommartid).",
+    "6_tjanstedomanens_meddelandemodeller": "Tjänstedomänens meddelandemodeller Här beskrivs meddelandemodeller för respektive tjänstekontrakt. GetLaboratoryOrderOutcome Begäran Svar Nedanstående tabell mappar mellan de svenska klass- och attributnamnen i informationsspecifikation och tillämpningsanvisning, xml-schematyperna från det tekniska kontraktet samt referensinformationsmodellen Nationell Informationsstruktur 2020:1 från Socialstyrelsen. GetReferralOutcome Meddelandeformatet är kompatibelt med HL7v3 CDA v.2. GetMaternityMedicalHistory Modellen beskriver den logiska strukturen för ett svarsmeddelande. Tjänsten baseras på Socialstyrelsens blanketter för mödravårdsjournal. GetImagingOutcome Formatregler Format för Datum Datum anges alltid på formatet ”ÅÅÅÅMMDD”, vilket motsvarar den ISO 8601- och ISO 8824-kompatibla formatbeskrivningen ”YYYYMMDD”. Format för tid Tid anges på formatet ”ttmmss”, vilket motsvarar den ISO 8601- och ISO 8824-kompatibla formatbeskrivningen ”hhmmss”. Tidszon för tidpunkter Tidszon anges inte i meddelandeformaten. All information om datum och tidpunkter som utbyts via tjänsterna ska ange datum och tidpunkter i den tidszon som gäller/gällde i Sverige vid den tidpunkt som respektive datum- eller tidpunktsfält bär information om. Såväl tjänstekonsumenter som tjänsteproducenter ska med andra ord förutsätta att datum och tidpunkter som utbyts är i tidszonerna CET (svensk normaltid) respektive CEST (svensk normaltid med justering för sommartid). Format för patient-id Personnummer Personnummer anges enligt format ÅÅÅÅMMDDNNNN. Samordningsnummer Samordningsnummer anges enligt format ÅÅÅÅMMDDNNNN. Lokal reservidentitet Format för lokal reservidentitet: Olika format för varje landsting/region och därmed krav på flexibel hantering. Några exempel på reservidentiteter i olika regioner: 201612345678, 19521234TA3C, 20081234-0123, 123456-DA0A, 123456789A."
+  },
+  "contracts": [
+    {
+      "section_number": "7.1",
+      "id": "GetLaboratoryOrderOutcome",
+      "display_name": "Hämta laboratoriesvar",
+      "version": "4.2",
+      "rivta_namespace": "urn:riv:clinicalprocess:healthcond:actoutcome:GetLaboratoryOrderOutcome:4",
+      "description": "GetLaboratoryOrderOutcome returnerar multidisciplinära laboratoriesvar för en patient.",
+      "fields": [
+        {
+          "xpath": "//*:careUnitHSAId",
+          "name": "careUnitHSAId",
+          "type": "IIType",
+          "description": "Filtrering på vårdenhet vilket motsvarar accountableCareUnit i svaret.\n\nroot sätts till OID (1.2.752.129.2.1.4.1) för HSA\nextension sätts till HSA-id på vårdenhet",
+          "cardinality": "0..*",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "//*:careGiverHSAId",
+          "name": "careGiverHSAId",
+          "type": "IIType",
+          "description": "Filtrering på vårdgivare vilket motsvarar accountableCareGiver i svaret.\n\nroot sätts till OID (1.2.752.129.2.1.4.1) för HSA\nextension sätts till HSA-id på vårdgivare",
+          "cardinality": "0..*",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "//*:patientId",
+          "name": "patientId",
+          "type": "IIType",
+          "description": "Begränsar sökningen till angiven personidentifierare för en patient. Tjänsteproducenten ska i svaret leverera alla uppgifter kopplad till patienten, dvs. även uppgifter som har registrerats på andra, ",
+          "cardinality": "1..1",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "//*:datePeriod",
+          "name": "datePeriod",
+          "type": "DatePeriodType",
+          "description": "Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där provtagningstidpunkten (//*:body/*:groupOfAnalyses /*:analysis/*:specimen /*:timestamp) i svare",
+          "cardinality": "0..1",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "//*:sourceSystemHSAId",
+          "name": "sourceSystemHSAId",
+          "type": "IIType",
+          "description": "Begränsar sökningen till anteckningar som är skapade i angivet system. \nroot sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1) \nextension sätts till källsystemets HSA-id.",
+          "cardinality": "0..1",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "//*:specimenIdentifier",
+          "name": "specimenIdentifier",
+          "type": "IIType",
+          "description": "Begränsar sökningen till angivna prov-identiteter.",
+          "cardinality": "0..*",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "//*:referralIdentifier",
+          "name": "referralIdentifier",
+          "type": "IIType",
+          "description": "Begränsar sökningen till angivna remiss-identiteter",
+          "cardinality": "0..*",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "//*:laboratoryOrderOutcome",
+          "name": "laboratoryOrderOutcome",
+          "type": "LaboratoryOrderOutcomeType",
+          "description": "Ett eller flera laboratoriesvar som matchar begäran.",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header",
+          "name": "header",
+          "type": "HeaderType",
+          "description": "Innehåller information som är gemensam för uppgifter i patientjournalen som tillgängliggörs, exempelvis information om vilken hälso- och sjukvårdspersonal som är angiven som författare av en uppgift s",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:accessControlHeader",
+          "name": "accessControlHeader",
+          "type": "AccessControlHeaderType",
+          "description": "Information som används för kontroll av åtkomst. Tjänstekonsumenten får enbart ta del av uppgifterna i AccessControlHeaderType innan övrig information om uppgift i patientjournal kan bearbetas.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:accessControlHeader/*:accountableCareGiver",
+          "name": "accountableCareGiver",
+          "type": "IIType",
+          "description": "Id för uppgiftsägande vårdgivare [R15].\nI första hand HSA-id, i andra hand organisationsnummer. \nOm HSA-id används:\nroot sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1)\nextension sätts till HSA",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:accessControlHeader/*:accountableCareUnit",
+          "name": "accountableCareUnit",
+          "type": "IIType",
+          "description": "HSA-id för vårdenheten [R15] där uppgiften är dokumenterad. \nroot sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1)\nextension sätts till HSA-id",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:accessControlHeader/*:patientId",
+          "name": "patientId",
+          "type": "IIType",
+          "description": "Personidentifierare för patienten.\nroot sätts till OID för typ av personidentifierare.\nFör personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.\nFör samordningsnummer ska",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:accessControlHeader/*:originalPatientId",
+          "name": "originalPatientId",
+          "type": "IIType",
+          "description": "Personidentifieraren som den tillgängliggjorda uppgiften lagrades under då den skapades. Detta fält anges endast då det skiljer sig från patientId, exempelvis då patienten tidigare erhållit vård som d",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:accessControlHeader/*:careProcessId",
+          "name": "careProcessId",
+          "type": "UUIDType",
+          "description": "Id för den individanpassade vårdprocess som uppgiften journalförts inom ramen för. Består av ett lokalt genererat UUID.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": ".//*:header/*:accessControlHeader/*:lockTime",
+          "name": "lockTime",
+          "type": "TimeStampType",
+          "description": "",
+          "cardinality": "0..0",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:accessControlHeader/*:blockComparisonTime",
+          "name": "blockComparisonTime",
+          "type": "TimeStampType",
+          "description": "Den tidpunkt mot vilken spärrkontroll sker vid åtkomst med syftet sammanhållen journalföring. Gäller både yttre (mellan vårdgivare) och inre (mellan vårdenheter) spärr. \nI detta fält anges provtagning",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:accessControlHeader/*:approvedForPatient",
+          "name": "approvedForPatient",
+          "type": "boolean",
+          "description": "Ansvarig vårdpersonals beslut, alternativt verksamhetens policy och regler (men- och sekretessprövning), huruvida uppgiften får delas till patient för ändamålet patients åtkomst (Individens direktåtko",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:sourceSystemId",
+          "name": "sourceSystemId",
+          "type": "IIType",
+          "description": "Det källsystem som uppgiften lagras i. \nroot sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1)\nextension sätts till källsystemets HSA-id",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:record",
+          "name": "record",
+          "type": "RecordType",
+          "description": "Information avseende uppgiften som tillgängliggörs.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:record/*:id",
+          "name": "id",
+          "type": "IIType",
+          "description": "Identifierare för uppgift i patientjournal.\nIdentifieraren ska vara konsistent och beständig mellan olika majorversioner av ett tjänstekontrakt. Detta för att en tjänstekonsument ska kunna ta bort dub",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:record/*:timestamp",
+          "name": "timestamp",
+          "type": "TimeStampType",
+          "description": "Den tidpunkt då uppgiften skapades i tjänsteproducentens källsystem. Denna information ska vara beständig även om tjänsteproducenten migrerat uppgiften från ett källsystem till en annat.\nMotsvarar Lab",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:author",
+          "name": "author",
+          "type": "AuthorType",
+          "description": "Information avseende dokumentation av uppgiften som tillgängliggörs.\nNotera att den som registrerar uppgiften från annan källa, exempelvis en medicinsk sekreterare som transkriberar ett diktat, inte a",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:author/*:id",
+          "name": "id",
+          "type": "IIType",
+          "description": "HSA-id för hälso- och sjukvårdspersonal som dokumenterat uppgiften som tillgängliggörs. \nroot sätts till OID för HSA-id (1.2.752.129.2.1.4.1)\nextension sätts till HSA-id",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:author/*:name",
+          "name": "name",
+          "type": "string",
+          "description": "Namn på hälso- och sjukvårdspersonal. Anges med tilltalsnamn och efternamn.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:author/*:timestamp",
+          "name": "timestamp",
+          "type": "TimeStampType",
+          "description": "Tidpunkt då uppgiften dokumenterades eller senast uppdaterades.\nI de fall då uppgiften ursprungligen dokumenterats eller uppdaterats i ett annat informationssystem än tjänsteproducentens källsystem (t",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:author/*:byRole",
+          "name": "byRole",
+          "type": "CVType",
+          "description": "Information om hälso- och sjukvårdspersonalens befattning så som den var angiven i HSA-katalogen vid dokumentationstidpunkten. \nAnges med HSAs kodverk Befattning  (OID: 1.2.752.129.2.2.1.4).\nOm kod in",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:author/*:orgUnit",
+          "name": "orgUnit",
+          "type": "OrgUnitType",
+          "description": "Den organisation som hälso- och sjukvårdspersonalen är uppdragstagare på.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:signature",
+          "name": "signature",
+          "type": "AuthorType",
+          "description": "Information avseende signering av laboratoriesvaret.\nLaboratoriesvaret signeras av en medicinskt ansvarig hälso- och sjukvårdspersonal på den ansvariga enheten. \nDen ansvariga enheten kan vara den rem",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:signature/*:id",
+          "name": "id",
+          "type": "IIType",
+          "description": "HSA-id för hälso- och sjukvårdspersonal som signerat uppgiften som tillgängliggörs.\nroot sätts till OID för HSA-id (1.2.752.129.2.1.4.1)\nextension sätts till HSA-id",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:signature/*:name",
+          "name": "name",
+          "type": "string",
+          "description": "Namn på hälso- och sjukvårdspersonal. Anges med tilltalsnamn och efternamn.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:signature/*:timestamp",
+          "name": "timestamp",
+          "type": "TimeStampType",
+          "description": "Tidpunkt då uppgiften signerades.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:signature/*:byRole",
+          "name": "byRole",
+          "type": "CVType",
+          "description": "Information om hälso- och sjukvårdspersonalens befattning så som den var angiven i HSA-katalogen vid signeringstidpunkten. \nAnges med HSAs kodverk Befattning  (OID: 1.2.752.129.2.2.1.4).\nOm kod inte ä",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:header/*:signature/*:orgUnit",
+          "name": "orgUnit",
+          "type": "OrgUnitType",
+          "description": "Anges ej för Signature",
+          "cardinality": "0..0",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body",
+          "name": "body",
+          "type": "LaboratoryOrderOutcomeBodyType",
+          "description": "Information om laboratoriesvaret.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:identifier",
+          "name": "identifier",
+          "type": "IIType",
+          "description": "Angivelse av identitetsbeteckning för laboratoriesvaret.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:laboratoryIdentifier",
+          "name": "laboratoryIdentifier",
+          "type": "IIType",
+          "description": "Angivelse av identitetsbeteckning för laboratoriets arbetsorder. \nBenämns även som LID.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:type",
+          "name": "type",
+          "type": "CVType",
+          "description": "Kod för status av laboratoriesvar. Använd FHIR value set Diagnostic Report Status. Giltiga koder är final, partial eller preliminary. Se kodverket för beskrivning av respektive kod.\ncode:  En av koder",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:text",
+          "name": "text",
+          "type": "string",
+          "description": "Angivelse av utlåtande eller kommentar som gäller hela laboratoriesvaret.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:referral",
+          "name": "referral",
+          "type": "ReferralType",
+          "description": "Den remiss som ligger till grund för svaret.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:referral/*:identifier",
+          "name": "identifier",
+          "type": "IIType",
+          "description": "Angivelse av identitetsbeteckning för remissen. \nroot: logisk adress \nextension: remissens id, även kallad RID",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:referral/*:timestamp",
+          "name": "timestamp",
+          "type": "TimeStampType",
+          "description": "Tidsangivelse för när remiss skapats.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:referral/*:version",
+          "name": "version",
+          "type": "int",
+          "description": "Version av remiss.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:referral/*:question",
+          "name": "question",
+          "type": "string",
+          "description": "Remissens frågeställning.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:referral/*:requestedCareService",
+          "name": "requestedCareService",
+          "type": "CVType",
+          "description": "Kod för efterfrågad tjänst från utbudskatalog. \nDet finns inget kodverk eller urval utpekat för detta attribut. Regel 3.4\nOm kod ej kan anges kan datatypens attribut originalText användas för en frite",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:referral/*:requester",
+          "name": "requester",
+          "type": "ActorType",
+          "description": "Hälso- och sjukvårdspersonal som skrivit remiss.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:referral/*:requester/*:id",
+          "name": "id",
+          "type": "IIType",
+          "description": "HSA-id för hälso- och sjukvårdspersonal.\nroot sätts till OID för HSA-id (1.2.752.129.2.1.4.1)\nextension sätts till HSA-id",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:referral/*:requester/*:name",
+          "name": "name",
+          "type": "string",
+          "description": "Namn på hälso- och sjukvårdspersonal",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:referral/*:requester/*:byRole",
+          "name": "byRole",
+          "type": "CVType",
+          "description": "Information om hälso- och sjukvårdspersonalens befattning. Om möjligt skall kod från HSA:s kodverk Befattning (OID: 1.2.752.129.2.2.1.4) [R3] användas för att ange personens befattning så som den var ",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:referral/*:requester/*:orgUnit",
+          "name": "orgUnit",
+          "type": "OrgUnitType",
+          "description": "Den organisation som remittenten är uppdragstagare på. För detta fält är det obligatoriskt att ange både orgUnitType.id samt orgUnitType.name.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:referral/*:referralInformation",
+          "name": "referralInformation",
+          "type": "ReferralInformationType",
+          "description": "Ytterligare information från beställaren.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:referral/*:referralInformation/*:referralComment",
+          "name": "referralComment",
+          "type": "String",
+          "description": "Kommentar på beställningen av laboratorieundersökningen.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:referral/*:referralInformation/*referralMedicalInformation",
+          "name": "*referralMedicalInformation",
+          "type": "String",
+          "description": "Medicinsk information som angetts i beställningen relaterad till laboratorieundersökningen.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses",
+          "name": "groupOfAnalyses",
+          "type": "GroupOfAnalysesType",
+          "description": "Grupperar ett antal analyser som utförs på ett eller flera prov från samma provgivare och som man väljer att betrakta som en enhet. Detta är en möjlighet för ett laboratorium att för ett givet svar ko",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses /*:name",
+          "name": "name",
+          "type": "string",
+          "description": "Namn eller benämning för hela analysgruppen. \nObligatorisk om attributet comment anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses /*:comment",
+          "name": "comment",
+          "type": "string",
+          "description": "Kommentar för hela analysgruppen. Om en kommentar anges ska även attributet name anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses /*:code",
+          "name": "code",
+          "type": "CVType",
+          "description": "Listkoder (NPU) som fungerar som en rubrik-kod för de ingående analyserna.\ncode.code: Kod från “Urval analyskoder laboratoriemedicin” (se [R16])\ncode.codeSystem: 1.2.752.108.1\nRegel 3.5\nOm kod ej kan ",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses /*:analysis",
+          "name": "analysis",
+          "type": "AnalysisType",
+          "description": "Utförd analys.",
+          "cardinality": "1..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses /*:analysis/*:identifier",
+          "name": "identifier",
+          "type": "IIType",
+          "description": "Id för utförd analys.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses /*:analysis/*:timestamp",
+          "name": "timestamp",
+          "type": "TimeStampType",
+          "description": "Den tidpunkt då analysen utfördes.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses /*:analysis/*:code",
+          "name": "code",
+          "type": "CVType",
+          "description": "Kod (NPU) för den analys som utförts. \ncode.code: Kod från “Urval analyskoder laboratoriemedicin” (se [R16])\ncode.codeSystem: 1.2.752.108.1\nRegel 3.5\nOm kod ej kan anges kan datatypens attribut origin",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses /*:analysis/*:method",
+          "name": "method",
+          "type": "CVType",
+          "description": "Kod (SNOMED-CT-SE) för den typ av tillvägagångssätt för utförandet av analysen som avses.\ncode.code: Kod från Urval analysmetod laboratoriemedicin (OID 1.2.752.129.5.1.18) (se [R10])\ncode.codeSystem: ",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses /*:analysis/*:status",
+          "name": "status",
+          "type": "CVType",
+          "description": "Kod (SNOMED-CT-SE) för analysens status.\ncode.code: Kod från Urval analysstatus laboratoriemedicin (OID 1.2.752.129.5.1.6) (se [R10])\ncode.codeSystem:  1.2.752.116.2.1.1\nRegel 3.5\nOm status utelämnas ",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses /*:analysis/*:comment",
+          "name": "comment",
+          "type": "string",
+          "description": "Kommentar för enskild analys, exempelvis att svaret inte får användas för biobanksinfo.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses /*:analysis/*:accredited",
+          "name": "accredited",
+          "type": "boolean",
+          "description": "Om analysen är ackrediterad sätts fältet till true.\nOm analysen inte är ackrediterad sätts fältet till false.\nOm analysens ackrediteringsstatus är okänd utelämnas elementet.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses /*:analysis/*:specimen",
+          "name": "specimen",
+          "type": "SpecimenType",
+          "description": "Information om ett prov.",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses /*:analysis/*:specimen /*:identifier",
+          "name": "identifier",
+          "type": "IIType",
+          "description": "Identitetsbeteckning för ett prov.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses /*:analysis/*:specimen /*:material",
+          "name": "material",
+          "type": "CVType",
+          "description": "Kod (SNOMED-CT-SE) för typ av provmaterial.\nKoden för provmaterial kan även innefatta information om provtagningsmetod. \ncode: Kod från Urval provtyp laboratoriemedicin (OID 1.2.752.129.5.1.13) (se [R",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses /*:analysis/*:specimen /*:timestamp",
+          "name": "timestamp",
+          "type": "TimeStampType",
+          "description": "Angivelse av den tidpunkt då provet är taget.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses /*:analysis/*:specimen /*:anatomicalLocation",
+          "name": "anatomicalLocation",
+          "type": "CVType",
+          "description": "Kod (SNOMED-CT-SE) som anger var provet är taget. \nExempel: höger arm, vänster njure. \ncode: Kod från Urval anatomisk lokalisation laboratoriemedicin (OID 1.2.752.129.5.1.7) (se [R10])\ncodeSystem: 1.2",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses /*:analysis/*:specimen /*:comment",
+          "name": "comment",
+          "type": "string",
+          "description": "Angivelse av kommentar om enskilt prov.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses /*:analysis/*:specimen /*:activity",
+          "name": "activity",
+          "type": "SpecimenRelatedActivityType",
+          "description": "Håller information om aktiviteter relaterade till hantering av provet. \nInkluderar även t.ex. aktiviteter i samband med transport, frysning, förvaring, bearbetning och delning i sekundärprov.",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses /*:analysis/*:specimen /*:activity/*:code",
+          "name": "code",
+          "type": "CVType",
+          "description": "Kod (SNOMED-CT-SE) för provrelaterad aktivitet.\ncode: Kod från  SNOMED-CT-SE\ncodeSystem: 1.2.752.116.2.1.1\nDet finns inget urval utpekat för detta attribut. Regel 3.4",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses /*:analysis/*:specimen /*:activity/*:time",
+          "name": "time",
+          "type": "TimePeriodType",
+          "description": "Angivelse av tidpunkt eller tidsintervall då den provrelaterade aktiviteten utfördes. \nOm tidpunkt anges sätts start- och sluttid till samma tidpunkt.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses /*:analysis/*:specimen /*:activity/*:method",
+          "name": "method",
+          "type": "CVType",
+          "description": "Kod (SNOMED-CT-SE) för metod för provrelaterad aktivitet. \ncode:  Kod från  SNOMED-CT-SE\ncodeSystem: 1.2.752.116.2.1.1\nDet finns inget urval utpekat för detta attribut. Regel 3.4",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:container",
+          "name": "container",
+          "type": "SpecimenContainerType",
+          "description": "Information om den eller de provbehållare som provet förvaras i.",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:container/*:identifier",
+          "name": "identifier",
+          "type": "IIType",
+          "description": "Identitetsbeteckning för en provbehållare.",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:container/*:type",
+          "name": "type",
+          "type": "CVType",
+          "description": "Kod (SNOMED-CT-SE) för typ av provbehållare. \ncode: Kod från Urval provbehållare laboratoriemedicin (OID 1.2.752.129.5.1.12) (se [R10])\ncodeSystem: 1.2.752.116.2.1.1\nRegel 3.5\nOm kod saknas anges typ ",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:device",
+          "name": "device",
+          "type": "DeviceType",
+          "description": "Information om den utrustning som använts för att utföra analysen.",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:device/*:identifier",
+          "name": "identifier",
+          "type": "IIType",
+          "description": "Identitetsbeteckningen för en analysutrustning.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:result",
+          "name": "result",
+          "type": "LaboratoryAnalysisResultType",
+          "description": "Klassen LaboratoryAnalysisResultType håller information om resultat av den utförda analysen. \nDetta resultat kan exempelvis bestå av ett mätvärde inom laboratoriedisciplinen kemi, ett fynd av en viss ",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:result/*:type",
+          "name": "type",
+          "type": "CVType",
+          "description": "Kod för typ av laboratorieanalysresultat.\ncode: Enligt urval från tillämpningsanvisning\ncodeSystem: 1.2.752.108.1 (om NPU-kod) eller 1.2.752.116.2.1.1 (om Snomed CT)",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:result/*:value",
+          "name": "value",
+          "type": "AnyValueType",
+          "description": "Angivelse av utfall av den utförda analysen angiven med en och endast en av datatyperna (se kapitel 5 för beskrivning av respektive datatyp):\nPQType – mätbart värde\nPQIntervalType - intervall av mätba",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:result/*:comment",
+          "name": "comment",
+          "type": "string",
+          "description": "Angivelse av kommentar som rör laboratorieanalysresultatet.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:result/*:interpretation",
+          "name": "interpretation",
+          "type": "CVType",
+          "description": "Kod (SNOMED-CT-SE) för en tolkning av laboratorieanalysresultatet. \ncode:  Kod från Urval tolkning resultat laboratoriemedicin (OID 1.2.752.129.5.1.14) (se [R10])\ncodeSystem: 1.2.752.116.2.1.1\nEn såda",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:result/*:reference",
+          "name": "reference",
+          "type": "ReferenceType",
+          "description": "Information om vilket referensintervall eller referensvärde som gäller för ett resultat.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:result/*:reference /*:interval",
+          "name": "interval",
+          "type": "PQIntervalType",
+          "description": "Angivelse av referensintervall som numeriskt värde av mätvärden. Ett referensvärde anges genom att antingen ange ett intervall från det lägre värdet till det högre värdet som sätts till referensvärdet",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:result/*:reference /*:description",
+          "name": "description",
+          "type": "string",
+          "description": "Textuell beskrivning av referensintervall. \nEtt och endast ett av attributen interval och description ska anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:result/*:reference /*:population",
+          "name": "population",
+          "type": "string",
+          "description": "Angivelse av den referenspopulation som ligger till grund för angivet referensintervall.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:result/*:reference /*:comment",
+          "name": "comment",
+          "type": "string",
+          "description": "Angivelse av kommentar för det angivna referensintervallet.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:result/*:recipientSignature",
+          "name": "recipientSignature",
+          "type": "SignatureType",
+          "description": "Information avseende signering av en enskild analys.\nAnalysen signeras av hälso- och sjukvårdspersonal på den remissvarsmottagande enheten när den förs in i patientjournalen.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:result/*:recipientSignature /*:id",
+          "name": "id",
+          "type": "IIType",
+          "description": "Root sätts till OID för HSA (1.2.752.129.2.1.4.1)\nExtension sätts till HSA-id för hälso- och sjukvårdspersonal",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:result/*:recipientSignature /*:name",
+          "name": "name",
+          "type": "string",
+          "description": "Namn på hälso- och sjukvårdspersonal.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:result/*:recipientSignature /*:timestamp",
+          "name": "timestamp",
+          "type": "TimeStampType",
+          "description": "Tidpunkt för signering.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:result/*:recipientSignature/*:byRole",
+          "name": "byRole",
+          "type": "CVType",
+          "description": "Information om hälso- och sjukvårdspersonalens befattning så som den var angiven i HSA-katalogen vid dokumentationstidpunkten. \nAnges med HSAs kodverk Befattning (OID: 1.2.752.129.2.2.1.4).\nOm kod int",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature",
+          "name": "performerSignature",
+          "type": "SignatureType",
+          "description": "Information avseende signering av en enskild analys.\nAnalysen signeras av den hälso- och sjukvårdspersonal som utför analysen.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature/*:id",
+          "name": "id",
+          "type": "IIType",
+          "description": "Root sätts till OID för HSA (1.2.752.129.2.1.4.1)\nExtension sätts till HSA-id för hälso- och sjukvårdspersonal",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature/*:name",
+          "name": "name",
+          "type": "string",
+          "description": "Namn på hälso- och sjukvårdspersonal.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature/*:timestamp",
+          "name": "timestamp",
+          "type": "TimeStampType",
+          "description": "Tidpunkt då signering genomfördes.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature/*:byRole",
+          "name": "byRole",
+          "type": "CVType",
+          "description": "Information om hälso- och sjukvårdspersonalens befattning så som den var angiven i HSA-katalogen vid dokumentationstidpunkten. \nAnges med HSAs kodverk Befattning (OID: 1.2.752.129.2.2.1.4).\nOm kod int",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:groupOfAnalyses/*:analysis/*:result/*:related",
+          "name": "related",
+          "type": "AnalysisType",
+          "description": "Relaterade analyser, till exempel mikrobiologiska odlingssvar där resistensbestämning görs på fynd.",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:recipientUnit",
+          "name": "recipientUnit",
+          "type": "OrgUnitType",
+          "description": "Mottagande enhet.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:recipientUnit/*:id",
+          "name": "id",
+          "type": "IIType",
+          "description": "Identitet för mottagande enhet.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:recipientUnit/*:name",
+          "name": "name",
+          "type": "string",
+          "description": "Namn på mottagande enhet.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:recipientSignature",
+          "name": "recipientSignature",
+          "type": "SignatureType",
+          "description": "Information avseende signering av laboratoriesvaret.\nLaboratoriesvaret signeras av hälso- och sjukvårdspersonal på den remissvarsmottagande enheten när det förs in i patientjournalen.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:recipientSignature/*:id",
+          "name": "id",
+          "type": "IIType",
+          "description": "Root sätts till OID för HSA (1.2.752.129.2.1.4.1)\nExtension sätts till HSA-id för hälso- och sjukvårdspersonal",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:recipientSignature/*:name",
+          "name": "name",
+          "type": "string",
+          "description": "Namn på hälso- och sjukvårdspersonal",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:recipientSignature/*:timestamp",
+          "name": "timestamp",
+          "type": "TimeStampType",
+          "description": "Tidpunkt för signering.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:recipientSignature/*:byRole",
+          "name": "byRole",
+          "type": "CVType",
+          "description": "Information om hälso- och sjukvårdspersonalens befattning så som den var angiven i HSA-katalogen vid dokumentationstidpunkten. \nAnges med HSAs kodverk Befattning (OID: 1.2.752.129.2.2.1.4).\nOm kod int",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:contactInformation",
+          "name": "contactInformation",
+          "type": "ContactInformationType",
+          "description": "Information om var eller till vem vården kan vända sig vid frågor om laboratoriesvaret.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "//*:body/*:contactInformation/*:text",
+          "name": "text",
+          "type": "string",
+          "description": "Textuell beskrivning av kontaktinformation. \nDet kan t.ex. vara telefonnummer och öppettider till en kundtjänst, ett namn på en kontaktperson.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        }
+      ],
+      "other_rules": "Övriga regler Till detta tjänstekontrakt finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan. Regler markerade med [sch] återfinns i schematron (constraints). Gemensamt för alla övriga regler som valideras med hjälp av schematron är att om fältet inte är obligatoriskt och inte finns med i nyttolasten så kommer regeln inte ge ett fel. Icke funktionella krav Inga övriga icke funktionella krav. SLA-krav Inga avvikande SLA-krav. Annan information om kontraktet Tjänstekontraktet har en tillhörande tillämpningsanvisning vars syfte är att beskriva hur olika laboratoriemedicinska resultat från klinisk kemi, immunologi, samt mikrobiologi avses att koderas och sedermera visas med olika visningsformat i nationella tjänster som exempelvis NPÖ (Nationell Patientöversikt) och Journalen. Denna återfinns här [R11].",
+      "error_codes": [],
+      "open_questions_from_parsing": []
+    },
+    {
+      "section_number": "7.2",
+      "id": "GetReferralOutcome",
+      "display_name": "Hämta remissvar",
+      "version": "3.2",
+      "rivta_namespace": "urn:riv:clinicalprocess:healthcond:actoutcome:GetReferralOutcome:3",
+      "description": "GetReferralOutcome returnerar svar på en konsultationsremiss samt begäran om övertagande av vårdansvar för en patient.",
+      "fields": [
+        {
+          "xpath": "careUnitHSAid",
+          "name": "careUnitHSAid",
+          "type": "HSAIdType",
+          "description": "Filtrering på Vårdenhet vilket motsvarar healthcareProfessionalCareUnitHSAId i accountableHealthcareProfessional.",
+          "cardinality": "0..*",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "patientId",
+          "name": "patientId",
+          "type": "PersonIdType",
+          "description": "Id för patienten där fältet id sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.\n\nFältet type sätts till OID för typ av identifierare. \n1) För personnummer ska Skatteverkets OI",
+          "cardinality": "1..1",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "datePeriod",
+          "name": "datePeriod",
+          "type": "DatePeriodType",
+          "description": "Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där datumintervallet, som bildas av tidpunkterna authorTime och signatureTime i svaret, helt eller ",
+          "cardinality": "0..1",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "../start",
+          "name": "start",
+          "type": "string",
+          "description": "Startdatum. Format ÅÅÅÅMMDD.",
+          "cardinality": "1..1",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "../end",
+          "name": "end",
+          "type": "string",
+          "description": "Slutdatum. Format ÅÅÅÅMMDD.",
+          "cardinality": "1..1",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "sourceSystemHSAId",
+          "name": "sourceSystemHSAId",
+          "type": "HSAIdType",
+          "description": "Begränsar sökningen till dokument som är skapade i angivet system. Tjänsteproducenten förväntas enbart returnera poster som tillhör efterfrågat källsystem.\n\nVärdet på detta fält måste överensstämma me",
+          "cardinality": "0..1",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "careContactId",
+          "name": "careContactId",
+          "type": "string",
+          "description": "Begränsar sökningen till den hälso-och sjukvårdskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet",
+          "cardinality": "0..*",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "referralOutcome",
+          "name": "referralOutcome",
+          "type": "ReferralOutcomeType",
+          "description": "Returnerar en patients konsultationsremissvar.",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../referralOutcomeHeader",
+          "name": "referralOutcomeHeader",
+          "type": "PatientSummaryHeaderType",
+          "description": "Innehåller basinformation om dokumentet",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../documentId",
+          "name": "documentId",
+          "type": "string",
+          "description": "Dokumentets identitet som är unik inom källsystemet\n\nIdentifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha sa",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../sourceSystemHSAId",
+          "name": "sourceSystemHSAId",
+          "type": "HSAIdType",
+          "description": "HSAid för det system som dokumentet är skapat i.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../documentTitle",
+          "name": "documentTitle",
+          "type": "string",
+          "description": "Titel som beskriver den information som sänds i dokumentet.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../documentTime",
+          "name": "documentTime",
+          "type": "TimeStampType",
+          "description": "Tidpunkten då remissvaret inkom till remittentens vårdinformationssystem.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../patientId",
+          "name": "patientId",
+          "type": "PersonIdType",
+          "description": "Identifierare för patient.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../id",
+          "name": "id",
+          "type": "string",
+          "description": "Identiteten enligt den identitetstyp (type) som angivits. Anges med 12 tecken utan bindestreck.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../type",
+          "name": "type",
+          "type": "string",
+          "description": "OID för typ av identifierare. \nFör personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1).\nFör samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3).\nFör reservnummer ",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../accountableHealthcareProfessional",
+          "name": "accountableHealthcareProfessional",
+          "type": "HealthcareProfessionalType",
+          "description": "Information om den hälso- och sjukvårdsperson som skapat informationen i dokumentet, nedan kallas författare. Vid uppdatering av tidigare skapade dokument avses den hälso- och sjukvårdsperson som sena",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../authorTime",
+          "name": "authorTime",
+          "type": "TimeStampType",
+          "description": "Tidpunkt vid vilken remissvaret skapades eller senast uppdaterades i remissmottagarens vårdinformationssystem.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../healthcareProfessionalHSAId",
+          "name": "healthcareProfessionalHSAId",
+          "type": "HSAIdType",
+          "description": "HSA-id hälso-och sjukvårdspersonal. Ska anges om tillgänglig.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../healthcareProfessionalName",
+          "name": "healthcareProfessionalName",
+          "type": "string",
+          "description": "Namn på författaren. Om tillgängligt ska detta anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../healthcareProfessionalRoleCode",
+          "name": "healthcareProfessionalRoleCode",
+          "type": "CVType",
+          "description": "Information om personens befattning. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4) användas, se referens [R 5]. Om kodverk saknas anges befattning i originalText.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../code",
+          "name": "code",
+          "type": "string",
+          "description": "Befattningskod. Om code anges ska också codeSystem  samt displayName anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../codeSystem",
+          "name": "codeSystem",
+          "type": "string",
+          "description": "Kodsystem för befattningskod. Om codeSystem anges ska också code samt displayName anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../codeSystemName",
+          "name": "codeSystemName",
+          "type": "string",
+          "description": "Namn på kodsystem för befattningskod.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../codeSystemVersion",
+          "name": "codeSystemVersion",
+          "type": "string",
+          "description": "Version på kodsystem för befattningskod.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../displayName",
+          "name": "displayName",
+          "type": "string",
+          "description": "Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../originalText",
+          "name": "originalText",
+          "type": "string",
+          "description": "Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. Om originalText anges ska inget annat värde i healthcareProfessionalR",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../healthcareProfessionalOrgUnit",
+          "name": "healthcareProfessionalOrgUnit",
+          "type": "OrgUnitType",
+          "description": "Den organisation som angiven hälso-och sjukvårdsperson är uppdragstagare på. Om tillgängligt ska detta anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../orgUnitHSAId",
+          "name": "orgUnitHSAId",
+          "type": "HSAIdType",
+          "description": "HSA-id för organisationsenhet. Om tillgängligt ska detta anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../orgUnitname",
+          "name": "orgUnitname",
+          "type": "string",
+          "description": "Namn på organisationsenhet. Om tillgängligt ska detta anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../orgUnitTelecom",
+          "name": "orgUnitTelecom",
+          "type": "string",
+          "description": "Telefon till organisationsenhet",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../orgUnitEmail",
+          "name": "orgUnitEmail",
+          "type": "string",
+          "description": "Epost till organisationsenhet.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../orgUnitAddress",
+          "name": "orgUnitAddress",
+          "type": "string",
+          "description": "Postadress till organisationsenhet. Skrivs på ett så naturligt sätt som möjligt, exempelvis:\n”Storgatan 12\n468 91 Lilleby”",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../orgUnitLocation",
+          "name": "orgUnitLocation",
+          "type": "string",
+          "description": "Text som anger namnet på plats eller ort för organisationens fysiska placering",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../healthcareProfessionalCareUnitHSAId",
+          "name": "healthcareProfessionalCareUnitHSAId",
+          "type": "HSAIdType",
+          "description": "HSA-id för Vårdenhet som hälso-och sjukvårdspersonen är uppdragstagare för. Ska anges om tillgänglig.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../healthcareProfessionalCareGiverHSAId",
+          "name": "healthcareProfessionalCareGiverHSAId",
+          "type": "HSAIdType",
+          "description": "HSA-id för vårdgivaren, som är vårdgivare för den enhet som författaren är uppdragstagare för. Ska anges om tillgänglig.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../legalAuthenticator",
+          "name": "legalAuthenticator",
+          "type": "LegalAuthenticatorType",
+          "description": "Information om vem som signerat informationen i dokumentet. Signering = signering av remissvar. Information om vidimering sker i attributet attested i bodyn.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../signatureTime",
+          "name": "signatureTime",
+          "type": "TimeStampType",
+          "description": "Tidpunkt för signering",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../legalAuthenticatorHSAid",
+          "name": "legalAuthenticatorHSAid",
+          "type": "HSAIdType",
+          "description": "HSA-id för person som signerat dokumentet.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../legalAuthenticatorName",
+          "name": "legalAuthenticatorName",
+          "type": "string",
+          "description": "Namnen i klartext för signerande person",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../legalAuthenticatorRoleCode",
+          "name": "legalAuthenticatorRoleCode",
+          "type": "",
+          "description": "Ska ej anges.",
+          "cardinality": "0..0",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../approvedForPatient",
+          "name": "approvedForPatient",
+          "type": "boolean",
+          "description": "Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../careContactId",
+          "name": "careContactId",
+          "type": "string",
+          "description": "Identitetet för hälso-och sjukvårdskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../nullified",
+          "name": "nullified",
+          "type": "",
+          "description": "Ska ej anges.",
+          "cardinality": "0..0",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../nullifiedReason",
+          "name": "nullifiedReason",
+          "type": "",
+          "description": "Ska ej anges.",
+          "cardinality": "0..0",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../referralOutcomeBody",
+          "name": "referralOutcomeBody",
+          "type": "ReferralOutcomeBodyType",
+          "description": "",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../referralOutcomeTypeCode",
+          "name": "referralOutcomeTypeCode",
+          "type": "referralOutcomeTypeCodeEnum",
+          "description": "Anger typ av svar. \nGiltiga koder: \nSR, svar på remissfråga\nSS, slutsvar på remissfråga",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../referralOutcomeTitle",
+          "name": "referralOutcomeTitle",
+          "type": "string",
+          "description": "Text som beskriver vilken specialitet som utlåtandet gäller. Typen av specialitet som anlitats anges i text.\nExempel: \n Patologi\n Klinisk fysik \n Logopedi",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../referralOutcomeText",
+          "name": "referralOutcomeText",
+          "type": "string",
+          "description": "Text som beskriver det sammanfattande utlåtandet kring undersökningsresultatet.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../clinicalInformation",
+          "name": "clinicalInformation",
+          "type": "ClinicalInformationType",
+          "description": "Klinisk information för remissvaret. Dessa kliniska data är direkt kopplat till svaret.",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../clinicalInformationCode",
+          "name": "clinicalInformationCode",
+          "type": "ClinicalInformationCodeType",
+          "description": "Kod för åtgärd.\nKoden anges i code. \nKodverkets OID i codeSystem.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../code",
+          "name": "code",
+          "type": "string",
+          "description": "Kod.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../codeSystem",
+          "name": "codeSystem",
+          "type": "string",
+          "description": "Kod kan komma från kodverket ICD-10 (1.2.752.116.1.1.1.1.3) men andra kodverk kan förekomma.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../clinicalInformationText",
+          "name": "clinicalInformationText",
+          "type": "string",
+          "description": "Beskrivning av klinisk information",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../act",
+          "name": "act",
+          "type": "ActType",
+          "description": "Utförd åtgärd",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../actId",
+          "name": "actId",
+          "type": "string",
+          "description": "Åtgärdens identitet som är unik inom det lokala avsändande systemet",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../actCode",
+          "name": "actCode",
+          "type": "ActCodeType",
+          "description": "Kod för åtgärd. \nKoden anges i code. \nKodverkets OID anges i codeSystem.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../code",
+          "name": "code",
+          "type": "string",
+          "description": "Nullvärde är tillåtet om kod ej är tillgänglig, och åtgärdskodstext ska då skrivas i <actText>.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../codeSystem",
+          "name": "codeSystem",
+          "type": "string",
+          "description": "Lämpliga kodverk kan vara: KVÅ (1.2.752.116.1.3.2.1.4) men andra kodverk kan förekomma.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../actText",
+          "name": "actText",
+          "type": "string",
+          "description": "Text som anger namnet på den kod som anges i attributet åtgärdskod. Beskrivning av åtgärd anges här om ingen kod har angetts i attributet åtgärdskod.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../actTime",
+          "name": "actTime",
+          "type": "TimeStampType",
+          "description": "Tidpunkt då åtgärd genomfördes",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../actResult",
+          "name": "actResult",
+          "type": "MultimediaType",
+          "description": "Resultat av åtgärd. Data i form av bifogade bilder eller liknande.",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../id",
+          "name": "id",
+          "type": "",
+          "description": "Ska ej anges.",
+          "cardinality": "0..0",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../mediaType",
+          "name": "mediaType",
+          "type": "MediaTypeEnum",
+          "description": "Typ av multimedia",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../value",
+          "name": "value",
+          "type": "base64Binary",
+          "description": "Value är binärdata som representerar objektet. Ett och endast ett av value och reference ska anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../reference",
+          "name": "reference",
+          "type": "anyURI",
+          "description": "Referens till extern bild i form av en URL. Ett och endast ett av value och reference ska anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../attested",
+          "name": "attested",
+          "type": "AttestedType",
+          "description": "Information om vidimering av enskild utförd åtgärd med tillhörande resultat. Finns attester är åtgärden vidimerad. Med vidimerat menas att information om åtgärden har lästs och den som läst har tagit ",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../attestedTime",
+          "name": "attestedTime",
+          "type": "TimeStampType",
+          "description": "Tidpunkten för vidimering",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../attesterHSAId",
+          "name": "attesterHSAId",
+          "type": "HSAIdType",
+          "description": "HSA-id för person som vidimerat",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../attesterName",
+          "name": "attesterName",
+          "type": "string",
+          "description": "Namn på person som vidimerat",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../referral",
+          "name": "referral",
+          "type": "ReferralType",
+          "description": "Information om den remissen som ligger till grund för svaret",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../referralId",
+          "name": "referralId",
+          "type": "string",
+          "description": "Remissens identitet som är unik inom det lokala avsändade systemet",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../referralReason",
+          "name": "referralReason",
+          "type": "string",
+          "description": "Text som anger aktuell frågeställning.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../referralTime",
+          "name": "referralTime",
+          "type": "TimeStampType",
+          "description": "Tid då remissen framställdes.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../referralAuthor",
+          "name": "referralAuthor",
+          "type": "HealthcareProfessionalType",
+          "description": "Information om den hälso- och sjukvårdsperson som framställt remissen som ligger till grund för svaret, nedan kallas författare.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../authorTime",
+          "name": "authorTime",
+          "type": "TimeStampType",
+          "description": "Tidpunkt då remissen registrerades i systemet.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../healthcareProfessionalHSAId",
+          "name": "healthcareProfessionalHSAId",
+          "type": "HSAIdType",
+          "description": "HSA-id för hälso-och sjukvårdspersonal. Ska anges om tillgänglig.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../healthcareProfessionalName",
+          "name": "healthcareProfessionalName",
+          "type": "string",
+          "description": "Namn på författaren. Om tillgängligt ska detta anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../healthcareProfessionalRoleCode",
+          "name": "healthcareProfessionalRoleCode",
+          "type": "CVType",
+          "description": "Information om personens befattning. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4) användas. Se referens [R 5]. Om kodverk saknas anges befattning i originalText.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../code",
+          "name": "code",
+          "type": "string",
+          "description": "Befattningskod. Om code anges ska också codeSystem  samt displayName anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../codeSystem",
+          "name": "codeSystem",
+          "type": "string",
+          "description": "Kodsystem för befattningskod. Om codeSystem anges ska också code samt displayName anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../codeSystemName",
+          "name": "codeSystemName",
+          "type": "string",
+          "description": "Namn på kodsystem för befattningskod.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../codeSystemVersion",
+          "name": "codeSystemVersion",
+          "type": "string",
+          "description": "Version på kodsystem för befattningskod.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../displayName",
+          "name": "displayName",
+          "type": "string",
+          "description": "Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../originalText",
+          "name": "originalText",
+          "type": "string",
+          "description": "Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. Om originalText anges ska inget annat värde i healthcareProfessionalR",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../healthcareProfessionalOrgUnit",
+          "name": "healthcareProfessionalOrgUnit",
+          "type": "OrgUnitType",
+          "description": "Den organisation som angiven hälso-och sjukvårdsperson är uppdragstagare på. Om tillgängligt ska detta anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../orgUnitHSAId",
+          "name": "orgUnitHSAId",
+          "type": "HSAIdType",
+          "description": "HSA-id för organisationsenhet. Om tillgängligt ska detta anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../orgUnitname",
+          "name": "orgUnitname",
+          "type": "string",
+          "description": "Namn på organisationsenhet. Om tillgängligt ska detta anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../orgUnitTelecom",
+          "name": "orgUnitTelecom",
+          "type": "string",
+          "description": "Telefon till organisationsenhet",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../orgUnitEmail",
+          "name": "orgUnitEmail",
+          "type": "string",
+          "description": "Epost till organisationsenhet.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../orgUnitAddress",
+          "name": "orgUnitAddress",
+          "type": "string",
+          "description": "Postadress till organisationsenhet. Skrivs på ett så naturligt sätt som möjligt, exempelvis:\n”Storgatan 12\n468 91 Lilleby”",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../orgUnitLocation",
+          "name": "orgUnitLocation",
+          "type": "string",
+          "description": "Text som anger namnet på plats eller ort för organisationens fysiska placering",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../healthcareProfessionalCareUnitHSAId",
+          "name": "healthcareProfessionalCareUnitHSAId",
+          "type": "",
+          "description": "Ska ej anges.",
+          "cardinality": "0..0",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../healthcareProfessionalCareGiverHSAId",
+          "name": "healthcareProfessionalCareGiverHSAId",
+          "type": "",
+          "description": "Ska ej anges.",
+          "cardinality": "0..0",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../careContactId",
+          "name": "careContactId",
+          "type": "string",
+          "description": "Identitet för den hälso-och sjukvårdskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet. Detta ID kan användas för att genom tjänstekontaktet GetCa",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "result",
+          "name": "result",
+          "type": "ResultType",
+          "description": "Innehåller information om begäran gick bra eller ej.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../resultCode",
+          "name": "resultCode",
+          "type": "ResultCodeEnum",
+          "description": "Kan endast vara OK, INFO eller ERROR",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../errorCode",
+          "name": "errorCode",
+          "type": "ErrorCodeEnum",
+          "description": "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../subcode",
+          "name": "subcode",
+          "type": "string",
+          "description": "Inga subkoder är specificerade.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../logId",
+          "name": "logId",
+          "type": "string",
+          "description": "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../message",
+          "name": "message",
+          "type": "string",
+          "description": "En beskrivande text som kan visas för användaren.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        }
+      ],
+      "other_rules": "Övriga regler Till detta tjänstekontrakt finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan. Regler markerade med [sch] återfinns i schematron (constraints). Icke funktionella krav Inga övriga icke funktionella krav. SLA-krav Inga avvikande SLA-krav. Annan information om kontraktet Ingen annan information om kontraktet finns.",
+      "error_codes": [],
+      "open_questions_from_parsing": []
+    },
+    {
+      "section_number": "7.3",
+      "id": "GetMaternityMedicalHistory",
+      "display_name": "Hämta mödravårdsjournal",
+      "version": "2.0",
+      "rivta_namespace": "urn:riv:clinicalprocess:healthcond:actoutcome:GetMaternityMedicalHistory:2",
+      "description": "GetMaternityMedicalHistory returnerar mödravårdsjournal för en patient.",
+      "fields": [
+        {
+          "xpath": "careUnitHSAid",
+          "name": "careUnitHSAid",
+          "type": "HSAIdType",
+          "description": "Filtrering på Vårdenhet vilket motsvarar healthcareProfessionalCareUnitHSAId i accountableHealthcareProfessional.",
+          "cardinality": "0..*",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "patientId",
+          "name": "patientId",
+          "type": "PersonIdType",
+          "description": "Id för patienten där fältet id sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.\n\nFältet type sätts till OID för typ av identifierare. \n1) För personnummer ska Skatteverkets OI",
+          "cardinality": "1..1",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "datePeriod",
+          "name": "datePeriod",
+          "type": "DatePeriodType",
+          "description": "Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där datumintervallet, som bildas av tidpunkterna documentTime, authorTime och signatureTime i svare",
+          "cardinality": "0..1",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "../start",
+          "name": "start",
+          "type": "string",
+          "description": "Startdatum. Format ÅÅÅÅMMDD.",
+          "cardinality": "1..1",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "../end",
+          "name": "end",
+          "type": "string",
+          "description": "Slutdatum. Format ÅÅÅÅMMDD.",
+          "cardinality": "1..1",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "sourceSystemHSAId",
+          "name": "sourceSystemHSAId",
+          "type": "HSAIdType",
+          "description": "Begränsar sökningen till dokument som är skapade i angivet system. Tjänsteproducenten förväntas enbart returnera poster som tillhör efterfrågat källsystem.\n\nVärdet på detta fält måste överensstämma me",
+          "cardinality": "0..1",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "careContactId",
+          "name": "careContactId",
+          "type": "string",
+          "description": "Begränsar sökningen till den hälso-och sjukvårdskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet",
+          "cardinality": "0..*",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "maternityMedicalRecord",
+          "name": "maternityMedicalRecord",
+          "type": "MaternityMedicalRecordType",
+          "description": "En moders mödravårdsjournal.",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../maternityMedicalRecordHeader",
+          "name": "maternityMedicalRecordHeader",
+          "type": "PatientSummaryHeaderType",
+          "description": "Innehåller basinformation om dokumentet.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../documentId",
+          "name": "documentId",
+          "type": "string",
+          "description": "Dokumentets identitet som är unik inom källsystemet.\n\nIdentifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha s",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../sourceSystemHSAId",
+          "name": "sourceSystemHSAId",
+          "type": "HSAIdType",
+          "description": "HSAid för det system som dokumentet är skapat i.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../documentTitle",
+          "name": "documentTitle",
+          "type": "string",
+          "description": "Titel som beskriver den information som sänds i dokumentet.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../documentTime",
+          "name": "documentTime",
+          "type": "TimeStampType",
+          "description": "Första tidpunkten då denna journalinformation skapades hos tjänsteproducenten.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../patientId",
+          "name": "patientId",
+          "type": "PersonIdType",
+          "description": "Id för modern.\nid sätts till patientens identifierare, anges med 12 siffror utan avskiljare.\nType sätts till OID för typ av identifierare. \nFör personnummer ska Skatteverkets personnummer (1.2.752.129",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": ".../../../id",
+          "name": "id",
+          "type": "string",
+          "description": "Sätts till moderns identifierare. Anges med 12 tecken utan avskiljare.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../type",
+          "name": "type",
+          "type": "string",
+          "description": "type sätts till OID för typ av identifierare. \nFör personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1).\nFör samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3).\nF",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../accountableHealthcareProfessional",
+          "name": "accountableHealthcareProfessional",
+          "type": "HealthcareProfessionalType",
+          "description": "Information om den hälso- och sjukvårdsperson som skapat informationen i dokumentet, nedan kallas författare. Vid uppdatering av tidigare skapade dokument avses den hälso- och sjukvårdsperson som sena",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../authorTime",
+          "name": "authorTime",
+          "type": "TimeStampType",
+          "description": "Tidpunkt vid vilken journalinformationen skapades eller senast uppdaterades hos tjänsteproducenten. I de fall då journalinformationen skapats i ett annat informationssystem (t.ex. laboratoriesystem el",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../healthcareProfessionalHSAId",
+          "name": "healthcareProfessionalHSAId",
+          "type": "HSAIdType",
+          "description": "Författarens HSA-id.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../healthcareProfessionalName",
+          "name": "healthcareProfessionalName",
+          "type": "string",
+          "description": "Författarens namn.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../healthcareProfessionalRoleCode",
+          "name": "healthcareProfessionalRoleCode",
+          "type": "CVType",
+          "description": "Information om författarens befattning. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4), se referens [R 5]. Om kodverk saknas anges befattning i originalText.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../code",
+          "name": "code",
+          "type": "string",
+          "description": "Befattningskod. Om code anges ska också codeSystem samt displayName anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../codeSystem",
+          "name": "codeSystem",
+          "type": "string",
+          "description": "Kodsystem för befattningskod. Om codeSystem anges ska också code samt displayName anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../codeSystemName",
+          "name": "codeSystemName",
+          "type": "string",
+          "description": "Namn på kodsystem för befattningskod.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../codeSystemVersion",
+          "name": "codeSystemVersion",
+          "type": "string",
+          "description": "Version på kodsystem för befattningskod.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../displayName",
+          "name": "displayName",
+          "type": "string",
+          "description": "Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../originalText",
+          "name": "originalText",
+          "type": "string",
+          "description": "Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText.\nOm originalText anges ska inget annat värde i healthcareProfessionalR",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../healthcareProfessionalOrgUnit",
+          "name": "healthcareProfessionalOrgUnit",
+          "type": "OrgUnitType",
+          "description": "Den organisation som författaren är uppdragstagare på.",
+          "cardinality": "",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../orgUnitHSAId",
+          "name": "orgUnitHSAId",
+          "type": "HSAIdType",
+          "description": "HSA-id för den organisation som författaren är uppdragstagare på.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../orgUnitName",
+          "name": "orgUnitName",
+          "type": "string",
+          "description": "Namnet på den organisation som författaren är uppdragstagare på.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../orgUnitTelecom",
+          "name": "orgUnitTelecom",
+          "type": "string",
+          "description": "Telefon till organisationsenhet.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../orgUnitEmail",
+          "name": "orgUnitEmail",
+          "type": "string",
+          "description": "Epost till enhet.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../orgUnitAddress",
+          "name": "orgUnitAddress",
+          "type": "string",
+          "description": "Postadress för den organisation som författaren är uppdragstagare på. Skrivs på ett så naturligt sätt som möjligt, exempelvis:\n”Storgatan 12\n468 91 Lilleby”",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../orgUnitLocation",
+          "name": "orgUnitLocation",
+          "type": "string",
+          "description": "Text som anger namnet på plats eller ort för enhetens eller funktionens fysiska placering.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../healthcareProfessionalCareUnitHSAId",
+          "name": "healthcareProfessionalCareUnitHSAId",
+          "type": "HSAIdType",
+          "description": "HSA-id för Vårdenhet.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../healthcareProfessionalCareGiverHSAId",
+          "name": "healthcareProfessionalCareGiverHSAId",
+          "type": "HSAIdType",
+          "description": "HSA-id för vårdgivaren, som är vårdgivare för den enhet som författaren är uppdragstagare för.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../legalAuthenticator",
+          "name": "legalAuthenticator",
+          "type": "LegalAuthenticatorType",
+          "description": "Information om vem som signerat informationen i dokumentet.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../signatureTime",
+          "name": "signatureTime",
+          "type": "TimeStampType",
+          "description": "Tidpunkt för signering.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../legalAuthenticatorHSAId",
+          "name": "legalAuthenticatorHSAId",
+          "type": "HSAIDType",
+          "description": "HSA-id för person som signerat dokumentet.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../legalAuthenticatorName",
+          "name": "legalAuthenticatorName",
+          "type": "string",
+          "description": "Namnen i klartext för signerande person.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../legalAuthenticatorRoleCode",
+          "name": "legalAuthenticatorRoleCode",
+          "type": "",
+          "description": "Ska ej anges.",
+          "cardinality": "0..0",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../approvedForPatient",
+          "name": "approvedForPatient",
+          "type": "boolean",
+          "description": "Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../careContactId",
+          "name": "careContactId",
+          "type": "string",
+          "description": "Identitetet för hälso-och sjukvårdskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../nullified",
+          "name": "nullified",
+          "type": "string",
+          "description": "Ska ej anges.",
+          "cardinality": "0..0",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../nullifiedReason",
+          "name": "nullifiedReason",
+          "type": "string",
+          "description": "Ska ej anges.",
+          "cardinality": "0..0",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../maternityMedicalRecordBody",
+          "name": "maternityMedicalRecordBody",
+          "type": "MaternityMedicalRecordBodyType",
+          "description": "Kan bestå av antingen en registrationRecord, en pregnancyCheckupRecord eller en postDeliveryRecord.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../registrationRecord",
+          "name": "registrationRecord",
+          "type": "RegistrationRecordType",
+          "description": "Information som registreras vid inskrivningsbesöket.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../lastMenstrualPeriod",
+          "name": "lastMenstrualPeriod",
+          "type": "DateType",
+          "description": "Datum för senaste menstruation",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../indicationPregnancy",
+          "name": "indicationPregnancy",
+          "type": "DateType",
+          "description": "Datum för graviditetsindikation",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../contraceptiveDiscontinued",
+          "name": "contraceptiveDiscontinued",
+          "type": "DateType",
+          "description": "Datum för när moder upphört med preventivtablett",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../expectedDayOfDeliveryFromLastMenstrualPeriod",
+          "name": "expectedDayOfDeliveryFromLastMenstrualPeriod",
+          "type": "DateType",
+          "description": "Beräknad förlossning enligt sista menstruation",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../expectedDayOfDeliveryFromUltrasoundScan",
+          "name": "expectedDayOfDeliveryFromUltrasoundScan",
+          "type": "DateType",
+          "description": "Beräknad förlossning enligt ultraljud",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../expectedDayOfDeliveryFromEmbryonicTransfer",
+          "name": "expectedDayOfDeliveryFromEmbryonicTransfer",
+          "type": "DateType",
+          "description": "Beräknad förlossning enligt embryonik transfer",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../length",
+          "name": "length",
+          "type": "PQType",
+          "description": "Längd vid inskrivning",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../weight",
+          "name": "weight",
+          "type": "PQType",
+          "description": "Vikt vid inskrivning [massa]",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../bodyMassIndex",
+          "name": "bodyMassIndex",
+          "type": "PQType",
+          "description": "BMI vid inskrivning [massa/yta]",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../infertility",
+          "name": "infertility",
+          "type": "decimal",
+          "description": "Antal år med ofrivillig barnlöshet (decimaltal)",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../previousGravidityAndParity",
+          "name": "previousGravidityAndParity",
+          "type": "PreviousGravidityAndParityType",
+          "description": "Tidigare graviditeter och förlossningar",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../year",
+          "name": "year",
+          "type": "int",
+          "description": "År för tidigare graviditet eller förlossning",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../month",
+          "name": "month",
+          "type": "int",
+          "description": "Månad för tidigare graviditet eller förlossning",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../delivery",
+          "name": "delivery",
+          "type": "DeliveryCodeEnum",
+          "description": "Graviditet förlossning enligt kodverk:",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../healthcareFacility",
+          "name": "healthcareFacility",
+          "type": "string",
+          "description": "Sjukhus",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../progress",
+          "name": "progress",
+          "type": "string",
+          "description": "Förlopp",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../sex",
+          "name": "sex",
+          "type": "SexCodeEnum",
+          "description": "Kön, giltiga värden 0,1,2 och 9 enligt kodverk med OID 1.2.752.129.2.2.1.1:\n\n0 = okänt,\n1 = man,\n2 = kvinna,\n9 = ej tillämpligt",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../weightOfChild",
+          "name": "weightOfChild",
+          "type": "PQType",
+          "description": "Barnets vikt [massa]",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../gestation",
+          "name": "gestation",
+          "type": "int",
+          "description": "Graviditetsvecka.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../diseasesThrombosis",
+          "name": "diseasesThrombosis",
+          "type": "boolean",
+          "description": "Trombos (true/false)",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../diseasesEndocineDiseases",
+          "name": "diseasesEndocineDiseases",
+          "type": "boolean",
+          "description": "Endokrina sjukdomar (true/false)",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../diseasesRecurrentUrinaryTractInfections",
+          "name": "diseasesRecurrentUrinaryTractInfections",
+          "type": "boolean",
+          "description": "Upprepade urinvägsinfektioner (true/false)",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../diseasesDiabetesMellitus",
+          "name": "diseasesDiabetesMellitus",
+          "type": "boolean",
+          "description": "Diabetes mellitus (true/false)",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../medicationDuringPregnacy",
+          "name": "medicationDuringPregnacy",
+          "type": "MedicationType",
+          "description": "Före inskrivning under graviditet: medicinering",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../medicament",
+          "name": "medicament",
+          "type": "string",
+          "description": "Preparat",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../dosage",
+          "name": "dosage",
+          "type": "string",
+          "description": "Dosering i beskrivande text",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../assessmentAtFirstContactStandardCare",
+          "name": "assessmentAtFirstContactStandardCare",
+          "type": "boolean",
+          "description": "Bedömning vid 1:a besök: basprogram (true/false)",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../pregnancyCheckupRecord",
+          "name": "pregnancyCheckupRecord",
+          "type": "PregnancyCheckupRecordType",
+          "description": "Graviditetskontroll",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../completeWeeksOfGestation",
+          "name": "completeWeeksOfGestation",
+          "type": "int",
+          "description": "Fullgångna graviditetsveckor",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../weight",
+          "name": "weight",
+          "type": "PQType",
+          "description": "Moderns vikt [massa]",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../symphysisFundalHeight",
+          "name": "symphysisFundalHeight",
+          "type": "PQType",
+          "description": "Symfys-fundus mått [längd]",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../haemoglobin",
+          "name": "haemoglobin",
+          "type": "PQType",
+          "description": "Hb (Hemoglobin) [massa / volym]",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../bloodPressureSystolic",
+          "name": "bloodPressureSystolic",
+          "type": "PQType",
+          "description": "Systoliskt blodtryck [tryck]",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../bloodPressureDiastolic",
+          "name": "bloodPressureDiastolic",
+          "type": "PQType",
+          "description": "Diastoliskt blodtryck [tryck]",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../proteinuria",
+          "name": "proteinuria",
+          "type": "PQType",
+          "description": "Proteinuri - Protein i urinet [massa / volym]\nMängden protein ska alltså anges i g/l eller motsvarande. Använd INTE mätstickans kodning (0, 1+, 2+…)",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../glycosuria",
+          "name": "glycosuria",
+          "type": "PQType",
+          "description": "Glucosuri - Glucos i urinet [antal / volym]\nFörväntad enhet är mmol/l. Använd INTE mätstickans kodning (0, 1+, 2+…)\nOBS! U på svenska men y på engelska (ICD10).",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../fetalPosition",
+          "name": "fetalPosition",
+          "type": "FetalPositionCodeEnum",
+          "description": "Fosterläge enligt kodverk:\n\n0 = head (huvud )\n1 = breech (säte)\n2 = oblique (snedläge) \n3 = transverse (tvärläge)",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../fetalPresentation",
+          "name": "fetalPresentation",
+          "type": "FetalPresentationCodeEnum",
+          "description": "Föregående fosterdel enligt kodverk:\n\n0= mobile (rörligt),\n1 = movable (ruckbart),\n2 = fixed (fix)",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../fetalHeartRate",
+          "name": "fetalHeartRate",
+          "type": "PQType",
+          "description": "Fosterljud, hjärtslag, ex. bpm [frekvens]",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../typeOfLeave",
+          "name": "typeOfLeave",
+          "type": "TypeOfLeaveCodeEnum",
+          "description": "Typ av ledighet enligt kodverk\n\n0 = Sjukskrivning,\n1 = Havandekapsledighet,\n2 = Föräldrarledighet",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../medicationSinceRegistration",
+          "name": "medicationSinceRegistration",
+          "type": "MedicationType",
+          "description": "Läkemedel (även kostpreparat) som administrerats sedan registreringen / föregående ”checkup”.",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../medicament",
+          "name": "medicament",
+          "type": "string",
+          "description": "Preparat",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../dosage",
+          "name": "dosage",
+          "type": "string",
+          "description": "Dosering i beskrivande text",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../postDeliveryRecord",
+          "name": "postDeliveryRecord",
+          "type": "PostDeliveryRecordType",
+          "description": "Efterskötning",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../motherPostDeliveryRecord",
+          "name": "motherPostDeliveryRecord",
+          "type": "MotherPostDeliveryRecordType",
+          "description": "Efterskötningsjournal, moder",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../breastfeeding",
+          "name": "breastfeeding",
+          "type": "boolean",
+          "description": "Ammar (true/false)",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../bloodPressureSystolic",
+          "name": "bloodPressureSystolic",
+          "type": "PQType",
+          "description": "Systoliskt blodtryck [tryck]",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../bloodPressureDiastolic",
+          "name": "bloodPressureDiastolic",
+          "type": "PQType",
+          "description": "Diastoliskt blodtryck [tryck]",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../haemoglobin",
+          "name": "haemoglobin",
+          "type": "PQType",
+          "description": "Haemoglobin, t.ex. g/L [massa / volym]",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../bodyTemperature",
+          "name": "bodyTemperature",
+          "type": "decimal",
+          "description": "Kroppstemperatur",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../scarsOK",
+          "name": "scarsOK",
+          "type": "boolean",
+          "description": "Sår/bristningar/klipp utan anmärkning (true/false)",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../sutureRemoved",
+          "name": "sutureRemoved",
+          "type": "boolean",
+          "description": "Suturer borttagna (true/false)",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../perineumComfortable",
+          "name": "perineumComfortable",
+          "type": "boolean",
+          "description": "Bäckenbotten utan anmärkning (true/false)",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../vulvaVaginaPortioOK",
+          "name": "vulvaVaginaPortioOK",
+          "type": "boolean",
+          "description": "vulvaVaginaPortio utan anmärkning (true/false)",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../uterusContracted",
+          "name": "uterusContracted",
+          "type": "boolean",
+          "description": "Uterus utan anmärkning (true/false)",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../uterusNote",
+          "name": "uterusNote",
+          "type": "string",
+          "description": "Kommentar till uterus med anmärkning. Kan endast anges då uterusContracted = false",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../childPostDeliveryRecord",
+          "name": "childPostDeliveryRecord",
+          "type": "ChildPostDeliveryRecordTypeType",
+          "description": "Efterskötningsjournal, för barn ur samma graviditet",
+          "cardinality": "1..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../ordinalNumber",
+          "name": "ordinalNumber",
+          "type": "integer",
+          "description": "Ordningstal för barnet, med start på 1. Ju äldre barn desto lägre siffra.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../weight",
+          "name": "weight",
+          "type": "PQType",
+          "description": "Barnets vikt [massa]",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../apgarScore1",
+          "name": "apgarScore1",
+          "type": "int",
+          "description": "Apgar (0..10) efter 1 minut",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../apgarScore5",
+          "name": "apgarScore5",
+          "type": "int",
+          "description": "Apgar (0..10) efter 5 minuter",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../apgarScore10",
+          "name": "apgarScore10",
+          "type": "int",
+          "description": "Apgar (0..10) efter 10 minuter",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "result",
+          "name": "result",
+          "type": "ResultType",
+          "description": "Innehåller information om begäran gick bra eller ej.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../resultCode",
+          "name": "resultCode",
+          "type": "ResultCodeEnum",
+          "description": "Kan endast vara OK, INFO eller ERROR",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../errorCode",
+          "name": "errorCode",
+          "type": "ErrorCodeEnum",
+          "description": "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../subcode",
+          "name": "subcode",
+          "type": "string",
+          "description": "Inga subkoder är specificerade.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../logId",
+          "name": "logId",
+          "type": "string",
+          "description": "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../message",
+          "name": "message",
+          "type": "string",
+          "description": "En beskrivande text som kan visas för användaren.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        }
+      ],
+      "other_rules": "Övriga regler Till detta tjänstekontrakt finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan. Regler markerade med [sch] återfinns i schematron (constraints). Icke funktionella krav Inga övriga icke funktionella krav. SLA-krav Inga avvikande SLA-krav. Annan information om kontraktet Ingen annan information om kontraktet finns.",
+      "error_codes": [],
+      "open_questions_from_parsing": []
+    },
+    {
+      "section_number": "7.4",
+      "id": "GetImagingOutcome",
+      "display_name": "Hämta bilddiagnostiskt resultat",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:clinicalprocess:healthcond:actoutcome:GetImagingOutcome:1",
+      "description": "Tjänstekontraktet GetImagingOutcome returnerar bilddiagnostiska resultat för en patient.",
+      "fields": [
+        {
+          "xpath": "careUnitHSAId",
+          "name": "careUnitHSAId",
+          "type": "HSAIdType",
+          "description": "Filtrering på PDL-enhet vilket motsvarar careUnitHSAId i healthcareProfessionalType.",
+          "cardinality": "0..*",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "patientId",
+          "name": "patientId",
+          "type": "PersonIdType",
+          "description": "Id för patienten. \nid sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.\nType sätts till OID för typ av identifierare. \nFör personnummer ska Skatteverkets personnummer (1.2.752.",
+          "cardinality": "1..1",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "datePeriod",
+          "name": "datePeriod",
+          "type": "DatePeriodType",
+          "description": "Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där datumintervallet, som bildas av tidpunkterna authorTime, resultTime samt remissens authorTime i",
+          "cardinality": "0..1",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "../start",
+          "name": "start",
+          "type": "string",
+          "description": "Startdatum. Format ÅÅÅÅMMDD.",
+          "cardinality": "1..1",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "../end",
+          "name": "end",
+          "type": "string",
+          "description": "Slutdatum. Format ÅÅÅÅMMDD.",
+          "cardinality": "1..1",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "sourceSystemHSAId",
+          "name": "sourceSystemHSAId",
+          "type": "HSAIdType",
+          "description": "Begränsar sökningen till dokument som är skapade i angivet system. Tjänsteproducenten förväntas enbart returnera poster som tillhör efterfrågat källsystem.\n\nVärdet på detta fält måste överensstämma me",
+          "cardinality": "0..1",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "careContactId",
+          "name": "careContactId",
+          "type": "string",
+          "description": "Begränsar sökningen till den hälso-och sjukvårdskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet.",
+          "cardinality": "0..*",
+          "section": "Begäran"
+        },
+        {
+          "xpath": "imagingOutcome",
+          "name": "imagingOutcome",
+          "type": "ImagingOutcomeType",
+          "description": "De Bild-resultat(dokument) som matchar begäran.",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../imagingOutcomeHeader",
+          "name": "imagingOutcomeHeader",
+          "type": "PatientSummaryHeaderType",
+          "description": "Innehåller basinformation om dokumentet",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../documentId",
+          "name": "documentId",
+          "type": "string",
+          "description": "Dokumentets identitet som är unik inom källsystemet. \n\nIdentifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha ",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../sourceSystemHSAId",
+          "name": "sourceSystemHSAId",
+          "type": "HSAIdType",
+          "description": "HSA-id för det system som dokumentet är skapat i.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../documentTitle",
+          "name": "documentTitle",
+          "type": "string",
+          "description": "Titel som beskriver den information som sänds i dokumentet.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../documentTime",
+          "name": "documentTime",
+          "type": "TimeStampType",
+          "description": "Händelsetidpunkt, om sådan finns. Tidpunkten bör vara då undersökningen gjordes inte när bilden skapades (t.ex. skannad bild).",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../patientId",
+          "name": "patientId",
+          "type": "PersonIdType",
+          "description": "Identifierare för patient.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../id",
+          "name": "id",
+          "type": "string",
+          "description": "Identiteten enligt den identitetstyp (type) som angivits. Anges med 12 tecken utan bindestreck.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../type",
+          "name": "type",
+          "type": "string",
+          "description": "OID för typ av identifierare. För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1). För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3). För reservnummer a",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../accountableHealthcareProfessional",
+          "name": "accountableHealthcareProfessional",
+          "type": "HealthcareProfessionalType",
+          "description": "Ansvarig hälso- och sjukvårdsperson. Ansvarig för undersökningsresultatet. Avser person som är ansvarig för det samlade dokumentet.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../authorTime",
+          "name": "authorTime",
+          "type": "TimeStampType",
+          "description": "Tidpunkt då dokumentet skapades. Det är den senaste tidpunkten då informationen uppdaterats i systemet som ska finnas här i de fall informationen har ändrats efter det att den skapades.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../healthcareProfessionalHSAId",
+          "name": "healthcareProfessionalHSAId",
+          "type": "HSAIdType",
+          "description": "HSA-id hälso-och sjukvårdspersonal. Ska anges om tillgänglig.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../healthcareProfessionalName",
+          "name": "healthcareProfessionalName",
+          "type": "string",
+          "description": "Namn på hälso-och sjukvårdspersonal. Om tillgängligt ska detta anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../healthcareProfessionalRoleCode",
+          "name": "healthcareProfessionalRoleCode",
+          "type": "CVType",
+          "description": "Information om ansvarige personens befattning. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4), se referens [R 5]. Om kodverk saknas anges befattning i originalText.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../code",
+          "name": "code",
+          "type": "string",
+          "description": "Befattningskod. Om code anges ska också codeSystem  samt displayName anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../codeSystem",
+          "name": "codeSystem",
+          "type": "string",
+          "description": "Kodsystem för befattningskod. Om codeSystem anges ska också code samt displayName anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../codeSystemName",
+          "name": "codeSystemName",
+          "type": "string",
+          "description": "Namn på kodsystem för befattningskod.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../codeSystemVersion",
+          "name": "codeSystemVersion",
+          "type": "string",
+          "description": "Version på kodsystem för befattningskod.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../displayName",
+          "name": "displayName",
+          "type": "string",
+          "description": "Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../originalText",
+          "name": "originalText",
+          "type": "string",
+          "description": "Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText.\nOm originalText anges ska inget annat värde i healthcareProfessionalR",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../healthcareProfessionalOrgUnit",
+          "name": "healthcareProfessionalOrgUnit",
+          "type": "OrgUnitType",
+          "description": "Den organisation som angiven hälso-och sjukvårdsperson är uppdragstagare på. Om tillgängligt ska detta anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../orgUnitHSAId",
+          "name": "orgUnitHSAId",
+          "type": "HSAIdType",
+          "description": "HSA-id för organisationsenhet. Om tillgängligt ska detta anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../orgUnitName",
+          "name": "orgUnitName",
+          "type": "string",
+          "description": "Namn på organisationsenhet. Om tillgängligt ska detta anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../orgUnitTelecom",
+          "name": "orgUnitTelecom",
+          "type": "string",
+          "description": "Telefon till organisationsenhet.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../orgUnitEmail",
+          "name": "orgUnitEmail",
+          "type": "string",
+          "description": "Epost till organisationsenhet.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../orgUnitAddress",
+          "name": "orgUnitAddress",
+          "type": "string",
+          "description": "Postadress till organisationsenhet. Skrivs på ett så naturligt sätt som möjligt, exempelvis:\n”Storgatan 12\n468 91 Lilleby”",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../orgUnitLocation",
+          "name": "orgUnitLocation",
+          "type": "string",
+          "description": "Text som anger namnet på plats eller ort för organisationens fysiska placering.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../healthcareProfessionalCareUnitHSAId",
+          "name": "healthcareProfessionalCareUnitHSAId",
+          "type": "HSAIdType",
+          "description": "HSA-id för informationsägande vårdenhet. Ska anges om tillgänglig.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../healthcareProfessionalCareGiverHSAId",
+          "name": "healthcareProfessionalCareGiverHSAId",
+          "type": "HSAIdType",
+          "description": "HSA-id för informationsägande vårdgivare.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../legalAuthenticator",
+          "name": "legalAuthenticator",
+          "type": "LegalAuthenticatorType",
+          "description": "Information om vem som signerat informationen i dokumentet. Det är normalt radiologen som signerar bilddiagnostiska svar. Signering = signering av remissvar. Vidimering anges i attributet attested i b",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../signatureTime",
+          "name": "signatureTime",
+          "type": "TimeStampType",
+          "description": "Tidpunkt för signering.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../legalAuthenticatorHSAId",
+          "name": "legalAuthenticatorHSAId",
+          "type": "HSAIdType",
+          "description": "HSA-id för person som signerat dokumentet. HSA-id för hälso-och sjukvårdspersonal. Ska anges om tillgänglig",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../legalAuthenticatorName",
+          "name": "legalAuthenticatorName",
+          "type": "string",
+          "description": "Namnen i klartext för signerande person.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../legalAuthenticatorRoleCode",
+          "name": "legalAuthenticatorRoleCode",
+          "type": "",
+          "description": "Ska ej anges.",
+          "cardinality": "0..0",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../approvedForPatient",
+          "name": "approvedForPatient",
+          "type": "boolean",
+          "description": "Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../careContactId",
+          "name": "careContactId",
+          "type": "string",
+          "description": "Identitetet för den hälso-och sjukvårdskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../nullified",
+          "name": "nullified",
+          "type": "boolean",
+          "description": "Anger om dokumentet makulerats i källsystemet. Sätts i så fall till true annars false. Används bl.a. i statistik-/rapportuttag med hjälp av tjänstekontrakten.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../nullifiedReason",
+          "name": "nullifiedReason",
+          "type": "string",
+          "description": "Anger orsak till makulering",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../imagingOutcomeBody",
+          "name": "imagingOutcomeBody",
+          "type": "ImagingOutcomeBodyType",
+          "description": "",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../examinationSpeciality",
+          "name": "examinationSpeciality",
+          "type": "CVType",
+          "description": "Undersökningstyp. Bör anges med kod enligt SNOMED.\nText som beskriver vilken specialitet som utlåtandet gäller.Exempel: \nTypen av specialitet som anlitats anges i text Exempel: Patologi, Klinisk fysio",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../typeOfResult",
+          "name": "typeOfResult",
+          "type": "TypeOfResultCodeEnum",
+          "description": "Svarstyp. \nPREL = Preliminärsvar, denna typ är ny och finns ej i NPÖ:s riv-specifikation.\nDEF = Definitivsvar, ett svar som har kommit tillbaka till beställaren från utföraren. \nTILL = Tilläggssvar, k",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../resultTime",
+          "name": "resultTime",
+          "type": "TimeStampType",
+          "description": "Svarstidpunkt. Tidpunkt då svar skickas till framställaren av remissen.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../resultReport",
+          "name": "resultReport",
+          "type": "string",
+          "description": "Text som beskriver det sammanfattade utlåtandet kring undersökningsresultatet",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../resultComment",
+          "name": "resultComment",
+          "type": "string",
+          "description": "Kommentar till det sammanfattande utlåtandet",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../radiationDose",
+          "name": "radiationDose",
+          "type": "PQType",
+          "description": "Ett dosvärde som härrör till undersökningen.\nDosen kan anges på flera olika sätt (t.ex. som effektiv dos i Sv) eller som KAP. Den totala dosen som härrör till underökningen är summan av alla redovisad",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../patientData",
+          "name": "patientData",
+          "type": "PatientDataType",
+          "description": "Ytterligare information om patienten med relevans för bedömningen. Kan typiskt anges i samband med givande av strukturerad bild-information enligt nedan",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../patientWeight",
+          "name": "patientWeight",
+          "type": "PQType",
+          "description": "Patientens vikt i kgvid undersökningstillfället.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../patientLength",
+          "name": "patientLength",
+          "type": "PQType",
+          "description": "Patientens längd i cm vid undersökningstillfället.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../imageRecording",
+          "name": "imageRecording",
+          "type": "ImageRecordingType",
+          "description": "Beskrivning av bild-tagning(ar). Bild(er) tas som en eller flera tagningar (noll tillåts i fall då tillgång till bild saknas, utan endast (remiss och) sammanfattande utlåtande finns).\nEn bildtagning k",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../recordingId",
+          "name": "recordingId",
+          "type": "IIType",
+          "description": "Id för Bild-tagningen som är unikt inom källsystemet.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../examinationActivity",
+          "name": "examinationActivity",
+          "type": "CVType",
+          "description": "Åtgärdskod för utförd typ av Bild. KRÅ91-kod eller i förekommande fall annat kodverk. Om inget gemensamt kodverk används, anges åtgärdsbeskrivning i originalText.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../examinationTimePeriod",
+          "name": "examinationTimePeriod",
+          "type": "TimePeriodType",
+          "description": "Tidpunkt då Bild-insamlingen startar och slutar",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../examinationStatus",
+          "name": "examinationStatus",
+          "type": "ExaminationStatusCodeEnum",
+          "description": "Text som anger åtgärdens status. Kommer från KV åtgärdsstatus i V-TIM 1.0. Tillåtna värden är: Initierad, Planerad (bevakad), Tidbokad, Uppskjuten, Annullerad, Pågående, Avvakta, Avbruten, Avklarad, I",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../examinationUnit",
+          "name": "examinationUnit",
+          "type": "string",
+          "description": "Text som anger vilken typ av labenhet som undersökningsresultatet härrör från. T ex MR-lab, CT inom bild",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../accountableHealthcareProfessional",
+          "name": "accountableHealthcareProfessional",
+          "type": "HealthcareProfessionalType",
+          "description": "Hälso- och sjukvårdsperson som är ansvarig för informationen som härstammar från insamlingstillfället. Den person som har den fysiska kontakten med patienten vid insamlandet av data.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../authorTime",
+          "name": "authorTime",
+          "type": "TimeStampType",
+          "description": "Tidpunkt då dokumentet skapades. Det är den senaste tidpunkten då informationen uppdaterats i systemet som ska finnas här i de fall informationen har ändrats efter det att den skapades. \n\nAttributet s",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../healthcareProfessionalHSAId",
+          "name": "healthcareProfessionalHSAId",
+          "type": "HSAIdType",
+          "description": "HSA-id för hälso-och sjukvårdspersonal. Ska anges om tillgänglig.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../healthcareProfessionalName",
+          "name": "healthcareProfessionalName",
+          "type": "string",
+          "description": "Namn på hälso-och sjukvårdspersonal. Om tillgängligt ska detta anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../healthcareProfessionalRoleCode",
+          "name": "healthcareProfessionalRoleCode",
+          "type": "CVType",
+          "description": "Information om ansvarige personens befattning. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4), se referens [R 5].\nOm kodverk saknas anges befattning i originalText.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../code",
+          "name": "code",
+          "type": "string",
+          "description": "Befattningskod. Om code anges ska också codeSystem samt displayName anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../codeSystem",
+          "name": "codeSystem",
+          "type": "string",
+          "description": "Kodsystem för befattningskod. Om codeSystem anges ska också code samt displayName anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../codeSystemName",
+          "name": "codeSystemName",
+          "type": "string",
+          "description": "Namn på kodsystem för befattningskod.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../codeSystemVersion",
+          "name": "codeSystemVersion",
+          "type": "string",
+          "description": "Version på kodsystem för befattningskod.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../displayName",
+          "name": "displayName",
+          "type": "string",
+          "description": "Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../originalText",
+          "name": "originalText",
+          "type": "string",
+          "description": "Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText.\nOm originalText anges ska inget annat värde i healthcareProfessionalR",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../healthcareProfessionalOrgUnit",
+          "name": "healthcareProfessionalOrgUnit",
+          "type": "OrgUnitType",
+          "description": "Den organisation som angiven hälso-och sjukvårdsperson är uppdragstagare på. Om tillgängligt ska detta anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../orgUnitHSAId",
+          "name": "orgUnitHSAId",
+          "type": "HSAIdType",
+          "description": "HSA-id för organisationsenhet. Om tillgängligt ska detta anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../orgUnitName",
+          "name": "orgUnitName",
+          "type": "string",
+          "description": "Namn på organisationsenhet. Om tillgängligt ska detta anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../orgUnitTelecom",
+          "name": "orgUnitTelecom",
+          "type": "string",
+          "description": "Telefon till organisationsenhet.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../orgUnitEmail",
+          "name": "orgUnitEmail",
+          "type": "string",
+          "description": "Epost till organisationsenhet.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../orgUnitAddress",
+          "name": "orgUnitAddress",
+          "type": "string",
+          "description": "Postadress till organisationsenhet. Skrivs på ett så naturligt sätt som möjligt, exempelvis:\n”Storgatan 12\n468 91 Lilleby”",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../orgUnitLocation",
+          "name": "orgUnitLocation",
+          "type": "string",
+          "description": "Text som anger namnet på plats eller ort för organisationens fysiska placering.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../healthcareProfessionalCareUnitHSAId",
+          "name": "healthcareProfessionalCareUnitHSAId",
+          "type": "",
+          "description": "Ska ej anges.",
+          "cardinality": "0..0",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../healthcareProfessionalCareGiverHSAId",
+          "name": "healthcareProfessionalCareGiverHSAId",
+          "type": "",
+          "description": "Ska ej anges.",
+          "cardinality": "0..0",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../numberOfImages",
+          "name": "numberOfImages",
+          "type": "int",
+          "description": "Det totala antalet bilder i bildtagningen",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../modalityData",
+          "name": "modalityData",
+          "type": "ModalityDataType",
+          "description": "Information om bild-utrustningen som använts",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../typeOfModality",
+          "name": "typeOfModality",
+          "type": "string",
+          "description": "Modalitetstyp för bildfångande utrustning.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../manufacturer",
+          "name": "manufacturer",
+          "type": "string",
+          "description": "Producerande utrustnings tillverkare.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../modelName",
+          "name": "modelName",
+          "type": "string",
+          "description": "Producerande utrustnings modellnamn.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../equipmentId",
+          "name": "equipmentId",
+          "type": "string",
+          "description": "Identifierare för utrustningen. Kan tex vara serienummer eller inventarienummer.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../softwareVersion",
+          "name": "softwareVersion",
+          "type": "string",
+          "description": "Text som anger tillverkarens version av den bildproducerande mjukvaran",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../lineFilter",
+          "name": "lineFilter",
+          "type": "",
+          "description": "Ska ej anges.",
+          "cardinality": "0..0",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../imageDicomData",
+          "name": "imageDicomData",
+          "type": "DicomDataType",
+          "description": "DICOM-objekt. För att ge renderbar data som kan visas på det sätt som användaren önskar (med hjälp av en viewer/renderare) ges möjligheten att skicka med binärdata eller en URI till ett DICOM-objekt i",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../dicomSOP",
+          "name": "dicomSOP",
+          "type": "IIType",
+          "description": "SOP UID för DICOM-objektet. Beskriver vilken information som kan förväntas i datan (jmf. mediaType nedan för statisk bild).\nT.ex. 1.2.840.10008.5.1.4.1.1.1.1 för digital x-ray for presentation",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../dicomValue",
+          "name": "dicomValue",
+          "type": "base64Binary",
+          "description": "Binärdata som representerar objektet. Ett och endast ett av DicomValue och DicomReference ska anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../dicomReference",
+          "name": "dicomReference",
+          "type": "anyURI",
+          "description": "Referens till externt DICOM-objekt med åtkomst enligt WADO. En tillverkarspecifik länk som är möjlig att via en säker anslutning visa i en webklient",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../imageStructuredData",
+          "name": "imageStructuredData",
+          "type": "ImageStructuredDataType",
+          "description": "Strukturerad mätdata för bild-tagningen med statiskt bildobjekt eller referens till bildfil.",
+          "cardinality": "0..*",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../aperture",
+          "name": "aperture",
+          "type": "PQType",
+          "description": "Anges som f/(enhetslöst).",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../exposureTime",
+          "name": "exposureTime",
+          "type": "PQType",
+          "description": "I sekunder",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../imageCreationTime",
+          "name": "imageCreationTime",
+          "type": "TimeStampType",
+          "description": "Tid då bilden skapats.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../bodyPartExamined",
+          "name": "bodyPartExamined",
+          "type": "CVType",
+          "description": "Kroppsdel. Bör anges med kod ur SNOMED CT (OID: 1.2.752.116.2.1.1). Om kodverk saknas kan kroppsdel anges i originalText.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../contrastAgentUsed",
+          "name": "contrastAgentUsed",
+          "type": "string",
+          "description": "Kontrast som använts vid bildtagningen.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../magneticFieldStrength",
+          "name": "magneticFieldStrength",
+          "type": "PQType",
+          "description": "Magnetisk fältsyrka i T.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../copyright",
+          "name": "copyright",
+          "type": "string",
+          "description": "Copyright-ägare av bilden",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../imageData",
+          "name": "imageData",
+          "type": "ImageDataType",
+          "description": "Möjlighet att svara med en bild i något av de tillåtna formaten enligt HL7 multimediatyper (inkl. PDF).",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../mediaType",
+          "name": "mediaType",
+          "type": "MediaTypeEnum",
+          "description": "Mediatyper enligt HL7 MediaType",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../value",
+          "name": "value",
+          "type": "base64Binary",
+          "description": "Value är binärdata som representerar objektet. Ett och endast ett av value och reference ska anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../reference",
+          "name": "reference",
+          "type": "anyURI",
+          "description": "Referens till extern bild i form av en URL. Ett och endast ett av value och reference ska anges. En tillverkarspecifik länk som är möjlig att via en säker anslutning visa i en webklient",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../burnedInAnnotations",
+          "name": "burnedInAnnotations",
+          "type": "boolean",
+          "description": "True om patientdata finns i pixelinformationen.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../referral",
+          "name": "referral",
+          "type": "ReferralType",
+          "description": "Information om den remiss som ligger till grund för undersökningen och dess svar. Måste vara valfri eftersom tagning av Bild inte alltid remitteras",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../referralId",
+          "name": "referralId",
+          "type": "string",
+          "description": "Remissens identitet som är unik inom det lokala avsändande systemet. Motsvarar vårdbegäran-id",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../referralReason",
+          "name": "referralReason",
+          "type": "string",
+          "description": "Text som anger frågeställningen",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../anamnesis",
+          "name": "anamnesis",
+          "type": "string",
+          "description": "Text som anger bakgrund till frågeställningen",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../careContactId",
+          "name": "careContactId",
+          "type": "string",
+          "description": "Identitet för den hälso-och sjukvårdskontakt som föranlett remissen. Identiteten är unik inom producernade system.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../accountableHealthcareProfessional",
+          "name": "accountableHealthcareProfessional",
+          "type": "HealthcareProfessionalType",
+          "description": "Information om den hälso-och sjukvårdspersonal som framställt remissen, nedan kallad remittent.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../authorTime",
+          "name": "authorTime",
+          "type": "TimeStampType",
+          "description": "Tid då remissen framställdes",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../healthcareProfessionalHSAid",
+          "name": "healthcareProfessionalHSAid",
+          "type": "HSAIdType",
+          "description": "Remittentens HSA-id. HSA-id hälso-och sjukvårdspersonal. Ska anges om tillgänglig.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../healthcareProfessionalName",
+          "name": "healthcareProfessionalName",
+          "type": "string",
+          "description": "Namn på remittenten. Om tillgängligt ska detta anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../healthcareProfessionalRoleCode",
+          "name": "healthcareProfessionalRoleCode",
+          "type": "CVType",
+          "description": "Information om remittentens befattning. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4) användas. Om kodverk saknas anges befattning i originalText.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../code",
+          "name": "code",
+          "type": "string",
+          "description": "Befattningskod. Om code anges ska också codeSystem  samt displayName anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../codeSystem",
+          "name": "codeSystem",
+          "type": "string",
+          "description": "Kodsystem för befattningskod. Om codeSystem anges ska också code samt displayName anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../displayName",
+          "name": "displayName",
+          "type": "string",
+          "description": "Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../codeSystemName",
+          "name": "codeSystemName",
+          "type": "string",
+          "description": "Namn på kodsystem för befattningskod.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../codeSystemVersion",
+          "name": "codeSystemVersion",
+          "type": "string",
+          "description": "Version på kodsystem för befattningskod.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../originalText",
+          "name": "originalText",
+          "type": "string",
+          "description": "Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../healthcareProfessionalOrgUnit",
+          "name": "healthcareProfessionalOrgUnit",
+          "type": "OrgUnitType",
+          "description": "Den organisation som remittenten är uppdragstagare på",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../orgUnitHSAId",
+          "name": "orgUnitHSAId",
+          "type": "HSAIdType",
+          "description": "HSA-id för organisationsenhet.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../orgUnitName",
+          "name": "orgUnitName",
+          "type": "string",
+          "description": "Namnet på den organisation som remittenten är uppdragstagare på",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../orgUnitTelecom",
+          "name": "orgUnitTelecom",
+          "type": "string",
+          "description": "Telefon till organisationsenhet",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../orgUnitEmail",
+          "name": "orgUnitEmail",
+          "type": "string",
+          "description": "Epost till enhet",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../orgUnitAddress",
+          "name": "orgUnitAddress",
+          "type": "string",
+          "description": "Postadress för den organisation som remittenten är uppdragstagare på",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../../orgUnitLocation",
+          "name": "orgUnitLocation",
+          "type": "string",
+          "description": "Text som anger namnet på plats eller ort för organisationens fysiska placering",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../healthcareProfessionalCareUnitHSAId",
+          "name": "healthcareProfessionalCareUnitHSAId",
+          "type": "",
+          "description": "Ska ej anges.",
+          "cardinality": "0..0",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../healthcareProfessionalCareGiverHSAId",
+          "name": "healthcareProfessionalCareGiverHSAId",
+          "type": "",
+          "description": "Ska ej anges.",
+          "cardinality": "0..0",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../attested",
+          "name": "attested",
+          "type": "LegalAuthenticatorType",
+          "description": "Information om den som vidimerat mottaget svar på remissen",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../signatureTime",
+          "name": "signatureTime",
+          "type": "TimeStampType",
+          "description": "Tidpunkt för vidimering.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../legalAuthenticatorHSAId",
+          "name": "legalAuthenticatorHSAId",
+          "type": "HSAIdType",
+          "description": "HSA-id för person som vidimerat dokumentet. HSA-id för hälso-och sjukvårdspersonal. Ska anges om tillgänglig.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../legalAuthenticatorName",
+          "name": "legalAuthenticatorName",
+          "type": "string",
+          "description": "Namnen i klartext för vidimerande person.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../../../../legalAuthenticatorRoleCode",
+          "name": "legalAuthenticatorRoleCode",
+          "type": "",
+          "description": "Ska ej anges.",
+          "cardinality": "0..0",
+          "section": "Svar"
+        },
+        {
+          "xpath": "result",
+          "name": "result",
+          "type": "ResultType",
+          "description": "Innehåller information om begäran gick bra eller ej.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../resultCode",
+          "name": "resultCode",
+          "type": "ResultCodeEnum",
+          "description": "Kan endast vara OK, INFO eller ERROR.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../errorCode",
+          "name": "errorCode",
+          "type": "ErrorCodeEnum",
+          "description": "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../subcode",
+          "name": "subcode",
+          "type": "string",
+          "description": "Inga subkoder är specificerade.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../logId",
+          "name": "logId",
+          "type": "string",
+          "description": "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.",
+          "cardinality": "1..1",
+          "section": "Svar"
+        },
+        {
+          "xpath": "../message",
+          "name": "message",
+          "type": "string",
+          "description": "En beskrivande text som kan visas för användaren.",
+          "cardinality": "0..1",
+          "section": "Svar"
+        }
+      ],
+      "other_rules": "Övriga regler Till detta tjänstekontrakt finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan. Regler markerade med [sch] återfinns i schematron (constraints). Icke funktionella krav Inga övriga icke funktionella krav. Se generella SLA-krav för tjänstedomänen. SLA-krav Inga avvikande SLA-krav. Annan information om kontraktet Ingen annan information om kontraktet finns.",
+      "error_codes": [],
+      "open_questions_from_parsing": []
+    }
+  ]
+}

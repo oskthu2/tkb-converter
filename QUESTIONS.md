@@ -74,3 +74,50 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 - [ ] **[TODO-CLL-002]** `AdditionalPatientInformation.gender` binder till KV Kön (OID 1.2.752.129.2.2.1.1). Verifiera canonical URL för detta kodverk och lägg till en explicit `from`-bindning i FSH-modellen när canonical-URL är bekräftad.
 
 - [ ] **[TODO-CLL-003]** `MediaTypeEnum` i XSD-schemat definierar ett komplett set MIME-typer (25 värden). TKB avsnitt 7.2 begränsar tillåtna format till: text/plain, text/html, image/jpeg, image/png, application/pdf. Skapa ett begränsat ValueSet `AllowedMediaTypeVS` med de fem tillåtna värdena och bind `carePlan.content.mediaType` till detta ValueSet, alternativt lägg till en invariant.
+
+---
+
+## clinicalprocess.healthcond.actoutcome v4.2.2
+
+**Status:** blocked
+**Senast uppdaterad:** 2026-03-19
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-CHAO-001]** SUSHI-kompilering inte körd: `hl7.fhir.r4.core#4.0.1` kan inte laddas ner från packages.fhir.org (nätverksåtkomst blockerad i nuvarande miljö). Kör manuellt: `cd igs/TKB_clinicalprocess_healthcond_actoutcome && sushi .` i en miljö med internetåtkomst.
+
+- [ ] **[BLOCK-CHAO-002]** `AnyValueType` i `GetLaboratoryOrderOutcome` — fältet `analysis.result.value` är av XSD-typen `AnyValueType` som kan innehålla antingen en numerisk mätning (PQType), en sträng, en boolesk, eller en kodad typ (CVType). FHIR stödjer inte union-typer direkt i Logical-modeller. FSH-modellen har modellerat detta som `string` som fallback. Beslut krävs: ska detta modelleras som en `BackboneElement` med ett fält per möjlig typ (varav exakt ett ska användas), eller accepteras `string`-representationen? Relevant sektion: TKB avsnitt 7.1, fältregler rad `result.value`.
+
+- [ ] **[BLOCK-CHAO-003]** `ExaminationStatusCodeCS` använder kodvärden med svenska tecken (t.ex. `Pågående`). FHIR CodeSystem codes kan innehålla icke-ASCII-tecken men det rekommenderas inte. Beslutsalternativ: (a) behåll svenska kodvärden som-är (troget källsystemet), (b) translitterera till ASCII (t.ex. `Pagaende`), (c) använd ett separat system-URI och håll originalvärdena i `display`. FSH-modellen har translittererat `Pågående` → `#Pagaende` som kompromiss men källvärdet kvarstår i display. Verifiera att dessa koder stämmer med vad källsystem faktiskt skickar — om källsystem skickar `Pågående` (med å) måste koden i CodeSystem matcha exakt.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-CHAO-001]** `AnyValueType` (analysresultat i GetLaboratoryOrderOutcome) mappat till FHIR `string` som fallback. Det mest semantiskt korrekta vore `Quantity` för numeriska värden. Om merparten av analysresultat är numeriska (vilket är typiskt för laboratorievärden), bör `Quantity` väljas. Verifieras med tillämpningsanvisningen som medföljer kontraktet (separat dokument `IS_clinicalprocess_healthcond_actoutcome_getLaboratoryOrderOutcome.docx`). Relevant sektion: TKB avsnitt 7.1, fältregler.
+
+- [ ] **[ASSUME-CHAO-002]** `ReferralOutcomeTypeCodeEnum` (GetReferralOutcome) har genererats som ett eget Inera-CodeSystem med canonical `https://fhir.inera.se/CodeSystem/referraloutcometypecode`. OID för detta kodverk är okänd — TKB anger ej OID. Verifiera om ett OID finns registrerat för detta kodverk eller om canonical URL är korrekt approach. Relevant sektion: TKB avsnitt 7.2, `referralOutcomeTypeCode`.
+
+- [ ] **[ASSUME-CHAO-003]** `TypeOfResultCodeEnum` (GetImagingOutcome: PREL/DEF/TILL) har genererats som Inera-CodeSystem. OID okänd. Samma situation som ASSUME-CHAO-002. Verifiera OID och canonical URL. Relevant sektion: TKB avsnitt 7.4.
+
+- [ ] **[ASSUME-CHAO-004]** `SexCodeCS` (GetMaternityMedicalHistory, barnets kön) har skapats lokalt som ett domänspecifikt kodverk. Det kan vara mer korrekt att mappa till HL7 `AdministrativeGender` (male/female/unknown/other) eller SNOMEDs kön-begrepp. Verifieras om det lokala kodverket med numeriska koder (0/1/2/9) är standard eller om ett nationellt/internationellt kodverk ska användas.
+
+- [ ] **[ASSUME-CHAO-005]** `FetalPositionCodeEnum` och `FetalPresentationCodeEnum` delar kodvärden (0=huvud, 1=säte, 2=snedläge, 3=tvärläge). Antagandet att dessa är separata kodverk är gjort utifrån XSD-definitionen (de är separata `simpleType`). Det är möjligt att de ska vara ett enda kodverk. Verifiera med domänexpert.
+
+- [ ] **[ASSUME-CHAO-006]** Sektionsordningen i TKB-dokumentet är icke-standard: avsnitt 5 är "Gemensamma informationskomponenter" och avsnitt 6 är "Tjänstedomänens meddelandemodeller" — omvänt mot den konventionella TKB-strukturen. IG-sidorna har mappats i dokumentets faktiska ordning. Verifiera om den publicerade IG:n ska följa dokumentet eller en standardiserad sidordning.
+
+- [ ] **[ASSUME-CHAO-007]** Tjänstekontraktet GetMaternityMedicalHistory (version 2.0) innehåller en SjD-dokumentation som anger att kontraktet har en SjD (Systemskiftesdokumentation) — se `SjD_TP_GetMaternityMedicalHistory_2.0.docx` i docs-mappen. Antagandet gjordes att TKB-dokumentet innehåller de normativa fältreglerna; SjD-dokumentet är informativt och behöver inte processas för IG-genereringen. Verifiera om SjD innehåller fältregler eller begränsningar som saknas i TKB-fälttabellen.
+
+- [ ] **[ASSUME-CHAO-008]** GetImagingOutcome version 1.0 — denna version är avsevärt äldre än de övriga kontrakten (4.2/3.2/2.0). Antagandet gjordes att version 1.0 fortfarande är den gällande versionen av detta kontrakt i domän 4.2.2. Verifiera att inga nyare versioner av GetImagingOutcome finns i pipeline (inga fler tags i repot matchar imaging-uppdateringar).
+
+### TODO (kan göras utan input)
+
+- [ ] **[TODO-CHAO-001]** Tillämpningsanvisningen `IS_clinicalprocess_healthcond_actoutcome_getLaboratoryOrderOutcome.docx` och SjD-dokumenten (`SjD_TK_GetLaboratoryOrderOutcome_4.2.docx` etc.) är inte parsade. Dessa kan innehålla kompletterande fältregler och implementationsdetaljer. Lägg till en referens i IG:ns sektion 7.1 till tillämpningsanvisningen och överväg att extrahera nyckelpunkter.
+
+- [ ] **[TODO-CHAO-002]** `GetReferralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationCode` är av typen `ClinicalInformationCodeType` (XSD-definierad med code + codeSystem, ej CVType). OID för kodverket är inte angivet i TKB. Skapa ett CodeSystem-stub eller lägg till en kommentar. Relevant sektion: TKB avsnitt 7.2, fältregler för clinicalInformation.
+
+- [ ] **[TODO-CHAO-003]** `GetReferralOutcome.act.actCode` är av typen `ActCodeType` (XSD: code + codeSystem). OID saknas i TKB. Komplettera CodeSystem-information. Relevant sektion: TKB avsnitt 7.2, fältregler för act.actCode.
+
+- [ ] **[TODO-CHAO-004]** FSH-modellen för `GetLaboratoryOrderOutcome` innehåller `analysis.result.related` (typ `AnalysisType`) med `0..*` kardinalitet men utan fält — rekursiva AnalysisType-definitioner kan inte direkt representeras i FSH Logical med BackboneElement. Lägg till en kommentar om att detta fält representerar referens till relaterade analyser och att den fullständiga strukturen är identisk med föräldreelementet (`analysis`). En explicit FHIR-representation av rekursiva strukturer kräver en Extension eller en Reference-typ.
+
+- [ ] **[TODO-CHAO-005]** Kontrollera att `ExaminationStatusCodeCS` koden `#Pagaende` matchar vad källsystem faktiskt skickar. Om källsystem skickar det svenska `Pågående` (med å) behöver CodeSystem-koden ändras för att FHIR-valideringen ska fungera korrekt.
+
+- [ ] **[TODO-CHAO-006]** `SjD_TK_GetReferralOutcome_3.2.docx` och `SjD_TK_GetImagingOutcome_1.0.docx` är inte parsade. Dessa kan innehålla systemskiftesspecifika regler. Lägg till referenser i respektive kontraktssektion i IG:n.
