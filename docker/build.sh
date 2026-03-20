@@ -123,16 +123,50 @@ PYEOF
 # ── Fixa ig.ini så att den pekar på SUSHI-genererad IG-resurs ───────────────
 fix_ig_ini() {
     local ig_dir="$1"
+    ig_dir="${ig_dir//$'\r'/}"
     # Hitta IG-ID från sushi-config.yaml
     local ig_id
-    ig_id=$(grep -m1 '^id:' "$ig_dir/sushi-config.yaml" | awk '{print $2}' | tr -d '"')
+    ig_id=$(grep -m1 '^id:' "$ig_dir/sushi-config.yaml" | awk '{print $2}' | tr -d '"\r')
     local sushi_ig="fsh-generated/resources/ImplementationGuide-${ig_id}.json"
+    local resources_dir="$ig_dir/fsh-generated/resources"
 
     if [ ! -f "$ig_dir/$sushi_ig" ]; then
         warn "Kan inte hitta SUSHI-genererad IG-resurs: $ig_dir/$sushi_ig"
-        warn "Kör sushi först eller kontrollera att sushi-config.yaml har rätt id:"
-        return 1
+        if [ -d "$resources_dir" ]; then
+            local fallback
+            fallback=$(find "$resources_dir" -maxdepth 1 -type f -name 'ImplementationGuide-*.json' | sort | head -1 || true)
+            if [ -n "$fallback" ]; then
+                sushi_ig="fsh-generated/resources/$(basename "$fallback")"
+                warn "Använder fallback-IG-resurs: $sushi_ig"
+            else
+                warn "Ingen ImplementationGuide-*.json hittades i: $resources_dir"
+                warn "Kör sushi först eller kontrollera att sushi-config.yaml har rätt id:"
+                return 1
+            fi
+        else
+            warn "Resurskatalog saknas: $resources_dir"
+            warn "Kör sushi först eller kontrollera att sushi-config.yaml har rätt id:"
+            return 1
+        fi
     fi
+
+    # IG Publisher lägger till core-paket implicit; explicit dependsOn för core
+    # kan orsaka dublettfel vid package.json-generering.
+    python3 - "$ig_dir/$sushi_ig" <<'PYEOF'
+import json, sys
+path = sys.argv[1]
+with open(path, encoding='utf-8') as f:
+    ig = json.load(f)
+depends = ig.get('dependsOn', [])
+filtered = [d for d in depends if d.get('packageId') != 'hl7.fhir.r4.core']
+if len(filtered) != len(depends):
+    if filtered:
+        ig['dependsOn'] = filtered
+    else:
+        ig.pop('dependsOn', None)
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(ig, f, ensure_ascii=False, indent=2)
+PYEOF
 
     cat > "$ig_dir/ig.ini" <<INI
 [IG]
