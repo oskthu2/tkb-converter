@@ -66,6 +66,26 @@ with open('$REGISTRY', 'w') as f:
 PYEOF
 }
 
+# ── Kopiera förinstallerade FHIR-paket (inkl. template) till runtime-cachen ──
+# Paketen laddades ned under docker build och lagrades i /opt/fhir-packages/.
+# /root/.fhir är volymonterad från värddatorn — de förinstallerade paketen
+# kopieras dit om de saknas, så att IG Publisher hittar dem offline.
+ensure_fhir_packages() {
+    local pkg_base="/opt/fhir-packages"
+    [ -d "$pkg_base" ] || return 0
+    mkdir -p "/root/.fhir/packages"
+    for pkg_dir in "$pkg_base"/*/; do
+        [ -d "$pkg_dir" ] || continue
+        local pkg_name
+        pkg_name=$(basename "$pkg_dir")
+        local target="/root/.fhir/packages/$pkg_name"
+        if [ ! -d "$target" ]; then
+            log "Installerar förinstallerat FHIR-paket: $pkg_name"
+            cp -r "$pkg_dir" "$target"
+        fi
+    done
+}
+
 # ── Ladda ned IG Publisher om jar saknas ─────────────────────────────────────
 ensure_publisher() {
     if [ -f "$PUBLISHER_JAR" ]; then
@@ -313,6 +333,7 @@ main() {
     log "Workspace: $WORKSPACE"
     log "Registry:  $REGISTRY"
 
+    ensure_fhir_packages
     ensure_publisher
 
     local domain_ids

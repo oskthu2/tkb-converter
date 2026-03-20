@@ -18,6 +18,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY gen_fhir_stubs.py /usr/local/lib/gen_fhir_stubs.py
 RUN python3 /usr/local/lib/gen_fhir_stubs.py
 
+# ── FHIR IG-template (offline, laddas ned vid image-bygge) ─────────────────
+# fhir.base.template tillhandahåller navigationsfält och layout i IG Publisher.
+# packages.fhir.org är blockerad vid runtime — templaten lagras i /opt/fhir-packages/
+# och kopieras till /root/.fhir/packages/ av build.sh vid container-start.
+RUN mkdir -p /opt/fhir-packages && \
+    curl -fsSL "https://packages.fhir.org/fhir.base.template/current" \
+         -o /tmp/fhir.base.template.tgz && \
+    mkdir -p "/opt/fhir-packages/fhir.base.template#current" && \
+    tar -xzf /tmp/fhir.base.template.tgz \
+        --strip-components=1 \
+        -C "/opt/fhir-packages/fhir.base.template#current" && \
+    rm /tmp/fhir.base.template.tgz && \
+    echo "[OK] fhir.base.template installerad i /opt/fhir-packages/"
+
 # ── Build-skript ─────────────────────────────────────────────────────────────
 COPY docker/build.sh    /usr/local/bin/ig-build
 COPY docker/parse-qa.py /usr/local/bin/parse-qa
