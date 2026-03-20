@@ -1,0 +1,362 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "inera.clinicalprocess-activityprescription-prescribe",
+  "url": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/ImplementationGuide/inera.clinicalprocess-activityprescription-prescribe",
+  "version": "2",
+  "name": "clinicalprocessactivityprescriptionprescribe",
+  "title": "clinicalprocess: activityprescription: prescribe",
+  "status": "draft",
+  "contact": [
+    {
+      "name": "Inera Arkitektur",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.inera.se"
+        }
+      ]
+    }
+  ],
+  "copyright": "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "packageId": "inera.clinicalprocess-activityprescription-prescribe",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.r4.core",
+      "version": "4.0.1",
+      "uri": "http://fhir.org/packages/hl7.fhir.r4.core/ImplementationGuide/hl7.fhir.r4.core",
+      "id": "hl7_fhir_r4_core"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "StructureDefinition/attachmedicationdispenseauthorization"
+        },
+        "name": "AttachMedicationDispenseAuthorization",
+        "description": "Logisk modell för tjänstekontraktet AttachMedicationDispenseAuthorization\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:AttachMedicationDispenseAuthorization:2).\nRepresenterar responsens informationsstruktur — kopplar ett expedieringsunderlag till en ordination.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/checkmedicationlistversion"
+        },
+        "name": "CheckMedicationListVersion",
+        "description": "Logisk modell för tjänstekontraktet CheckMedicationListVersion\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:CheckMedicationListVersion:1).\nRepresenterar responsens informationsstruktur.\nAnvänds för att kontrollera om en given läkemedelslisteversion är aktuell.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/discontinuemedication"
+        },
+        "name": "DiscontinueMedication",
+        "description": "Logisk modell för tjänstekontraktet DiscontinueMedication\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:DiscontinueMedication:2).\nRepresenterar responsens informationsstruktur.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/dispenseauthorizationstatus-cs"
+        },
+        "name": "DispenseAuthorizationStatus — Status på expedieringsunderlag",
+        "description": "Kodverk för filterval av expedieringsunderlag baserat på kopplat/okopplat status. Används i GetMedicationDispenseAuthorizations.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/dispenseauthorizationstatus-vs"
+        },
+        "name": "DispenseAuthorizationStatus — ValueSet",
+        "description": "Tillåtna statusvärden för expedieringsunderlag i GetMedicationDispenseAuthorizations.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/dispenseddrugsconsentorder-cs"
+        },
+        "name": "DispensedDrugsConsentOrder — Samtyckesorder",
+        "description": "Kodverk för typ av åtgärd för samtycke till uthämtade läkemedel.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/dispenseddrugsconsentorder-vs"
+        },
+        "name": "DispensedDrugsConsentOrder — ValueSet",
+        "description": "Tillåtna värden för samtyckesorder för uthämtade läkemedel.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/dispenseddrugstypeofresponse-cs"
+        },
+        "name": "DispensedDrugsTypeOfResponse — Svarstyp",
+        "description": "Kodverk för önskad svarstyp i GetDispensedDrugs: strukturerad text, multimedia eller båda.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/dispenseddrugstypeofresponse-vs"
+        },
+        "name": "DispensedDrugsTypeOfResponse — ValueSet",
+        "description": "Tillåtna svarstyper i GetDispensedDrugs.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/errorcode-cs"
+        },
+        "name": "ErrorCode — Felkod",
+        "description": "Kodverk för felkod i svar (ResultType.errorCode). Används i samtliga kontrakt.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/errorcode-vs"
+        },
+        "name": "ErrorCode — ValueSet",
+        "description": "Tillåtna felkoder i ResultType.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/gender-cs"
+        },
+        "name": "Gender — Kön",
+        "description": "Kodverk för patientens kön. Används i PatientInformation-typen i GetMedicationDispenseAuthorizations och RegisterMedicationDispenseAuthorization.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/gender-vs"
+        },
+        "name": "Gender — ValueSet",
+        "description": "Tillåtna könsvärden för patientinformation.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getdispenseddrugs"
+        },
+        "name": "GetDispensedDrugs",
+        "description": "Logisk modell för tjänstekontraktet GetDispensedDrugs\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:GetDispensedDrugs:2).\nRepresenterar responsens informationsstruktur — uthämtade läkemedel för patient.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getdispenseddrugsConsent"
+        },
+        "name": "GetDispensedDrugsConsent",
+        "description": "Logisk modell för tjänstekontraktet GetDispensedDrugsConsent\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:GetDispensedDrugsConsent:2).\nRepresenterar responsens informationsstruktur — hämtar samtycke för åtkomst till uthämtade läkemedel.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getmedicationdispenseauthorizations"
+        },
+        "name": "GetMedicationDispenseAuthorizations",
+        "description": "Logisk modell för tjänstekontraktet GetMedicationDispenseAuthorizations\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:GetMedicationDispenseAuthorizations:2).\nRepresenterar responsens informationsstruktur — expedieringsunderlag per patient.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getmedicationprescriptions"
+        },
+        "name": "GetMedicationPrescriptions",
+        "description": "Logisk modell för tjänstekontraktet GetMedicationPrescriptions\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:GetMedicationPrescriptions:2).\nRepresenterar responsens informationsstruktur — patientens samlade läkemedelslista.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getmedicationprescriptions-request"
+        },
+        "name": "GetMedicationPrescriptions — Request",
+        "description": "Logisk modell för requestparametrar i GetMedicationPrescriptions.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/lfconsent-cs"
+        },
+        "name": "LFConsent — Samtyckestyp",
+        "description": "Kodverk för typ av samtycke för åtkomst till läkemedelsförteckning (LF). Används i GetDispensedDrugsConsent/RegisterDispensedDrugsConsent.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/lfconsent-vs"
+        },
+        "name": "LFConsent — ValueSet",
+        "description": "Tillåtna värden för samtyckestyp i läkemedelsförteckning.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/registerdispenseddrugsConsent"
+        },
+        "name": "RegisterDispensedDrugsConsent",
+        "description": "Logisk modell för tjänstekontraktet RegisterDispensedDrugsConsent\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:RegisterDispensedDrugsConsent:2).\nRepresenterar responsens informationsstruktur.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/registermedicationdispenseauthorization"
+        },
+        "name": "RegisterMedicationDispenseAuthorization",
+        "description": "Logisk modell för tjänstekontraktet RegisterMedicationDispenseAuthorization\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:RegisterMedicationDispenseAuthorization:1).\nRepresenterar responsens informationsstruktur.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/registermedicationprescription"
+        },
+        "name": "RegisterMedicationPrescription",
+        "description": "Logisk modell för tjänstekontraktet RegisterMedicationPrescription\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:RegisterMedicationPrescription:2).\nRepresenterar responsens informationsstruktur.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/registermedicationprescription-request"
+        },
+        "name": "RegisterMedicationPrescription — Request",
+        "description": "Logisk modell för requestparametrar i RegisterMedicationPrescription.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/registermedicationstatement"
+        },
+        "name": "RegisterMedicationStatement",
+        "description": "Logisk modell för tjänstekontraktet RegisterMedicationStatement\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:RegisterMedicationStatement:1).\nRepresenterar responsens informationsstruktur.\nRegisterMedicationStatement används för att registrera egenmedicinering.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/resultcode-cs"
+        },
+        "name": "ResultCode — Svarskod",
+        "description": "Kodverk för resultatkod i svar (ResultType). Används i samtliga kontrakt.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/resultcode-vs"
+        },
+        "name": "ResultCode — ValueSet",
+        "description": "Tillåtna svarskoder i ResultType.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/revokedispenseddrugsConsent"
+        },
+        "name": "RevokeDispensedDrugsConsent",
+        "description": "Logisk modell för tjänstekontraktet RevokeDispensedDrugsConsent\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:RevokeDispensedDrugsConsent:2).\nRepresenterar responsens informationsstruktur.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/revokemedicationdispenseauthorization"
+        },
+        "name": "RevokeMedicationDispenseAuthorization",
+        "description": "Logisk modell för tjänstekontraktet RevokeMedicationDispenseAuthorization\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:RevokeMedicationDispenseAuthorization:2).\nRepresenterar responsens informationsstruktur.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/setmedicationlistreviewed"
+        },
+        "name": "SetMedicationListReviewed",
+        "description": "Logisk modell för tjänstekontraktet SetMedicationListReviewed\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:SetMedicationListReviewed:1).\nRepresenterar responsens informationsstruktur.\nAnvänds för att markera att en läkemedelslista är genomgången (läkemedelsavstämning).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/setmedicationlistreviewneeded"
+        },
+        "name": "SetMedicationListReviewNeeded",
+        "description": "Logisk modell för tjänstekontraktet SetMedicationListReviewNeeded\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:SetMedicationListReviewNeeded:1).\nRepresenterar responsens informationsstruktur.\nAnvänds för att markera att en läkemedelslista behöver granskas.",
+        "exampleBoolean": false
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Hem",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "1-inledning.html",
+          "title": "1 Inledning",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "2-versionsinformation.html",
+          "title": "2 Versionsinformation",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "3-tjanstedomanens-arkitektur.html",
+          "title": "3 Tjänstedomänens arkitektur",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "4-tjanstedomanens-krav-och-regler.html",
+          "title": "4 Tjänstedomänens krav och regler",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "5-tjanstedomanens-meddelandemodeller.html",
+          "title": "5 Tjänstedomänens meddelandemodeller",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "6-gemensamma-informationskomponenter.html",
+          "title": "6 Gemensamma informationskomponenter",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "7-tjanstekontrakt.html",
+          "title": "7 Tjänstekontrakt",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2024+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "draft"
+      },
+      {
+        "code": "show-inherited-invariants",
+        "value": "false"
+      },
+      {
+        "code": "apply-contact",
+        "value": "true"
+      },
+      {
+        "code": "apply-publisher",
+        "value": "true"
+      },
+      {
+        "code": "apply-version",
+        "value": "true"
+      },
+      {
+        "code": "apply-copyright",
+        "value": "true"
+      }
+    ]
+  }
+}

@@ -14,7 +14,7 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 - [ ] **[BLOCK-EI-001]** *(Flyttad till extern issue-lista — se `EXTERNAL_ISSUES.md` EXT-001)*
   Kardinalitetsdiskrepans för fält `clinicalProcessInterestId` i FindContent Request: TKB-fälttabellen anger `0..1`, men informationsmodellen och XSD anger `1..1`. FSH-modellen använder `0..1` (säkrare alternativ). Kräver beslut från domänexpert/förvaltning — kandidat för Jira-ärende.
 
-- [ ] **[BLOCK-EI-004]** SUSHI-kompilering misslyckades: `hl7.fhir.r4.core#4.0.1` kan inte laddas ner från packages.fhir.org (nätverksåtkomst blockerad i nuvarande miljö). Kör manuellt: `cd igs/TKB_itintegration_engagementindex && sushi .` i en miljö med internetåtkomst. Alternativt: installera paketet lokalt via `fhir install hl7.fhir.r4.core#4.0.1` eller kopiera från ~/.fhir/packages/ på en annan maskin.
+- [x] **[BLOCK-EI-004]** *(Löst 2026-03-20)* SUSHI-kompilering misslyckades: `hl7.fhir.r4.core#4.0.1` kan inte laddas ner från packages.fhir.org (nätverksåtkomst blockerad i nuvarande miljö). Kör manuellt: `cd igs/TKB_itintegration_engagementindex && sushi .` i en miljö med internetåtkomst. Alternativt: installera paketet lokalt via `fhir install hl7.fhir.r4.core#4.0.1` eller kopiera från ~/.fhir/packages/ på en annan maskin.
 
 - [x] **[BLOCK-EI-002]** *(Löst 2026-03-19)* Fälten `creationTime`, `updateTime` och `owner` är nu inkluderade i `UpdateRequest`-modellen med tydlig dokumentation om att konsumenten INTE ska sätta dessa fält — de sätts automatiskt av engagemangsindexinstansen.
 
@@ -53,7 +53,7 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 
 ### Blockerare (kräver svar innan IG kan anses komplett)
 
-- [ ] **[BLOCK-CLL-001]** SUSHI-kompilering misslyckades: `hl7.fhir.r4.core#4.0.1` kan inte laddas ner från packages.fhir.org (nätverksåtkomst blockerad i nuvarande miljö). Kör manuellt: `cd igs/TKB_clinicalprocess_logistics_logistics && sushi .` i en miljö med internetåtkomst. Alternativt: installera paketet lokalt via `fhir install hl7.fhir.r4.core#4.0.1` eller kopiera från ~/.fhir/packages/ på en annan maskin.
+- [x] **[BLOCK-CLL-001]** *(Löst 2026-03-20)* SUSHI-kompilering misslyckades: `hl7.fhir.r4.core#4.0.1` kan inte laddas ner från packages.fhir.org (nätverksåtkomst blockerad i nuvarande miljö). Kör manuellt: `cd igs/TKB_clinicalprocess_logistics_logistics && sushi .` i en miljö med internetåtkomst. Alternativt: installera paketet lokalt via `fhir install hl7.fhir.r4.core#4.0.1` eller kopiera från ~/.fhir/packages/ på en annan maskin.
 
 - [ ] **[BLOCK-CLL-002]** Villkorlig kardinalitet för `sourceSystemHSAId` i request för båda kontrakten: fältet är `0..1` i XSD men enligt fältregelstabellen i TKB är det tvingande (villkorligt obligatoriskt) om `careContactId` angivits eller vid begäran på reservnummer. FSH-modellen använder `0..1` (säkrare alternativ). Beslut behövs: ska en FHIR-invariant modellera villkoret, eller räcker dokumentation i fältbeskrivningen? Relevant sektion: TKB avsnitt 7.1 och 7.2, fältregler för sourceSystemHSAId.
 
@@ -84,7 +84,7 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 
 ### Blockerare (kräver svar innan IG kan anses komplett)
 
-- [ ] **[BLOCK-CHAO-001]** SUSHI-kompilering inte körd: `hl7.fhir.r4.core#4.0.1` kan inte laddas ner från packages.fhir.org (nätverksåtkomst blockerad i nuvarande miljö). Kör manuellt: `cd igs/TKB_clinicalprocess_healthcond_actoutcome && sushi .` i en miljö med internetåtkomst.
+- [x] **[BLOCK-CHAO-001]** *(Löst 2026-03-20)* SUSHI-kompilering inte körd: `hl7.fhir.r4.core#4.0.1` kan inte laddas ner från packages.fhir.org (nätverksåtkomst blockerad i nuvarande miljö). Kör manuellt: `cd igs/TKB_clinicalprocess_healthcond_actoutcome && sushi .` i en miljö med internetåtkomst.
 
 - [ ] **[BLOCK-CHAO-002]** `AnyValueType` i `GetLaboratoryOrderOutcome` — fältet `analysis.result.value` är av XSD-typen `AnyValueType` som kan innehålla antingen en numerisk mätning (PQType), en sträng, en boolesk, eller en kodad typ (CVType). FHIR stödjer inte union-typer direkt i Logical-modeller. FSH-modellen har modellerat detta som `string` som fallback. Beslut krävs: ska detta modelleras som en `BackboneElement` med ett fält per möjlig typ (varav exakt ett ska användas), eller accepteras `string`-representationen? Relevant sektion: TKB avsnitt 7.1, fältregler rad `result.value`.
 
@@ -131,9 +131,9 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 
 ### Blockerare (kräver svar innan IG kan anses komplett)
 
-- [ ] **[BLOCK-DESC-001]** SUSHI-kompilering kan inte köras i nuvarande miljö: `hl7.fhir.r4.core#4.0.1` kräver nätverksåtkomst för att laddas ner från packages.fhir.org. Kör manuellt: `cd igs/TKB_clinicalprocess_healthcond_description && sushi .` i en miljö med internetåtkomst. IG-innehåll (pagecontent + FSH-modeller) är komplett.
+- [x] **[BLOCK-DESC-001]** *(Löst 2026-03-20)* SUSHI-kompilering kan inte köras i nuvarande miljö: `hl7.fhir.r4.core#4.0.1` kräver nätverksåtkomst för att laddas ner från packages.fhir.org. Kör manuellt: `cd igs/TKB_clinicalprocess_healthcond_description && sushi .` i en miljö med internetåtkomst. IG-innehåll (pagecontent + FSH-modeller) är komplett.
 
-- [ ] **[BLOCK-DESC-002]** `se.inera.rivta.core: current` är angivet som beroende i sushi-config.yaml men paketets faktiska existens i FHIR-paketregistret är overifierad (se även BLOCK-EI-003 för engagemangsindex). Om paketet inte finns: ta bort beroendet och skapa lokala kopior av gemensamma bastyper (IIType, CVType, etc.) eller referera direkt till `hl7.fhir.r4.core`-typer.
+- [x] **[BLOCK-DESC-002]** *(Löst 2026-03-20)* `se.inera.rivta.core: current` är angivet som beroende i sushi-config.yaml men paketets faktiska existens i FHIR-paketregistret är overifierad (se även BLOCK-EI-003 för engagemangsindex). Om paketet inte finns: ta bort beroendet och skapa lokala kopior av gemensamma bastyper (IIType, CVType, etc.) eller referera direkt till `hl7.fhir.r4.core`-typer.
 
 ### Antaganden gjorda (verifiera med domänexpert)
 
@@ -176,7 +176,7 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 
 ### Blockerare (kräver svar innan IG kan anses komplett)
 
-- [ ] **[BLOCK-PRESC-001]** SUSHI-kompilering kan inte köras i nuvarande miljö: `hl7.fhir.r4.core#4.0.1` kräver nätverksåtkomst för att laddas ner från packages.fhir.org. Kör manuellt: `cd igs/TKB_clinicalprocess_activityprescription_prescribe && sushi .` i en miljö med internetåtkomst. IG-innehåll (pagecontent + FSH-modeller för 15 kontrakt + 7 CodeSystems + 7 ValueSets) är komplett.
+- [x] **[BLOCK-PRESC-001]** *(Löst 2026-03-20)* SUSHI-kompilering kan inte köras i nuvarande miljö: `hl7.fhir.r4.core#4.0.1` kräver nätverksåtkomst för att laddas ner från packages.fhir.org. Kör manuellt: `cd igs/TKB_clinicalprocess_activityprescription_prescribe && sushi .` i en miljö med internetåtkomst. IG-innehåll (pagecontent + FSH-modeller för 15 kontrakt + 7 CodeSystems + 7 ValueSets) är komplett.
 
 - [ ] **[BLOCK-PRESC-002]** Domänen är märkt som version 2.0 (från filnamnet i zip-taggen `clinicalprocess_activityprescription_prescribe_2.0_RC1` — **RC1 = Release Candidate**). Det är oklart om detta är den officiella stabila versionen eller om en godkänd 2.0 final finns. Verifiera med domänförvaltning att RC1-taggen är den gällande produktionssatta versionen. Relevant: TKB-dokumentet avsnitt 2 nämner version 2.0 men har ingen explicit stabilitetsmarkering.
 
@@ -223,7 +223,7 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 
 ### Blockerare (kräver svar innan IG kan anses komplett)
 
-- [ ] **[BLOCK-ACT-001]** SUSHI-kompilering kan inte köras i nuvarande miljö: `hl7.fhir.r4.core#4.0.1` kräver nätverksåtkomst för att laddas ner från packages.fhir.org. Kör manuellt: `cd igs/TKB_clinicalprocess_activityprescription_actoutcome && sushi .` i en miljö med internetåtkomst. IG-innehåll (pagecontent + FSH-modeller för 2 kontrakt + 5 CodeSystems + 5 ValueSets) är komplett.
+- [x] **[BLOCK-ACT-001]** *(Löst 2026-03-20)* SUSHI-kompilering kan inte köras i nuvarande miljö: `hl7.fhir.r4.core#4.0.1` kräver nätverksåtkomst för att laddas ner från packages.fhir.org. Kör manuellt: `cd igs/TKB_clinicalprocess_activityprescription_actoutcome && sushi .` i en miljö med internetåtkomst. IG-innehåll (pagecontent + FSH-modeller för 2 kontrakt + 5 CodeSystems + 5 ValueSets) är komplett.
 
 - [ ] **[BLOCK-ACT-002]** GetMedicationHistory — fälttabellen (Table 16, 659 rader) är extremt komplex med djupt nästlade typer `DispensationAuthorizationType`, `AdministrationType` och `RelationType` (varsamma rader 315, 405 resp. 621 i tabellen). Dessa är inte fullständigt extraherade i FSH-modellen — de är representerade som `BackboneElement` med kommentar "kontrollera manuellt". Beslut krävs: ska separata FSH `Logical:`-typer skapas för dessa komplexa undertyper, eller räcker kommentarerna i den existerande modellen?
 

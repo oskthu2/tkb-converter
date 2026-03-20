@@ -1,0 +1,464 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getdiagnosis",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getdiagnosis",
+  "name": "GetDiagnosis",
+  "title": "GetDiagnosis",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetDiagnosis\n(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetDiagnosisResponder:2).\nRepresenterar responsens informationsstruktur: registrerade diagnoser för en patient\ninklusive diagnoskod per ursprungligt diagnosticeringstillfälle.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getdiagnosis",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getdiagnosis",
+        "path": "getdiagnosis",
+        "short": "GetDiagnosis",
+        "definition": "Logisk modell för tjänstekontraktet GetDiagnosis\n(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetDiagnosisResponder:2).\nRepresenterar responsens informationsstruktur: registrerade diagnoser för en patient\ninklusive diagnoskod per ursprungligt diagnosticeringstillfälle."
+      },
+      {
+        "id": "getdiagnosis.diagnosis",
+        "path": "getdiagnosis.diagnosis",
+        "short": "Diagnos",
+        "definition": "De diagnoser som matchar begäran. En instans per diagnos.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisHeader",
+        "path": "getdiagnosis.diagnosis.diagnosisHeader",
+        "short": "Dokumenthuvud (PatientSummaryHeader)",
+        "definition": "Innehåller basinformation om dokumentet (PatientSummaryHeaderType).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisHeader.documentId",
+        "path": "getdiagnosis.diagnosis.diagnosisHeader.documentId",
+        "short": "Dokumentets identitet",
+        "definition": "Dokumentets identitet som är unik inom källsystemet.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisHeader.sourceSystemHSAId",
+        "path": "getdiagnosis.diagnosis.diagnosisHeader.sourceSystemHSAId",
+        "short": "HSA-id för källsystem",
+        "definition": "HSA-id för det system som tillgängliggör informationen.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisHeader.patientId",
+        "path": "getdiagnosis.diagnosis.diagnosisHeader.patientId",
+        "short": "Patientidentifierare",
+        "definition": "Identifierare för patient. id = patientens identifierare (12 tecken).\ntype = OID för typ av identifierare. För personnummer: 1.2.752.129.2.1.3.1.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional",
+        "path": "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional",
+        "short": "Ansvarig hälso- och sjukvårdsperson",
+        "definition": "Information om den hälso- och sjukvårdsperson som är ansvarig för informationen.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.authorTime",
+        "path": "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.authorTime",
+        "short": "Tidpunkt för registrering",
+        "definition": "Tidpunkt då informationen registrerades. Format: YYYYMMDDhhmmss.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+        "path": "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+        "short": "Författarens HSA-id",
+        "definition": "Författarens HSA-id.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+        "path": "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+        "short": "Namn på hälso- och sjukvårdspersonal",
+        "definition": "Namn på hälso- och sjukvårdspersonal. Om tillgängligt ska detta anges.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+        "path": "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+        "short": "Befattning",
+        "definition": "Information om personens befattning.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+        "path": "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+        "short": "Organisationsenhet",
+        "definition": "Den organisation som hälso- och sjukvårdspersonalen är uppdragstagare i.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+        "path": "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+        "short": "HSA-id för organisationsenhet",
+        "definition": "HSA-id för organisationsenhet.\nKardinalitet: Obligatorisk (inom OrgUnitType).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+        "path": "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+        "short": "Namn på organisationsenhet",
+        "definition": "Namnet på den organisation som hälso- och sjukvårdspersonalen är uppdragstagare i.\nKardinalitet: Obligatorisk (inom OrgUnitType).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+        "path": "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+        "short": "HSA-id för vårdenhet",
+        "definition": "HSA-id för vårdenhet. Se regel 1 i TKB.\nKardinalitet: Valfri (villkorlig, se regel 1).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+        "path": "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+        "short": "HSA-id för vårdgivare",
+        "definition": "HSA-id för vårdgivaren, som är vårdgivare för den vårdenhet där personalen verkar.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator",
+        "path": "getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator",
+        "short": "Signerande person",
+        "definition": "Information om vem som signerat informationen i dokumentet.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.signatureTime",
+        "path": "getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.signatureTime",
+        "short": "Tidpunkt för signering",
+        "definition": "Tidpunkt för signering. Format: YYYYMMDDhhmmss.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorHSAId",
+        "path": "getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorHSAId",
+        "short": "HSA-id för signerande person",
+        "definition": "HSA-id för person som signerat dokumentet.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorName",
+        "path": "getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorName",
+        "short": "Namn på signerande person",
+        "definition": "Namn i klartext för signerande person.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisHeader.approvedForPatient",
+        "path": "getdiagnosis.diagnosis.diagnosisHeader.approvedForPatient",
+        "short": "Godkänd för visning till patient",
+        "definition": "Anger om information får delas till patient.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisHeader.careContactId",
+        "path": "getdiagnosis.diagnosis.diagnosisHeader.careContactId",
+        "short": "Vårdkontakts-id",
+        "definition": "Identitet för den hälso- och sjukvårdskontakt som diagnosen dokumenterades vid.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisBody",
+        "path": "getdiagnosis.diagnosis.diagnosisBody",
+        "short": "Diagnosens innehåll",
+        "definition": "DiagnosisBodyType — diagnosens informationsinnehåll.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisBody.typeOfDiagnosis",
+        "path": "getdiagnosis.diagnosis.diagnosisBody.typeOfDiagnosis",
+        "short": "Typ av diagnos",
+        "definition": "Anges som \"Huvuddiagnos\" eller \"Bidiagnos\". Se DiagnosisTypeCS/DiagnosisTypeVS.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/ValueSet/diagnosistype-vs"
+        }
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisBody.chronicDiagnosis",
+        "path": "getdiagnosis.diagnosis.diagnosisBody.chronicDiagnosis",
+        "short": "Kronisk diagnos",
+        "definition": "Sätts till true om diagnosen är kronisk, false om den inte är kronisk.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisBody.diagnosisTime",
+        "path": "getdiagnosis.diagnosis.diagnosisBody.diagnosisTime",
+        "short": "Tidpunkt för diagnos",
+        "definition": "Tidpunkt då bedömningen gjordes. Format: YYYYMMDDhhmmss.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisBody.diagnosisCode",
+        "path": "getdiagnosis.diagnosis.diagnosisBody.diagnosisCode",
+        "short": "Diagnoskod",
+        "definition": "Diagnoskod. Normalt ICD-10-SE (OID okänt — se ASSUME-001 i QUESTIONS.md).\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis",
+        "path": "getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis",
+        "short": "Relaterad diagnos",
+        "definition": "Relaterad diagnos. Associationen används för att koppla en bidiagnos till sin huvuddiagnos.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis.documentId",
+        "path": "getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis.documentId",
+        "short": "Relaterad diagnos dokumentid",
+        "definition": "Unik identitet för den relaterade diagnosen.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.result",
+        "path": "getdiagnosis.result",
+        "short": "Resultat",
+        "definition": "Innehåller information om begäran gick bra eller ej.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.result.resultCode",
+        "path": "getdiagnosis.result.resultCode",
+        "short": "Resultatkod",
+        "definition": "Kan endast vara OK, INFO eller ERROR.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.result.errorCode",
+        "path": "getdiagnosis.result.errorCode",
+        "short": "Felkod",
+        "definition": "Sätts endast om resultCode är ERROR. Tillåtna värden: INVALID_REQUEST.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.result.logId",
+        "path": "getdiagnosis.result.logId",
+        "short": "Log-id",
+        "definition": "En UUID som kan användas vid felanmälan för att spåra felet.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosis.result.message",
+        "path": "getdiagnosis.result.message",
+        "short": "Meddelande",
+        "definition": "En beskrivande text som kan visas för användaren.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

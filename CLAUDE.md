@@ -611,7 +611,15 @@ Description: "Tillåtna värden för {fält} enligt {KodverkNamn}."
    ```
    Om kommandot inte hittas: lägg till BLOCK `"SUSHI är inte installerat — kör: npm install -g fsh-sushi"` och avbryt steget.
 
-2. Köra SUSHI i kontraktets katalog:
+2. **Förutsättning för SUSHI-körning:** Verifiera att FHIR-baspaketet finns lokalt i cachen:
+   ```bash
+   ls ~/.fhir/packages/hl7.fhir.r4.core#4.0.1/package/package.json
+   ```
+   Om filen saknas: logga BLOCK `"FHIR-baspaket saknas offline — kör gen_fhir_stubs.py eller kopiera ~/.fhir/packages/hl7.fhir.r4.core#4.0.1/ från en maskin med internetåtkomst"` och hoppa över SUSHI-steget för denna domän. Markera **inte** domänen som `blocked` i övrigt — fortsätt med QA Tracker.
+
+   **Obs:** packages.fhir.org och hl7.org är nätverksblockerade i denna miljö. SUSHI löser dock paketet från lokal cache utan nätverksanrop om katalogen `~/.fhir/packages/hl7.fhir.r4.core#4.0.1/` finns. Paketet kan skapas lokalt med skriptet `gen_fhir_stubs.py` i projektets rotkatalog.
+
+3. Köra SUSHI i kontraktets katalog:
    ```bash
    cd igs/{ContractId}
    sushi .

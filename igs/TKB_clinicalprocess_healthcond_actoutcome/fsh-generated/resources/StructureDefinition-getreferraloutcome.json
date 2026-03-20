@@ -1,0 +1,811 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getreferraloutcome",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getreferraloutcome",
+  "name": "GetReferralOutcome",
+  "title": "GetReferralOutcome",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetReferralOutcome\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetReferralOutcome:3).\nRepresenterar responsens informationsstruktur — svar på konsultationsremiss\noch begäran om övertagande av vårdansvar. Meddelandeformatet är kompatibelt\nmed HL7v3 CDA v.2.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getreferraloutcome",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getreferraloutcome",
+        "path": "getreferraloutcome",
+        "short": "GetReferralOutcome",
+        "definition": "Logisk modell för tjänstekontraktet GetReferralOutcome\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetReferralOutcome:3).\nRepresenterar responsens informationsstruktur — svar på konsultationsremiss\noch begäran om övertagande av vårdansvar. Meddelandeformatet är kompatibelt\nmed HL7v3 CDA v.2."
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome",
+        "path": "getreferraloutcome.referralOutcome",
+        "short": "Remissvar (ett per remiss)",
+        "definition": "Remissvar (ett per remiss)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader",
+        "short": "PatientSummaryHeader",
+        "definition": "PatientSummaryHeader",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.documentId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.documentId",
+        "short": "Dokumentets unika id",
+        "definition": "Dokumentets unika id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.sourceSystemHSAId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.sourceSystemHSAId",
+        "short": "Källsystemets HSA-id",
+        "definition": "Källsystemets HSA-id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.documentTitle",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.documentTitle",
+        "short": "Dokumentets titel",
+        "definition": "Dokumentets titel",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.documentTime",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.documentTime",
+        "short": "Dokumentets tidpunkt",
+        "definition": "Dokumentets tidpunkt",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.patientId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.patientId",
+        "short": "Patientens id",
+        "definition": "Patientens id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.patientId.value",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.patientId.value",
+        "short": "Patientens personnummer/samordningsnummer",
+        "definition": "Patientens personnummer/samordningsnummer",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.patientId.system",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.patientId.system",
+        "short": "OID för typ av identifierare",
+        "definition": "OID för typ av identifierare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional",
+        "short": "Ansvarig hälso- och sjukvårdspersonal",
+        "definition": "Ansvarig hälso- och sjukvårdspersonal",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.authorTime",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.authorTime",
+        "short": "Tidpunkt för dokumentation",
+        "definition": "Tidpunkt för dokumentation",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+        "short": "Personalens HSA-id",
+        "definition": "Personalens HSA-id",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+        "short": "Personalens namn",
+        "definition": "Personalens namn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+        "short": "Yrkesroll",
+        "definition": "Yrkesroll",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+        "short": "Organisationsenhet",
+        "definition": "Organisationsenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+        "short": "OrgUnit HSA-id",
+        "definition": "OrgUnit HSA-id",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+        "short": "OrgUnit namn",
+        "definition": "OrgUnit namn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+        "short": "Telefon",
+        "definition": "Telefon",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+        "short": "E-post",
+        "definition": "E-post",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+        "short": "Adress",
+        "definition": "Adress",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+        "short": "Plats",
+        "definition": "Plats",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+        "short": "Vårdenhetens HSA-id",
+        "definition": "Regel 1: Krävs för spärrhantering och åtkomstkontroll.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+        "short": "Vårdgivarens HSA-id",
+        "definition": "Regel 1: Krävs för spärrhantering och åtkomstkontroll.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.legalAuthenticator",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.legalAuthenticator",
+        "short": "Juridiskt ansvarig",
+        "definition": "Juridiskt ansvarig",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.legalAuthenticator.signatureTime",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.legalAuthenticator.signatureTime",
+        "short": "Signeringstidpunkt",
+        "definition": "Signeringstidpunkt",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.legalAuthenticator.legalAuthenticatorHSAid",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.legalAuthenticator.legalAuthenticatorHSAid",
+        "short": "HSA-id",
+        "definition": "HSA-id",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.legalAuthenticator.legalAuthenticatorName",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.legalAuthenticator.legalAuthenticatorName",
+        "short": "Namn",
+        "definition": "Namn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.approvedForPatient",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.approvedForPatient",
+        "short": "Godkänd för patientvisning",
+        "definition": "Godkänd för patientvisning",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.careContactId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.careContactId",
+        "short": "Vårdkontaktid",
+        "definition": "Vårdkontaktid",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody",
+        "short": "Remissvarsinformation",
+        "definition": "Remissvarsinformation",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referralOutcomeTypeCode",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referralOutcomeTypeCode",
+        "short": "Typ av remissvar",
+        "definition": "Kodas enligt referralOutcomeTypeCodeEnum. Se QUESTIONS.md ASSUME-002 angående canonicalURL.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referralOutcomeTitle",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referralOutcomeTitle",
+        "short": "Remissvarets titel",
+        "definition": "Remissvarets titel",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referralOutcomeText",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referralOutcomeText",
+        "short": "Remissvarets text",
+        "definition": "Remissvarets text",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation",
+        "short": "Klinisk information",
+        "definition": "Klinisk information",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationCode",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationCode",
+        "short": "Klinisk informationskod",
+        "definition": "Klinisk informationskod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationText",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationText",
+        "short": "Klinisk informationstext",
+        "definition": "Klinisk informationstext",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.act",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.act",
+        "short": "Åtgärd",
+        "definition": "Åtgärd",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actId",
+        "short": "Åtgärdens id",
+        "definition": "Åtgärdens id",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actCode",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actCode",
+        "short": "Åtgärdskod",
+        "definition": "Åtgärdskod",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actText",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actText",
+        "short": "Åtgärdstext",
+        "definition": "Åtgärdstext",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actTime",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actTime",
+        "short": "Tidpunkt för åtgärd",
+        "definition": "Tidpunkt för åtgärd",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actResult",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actResult",
+        "short": "Resultat (multimedia)",
+        "definition": "Resultat (multimedia)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actResult.mediaType",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actResult.mediaType",
+        "short": "Medietyp",
+        "definition": "Medietyp",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actResult.value",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actResult.value",
+        "short": "Binärt innehåll",
+        "definition": "Binärt innehåll",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "base64Binary"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actResult.reference",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actResult.reference",
+        "short": "Referens-URL",
+        "definition": "Referens-URL",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "url"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.attested",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.attested",
+        "short": "Attestering",
+        "definition": "Attestering",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.attested.attestedTime",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.attested.attestedTime",
+        "short": "Attest-tidpunkt",
+        "definition": "Attest-tidpunkt",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.attested.attesterHSAId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.attested.attesterHSAId",
+        "short": "Attesterarens HSA-id",
+        "definition": "Attesterarens HSA-id",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.attested.attesterName",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.attested.attesterName",
+        "short": "Attesterarens namn",
+        "definition": "Attesterarens namn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral",
+        "short": "Remissens uppgifter",
+        "definition": "Remissens uppgifter",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralId",
+        "short": "Remissens id",
+        "definition": "Remissens id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralReason",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralReason",
+        "short": "Remissorsak",
+        "definition": "Remissorsak",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralTime",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralTime",
+        "short": "Remisstidpunkt",
+        "definition": "Remisstidpunkt",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor",
+        "short": "Remittent",
+        "definition": "Remittent",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.authorTime",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.authorTime",
+        "short": "Tidpunkt",
+        "definition": "Tidpunkt",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalHSAId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalHSAId",
+        "short": "HSA-id",
+        "definition": "HSA-id",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalName",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalName",
+        "short": "Namn",
+        "definition": "Namn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalRoleCode",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalRoleCode",
+        "short": "Yrkesroll",
+        "definition": "Yrkesroll",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalOrgUnit",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalOrgUnit",
+        "short": "Org-enhet",
+        "definition": "Org-enhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.careContactId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.careContactId",
+        "short": "Vårdkontaktid",
+        "definition": "Vårdkontaktid",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

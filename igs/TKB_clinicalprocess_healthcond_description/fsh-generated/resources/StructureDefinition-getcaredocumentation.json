@@ -1,0 +1,633 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getcaredocumentation",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getcaredocumentation",
+  "name": "GetCareDocumentation",
+  "title": "GetCareDocumentation",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetCareDocumentation\n(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3).\nRepresenterar responsens informationsstruktur: journalanteckningar för en patient.\nAnteckningstyper: utredning, åtgärd/behandling, sammanfattning, samordning, inskrivning,\nslutanteckning, anteckning utan fysiskt möte, slutenvårdsanteckning och besöksanteckning.\nMeddelandeformatet är kompatibelt med HL7 v3 CDA v2.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getcaredocumentation",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getcaredocumentation",
+        "path": "getcaredocumentation",
+        "short": "GetCareDocumentation",
+        "definition": "Logisk modell för tjänstekontraktet GetCareDocumentation\n(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3).\nRepresenterar responsens informationsstruktur: journalanteckningar för en patient.\nAnteckningstyper: utredning, åtgärd/behandling, sammanfattning, samordning, inskrivning,\nslutanteckning, anteckning utan fysiskt möte, slutenvårdsanteckning och besöksanteckning.\nMeddelandeformatet är kompatibelt med HL7 v3 CDA v2."
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation",
+        "path": "getcaredocumentation.careDocumentation",
+        "short": "Journalanteckning",
+        "definition": "De anteckningar som matchar begäran. En instans per anteckning.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header",
+        "path": "getcaredocumentation.careDocumentation.header",
+        "short": "JoL-header",
+        "definition": "JoL-header v2.2. Innehåller metainformation gemensam för JoL-tjänstekontrakt.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.accessControlHeader",
+        "path": "getcaredocumentation.careDocumentation.header.accessControlHeader",
+        "short": "Åtkomstkontrollheader",
+        "definition": "Information för kontroll av åtkomst enligt PDL. Uppgifterna krävs för\nspärrhantering, åtkomstkontroll samt loggning.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.accessControlHeader.accountableHealthcareProvider",
+        "path": "getcaredocumentation.careDocumentation.header.accessControlHeader.accountableHealthcareProvider",
+        "short": "Informationsägande vårdgivare",
+        "definition": "Id för informationsägande vårdgivare. HSA-id eller lokalt id.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.accessControlHeader.accountableCareUnit",
+        "path": "getcaredocumentation.careDocumentation.header.accessControlHeader.accountableCareUnit",
+        "short": "Informationsägande vårdenhet",
+        "definition": "Id för informationsägande vårdenhet angivet med HSA-id.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.accessControlHeader.patientId",
+        "path": "getcaredocumentation.careDocumentation.header.accessControlHeader.patientId",
+        "short": "Patientens identitetsbeteckning",
+        "definition": "Patientens identitetsbeteckning. Personnummer, samordningsnummer eller nationellt reservnummer.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.accessControlHeader.careProcessId",
+        "path": "getcaredocumentation.careDocumentation.header.accessControlHeader.careProcessId",
+        "short": "Id för individanpassad vårdprocess",
+        "definition": "Id för den individanpassade vårdprocess som informationen ingår i.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.accessControlHeader.blockComparisonTime",
+        "path": "getcaredocumentation.careDocumentation.header.accessControlHeader.blockComparisonTime",
+        "short": "Jämförelsetidpunkt för spärrkontroll",
+        "definition": "Den tidpunkt mot vilken spärrkontroll sker vid åtkomst till journalinformation.\nFormat: YYYYMMDDhhmmss. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.accessControlHeader.approvedForPatient",
+        "path": "getcaredocumentation.careDocumentation.header.accessControlHeader.approvedForPatient",
+        "short": "Godkänd för visning till patient",
+        "definition": "Ansvarig vårdpersonals beslut, alternativt baserat på automatisk menprövning,\nom informationen är godkänd för visning till patient.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.sourceSystemId",
+        "path": "getcaredocumentation.careDocumentation.header.sourceSystemId",
+        "short": "Källsystem",
+        "definition": "Det källsystem som informationen lagras i. Fältet root sätts till HSA-id för källsystemet.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.record",
+        "path": "getcaredocumentation.careDocumentation.header.record",
+        "short": "Uppgift i patientjournal",
+        "definition": "Metainformation avseende journaluppgiften (recorden).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.record.id",
+        "path": "getcaredocumentation.careDocumentation.header.record.id",
+        "short": "Journaluppgiftens unika identifierare",
+        "definition": "Unik och beständig identifierare för uppgift i patientjournal.\nSka vara unik — samma id får inte förekomma flera gånger (XSD-regel).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.record.timestamp",
+        "path": "getcaredocumentation.careDocumentation.header.record.timestamp",
+        "short": "Skapandetidpunkt",
+        "definition": "Första tidpunkten då denna journalinformation skapades.\nFormat: YYYYMMDDhhmmss. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.author",
+        "path": "getcaredocumentation.careDocumentation.header.author",
+        "short": "Dokumentationsansvarig",
+        "definition": "Hälso- och sjukvårdspersonal som ansvarar för informationen i journaluppgiften.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.author.id",
+        "path": "getcaredocumentation.careDocumentation.header.author.id",
+        "short": "HSA-id för dokumentationsansvarig",
+        "definition": "HSA-id för hälso- och sjukvårdspersonal. Fältet root sätts till OID för HSA-id.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.author.name",
+        "path": "getcaredocumentation.careDocumentation.header.author.name",
+        "short": "Namn på dokumentationsansvarig",
+        "definition": "Namn på hälso- och sjukvårdspersonal.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.author.timestamp",
+        "path": "getcaredocumentation.careDocumentation.header.author.timestamp",
+        "short": "Tidpunkt för informationsskapande",
+        "definition": "Tidpunkt vid vilken journalinformationen skapades av författaren.\nFormat: YYYYMMDDhhmmss. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.author.byRole",
+        "path": "getcaredocumentation.careDocumentation.header.author.byRole",
+        "short": "Befattning",
+        "definition": "Information om hälso- och sjukvårdspersonalens befattning vid tidpunkten för dokumentationen.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.author.orgUnit",
+        "path": "getcaredocumentation.careDocumentation.header.author.orgUnit",
+        "short": "Organisationsenhet",
+        "definition": "Den organisation som författaren är uppdragstagare i vid dokumentationstillfället.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.author.orgUnit.orgUnitHSAId",
+        "path": "getcaredocumentation.careDocumentation.header.author.orgUnit.orgUnitHSAId",
+        "short": "HSA-id för organisationsenhet",
+        "definition": "HSA-id för organisationsenhet.\nKardinalitet: Valfri (OrgUnitType-konvention).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.author.orgUnit.orgUnitName",
+        "path": "getcaredocumentation.careDocumentation.header.author.orgUnit.orgUnitName",
+        "short": "Namn på organisationsenhet",
+        "definition": "Namn på den organisation som författaren är uppdragstagare i.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.signature",
+        "path": "getcaredocumentation.careDocumentation.header.signature",
+        "short": "Signeringsinformation",
+        "definition": "Signeringsinformation för journaluppgiften.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.signature.id",
+        "path": "getcaredocumentation.careDocumentation.header.signature.id",
+        "short": "HSA-id för signerande person",
+        "definition": "HSA-id för hälso- och sjukvårdspersonal som signerat journaluppgiften.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.signature.name",
+        "path": "getcaredocumentation.careDocumentation.header.signature.name",
+        "short": "Namn på signerande person",
+        "definition": "Namn på hälso- och sjukvårdspersonal som signerat journaluppgiften.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.signature.timestamp",
+        "path": "getcaredocumentation.careDocumentation.header.signature.timestamp",
+        "short": "Tidpunkt för signering",
+        "definition": "Anger tidpunkten för signering av uppgift i patientjournal.\nFormat: YYYYMMDDhhmmss. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.header.signature.byRole",
+        "path": "getcaredocumentation.careDocumentation.header.signature.byRole",
+        "short": "Befattning vid signering",
+        "definition": "Information om signerande persons befattning.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.body",
+        "path": "getcaredocumentation.careDocumentation.body",
+        "short": "Journalanteckningens innehåll",
+        "definition": "Journalanteckning — informationsinnehållet i anteckningen.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.body.clinicalDocumentNoteCode",
+        "path": "getcaredocumentation.careDocumentation.body.clinicalDocumentNoteCode",
+        "short": "Typ av anteckning",
+        "definition": "Typ av anteckning. Kod tas från KV Anteckningstyp (OID: 1.2.752.129.2.2.2.11).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/ValueSet/clinicaldocumentnotecode-vs"
+        }
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.body.clinicalDocumentNoteTitle",
+        "path": "getcaredocumentation.careDocumentation.body.clinicalDocumentNoteTitle",
+        "short": "Rubrik på anteckningen",
+        "definition": "Titel på anteckningen.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.body.clinicalDocumentNoteText",
+        "path": "getcaredocumentation.careDocumentation.body.clinicalDocumentNoteText",
+        "short": "Anteckningens textinnehåll",
+        "definition": "Journalanteckningens innehåll i text. Texten kan vara formaterad i DocBook-format\noch ska då vara 'entity encoded'. Ömsesidigt uteslutande med multimediaEntry.\nKardinalitet: Valfri. XSD-regel: exakt ett av clinicalDocumentNoteText/multimediaEntry ska anges.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.body.multimediaEntry",
+        "path": "getcaredocumentation.careDocumentation.body.multimediaEntry",
+        "short": "Binär bilaga",
+        "definition": "Journalanteckningens innehåll i form av en multimediafil.\nÖmsesidigt uteslutande med clinicalDocumentNoteText.\nKardinalitet: Valfri. XSD-regel: exakt ett av clinicalDocumentNoteText/multimediaEntry ska anges.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.body.multimediaEntry.mediaType",
+        "path": "getcaredocumentation.careDocumentation.body.multimediaEntry.mediaType",
+        "short": "Medietyp",
+        "definition": "Typ av multimedia (MIME-typ). Tillåtna värden enligt MediaTypeEnum.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.body.multimediaEntry.value",
+        "path": "getcaredocumentation.careDocumentation.body.multimediaEntry.value",
+        "short": "Binärdata",
+        "definition": "Binärdata som representerar objektet. Ömsesidigt uteslutande med reference.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "base64Binary"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.body.multimediaEntry.reference",
+        "path": "getcaredocumentation.careDocumentation.body.multimediaEntry.reference",
+        "short": "Referens till extern fil",
+        "definition": "Referens till extern binär fil i form av en URL. Ömsesidigt uteslutande med value.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "url"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.body.dissentingOpinion",
+        "path": "getcaredocumentation.careDocumentation.body.dissentingOpinion",
+        "short": "Avvikande mening",
+        "definition": "Om patienten eller någon för denna ansvarig person är av avvikande mening om\nnågon del av journalanteckningen.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.body.dissentingOpinion.opinionId",
+        "path": "getcaredocumentation.careDocumentation.body.dissentingOpinion.opinionId",
+        "short": "Id för avvikande mening",
+        "definition": "En universellt unik identifierare för den avvikande meningen.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.body.dissentingOpinion.authorTime",
+        "path": "getcaredocumentation.careDocumentation.body.dissentingOpinion.authorTime",
+        "short": "Tidpunkt för avvikande mening",
+        "definition": "Tidpunkten då den avvikande meningen författades. Format: YYYYMMDDhhmmss.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.body.dissentingOpinion.opinion",
+        "path": "getcaredocumentation.careDocumentation.body.dissentingOpinion.opinion",
+        "short": "Text för avvikande mening",
+        "definition": "Text som innehåller den avvikande meningen.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.body.dissentingOpinion.personId",
+        "path": "getcaredocumentation.careDocumentation.body.dissentingOpinion.personId",
+        "short": "Id för författare till avvikande mening",
+        "definition": "Id för författaren av den avvikande meningen.\nroot sätts till OID för typ av identifierare. För personnummer: 1.2.752.129.2.1.3.1.\nextension sätts till personens identifierare (12 tecken).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.careDocumentation.body.dissentingOpinion.personName",
+        "path": "getcaredocumentation.careDocumentation.body.dissentingOpinion.personName",
+        "short": "Namn på författare till avvikande mening",
+        "definition": "Namnet på författaren av den avvikande meningen.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.hasMore",
+        "path": "getcaredocumentation.hasMore",
+        "short": "Indikation om fler poster",
+        "definition": "Anges av tjänsteproducent när det finns ytterligare information att hämta\n(partiell datahämtning). Referensen ska vara giltig i minst en timme.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.hasMore.logicalAddress",
+        "path": "getcaredocumentation.hasMore.logicalAddress",
+        "short": "Logisk adress för partiell hämtning",
+        "definition": "Den logiska adressen till tjänsteproducenten som tillhandahåller resterande information.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.hasMore.reference",
+        "path": "getcaredocumentation.hasMore.reference",
+        "short": "Referens för partiell hämtning",
+        "definition": "En unik identifierare som tjänstekonsumenten anger i nästa anrop via hasMoreReference.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.result",
+        "path": "getcaredocumentation.result",
+        "short": "Resultat",
+        "definition": "Innehåller information om det gick bra eller ej att besvara begäran.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.result.resultCode",
+        "path": "getcaredocumentation.result.resultCode",
+        "short": "Resultatkod",
+        "definition": "Anger resultatet av besvarad förfrågan. Tillåtna värden: OK, INFO, ERROR.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "getcaredocumentation.result.resultText",
+        "path": "getcaredocumentation.result.resultText",
+        "short": "Resultattext",
+        "definition": "Optionellt felmeddelande som innehåller information om eventuella fel.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

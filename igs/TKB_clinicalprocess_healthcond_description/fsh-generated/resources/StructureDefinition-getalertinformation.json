@@ -1,0 +1,395 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getalertinformation",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getalertinformation",
+  "name": "GetAlertInformation",
+  "title": "GetAlertInformation",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetAlertInformation\n(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetAlertInformationResponder:2).\nRepresenterar responsens informationsstruktur: uppmärksamhetsinformation för en patient,\nexempelvis överkänslighet mot läkemedel, allvarlig sjukdom eller vårdbegränsningar.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getalertinformation",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getalertinformation",
+        "path": "getalertinformation",
+        "short": "GetAlertInformation",
+        "definition": "Logisk modell för tjänstekontraktet GetAlertInformation\n(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetAlertInformationResponder:2).\nRepresenterar responsens informationsstruktur: uppmärksamhetsinformation för en patient,\nexempelvis överkänslighet mot läkemedel, allvarlig sjukdom eller vårdbegränsningar."
+      },
+      {
+        "id": "getalertinformation.alertInformation",
+        "path": "getalertinformation.alertInformation",
+        "short": "Uppmärksamhetsinformation",
+        "definition": "Den uppmärksamhetsinformation som matchar begäran.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.alertInformation.alertInformationHeader",
+        "path": "getalertinformation.alertInformation.alertInformationHeader",
+        "short": "Dokumenthuvud (PatientSummaryHeader)",
+        "definition": "Innehåller basinformation om dokumentet (PatientSummaryHeaderType).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.alertInformation.alertInformationHeader.documentId",
+        "path": "getalertinformation.alertInformation.alertInformationHeader.documentId",
+        "short": "Dokumentets identitet",
+        "definition": "Dokumentets identitet som är unik inom källsystemet.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.alertInformation.alertInformationHeader.sourceSystemHSAId",
+        "path": "getalertinformation.alertInformation.alertInformationHeader.sourceSystemHSAId",
+        "short": "HSA-id för källsystem",
+        "definition": "HSA-id för det system som tillgängliggör informationen.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.alertInformation.alertInformationHeader.patientId",
+        "path": "getalertinformation.alertInformation.alertInformationHeader.patientId",
+        "short": "Patientidentifierare",
+        "definition": "Identifierare för patient. id = patientens identifierare (12 tecken).\ntype = OID för typ av identifierare.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional",
+        "path": "getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional",
+        "short": "Ansvarig hälso- och sjukvårdsperson",
+        "definition": "Information om den hälso- och sjukvårdsperson som är ansvarig för informationen.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional.authorTime",
+        "path": "getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional.authorTime",
+        "short": "Tidpunkt för registrering",
+        "definition": "Tidpunkt då informationen registrerades. Format: YYYYMMDDhhmmss.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+        "path": "getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+        "short": "HSA-id för hälso- och sjukvårdspersonal",
+        "definition": "HSA-id för hälso- och sjukvårdspersonal.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+        "path": "getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+        "short": "Namn",
+        "definition": "Namn på hälso- och sjukvårdspersonal.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+        "path": "getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+        "short": "Befattning",
+        "definition": "Information om personens befattning.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+        "path": "getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+        "short": "Organisationsenhet",
+        "definition": "Den organisation som hälso- och sjukvårdspersonalen är uppdragstagare i.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+        "path": "getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+        "short": "HSA-id för organisationsenhet",
+        "definition": "HSA-id för organisationsenhet.\nKardinalitet: Obligatorisk (inom OrgUnitType).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+        "path": "getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+        "short": "Namn på organisationsenhet",
+        "definition": "Namn på organisationsenhet.\nKardinalitet: Obligatorisk (inom OrgUnitType).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+        "path": "getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+        "short": "HSA-id för vårdenhet",
+        "definition": "HSA-id för vårdenhet. Se regel 1 i TKB.\nKardinalitet: Valfri (villkorlig, se regel 1).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+        "path": "getalertinformation.alertInformation.alertInformationHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+        "short": "HSA-id för vårdgivare",
+        "definition": "HSA-id för vårdgivaren.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.alertInformation.alertInformationHeader.legalAuthenticator",
+        "path": "getalertinformation.alertInformation.alertInformationHeader.legalAuthenticator",
+        "short": "Signerande person",
+        "definition": "Information om vem som signerat informationen i dokumentet.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.alertInformation.alertInformationHeader.legalAuthenticator.signatureTime",
+        "path": "getalertinformation.alertInformation.alertInformationHeader.legalAuthenticator.signatureTime",
+        "short": "Tidpunkt för signering",
+        "definition": "Tidpunkt för signering. Format: YYYYMMDDhhmmss.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.alertInformation.alertInformationHeader.legalAuthenticator.legalAuthenticatorHSAId",
+        "path": "getalertinformation.alertInformation.alertInformationHeader.legalAuthenticator.legalAuthenticatorHSAId",
+        "short": "HSA-id för signerande",
+        "definition": "HSA-id för person som signerat dokumentet.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.alertInformation.alertInformationHeader.legalAuthenticator.legalAuthenticatorName",
+        "path": "getalertinformation.alertInformation.alertInformationHeader.legalAuthenticator.legalAuthenticatorName",
+        "short": "Namn på signerande person",
+        "definition": "Namn i klartext för signerande person.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.alertInformation.alertInformationHeader.approvedForPatient",
+        "path": "getalertinformation.alertInformation.alertInformationHeader.approvedForPatient",
+        "short": "Godkänd för visning till patient",
+        "definition": "Anger om information får delas till patient.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.alertInformation.alertInformationHeader.careContactId",
+        "path": "getalertinformation.alertInformation.alertInformationHeader.careContactId",
+        "short": "Vårdkontakts-id",
+        "definition": "Identitet för den hälso- och sjukvårdskontakt som uppmärksamhetsinformationen gäller.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.alertInformation.alertInformationBody",
+        "path": "getalertinformation.alertInformation.alertInformationBody",
+        "short": "Uppmärksamhetsinformationens innehåll",
+        "definition": "AlertInformationBodyType — uppmärksamhetsinformationens informationsinnehåll.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.alertInformation.alertInformationBody.typeOfAlertInformation",
+        "path": "getalertinformation.alertInformation.alertInformationBody.typeOfAlertInformation",
+        "short": "Typ av uppmärksamhetssignal",
+        "definition": "Kod som anger vilken typ av uppmärksamhetssignal som avses.\nBör tas från ett lokalt kodsystem eller från nationell standard.\nKodsystem: okänt externt/lokalt (se ASSUME-002 i QUESTIONS.md).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.result",
+        "path": "getalertinformation.result",
+        "short": "Resultat",
+        "definition": "Innehåller information om begäran gick bra eller ej.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.result.resultCode",
+        "path": "getalertinformation.result.resultCode",
+        "short": "Resultatkod",
+        "definition": "Kan endast vara OK, INFO eller ERROR.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.result.errorCode",
+        "path": "getalertinformation.result.errorCode",
+        "short": "Felkod",
+        "definition": "Sätts endast om resultCode är ERROR. Tillåtna värden: INVALID_REQUEST.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.result.logId",
+        "path": "getalertinformation.result.logId",
+        "short": "Log-id",
+        "definition": "En UUID som kan användas vid felanmälan för att spåra felet.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getalertinformation.result.message",
+        "path": "getalertinformation.result.message",
+        "short": "Meddelande",
+        "definition": "En beskrivande text som kan visas för användaren.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

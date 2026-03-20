@@ -1,0 +1,200 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "findcontent",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/findcontent",
+  "name": "FindContent",
+  "title": "FindContent",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet FindContent\n(RIV-TA urn:riv:itintegration:engagementindex:FindContent:1).\nRepresenterar responsens informationsstruktur — en lista av engagemangsposter\nsom svarar mot sökkriterierna i begäran.\nPrimärt använt av aggregerande tjänster i tjänsteplattformen.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/findcontent",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "findcontent",
+        "path": "findcontent",
+        "short": "FindContent",
+        "definition": "Logisk modell för tjänstekontraktet FindContent\n(RIV-TA urn:riv:itintegration:engagementindex:FindContent:1).\nRepresenterar responsens informationsstruktur — en lista av engagemangsposter\nsom svarar mot sökkriterierna i begäran.\nPrimärt använt av aggregerande tjänster i tjänsteplattformen."
+      },
+      {
+        "id": "findcontent.engagement",
+        "path": "findcontent.engagement",
+        "short": "Engagemangspost",
+        "definition": "En post i engagemangsindex som matchar sökkriterierna.\nEn tjänstekonsument kan få noll eller flera poster i svaret.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "findcontent.engagement.registeredResidentIdentification",
+        "path": "findcontent.engagement.registeredResidentIdentification",
+        "short": "Personidentitet",
+        "definition": "Person- eller samordningsnummer enligt skatteverkets definition (12 tecken),\neller nationellt reservnummer enligt Ineras definition (12 tecken).\nFormat: CCYYMMDDNNNN (personnummer/samordningsnummer) eller XXYYMMDNNGC (reservidentitet).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "findcontent.engagement.serviceDomain",
+        "path": "findcontent.engagement.serviceDomain",
+        "short": "Tjänstedomänens namnrymd (URN)",
+        "definition": "Namnrymd för tjänstedomän i URN-format.\nExempel: urn:riv:clinicalprocess:activity:request\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ]
+      },
+      {
+        "id": "findcontent.engagement.categorization",
+        "path": "findcontent.engagement.categorization",
+        "short": "Kategorisering",
+        "definition": "Kategorisering enligt den tillämpande tjänstedomänens dokumentation.\nExakt betydelse definieras av respektive tjänstedomän.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "findcontent.engagement.logicalAddress",
+        "path": "findcontent.engagement.logicalAddress",
+        "short": "Logisk adress",
+        "definition": "Logisk adress för den tjänsteproducent som har information för posten.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "findcontent.engagement.businessObjectInstanceIdentifier",
+        "path": "findcontent.engagement.businessObjectInstanceIdentifier",
+        "short": "Affärsobjektets instansidentifierare",
+        "definition": "Identifierare för det specifika affärsobjekt som posten avser.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.\nObs: I domain-metadata angiven som engagementTransaction.engagement.businessObjectInstanceIdentifier.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "findcontent.engagement.clinicalProcessInterestId",
+        "path": "findcontent.engagement.clinicalProcessInterestId",
+        "short": "Kliniskt processintresse-ID",
+        "definition": "Identifierare för kliniskt processintresse.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.\nOBS: Möjlig kardinalitetsdiskrepans — i FindContent Request är fältet 0..1,\nmen i den generella informationsmodellen (avsnitt 5) kan det vara 1..1.\nAnvänd 0..1 tills verifiering mot XSD-schema är gjord.\nKardinalitet: Valfri (se öppen fråga om diskrepans).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "findcontent.engagement.mostRecentContent",
+        "path": "findcontent.engagement.mostRecentContent",
+        "short": "Senast relevant innehållstidpunkt",
+        "definition": "Tidpunkt för senast relevant innehåll. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).\nRegler för användning av detta attribut bestäms av den tillämpande tjänstedomänens\ntjänstekontraktsbeskrivning. Från version 1.0.9 tas centrala EI-regler kring\nMostRecentContent bort ur denna TKB.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "findcontent.engagement.sourceSystem",
+        "path": "findcontent.engagement.sourceSystem",
+        "short": "Källsystem (HSA-id)",
+        "definition": "HSA-id för källsystemet som innehåller den information som EI-posten pekar ut.\nI regel det vårdsystem som skapade informationen eller det system hos vårdgivaren\nsom är master för informationen.\nSystem: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "findcontent.engagement.creationTime",
+        "path": "findcontent.engagement.creationTime",
+        "short": "Tidpunkt för skapande av indexpost",
+        "definition": "Tidpunkt då EI-posten skapades i engagemangsindex. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).\nSätts av engagemangsindex vid mottagning av Update — ska INTE sättas av konsumenten.\nOBS: Fältet saknar explicit fältregel i TKB-tabellen för FindContent Response,\nmen finns i XSD-typen EngagementType. Kardinalitet hämtad från informationsmodellen.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "findcontent.engagement.updateTime",
+        "path": "findcontent.engagement.updateTime",
+        "short": "Tidpunkt för senaste uppdatering av indexpost",
+        "definition": "Tidpunkt då EI-posten senast uppdaterades i engagemangsindex. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).\nSätts av engagemangsindex vid mottagning av Update — ska INTE sättas av konsumenten.\nOBS: Fältet saknar explicit fältregel i TKB-tabellen för FindContent Response,\nmen finns i XSD-typen EngagementType. Kardinalitet hämtad från informationsmodellen.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "findcontent.engagement.dataController",
+        "path": "findcontent.engagement.dataController",
+        "short": "Personuppgiftsansvarig organisation",
+        "definition": "Identitet för den personuppgiftsansvariga organisation (PUA) som ansvarar för postens innehåll.\nI första hand organisationsnummer eller HSA-id för PUA, i andra hand en källsystemsintern\nidentitet för PUA. Viktigt att välja ett värde som PUA kan använda för att fullgöra sin roll\nsom personuppgiftsansvarig för sin information i engagemangsindex.\nOBS: Fältet kan innehålla organisationsnummer, HSA-id eller källsystemsintern identitet —\ningen entydig FHIR Identifier-typ. Modelleras som string; se öppen fråga om korrekt typ.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "findcontent.engagement.owner",
+        "path": "findcontent.engagement.owner",
+        "short": "Ägande index (HSA-id)",
+        "definition": "HSA-id för den organisation vars index tog emot uppdateringsbegäran.\nAnvänds för att spåra var en indexpost ursprungligen registrerades.\nSystem: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).\nSätts av engagemangsindex — ska INTE sättas av konsumenten.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      }
+    ]
+  }
+}

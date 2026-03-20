@@ -1,0 +1,529 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getcareaplans",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/getcareaplans",
+  "name": "GetCarePlans",
+  "title": "GetCarePlans",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetCarePlans\n(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCarePlans:2).\nRepresenterar responsens informationsstruktur (GetCarePlansResponseType).\nEn lista med CarePlanType returneras, var och en med ett header och ett body.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/getcareaplans",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getcareaplans",
+        "path": "getcareaplans",
+        "short": "GetCarePlans",
+        "definition": "Logisk modell för tjänstekontraktet GetCarePlans\n(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCarePlans:2).\nRepresenterar responsens informationsstruktur (GetCarePlansResponseType).\nEn lista med CarePlanType returneras, var och en med ett header och ett body."
+      },
+      {
+        "id": "getcareaplans.carePlan",
+        "path": "getcareaplans.carePlan",
+        "short": "Vård- och omsorgsplaner som matchar begäran",
+        "definition": "Lista med vård- och omsorgsplaner för patienten. Varje post innehåller\nheader (basinformation) och body (planspecifik information).\nKardinalitet: Valfri lista (0..*).",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.documentId",
+        "path": "getcareaplans.carePlan.documentId",
+        "short": "Planens identitet, unik inom källsystemet",
+        "definition": "Vård- och omsorgsplanens identitet som är unik inom källsystemet.\nIdentifieraren ska vara konsistent och beständig mellan versioner och kontrakt.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.sourceSystemHSAId",
+        "path": "getcareaplans.carePlan.sourceSystemHSAId",
+        "short": "HSA-id för källsystemet",
+        "definition": "HSA-id för det system som dokumentet är skapat i. Typ HSAIdType (string).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.documentTitle",
+        "path": "getcareaplans.carePlan.documentTitle",
+        "short": "Rubrik för vård- och omsorgsplanen",
+        "definition": "Text som innehåller en rubrik som beskriver innehållet i vård- och omsorgsplanen.\nExempel: \"Samordnad vårdplanering Rehabiliteringsplan\".\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.documentTime",
+        "path": "getcareaplans.carePlan.documentTime",
+        "short": "Tidpunkt då planen upprättades",
+        "definition": "Tidpunkt då vård- och omsorgsplanen upprättats. Format YYYYMMDDhhmmss.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.patientId",
+        "path": "getcareaplans.carePlan.patientId",
+        "short": "Patientens identifierare",
+        "definition": "Personnummer eller samordningsnummer (12 tecken utan avskiljare).\nsystem = OID för typ: personnummer (1.2.752.129.2.1.3.1),\nsamordningsnummer (1.2.752.129.2.1.3.3), reservnummer (lokalt definierade OID).\nTyp PersonIdType. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.accountableHealthcareProfessional",
+        "path": "getcareaplans.carePlan.accountableHealthcareProfessional",
+        "short": "Ansvarig hälso- och sjukvårdspersonal",
+        "definition": "Hälso- och sjukvårdspersonal som ansvarar för vård- och omsorgsplanen.\nTyp HealthcareProfessionalType. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.accountableHealthcareProfessional.authorTime",
+        "path": "getcareaplans.carePlan.accountableHealthcareProfessional.authorTime",
+        "short": "Tidpunkt då informationen registrerades",
+        "definition": "Format YYYYMMDDhhmmss. Tidpunkt i lokal svensk tid (CET/CEST).\nRegel 2: Används för kontroll av tidsbegränsade spärrar i sammanhållen journalföring.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+        "path": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+        "short": "HSA-id för ansvarig personal",
+        "definition": "HSA-id för hälso- och sjukvårdspersonal som ansvarar för vårdplanen. Typ HSAIdType.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalName",
+        "path": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalName",
+        "short": "Namn på ansvarig personal",
+        "definition": "Namn på hälso- och sjukvårdspersonal.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+        "path": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+        "short": "Befattning",
+        "definition": "Information om hälso- och sjukvårdspersonalens befattning. Om möjligt ska\nKV Befattning (OID 1.2.752.129.2.2.1.4) användas. Typ CVType.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+        "path": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+        "short": "Organisationsenhet för ansvarig personal",
+        "definition": "Den organisation som hälso- och sjukvårdspersonalen är uppdragstagare på.\nRegel 4: orgUnitHSAId och orgUnitName ska anges för kompatibilitet med NPÖ.\nTyp OrgUnitType. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+        "path": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+        "short": "HSA-id för org.enhet",
+        "definition": "HSA-id för organisationsenhet. Regel 4.\nKardinalitet: Valfri (se Regel 4 — ska anges vid NPÖ-kompatibilitet).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+        "path": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+        "short": "Namn på org.enhet",
+        "definition": "Namn på den organisation. Regel 4.\nKardinalitet: Valfri (se Regel 4).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+        "path": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+        "short": "Telefon till org.enhet",
+        "definition": "Telefon till organisationsenhet.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+        "path": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+        "short": "E-post till org.enhet",
+        "definition": "Epost till enhet.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+        "path": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+        "short": "Postadress för org.enhet",
+        "definition": "Postadress.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+        "path": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+        "short": "Plats för org.enhet",
+        "definition": "Namn på plats eller ort.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+        "path": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+        "short": "HSA-id för vårdenhet",
+        "definition": "HSA-id för vårdenhet. Typ HSAIdType.\nRegel 1: Krävs för spärrhantering, åtkomstkontroll och loggning enligt PDL.\nKardinalitet: Valfri (se Regel 1).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+        "path": "getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+        "short": "HSA-id för vårdgivare",
+        "definition": "HSA-id för vårdgivaren. Typ HSAIdType.\nRegel 1: Krävs för spärrhantering, åtkomstkontroll och loggning enligt PDL.\nKardinalitet: Valfri (se Regel 1).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.legalAuthenticator",
+        "path": "getcareaplans.carePlan.legalAuthenticator",
+        "short": "Signeringsinformation",
+        "definition": "Information om vem som signerat informationen i dokumentet.\nTyp LegalAuthenticatorType. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.legalAuthenticator.signatureTime",
+        "path": "getcareaplans.carePlan.legalAuthenticator.signatureTime",
+        "short": "Tidpunkt för signering",
+        "definition": "Format YYYYMMDDhhmmss.\nKardinalitet: Obligatorisk om legalAuthenticator anges.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.legalAuthenticator.legalAuthenticatorHSAId",
+        "path": "getcareaplans.carePlan.legalAuthenticator.legalAuthenticatorHSAId",
+        "short": "HSA-id för signerare",
+        "definition": "HSA-id för person som signerat dokumentet. Typ HSAIdType.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.legalAuthenticator.legalAuthenticatorName",
+        "path": "getcareaplans.carePlan.legalAuthenticator.legalAuthenticatorName",
+        "short": "Namn på signerare",
+        "definition": "Namnen i klartext för signerande person.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.approvedForPatient",
+        "path": "getcareaplans.carePlan.approvedForPatient",
+        "short": "Informationen godkänd för patient",
+        "definition": "Anger om information får delas till patient (true = godkänd, false = ej godkänd).\nRegel 3: Konsumenter ska filtrera på denna flagga vid enskilds direktåtkomst.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.careContactId",
+        "path": "getcareaplans.carePlan.careContactId",
+        "short": "Refererad vårdkontakt-id",
+        "definition": "Identitet för den vårdkontakt som föranlett den information som omfattas av dokumentet.\nIdentiteten är unik inom källsystemet. Matchar documentId i GetCareContacts.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.content",
+        "path": "getcareaplans.carePlan.content",
+        "short": "Innehåll i vård- och omsorgsplanen",
+        "definition": "Beskrivning av innehållet i vård- och omsorgsplanen, bör innehålla status och mål.\nProducenter måste följa riktlinjerna för binära bilagor (R10).\nInbäddade bilagor får inte överstiga 100 KB.\nTyp MultimediaType. Kardinalitet: Valfri lista (0..*).",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.content.mediaType",
+        "path": "getcareaplans.carePlan.content.mediaType",
+        "short": "Mediatyp (MIME-typ)",
+        "definition": "Typ av multimedia enligt HL7. Tillåtna format i denna version:\ntext/plain, text/html, image/jpeg, image/png, application/pdf.\nTyp MediaTypeEnum. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.content.value",
+        "path": "getcareaplans.carePlan.content.value",
+        "short": "Binärdata (base64)",
+        "definition": "Binärdata som representerar objektet. Antingen value eller reference ska anges, ej båda.\nKardinalitet: Valfri (villkorligt — ett av value/reference obligatoriskt).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "base64Binary"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.content.reference",
+        "path": "getcareaplans.carePlan.content.reference",
+        "short": "Referens till extern fil (URL)",
+        "definition": "Referens till extern binär fil i form av en URL.\nAntingen value eller reference ska anges, ej båda.\nKardinalitet: Valfri (villkorligt — ett av value/reference obligatoriskt).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "url"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.participatingCareUnitHSAId",
+        "path": "getcareaplans.carePlan.participatingCareUnitHSAId",
+        "short": "Deltagande vårdenheters HSA-id",
+        "definition": "En vård- och omsorgsplan har noll eller flera deltagande enheter.\nTyp IIType (root = OID, extension = värde). Kardinalitet: Valfri lista (0..*).",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.carePlan.typeOfCarePlan",
+        "path": "getcareaplans.carePlan.typeOfCarePlan",
+        "short": "Typ av vård- och omsorgsplan",
+        "definition": "Typ av vård- och omsorgsplan. Typ TypeOfCarePlanEnum.\nMöjliga värden: SIP, SPLPTLRV, SPU, VP, HP, RP, GP, SVP.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/ValueSet/typeofcareplan-vs"
+        }
+      },
+      {
+        "id": "getcareaplans.result",
+        "path": "getcareaplans.result",
+        "short": "Resultatkod för anropet",
+        "definition": "Innehåller information om begäran gick bra eller ej. Typ ResultType.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.result.resultCode",
+        "path": "getcareaplans.result.resultCode",
+        "short": "Resultatkod: OK, INFO eller ERROR",
+        "definition": "Kan endast vara OK, INFO eller ERROR. Typ ResultCodeEnum.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.result.errorCode",
+        "path": "getcareaplans.result.errorCode",
+        "short": "Felkod vid ERROR",
+        "definition": "Sätts endast om resultCode är ERROR. Möjliga värden: INVALID_REQUEST.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.result.logId",
+        "path": "getcareaplans.result.logId",
+        "short": "UUID för felsökning",
+        "definition": "En UUID som kan användas vid felanmälan för felsökning av producent.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.result.subCode",
+        "path": "getcareaplans.result.subCode",
+        "short": "Subkod",
+        "definition": "Inga subkoder är specificerade i denna version.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcareaplans.result.message",
+        "path": "getcareaplans.result.message",
+        "short": "Beskrivande meddelande",
+        "definition": "En beskrivande text som kan visas för användaren. På svenska.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}
