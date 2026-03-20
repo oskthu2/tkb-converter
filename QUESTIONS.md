@@ -258,3 +258,28 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 - [ ] **[TODO-ACT-006]** `typeOfVaccine` och `vaccineTargetDisease` i GetVaccinationHistory refererar till vaccinklassificering respektive sjukdomsklassificering. Lägg till kommentarer om lämpliga internationella kodverk (t.ex. SNOMED CT, ATC, Folkhälsomyndighetens vaccinregisterkoder).
 
 - [ ] **[TODO-ACT-007]** SjD-dokumenten (`SjD_TK_GetMedicationHistory_2.1.docx`, `SjD_TK_GetVaccinationHistory_2.0.docx`) är inte parsade. Dessa kan innehålla systemskiftesspecifika regler. Lägg till referenser i respektive kontraktssektion i IG:n.
+
+---
+
+## IG Publisher-byggen 2026-03-20 — sammanfattning
+
+**Körda domäner:** itintegration.engagementindex, clinicalprocess.healthcond.description, clinicalprocess.activityprescription.actoutcome
+
+| Domän | Errors | Warnings | Hints | Status |
+|-------|--------|----------|-------|--------|
+| itintegration.engagementindex | 0 | 92 | 0 | ✅ passerade |
+| clinicalprocess.healthcond.description | 0 | 0 | 0 | ✅ rent bygge |
+| clinicalprocess.activityprescription.actoutcome | 0 | 51 | 9 | ✅ passerade |
+
+**Ej körda domäner (kör `make build-one D=...`):**
+- `clinicalprocess.logistics.logistics`
+- `clinicalprocess.healthcond.actoutcome`
+- `clinicalprocess.activityprescription.prescribe`
+
+### TODO — granska varningar i IG Publisher-output
+
+- [ ] **[TODO-IGP-001]** `igs/TKB_itintegration_engagementindex/` — 92 varningar i IG Publisher-bygget. Granska `output/qa.html` för att identifiera och kategorisera varningarna. Typiska orsakar: saknade display-värden i CodeSystem, terminology-bindings mot okänd server, snapshot-generering.
+
+- [ ] **[TODO-IGP-002]** `igs/TKB_clinicalprocess_activityprescription_actoutcome/` — 51 varningar + 9 hints. Granska `output/qa.html`. Troliga orsaker: komplexa typer som BackboneElement utan snapshot (TODO-ACT-002, ACT-003) och XOR-kardinalitetsvarningar.
+
+- [ ] **[TODO-IGP-003]** Bygg de tre återstående domänerna med IG Publisher och ladda upp qa-errors.json: `clinicalprocess.logistics.logistics`, `clinicalprocess.healthcond.actoutcome`, `clinicalprocess.activityprescription.prescribe`.
