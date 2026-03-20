@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="urn:riv:clinicalprocess:activityprescription:prescribe:2"
+    xmlns:fhir="http://hl7.org/fhir"
+    xmlns:dosage='urn:riv:clinicalprocess:activityprescription:prescribe:2'
+    targetNamespace="urn:riv:clinicalprocess:activityprescription:prescribe:2" elementFormDefault="qualified"
+    attributeFormDefault="unqualified" version="2.0">
+    
+    
+
+    <xs:complexType name="TreatmentStep">
+        <xs:sequence>
+            <xs:element name="startTime" type="xs:dateTime" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Tidpunkt då behandlingssteget startar.<br/>Tidpunkten är inkluderande vilket innebär att behandlingssteget räknas som pågående vid starttidpunkten.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="endTime" type="xs:dateTime" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Tidpunkt då behandlingssteget slutar. Utelämnat värde innebär att behandlingssteget planeras att pågå tills vidare.<br/>Tidpunkten är exkluderande vilket innebär att behandlingssteget inte räknas som pågående vid sluttidpunkten.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="medication" type="tns:Medication_virtual" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Det läkemedel (eller handelsvara) som Läkemedelsordinationen avser.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="dosage" type="dosage:Dosage" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Dosering enligt vårdens doseringsmodell.<br/>I vissa fall (t.ex. vid ordination av handelsvaror) är dosering irrelevant och kan utelämnas.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="medicationPrescriptionId" type="fhir:Identifier" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Referens till den bakomliggande läkemedelsordinationen eller Egenmedicineringen.<br/>Notera att i de fall insättningstidpunkten skiljer sig från ordinationstidpunkten är det den aktuella ordinationen som refereras, vilket inte med nödvändighet är densamma från vilken dosering och ordinerat läkemedel hämtas.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+
+</xs:schema>

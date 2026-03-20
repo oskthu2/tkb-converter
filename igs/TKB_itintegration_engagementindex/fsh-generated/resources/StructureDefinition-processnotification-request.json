@@ -1,0 +1,226 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "processnotification-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/processnotification-request",
+  "name": "ProcessNotificationRequest",
+  "title": "ProcessNotification — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i tjänstekontraktet ProcessNotification\n(RIV-TA urn:riv:itintegration:engagementindex:ProcessNotification:1).\n\nAnvänds för konsolidering av indexinformation mellan engagemangsindexinstanser.\nInnehållet i begäran ska exakt spegla begäran i ursprunglig Update,\nmed tillägg av owner, creationTime och updateTime (som INTE ingår i Update-begäran\nmen är obligatoriska här).\n\nOBS: Ovanlig dubbel roll — engagemangsindex kan agera BÅDA producent och konsument\nför detta kontrakt. Fr.o.m. version 1.0.9 agerar nationellt EI enbart som producent\n(tar emot notifieringar). Lokala index agerar konsument och skickar till nationellt EI.\n\nRegel pR4: Om notifiering mottas där owner är samma som den egna instansen ska\ningen uppdatering eller notifiering ske (för att undvika rundgång).",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/processnotification-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "processnotification-request",
+        "path": "processnotification-request",
+        "short": "ProcessNotification — Request",
+        "definition": "Logisk modell för requestparametrar i tjänstekontraktet ProcessNotification\n(RIV-TA urn:riv:itintegration:engagementindex:ProcessNotification:1).\n\nAnvänds för konsolidering av indexinformation mellan engagemangsindexinstanser.\nInnehållet i begäran ska exakt spegla begäran i ursprunglig Update,\nmed tillägg av owner, creationTime och updateTime (som INTE ingår i Update-begäran\nmen är obligatoriska här).\n\nOBS: Ovanlig dubbel roll — engagemangsindex kan agera BÅDA producent och konsument\nför detta kontrakt. Fr.o.m. version 1.0.9 agerar nationellt EI enbart som producent\n(tar emot notifieringar). Lokala index agerar konsument och skickar till nationellt EI.\n\nRegel pR4: Om notifiering mottas där owner är samma som den egna instansen ska\ningen uppdatering eller notifiering ske (för att undvika rundgång)."
+      },
+      {
+        "id": "processnotification-request.engagementTransaction",
+        "path": "processnotification-request.engagementTransaction",
+        "short": "Engagemangstransaktion",
+        "definition": "En eller flera engagemangstransaktioner. Varje transaktion avser en indexpost.\nInnehållet ska spegla ursprunglig Update-begäran med tillägg av owner, creationTime\noch updateTime.\nKardinalitet: Obligatorisk, lista (minst en transaktion krävs).",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "processnotification-request.engagementTransaction.deleteFlag",
+        "path": "processnotification-request.engagementTransaction.deleteFlag",
+        "short": "Raderingsflagga",
+        "definition": "Anger om posten ska skapas/uppdateras (false) eller tas bort (true).\nFör poster som ska tas bort sätts deleteFlag = true.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "processnotification-request.engagementTransaction.engagement",
+        "path": "processnotification-request.engagementTransaction.engagement",
+        "short": "Engagemangspost",
+        "definition": "Engagemangspostens datavärden inklusive systemgenererade fält\n(owner, creationTime, updateTime) som skickas vidare från det sändande indexet.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Base"
+          }
+        ]
+      },
+      {
+        "id": "processnotification-request.engagementTransaction.engagement.registeredResidentIdentification",
+        "path": "processnotification-request.engagementTransaction.engagement.registeredResidentIdentification",
+        "short": "Personidentitet",
+        "definition": "Person- eller samordningsnummer (12 tecken) eller nationellt reservnummer (12 tecken).\nFormat: CCYYMMDDNNNN eller [0-9]{8}[0-9A-Zptf]{4}.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processnotification-request.engagementTransaction.engagement.serviceDomain",
+        "path": "processnotification-request.engagementTransaction.engagement.serviceDomain",
+        "short": "Tjänstedomänens namnrymd (URN)",
+        "definition": "Namnrymd för tjänstedomän i URN-format.\nExempel: urn:riv:clinicalprocess:activity:request\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ]
+      },
+      {
+        "id": "processnotification-request.engagementTransaction.engagement.categorization",
+        "path": "processnotification-request.engagementTransaction.engagement.categorization",
+        "short": "Kategorisering",
+        "definition": "Kategorisering enligt den tillämpande tjänstedomänens dokumentation.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processnotification-request.engagementTransaction.engagement.logicalAddress",
+        "path": "processnotification-request.engagementTransaction.engagement.logicalAddress",
+        "short": "Logisk adress",
+        "definition": "Logisk adress för den tjänsteproducent som har information för posten.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processnotification-request.engagementTransaction.engagement.businessObjectInstanceIdentifier",
+        "path": "processnotification-request.engagementTransaction.engagement.businessObjectInstanceIdentifier",
+        "short": "Affärsobjektets instansidentifierare",
+        "definition": "Identifierare för det specifika affärsobjekt som posten avser.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processnotification-request.engagementTransaction.engagement.clinicalProcessInterestId",
+        "path": "processnotification-request.engagementTransaction.engagement.clinicalProcessInterestId",
+        "short": "Kliniskt processintresse-ID",
+        "definition": "Identifierare för kliniskt processintresse.\nOBS: I ProcessNotification Request anges typen som HSA-id i TKB, till skillnad från\nstring i Update Request. Modelleras som Identifier med HSA OID.\nSystem: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "processnotification-request.engagementTransaction.engagement.mostRecentContent",
+        "path": "processnotification-request.engagementTransaction.engagement.mostRecentContent",
+        "short": "Senast relevant innehållstidpunkt",
+        "definition": "Tidpunkt för senast relevant innehåll. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).\nRegler för användning bestäms av den tillämpande tjänstedomänens TKB.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "processnotification-request.engagementTransaction.engagement.sourceSystem",
+        "path": "processnotification-request.engagementTransaction.engagement.sourceSystem",
+        "short": "Källsystem (HSA-id)",
+        "definition": "HSA-id för källsystemet som innehåller den information som EI-posten pekar ut.\nSystem: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "processnotification-request.engagementTransaction.engagement.creationTime",
+        "path": "processnotification-request.engagementTransaction.engagement.creationTime",
+        "short": "Tidpunkt för skapande av indexpost",
+        "definition": "Tidpunkt då indexposten ursprungligen skapades i det sändande indexet.\nFormat: YYYYMMDDhhmmss (svensk tidszon CET/CEST).\nOBS: Detta fält ingår INTE i Update-begäran (sätts av EI), men är obligatoriskt\ni ProcessNotification-begäran och ska vidarebefordras från det sändande indexet.\nProducenten (mottagande index) ska använda värdet från begäran, inte generera ett eget.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "processnotification-request.engagementTransaction.engagement.updateTime",
+        "path": "processnotification-request.engagementTransaction.engagement.updateTime",
+        "short": "Tidpunkt för senaste uppdatering",
+        "definition": "Tidpunkt då indexposten senast uppdaterades i det sändande indexet.\nFormat: YYYYMMDDhhmmss (svensk tidszon CET/CEST).\nOBS: Detta fält ingår INTE i Update-begäran (sätts av EI), men är obligatoriskt\ni ProcessNotification-begäran och ska vidarebefordras från det sändande indexet.\nProducenten (mottagande index) ska använda värdet från begäran, inte generera ett eget.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "processnotification-request.engagementTransaction.engagement.dataController",
+        "path": "processnotification-request.engagementTransaction.engagement.dataController",
+        "short": "Personuppgiftsansvarig organisation",
+        "definition": "Identitet för den personuppgiftsansvariga organisation (PUA) som ansvarar för postens innehåll.\nI första hand organisationsnummer eller HSA-id för PUA.\nOBS: Kan innehålla organisationsnummer, HSA-id eller källsystemsintern identitet —\ningen entydig FHIR Identifier-typ. Modelleras som string; se öppen fråga.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processnotification-request.engagementTransaction.engagement.owner",
+        "path": "processnotification-request.engagementTransaction.engagement.owner",
+        "short": "Ägande index (HSA-id)",
+        "definition": "HSA-id för den organisation vars index tog emot ursprunglig uppdateringsbegäran.\nOBS: Detta fält ingår INTE i Update-begäran (sätts av EI), men är obligatoriskt\ni ProcessNotification-begäran och ska vidarebefordras från det sändande indexet.\nProducenten (mottagande index) ska använda värdet från begäran, inte generera ett eget.\npR4: Om owner är samma som den egna instansen ska ingen uppdatering ske (undvika rundgång).\nSystem: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      }
+    ]
+  }
+}

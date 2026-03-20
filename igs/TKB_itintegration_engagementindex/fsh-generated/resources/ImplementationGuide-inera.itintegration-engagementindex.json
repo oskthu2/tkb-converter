@@ -1,0 +1,162 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "inera.itintegration-engagementindex",
+  "url": "https://fhir.inera.se/ig/itintegration-engagementindex/ImplementationGuide/inera.itintegration-engagementindex",
+  "version": "1.0.9",
+  "name": "itintegrationengagementindex",
+  "title": "itintegration: engagementindex",
+  "status": "draft",
+  "contact": [
+    {
+      "name": "Inera Arkitektur",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.inera.se"
+        }
+      ]
+    }
+  ],
+  "copyright": "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "packageId": "inera.itintegration-engagementindex",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.r4.core",
+      "version": "4.0.1",
+      "uri": "http://fhir.org/packages/hl7.fhir.r4.core/ImplementationGuide/hl7.fhir.r4.core",
+      "id": "hl7_fhir_r4_core"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "StructureDefinition/findcontent"
+        },
+        "name": "FindContent",
+        "description": "Logisk modell för tjänstekontraktet FindContent\n(RIV-TA urn:riv:itintegration:engagementindex:FindContent:1).\nRepresenterar responsens informationsstruktur — en lista av engagemangsposter\nsom svarar mot sökkriterierna i begäran.\nPrimärt använt av aggregerande tjänster i tjänsteplattformen.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/findcontent-request"
+        },
+        "name": "FindContent — Request",
+        "description": "Logisk modell för requestparametrar i tjänstekontraktet FindContent\n(RIV-TA urn:riv:itintegration:engagementindex:FindContent:1).\nAlla angivna attribut används för exakt matchningsfiltrering av sökresultatet.\nÅtkomst till FindContent i nationell EI-instans är begränsad till aggregerande\ntjänster i den nationella aggregeringsplattformen.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/processnotification"
+        },
+        "name": "ProcessNotification",
+        "description": "Logisk modell för tjänstekontraktet ProcessNotification\n(RIV-TA urn:riv:itintegration:engagementindex:ProcessNotification:1).\nRepresenterar responsens informationsstruktur — ett statusbesked\npå att notifieringen mottagits och behandlats.\n\nOBS: ProcessNotification har en ovanlig dubbel roll i arkitekturen:\n- Engagemangsindex agerar PRODUCENT för att TA EMOT notifieringar från andra index.\n- Engagemangsindex agerar KONSUMENT för att SKICKA notifieringar till andra index.\nFr.o.m. version 1.0.9 agerar nationellt engagemangsindex ENBART som producent\n(tar emot notifieringar från lokala index). Nationellt EI skickar inte längre\nProcessNotification till lokala index eller verksamhetssystem.\nUndantag: Formulärtjänsten och Tidbokning/Kallelser har tidsbegränsat undantag.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/processnotification-request"
+        },
+        "name": "ProcessNotification — Request",
+        "description": "Logisk modell för requestparametrar i tjänstekontraktet ProcessNotification\n(RIV-TA urn:riv:itintegration:engagementindex:ProcessNotification:1).\n\nAnvänds för konsolidering av indexinformation mellan engagemangsindexinstanser.\nInnehållet i begäran ska exakt spegla begäran i ursprunglig Update,\nmed tillägg av owner, creationTime och updateTime (som INTE ingår i Update-begäran\nmen är obligatoriska här).\n\nOBS: Ovanlig dubbel roll — engagemangsindex kan agera BÅDA producent och konsument\nför detta kontrakt. Fr.o.m. version 1.0.9 agerar nationellt EI enbart som producent\n(tar emot notifieringar). Lokala index agerar konsument och skickar till nationellt EI.\n\nRegel pR4: Om notifiering mottas där owner är samma som den egna instansen ska\ningen uppdatering eller notifiering ske (för att undvika rundgång).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/update"
+        },
+        "name": "Update",
+        "description": "Logisk modell för tjänstekontraktet Update\n(RIV-TA urn:riv:itintegration:engagementindex:Update:1).\nRepresenterar responsens informationsstruktur — ett statusbesked\nsom anger om uppdateringsoperationen lyckades eller misslyckades.\n\nKontraktet används av källsystem för att skapa, uppdatera och radera\nindexposter i ett engagemangsindex.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/update-request"
+        },
+        "name": "Update — Request",
+        "description": "Logisk modell för requestparametrar i tjänstekontraktet Update\n(RIV-TA urn:riv:itintegration:engagementindex:Update:1).\nKontraktet används av källsystem för att skapa, uppdatera och radera\nindexposter i ett engagemangsindex. Flera engagemangstransaktioner\nkan paketeras i ett och samma anrop (max 1000 poster i nationell instans).\n\nAlla fält i EngagementType-typen ingår i modellen, inklusive fält som\nsätts av engagemangsindex och INTE ska populeras av konsumenten\n(creationTime, updateTime, owner). Se respektive fältbeskrivning.",
+        "exampleBoolean": false
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Hem",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "1-inledning.html",
+          "title": "1 Inledning",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "2-versionsinformation.html",
+          "title": "2 Versionsinformation",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "3-tjanstedomanens-arkitektur.html",
+          "title": "3 Tjänstedomänens arkitektur",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "4-tjanstedomanens-krav-och-regler.html",
+          "title": "4 Tjänstedomänens krav och regler",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "5-tjanstedomanens-meddelandemodeller.html",
+          "title": "5 Tjänstedomänens meddelandemodeller",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "6-gemensamma-informationskomponenter.html",
+          "title": "6 Gemensamma informationskomponenter",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "7-tjanstekontrakt.html",
+          "title": "7 Tjänstekontrakt",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2024+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "draft"
+      },
+      {
+        "code": "show-inherited-invariants",
+        "value": "false"
+      },
+      {
+        "code": "apply-contact",
+        "value": "true"
+      },
+      {
+        "code": "apply-publisher",
+        "value": "true"
+      },
+      {
+        "code": "apply-version",
+        "value": "true"
+      },
+      {
+        "code": "apply-copyright",
+        "value": "true"
+      }
+    ]
+  }
+}

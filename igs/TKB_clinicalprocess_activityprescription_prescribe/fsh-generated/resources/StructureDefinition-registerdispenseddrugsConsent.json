@@ -1,0 +1,104 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "registerdispenseddrugsConsent",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/registerdispenseddrugsConsent",
+  "name": "RegisterDispensedDrugsConsent",
+  "title": "RegisterDispensedDrugsConsent",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet RegisterDispensedDrugsConsent\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:RegisterDispensedDrugsConsent:2).\nRepresenterar responsens informationsstruktur.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/registerdispenseddrugsConsent",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "registerdispenseddrugsConsent",
+        "path": "registerdispenseddrugsConsent",
+        "short": "RegisterDispensedDrugsConsent",
+        "definition": "Logisk modell för tjänstekontraktet RegisterDispensedDrugsConsent\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:RegisterDispensedDrugsConsent:2).\nRepresenterar responsens informationsstruktur."
+      },
+      {
+        "id": "registerdispenseddrugsConsent.result",
+        "path": "registerdispenseddrugsConsent.result",
+        "short": "Resultat av begäran",
+        "definition": "Resultat av begäran",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registerdispenseddrugsConsent.result.resultCode",
+        "path": "registerdispenseddrugsConsent.result.resultCode",
+        "short": "Svarskod",
+        "definition": "Svarskod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "registerdispenseddrugsConsent.result.errorCode",
+        "path": "registerdispenseddrugsConsent.result.errorCode",
+        "short": "Felkod",
+        "definition": "Felkod",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/ValueSet/errorcode-vs"
+        }
+      },
+      {
+        "id": "registerdispenseddrugsConsent.result.logId",
+        "path": "registerdispenseddrugsConsent.result.logId",
+        "short": "UUID för felanmälan",
+        "definition": "UUID för felanmälan",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registerdispenseddrugsConsent.result.message",
+        "path": "registerdispenseddrugsConsent.result.message",
+        "short": "Beskrivande text",
+        "definition": "Beskrivande text",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

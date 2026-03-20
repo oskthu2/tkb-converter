@@ -1,0 +1,182 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "registermedicationprescription",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/registermedicationprescription",
+  "name": "RegisterMedicationPrescription",
+  "title": "RegisterMedicationPrescription",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet RegisterMedicationPrescription\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:RegisterMedicationPrescription:2).\nRepresenterar responsens informationsstruktur.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/registermedicationprescription",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "registermedicationprescription",
+        "path": "registermedicationprescription",
+        "short": "RegisterMedicationPrescription",
+        "definition": "Logisk modell för tjänstekontraktet RegisterMedicationPrescription\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:RegisterMedicationPrescription:2).\nRepresenterar responsens informationsstruktur."
+      },
+      {
+        "id": "registermedicationprescription.medicationListVersion",
+        "path": "registermedicationprescription.medicationListVersion",
+        "short": "Ny version på patientens samlade läkemedelslista efter registrering",
+        "definition": "Ny version på patientens samlade läkemedelslista efter registrering",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription.medicationPrescriptionList",
+        "path": "registermedicationprescription.medicationPrescriptionList",
+        "short": "Ordinationslista",
+        "definition": "Ordinationslista",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription.medicationPrescriptionList.medicationPrescriptionSequence",
+        "path": "registermedicationprescription.medicationPrescriptionList.medicationPrescriptionSequence",
+        "short": "Registrerade behandlingssekvenser",
+        "definition": "Registrerade behandlingssekvenser",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescriptionSequenceId",
+        "path": "registermedicationprescription.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescriptionSequenceId",
+        "short": "Tilldelat unikt id för behandlingssekvensen",
+        "definition": "Tilldelat unikt id för behandlingssekvensen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription",
+        "path": "registermedicationprescription.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription",
+        "short": "Registrerade ordinationer",
+        "definition": "Registrerade ordinationer",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.medicationPrescriptionId",
+        "path": "registermedicationprescription.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.medicationPrescriptionId",
+        "short": "Tilldelat unikt id för ordinationen",
+        "definition": "Tilldelat unikt id för ordinationen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription.result",
+        "path": "registermedicationprescription.result",
+        "short": "Resultat av begäran",
+        "definition": "Resultat av begäran",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription.result.resultCode",
+        "path": "registermedicationprescription.result.resultCode",
+        "short": "Svarskod",
+        "definition": "Svarskod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "registermedicationprescription.result.errorCode",
+        "path": "registermedicationprescription.result.errorCode",
+        "short": "Felkod",
+        "definition": "Felkod",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/ValueSet/errorcode-vs"
+        }
+      },
+      {
+        "id": "registermedicationprescription.result.logId",
+        "path": "registermedicationprescription.result.logId",
+        "short": "UUID för felanmälan",
+        "definition": "UUID för felanmälan",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription.result.message",
+        "path": "registermedicationprescription.result.message",
+        "short": "Beskrivande text",
+        "definition": "Beskrivande text",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

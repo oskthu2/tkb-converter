@@ -1,0 +1,1409 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getlaboratoryorderoutcome",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getlaboratoryorderoutcome",
+  "name": "GetLaboratoryOrderOutcome",
+  "title": "GetLaboratoryOrderOutcome",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetLaboratoryOrderOutcome\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetLaboratoryOrderOutcome:4).\nRepresenterar responsens informationsstruktur — multidisciplinära laboratoriesvar\nför en patient.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getlaboratoryorderoutcome",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getlaboratoryorderoutcome",
+        "path": "getlaboratoryorderoutcome",
+        "short": "GetLaboratoryOrderOutcome",
+        "definition": "Logisk modell för tjänstekontraktet GetLaboratoryOrderOutcome\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetLaboratoryOrderOutcome:4).\nRepresenterar responsens informationsstruktur — multidisciplinära laboratoriesvar\nför en patient."
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome",
+        "short": "Laboratoriesvar (ett per beställning)",
+        "definition": "En labbeställning med tillhörande svar. Kardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header",
+        "short": "Header med åtkomstkontroll och metadata",
+        "definition": "Header med åtkomstkontroll och metadata",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader",
+        "short": "Åtkomstkontrollhuvud (PDL)",
+        "definition": "Åtkomstkontrollhuvud (PDL)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.accountableCareGiver",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.accountableCareGiver",
+        "short": "Ansvarig vårdgivare (HSA-id)",
+        "definition": "HSA-id för den vårdgivare som är ansvarig för posten. Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.accountableCareUnit",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.accountableCareUnit",
+        "short": "Ansvarig vårdenhet (HSA-id)",
+        "definition": "HSA-id för den vårdenhet som är ansvarig för posten. Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.patientId",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.patientId",
+        "short": "Patientens id i svaret",
+        "definition": "Patientens id i svaret",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.originalPatientId",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.originalPatientId",
+        "short": "Ursprungligt patient-id",
+        "definition": "Ursprungligt patient-id",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.careProcessId",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.careProcessId",
+        "short": "Vårdprocessid (UUID)",
+        "definition": "Vårdprocessid (UUID)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.blockComparisonTime",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.blockComparisonTime",
+        "short": "Tidpunkt för spärrkontroll",
+        "definition": "Tidpunkt för spärrkontroll",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.approvedForPatient",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.accessControlHeader.approvedForPatient",
+        "short": "Godkänd för patientvisning",
+        "definition": "Anger om informationsägaren godkänt att patienten kan ta del av informationen.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.sourceSystemId",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.sourceSystemId",
+        "short": "Källsystemets HSA-id",
+        "definition": "Källsystemets HSA-id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.record",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.record",
+        "short": "Poststatus och tidpunkt",
+        "definition": "Poststatus och tidpunkt",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.record.id",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.record.id",
+        "short": "Postens unika id",
+        "definition": "Postens unika id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.record.timestamp",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.record.timestamp",
+        "short": "Tidpunkt för posten",
+        "definition": "Tidpunkt för posten",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author",
+        "short": "Dokumentationsansvarig",
+        "definition": "Dokumentationsansvarig",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.id",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.id",
+        "short": "Författarens HSA-id",
+        "definition": "Författarens HSA-id",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.name",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.name",
+        "short": "Författarens namn",
+        "definition": "Författarens namn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.timestamp",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.timestamp",
+        "short": "Tidpunkt för dokumentation",
+        "definition": "Tidpunkt för dokumentation",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.byRole",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.byRole",
+        "short": "Yrkesroll vid dokumentation",
+        "definition": "Yrkesroll vid dokumentation",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.orgUnit",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.orgUnit",
+        "short": "Organisationsenhet",
+        "definition": "Organisationsenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.orgUnit.id",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.orgUnit.id",
+        "short": "OrgUnit HSA-id",
+        "definition": "OrgUnit HSA-id",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.orgUnit.name",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.author.orgUnit.name",
+        "short": "OrgUnit namn",
+        "definition": "OrgUnit namn",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature",
+        "short": "Signatär",
+        "definition": "Signatär",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature.id",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature.id",
+        "short": "Signatärens HSA-id",
+        "definition": "Signatärens HSA-id",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature.name",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature.name",
+        "short": "Signatärens namn",
+        "definition": "Signatärens namn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature.timestamp",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature.timestamp",
+        "short": "Signeringstidpunkt",
+        "definition": "Signeringstidpunkt",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature.byRole",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.header.signature.byRole",
+        "short": "Yrkesroll vid signering",
+        "definition": "Yrkesroll vid signering",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body",
+        "short": "Beställnings- och svarsinformation",
+        "definition": "Beställnings- och svarsinformation",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.identifier",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.identifier",
+        "short": "Beställningens unika id",
+        "definition": "Beställningens unika id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.laboratoryIdentifier",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.laboratoryIdentifier",
+        "short": "Laboratoriets beställningsnummer",
+        "definition": "Laboratoriets beställningsnummer",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.type",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.type",
+        "short": "Typ av laboratoriebeställning",
+        "definition": "Typ av laboratoriebeställning",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.text",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.text",
+        "short": "Fritext om beställningen",
+        "definition": "Fritext om beställningen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral",
+        "short": "Kopplad remiss",
+        "definition": "Kopplad remiss",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.identifier",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.identifier",
+        "short": "Remissens id",
+        "definition": "Remissens id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.timestamp",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.timestamp",
+        "short": "Remissens tidpunkt",
+        "definition": "Remissens tidpunkt",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.version",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.version",
+        "short": "Remissversion",
+        "definition": "Remissversion",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.question",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.question",
+        "short": "Frågeställning i remissen",
+        "definition": "Frågeställning i remissen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requestedCareService",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requestedCareService",
+        "short": "Begärd vårdtjänst",
+        "definition": "Begärd vårdtjänst",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester",
+        "short": "Remittent",
+        "definition": "Remittent",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.id",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.id",
+        "short": "Remittentens HSA-id",
+        "definition": "Remittentens HSA-id",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.name",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.name",
+        "short": "Remittentens namn",
+        "definition": "Remittentens namn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.byRole",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.byRole",
+        "short": "Remittentens yrkesroll",
+        "definition": "Remittentens yrkesroll",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.orgUnit",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.orgUnit",
+        "short": "Remittentens org-enhet",
+        "definition": "Remittentens org-enhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.orgUnit.id",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.orgUnit.id",
+        "short": "OrgUnit HSA-id",
+        "definition": "OrgUnit HSA-id",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.orgUnit.name",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.requester.orgUnit.name",
+        "short": "OrgUnit namn",
+        "definition": "OrgUnit namn",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.referralInformation",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.referralInformation",
+        "short": "Remissinformation",
+        "definition": "Remissinformation",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.referralInformation.referralComment",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.referralInformation.referralComment",
+        "short": "Remisskommentar",
+        "definition": "Remisskommentar",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.referralInformation.referralMedicalInformation",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.referral.referralInformation.referralMedicalInformation",
+        "short": "Medicinsk remissinformation",
+        "definition": "Medicinsk remissinformation",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses",
+        "short": "Analysgrupp (panel)",
+        "definition": "En grupp av relaterade analyser (t.ex. ett analyspaket). Kardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.name",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.name",
+        "short": "Gruppens namn",
+        "definition": "Gruppens namn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.comment",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.comment",
+        "short": "Kommentar till gruppen",
+        "definition": "Kommentar till gruppen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.code",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.code",
+        "short": "Gruppens kod",
+        "definition": "Gruppens kod",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis",
+        "short": "Enskild analys",
+        "definition": "Enskild analys",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.identifier",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.identifier",
+        "short": "Analysens id",
+        "definition": "Analysens id",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.timestamp",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.timestamp",
+        "short": "Tidpunkt för analysen",
+        "definition": "Tidpunkt för analysen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.code",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.code",
+        "short": "Analysens kod (t.ex. NPU)",
+        "definition": "Analysens kod (t.ex. NPU)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.method",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.method",
+        "short": "Analysmetod",
+        "definition": "Analysmetod",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.status",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.status",
+        "short": "Analysstatus",
+        "definition": "Analysstatus",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.comment",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.comment",
+        "short": "Kommentar till analysen",
+        "definition": "Kommentar till analysen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.accredited",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.accredited",
+        "short": "Ackrediterad analys",
+        "definition": "Ackrediterad analys",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen",
+        "short": "Prov",
+        "definition": "Prov",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.identifier",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.identifier",
+        "short": "Provnummer",
+        "definition": "Provnummer",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.material",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.material",
+        "short": "Provmaterial",
+        "definition": "Provmaterial",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.timestamp",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.timestamp",
+        "short": "Provtagningstidpunkt",
+        "definition": "Provtagningstidpunkt",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.anatomicalLocation",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.anatomicalLocation",
+        "short": "Anatomisk plats",
+        "definition": "Anatomisk plats",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.comment",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.comment",
+        "short": "Kommentar om provet",
+        "definition": "Kommentar om provet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.activity",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.activity",
+        "short": "Provrelaterad aktivitet",
+        "definition": "Provrelaterad aktivitet",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.activity.code",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.activity.code",
+        "short": "Aktivitetskod",
+        "definition": "Aktivitetskod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.activity.time",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.activity.time",
+        "short": "Aktivitetens tidsperiod",
+        "definition": "Aktivitetens tidsperiod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Period"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.activity.method",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.activity.method",
+        "short": "Aktivitetsmetod",
+        "definition": "Aktivitetsmetod",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.container",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.container",
+        "short": "Provbehållare",
+        "definition": "Provbehållare",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.container.identifier",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.container.identifier",
+        "short": "Behållarens id",
+        "definition": "Behållarens id",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.container.type",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.specimen.container.type",
+        "short": "Behållartyp",
+        "definition": "Behållartyp",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.device",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.device",
+        "short": "Mätinstrument",
+        "definition": "Mätinstrument",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.device.identifier",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.device.identifier",
+        "short": "Instrumentets id",
+        "definition": "Instrumentets id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result",
+        "short": "Analysresultat",
+        "definition": "Analysresultat",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.type",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.type",
+        "short": "Resultattyp",
+        "definition": "Resultattyp",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.value",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.value",
+        "short": "Resultatvärde (AnyValueType — se anmärkning)",
+        "definition": "ASSUME-001: AnyValueType kan innehålla PQ, string, boolean eller kodad typ.\nModellerad som string i avvaktan på mappningsverifiering. Se QUESTIONS.md.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.comment",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.comment",
+        "short": "Kommentar till resultatet",
+        "definition": "Kommentar till resultatet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.interpretation",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.interpretation",
+        "short": "Tolkning av resultatet",
+        "definition": "Tolkning av resultatet",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.reference",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.reference",
+        "short": "Referensintervall",
+        "definition": "Referensintervall",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.reference.interval",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.reference.interval",
+        "short": "Referensintervall (PQIntervalType)",
+        "definition": "Referensintervall (PQIntervalType)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.reference.description",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.reference.description",
+        "short": "Beskrivning av referensintervall",
+        "definition": "Beskrivning av referensintervall",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.reference.population",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.reference.population",
+        "short": "Population för referensintervall",
+        "definition": "Population för referensintervall",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.reference.comment",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.reference.comment",
+        "short": "Kommentar till referensintervall",
+        "definition": "Kommentar till referensintervall",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature",
+        "short": "Mottagarsignatur",
+        "definition": "Mottagarsignatur",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.id",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.id",
+        "short": "Signatärens id",
+        "definition": "Signatärens id",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.name",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.name",
+        "short": "Signatärens namn",
+        "definition": "Signatärens namn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.timestamp",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.timestamp",
+        "short": "Signeringstidpunkt",
+        "definition": "Signeringstidpunkt",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.byRole",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.byRole",
+        "short": "Yrkesroll",
+        "definition": "Yrkesroll",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature",
+        "short": "Utförarsignatur",
+        "definition": "Utförarsignatur",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.id",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.id",
+        "short": "Signatärens id",
+        "definition": "Signatärens id",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.name",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.name",
+        "short": "Signatärens namn",
+        "definition": "Signatärens namn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.timestamp",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.timestamp",
+        "short": "Signeringstidpunkt",
+        "definition": "Signeringstidpunkt",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.byRole",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.byRole",
+        "short": "Yrkesroll",
+        "definition": "Yrkesroll",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.related",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.related",
+        "short": "Relaterade analyser",
+        "definition": "Relaterade analyser",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientUnit",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientUnit",
+        "short": "Mottagande enhet",
+        "definition": "Mottagande enhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientUnit.id",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientUnit.id",
+        "short": "Enhetens HSA-id",
+        "definition": "Enhetens HSA-id",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientUnit.name",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientUnit.name",
+        "short": "Enhetens namn",
+        "definition": "Enhetens namn",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientSignature",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientSignature",
+        "short": "Beställarens signatur",
+        "definition": "Beställarens signatur",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientSignature.id",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientSignature.id",
+        "short": "Signatärens id",
+        "definition": "Signatärens id",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientSignature.name",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientSignature.name",
+        "short": "Signatärens namn",
+        "definition": "Signatärens namn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientSignature.timestamp",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientSignature.timestamp",
+        "short": "Signeringstidpunkt",
+        "definition": "Signeringstidpunkt",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientSignature.byRole",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.recipientSignature.byRole",
+        "short": "Yrkesroll",
+        "definition": "Yrkesroll",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.contactInformation",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.contactInformation",
+        "short": "Kontaktinformation",
+        "definition": "Kontaktinformation",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.contactInformation.text",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.contactInformation.text",
+        "short": "Kontaktinformationstext",
+        "definition": "Kontaktinformationstext",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

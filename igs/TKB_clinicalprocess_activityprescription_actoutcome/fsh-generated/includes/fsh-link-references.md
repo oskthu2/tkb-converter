@@ -1,0 +1,13 @@
+[ErrorCodeCS]: CodeSystem-errorcode-cs.html
+[ErrorCodeVS]: ValueSet-errorcode-vs.html
+[GetMedicationHistory]: StructureDefinition-getmedicationhistory.html
+[GetMedicationHistoryRequest]: StructureDefinition-getmedicationhistory-request.html
+[GetVaccinationHistory]: StructureDefinition-getvaccinationhistory.html
+[GetVaccinationHistoryRequest]: StructureDefinition-getvaccinationhistory-request.html
+[NonReplaceableCS]: CodeSystem-nonreplaceable-cs.html
+[PrescriptionStatusCS]: CodeSystem-prescriptionstatus-cs.html
+[PrescriptionStatusVS]: ValueSet-prescriptionstatus-vs.html
+[ResultCodeCS]: CodeSystem-resultcode-cs.html
+[ResultCodeVS]: ValueSet-resultcode-vs.html
+[TypeOfPrescriptionCS]: CodeSystem-typeofprescription-cs.html
+[TypeOfPrescriptionVS]: ValueSet-typeofprescription-vs.html

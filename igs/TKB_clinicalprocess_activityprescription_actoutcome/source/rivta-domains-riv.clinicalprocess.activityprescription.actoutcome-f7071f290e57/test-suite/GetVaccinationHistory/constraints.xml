@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements. See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+to you under the Apache License, Version 2.0 (the
+        "License"); you may not use this file except in compliance
+with the License. You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES or CONDITIONS OF ANY
+KIND, either express or implied. See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<iso:schema
+        xmlns="http://purl.oclc.org/dsdl/schematron"
+        xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+        queryBinding='xslt2'
+        schemaVersion='ISO19757-3'>
+
+	<iso:title>Validation for GetVaccinationHistory</iso:title>
+	<iso:ns prefix='urn' uri='urn:riv:clinicalprocess:activityprescription:actoutcome:GetVaccinationHistoryResponder:2' />
+	<iso:ns prefix='urn1' uri='urn:riv:clinicalprocess:activityprescription:actoutcome:2' />
+	<iso:ns prefix='soapenv' uri='http://schemas.xmlsoap.org/soap/envelope/'/>
+
+	<iso:pattern abstract="true" id="pattern.CvType">
+		<iso:rule context="$path">
+			<iso:assert test="count(urn1:code) + count(urn1:originalText) = 1">
+				In $path, either code or originalText must be given.</iso:assert>
+		</iso:rule>
+		<iso:rule context="$path/urn1:code">
+			<iso:assert test="count(../urn1:codeSystem) + count(../urn1:displayName) = 2">
+				In $path if <iso:name/> is given, codeSystem and displayName must be given.</iso:assert>
+			<iso:assert test="count(../urn1:originalText)= 0">
+				In $path if <iso:name/> is given, originalText must not be given.</iso:assert>
+		</iso:rule>
+		<iso:rule context="$path/urn1:codeSystem">
+			<iso:assert test="count(../urn1:code) + count(../urn1:displayName) = 2">
+				In $path if <iso:name/> is given, code and displayName must be given.</iso:assert>
+			<iso:assert test="count(../urn1:originalText)= 0">
+				In $path if <iso:name/> is given, originalText must not be given.</iso:assert>
+			<iso:assert test="matches(.,'^[0-2](\.([0-9])+)+$')">
+                Element 'codeSystem' must be an OID for the current codeSystem.</iso:assert>
+		</iso:rule>
+		<iso:rule context="$path/urn1:displayName">
+			<iso:assert test="count(../urn1:code) + count(../urn1:codeSystem) = 2">
+				In $path if <iso:name/> is given, code and codeSystem must be given.</iso:assert>
+			<iso:assert test="count(../urn1:originalText)= 0">
+				In $path if <iso:name/> is given, originalText must not be given.</iso:assert>
+		</iso:rule>
+		<iso:rule context="$path/urn1:originalText">
+			<iso:assert test="count(../urn1:code) + count(../urn1:codeSystem) + count(../urn1:displayName) = 0">
+				In $path if <iso:name/> is given, code, codeSystem and displayName must not be given.</iso:assert>
+		</iso:rule>
+	</iso:pattern>
+
+	<!-- Implementing abstract patterns -->
+	<iso:pattern id="Verify healthcareProfessionalRoleCode" is-a="pattern.CvType">
+		<iso:param name="path" value="urn1:healthcareProfessionalRoleCode" />
+	</iso:pattern>
+	<iso:pattern id="Verify riskCategory" is-a="pattern.CvType">
+		<iso:param name="path" value="urn1:riskCategory" />
+	</iso:pattern>
+	<iso:pattern id="Verify patientAdverseEffect in registrationRecord" is-a="pattern.CvType">
+		<iso:param name="path" value="urn1:registrationRecord/urn1:patientAdverseEffect" />
+	</iso:pattern>
+	<iso:pattern id="Verify vaccinationProgramName" is-a="pattern.CvType">
+		<iso:param name="path" value="urn1:vaccinationProgramName" />
+	</iso:pattern>
+	<iso:pattern id="Verify anatomicalSite" is-a="pattern.CvType">
+		<iso:param name="path" value="urn1:anatomicalSite" />
+	</iso:pattern>
+	<iso:pattern id="Verify route" is-a="pattern.CvType">
+		<iso:param name="path" value="urn1:route" />
+	</iso:pattern>
+	<iso:pattern id="Verify patientAdverseEffect in administrationRecord" is-a="pattern.CvType">
+		<iso:param name="path" value="urn1:administrationRecord/urn1:patientAdverseEffect" />
+	</iso:pattern>
+	<!--<iso:pattern id="Verify vaccineType" is-a="pattern.CvType">
+		<iso:param name="path" value="urn1:vaccineType" />-->
+	<iso:pattern id="Verify typeOfVaccine" is-a="pattern.CvType">
+		<iso:param name="path" value="urn1:typeOfVaccine" />
+	</iso:pattern>
+	<iso:pattern id="Verify vaccineName" is-a="pattern.CvType">
+		<iso:param name="path" value="urn1:vaccineName" />
+	</iso:pattern>
+	<iso:pattern id="Verify vaccineTargetDisease" is-a="pattern.CvType">
+		<iso:param name="path" value="urn1:vaccineTargetDisease" />
+	</iso:pattern>
+
+	<!-- Logical rules -->
+	<iso:pattern id="vaccinationMedicalRecordHeader">
+		<iso:rule context="urn1:vaccinationMedicalRecordHeader">
+			<iso:assert test="not(urn1:nullifiedReason) or urn1:nullified/text()='true'">NullifiedReason must only exist when nullified is true.</iso:assert>
+		</iso:rule>
+	</iso:pattern>
+	
+	<!-- Regeln kring dosering finns inte explicet beskriven i TKB:n. Utred hur detta ska hanteras! -->
+	<!-- "X" means that element exists
+	
+		isDoseComplete		doseOrdinalNumber		numberOfPrescribedDoses		TEST
+	1
+	2	X					
+	3						X
+	4												X
+	5	X (true)			X													doseOrdinalNumber = 1
+	6	X (false)			X													
+	7						X						X							doseOrdinalNumber <= numberOfPrescribedDoses
+	8	X (true)									X							
+	9	X (false)									X							numberOfPrescribedDoses > 1
+	10	X (true)			X						X							doseOrdinalNumber = numberOfPrescribedDoses
+	11	X (false)			X						X							numberOfPrescribedDoses > 1 and (doseOrdinalNumber < numberOfPrescribedDoses)
+	
+	-->	
+	<iso:pattern id="administrationRecord">
+		<iso:rule context="urn1:administrationRecord">
+			<iso:assert test="(not(urn1:isDoseComplete) and not(urn1:doseOrdinalNumber) and not(urn1:numberOfPrescribedDoses))
+				or (urn1:isDoseComplete and not(urn1:doseOrdinalNumber) and not(urn1:numberOfPrescribedDoses))
+				or (not(urn1:isDoseComplete) and urn1:doseOrdinalNumber and not(urn1:numberOfPrescribedDoses))
+				or (not(urn1:isDoseComplete) and not(urn1:doseOrdinalNumber) and urn1:numberOfPrescribedDoses)
+				or (urn1:isDoseComplete = 'true' and urn1:doseOrdinalNumber = 1 and not(urn1:numberOfPrescribedDoses))
+				or (urn1:isDoseComplete = 'false' and urn1:doseOrdinalNumber and not(urn1:numberOfPrescribedDoses))
+				or (not(urn1:isDoseComplete) and ((number(urn1:doseOrdinalNumber) &lt; number(urn1:numberOfPrescribedDoses)) or (urn1:doseOrdinalNumber = urn1:numberOfPrescribedDoses)))
+				or (urn1:isDoseComplete = 'true' and not(urn1:doseOrdinalNumber) and urn1:numberOfPrescribedDoses)
+				or (urn1:isDoseComplete = 'false' and not(urn1:doseOrdinalNumber) and number(urn1:numberOfPrescribedDoses) &gt; 1)
+				or (urn1:isDoseComplete = 'true' and (urn1:doseOrdinalNumber = urn1:numberOfPrescribedDoses))
+				or (urn1:isDoseComplete = 'false' and urn1:numberOfPrescribedDoses &gt; 1 and (number(urn1:doseOrdinalNumber) &lt; number(urn1:numberOfPrescribedDoses)))">
+				Element administrationRecord: The values for fields 'isDoseComplete', 'doseOrdinalNumber' and 'numberOfPrescribedDoses' does not correlate.</iso:assert>
+		</iso:rule>
+	</iso:pattern>
+	
+	<iso:pattern id="Verify non-empty elements">
+        <iso:rule context="soapenv:Body/urn:GetVaccinationHistoryResponse//*">
+		    <iso:assert test="normalize-space(.)">Element <iso:name /> is included but empty. All elements included in the response must have valid values.</iso:assert>
+        </iso:rule>
+    </iso:pattern>
+	
+	<iso:pattern id="Verify unique id:s">
+		<iso:rule context="urn:GetVaccinationHistoryResponse">
+			<let name="recordIdPath" value="urn:vaccinationMedicalRecord/urn1:vaccinationMedicalRecordHeader/urn1:documentId"/>
+			<iso:assert test="count($recordIdPath) = count(distinct-values($recordIdPath))">Each record must have a unique documentId.</iso:assert>
+			<let name="vaccinationUniqueReferencePath" value="urn:vaccinationMedicalRecord/urn1:vaccinationMedicalRecordBody/urn1:administrationRecord/urn1:vaccinationUniqueReference/urn1:extension"/>
+			<iso:assert test="count($vaccinationUniqueReferencePath) = count(distinct-values($vaccinationUniqueReferencePath))">Each record must have a unique vaccination reference id.</iso:assert>
+		</iso:rule>
+	</iso:pattern>
+	
+</iso:schema>

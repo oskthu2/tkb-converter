@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements. See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+to you under the Apache License, Version 2.0 (the
+        "License"); you may not use this file except in compliance
+with the License. You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied. See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<iso:schema
+        xmlns="http://purl.oclc.org/dsdl/schematron"
+        xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+        queryBinding='xslt2'
+        schemaVersion='ISO19757-3'>
+
+  <iso:title>Validation for Update</iso:title>
+  <iso:ns prefix='urn' uri='urn:riv:itintegration:registry:1'/>
+  <iso:ns prefix='urn1' uri='urn:riv:itintegration:engagementindex:UpdateResponder:1'/>
+  <iso:ns prefix='urn2' uri='urn:riv:itintegration:engagementindex:1'/>
+
+  <!-- Rules for Request -->
+
+  <iso:pattern id="No forbidden elements">
+    <iso:rule context="urn2:engagement">
+      <iso:assert test="not(exists(urn2:creationTime))">creationTime MUST NOT be given in <iso:name/></iso:assert>
+      <iso:assert test="not(exists(urn2:updateTime))">updateTime MUST NOT be given in <iso:name/></iso:assert>
+      <iso:assert test="not(exists(urn2:owner))">owner MUST NOT be given in <iso:name/></iso:assert>
+    </iso:rule>
+  </iso:pattern>
+
+  <iso:pattern id="No empty elements">
+    <iso:rule context="urn2:engagement/*">
+      <iso:assert test="text() != ''"><iso:name/> should not be empty</iso:assert>
+    </iso:rule>
+  </iso:pattern>
+  
+  <iso:pattern id="No mostRecentContent on delete">
+    <iso:rule context="urn2:engagement/urn2:mostRecentContent">
+      <iso:assert test="not(exists(.)) or (../../urn2:deleteFlag='false')"><iso:name/> MUST NOT be given when deleteFlag=true</iso:assert>
+    </iso:rule>
+  </iso:pattern>
+
+  <iso:pattern id="Max number of records">
+    <iso:rule context="urn1:Update">
+      <iso:assert test="count(urn1:engagementTransaction) &lt;= 1000"><iso:name/> MUST NOT have more than 1000 engagementTransaction elements</iso:assert>
+    </iso:rule>
+  </iso:pattern>
+
+</iso:schema>

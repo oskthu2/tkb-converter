@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements. See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+to you under the Apache License, Version 2.0 (the
+        "License"); you may not use this file except in compliance
+with the License. You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied. See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<?xml-stylesheet type="text/xsl" href="./../TK-doc-sv.xsl"?>
+<testsuite>
+	<id>GetMaternityMedicalHistory 2.0</id>
+	<contractName>GetMaternityMedicalHistory</contractName>
+	<description>Denna testsvit används för att verifiera implementationen av GetMaternityMedicalHistory 2.0 inför integration med nationell tjänsteplattform. </description>
+	<globaldata>
+		<!-- Adress till SIT-Miljön -->
+		<!-- <webServiceUrl>https://test.esb.ntjp.se/vp/clinicalprocess/healthcond/actoutcome/GetMaternityMedicalHistory/3/rivtabp21</webServiceUrl> -->
+		<!-- Adress till QA-Miljön -->
+		<!-- <webServiceUrl>https://qa.esb.ntjp.se/vp/clinicalprocess/healthcond/actoutcome/GetMaternityMedicalHistory/3/rivtabp21</webServiceUrl> -->
+		<webServiceUrl>http://localhost:8080/mockGetMaternityMedicalHistoryResponderBinding</webServiceUrl>
+		<httpHeaderHsaId>112233</httpHeaderHsaId>
+		<logicalAddress>112233</logicalAddress>
+		<patientId>195709263080</patientId>
+		<patientIdType>1.2.752.129.2.1.3.1</patientIdType>
+		<sourceSystemHSAId>12</sourceSystemHSAId>
+		<!-- Loggparametrar-->
+		<logTestData>false</logTestData>
+		<logTestDataPath>C:/temp/SOAP-UI/</logTestDataPath>
+		<logTestDataFilesAllowed>500</logTestDataFilesAllowed>
+	</globaldata>
+	<testcase id="1.1.1 Personnummer">
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="1.1.2 Samordningsnummer">
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<patientId>196812732391</patientId>
+			<patientIdType>1.2.752.129.2.1.3.3</patientIdType>
+		</data>
+	</testcase>
+	<testcase id="1.1.3 Lokalt reservnummer">
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<patientId>19570926308A</patientId>
+			<patientIdType>ABC-123</patientIdType>
+			<!-- <logicalAddress>${sourceSystemHSAId}</logicalAddress> -->
+		</data>
+	</testcase>
+	<section id="1.2 Tidsfiltrering">
+		<description>Följande tester på tidsfiltrering består av flera steg.
+		<ol>
+			<li>Anrop utan filtrering.</li>
+			<li>Sökintervall beräknas (se respektive testfall).</li>
+			<li>Anrop med tidsfiltrering för varje beräknat sökintervall. Resultatet jämförs med förväntat resultat.</li>
+		</ol>
+		För bra testning på dessa punkter är en varierad testdata avseende tidpunkter viktig. 
+		Om möjligt bör poster skapas så att de olika tidsfälten har olika datum.
+        <br/><br/>De testfall tillhörande tidsfiltrering filtrerar på documentTime, authorTime och signatureTime. 
+		<br/><b>documentTime</b> är tidpunkten då documentet skapades. 
+		<br/><b>authorTime</b> är den tidpunkten dokumentet skapades alternativt uppdaterats.
+		<br/><b>signatureTime</b> är tidpunkt för signering.
+		</description>
+	</section>
+	<testcase id="1.2.1 TimePeriod">
+		<description>Tidsfiltrering. Sökning sker på alla datum i det ofiltrerade svaret.
+		</description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="1.2.2 TimePeriod intervall">
+		<description>Tidsfiltrering. Sökning sker på slumpvisa intervall mellan första och sista datum med de tidpunkter som förekommer i det ofiltrerade svaret.
+		</description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+			<numberOfIntervals>30</numberOfIntervals>
+		</data>
+	</testcase>
+	<testcase id="1.2.3 TimePeriod tomt svar">
+		<description>Tidsfiltrering. Sökning sker på datum före alla tidpunkter i det ofiltrerade svaret, så att förväntat svar är tomt (inga informationsposter).
+		</description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="1.2.4 TimePeriod manuell">
+		<description>Tidsfiltrering. Sökintervall sätts manuellt. Detta kan användas för utforskade testning och felsökning. <br/>
+			<b>timePeriodStart</b> är sökintervallets starttidpunkt (format ÅÅÅÅMMDD).<br/>
+			<b>timePeriodEnd</b> är sökintervallets sluttidpunkt (format ÅÅÅÅMMDD).
+		</description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+			<timePeriodStart>20120101</timePeriodStart>
+			<timePeriodEnd>20171231</timePeriodEnd>
+		</data>
+	</testcase>	
+	<testcase id="1.3 CareUnit">
+		<data>	
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+			<careUnitHSAId>566710</careUnitHSAId>
+		</data>
+	</testcase>
+	<testcase id="1.4 SourceSystem">
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="1.5 CareContact">
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+			<careContactId>566710</careContactId>
+		</data>
+	</testcase>
+	<testcase id="1.7 SoapFault">
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="1.8 NonExisting PatientId">
+		<description>Verifierar att tjänsteproducenten returnerar ett tomt resultat istället för Soap Fault, om patienten är okänd i systemet. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="1.9 NonExisting CareContact">
+		<description>Verifierar att tjänsteproducenten returnerar ett tomt resultat istället för Soap Fault, om vårdkontakten är okänd i systemet. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+			<careContactId>1122334455</careContactId>
+		</data>
+	</testcase>
+	<testcase id="2.1 Encoding_HeaderProlog">
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="2.2 Encoding_SpecialCharacters">
+		<description>Verifierar att tjänsteproducenten klarar att kapsla in specialtecken på ett korrekt sätt.<br/>
+			I filen <b>data.xml</b> finns en parameter "testString". Denna innehåller värdet "&lt;![CDATA[åäö&lt;&gt;&gt;&lt;&amp;]]&gt;".<br/>
+			Registrera endast "åäö&lt;&gt;&gt;&lt;&amp;" i källsystemet ("&lt;![CDATA[" och "]]&gt;" krävs för att data.xml inte ska tolka strängen felaktigt.)<br/><br/>
+			Det rekommenderas att testa med specialtecken i olika fält som mappas in i olika element i responsen.<br/>
+			Testa även gärna andra specialtecken än just dessa, speciellt om ni vet om att vissa specialtecken är extra vanliga i er verksamhet.<br/><br/>
+			OBS! Elementet <b>clinicalDocumentNoteText</b> kan leverera <b>DocBook</b>-formatterad text. För tester som rör detta, använd testfall <b>5.14</b>.</description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+			<testString><![CDATA[åäö<>><&]]></testString>
+		</data>
+	</testcase>
+	<testcase id="3.1 VG_VE">
+		<description>Verifierar att alla returnerade poster innehåller elementen <b>healthcareProfessionalCareUnitHSAId</b> och <b>healthcareProfessionalCareGiverHSAId</b>, som krävs för PDL-loggning.</description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="3.2 AuthorTime">
+		<description>Verifierar att en av de returnerade posterna innehåller elementet AuthorTime.</description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="4.1 ApprovedForPatient_true">
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="4.2 ApprovedForPatient_false">
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.1 signed">
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.2 unsigned">
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.4 registrationRecord_indicationPregnancy">
+	<description>Verifierar att tjänsteproducenten kan returnera datum för graviditetsindikation. Element <b> registrationRecord.indicationPregnancy</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.5 registrationRecord_expectedDayOfDeliveryFromLastMenstrualPeriod">
+	<description>Verifierar att tjänsteproducenten kan returnera beräknad förlossning enligt sista menstruation. Element <b>registrationRecord.expectedDayOfDeliveryFromLastMenstrualPeriod</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.6 registrationRecord_expectedDayOfDeliveryFromUltrasoundScan">
+	<description>Verifierar att tjänsteproducenten kan returnera beräknad förlossning enligt ultraljud. Element <b>registrationRecord.expectedDayOfDeliveryFromUltrasoundScan</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.7 registrationRecord_expectedDayOfDeliveryFromEmbryonicTransfer">
+	<description>Verifierar att tjänsteproducenten kan returnera beräknad förlossning enligt embryonik transfer. Element <b>registrationRecord.expectedDayOfDeliveryFromEmbryonicTransfer</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.8 registrationRecord_previousGravidityAndParity_delivery">
+	<description>Verifierar att tjänsteproducenten kan returnera graviditetskod för tidigare graviditeter och förlossningar. Element <b>registrationRecord.previousGravidityAndParity.delivery</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.9 registrationRecord_previousGravidityAndParity_sex">
+	<description>Verifierar att tjänsteproducenten kan returnera kön för tidigare graviditeter och förlossningar. Element <b>registrationRecord.previousGravidityAndParity.sex</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.10 registrationRecord_diseasesThrombosis">
+	<description>Verifierar att tjänsteproducenten kan returnera uppgift om trombos förekommit. Element <b>registrationRecord.diseasesThrombosis</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.11 registrationRecord_diseasesEndocineDiseases">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om endokrina sjukdomar förekommit. Element <b>registrationRecord.diseasesEndocineDiseases</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.12 registrationRecord_diseasesRecurrentUrinaryTractInfections">
+	<description>Verifierar att tjänsteproducenten kan returnera uppgift om upprepade urinvägsinfektioner förekommit. Element <b>registrationRecord.diseasesRecurrentUrinaryTractInfections</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.13 registrationRecord_diseasesDiabetesMellitus">
+	<description>Verifierar att tjänsteproducenten kan returnera uppgift om diabetes mellitus förekommit. Element <b>
+		registrationRecord.diseasesDiabetesMellitus</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.14 registrationRecord_medicationDuringPregnacy_medicament">
+	<description>Verifierar att tjänsteproducenten kan returnera uppgift om preparat i medicinering före inskrivning under graviditet. Element <b>
+	registrationRecord.medicationDuringPregnacy.medicament</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.15 pregnancyCheckupRecord_completeWeeksOfGestation">
+	<description>Verifierar att tjänsteproducenten kan returnera uppgift om fullgångna graviditetsveckor. Element <b>
+	pregnancyCheckupRecord.completeWeeksOfGestation</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.16 pregnancyCheckupRecord_weight">
+	<description>Verifierar att tjänsteproducenten kan returnera uppgift om moderns vikt [massa]. Element <b>pregnancyCheckupRecord.weight</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.17 pregnancyCheckupRecord_symphysisFundalHeight">
+	<description>Verifierar att tjänsteproducenten kan returnera uppgift om symfys-fundus mått [längd]. Element <b>
+	pregnancyCheckupRecord.symphysisFundalHeight</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.18 pregnancyCheckupRecord_haemoglobin">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om Hb (Hemoglobin) [massa / volym]. Element <b>pregnancyCheckupRecord.haemoglobin</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.19 pregnancyCheckupRecord_bloodPressureSystolic">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om systoliskt blodtryck [tryck]. Element <b>pregnancyCheckupRecord.bloodPressureSystolic</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.20 pregnancyCheckupRecord_bloodPressureDiastolic">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om diastoliskt blodtryck [tryck]
+		. Element <b>pregnancyCheckupRecord.bloodPressureDiastolic</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.21 pregnancyCheckupRecord_proteinuria">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om protein i urinet [massa / volym]. Element <b>pregnancyCheckupRecord.proteinuria</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.22 pregnancyCheckupRecord_glycosuria">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om glukos i urinet [antal / volym] . Element <b>pregnancyCheckupRecord.glycosuria</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.23 pregnancyCheckupRecord_fetalPosition_Head">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om fosterläge. Element <b>fetalPosition = "0" (head / huvud)</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.24 pregnancyCheckupRecord_fetalPosition_Breech">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift fosterläge. Element <b>fetalPosition = "1" (breech / säte)</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.25 pregnancyCheckupRecord_fetalPosition_Oblique">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om fosterläge. Element <b>fetalPosition = "2" (oblique / snedläge)</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.26 pregnancyCheckupRecord_fetalPosition_Transverse">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om fosterläge. Element <b>fetalPosition = "3" (transverse / tvärläge)</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.27 pregnancyCheckupRecord_fetalPresentation_Mobile">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om föregående fosterdel. Element <b>fetalPresentation = "0" (mobile / rörligt)</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.28 pregnancyCheckupRecord_fetalPresentation_Movable">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om föregående fosterdel. Element <b>fetalPresentation = "1" (movable / ruckbart)</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.29 pregnancyCheckupRecord_fetalPresentation_Fixed">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om föregående fosterdel. Element <b>fetalPresentation = "2" (fixed / fixerat)</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.30 pregnancyCheckupRecord_fetalHeartRate">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om fosterljud, hjärtslag [frekvens]. Element <b>pregnancyCheckupRecord.fetalHeartRate</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.31 pregnancyCheckupRecord_medicationSinceRegistration_medicament">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om preparat i läkemedel som administrerats sedan registreringen. Element <b>pregnancyCheckupRecord.medicationSinceRegistration.medicament</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.32 postDeliveryRecord_breastfeeding">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om modern ammar. Element <b>postDeliveryRecord.breastfeeding</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.33 postDeliveryRecord_bloodPressureSystolic">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om systoliskt blodtryck. Element <b>postDeliveryRecord.bloodPressureSystolic</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.34 postDeliveryRecord_bloodPressureDiastolic">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om diastoliskt blodtryck. Element <b>postDeliveryRecord.bloodPressureDiastolic</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.35 postDeliveryRecord_haemoglobin">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om haemoglobin, t.ex. g/L [massa / volym]. Element <b>postDeliveryRecord.haemoglobin</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.36 postDeliveryRecord_scarsOK">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om sår/bristningar/klipp utan anmärkning. Element <b>postDeliveryRecord.scarsOK</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.37 postDeliveryRecord_sutureRemoved">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om suturer borttagna. Element <b>postDeliveryRecord.sutureRemoved</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.38 postDeliveryRecord_perineumComfortable">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om bäckenbotten utan anmärkning. Element <b>postDeliveryRecord.perineumComfortable</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.39 postDeliveryRecord_vulvaVaginaPortioOK">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om vulvaVaginaPortio utan anmärkning. Element <b>postDeliveryRecord.vulvaVaginaPortioOK</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.40 postDeliveryRecord_uterusContracted">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om uterus utan anmärkning. Element <b>postDeliveryRecord.uterusContracted</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.41 postDeliveryRecord_uterusNote">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om kommentar till uterus med anmärkning (kan endast anges då uterusContracted=false). Element <b>postDeliveryRecord.uterusNote</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.42 postDeliveryRecord_childPostDeliveryRecord_weight">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om barnets vikt [massa]. Element <b>postDeliveryRecord.childPostDeliveryRecord.weight</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.43 postDeliveryRecord_ordinalNumber_IsOne">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om ordningstal för barnet (med start på 1). Element <b>postDeliveryRecord.ordinalNumber = "1"</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="5.44 postDeliveryRecord_ordinalNumber_IsTwo">
+		<description>Verifierar att tjänsteproducenten kan returnera uppgift om ordningstal för barnet. Element <b>postDeliveryRecord.ordinalNumber = "2"</b>. </description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="6.1 Loadtest">
+		<data>
+			<patientId1>196001209136</patientId1>
+			<patientId2>195709263080</patientId2>
+		</data>
+	</testcase>
+	<testcase id="6.2 Recovery">
+		<data>
+			<patientId1>196001209136</patientId1>
+			<patientId2>195709263080</patientId2>
+		</data>
+	</testcase>
+	<testcase id="7.1 CareUnit_Blacklisted">
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+			<httpHeaderHsaId2>444</httpHeaderHsaId2>
+			<filterString>Bortfiltrerad VC</filterString>
+		</data>
+	</testcase>
+	<testcase id="7.2 Consumer_Blacklisted">
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+			<httpHeaderHsaId2>444</httpHeaderHsaId2>
+		</data>
+	</testcase>
+	<testcase id="7.3 ConsumerIndependent">
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+			<httpHeaderHsaId2>444</httpHeaderHsaId2>
+		</data>
+	</testcase>
+	<section id="8 Testdata">
+		<description>Då heltäckande testdata kan vara svår att framställa finns i denna testsvit stöd för att säkerställa att testdata är tillräckligt varierad. Detta för att kvalitetssäkringen av tjänstekontraktet skall bli så bred som möjligt.
+        </description>
+	</section>
+	<testcase id="8.1 SignatureTimeMissing">
+		<description>Verifierar att det finns testdata som saknar SignatureTime.</description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+	<testcase id="8.2 SignatureTimeExists">
+		<description>Verifierar att det finns testdata som har en angiven SignatureTime.</description>
+		<data>
+			<!-- Avkommentera för att skriva över den globalt definierade parametern -->
+			<!-- <patientId></patientId> -->
+		</data>
+	</testcase>
+</testsuite>

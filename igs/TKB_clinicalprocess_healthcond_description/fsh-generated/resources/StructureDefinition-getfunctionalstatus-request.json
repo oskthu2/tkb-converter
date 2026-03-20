@@ -1,0 +1,96 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getfunctionalstatus-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getfunctionalstatus-request",
+  "name": "GetFunctionalStatusRequest",
+  "title": "GetFunctionalStatus — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i GetFunctionalStatus\n(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetFunctionalStatusResponder:2).\nSöker funktionsstatusbedömningar för en patient med valfri filtrering.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getfunctionalstatus-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getfunctionalstatus-request",
+        "path": "getfunctionalstatus-request",
+        "short": "GetFunctionalStatus — Request",
+        "definition": "Logisk modell för requestparametrar i GetFunctionalStatus\n(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetFunctionalStatusResponder:2).\nSöker funktionsstatusbedömningar för en patient med valfri filtrering."
+      },
+      {
+        "id": "getfunctionalstatus-request.careUnitHSAId",
+        "path": "getfunctionalstatus-request.careUnitHSAId",
+        "short": "Filtrering på vårdenhet",
+        "definition": "Filtrering på vårdenhet (careUnitHSAId).\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getfunctionalstatus-request.patientId",
+        "path": "getfunctionalstatus-request.patientId",
+        "short": "Patientens id",
+        "definition": "Id för patienten. id = personnummer/samordningsnummer. type = OID för identifierartyp.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getfunctionalstatus-request.datePeriod",
+        "path": "getfunctionalstatus-request.datePeriod",
+        "short": "Datumperiod för sökning",
+        "definition": "Begränsar sökningen till det angivna intervallet. start och end på formatet ÅÅÅÅMMDD.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Period"
+          }
+        ]
+      },
+      {
+        "id": "getfunctionalstatus-request.sourceSystemHSAId",
+        "path": "getfunctionalstatus-request.sourceSystemHSAId",
+        "short": "Källsystem HSA-id",
+        "definition": "Begränsar sökning till information om funktionsstatus från ett specifikt källsystem.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getfunctionalstatus-request.careContactId",
+        "path": "getfunctionalstatus-request.careContactId",
+        "short": "Vårdkontakts-id",
+        "definition": "Begränsar sökning till funktionsstatusobjekt kopplade till angiven vårdkontakt.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

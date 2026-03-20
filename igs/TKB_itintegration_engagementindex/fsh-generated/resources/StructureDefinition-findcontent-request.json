@@ -1,0 +1,161 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "findcontent-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/findcontent-request",
+  "name": "FindContentRequest",
+  "title": "FindContent — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i tjänstekontraktet FindContent\n(RIV-TA urn:riv:itintegration:engagementindex:FindContent:1).\nAlla angivna attribut används för exakt matchningsfiltrering av sökresultatet.\nÅtkomst till FindContent i nationell EI-instans är begränsad till aggregerande\ntjänster i den nationella aggregeringsplattformen.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/findcontent-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "findcontent-request",
+        "path": "findcontent-request",
+        "short": "FindContent — Request",
+        "definition": "Logisk modell för requestparametrar i tjänstekontraktet FindContent\n(RIV-TA urn:riv:itintegration:engagementindex:FindContent:1).\nAlla angivna attribut används för exakt matchningsfiltrering av sökresultatet.\nÅtkomst till FindContent i nationell EI-instans är begränsad till aggregerande\ntjänster i den nationella aggregeringsplattformen."
+      },
+      {
+        "id": "findcontent-request.registeredResidentIdentification",
+        "path": "findcontent-request.registeredResidentIdentification",
+        "short": "Personidentitet (sökkriterium)",
+        "definition": "Person- eller samordningsnummer enligt skatteverkets definition (12 tecken),\neller nationellt reservnummer enligt Ineras definition (12 tecken).\nFormat: CCYYMMDDNNNN eller [0-9]{8}[0-9A-Zptf]{4}.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "findcontent-request.serviceDomain",
+        "path": "findcontent-request.serviceDomain",
+        "short": "Tjänstedomänens namnrymd (sökkriterium)",
+        "definition": "Namnrymd för tjänstedomän i URN-format.\nExempel: urn:riv:clinicalprocess:activity:request\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ]
+      },
+      {
+        "id": "findcontent-request.categorization",
+        "path": "findcontent-request.categorization",
+        "short": "Kategorisering (sökkriterium)",
+        "definition": "Kodverk enligt den tillämpande tjänstedomänens dokumentation.\nOm angivet filtreras svaret till poster med exakt matchning på detta attribut.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "findcontent-request.logicalAddress",
+        "path": "findcontent-request.logicalAddress",
+        "short": "Logisk adress (sökkriterium)",
+        "definition": "Filtrerar svaret till poster med angiven logisk adress.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "findcontent-request.businessObjectInstanceIdentifier",
+        "path": "findcontent-request.businessObjectInstanceIdentifier",
+        "short": "Affärsobjektets instansidentifierare (sökkriterium)",
+        "definition": "Filtrerar svaret till poster med angiven affärsobjektidentifierare.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.\nOBS: I domain-metadata angiven som engagementTransaction.engagement.businessObjectInstanceIdentifier.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "findcontent-request.clinicalProcessInterestId",
+        "path": "findcontent-request.clinicalProcessInterestId",
+        "short": "Kliniskt processintresse-ID (sökkriterium)",
+        "definition": "Filtrerar svaret till poster med angivet kliniskt processintresse-ID.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.\nOBS: Möjlig kardinalitetsdiskrepans — i FindContent Request är fältet 0..1,\nmen i den generella informationsmodellen (avsnitt 5) kan det vara 1..1.\nBehöver verifiering mot XSD-schema.\nKardinalitet: Valfri (se öppen fråga om diskrepans).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "findcontent-request.mostRecentContent",
+        "path": "findcontent-request.mostRecentContent",
+        "short": "Senast relevant innehållstidpunkt (sökkriterium)",
+        "definition": "Filtrerar svaret till poster med mostRecentContent >= angivet värde.\nFormat: YYYYMMDDhhmmss (svensk tidszon CET/CEST).\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "findcontent-request.sourceSystem",
+        "path": "findcontent-request.sourceSystem",
+        "short": "Källsystem (sökkriterium)",
+        "definition": "HSA-id för källsystemet. Filtrerar svaret till poster med angivet källsystem.\nSystem: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "findcontent-request.dataController",
+        "path": "findcontent-request.dataController",
+        "short": "Personuppgiftsansvarig organisation (sökkriterium)",
+        "definition": "Identitet för PUA. Filtrerar svaret till poster med angiven dataController.\nOBS: Kan innehålla organisationsnummer, HSA-id eller källsystemsintern identitet.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "findcontent-request.owner",
+        "path": "findcontent-request.owner",
+        "short": "Ägande index (sökkriterium)",
+        "definition": "HSA-id för den organisation vars index tog emot uppdateringsbegäran.\nFiltrerar svaret till poster som registrerats i angivet index.\nSystem: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      }
+    ]
+  }
+}

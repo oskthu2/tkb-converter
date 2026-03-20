@@ -2,6 +2,8 @@
 
 Du är orchestrator för ett agentteam vars uppdrag är att konvertera Ineras tjänstekontrakt (RIV-TA) till FHIR Implementation Guides.
 
+**Ambitionsnivå:** En IG ska vara en **komplett, högkvalitativ representation av hela TKB:n** — inte bara en FHIR-modell av payloaden. Det innebär att all text, alla tabeller och alla illustrationer från källdokumentet ska finnas med i IG:n. En läsare ska kunna ersätta Word-dokumentet med IG:n som källa.
+
 **Viktigt om strukturen:** En TKB (Tjänstekontraktsbeskrivning) beskriver en hel tjänstedomän och kan innehålla flera tjänstekontrakt (t.ex. GetCareDocumentation, GetDiagnosis och GetAlertInformation i samma dokument). En TKB → en FHIR IG. Alla tjänstekontrakt inom domänen samlas i IG:ns sektion 7, med ett underavsnitt per kontrakt (7.1, 7.2, 7.3...). Varje kontrakt får en egen logisk modell i FSH.
 
 Zip-filerna hämtas från Bitbuckets `rivta-domains`-workspace via Bitbucket API — **inte** via rivta.se/tkview som är en JavaScript SPA som inte kan skrapas med HTTP.
@@ -114,9 +116,58 @@ unzip /tmp/{slug}.zip -d igs/TKB_{domain_id}/source/
 
 ---
 
+## Steg 1.5 — Dokumentkonvertering med docx_to_md.py
+
+**Direkt efter Fetcher-agenten, innan Parser-agenten**, kör konverteringsverktyget på TKB-dokumentet. Detta ger IG Builder-agenten rik, komplett markdown att arbeta med direkt — inklusive tabeller och bilder.
+
+```bash
+python3 docx_to_md.py \
+  "igs/TKB_{domain_id}/source/{subfolder}/docs/TKB_{domain_id}.docx" \
+  "igs/TKB_{domain_id}/docx-converted/"
+```
+
+Verktyget producerar:
+```
+igs/TKB_{domain_id}/docx-converted/
+├── full-document.md       ← hela TKB:n som markdown (text + tabeller + bildlänkar)
+├── structure.json         ← rubrikhierarki
+├── images/                ← extraherade bildfiler (PNG, JPEG, SVG)
+│   ├── img_001.png
+│   └── img_002.png
+└── sections/
+    ├── 1-inledning.md
+    ├── 2-versionsinformation.md
+    ├── 3-tjanstedomanens-arkitektur.md
+    ├── 4-tjanstedomanens-krav-och-regler.md
+    ├── 5-tjanstedomanens-meddelandemodeller.md
+    ├── 6-gemensamma-informationskomponenter.md
+    └── 7-tjanstekontrakt.md
+```
+
+**Viktigt:** Om TKB-dokumentet heter något annat än `TKB_{domain_id}.docx`, finn det med:
+```bash
+find "igs/TKB_{domain_id}/source/" -name "TKB_*.docx" | head -1
+```
+
+Felhantering:
+- `python-docx` ej installerat → `pip install python-docx` och försök igen
+- Filen hittas inte → logga BLOCK, gå vidare
+
+---
+
 ## Steg 2 — Parser-agent
 
-En TKB innehåller alltid en fast rubrikstruktur med numrerade avsnitt. Agenten ska extrahera **hela domänstrukturen**, inklusive alla tjänstekontrakt i avsnitt 7.
+En TKB innehåller alltid en fast rubrikstruktur med numrerade avsnitt. Agenten kombinerar **konverterad markdown** (från docx_to_md.py) med direkt dokumentläsning via python-docx för strukturerad metadata.
+
+**Parser-agenten ska:**
+
+1. Läs `igs/TKB_{domain_id}/docx-converted/structure.json` för rubrikhierarkin
+2. Använd sektionsfilerna i `docx-converted/sections/` för textinnehåll (inkl. tabeller och bilder)
+3. Identifiera kontrakt i avsnitt 7 via structure.json (rubrik nivå 2 under "Tjänstekontrakt")
+4. Per kontrakt: extrahera request-fälttabell och response-fälttabell från `sections/7-tjanstekontrakt.md`
+5. Identifiera kontraktsspecifika kodverk (underavsnitt med "Kodsystem" i titeln)
+6. Extrahera alla tvetydigheter som `open_questions_from_parsing`
+7. Om ett avsnitt saknas: notera det men krascha inte
 
 **Förväntat resultat (domain-metadata.json per TKB):**
 ```json
@@ -125,13 +176,14 @@ En TKB innehåller alltid en fast rubrikstruktur med numrerade avsnitt. Agenten 
   "domain_title": "clinicalprocess: healthcond: description",
   "domain_version": "4.0",
   "rivta_namespace_base": "urn:riv:clinicalprocess:healthcond:description",
+  "docx_converted_dir": "igs/TKB_clinicalprocess_healthcond_description/docx-converted/",
   "sections": {
-    "1_inledning": "...",
-    "2_versionsinformation": "...",
-    "3_tjanstedomanens_arkitektur": "...",
-    "4_tjanstedomanens_krav_och_regler": "...",
-    "5_tjanstedomanens_meddelandemodeller": "...",
-    "6_gemensamma_informationskomponenter": "..."
+    "1_inledning": "igs/.../docx-converted/sections/1-inledning.md",
+    "2_versionsinformation": "igs/.../docx-converted/sections/2-versionsinformation.md",
+    "3_tjanstedomanens_arkitektur": "igs/.../docx-converted/sections/3-tjanstedomanens-arkitektur.md",
+    "4_tjanstedomanens_krav_och_regler": "igs/.../docx-converted/sections/4-tjanstedomanens-krav-och-regler.md",
+    "5_tjanstedomanens_meddelandemodeller": "igs/.../docx-converted/sections/5-tjanstedomanens-meddelandemodeller.md",
+    "6_gemensamma_informationskomponenter": "igs/.../docx-converted/sections/6-gemensamma-informationskomponenter.md"
   },
   "contracts": [
     {
@@ -162,26 +214,51 @@ En TKB innehåller alltid en fast rubrikstruktur med numrerade avsnitt. Agenten 
     },
     {
       "section_number": "7.2",
-      "id": "GetDiagnosis",
-      ...
+      "id": "GetDiagnosis"
     }
   ]
 }
 ```
 
-**Parser-agenten ska:**
-- Identifiera alla numrerade avsnitt (1–7) och extrahera deras textinnehåll för direkt återanvändning i IG:ns sidor
-- I avsnitt 7: identifiera varje underavsnitt (7.1, 7.2...) som ett separat tjänstekontrakt
-- Per kontrakt: extrahera request-fälttabell och response-fälttabell separat
-- Identifiera kontraktsspecifika kodverk som definieras i underavsnitt (t.ex. "7.2.6 Kodsystem - DiagnosisType")
-- Extrahera alla tvetydigheter som `open_questions_from_parsing`
-- Om ett avsnitt saknas: notera det men krascha inte
-
 ---
 
 ## Steg 3 — IG Builder-agent
 
-IG:ns sidstruktur följer TKB:ns rubriknumrering exakt — detta är konventionen i era publicerade IGs (se `ineraservices.bitbucket.io/TKB_clinicalprocess_healthcond_description`).
+IG:ns sidstruktur följer TKB:ns rubriknumrering exakt. **Målet är att IG:n ska vara en komplett, högkvalitativ representation av hela TKB:n** — inte bara en sammanfattning. Det innebär att:
+
+- Alla tabeller från TKB:n ska finnas med som Markdown-tabeller
+- Alla illustrationer/diagram ska finnas med som inbäddade bilder (`{% include img.html img="..." %}` eller standard Markdown `![](images/...)`)
+- Rubrikstrukturen ska spegla TKB:ns exakta hierarki
+- Textinnehåll ska återges fullständigt — inget ska utelämnas eller sammanfattas
+
+**Ge agenten:**
+- `domain-metadata.json` (med sökvägar till konverterade sektionsfiler)
+- Sökvägen till `docx-converted/sections/` (klara Markdown-filer per sektion)
+- Sökvägen till `docx-converted/images/` (bildfiler)
+
+**Agentens arbetsordning:**
+1. Skapa katalogstruktur
+2. Kopiera bilder: `cp -r igs/TKB_{domain_id}/docx-converted/images/ igs/TKB_{domain_id}/input/images/`
+3. **Kopiera källfiler (WSDL, XSD, övriga dokument)** från `source/` till `input/files/`:
+   ```bash
+   mkdir -p igs/TKB_{domain_id}/input/files/wsdl
+   mkdir -p igs/TKB_{domain_id}/input/files/schema
+   mkdir -p igs/TKB_{domain_id}/input/files/docs
+   # WSDL-filer
+   find igs/TKB_{domain_id}/source/ -name "*.wsdl" -exec cp {} igs/TKB_{domain_id}/input/files/wsdl/ \;
+   # XSD-filer
+   find igs/TKB_{domain_id}/source/ -name "*.xsd" -exec cp {} igs/TKB_{domain_id}/input/files/schema/ \;
+   # Övriga dokument (PDF, extra docx, etc.) utom TKB-huvuddokumentet
+   find igs/TKB_{domain_id}/source/ -name "*.pdf" -exec cp {} igs/TKB_{domain_id}/input/files/docs/ \;
+   find igs/TKB_{domain_id}/source/ -name "AB_*.docx" -exec cp {} igs/TKB_{domain_id}/input/files/docs/ \;
+   find igs/TKB_{domain_id}/source/ -name "SjD_*.docx" -exec cp {} igs/TKB_{domain_id}/input/files/docs/ \;
+   ```
+   Spara en inventarielista (`wsdl_files`, `xsd_files`, `doc_files`) för varje kontrakt i `domain-metadata.json` — Model Builder behöver dessa för länkarna i sektion 7.
+4. Skriv `sushi-config.yaml` och `ig.ini`
+5. Skriv `input/includes/menu.xml`
+6. Skriv `input/pagecontent/index.md`
+7. **Kopiera och anpassa sektionerna 1–6:** ta innehållet från `docx-converted/sections/{n}-*.md` direkt och lägg det i `input/pagecontent/{n}-*.md`. Lägg till FHIR IG-header om nödvändigt. Justera bildlänkar så att de pekar på `images/` (relativ sökväg i FHIR IG).
+8. Bygg `input/pagecontent/7-tjanstekontrakt.md` — kombinera konverterat innehåll från `docx-converted/sections/7-tjanstekontrakt.md` med FSH-länklista och källfils-index per kontrakt (se instruktion för Model Builder nedan).
 
 **Katalogstruktur per domän:**
 
@@ -189,19 +266,34 @@ IG:ns sidstruktur följer TKB:ns rubriknumrering exakt — detta är konventione
 igs/TKB_{domain_id}/
 ├── sushi-config.yaml
 ├── ig.ini
+├── docx-converted/          ← producerad av docx_to_md.py (steg 1.5)
+│   ├── full-document.md
+│   ├── structure.json
+│   ├── images/
+│   └── sections/
 └── input/
     ├── fsh/
     │   └── (fylls av Model Builder)
     ├── pagecontent/
-    │   ├── index.md                              ← Hem / Översikt
-    │   ├── 1-inledning.md                        ← TKB avsnitt 1
-    │   ├── 2-versionsinformation.md              ← TKB avsnitt 2
-    │   ├── 3-tjanstedomanens-arkitektur.md       ← TKB avsnitt 3
-    │   ├── 4-tjanstedomanens-krav-och-regler.md  ← TKB avsnitt 4
-    │   ├── 5-tjanstedomanens-meddelandemodeller.md ← TKB avsnitt 5
-    │   ├── 6-gemensamma-informationskomponenter.md ← TKB avsnitt 6
-    │   └── 7-tjanstekontrakt.md                  ← Alla kontrakt, 7.1 / 7.2 / 7.3...
-    ├── images/
+    │   ├── index.md                              ← Hem / Översikt (genererad)
+    │   ├── 1-inledning.md                        ← direkt från docx-converted/sections/
+    │   ├── 2-versionsinformation.md              ← direkt från docx-converted/sections/
+    │   ├── 3-tjanstedomanens-arkitektur.md       ← direkt från docx-converted/sections/
+    │   ├── 4-tjanstedomanens-krav-och-regler.md  ← direkt från docx-converted/sections/
+    │   ├── 5-tjanstedomanens-meddelandemodeller.md ← direkt från docx-converted/sections/
+    │   ├── 6-gemensamma-informationskomponenter.md ← direkt från docx-converted/sections/
+    │   └── 7-tjanstekontrakt.md                  ← docx-konverterat + FSH-artefaktlänkar
+    ├── images/                                   ← kopierat från docx-converted/images/
+    ├── files/
+    │   ├── wsdl/                                 ← *.wsdl från source/
+    │   │   ├── GetCareDocumentation_3.0.5.wsdl
+    │   │   └── ...
+    │   ├── schema/                               ← *.xsd från source/
+    │   │   ├── core_components.xsd
+    │   │   ├── GetCareDocumentation.xsd
+    │   │   └── ...
+    │   └── docs/                                 ← PDF, AB_*.docx, SjD_*.docx
+    │       └── ...
     └── includes/
         └── menu.xml
 ```
@@ -271,14 +363,17 @@ copyright: >-
 
 ### Sidmallar
 
-**index.md** — kort översikt med länklista:
+**index.md** — genererad, kort översikt med länklista:
 ```markdown
 # {domain_title}
 
 ## Översikt
 
-Detta är en FHIR Implementation Guide genererad från TKB-dokumentation
-för tjänstedomänen **{domain_title}** version {domain_version}.
+FHIR Implementation Guide för tjänstedomänen **{domain_title}** version {domain_version}.
+Genererad från Ineras Tjänstekontraktsbeskrivning (TKB).
+
+Domänen innehåller följande tjänstekontrakt:
+{lista med kontrakt-ID och version, en rad per kontrakt}
 
 ## Innehåll
 
@@ -289,69 +384,77 @@ för tjänstedomänen **{domain_title}** version {domain_version}.
 * [5 Tjänstedomänens meddelandemodeller](5-tjanstedomanens-meddelandemodeller.html)
 * [6 Gemensamma informationskomponenter](6-gemensamma-informationskomponenter.html)
 * [7 Tjänstekontrakt](7-tjanstekontrakt.html)
+* [Artefakter](artifacts.html)
 ```
 
-**1-inledning.md till 6-gemensamma-informationskomponenter.md** — fyll med extraherad text direkt från TKB-avsnittet. Konvertera tabeller till Markdown-tabeller. Bevara rubrikstruktur.
+**Sidor 1–6** — kopiera **ordagrant** från `docx-converted/sections/{n}-*.md`.
+- Bevara all text, alla tabeller och alla bildlänkar
+- Bildlänkar pekar redan på `images/filename` — kontrollera att sökvägarna stämmer
+- Ändra inte rubriknivåer eller text
 
-**7-tjanstekontrakt.md** — ett underavsnitt per kontrakt, i TKB-ordning:
+**7-tjanstekontrakt.md** — kombinera konverterat innehåll med FHIR-artefaktlänkar:
+
+Bas: kopiera `docx-converted/sections/7-tjanstekontrakt.md` **ordagrant**.
+
+Sedan, för varje kontrakt, lägg till två avsnitt direkt efter kontraktets sista underavsnitt — **i denna ordning**:
+
+**Källfiler** (länkindex till RIV-TA-originalet):
+
 ```markdown
-# 7 Tjänstekontrakt
+### {7.X} Källfiler (RIV-TA)
 
-## 7.1 {ContractId}
+Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
-### 7.1.1 Version
-
-Version: {version}
-
-### 7.1.2 Beskrivning
-
-{description}
-
-### 7.1.3 Gemensamma informationskomponenter
-
-{shared_components_text — eller utelämna avsnittet om det saknas i TKB}
-
-### 7.1.4 Fältregler
-
-**Request — {ContractId}Request**
-
-| Fält | Typ | Kardinalitet | Beskrivning |
-|------|-----|-------------|-------------|
-| patientId | II | 1..1 | ... |
-
-**Response — {ContractId}Response**
-
-| Fält | Typ | Kardinalitet | Beskrivning |
-|------|-----|-------------|-------------|
-| ... | ... | ... | ... |
-
-### 7.1.5 Övriga regler
-
-{other_rules}
-
-### 7.1.6 Logiska fel
-
-{error_codes}
-
-### 7.1.7 Kodsystem — {KodverkNamn}
-
-{kodverk_tabell — inkludera bara om kontraktet definierar egna kodsystem}
-
----
-
-## 7.2 {ContractId2}
-...
+| Fil | Typ |
+|-----|-----|
+| [{ContractId}_{version}.wsdl](files/wsdl/{ContractId}_{version}.wsdl) | WSDL-kontrakt |
+| [core_components.xsd](files/schema/core_components.xsd) | Domänschema (delat) |
+| [{ContractId}.xsd](files/schema/{ContractId}.xsd) | Tjänstespecifikt schema |
+{för varje övrig XSD som hör till kontraktet:}
+| [{filename}.xsd](files/schema/{filename}.xsd) | {beskrivning} |
+{för dokument i files/docs/ som är kontraktsspecifika, t.ex. SjD-filer:}
+| [{filename}](files/docs/{filename}) | Tjänstebeskrivning |
 ```
+
+Regler:
+- Inkludera bara filer som faktiskt finns i `input/files/` (kontrollera innan du skriver tabellen)
+- `core_components.xsd` (eller motsvarande delat domänschema) listas på varje kontrakt eftersom det alltid är en dependency
+- Övriga XSD-filer: inkludera de vars namn innehåller kontraktets namn (t.ex. `GetCareDocumentation`)
+- Övriga docs: inkludera `SjD_TK_{ContractId}_*.docx` och `SjD_TP_{ContractId}_*.docx` om de finns
+
+**FHIR-artefakter** (genererade från FSH):
+
+```markdown
+### {7.X} FHIR-artefakter
+
+Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:
+
+* **Logisk modell (response):** [StructureDefinition/{contractid}](StructureDefinition-{contractid}.html)
+* **Logisk modell (request):** [StructureDefinition/{contractid}-request](StructureDefinition-{contractid}-request.html) _(om request-modell skapats)_
+{för varje kodverk:}
+* **Kodsystem:** [CodeSystem/{kodverk-slug}-cs](CodeSystem-{kodverk-slug}-cs.html)
+* **ValueSet:** [ValueSet/{kodverk-slug}-vs](ValueSet-{kodverk-slug}-vs.html)
+```
+
+**Bildlänkar i FHIR IG context:** FHIR IG-publiceringsramverket stöder standard Markdown-bilder. Bildfilerna ska ligga i `input/images/`. Länkformat: `![Bildtext](images/img_001.png)`.
 
 ---
 
 ## Steg 4 — Model Builder-agent
 
 **Ge agenten:**
-- domain-metadata.json (komplett, inklusive alla kontrakt)
+- domain-metadata.json (komplett, inklusive alla kontrakt och `wsdl_files`/`xsd_files`/`doc_files`-inventarier per kontrakt)
+- Sökväg till `input/files/` (som IG Builder redan har populerat med WSDL, XSD och docs)
 - FSH-konventioner (se nedan)
 
 **Viktigt:** All output är FSH-källkod (`.fsh`-filer). Agenten producerar aldrig JSON direkt. Logiska modeller används **uteslutande** med `Logical:` — aldrig `Profile:` eller `Resource:`.
+
+**Källfils-index i sektion 7:** Model Builder-agenten ansvarar för att ta fram de exakta filnamnen och bygga källfils-tabellen för varje kontrakt (se mall i IG Builder ovan). Agenten ska:
+1. Lista faktiska filer i `input/files/wsdl/`, `input/files/schema/` och `input/files/docs/`
+2. För varje kontrakt: matcha filer på kontraktnamnet (t.ex. `GetCareDocumentation`) och det delade domänschemat
+3. Skriva källfils-tabellen som ett Markdown-fragment (`{ContractId}-source-files.md`) i `input/pagecontent/fragments/` — IG Builder inkluderar dessa i `7-tjanstekontrakt.md`
+
+Alternativt, om IG Builder och Model Builder körs sekventiellt och IG Builder fortfarande är aktiv: Model Builder returnerar källfils-tabellerna som del av sitt resultat, och orchestratorn ber IG Builder lägga in dem.
 
 **En logisk modell per tjänstekontrakt** — namngiven efter interaktionen i lowercase (t.ex. `getcaredocumentation`). Modellen representerar informationsstrukturen i **response**, vilken är den meningsbärande informationsmodellen. Request-parametrar dokumenteras som ett separat enkelt `Logical:` om de är mer komplexa än ett par filterfält — annars räcker dokumentationen i avsnitt 7.
 
@@ -508,7 +611,15 @@ Description: "Tillåtna värden för {fält} enligt {KodverkNamn}."
    ```
    Om kommandot inte hittas: lägg till BLOCK `"SUSHI är inte installerat — kör: npm install -g fsh-sushi"` och avbryt steget.
 
-2. Köra SUSHI i kontraktets katalog:
+2. **Förutsättning för SUSHI-körning:** Verifiera att FHIR-baspaketet finns lokalt i cachen:
+   ```bash
+   ls ~/.fhir/packages/hl7.fhir.r4.core#4.0.1/package/package.json
+   ```
+   Om filen saknas: logga BLOCK `"FHIR-baspaket saknas offline — kör gen_fhir_stubs.py eller kopiera ~/.fhir/packages/hl7.fhir.r4.core#4.0.1/ från en maskin med internetåtkomst"` och hoppa över SUSHI-steget för denna domän. Markera **inte** domänen som `blocked` i övrigt — fortsätt med QA Tracker.
+
+   **Obs:** packages.fhir.org och hl7.org är nätverksblockerade i denna miljö. SUSHI löser dock paketet från lokal cache utan nätverksanrop om katalogen `~/.fhir/packages/hl7.fhir.r4.core#4.0.1/` finns. Paketet kan skapas lokalt med skriptet `gen_fhir_stubs.py` i projektets rotkatalog.
+
+3. Köra SUSHI i kontraktets katalog:
    ```bash
    cd igs/{ContractId}
    sushi .
@@ -561,6 +672,80 @@ Om `passed` är `false`: orchestratorn ska **inte** gå vidare till QA Tracker u
 
 ---
 
+## Steg 4.6 — IG Publisher (körs lokalt av användaren, inte av agenten)
+
+IG Publisher omvandlar SUSHI-genererade FHIR-resurser + pagecontent till en komplett publicerad HTML-IG. **Agenten kör inte detta steg direkt** — det sker lokalt med Docker:
+
+```bash
+# Bygg alla SUSHI-godkända IGs
+make build
+
+# Bygg en specifik domän
+make build-one D=itintegration.engagementindex
+
+# Visa felrapport efteråt
+make qa D=itintegration.engagementindex
+```
+
+Se `docker-compose.yml` och `Makefile` för konfigurationsalternativ (`TX_SERVER`, `DOMAINS`, m.m.).
+
+### Feedbackloop — agenten läser qa-errors.json
+
+När IG Publisher har körts klart skriver build-skriptet:
+
+```
+igs/TKB_{domain_id}/ig-publisher-logs/
+├── build.log        ← rålogg (stdout/stderr från publisher.jar)
+└── qa-errors.json   ← strukturerat JSON med fel/varningar (se nedan)
+```
+
+**qa-errors.json-format:**
+```json
+{
+  "domain_id": "itintegration.engagementindex",
+  "parsed_at": "2026-03-20T10:00:00Z",
+  "passed": false,
+  "summary": { "fatal": 0, "errors": 3, "warnings": 12, "hints": 5 },
+  "top_issues": [
+    "[ERROR] igs/TKB_itintegration_engagementindex/input/pagecontent/7-tjanstekontrakt.md: Unknown reference ...",
+    "[ERROR] StructureDefinition/findcontent: Element 'engagementId' type 'string' does not match ..."
+  ],
+  "issues": { "fatal": [], "errors": [...], "warnings": [...], "hints": [...] }
+}
+```
+
+### Vad agenten gör när den ser qa-errors.json
+
+När användaren ber Claude att agera på IG Publisher-resultaten:
+
+1. **Läs** `igs/TKB_{domain_id}/ig-publisher-logs/qa-errors.json`
+2. **Läs** `igs/TKB_{domain_id}/ig-publisher-logs/build.log` vid behov (för kontext)
+3. För varje fel i `top_issues`:
+   - Identifiera berörd fil (FSH-modell, pagecontent-sida, sushi-config)
+   - Bestäm om felet är en **BLOCK** (kräver beslut), **ASSUME** (antagande gjordes), eller **TODO** (kan fixas autonomt)
+   - Fält/sidor som kan fixas direkt: fixa i FSH-filen eller pagecontent-sidan
+   - Fält/sidor med semantisk tvetydighet: lägg till BLOCK i QUESTIONS.md
+4. **Uppdatera QUESTIONS.md** med nya poster — alltid med relativ sökväg:
+   ```markdown
+   - [ ] **[BLOCK-EI-005]** `igs/TKB_itintegration_engagementindex/input/fsh/logical-models/FindContent.fsh` · fält `engagementId`
+     IG Publisher-fel: "Type mismatch: expected Identifier but got string". Ska fältet vara Identifier istället för string?
+     Källa: ig-publisher-logs/qa-errors.json rad 12
+   ```
+5. **Fixa** syntaktiska/tekniska fel direkt (t.ex. felaktiga FSH-typer, brutna bildlänkar, `url`-fel i CodeSystem)
+6. **Kör `make sushi-one`** lokalt (eller be användaren göra det) för att verifiera att FSH-fixen kompilerar
+7. **Uppdatera registry**: sätt `ig_publisher_result.status` till `"needs-retry"` för domäner med åtgärdade fel
+
+**Prioriteringsordning för fel:**
+| Feltyp | Åtgärd |
+|--------|--------|
+| FATAL | Alltid BLOCK — kräver manuellt beslut |
+| ERROR på FSH-typ/kardinalitet | Försök fixa direkt om semantiken är klar |
+| ERROR på bildlänk / sidreferens | Fixa direkt |
+| ERROR på terminology-binding | BLOCK om kodverk är okänt, fixa om känd URL |
+| WARN på snapshot/differential | TODO — kan ignoreras initialt |
+
+---
+
 ## Steg 5 — QA Tracker-agent
 
 **Ge agenten:**
@@ -571,35 +756,34 @@ Om `passed` är `false`: orchestratorn ska **inte** gå vidare till QA Tracker u
 **Agenten ska uppdatera `QUESTIONS.md` med:**
 
 ```markdown
-## {ContractId} v{version}
+## {ContractId} v{version} — `igs/TKB_{domain_id}/`
 
 **Status:** in-progress | blocked | done
 **Senast uppdaterad:** {timestamp}
 
 ### Blockerare (kräver svar innan IG kan anses komplett)
 
-- [ ] **[BLOCK-001]** Kardinaliteten för fält `careUnitId` är angiven som "villkorlig" 
-  utan att villkoret specificeras. Ska detta modelleras som `0..1` med invariant, 
-  eller är det alltid obligatorisk i praktiken?
+- [ ] **[BLOCK-001]** `igs/TKB_clinicalprocess_healthcond_description/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `GetCareDocumentation` · fält `careUnitId`
+  Kardinaliteten är angiven som "villkorlig" utan att villkoret specificeras. Ska detta modelleras som `0..1` med invariant, eller är det alltid obligatorisk i praktiken?
 
 ### Antaganden gjorda (verifiera med domänexpert)
 
-- [ ] **[ASSUME-001]** `diagnosCode` har mappats till `CodeableConcept` med antagandet 
-  att kodverket är ICD-10-SE. Verifiera att detta stämmer och att canonical URL 
-  `http://hl7.org/fhir/sid/icd-10` är korrekt för svensk kontext.
+- [ ] **[ASSUME-001]** `igs/TKB_clinicalprocess_healthcond_description/input/fsh/logical-models/GetDiagnosis.fsh` · fält `diagnosCode`
+  Mappat till `CodeableConcept` med antagandet att kodverket är ICD-10-SE. Verifiera att detta stämmer och att canonical URL `http://hl7.org/fhir/sid/icd-10` är korrekt för svensk kontext.
 
 ### TODO (kan göras utan input men inte prioriterat)
 
-- [ ] **[TODO-001]** Lägg till FHIR-invarianter för villkorliga fält när blockerare 
-  ovan är lösta.
-- [ ] **[TODO-002]** Komplettera CodeSystem med alla koder från källsystemet — 
-  nuvarande fil är fragment.
+- [ ] **[TODO-001]** `igs/TKB_clinicalprocess_healthcond_description/input/fsh/logical-models/GetCareDocumentation.fsh`
+  Lägg till FHIR-invarianter för villkorliga fält när blockerare ovan är lösta.
+- [ ] **[TODO-002]** `igs/TKB_clinicalprocess_healthcond_description/input/fsh/codesystems/DiagnosisTypeCS.fsh`
+  Komplettera CodeSystem med alla koder från källsystemet — nuvarande fil är fragment.
 ```
 
 Varje fråga ska ha:
 - Unik ID (BLOCK/ASSUME/TODO + sekventiellt nummer per kontrakt)
+- **Relativ sökväg** till berörd fil (FSH-fil, pagecontent-sida eller sushi-config) — format: `igs/TKB_{domain_id}/input/...` — följt av kontraktnamn och fältnamn om tillämpligt. Utan denna information är det omöjligt att veta vilken tjänst i vilken IG/TKB posten rör.
 - Tydlig beskrivning av vad som är oklart
-- Kontext (vilket fält, vilken sektion i Word-dokumentet)
+- Kontext (vilket fält, vilken sektion i TKB-dokumentet, t.ex. "TKB avsnitt 7.2 rad 45")
 - Förslag på lösning om möjligt
 
 ---
@@ -655,6 +839,7 @@ Varje fråga ska ha:
 3. Lägg till saknade domäner som `pending` i registret
 4. Hitta första domän med status `pending` (eller `in-progress` om tidigare avbrutet)
 5. Kör pipeline: Fetcher → Parser → IG Builder → Model Builder → SUSHI Validator → QA Tracker
+   _(IG Publisher körs separat av användaren med `make build` — se Steg 4.6)_
 6. Uppdatera status i registret
 7. Upprepa för nästa domän
 8. När alla domäner är `done` eller `blocked`: skriv en sammanfattning till `MIGRATION_SUMMARY.md`

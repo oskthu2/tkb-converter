@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements. See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+to you under the Apache License, Version 2.0 (the
+        "License"); you may not use this file except in compliance
+with the License. You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied. See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<iso:schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:iso="http://purl.oclc.org/dsdl/schematron" queryBinding='xslt2' schemaVersion='ISO19757-3'>
+	<iso:title>Validation for FindContent</iso:title>
+	<iso:ns prefix='soapenv' uri='http://schemas.xmlsoap.org/soap/envelope/'/>
+	<iso:ns prefix='urn' uri='urn:riv:itintegration:engagementindex:FindContentResponder:1'/>
+	<iso:ns prefix='urn1' uri='urn:riv:itintegration:engagementindex:1'/>
+
+	<!-- Rules for response -->
+	<iso:pattern id="Verify activity:actions">
+		<iso:rule id="Rule001" context="urn:engagement">
+			<iso:assert test="urn1:serviceDomain != 'riv:clinicalprocess:activity:actions' or urn1:categorization = ('caa-ga')">Wrong domain (<value-of select="//urn1:serviceDomain"/>) or categorization (<value-of select="//urn1:categorization"/>)</iso:assert>
+		</iso:rule>
+	</iso:pattern>
+	<iso:pattern id="Verify activityprescription:actoutcome">
+		<iso:rule id="Rule002" context="urn:engagement">
+			<iso:assert test="urn1:serviceDomain != 'riv:clinicalprocess:activityprescription:actoutcome' or urn1:categorization = ('caa-gvh', 'caa-gmh')">Wrong domain (<value-of select="//urn1:serviceDomain"/>) or categorization (<value-of select="//urn1:categorization"/>)</iso:assert>
+		</iso:rule>
+	</iso:pattern>
+	<iso:pattern id="Verify healthcond:actoutcome">
+		<iso:rule id="Rule003" context="urn:engagement">
+			<iso:assert test="urn1:serviceDomain != 'riv:clinicalprocess:healthcond:actoutcome' or urn1:categorization = ('utr-mtr','und-kon-ure','und-kkm-ure','und-bdi-ure')">Wrong domain (<value-of select="//urn1:serviceDomain"/>) or categorization (<value-of select="//urn1:categorization"/>)</iso:assert>
+		</iso:rule>
+	</iso:pattern>
+	<iso:pattern id="Verify healthcond:basic">
+		<iso:rule id="Rule004" context="urn:engagement">
+			<iso:assert test="urn1:serviceDomain != 'riv:clinicalprocess:healthcond:basic' or urn1:categorization = ('chb-o')">Wrong domain (<value-of select="//urn1:serviceDomain"/>) or categorization (<value-of select="//urn1:categorization"/>)</iso:assert>
+		</iso:rule>
+	</iso:pattern>
+	<iso:pattern id="Verify healthcond:description">
+		<iso:rule id="Rule005" context="urn:engagement">
+			<iso:assert test="urn1:serviceDomain != 'riv:clinicalprocess:healthcond:description' or urn1:categorization = ('voo','dia','upp','fun-fun','pad-pad')">Wrong domain (<value-of select="//urn1:serviceDomain"/>) or categorization (<value-of select="//urn1:categorization"/>)</iso:assert>
+		</iso:rule>
+	</iso:pattern>
+	<iso:pattern id="Verify crm:requeststatus">
+		<iso:rule id="Rule006" context="urn:engagement">
+			<iso:assert test="urn1:serviceDomain != 'riv:crm:requeststatus' or urn1:categorization = ('req-act')">Wrong domain (<value-of select="//urn1:serviceDomain"/>) or categorization (<value-of select="//urn1:categorization"/>)</iso:assert>
+		</iso:rule>
+	</iso:pattern>
+	<iso:pattern id="Verify non-empty elements">
+        <iso:rule context="urn:engagement//*">
+		    <iso:assert test="normalize-space(.)">Element <iso:name /> is included but empty. All elements included in the response must have valid values.</iso:assert>
+        </iso:rule>
+    </iso:pattern>
+</iso:schema>

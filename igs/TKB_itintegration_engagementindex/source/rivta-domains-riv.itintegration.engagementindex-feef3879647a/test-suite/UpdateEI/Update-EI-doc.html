@@ -1,0 +1,81 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+					ul {
+						margin-top: 10px;
+						margin-bottom: 10px;
+					}
+					h2, h3 {
+						color: #196619;
+					}
+				</style>
+</head>
+<body>
+<h1>TK-testsvit för Update 1.0</h1>
+<p>Domänversion: 1.0</p>
+<h2>Om testsviten</h2>
+<p>Detta dokument beskriver testsviten för Update 1.0. Testsviten innehåller ett antal testfall som kan användas för att uppdatera Engagemangsindex.<br>
+		Testsviten använder SoapUI för att verifiera implementationen. Dokumentation om SoapUI hittas här: <a target="blank" href="https://www.soapui.org/getting-started/introduction.html">www.soapui.org</a>.<br>
+		Klicka på <a target="blank" href="https://www.soapui.org/downloads/soapui.html">den här länken</a> för att ladda hem en gratisversion av SoapUI. Installera enligt anvisning.</p>
+<h2>Förberedelser</h2>
+<p><ul>
+<li>Gå till mappen <b>test-suite</b> i release-paketet</li>
+<li>Kopiera filen <b>‘soapui-support-N.N.NN.jar’</b> ('N.N.NN' är versionsnummer) till mappen <b>/bin/ext</b> där Soap-UI är installerat (leta efter mappen <b>/Program Files/Smartbear</b> på PC eller <b>/contents/java/app</b> på MAC OS)</li>
+<li>Öppna SoapUI och importera SoapUI-projektet (<b>test-suite/Update/Update-soapui-project.xml</b>) (välj ‘Import Project’ från menyn 'File')</li>
+<li>Om din webservice kräver ett SSL-certifikat, kan detta konfigureras via 'Preferences' (via menyn 'File').  
+		I fönstret för inställningar, gå till fliken 'SSL Settings' och importera ditt certifikat under 'Keystore'</li>
+<li>Uppdatera <i>data.xml</i> så att den matchar den testdata du har i ditt system.</li>
+<li>Du borde nu kunna köra testfallen i SoapUI</li>
+</ul></p>
+<h2>Testdata i <i>data.xml</i>
+</h2>
+<p>
+		Innan man kör testfallen i SoapUI så måste den data som skickas med i anropen anpassas utifrån det system som man vill testa. Detta görs genom att ändra i filen <i>data.xml</i> enligt nedan.<br><br>
+		Filen är i XML-format och i början finns en sektion som heter "globaldata". Här anger man den konfiguration som kommer att användas av alla testfall.<br>
+		Varje element i "globaldata" kan omdefinieras för ett specifikt testfall vid behov.<br>Följande element är globala:
+<ul>
+<li>webServiceUrl</li>
+<li>httpHeaderHsaId</li>
+<li>registeredResidentIdentification</li>
+<li>serviceDomain</li>
+<li>categorization</li>
+<li>logicalAddress</li>
+<li>mostRecentContent</li>
+<li>sourceSystem</li>
+<li>dataController</li>
+
+
+</ul>
+		Globaldata innehåller ett antal konfigurationsparametrar för loggning: <br><b>logTestData:</b> Sätts till true/false beroende på om loggning ska utföras eller ej. <b> Observera att patientdata kan lagras vid påslagen loggning.</b><br><b>logTestDataPath:</b> Sökvägen till den katalog där loggfilerna sparas, måste vara en katalog som användaren har rättighet att skriva i. <br><b>logTestDataFilesAllowed:</b> Max antal filer som sparas. Det blir en fil för varje testfall som körs. När max antal filer har uppnåtts tas de äldsta bort så nya kan sparas.<br></p>
+<h2>Allmänna tips</h2>
+<p><ul>
+<li>Kör ett testfall i taget och verifiera resultatet. Man kan också köra en hel testsvit (t.ex. "1 Basic tests") för att köra igenom alla testfall i just den sviten.<br>
+		Om du gör någon ändring som ska påverka ett specifikt testfall, kan man efter att ha verifierat just det testfallet köra genom hela sviten för att snabbt se att det "hänger ihop".</li>
+<li>Eventuella felmeddelanden skrivs ut dels till fönstret för testfallet och dels i sektionen "assertions" i anrops-fönstret.</li>
+</ul></p>
+<h2>Beskrivning av testfallen</h2>
+<p>De parametrar man anger för ett specifikt testfall kompletterar och/eller omdefinierar de parametrar som anges i "globaldata".<br>
+				Det betyder att både parametrar från "globaldata" och det specifika testfallets sektion i filen används för det aktuella testfallet.<br>
+				OBS! Om en parameter med samma namn definieras både i "globaldata" och specifikt för testfallet, så kommer värdet från testfalls-sektionen att användas.<br>
+				Ett exempel kan vara "registeredResidentIdentification". Denna definieras i "globaldata", eftersom det är troligt att det mesta av testdatan kommer att röra samma person.<br>
+				Men för vissa testfall vill man kunna använda en annan person och för dessa testfall definierar man detta genom att ta bort kommentars-markeringen runt parametern "registeredResidentIdentification" i testfallets sektion.<br>
+				Glöm inte att spara <i>data.xml</i> efter att du har ändrat i den.</p>
+<ul style="list-style-type:none">
+<h3>
+	<li>1.1 Update</li>
+</h3>
+<p>Uppdaterar/skapar post i EI</p>
+<h3><li>1.2 Delete</li></h3>
+<p>Raderar post i EI</p> 
+<h3><li>1.3 Multiple</li></h3>
+<p>Uppdaterar flera poster i EI</p> 
+<h3><li>3.1 Non-Unique</li></h3>
+<p>Anrop som inte har unika poster.</p> 
+<h3><li>3.2 Schema Error</li></h3>
+<p>Anrop med xml som inte matchar schemat.</p> 
+<h3><li>3.3 Schematron Error</li></h3>
+<p>Anrop med innehåll som bryter mot schematronreglerna.</p> 
+</ul>
+</body>
+</html>

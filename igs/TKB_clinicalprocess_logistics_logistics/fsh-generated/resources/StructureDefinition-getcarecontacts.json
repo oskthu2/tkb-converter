@@ -1,0 +1,564 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getcarecontacts",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/getcarecontacts",
+  "name": "GetCareContacts",
+  "title": "GetCareContacts",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetCareContacts\n(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCareContacts:3).\nRepresenterar responsens informationsstruktur (GetCareContactsResponseType).\nEn lista med CareContactType returneras, var och en med ett header och ett body.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/getcarecontacts",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getcarecontacts",
+        "path": "getcarecontacts",
+        "short": "GetCareContacts",
+        "definition": "Logisk modell för tjänstekontraktet GetCareContacts\n(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCareContacts:3).\nRepresenterar responsens informationsstruktur (GetCareContactsResponseType).\nEn lista med CareContactType returneras, var och en med ett header och ett body."
+      },
+      {
+        "id": "getcarecontacts.careContact",
+        "path": "getcarecontacts.careContact",
+        "short": "Vårdkontakter som matchar begäran",
+        "definition": "Lista med vårdkontakter för patienten. Varje post innehåller header (basinformation)\noch body (kontaktspecifik information).\nKardinalitet: Valfri lista (0..*).",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.documentId",
+        "path": "getcarecontacts.careContact.documentId",
+        "short": "Vårdkontaktens identitet, unik inom källsystemet",
+        "definition": "Identifieraren ska vara konsistent och beständig mellan olika majorversioner av ett kontrakt\noch mellan olika kontrakt som refererar samma post.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.sourceSystemHSAId",
+        "path": "getcarecontacts.careContact.sourceSystemHSAId",
+        "short": "HSA-id för källsystemet",
+        "definition": "HSA-id för det system som dokumentet är skapat i. Typ HSAIdType (string).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.patientId",
+        "path": "getcarecontacts.careContact.patientId",
+        "short": "Patientens identifierare",
+        "definition": "Personnummer eller samordningsnummer (12 tecken utan avskiljare).\nsystem = OID för typ: personnummer (1.2.752.129.2.1.3.1),\nsamordningsnummer (1.2.752.129.2.1.3.3), reservnummer (lokalt definierade OID).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.accountableHealthcareProfessional",
+        "path": "getcarecontacts.careContact.accountableHealthcareProfessional",
+        "short": "Ansvarig hälso- och sjukvårdspersonal",
+        "definition": "Hälso- och sjukvårdspersonalen som ansvarar för vårdkontakten.\nTyp HealthcareProfessionalType.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.accountableHealthcareProfessional.authorTime",
+        "path": "getcarecontacts.careContact.accountableHealthcareProfessional.authorTime",
+        "short": "Tidpunkt då informationen registrerades",
+        "definition": "Format YYYYMMDDhhmmss. Tidpunkt i lokal svensk tid (CET/CEST).\nRegel 2: Används för kontroll av tidsbegränsade spärrar i sammanhållen journalföring.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+        "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+        "short": "HSA-id för ansvarig personal",
+        "definition": "HSA-id för hälso- och sjukvårdspersonal som ansvarar för vårdkontakten. Typ HSAIdType.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalName",
+        "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalName",
+        "short": "Namn på ansvarig personal",
+        "definition": "Namn på hälso- och sjukvårdspersonal.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+        "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+        "short": "Befattning",
+        "definition": "Information om hälso- och sjukvårdspersonalens befattning. Om möjligt ska\nKV Befattning (OID 1.2.752.129.2.2.1.4) användas. Typ CVType.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+        "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+        "short": "Organisationsenhet för ansvarig personal",
+        "definition": "Den organisation som hälso- och sjukvårdspersonen är uppdragstagare på.\nRegel 4: orgUnitHSAId och orgUnitName ska anges för kompatibilitet med NPÖ.\nTyp OrgUnitType. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+        "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+        "short": "HSA-id för org.enhet",
+        "definition": "HSA-id för organisationsenhet. Regel 4.\nKardinalitet: Valfri (se Regel 4 — ska anges vid NPÖ-kompatibilitet).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+        "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+        "short": "Namn på org.enhet",
+        "definition": "Namn på den organisation som den ansvariga personalen är uppdragstagare på. Regel 4.\nKardinalitet: Valfri (se Regel 4).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+        "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+        "short": "Telefon till org.enhet",
+        "definition": "Telefon till organisationsenheten.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+        "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+        "short": "E-post till org.enhet",
+        "definition": "Epost till enhet.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+        "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+        "short": "Postadress för org.enhet",
+        "definition": "Postadress för organisationsenheten.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+        "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+        "short": "Plats för org.enhet",
+        "definition": "Namn på plats eller ort för organisationens fysiska placering.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+        "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+        "short": "HSA-id för vårdenhet",
+        "definition": "HSA-id för vårdenhet. Typ HSAIdType.\nRegel 1: Krävs för spärrhantering, åtkomstkontroll och loggning enligt PDL.\nKardinalitet: Valfri (se Regel 1).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+        "path": "getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+        "short": "HSA-id för vårdgivare",
+        "definition": "HSA-id för vårdgivaren. Typ HSAIdType.\nRegel 1: Krävs för spärrhantering, åtkomstkontroll och loggning enligt PDL.\nKardinalitet: Valfri (se Regel 1).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.approvedForPatient",
+        "path": "getcarecontacts.careContact.approvedForPatient",
+        "short": "Informationen godkänd för patient",
+        "definition": "Anger om information får delas till patient (true = godkänd, false = ej godkänd).\nRegel 3: Konsumenter ska filtrera på denna flagga vid enskilds direktåtkomst.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactCode",
+        "path": "getcarecontacts.careContact.careContactCode",
+        "short": "Typ av vårdkontakt",
+        "definition": "Kod som anger på vilket sätt vårdkontakten är planerad att ske, alternativt skedde.\nKV Vårdkontakttyp (OID 1.2.752.129.2.2.2.x). Typ CVType.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactReason",
+        "path": "getcarecontacts.careContact.careContactReason",
+        "short": "Orsak till vårdkontakt",
+        "definition": "Text som beskriver orsaken till vårdkontakt som patienten själv eller dess företrädare anger.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactOrgUnit",
+        "path": "getcarecontacts.careContact.careContactOrgUnit",
+        "short": "Enhet för vårdkontakten",
+        "definition": "Den enhet som vårdkontakten utfördes vid eller planeras utföras vid.\nRegel 5: orgUnitHSAId och orgUnitName ska anges för kompatibilitet med NPÖ.\nTyp OrgUnitType. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactOrgUnit.orgUnitHSAId",
+        "path": "getcarecontacts.careContact.careContactOrgUnit.orgUnitHSAId",
+        "short": "HSA-id för kontaktenhet",
+        "definition": "HSA-id för organisationsenheten för kontakten. Regel 5.\nKardinalitet: Valfri (se Regel 5).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactOrgUnit.orgUnitName",
+        "path": "getcarecontacts.careContact.careContactOrgUnit.orgUnitName",
+        "short": "Namn på kontaktenhet",
+        "definition": "Namn på organisationsenheten. Regel 5.\nKardinalitet: Valfri (se Regel 5).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactOrgUnit.orgUnitTelecom",
+        "path": "getcarecontacts.careContact.careContactOrgUnit.orgUnitTelecom",
+        "short": "Telefon till kontaktenhet",
+        "definition": "Telefon till organisationsenheten.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactOrgUnit.orgUnitEmail",
+        "path": "getcarecontacts.careContact.careContactOrgUnit.orgUnitEmail",
+        "short": "E-post till kontaktenhet",
+        "definition": "Epost till organisationsenheten.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactOrgUnit.orgUnitAddress",
+        "path": "getcarecontacts.careContact.careContactOrgUnit.orgUnitAddress",
+        "short": "Adress till kontaktenhet",
+        "definition": "Postadress till organisationsenheten.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactOrgUnit.orgUnitLocation",
+        "path": "getcarecontacts.careContact.careContactOrgUnit.orgUnitLocation",
+        "short": "Plats för kontaktenhet",
+        "definition": "Plats/ort för organisationsenheten.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactTimePeriod",
+        "path": "getcarecontacts.careContact.careContactTimePeriod",
+        "short": "Tidsintervall för vårdkontakten",
+        "definition": "Tidsintervall för vårdkontakt. Minst ett av fälten start och end måste anges.\nVid besök i öppenvård sätts start och end till tidpunkt för besöket.\nTyp TimePeriodType. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactTimePeriod.start",
+        "path": "getcarecontacts.careContact.careContactTimePeriod.start",
+        "short": "Starttidpunkt för vårdkontakten",
+        "definition": "Vårdkontaktens starttidpunkt. Format YYYYMMDDhhmmss.\nMinst ett av fälten start och end måste anges.\nKardinalitet: Valfri (minst ett av start/end obligatoriskt).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactTimePeriod.end",
+        "path": "getcarecontacts.careContact.careContactTimePeriod.end",
+        "short": "Sluttidpunkt för vårdkontakten",
+        "definition": "Vårdkontaktens sluttidpunkt. Format YYYYMMDDhhmmss.\nMinst ett av fälten start och end måste anges.\nKardinalitet: Valfri (minst ett av start/end obligatoriskt).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactStatus",
+        "path": "getcarecontacts.careContact.careContactStatus",
+        "short": "Status för vårdkontakten",
+        "definition": "Kod som anger aktuell status för vårdkontakten.\nKodverket är definierat i SNOMED CT-SE, SCTID: 53761000052103.\nOID för SNOMED CT SE: 1.2.752.116.2.1.1.\nTyp CVType. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.additionalPatientInformation",
+        "path": "getcarecontacts.careContact.additionalPatientInformation",
+        "short": "Ytterligare patientinformation",
+        "definition": "Ytterligare information om patienten som inte går att få tag på via en gemensam PU-slagning.\nTyp AdditionalPatientInformationType. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.additionalPatientInformation.dateOfBirth",
+        "path": "getcarecontacts.careContact.additionalPatientInformation.dateOfBirth",
+        "short": "Patientens födelsedatum",
+        "definition": "Patientens födelsedatum. Partiellt datum (år, år+månad, eller fullständigt).\nFormat: YYYY, YYYYMM eller YYYYMMDD.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.additionalPatientInformation.gender",
+        "path": "getcarecontacts.careContact.additionalPatientInformation.gender",
+        "short": "Patientens kön",
+        "definition": "Patientens kön. KV Kön (OID 1.2.752.129.2.2.1.1) bör användas. Typ CVType.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.result",
+        "path": "getcarecontacts.result",
+        "short": "Resultatkod för anropet",
+        "definition": "Innehåller information om begäran gick bra eller ej. Typ ResultType.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.result.resultCode",
+        "path": "getcarecontacts.result.resultCode",
+        "short": "Resultatkod: OK, INFO eller ERROR",
+        "definition": "Kan endast vara OK, INFO eller ERROR. Typ ResultCodeEnum.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.result.errorCode",
+        "path": "getcarecontacts.result.errorCode",
+        "short": "Felkod vid ERROR",
+        "definition": "Sätts endast om resultCode är ERROR. Möjliga värden: INVALID_REQUEST.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.result.logId",
+        "path": "getcarecontacts.result.logId",
+        "short": "UUID för felsökning",
+        "definition": "En UUID som kan användas vid felanmälan för felsökning av producent.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.result.subCode",
+        "path": "getcarecontacts.result.subCode",
+        "short": "Subkod",
+        "definition": "Inga subkoder är specificerade i denna version.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.result.message",
+        "path": "getcarecontacts.result.message",
+        "short": "Beskrivande meddelande",
+        "definition": "En beskrivande text som kan visas för användaren. På svenska.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

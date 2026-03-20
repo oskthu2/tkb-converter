@@ -1,0 +1,96 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getvaccinationhistory-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/StructureDefinition/getvaccinationhistory-request",
+  "name": "GetVaccinationHistoryRequest",
+  "title": "GetVaccinationHistory — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i GetVaccinationHistory.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/StructureDefinition/getvaccinationhistory-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getvaccinationhistory-request",
+        "path": "getvaccinationhistory-request",
+        "short": "GetVaccinationHistory — Request",
+        "definition": "Logisk modell för requestparametrar i GetVaccinationHistory."
+      },
+      {
+        "id": "getvaccinationhistory-request.careUnitHSAid",
+        "path": "getvaccinationhistory-request.careUnitHSAid",
+        "short": "Begränsar sökningen till angivna informationsägande vårdenheter",
+        "definition": "Anges med HSA-id. Motsvarar careUnitHSAId i svarsfältet.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory-request.patientId",
+        "path": "getvaccinationhistory-request.patientId",
+        "short": "Begränsar sökningen till angiven personidentifierare för patient",
+        "definition": "Tjänsteproducenten ska i svaret enbart returnera information relaterad till angiven patient.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory-request.timePeriod",
+        "path": "getvaccinationhistory-request.timePeriod",
+        "short": "Begränsar sökningen till det angivna intervallet",
+        "definition": "Begränsningen innebär att endast poster returneras med en relevant tidpunkt inom perioden.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Period"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory-request.sourceSystemHSAid",
+        "path": "getvaccinationhistory-request.sourceSystemHSAid",
+        "short": "Begränsar sökningen till angivet källsystem",
+        "definition": "Begränsar sökningen till angivet källsystem",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory-request.careContactId",
+        "path": "getvaccinationhistory-request.careContactId",
+        "short": "Begränsar sökningen till angiven vård- och omsorgskontakt",
+        "definition": "Begränsar sökningen till angiven vård- och omsorgskontakt",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

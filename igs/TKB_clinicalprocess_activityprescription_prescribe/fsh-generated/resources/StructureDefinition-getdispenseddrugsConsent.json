@@ -1,0 +1,134 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getdispenseddrugsConsent",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/getdispenseddrugsConsent",
+  "name": "GetDispensedDrugsConsent",
+  "title": "GetDispensedDrugsConsent",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetDispensedDrugsConsent\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:GetDispensedDrugsConsent:2).\nRepresenterar responsens informationsstruktur — hämtar samtycke för åtkomst till uthämtade läkemedel.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/getdispenseddrugsConsent",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getdispenseddrugsConsent",
+        "path": "getdispenseddrugsConsent",
+        "short": "GetDispensedDrugsConsent",
+        "definition": "Logisk modell för tjänstekontraktet GetDispensedDrugsConsent\n(RIV-TA urn:riv:clinicalprocess:activityprescription:prescribe:GetDispensedDrugsConsent:2).\nRepresenterar responsens informationsstruktur — hämtar samtycke för åtkomst till uthämtade läkemedel."
+      },
+      {
+        "id": "getdispenseddrugsConsent.hasConsent",
+        "path": "getdispenseddrugsConsent.hasConsent",
+        "short": "Sant om patienten har aktivt samtycke",
+        "definition": "Sant om patienten har aktivt samtycke",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getdispenseddrugsConsent.consentType",
+        "path": "getdispenseddrugsConsent.consentType",
+        "short": "Typ av samtycke (om hasConsent=true)",
+        "definition": "Typ av samtycke (om hasConsent=true)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/ValueSet/lfconsent-vs"
+        }
+      },
+      {
+        "id": "getdispenseddrugsConsent.result",
+        "path": "getdispenseddrugsConsent.result",
+        "short": "Resultat av begäran",
+        "definition": "Resultat av begäran",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getdispenseddrugsConsent.result.resultCode",
+        "path": "getdispenseddrugsConsent.result.resultCode",
+        "short": "Svarskod",
+        "definition": "Svarskod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "getdispenseddrugsConsent.result.errorCode",
+        "path": "getdispenseddrugsConsent.result.errorCode",
+        "short": "Felkod",
+        "definition": "Felkod",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/ValueSet/errorcode-vs"
+        }
+      },
+      {
+        "id": "getdispenseddrugsConsent.result.logId",
+        "path": "getdispenseddrugsConsent.result.logId",
+        "short": "UUID för felanmälan",
+        "definition": "UUID för felanmälan",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getdispenseddrugsConsent.result.message",
+        "path": "getdispenseddrugsConsent.result.message",
+        "short": "Beskrivande text",
+        "definition": "Beskrivande text",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

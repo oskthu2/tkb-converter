@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements. See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+to you under the Apache License, Version 2.0 (the
+        "License"); you may not use this file except in compliance
+with the License. You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied. See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<iso:schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:iso="http://purl.oclc.org/dsdl/schematron" queryBinding='xslt2' schemaVersion='ISO19757-3'>
+	<iso:title>Validation for GetLaboratoryOrderOutcome</iso:title>
+	<iso:ns prefix='urn1' uri='urn:riv:clinicalprocess:healthcond:actoutcome:4'/>
+	<iso:ns prefix='urn2' uri='urn:riv:clinicalprocess:healthcond:actoutcome:4.1'/>
+	<iso:ns prefix='urn' uri='urn:riv:clinicalprocess:healthcond:actoutcome:GetLaboratoryOrderOutcomeResponder:4'/>
+	<iso:ns prefix='soapenv' uri='http://schemas.xmlsoap.org/soap/envelope/'/>
+	<iso:pattern abstract="true" id="pattern.NPU">
+		<iso:rule context="$path"></iso:rule>
+	</iso:pattern>
+	
+	<!-- Regel 4.1-->
+	<iso:pattern abstract="true" id="pattern.CVType">
+		<iso:rule context="$path">
+			<iso:assert test="count(urn1:code) + count(urn1:originalText) = 1">
+				In $path, either code or originalText must be given.</iso:assert>
+		</iso:rule>
+		<iso:rule context="$path/urn1:code">
+			<iso:assert test="count(../urn1:codeSystem) + count(../urn1:displayName) = 2">
+				In $path if <iso:name/> is given, codeSystem and displayName must be given.</iso:assert>
+			<iso:assert test="count(../urn1:originalText)= 0">
+				In $path if <iso:name/> is given, originalText must not be given.</iso:assert>
+		</iso:rule>
+		<iso:rule context="$path/urn1:codeSystem">
+			<iso:assert test="count(../urn1:code) + count(../urn1:displayName) = 2">
+				In $path if <iso:name/> is given, code and displayName must be given.</iso:assert>
+			<iso:assert test="count(../urn1:originalText)= 0">
+				In $path if <iso:name/> is given, originalText must not be given.</iso:assert>
+			<iso:assert test="matches(.,'^[0-2](\.([0-9])+)+$')">
+				Element 'codeSystem' must be an OID for the current codeSystem.</iso:assert>
+		</iso:rule>
+		<iso:rule context="$path/urn1:displayName">
+			<iso:assert test="count(../urn1:code) + count(../urn1:codeSystem) = 2">
+				In $path if <iso:name/> is given, code and codeSystem must be given.</iso:assert>
+			<iso:assert test="count(../urn1:originalText)= 0">
+				In $path if <iso:name/> is given, originalText must not be given.</iso:assert>
+		</iso:rule>
+		<iso:rule context="$path/urn1:originalText">
+			<iso:assert test="count(../urn1:code) + count(../urn1:codeSystem) + count(../urn1:displayName) = 0">
+				In $path if <iso:name/> is given, code, codeSystem and displayName must not be given.</iso:assert>
+		</iso:rule>
+	</iso:pattern>
+
+	<!-- Concrete rules implementing abstract patterns -->
+
+	<!-- CV types -->
+	<iso:pattern id="Verify_author.byRole.CVType" is-a="pattern.CVType">
+		<iso:param name="path" value="urn1:author/urn1:byRole" />
+	</iso:pattern>
+	<iso:pattern id="Verify_signature.byRole.CVType" is-a="pattern.CVType">
+		<iso:param name="path" value="urn1:signature/urn1:byRole" />
+	</iso:pattern>
+	<iso:pattern id="Verify_body.type.CVType" is-a="pattern.CVType">
+		<iso:param name="path" value="urn1:body/urn1:type" />
+	</iso:pattern>
+	<iso:pattern id="Verify_groupOfAnalyses.code.CVType" is-a="pattern.CVType">
+		<iso:param name="path" value="urn1:groupOfAnalyses/urn1:code" />
+	</iso:pattern>
+	<iso:pattern id="Verify_analysis.method.CVType" is-a="pattern.CVType">
+		<iso:param name="path" value="urn1:analysis/urn1:method" />
+	</iso:pattern>
+	<iso:pattern id="Verify_analysis.status.CVType" is-a="pattern.CVType">
+		<iso:param name="path" value="urn1:analysis/urn1:status" />
+	</iso:pattern>
+	<iso:pattern id="Verify_specimen.material.CVType" is-a="pattern.CVType">
+		<iso:param name="path" value="urn1:specimen/urn1:material" />
+	</iso:pattern>
+	<iso:pattern id="Verify_specimen.anatomicalLocation.CVType" is-a="pattern.CVType">
+		<iso:param name="path" value="urn1:specimen/urn1:anatomicalLocation" />
+	</iso:pattern>
+	<iso:pattern id="Verify_specimen.activity.code.CVType" is-a="pattern.CVType">
+		<iso:param name="path" value="urn1:specimen/urn1:activity/urn1:code" />
+	</iso:pattern>
+	<iso:pattern id="Verify_specimen.activity.method.CVType" is-a="pattern.CVType">
+		<iso:param name="path" value="urn1:specimen/urn1:activity/urn1:method" />
+	</iso:pattern>
+	<iso:pattern id="Verify_specimen.container.type.CVType" is-a="pattern.CVType">
+		<iso:param name="path" value="urn1:specimen/urn1:container/urn1:type" />
+	</iso:pattern>
+	<iso:pattern id="Verify_analysis.result.type.CVType" is-a="pattern.CVType">
+		<iso:param name="path" value="urn1:analysis/urn1:result/urn1:type" />
+	</iso:pattern>
+	<iso:pattern id="Verify_analysis.result.interpretation.CVType" is-a="pattern.CVType">
+		<iso:param name="path" value="urn1:analysis/urn1:result/urn1:interpretation" />
+	</iso:pattern>
+	<iso:pattern id="Verify_recipientSignature.byRole.CVType" is-a="pattern.CVType">
+		<iso:param name="path" value="urn1:recipientSignature/urn1:byRole" />
+	</iso:pattern>
+	<iso:pattern id="Verify_performerSignature.byRole.CVType" is-a="pattern.CVType">
+		<iso:param name="path" value="urn1:performerSignature/urn1:byRole" />
+	</iso:pattern>
+
+	<!-- Rules for response -->
+	<!-- Regel 3.1 -->
+	<iso:pattern id="NameMustExistIfMultipleAnalysis">
+		<iso:rule id="rule003" context="urn1:groupOfAnalyses">
+			<iso:assert test="not(count(urn1:analysis) > 1) or exists(urn1:name) or exists(urn1:code)">Element <iso:name/> must include name or code if there are multiple analysis in the group</iso:assert>
+		</iso:rule>
+	</iso:pattern>
+
+	<!-- Regel 3.2 -->
+	<iso:pattern id="SpecimenMustExist">
+		<iso:rule id="rule009" context="urn1:groupOfAnalyses/urn1:analysis">
+			<iso:assert test="count(urn1:specimen) != 0">Element <iso:name/> must include element specimen in main analysis</iso:assert>
+		</iso:rule>
+	</iso:pattern>
+
+	<!-- Other rules -->
+	<iso:pattern id="requester_orgunit">
+		<iso:rule id="BothIdAndName" context="urn1:requester/urn1:orgUnit">
+			<iso:assert test="count(urn1:id) + count(urn1:name) = 2">
+				In $path, Both Id and Name must be given</iso:assert>
+		</iso:rule>
+	</iso:pattern>
+	<iso:pattern id="one_of_reference">
+		<iso:rule id="OnlyOneOfIntervalAndDescription" context="urn1:reference">
+			<iso:assert test="count(urn1:interval) + count(urn1:description) = 1">
+				In $path, ONE of interval or description must be given, and only one</iso:assert>
+		</iso:rule>
+	</iso:pattern>
+	<iso:pattern id="one_of_result_value">
+		<iso:rule id="OnlyOneType" context="urn1:result/urn1:value">
+			<iso:assert test="count(urn1:cv) + count(urn1:pq) + count(urn1:intervalPQ) + count(urn1:st) = 1">
+				In $path, ONE of CV, PQ, intervalPQ or ST must be given, and only one</iso:assert>
+		</iso:rule>
+	</iso:pattern>
+	<iso:pattern id="SignatureOrgUnitMustNotExist">
+		<iso:rule id="OrgUnitNotAllowed" context="urn1:signature">
+			<iso:assert test="count(urn2:orgUnit) = 0">Element orgUnit must not be included in signature</iso:assert>
+		</iso:rule>
+	</iso:pattern>
+	<iso:pattern id="NPU">
+		<iso:rule id="NPU_GroupOfAnalyzes" context="urn1:groupOfAnalyzes/urn1:code/urn1:codeSystem">
+			<iso:assert test=". eq '1.2.752.108.1'">
+				Element <iso:name/> must be NPU OID: '1.2.752.108.1'</iso:assert>
+		</iso:rule>
+		<iso:rule id="NPU_analysis" context="urn1:analysis/urn1:code/urn1:codeSystem">
+			<iso:assert test=". eq '1.2.752.108.1'">
+				Element <iso:name/> must be NPU OID: '1.2.752.108.1'</iso:assert>
+		</iso:rule>
+	</iso:pattern>
+	<iso:pattern id="SNOMED">
+		<iso:rule id="SNOMED_AnalysisMethod" context="urn1:analysis/urn1:method/urn1:codeSystem">
+			<iso:assert test=". eq '1.2.752.116.2.1.1'">
+				Element <iso:name/> must be SNOMED OID: '1.2.752.116.2.1.1'</iso:assert>
+		</iso:rule>
+		<iso:rule id="SNOMED_AnalysisStatus" context="urn1:analysis/urn1:status/urn1:codeSystem">
+			<iso:assert test=". eq '1.2.752.116.2.1.1'">
+				Element <iso:name/> must be SNOMED OID: '1.2.752.116.2.1.1'</iso:assert>
+		</iso:rule>
+		<iso:rule id="SNOMED_SpecimenMaterial" context="urn1:analysis/urn1:specimen/urn1:material/urn1:codeSystem">
+			<iso:assert test=". eq '1.2.752.116.2.1.1'">
+				Element <iso:name/> must be SNOMED OID: '1.2.752.116.2.1.1'</iso:assert>
+		</iso:rule>
+		<iso:rule id="SNOMED_SpecimenAnatomicalLocation" context="urn1:analysis/urn1:specimen/urn1:anatomicalLocation/urn1:codeSystem">
+			<iso:assert test=". eq '1.2.752.116.2.1.1'">
+				Element <iso:name/> must be SNOMED OID: '1.2.752.116.2.1.1'</iso:assert>
+		</iso:rule>
+		<iso:rule id="SNOMED_SpecimenActivity" context="urn1:analysis/urn1:specimen/urn1:activity/urn1:code/urn1:codeSystem">
+			<iso:assert test=". eq '1.2.752.116.2.1.1'">
+				Element <iso:name/> must be SNOMED OID: '1.2.752.116.2.1.1'</iso:assert>
+		</iso:rule>
+		<iso:rule id="SNOMED_SpecimenActivityMethod" context="urn1:analysis/urn1:specimen/urn1:activity/urn1:method/urn1:codeSystem">
+			<iso:assert test=". eq '1.2.752.116.2.1.1'">
+				Element <iso:name/> must be SNOMED OID: '1.2.752.116.2.1.1'</iso:assert>
+		</iso:rule>
+		<iso:rule id="SNOMED_SpecimenContainerType" context="urn1:analysis/urn1:specimen/urn1:container/urn1:type/urn1:codeSystem">
+			<iso:assert test=". eq '1.2.752.116.2.1.1'">
+				Element <iso:name/> must be SNOMED OID: '1.2.752.116.2.1.1'</iso:assert>
+		</iso:rule>
+		<iso:rule id="SNOMED_AnalysisResultInterpretation" context="urn1:analysis/urn1:result/urn1:interpretation/urn1:codeSystem">
+			<iso:assert test=". eq '1.2.752.116.2.1.1'">
+				Element <iso:name/> must be SNOMED OID: '1.2.752.116.2.1.1'</iso:assert>
+		</iso:rule>
+	</iso:pattern>
+	<iso:pattern id="SNOMEDorNPU">
+		<iso:rule id="AnalysisResultType" context="urn1:analysis/urn1:result/urn1:type/urn1:codeSystem">
+			<iso:assert test=". eq '1.2.752.116.2.1.1' or . eq '1.2.752.108.1'">
+				Element <iso:name/> must be SNOMED or NPU</iso:assert>
+		</iso:rule>
+	</iso:pattern>
+
+	<!-- No empty elements allowed except for pq.unit, pqInterval.unit and reference.interval.unit -->
+	<iso:pattern id="Verify non-empty elements">
+		<iso:rule context="urn:GetLaboratoryOrderOutcomeResponse//*[not(local-name()='unit' and (local-name(..)='pq' or local-name(..)='intervalPQ' or (local-name(../..)='reference' and local-name(..)='interval')))]">
+			<iso:assert test="normalize-space(.)">Element <iso:name/> is included but empty. All elements included in the response must have valid values.</iso:assert>
+		</iso:rule>
+	</iso:pattern>
+</iso:schema>

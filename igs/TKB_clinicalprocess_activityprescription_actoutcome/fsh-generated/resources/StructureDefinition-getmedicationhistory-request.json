@@ -1,0 +1,139 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getmedicationhistory-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/StructureDefinition/getmedicationhistory-request",
+  "name": "GetMedicationHistoryRequest",
+  "title": "GetMedicationHistory — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i GetMedicationHistory.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/StructureDefinition/getmedicationhistory-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getmedicationhistory-request",
+        "path": "getmedicationhistory-request",
+        "short": "GetMedicationHistory — Request",
+        "definition": "Logisk modell för requestparametrar i GetMedicationHistory."
+      },
+      {
+        "id": "getmedicationhistory-request.careUnitHSAId",
+        "path": "getmedicationhistory-request.careUnitHSAId",
+        "short": "Begränsar sökningen till angivna informationsägande vårdenheter",
+        "definition": "Begränsar sökningen till angivna informationsägande vårdenheter",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getmedicationhistory-request.careGiverHSAId",
+        "path": "getmedicationhistory-request.careGiverHSAId",
+        "short": "Begränsar sökningen till angivna informationsägande vårdgivare",
+        "definition": "Anges i första hand med HSA-id, i andra hand med organisationsnummer.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getmedicationhistory-request.patientId",
+        "path": "getmedicationhistory-request.patientId",
+        "short": "Begränsar sökningen till angiven personidentifierare",
+        "definition": "Begränsar sökningen till angiven personidentifierare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getmedicationhistory-request.datePeriod",
+        "path": "getmedicationhistory-request.datePeriod",
+        "short": "Begränsar sökningen till det angivna datumintervallet",
+        "definition": "Begränsar sökningen till det angivna datumintervallet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Period"
+          }
+        ]
+      },
+      {
+        "id": "getmedicationhistory-request.sourceSystemHSAId",
+        "path": "getmedicationhistory-request.sourceSystemHSAId",
+        "short": "Begränsar sökningen till angivet källsystem",
+        "definition": "Begränsar sökningen till angivet källsystem",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getmedicationhistory-request.careContactId",
+        "path": "getmedicationhistory-request.careContactId",
+        "short": "Begränsar sökningen till angiven vård- och omsorgskontakt",
+        "definition": "Begränsar sökningen till angiven vård- och omsorgskontakt",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getmedicationhistory-request.prescriptionChainId",
+        "path": "getmedicationhistory-request.prescriptionChainId",
+        "short": "Ordinationskedje-id: begränsar till en viss ordinationskedja",
+        "definition": "Om producenten inte hittar angiven ordinationskedja ska ett tomt svar returneras.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getmedicationhistory-request.prescriptionStatus",
+        "path": "getmedicationhistory-request.prescriptionStatus",
+        "short": "Begränsar sökningen till aktiva eller inaktiva ordinationer",
+        "definition": "Om inget anges ska alla ordinationer (Active och Inactive) returneras.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/ValueSet/prescriptionstatus-vs"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,443 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+					ul {
+						margin-top: 10px;
+						margin-bottom: 10px;
+					}
+					h2, h3 {
+						color: #196619;
+					}
+				</style>
+</head>
+<body>
+<h1>TK-testsvit för GetLaboratoryOrderOutcome 4.1</h1>
+<p>Domänversion: 4.1</p>
+<h2>Om testsviten</h2>
+<p>Detta dokument beskriver testsviten för GetLaboratoryOrderOutcome 4.1. Testsviten innehåller ett antal testfall som kan användas för att verifiera implementationen innan integrationen med den nationella tjänsteplattformen.<br>
+				Testsviten innehåller ett antal testfall som kan användas för att samla in information om anslutande system. Denna information kan sedan ligga till grund för ett underlag för godkännande.<br>
+				Ett testfall med ej förväntat utfall ska med andra ord ses som en informationskälla för den avvikelse som ska rapporteras i självdeklarationen.
+				I dessa fall rekommenderas mer omfattande tester och en utförlig dokumentation av vad man observerat, för att informationen redan i första granskningsrundan skall vara tillräcklig för beslut.<br>
+
+				Detta underlag för godkännande kommer att granskas av Inera Test och Utveckling som rapporterar eventuella avvikelser. Avvikelserna granskas därefter av Ineras avvikelsegrupp. Avvikelsegruppen kan besluta om tre olika utfall:
+				<ul>
+<li>Avvikelsen är stoppande för produktion och kräver åtgärd.</li>
+<li>Avvikelsen är ej stoppande för produktion men kräver åtgärd.</li>
+<li>godkänd avvikelse.</li>
+</ul><br>
+				I samtliga fall så ansvarar avvikelsegruppen för att informera leveransansvarig samt aktuell förvaltningsgrupp.<br>
+				Patientsäkerhet, interoperabilitet samt följsamhet mot tekniska regelverk är några av de kriterier som väger tungt och avgör hur avvikelsen klassas.<br>
+				Historiskt godkända avvikelser finns för jämförelse på <a target="blank" href="https://www.inera.se">www.inera.se</a>. Att motsvarande avvikelse finns på denna lista ska endast ses som en vägledning då varje fall bedöms enskilt. <br>
+				
+				Testsviten använder SoapUI för att verifiera implementationen. Dokumentation om SoapUI hittas här: <a target="blank" href="https://www.soapui.org/getting-started/introduction.html">www.soapui.org</a>.<br>
+				Klicka på <a target="blank" href="https://www.soapui.org/downloads/soapui.html">den här länken</a> för att ladda hem en gratisversion av SoapUI. Installera enligt anvisning.</p>
+<h2>Förberedelser</h2>
+<p><ul>
+<li>Gå till mappen <b>test-suite</b> i release-paketet</li>
+<li>Kopiera filen <b>‘soapui-support-N.N.NN.jar’</b> ('N.N.NN' är versionsnummer) till mappen <b>/bin/ext</b> där Soap-UI är installerat (leta efter mappen <b>/Program Files/Smartbear</b> på PC eller <b>/contents/java/app</b> på MAC OS)</li>
+<li>Öppna SoapUI och importera SoapUI-projektet (<b>test-suite/GetLaboratoryOrderOutcome/GetLaboratoryOrderOutcome-soapui-project.xml</b>) (välj ‘Import Project’ från menyn 'File')</li>
+<li>Om din webservice kräver ett SSL-certifikat, kan detta konfigureras via 'Preferences' (via menyn 'File').  
+						I fönstret för inställningar, gå till fliken 'SSL Settings' och importera ditt certifikat under 'Keystore'</li>
+<li>Uppdatera <i>data.xml</i> så att den matchar den testdata du har i ditt system. Om du inte har testdata som passar så behöver detta läggas in i källsystemet (se nedan för instruktioner)</li>
+<li>Du borde nu kunna köra testfallen i SoapUI</li>
+</ul></p>
+<h2>Testdata i <i>data.xml</i>
+</h2>
+<p>
+					Innan man kör testfallen i SoapUI så måste den data som skickas med i anropen anpassas utifrån det system som man vill testa. Detta görs genom att ändra i filen <i>data.xml</i> enligt nedan.<br><br>
+					Filen är i XML-format och i början finns en sektion som heter "globaldata". Här anger man den konfiguration som kommer att användas av alla testfall.<br>
+					Varje element i "globaldata" kan omdefinieras för ett specifikt testfall vid behov. Följande element är globala:
+					<ul>
+<li>webServiceUrl</li>
+<li>httpHeaderHsaId</li>
+<li>logicalAddress</li>
+<li>patientId</li>
+<li>patientIdType</li>
+<li>sourceSystemHSAId</li>
+<li>logTestData</li>
+<li>logTestDataPath</li>
+<li>logTestDataFilesAllowed</li>
+</ul>
+					Globaldata innehåller ett antal konfigurationsparametrar för loggning: <br><b>logTestData:</b> Sätts till true/false beroende på om loggning ska utföras eller ej. <b> Observera att patientdata kan lagras vid påslagen loggning.</b><br><b>logTestDataPath:</b> Sökvägen till den katalog där loggfilerna sparas, måste vara en katalog som användaren har rättighet att skriva i. <br><b>logTestDataFilesAllowed:</b> Max antal filer som sparas. Det blir en fil för varje testfall som körs. När max antal filer har uppnåtts tas de äldsta bort så nya kan sparas.<br></p>
+<h2>Allmänna tips</h2>
+<p><ul>
+<li>Kör ett testfall i taget och verifiera resultatet. Man kan också köra en hel testsvit (t.ex. "1 Basic tests") för att köra igenom alla testfall i just den sviten.<br>
+						Om du gör någon ändring som ska påverka ett specifikt testfall, kan man efter att ha verifierat just det testfallet köra genom hela sviten för att snabbt se att det "hänger ihop".</li>
+<li>Eventuella felmeddelanden skrivs ut dels till fönstret för testfallet och dels i sektionen "assertions" i anrops-fönstret.</li>
+</ul></p>
+<h2>Beskrivning av testfallen</h2>
+<p>De parametrar man anger för ett specifikt testfall kompletterar och/eller omdefinierar de parametrar som anges i "globaldata".<br>
+				Det betyder att både parametrar från "globaldata" och det specifika testfallets sektion i filen används för det aktuella testfallet.<br>
+				OBS! Om en parameter med samma namn definieras både i "globaldata" och specifikt för testfallet, så kommer värdet från testfalls-sektionen att användas.<br>
+				Ett exempel kan vara "patientId". Denna definieras i "globaldata", eftersom det är troligt att det mesta av testdatan kommer att röra samma patient.<br>
+				Men för vissa testfall vill man kunna använda en annan patient och för dessa testfall definierar man detta genom att ta bort kommentars-markeringen runt parametern "patientId" i testfallets sektion.<br>
+				Glöm inte att spara <i>data.xml</i> efter att du har ändrat i den.</p>
+<ul style="list-style-type:none">
+<h3><li>1.1.1 Personnummer</li></h3>
+<p>Filtrering. Verifierar att resultatet endast innehåller poster för given patient.</p>
+<ul></ul>
+<h3><li>1.1.2 Samordningsnummer</li></h3>
+<p>Filtrering. Testfall för filtrering på samordningsnummer. Ersätt patientId med det samordningsnummer som du vill filtrera på.</p>
+<b>Testfalls-specifika parametrar</b><ul>
+<li>patientId</li>
+<li>patientIdType</li>
+</ul>
+<h3><li>1.1.3 Reservnummer</li></h3>
+<p>Filtrering. Testfall för filtrering på reservnummer. Ersätt patientId med det reservnummer som du vill filtrera på och ersätt patientIdType med lokalt definierat OID för reservnummer.</p>
+<b>Testfalls-specifika parametrar</b><ul>
+<li>patientId</li>
+<li>patientIdType</li>
+</ul>
+<h3><li>1.2 Tidsfiltrering</li></h3>
+<p><description>Följande tester på tidsfiltrering består av flera steg.
+			<ol>
+				<li>Anrop utan filtrering.</li>
+				<li>Sökintervall beräknas (se respektive testfall).</li>
+				<li>Anrop med tidsfiltrering för varje beräknat sökintervall. Resultatet jämförs med förväntat resultat.</li>
+			</ol>
+			För bra testning på dessa punkter är en varierad testdata avseende tidpunkter viktig. Om möjligt bör poster skapas så att de olika tidsfälten har olika datum.
+        </description></p>
+<ul></ul>
+<h3><li>1.2.1 TimePeriod</li></h3>
+<p><description>Tidsfiltrering. Sökning sker på elementen <b>timePeriodStart</b> och <b>timePeriodEnd</b> i det ofiltrerade svaret. Provtagningstidpunkt (blockComparisionTime)är inom tidsperioden i anropet.
+		    <ul>
+				<li>
+<b>timePeriodStart</b> är sökintervallets starttidpunkt (format ÅÅÅÅMMDD)</li>
+				<li>
+<b>timePeriodEnd</b> är sökintervallets slutttidpunkt (format ÅÅÅÅMMDD)</li>
+			</ul>
+        </description></p>
+<ul></ul>
+<h3><li>1.2.3 TimePeriod tomt svar</li></h3>
+<p><description>Tidsfiltrering. Sökning sker på datum före alla tidpunkter i det ofiltrerade svaret, så att förväntat svar är tomt (inga informationsposter).
+		    <ul>
+				<li>
+<b>timePeriodStart</b> är sökintervallets starttidpunkt (format ÅÅÅÅMMDD)</li>
+				<li>
+<b>timePeriodEnd</b> är sökintervallets slutttidpunkt (format ÅÅÅÅMMDD)</li>
+			</ul>		
+		</description></p>
+<ul></ul>
+<h3><li>1.2.4 TimePeriod manuell</li></h3>
+<p><description>Tidsfiltrering. Sökintervall sätts manuellt. Detta kan användas för utforskande testning och felsökning.
+		<ul>
+			<li>
+<b>timePeriodStart</b> är sökintervallets starttidpunkt (format ÅÅÅÅMMDD)</li>
+			<li>
+<b>timePeriodEnd</b> är sökintervallets sluttidpunkt (format ÅÅÅÅMMDD)</li>
+		</ul>
+		</description></p>
+<b>Testfalls-specifika parametrar</b><ul>
+<li>timePeriodStart</li>
+<li>timePeriodEnd</li>
+</ul>
+<h3><li>1.3 CareUnit</li></h3>
+<p>Filtrering. Verifierar att resultatet endast innehåller poster för given vårdenhet.</p>
+<b>Testfalls-specifika parametrar</b><ul><li>careUnitHSAId</li></ul>
+<h3><li>1.4 SourceSystem</li></h3>
+<p>Filtrering. Verifierar att resultatet endast innehåller poster för givet källsystem.</p>
+<b>Testfalls-specifika parametrar</b><ul><li>sourceSystemHSAId</li></ul>
+<h3><li>1.6 CareGiver</li></h3>
+<p>Filtrering. Verifierar att resultatet endast innehåller poster för given vårdgivare.</p>
+<b>Testfalls-specifika parametrar</b><ul>
+<li>sourceSystemHSAId</li>
+<li>careContactId</li>
+<li>careGiverHSAId</li>
+</ul>
+<h3><li>1.7 HttpHeader</li></h3>
+<p>Filtrering. Verifierar att tjänsteproducenten kan filtrera resultatet baserat på HTTP-headern <b>x-rivta-original-serviceconsumer-hsaid</b>. 
+									<br>Undersök och jämför det ofiltrerade svaret från producenten med det senare svaret vars begäran använt ett tjänstekonsumentHSAId på vilket producenten utfört bortfiltrering,<br> antalet poster skall i det senare svaret vara färre och
+									parametern filterString skall då inte finnas i det filtrerade svaret. Testfallet är ej applicerbart för system som inte implementerat denna typ av filtrering.</p>
+<b>Testfalls-specifika parametrar</b><ul>
+<li>httpHeaderHsaId2</li>
+<li>filterString</li>
+</ul>
+<h3><li>1.8 SoapFault</li></h3>
+<p>Verifierar att responsen är ett <b>SOAP Fault</b>.<br>Detta testfall kräver att tjänsteproducenten skapar förutsättningar för ett internt fel att uppstå, t.ex. att man stänger av kopplingen mot en databas.<br>OBS! Manuell kontroll av svarsmeddelandet krävs för att säkerställa att meddelandet inte innehåller personuppgifter och att medföljande log-id inte är spårbart till patienten.</p>
+<ul></ul>
+<h3><li>1.9 NonExisting Patient</li></h3>
+<p><description>Verifierar att tjänsteproducenten returnerar ett tomt resultat istället för Soap Fault, om patienten är okänd i systemet.</description></p>
+<b>Testfalls-specifika parametrar</b><ul><li>patientId</li></ul>
+<h3><li>1.11 ProvId</li></h3>
+<p><description>Filtrering. Verifierar att resultatet endast innehåller poster för given ProvId.</description></p>
+<b>Testfalls-specifika parametrar</b><ul>
+<li>provId</li>
+<li>provIdType</li>
+</ul>
+<h3><li>1.12 RemissId</li></h3>
+<p><description>Filtrering. Verifierar att resultatet endast innehåller poster för given RemissId.</description></p>
+<b>Testfalls-specifika parametrar</b><ul>
+<li>remissId</li>
+<li>logicalAddress</li>
+</ul>
+<h3><li>2.1 Encoding_HeaderProlog</li></h3>
+<p>Verifierar att
+									<ul>
+<li>Header-attributet "Content-type" har, om attributet finns, en teckenuppsättning som är satt till UTF-8 eller UTF-16</li>
+<li>Attributet "XML Prolog" har, om attributet finns, en teckenuppsättning som är satt till UTF-8 eller UTF-16</li>
+<li>Om båda attributen finns så ska de vara lika</li>
+</ul></p>
+<ul></ul>
+<h3><li>2.2 Encoding_SpecialCharacters</li></h3>
+<p>Verifierar att responsen innehåller en sträng med specialtecken.<br>
+									Denna sträng behöver läggas upp på en post i källsystemet och bör innehålla så många specialtecken som möjligt.</p>
+<b>Testfalls-specifika parametrar</b><ul><li>testString</li></ul>
+<h3><li>3.1 PDL_control</li></h3>
+<p><description>Verifierar att alla returnerade poster innehåller elementen accountableCareUnit och accountableCareGiver, som krävs för PDL-loggning.</description></p>
+<ul></ul>
+<h3><li>3.2 blockComparisonTime</li></h3>
+<p><description>Verifierar att alla returnerade poster innehåller elementet blockComparisonTime.</description></p>
+<ul></ul>
+<h3><li>4.1 ApprovedForPatient_true</li></h3>
+<p>Verifierar att tjänsteproducenten kan returnera en post som talar om att informationen får delas till patient. Element <b>approvedForPatient</b>.</p>
+<ul></ul>
+<h3><li>4.2 ApprovedForPatient_false</li></h3>
+<p>Verifierar att tjänsteproducenten kan returnera en post som talar om att informationen inte får delas till patient. Element <b>approvedForPatient</b>.</p>
+<ul></ul>
+<h3><li>5.1 Signed</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en signerad post.</description></p>
+<ul></ul>
+<h3><li>5.2 Unsigned</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en osignerad post.</description></p>
+<ul></ul>
+<h3><li>5.5.1 Analystyp Slutsvar</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en post som har Slutsvar<br>
+			 Om elementet är tomt, kommer detta att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.5.2 Analystyp Preliminär</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en post som har priliminärt svar<br>
+			 Om elementet är tomt, kommer detta att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.5.3 Analystyp Delsvar</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en post som har ett delsvar<br>
+			 Om elementet är tomt, kommer detta att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.6 Kommentar Labbsvar</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller ett labbsvar i form av en text<br>
+			Observera: Det kontroleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.7.1 RemissId</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller ett RemissId<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.7.2 Remiss Frågeställning</li></h3>
+<p><description>Verifierar att någon av de returnerade posterna innehåller remissens frågeställning<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.7.3 Remiss MedicinskInformation</li></h3>
+<p><description>Verifierar att någon av de returnerade posterna innehåller information om medicinsk information i remissen<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.7.4 Remiss Kommentar</li></h3>
+<p><description>Verifierar att någon av de returnerade posterna innehåller en remisskommentar.<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.8 Kommentar Analysgrupp</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en analysgrupp kommentar<br>
+			Observera: Det kontroleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.9 Analysgrupp Rubrikkod</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en groupOfAnalyses/code.<br>
+			Observera: Det kontroleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.10 Multipla Analyser</li></h3>
+<p><description>Verifierar att en av de returnerade posterna har multipla analyser<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.11 AnalysId</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller ett analysId<br>
+			Observera: Det kontroleras inte om innehållet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.12 Analystidpunkt</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en tidsstämplad analystidpunkt<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.13 Analystyp</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en analystyp<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.14 Analysmetod</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en post som har en Kod (SNOMED-CT-SE) för den typ av tillvägagångssätt för utförandet av analysen som avses.<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.15 Analysstatus</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en post som har en analysstatus<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.16.1 Ackrediterad Analysmetod</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en ackrediterat analysmetod<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.16.2 Ej Ackrediterad Analysmetod</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en icke ackrediterat analysmetod<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.16.3 Ackreditering Okänd</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en okänd analysmetod<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.17 ProvId</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller ett provId<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.18 Provbehållares Id</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller elementet för provbehållarId<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.19 Resultattyp</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller elementet Resultattyp<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.20 Kommentar Resultat</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en resultatkommentar<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.21 Tolkning Av Resultat</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller ett element för tolkning av resultatet<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.22 Kod För Tolkning Av Resultat</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller elementet för kod för tolkning av resultatet<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.23 Signerad analys</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller elementet för analyssignaturen<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt, detta bör kontroleras manuellt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.24 Ej signerad analys</li></h3>
+<p><description>Verifierar att en av de returnerade posterna INTE har en signerad analys<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.25 Relaterad Analys</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en relaterat analys<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.26 Relaterad Analys Med Resultat</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en relaterat analys med resultat<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.27.1 Utfall PQ</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en post med PQ<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.27.2 Utfall IVL PQ</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en post med PQ och hög/låg nivå<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.27.3 Utfall ST</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en post som har resultat som text<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.27.4 Utfall CV</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en post som har resultat som kod<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.29 Lokalisation</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller anatomisk lokalisering i form av kod<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.30 Material</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en post som har kod för materialet i proven<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.31 Aktivitet</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en post som har kod för aktiviten<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.32 AktivitetMetod</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en post som har beskrivning av metoden i form av kod<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta dock att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.33 Lokalisationstext</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller anatomisk lokalisering i form av text<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.34 Materialtext</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en beskrivning av metoden i form av text<br>
+			Observera: Det kontrolleras inte om innehållet i elementet är korrekt. Om elementet är tomt, kommer detta att fångas upp av schematronkontrollen<br>
+			</description></p>
+<ul></ul>
+<h3><li>5.35 NPU-kod</li></h3>
+<p><description>Verifierar att en av de returnerade posterna innehåller en NPU-kod, samt har rätt kodsystem<br>
+			I filen <b>data.xml</b> finns en parameter "nPUKkod". Denna parameter ska innehålla värdet på den NPU-kod, där en post är skapat med denna kod t.ex. "NPU02902".<br>
+			Testfallet söker då genom responsen och kontrolera att koden finns på rätt ställe och har rätt värde, samt har rätt kodsystem<br>
+			</description></p>
+<b>Testfalls-specifika parametrar</b><ul><li>nPUKkod</li></ul>
+<h3><li>6.1 Loadtest</li></h3>
+<p>
+								Lasttester. Testfallen 6.1.1 och 6.1.2 finns under fliken Load tests i 6.1 Loadtest. Öppna testfallen genom att dubbelklicka på dem och klicka på den gröna pilen för att köra testet.<br><br><b>6.1.1 Grund</b><br>
+								Syftet med testet är dels att verifiera att systemet kan hantera minst 10 samtidiga trådar, dels att skapa sig en bild av systemets prestanda. Testet är designat att ta max 3 minuter.<br>
+								Defaultinställning för testfallet är: Threads (10), Strategy (Simple), Test Delay (1000), Random (0.5), Limit (180 Seconds).<br>
+								I SLA-kapitlet i självdeklarationen, under "Övrig kommentar", ange genomsnittlig responstid. Ta värdet som visas i sista raden i kolumn "avg" och dela med antal anrop (oftast 2). Ange sedan värdet med enhet millisekunder (ms).
+								<br><br><b>6.1.2 Uthållighet</b><br>
+								Syftet med testet är att undersöka prestanda hos systemet över längre tid (30 minuter).<br>
+								Defaultinställning för testfallet är: Threads (5), Strategy (Variance), Interval (60), Variance (1.0), Limit (1800 Seconds).<br>
+								I SLA-kapitlet i självdeklarationen, under "Övrig kommentar", notera om testet gick att genomföra utan problem. Om inte, notera hur lång tid det var möjligt att köra.	</p>
+<b>Testfalls-specifika parametrar</b><ul>
+<li>patientId1</li>
+<li>patientId2</li>
+</ul>
+<h3><li>6.2 Recovery</li></h3>
+<p>
+								Återhämtningstest. Testfallet 6.2.1 finns under fliken Load tests i 6.2 Recovery. Öppna testfallet genom att dubbelklicka på det och klicka på den gröna pilen för att köra testet.<br><br><b>6.2.1 Återhämtning</b><br>
+								Syftet med testet är att utsätta systemet för maximal last och att verifiera att systemet automatiskt återhämtar sig.<br>
+								Defaultinställning för testfallet är: Threads (10), Strategy (Thread), Start Threads (10), End Threads (100), Limit (300 Seconds).<br>
+								För att kontrollera att systemet har kunnat återhämta sig efter maximal last så rekommenderas att köra testfall "1.1.1 Personnummer" för att se att systemet svarar. I SLA-kapitlet i självdeklarationen, under "Övrig kommentar", notera om systemet kunde återhämta sig efter att ha utsatts för maximal last. Ange även hur många trådar som testet avslutades med.</p>
+<b>Testfalls-specifika parametrar</b><ul>
+<li>patientId1</li>
+<li>patientId2</li>
+</ul>
+<h3><li>7.1 CareUnit_Blacklisted</li></h3>
+<p></p>
+<b>Testfalls-specifika parametrar</b><ul>
+<li>httpHeaderHsaId2</li>
+<li>filterString</li>
+</ul>
+<h3><li>7.2 Consumer_Blacklisted</li></h3>
+<p></p>
+<b>Testfalls-specifika parametrar</b><ul><li>httpHeaderHsaId2</li></ul>
+<h3><li>7.3 ConsumerIndependent</li></h3>
+<p></p>
+<b>Testfalls-specifika parametrar</b><ul><li>httpHeaderHsaId2</li></ul>
+</ul>
+<br><br>
+</body>
+</html>

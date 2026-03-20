@@ -1,0 +1,276 @@
+## Tjänstedomänens meddelandemodeller
+Här beskrivs de meddelandemodeller som tjänstekontrakten bygger på. För varje meddelandemodell beskrivs hur mappning ser ut mot schema (XSD) för tjänstekontrakt.
+
+### GetVaccinationHistory
+Modellen beskriver den logiska strukturen för ett svarsmeddelande. Informationsinnehåll och -struktur baseras på en genomgång och analys av ett antal vaccinationsjournalsystem (SMI:s Svevac, TakeCare:s vaccinationsmodul med avstämning även med vissa andra) samt informationskraven som ställs av nationella vaccinationsregistret (sedan 1 januari 2013).
+Vidare ställer lagen om rapportering av nationella vaccinationsprogram vissa informationskrav, som har valts att inkluderas i nedan tjänstekontrakt i syfte att möjliggöra användning av detta tjänstekontrakt för att samla information för rapportering till SMI enligt lagkrav.
+
+![img_007.png](images/img_007.png)
+*Figur 5. MIM över vaccinationsdata.*
+
+| Klass.attribut | Mappning mot XSD schema |
+| :--- | :--- |
+| VaccinationMedicalRecordType | vaccinationMedicalRecord |
+| VaccinationMedicalRecordHeaderType.documentId | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/documentId |
+| VaccinationMedicalRecordHeaderType.sourceSystemHSAId | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/sourceSystemHSAId |
+| VaccinationMedicalRecordHeaderType.documentTitle | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/documentTitle |
+| VaccinationMedicalRecordHeaderType.documentTime | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/documentTime |
+| VaccinationMedicalRecordHeaderType.patientId | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/patientId |
+| VaccinationMedicalRecordHeaderType.accountableHealthcareProfessional | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/accountableHealthcareProfessional |
+| HealthcareProfessionalType.authorTime | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/ accountableHealthcareProfessional /authorTime |
+| HealthcareProfessionalType.healthcareProfessionalHSAId | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/accountableHealthcareProfessional/healthcareProfessionalHSAId |
+| HealthcareProfessionalType.healthcareProfessionalName | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/accountableHealthcareProfessional/healthcareProfessionalName |
+| HealthcareProfessionalType.healthcareProfessionalRoleCode | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/accountableHealthcareProfessional/healthcareProfessionalRoleCode |
+| OrgUnitType.orgUnitHSAId | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitHSAId |
+| OrgUnitType.orgUnitname | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitname |
+| OrgUnitType.orgUnitTelecom | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitTelecom |
+| OrgUnitType.orgUnitEmail | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitEmail |
+| OrgUnitType.orgUnitAddress | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitAddress |
+| OrgUnitType.orgUnitLocation | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitLocation |
+| HealthcareProfessionalType.healthcareProfessionalCareUnitHSAId | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/accountableHealthcareProfessional/healthcareProfessionalCareUnitHSAId |
+| HealthcareProfessionalType.healthcareProfessionalCareGiverHSAId | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/accountableHealthcareProfessional/healthcareProfessionalCareGiverHSAId |
+| LegalAuthenticatorType.signatureTime | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/legalAuthenticator/signatureTime |
+| LegalAuthenticatorType.legalAuthenticatorHSAId | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/legalAuthenticator/legalAuthenticatorHSAId |
+| LegalAuthenticatorType.legalAuthenticatorName | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/legalAuthenticator/legalAuthenticatorName |
+| VaccinationMedicalRecordHeaderType.approvedForPatient | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/approvedForPatient |
+| VaccinationMedicalRecordHeaderType.careContactId | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/careContactId |
+| VaccinationMedicalRecordHeaderType.nullified | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/nullified |
+| VaccinationMedicalRecordHeaderType.nullifiedReason | vaccinationMedicalRecord/vaccinationMedicalRecordHeader/nullifiedReason |
+| VaccinationMedicalRecordBodyType | vaccinationMedicalRecord/vaccinationMedicalRecordBody/ |
+| AdditionalPatientInformationType.dateOfBirth | medicationMedicalRecord/medicationMedicalRecordBody/additionalPatientInformation/dateOfBirth |
+| AdditionalPatientInformationType.gender | medicationMedicalRecord/medicationMedicalRecordBody/additionalPatientInformation/gender |
+| RegistrationRecordType.date | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/date |
+| RegistrationRecordType.patientPostalCode | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/patientPostalCode |
+| RegistrationRecordType.vaccinationUnstructuredNote | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/vaccinationUnstructuredNote |
+| RegistrationRecordType.riskCategory | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/riskCategory |
+| RegistrationRecordType.patientAdverseEffect | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/patientAdverseEffect |
+| RegistrationRecordType.careGiverOrg | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/careGiverOrg |
+| OrgUnitType.orgUnitHSAId | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/careGiverOrg/orgUnitHSAId |
+| OrgUnitType.orgUnitName | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/careGiverOrg/orgUnitName |
+| OrgUnitType.orgUnitTelecom | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/careGiverOrg/orgUnitTelecom |
+| OrgUnitType.orgUnitEmail | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/careGiverOrg/orgUnitEmail |
+| OrgUnitType.orgUnitAddress | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/careGiverOrg/orgUnitAddress |
+| OrgUnitType.orgUnitLocation | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/careGiverOrg/orgUnitLocation |
+| RegistrationRecordType.careGiverContact | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/careGiverContact |
+| ActorType.hsaId | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/careGiverContact/hsaId |
+| ActorType.personName | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/careGiverContact/name |
+| ActorType.personEmail | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/careGiverContact/personEmail |
+| ActorType.personTelecom | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/careGiverContact/personTelecom |
+| ActorType.personAddress | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/careGiverContact/personAddress |
+| RegistrationRecordType.sourceSystemName | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/sourceSystemName |
+| RegistrationRecordType.sourceSystemProductName | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/ sourceSystemProductName |
+| RegistrationRecordType.sourceSystemProductVersion | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/sourceSystemProductVersion |
+| RegistrationRecordType.sourceSystemContact | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/ sourceSystemContact |
+| ActorType.hsaId | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/ sourceSystemContact/hsaId |
+| ActorType.personName | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/ sourceSystemContact/name |
+| ActorType.personEmail | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/ sourceSystemContact/personEmail |
+| ActorType.personTelecom | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/ sourceSystemContact/personTelecom |
+| ActorType.personAddress | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/ sourceSystemContact/personAddress |
+| RegistrationRecordType.careUnitSmiId | vaccinationMedicalRecord/vaccinationMedicalRecordBody/registrationRecord/careUnitSmiId |
+| AdministrationRecordType.vaccinationProgramName | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/vaccionationProgramName |
+| AdministrationRecordType.prescriberOrg | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/prescriberOrg |
+| OrgUnitType.orgUnitHSAId | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/prescriberOrg/orgUnitHSAId |
+| OrgUnitType.orgUnitName | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/prescriberOrg/orgUnitName |
+| OrgUnitType.orgUnitTelecom | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/prescriberOrg/orgUnitTelecom |
+| OrgUnitType.orgUnitEmail | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/prescriberOrg/orgUnitEmail |
+| OrgUnitType.orgUnitAddress | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/prescriberOrg/orgUnitAddress |
+| OrgUnitType.orgUnitLocation | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/prescriberOrg/orgUnitLocation |
+| AdministrationRecordType.prescriberPerson | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/prescriberPerson |
+| ActorType.hsaId | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/prescriberPerson/hsaId |
+| ActorType.personName | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/prescriberPerson/name |
+| ActorType.personEmail | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/prescriberPerson/personEmail |
+| ActorType.personTelecom | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/prescriberPerson/personTelecom |
+| ActorType.personAddress | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/prescriberPerson/personAddress |
+| AdministrationRecordType.performerOrg | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/performerOrg |
+| OrgUnitType.orgUnitHSAId | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/performerOrg/orgUnitHSAId |
+| OrgUnitType.orgUnitName | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/performerOrg/orgUnitName |
+| OrgUnitType.orgUnitTelecom | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/performerOrg/orgUnitTelecom |
+| OrgUnitType.orgUnitEmail | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/performerOrg/orgUnitEmail |
+| OrgUnitType.orgUnitAddress | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/performerOrg/orgUnitAddress |
+| OrgUnitType.orgUnitLocation | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/performerOrg/orgUnitLocation |
+| AdministrationRecordType.performer | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/performer |
+| ActorType.hsaId | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/performer/hsaId |
+| ActorType.personName | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/performer/name |
+| ActorType.personEmail | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/performer/personEmail |
+| ActorType.personTelecom | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/performer/personTelecom |
+| ActorType.personAddress | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/performer/personAddress |
+| AdministrationRecordType.anatomicalSite | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/anatomicalSite |
+| AdministrationRecordType.route | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/route |
+| AdministrationRecordType.dosage | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/dosage |
+| DoseType.quantity.value | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/dose/quantity/value |
+| DoseType.quantity.unit | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/dose/quantity/unit |
+| DoseType.displayName | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/dose/displayName |
+| AdministrationRecordType.isDoseComplete | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/isDoseComplete |
+| AdministrationRecordType.doseOrdinalNumber | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/doseOrdinalNumber |
+| AdministrationRecordType.numberOfPrescribedDoses | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/numberOfPrescribedDoses |
+| AdministrationRecordType.sourceDescription | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/sourceDescription |
+| AdministrationRecordType.commentPrescription | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/commentPrescription |
+| AdministrationRecordType.commendAdministration | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/commendAdministration |
+| AdministrationRecordType.patientAdverseEffect | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/patientAdverseEffect |
+| AdministrationRecordType.typeOfVaccine | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/typeOfVaccine |
+| AdministrationRecordType.vaccineName | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/vaccineName |
+| AdministrationRecordType.vaccineBatchId | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/vaccineBatchId |
+| AdministrationRecordType.vaccineManufacturer | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/vaccineManufacturer |
+| AdministrationRecordType.vaccineTargetDisease | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/vaccineTargetDisease |
+| AdministrationRecordType.vaccinationUniqueReference | vaccinationMedicalRecord/vaccinationMedicalRecordBody/administrationRecord/vaccinationUniqueReference |
+| ResultType | result |
+| ResultType.resultCode | result/resultCode |
+| ResultType.errorCode | result/errorCode |
+| ResultType.subcode | result/subcode |
+| ResultType.logId | result/logId |
+| ResultType.message | result/message |
+
+### GetMedicationHistory
+Modellen beskriver den logiska strukturen för ett svarsmeddelande. Tjänsten baseras bl.a. på en genomgång av NPÖ RIV 2.2.0 och NOD 1.1.5 [ref. R12].
+En terminologisk detalj att hålla i huvudet: termerna ordination (medicationPrescription) och förskrivning (dispensationAuthorization) används här icke-synonymt. Något förenklat är (läkemedels)ordination läkarens beslut att patienten ska läkemedelsbehandlas, och förskrivning är läkarens auktorisering till apoteket att lämna ut förskrivet läkemedel till patienten. Varje förskrivning föregås alltid av en ordination.
+
+![img_006.jpeg](images/img_006.jpeg)
+*Figur 6. MIM över läkemedelsdata.*
+
+| Klass.attribut | Mappning mot XSD schema |
+| :--- | :--- |
+| MedicationMedicalRecordType |  |
+| MedicationMedicalRecordHeaderType.documentId | medicationMedicalRecord/medicationMedicalRecordHeader/documentId |
+| MedicationMedicalRecordHeaderType.sourceSystemHSAId | medicationMedicalRecord/medicationMedicalRecordHeader/sourceSystemHSAId |
+| MedicationMedicalRecordHeaderType.patientId | medicationMedicalRecord/medicationMedicalRecordHeader/patientId |
+| MedicationMedicalRecordHeaderType.accountableHealthcareProfessional / (registrerande person) | medicationMedicalRecord/medicationMedicalRecordHeader/accountableHealthcareProfessional |
+| HealthcareProfessionalType.authorTime | medicationMedicalRecord/medicationMedicalRecordHeader/accountableHealthcareProfessional/authorTime |
+| HealthcareProfessionalType.healthcareProfessionalHSAId | medicationMedicalRecord/medicationMedicalRecordHeader/accountableHealthcareProfessional/healthcareProfessionalHSAId |
+| HealthcareProfessionalType.healthcareProfessionalName | medicationMedicalRecord/medicationMedicalRecordHeader/accountableHealthcareProfessional/healthcareProfessionalName |
+| HealthcareProfessionalType.healthcareProfessionalRoleCode | medicationMedicalRecord/medicationMedicalRecordHeader/accountableHealthcareProfessional/healthcareProfessionalRoleCode |
+| OrgUnitType.orgUnitHSAId | medicationMedicalRecord/medicationMedicalRecordHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitHSAId |
+| OrgUnitType.orgUnitname | medicationMedicalRecord/medicationMedicalRecordHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitname |
+| OrgUnitType.orgUnitTelecom | medicationMedicalRecord/medicationMedicalRecordHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitTelecom |
+| OrgUnitType.orgUnitEmail | medicationMedicalRecord/medicationMedicalRecordHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitEmail |
+| OrgUnitType.orgUnitAddress | medicationMedicalRecord/medicationMedicalRecordHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitAddress |
+| OrgUnitType.orgUnitLocation | medicationMedicalRecord/medicationMedicalRecordHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitLocation |
+| HealthcareProfessionalType.healthcareProfessionalCareUnitHSAId | medicationMedicalRecord/medicationMedicalRecordHeader/accountableHealthcareProfessional/healthcareProfessionalCareUnitHSAId |
+| HealthcareProfessionalType.healthcareProfessionalCareGiverHSAId | medicationMedicalRecord/medicationMedicalRecordHeader/accountableHealthcareProfessional/healthcareProfessionalCareGiverHSAId |
+| LegalAuthenticatorType.signatureTime | medicationMedicalRecord/medicationMedicalRecordHeader/legalAuthenticator/signatureTime |
+| LegalAuthenticatorType.legalAuthenticatorHSAId | medicationMedicalRecord/medicationMedicalRecordHeader/legalAuthenticator/legalAuthenticatorHSAId |
+| LegalAuthenticatorType.legalAuthenticatorName | medicationMedicalRecord/medicationMedicalRecordHeader/legalAuthenticator/legalAuthenticatorName |
+| MedicationMedicalRecordHeaderType.approvedForPatient | medicationMedicalRecord/medicationMedicalRecordHeader/approvedForPatient |
+| MedicationMedicalRecordHeaderType.careContactId | medicationMedicalRecord/medicationMedicalRecordHeader/careContactId |
+| MedicationMedicalRecordBodyType |  |
+| AdditionalPatientInformationType.dateOfBirth | medicationMedicalRecord/medicationMedicalRecordBody/additionalPatientInformation/dateOfBirth |
+| AdditionalPatientInformationType.gender | medicationMedicalRecord/medicationMedicalRecordBody/additionalPatientInformation/gender |
+| MedicationPrescriptionType.prescriptionId | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/prescriptionId |
+| MedicationPrescriptionType.typeOfPrescription | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/typeOfPrescription |
+| MedicationPrescriptionType.prescriptionStatus | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/prescriptionStatus |
+| MedicationPrescriptionType.prescriptionNote | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/prescriptionNote |
+| MedicationPrescriptionType.evaluationTime | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/evaluationTime |
+| MedicationPrescriptionType.treatmentPurpose | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/treatmentPurpose |
+| MedicationPrescriptionType.prescriptionChainId | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/prescriptionChainId |
+| MedicationPrescriptionType.precedingPrescriptionId | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/precedingPrescriptionId |
+| MedicationPrescriptionType.succeedingPrescriptionId | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/succeedingPrescriptionId |
+| MedicationPrescriptionType.startOfFirstTreatment | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/startOfFirstTreatment |
+| MedicationPrescriptionType.startOfTreatment | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/startOfTreatment |
+| MedicationPrescriptionType.endOfTreatment | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/endOfTreatment |
+| MedicationPrescriptionType.endOfTreatmentReason | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/endOfTreatmentReason |
+| MedicationPrescriptionType.selfMedication | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/selfMedication |
+| PrescriptionReasonType.reason | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/principalPrescriptionReason/reason / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/additionalPrescriptionReason/reason |
+| PrescriptionReasonType.otherReason | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/principalPrescriptionReason/otherReason / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/additionalPrescriptionReason/otherReason |
+| HealthcareProfessionalType.authorTime / (ordinatör) | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/prescriber/authorTime |
+| HealthcareProfessionalType.healthcareProfessionalHSAId | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/prescriber/healthcareProfessionalHSAId |
+| HealthcareProfessionalType.healthcareProfessionalName | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/prescriber/healthcareProfessionalName |
+| HealthcareProfessionalType.healthcareProfessionalRoleCode | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/prescriber/healthcareProfessionalRoleCode |
+| OrgUnitType.orgUnitHSAId | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/prescriber/healthcareProfessionalOrgUnit/orgUnitHSAId |
+| OrgUnitType.orgUnitName | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/prescriber/healthcareProfessionalOrgUnit/orgUnitName |
+| OrgUnitType.orgUnitTelecom | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/prescriber/healthcareProfessionalOrgUnit/orgUnitTelecom |
+| OrgUnitType.orgUnitEmail | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/prescriber/healthcareProfessionalOrgUnit/orgUnitEmail |
+| OrgUnitType.orgUnitAddress | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/prescriber/healthcareProfessionalOrgUnit/orgUnitAddress |
+| OrgUnitType.orgUnitLocation | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/prescriber/healthcareProfessionalOrgUnit/orgUnitLocation |
+| HealthcareProfessionalType.authorTime / (utvärderande person) | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/evaluator/authorTime |
+| HealthcareProfessionalType.healthcareProfessionalHSAId | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/evaluator/healthcareProfessionalHSAId |
+| HealthcareProfessionalType.healthcareProfessionalName | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/evaluator/healthcareProfessionalName |
+| HealthcareProfessionalType.healthcareProfessionalRoleCode | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/evaluator/healthcareProfessionalRoleCode |
+| OrgUnitType.orgUnitHSAId | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/evaluator/healthcareProfessionalOrgUnit/orgUnitHSAId |
+| OrgUnitType.orgUnitName | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/evaluator/healthcareProfessionalOrgUnit/orgUnitName |
+| OrgUnitType.orgUnitTelecom | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/evaluator/healthcareProfessionalOrgUnit/orgUnitTelecom |
+| OrgUnitType.orgUnitEmail | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/evaluator/healthcareProfessionalOrgUnit/orgUnitEmail |
+| OrgUnitType.orgUnitAddress | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/evaluator/healthcareProfessionalOrgUnit/orgUnitAddress |
+| OrgUnitType.orgUnitLocation | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/evaluator/healthcareProfessionalOrgUnit/orgUnitLocation |
+| AdministrationType.administrationId | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/adminstration/administrationId |
+| AdministrationType.administrationTime | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/adminstration/administrationTime |
+| AdministrationType.administrationComment | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/adminstration/administrationComment |
+| AdministrationType.routeOfAdministration | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/adminstration/routeOfAdministration |
+| HealthcareProfessionalType.authorTime / (administrerande person) | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/adminstration/administeringHealthcareProfessional/authorTime |
+| HealthcareProfessionalType.healthcareProfessionalHSAId | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/adminstration/administeringHealthcareProfessional/healthcareProfessionalHSAId |
+| HealthcareProfessionalType.healthcareProfessionalName | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/adminstration/administeringHealthcareProfessional/healthcareProfessionalName |
+| HealthcareProfessionalType.healthcareProfessionalRoleCode | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/adminstration/administeringHealthcareProfessional/healthcareProfessionalRoleCode |
+| OrgUnitType.orgUnitHSAId | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/adminstration/administeringHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitHSAId |
+| OrgUnitType.orgUnitName | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/adminstration/administeringHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitName |
+| OrgUnitType.orgUnitTelecom | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/adminstration/administeringHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitTelecom |
+| OrgUnitType.orgUnitEmail | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/adminstration/administeringHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitEmail |
+| OrgUnitType.orgUnitAddress | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/adminstration/administeringHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitAddress |
+| OrgUnitType.orgUnitLocation | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/adminstration/administeringHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitLocation |
+| DrugChoiceType.comment | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/comment / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/comment |
+| UnstructuredDrugInformationType.unstructuredInformation | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/unstructuredDrugInformation/unstructuredInformation / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/unstructuredDrugInformation/unstructuredInformation |
+| MerchandiseType.articleNumber | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/merchandise/articleNumber / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/merchandise/articleNumber |
+| DrugArticleType.nplPackId | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/drugArticle/nplPackId / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/drugArticle/nplPackId |
+| DrugType.nplId | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/drug/nplId / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/drug/drug/nplId / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/drug/nplId |
+| DrugType.atcCode | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/drug/atcCode / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/drug/drug/atcCode / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/drug/atcCode |
+| DrugType.routeOfAdministration | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/drug/routeOfAdministration / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/drug/drug/ routeOfAdministration / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/drug/routeOfAdministration |
+| DrugType.pharmaceuticalForm | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/drug/pharmaceuticalForm / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/drug/drug/pharmaceuticalForm / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/drug/pharmaceuticalForm |
+| DrugType.strength | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/drug/strength / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/drug/drug/strength / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/drug/strength |
+| DrugType.strengthUnit | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/drug/strengthUnit / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/drug/drug/strengthUnit / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/drug/strengthUnit |
+| GenericsType.substance | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/generics/substance / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/generics/substance |
+| GenericsType.strength | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/generics/strength / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/generics/strength |
+| GenericsType.form | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/generics/form / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/generics/form |
+| DosageType.LengthOfTreatmentType.treatmentInterval | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/lengthOfTreatment/treatmentInterval / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/treatmentInterval |
+| DosageType. LengthOfTreatmentType .isMaximumTreatmentTime | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/ lengthOfTreatment/isMaximumTreatmentTime / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/ lengthOfTreatment/isMaximumTreatmentTime |
+| DosageType.dosageInstruction | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/dosageInstruction / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/dosageInstruction |
+| DosageType.unitDose | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/unitDose / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/unitDose |
+| DosageType.shortNotation | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/shortNotation / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/shortNotation |
+| SetDosageType | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/setDosage / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/setDosage |
+| MaximumDosageType | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/maximumDosage / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/maximumDosage |
+| ConditionalDosageType.conditionDescription | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/conditionalDosage/conditionDescription / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/conditionalDosage/conditionDescription |
+| FrequencyDosageType.dose | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/frequencyDosage/dose / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/frequencyDosage/dose |
+| FrequencyDosageType.frequency | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/frequencyDosage/frequency / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/frequencyDosage/frequency |
+| PeriodDosageType.dose | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/periodDosage/dose / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/periodDosage/dose |
+| PeriodDosageType.period | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/periodDosage/period / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/periodDosage/period |
+| OccasionDosageType.period | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/occasionDosage/period / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/occasionDosage /period |
+| AdministrationOccurrenceType.dose | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/occasionDosage/administrationOccurrence/dose / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/occasionDosage/administrationOccurrence/dose |
+| AdministrationOccurrenceType.time | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/occasionDosage/administrationOccurrence/time / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/occasionDosage/administrationOccurrence/time |
+| AdministrationOccurrenceType.dayOfPeriod | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/occasionDosage/administrationOccurrence/dayOfPeriod / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/occasionDosage/administrationOccurrence/dayOfPeriod |
+| RampedDosageType.timeStep | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/rampedDosage/timeStep / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/rampedDosage/timeStep |
+| RampedDosageType.doseStep | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/rampedDosage/doseStep / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/rampedDosage/doseStep |
+| RamEndpointType | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/rampedDosage/rampStart / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/rampedDosage/rampStart / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/rampedDosage/rampEnd / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/rampedDosage/rampEnd |
+| SingleDoseType.dose | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/singleDose/dose / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/singleDose/dose |
+| SingleDoseType.time | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/singleDose/time / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/singleDose/time |
+| UnstructuredDosageInformationType.text | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/drug/dosage/unstructuredDosageInformation/text / och / medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/administration/drug/dosage/unstructuredDosageInformation/text |
+| DispensationAuthorizationType.dispensationAuthorizationId | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/dispensationAuthorizationId |
+| DispensationAuthorizationType.validUntil | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/validUntil |
+| DispensationAuthorizationType.receivingPharmacy | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/receivingPharmacy |
+| DispensationAuthorizationType.minimumDispensationInterval | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/minimumDispensationInterval |
+| DispensationAuthorizationType.totalAmount | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/totalAmount |
+| DispensationAuthorizationType.packageUnit | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/packageUnit |
+| DispensationAuthorizationType.distributionMethod | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/distributionMethod |
+| DispensationAuthorizationType.dispensationAuthorizerComment | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/dispensationAuthorizerComment |
+| DispensationAuthorizationType.firstDispensationBefore | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/firstDispensationBefore |
+| DispensationAuthorizationType.prescriptionSignatura | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/prescriptionSignatura |
+| DispensationAuthorizationType.nonReplaceable | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/nonReplaceable |
+| HealthcareProfessionalType.authorTime / (förskrivare) | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/dispensationAuthorizer/authorTime |
+| HealthcareProfessionalType.healthcareProfessionalHSAId | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/dispensationAuthorizer/healthcareProfessionalHSAId |
+| HealthcareProfessionalType.healthcareProfessionalName | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/dispensationAuthorizer/healthcareProfessionalName |
+| HealthcareProfessionalType.healthcareProfessionalRoleCode | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/dispensationAuthorizer/healthcareProfessionalRoleCode |
+| OrgUnitType.orgUnitHSAId | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/dispensationAuthorizer/healthcareProfessionalOrgUnit/orgUnitHSAId |
+| OrgUnitType.orgUnitName | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/dispensationAuthorizer/healthcareProfessionalOrgUnit/orgUnitName |
+| OrgUnitType.orgUnitTelecom | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/dispensationAuthorizer/healthcareProfessionalOrgUnit/orgUnitTelecom |
+| OrgUnitType.orgUnitEmail | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/dispensationAuthorizer/healthcareProfessionalOrgUnit/orgUnitEmail |
+| OrgUnitType.orgUnitAddress | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/dispensationAuthorizer/healthcareProfessionalOrgUnit/orgUnitAddress |
+| OrgUnitType.orgUnitLocation | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/dispensationAuthorization/dispensationAuthorizer/healthcareProfessionalOrgUnit/orgUnitLocation |
+| RelationType | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/relation |
+| RelationType.code | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/relation/code |
+| ReferredInformationType | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/relation/referredInformation |
+| ReferredInformationType.id | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/relation/referredInformation/id |
+| ReferredInformationType.type | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/relation/referredInformation/type |
+| InformationOwnerType | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/relation/referredInformation/informationOwner |
+| InformationOwnerType.id | medicationMedicalRecord/medicationMedicalRecordBody/medicationPrescription/relation/referredInformation/informationOwner/id |
+| ResultType | result |
+| ResultType.resultCode | result/resultCode |
+| ResultType.errorCode | result/errorCode |
+| ResultType.subcode | result/subcode |
+| ResultType.logId | result/logId |
+| ResultType.message | result/message |
+

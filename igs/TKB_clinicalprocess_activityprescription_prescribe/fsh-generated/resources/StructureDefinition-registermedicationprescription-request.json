@@ -1,0 +1,282 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "registermedicationprescription-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/registermedicationprescription-request",
+  "name": "RegisterMedicationPrescriptionRequest",
+  "title": "RegisterMedicationPrescription — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i RegisterMedicationPrescription.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/StructureDefinition/registermedicationprescription-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "registermedicationprescription-request",
+        "path": "registermedicationprescription-request",
+        "short": "RegisterMedicationPrescription — Request",
+        "definition": "Logisk modell för requestparametrar i RegisterMedicationPrescription."
+      },
+      {
+        "id": "registermedicationprescription-request.patientInformation",
+        "path": "registermedicationprescription-request.patientInformation",
+        "short": "Patientinformation (personnummer eller demografiska uppgifter)",
+        "definition": "Antingen patientId eller kombinationen givenName+familyName+dateOfBirth måste anges.\nASSUME-PRESC-001: villkorlig kardinalitet — modellerad som 0..1 per underfält med notering.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription-request.patientInformation.patientId",
+        "path": "registermedicationprescription-request.patientInformation.patientId",
+        "short": "Patientens personnummer eller samordningsnummer",
+        "definition": "Patientens personnummer eller samordningsnummer",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription-request.patientInformation.givenName",
+        "path": "registermedicationprescription-request.patientInformation.givenName",
+        "short": "Förnamn",
+        "definition": "Förnamn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription-request.patientInformation.familyName",
+        "path": "registermedicationprescription-request.patientInformation.familyName",
+        "short": "Efternamn",
+        "definition": "Efternamn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription-request.patientInformation.dateOfBirth",
+        "path": "registermedicationprescription-request.patientInformation.dateOfBirth",
+        "short": "Födelsedatum (8 siffror)",
+        "definition": "Födelsedatum (8 siffror)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription-request.patientInformation.gender",
+        "path": "registermedicationprescription-request.patientInformation.gender",
+        "short": "Kön",
+        "definition": "Kön",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-prescribe/ValueSet/gender-vs"
+        }
+      },
+      {
+        "id": "registermedicationprescription-request.medicationListVersion",
+        "path": "registermedicationprescription-request.medicationListVersion",
+        "short": "Aktuell version av läkemedelslistan (optimistisk låsning)",
+        "definition": "Aktuell version av läkemedelslistan (optimistisk låsning)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription-request.medicationPrescriptionList",
+        "path": "registermedicationprescription-request.medicationPrescriptionList",
+        "short": "Ordinationslista att registrera",
+        "definition": "Ordinationslista att registrera",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence",
+        "path": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence",
+        "short": "Behandlingssekvens",
+        "definition": "Behandlingssekvens",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription",
+        "path": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription",
+        "short": "Ordination",
+        "definition": "Ordination",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.prescribedBy",
+        "path": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.prescribedBy",
+        "short": "Förskrivare",
+        "definition": "Förskrivare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.prescribedBy.prescriberId",
+        "path": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.prescribedBy.prescriberId",
+        "short": "Förskrivarens HSA-ID",
+        "definition": "Förskrivarens HSA-ID",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.prescribedBy.prescriberName",
+        "path": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.prescribedBy.prescriberName",
+        "short": "Förskrivarens namn",
+        "definition": "Förskrivarens namn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.prescribedBy.prescriberCode",
+        "path": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.prescribedBy.prescriberCode",
+        "short": "Förskrivarkod",
+        "definition": "Förskrivarkod",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.prescribedBy.workplaceCode",
+        "path": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.prescribedBy.workplaceCode",
+        "short": "Arbetsplatskod",
+        "definition": "Arbetsplatskod",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.startTime",
+        "path": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.startTime",
+        "short": "Insättningstidpunkt",
+        "definition": "Insättningstidpunkt",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.endTime",
+        "path": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.endTime",
+        "short": "Utsättningstidpunkt",
+        "definition": "Utsättningstidpunkt",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.treatmentReason",
+        "path": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.treatmentReason",
+        "short": "Behandlingsorsak",
+        "definition": "Behandlingsorsak",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.medicationInformation",
+        "path": "registermedicationprescription-request.medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.medicationInformation",
+        "short": "Läkemedelsinformation",
+        "definition": "Läkemedelsinformation",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      }
+    ]
+  }
+}

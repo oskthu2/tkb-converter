@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements. See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+to you under the Apache License, Version 2.0 (the
+        "License"); you may not use this file except in compliance
+with the License. You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied. See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<?xml-stylesheet type="text/xsl" href="./../TK-doc-sv.xsl"?>
+<testsuite>
+	<id>Update 1.0</id>
+	<contractName>Update</contractName>
+	<description>Denna testsvit används för att verifiera implementationen av Update 1.0 inför integration med nationell tjänsteplattform.</description>
+	<globaldata>
+		<!-- Adress till SIT-Miljön -->
+		<!-- <webServiceUrl>https://qa.esb.ntjp.se/vp/</webServiceUrl> -->
+		<webServiceUrl>http://localhost:8088/mockUpdateResponderBinding</webServiceUrl>
+		<ntjpAdress>5565594230</ntjpAdress>
+		<httpHeaderHsaId>TSTNMT2321000156-B02</httpHeaderHsaId>
+		<!-- Personnumer for den patient som EI-posten gäller -->
+		<registeredResidentIdentification>191212121212</registeredResidentIdentification>
+		<!-- Aktuell domän som ska uppdateras för den har patienten, se TKB för info.  -->
+		<serviceDomain>riv:clinicalprocess:healthcond:description</serviceDomain>
+		<!-- Bestämmer vilket tjänstekontrakt inom serviceDomain ovan, se TKB för info. -->
+		<categorization>dia</categorization>
+		<!-- Logisk adress till det system som gör uppdateringen (där datan finns sparad for patienten) -->
+		<logicalAddress>SE2321000131-S000000021794</logicalAddress>
+		<!-- Måste vara nyare än existerande post i EI-databasen för att uppdateringen ska göras. Säkrast är att sätta till nuvarande tidpunkt så uppdateras det alltid -->
+		<mostRecentContent>20230608120000</mostRecentContent>
+		<!-- Namnet pa källsystemet som innehåller den information som EI-posten pekar ut -->
+		<sourceSystem>SE2321000131-S000000021794</sourceSystem>
+		<!-- Identitet för den PUA som ansvarar för postens innehåll -->
+		<dataController>SE2321000131-E9900000001</dataController>
+
+		<!-- Loggparametrar-->
+		<logTestData>true</logTestData>
+		<logTestDataPath>C:/temp/SOAP-UI/</logTestDataPath>
+		<logTestDataFilesAllowed>500</logTestDataFilesAllowed>
+	</globaldata>	
+	<testcase id="1.1 Update">
+		<description>Uppdaterar/skapar post i EI</description>
+		<data>
+			<!-- <registeredResidentIdentification></registeredResidentIdentification> -->
+		</data>
+	</testcase>
+	<testcase id="1.2 Delete">
+		<description>Raderar post i EI</description>
+		<data>
+			<!-- <registeredResidentIdentification></registeredResidentIdentification> -->
+		</data>
+	</testcase>
+	<testcase id="1.3 Multiple">
+		<description>Uppdaterar flera poster i EI</description>
+		<data>
+			<!-- <registeredResidentIdentification></registeredResidentIdentification> -->
+			<registeredResidentIdentification>191212121212</registeredResidentIdentification>
+			<registeredResidentIdentification2>201212121212</registeredResidentIdentification2>
+			<categorization2>upp</categorization2>
+		</data>
+	</testcase>
+	<testcase id="3.1 Non-Unique">
+		<description>Anrop som inte har unika poster.</description>
+		<data>
+			<!-- <registeredResidentIdentification></registeredResidentIdentification> -->
+		</data>
+	</testcase>
+	<testcase id="3.2 Schema Error">
+		<description>Anrop med xml som inte matchar schemat.</description>
+		<data>
+			<!-- <registeredResidentIdentification></registeredResidentIdentification> -->
+		</data>
+	</testcase>
+	<testcase id="3.3 Schematron Error">
+		<description>Anrop med innehåll som bryter mot schematronreglerna.</description>
+		<data>
+			<!-- <registeredResidentIdentification></registeredResidentIdentification> -->
+		</data>
+	</testcase>
+
+</testsuite>
