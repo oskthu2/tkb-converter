@@ -682,35 +682,34 @@ Om `passed` är `false`: orchestratorn ska **inte** gå vidare till QA Tracker u
 **Agenten ska uppdatera `QUESTIONS.md` med:**
 
 ```markdown
-## {ContractId} v{version}
+## {ContractId} v{version} — `igs/TKB_{domain_id}/`
 
 **Status:** in-progress | blocked | done
 **Senast uppdaterad:** {timestamp}
 
 ### Blockerare (kräver svar innan IG kan anses komplett)
 
-- [ ] **[BLOCK-001]** Kardinaliteten för fält `careUnitId` är angiven som "villkorlig" 
-  utan att villkoret specificeras. Ska detta modelleras som `0..1` med invariant, 
-  eller är det alltid obligatorisk i praktiken?
+- [ ] **[BLOCK-001]** `igs/TKB_clinicalprocess_healthcond_description/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `GetCareDocumentation` · fält `careUnitId`
+  Kardinaliteten är angiven som "villkorlig" utan att villkoret specificeras. Ska detta modelleras som `0..1` med invariant, eller är det alltid obligatorisk i praktiken?
 
 ### Antaganden gjorda (verifiera med domänexpert)
 
-- [ ] **[ASSUME-001]** `diagnosCode` har mappats till `CodeableConcept` med antagandet 
-  att kodverket är ICD-10-SE. Verifiera att detta stämmer och att canonical URL 
-  `http://hl7.org/fhir/sid/icd-10` är korrekt för svensk kontext.
+- [ ] **[ASSUME-001]** `igs/TKB_clinicalprocess_healthcond_description/input/fsh/logical-models/GetDiagnosis.fsh` · fält `diagnosCode`
+  Mappat till `CodeableConcept` med antagandet att kodverket är ICD-10-SE. Verifiera att detta stämmer och att canonical URL `http://hl7.org/fhir/sid/icd-10` är korrekt för svensk kontext.
 
 ### TODO (kan göras utan input men inte prioriterat)
 
-- [ ] **[TODO-001]** Lägg till FHIR-invarianter för villkorliga fält när blockerare 
-  ovan är lösta.
-- [ ] **[TODO-002]** Komplettera CodeSystem med alla koder från källsystemet — 
-  nuvarande fil är fragment.
+- [ ] **[TODO-001]** `igs/TKB_clinicalprocess_healthcond_description/input/fsh/logical-models/GetCareDocumentation.fsh`
+  Lägg till FHIR-invarianter för villkorliga fält när blockerare ovan är lösta.
+- [ ] **[TODO-002]** `igs/TKB_clinicalprocess_healthcond_description/input/fsh/codesystems/DiagnosisTypeCS.fsh`
+  Komplettera CodeSystem med alla koder från källsystemet — nuvarande fil är fragment.
 ```
 
 Varje fråga ska ha:
 - Unik ID (BLOCK/ASSUME/TODO + sekventiellt nummer per kontrakt)
+- **Relativ sökväg** till berörd fil (FSH-fil, pagecontent-sida eller sushi-config) — format: `igs/TKB_{domain_id}/input/...` — följt av kontraktnamn och fältnamn om tillämpligt. Utan denna information är det omöjligt att veta vilken tjänst i vilken IG/TKB posten rör.
 - Tydlig beskrivning av vad som är oklart
-- Kontext (vilket fält, vilken sektion i Word-dokumentet)
+- Kontext (vilket fält, vilken sektion i TKB-dokumentet, t.ex. "TKB avsnitt 7.2 rad 45")
 - Förslag på lösning om möjligt
 
 ---
