@@ -278,26 +278,19 @@ build_domain() {
     local qa_html="$ig_dir/output/qa.html"
     local qa_json_src="$ig_dir/output/qa.json"
 
-    if [ -f "$qa_json_src" ]; then
-        log "Kopierar qa.json..."
-        python3 /usr/local/bin/parse-qa \
-            --qa-json "$qa_json_src" \
-            --domain "$domain_id" \
-            --log "$build_log" \
-            --output "$qa_json"
-    elif [ -f "$qa_html" ]; then
-        log "Parsar qa.html..."
-        python3 /usr/local/bin/parse-qa \
-            --qa-html "$qa_html" \
-            --domain "$domain_id" \
-            --log "$build_log" \
-            --output "$qa_json"
+    # Skicka alltid med BÅDA --qa-json och --qa-html när de finns.
+    # parse-qa.py kombinerar dem: qa.json för summor, qa.html för detaljer
+    # (äldre IG Publisher-format har enbart summor i qa.json).
+    local parse_args=(--domain "$domain_id" --log "$build_log" --output "$qa_json")
+    [ -f "$qa_json_src" ] && parse_args+=(--qa-json "$qa_json_src")
+    [ -f "$qa_html" ]     && parse_args+=(--qa-html "$qa_html")
+
+    if [ -f "$qa_json_src" ] || [ -f "$qa_html" ]; then
+        log "Parsar QA-rapport (json=$([ -f "$qa_json_src" ] && echo ja || echo nej), html=$([ -f "$qa_html" ] && echo ja || echo nej))..."
+        python3 /usr/local/bin/parse-qa "${parse_args[@]}"
     else
         log "Ingen QA-rapport hittad (output/ saknas?)"
-        python3 /usr/local/bin/parse-qa \
-            --domain "$domain_id" \
-            --log "$build_log" \
-            --output "$qa_json"
+        python3 /usr/local/bin/parse-qa "${parse_args[@]}"
     fi
 
     # Skriv tillbaka till registry
