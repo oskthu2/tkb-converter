@@ -239,11 +239,26 @@ IG:ns sidstruktur följer TKB:ns rubriknumrering exakt. **Målet är att IG:n sk
 **Agentens arbetsordning:**
 1. Skapa katalogstruktur
 2. Kopiera bilder: `cp -r igs/TKB_{domain_id}/docx-converted/images/ igs/TKB_{domain_id}/input/images/`
-3. Skriv `sushi-config.yaml` och `ig.ini`
-4. Skriv `input/includes/menu.xml`
-5. Skriv `input/pagecontent/index.md`
-6. **Kopiera och anpassa sektionerna 1–6:** ta innehållet från `docx-converted/sections/{n}-*.md` direkt och lägg det i `input/pagecontent/{n}-*.md`. Lägg till FHIR IG-header om nödvändigt. Justera bildlänkar så att de pekar på `images/` (relativ sökväg i FHIR IG).
-7. Bygg `input/pagecontent/7-tjanstekontrakt.md` — kombinera konverterat innehåll från `docx-converted/sections/7-tjanstekontrakt.md` med FSH-länklista per kontrakt.
+3. **Kopiera källfiler (WSDL, XSD, övriga dokument)** från `source/` till `input/files/`:
+   ```bash
+   mkdir -p igs/TKB_{domain_id}/input/files/wsdl
+   mkdir -p igs/TKB_{domain_id}/input/files/schema
+   mkdir -p igs/TKB_{domain_id}/input/files/docs
+   # WSDL-filer
+   find igs/TKB_{domain_id}/source/ -name "*.wsdl" -exec cp {} igs/TKB_{domain_id}/input/files/wsdl/ \;
+   # XSD-filer
+   find igs/TKB_{domain_id}/source/ -name "*.xsd" -exec cp {} igs/TKB_{domain_id}/input/files/schema/ \;
+   # Övriga dokument (PDF, extra docx, etc.) utom TKB-huvuddokumentet
+   find igs/TKB_{domain_id}/source/ -name "*.pdf" -exec cp {} igs/TKB_{domain_id}/input/files/docs/ \;
+   find igs/TKB_{domain_id}/source/ -name "AB_*.docx" -exec cp {} igs/TKB_{domain_id}/input/files/docs/ \;
+   find igs/TKB_{domain_id}/source/ -name "SjD_*.docx" -exec cp {} igs/TKB_{domain_id}/input/files/docs/ \;
+   ```
+   Spara en inventarielista (`wsdl_files`, `xsd_files`, `doc_files`) för varje kontrakt i `domain-metadata.json` — Model Builder behöver dessa för länkarna i sektion 7.
+4. Skriv `sushi-config.yaml` och `ig.ini`
+5. Skriv `input/includes/menu.xml`
+6. Skriv `input/pagecontent/index.md`
+7. **Kopiera och anpassa sektionerna 1–6:** ta innehållet från `docx-converted/sections/{n}-*.md` direkt och lägg det i `input/pagecontent/{n}-*.md`. Lägg till FHIR IG-header om nödvändigt. Justera bildlänkar så att de pekar på `images/` (relativ sökväg i FHIR IG).
+8. Bygg `input/pagecontent/7-tjanstekontrakt.md` — kombinera konverterat innehåll från `docx-converted/sections/7-tjanstekontrakt.md` med FSH-länklista och källfils-index per kontrakt (se instruktion för Model Builder nedan).
 
 **Katalogstruktur per domän:**
 
@@ -269,6 +284,16 @@ igs/TKB_{domain_id}/
     │   ├── 6-gemensamma-informationskomponenter.md ← direkt från docx-converted/sections/
     │   └── 7-tjanstekontrakt.md                  ← docx-konverterat + FSH-artefaktlänkar
     ├── images/                                   ← kopierat från docx-converted/images/
+    ├── files/
+    │   ├── wsdl/                                 ← *.wsdl från source/
+    │   │   ├── GetCareDocumentation_3.0.5.wsdl
+    │   │   └── ...
+    │   ├── schema/                               ← *.xsd från source/
+    │   │   ├── core_components.xsd
+    │   │   ├── GetCareDocumentation.xsd
+    │   │   └── ...
+    │   └── docs/                                 ← PDF, AB_*.docx, SjD_*.docx
+    │       └── ...
     └── includes/
         └── menu.xml
 ```
@@ -371,10 +396,36 @@ Domänen innehåller följande tjänstekontrakt:
 
 Bas: kopiera `docx-converted/sections/7-tjanstekontrakt.md` **ordagrant**.
 
-Sedan, för varje kontrakt, lägg till ett avsnitt **"FHIR-artefakter"** direkt efter kontrakets sista underavsnitt:
+Sedan, för varje kontrakt, lägg till två avsnitt direkt efter kontraktets sista underavsnitt — **i denna ordning**:
+
+**Källfiler** (länkindex till RIV-TA-originalet):
 
 ```markdown
-### FHIR-artefakter för {ContractId}
+### {7.X} Källfiler (RIV-TA)
+
+Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
+
+| Fil | Typ |
+|-----|-----|
+| [{ContractId}_{version}.wsdl](files/wsdl/{ContractId}_{version}.wsdl) | WSDL-kontrakt |
+| [core_components.xsd](files/schema/core_components.xsd) | Domänschema (delat) |
+| [{ContractId}.xsd](files/schema/{ContractId}.xsd) | Tjänstespecifikt schema |
+{för varje övrig XSD som hör till kontraktet:}
+| [{filename}.xsd](files/schema/{filename}.xsd) | {beskrivning} |
+{för dokument i files/docs/ som är kontraktsspecifika, t.ex. SjD-filer:}
+| [{filename}](files/docs/{filename}) | Tjänstebeskrivning |
+```
+
+Regler:
+- Inkludera bara filer som faktiskt finns i `input/files/` (kontrollera innan du skriver tabellen)
+- `core_components.xsd` (eller motsvarande delat domänschema) listas på varje kontrakt eftersom det alltid är en dependency
+- Övriga XSD-filer: inkludera de vars namn innehåller kontraktets namn (t.ex. `GetCareDocumentation`)
+- Övriga docs: inkludera `SjD_TK_{ContractId}_*.docx` och `SjD_TP_{ContractId}_*.docx` om de finns
+
+**FHIR-artefakter** (genererade från FSH):
+
+```markdown
+### {7.X} FHIR-artefakter
 
 Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:
 
@@ -392,10 +443,18 @@ Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning
 ## Steg 4 — Model Builder-agent
 
 **Ge agenten:**
-- domain-metadata.json (komplett, inklusive alla kontrakt)
+- domain-metadata.json (komplett, inklusive alla kontrakt och `wsdl_files`/`xsd_files`/`doc_files`-inventarier per kontrakt)
+- Sökväg till `input/files/` (som IG Builder redan har populerat med WSDL, XSD och docs)
 - FSH-konventioner (se nedan)
 
 **Viktigt:** All output är FSH-källkod (`.fsh`-filer). Agenten producerar aldrig JSON direkt. Logiska modeller används **uteslutande** med `Logical:` — aldrig `Profile:` eller `Resource:`.
+
+**Källfils-index i sektion 7:** Model Builder-agenten ansvarar för att ta fram de exakta filnamnen och bygga källfils-tabellen för varje kontrakt (se mall i IG Builder ovan). Agenten ska:
+1. Lista faktiska filer i `input/files/wsdl/`, `input/files/schema/` och `input/files/docs/`
+2. För varje kontrakt: matcha filer på kontraktnamnet (t.ex. `GetCareDocumentation`) och det delade domänschemat
+3. Skriva källfils-tabellen som ett Markdown-fragment (`{ContractId}-source-files.md`) i `input/pagecontent/fragments/` — IG Builder inkluderar dessa i `7-tjanstekontrakt.md`
+
+Alternativt, om IG Builder och Model Builder körs sekventiellt och IG Builder fortfarande är aktiv: Model Builder returnerar källfils-tabellerna som del av sitt resultat, och orchestratorn ber IG Builder lägga in dem.
 
 **En logisk modell per tjänstekontrakt** — namngiven efter interaktionen i lowercase (t.ex. `getcaredocumentation`). Modellen representerar informationsstrukturen i **response**, vilken är den meningsbärande informationsmodellen. Request-parametrar dokumenteras som ett separat enkelt `Logical:` om de är mer komplexa än ett par filterfält — annars räcker dokumentationen i avsnitt 7.
 
