@@ -1,0 +1,29 @@
+services:
+  ig-publisher:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: tkb-ig-publisher:latest
+    volumes:
+      # Repot monteras read-write — build-skriptet skriver loggar och registry
+      - .:/workspace
+      # Cача publisher.jar mellan körningar (laddas ned automatiskt vid första körning)
+      - publisher-cache:/publisher
+      # Återanvänd FHIR-paketcache från värddatorn om den finns
+      - ${HOME}/.fhir:/root/.fhir
+    environment:
+      # "all" = bygg alla SUSHI-godkända domäner som ännu inte är publicerade
+      # Eller specificera: DOMAINS=itintegration.engagementindex,clinicalprocess.logistics.logistics
+      DOMAINS: "${DOMAINS:-all}"
+      # Terminologiserver: n/a = offline (inget externt anrop)
+      # Alternativt: https://tx.fhir.org/r4
+      TX_SERVER: "${TX_SERVER:-n/a}"
+      # Hoppa SUSHI-steget om FSH redan kompilerats
+      SUSHI_SKIP: "${SUSHI_SKIP:-0}"
+    # Resurser: IG Publisher är minneshungrig
+    mem_limit: 6g
+    working_dir: /workspace
+
+volumes:
+  publisher-cache:
+    driver: local

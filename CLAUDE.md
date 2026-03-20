@@ -672,6 +672,80 @@ Om `passed` är `false`: orchestratorn ska **inte** gå vidare till QA Tracker u
 
 ---
 
+## Steg 4.6 — IG Publisher (körs lokalt av användaren, inte av agenten)
+
+IG Publisher omvandlar SUSHI-genererade FHIR-resurser + pagecontent till en komplett publicerad HTML-IG. **Agenten kör inte detta steg direkt** — det sker lokalt med Docker:
+
+```bash
+# Bygg alla SUSHI-godkända IGs
+make build
+
+# Bygg en specifik domän
+make build-one D=itintegration.engagementindex
+
+# Visa felrapport efteråt
+make qa D=itintegration.engagementindex
+```
+
+Se `docker-compose.yml` och `Makefile` för konfigurationsalternativ (`TX_SERVER`, `DOMAINS`, m.m.).
+
+### Feedbackloop — agenten läser qa-errors.json
+
+När IG Publisher har körts klart skriver build-skriptet:
+
+```
+igs/TKB_{domain_id}/ig-publisher-logs/
+├── build.log        ← rålogg (stdout/stderr från publisher.jar)
+└── qa-errors.json   ← strukturerat JSON med fel/varningar (se nedan)
+```
+
+**qa-errors.json-format:**
+```json
+{
+  "domain_id": "itintegration.engagementindex",
+  "parsed_at": "2026-03-20T10:00:00Z",
+  "passed": false,
+  "summary": { "fatal": 0, "errors": 3, "warnings": 12, "hints": 5 },
+  "top_issues": [
+    "[ERROR] igs/TKB_itintegration_engagementindex/input/pagecontent/7-tjanstekontrakt.md: Unknown reference ...",
+    "[ERROR] StructureDefinition/findcontent: Element 'engagementId' type 'string' does not match ..."
+  ],
+  "issues": { "fatal": [], "errors": [...], "warnings": [...], "hints": [...] }
+}
+```
+
+### Vad agenten gör när den ser qa-errors.json
+
+När användaren ber Claude att agera på IG Publisher-resultaten:
+
+1. **Läs** `igs/TKB_{domain_id}/ig-publisher-logs/qa-errors.json`
+2. **Läs** `igs/TKB_{domain_id}/ig-publisher-logs/build.log` vid behov (för kontext)
+3. För varje fel i `top_issues`:
+   - Identifiera berörd fil (FSH-modell, pagecontent-sida, sushi-config)
+   - Bestäm om felet är en **BLOCK** (kräver beslut), **ASSUME** (antagande gjordes), eller **TODO** (kan fixas autonomt)
+   - Fält/sidor som kan fixas direkt: fixa i FSH-filen eller pagecontent-sidan
+   - Fält/sidor med semantisk tvetydighet: lägg till BLOCK i QUESTIONS.md
+4. **Uppdatera QUESTIONS.md** med nya poster — alltid med relativ sökväg:
+   ```markdown
+   - [ ] **[BLOCK-EI-005]** `igs/TKB_itintegration_engagementindex/input/fsh/logical-models/FindContent.fsh` · fält `engagementId`
+     IG Publisher-fel: "Type mismatch: expected Identifier but got string". Ska fältet vara Identifier istället för string?
+     Källa: ig-publisher-logs/qa-errors.json rad 12
+   ```
+5. **Fixa** syntaktiska/tekniska fel direkt (t.ex. felaktiga FSH-typer, brutna bildlänkar, `url`-fel i CodeSystem)
+6. **Kör `make sushi-one`** lokalt (eller be användaren göra det) för att verifiera att FSH-fixen kompilerar
+7. **Uppdatera registry**: sätt `ig_publisher_result.status` till `"needs-retry"` för domäner med åtgärdade fel
+
+**Prioriteringsordning för fel:**
+| Feltyp | Åtgärd |
+|--------|--------|
+| FATAL | Alltid BLOCK — kräver manuellt beslut |
+| ERROR på FSH-typ/kardinalitet | Försök fixa direkt om semantiken är klar |
+| ERROR på bildlänk / sidreferens | Fixa direkt |
+| ERROR på terminology-binding | BLOCK om kodverk är okänt, fixa om känd URL |
+| WARN på snapshot/differential | TODO — kan ignoreras initialt |
+
+---
+
 ## Steg 5 — QA Tracker-agent
 
 **Ge agenten:**
@@ -765,6 +839,7 @@ Varje fråga ska ha:
 3. Lägg till saknade domäner som `pending` i registret
 4. Hitta första domän med status `pending` (eller `in-progress` om tidigare avbrutet)
 5. Kör pipeline: Fetcher → Parser → IG Builder → Model Builder → SUSHI Validator → QA Tracker
+   _(IG Publisher körs separat av användaren med `make build` — se Steg 4.6)_
 6. Uppdatera status i registret
 7. Upprepa för nästa domän
 8. När alla domäner är `done` eller `blocked`: skriv en sammanfattning till `MIGRATION_SUMMARY.md`
