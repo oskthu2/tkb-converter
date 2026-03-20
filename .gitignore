@@ -1,20 +1,25 @@
-
 # SoapUI workspace-filer med kolon i filnamnet (ogiltiga på Windows/macOS)
 *:*-workspace.xml
-# Generellt: inga filer med kolon i källkods-arkiv
-source/**/*:*
 
 # source/-kataloger: råutpackade zip-filer från Bitbucket — spåras ej i git
 # (viktiga filer kopieras till input/files/ av IG Builder)
 igs/*/source/
 
-# Lokala build/temp-artefakter från IG Publisher (ska inte versioneras)
-docker-build.log
+# IG Publisher output — stora filer, regenererbara med 'make build'
 igs/*/output/
 igs/*/temp/
 igs/*/template/
 igs/*/input-cache/
 igs/*/Requirements-fromNarrative.json
 
-# Behåll qa-errors.json, men ignorera stora råloggar
+# Docker-build temporärlogg
+docker-build.log
+
+# Bilder i docx-converted/ är exakta kopior av input/images/ (IG Publisher-källan)
+# Undviker dubblering — input/images/ spåras och är vad som räknas
+igs/*/docx-converted/images/
+
+# IG Publisher build-loggar — individuella varningar fångas i qa-errors.json av parse-qa.py.
+# Om qa-errors.json efter rebuild fortfarande saknar detaljer: ta bort raden nedan
+# och kör 'git add igs/*/ig-publisher-logs/build.log' för att fånga råloggen istället.
 igs/*/ig-publisher-logs/*.log
