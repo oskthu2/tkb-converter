@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="urn:riv:clinicalprocess:activityprescription:prescribe:2"
+    xmlns:fhir="http://hl7.org/fhir"
+    xmlns:dosage='urn:riv:clinicalprocess:activityprescription:prescribe:2'
+    targetNamespace="urn:riv:clinicalprocess:activityprescription:prescribe:2" elementFormDefault="qualified"
+    attributeFormDefault="unqualified" version="2.0">
+    
+    
+
+    <xs:complexType name="MedicationPrescription">
+        <xs:sequence>
+            <xs:element name="registrationData" type="tns:RegistrationData" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>id, registrerad av och registreringstidpunkt.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="patientId" type="fhir:Identifier" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Identifiering av patienten.<br/>För att registrera läkemedelsordinationer i NOD krävs svenskt personnummer eller samordningsnummer. På sikt kommer även andra typer av identitet att kunna användas, i första hand reservnummer och katastrofnummer. <br/>Undantag: Person med enbart samordningsnummer kan inte registreras för Dos och följaktligen inte heller ordineras Dos.<br/>Attributet system i datatypen Identifier (från FHIR) anger vilken typ av identifiering som används, dvs. om det t.ex. är personnummer eller samordningsnummer.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="prescriber" type="tns:HealthcareProfessionalType" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Ordinatör är den som är ansvarig för det medicinska beslutet för just den här den Läkemedelsordinationen och som (verksamhetsmässigt) signerat den.<br/>Ordinatören kan i undantagsfall sakna hsa-id och behöva anges med för- och efternamn i klartext.<br/>Se not 1.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="responsiblePrescriber" type="tns:HealthcareProfessionalType" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Vid ordination enligt generellt direktiv anges den person som är ansvarig för detta generella direktiv.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="writeTime" type="xs:dateTime" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Tidpunkt då det medicinska beslutet fattades. <br/>Normalfallet bör vara att Läkemedelsordinationen registreras i NOD i samband med att beslutet fattas varvid ordinationstidpunkt och registreringstidpunkt kommer att vara lika (sånär som på den tid det tar att genomföra tjänsteanropet). <br/>I vissa fall kommer de dock att skilja sig åt, t.ex. då en ordination som finns i ett vårdsystem och efterregistreras i NOD, eller då en ordination återskapas baserat på information från ett NEF-recept. I dessa fall skall ordinationstidpunkt, så gott det går, sättas till den tidpunkt då ordinationen ursprungligen skapades.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="treatmentStartTime" type="xs:dateTime" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Tidpunkt från vilken patienten ska ta sitt läkemedel.<br/>insättningstidpunkt utgör startpunkt för angiven dosering.<br/>Vid utsättning ska insättningstidpunkt sättas till samma som utsättningstidpunkt.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="treatmentEndTime" type="xs:dateTime" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Planerad tidpunkt vid vilken patienten ska upphöra att ta sitt läkemedel.<br/>Det är utsättningstidpunkten i den gällande Läkemedelsordinationen som är styrande för om läkemedelsbehandlingen är avlutad.<br/>Om attributet inte anges innebär det att läkemedelsbehandlingen ska pågå tills vidare. <br/>Tidpunkten får, om den anges, inte vara före insättningstidpunkt.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="evaluationTime" type="xs:dateTime" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Tidpunkt då läkemedelsbehandlingen senast bör utvärderas. <br/>Tidpunkten får, om den anges, inte vara före insättningstidpunkt.<br/>Syftet är t.ex. att vårdsystemen ska kunna uppmärksamma ansvarig ordinatör när utvärderingstidpunkten närmar sig.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="evaluatedBy" type="tns:HealthcareProfessionalType" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Den aktör, dvs. ordinatör eller vårdenhet och vårdgivare, som i förekommande fall ska genomföra utvärdering.<br/>Om ingen aktör anges så anses aktuell ordinatör vara ansvarig för utvärderingen.<br/>Om endast vårdenhet och vårdgivare är kända kan information om personen utlämnas.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="reason" type="tns:Reason" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Orsaken till beslutet.<br/>Syftet är att ordinatören ska kunna ange orsak till en ändring av en läkemedelsbehandling, t.ex. ändring av doseringen, byte av läkemedelsfabrikat eller utsättning av andra skäl än planerad utsättning. Fältet ska inte förväxlas med ordinationsorsak som avser den orsaken till behandlingen som helhet. Tillsammans med ordinationsorsak kommer samtliga beslutsorsaker att utgöra en slags läkemedelsjournal för läkemedelsbehandlingen.<br/>Fältet ingår inte i Expedieringsunderlag och kan t.ex. inte skrivas ut på etiketten vid expediering. <br/>Vid makulering av expedieringsunderlag härleds dock expedieringsunderlagets makuleringsorsak (1-4) från beslutsorsak.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="annotation" type="xs:string" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Ordinatörens kommentarer i fritext kopplade till en specifik ordination.<br/>Syftet är t.ex. att ordinatören i fritext ska kunna ange sådant som inte framgår av beslutsorsak eller ordinationsorsak och som är av intresse för annan vård- och omsorgspersonal.<br/>Fältet är avsett att beskriva nuläget för läkemedelsbehandlingen utan att användaren ska behöva ta del av notatfältet i tidigare läkemedelsordinationer.<br/>Fältet ingår inte i Expedieringsunderlag och kan t.ex. inte skrivas ut på etiketten vid expediering.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="use" type="xs:string" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Anvisningar i fri text som för patienten beskriver hur läkemedlet skall användas eller administreras t.ex. ”sväljes hela”, ”påstrykes i armvecket”. Fältet kan även rymma andra anvisningar, t.ex. sic[1] (eller obs).<br/>Ett förslag till text är tänkt att i vårdsystemet hämtas från SIL baserat på det läkemedel som valts, men kan behöva kompletteras manuellt.<br/>Ingår i Expedieringsunderlag som en del av doseringstext 1.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="purpose" type="xs:string" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Behandlingsändamål i klartext.<br/><br/>Ingår i Expedieringsunderlag som Ändamål klartext</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="medication" type="tns:Medication_virtual" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Det läkemedel (eller handelsvara) som Läkemedelsordinationen avser.<br/>Det finns i modellen ingen begränsning för vilka läkemedel som kan anges eller vilka byten som får ske inom en Läkemedelsbehandling. Det är dock rimligt att anta att någon form av begränsning är på sin plats (t.ex. att byte bara får ske inom samma ATC-kod), men en sådan begränsning är en verksamhetsregel som kan realiseras som en del av tjänsterna NOD eller i vårdsystemet.<br/>Vid utsättning anges det läkemedel som sätts ut, dvs. det som angavs i den föregående Läkemedelsordinationen.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="dosage" type="dosage:Dosage" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Dosering enligt vårdens doseringsmodell.<br/>Doseringen ska anges i relation till insättningstidpunkt.<br/>Vid utsättning anges den tidigare doseringen. Det är med andra ord utsättningstidpunkten som anger att behandlingen avslutas – inte doseringen.<br/>I vissa fall (t.ex. vid ordination av handelsvaror) är dosering irrelevant och kan utelämnas.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="treamentReason" type="tns:Reason" minOccurs="1" maxOccurs="unbounded" >
+                <xs:annotation> <xs:documentation>Ordinationsorsak enligt separat struktur.<br/>Det bör påpekas att ordinationsorsak (i förekommande fall) ska anges av vårdsystemet för ny instans av Läkemedelsordination inom samma läkemedelsbehandling. <br/>Principen att det senast beslutet ska innehålla en komplett beskrivning av den pågående läkemedelsbehandlingen gäller även här. Även vid utsättning ska följaktligen ordinationsorsak anges.<br/>Även om det är ovanligt att ordinationsorsaken ändras inom en läkemedelsbehandling så finns det inget hinder (i modellen) för detta.<br/>Om ordinationsorsak anges ska minst en, eventuellt flera, anges som huvudorsak. <br/>Ordinationsorsak får inte överföras till receptregistret eller finnas på recept/expedieringsunderlag.<br/>Se även not 4.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="site" type="fhir:CodeableConcept" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Den plats på kroppen genom vilket läkemedlet intas eller appliceras.<br/>En SNOMED-kod under SCTID:91723000 "anatomical structure"</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="route" type="fhir:CodeableConcept" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Den väg som läkemedlet tar sig in i kroppen.<br/>En SNOMED-kod under SCTID: 284009009 "route of administration value"</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="method" type="fhir:CodeableConcept" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Den teknik med vilken läkemedlet administreras.<br/>En SNOMED-kod under SCTID: 107733003 "introduction (procedure)"</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MedicationPrescription_setter">
+        <xs:sequence>
+            <xs:element name="prescriber" type="tns:HealthcareProfessionalType" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Ordinatör är den som är ansvarig för det medicinska beslutet för just den här den Läkemedelsordinationen och som (verksamhetsmässigt) signerat den.<br/>Ordinatören kan i undantagsfall sakna hsa-id och behöva anges med för- och efternamn i klartext.<br/>Se not 1.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="responsiblePrescriber" type="tns:HealthcareProfessionalType" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Vid ordination enligt generellt direktiv anges den person som är ansvarig för detta generella direktiv.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="writeTime" type="xs:dateTime" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Tidpunkt då det medicinska beslutet fattades. <br/>Normalfallet bör vara att Läkemedelsordinationen registreras i NOD i samband med att beslutet fattas varvid ordinationstidpunkt och registreringstidpunkt kommer att vara lika (sånär som på den tid det tar att genomföra tjänsteanropet). <br/>I vissa fall kommer de dock att skilja sig åt, t.ex. då en ordination som finns i ett vårdsystem och efterregistreras i NOD, eller då en ordination återskapas baserat på information från ett NEF-recept. I dessa fall skall ordinationstidpunkt, så gott det går, sättas till den tidpunkt då ordinationen ursprungligen skapades.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="treatmentStartTime" type="xs:dateTime" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Tidpunkt från vilken patienten ska ta sitt läkemedel.<br/>insättningstidpunkt utgör startpunkt för angiven dosering.<br/>Vid utsättning ska insättningstidpunkt sättas till samma som utsättningstidpunkt.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="treatmentEndTime" type="xs:dateTime" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Planerad tidpunkt vid vilken patienten ska upphöra att ta sitt läkemedel.<br/>Det är utsättningstidpunkten i den gällande Läkemedelsordinationen som är styrande för om läkemedelsbehandlingen är avlutad.<br/>Om attributet inte anges innebär det att läkemedelsbehandlingen ska pågå tills vidare. <br/>Tidpunkten får, om den anges, inte vara före insättningstidpunkt.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="evaluationTime" type="xs:dateTime" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Tidpunkt då läkemedelsbehandlingen senast bör utvärderas. <br/>Tidpunkten får, om den anges, inte vara före insättningstidpunkt.<br/>Syftet är t.ex. att vårdsystemen ska kunna uppmärksamma ansvarig ordinatör när utvärderingstidpunkten närmar sig.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="evaluatedBy" type="tns:HealthcareProfessionalType" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Den aktör, dvs. ordinatör eller vårdenhet och vårdgivare, som i förekommande fall ska genomföra utvärdering.<br/>Om ingen aktör anges så anses aktuell ordinatör vara ansvarig för utvärderingen.<br/>Om endast vårdenhet och vårdgivare är kända kan information om personen utlämnas.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="reason" type="tns:Reason" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Orsaken till beslutet.<br/>Syftet är att ordinatören ska kunna ange orsak till en ändring av en läkemedelsbehandling, t.ex. ändring av doseringen, byte av läkemedelsfabrikat eller utsättning av andra skäl än planerad utsättning. Fältet ska inte förväxlas med ordinationsorsak som avser den orsaken till behandlingen som helhet. Tillsammans med ordinationsorsak kommer samtliga beslutsorsaker att utgöra en slags läkemedelsjournal för läkemedelsbehandlingen.<br/>Fältet ingår inte i Expedieringsunderlag och kan t.ex. inte skrivas ut på etiketten vid expediering. <br/>Vid makulering av expedieringsunderlag härleds dock expedieringsunderlagets makuleringsorsak (1-4) från beslutsorsak.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="annotation" type="xs:string" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Ordinatörens kommentarer i fritext kopplade till en specifik ordination.<br/>Syftet är t.ex. att ordinatören i fritext ska kunna ange sådant som inte framgår av beslutsorsak eller ordinationsorsak och som är av intresse för annan vård- och omsorgspersonal.<br/>Fältet är avsett att beskriva nuläget för läkemedelsbehandlingen utan att användaren ska behöva ta del av notatfältet i tidigare läkemedelsordinationer.<br/>Fältet ingår inte i Expedieringsunderlag och kan t.ex. inte skrivas ut på etiketten vid expediering.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="use" type="xs:string" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Anvisningar i fri text som för patienten beskriver hur läkemedlet skall användas eller administreras t.ex. ”sväljes hela”, ”påstrykes i armvecket”. Fältet kan även rymma andra anvisningar, t.ex. sic[1] (eller obs).<br/>Ett förslag till text är tänkt att i vårdsystemet hämtas från SIL baserat på det läkemedel som valts, men kan behöva kompletteras manuellt.<br/>Ingår i Expedieringsunderlag som en del av doseringstext 1.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="purpose" type="xs:string" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Behandlingsändamål i klartext.<br/><br/>Ingår i Expedieringsunderlag som Ändamål klartext</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="medication" type="tns:Medication_virtual" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Det läkemedel (eller handelsvara) som Läkemedelsordinationen avser.<br/>Det finns i modellen ingen begränsning för vilka läkemedel som kan anges eller vilka byten som får ske inom en Läkemedelsbehandling. Det är dock rimligt att anta att någon form av begränsning är på sin plats (t.ex. att byte bara får ske inom samma ATC-kod), men en sådan begränsning är en verksamhetsregel som kan realiseras som en del av tjänsterna NOD eller i vårdsystemet.<br/>Vid utsättning anges det läkemedel som sätts ut, dvs. det som angavs i den föregående Läkemedelsordinationen.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="dosage" type="dosage:Dosage" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Dosering enligt vårdens doseringsmodell.<br/>Doseringen ska anges i relation till insättningstidpunkt.<br/>Vid utsättning anges den tidigare doseringen. Det är med andra ord utsättningstidpunkten som anger att behandlingen avslutas – inte doseringen.<br/>I vissa fall (t.ex. vid ordination av handelsvaror) är dosering irrelevant och kan utelämnas.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="treamentReason" type="tns:Reason" minOccurs="1" maxOccurs="unbounded" >
+                <xs:annotation> <xs:documentation>Ordinationsorsak enligt separat struktur.<br/>Det bör påpekas att ordinationsorsak (i förekommande fall) ska anges av vårdsystemet för ny instans av Läkemedelsordination inom samma läkemedelsbehandling. <br/>Principen att det senast beslutet ska innehålla en komplett beskrivning av den pågående läkemedelsbehandlingen gäller även här. Även vid utsättning ska följaktligen ordinationsorsak anges.<br/>Även om det är ovanligt att ordinationsorsaken ändras inom en läkemedelsbehandling så finns det inget hinder (i modellen) för detta.<br/>Om ordinationsorsak anges ska minst en, eventuellt flera, anges som huvudorsak. <br/>Ordinationsorsak får inte överföras till receptregistret eller finnas på recept/expedieringsunderlag.<br/>Se även not 4.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="site" type="fhir:CodeableConcept" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Den plats på kroppen genom vilket läkemedlet intas eller appliceras.<br/>En SNOMED-kod under SCTID:91723000 "anatomical structure"</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="route" type="fhir:CodeableConcept" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Den väg som läkemedlet tar sig in i kroppen.<br/>En SNOMED-kod under SCTID: 284009009 "route of administration value"</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="method" type="fhir:CodeableConcept" minOccurs="0" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Den teknik med vilken läkemedlet administreras.<br/>En SNOMED-kod under SCTID: 107733003 "introduction (procedure)"</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+
+</xs:schema>
