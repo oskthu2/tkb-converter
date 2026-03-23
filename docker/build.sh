@@ -118,8 +118,8 @@ requested = '$requested'
 if requested == 'all':
     ready = [
         d['id'] for d in r.get('domains', [])
-        if d.get('sushi_result', {}).get('passed')
-        and d.get('ig_publisher_result', {}).get('status') not in ('success',)
+        if (d.get('sushi_result') or {}).get('passed')
+        and (d.get('ig_publisher_result') or {}).get('status') not in ('success',)
     ]
 else:
     ready = [s.strip() for s in requested.split(',') if s.strip()]
@@ -256,6 +256,7 @@ build_domain() {
     local exit_code=0
     java -Xmx4g -jar "$PUBLISHER_JAR" \
         -ig "$ig_dir/ig.ini" \
+        -version 4.0.1 \
         -no-sushi \
         -tx "$TX_SERVER" \
         2>&1 | tee -a "$build_log" || exit_code=$?
