@@ -350,6 +350,9 @@ parameters:
   apply-publisher: true
   apply-version: true
   apply-copyright: true
+  special-url:                                     # lägg till en rad per CodeSystem med https://fhir.inera.se/CodeSystem/...-url
+    - https://fhir.inera.se/CodeSystem/{kodverk-slug-1}-cs
+    # ... fler CodeSystem-URL:er
 
 publisher: Inera AB
 contact:
@@ -373,7 +376,16 @@ FHIR Implementation Guide för tjänstedomänen **{domain_title}** version {doma
 Genererad från Ineras Tjänstekontraktsbeskrivning (TKB).
 
 Domänen innehåller följande tjänstekontrakt:
-{lista med kontrakt-ID och version, en rad per kontrakt}
+
+| Kontrakt | Version | Beskrivning |
+|----------|---------|-------------|
+| [GetCareDocumentation](7-tjanstekontrakt.html#getcaredocumentation) | 3.0 | ... |
+| [GetDiagnosis](7-tjanstekontrakt.html#getdiagnosis) | 2.0 | ... |
+```
+
+**KRITISKT — ankarformat:** Rubrikerna i `7-tjanstekontrakt.md` är alltid `### GetContractName` (utan nummerprefixet 7.1, 7.2). Ankaret blir då `#getcontractname` (lowercase). Skriv **aldrig** `#71-getcontractname` eller `#7.1-getcontractname` — dessa ankare existerar inte och ger brutna länkar vid validering.
+
+```markdown
 
 ## Innehåll
 
@@ -572,12 +584,28 @@ CodeSystem: {KodverkNamn}CS
 Id: {kodverk-slug}-cs
 Title: "{KodverkNamn}"
 Description: "Kodverk {KodverkNamn} enligt {Källsystem}. OID: {OID}."
-* ^url = "urn:oid:{OID}"
+* ^url = "https://fhir.inera.se/CodeSystem/{kodverk-slug}-cs"
 * ^status = #active
 * ^content = #complete             // eller #fragment om ej komplett
 * #KOD1 "{KOD1}" "{Beskrivning}"
 * #KOD2 "{KOD2}" "{Beskrivning}"
 ```
+
+**KRITISKT — `special-url` i sushi-config.yaml:** Eftersom CodeSystem-URL:en `https://fhir.inera.se/CodeSystem/...` ligger utanför IG:ns canonical namespace (`https://fhir.inera.se/ig/{domain-slug}`), **måste** varje CodeSystem-URL listas under `special-url` i `sushi-config.yaml`. Annars genererar IG Publisher `RESOURCE_CANONICAL_MISMATCH`-fel som gör bygget rött. Lägg till ett `special-url`-block i `parameters`-sektionen för **varje** CodeSystem du skapar:
+
+```yaml
+parameters:
+  show-inherited-invariants: false
+  apply-contact: true
+  apply-publisher: true
+  apply-version: true
+  apply-copyright: true
+  special-url:
+    - https://fhir.inera.se/CodeSystem/{kodverk-slug-1}-cs
+    - https://fhir.inera.se/CodeSystem/{kodverk-slug-2}-cs
+```
+
+Alternativt kan du använda OID-baserad canonical om kodverket har ett känt OID: `* ^url = "urn:oid:{OID}"` — OID-URL:er utlöser aldrig `RESOURCE_CANONICAL_MISMATCH` och behöver inte listas i `special-url`.
 
 **Om kodverket är externdefinierat** (t.ex. ICD-10-SE, KSH97, Snomed CT):
 - Skapa INTE ett eget CodeSystem
