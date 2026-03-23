@@ -18,8 +18,8 @@ Domänen innehåller följande tjänstekontrakt:
 
 | Kontrakt | Version | Beskrivning |
 |----------|---------|-------------|
-| [GetVaccinationHistory](7-tjanstekontrakt.html#71-getvaccinationhistory) | 2.0 | Returnerar ordinerade och/eller administrerade vaccinationer för en patient |
-| [GetMedicationHistory](7-tjanstekontrakt.html#72-getmedicationhistory) | 2.2 | Returnerar ordinerade, förskrivna och/eller administrerade läkemedel för en patient |
+| [GetVaccinationHistory](7-tjanstekontrakt.html#getvaccinationhistory) | 2.0 | Returnerar ordinerade och/eller administrerade vaccinationer för en patient |
+| [GetMedicationHistory](7-tjanstekontrakt.html#getmedicationhistory) | 2.2 | Returnerar ordinerade, förskrivna och/eller administrerade läkemedel för en patient |
 
 ## Innehåll
 
