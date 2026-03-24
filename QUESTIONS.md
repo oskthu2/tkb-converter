@@ -389,3 +389,46 @@ Inga blockerare.
 
 - [ ] **[TODO-CARELISTING-004]** `igs/TKB_crm_carelisting/input/includes/menu.xml`
   SUSHI-varning om menu.xml-dublett (både i sushi-config.yaml och som fil). menu-property i sushi-config ignoreras. Rätt beteende — menu.xml-filen används. Ingen åtgärd krävs.
+
+---
+
+## crm.scheduling v1.1 — `igs/TKB_crm_scheduling/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-03-24
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-CRM-001]** `igs/TKB_crm_scheduling/input/fsh/logical-models/GetBookingDetails.fsh` · fält `timeslotDetail.purpose`
+  Elementet `purpose` har kardinalitet `0..1` men är beskrivs i TKB som obligatoriskt om `isInvitation = true` (kallelse). Villkorlig kardinalitet kräver en FHIR-invariant. FSH-modellen använder `0..1` med kommentar om villkoret.
+  Källa: TKB avsnitt 7.8 (GetBookingDetails), Övriga regler.
+  Förslag: Lägg till en invariant `purpose.exists() or isInvitation = false` om semantiken ska modelleras formellt i FHIR.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-CRM-001]** `igs/TKB_crm_scheduling/input/fsh/logical-models/GetAllPerformers.fsh` · fält `performerInfos.performer`
+  I XSD-schemat stavas fältnamnet `perfomer` (ett 'r' saknas, issue id 19 i källrepo). FSH-modellen använder korrekt stavning `performer`. Verifiera att detta är rätt beslut — alternativet vore att matcha XSD-stavningen exakt.
+  Källa: TKB avsnitt 7.4 (GetAllPerformers).
+
+- [ ] **[ASSUME-CRM-002]** `igs/TKB_crm_scheduling/input/fsh/codesystems/ResultCodeCS.fsh`
+  ResultCodeEnum (OK/INFO/ERROR) är inte ett explicit kodverk i TKB, utan en enum i XSD-schemat. Skapades som CodeSystem med de tre koderna. Verifiera att enumvärdena är kompletta och att det inte finns fler möjliga värden.
+  Källa: `crm_scheduling_1.1.xsd`.
+
+- [ ] **[ASSUME-CRM-003]** Allmänt — inga zip-filer i Bitbucket downloads.
+  Domänens källfiler hämtades direkt från Bitbucket repository source-katalog (commit `d5bfa3372dce578af559cf352be132e51fd109dd`). Det saknas zip-artefakt i downloads-sektionen. Verifiera att denna commit representerar den senaste godkända versionen av domänen.
+  Källa: `https://api.bitbucket.org/2.0/repositories/rivta-domains/riv.crm.scheduling/downloads` (tom).
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-CRM-001]** `igs/TKB_crm_scheduling/input/fsh/logical-models/` — alla filer
+  Flera fältnamn innehåller underscore (t.ex. `healthcare_facility`, `subject_of_care`, `cancel_booking_allowed`). SUSHI genererar 72 varningar om `Inadvisable path`. Dessa matchar de ursprungliga RIV-TA-fältnamnen. Överväg att antingen byta till camelCase-ekvivalenter i FSH (t.ex. `healthcareFacility`) och dokumentera mappningen, eller acceptera varningarna.
+  Ref: SUSHI-varning `eld-20`.
+
+- [ ] **[TODO-CRM-002]** `igs/TKB_crm_scheduling/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Avsnitt 6 saknas i källdokumentet TKB_crm_scheduling.docx. En platshållar-sida skapades. De komplexa typerna (TimeslotType, SubjectOfCareType m.fl.) som definieras i avsnitt 8 i källdokumentet bör läggas till i avsnitt 6 eller sammanfogas med avsnitt 7-tjanstekontrakt.md.
+
+- [ ] **[TODO-CRM-003]** `igs/TKB_crm_scheduling/sushi-config.yaml` — SUSHI-varning om publisher-typ
+  SUSHI rapporterar: "Configuration property publisher has a value with an unexpected type." Verifiera sushi-config.yaml publisher-formatets korrekthet mot senaste SUSHI-specifikation.
+
+- [ ] **[TODO-CRM-004]** `igs/TKB_crm_scheduling/input/fsh/` — komplextyper som egna Logical-modeller
+  De gemensamma datatyperna `TimeslotType`, `SubjectOfCareType`, `PerformerInfoType`, `HealthcareFacilityInfoType` etc. är inbäddade som `BackboneElement` i respektive kontrakt. Överväg att modellera dem som egna `Logical:`-definitioner och referera till dessa från kontrakt-modellerna — skulle minska duplicering och öka återanvändbarhet.
