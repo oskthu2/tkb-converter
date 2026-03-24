@@ -346,3 +346,46 @@ Inga blockerare.
 - [ ] **[TODO-CRM-002]** `igs/TKB_crm_requeststatus/sushi-config.yaml`
   SUSHI-varning: "Configuration property publisher has a value with an unexpected type." Troligen ett SUSHI-versionsspecifikt problem med hur `publisher` och `contact` kombineras. Granska sushi-config.yaml om IG Publisher-bygget ger fel relaterade till detta.
 
+
+---
+
+## crm.carelisting v1.0 — `igs/TKB_crm_carelisting/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-03-24
+
+> **Anmärkning:** Källdokumentet för denna domän (RIV_spec_Nationell_Listningsstjänsten.docx) är en informationsspecifikation snarare än en TKB med standard-rubriknumrering (avsnitt 1–7). Bitbucket-repositoriet saknar en `downloads`-sektion; zip hämtades från tagged commit `TD_CARELISTING_1_0_R`.
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-CARELISTING-001]** `igs/TKB_crm_carelisting/input/fsh/logical-models/GetListing.fsh` · alla kontrakt
+  Källdokumentet saknar ett dedikerat avsnitt 7 (Tjänstekontrakt). Kontraktsspecifikationerna är baserade på XSD-analys och V-MIM-avsnitt i informationsspecifikationen. Verifiera med domänexpert att alla fält, kardinaliteter och beskrivningar är korrekta mot den ursprungliga avsedda specifikationen.
+  Källa: RIV_spec_Nationell_Listningsstjänsten.docx — avsnitt saknas.
+
+- [ ] **[BLOCK-CARELISTING-002]** `igs/TKB_crm_carelisting/input/fsh/logical-models/GetListing.fsh` · fält `listingType` i alla kontrakt
+  Listningstyp (t.ex. BVC, HLM, FL) är definierad som `xs:string` i XSD utan centralt kodverk. Källdokumentet anger explicit "KV Listningstyp: Finns inte för tillfället, istället använd en fritext." Ska FHIR-modellen använda `string` (nuvarande) eller ska ett lokalt CodeSystem med `#fragment` skapas som platshållare?
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-CARELISTING-001]** `igs/TKB_crm_carelisting/input/fsh/logical-models/GetListing.fsh` · fält `facilityId` och `resourceId`
+  HSA-ID (HsaIdType i XSD) är mappat till FHIR `Identifier`. Antagandet är att system-OID `urn:oid:1.2.752.129.2.1.4.1` används. Verifiera mot hur HSA-ID ska representeras i FHIR-context.
+
+- [ ] **[ASSUME-CARELISTING-002]** `igs/TKB_crm_carelisting/input/fsh/logical-models/GetListing.fsh` · BackboneElements för nästlade strukturer
+  Nästlade XSD-typer (Facility, Resource, SubjectOfCare, Listing) är modellerade som `BackboneElement` i den logiska modellen. Dessa existerar inte som separata FHIR-resurser. Verifiera om de bör brytas ut till egna `Logical:` resurser för återanvändbarhet.
+
+- [ ] **[ASSUME-CARELISTING-003]** `igs/TKB_crm_carelisting/sushi-config.yaml`
+  `se.inera.rivta.core#current`-dependency borttagen eftersom paketet inte är tillgängligt offline och inte används i andra domän-IGs. Verifiera om det behövs för gemensamma bastyper.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-CARELISTING-001]** `igs/TKB_crm_carelisting/`
+  Bygg IG med IG Publisher (`make build-one D=crm.carelisting`) och granska qa.html för eventuella varningar.
+
+- [ ] **[TODO-CARELISTING-002]** `igs/TKB_crm_carelisting/sushi-config.yaml`
+  SUSHI-varning: "Configuration property publisher has a value with an unexpected type." Troligen SUSHI-versionsspecifikt problem. Granska om IG Publisher-bygget ger relaterade fel.
+
+- [ ] **[TODO-CARELISTING-003]** `igs/TKB_crm_carelisting/input/fsh/logical-models/`
+  SUSHI-varning: "Type characteristics code system not found" för alla 10 logiska modeller. Detta är en offline-varning (codesystem-uri inte laddad) och hindrar inte kompilering. Kan ignoreras tills IG Publisher körs.
+
+- [ ] **[TODO-CARELISTING-004]** `igs/TKB_crm_carelisting/input/includes/menu.xml`
+  SUSHI-varning om menu.xml-dublett (både i sushi-config.yaml och som fil). menu-property i sushi-config ignoreras. Rätt beteende — menu.xml-filen används. Ingen åtgärd krävs.
