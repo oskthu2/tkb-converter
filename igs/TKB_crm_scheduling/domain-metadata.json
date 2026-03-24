@@ -1,0 +1,349 @@
+{
+  "domain_id": "crm.scheduling",
+  "domain_title": "crm: scheduling",
+  "domain_version": "1.1",
+  "rivta_namespace_base": "urn:riv:crm:scheduling",
+  "docx_converted_dir": "igs/TKB_crm_scheduling/docx-converted/",
+  "sections": {
+    "1_inledning": "igs/TKB_crm_scheduling/docx-converted/sections/1-inledning.md",
+    "2_versionsinformation": "igs/TKB_crm_scheduling/docx-converted/sections/2-versionsinformation.md",
+    "3_tjanstedomanens_arkitektur": "igs/TKB_crm_scheduling/docx-converted/sections/3-tjanstedomanens-arkitektur.md",
+    "4_tjanstedomanens_krav_och_regler": "igs/TKB_crm_scheduling/docx-converted/sections/4-tjanstedomanens-krav-och-regler.md",
+    "5_tjanstedomanens_meddelandemodeller": "igs/TKB_crm_scheduling/docx-converted/sections/5-tjanstedomanens-meddelandemodeller.md",
+    "6_gemensamma_informationskomponenter": null
+  },
+  "contracts": [
+    {
+      "section_number": "7.1",
+      "id": "CancelBooking",
+      "display_name": "Avboka bokning",
+      "version": "1.1",
+      "rivta_namespace": "urn:riv:crm:scheduling:CancelBooking:1",
+      "description": "Tjänst för att avboka en bokning vid en vårdenhet.",
+      "request_fields": [
+        { "name": "healthcare_facility", "type": "HsaIdType (string)", "cardinality": "1..1", "description": "HSA-id för mottagning/vårdenhet" },
+        { "name": "bookingId", "type": "BookingIdType (string)", "cardinality": "1..1", "description": "Intern bokningsidentitet" },
+        { "name": "message", "type": "string", "cardinality": "0..1", "description": "Invånarens beskrivning av orsak för avbokning" }
+      ],
+      "response_fields": [
+        { "name": "resultCode", "type": "ResultCodeEnum (string)", "cardinality": "1..1", "description": "Status för den gjorda avbokningen" },
+        { "name": "resultText", "type": "string", "cardinality": "0..1", "description": "Ev. meddelande kopplat till resultatkoden" }
+      ],
+      "open_questions_from_parsing": []
+    },
+    {
+      "section_number": "7.2",
+      "id": "GetAllCareTypes",
+      "display_name": "Hämta alla vårdtyper",
+      "version": "1.1",
+      "rivta_namespace": "urn:riv:crm:scheduling:GetAllCareTypes:1",
+      "description": "Tjänst att för invånaren kunna visa en lista över vilka typer av vård som kan bokas hos en viss vårdenhet/mottagning.",
+      "request_fields": [
+        { "name": "healthcare_facility", "type": "HsaIdType (string)", "cardinality": "1..1", "description": "HSA-id för mottagning/vårdenhet" },
+        { "name": "timeTypeIDs", "type": "TimeTypeIDType (string)", "cardinality": "0..*", "description": "Lista med tidstyper" },
+        { "name": "performer", "type": "HsaIdType (string)", "cardinality": "0..*", "description": "HSA-id för medarbetaren" },
+        { "name": "subject_of_care", "type": "SubjectOfCareIdType (string)", "cardinality": "1..1", "description": "Personnummer enl. yyyymmddxxxx" }
+      ],
+      "response_fields": [
+        { "name": "careTypes", "type": "CareTypeType", "cardinality": "0..*", "description": "Lista med vårdtyper" },
+        { "name": "careTypeName", "type": "string", "cardinality": "1..1", "description": "Beskrivande text för vårdtypen" },
+        { "name": "careTypeId", "type": "CareTypeIDType (string)", "cardinality": "1..1", "description": "Kod för vårdtypen (intern för vårdenheten)" }
+      ],
+      "open_questions_from_parsing": []
+    },
+    {
+      "section_number": "7.3",
+      "id": "GetAllHealthcareFacilities",
+      "display_name": "Hämta alla vårdenheter",
+      "version": "1.1",
+      "rivta_namespace": "urn:riv:crm:scheduling:GetAllHealthcareFacilities:1",
+      "description": "Tjänst för att hämta alla vårdenheter som erbjuds för ombokning eller nybokning för aktuell invånare.",
+      "request_fields": [
+        { "name": "healthcare_facility", "type": "HsaIdType (string)", "cardinality": "1..1", "description": "HSA-id för mottagning/vårdenhet" },
+        { "name": "subject_of_care", "type": "SubjectOfCareIdType (string)", "cardinality": "1..1", "description": "Personnummer enl. yyyymmddxxxx" },
+        { "name": "bookingId", "type": "BookingIdType (string)", "cardinality": "0..1", "description": "Internt bokningsid. Obligatoriskt vid ombokning." }
+      ],
+      "response_fields": [
+        { "name": "healthcareFacilityInfos", "type": "HealthcareFacilityInfoType", "cardinality": "0..*", "description": "Lista med tillgängliga mottagningar/vårdenheter" },
+        { "name": "healthcare_facility", "type": "HsaIdType (string)", "cardinality": "1..1", "description": "HSA-id för mottagning/vårdenhet" },
+        { "name": "healthcare_facility_name", "type": "string", "cardinality": "0..1", "description": "Vårdenhetens föredragna namn" }
+      ],
+      "open_questions_from_parsing": []
+    },
+    {
+      "section_number": "7.4",
+      "id": "GetAllPerformers",
+      "display_name": "Hämta alla utförare",
+      "version": "1.1",
+      "rivta_namespace": "urn:riv:crm:scheduling:GetAllPerformers:1",
+      "description": "Tjänst för att hämta en lista över medarbetare i vårdprofessionen som är bokningsbara online hos angiven vårdenhet.",
+      "request_fields": [
+        { "name": "healthcare_facility", "type": "HsaIdType (string)", "cardinality": "1..1", "description": "HSA-id för mottagning/vårdenhet" },
+        { "name": "timeTypeIDs", "type": "TimeTypeIDType (string)", "cardinality": "0..*", "description": "Tidstypid för att begränsa svarslistan" },
+        { "name": "careTypeIDs", "type": "CareTypeIDType (string)", "cardinality": "0..*", "description": "Vårdtypsid för att begränsa svarslistan" },
+        { "name": "subject_of_care", "type": "SubjectOfCareIdType (string)", "cardinality": "1..1", "description": "Personnummer enl. yyyymmddxxxx" }
+      ],
+      "response_fields": [
+        { "name": "performerInfos", "type": "PerformerInfoType", "cardinality": "0..*", "description": "Lista med medarbetare" },
+        { "name": "perfomer", "type": "HsaIdType (string)", "cardinality": "1..1", "description": "HSA-id för bokningsbar medarbetare (obs: felstavning i schema)" },
+        { "name": "firstName", "type": "string", "cardinality": "1..1", "description": "Medarbetarens förnamn" },
+        { "name": "lastName", "type": "string", "cardinality": "1..1", "description": "Medarbetarens efternamn" },
+        { "name": "title", "type": "string", "cardinality": "0..1", "description": "Medarbetarens titel" }
+      ],
+      "open_questions_from_parsing": [
+        "Fältet 'perfomer' är felstavat i schemat (issue id 19). Ska FSH-modellen använda den felstavade varianten eller rätta stavningen?"
+      ]
+    },
+    {
+      "section_number": "7.5",
+      "id": "GetAllTimeTypes",
+      "display_name": "Hämta alla tidstyper",
+      "version": "1.1",
+      "rivta_namespace": "urn:riv:crm:scheduling:GetAllTimeTypes:1",
+      "description": "Tjänsten hämtar alla tidstyper som kan användas vid nybokning hos angiven vårdenhet.",
+      "request_fields": [
+        { "name": "healthcare_facility", "type": "HsaIdType (string)", "cardinality": "1..1", "description": "HSA-id för mottagning/vårdenhet" },
+        { "name": "careTypeIDs", "type": "CareTypeIDType (string)", "cardinality": "0..*", "description": "Vårdtypsidentitet för att begränsa sökningen" },
+        { "name": "subject_of_care", "type": "SubjectOfCareIdType (string)", "cardinality": "1..1", "description": "Personnummer enl. yyyymmddxxxx" }
+      ],
+      "response_fields": [
+        { "name": "ListOfTimeTypes", "type": "TimeTypeType", "cardinality": "0..*", "description": "Lista med tillgängliga tidstyper" },
+        { "name": "timeTypeName", "type": "string", "cardinality": "1..1", "description": "Namnet på tidstypen" },
+        { "name": "timeTypeId", "type": "TimeTypeIDType (string)", "cardinality": "1..1", "description": "Identifierare för tidstypen" }
+      ],
+      "open_questions_from_parsing": []
+    },
+    {
+      "section_number": "7.6",
+      "id": "GetAvailableDates",
+      "display_name": "Hämta lediga datum",
+      "version": "1.1",
+      "rivta_namespace": "urn:riv:crm:scheduling:GetAvailableDates:1",
+      "description": "Tjänsten hämtar datum med lediga tider för angivet datumintervall.",
+      "request_fields": [
+        { "name": "healthcare_facility", "type": "HsaIdType (string)", "cardinality": "1..1", "description": "Hsa-Id för mottagning/vårdenhet" },
+        { "name": "bookingId", "type": "BookingIdType (string)", "cardinality": "0..1", "description": "Intern bokningsidentitet, indikerar ombokning" },
+        { "name": "startDateInclusive", "type": "DT (string)", "cardinality": "1..1", "description": "Datum från och med, format ÅÅÅÅMMDD" },
+        { "name": "endDateInclusive", "type": "DT (string)", "cardinality": "1..1", "description": "Datum till och med, format ÅÅÅÅMMDD" },
+        { "name": "performer", "type": "HsaIdType (string)", "cardinality": "0..*", "description": "HSA-id för HoS-personal" },
+        { "name": "timeTypeName", "type": "string", "cardinality": "0..1", "description": "Namn på tidstyp" },
+        { "name": "timeTypeID", "type": "TimeTypeIDType (string)", "cardinality": "0..1", "description": "Identifierare för tidstyp" },
+        { "name": "careTypeName", "type": "string", "cardinality": "0..1", "description": "Namn på vårdtyp" },
+        { "name": "careTypeID", "type": "CareTypeIDType (string)", "cardinality": "0..1", "description": "Identitet för vårdtyp" },
+        { "name": "subject_of_care", "type": "SubjectOfCareIdType (string)", "cardinality": "1..1", "description": "Personnummer enl. yyyymmddxxxx" }
+      ],
+      "response_fields": [
+        { "name": "performerAvailabilityByDate", "type": "PerformerAvailabilityByDateType", "cardinality": "0..*", "description": "Lista med tillgängliga tider" },
+        { "name": "healthcare_facility", "type": "HsaIdType (string)", "cardinality": "1..1", "description": "HSA-id för mottagning/vårdenhet" },
+        { "name": "performer", "type": "HsaIdType (string)", "cardinality": "0..1", "description": "HSA-id för HoS-personal" },
+        { "name": "date", "type": "DT (string)", "cardinality": "1..1", "description": "Ett datum där lediga tider finns, format ÅÅÅÅMMDD" },
+        { "name": "resourceName", "type": "string", "cardinality": "0..1", "description": "Namn på resurs" },
+        { "name": "resourceID", "type": "ResourceIDType (string)", "cardinality": "0..1", "description": "Identifierare för resurs" },
+        { "name": "timeTypeName", "type": "string", "cardinality": "0..1", "description": "Namn på tidstyp" },
+        { "name": "timeTypeID", "type": "TimeTypeIDType (string)", "cardinality": "0..1", "description": "Identifierare för tidstyp" },
+        { "name": "careTypeName", "type": "string", "cardinality": "0..1", "description": "Namn på vårdtyp" }
+      ],
+      "open_questions_from_parsing": []
+    },
+    {
+      "section_number": "7.7",
+      "id": "GetAvailableTimeslots",
+      "display_name": "Hämta lediga tider",
+      "version": "1.1",
+      "rivta_namespace": "urn:riv:crm:scheduling:GetAvailableTimeslots:1",
+      "description": "Tjänsten hämtar lediga tider för angivet datumintervall.",
+      "request_fields": [
+        { "name": "healthcare_facility", "type": "HsaIdType (string)", "cardinality": "1..1", "description": "Hsa-ID för mottagning/vårdenhet" },
+        { "name": "bookingId", "type": "BookingIdType (string)", "cardinality": "0..1", "description": "Intern bokningsidentitet, indikerar ombokning" },
+        { "name": "startDateInclusive", "type": "DT (string)", "cardinality": "1..1", "description": "Datum från och med, format ÅÅÅÅMMDD" },
+        { "name": "endDateInclusive", "type": "DT (string)", "cardinality": "1..1", "description": "Datum till och med, format ÅÅÅÅMMDD" },
+        { "name": "performer", "type": "HsaIdType (string)", "cardinality": "0..*", "description": "HSA-id för HoS-personal" },
+        { "name": "timeTypeName", "type": "string", "cardinality": "0..1", "description": "Namn på tidstyp" },
+        { "name": "timeTypeID", "type": "TimeTypeIDType (string)", "cardinality": "0..1", "description": "Identifierare för tidstyp" },
+        { "name": "careTypeName", "type": "string", "cardinality": "0..1", "description": "Namn på vårdtyp" },
+        { "name": "careTypeID", "type": "CareTypeIDType (string)", "cardinality": "0..1", "description": "Identifierare för vårdtyp" },
+        { "name": "subject_of_care", "type": "SubjectOfCareIdType (string)", "cardinality": "1..1", "description": "Personnummer enl. yyyymmddxxxx" }
+      ],
+      "response_fields": [
+        { "name": "timeslotDetail", "type": "TimeslotType", "cardinality": "0..*", "description": "Lista med tillgängliga tider" },
+        { "name": "startTimeInclusive", "type": "TS (string)", "cardinality": "1..1", "description": "Startdatum och klockslag, format ÅÅÅÅMMDDttmmss" },
+        { "name": "endTimeExclusive", "type": "TS (string)", "cardinality": "1..1", "description": "Slutdatum och klockslag, format ÅÅÅÅMMDDttmmss" },
+        { "name": "healthcare_facility", "type": "HsaIdType (string)", "cardinality": "1..1", "description": "HSA-id för mottagning/vårdenhet" },
+        { "name": "performer", "type": "HsaIdType (string)", "cardinality": "0..1", "description": "HSA-id för Hos-person" },
+        { "name": "bookingId", "type": "BookingIdType (string)", "cardinality": "0..1", "description": "Bokningsidentitet" },
+        { "name": "purpose", "type": "string", "cardinality": "0..1", "description": "Beskrivning av besöksorsak" },
+        { "name": "reason", "type": "string", "cardinality": "0..1", "description": "Kontaktorsak som invånare uppger" },
+        { "name": "resourceName", "type": "string", "cardinality": "0..1", "description": "Namn på resurs" },
+        { "name": "healthcare_facility_name", "type": "string", "cardinality": "0..1", "description": "Namn på bokad mottagning" },
+        { "name": "performerName", "type": "string", "cardinality": "0..1", "description": "Namn på HoS-person" },
+        { "name": "resourceID", "type": "ResourceIDType (string)", "cardinality": "0..1", "description": "Identifierare för resurs" },
+        { "name": "timeTypeName", "type": "string", "cardinality": "0..1", "description": "Tidstyp för det bokade besöket" },
+        { "name": "timeTypeID", "type": "TimeTypeIDType (string)", "cardinality": "0..1", "description": "Identifierare för tidstyp" },
+        { "name": "careTypeName", "type": "string", "cardinality": "0..1", "description": "Klartext för vårdtyp" },
+        { "name": "careTypeID", "type": "CareTypeIDType (string)", "cardinality": "0..1", "description": "Identifierare för vårdtyp" },
+        { "name": "cancel_booking_allowed", "type": "boolean", "cardinality": "0..1", "description": "Om bokningen kan avbokas" },
+        { "name": "rebooking_allowed", "type": "boolean", "cardinality": "0..1", "description": "Om bokningen kan ombokas" },
+        { "name": "message_allowed", "type": "boolean", "cardinality": "0..1", "description": "Om orsak till av/ombokning kan skickas" }
+      ],
+      "open_questions_from_parsing": []
+    },
+    {
+      "section_number": "7.8",
+      "id": "GetBookingDetails",
+      "display_name": "Hämta bokningsdetaljer",
+      "version": "1.1",
+      "rivta_namespace": "urn:riv:crm:scheduling:GetBookingDetails:1",
+      "description": "Tjänsten hämtar detaljinformation för en befintlig bokning vid en vårdenhet.",
+      "request_fields": [
+        { "name": "healthcare_facility", "type": "HsaIdType (string)", "cardinality": "1..1", "description": "HSA-id för mottagning/vårdenhet" },
+        { "name": "bookingId", "type": "BookingIdType (string)", "cardinality": "1..1", "description": "Intern bokningsidentitet" }
+      ],
+      "response_fields": [
+        { "name": "timeslotDetail", "type": "TimeslotType", "cardinality": "1..1", "description": "Information om den aktuella tiden" },
+        { "name": "startTimeInclusive", "type": "TS (string)", "cardinality": "0..1", "description": "Startdatum och klockslag" },
+        { "name": "endTimeExclusive", "type": "TS (string)", "cardinality": "0..1", "description": "Slutdatum och klockslag" },
+        { "name": "healthcare_facility", "type": "HsaIdType (string)", "cardinality": "1..1", "description": "HSA-id för mottagning/vårdenhet" },
+        { "name": "performer", "type": "HsaIdType (string)", "cardinality": "0..1", "description": "HSA-id för Hos-person" },
+        { "name": "bookingId", "type": "BookingIdType (string)", "cardinality": "0..1", "description": "Bokningsidentitet" },
+        { "name": "subject_of_care", "type": "SubjectOfCareIdType (string)", "cardinality": "1..1", "description": "Personnummer enl. yyyymmddxxxx" },
+        { "name": "purpose", "type": "string", "cardinality": "0..1", "description": "Beskrivning av besöksorsak (obligatorisk om isInvitation=true)" },
+        { "name": "reason", "type": "string", "cardinality": "0..1", "description": "Kontaktorsak som invånare uppger" },
+        { "name": "resourceName", "type": "string", "cardinality": "0..1", "description": "Namn på resurs" },
+        { "name": "healthcare_facility_name", "type": "string", "cardinality": "0..1", "description": "Namn på bokad mottagning" },
+        { "name": "performerName", "type": "string", "cardinality": "0..1", "description": "Namn på HoS-person" },
+        { "name": "resourceID", "type": "ResourceIDType (string)", "cardinality": "0..1", "description": "Identitet för resurs" },
+        { "name": "timeTypeName", "type": "string", "cardinality": "0..1", "description": "Tidstyp för det bokade besöket" },
+        { "name": "timeTypeID", "type": "TimeTypeIDType (string)", "cardinality": "0..1", "description": "Identitet för tidstyp" },
+        { "name": "careTypeName", "type": "string", "cardinality": "0..1", "description": "Klartext för vårdtyp" },
+        { "name": "careTypeID", "type": "CareTypeIDType (string)", "cardinality": "0..1", "description": "Identitet för vårdtyp" },
+        { "name": "cancel_booking_allowed", "type": "boolean", "cardinality": "1..1", "description": "Om bokningen kan avbokas" },
+        { "name": "rebooking_allowed", "type": "boolean", "cardinality": "1..1", "description": "Om bokningen kan ombokas" },
+        { "name": "message_allowed", "type": "boolean", "cardinality": "1..1", "description": "Om orsak kan skickas" },
+        { "name": "isInvitation", "type": "boolean", "cardinality": "0..1", "description": "Om bokningen skapats på vårdgivarens initiativ" }
+      ],
+      "open_questions_from_parsing": [
+        "Elementet 'purpose' har kardinalitet 0..1 men är obligatoriskt om isInvitation=true. Villkorlig kardinalitet kräver en FHIR-invariant."
+      ]
+    },
+    {
+      "section_number": "7.9",
+      "id": "GetSubjectOfCareSchedule",
+      "display_name": "Hämta invånarens bokade tider",
+      "version": "1.1",
+      "rivta_namespace": "urn:riv:crm:scheduling:GetSubjectOfCareSchedule:1",
+      "description": "Tjänsten hämtar alla bokade tider för en invånare.",
+      "request_fields": [
+        { "name": "healthcare_facility", "type": "HsaIdType (string)", "cardinality": "1..1", "description": "HSA-id för mottagning/vårdenhet" },
+        { "name": "subject_of_care", "type": "SubjectOfCareIdType (string)", "cardinality": "1..1", "description": "Personnummer enl. yyyymmddxxxx" }
+      ],
+      "response_fields": [
+        { "name": "timeslotDetail", "type": "TimeslotType", "cardinality": "0..*", "description": "Lista med användarens tider" },
+        { "name": "startTimeInclusive", "type": "TS (string)", "cardinality": "1..1", "description": "Startdatum och klockslag" },
+        { "name": "endTimeExclusive", "type": "TS (string)", "cardinality": "1..1", "description": "Slutdatum och klockslag" },
+        { "name": "healthcare_facility", "type": "HsaIdType (string)", "cardinality": "1..1", "description": "HSA-id för mottagning/vårdenhet" },
+        { "name": "performer", "type": "HsaIdType (string)", "cardinality": "0..1", "description": "HSA-id för Hos-person" },
+        { "name": "bookingId", "type": "BookingIdType (string)", "cardinality": "1..1", "description": "Bokningsidentitet" },
+        { "name": "subject_of_care", "type": "SubjectOfCareIdType (string)", "cardinality": "1..1", "description": "Personnummer enl. yyyymmddxxxx" },
+        { "name": "purpose", "type": "string", "cardinality": "0..1", "description": "Beskrivning av besöksorsak" },
+        { "name": "reason", "type": "string", "cardinality": "0..1", "description": "Kontaktorsak" },
+        { "name": "resourceName", "type": "string", "cardinality": "0..1", "description": "Namn på resurs" },
+        { "name": "healthcare_facility_name", "type": "string", "cardinality": "0..1", "description": "Namn på bokad mottagning" },
+        { "name": "performerName", "type": "string", "cardinality": "0..1", "description": "Namn på HoS-person" },
+        { "name": "resourceID", "type": "ResourceIDType (string)", "cardinality": "0..1", "description": "Identitet för resurs" },
+        { "name": "timeTypeName", "type": "string", "cardinality": "0..1", "description": "Tidstyp" },
+        { "name": "timeTypeID", "type": "TimeTypeIDType (string)", "cardinality": "0..1", "description": "Identitet för tidstyp" },
+        { "name": "careTypeName", "type": "string", "cardinality": "0..1", "description": "Klartext för vårdtyp" },
+        { "name": "careTypeID", "type": "CareTypeIDType (string)", "cardinality": "0..1", "description": "Identitet för vårdtyp" },
+        { "name": "cancel_booking_allowed", "type": "boolean", "cardinality": "0..1", "description": "Om bokningen kan avbokas" },
+        { "name": "rebooking_allowed", "type": "boolean", "cardinality": "0..1", "description": "Om bokningen kan ombokas" },
+        { "name": "message_allowed", "type": "boolean", "cardinality": "0..1", "description": "Om orsak kan skickas" },
+        { "name": "isInvitation", "type": "boolean", "cardinality": "0..1", "description": "Om bokningen skapats på vårdgivarens initiativ" }
+      ],
+      "open_questions_from_parsing": []
+    },
+    {
+      "section_number": "7.10",
+      "id": "MakeBooking",
+      "display_name": "Skapa bokning",
+      "version": "1.1",
+      "rivta_namespace": "urn:riv:crm:scheduling:MakeBooking:1",
+      "description": "Tjänst för nybokning vid en vårdenhet.",
+      "request_fields": [
+        { "name": "healthcare_facility_med", "type": "HsaIdType (string)", "cardinality": "1..1", "description": "HSA-id för mottagning (avsändar-vårdenhet)" },
+        { "name": "requestedTimeslot", "type": "TimeslotType", "cardinality": "1..1", "description": "Information för aktuell bokning" },
+        { "name": "startTimeInclusive", "type": "TS (string)", "cardinality": "1..1", "description": "Startdatum och klockslag" },
+        { "name": "endTimeExclusive", "type": "TS (string)", "cardinality": "1..1", "description": "Slutdatum och klockslag" },
+        { "name": "healthcare_facility", "type": "HsaIdType (string)", "cardinality": "1..1", "description": "HSA-id för mottagning/vårdenhet" },
+        { "name": "performer", "type": "HsaIdType (string)", "cardinality": "0..1", "description": "HSA-id för HoS-person" },
+        { "name": "bookingId", "type": "BookingIdType (string)", "cardinality": "0..1", "description": "Bokningsidentitet (öppen kallelse)" },
+        { "name": "subject_of_care", "type": "SubjectOfCareIdType (string)", "cardinality": "1..1", "description": "Personnummer enl. yyyymmddxxxx" },
+        { "name": "purpose", "type": "string", "cardinality": "0..1", "description": "Besöksorsak" },
+        { "name": "reason", "type": "string", "cardinality": "0..1", "description": "Kontaktorsak" },
+        { "name": "resourceName", "type": "string", "cardinality": "0..1", "description": "Namn på resurs" },
+        { "name": "healthcare_facility_name", "type": "string", "cardinality": "0..1", "description": "Namn på mottagning" },
+        { "name": "performerName", "type": "string", "cardinality": "0..1", "description": "Namn på HoS-person" },
+        { "name": "resourceID", "type": "ResourceIDType (string)", "cardinality": "0..1", "description": "Identitet för resurs" },
+        { "name": "timeTypeName", "type": "string", "cardinality": "0..1", "description": "Tidstyp" },
+        { "name": "timeTypeID", "type": "TimeTypeIDType (string)", "cardinality": "0..1", "description": "Identitet för tidstyp" },
+        { "name": "careTypeName", "type": "string", "cardinality": "0..1", "description": "Klartext för vårdtyp" },
+        { "name": "careTypeID", "type": "CareTypeIDType (string)", "cardinality": "0..1", "description": "Identitet för vårdtyp" },
+        { "name": "subject_of_care_info", "type": "SubjectOfCareType", "cardinality": "1..1", "description": "Invånarinformation" },
+        { "name": "phone", "type": "string", "cardinality": "0..1", "description": "Telefonnummer" },
+        { "name": "email", "type": "string", "cardinality": "0..1", "description": "Email-adress" },
+        { "name": "address", "type": "string", "cardinality": "0..1", "description": "Adress" },
+        { "name": "coaddress", "type": "string", "cardinality": "0..1", "description": "Co-adress" },
+        { "name": "firstName", "type": "string", "cardinality": "1..1", "description": "Invånarens förnamn" },
+        { "name": "middleName", "type": "string", "cardinality": "0..1", "description": "Invånarens mellannamn" },
+        { "name": "lastName", "type": "string", "cardinality": "1..1", "description": "Invånarens efternamn" },
+        { "name": "notification", "type": "string", "cardinality": "0..1", "description": "Notifiering till producent" }
+      ],
+      "response_fields": [
+        { "name": "bookingId", "type": "BookingIdType (string)", "cardinality": "0..1", "description": "Id för skapad bokning (anges om resultCode OK/INFO)" },
+        { "name": "resultCode", "type": "ResultCodeEnum (string)", "cardinality": "1..1", "description": "Status för den gjorda avbokningen" },
+        { "name": "resultText", "type": "string", "cardinality": "0..1", "description": "Meddelande kopplat till resultatkoden" }
+      ],
+      "open_questions_from_parsing": []
+    },
+    {
+      "section_number": "7.11",
+      "id": "UpdateBooking",
+      "display_name": "Uppdatera bokning",
+      "version": "1.1",
+      "rivta_namespace": "urn:riv:crm:scheduling:UpdateBooking:1",
+      "description": "Tjänst för att uppdatera en bokning med nytt datum och tid (ombokning).",
+      "request_fields": [
+        { "name": "requestedTimeslot", "type": "TimeslotType", "cardinality": "1..1", "description": "Ny tidsinformation" },
+        { "name": "startTimeInclusive", "type": "TS (string)", "cardinality": "1..1", "description": "Startdatum och klockslag" },
+        { "name": "endTimeExclusive", "type": "TS (string)", "cardinality": "1..1", "description": "Slutdatum och klockslag" },
+        { "name": "healthcare_facility", "type": "HsaIdType (string)", "cardinality": "1..1", "description": "HSA-id för mottagning/vårdenhet" },
+        { "name": "performer", "type": "HsaIdType (string)", "cardinality": "0..1", "description": "HSA-id för HoS-person" },
+        { "name": "bookingId", "type": "BookingIdType (string)", "cardinality": "1..1", "description": "Bokningsidentitet för bokning att omboka" },
+        { "name": "subject_of_care", "type": "SubjectOfCareIdType (string)", "cardinality": "1..1", "description": "Personnummer enl. yyyymmddxxxx" },
+        { "name": "purpose", "type": "string", "cardinality": "0..1", "description": "Besöksorsak" },
+        { "name": "reason", "type": "string", "cardinality": "0..1", "description": "Kontaktorsak" },
+        { "name": "resourceName", "type": "string", "cardinality": "0..1", "description": "Namn på resurs" },
+        { "name": "healthcare_facility_name", "type": "string", "cardinality": "0..1", "description": "Namn på mottagning" },
+        { "name": "performerName", "type": "string", "cardinality": "0..1", "description": "Namn på HoS-person" },
+        { "name": "resourceID", "type": "ResourceIDType (string)", "cardinality": "0..1", "description": "Identitet för resurs" },
+        { "name": "timeTypeName", "type": "string", "cardinality": "0..1", "description": "Tidstyp" },
+        { "name": "timeTypeID", "type": "TimeTypeIDType (string)", "cardinality": "0..1", "description": "Identitet för tidstyp" },
+        { "name": "careTypeName", "type": "string", "cardinality": "0..1", "description": "Klartext för vårdtyp" },
+        { "name": "careTypeID", "type": "CareTypeIDType (string)", "cardinality": "0..1", "description": "Identitet för vårdtyp" },
+        { "name": "subject_of_care_info", "type": "SubjectOfCareType", "cardinality": "0..1", "description": "Invånarinformation" },
+        { "name": "phone", "type": "string", "cardinality": "0..1", "description": "Telefonnummer" },
+        { "name": "email", "type": "string", "cardinality": "0..1", "description": "Email-adress" },
+        { "name": "address", "type": "string", "cardinality": "0..1", "description": "Adress" },
+        { "name": "coaddress", "type": "string", "cardinality": "0..1", "description": "Co-adress" },
+        { "name": "firstName", "type": "string", "cardinality": "1..1", "description": "Invånarens förnamn" },
+        { "name": "middleName", "type": "string", "cardinality": "0..1", "description": "Invånarens mellannamn" },
+        { "name": "lastName", "type": "string", "cardinality": "1..1", "description": "Invånarens efternamn" },
+        { "name": "notification", "type": "string", "cardinality": "0..1", "description": "Avisering" }
+      ],
+      "response_fields": [
+        { "name": "resultCode", "type": "ResultCodeEnum (string)", "cardinality": "1..1", "description": "Status för den gjorda ombokningen" },
+        { "name": "resultText", "type": "string", "cardinality": "0..1", "description": "Meddelande kopplat till resultatkoden" }
+      ],
+      "open_questions_from_parsing": []
+    }
+  ]
+}

@@ -283,3 +283,34 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 - [ ] **[TODO-IGP-002]** `igs/TKB_clinicalprocess_activityprescription_actoutcome/` — 51 varningar + 9 hints. Granska `output/qa.html`. Troliga orsaker: komplexa typer som BackboneElement utan snapshot (TODO-ACT-002, ACT-003) och XOR-kardinalitetsvarningar.
 
 - [ ] **[TODO-IGP-003]** Bygg de tre återstående domänerna med IG Publisher och ladda upp qa-errors.json: `clinicalprocess.logistics.logistics`, `clinicalprocess.healthcond.actoutcome`, `clinicalprocess.activityprescription.prescribe`.
+
+---
+
+## ehr.accesscontrol v1.0.6 — `igs/TKB_ehr_accesscontrol/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-03-24
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+Inga blockerare.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-EA-001]** `igs/TKB_ehr_accesscontrol/sushi-config.yaml`
+  Dependency `se.inera.rivta.core#current` borttagen från sushi-config.yaml eftersom paketet inte finns tillgängligt i den lokala FHIR-cachen och nätverket är blockerat. Övriga IGs i projektet saknar också denna dependency. Verifiera om paketet behövs och i så fall hur det ska göras tillgängligt.
+
+- [ ] **[ASSUME-EA-002]** `igs/TKB_ehr_accesscontrol/input/fsh/logical-models/AssertCareEngagement.fsh` · fält `hasCareEngagement`
+  Fältnamnet anges som `HasCareEngagement` (versalt H) i TKB-tabellen men som `hasCareEngagement` i XSD. Normaliserat till camelCase (`hasCareEngagement`) i FHIR-modellen. Verifiera att detta är korrekt.
+  Kardinaliteten anges som `1` (utan punktnotation) i TKB — tolkat som `1..1`. Verifiera om `1..*` var avsett.
+
+- [ ] **[ASSUME-EA-003]** `igs/TKB_ehr_accesscontrol/input/fsh/logical-models/AssertCareEngagementRequest.fsh`
+  Alla fyra requestfält (performer, subjectOfCareId, careUnitHsaIdentity, careGiverHsaIdentity) mappade till `Identifier` eftersom de är HSA-id och personnummer. TKB-tabellen anger typ som `sträng/Sträng` — ett riv-ta-tekniskt begrepp. System-URL:er (urn:oid:1.2.752.129.2.1.4.1 för HSA) anges i kommentarer men saknar formell bindning i FSH-modellen. Verifiera om explicitare Identifier.system-bindningar behövs.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-EA-001]** `igs/TKB_ehr_accesscontrol/`
+  Bygg IG med IG Publisher (`make build-one D=ehr.accesscontrol`) och granska qa.html för eventuella varningar.
+
+- [ ] **[TODO-EA-002]** `igs/TKB_ehr_accesscontrol/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Avsnitt 6 saknas i källdokumentet. Kontrollera om domänen har gemensamma komponenter som bör dokumenteras här.
