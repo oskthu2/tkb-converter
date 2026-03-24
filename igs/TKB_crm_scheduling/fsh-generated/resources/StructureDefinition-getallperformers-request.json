@@ -1,0 +1,83 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getallperformers-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/getallperformers-request",
+  "name": "GetAllPerformersRequest",
+  "title": "GetAllPerformers — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i GetAllPerformers.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/getallperformers-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getallperformers-request",
+        "path": "getallperformers-request",
+        "short": "GetAllPerformers — Request",
+        "definition": "Logisk modell för requestparametrar i GetAllPerformers."
+      },
+      {
+        "id": "getallperformers-request.healthcare_facility",
+        "path": "getallperformers-request.healthcare_facility",
+        "short": "HSA-id för mottagning/vårdenhet",
+        "definition": "HSA-id för mottagning/vårdenhet.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getallperformers-request.timeTypeIDs",
+        "path": "getallperformers-request.timeTypeIDs",
+        "short": "Tidstypid för att begränsa svarslistan",
+        "definition": "Tidstypid för att begränsa svarslistan.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getallperformers-request.careTypeIDs",
+        "path": "getallperformers-request.careTypeIDs",
+        "short": "Vårdtypsid för att begränsa svarslistan",
+        "definition": "Vårdtypsid för att begränsa svarslistan.\nSka stödjas av producent om GetAllCaretypes stödjs.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getallperformers-request.subject_of_care",
+        "path": "getallperformers-request.subject_of_care",
+        "short": "Personnummer enl. yyyymmddxxxx",
+        "definition": "Personnummer för invånaren, för att begränsa/utöka svarslistan.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

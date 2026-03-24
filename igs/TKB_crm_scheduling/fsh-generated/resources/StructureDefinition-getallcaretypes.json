@@ -1,0 +1,70 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getallcaretypes",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/getallcaretypes",
+  "name": "GetAllCareTypes",
+  "title": "GetAllCareTypes",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetAllCareTypes\n(RIV-TA urn:riv:crm:scheduling:GetAllCareTypes:1).\nRepresenterar responsens informationsstruktur.\nTjänst att för invånaren kunna visa en lista över vilka typer av vård\nsom kan bokas hos en viss vårdenhet/mottagning.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/getallcaretypes",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getallcaretypes",
+        "path": "getallcaretypes",
+        "short": "GetAllCareTypes",
+        "definition": "Logisk modell för tjänstekontraktet GetAllCareTypes\n(RIV-TA urn:riv:crm:scheduling:GetAllCareTypes:1).\nRepresenterar responsens informationsstruktur.\nTjänst att för invånaren kunna visa en lista över vilka typer av vård\nsom kan bokas hos en viss vårdenhet/mottagning."
+      },
+      {
+        "id": "getallcaretypes.careTypes",
+        "path": "getallcaretypes.careTypes",
+        "short": "Lista med vårdtyper",
+        "definition": "Lista med tillgängliga vårdtyper (CareTypeType).\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getallcaretypes.careTypes.careTypeName",
+        "path": "getallcaretypes.careTypes.careTypeName",
+        "short": "Beskrivande text för vårdtypen (att visas för användare)",
+        "definition": "Beskrivande text för vårdtypen att visas för användaren.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getallcaretypes.careTypes.careTypeId",
+        "path": "getallcaretypes.careTypes.careTypeId",
+        "short": "Kod för vårdtypen (intern för vårdenheten)",
+        "definition": "Intern kod för vårdtypen hos vårdenheten.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -314,3 +314,35 @@ Inga blockerare.
 
 - [ ] **[TODO-EA-002]** `igs/TKB_ehr_accesscontrol/input/pagecontent/6-gemensamma-informationskomponenter.md`
   Avsnitt 6 saknas i källdokumentet. Kontrollera om domänen har gemensamma komponenter som bör dokumenteras här.
+
+---
+
+## crm.requeststatus v2.0.1 — `igs/TKB_crm_requeststatus/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-03-24T11:00:00Z
+
+**Not om datahämtning:** Inga zip-filer finns i Bitbucket Downloads för detta repo. Källfiler hämtades direkt från repots `src/master/`-träd via Bitbucket API.
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-CRM-001]** `igs/TKB_crm_requeststatus/input/fsh/codesystems/KvStatusVardbegaranCS.fsh`
+  KvStatusVardbegaran (OID: 1.2.752.129.2.2.2.43) är inte komplett listad i TKB. Koder 1 (Skickad), 7 (Svar mottaget) och 11 (Makulerad) nämns i "Övriga regler", men hela listan saknas. Hämta fullständig kodlista från [R5] (hänvisning i TKB) och komplettera CodeSystem-filen. Tills vidare är `^content = #fragment` satt.
+  Källa: TKB avsnitt 7.1 "Övriga regler", rad statusCode [sch].
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-CRM-001]** `igs/TKB_crm_requeststatus/input/fsh/logical-models/GetRequestActivities.fsh`
+  Domänens namespace antaget till `urn:riv:crm:requeststatus` baserat på domännamnet och WSDL-filens namn. Verifiera mot WSDL-filens targetNamespace.
+
+- [ ] **[ASSUME-CRM-002]** `igs/TKB_crm_requeststatus/input/fsh/codesystems/KvFramstallantypCS.fsh` · kodsystem KvFramstallantyp
+  Koderna 1, 2, 4 (röntgenremiss, labbremiss, allmänremiss) är listade i TKB som "giltiga värden". Övriga koder i OID 1.2.752.129.2.2.2.24 kan existera — `^content = #fragment` är satt. Verifiera om fullständig lista behövs för korrekt validering.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-CRM-001]** `igs/TKB_crm_requeststatus/`
+  Bygg IG med IG Publisher (`make build-one D=crm.requeststatus`) och granska qa.html för eventuella varningar.
+
+- [ ] **[TODO-CRM-002]** `igs/TKB_crm_requeststatus/sushi-config.yaml`
+  SUSHI-varning: "Configuration property publisher has a value with an unexpected type." Troligen ett SUSHI-versionsspecifikt problem med hur `publisher` och `contact` kombineras. Granska sushi-config.yaml om IG Publisher-bygget ger fel relaterade till detta.
+

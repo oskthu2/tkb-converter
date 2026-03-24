@@ -1,0 +1,213 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getlisting",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/crm-carelisting/StructureDefinition/getlisting",
+  "name": "GetListing",
+  "title": "GetListing",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetListing (Visa tjänsteval)\n(RIV-TA urn:riv:crm:carelisting:GetListingResponder:1).\nRepresenterar responsens informationsstruktur.\nHämtar information om en persons aktiva listning (tjänsteval).",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/crm-carelisting/StructureDefinition/getlisting",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getlisting",
+        "path": "getlisting",
+        "short": "GetListing",
+        "definition": "Logisk modell för tjänstekontraktet GetListing (Visa tjänsteval)\n(RIV-TA urn:riv:crm:carelisting:GetListingResponder:1).\nRepresenterar responsens informationsstruktur.\nHämtar information om en persons aktiva listning (tjänsteval)."
+      },
+      {
+        "id": "getlisting.subjectOfCare",
+        "path": "getlisting.subjectOfCare",
+        "short": "En persons listningar",
+        "definition": "SubjectOfCare: root-element som beskriver tjänsteval för en person.\nPostCondition: tillgängliga listningstyper för en listnings vårdenhet är utelämnad.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlisting.subjectOfCare.personId",
+        "path": "getlisting.subjectOfCare.personId",
+        "short": "Identitetsbeteckning för vård- och omsorgstagaren",
+        "definition": "Personnummer, samordningsnummer eller reservnummer för vård- och omsorgstagaren.\nPattern: (([1-9]\\d{7})|(\\d{6}))[\\-]?\\d{4}\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlisting.subjectOfCare.listing",
+        "path": "getlisting.subjectOfCare.listing",
+        "short": "En listning för personen",
+        "definition": "En persons listning, dvs. en koppling till en vårdenhet och optionellt en resurs.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlisting.subjectOfCare.listing.validFromDate",
+        "path": "getlisting.subjectOfCare.listing.validFromDate",
+        "short": "Datum för när listningen började gälla",
+        "definition": "Anger datum för när listningen började gälla.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getlisting.subjectOfCare.listing.validToDate",
+        "path": "getlisting.subjectOfCare.listing.validToDate",
+        "short": "Datum när listningen slutade gälla",
+        "definition": "Anger datum när listningen slutade gälla.\nOm datum saknas är det implicit obestämt in i framtiden.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getlisting.subjectOfCare.listing.listingType",
+        "path": "getlisting.subjectOfCare.listing.listingType",
+        "short": "Typ av listning",
+        "definition": "Typ av listning, t.ex. BVC, HLM, FL.\nListningstyp saknar centralt kodverk — se QUESTIONS.md.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlisting.subjectOfCare.listing.healthcareFacility",
+        "path": "getlisting.subjectOfCare.listing.healthcareFacility",
+        "short": "Vårdinrättning som ansvarar för personen",
+        "definition": "Facility: Vårdinrättning/vårdenhet som ansvarar för personen som listat sig hos dem.\nDet är denna inrättning som för ekonomisk ersättning för personen.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlisting.subjectOfCare.listing.healthcareFacility.facilityId",
+        "path": "getlisting.subjectOfCare.listing.healthcareFacility.facilityId",
+        "short": "HSA-ID för vårdenheten",
+        "definition": "HSA-ID eller alternativt Orgnr+lokalt id för vårdenheten.\nSystem: urn:oid:1.2.752.129.2.1.4.1 (HSA-id).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlisting.subjectOfCare.listing.healthcareFacility.facilityName",
+        "path": "getlisting.subjectOfCare.listing.healthcareFacility.facilityName",
+        "short": "Namn på vårdenheten",
+        "definition": "Enhetens officiella namn.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlisting.subjectOfCare.listing.healthcareFacility.hasQueue",
+        "path": "getlisting.subjectOfCare.listing.healthcareFacility.hasQueue",
+        "short": "Indikerar om vårdenheten har kö",
+        "definition": "Boolskt värde som indikerar om vårdenheten har kö vid listningar.\nKan utelämnas om information inte har någon betydelse i kontexten.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getlisting.subjectOfCare.listing.healthcareFacility.supportedListingTypes",
+        "path": "getlisting.subjectOfCare.listing.healthcareFacility.supportedListingTypes",
+        "short": "Listningstyper som vårdenheten stödjer",
+        "definition": "Lista med listningstyper som vårdenheten stödjer.\nUtelämnas per postcondition i GetListing-svaret.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlisting.subjectOfCare.listing.resource",
+        "path": "getlisting.subjectOfCare.listing.resource",
+        "short": "Specifik resurs som utför listningstjänsten",
+        "definition": "Resource: specifik resurs (t.ex. en läkare eller husläkarteam) som utför listningstjänsten.\nOm listning pekar ut en specifik resurs.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlisting.subjectOfCare.listing.resource.resourceId",
+        "path": "getlisting.subjectOfCare.listing.resource.resourceId",
+        "short": "HSA-ID för resursen",
+        "definition": "HSA-ID för resursen (personal).\nI de fall HSA-id inte finns tillgängligt kan alternativ id-beteckning användas.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getlisting.subjectOfCare.listing.resource.resourceName",
+        "path": "getlisting.subjectOfCare.listing.resource.resourceName",
+        "short": "Namn på vårdgivaren",
+        "definition": "Aktuell persons förnamn och efternamn.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}
