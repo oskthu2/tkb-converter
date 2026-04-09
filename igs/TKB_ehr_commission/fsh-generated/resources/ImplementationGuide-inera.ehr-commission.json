@@ -1,0 +1,166 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "inera.ehr-commission",
+  "url": "https://fhir.inera.se/ig/ehr-commission/ImplementationGuide/inera.ehr-commission",
+  "version": "1.0.0",
+  "name": "ehrcommission",
+  "title": "ehr: commission",
+  "status": "draft",
+  "contact": [
+    {
+      "name": "Inera Arkitektur",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.inera.se"
+        }
+      ]
+    }
+  ],
+  "copyright": "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "packageId": "inera.ehr-commission",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.r4.core",
+      "version": "4.0.1",
+      "uri": "http://fhir.org/packages/hl7.fhir.r4.core/ImplementationGuide/hl7.fhir.r4.core",
+      "id": "hl7_fhir_r4_core"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "StructureDefinition/getcommissionsforperson"
+        },
+        "name": "GetCommissionsForPerson",
+        "description": "Logisk modell för tjänstekontraktet GetCommissionsForPerson\n(RIV-TA urn:riv:ehr:commission:GetCommissionsForPersonResponder:1).\nRepresenterar responsens informationsstruktur (GetCommissionsForPersonResult).\n\nTjänsten hämtar alla medarbetaruppdrag som personen är kopplad till,\nreturnerar det senast valda uppdraget och anger om ett uppdrag valts\ninom de senaste 12 timmarna.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getcommissionsforperson-request"
+        },
+        "name": "GetCommissionsForPerson — Request",
+        "description": "Logisk modell för requestparametrar i GetCommissionsForPerson\n(RIV-TA urn:riv:ehr:commission:GetCommissionsForPersonResponder:1).\n\nExakt ett av fälten personalHsaId och personalIdentityNumber ska anges.\nOm inget av dessa anges, eller om värdet är ogiltigt, returneras statuskod VALIDATIONERROR.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/resultcode-cs"
+        },
+        "name": "ResultCode",
+        "description": "Enumerationsvärden för svarskoder som används i ehr:commission-tjänsterna.\nKodverket definierar möjliga utfall av ett tjänsteanrop (ResultType.ResultCode).\nKälla: TKB ehr:commission v1.0, avsnitt Datatyper — commissionservice:ResultCode.\nXSD: urn:riv:ehr:commission:1, typ ResultCodeType.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/resultcode-vs"
+        },
+        "name": "ResultCode — ValueSet",
+        "description": "Tillåtna svarskoder för ResultType.ResultCode i ehr:commission-tjänsterna.\nInkluderar alla koder från ResultCodeCS-kodverket.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/setselectedcommissionforperson"
+        },
+        "name": "SetSelectedCommissionForPerson",
+        "description": "Logisk modell för tjänstekontraktet SetSelectedCommissionForPerson\n(RIV-TA urn:riv:ehr:commission:SetSelectedCommissionForPersonResponder:1).\nRepresenterar responsens informationsstruktur (Result).\n\nTjänsten sätter vilket medarbetaruppdrag som valdes aktivt av en person.\nValet är aktuellt under nästkommande 12 timmar.\nMöjlighet finns att nollställa valet genom att utelämna commissionHsaId.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/setselectedcommissionforperson-request"
+        },
+        "name": "SetSelectedCommissionForPerson — Request",
+        "description": "Logisk modell för requestparametrar i SetSelectedCommissionForPerson\n(RIV-TA urn:riv:ehr:commission:SetSelectedCommissionForPersonResponder:1).\n\nExakt ett av fälten personalHsaId och personalIdentityNumber ska anges.\ncommissionHsaId är valfritt — om det utelämnas nollställs valet (t.ex. vid utloggning).",
+        "exampleBoolean": false
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Hem",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "1-inledning.html",
+          "title": "1 Inledning",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "2-versionsinformation.html",
+          "title": "2 Versionsinformation",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "3-tjanstedomanens-arkitektur.html",
+          "title": "3 Tjänstedomänens arkitektur",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "4-tjanstedomanens-krav-och-regler.html",
+          "title": "4 Tjänstedomänens krav och regler",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "5-tjanstedomanens-meddelandemodeller.html",
+          "title": "5 Tjänstedomänens meddelandemodeller",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "6-gemensamma-informationskomponenter.html",
+          "title": "6 Gemensamma informationskomponenter",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "7-tjanstekontrakt.html",
+          "title": "7 Tjänstekontrakt",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2024+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "draft"
+      },
+      {
+        "code": "show-inherited-invariants",
+        "value": "false"
+      },
+      {
+        "code": "apply-contact",
+        "value": "true"
+      },
+      {
+        "code": "apply-publisher",
+        "value": "true"
+      },
+      {
+        "code": "apply-version",
+        "value": "true"
+      },
+      {
+        "code": "apply-copyright",
+        "value": "true"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/resultcode-cs"
+      }
+    ]
+  }
+}

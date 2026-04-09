@@ -1,0 +1,161 @@
+{
+  "domain_id": "ehr.commission",
+  "domain_title": "ehr: commission",
+  "domain_version": "1.0",
+  "rivta_namespace_base": "urn:riv:ehr:commission",
+  "docx_converted_dir": "igs/TKB_ehr_commission/docx-converted/",
+  "source_dir": "igs/TKB_ehr_commission/source/",
+  "notes": "No zip available on Bitbucket downloads — source files fetched directly from master branch via Bitbucket source API. Document version is 1.0 RC1.",
+  "sections": {
+    "1_inledning": "igs/TKB_ehr_commission/docx-converted/sections/1-inledning.md",
+    "2_versionsinformation": "igs/TKB_ehr_commission/docx-converted/sections/2-versionsinformation.md",
+    "3_tjanstedomanens_arkitektur": "igs/TKB_ehr_commission/docx-converted/sections/3-tjanstedomanens-arkitektur.md",
+    "4_tjanstedomanens_krav_och_regler": "igs/TKB_ehr_commission/docx-converted/sections/4-tjanstedomanens-krav-och-regler.md",
+    "5_tjanstedomanens_meddelandemodeller": null,
+    "6_gemensamma_informationskomponenter": null
+  },
+  "contracts": [
+    {
+      "section_number": "7.1",
+      "id": "GetCommissionsForPerson",
+      "display_name": "Hämta medarbetaruppdrag för person",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:ehr:commission:GetCommissionsForPersonResponder:1",
+      "description": "Tjänst som hämtar alla medarbetaruppdrag som personen är kopplad till. Returnerar även vilket uppdrag som valdes vid senaste tillfället och om ett uppdrag valts inom de senaste 12 timmarna.",
+      "request_fields": [
+        {
+          "name": "personalHsaId",
+          "type": "HsaId",
+          "cardinality": "0..1",
+          "description": "HSA-id för den aktör som medarbetaruppdrag ska hämtas för. Exakt ett av personalHsaId och personalIdentityNumber ska anges.",
+          "constraints": "Exakt ett av personalHsaId/personalIdentityNumber måste anges",
+          "kodverk": null
+        },
+        {
+          "name": "personalIdentityNumber",
+          "type": "PersonalIdentityNumber",
+          "cardinality": "0..1",
+          "description": "Personnummer för den aktör som medarbetaruppdrag ska hämtas för. Exakt ett av personalHsaId och personalIdentityNumber ska anges.",
+          "constraints": "Exakt ett av personalHsaId/personalIdentityNumber måste anges",
+          "kodverk": null
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "result",
+          "type": "ResultType",
+          "cardinality": "1..1",
+          "description": "Resultatkod och valfritt felmeddelande",
+          "constraints": null,
+          "kodverk": "ResultCode"
+        },
+        {
+          "name": "lastSelectedCommissionHsaId",
+          "type": "HsaId",
+          "cardinality": "0..1",
+          "description": "Personens senast valda uppdrag (HSA-id). Returneras alltid, även om inget val gjorts de senaste 12 timmarna.",
+          "constraints": null,
+          "kodverk": null
+        },
+        {
+          "name": "selectionPerformed",
+          "type": "boolean",
+          "cardinality": "0..1",
+          "description": "Anger om ett uppdrag valts inom de senaste 12 timmarna.",
+          "constraints": "Per XSD: minOccurs=0, men TKB-tabell anger kardinalitet 1",
+          "kodverk": null
+        },
+        {
+          "name": "commissions",
+          "type": "CommissionType",
+          "cardinality": "0..*",
+          "description": "De medarbetaruppdrag som personen är kopplad till",
+          "constraints": null,
+          "kodverk": null
+        }
+      ],
+      "contract_specific_codesystems": [
+        {
+          "name": "ResultCode",
+          "codes": [
+            {"code": "OK", "display": "Transaktionen har utförts enligt uppdraget."},
+            {"code": "INFO", "display": "Transaktionen har utförts enligt begäran, men det finns ett meddelande som konsumenten måste visa upp."},
+            {"code": "ERROR", "display": "Transaktionen har INTE kunnat utföras p.g.a ett logiskt fel."},
+            {"code": "VALIDATION_ERROR", "display": "En eller flera inparametrar innehåller felaktiga värden."},
+            {"code": "ACCESSDENIED", "display": "Behörighet saknas för att utföra begärd tjänst."}
+          ]
+        }
+      ],
+      "open_questions_from_parsing": [
+        "XSD definierar HealthCareProviderHsaId med minOccurs=0 (valfri) men TKB-tabell anger kardinalitet 1 (obligatorisk) för GetCommissionsForPerson response-fältet healthCareProviderHsaId",
+        "XSD definierar SelectionPerformed med minOccurs=0 men TKB-tabell anger kardinalitet 1",
+        "Exakt ett av personalHsaId och personalIdentityNumber ska anges — villkorlig kardinalitet som kräver invariant"
+      ]
+    },
+    {
+      "section_number": "7.2",
+      "id": "SetSelectedCommissionForPerson",
+      "display_name": "Sätt valt medarbetaruppdrag för person",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:ehr:commission:SetSelectedCommissionForPersonResponder:1",
+      "description": "Tjänst för att välja ett medarbetaruppdrag för en person. Valet är sedan aktuellt under nästkommande 12 timmar. Möjlighet att nollställa valet genom att utelämna commissionHsaId.",
+      "request_fields": [
+        {
+          "name": "personalHsaId",
+          "type": "HsaId",
+          "cardinality": "0..1",
+          "description": "HSA-id för den aktör som medarbetaruppdrag ska hämtas för. Exakt ett av personalHsaId och personalIdentityNumber ska anges.",
+          "constraints": "Exakt ett av personalHsaId/personalIdentityNumber måste anges",
+          "kodverk": null
+        },
+        {
+          "name": "personalIdentityNumber",
+          "type": "PersonalIdentityNumber",
+          "cardinality": "0..1",
+          "description": "Personnummer för den aktör som medarbetaruppdrag ska hämtas för.",
+          "constraints": "Exakt ett av personalHsaId/personalIdentityNumber måste anges",
+          "kodverk": null
+        },
+        {
+          "name": "commissionHsaId",
+          "type": "HsaId",
+          "cardinality": "0..1",
+          "description": "HsaId för vilket uppdrag som är valt. Om detta fält utelämnas, så blir inget uppdrag valt (t.ex. vid utloggning).",
+          "constraints": null,
+          "kodverk": null
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "setSelectedCommissionForPerson",
+          "type": "ResultType",
+          "cardinality": "1..1",
+          "description": "Resultat av valt uppdrag (resultCode + resultText)",
+          "constraints": null,
+          "kodverk": "ResultCode"
+        }
+      ],
+      "contract_specific_codesystems": [],
+      "open_questions_from_parsing": []
+    }
+  ],
+  "shared_datatypes": {
+    "Commission": {
+      "description": "Datatyp för medarbetaruppdrag",
+      "fields": [
+        {"name": "commissionHsaId", "type": "HsaId", "cardinality": "1..1"},
+        {"name": "commissionName", "type": "string", "cardinality": "1..1"},
+        {"name": "commissionPurpose", "type": "string", "cardinality": "1..1"},
+        {"name": "healthCareUnitHsaId", "type": "HsaId", "cardinality": "0..1"},
+        {"name": "healthCareUnitName", "type": "string", "cardinality": "0..1"},
+        {"name": "healthCareUnitStartDate", "type": "dateTime", "cardinality": "0..1"},
+        {"name": "healthCareUnitEndDate", "type": "dateTime", "cardinality": "0..1"},
+        {"name": "healthCareProviderHsaId", "type": "HsaId", "cardinality": "0..1", "note": "XSD: minOccurs=0; TKB-tabell: 1"},
+        {"name": "healthCareProviderName", "type": "string", "cardinality": "0..1", "note": "XSD: minOccurs=0; TKB-tabell: 1"},
+        {"name": "healthCareProviderOrgNo", "type": "string", "cardinality": "0..1"},
+        {"name": "healthCareProviderStartDate", "type": "dateTime", "cardinality": "0..1"},
+        {"name": "healthCareProviderEndDate", "type": "dateTime", "cardinality": "0..1"}
+      ]
+    }
+  }
+}

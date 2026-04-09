@@ -1,0 +1,61 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "storelog",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-log/StructureDefinition/storelog",
+  "name": "StoreLog",
+  "title": "StoreLog",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet StoreLog\n(RIV-TA urn:riv:ehr:log:store:StoreLogResponder:1).\nRepresenterar responsens informationsstruktur (log.store:Result).\nTjänsten sparar en eller flera loggposter i loggtjänsten för att möjliggöra\nuppföljning enligt PDL.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-log/StructureDefinition/storelog",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "storelog",
+        "path": "storelog",
+        "short": "StoreLog",
+        "definition": "Logisk modell för tjänstekontraktet StoreLog\n(RIV-TA urn:riv:ehr:log:store:StoreLogResponder:1).\nRepresenterar responsens informationsstruktur (log.store:Result).\nTjänsten sparar en eller flera loggposter i loggtjänsten för att möjliggöra\nuppföljning enligt PDL."
+      },
+      {
+        "id": "storelog.resultCode",
+        "path": "storelog.resultCode",
+        "short": "Resultatkod för lagringen",
+        "definition": "Statuskod som anger om loggposter sparats korrekt eller om fel uppstått.\nTillåtna värden: OK, INFO, ERROR, VALIDATIONERROR, ACCESSDENIED.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-log/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "storelog.resultText",
+        "path": "storelog.resultText",
+        "short": "Beskrivande text till resultatkoden",
+        "definition": "Fritext som beskriver resultatet eller felorsaken.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

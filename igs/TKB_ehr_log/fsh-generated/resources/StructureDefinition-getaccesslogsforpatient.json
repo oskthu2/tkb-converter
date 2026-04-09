@@ -1,0 +1,282 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getaccesslogsforpatient",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-log/StructureDefinition/getaccesslogsforpatient",
+  "name": "GetAccessLogsForPatient",
+  "title": "GetAccessLogsForPatient",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetAccessLogsForPatient\n(RIV-TA urn:riv:ehr:log:querying:GetAccessLogsForPatientResponder:1).\nRepresenterar responsens informationsstruktur (log.querying:AccessLogsResult).\nReturnerar lista för angiven patient med vilka vårdaktörer som har haft åtkomst\ntill information, inklusive tidpunkt, syfte och resurstyp.\nStödjer aggregering — queuedReportId får inte användas vid aggregerande anrop.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-log/StructureDefinition/getaccesslogsforpatient",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getaccesslogsforpatient",
+        "path": "getaccesslogsforpatient",
+        "short": "GetAccessLogsForPatient",
+        "definition": "Logisk modell för tjänstekontraktet GetAccessLogsForPatient\n(RIV-TA urn:riv:ehr:log:querying:GetAccessLogsForPatientResponder:1).\nRepresenterar responsens informationsstruktur (log.querying:AccessLogsResult).\nReturnerar lista för angiven patient med vilka vårdaktörer som har haft åtkomst\ntill information, inklusive tidpunkt, syfte och resurstyp.\nStödjer aggregering — queuedReportId får inte användas vid aggregerande anrop."
+      },
+      {
+        "id": "getaccesslogsforpatient.result",
+        "path": "getaccesslogsforpatient.result",
+        "short": "Resultatkontainer",
+        "definition": "Resultatkontainer",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getaccesslogsforpatient.result.resultCode",
+        "path": "getaccesslogsforpatient.result.resultCode",
+        "short": "Statuskod",
+        "definition": "Statuskod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-log/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "getaccesslogsforpatient.result.resultText",
+        "path": "getaccesslogsforpatient.result.resultText",
+        "short": "Beskrivande text",
+        "definition": "Beskrivande text",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getaccesslogsforpatient.result.startInterval",
+        "path": "getaccesslogsforpatient.result.startInterval",
+        "short": "Start på tillgängligt datumintervall",
+        "definition": "Start på tillgängligt datumintervall",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getaccesslogsforpatient.result.endInterval",
+        "path": "getaccesslogsforpatient.result.endInterval",
+        "short": "Slut på tillgängligt datumintervall",
+        "definition": "Slut på tillgängligt datumintervall",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getaccesslogsforpatient.result.queuedReportId",
+        "path": "getaccesslogsforpatient.result.queuedReportId",
+        "short": "Id för pågående rapport (UUID)",
+        "definition": "Ska inte returneras/användas när aggregerande tjänst anropas.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getaccesslogsforpatient.result.queueTime",
+        "path": "getaccesslogsforpatient.result.queueTime",
+        "short": "Uppskattad väntetid i sekunder",
+        "definition": "Uppskattad väntetid i sekunder",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getaccesslogsforpatient.accessLogs",
+        "path": "getaccesslogsforpatient.accessLogs",
+        "short": "Samling av åtkomstloggar",
+        "definition": "Samling av åtkomstloggar",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getaccesslogsforpatient.accessLogs.accessLog",
+        "path": "getaccesslogsforpatient.accessLogs.accessLog",
+        "short": "En åtkomstlogg",
+        "definition": "Representerar en enskild åtkomst — vem som haft åtkomst, när, varför och till vilken resurs.\nDatatyp: log.querying:AccessLogType.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getaccesslogsforpatient.accessLogs.accessLog.careProviderId",
+        "path": "getaccesslogsforpatient.accessLogs.accessLog.careProviderId",
+        "short": "HSA-id för vårdgivaren vars medarbetare haft åtkomst",
+        "definition": "HSA-id för vårdgivaren vars medarbetare haft åtkomst",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getaccesslogsforpatient.accessLogs.accessLog.careProviderName",
+        "path": "getaccesslogsforpatient.accessLogs.accessLog.careProviderName",
+        "short": "Vårdgivarens namn",
+        "definition": "Vårdgivarens namn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getaccesslogsforpatient.accessLogs.accessLog.careUnitId",
+        "path": "getaccesslogsforpatient.accessLogs.accessLog.careUnitId",
+        "short": "HSA-id för vårdenhet",
+        "definition": "HSA-id för vårdenhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getaccesslogsforpatient.accessLogs.accessLog.careUnitName",
+        "path": "getaccesslogsforpatient.accessLogs.accessLog.careUnitName",
+        "short": "Vårdenhetens namn",
+        "definition": "Vårdenhetens namn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getaccesslogsforpatient.accessLogs.accessLog.userId",
+        "path": "getaccesslogsforpatient.accessLogs.accessLog.userId",
+        "short": "HSA-id för medarbetaren som haft åtkomst",
+        "definition": "HSA-id för medarbetaren som haft åtkomst",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getaccesslogsforpatient.accessLogs.accessLog.userName",
+        "path": "getaccesslogsforpatient.accessLogs.accessLog.userName",
+        "short": "Medarbetarens namn",
+        "definition": "Medarbetarens namn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getaccesslogsforpatient.accessLogs.accessLog.userTitle",
+        "path": "getaccesslogsforpatient.accessLogs.accessLog.userTitle",
+        "short": "Medarbetarens yrkestitel",
+        "definition": "Medarbetarens yrkestitel",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getaccesslogsforpatient.accessLogs.accessLog.accessDate",
+        "path": "getaccesslogsforpatient.accessLogs.accessLog.accessDate",
+        "short": "Tidpunkt för åtkomst",
+        "definition": "Tidpunkt för åtkomst",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getaccesslogsforpatient.accessLogs.accessLog.purpose",
+        "path": "getaccesslogsforpatient.accessLogs.accessLog.purpose",
+        "short": "Syfte med åtkomsten",
+        "definition": "Syfte med åtkomsten",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getaccesslogsforpatient.accessLogs.accessLog.resourceType",
+        "path": "getaccesslogsforpatient.accessLogs.accessLog.resourceType",
+        "short": "Typ av resurs som åtkomsten avsåg",
+        "definition": "Typ av resurs som åtkomsten avsåg",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

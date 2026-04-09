@@ -1,0 +1,6 @@
+[GetCommissionsForPerson]: StructureDefinition-getcommissionsforperson.html
+[GetCommissionsForPersonRequest]: StructureDefinition-getcommissionsforperson-request.html
+[ResultCodeCS]: CodeSystem-resultcode-cs.html
+[ResultCodeVS]: ValueSet-resultcode-vs.html
+[SetSelectedCommissionForPerson]: StructureDefinition-setselectedcommissionforperson.html
+[SetSelectedCommissionForPersonRequest]: StructureDefinition-setselectedcommissionforperson-request.html

@@ -432,3 +432,44 @@ Inga blockerare.
 
 - [ ] **[TODO-CRM-004]** `igs/TKB_crm_scheduling/input/fsh/` — komplextyper som egna Logical-modeller
   De gemensamma datatyperna `TimeslotType`, `SubjectOfCareType`, `PerformerInfoType`, `HealthcareFacilityInfoType` etc. är inbäddade som `BackboneElement` i respektive kontrakt. Överväg att modellera dem som egna `Logical:`-definitioner och referera till dessa från kontrakt-modellerna — skulle minska duplicering och öka återanvändbarhet.
+
+---
+
+## ehr.commission v1.0 — `igs/TKB_ehr_commission/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-04-09
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-EC-001]** `igs/TKB_ehr_commission/input/fsh/logical-models/GetCommissionsForPerson.fsh` · fält `selectionPerformed`
+  Konflikt mellan TKB-tabell och XSD: TKB-tabell (avsnitt 7.1 Fältregler) anger kardinalitet `1` (obligatorisk) för `selectionPerformed` i GetCommissionsForPersonResult. XSD-schemat `ehr_commission_1.0.xsd` definierar elementet med `minOccurs="0"` (valfritt). FSH-modellen har modellerats som `0..1` i enlighet med XSD (säkrare val). Verifiera vilket som är korrekt — XSD eller TKB-tabell?
+  Källa: TKB avsnitt 7.1 Fältregler rad `selectionPerformed`; `ehr_commission_1.0.xsd` typ `GetCommissionsForPersonResultType`.
+
+- [ ] **[BLOCK-EC-002]** `igs/TKB_ehr_commission/input/fsh/logical-models/GetCommissionsForPerson.fsh` · fält `commissions.healthCareProviderHsaId` och `commissions.healthCareProviderName`
+  Konflikt mellan TKB-tabell och XSD: TKB-tabell (avsnitt Datatyper — commissionservice:Commission) anger kardinalitet `1` (obligatorisk) för `healthCareProviderHsaId` och `healthCareProviderName`. XSD-schemat `ehr_commission_1.0.xsd` definierar dessa element med `minOccurs="0"` (valfria) i `CommissionType`. FSH-modellen har modellerats som `0..1` i enlighet med XSD. Verifiera vilket som är korrekt.
+  Källa: TKB avsnitt Datatyper — commissionservice:Commission; `ehr_commission_1.0.xsd` typ `CommissionType`.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-EC-001]** `igs/TKB_ehr_commission/input/fsh/logical-models/GetCommissionsForPersonRequest.fsh` och `SetSelectedCommissionForPersonRequest.fsh` · fälten `personalHsaId` och `personalIdentityNumber`
+  Båda fälten modelleras som `0..1` eftersom regeln "exakt ett av dessa ska anges" är en affärsregel som inte kan uttryckas som enkel kardinalitet. Villkoret dokumenteras som kommentar i fältbeskrivningarna. En FHIR-invariant (constraint) vore korrekt modellering men har inte skapats — det kräver ett beslut om hur invarianter ska hanteras i IG:n generellt.
+  Källa: TKB avsnitt 7.1 och 7.2 — Regler.
+
+- [ ] **[ASSUME-EC-002]** Allmänt — inga zip-filer i Bitbucket downloads.
+  Domänens källfiler hämtades direkt från Bitbucket repository source-katalog (master-gren). Det saknas zip-artefakt i downloads-sektionen för `riv.ehr.commission`. Dokumentet är märkt `1.0_RC1` (Release Candidate 1). Verifiera om detta är den senaste/slutliga versionen eller om det finns en nyare version.
+  Källa: `https://api.bitbucket.org/2.0/repositories/rivta-domains/riv.ehr.commission/downloads` (tom).
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-EC-001]** `igs/TKB_ehr_commission/input/pagecontent/5-tjanstedomanens-meddelandemodeller.md` och `6-gemensamma-informationskomponenter.md`
+  Avsnitt 5 och 6 saknas i källdokumentet TKB_ehr_commission_1.0_RC1.docx. Platshållar-sidor skapades. Datatyperna (`CommissionType`, `GetCommissionsForPersonResultType`, `ResultType`, `HsaId`, `PersonalIdentityNumber`) som dokumenteras i källdokumentets "Datatyper"-kapitel bör läggas till i avsnitt 6 (Gemensamma informationskomponenter).
+
+- [ ] **[TODO-EC-002]** `igs/TKB_ehr_commission/input/fsh/logical-models/` — gemensamma datatyper som egna Logical-modeller
+  De delade datatyperna `CommissionType` och `ResultType` är inbäddade som `BackboneElement` i `GetCommissionsForPerson`-modellen. Överväg att modellera dessa som egna `Logical:`-definitioner och referera till dem från kontrakt-modellerna.
+
+- [ ] **[TODO-EC-003]** `igs/TKB_ehr_commission/sushi-config.yaml` — SUSHI-varning om publisher-typ
+  SUSHI rapporterar: "Configuration property publisher has a value with an unexpected type." Verifiera sushi-config.yaml publisher-formatets korrekthet mot senaste SUSHI-specifikation (gemensamt problem med andra IGs — se TODO-CRM-003).
+
+- [ ] **[TODO-EC-004]** `igs/TKB_ehr_commission/input/fsh/logical-models/GetCommissionsForPerson.fsh` och `SetSelectedCommissionForPerson.fsh`
+  SUSHI varnar: "Type characteristics code system not found. Skipping validation of characteristics for [Logical name]." Detta är förväntat i offline-miljön (sushi-r5forR4-paketet saknar code system för `#can-be-target`). Bekräfta att varningarna försvinner i en online-miljö eller med komplett paketcache.
