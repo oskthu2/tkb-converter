@@ -473,3 +473,44 @@ Inga blockerare.
 
 - [ ] **[TODO-EC-004]** `igs/TKB_ehr_commission/input/fsh/logical-models/GetCommissionsForPerson.fsh` och `SetSelectedCommissionForPerson.fsh`
   SUSHI varnar: "Type characteristics code system not found. Skipping validation of characteristics for [Logical name]." Detta är förväntat i offline-miljön (sushi-r5forR4-paketet saknar code system för `#can-be-target`). Bekräfta att varningarna försvinner i en online-miljö eller med komplett paketcache.
+
+---
+
+## ehr.log v1.2.3 — `igs/TKB_ehr_log/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-04-09
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-EL-001]** `igs/TKB_ehr_log/sushi-config.yaml` — dependency `se.inera.rivta.core`
+  Beroendet `se.inera.rivta.core#current` finns inte tillgängligt lokalt och kan inte laddas hem (nätverket blockerat). Beroendet togs bort för att SUSHI ska köra utan fel. Verifiera om detta beroende behövs och hur det ska lösas — antingen via lokal paketkopia eller ett alternativt paket. De domänspecifika bastyperna (log:HsaId, log:PersonId, etc.) är för tillfället modellerade direkt som `Identifier` och `string` i FSH-filerna.
+  Källa: SUSHI-fel: "Failed to load se.inera.rivta.core#current".
+
+- [ ] **[BLOCK-EL-002]** `igs/TKB_ehr_log/` — Ingen zip-fil i Bitbucket downloads
+  Källfiler för domänen saknas som publicerad zip i Bitbucket downloads (`https://api.bitbucket.org/2.0/repositories/rivta-domains/riv.ehr.log/downloads`). Filer hämtades direkt från master-branchen via Bitbucket source API. Verifiera att master-branchen innehåller den senaste/slutliga versionen (TKB v1.2.3 daterad 2016-06-21). Eventuellt finns en nyare version.
+  Källa: `https://api.bitbucket.org/2.0/repositories/rivta-domains/riv.ehr.log/downloads` (returnerade tom lista).
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-EL-001]** `igs/TKB_ehr_log/input/fsh/logical-models/` — icke-standardiserad kapitelstruktur
+  TKB:n för ehr.log följer inte standard TKB-rubrikstruktur (avsnitt 1-7). Istället har dokumentet kapitlen: 1=Inledning, 2=Generella regler, 3-9=tjänstekontrakt (StoreLog, GetLogsForCareProvider, GetLogsForUser, GetLogsForPatient, GetAccessLogsForPatient, GetInfoLogsForCareProvider, GetInfoLogsForPatient), 10=Datatyper. IG-sidstrukturen är anpassad: 1-inledning.md, 2-generella-regler.md, 7-tjanstekontrakt.md, 8-datatyper.md. Avsnitt 3–6 existerar inte i källdokumentet och har inte skapats som placeholder-sidor.
+
+- [ ] **[ASSUME-EL-002]** `igs/TKB_ehr_log/input/fsh/logical-models/StoreLogRequest.fsh` — kardinalitet på `log.resources.resource.patient` och `log.resources.resource.careProvider`
+  TKB-tabellen anger `careProvider` som obligatorisk (kardinalitet `1`) men inte `patient`. I XSD-schemat (`ehr_log_1.0.xsd`) är `Patient` optional (`minOccurs="0"`). Patient modelleras som `0..1` och CareProvider som `1..1` för resursen, i linje med XSD. Verifiera detta mot domänspecifikation — en resurs kan principiellt vara av annan typ än patient men torde alltid ha en ägande vårdgivare.
+  Källa: TKB avsnitt Datatyper — log:Resource; `ehr_log_1.0.xsd`.
+
+- [ ] **[ASSUME-EL-003]** `igs/TKB_ehr_log/input/fsh/codesystems/ActivityTypeCS.fsh` — ActivityType är en enumeration, inte ett kodverk med OID
+  ActivityType (log:ActivityTypeValue) representeras i TKB:n som en enumeration med svenska värden: Läsa, Skriva, Signera, Utskrift, Vidimera, Radera, Nödöppning. Dessa modelleras som ett FHIR CodeSystem med URL `https://fhir.inera.se/CodeSystem/activitytype-cs`. Inget OID finns dokumenterat i TKB:n. Verifiera om ett officiellt OID borde användas för detta kodverk.
+  Källa: TKB avsnitt Datatyper — log:ActivityType.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-EL-001]** `igs/TKB_ehr_log/input/fsh/logical-models/` — delade datatyper som egna Logical-modeller
+  De delade datatyperna log:Log, log:Activity, log:User, log:Resources, log:Resource, log:CareProvider, log:CareUnit, log:Patient, log:System är återanvända i fem av sju kontrakt. För tillfället är de inbäddade som BackboneElement i varje kontrakt. Överväg att extrahera dessa som egna `Logical:`-definitioner och referera till dem.
+
+- [ ] **[TODO-EL-002]** `igs/TKB_ehr_log/input/pagecontent/8-datatyper.md`
+  Datatype-sidan innehåller alla datatypbeskrivningar från TKB. Dessa bör eventuellt länkas från de enskilda logiska modellerna (StructureDefinition-sidor) med direktreferenser till relevant avsnitt i 8-datatyper.html.
+
+- [ ] **[TODO-EL-003]** SUSHI-varning: "Type characteristics code system not found" (19 varningar)
+  Alla 14 logiska modeller ger varningen "Type characteristics code system not found. Skipping validation of characteristics for [Logical name]." Detta är förväntat i offline-miljön. Bekräfta att varningarna försvinner i en online-miljö eller med komplett paketcache.
