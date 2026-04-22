@@ -514,3 +514,51 @@ Inga blockerare.
 
 - [ ] **[TODO-EL-003]** SUSHI-varning: "Type characteristics code system not found" (19 varningar)
   Alla 14 logiska modeller ger varningen "Type characteristics code system not found. Skipping validation of characteristics for [Logical name]." Detta är förväntat i offline-miljön. Bekräfta att varningarna försvinner i en online-miljö eller med komplett paketcache.
+
+---
+
+## ehr.blocking v3.2.2 — `igs/TKB_ehr_blocking/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-04-22
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-EB-001]** `igs/TKB_ehr_blocking/sushi-config.yaml` — dependency `se.inera.rivta.core`
+  Beroendet `se.inera.rivta.core#current` finns inte tillgängligt lokalt och kan inte laddas hem (nätverket blockerat). Beroendet togs bort för att SUSHI ska köra utan fel. Verifiera om detta beroende behövs och hur det ska lösas — antingen via lokal paketkopia eller alternativt paket. De domänspecifika bastyperna (HsaId, PatientId etc.) är för tillfället modellerade direkt som `string` eller `Identifier` i FSH-filerna.
+  Källa: SUSHI-varning: "Failed to load se.inera.rivta.core#current".
+
+- [ ] **[BLOCK-EB-002]** `igs/TKB_ehr_blocking/input/fsh/logical-models/RegisterTemporaryExtendedRevoke.fsh` — saknad request-modell
+  Kontraktet `RegisterTemporaryExtendedRevoke` saknar en request-modell (ingen `RegisterTemporaryExtendedRevokeRequest.fsh`). Alla övriga 14 kontrakt har separata request-modeller. Verifiera om request-parametrarna för detta kontrakt är identiska med `RegisterTemporaryRevoke` (återanvändning) eller om en egen request-modell behöver skapas.
+  Källa: `igs/TKB_ehr_blocking/input/fsh/logical-models/` — ingen `RegisterTemporaryExtendedRevokeRequest.fsh` finns.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-EB-001]** `igs/TKB_ehr_blocking/input/fsh/logical-models/` — HSA-ID och patient-ID som `string`
+  Fält av typerna HSAId och PatientId (personnummer/samordningsnummer) är modellerade som `string` i stället för `Identifier` med OID-system, eftersom `se.inera.rivta.core`-paketet (som definierar dessa bastyper) inte är tillgängligt offline. I en produktionsmiljö med paketet tillgängligt bör dessa modelleras som `Identifier` med `system = "urn:oid:1.2.752.129.2.1.4.1"` (HSA) respektive lämpliga OID:er för personnummer. Verifiera korrekt OID-val.
+  Källa: `igs/TKB_ehr_blocking/input/fsh/logical-models/GetBlocks.fsh` fält `patientId`, `informationCareUnitId`, `informationCareProviderId`.
+
+- [ ] **[ASSUME-EB-002]** `igs/TKB_ehr_blocking/input/fsh/logical-models/CheckBlocks.fsh` — `checkStatus` som `code`
+  Fältet `checkStatus` returnerar ett av värdena BLOCKED/UNBLOCKED/VALIDATIONERROR men ingen formell kodverksdefinition finns i TKB:n för detta fält (det är en inline-enumeration i texten, inte ett namngivet kodverk). Antagandet gjordes att `code` med fritext-enumeration är tillräcklig och att inget eget CodeSystem behöver skapas. Om ett formellt kodverk krävs: skapa `CheckStatusCS` och tillhörande `CheckStatusVS`.
+  Källa: `igs/TKB_ehr_blocking/input/fsh/logical-models/CheckBlocks.fsh` fält `checkStatus`.
+
+- [ ] **[ASSUME-EB-003]** `igs/TKB_ehr_blocking/` — domänens tjänstekontrakt grupperas i sub-namespaces
+  TKB ehr:blocking innehåller tjänstekontrakt i fyra sub-namespaces: `accesscontrol` (CheckBlocks), `querying` (GetBlocks, GetBlocksForPatient, GetAllBlocks, GetAllBlocksForPatient), `administration` (RegisterBlock, RegisterExtendedBlock, GetExtendedBlocksForPatient, DeleteExtendedBlock, RegisterTemporaryRevoke, RegisterTemporaryExtendedRevoke, RevokeExtendedBlock, UnregisterBlock, GetPatientIds) och `synchronization` (GetBlocks, GetBlocksForPatient, GetAllBlocks, UnregisterBlock, RegisterBlock, RegisterTemporaryRevoke, UnregisterTemporaryRevoke). Antagandet gjordes att alla modelleras i samma IG (TKB_ehr_blocking). Verifiera om sub-namespacen ska ge separata IGs eller om sammanslagen IG är korrekt.
+  Källa: `// Kontrakt:`-kommentarerna i FSH-filerna (namespace anges i parentes).
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-EB-001]** `igs/TKB_ehr_blocking/ig.ini` — pekar på fsh-generated
+  `ig.ini` uppdaterades från `input/ImplementationGuide-inera.ehr-blocking.json` till `fsh-generated/resources/ImplementationGuide-inera.ehr-blocking.json` och `template = fhir.base.template#current` lades till (krävdes för att SUSHI inte skulle rapportera error). IG Publisher körs separat med `make build-one D=ehr.blocking`.
+
+- [ ] **[TODO-EB-002]** SUSHI-varning: "Type characteristics code system not found" (29 varningar)
+  Alla 29 logiska modeller ger varningen. Förväntat i offline-miljön — bekräfta att varningarna försvinner i en online-miljö med komplett paketcache.
+
+- [ ] **[TODO-EB-003]** SUSHI-varning: "menu property ignored — menu.xml found"
+  Både `menu`-egenskapen i `sushi-config.yaml` och `input/includes/menu.xml` existerar. SUSHI ignorerar sushi-config-menyn och använder menu.xml. Verifiera att menu.xml är korrekt och komplett — eller ta bort den och låt SUSHI generera menu.xml från sushi-config.
+
+- [ ] **[TODO-EB-004]** `igs/TKB_ehr_blocking/input/fsh/` — delade datatyper som egna Logical-modeller
+  BlockType-relaterade fält (`blockId`, `blockType`, `patientId`, `informationCareProviderId`, `informationCareUnitId`) återkommer i GetBlocks, GetBlocksForPatient, GetAllBlocks, GetAllBlocksForPatient och GetExtendedBlocksForPatient. Överväg att extrahera en gemensam `BlockType`-Logical och referera till den från kontrakt-modellerna.
+
+- [ ] **[TODO-EB-005]** `igs/TKB_ehr_blocking/input/pagecontent/` — sidor saknas
+  IG:n har bara 4 sidor (index, 1-inledning, 2-generella-regler, 7-tjanstekontrakt). Standard TKB-struktur kräver avsnitt 3–6. Verifiera om dessa avsnitt finns i källdokumentet och komplettera i så fall med sidor för 3-tjanstedomanens-arkitektur.md, 4-tjanstedomanens-krav-och-regler.md, 5-tjanstedomanens-meddelandemodeller.md och 6-gemensamma-informationskomponenter.md.

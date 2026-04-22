@@ -1,0 +1,74 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "unregisterblock",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/unregisterblock",
+  "name": "UnregisterBlock",
+  "title": "UnregisterBlock",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet UnregisterBlock\n(RIV-TA urn:riv:ehr:blocking:synchronization:UnregisterBlockResponder:2).\nAvregistrerar en spärr från nationell spärrtjänst.\nRepresenterar responsens informationsstruktur.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/unregisterblock",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "unregisterblock",
+        "path": "unregisterblock",
+        "short": "UnregisterBlock",
+        "definition": "Logisk modell för tjänstekontraktet UnregisterBlock\n(RIV-TA urn:riv:ehr:blocking:synchronization:UnregisterBlockResponder:2).\nAvregistrerar en spärr från nationell spärrtjänst.\nRepresenterar responsens informationsstruktur."
+      },
+      {
+        "id": "unregisterblock.result",
+        "path": "unregisterblock.result",
+        "short": "Resultat av avregistreringen",
+        "definition": "Resultat av avregistreringen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "unregisterblock.result.resultCode",
+        "path": "unregisterblock.result.resultCode",
+        "short": "Svarskod",
+        "definition": "Svarskod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-blocking/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "unregisterblock.result.resultText",
+        "path": "unregisterblock.result.resultText",
+        "short": "Beskrivande text till svarskoden",
+        "definition": "Beskrivande text till svarskoden",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "registerextendedblock",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/registerextendedblock",
+  "name": "RegisterExtendedBlock",
+  "title": "RegisterExtendedBlock",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet RegisterExtendedBlock\n(RIV-TA urn:riv:ehr:blocking:administration:RegisterExtendedBlockResponder:2).\nRegistrerar en spärr med utökad information (aktörsdata, tidsstämplar m.m.) i lokal spärrtjänst.\nRepresenterar responsens informationsstruktur.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/registerextendedblock",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "registerextendedblock",
+        "path": "registerextendedblock",
+        "short": "RegisterExtendedBlock",
+        "definition": "Logisk modell för tjänstekontraktet RegisterExtendedBlock\n(RIV-TA urn:riv:ehr:blocking:administration:RegisterExtendedBlockResponder:2).\nRegistrerar en spärr med utökad information (aktörsdata, tidsstämplar m.m.) i lokal spärrtjänst.\nRepresenterar responsens informationsstruktur."
+      },
+      {
+        "id": "registerextendedblock.result",
+        "path": "registerextendedblock.result",
+        "short": "Resultat av registreringen",
+        "definition": "Resultat av registreringen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedblock.result.resultCode",
+        "path": "registerextendedblock.result.resultCode",
+        "short": "Svarskod",
+        "definition": "Svarskod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-blocking/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "registerextendedblock.result.resultText",
+        "path": "registerextendedblock.result.resultText",
+        "short": "Beskrivande text till svarskoden",
+        "definition": "Beskrivande text till svarskoden",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

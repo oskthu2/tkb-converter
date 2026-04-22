@@ -1,0 +1,1083 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getextendedblockforpatient",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/getextendedblockforpatient",
+  "name": "GetExtendedBlocksForPatient",
+  "title": "GetExtendedBlocksForPatient",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetExtendedBlocksForPatient\n(RIV-TA urn:riv:ehr:blocking:administration:GetExtendedBlocksForPatientResponder:2).\nLäser spärrar för en viss patient med utökad information inklusive aktörsinformation,\nhistorik och makulerade spärrar. Representerar responsens informationsstruktur.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/getextendedblockforpatient",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getextendedblockforpatient",
+        "path": "getextendedblockforpatient",
+        "short": "GetExtendedBlocksForPatient",
+        "definition": "Logisk modell för tjänstekontraktet GetExtendedBlocksForPatient\n(RIV-TA urn:riv:ehr:blocking:administration:GetExtendedBlocksForPatientResponder:2).\nLäser spärrar för en viss patient med utökad information inklusive aktörsinformation,\nhistorik och makulerade spärrar. Representerar responsens informationsstruktur."
+      },
+      {
+        "id": "getextendedblockforpatient.result",
+        "path": "getextendedblockforpatient.result",
+        "short": "Resultat av anropet",
+        "definition": "Resultat av anropet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.result.resultCode",
+        "path": "getextendedblockforpatient.result.resultCode",
+        "short": "Svarskod",
+        "definition": "Svarskod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-blocking/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "getextendedblockforpatient.result.resultText",
+        "path": "getextendedblockforpatient.result.resultText",
+        "short": "Beskrivande text till svarskoden",
+        "definition": "Beskrivande text till svarskoden",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks",
+        "path": "getextendedblockforpatient.blocks",
+        "short": "Lista med utökad spärrinformation (inkl. makulerade och hävda spärrar)",
+        "definition": "Lista med utökad spärrinformation (inkl. makulerade och hävda spärrar)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.blockId",
+        "path": "getextendedblockforpatient.blocks.blockId",
+        "short": "Unik identifierare för spärren (UUID)",
+        "definition": "Unik identifierare för spärren (UUID)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.blockType",
+        "path": "getextendedblockforpatient.blocks.blockType",
+        "short": "Typ av spärr",
+        "definition": "Typ av spärr",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-blocking/ValueSet/blocktype-vs"
+        }
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.patientId",
+        "path": "getextendedblockforpatient.blocks.patientId",
+        "short": "Patientens personnummer eller samordningsnummer",
+        "definition": "Patientens personnummer eller samordningsnummer",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.informationStartDate",
+        "path": "getextendedblockforpatient.blocks.informationStartDate",
+        "short": "Startdatum för vilken information spärren gäller",
+        "definition": "Startdatum för vilken information spärren gäller",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.informationEndDate",
+        "path": "getextendedblockforpatient.blocks.informationEndDate",
+        "short": "Slutdatum för vilken information spärren gäller",
+        "definition": "Slutdatum för vilken information spärren gäller",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.informationCareUnitId",
+        "path": "getextendedblockforpatient.blocks.informationCareUnitId",
+        "short": "HSA-id för vårdenhet (vid inre spärr)",
+        "definition": "HSA-id för vårdenhet (vid inre spärr)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.informationCareProviderId",
+        "path": "getextendedblockforpatient.blocks.informationCareProviderId",
+        "short": "HSA-id för vårdgivare",
+        "definition": "HSA-id för vårdgivare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.excludedInformationTypes",
+        "path": "getextendedblockforpatient.blocks.excludedInformationTypes",
+        "short": "Informationstyper undantagna från spärren",
+        "definition": "Informationstyper undantagna från spärren",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.excludedInformationTypes.infoTypeId",
+        "path": "getextendedblockforpatient.blocks.excludedInformationTypes.infoTypeId",
+        "short": "ID för informationstypen",
+        "definition": "ID för informationstypen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.excludedInformationTypes.infoTypeDescription",
+        "path": "getextendedblockforpatient.blocks.excludedInformationTypes.infoTypeDescription",
+        "short": "Beskrivning av informationstypen",
+        "definition": "Beskrivning av informationstypen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.registrationInfo",
+        "path": "getextendedblockforpatient.blocks.registrationInfo",
+        "short": "Aktörsinfo för registrering av spärren",
+        "definition": "Aktörsinfo för registrering av spärren",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.registrationInfo.requestDate",
+        "path": "getextendedblockforpatient.blocks.registrationInfo.requestDate",
+        "short": "Datum när spärren begärdes",
+        "definition": "Datum när spärren begärdes",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.registrationInfo.requestedBy",
+        "path": "getextendedblockforpatient.blocks.registrationInfo.requestedBy",
+        "short": "Aktören som begärde spärren",
+        "definition": "Aktören som begärde spärren",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.registrationInfo.requestedBy.employeeId",
+        "path": "getextendedblockforpatient.blocks.registrationInfo.requestedBy.employeeId",
+        "short": "HSA-id för anställd",
+        "definition": "HSA-id för anställd",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.registrationInfo.requestedBy.assignmentId",
+        "path": "getextendedblockforpatient.blocks.registrationInfo.requestedBy.assignmentId",
+        "short": "HSA-id för medarbetaruppdrag",
+        "definition": "HSA-id för medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.registrationInfo.requestedBy.assignmentName",
+        "path": "getextendedblockforpatient.blocks.registrationInfo.requestedBy.assignmentName",
+        "short": "Namn på medarbetaruppdrag",
+        "definition": "Namn på medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.registrationInfo.registrationDate",
+        "path": "getextendedblockforpatient.blocks.registrationInfo.registrationDate",
+        "short": "Datum när spärren registrerades",
+        "definition": "Datum när spärren registrerades",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.registrationInfo.registeredBy",
+        "path": "getextendedblockforpatient.blocks.registrationInfo.registeredBy",
+        "short": "Aktören som registrerade spärren",
+        "definition": "Aktören som registrerade spärren",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.registrationInfo.registeredBy.employeeId",
+        "path": "getextendedblockforpatient.blocks.registrationInfo.registeredBy.employeeId",
+        "short": "HSA-id för anställd",
+        "definition": "HSA-id för anställd",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.registrationInfo.registeredBy.assignmentId",
+        "path": "getextendedblockforpatient.blocks.registrationInfo.registeredBy.assignmentId",
+        "short": "HSA-id för medarbetaruppdrag",
+        "definition": "HSA-id för medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.registrationInfo.registeredBy.assignmentName",
+        "path": "getextendedblockforpatient.blocks.registrationInfo.registeredBy.assignmentName",
+        "short": "Namn på medarbetaruppdrag",
+        "definition": "Namn på medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.registrationInfo.reasonText",
+        "path": "getextendedblockforpatient.blocks.registrationInfo.reasonText",
+        "short": "Orsak till spärren (max 1024 tecken)",
+        "definition": "Orsak till spärren (max 1024 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.permanentRevokedInfo",
+        "path": "getextendedblockforpatient.blocks.permanentRevokedInfo",
+        "short": "Aktörsinfo vid permanent hävning (om spärren hävts)",
+        "definition": "Aktörsinfo vid permanent hävning (om spärren hävts)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.permanentRevokedInfo.requestDate",
+        "path": "getextendedblockforpatient.blocks.permanentRevokedInfo.requestDate",
+        "short": "Datum när hävning begärdes",
+        "definition": "Datum när hävning begärdes",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.permanentRevokedInfo.requestedBy",
+        "path": "getextendedblockforpatient.blocks.permanentRevokedInfo.requestedBy",
+        "short": "Aktören som begärde hävningen",
+        "definition": "Aktören som begärde hävningen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.permanentRevokedInfo.requestedBy.employeeId",
+        "path": "getextendedblockforpatient.blocks.permanentRevokedInfo.requestedBy.employeeId",
+        "short": "HSA-id för anställd",
+        "definition": "HSA-id för anställd",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.permanentRevokedInfo.requestedBy.assignmentId",
+        "path": "getextendedblockforpatient.blocks.permanentRevokedInfo.requestedBy.assignmentId",
+        "short": "HSA-id för medarbetaruppdrag",
+        "definition": "HSA-id för medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.permanentRevokedInfo.requestedBy.assignmentName",
+        "path": "getextendedblockforpatient.blocks.permanentRevokedInfo.requestedBy.assignmentName",
+        "short": "Namn på medarbetaruppdrag",
+        "definition": "Namn på medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.permanentRevokedInfo.registrationDate",
+        "path": "getextendedblockforpatient.blocks.permanentRevokedInfo.registrationDate",
+        "short": "Datum när hävningen registrerades",
+        "definition": "Datum när hävningen registrerades",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.permanentRevokedInfo.registeredBy",
+        "path": "getextendedblockforpatient.blocks.permanentRevokedInfo.registeredBy",
+        "short": "Aktören som registrerade hävningen",
+        "definition": "Aktören som registrerade hävningen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.permanentRevokedInfo.registeredBy.employeeId",
+        "path": "getextendedblockforpatient.blocks.permanentRevokedInfo.registeredBy.employeeId",
+        "short": "HSA-id för anställd",
+        "definition": "HSA-id för anställd",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.permanentRevokedInfo.registeredBy.assignmentId",
+        "path": "getextendedblockforpatient.blocks.permanentRevokedInfo.registeredBy.assignmentId",
+        "short": "HSA-id för medarbetaruppdrag",
+        "definition": "HSA-id för medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.permanentRevokedInfo.registeredBy.assignmentName",
+        "path": "getextendedblockforpatient.blocks.permanentRevokedInfo.registeredBy.assignmentName",
+        "short": "Namn på medarbetaruppdrag",
+        "definition": "Namn på medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.permanentRevokedInfo.reasonText",
+        "path": "getextendedblockforpatient.blocks.permanentRevokedInfo.reasonText",
+        "short": "Orsak till hävningen",
+        "definition": "Orsak till hävningen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.deletionInfo",
+        "path": "getextendedblockforpatient.blocks.deletionInfo",
+        "short": "Aktörsinfo vid makulering (om spärren makulerats)",
+        "definition": "Aktörsinfo vid makulering (om spärren makulerats)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.deletionInfo.requestDate",
+        "path": "getextendedblockforpatient.blocks.deletionInfo.requestDate",
+        "short": "Datum när makulering begärdes",
+        "definition": "Datum när makulering begärdes",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.deletionInfo.requestedBy",
+        "path": "getextendedblockforpatient.blocks.deletionInfo.requestedBy",
+        "short": "Aktören som begärde makuleringen",
+        "definition": "Aktören som begärde makuleringen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.deletionInfo.requestedBy.employeeId",
+        "path": "getextendedblockforpatient.blocks.deletionInfo.requestedBy.employeeId",
+        "short": "HSA-id för anställd",
+        "definition": "HSA-id för anställd",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.deletionInfo.requestedBy.assignmentId",
+        "path": "getextendedblockforpatient.blocks.deletionInfo.requestedBy.assignmentId",
+        "short": "HSA-id för medarbetaruppdrag",
+        "definition": "HSA-id för medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.deletionInfo.requestedBy.assignmentName",
+        "path": "getextendedblockforpatient.blocks.deletionInfo.requestedBy.assignmentName",
+        "short": "Namn på medarbetaruppdrag",
+        "definition": "Namn på medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.deletionInfo.registrationDate",
+        "path": "getextendedblockforpatient.blocks.deletionInfo.registrationDate",
+        "short": "Datum när makuleringen registrerades",
+        "definition": "Datum när makuleringen registrerades",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.deletionInfo.registeredBy",
+        "path": "getextendedblockforpatient.blocks.deletionInfo.registeredBy",
+        "short": "Aktören som registrerade makuleringen",
+        "definition": "Aktören som registrerade makuleringen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.deletionInfo.registeredBy.employeeId",
+        "path": "getextendedblockforpatient.blocks.deletionInfo.registeredBy.employeeId",
+        "short": "HSA-id för anställd",
+        "definition": "HSA-id för anställd",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.deletionInfo.registeredBy.assignmentId",
+        "path": "getextendedblockforpatient.blocks.deletionInfo.registeredBy.assignmentId",
+        "short": "HSA-id för medarbetaruppdrag",
+        "definition": "HSA-id för medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.deletionInfo.registeredBy.assignmentName",
+        "path": "getextendedblockforpatient.blocks.deletionInfo.registeredBy.assignmentName",
+        "short": "Namn på medarbetaruppdrag",
+        "definition": "Namn på medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.deletionInfo.reasonText",
+        "path": "getextendedblockforpatient.blocks.deletionInfo.reasonText",
+        "short": "Orsak till makuleringen",
+        "definition": "Orsak till makuleringen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes",
+        "short": "Tillfälliga hävningar (inkl. historik)",
+        "definition": "Tillfälliga hävningar (inkl. historik)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.temporaryRevokeId",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.temporaryRevokeId",
+        "short": "Unik ID för tillfällig hävning",
+        "definition": "Unik ID för tillfällig hävning",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.endDate",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.endDate",
+        "short": "Datum när hävningen upphör",
+        "definition": "Datum när hävningen upphör",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.revokedForCareUnitId",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.revokedForCareUnitId",
+        "short": "HSA-id för vårdenhet",
+        "definition": "HSA-id för vårdenhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.revokedForEmployeeId",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.revokedForEmployeeId",
+        "short": "HSA-id för enskild medarbetare",
+        "definition": "HSA-id för enskild medarbetare",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.reason",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.reason",
+        "short": "Orsak till tillfällig hävning",
+        "definition": "Orsak till tillfällig hävning",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-blocking/ValueSet/temporaryrevokereason-vs"
+        }
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo",
+        "short": "Aktörsinfo för registrering av hävningen",
+        "definition": "Aktörsinfo för registrering av hävningen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo.requestDate",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo.requestDate",
+        "short": "Datum när hävningen begärdes",
+        "definition": "Datum när hävningen begärdes",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo.requestedBy",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo.requestedBy",
+        "short": "Aktören som begärde hävningen",
+        "definition": "Aktören som begärde hävningen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo.requestedBy.employeeId",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo.requestedBy.employeeId",
+        "short": "HSA-id för anställd",
+        "definition": "HSA-id för anställd",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo.requestedBy.assignmentId",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo.requestedBy.assignmentId",
+        "short": "HSA-id för medarbetaruppdrag",
+        "definition": "HSA-id för medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo.requestedBy.assignmentName",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo.requestedBy.assignmentName",
+        "short": "Namn på medarbetaruppdrag",
+        "definition": "Namn på medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo.registrationDate",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo.registrationDate",
+        "short": "Datum när hävningen registrerades",
+        "definition": "Datum när hävningen registrerades",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo.registeredBy",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo.registeredBy",
+        "short": "Aktören som registrerade hävningen",
+        "definition": "Aktören som registrerade hävningen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo.registeredBy.employeeId",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo.registeredBy.employeeId",
+        "short": "HSA-id för anställd",
+        "definition": "HSA-id för anställd",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo.registeredBy.assignmentId",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo.registeredBy.assignmentId",
+        "short": "HSA-id för medarbetaruppdrag",
+        "definition": "HSA-id för medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo.registeredBy.assignmentName",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo.registeredBy.assignmentName",
+        "short": "Namn på medarbetaruppdrag",
+        "definition": "Namn på medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo.reasonText",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.registrationInfo.reasonText",
+        "short": "Fritext-orsak",
+        "definition": "Fritext-orsak",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo",
+        "short": "Aktörsinfo om hävningen har återkallats",
+        "definition": "Aktörsinfo om hävningen har återkallats",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo.requestDate",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo.requestDate",
+        "short": "Datum när återkallning begärdes",
+        "definition": "Datum när återkallning begärdes",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo.requestedBy",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo.requestedBy",
+        "short": "Aktören som begärde återkallningen",
+        "definition": "Aktören som begärde återkallningen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo.requestedBy.employeeId",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo.requestedBy.employeeId",
+        "short": "HSA-id för anställd",
+        "definition": "HSA-id för anställd",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo.requestedBy.assignmentId",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo.requestedBy.assignmentId",
+        "short": "HSA-id för medarbetaruppdrag",
+        "definition": "HSA-id för medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo.requestedBy.assignmentName",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo.requestedBy.assignmentName",
+        "short": "Namn på medarbetaruppdrag",
+        "definition": "Namn på medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo.registrationDate",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo.registrationDate",
+        "short": "Datum när återkallningen registrerades",
+        "definition": "Datum när återkallningen registrerades",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo.registeredBy",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo.registeredBy",
+        "short": "Aktören som registrerade återkallningen",
+        "definition": "Aktören som registrerade återkallningen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo.registeredBy.employeeId",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo.registeredBy.employeeId",
+        "short": "HSA-id för anställd",
+        "definition": "HSA-id för anställd",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo.registeredBy.assignmentId",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo.registeredBy.assignmentId",
+        "short": "HSA-id för medarbetaruppdrag",
+        "definition": "HSA-id för medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo.registeredBy.assignmentName",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo.registeredBy.assignmentName",
+        "short": "Namn på medarbetaruppdrag",
+        "definition": "Namn på medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo.reasonText",
+        "path": "getextendedblockforpatient.blocks.temporaryRevokes.cancellationInfo.reasonText",
+        "short": "Fritext-orsak",
+        "definition": "Fritext-orsak",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}
