@@ -613,3 +613,40 @@ Inga blockerare.
 
 - [ ] **[TODO-CAA-003]** `igs/TKB_clinicalprocess_activity_actions/input/pagecontent/6-gemensamma-informationskomponenter.md`
   Komplettera med faktiskt innehåll när källdokument för avsnitt 6 identifieras (se ASSUME-CAA-004).
+
+---
+
+## clinicalprocess.healthcond.basic v2.0 — `igs/TKB_clinicalprocess_healthcond_basic/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-18
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-CHB-001]** `igs/TKB_clinicalprocess_healthcond_basic/input/fsh/logical-models/GetObservationsRequest.fsh` · fält `relation/referredInformationCategorization`
+  Fältet modelleras med kardinalitet 1..1 i begäran, men TKB-tabell för relation-filtret är otydlig om huruvida detta fält alltid är obligatoriskt. Källdokument (TKB avsnitt 7.1, fälttabell Begäran, rad `relation/referredInformationCategorization`) anger `1..1` men kontextuellt är det oklart om detta kan vara 0..1 när `relationType` anges utan `referredInformationId`. Verifiera korrekt kardinalitet med domänexpert.
+  Källa: TKB avsnitt 7.1, Begäranstabell, rad `relation/referredInformationCategorization`.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-CHB-001]** `igs/TKB_clinicalprocess_healthcond_basic/input/fsh/logical-models/GetObservations.fsh` · fält `observations.observationBody.value`
+  ValueANYType är en union-typ (exklusiv eller): cv, pq, ivl_pq, ts, ivl_ts, st, int. FSH:s `BackboneElement` kan inte uttrycka exklusiv-or direkt — alla alternativ modelleras som 0..1-fält med kommentaren att exakt ett måste väljas. Verifiera om FHIR-invariant ska läggas till för att tvinga exklusiviteten, eller om prosatext i beskrivningen räcker.
+  Källa: TKB avsnitt 5.1 V-MIM samt avsnitt 7.1 Svarsdel, ValueANYType.
+
+- [ ] **[ASSUME-CHB-002]** `igs/TKB_clinicalprocess_healthcond_basic/input/fsh/logical-models/GetObservations.fsh` · fält `observations.observationBody.participation`
+  Deltagandetyp-fältet (type) refererar till Snomed CT urval (urvals-id: 53351000052100) och obs-statusfältet refererar till Snomed CT urval (urvals-id: 56431000052106). Dessa urval administreras av Socialstyrelsen. Inget lokalt CodeSystem har skapats — värden hämtas från Snomed CT via OID 1.2.752.116.2.1.1. Verifiera att referensen urn:oid:1.2.752.116.2.1.1 är korrekt canonical för Snomed CT-SE i FHIR-kontext.
+  Källa: TKB avsnitt 7.1 Svarsdel, fälttabeller för `participation/type`, `status`, `relation/type`.
+
+- [ ] **[ASSUME-CHB-003]** `igs/TKB_clinicalprocess_healthcond_basic/` — avsnitt 6 saknas
+  Källdokumentet `TKB_clinicalprocess_healthcond_basic.docx` saknar avsnitt 6 (Gemensamma informationskomponenter). Ingen sida `6-gemensamma-informationskomponenter.md` har skapats — sidan saknas även från sushi-config.yaml. Verifiera om avsnitt 6 avsiktligt utelämnats i källdokumentet (dokumentet anger att gemensamma komponenter beskrivs i avsnitt 5.1 V-MIM istället) eller om det ska hämtas från separat dokument.
+  Källa: docx_to_md.py-konverteringen rapporterade `sections/6-gemensamma-informationskomponenter.md: SAKNAS i källdokumentet`.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-CHB-001]** `igs/TKB_clinicalprocess_healthcond_basic/input/fsh/logical-models/GetObservations.fsh`
+  Kontraktet refererar till Interaktionsöverenskommelser (IO) för semantiska deklarationer om specifika observationstyper. Dessa IO är externa dokument och ingår inte i TKB. Lägg till en not i index.md och sektion 7 som förklarar att IO-dokumenten måste läsas komplementärt för att förstå vilka observationstyper en specifik producent stödjer.
+  Källa: TKB avsnitt 1 Inledning och avsnitt 3 Tjänstedomänens arkitektur.
+
+- [ ] **[TODO-CHB-002]** `igs/TKB_clinicalprocess_healthcond_basic/sushi-config.yaml`
+  Beroendet `se.inera.rivta.core#current` har tagits bort eftersom paketet inte existerar lokalt eller i kända FHIR-paketregister. Om paketet skapas i framtiden bör det läggas tillbaka. Verifiera med Inera arkitektur om detta paket ska finnas och var det publiceras.
+  Källa: contracts-registry.json BLOCK-EI-003 (samma problem identifierat för EI-domänen).
