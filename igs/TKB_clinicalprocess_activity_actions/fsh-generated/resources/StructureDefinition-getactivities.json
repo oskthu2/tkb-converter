@@ -1,0 +1,850 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getactivities",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/getactivities",
+  "name": "GetActivities",
+  "title": "GetActivities",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetActivities\n(RIV-TA urn:riv:clinicalprocess:activity:actions:GetActivities:1).\nRepresenterar responsens informationsstruktur — en lista av activityGroup-element.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/getactivities",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getactivities",
+        "path": "getactivities",
+        "short": "GetActivities",
+        "definition": "Logisk modell för tjänstekontraktet GetActivities\n(RIV-TA urn:riv:clinicalprocess:activity:actions:GetActivities:1).\nRepresenterar responsens informationsstruktur — en lista av activityGroup-element."
+      },
+      {
+        "id": "getactivities.activityGroup",
+        "path": "getactivities.activityGroup",
+        "short": "Grupp av aktiviteter",
+        "definition": "Grupp av aktiviteter som delar samma patient, utförare, signerare, ytterligare deltagare,\nkällsystem, vårdprocess-id, utrustning, samt plats. Teknisk optimering för att minska\nredundant data i de fall då flera aktiviteter gjorts med samma medverkande.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.patient",
+        "path": "getactivities.activityGroup.patient",
+        "short": "Patient som aktivitetsgruppen avser",
+        "definition": "Den patient som aktivitetsgruppen avser (PatientType).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.patient.id",
+        "path": "getactivities.activityGroup.patient.id",
+        "short": "Id för patienten",
+        "definition": "Id för patienten (IIType). Ska anges med 12 tecken utan avskiljare.\nroot = OID för typ av identifierare (personnummer: 1.2.752.129.2.1.3.1,\nsamordningsnummer: 1.2.752.129.2.1.3.3, reservnummer: lokalt OID).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.patient.dateOfBirth",
+        "path": "getactivities.activityGroup.patient.dateOfBirth",
+        "short": "Patientens födelsedatum",
+        "definition": "Anger patientens födelseår, månad och dag. Ej personnummer! Format ÅÅÅÅMMDD.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.patient.gender",
+        "path": "getactivities.activityGroup.patient.gender",
+        "short": "Patientens kön",
+        "definition": "Anger patientens kön (CVType). Kodas enligt KV kön OID 1.2.752.129.2.2.1.1.\nKoder: 0=okänt, 1=man, 2=kvinna, 9=ej tillämpligt.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.performerRole",
+        "path": "getactivities.activityGroup.performerRole",
+        "short": "Den som utfört aktiviteter inom gruppen",
+        "definition": "Den som utfört aktiviteter inom gruppen (PerformerRoleType).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.performerRole.id",
+        "path": "getactivities.activityGroup.performerRole.id",
+        "short": "HSA-id för utförande person",
+        "definition": "Identitet för personen som utfört aktiviteten (IIType).\nAnges enbart om aktiviteten utförts av hälso- och sjukvårdspersonal. Anges med HSA-id.\nroot = OID för HSA-katalogen (1.2.752.129.2.1.4.1).\nKardinalitet: Villkorlig (se Regel 2.1).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.performerRole.code",
+        "path": "getactivities.activityGroup.performerRole.code",
+        "short": "Roll som utföraren agerar i",
+        "definition": "Beskriver den roll som utföraren agerar i under aktiviteten (CVType).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.performerRole.person",
+        "path": "getactivities.activityGroup.performerRole.person",
+        "short": "Person som utfört aktiviteten",
+        "definition": "Beskriver den person som utfört aktiviteten (PersonType).\nKardinalitet: Villkorlig (se Regel 2.1).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.performerRole.person.id",
+        "path": "getactivities.activityGroup.performerRole.person.id",
+        "short": "Identifierare för person",
+        "definition": "Identifierare för person som utfört aktiviteten. Anges endast om aktiviteten utförts av\nperson som INTE klassas som hälso- och sjukvårdspersonal.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.performerRole.person.name",
+        "path": "getactivities.activityGroup.performerRole.person.name",
+        "short": "För- och efternamn i klartext",
+        "definition": "För- och efternamn i klartext för person. Se Regel 2.1.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.performerRole.careUnit",
+        "path": "getactivities.activityGroup.performerRole.careUnit",
+        "short": "PDL-vårdenhet och PDL-vårdgivare",
+        "definition": "Den PDL-vårdenhet och PDL-vårdgivare som aktiviteten utförs på uppdrag av.\nSka endast anges då den person som utfört aktiviteten är hälso- och sjukvårdspersonal.\nSe Regel 2.1 och 2.6.\nKardinalitet: Villkorlig.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.performerRole.careUnit.id",
+        "path": "getactivities.activityGroup.performerRole.careUnit.id",
+        "short": "HSA-id för PDL vårdenhet",
+        "definition": "HSA-id för PDL vårdenhet som har ansvar för aktiviteten. Se Regel 2.6.\nroot = OID för HSA-id: 1.2.752.129.2.1.4.1.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.performerRole.careUnit.name",
+        "path": "getactivities.activityGroup.performerRole.careUnit.name",
+        "short": "Vårdenhetens namn",
+        "definition": "Vårdenhetens namn till vilken aktiviteten är knuten.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.performerRole.careUnit.careGiver",
+        "path": "getactivities.activityGroup.performerRole.careUnit.careGiver",
+        "short": "Vårdgivaren som enheten hör till",
+        "definition": "Den vårdgivare som enheten hör till (CareGiverType).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.performerRole.careUnit.careGiver.id",
+        "path": "getactivities.activityGroup.performerRole.careUnit.careGiver.id",
+        "short": "HSA-id för vårdgivaren",
+        "definition": "Vårdgivarens identitet som enheten är anknuten till (IIType).\nroot = OID för HSA-id: 1.2.752.129.2.1.4.1. Se Regel 2.6.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.performerRole.careUnit.careGiver.name",
+        "path": "getactivities.activityGroup.performerRole.careUnit.careGiver.name",
+        "short": "Vårdgivarens namn",
+        "definition": "Vårdgivarens namn till vilken enheten är knuten.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.legalAuthenticator",
+        "path": "getactivities.activityGroup.legalAuthenticator",
+        "short": "Den som signerat aktiviteterna",
+        "definition": "Den som signerat aktiviteterna inom gruppen (LegalAuthenticatorType).\nSe Regel 2.4.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.legalAuthenticator.id",
+        "path": "getactivities.activityGroup.legalAuthenticator.id",
+        "short": "HSA-id för signerande person",
+        "definition": "HSA-id för personen som signerat aktiviteterna. Se Regel 2.4.\nMinst ett av attributen id eller name ska anges.\nKardinalitet: Villkorlig.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.legalAuthenticator.time",
+        "path": "getactivities.activityGroup.legalAuthenticator.time",
+        "short": "Tid för signeringen",
+        "definition": "Tid för signeringen av aktiviteten. Format ÅÅÅÅMMDDttmmss, klockslaget är frivilligt.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.legalAuthenticator.name",
+        "path": "getactivities.activityGroup.legalAuthenticator.name",
+        "short": "Namn på signerande person",
+        "definition": "För- och efternamn i klartext för signerande person. Se Regel 2.4.\nMinst ett av attributen id eller name ska anges.\nKardinalitet: Villkorlig.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant",
+        "path": "getactivities.activityGroup.additionalParticipant",
+        "short": "Övriga deltagare",
+        "definition": "Övriga deltagare relaterat till aktiviteterna inom gruppen (AdditionalParticipantType).\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.id",
+        "path": "getactivities.activityGroup.additionalParticipant.id",
+        "short": "Identifierare för ytterligare deltagare",
+        "definition": "Identifierare för ytterligare deltagare (IIType).\nAnges enbart om deltagaren klassas som hälso- och sjukvårdspersonal (HSA-id).\nKardinalitet: Villkorlig (se Regel 2.2).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.type",
+        "path": "getactivities.activityGroup.additionalParticipant.type",
+        "short": "Typ av deltagande",
+        "definition": "Typ av deltagande (CVType). Beskriver hur deltagaren har deltagit i aktiviteten.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.role",
+        "path": "getactivities.activityGroup.additionalParticipant.role",
+        "short": "Deltagarens roll",
+        "definition": "Beskriver i vilken roll deltagaren agerar (CVType).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.time",
+        "path": "getactivities.activityGroup.additionalParticipant.time",
+        "short": "Deltagandetid",
+        "definition": "Om deltagandetiden för denna deltagare inte överensstämmer med aktivitetens tidsperiod\nkan time-attributet ange när den specifika deltagaren deltog.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Period"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.person",
+        "path": "getactivities.activityGroup.additionalParticipant.person",
+        "short": "Deltagande övrig person",
+        "definition": "Deltagande övrig person (PersonType). Exklusiv med organisation, device, location.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.person.id",
+        "path": "getactivities.activityGroup.additionalParticipant.person.id",
+        "short": "Identifierare för person",
+        "definition": "Identifierare för deltagande övrig person.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.person.name",
+        "path": "getactivities.activityGroup.additionalParticipant.person.name",
+        "short": "För- och efternamn",
+        "definition": "För- och efternamn i klartext för person.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.organisation",
+        "path": "getactivities.activityGroup.additionalParticipant.organisation",
+        "short": "Deltagande organisation",
+        "definition": "Deltagande övrig organisation (OrganisationType). Exklusiv med person, device, location.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.organisation.id",
+        "path": "getactivities.activityGroup.additionalParticipant.organisation.id",
+        "short": "HSA-id för organisation",
+        "definition": "HSA-id för den organisation som denna ytterligare deltagare har sitt uppdrag hos.\nroot = OID för HSA-id: 1.2.752.129.2.1.4.1.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.organisation.name",
+        "path": "getactivities.activityGroup.additionalParticipant.organisation.name",
+        "short": "Organisationens namn",
+        "definition": "Organisationens namn i klartext.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.device",
+        "path": "getactivities.activityGroup.additionalParticipant.device",
+        "short": "Deltagande medicinskteknisk produkt",
+        "definition": "Deltagande medicinskteknisk produkt (DeviceType). Exklusiv med person, organisation, location.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.device.id",
+        "path": "getactivities.activityGroup.additionalParticipant.device.id",
+        "short": "Identifierare för medicinskteknisk produkt",
+        "definition": "Identifierare för instans av medicinskteknisk produkt.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.device.type",
+        "path": "getactivities.activityGroup.additionalParticipant.device.type",
+        "short": "Typ av medicinskteknisk produkt",
+        "definition": "Beskriver typ av medicinskteknisk produkt (CVType).\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.device.model",
+        "path": "getactivities.activityGroup.additionalParticipant.device.model",
+        "short": "Modell för medicinskteknisk produkt",
+        "definition": "Tillverkarens modellbeteckning (SCType). Kan anges som kod eller klartext.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.location",
+        "path": "getactivities.activityGroup.additionalParticipant.location",
+        "short": "Deltagande plats",
+        "definition": "Deltagande plats (LocationType). Exklusiv med person, organisation, device.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.location.id",
+        "path": "getactivities.activityGroup.additionalParticipant.location.id",
+        "short": "HSA-id för plats/vårdenhet",
+        "definition": "Identifiering för platsen. Anges om platsen är en vårdenhet (HSA-id).\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.additionalParticipant.location.name",
+        "path": "getactivities.activityGroup.additionalParticipant.location.name",
+        "short": "Namn på plats",
+        "definition": "Namn på den plats där en aktivitet har genomförts.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.careProcessId",
+        "path": "getactivities.activityGroup.careProcessId",
+        "short": "UUID för individanpassad vårdprocess",
+        "definition": "UUID för den individanpassade vårdprocess som denna aktivitet ingår i.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.sourceSystem",
+        "path": "getactivities.activityGroup.sourceSystem",
+        "short": "Källsystem",
+        "definition": "Källsystem som aktivitetsgruppen lagras i (SourceSystemType).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.sourceSystem.id",
+        "path": "getactivities.activityGroup.sourceSystem.id",
+        "short": "HSA-id för källsystem",
+        "definition": "HSA-id för källsystemet (IIType).\nroot = OID för HSA-id: 1.2.752.129.2.1.4.1.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity",
+        "path": "getactivities.activityGroup.activity",
+        "short": "Aktiviteter i gruppen",
+        "definition": "De aktiviteter som ligger inom denna grupp (ActivityType).\nKardinalitet: Obligatorisk, lista (minst en).",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.id",
+        "path": "getactivities.activityGroup.activity.id",
+        "short": "Unik identifierare för aktiviteten",
+        "definition": "En unik identifierare för aktiviteten (IIType). Ska vara konsistent och beständig\nmellan majorversioner av kontrakt och mellan kontrakt.\nroot = källsystemets HSA-id.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.code",
+        "path": "getactivities.activityGroup.activity.code",
+        "short": "Typ av aktivitet",
+        "definition": "Kod för den typ av aktivitet som avses (CVType), exempelvis KVÅ-kod för åtgärd.\nAntingen code eller description måste finnas (teknisk implementation kräver code).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.status",
+        "path": "getactivities.activityGroup.activity.status",
+        "short": "Aktivitetens status",
+        "definition": "Kod för aktivitetens status, t.ex. planerad eller utförd (CVType).\nKodas enligt SNOMED CT refset aktivitetsstatus (SCTID: 56421000052109).\ncodeSystem = 1.2.752.116.2.1.1 (snomed-ct-se).\nOm statuskoden utelämnas antas aktiviteten vara utförd.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.targetSite",
+        "path": "getactivities.activityGroup.activity.targetSite",
+        "short": "Lokalisation",
+        "definition": "Angivelse av lokalisation (CVType) — anatomi, funktion eller system.\nAnvänds om inte type-attributet innefattar tillräcklig information.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.time",
+        "path": "getactivities.activityGroup.activity.time",
+        "short": "Tidsperiod för aktiviteten",
+        "definition": "Tidsperiod för aktiviteten (PartialTimePeriodType). Om aktiviteten skedde vid en tidpunkt\nsätts sluttid till samma tid som starttid. Minst en av start och end måste vara angiven.\nObligatorisk om status är utförd (398166005) eller saknas. Se Regel 2.3.\nKardinalitet: Villkorlig.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Period"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.method",
+        "path": "getactivities.activityGroup.activity.method",
+        "short": "Tillvägagångssätt",
+        "definition": "Kod för typ av tillvägagångssätt för genomförandet av aktiviteten (CVType).\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.description",
+        "path": "getactivities.activityGroup.activity.description",
+        "short": "Fritextbeskrivning av aktiviteten",
+        "definition": "Fritextbeskrivning av aktiviteten som kompletterar kodbeteckningen.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.approvedForPatient",
+        "path": "getactivities.activityGroup.activity.approvedForPatient",
+        "short": "Menprövad — information får delas till patient",
+        "definition": "Anger om information får delas till patient (menprövad).\ntrue = informationen får delas, false = informationen ska inte delas.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.registrationTime",
+        "path": "getactivities.activityGroup.activity.registrationTime",
+        "short": "Dokumentationstidpunkt",
+        "definition": "När uppgiften registrerades i patientens journal (TimeStampType).\nKan skilja sig från signeringstidpunkt i LegalAuthenticator.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.relation",
+        "path": "getactivities.activityGroup.activity.relation",
+        "short": "Typade samband till andra informationsmängder",
+        "definition": "Beskriver typade samband till andra informationsmängder (RelationType).\nExempelvis kan en post-operativ infektion ha ett samband till en tidigare operation.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.relation.code",
+        "path": "getactivities.activityGroup.activity.relation.code",
+        "short": "Typ av relation",
+        "definition": "Anger vilken typ av relation den refererade informationen har till hämtad aktivitet (CVType).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.relation.referredInformation",
+        "path": "getactivities.activityGroup.activity.relation.referredInformation",
+        "short": "Refererad information",
+        "definition": "Den refererade externa informationen (ReferredInformationType).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.relation.referredInformation.id",
+        "path": "getactivities.activityGroup.activity.relation.referredInformation.id",
+        "short": "Id för refererad information",
+        "definition": "Den refererade externa informationens identitet (IIType).\nroot = HSA-id för källsystem.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.relation.referredInformation.time",
+        "path": "getactivities.activityGroup.activity.relation.referredInformation.time",
+        "short": "Starttid av refererad information",
+        "definition": "Starttid av refererad information (PartialTimeStampType). Se Regel 2.5 — ska kunna\nanvändas som inparameter i ett tidsintervallbaserat sökvillkor till den relaterade tjänsten.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.relation.referredInformation.type",
+        "path": "getactivities.activityGroup.activity.relation.referredInformation.type",
+        "short": "Typ av refererad information",
+        "definition": "Typ av uppgift i patientjournal (Categorization-kod från engagemangsindex).\nExempel: 'chb-o' (observation), 'caa-ga' (aktivitet).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.relation.referredInformation.informationOwner",
+        "path": "getactivities.activityGroup.activity.relation.referredInformation.informationOwner",
+        "short": "Informationsägare",
+        "definition": "Vårdgivare som är informationsägare av den refererade informationen (InformationOwnerType).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.relation.referredInformation.informationOwner.id",
+        "path": "getactivities.activityGroup.activity.relation.referredInformation.informationOwner.id",
+        "short": "Informationsägarens HSA-id",
+        "definition": "Informationsägare av refererad information (IIType).\nroot = OID för HSA-id: 1.2.752.129.2.1.4.1.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.additionalInformation",
+        "path": "getactivities.activityGroup.activity.additionalInformation",
+        "short": "Ytterligare information",
+        "definition": "Ytterligare information kopplad till aktiviteten (AdditionalInformationType).\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.additionalInformation.key",
+        "path": "getactivities.activityGroup.activity.additionalInformation.key",
+        "short": "Nyckel för ytterligare information",
+        "definition": "Typ av ytterligare information. Tillåtna värden: 'Planeringstid' eller 'Orsak'.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities.activityGroup.activity.additionalInformation.value",
+        "path": "getactivities.activityGroup.activity.additionalInformation.value",
+        "short": "Värde för ytterligare information",
+        "definition": "Värde för ytterligare information. Planeringstid = PartialTimeStampType-format.\nOrsak = kod enligt CVType.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

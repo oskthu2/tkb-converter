@@ -1,0 +1,187 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getactivities-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/getactivities-request",
+  "name": "GetActivitiesRequest",
+  "title": "GetActivities — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i tjänstekontraktet GetActivities\n(RIV-TA urn:riv:clinicalprocess:activity:actions:GetActivities:1).\nDen enda obligatoriska sökparametern är patientId.\nÖvriga parametrar är valfria filter (se Regel 1.1).",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/getactivities-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getactivities-request",
+        "path": "getactivities-request",
+        "short": "GetActivities — Request",
+        "definition": "Logisk modell för requestparametrar i tjänstekontraktet GetActivities\n(RIV-TA urn:riv:clinicalprocess:activity:actions:GetActivities:1).\nDen enda obligatoriska sökparametern är patientId.\nÖvriga parametrar är valfria filter (se Regel 1.1)."
+      },
+      {
+        "id": "getactivities-request.patientId",
+        "path": "getactivities-request.patientId",
+        "short": "Personidentifierare för patient",
+        "definition": "Begränsar sökningen till angiven personidentifierare för en patient (IIType).\nTjänsteproducenten ska i svaret leverera alla uppgifter kopplad till patienten.\nroot = OID för typ (personnummer: 1.2.752.129.2.1.3.1,\nsamordningsnummer: 1.2.752.129.2.1.3.3). Se Regel 1.1.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getactivities-request.time",
+        "path": "getactivities-request.time",
+        "short": "Sökintervall (tidsperiod)",
+        "definition": "Begränsar sökningen till det angivna tidsintervallet (TimePeriodType).\nOm sökningen begränsas med detta attribut ska poster som saknar Activity.Time inte returneras.\nstart och end är båda valfria (0..1 vardera) — format ÅÅÅÅMMDDttmmss.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Period"
+          }
+        ]
+      },
+      {
+        "id": "getactivities-request.activityCode",
+        "path": "getactivities-request.activityCode",
+        "short": "Filter på typ av aktivitet",
+        "definition": "Begränsar sökningen till en viss typ av aktivitet (CVType).\nMotsvarar activity.code i svaret.\ncode och codeSystem är obligatoriska; displayName, codeSystemName, codeSystemVersion ska ignoreras.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getactivities-request.activityId",
+        "path": "getactivities-request.activityId",
+        "short": "Filter på aktivitetsidentifierare",
+        "definition": "Unikt värde för aktiviteten som också refererar till vilket källsystem informationen kommer ifrån.\nMotsvarar activity/id i svaret (IIType).\nroot = källsystemets HSA-id, extension = unikt id i källsystemet.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getactivities-request.sourceSystemId",
+        "path": "getactivities-request.sourceSystemId",
+        "short": "Filter på källsystem",
+        "definition": "Begränsar sökningen till aktivitet som är skapad i det angivna källsystemet (IIType).\nroot = OID för HSA-id: 1.2.752.129.2.1.4.1. extension = HSA-id för källsystemet.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getactivities-request.careGiverId",
+        "path": "getactivities-request.careGiverId",
+        "short": "Filter på vårdgivare",
+        "definition": "Begränsar sökningen till aktivitet från en specifik vårdgivare (IIType).\nroot = OID för HSA-id: 1.2.752.129.2.1.4.1. extension = HSA-id för vårdgivaren.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getactivities-request.careUnitId",
+        "path": "getactivities-request.careUnitId",
+        "short": "Filter på vårdenhet",
+        "definition": "Begränsar sökningen till en vårdenhet (IIType).\nroot = OID för HSA-id: 1.2.752.129.2.1.4.1. extension = HSA-id för PDL-vårdenheten.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getactivities-request.interactionAgreementId",
+        "path": "getactivities-request.interactionAgreementId",
+        "short": "Interaktionsöverenskommelse-id",
+        "definition": "Används inte i denna version. Ange alltid UUID: 2866a7c4-9c60-433f-9035-a4d779ffe7a1.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getactivities-request.relation",
+        "path": "getactivities-request.relation",
+        "short": "Filter på relationer",
+        "definition": "Begränsar sökningen till aktiviteter med avseende på hur de är relaterade till\nandra uppgifter i journalsystem (RelationFilterType).\nMinst en av relation.typeCode och relation.id ska vara angiven.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getactivities-request.relation.typeCode",
+        "path": "getactivities-request.relation.typeCode",
+        "short": "Filter på relations-/sambandstyp",
+        "definition": "Filtrera på relations-/sambandstyp (CVType).\ncode och codeSystem är valfria; displayName, codeSystemName, codeSystemVersion ska ignoreras.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getactivities-request.relation.id",
+        "path": "getactivities-request.relation.id",
+        "short": "Filter på identitet i relation",
+        "definition": "Begränsar sökningen till aktiviteter med den identitet som anges i sambandet (IIType).\nExempelvis möjlighet att söka alla aktiviteter med relation till en viss observation.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getactivities-request.relation.referredInformationType",
+        "path": "getactivities-request.relation.referredInformationType",
+        "short": "Typ av refererad information",
+        "definition": "Den typ av uppgift i patientjournal som sambandet pekar ut.\nKod från Categorization i engagemangsindexposten.\nMöjliga värden: 'chb-o' (observation), 'caa-ga' (aktivitet).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

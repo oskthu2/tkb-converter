@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+ 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:tns="urn:riv:clinicalprocess:healthcond:basic:enum:2" 
+	targetNamespace="urn:riv:clinicalprocess:healthcond:basic:enum:2" 
+	elementFormDefault="qualified" 
+	attributeFormDefault="unqualified" 
+	version="2.0">
+    
+	<!--
+         Below: enums for common header used in service contracts for JoL (Journal- och Läkemedel).
+    -->
+
+    <xs:simpleType name="ActorTypeCodeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="HCPROFESSIONAL">
+                <xs:annotation>
+                    <xs:documentation>Vårdpersonal</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PATIENT">
+                <xs:annotation>
+                    <xs:documentation>Patienten själv</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="PROXY">
+                <xs:annotation>
+                    <xs:documentation>Ombud eller annan person</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="DEVICE">
+                <xs:annotation>
+                    <xs:documentation>Maskin</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!--
+         Below: enums for helper types.
+     -->
+	
+	<xs:simpleType name="AddressPartTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SAL">
+				<xs:annotation>
+					<xs:documentation>Gatuadressrad</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CAR">
+				<xs:annotation>
+					<xs:documentation>Care of (c/o)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CEN">
+				<xs:annotation>
+					<xs:documentation>Områdes-/kvartersbenämning</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CNT">
+				<xs:annotation>
+					<xs:documentation>Land</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CPA">
+				<xs:annotation>
+					<xs:documentation>Län</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CTY">
+				<xs:annotation>
+					<xs:documentation>Postort</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ZIP">
+				<xs:annotation>
+					<xs:documentation>Postnummer</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="POB">
+				<xs:annotation>
+					<xs:documentation>Postbox</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PRE">
+				<xs:annotation>
+					<xs:documentation>Distrikt (anges med distriktskod enligt Lantmäteriet)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="PostalAddressUseEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PHYS">
+				<xs:annotation>
+					<xs:documentation>Fysisk besöksadress</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="H">
+				<xs:annotation>
+					<xs:documentation>Hemadress</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HV">
+				<xs:annotation>
+					<xs:documentation>Semesteradress</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WP">
+				<xs:annotation>
+					<xs:documentation>Adress till arbetsplats</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TMP">
+				<xs:annotation>
+					<xs:documentation>Tillfällig adress</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="TelecommunicationAddressUseEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="H">
+				<xs:annotation>
+					<xs:documentation>Används i hemmet/privat</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HV">
+				<xs:annotation>
+					<xs:documentation>Används under semester</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WP">
+				<xs:annotation>
+					<xs:documentation>Används på arbetet/i tjänsten</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TMP">
+				<xs:annotation>
+					<xs:documentation>Används tillfälligt</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="TelecommunicationCapabilityEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="voice">
+				<xs:annotation>
+					<xs:documentation>Numret kan ta emot röstsamtal.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="fax">
+				<xs:annotation>
+					<xs:documentation>Numret kan ta emot fax.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="sms">
+				<xs:annotation>
+					<xs:documentation>Numret kan ta emot SMS.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="TimeStampTypeFormatEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="YYYY"/>
+			<xs:enumeration value="YYYYMM"/>
+			<xs:enumeration value="YYYYMMDD"/>
+			<xs:enumeration value="YYYYMMDDhh"/>
+			<xs:enumeration value="YYYYMMDDhhmm"/>
+			<xs:enumeration value="YYYYMMDDhhmmss"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

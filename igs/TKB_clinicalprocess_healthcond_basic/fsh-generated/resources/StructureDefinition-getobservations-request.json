@@ -1,0 +1,213 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getobservations-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/getobservations-request",
+  "name": "GetObservationsRequest",
+  "title": "GetObservations — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i tjänstekontraktet GetObservations\n(RIV-TA urn:riv:clinicalprocess:healthcond:basic:GetObservationsInteraction:2).\nDen enda alltid obligatoriska sökparametern är personPatientId. Minst en ytterligare\nsökparameter måste anges — annars ska producenten avvisa begäran med SOAP exception.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/getobservations-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getobservations-request",
+        "path": "getobservations-request",
+        "short": "GetObservations — Request",
+        "definition": "Logisk modell för requestparametrar i tjänstekontraktet GetObservations\n(RIV-TA urn:riv:clinicalprocess:healthcond:basic:GetObservationsInteraction:2).\nDen enda alltid obligatoriska sökparametern är personPatientId. Minst en ytterligare\nsökparameter måste anges — annars ska producenten avvisa begäran med SOAP exception."
+      },
+      {
+        "id": "getobservations-request.personPatientId",
+        "path": "getobservations-request.personPatientId",
+        "short": "Id för den person som är patient och för vilken observationer ska returneras.",
+        "definition": "Identiteten kan vara antingen person-id (person- eller samordningsnummer) eller\npatient-id (nationell reservidentitet). Lokala reservnummer är inte tillåtna.\n- OID personnummer: 1.2.752.129.2.1.3.1\n- OID samordningsnummer: 1.2.752.129.2.1.3.3\n- OID nationell reservidentitet: 1.2.752.74.9.1\nKardinalitet: Obligatorisk (1..1).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getobservations-request.time",
+        "path": "getobservations-request.time",
+        "short": "Begränsning av sökning i tid.",
+        "definition": "Resultatet innehåller poster vars tid (observations/observationBody/time) ligger\ninom det sökta tidsintervallet (start- och/eller slutpunkt inkluderas).\nOm endast start anges sker sökning även på pågående observationer.\nMinst en av start och end måste anges om time anges.\nFormat: ÅÅÅÅMMDDttmmss.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Period"
+          }
+        ]
+      },
+      {
+        "id": "getobservations-request.observationType",
+        "path": "getobservations-request.observationType",
+        "short": "Begränsning av sökning till en viss typ av observation.",
+        "definition": "Filtrerar på observations/observationBody/type.\nNotera: om observerad storhet är ett kliniskt fynd är observationstyp oftast inte\nangiven — använd då observationCodedValue för filtrering.\nFälten codeSystemVersion och displayName ska ignoreras i begäran och ej skickas.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getobservations-request.observationCodedValue",
+        "path": "getobservations-request.observationCodedValue",
+        "short": "Begränsning av sökning till ett visst kodat värde som är utfallet av en observation.",
+        "definition": "Filtrerar på observations/observationBody/value. Används då observationType inte\nkan användas för att begränsa sökmängden.\nFälten codeSystemVersion och displayName ska ignoreras i begäran och ej skickas.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getobservations-request.observationId",
+        "path": "getobservations-request.observationId",
+        "short": "Begränsning av sökning till en viss observation.",
+        "definition": "Filtrerar på observations/observationBody/id.\nIdentiteten ska garanterat vara unik inom vårdgivaren.\n- root: Den informationsägande vårdgivarens HSA-id\n- extension: Den inom vårdgivaren unika id-beteckningen för observationen\nOm observationId anges är sourceSystemHSAId tvingande.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getobservations-request.observationStatus",
+        "path": "getobservations-request.observationStatus",
+        "short": "Begränsning av sökning till observationer med en viss status.",
+        "definition": "Filtrerar på observations/observationBody/status.\nKoder tillhandahålls av Socialstyrelsen som urval ur Snomed CT (urvals-id: 56431000052106).\nSnomed CT OID: 1.2.752.116.2.1.1.\nFälten codeSystemVersion och displayName ska ignoreras i begäran och ej skickas.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getobservations-request.sourceSystemHSAId",
+        "path": "getobservations-request.sourceSystemHSAId",
+        "short": "HSA-id för det källsystem inom vilket observationens id är unikt.",
+        "definition": "Används när man vill söka ur ett specifikt källsystem.\nVärdet måste överensstämma med logicalAddress i anropets tekniska kuvertering (SOAP-header).\nFältet är tvingande om observationId angivits.\nOID för HSA-id: 1.2.752.129.2.1.4.1",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getobservations-request.careGiverId",
+        "path": "getobservations-request.careGiverId",
+        "short": "Begränsning av sökning till observationer hos en viss vårdgivare.",
+        "definition": "Filtrerar på den ansvariga vårdgivare som angetts i headern\n(observations/header/accessControlHeader/accountableCareGiver).\nOID för HSA-id: 1.2.752.129.2.1.4.1",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getobservations-request.careUnitId",
+        "path": "getobservations-request.careUnitId",
+        "short": "Begränsning av sökning till observationer hos viss vårdenhet.",
+        "definition": "Filtrerar på den ansvariga vårdenhet som angetts i headern\n(observations/header/accessControlHeader/accountableCareUnit).\nOID för HSA-id: 1.2.752.129.2.1.4.1",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getobservations-request.careProcessId",
+        "path": "getobservations-request.careProcessId",
+        "short": "Begränsning av sökning till observationer inom en viss individanpassad vårdprocess.",
+        "definition": "Filtrerar på observations/header/accessControlHeader/careProcessId.\nOm fältet anges och producentsystemet inte hanterar individanpassad vårdprocess\nreturneras ett tomt svar.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getobservations-request.relation",
+        "path": "getobservations-request.relation",
+        "short": "Begränsning av sökning till observationer med samband till andra observationer eller aktiviteter.",
+        "definition": "Minst en av relation/relationType och relation/referredInformationId ska vara angiven.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getobservations-request.relation.relationType",
+        "path": "getobservations-request.relation.relationType",
+        "short": "Filtrering på sambandstyp.",
+        "definition": "Filtrerar på observations/observationBody/relation/type.\nKoder tillhandahålls av Socialstyrelsen som urval ur Snomed CT (urvals-id: 53371000052106).\nSnomed CT OID: 1.2.752.116.2.1.1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getobservations-request.relation.referredInformationId",
+        "path": "getobservations-request.relation.referredInformationId",
+        "short": "Filtrering på identitet på den refererade informationen.",
+        "definition": "Filtrerar på observations/observationBody/relation/referredInformation/id.\nGer möjlighet att söka ut alla observationer som har ett samband till en viss aktivitet.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getobservations-request.relation.referredInformationCategorization",
+        "path": "getobservations-request.relation.referredInformationCategorization",
+        "short": "Typ av information som sambandet pekar ut.",
+        "definition": "Kod från Categorization i engagemangsindexposten.\nMöjliga värden i denna version: chb-o (observation), caa-ga (aktivitet).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

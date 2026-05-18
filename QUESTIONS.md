@@ -562,3 +562,54 @@ Inga blockerare.
 
 - [ ] **[TODO-EB-005]** `igs/TKB_ehr_blocking/input/pagecontent/` — sidor saknas
   IG:n har bara 4 sidor (index, 1-inledning, 2-generella-regler, 7-tjanstekontrakt). Standard TKB-struktur kräver avsnitt 3–6. Verifiera om dessa avsnitt finns i källdokumentet och komplettera i så fall med sidor för 3-tjanstedomanens-arkitektur.md, 4-tjanstedomanens-krav-och-regler.md, 5-tjanstedomanens-meddelandemodeller.md och 6-gemensamma-informationskomponenter.md.
+
+---
+
+## clinicalprocess.activity.actions v1.3 — `igs/TKB_clinicalprocess_activity_actions/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-18
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-CAA-001]** `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivities.fsh` · fält `activityGroup.additionalParticipant` · exklusivitet person/organisation/device/location
+  Fälttabellen anger att exakt en av `person`, `organisation`, `device` eller `location` ska anges i `additionalParticipant`. Denna exklusivitetsbegränsning (choice) kan inte modelleras direkt i FHIR Logical utan slice eller invariant. Nuvarande modell har alla fyra som valfria (0..1). Ska en FSH-invariant läggas till (`obeys` med ett villkor att exakt ett av fälten är satt), eller är det tillräckligt att dokumentera detta i fältbeskrivningen?
+  Källa: TKB avsnitt 7.1 Svarsdel activityGroup/additionalParticipant.
+
+- [ ] **[BLOCK-CAA-002]** `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivities.fsh` · fält `activityGroup.activity.time`
+  TKB Regel 2.3 anger att `activity.time` är obligatorisk (1..1) när status är utförd eller saknas, men valfri (0..1) när status är planerad. Detta är en villkorlig kardinalitet som inte kan modelleras direkt i FSH utan en invariant. Nuvarande modell sätter `0..1` (säkrare alternativ). Ska en FHIR-invariant skapas för detta villkor?
+  Källa: TKB avsnitt 7.1 Svarsdel activityGroup/activity, Regel 2.3.
+
+- [ ] **[BLOCK-CAA-003]** `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivities.fsh` · fält `activityGroup.legalAuthenticator`
+  TKB Regel 2.4 anger att minst ett av `legalAuthenticator.id` eller `legalAuthenticator.name` ska anges. Nuvarande modell har båda som `0..1`. Ska en FHIR-invariant läggas till som kräver att minst ett av dem är satt?
+  Källa: TKB avsnitt 7.1 Svarsdel activityGroup/legalAuthenticator, Regel 2.4.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-CAA-001]** `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivities.fsh` · fält `activityGroup.activity.status`
+  Status-kodsystemet är SNOMED CT refset aktivitetsstatus (SCTID: 56421000052109, `1.2.752.116.2.1.1`). Inget eget CodeSystem har skapats — koder refereras direkt via OID-baserad URL i fältbeskrivning. Verifiera att SNOMED CT refset SCTID 56421000052109 är rätt referens och att canonical URL `urn:oid:1.2.752.116.2.1.1` är korrekt för snomed-ct-se.
+  Källa: TKB avsnitt 7.1 Svarsdel activityGroup/activity fält `status`.
+
+- [ ] **[ASSUME-CAA-002]** `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivities.fsh` · fält `activityGroup.activity.additionalInformation.value`
+  Källdokumentet anger typen som `Any` — kan vara antingen `PartialTimeStampType` (för `Planeringstid`) eller CVType-kodning (för `Orsak`). Modelleras som `string` i FSH som fallback. Rätt modellering vore en `choice[x]`-typ med `dateTime` och `CodeableConcept`, men det kräver att sushi-logiken för val-element fungerar med Logical. Verifiera om `string` är acceptabelt eller om en mer typat modell behövs.
+  Källa: TKB avsnitt 7.1 Svarsdel activityGroup/activity, fält `additionalInformation.value`.
+
+- [ ] **[ASSUME-CAA-003]** `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivitiesRequest.fsh` · fält `interactionAgreementId`
+  Fältet är obligatoriskt (1..1) i TKB men tjänar inget syfte — TKB anger att det ska sättas till ett fast UUID-värde och "används inte". Modelleras som `string` med beskrivning av det fasta värdet. Verifiera om detta fält bör tas bort helt från FHIR-modellen eller behållas för fullständighet.
+  Källa: TKB avsnitt 7.1 Begäransfälttabell rad `interactionAgreementId`.
+
+- [ ] **[ASSUME-CAA-004]** `igs/TKB_clinicalprocess_activity_actions/` — avsnitt 6 saknas
+  Källdokumentet `TKB_clinicalprocess_activity_actions.docx` saknar avsnitt 6 (Gemensamma informationskomponenter). En platshållarsida har skapats med hänvisning till avsnitt 5. Verifiera om detta avsnitt avsiktligt utelämnats i källdokumentet eller om det ska fyllas i från ett annat källdokument.
+  Källa: docx_to_md.py-konverteringen rapporterade `sections/6-gemensamma-informationskomponenter.md: SAKNAS i källdokumentet`.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-CAA-001]** `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivities.fsh` · fält `activityGroup.activity.code`
+  Möjliga kodsystem för `activity.code` nämns i TKB men specificeras inte explicit (t.ex. KVÅ för åtgärder). Om specifika ValueSets behöver bindas till `activity.code`, `activity.status`, `activity.targetSite`, `activity.method` behöver dessa ValueSet + CodeSystem-resurser skapas. Avvaktar domänkompetens om vilka kodverk som är obligatoriska.
+  Källa: TKB avsnitt 7.1 Svarsdel activityGroup/activity, fält `code`.
+
+- [ ] **[TODO-CAA-002]** `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivities.fsh`
+  Lägg till FSH-invarianter för blockerare BLOCK-CAA-001, BLOCK-CAA-002 och BLOCK-CAA-003 när beslut har fattats om korrekt modellering.
+
+- [ ] **[TODO-CAA-003]** `igs/TKB_clinicalprocess_activity_actions/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Komplettera med faktiskt innehåll när källdokument för avsnitt 6 identifieras (se ASSUME-CAA-004).

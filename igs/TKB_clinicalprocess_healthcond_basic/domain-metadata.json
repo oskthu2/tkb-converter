@@ -1,0 +1,47 @@
+{
+  "domain_id": "clinicalprocess.healthcond.basic",
+  "domain_title": "clinicalprocess: healthcond: basic",
+  "domain_version": "2.0",
+  "rivta_namespace_base": "urn:riv:clinicalprocess:healthcond:basic",
+  "bitbucket_slug": "riv.clinicalprocess.healthcond.basic",
+  "source_type": "bitbucket_source_api",
+  "note": "Inga zip-filer publicerades — källfiler hämtades via Bitbucket source API från master-branchen (commit 16f8cd6967702f16abf3ade6458028f3538d8e3e).",
+  "docx_converted_dir": "igs/TKB_clinicalprocess_healthcond_basic/docx-converted/",
+  "sections": {
+    "1_inledning": "igs/TKB_clinicalprocess_healthcond_basic/docx-converted/sections/1-inledning.md",
+    "2_versionsinformation": "igs/TKB_clinicalprocess_healthcond_basic/docx-converted/sections/2-versionsinformation.md",
+    "3_tjanstedomanens_arkitektur": "igs/TKB_clinicalprocess_healthcond_basic/docx-converted/sections/3-tjanstedomanens-arkitektur.md",
+    "4_tjanstedomanens_krav_och_regler": "igs/TKB_clinicalprocess_healthcond_basic/docx-converted/sections/4-tjanstedomanens-krav-och-regler.md",
+    "5_tjanstedomanens_meddelandemodeller": "igs/TKB_clinicalprocess_healthcond_basic/docx-converted/sections/5-tjanstedomanens-meddelandemodeller.md",
+    "6_gemensamma_informationskomponenter": "SAKNAS I KÄLLDOKUMENTET"
+  },
+  "contracts": [
+    {
+      "section_number": "7.1",
+      "id": "GetObservations",
+      "display_name": "Hämta observationer",
+      "version": "2.0",
+      "rivta_namespace": "urn:riv:clinicalprocess:healthcond:basic:GetObservationsInteraction:2",
+      "description": "Hämtar strukturerade observationer rörande en patient. Kontraktet är abstrakt — godtyckliga observationstyper kan hämtas oavsett kliniskt sammanhang (labbsvar, ordinerad egenvård, MT-utrustning etc).",
+      "wsdl_files": [
+        "input/files/wsdl/GetObservationsInteraction_2.0_RIVTABP21.wsdl"
+      ],
+      "xsd_files": [
+        "input/files/schema/clinicalprocess_healthcond_basic_2.0.xsd",
+        "input/files/schema/clinicalprocess_healthcond_basic_enum_2.0.xsd",
+        "input/files/schema/GetObservationsResponder_2.0.xsd",
+        "input/files/schema/itintegration_registry_1.0.xsd"
+      ],
+      "doc_files": [
+        "input/files/docs/SjD_TK_GetObservations_2.0.docx",
+        "input/files/docs/SjD_TP_GetObservations_2.0.docx",
+        "input/files/docs/AB_clinicalprocess_healthcond_basic.docx"
+      ],
+      "open_questions_from_parsing": [
+        "Kontraktet refererar till Interaktionsöverenskommelser för semantiska deklarationer — dessa är ej specificerade i TKB och kräver extern dokumentation.",
+        "relation/referredInformationCategorization i request har kardinalitet 1..1 men detta är oklart från TKB-tabellen — verifiera.",
+        "ValueANYType är en union-typ (cv|pq|ivl_pq|ts|ivl_ts|st|int) — FHIR BackboneElement kan inte uttrycka exklusiv-or direkt."
+      ]
+    }
+  ]
+}
