@@ -1,0 +1,256 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getpatientrelationsforcareprovider",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-patientrelationship/StructureDefinition/getpatientrelationsforcareprovider",
+  "name": "GetPatientRelationsForCareProvider",
+  "title": "GetPatientRelationsForCareProvider",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetPatientRelationsForCareProvider\n(RIV-TA urn:riv:ehr:patientrelationship:querying:GetPatientRelationsForCareProviderResponder:1).\nRepresenterar responsens informationsstruktur — alla giltiga patientrelationer för en vårdgivare,\nmed stöd för paginering via HasMore/MoreOnOrAfter.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-patientrelationship/StructureDefinition/getpatientrelationsforcareprovider",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getpatientrelationsforcareprovider",
+        "path": "getpatientrelationsforcareprovider",
+        "short": "GetPatientRelationsForCareProvider",
+        "definition": "Logisk modell för tjänstekontraktet GetPatientRelationsForCareProvider\n(RIV-TA urn:riv:ehr:patientrelationship:querying:GetPatientRelationsForCareProviderResponder:1).\nRepresenterar responsens informationsstruktur — alla giltiga patientrelationer för en vårdgivare,\nmed stöd för paginering via HasMore/MoreOnOrAfter."
+      },
+      {
+        "id": "getpatientrelationsforcareprovider.result",
+        "path": "getpatientrelationsforcareprovider.result",
+        "short": "Svarskod och eventuellt resultatmeddelande",
+        "definition": "Svarskod och eventuellt resultatmeddelande",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getpatientrelationsforcareprovider.result.resultCode",
+        "path": "getpatientrelationsforcareprovider.result.resultCode",
+        "short": "Svarskod",
+        "definition": "Svarskod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-patientrelationship/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "getpatientrelationsforcareprovider.result.resultText",
+        "path": "getpatientrelationsforcareprovider.result.resultText",
+        "short": "Optionellt felmeddelande",
+        "definition": "Optionellt felmeddelande",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getpatientrelationsforcareprovider.moreOnOrAfter",
+        "path": "getpatientrelationsforcareprovider.moreOnOrAfter",
+        "short": "Fr.o.m. vilken tidpunkt ytterligare patientrelationer finns att hämta",
+        "definition": "Används iterativt som inparameter CreatedOnOrAfter för nästa anrop.\nReturneras även om inga fler patientrelationer finns.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getpatientrelationsforcareprovider.hasMore",
+        "path": "getpatientrelationsforcareprovider.hasMore",
+        "short": "Anger om det finns ytterligare patientrelationer att hämta",
+        "definition": "Anger om det finns ytterligare patientrelationer att hämta",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getpatientrelationsforcareprovider.patientRelations",
+        "path": "getpatientrelationsforcareprovider.patientRelations",
+        "short": "Lista med aktiva patientrelationer",
+        "definition": "Lista med aktiva patientrelationer",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getpatientrelationsforcareprovider.patientRelations.patientRelationId",
+        "path": "getpatientrelationsforcareprovider.patientRelations.patientRelationId",
+        "short": "Unik UUID-identifierare för patientrelationen (max 36 tecken)",
+        "definition": "Unik UUID-identifierare för patientrelationen (max 36 tecken)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getpatientrelationsforcareprovider.patientRelations.patientId",
+        "path": "getpatientrelationsforcareprovider.patientRelations.patientId",
+        "short": "Patientens personnummer eller samordningsnummer (max 12 tecken)",
+        "definition": "Patientens personnummer eller samordningsnummer (max 12 tecken)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getpatientrelationsforcareprovider.patientRelations.careProviderId",
+        "path": "getpatientrelationsforcareprovider.patientRelations.careProviderId",
+        "short": "Vårdgivare-id (HSA-id)",
+        "definition": "Vårdgivare-id (HSA-id)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getpatientrelationsforcareprovider.patientRelations.careUnitId",
+        "path": "getpatientrelationsforcareprovider.patientRelations.careUnitId",
+        "short": "Vårdenhet-id (HSA-id)",
+        "definition": "Vårdenhet-id (HSA-id)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getpatientrelationsforcareprovider.patientRelations.employeeId",
+        "path": "getpatientrelationsforcareprovider.patientRelations.employeeId",
+        "short": "Medarbetare-id (HSA-id)",
+        "definition": "Medarbetare-id (HSA-id)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getpatientrelationsforcareprovider.patientRelations.startDate",
+        "path": "getpatientrelationsforcareprovider.patientRelations.startDate",
+        "short": "Startdatum för giltighetstiden",
+        "definition": "Startdatum för giltighetstiden",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getpatientrelationsforcareprovider.patientRelations.endDate",
+        "path": "getpatientrelationsforcareprovider.patientRelations.endDate",
+        "short": "Slutdatum för giltighetstiden",
+        "definition": "Slutdatum för giltighetstiden",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getpatientrelationsforcareprovider.patientRelations.ownerId",
+        "path": "getpatientrelationsforcareprovider.patientRelations.ownerId",
+        "short": "Optionell systemidentifierare (max 512 tecken)",
+        "definition": "Optionell systemidentifierare (max 512 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getpatientrelationsforcareprovider.cancelledPatientRelations",
+        "path": "getpatientrelationsforcareprovider.cancelledPatientRelations",
+        "short": "Lista med makulerade och återkallade patientrelationer",
+        "definition": "Returneras bara om getCancelledFlag=true i request.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getpatientrelationsforcareprovider.cancelledPatientRelations.patientRelationId",
+        "path": "getpatientrelationsforcareprovider.cancelledPatientRelations.patientRelationId",
+        "short": "Id på den makulerade/återkallade patientrelationen",
+        "definition": "Id på den makulerade/återkallade patientrelationen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getpatientrelationsforcareprovider.cancelledPatientRelations.cancellationDate",
+        "path": "getpatientrelationsforcareprovider.cancelledPatientRelations.cancellationDate",
+        "short": "Tidpunkt när makulering eller återkallan utfördes",
+        "definition": "Tidpunkt när makulering eller återkallan utfördes",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

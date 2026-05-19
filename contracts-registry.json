@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-19T05:50:21.852671Z",
+  "last_updated": "2026-05-19T12:00:00Z",
   "domains": [
     {
       "id": "itintegration.engagementindex",
@@ -686,15 +686,31 @@
       "id": "ehr.patientrelationship",
       "bitbucket_slug": "riv.ehr.patientrelationship",
       "zip_url": null,
-      "domain_version": null,
-      "status": "pending",
+      "domain_version": "1.0.1",
+      "status": "done",
       "blocked_reason": null,
       "output_dir": "igs/TKB_ehr_patientrelationship/",
-      "contracts": [],
-      "questions_count": 0,
-      "sushi_result": null,
-      "started_at": null,
-      "completed_at": null
+      "contracts": [
+        { "id": "GetPatientRelationsForPatient", "version": "1.0", "sub_namespace": "querying" },
+        { "id": "GetPatientRelationsForCareProvider", "version": "1.0", "sub_namespace": "querying" },
+        { "id": "GetExtendedPatientRelationsForPatient", "version": "1.0", "sub_namespace": "administration" },
+        { "id": "CheckPatientRelation", "version": "1.0", "sub_namespace": "accesscontrol" },
+        { "id": "RegisterExtendedPatientRelation", "version": "1.0", "sub_namespace": "administration" },
+        { "id": "CancelExtendedPatientRelation", "version": "1.0", "sub_namespace": "administration" },
+        { "id": "DeleteExtendedPatientRelation", "version": "1.0", "sub_namespace": "administration" }
+      ],
+      "questions_count": 2,
+      "sushi_result": {
+        "ran_at": "2026-05-19T00:00:00Z",
+        "errors": 0,
+        "warnings": 19,
+        "artifacts_generated": 17,
+        "passed": true,
+        "note": "0 errors, 19 warnings — alla icke-blockerande. Varningar: Type characteristics code system not found (förväntat offline, 14 st), menu.xml dubblett (harmless), publisher unexpected type (harmless), Failed to load auto-provided packages (offline, 3 st). Genererade: ImplementationGuide + 14 StructureDefinitions (7 response + 7 request) + 1 CodeSystem + 1 ValueSet. ig.ini uppdaterad med korrekt sökväg och template."
+      },
+      "started_at": "2026-05-19T00:00:00Z",
+      "completed_at": "2026-05-19T00:00:00Z",
+      "note": "TKB har icke-standard kapitelstruktur (Utgåva PA12, 2014). Kontrakt dokumenterade i kapitel 3-9, inte i kapitel 7. Källdokument saknar standard TKB-numrering (1-7). Sidstruktur anpassad: 1-inledning, 2-generella-regler, 7-tjanstekontrakt, 8-datatyper. Avsnitt 7 saknades i docx-converted/sections — fullständigt innehåll extraherat från full-document.md."
     },
     {
       "id": "infrastructure.directory.authorizationmanagement",
@@ -713,16 +729,28 @@
     {
       "id": "infrastructure.directory.employee",
       "bitbucket_slug": "riv.infrastructure.directory.employee",
-      "zip_url": null,
-      "domain_version": null,
-      "status": "pending",
+      "zip_url": "https://bitbucket.org/rivta-domains/riv.infrastructure.directory.employee/downloads/",
+      "domain_version": "4.0",
+      "status": "done",
       "blocked_reason": null,
       "output_dir": "igs/TKB_infrastructure_directory_employee/",
-      "contracts": [],
-      "questions_count": 0,
-      "sushi_result": null,
-      "started_at": null,
-      "completed_at": null
+      "contracts": [
+        { "id": "GetEmployeeIncludingProtectedPerson", "version": "4.0" },
+        { "id": "GetEmployee", "version": "4.0" },
+        { "id": "GetCommissionMembersIncludingProtectedPerson", "version": "3.0" },
+        { "id": "GetCommissionMembers", "version": "3.0" }
+      ],
+      "questions_count": 3,
+      "sushi_result": {
+        "ran_at": "2026-05-19T00:00:00Z",
+        "errors": 0,
+        "warnings": 13,
+        "artifacts_generated": 9,
+        "passed": true,
+        "note": "0 errors, 13 warnings — alla icke-blockerande. Varningar: Type characteristics code system not found (förväntat offline, 8 st), menu.xml dubblett (harmless), publisher unexpected type (harmless), Failed to load auto-provided packages (offline, 3 st). Genererade: ImplementationGuide + 8 StructureDefinitions (4 response-modeller + 4 request-modeller). Inga domänspecifika CodeSystems/ValueSets — kodverk (legitimerad yrkesgrupp, commissionPurpose etc.) är externt definierade i Informationsspecifikationen [R5]."
+      },
+      "started_at": "2026-05-19T00:00:00Z",
+      "completed_at": "2026-05-19T00:00:00Z"
     },
     {
       "id": "infrastructure.directory.organization",

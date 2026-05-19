@@ -1,0 +1,57 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getpatientrelationsforpatient-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-patientrelationship/StructureDefinition/getpatientrelationsforpatient-request",
+  "name": "GetPatientRelationsForPatientRequest",
+  "title": "GetPatientRelationsForPatient — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i GetPatientRelationsForPatient.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-patientrelationship/StructureDefinition/getpatientrelationsforpatient-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getpatientrelationsforpatient-request",
+        "path": "getpatientrelationsforpatient-request",
+        "short": "GetPatientRelationsForPatient — Request",
+        "definition": "Logisk modell för requestparametrar i GetPatientRelationsForPatient."
+      },
+      {
+        "id": "getpatientrelationsforpatient-request.careProviderId",
+        "path": "getpatientrelationsforpatient-request.careProviderId",
+        "short": "HSA-id på den vårdgivare vars patientrelationer skall hämtas",
+        "definition": "Obligatorisk. Identifierar den vårdgivare som patientrelationsinformationen gäller för.\nsystem = urn:oid:1.2.752.129.2.1.4.1",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getpatientrelationsforpatient-request.patientId",
+        "path": "getpatientrelationsforpatient-request.patientId",
+        "short": "Patientens personnummer alternativt samordningsnummer (max 12 tecken)",
+        "definition": "Obligatorisk. Personnummer eller samordningsnummer för den patient vars patientrelationer skall hämtas.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

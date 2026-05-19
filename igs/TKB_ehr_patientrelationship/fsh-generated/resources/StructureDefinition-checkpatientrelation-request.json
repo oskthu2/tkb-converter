@@ -1,0 +1,96 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "checkpatientrelation-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-patientrelationship/StructureDefinition/checkpatientrelation-request",
+  "name": "CheckPatientRelationRequest",
+  "title": "CheckPatientRelation — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i CheckPatientRelation.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-patientrelationship/StructureDefinition/checkpatientrelation-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "checkpatientrelation-request",
+        "path": "checkpatientrelation-request",
+        "short": "CheckPatientRelation — Request",
+        "definition": "Logisk modell för requestparametrar i CheckPatientRelation."
+      },
+      {
+        "id": "checkpatientrelation-request.accessingActor",
+        "path": "checkpatientrelation-request.accessingActor",
+        "short": "Representerar den aktör/person som önskar åtkomst till informationen",
+        "definition": "Identifierar medarbetaren vars patientrelation kontrolleras.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "checkpatientrelation-request.accessingActor.employeeId",
+        "path": "checkpatientrelation-request.accessingActor.employeeId",
+        "short": "Id för medarbetaren/personen (HSA-id)",
+        "definition": "Id för medarbetaren/personen (HSA-id)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "checkpatientrelation-request.accessingActor.careProviderId",
+        "path": "checkpatientrelation-request.accessingActor.careProviderId",
+        "short": "Id på medarbetarens vårdgivare (HSA-id)",
+        "definition": "Id på medarbetarens vårdgivare (HSA-id)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "checkpatientrelation-request.accessingActor.careUnitId",
+        "path": "checkpatientrelation-request.accessingActor.careUnitId",
+        "short": "Id på medarbetarens vårdenhet (HSA-id)",
+        "definition": "Id på medarbetarens vårdenhet (HSA-id)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "checkpatientrelation-request.patientId",
+        "path": "checkpatientrelation-request.patientId",
+        "short": "Patientens personnummer alternativt samordningsnummer (max 12 tecken)",
+        "definition": "Personnummer eller samordningsnummer för den patient vars information aktören önskar åtkomst till.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

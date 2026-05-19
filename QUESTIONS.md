@@ -725,3 +725,88 @@ SUSHI kördes och genererade 21 artefakter (14 logiska modeller, 3 CodeSystems, 
 
 - [ ] **[TODO-IT-002]** `igs/TKB_informatics_terminology/input/fsh/logical-models/GetTerminologySubset.fsh`
   `metadata.name`-fältet är generiskt (`string`) men TKB nämner att metadata behövs för att veta vilka OpenEHR-template-delar som ska fyllas i. Om kända metadata-nycklar finns dokumenterade bör ett CodeSystem skapas för dessa. Verifiera med implementerande system vilka `Name`-värden som faktiskt förekommer i produktionen.
+
+---
+
+## infrastructure.directory.employee v4.0 — `igs/TKB_infrastructure_directory_employee/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-19
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-DE-001]** `igs/TKB_infrastructure_directory_employee/input/fsh/logical-models/GetEmployeeIncludingProtectedPerson.fsh` · fält `personInformation.telephoneHour.fromTime` / `toTime`
+  TKB anger typen `Time` (ISO-8601-format) för telefontider. FSH-primitiven `time` stöds tekniskt men gav SUSHI-kompileringsfel (sdType undefined) i lokal offline-miljö. Tidsfälten är därför modellerade som `string` med dokumentation om ISO-8601-format. Verifiera att `string` är acceptabelt eller om specifik FHIR-tidsdatatyp bör användas vid online-kompilering med fullt pakestöd.
+
+- [ ] **[ASSUME-DE-002]** `igs/TKB_infrastructure_directory_employee/input/fsh/logical-models/GetEmployeeIncludingProtectedPerson.fsh` · fält `personInformation.age` / `gender`
+  Fälten `age` och `gender` är villkorliga — de returneras enbart då requestparametern `profile` är satt till `extended1`. Kardinaliteten är modellerad som `0..1` med beskrivning av villkoret i fältkommentaren. Alternativet vore att skapa en FHIR-invariant. Verifiera att dokumentationskommentar är tillräckligt eller om en formell invariant krävs.
+
+- [ ] **[ASSUME-DE-003]** `igs/TKB_infrastructure_directory_employee/input/fsh/` · inga CodeSystems/ValueSets skapade
+  Domänen refererar till flera kodverk: legitimerad yrkesgrupp (hsaTitle), commissionPurpose (hsaCommissionPurpose), commissionRights (hsaCommissionRight). Dessa är externt definierade i Informationsspecifikationen för Katalogtjänst HSA [R5] och har inga kända FHIR-canonicals. ANTAGANDE: Inga lokala CodeSystems skapas — kodverken dokumenteras som `string`-fält med hänvisning till [R5]. Verifiera om HSA-kodverk ska modelleras som FHIR CodeSystems eller om texthänvisning är tillräckligt.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-DE-001]** `igs/TKB_infrastructure_directory_employee/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Avsnitt 6 saknades i källdokumentet (TKB innehåller inget avsnitt 6 — innehållet från avsnitt 6 finns inbäddat i avsnitt 7). Sidan innehåller en notis om detta. Verifiera om sidan ska tas bort från IG:n (och menyn uppdateras) eller om en hänvisning till avsnitt 7 är tillräcklig.
+
+- [ ] **[TODO-DE-002]** `igs/TKB_infrastructure_directory_employee/input/pagecontent/7-tjanstekontrakt.md` · GetEmployee och GetCommissionMembers
+  Dessa två kontrakt är beskrivna kortfattat i TKB som "identiska med IncludingProtectedPerson-varianten förutom att skyddade personer aldrig returneras". Sektion 7 hänvisar tillbaka till respektive IncludingProtectedPerson-kontrakt för fullständiga fältregler. Verifiera att denna hänvisningsstil är acceptabel för publicering eller om hela fälttabellen ska upprepas.
+
+---
+
+## followup.processdevelopment.infections v1.0.2 — `igs/TKB_followup_processdevelopment_infections/`
+
+**Status:** in-progress (SUSHI passerat, inväntar manuell IG Publisher-körning)
+**Senast uppdaterad:** 2026-05-19
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-FPI-001]** `igs/TKB_followup_processdevelopment_infections/input/fsh/logical-models/DeletePrescriptionReason.fsh` · fält `activityId` och `conditionId`
+  Regeln kräver att exakt en av `activityId` eller `conditionId` ska anges (XOR-villkor). Båda är modellerade som `0..1`. Ska detta modelleras som en FHIR-invariant (`obeys`-regel)? Kräver beslut — en invariant kräver att vi formulerar en FHIRPath-expression.
+  Källa: TKB avsnitt 7.2 "Övriga regler", Fält 1.
+
+- [ ] **[BLOCK-FPI-002]** `igs/TKB_followup_processdevelopment_infections/input/fsh/logical-models/ProcessLaboratoryReport.fsh` · fält `patient`
+  TKB-fälttabellen för ProcessLaboratoryReport anger `Patient | PersonType` — dvs. två olika typer. XSD-schemat definierar `PatientType` (med id, birthTime, gender). Är det `PatientType` eller `PersonType` som gäller? Modellen antar `PatientType` (säkrare). Verifiera med domänexpert.
+  Källa: TKB avsnitt 7.4 fälttabell rad "Patient".
+
+- [ ] **[BLOCK-FPI-003]** `igs/TKB_followup_processdevelopment_infections/` · dependency `se.inera.rivta.core#current`
+  SUSHI kan inte ladda ner `se.inera.rivta.core#current` (nätverksåtkomst blockerad). FSH-kompilering passerade men utan validering mot Ineras bastyper. Kör SUSHI i en miljö med internetåtkomst för fullständig validering. Alternativt: ta bort dependency och lägg till en notering om att bastyper inte kan valideras offline.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-FPI-001]** `igs/TKB_followup_processdevelopment_infections/input/fsh/logical-models/ProcessPrescriptionReason.fsh`
+  Fälten `conditionId`, `conditionCode`, `source` är `0..1` i TKB-fälttabellen men `1..1` i XSD-schemat. Antagit TKB-fälttabellen som normativ (0..1) eftersom XSD kan vara en äldre version. Verifiera vilket som gäller.
+  Källa: jämförelse mellan TKB avsnitt 7.1 och XSD `followup_processdevelopment_infections_1.0.xsd`.
+
+- [ ] **[ASSUME-FPI-002]** `igs/TKB_followup_processdevelopment_infections/input/fsh/logical-models/ProcessCareEncounter.fsh` · fält `careEncounter.type`, `careEncounter.status`
+  TKB-fälttabellen anger kardinalitet "1" (utan ..1) för type och status. XSD-schemat anger `0..1`. Antagit XSD-definition (0..1) som normativ. Verifiera med domänexpert.
+
+- [ ] **[ASSUME-FPI-003]** `igs/TKB_followup_processdevelopment_infections/input/fsh/logical-models/ProcessCareEncounter.fsh` · fält `careEncounter.location.name`
+  TKB anger "1" (obligatorisk) för LocationType.name men regeln är villkorlig: obligatorisk endast när PerformerRole.id anges. Modellerat som `1..1` i FSH med kommentar om villkoret. Verifiera om `0..1` är korrekt med invariant.
+
+- [ ] **[ASSUME-FPI-004]** `igs/TKB_followup_processdevelopment_infections/` · versionsnummer
+  Repository saknar publicerade zip-filer. Källan är master-branchen (commit b9bb3968). Tag `followup_processdevelopment_infections_1.0.2_RC1` finns — antaget att version 1.0.2 är senaste. Verifiera om versionen är korrekt.
+
+- [ ] **[ASSUME-FPI-005]** `igs/TKB_followup_processdevelopment_infections/input/fsh/logical-models/ProcessCareEncounter.fsh` · fält `careEncounter.performerRole.careUnit`
+  XSD-schemat (CareEncounterType) anger `performerRole.careUnit` som obligatorisk (1..1 CareUnitType). TKB-tabellen listar den som `1` utan tydlig kardinalitet. Modellerat som `0..1` i FSH (säkrare, XSD verkar inkonsekvent med TKB för detta fält). Verifiera.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-FPI-001]** `igs/TKB_followup_processdevelopment_infections/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Avsnitt 6 saknas i källdokumentet. Sidan innehåller en notis om detta. Verifiera om sidan ska tas bort från IG:n eller om innehållet finns i annat avsnitt.
+
+- [ ] **[TODO-FPI-002]** `igs/TKB_followup_processdevelopment_infections/input/files/schema/`
+  Interaktions-specifika XSD-filer (ProcessCareEncounterResponder_1.0.xsd m.fl.) laddades inte ner pga Bitbucket rate-limiting (HTTP 429). Dessa bör laddas ner manuellt och läggas in i `input/files/schema/` för en komplett källfils-referens. Kör: `curl -L -o input/files/schema/ProcessCareEncounterResponder_1.0.xsd "https://api.bitbucket.org/2.0/repositories/rivta-domains/riv.followup.processdevelopment.infections/src/master/schemas/interactions/ProcessCareEncounterInteraction/ProcessCareEncounterResponder_1.0.xsd"` (och motsvarande för de 6 övriga interaktionsschemana).
+
+- [ ] **[TODO-FPI-003]** `igs/TKB_followup_processdevelopment_infections/sushi-config.yaml`
+  Varning: `Configuration property publisher has a value with an unexpected type.` — SUSHI förväntar sig en mer komplex publisher-struktur (object). Uppdatera till: `publisher: {name: "Inera AB", url: "https://www.inera.se"}` om varningen ska elimineras.
+
+- [ ] **[TODO-FPI-004]** `igs/TKB_followup_processdevelopment_infections/input/fsh/logical-models/`
+  SUSHI-varning: "Type characteristics code system not found" för alla 14 modeller. Detta beror på att `se.inera.rivta.core#current` inte laddades (se BLOCK-FPI-003). Ignorera tills nätverksåtkomst finns.
+
+- [ ] **[TODO-FPI-005]** `igs/TKB_followup_processdevelopment_infections/input/pagecontent/7-tjanstekontrakt.md`
+  Källfils-tabellerna refererar inte de interaktions-specifika XSD-schemana (se TODO-FPI-002) eftersom de inte laddades ner. Uppdatera tabellerna när XSD-filerna finns på plats.

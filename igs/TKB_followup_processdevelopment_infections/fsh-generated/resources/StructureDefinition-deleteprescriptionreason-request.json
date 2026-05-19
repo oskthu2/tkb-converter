@@ -1,0 +1,57 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "deleteprescriptionreason-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/followup-processdevelopment-infections/StructureDefinition/deleteprescriptionreason-request",
+  "name": "DeletePrescriptionReasonRequest",
+  "title": "DeletePrescriptionReason — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i tjänstekontraktet DeletePrescriptionReason\n(RIV-TA urn:riv:followup:processdevelopment:infections:DeletePrescriptionReason:1).\nRaderar information som tidigare registrerats via ProcessPrescriptionReason.\nAntingen activityId eller conditionId ska anges, men inte båda.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/followup-processdevelopment-infections/StructureDefinition/deleteprescriptionreason-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "deleteprescriptionreason-request",
+        "path": "deleteprescriptionreason-request",
+        "short": "DeletePrescriptionReason — Request",
+        "definition": "Logisk modell för requestparametrar i tjänstekontraktet DeletePrescriptionReason\n(RIV-TA urn:riv:followup:processdevelopment:infections:DeletePrescriptionReason:1).\nRaderar information som tidigare registrerats via ProcessPrescriptionReason.\nAntingen activityId eller conditionId ska anges, men inte båda."
+      },
+      {
+        "id": "deleteprescriptionreason-request.activityId",
+        "path": "deleteprescriptionreason-request.activityId",
+        "short": "Aktivitets-id för den aktivitet som ska raderas (profylax)",
+        "definition": "Anges när den ordinationsorsak som ska raderas är en aktivitet (profylax).\nNationell OID för lokala ID:n: 1.2.752.129.2.1.2.1\nKardinalitet: Villkorlig — antingen activityId eller conditionId ska anges.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "deleteprescriptionreason-request.conditionId",
+        "path": "deleteprescriptionreason-request.conditionId",
+        "short": "Tillstånds-id för det tillstånd/diagnos som ska raderas (infektion)",
+        "definition": "Anges när den ordinationsorsak som ska raderas är ett tillstånd (infektion).\nNationell OID för lokala ID:n: 1.2.752.129.2.1.2.1\nKardinalitet: Villkorlig — antingen activityId eller conditionId ska anges.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      }
+    ]
+  }
+}

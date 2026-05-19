@@ -1,0 +1,182 @@
+{
+  "domain_id": "followup.processdevelopment.infections",
+  "domain_title": "followup: processdevelopment: infections",
+  "domain_version": "1.0.2",
+  "bitbucket_slug": "riv.followup.processdevelopment.infections",
+  "source_branch": "master",
+  "source_commit": "b9bb3968f778f951a15068def0c8a9e085e9c838",
+  "rivta_namespace_base": "urn:riv:followup:processdevelopment:infections",
+  "docx_converted_dir": "igs/TKB_followup_processdevelopment_infections/docx-converted/",
+  "sections": {
+    "1_inledning": "igs/TKB_followup_processdevelopment_infections/docx-converted/sections/1-inledning.md",
+    "2_versionsinformation": "igs/TKB_followup_processdevelopment_infections/docx-converted/sections/2-versionsinformation.md",
+    "3_tjanstedomanens_arkitektur": "igs/TKB_followup_processdevelopment_infections/docx-converted/sections/3-tjanstedomanens-arkitektur.md",
+    "4_tjanstedomanens_krav_och_regler": "igs/TKB_followup_processdevelopment_infections/docx-converted/sections/4-tjanstedomanens-krav-och-regler.md",
+    "5_tjanstedomanens_meddelandemodeller": "igs/TKB_followup_processdevelopment_infections/docx-converted/sections/5-tjanstedomanens-meddelandemodeller.md",
+    "6_gemensamma_informationskomponenter": "SAKNAS I KÄLLDOKUMENTET"
+  },
+  "contracts": [
+    {
+      "section_number": "7.1",
+      "id": "ProcessPrescriptionReason",
+      "display_name": "ProcessPrescriptionReason",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:followup:processdevelopment:infections:ProcessPrescriptionReason:1",
+      "description": "Registrerar en ordinationsorsak med information om patient, organisatorisk enhet, eventuellt aktivitet, ordination och ordinerad substans.",
+      "request_fields": [
+        {"name": "prescriptionTime", "type": "TimeStampType", "cardinality": "0..1", "description": "Tidpunkt då registreringen av ordinationsorsaken gjordes"},
+        {"name": "substanceCode", "type": "CVType", "cardinality": "1..1", "description": "Läkemedelssubstans. Kodverk: ATC"},
+        {"name": "prescriptionCareUnitId", "type": "IIType", "cardinality": "1..1", "description": "Medicinskt ansvarig för ordinationsmoment (HSA-id)"},
+        {"name": "prescriptionLocationId", "type": "IIType", "cardinality": "0..1", "description": "Registreringsenhet för ordinationsmoment (HSA-id)"},
+        {"name": "prescriptionReasonCareUnitId", "type": "IIType", "cardinality": "1..1", "description": "Medicinskt ansvarig för ordinationsorsak (HSA-id)"},
+        {"name": "prescriptionReasonLocationId", "type": "IIType", "cardinality": "0..1", "description": "Registreringsenhet för ordinationsorsak (HSA-id)"},
+        {"name": "conditionId", "type": "IIType", "cardinality": "0..1", "description": "Id för patientens diagnos"},
+        {"name": "conditionCode", "type": "CVType", "cardinality": "0..1", "description": "Kod och klartext för patientens diagnos. Kodverk: SnomedCT, IV Annan, KSH97"},
+        {"name": "source", "type": "CVType", "cardinality": "0..1", "description": "Smittkälla. Kodverk: IV Smittväg"},
+        {"name": "activityCode", "type": "CVType", "cardinality": "1..1", "description": "Aktivitetskod. Kodverk: KVÅ, SnomedCT, IV Annan"},
+        {"name": "activityId", "type": "IIType", "cardinality": "1..1", "description": "Unik identifierare för aktivitet"},
+        {"name": "patient", "type": "PatientType", "cardinality": "1..1", "description": "Patientuppgifter"},
+        {"name": "prescriptionId", "type": "IIType", "cardinality": "1..1", "description": "Unik identifierare för ordinationen"},
+        {"name": "prescriptionReasonTime", "type": "TimeStampType", "cardinality": "0..1", "description": "Tidpunkt för ordinationen"}
+      ],
+      "response_fields": [
+        {"name": "code", "type": "string", "cardinality": "1..1", "description": "Resultatkod: OK, ERROR eller INFO"},
+        {"name": "comment", "type": "string", "cardinality": "0..1", "description": "Beskrivning av fel eller information"}
+      ],
+      "wsdl_files": ["ProcessPrescriptionReasonInteraction_1.0_RIVTABP21.wsdl"],
+      "xsd_files": ["followup_processdevelopment_infections_1.0.xsd", "followup_processdevelopment_infections_enum_1.0.xsd"],
+      "doc_files": [],
+      "open_questions_from_parsing": [
+        "activityId har olika semantik beroende på om Activity (profylax) eller Condition (infektion) används — se övriga regler",
+        "Kardinaliteten för conditionId/conditionCode/source är 0..1 i TKB men de är 1..1 i XSD-schemat (XSD verkar vara äldre version)"
+      ]
+    },
+    {
+      "section_number": "7.2",
+      "id": "DeletePrescriptionReason",
+      "display_name": "DeletePrescriptionReason",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:followup:processdevelopment:infections:DeletePrescriptionReason:1",
+      "description": "Raderar information som tidigare registrerats via ProcessPrescriptionReason.",
+      "request_fields": [
+        {"name": "activityId", "type": "IIType", "cardinality": "0..1", "description": "Aktivitets-id (profylax). Antingen activityId eller conditionId ska anges.", "constraints": "XOR med conditionId"},
+        {"name": "conditionId", "type": "IIType", "cardinality": "0..1", "description": "Tillstånds-id (infektion). Antingen activityId eller conditionId ska anges.", "constraints": "XOR med activityId"}
+      ],
+      "response_fields": [
+        {"name": "code", "type": "string", "cardinality": "1..1", "description": "Resultatkod: OK, ERROR eller INFO"},
+        {"name": "comment", "type": "string", "cardinality": "0..1", "description": "Beskrivning av fel eller information"}
+      ],
+      "wsdl_files": ["DeletePrescriptionReasonInteraction_1.0_RIVTABP21.wsdl"],
+      "xsd_files": ["followup_processdevelopment_infections_1.0.xsd", "followup_processdevelopment_infections_enum_1.0.xsd"],
+      "doc_files": [],
+      "open_questions_from_parsing": [
+        "XOR-villkor mellan activityId och conditionId behöver modelleras som FHIR-invariant"
+      ]
+    },
+    {
+      "section_number": "7.3",
+      "id": "DeletePrescription",
+      "display_name": "DeletePrescription",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:followup:processdevelopment:infections:DeletePrescription:1",
+      "description": "Raderar information om en ordination som tidigare registrerats via ProcessPrescriptionReason.",
+      "request_fields": [
+        {"name": "prescriptionId", "type": "IIType", "cardinality": "1..1", "description": "Ordinations-id för den ordination som ska raderas"}
+      ],
+      "response_fields": [
+        {"name": "code", "type": "string", "cardinality": "1..1", "description": "Resultatkod: OK, ERROR eller INFO"},
+        {"name": "comment", "type": "string", "cardinality": "0..1", "description": "Beskrivning av fel eller information"}
+      ],
+      "wsdl_files": ["DeletePrescriptionInteraction_1.0_RIVTABP21.wsdl"],
+      "xsd_files": ["followup_processdevelopment_infections_1.0.xsd", "followup_processdevelopment_infections_enum_1.0.xsd"],
+      "doc_files": [],
+      "open_questions_from_parsing": []
+    },
+    {
+      "section_number": "7.4",
+      "id": "ProcessLaboratoryReport",
+      "display_name": "ProcessLaboratoryReport",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:followup:processdevelopment:infections:ProcessLaboratoryReport:1",
+      "description": "Registrerar ett nytt laboratoriesvar med information om patient, beställande enhet, provtagningstidpunkt och agensförekomst.",
+      "request_fields": [
+        {"name": "orgUnitId", "type": "IIType", "cardinality": "1..1", "description": "Beställande enhet (HSA-id)"},
+        {"name": "reportId", "type": "IIType", "cardinality": "1..1", "description": "Laboratoriesvars-id"},
+        {"name": "testTime", "type": "TimeStampType", "cardinality": "1..1", "description": "Provtagningstidpunkt"},
+        {"name": "observationTime", "type": "TimeStampType", "cardinality": "1..1", "description": "Observationstidpunkt"},
+        {"name": "findingCode", "type": "CVType", "cardinality": "1..1", "description": "Agenskod. Kodverk: NPU"},
+        {"name": "patient", "type": "PatientType", "cardinality": "1..1", "description": "Patientuppgifter"}
+      ],
+      "response_fields": [
+        {"name": "code", "type": "string", "cardinality": "1..1", "description": "Resultatkod: OK, ERROR eller INFO"},
+        {"name": "comment", "type": "string", "cardinality": "0..1", "description": "Beskrivning av fel eller information"}
+      ],
+      "wsdl_files": ["ProcessLaboratoryReportInteraction_1.0_RIVTABP21.wsdl"],
+      "xsd_files": ["followup_processdevelopment_infections_1.0.xsd", "followup_processdevelopment_infections_enum_1.0.xsd"],
+      "doc_files": [],
+      "open_questions_from_parsing": [
+        "TKB visar PatientType som PersonType i begärantabellen — verifiera om LaboratoryReport använder PatientType eller PersonType (XSD-schemat visar PatientType)"
+      ]
+    },
+    {
+      "section_number": "7.5",
+      "id": "DeleteLaboratoryReport",
+      "display_name": "DeleteLaboratoryReport",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:followup:processdevelopment:infections:DeleteLaboratoryReport:1",
+      "description": "Raderar information som tidigare registrerats via ProcessLaboratoryReport.",
+      "request_fields": [
+        {"name": "laboratoryReportId", "type": "IIType", "cardinality": "1..1", "description": "Svars-id för det laboratoriesvar som ska raderas"}
+      ],
+      "response_fields": [
+        {"name": "code", "type": "string", "cardinality": "1..1", "description": "Resultatkod: OK, ERROR eller INFO"},
+        {"name": "comment", "type": "string", "cardinality": "0..1", "description": "Beskrivning av fel eller information"}
+      ],
+      "wsdl_files": ["DeleteLaboratoryReportInteraction_1.0_RIVTABP21.wsdl"],
+      "xsd_files": ["followup_processdevelopment_infections_1.0.xsd", "followup_processdevelopment_infections_enum_1.0.xsd"],
+      "doc_files": [],
+      "open_questions_from_parsing": []
+    },
+    {
+      "section_number": "7.6",
+      "id": "ProcessCareEncounter",
+      "display_name": "ProcessCareEncounter",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:followup:processdevelopment:infections:ProcessCareEncounter:1",
+      "description": "Skriver vårdkontaktsdata till Infektionsverktyget.",
+      "request_fields": [
+        {"name": "careEncounter", "type": "CareEncounterType", "cardinality": "1..1", "description": "Vårdkontaktsuppgifter"}
+      ],
+      "response_fields": [
+        {"name": "code", "type": "string", "cardinality": "1..1", "description": "Resultatkod: OK, ERROR eller INFO"},
+        {"name": "comment", "type": "string", "cardinality": "0..1", "description": "Beskrivning av fel eller information"}
+      ],
+      "wsdl_files": ["ProcessCareEncounterInteraction_1.0_RIVTABP21.wsdl"],
+      "xsd_files": ["followup_processdevelopment_infections_1.0.xsd", "followup_processdevelopment_infections_enum_1.0.xsd"],
+      "doc_files": [],
+      "open_questions_from_parsing": [
+        "TKB anger kardinalitet '1' för type, status, id.extension m.fl. — XSD anger 0..1. Antagen kardinalitet: 0..1 (XSD är normativ)",
+        "Location.name anges som '1' i TKB men regeln är villkorlig: obligatorisk om PerformerRole.id anges"
+      ]
+    },
+    {
+      "section_number": "7.7",
+      "id": "DeleteCareEncounter",
+      "display_name": "DeleteCareEncounter",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:followup:processdevelopment:infections:DeleteCareEncounter:1",
+      "description": "Raderar information som tidigare registrerats via ProcessCareEncounter.",
+      "request_fields": [
+        {"name": "careEncounterId", "type": "IIType", "cardinality": "1..1", "description": "careEncounterId för den vårdkontakt som ska raderas"}
+      ],
+      "response_fields": [
+        {"name": "code", "type": "string", "cardinality": "1..1", "description": "Resultatkod: OK, ERROR eller INFO"},
+        {"name": "comment", "type": "string", "cardinality": "0..1", "description": "Beskrivning av fel eller information"}
+      ],
+      "wsdl_files": ["DeleteCareEncounterInteraction_1.0_RIVTABP21.wsdl"],
+      "xsd_files": ["followup_processdevelopment_infections_1.0.xsd", "followup_processdevelopment_infections_enum_1.0.xsd"],
+      "doc_files": [],
+      "open_questions_from_parsing": []
+    }
+  ]
+}

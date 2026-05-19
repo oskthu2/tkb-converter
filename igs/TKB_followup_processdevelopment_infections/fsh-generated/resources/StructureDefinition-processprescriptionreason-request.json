@@ -1,0 +1,252 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "processprescriptionreason-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/followup-processdevelopment-infections/StructureDefinition/processprescriptionreason-request",
+  "name": "ProcessPrescriptionReasonRequest",
+  "title": "ProcessPrescriptionReason — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i tjänstekontraktet ProcessPrescriptionReason\n(RIV-TA urn:riv:followup:processdevelopment:infections:ProcessPrescriptionReason:1).\nRegistrerar en ordinationsorsak med information om patient, organisatorisk enhet,\neventuellt aktivitet, ordination och ordinerad substans.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/followup-processdevelopment-infections/StructureDefinition/processprescriptionreason-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "processprescriptionreason-request",
+        "path": "processprescriptionreason-request",
+        "short": "ProcessPrescriptionReason — Request",
+        "definition": "Logisk modell för requestparametrar i tjänstekontraktet ProcessPrescriptionReason\n(RIV-TA urn:riv:followup:processdevelopment:infections:ProcessPrescriptionReason:1).\nRegistrerar en ordinationsorsak med information om patient, organisatorisk enhet,\neventuellt aktivitet, ordination och ordinerad substans."
+      },
+      {
+        "id": "processprescriptionreason-request.prescriptionTime",
+        "path": "processprescriptionreason-request.prescriptionTime",
+        "short": "Tidpunkt då registreringen av ordinationsorsaken gjordes (YYYYMMDDhhmmss)",
+        "definition": "Tidpunkt i formatet YYYYMMDDhhmmss.\nI de fall en ordination finns anges här, i annat fall lämnas fältet tomt.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processprescriptionreason-request.substanceCode",
+        "path": "processprescriptionreason-request.substanceCode",
+        "short": "Läkemedelssubstans som är del av en läkemedelsordination",
+        "definition": "Hanterar information kring en läkemedelssubstans.\nKodverk: ATC. OID: 1.2.752.129.2.2.3.1.1\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "processprescriptionreason-request.prescriptionCareUnitId",
+        "path": "processprescriptionreason-request.prescriptionCareUnitId",
+        "short": "Medicinskt ansvarig för ordinationsmoment (HSA-id)",
+        "definition": "OID för HSA-id: 1.2.752.129.2.1.4.1\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "processprescriptionreason-request.prescriptionLocationId",
+        "path": "processprescriptionreason-request.prescriptionLocationId",
+        "short": "Registreringsenhet för ordinationsmoment (HSA-id)",
+        "definition": "OID för HSA-id: 1.2.752.129.2.1.4.1\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "processprescriptionreason-request.prescriptionReasonCareUnitId",
+        "path": "processprescriptionreason-request.prescriptionReasonCareUnitId",
+        "short": "Medicinskt ansvarig för ordinationsorsak (HSA-id)",
+        "definition": "OID för HSA-id: 1.2.752.129.2.1.4.1\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "processprescriptionreason-request.prescriptionReasonLocationId",
+        "path": "processprescriptionreason-request.prescriptionReasonLocationId",
+        "short": "Registreringsenhet för ordinationsorsak (HSA-id)",
+        "definition": "OID för HSA-id: 1.2.752.129.2.1.4.1\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "processprescriptionreason-request.conditionId",
+        "path": "processprescriptionreason-request.conditionId",
+        "short": "Id för patientens diagnos",
+        "definition": "Nationell OID för lokala ID:n: 1.2.752.129.2.1.2.1\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "processprescriptionreason-request.conditionCode",
+        "path": "processprescriptionreason-request.conditionCode",
+        "short": "Kod och klartext för patientens diagnos",
+        "definition": "Kodverk: SnomedCT, IV Annan, KSH97\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "processprescriptionreason-request.source",
+        "path": "processprescriptionreason-request.source",
+        "short": "Kod och klartext som anger hur infektionen uppstått",
+        "definition": "Anger om det är samhälls- eller vårdförvärvad infektion eller ej infektion (vid förebyggande profylax).\nKodverk: IV Smittväg\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "processprescriptionreason-request.activityCode",
+        "path": "processprescriptionreason-request.activityCode",
+        "short": "Information om en aktivitet som är relevant att registrera",
+        "definition": "Kodverk: KVÅ, SnomedCT, IV Annan\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "processprescriptionreason-request.activityId",
+        "path": "processprescriptionreason-request.activityId",
+        "short": "Unik identifierare för aktivitet",
+        "definition": "Nationell OID för lokala ID:n: 1.2.752.129.2.1.2.1.\nOBSERVERA: attributet har olika betydelse beroende på om mallen för Activity (profylax)\neller Condition (infektion) används.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "processprescriptionreason-request.patient",
+        "path": "processprescriptionreason-request.patient",
+        "short": "Patientuppgifter",
+        "definition": "Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "processprescriptionreason-request.patient.id",
+        "path": "processprescriptionreason-request.patient.id",
+        "short": "Patientens identifierare",
+        "definition": "Patientens identifierare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "processprescriptionreason-request.patient.birthTime",
+        "path": "processprescriptionreason-request.patient.birthTime",
+        "short": "Patientens födelseår (ÅÅÅÅMMDD, ÅÅÅÅMM eller ÅÅÅÅ)",
+        "definition": "Patientens födelseår (ÅÅÅÅMMDD, ÅÅÅÅMM eller ÅÅÅÅ)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "processprescriptionreason-request.patient.gender",
+        "path": "processprescriptionreason-request.patient.gender",
+        "short": "Patientens kön",
+        "definition": "Kodverk KV Kön, OID: 1.2.752.129.2.2.1.1\n0 = not known, 1 = male, 2 = female, 9 = not applicable",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "processprescriptionreason-request.prescriptionId",
+        "path": "processprescriptionreason-request.prescriptionId",
+        "short": "Unik identifierare för ordinationen",
+        "definition": "Nationell OID för lokala ID:n: 1.2.752.129.2.1.2.1\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "processprescriptionreason-request.prescriptionReasonTime",
+        "path": "processprescriptionreason-request.prescriptionReasonTime",
+        "short": "Tidpunkt för ordinationen (YYYYMMDDhhmmss)",
+        "definition": "Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

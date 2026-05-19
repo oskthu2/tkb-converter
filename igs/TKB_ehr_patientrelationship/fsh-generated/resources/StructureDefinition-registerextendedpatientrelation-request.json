@@ -1,0 +1,278 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "registerextendedpatientrelation-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-patientrelationship/StructureDefinition/registerextendedpatientrelation-request",
+  "name": "RegisterExtendedPatientRelationRequest",
+  "title": "RegisterExtendedPatientRelation — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i RegisterExtendedPatientRelation.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-patientrelationship/StructureDefinition/registerextendedpatientrelation-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "registerextendedpatientrelation-request",
+        "path": "registerextendedpatientrelation-request",
+        "short": "RegisterExtendedPatientRelation — Request",
+        "definition": "Logisk modell för requestparametrar i RegisterExtendedPatientRelation."
+      },
+      {
+        "id": "registerextendedpatientrelation-request.patientRelationId",
+        "path": "registerextendedpatientrelation-request.patientRelationId",
+        "short": "Unik, global UUID-identifierare för intyget (max 36 tecken)",
+        "definition": "Tjänstekonsumenten ansvarar för att generera id:et.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedpatientrelation-request.patientId",
+        "path": "registerextendedpatientrelation-request.patientId",
+        "short": "Patientens personnummer alternativt samordningsnummer (max 12 tecken)",
+        "definition": "Patientens personnummer alternativt samordningsnummer (max 12 tecken)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedpatientrelation-request.careProviderId",
+        "path": "registerextendedpatientrelation-request.careProviderId",
+        "short": "Id på den vårdgivare som intyget gäller för (HSA-id)",
+        "definition": "Id på den vårdgivare som intyget gäller för (HSA-id)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedpatientrelation-request.careUnitId",
+        "path": "registerextendedpatientrelation-request.careUnitId",
+        "short": "Id på den vårdenhet som intyget gäller för (HSA-id)",
+        "definition": "Id på den vårdenhet som intyget gäller för (HSA-id)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedpatientrelation-request.employeeId",
+        "path": "registerextendedpatientrelation-request.employeeId",
+        "short": "Medarbetare-id för den medarbetare som patientrelationen gäller för (HSA-id)",
+        "definition": "Medarbetare-id för den medarbetare som patientrelationen gäller för (HSA-id)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedpatientrelation-request.startDate",
+        "path": "registerextendedpatientrelation-request.startDate",
+        "short": "Valfritt startdatum för intygets giltighetstid",
+        "definition": "Om angivet gäller intyget fr.o.m denna tidpunkt, annars gäller patientrelationen fr.o.m registreringstidpunkten.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedpatientrelation-request.endDate",
+        "path": "registerextendedpatientrelation-request.endDate",
+        "short": "Tidpunkt då giltigheten går ut för patientrelationen",
+        "definition": "Tidpunkt då giltigheten går ut för patientrelationen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedpatientrelation-request.registrationAction",
+        "path": "registerextendedpatientrelation-request.registrationAction",
+        "short": "Information om begäran och registrering av patientrelationen",
+        "definition": "Information om begäran och registrering av patientrelationen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedpatientrelation-request.registrationAction.requestDate",
+        "path": "registerextendedpatientrelation-request.registrationAction.requestDate",
+        "short": "Tidpunkt då registrering begärdes",
+        "definition": "Tidpunkt då registrering begärdes",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedpatientrelation-request.registrationAction.requestedBy",
+        "path": "registerextendedpatientrelation-request.registrationAction.requestedBy",
+        "short": "Den aktör som begärt registreringen",
+        "definition": "Den aktör som begärt registreringen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedpatientrelation-request.registrationAction.requestedBy.employeeId",
+        "path": "registerextendedpatientrelation-request.registrationAction.requestedBy.employeeId",
+        "short": "Medarbetare-id (HSA-id)",
+        "definition": "Medarbetare-id (HSA-id)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedpatientrelation-request.registrationAction.requestedBy.assignmentId",
+        "path": "registerextendedpatientrelation-request.registrationAction.requestedBy.assignmentId",
+        "short": "Optionellt uppdragid (HSA-id)",
+        "definition": "Optionellt uppdragid (HSA-id)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedpatientrelation-request.registrationAction.requestedBy.assignmentName",
+        "path": "registerextendedpatientrelation-request.registrationAction.requestedBy.assignmentName",
+        "short": "Optionellt uppdragsnamn (max 256 tecken)",
+        "definition": "Optionellt uppdragsnamn (max 256 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedpatientrelation-request.registrationAction.registrationDate",
+        "path": "registerextendedpatientrelation-request.registrationAction.registrationDate",
+        "short": "Tidpunkt då registreringen utfördes",
+        "definition": "Tidpunkt då registreringen utfördes",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedpatientrelation-request.registrationAction.registeredBy",
+        "path": "registerextendedpatientrelation-request.registrationAction.registeredBy",
+        "short": "Den aktör som registrerade patientrelationen",
+        "definition": "Den aktör som registrerade patientrelationen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedpatientrelation-request.registrationAction.registeredBy.employeeId",
+        "path": "registerextendedpatientrelation-request.registrationAction.registeredBy.employeeId",
+        "short": "Medarbetare-id (HSA-id)",
+        "definition": "Medarbetare-id (HSA-id)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedpatientrelation-request.registrationAction.registeredBy.assignmentId",
+        "path": "registerextendedpatientrelation-request.registrationAction.registeredBy.assignmentId",
+        "short": "Optionellt uppdragid (HSA-id)",
+        "definition": "Optionellt uppdragid (HSA-id)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedpatientrelation-request.registrationAction.registeredBy.assignmentName",
+        "path": "registerextendedpatientrelation-request.registrationAction.registeredBy.assignmentName",
+        "short": "Optionellt uppdragsnamn (max 256 tecken)",
+        "definition": "Optionellt uppdragsnamn (max 256 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedpatientrelation-request.registrationAction.reasonText",
+        "path": "registerextendedpatientrelation-request.registrationAction.reasonText",
+        "short": "Optionell orsak/anledning till registreringen (max 1024 tecken)",
+        "definition": "Optionell orsak/anledning till registreringen (max 1024 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

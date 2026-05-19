@@ -1,0 +1,14 @@
+[DeleteCareEncounterRequest]: StructureDefinition-deletecareencounter-request.html
+[DeleteCareEncounterResponse]: StructureDefinition-deletecareencounter-response.html
+[DeleteLaboratoryReportRequest]: StructureDefinition-deletelaboratoryreport-request.html
+[DeleteLaboratoryReportResponse]: StructureDefinition-deletelaboratoryreport-response.html
+[DeletePrescriptionRequest]: StructureDefinition-deleteprescription-request.html
+[DeletePrescriptionResponse]: StructureDefinition-deleteprescription-response.html
+[DeletePrescriptionReasonRequest]: StructureDefinition-deleteprescriptionreason-request.html
+[DeletePrescriptionReasonResponse]: StructureDefinition-deleteprescriptionreason-response.html
+[ProcessCareEncounterRequest]: StructureDefinition-processcareencounter-request.html
+[ProcessCareEncounterResponse]: StructureDefinition-processcareencounter-response.html
+[ProcessLaboratoryReportRequest]: StructureDefinition-processlaboratoryreport-request.html
+[ProcessLaboratoryReportResponse]: StructureDefinition-processlaboratoryreport-response.html
+[ProcessPrescriptionReasonRequest]: StructureDefinition-processprescriptionreason-request.html
+[ProcessPrescriptionReasonResponse]: StructureDefinition-processprescriptionreason-response.html

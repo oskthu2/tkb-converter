@@ -1,0 +1,481 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getform",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/StructureDefinition/getform",
+  "name": "GetForm",
+  "title": "GetForm",
+  "status": "draft",
+  "description": "Logisk modell för svar (response) i tjänstekontraktet GetForm\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetForm:2).\nReturnerar ett specifikt formulär med aktuell sida och frågor.\nCOMPLETED = Läsläge (komplett formulär returneras).\nONGOING = Senaste/aktuella sida returneras.\nPENDING_COMPLETION = Senaste sida returneras.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/StructureDefinition/getform",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getform",
+        "path": "getform",
+        "short": "GetForm",
+        "definition": "Logisk modell för svar (response) i tjänstekontraktet GetForm\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetForm:2).\nReturnerar ett specifikt formulär med aktuell sida och frågor.\nCOMPLETED = Läsläge (komplett formulär returneras).\nONGOING = Senaste/aktuella sida returneras.\nPENDING_COMPLETION = Senaste sida returneras."
+      },
+      {
+        "id": "getform.form",
+        "path": "getform.form",
+        "short": "Formulärobjekt med aktuell sida (FormType)",
+        "definition": "Det hämtade formuläret inkl. aktuell sida. Saknas formuläret returneras SOAP-fault.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.formId",
+        "path": "getform.form.formId",
+        "short": "Formulärets unika ID (GUID)",
+        "definition": "Formulärets unika ID (GUID)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.subjectOfCare",
+        "path": "getform.form.subjectOfCare",
+        "short": "Patientens personnummer",
+        "definition": "Patientens personnummer",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.healthcareFacilityCareUnit",
+        "path": "getform.form.healthcareFacilityCareUnit",
+        "short": "HSA-id för vårdenhet",
+        "definition": "HSA-id för vårdenhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.healthcareFacilityCareUnitName",
+        "path": "getform.form.healthcareFacilityCareUnitName",
+        "short": "Vårdenhetens namn",
+        "definition": "Vårdenhetens namn",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.formStatus",
+        "path": "getform.form.formStatus",
+        "short": "Formulärets status",
+        "definition": "Formulärets status",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/ValueSet/formstatus-vs"
+        }
+      },
+      {
+        "id": "getform.form.createdDateTime",
+        "path": "getform.form.createdDateTime",
+        "short": "Datum när formuläret skapades",
+        "definition": "Datum när formuläret skapades",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.lastSavedDate",
+        "path": "getform.form.lastSavedDate",
+        "short": "Datum för senaste temporärsparning",
+        "definition": "Datum för senaste temporärsparning",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.expireDate",
+        "path": "getform.form.expireDate",
+        "short": "Formulärets giltighetstid",
+        "definition": "Formulärets giltighetstid",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.formText",
+        "path": "getform.form.formText",
+        "short": "Unik text för formuläret",
+        "definition": "Unik text för formuläret",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.formTemplate",
+        "path": "getform.form.formTemplate",
+        "short": "Formulärmall",
+        "definition": "Formulärmall",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.formTemplate.templateId",
+        "path": "getform.form.formTemplate.templateId",
+        "short": "Mallens typ-id",
+        "definition": "Mallens typ-id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.formTemplate.templateVersion",
+        "path": "getform.form.formTemplate.templateVersion",
+        "short": "Mallens version",
+        "definition": "Mallens version",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.formTemplate.formName",
+        "path": "getform.form.formTemplate.formName",
+        "short": "Mallens namn",
+        "definition": "Mallens namn",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.currentPage",
+        "path": "getform.form.currentPage",
+        "short": "Aktuell sida med frågor (Page)",
+        "definition": "ONGOING/PENDING_COMPLETION: sista ifyllda sidan. COMPLETED: hela formuläret (alla sidor).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.currentPage.pageNumber",
+        "path": "getform.form.currentPage.pageNumber",
+        "short": "Sidans nummer",
+        "definition": "Sidans nummer",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.currentPage.subject",
+        "path": "getform.form.currentPage.subject",
+        "short": "Sidans rubrik",
+        "definition": "Sidans rubrik",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.currentPage.lastPage",
+        "path": "getform.form.currentPage.lastPage",
+        "short": "True = sista sidan i formuläret",
+        "definition": "True = sista sidan i formuläret",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.currentPage.informationURL",
+        "path": "getform.form.currentPage.informationURL",
+        "short": "URL till hjälpsida",
+        "definition": "URL till hjälpsida",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "url"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.currentPage.questionBlock",
+        "path": "getform.form.currentPage.questionBlock",
+        "short": "Frågegruppering(ar) på sidan",
+        "definition": "Frågegruppering(ar) på sidan",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.currentPage.questionBlock.blockNumber",
+        "path": "getform.form.currentPage.questionBlock.blockNumber",
+        "short": "Blocknummer",
+        "definition": "Blocknummer",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.currentPage.questionBlock.subject",
+        "path": "getform.form.currentPage.questionBlock.subject",
+        "short": "Blockets rubrik",
+        "definition": "Blockets rubrik",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.currentPage.questionBlock.numberOfQuestions",
+        "path": "getform.form.currentPage.questionBlock.numberOfQuestions",
+        "short": "Antal frågor i blocket",
+        "definition": "Antal frågor i blocket",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.currentPage.questionBlock.question",
+        "path": "getform.form.currentPage.questionBlock.question",
+        "short": "Frågor i blocket",
+        "definition": "Frågor i blocket",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.currentPage.questionBlock.question.questionId",
+        "path": "getform.form.currentPage.questionBlock.question.questionId",
+        "short": "Frågans unika ID",
+        "definition": "Frågans unika ID",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.currentPage.questionBlock.question.questionText",
+        "path": "getform.form.currentPage.questionBlock.question.questionText",
+        "short": "Frågetexten",
+        "definition": "Frågetexten",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.currentPage.questionBlock.question.questionType",
+        "path": "getform.form.currentPage.questionBlock.question.questionType",
+        "short": "Typ av fråga",
+        "definition": "Typ av fråga",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/ValueSet/questiontype-vs"
+        }
+      },
+      {
+        "id": "getform.form.currentPage.questionBlock.question.mandatory",
+        "path": "getform.form.currentPage.questionBlock.question.mandatory",
+        "short": "Om frågan är obligatorisk",
+        "definition": "Om frågan är obligatorisk",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.currentPage.questionBlock.question.answerAlternative",
+        "path": "getform.form.currentPage.questionBlock.question.answerAlternative",
+        "short": "Svarsalternativ",
+        "definition": "Svarsalternativ",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.currentPage.questionBlock.question.answerAlternative.alternativeId",
+        "path": "getform.form.currentPage.questionBlock.question.answerAlternative.alternativeId",
+        "short": "Svarsalternativets ID",
+        "definition": "Svarsalternativets ID",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.currentPage.questionBlock.question.answerAlternative.alternativeText",
+        "path": "getform.form.currentPage.questionBlock.question.answerAlternative.alternativeText",
+        "short": "Svarsalternativets text",
+        "definition": "Svarsalternativets text",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.currentPage.questionBlock.question.answer",
+        "path": "getform.form.currentPage.questionBlock.question.answer",
+        "short": "Givet svar (om formuläret är påbörjat/avslutat)",
+        "definition": "Givet svar (om formuläret är påbörjat/avslutat)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.currentPage.questionBlock.question.answer.answerText",
+        "path": "getform.form.currentPage.questionBlock.question.answer.answerText",
+        "short": "Svarstext",
+        "definition": "Svarstext",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.currentPage.questionBlock.question.answer.answeredAlternativeId",
+        "path": "getform.form.currentPage.questionBlock.question.answer.answeredAlternativeId",
+        "short": "ID för valt svarsalternativ",
+        "definition": "ID för valt svarsalternativ",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

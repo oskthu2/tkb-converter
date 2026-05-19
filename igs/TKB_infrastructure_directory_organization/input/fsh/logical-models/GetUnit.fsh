@@ -1,0 +1,172 @@
+// Genererad från TKB infrastructure:directory:organization v5.0
+// Kontrakt: GetUnit v5.0
+// Genererad: 2026-05-19
+
+Logical: GetUnitRequest
+Id: getunit-request
+Title: "GetUnit — Request"
+Description: "Logisk modell för requestparametrar i GetUnit (RIV-TA urn:riv:infrastructure:directory:organization:GetUnit:5)."
+Characteristics: #can-be-target
+
+* unitHsaId 1..1 string "HSA-id för sökt organisatorisk enhet. Ref. hsaIdentity [R5]."
+    """
+    Kardinalitet: Obligatorisk.
+    """
+* searchBase 0..1 string "Sökbas. Om ingen sökbas anges används c=SE som sökbas."
+    """
+    DN-format.
+    Kardinalitet: Valfri.
+    """
+* includeFeignedObject 0..1 boolean "true: om metoden ska leverera svar med fingerade objekt."
+    """
+    Uteblivet värde tolkas som false.
+    Kardinalitet: Valfri.
+    """
+* profile 0..* string "Anger hur mycket information om enheten som begärs."
+    """
+    Tillåtna värden: basic, extended, extended2, all (default).
+    basic: bara grundläggande information (*b).
+    extended: grundläggande + vård- och omsorgsinformation (*b, *e).
+    extended2: även nonPublicTelephoneNumber (*f), måste kombineras med annat profilvärde.
+    all: all tillgänglig information (*b, *e, *a) förutom nonPublicTelephoneNumber.
+    Kardinalitet: Valfri, lista.
+    """
+
+---
+
+// Genererad från TKB infrastructure:directory:organization v5.0
+// Kontrakt: GetUnit v5.0
+// Genererad: 2026-05-19
+
+Logical: GetUnit
+Id: getunit
+Title: "GetUnit"
+Description: """
+  Logisk modell för tjänstekontraktet GetUnit
+  (RIV-TA urn:riv:infrastructure:directory:organization:GetUnit:5).
+  Representerar responsens informationsstruktur — detaljerad information om en organisatorisk enhet
+  (organisation, vårdenhet eller funktion) från HSA-katalogen.
+"""
+Characteristics: #can-be-target
+
+* unit 0..1 BackboneElement "Information om den angivna organisatoriska enheten"
+    """
+    Fullständigt svarsobjekt med all tillgänglig information om enheten.
+    Kardinalitet: Valfri.
+    """
+  * unitHsaId 1..1 string "Enhetens HSA-id. Ref. hsaIdentity [R5]. Profilattribut: *b."
+  * unitName 1..1 string "Namnet på enheten. Ref. organisationsnamn (o), enhetsnamn (ou) resp. objektnamn (cn) [R5]. Profilattribut: *b."
+  * publicName 1..1 string "Publikt officiellt namn. Ref. displayOption, organisationsnamn, enhetsnamn, geografisk plats [R5]. Profilattribut: *b."
+  * alternateName 0..* string "Alternativt namn på enheten. Ref. alternativt namn (ouShort) [R5]. Profilattribut: *b."
+  * alternateText 0..1 string "Beskrivande text till bild på enhet. Ref. [R5]. Profilattribut: *b."
+  * unitStartDate 0..1 dateTime "Startdatum för enhetens verksamhet. Ref. startDate [R5]. Profilattribut: *b."
+  * unitEndDate 0..1 dateTime "Slutdatum för enhetens verksamhet. Ref. endDate [R5]. Profilattribut: *b."
+  * countyName 0..1 string "Namn på län. Ref. länsnamn (countyName) [R5]. Profilattribut: *b."
+  * countyCode 0..1 string "Kod för län. Ref. länskod (countyCode) [R5]. Profilattribut: *b."
+  * municipalityName 0..1 string "Namn på kommun. Ref. kommunnamn (municipalityName) [R5]. Profilattribut: *b."
+  * municipalityCode 0..1 string "Kod för kommun. Ref. kommunkod (municipalityCode) [R5]. Profilattribut: *b."
+  * directoryContact 0..1 string "Mailadress till ansvarig för informationen om enheten. Ref. hsaDirectoryContact [R5]. Profilattribut: *b."
+  * displayOption 0..1 string "Används för att beräkna enhetens publika namn (publicName). Ref. displayOption [R5]. Profilattribut: *b."
+  * location 0..1 string "Namn på geografiskt område. Ref. geografisk plats (l, localityName) [R5]. Profilattribut: *b."
+  * mail 0..1 string "Mailadress till enheten. Ref. e-postadress (mail) [R5]. Profilattribut: *b."
+  * labeledUri 0..1 string "Fullständig webbadress (inklusive http:// eller https://). Ref. webbadress (labeledURI) [R5]. Profilattribut: *b."
+  * webPage1177 0..1 string "Länk till Enhetens sida på 1177.se. Ref. hsaVpwWebPage [R5]. Profilattribut: *b."
+  * facsimileTelephoneNumber 0..* string "Faxnummer till enheten. Ref. facsimileTelephoneNumber [R5]. Profilattribut: *b."
+  * telephoneNumber 0..* string "Publikt direkttelefonnummer. Ref. direkttelefon (telephoneNumber) [R5]. Profilattribut: *b."
+  * textTelephoneNumber 0..* string "Adress till texttelefon. Ref. hsaTextTelephoneNumber [R5]. Profilattribut: *b."
+  * switchboardNumber 0..1 string "Telefonnummer till växel. Ref. hsaSwitchboardNumber [R5]. Profilattribut: *b."
+  * videoPhone 0..1 string "Adress för kommunikation via bildtelefon. Ref. hsaVideoPhone [R5]. Profilattribut: *b."
+  * referralRules 0..1 string "Beskrivning av remisskrav. Ref. hsaVisitingRuleReferral [R5]. Profilattribut: *b."
+  * postalCode 0..1 string "Postnummer där verksamheten bedrivs. Ref. postalCode [R5]. Profilattribut: *b."
+  * feignedUnit 0..1 boolean "true: om enheten är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]. Profilattribut: *b."
+  * financingOrganization 0..* string "Organisationsnummer för finansierande landsting/kommuner. Ref. financingOrganization [R5]. Profilattribut: *b."
+  * postalAddress 0..1 BackboneElement "Postadress i ostrukturerat format. Ref. postalAddress [R5]. Profilattribut: *b."
+    * addressLine 1..* string "Adressrad."
+  * structuredPostalAddress 0..1 BackboneElement "Postadress i strukturerat format. Ref. Strukturerad postadress (hsaPostalAddress) [R5]. Profilattribut: *b."
+    * addressee 1..* string "Adressat."
+    * street 0..1 string "Gata."
+    * premisesNumber 0..1 string "Adressplatsnummer."
+    * premisesLetter 0..1 string "Adressplatslittera."
+    * postCode 1..1 string "Postnummer."
+    * town 1..1 string "Postort."
+  * telephoneHour 0..* BackboneElement "Telefontider. Ref. telefontid (telephoneHours) [R5]. Profilattribut: *b."
+    * fromDay 1..1 string "Från dag. Måndag (1) – Söndag (7)."
+    * fromTime 1..1 time "Från tid. Format enligt ISO-8601."
+    * toDay 1..1 string "Till dag. Måndag (1) – Söndag (7)."
+    * toTime 1..1 time "Till tid. Format enligt ISO-8601."
+    * comment 0..1 string "Information om aktuellt tidsintervall."
+    * fromDate 0..1 string "Gäller från och med detta datum."
+    * toDate 0..1 string "Gäller till och med detta datum."
+  * businessClassification 0..* BackboneElement "Verksamhetskod. Ref. businessClassificationName, businessClassificationCode [R5]. Profilattribut: *e."
+    * businessClassificationName 1..1 string "Verksamhetskod(-er) i klartext. Ref. businessClassificationName [R5]."
+    * businessClassificationCode 1..1 string "Verksamhetskod(-er) kod. Ref. businessClassificationCode [R5]."
+  * businessType 0..* string "Klassificering av enhet (t.ex. sjukhus). Ref. enhetstyp (hsaBusinessType) [R5]. Profilattribut: *e."
+  * careType 0..* string "Vårdform. Ref. vård- och omsorgsform (careType) [R5]. Profilattribut: *e."
+  * description 0..1 string "Allmän beskrivning för enheten. Ref. beskrivning (description) [R5]. Profilattribut: *e."
+  * management 0..* string "Ägarform i klartext. Ref. ägarform (management) [R5]. Profilattribut: *e."
+  * patientInformation 0..1 string "Informationstext till patienter. Ref. [R5]. Profilattribut: *e."
+  * relatedUnitHsaId 0..* string "HSA-identitet på en relaterad enhet. Ref. hsaIdentity [R5]. Profilattribut: *e."
+  * route 0..1 string "Vägbeskrivning. Ref. färdväg (route) [R5]. Profilattribut: *e."
+  * indoorRouteDescription 0..1 string "Vägbeskrivning inomhus. Ref. inre vägbeskrivning (indoorRouteDescription) [R5]. Profilattribut: *e."
+  * schoolType 0..* string "Kod för typ av skolform. Ref. skolform (hsaSchoolType) [R5]. Profilattribut: *e."
+  * destinationIndicator 0..* string "Anger vilka parter som får ta del av enhetens information. Ref. hsaDestinationIndicator [R5]. Profilattribut: *e."
+  * visitingRules 0..1 string "Besöksregler. Ref. hsaVisitingRules [R5]. Profilattribut: *e."
+  * unitExtraInformation 0..1 string "Kompletterande information om enheten. Ref. hsaVpwInformation1 [R5]. Profilattribut: *e."
+  * geographicalCoordinatesRt90 0..1 BackboneElement "Geografiska koordinater RT90. Ref. geographicalCoordinates [R5]. Profilattribut: *e."
+    * xCoordinate 1..1 string "X-koordinat."
+    * yCoordinate 1..1 string "Y-koordinat."
+  * geographicalCoordinatesSWEREF99Latitude 0..1 string "X-koordinat (N) SWEREF99. Ref. hsaSweref99Latitude [R5]. Profilattribut: *e."
+  * geographicalCoordinatesSWEREF99Longitude 0..1 string "Y-koordinat (E) SWEREF99. Ref. hsaSweref99Longitude [R5]. Profilattribut: *e."
+  * dropInHour 0..* BackboneElement "Tider för dropin-besök (utan tidbokning). Ref. dropInHours [R5]. Profilattribut: *e."
+    * fromDay 1..1 string "Från dag. Måndag (1) – Söndag (7)."
+    * fromTime 1..1 time "Från tid. Format enligt ISO-8601."
+    * toDay 1..1 string "Till dag. Måndag (1) – Söndag (7)."
+    * toTime 1..1 time "Till tid. Format enligt ISO-8601."
+    * comment 0..1 string "Information om aktuellt tidsintervall."
+    * fromDate 0..1 string "Gäller från och med detta datum."
+    * toDate 0..1 string "Gäller till och med detta datum."
+  * surgeryHour 0..* BackboneElement "Öppettider. Ref. surgeryHours [R5]. Profilattribut: *e."
+    * fromDay 1..1 string "Från dag. Måndag (1) – Söndag (7)."
+    * fromTime 1..1 time "Från tid. Format enligt ISO-8601."
+    * toDay 1..1 string "Till dag. Måndag (1) – Söndag (7)."
+    * toTime 1..1 time "Till tid. Format enligt ISO-8601."
+    * comment 0..1 string "Information om aktuellt tidsintervall."
+    * fromDate 0..1 string "Gäller från och med detta datum."
+    * toDate 0..1 string "Gäller till och med detta datum."
+  * visitingHour 0..* BackboneElement "Besökstider för anhöriga. Ref. visitingHours [R5]. Profilattribut: *e."
+    * fromDay 1..1 string "Från dag. Måndag (1) – Söndag (7)."
+    * fromTime 1..1 time "Från tid. Format enligt ISO-8601."
+    * toDay 1..1 string "Till dag. Måndag (1) – Söndag (7)."
+    * toTime 1..1 time "Till tid. Format enligt ISO-8601."
+    * comment 0..1 string "Information om aktuellt tidsintervall."
+    * fromDate 0..1 string "Gäller från och med detta datum."
+    * toDate 0..1 string "Gäller till och med detta datum."
+  * visitingRuleAge 0..* BackboneElement "Åldersintervall på patienter som tas emot. Ref. hsaVisitingRuleAge [R5]. Profilattribut: *e."
+    * fromAge 1..1 string "Från ålder. 00 för nyfödd."
+    * toAge 1..1 string "Till ålder. 99 för ingen övre åldersgräns."
+    * comment 0..1 string "Kommentar till åldersintervallet."
+  * structuredVisitingAddress 0..1 BackboneElement "Besöksadress i strukturerat format. Ref. hsaVisitingAddress [R5]. Profilattribut: *e."
+    * street 1..1 string "Gata."
+    * premisesNumber 0..1 string "Adressplatsnummer."
+    * premisesLetter 0..1 string "Adressplatslittera."
+    * town 0..1 string "Ortnamn."
+  * administrativeCareLevel 0..* string "Kod för nivå av specialisering i hälso- och sjukvård. Ref. hsaAdministrativeCareLevel [R5]. Profilattribut: *e."
+  * unitTemporaryInformation 0..1 BackboneElement "Tillfällig information om enheten. Ref. hsaVpwInformation2 [R5]. Profilattribut: *e."
+    * fromDate 0..1 string "Från datum. Exempel: 20101123."
+    * toDate 0..1 string "Till datum. Exempel: 20101131."
+    * temporaryInformation 1..1 string "Tillfällig information."
+  * unitFunction 0..* BackboneElement "Information från direkta funktionsobjekt med reserverat funktionsnamn. Profilattribut: *a."
+    * name 1..1 string "Funktionens namn. Ref. objektnamn (cn) [R5], kodverk för Reserverade funktionsnamn."
+    * telephoneHour 0..* BackboneElement "Telefontider för funktionen. Ref. telefontid (telephoneHours) [R5]."
+      * fromDay 1..1 string "Från dag."
+      * fromTime 1..1 time "Från tid."
+      * toDay 1..1 string "Till dag."
+      * toTime 1..1 time "Till tid."
+      * comment 0..1 string "Information om aktuellt tidsintervall."
+      * fromDate 0..1 string "Gäller från och med detta datum."
+      * toDate 0..1 string "Gäller till och med detta datum."
+    * telephoneNumber 0..* string "Publikt direkttelefonnummer för funktionen. Ref. direkttelefon (telephoneNumber) [R5]."
+  * jpegPhoto 0..1 string "Bild för enheten. Base-64-format. Ref. bild (jpegPhoto) [R5]. Profilattribut: *a."
+  * jpegLogotype 0..1 string "Logotype för enheten. Base-64-format. Ref. logotyp (hsaJpegLogotype) [R5]. Profilattribut: *a."
+  * alternateTextLogotype 0..1 string "Beskrivande text till logotype för enheten. Ref. [R5]. Profilattribut: *a."
+  * nonPublicTelephoneNumber 0..* string "Tjänstetelefonnummer. Ref. tjänstetelefon (hsaTelephoneNumber) [R5]. Profilattribut: *f (kräver extended2)."

@@ -1,0 +1,672 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getextendedpatientrelationsforpatient",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-patientrelationship/StructureDefinition/getextendedpatientrelationsforpatient",
+  "name": "GetExtendedPatientRelationsForPatient",
+  "title": "GetExtendedPatientRelationsForPatient",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetExtendedPatientRelationsForPatient\n(RIV-TA urn:riv:ehr:patientrelationship:administration:GetExtendedPatientRelationsForPatientResponder:1).\nRepresenterar responsens informationsstruktur — patientrelationer med utökad information (registrerings-,\nåterkallelse- och makuleringsinformation).",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-patientrelationship/StructureDefinition/getextendedpatientrelationsforpatient",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getextendedpatientrelationsforpatient",
+        "path": "getextendedpatientrelationsforpatient",
+        "short": "GetExtendedPatientRelationsForPatient",
+        "definition": "Logisk modell för tjänstekontraktet GetExtendedPatientRelationsForPatient\n(RIV-TA urn:riv:ehr:patientrelationship:administration:GetExtendedPatientRelationsForPatientResponder:1).\nRepresenterar responsens informationsstruktur — patientrelationer med utökad information (registrerings-,\nåterkallelse- och makuleringsinformation)."
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.result",
+        "path": "getextendedpatientrelationsforpatient.result",
+        "short": "Svarskod och eventuellt resultatmeddelande",
+        "definition": "Svarskod och eventuellt resultatmeddelande",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.result.resultCode",
+        "path": "getextendedpatientrelationsforpatient.result.resultCode",
+        "short": "Svarskod",
+        "definition": "Svarskod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-patientrelationship/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.result.resultText",
+        "path": "getextendedpatientrelationsforpatient.result.resultText",
+        "short": "Optionellt felmeddelande",
+        "definition": "Optionellt felmeddelande",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations",
+        "short": "Lista med patientrelationer i utökat format",
+        "definition": "Lista med patientrelationer i utökat format",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.patientRelation",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.patientRelation",
+        "short": "Grundläggande patientrelationsinformation",
+        "definition": "Grundläggande patientrelationsinformation",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.patientRelation.patientRelationId",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.patientRelation.patientRelationId",
+        "short": "Unik UUID-identifierare (max 36 tecken)",
+        "definition": "Unik UUID-identifierare (max 36 tecken)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.patientRelation.patientId",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.patientRelation.patientId",
+        "short": "Personnummer eller samordningsnummer (max 12 tecken)",
+        "definition": "Personnummer eller samordningsnummer (max 12 tecken)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.patientRelation.careProviderId",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.patientRelation.careProviderId",
+        "short": "Vårdgivare-id (HSA-id)",
+        "definition": "Vårdgivare-id (HSA-id)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.patientRelation.careUnitId",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.patientRelation.careUnitId",
+        "short": "Vårdenhet-id (HSA-id)",
+        "definition": "Vårdenhet-id (HSA-id)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.patientRelation.employeeId",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.patientRelation.employeeId",
+        "short": "Medarbetare-id (HSA-id)",
+        "definition": "Medarbetare-id (HSA-id)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.patientRelation.startDate",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.patientRelation.startDate",
+        "short": "Startdatum för giltighetstiden",
+        "definition": "Startdatum för giltighetstiden",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.patientRelation.endDate",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.patientRelation.endDate",
+        "short": "Slutdatum för giltighetstiden",
+        "definition": "Slutdatum för giltighetstiden",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.patientRelation.ownerId",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.patientRelation.ownerId",
+        "short": "Optionell systemidentifierare (max 512 tecken)",
+        "definition": "Optionell systemidentifierare (max 512 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo",
+        "short": "Information om registreringen",
+        "definition": "Vem som begärt och registrerat patientrelationen samt tidpunkter för dessa.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo.requestDate",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo.requestDate",
+        "short": "Tidpunkt då registrering begärdes",
+        "definition": "Tidpunkt då registrering begärdes",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo.requestedBy",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo.requestedBy",
+        "short": "Den aktör som begärt registreringen",
+        "definition": "Den aktör som begärt registreringen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo.requestedBy.employeeId",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo.requestedBy.employeeId",
+        "short": "Medarbetare-id (HSA-id)",
+        "definition": "Medarbetare-id (HSA-id)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo.requestedBy.assignmentId",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo.requestedBy.assignmentId",
+        "short": "Optionellt uppdragid (HSA-id)",
+        "definition": "Optionellt uppdragid (HSA-id)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo.requestedBy.assignmentName",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo.requestedBy.assignmentName",
+        "short": "Optionellt uppdragsnamn (max 256 tecken)",
+        "definition": "Optionellt uppdragsnamn (max 256 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo.registrationDate",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo.registrationDate",
+        "short": "Tidpunkt då registrering utfördes",
+        "definition": "Tidpunkt då registrering utfördes",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo.registeredBy",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo.registeredBy",
+        "short": "Den aktör som utförde registreringen",
+        "definition": "Den aktör som utförde registreringen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo.registeredBy.employeeId",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo.registeredBy.employeeId",
+        "short": "Medarbetare-id (HSA-id)",
+        "definition": "Medarbetare-id (HSA-id)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo.registeredBy.assignmentId",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo.registeredBy.assignmentId",
+        "short": "Optionellt uppdragid (HSA-id)",
+        "definition": "Optionellt uppdragid (HSA-id)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo.registeredBy.assignmentName",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo.registeredBy.assignmentName",
+        "short": "Optionellt uppdragsnamn (max 256 tecken)",
+        "definition": "Optionellt uppdragsnamn (max 256 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo.reasonText",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.registrationInfo.reasonText",
+        "short": "Optionell orsak/anledning (max 1024 tecken)",
+        "definition": "Optionell orsak/anledning (max 1024 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo",
+        "short": "Information om återkallelse (om patientrelationen är återkallad)",
+        "definition": "Information om återkallelse (om patientrelationen är återkallad)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo.requestDate",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo.requestDate",
+        "short": "Tidpunkt då återkallelse begärdes",
+        "definition": "Tidpunkt då återkallelse begärdes",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo.requestedBy",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo.requestedBy",
+        "short": "Den aktör som begärt återkallelsen",
+        "definition": "Den aktör som begärt återkallelsen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo.requestedBy.employeeId",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo.requestedBy.employeeId",
+        "short": "Medarbetare-id (HSA-id)",
+        "definition": "Medarbetare-id (HSA-id)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo.requestedBy.assignmentId",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo.requestedBy.assignmentId",
+        "short": "Optionellt uppdragid (HSA-id)",
+        "definition": "Optionellt uppdragid (HSA-id)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo.requestedBy.assignmentName",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo.requestedBy.assignmentName",
+        "short": "Optionellt uppdragsnamn (max 256 tecken)",
+        "definition": "Optionellt uppdragsnamn (max 256 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo.registrationDate",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo.registrationDate",
+        "short": "Tidpunkt då återkallelsen registrerades",
+        "definition": "Tidpunkt då återkallelsen registrerades",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo.registeredBy",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo.registeredBy",
+        "short": "Den aktör som registrerade återkallelsen",
+        "definition": "Den aktör som registrerade återkallelsen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo.registeredBy.employeeId",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo.registeredBy.employeeId",
+        "short": "Medarbetare-id (HSA-id)",
+        "definition": "Medarbetare-id (HSA-id)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo.registeredBy.assignmentId",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo.registeredBy.assignmentId",
+        "short": "Optionellt uppdragid (HSA-id)",
+        "definition": "Optionellt uppdragid (HSA-id)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo.registeredBy.assignmentName",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo.registeredBy.assignmentName",
+        "short": "Optionellt uppdragsnamn (max 256 tecken)",
+        "definition": "Optionellt uppdragsnamn (max 256 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo.reasonText",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.cancellationInfo.reasonText",
+        "short": "Optionell anledning till återkallelse (max 1024 tecken)",
+        "definition": "Optionell anledning till återkallelse (max 1024 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo",
+        "short": "Information om makulering (om patientrelationen är makulerad)",
+        "definition": "Information om makulering (om patientrelationen är makulerad)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo.requestDate",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo.requestDate",
+        "short": "Tidpunkt då makulering begärdes",
+        "definition": "Tidpunkt då makulering begärdes",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo.requestedBy",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo.requestedBy",
+        "short": "Den aktör som begärt makuleringen",
+        "definition": "Den aktör som begärt makuleringen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo.requestedBy.employeeId",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo.requestedBy.employeeId",
+        "short": "Medarbetare-id (HSA-id)",
+        "definition": "Medarbetare-id (HSA-id)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo.requestedBy.assignmentId",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo.requestedBy.assignmentId",
+        "short": "Optionellt uppdragid (HSA-id)",
+        "definition": "Optionellt uppdragid (HSA-id)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo.requestedBy.assignmentName",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo.requestedBy.assignmentName",
+        "short": "Optionellt uppdragsnamn (max 256 tecken)",
+        "definition": "Optionellt uppdragsnamn (max 256 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo.registrationDate",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo.registrationDate",
+        "short": "Tidpunkt då makuleringen registrerades",
+        "definition": "Tidpunkt då makuleringen registrerades",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo.registeredBy",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo.registeredBy",
+        "short": "Den aktör som utförde makuleringen",
+        "definition": "Den aktör som utförde makuleringen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo.registeredBy.employeeId",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo.registeredBy.employeeId",
+        "short": "Medarbetare-id (HSA-id)",
+        "definition": "Medarbetare-id (HSA-id)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo.registeredBy.assignmentId",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo.registeredBy.assignmentId",
+        "short": "Optionellt uppdragid (HSA-id)",
+        "definition": "Optionellt uppdragid (HSA-id)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo.registeredBy.assignmentName",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo.registeredBy.assignmentName",
+        "short": "Optionellt uppdragsnamn (max 256 tecken)",
+        "definition": "Optionellt uppdragsnamn (max 256 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo.reasonText",
+        "path": "getextendedpatientrelationsforpatient.extendedPatientRelations.deletionInfo.reasonText",
+        "short": "Optionell anledning till makulering (max 1024 tecken)",
+        "definition": "Optionell anledning till makulering (max 1024 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}
