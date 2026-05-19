@@ -62,7 +62,7 @@ Characteristics: #can-be-target
         """
         Medarbetarens HSA-identifierare. Kardinalitet: Obligatorisk.
         """
-    * name 0..1 string "Användarens namn"
+    * employeeName 0..1 string "Användarens namn"
         """
         Medarbetarens namn. Maxlängd: 256. Kardinalitet: Valfri.
         """

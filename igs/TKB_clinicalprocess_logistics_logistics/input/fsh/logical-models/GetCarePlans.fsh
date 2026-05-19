@@ -172,6 +172,7 @@ Characteristics: #can-be-target
     Inbäddade bilagor får inte överstiga 100 KB.
     Typ MultimediaType. Kardinalitet: Valfri lista (0..*).
     """
+* carePlan.content ^obeys getcareplans-content-xor
 * carePlan.content.mediaType 1..1 code "Mediatyp (MIME-typ)"
     """
     Typ av multimedia enligt HL7. Tillåtna format i denna version:
