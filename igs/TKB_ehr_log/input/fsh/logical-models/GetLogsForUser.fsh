@@ -37,7 +37,7 @@ Characteristics: #can-be-target
       * purpose 1..1 string "Syfte med aktiviteten"
     * user 1..1 BackboneElement "Medarbetaren som utförde aktiviteten"
       * userId 1..1 Identifier "Medarbetarens HSA-id"
-      * name 0..1 string "Medarbetarens namn"
+      * employeeName 0..1 string "Medarbetarens namn"
       * personId 0..1 Identifier "Medarbetarens personnummer"
       * assignment 0..1 string "Uppdragsnamn"
       * title 0..1 string "Yrkestitel"

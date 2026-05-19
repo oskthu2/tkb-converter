@@ -2,6 +2,11 @@
 // Kontrakt: GetCarePlans v2.0
 // Genererad: 2026-03-19
 
+Invariant: getcareplans-content-xor
+Description: "Antingen value eller reference ska anges i content, inte båda"
+Expression: "(value.exists() or reference.exists()) and (value.exists().not() or reference.exists().not())"
+Severity: #error
+
 Logical: GetCarePlans
 Id: getcareaplans
 Title: "GetCarePlans"
