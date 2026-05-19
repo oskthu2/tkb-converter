@@ -1,0 +1,1422 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getunit",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-directory-organization/StructureDefinition/getunit",
+  "name": "GetUnit",
+  "title": "GetUnit",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetUnit\n(RIV-TA urn:riv:infrastructure:directory:organization:GetUnit:5).\nRepresenterar responsens informationsstruktur — detaljerad information om en organisatorisk enhet\n(organisation, vårdenhet eller funktion) från HSA-katalogen.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-directory-organization/StructureDefinition/getunit",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getunit",
+        "path": "getunit",
+        "short": "GetUnit",
+        "definition": "Logisk modell för tjänstekontraktet GetUnit\n(RIV-TA urn:riv:infrastructure:directory:organization:GetUnit:5).\nRepresenterar responsens informationsstruktur — detaljerad information om en organisatorisk enhet\n(organisation, vårdenhet eller funktion) från HSA-katalogen."
+      },
+      {
+        "id": "getunit.unit",
+        "path": "getunit.unit",
+        "short": "Information om den angivna organisatoriska enheten",
+        "definition": "Fullständigt svarsobjekt med all tillgänglig information om enheten.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.unitHsaId",
+        "path": "getunit.unit.unitHsaId",
+        "short": "Enhetens HSA-id. Ref. hsaIdentity [R5]. Profilattribut: *b.",
+        "definition": "Enhetens HSA-id. Ref. hsaIdentity [R5]. Profilattribut: *b.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.unitName",
+        "path": "getunit.unit.unitName",
+        "short": "Namnet på enheten. Ref. organisationsnamn (o), enhetsnamn (ou) resp. objektnamn (cn) [R5]. Profilattribut: *b.",
+        "definition": "Namnet på enheten. Ref. organisationsnamn (o), enhetsnamn (ou) resp. objektnamn (cn) [R5]. Profilattribut: *b.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.publicName",
+        "path": "getunit.unit.publicName",
+        "short": "Publikt officiellt namn. Ref. displayOption, organisationsnamn, enhetsnamn, geografisk plats [R5]. Profilattribut: *b.",
+        "definition": "Publikt officiellt namn. Ref. displayOption, organisationsnamn, enhetsnamn, geografisk plats [R5]. Profilattribut: *b.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.alternateName",
+        "path": "getunit.unit.alternateName",
+        "short": "Alternativt namn på enheten. Ref. alternativt namn (ouShort) [R5]. Profilattribut: *b.",
+        "definition": "Alternativt namn på enheten. Ref. alternativt namn (ouShort) [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.alternateText",
+        "path": "getunit.unit.alternateText",
+        "short": "Beskrivande text till bild på enhet. Ref. [R5]. Profilattribut: *b.",
+        "definition": "Beskrivande text till bild på enhet. Ref. [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.unitStartDate",
+        "path": "getunit.unit.unitStartDate",
+        "short": "Startdatum för enhetens verksamhet. Ref. startDate [R5]. Profilattribut: *b.",
+        "definition": "Startdatum för enhetens verksamhet. Ref. startDate [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.unitEndDate",
+        "path": "getunit.unit.unitEndDate",
+        "short": "Slutdatum för enhetens verksamhet. Ref. endDate [R5]. Profilattribut: *b.",
+        "definition": "Slutdatum för enhetens verksamhet. Ref. endDate [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.countyName",
+        "path": "getunit.unit.countyName",
+        "short": "Namn på län. Ref. länsnamn (countyName) [R5]. Profilattribut: *b.",
+        "definition": "Namn på län. Ref. länsnamn (countyName) [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.countyCode",
+        "path": "getunit.unit.countyCode",
+        "short": "Kod för län. Ref. länskod (countyCode) [R5]. Profilattribut: *b.",
+        "definition": "Kod för län. Ref. länskod (countyCode) [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.municipalityName",
+        "path": "getunit.unit.municipalityName",
+        "short": "Namn på kommun. Ref. kommunnamn (municipalityName) [R5]. Profilattribut: *b.",
+        "definition": "Namn på kommun. Ref. kommunnamn (municipalityName) [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.municipalityCode",
+        "path": "getunit.unit.municipalityCode",
+        "short": "Kod för kommun. Ref. kommunkod (municipalityCode) [R5]. Profilattribut: *b.",
+        "definition": "Kod för kommun. Ref. kommunkod (municipalityCode) [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.directoryContact",
+        "path": "getunit.unit.directoryContact",
+        "short": "Mailadress till ansvarig för informationen om enheten. Ref. hsaDirectoryContact [R5]. Profilattribut: *b.",
+        "definition": "Mailadress till ansvarig för informationen om enheten. Ref. hsaDirectoryContact [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.displayOption",
+        "path": "getunit.unit.displayOption",
+        "short": "Används för att beräkna enhetens publika namn (publicName). Ref. displayOption [R5]. Profilattribut: *b.",
+        "definition": "Används för att beräkna enhetens publika namn (publicName). Ref. displayOption [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.location",
+        "path": "getunit.unit.location",
+        "short": "Namn på geografiskt område. Ref. geografisk plats (l, localityName) [R5]. Profilattribut: *b.",
+        "definition": "Namn på geografiskt område. Ref. geografisk plats (l, localityName) [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.mail",
+        "path": "getunit.unit.mail",
+        "short": "Mailadress till enheten. Ref. e-postadress (mail) [R5]. Profilattribut: *b.",
+        "definition": "Mailadress till enheten. Ref. e-postadress (mail) [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.labeledUri",
+        "path": "getunit.unit.labeledUri",
+        "short": "Fullständig webbadress (inklusive http:// eller https://). Ref. webbadress (labeledURI) [R5]. Profilattribut: *b.",
+        "definition": "Fullständig webbadress (inklusive http:// eller https://). Ref. webbadress (labeledURI) [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.webPage1177",
+        "path": "getunit.unit.webPage1177",
+        "short": "Länk till Enhetens sida på 1177.se. Ref. hsaVpwWebPage [R5]. Profilattribut: *b.",
+        "definition": "Länk till Enhetens sida på 1177.se. Ref. hsaVpwWebPage [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.facsimileTelephoneNumber",
+        "path": "getunit.unit.facsimileTelephoneNumber",
+        "short": "Faxnummer till enheten. Ref. facsimileTelephoneNumber [R5]. Profilattribut: *b.",
+        "definition": "Faxnummer till enheten. Ref. facsimileTelephoneNumber [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.telephoneNumber",
+        "path": "getunit.unit.telephoneNumber",
+        "short": "Publikt direkttelefonnummer. Ref. direkttelefon (telephoneNumber) [R5]. Profilattribut: *b.",
+        "definition": "Publikt direkttelefonnummer. Ref. direkttelefon (telephoneNumber) [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.textTelephoneNumber",
+        "path": "getunit.unit.textTelephoneNumber",
+        "short": "Adress till texttelefon. Ref. hsaTextTelephoneNumber [R5]. Profilattribut: *b.",
+        "definition": "Adress till texttelefon. Ref. hsaTextTelephoneNumber [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.switchboardNumber",
+        "path": "getunit.unit.switchboardNumber",
+        "short": "Telefonnummer till växel. Ref. hsaSwitchboardNumber [R5]. Profilattribut: *b.",
+        "definition": "Telefonnummer till växel. Ref. hsaSwitchboardNumber [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.videoPhone",
+        "path": "getunit.unit.videoPhone",
+        "short": "Adress för kommunikation via bildtelefon. Ref. hsaVideoPhone [R5]. Profilattribut: *b.",
+        "definition": "Adress för kommunikation via bildtelefon. Ref. hsaVideoPhone [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.referralRules",
+        "path": "getunit.unit.referralRules",
+        "short": "Beskrivning av remisskrav. Ref. hsaVisitingRuleReferral [R5]. Profilattribut: *b.",
+        "definition": "Beskrivning av remisskrav. Ref. hsaVisitingRuleReferral [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.postalCode",
+        "path": "getunit.unit.postalCode",
+        "short": "Postnummer där verksamheten bedrivs. Ref. postalCode [R5]. Profilattribut: *b.",
+        "definition": "Postnummer där verksamheten bedrivs. Ref. postalCode [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.feignedUnit",
+        "path": "getunit.unit.feignedUnit",
+        "short": "true: om enheten är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]. Profilattribut: *b.",
+        "definition": "true: om enheten är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.financingOrganization",
+        "path": "getunit.unit.financingOrganization",
+        "short": "Organisationsnummer för finansierande landsting/kommuner. Ref. financingOrganization [R5]. Profilattribut: *b.",
+        "definition": "Organisationsnummer för finansierande landsting/kommuner. Ref. financingOrganization [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.postalAddress",
+        "path": "getunit.unit.postalAddress",
+        "short": "Postadress i ostrukturerat format. Ref. postalAddress [R5]. Profilattribut: *b.",
+        "definition": "Postadress i ostrukturerat format. Ref. postalAddress [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.postalAddress.addressLine",
+        "path": "getunit.unit.postalAddress.addressLine",
+        "short": "Adressrad.",
+        "definition": "Adressrad.",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.structuredPostalAddress",
+        "path": "getunit.unit.structuredPostalAddress",
+        "short": "Postadress i strukturerat format. Ref. Strukturerad postadress (hsaPostalAddress) [R5]. Profilattribut: *b.",
+        "definition": "Postadress i strukturerat format. Ref. Strukturerad postadress (hsaPostalAddress) [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.structuredPostalAddress.addressee",
+        "path": "getunit.unit.structuredPostalAddress.addressee",
+        "short": "Adressat.",
+        "definition": "Adressat.",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.structuredPostalAddress.street",
+        "path": "getunit.unit.structuredPostalAddress.street",
+        "short": "Gata.",
+        "definition": "Gata.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.structuredPostalAddress.premisesNumber",
+        "path": "getunit.unit.structuredPostalAddress.premisesNumber",
+        "short": "Adressplatsnummer.",
+        "definition": "Adressplatsnummer.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.structuredPostalAddress.premisesLetter",
+        "path": "getunit.unit.structuredPostalAddress.premisesLetter",
+        "short": "Adressplatslittera.",
+        "definition": "Adressplatslittera.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.structuredPostalAddress.postCode",
+        "path": "getunit.unit.structuredPostalAddress.postCode",
+        "short": "Postnummer.",
+        "definition": "Postnummer.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.structuredPostalAddress.town",
+        "path": "getunit.unit.structuredPostalAddress.town",
+        "short": "Postort.",
+        "definition": "Postort.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.telephoneHour",
+        "path": "getunit.unit.telephoneHour",
+        "short": "Telefontider. Ref. telefontid (telephoneHours) [R5]. Profilattribut: *b.",
+        "definition": "Telefontider. Ref. telefontid (telephoneHours) [R5]. Profilattribut: *b.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.telephoneHour.fromDay",
+        "path": "getunit.unit.telephoneHour.fromDay",
+        "short": "Från dag. Måndag (1) – Söndag (7).",
+        "definition": "Från dag. Måndag (1) – Söndag (7).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.telephoneHour.toDay",
+        "path": "getunit.unit.telephoneHour.toDay",
+        "short": "Till dag. Måndag (1) – Söndag (7).",
+        "definition": "Till dag. Måndag (1) – Söndag (7).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.telephoneHour.comment",
+        "path": "getunit.unit.telephoneHour.comment",
+        "short": "Information om aktuellt tidsintervall.",
+        "definition": "Information om aktuellt tidsintervall.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.telephoneHour.fromDate",
+        "path": "getunit.unit.telephoneHour.fromDate",
+        "short": "Gäller från och med detta datum.",
+        "definition": "Gäller från och med detta datum.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.telephoneHour.toDate",
+        "path": "getunit.unit.telephoneHour.toDate",
+        "short": "Gäller till och med detta datum.",
+        "definition": "Gäller till och med detta datum.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.businessClassification",
+        "path": "getunit.unit.businessClassification",
+        "short": "Verksamhetskod. Ref. businessClassificationName, businessClassificationCode [R5]. Profilattribut: *e.",
+        "definition": "Verksamhetskod. Ref. businessClassificationName, businessClassificationCode [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.businessClassification.businessClassificationName",
+        "path": "getunit.unit.businessClassification.businessClassificationName",
+        "short": "Verksamhetskod(-er) i klartext. Ref. businessClassificationName [R5].",
+        "definition": "Verksamhetskod(-er) i klartext. Ref. businessClassificationName [R5].",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.businessClassification.businessClassificationCode",
+        "path": "getunit.unit.businessClassification.businessClassificationCode",
+        "short": "Verksamhetskod(-er) kod. Ref. businessClassificationCode [R5].",
+        "definition": "Verksamhetskod(-er) kod. Ref. businessClassificationCode [R5].",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.businessType",
+        "path": "getunit.unit.businessType",
+        "short": "Klassificering av enhet (t.ex. sjukhus). Ref. enhetstyp (hsaBusinessType) [R5]. Profilattribut: *e.",
+        "definition": "Klassificering av enhet (t.ex. sjukhus). Ref. enhetstyp (hsaBusinessType) [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.careType",
+        "path": "getunit.unit.careType",
+        "short": "Vårdform. Ref. vård- och omsorgsform (careType) [R5]. Profilattribut: *e.",
+        "definition": "Vårdform. Ref. vård- och omsorgsform (careType) [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.description",
+        "path": "getunit.unit.description",
+        "short": "Allmän beskrivning för enheten. Ref. beskrivning (description) [R5]. Profilattribut: *e.",
+        "definition": "Allmän beskrivning för enheten. Ref. beskrivning (description) [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.management",
+        "path": "getunit.unit.management",
+        "short": "Ägarform i klartext. Ref. ägarform (management) [R5]. Profilattribut: *e.",
+        "definition": "Ägarform i klartext. Ref. ägarform (management) [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.patientInformation",
+        "path": "getunit.unit.patientInformation",
+        "short": "Informationstext till patienter. Ref. [R5]. Profilattribut: *e.",
+        "definition": "Informationstext till patienter. Ref. [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.relatedUnitHsaId",
+        "path": "getunit.unit.relatedUnitHsaId",
+        "short": "HSA-identitet på en relaterad enhet. Ref. hsaIdentity [R5]. Profilattribut: *e.",
+        "definition": "HSA-identitet på en relaterad enhet. Ref. hsaIdentity [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.route",
+        "path": "getunit.unit.route",
+        "short": "Vägbeskrivning. Ref. färdväg (route) [R5]. Profilattribut: *e.",
+        "definition": "Vägbeskrivning. Ref. färdväg (route) [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.indoorRouteDescription",
+        "path": "getunit.unit.indoorRouteDescription",
+        "short": "Vägbeskrivning inomhus. Ref. inre vägbeskrivning (indoorRouteDescription) [R5]. Profilattribut: *e.",
+        "definition": "Vägbeskrivning inomhus. Ref. inre vägbeskrivning (indoorRouteDescription) [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.schoolType",
+        "path": "getunit.unit.schoolType",
+        "short": "Kod för typ av skolform. Ref. skolform (hsaSchoolType) [R5]. Profilattribut: *e.",
+        "definition": "Kod för typ av skolform. Ref. skolform (hsaSchoolType) [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.destinationIndicator",
+        "path": "getunit.unit.destinationIndicator",
+        "short": "Anger vilka parter som får ta del av enhetens information. Ref. hsaDestinationIndicator [R5]. Profilattribut: *e.",
+        "definition": "Anger vilka parter som får ta del av enhetens information. Ref. hsaDestinationIndicator [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.visitingRules",
+        "path": "getunit.unit.visitingRules",
+        "short": "Besöksregler. Ref. hsaVisitingRules [R5]. Profilattribut: *e.",
+        "definition": "Besöksregler. Ref. hsaVisitingRules [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.unitExtraInformation",
+        "path": "getunit.unit.unitExtraInformation",
+        "short": "Kompletterande information om enheten. Ref. hsaVpwInformation1 [R5]. Profilattribut: *e.",
+        "definition": "Kompletterande information om enheten. Ref. hsaVpwInformation1 [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.geographicalCoordinatesRt90",
+        "path": "getunit.unit.geographicalCoordinatesRt90",
+        "short": "Geografiska koordinater RT90. Ref. geographicalCoordinates [R5]. Profilattribut: *e.",
+        "definition": "Geografiska koordinater RT90. Ref. geographicalCoordinates [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.geographicalCoordinatesRt90.xCoordinate",
+        "path": "getunit.unit.geographicalCoordinatesRt90.xCoordinate",
+        "short": "X-koordinat.",
+        "definition": "X-koordinat.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.geographicalCoordinatesRt90.yCoordinate",
+        "path": "getunit.unit.geographicalCoordinatesRt90.yCoordinate",
+        "short": "Y-koordinat.",
+        "definition": "Y-koordinat.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.geographicalCoordinatesSWEREF99Latitude",
+        "path": "getunit.unit.geographicalCoordinatesSWEREF99Latitude",
+        "short": "X-koordinat (N) SWEREF99. Ref. hsaSweref99Latitude [R5]. Profilattribut: *e.",
+        "definition": "X-koordinat (N) SWEREF99. Ref. hsaSweref99Latitude [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.geographicalCoordinatesSWEREF99Longitude",
+        "path": "getunit.unit.geographicalCoordinatesSWEREF99Longitude",
+        "short": "Y-koordinat (E) SWEREF99. Ref. hsaSweref99Longitude [R5]. Profilattribut: *e.",
+        "definition": "Y-koordinat (E) SWEREF99. Ref. hsaSweref99Longitude [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.dropInHour",
+        "path": "getunit.unit.dropInHour",
+        "short": "Tider för dropin-besök (utan tidbokning). Ref. dropInHours [R5]. Profilattribut: *e.",
+        "definition": "Tider för dropin-besök (utan tidbokning). Ref. dropInHours [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.dropInHour.fromDay",
+        "path": "getunit.unit.dropInHour.fromDay",
+        "short": "Från dag. Måndag (1) – Söndag (7).",
+        "definition": "Från dag. Måndag (1) – Söndag (7).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.dropInHour.toDay",
+        "path": "getunit.unit.dropInHour.toDay",
+        "short": "Till dag. Måndag (1) – Söndag (7).",
+        "definition": "Till dag. Måndag (1) – Söndag (7).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.dropInHour.comment",
+        "path": "getunit.unit.dropInHour.comment",
+        "short": "Information om aktuellt tidsintervall.",
+        "definition": "Information om aktuellt tidsintervall.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.dropInHour.fromDate",
+        "path": "getunit.unit.dropInHour.fromDate",
+        "short": "Gäller från och med detta datum.",
+        "definition": "Gäller från och med detta datum.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.dropInHour.toDate",
+        "path": "getunit.unit.dropInHour.toDate",
+        "short": "Gäller till och med detta datum.",
+        "definition": "Gäller till och med detta datum.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.surgeryHour",
+        "path": "getunit.unit.surgeryHour",
+        "short": "Öppettider. Ref. surgeryHours [R5]. Profilattribut: *e.",
+        "definition": "Öppettider. Ref. surgeryHours [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.surgeryHour.fromDay",
+        "path": "getunit.unit.surgeryHour.fromDay",
+        "short": "Från dag. Måndag (1) – Söndag (7).",
+        "definition": "Från dag. Måndag (1) – Söndag (7).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.surgeryHour.toDay",
+        "path": "getunit.unit.surgeryHour.toDay",
+        "short": "Till dag. Måndag (1) – Söndag (7).",
+        "definition": "Till dag. Måndag (1) – Söndag (7).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.surgeryHour.comment",
+        "path": "getunit.unit.surgeryHour.comment",
+        "short": "Information om aktuellt tidsintervall.",
+        "definition": "Information om aktuellt tidsintervall.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.surgeryHour.fromDate",
+        "path": "getunit.unit.surgeryHour.fromDate",
+        "short": "Gäller från och med detta datum.",
+        "definition": "Gäller från och med detta datum.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.surgeryHour.toDate",
+        "path": "getunit.unit.surgeryHour.toDate",
+        "short": "Gäller till och med detta datum.",
+        "definition": "Gäller till och med detta datum.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.visitingHour",
+        "path": "getunit.unit.visitingHour",
+        "short": "Besökstider för anhöriga. Ref. visitingHours [R5]. Profilattribut: *e.",
+        "definition": "Besökstider för anhöriga. Ref. visitingHours [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.visitingHour.fromDay",
+        "path": "getunit.unit.visitingHour.fromDay",
+        "short": "Från dag. Måndag (1) – Söndag (7).",
+        "definition": "Från dag. Måndag (1) – Söndag (7).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.visitingHour.toDay",
+        "path": "getunit.unit.visitingHour.toDay",
+        "short": "Till dag. Måndag (1) – Söndag (7).",
+        "definition": "Till dag. Måndag (1) – Söndag (7).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.visitingHour.comment",
+        "path": "getunit.unit.visitingHour.comment",
+        "short": "Information om aktuellt tidsintervall.",
+        "definition": "Information om aktuellt tidsintervall.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.visitingHour.fromDate",
+        "path": "getunit.unit.visitingHour.fromDate",
+        "short": "Gäller från och med detta datum.",
+        "definition": "Gäller från och med detta datum.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.visitingHour.toDate",
+        "path": "getunit.unit.visitingHour.toDate",
+        "short": "Gäller till och med detta datum.",
+        "definition": "Gäller till och med detta datum.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.visitingRuleAge",
+        "path": "getunit.unit.visitingRuleAge",
+        "short": "Åldersintervall på patienter som tas emot. Ref. hsaVisitingRuleAge [R5]. Profilattribut: *e.",
+        "definition": "Åldersintervall på patienter som tas emot. Ref. hsaVisitingRuleAge [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.visitingRuleAge.fromAge",
+        "path": "getunit.unit.visitingRuleAge.fromAge",
+        "short": "Från ålder. 00 för nyfödd.",
+        "definition": "Från ålder. 00 för nyfödd.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.visitingRuleAge.toAge",
+        "path": "getunit.unit.visitingRuleAge.toAge",
+        "short": "Till ålder. 99 för ingen övre åldersgräns.",
+        "definition": "Till ålder. 99 för ingen övre åldersgräns.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.visitingRuleAge.comment",
+        "path": "getunit.unit.visitingRuleAge.comment",
+        "short": "Kommentar till åldersintervallet.",
+        "definition": "Kommentar till åldersintervallet.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.structuredVisitingAddress",
+        "path": "getunit.unit.structuredVisitingAddress",
+        "short": "Besöksadress i strukturerat format. Ref. hsaVisitingAddress [R5]. Profilattribut: *e.",
+        "definition": "Besöksadress i strukturerat format. Ref. hsaVisitingAddress [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.structuredVisitingAddress.street",
+        "path": "getunit.unit.structuredVisitingAddress.street",
+        "short": "Gata.",
+        "definition": "Gata.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.structuredVisitingAddress.premisesNumber",
+        "path": "getunit.unit.structuredVisitingAddress.premisesNumber",
+        "short": "Adressplatsnummer.",
+        "definition": "Adressplatsnummer.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.structuredVisitingAddress.premisesLetter",
+        "path": "getunit.unit.structuredVisitingAddress.premisesLetter",
+        "short": "Adressplatslittera.",
+        "definition": "Adressplatslittera.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.structuredVisitingAddress.town",
+        "path": "getunit.unit.structuredVisitingAddress.town",
+        "short": "Ortnamn.",
+        "definition": "Ortnamn.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.administrativeCareLevel",
+        "path": "getunit.unit.administrativeCareLevel",
+        "short": "Kod för nivå av specialisering i hälso- och sjukvård. Ref. hsaAdministrativeCareLevel [R5]. Profilattribut: *e.",
+        "definition": "Kod för nivå av specialisering i hälso- och sjukvård. Ref. hsaAdministrativeCareLevel [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.unitTemporaryInformation",
+        "path": "getunit.unit.unitTemporaryInformation",
+        "short": "Tillfällig information om enheten. Ref. hsaVpwInformation2 [R5]. Profilattribut: *e.",
+        "definition": "Tillfällig information om enheten. Ref. hsaVpwInformation2 [R5]. Profilattribut: *e.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.unitTemporaryInformation.fromDate",
+        "path": "getunit.unit.unitTemporaryInformation.fromDate",
+        "short": "Från datum. Exempel: 20101123.",
+        "definition": "Från datum. Exempel: 20101123.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.unitTemporaryInformation.toDate",
+        "path": "getunit.unit.unitTemporaryInformation.toDate",
+        "short": "Till datum. Exempel: 20101131.",
+        "definition": "Till datum. Exempel: 20101131.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.unitTemporaryInformation.temporaryInformation",
+        "path": "getunit.unit.unitTemporaryInformation.temporaryInformation",
+        "short": "Tillfällig information.",
+        "definition": "Tillfällig information.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.unitFunction",
+        "path": "getunit.unit.unitFunction",
+        "short": "Information från direkta funktionsobjekt med reserverat funktionsnamn. Profilattribut: *a.",
+        "definition": "Information från direkta funktionsobjekt med reserverat funktionsnamn. Profilattribut: *a.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.unitFunction.name",
+        "path": "getunit.unit.unitFunction.name",
+        "short": "Funktionens namn. Ref. objektnamn (cn) [R5], kodverk för Reserverade funktionsnamn.",
+        "definition": "Funktionens namn. Ref. objektnamn (cn) [R5], kodverk för Reserverade funktionsnamn.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.unitFunction.telephoneHour",
+        "path": "getunit.unit.unitFunction.telephoneHour",
+        "short": "Telefontider för funktionen. Ref. telefontid (telephoneHours) [R5].",
+        "definition": "Telefontider för funktionen. Ref. telefontid (telephoneHours) [R5].",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.unitFunction.telephoneHour.fromDay",
+        "path": "getunit.unit.unitFunction.telephoneHour.fromDay",
+        "short": "Från dag.",
+        "definition": "Från dag.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.unitFunction.telephoneHour.toDay",
+        "path": "getunit.unit.unitFunction.telephoneHour.toDay",
+        "short": "Till dag.",
+        "definition": "Till dag.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.unitFunction.telephoneHour.comment",
+        "path": "getunit.unit.unitFunction.telephoneHour.comment",
+        "short": "Information om aktuellt tidsintervall.",
+        "definition": "Information om aktuellt tidsintervall.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.unitFunction.telephoneHour.fromDate",
+        "path": "getunit.unit.unitFunction.telephoneHour.fromDate",
+        "short": "Gäller från och med detta datum.",
+        "definition": "Gäller från och med detta datum.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.unitFunction.telephoneHour.toDate",
+        "path": "getunit.unit.unitFunction.telephoneHour.toDate",
+        "short": "Gäller till och med detta datum.",
+        "definition": "Gäller till och med detta datum.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.unitFunction.telephoneNumber",
+        "path": "getunit.unit.unitFunction.telephoneNumber",
+        "short": "Publikt direkttelefonnummer för funktionen. Ref. direkttelefon (telephoneNumber) [R5].",
+        "definition": "Publikt direkttelefonnummer för funktionen. Ref. direkttelefon (telephoneNumber) [R5].",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.jpegPhoto",
+        "path": "getunit.unit.jpegPhoto",
+        "short": "Bild för enheten. Base-64-format. Ref. bild (jpegPhoto) [R5]. Profilattribut: *a.",
+        "definition": "Bild för enheten. Base-64-format. Ref. bild (jpegPhoto) [R5]. Profilattribut: *a.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.jpegLogotype",
+        "path": "getunit.unit.jpegLogotype",
+        "short": "Logotype för enheten. Base-64-format. Ref. logotyp (hsaJpegLogotype) [R5]. Profilattribut: *a.",
+        "definition": "Logotype för enheten. Base-64-format. Ref. logotyp (hsaJpegLogotype) [R5]. Profilattribut: *a.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.alternateTextLogotype",
+        "path": "getunit.unit.alternateTextLogotype",
+        "short": "Beskrivande text till logotype för enheten. Ref. [R5]. Profilattribut: *a.",
+        "definition": "Beskrivande text till logotype för enheten. Ref. [R5]. Profilattribut: *a.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getunit.unit.nonPublicTelephoneNumber",
+        "path": "getunit.unit.nonPublicTelephoneNumber",
+        "short": "Tjänstetelefonnummer. Ref. tjänstetelefon (hsaTelephoneNumber) [R5]. Profilattribut: *f (kräver extended2).",
+        "definition": "Tjänstetelefonnummer. Ref. tjänstetelefon (hsaTelephoneNumber) [R5]. Profilattribut: *f (kräver extended2).",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

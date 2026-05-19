@@ -1,0 +1,343 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "gethealthcareunit",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-directory-organization/StructureDefinition/gethealthcareunit",
+  "name": "GetHealthCareUnit",
+  "title": "GetHealthCareUnit",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetHealthCareUnit\n(RIV-TA urn:riv:infrastructure:directory:organization:GetHealthCareUnit:2).\nRepresenterar responsens informationsstruktur — vårdenhet med tillhörande organisatorisk information.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-directory-organization/StructureDefinition/gethealthcareunit",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "gethealthcareunit",
+        "path": "gethealthcareunit",
+        "short": "GetHealthCareUnit",
+        "definition": "Logisk modell för tjänstekontraktet GetHealthCareUnit\n(RIV-TA urn:riv:infrastructure:directory:organization:GetHealthCareUnit:2).\nRepresenterar responsens informationsstruktur — vårdenhet med tillhörande organisatorisk information."
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit",
+        "path": "gethealthcareunit.healthCareUnit",
+        "short": "Svarsobjekt med vårdenhetsinformation",
+        "definition": "Aggregerat objekt med information om enheten, vårdenhet och vårdgivare.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.healthCareUnitMemberHsaId",
+        "path": "gethealthcareunit.healthCareUnit.healthCareUnitMemberHsaId",
+        "short": "Enhetens (funktionens) HSA-id. Ref. hsaIdentity [R5].",
+        "definition": "Enhetens (funktionens) HSA-id. Ref. hsaIdentity [R5].",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.healthCareUnitMemberName",
+        "path": "gethealthcareunit.healthCareUnit.healthCareUnitMemberName",
+        "short": "Enhetens (funktionens) namn. Ref. organisationsnamn (o), enhetsnamn (ou) resp. objektnamn (cn) [R5].",
+        "definition": "Enhetens (funktionens) namn. Ref. organisationsnamn (o), enhetsnamn (ou) resp. objektnamn (cn) [R5].",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.healthCareUnitMemberPublicName",
+        "path": "gethealthcareunit.healthCareUnit.healthCareUnitMemberPublicName",
+        "short": "Publikt officiellt namn på enheten/funktionen.",
+        "definition": "Publikt officiellt namn på enheten/funktionen.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.healthCareUnitMemberStartDate",
+        "path": "gethealthcareunit.healthCareUnit.healthCareUnitMemberStartDate",
+        "short": "Startdatum för enhetens (funktionens) verksamhet. Ref. startDate [R5].",
+        "definition": "Startdatum för enhetens (funktionens) verksamhet. Ref. startDate [R5].",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.healthCareUnitMemberEndDate",
+        "path": "gethealthcareunit.healthCareUnit.healthCareUnitMemberEndDate",
+        "short": "Slutdatum för enhetens (funktionens) verksamhet. Ref. endDate [R5].",
+        "definition": "Slutdatum för enhetens (funktionens) verksamhet. Ref. endDate [R5].",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.healthCareUnitHsaId",
+        "path": "gethealthcareunit.healthCareUnit.healthCareUnitHsaId",
+        "short": "Vårdenhetens HSA-id. Ref. hsaIdentity [R5].",
+        "definition": "Vårdenhetens HSA-id. Ref. hsaIdentity [R5].",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.unitIsHealthCareUnit",
+        "path": "gethealthcareunit.healthCareUnit.unitIsHealthCareUnit",
+        "short": "True, om enheten (funktionen) själv är en vårdenhet. Ref. hjälpklassen Vårdenhet (hsaHealthCareUnit) [R5].",
+        "definition": "True, om enheten (funktionen) själv är en vårdenhet. Ref. hjälpklassen Vårdenhet (hsaHealthCareUnit) [R5].",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.healthCareUnitName",
+        "path": "gethealthcareunit.healthCareUnit.healthCareUnitName",
+        "short": "Vårdenhetens namn. Ref. organisationsnamn (o) resp. enhetsnamn (ou) [R5].",
+        "definition": "Vårdenhetens namn. Ref. organisationsnamn (o) resp. enhetsnamn (ou) [R5].",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.healthCareUnitPublicName",
+        "path": "gethealthcareunit.healthCareUnit.healthCareUnitPublicName",
+        "short": "Publikt officiellt namn på vårdenheten.",
+        "definition": "Publikt officiellt namn på vårdenheten.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.healthCareUnitStartDate",
+        "path": "gethealthcareunit.healthCareUnit.healthCareUnitStartDate",
+        "short": "Startdatum för vårdenhetens verksamhet. Ref. startDate [R5].",
+        "definition": "Startdatum för vårdenhetens verksamhet. Ref. startDate [R5].",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.healthCareUnitEndDate",
+        "path": "gethealthcareunit.healthCareUnit.healthCareUnitEndDate",
+        "short": "Slutdatum för vårdenhetens verksamhet. Ref. endDate [R5].",
+        "definition": "Slutdatum för vårdenhetens verksamhet. Ref. endDate [R5].",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.healthCareProviderHsaId",
+        "path": "gethealthcareunit.healthCareUnit.healthCareProviderHsaId",
+        "short": "Vårdgivarens HSA-id. Ref. hsaIdentity [R5].",
+        "definition": "Vårdgivarens HSA-id. Ref. hsaIdentity [R5].",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.healthCareProviderName",
+        "path": "gethealthcareunit.healthCareUnit.healthCareProviderName",
+        "short": "Vårdgivarens namn. Ref. organisationsnamn (o) resp. enhetsnamn (ou) [R5].",
+        "definition": "Vårdgivarens namn. Ref. organisationsnamn (o) resp. enhetsnamn (ou) [R5].",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.healthCareProviderPublicName",
+        "path": "gethealthcareunit.healthCareUnit.healthCareProviderPublicName",
+        "short": "Publikt officiellt namn på vårdgivaren.",
+        "definition": "Publikt officiellt namn på vårdgivaren.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.healthCareProviderOrgNo",
+        "path": "gethealthcareunit.healthCareUnit.healthCareProviderOrgNo",
+        "short": "Vårdgivarens organisationsnummer. Ref. orgNo [R5].",
+        "definition": "Vårdgivarens organisationsnummer. Ref. orgNo [R5].",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.healthCareProviderStartDate",
+        "path": "gethealthcareunit.healthCareUnit.healthCareProviderStartDate",
+        "short": "Startdatum för vårdgivarens verksamhet. Ref. startDate [R5].",
+        "definition": "Startdatum för vårdgivarens verksamhet. Ref. startDate [R5].",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.healthCareProviderEndDate",
+        "path": "gethealthcareunit.healthCareUnit.healthCareProviderEndDate",
+        "short": "Slutdatum för vårdgivarens verksamhet. Ref. endDate [R5].",
+        "definition": "Slutdatum för vårdgivarens verksamhet. Ref. endDate [R5].",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.feignedHealthCareUnitMember",
+        "path": "gethealthcareunit.healthCareUnit.feignedHealthCareUnitMember",
+        "short": "true: om enheten är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5].",
+        "definition": "true: om enheten är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5].",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.feignedHealthCareUnit",
+        "path": "gethealthcareunit.healthCareUnit.feignedHealthCareUnit",
+        "short": "true: om vårdenheten är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5].",
+        "definition": "true: om vårdenheten är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5].",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.feignedHealthCareProvider",
+        "path": "gethealthcareunit.healthCareUnit.feignedHealthCareProvider",
+        "short": "true: om vårdgivaren är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5].",
+        "definition": "true: om vårdgivaren är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5].",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.archivedHealthCareUnitMember",
+        "path": "gethealthcareunit.healthCareUnit.archivedHealthCareUnitMember",
+        "short": "true: om enheten är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5].",
+        "definition": "true: om enheten är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5].",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.archivedHealthCareUnit",
+        "path": "gethealthcareunit.healthCareUnit.archivedHealthCareUnit",
+        "short": "true: om vårdenheten är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5].",
+        "definition": "true: om vårdenheten är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5].",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit.healthCareUnit.archivedHealthCareProvider",
+        "path": "gethealthcareunit.healthCareUnit.archivedHealthCareProvider",
+        "short": "true: om vårdgivaren är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5].",
+        "definition": "true: om vårdgivaren är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5].",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      }
+    ]
+  }
+}

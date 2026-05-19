@@ -1,0 +1,87 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "handlehospcertificationperson-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-directory-authorizationmanagement/StructureDefinition/handlehospcertificationperson-request",
+  "name": "HandleHospCertificationPersonRequest",
+  "title": "HandleHospCertificationPerson — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i HandleHospCertificationPerson.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-directory-authorizationmanagement/StructureDefinition/handlehospcertificationperson-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "handlehospcertificationperson-request",
+        "path": "handlehospcertificationperson-request",
+        "short": "HandleHospCertificationPerson — Request",
+        "definition": "Logisk modell för requestparametrar i HandleHospCertificationPerson."
+      },
+      {
+        "id": "handlehospcertificationperson-request.personalIdentityNumber",
+        "path": "handlehospcertificationperson-request.personalIdentityNumber",
+        "short": "Person-id för personen vars HOSP-uppgifter ska begäras utlämnade",
+        "definition": "Ref. person-id (personalIdentityNumber) [R5].",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "handlehospcertificationperson-request.operation",
+        "path": "handlehospcertificationperson-request.operation",
+        "short": "Operation: add eller remove",
+        "definition": "'add' för att lägga till personen, 'remove' för att ta bort personen från utlämningsförfrågningar.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/infrastructure-directory-authorizationmanagement/ValueSet/hosp-operation-vs"
+        }
+      },
+      {
+        "id": "handlehospcertificationperson-request.certificationId",
+        "path": "handlehospcertificationperson-request.certificationId",
+        "short": "Alternativ id för personposten (frivillig)",
+        "definition": "Alternativ id för personposten (frivillig)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "handlehospcertificationperson-request.reason",
+        "path": "handlehospcertificationperson-request.reason",
+        "short": "Anledning till avregistrering (frivillig, loggas ej)",
+        "definition": "Anledning till avregistrering (frivillig, loggas ej)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}
