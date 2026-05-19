@@ -890,3 +890,26 @@ SUSHI: 0 errors, 46 warnings. 20 StructureDefinitions, 5 CodeSystems, 5 ValueSet
 
 - [ ] **[TODO-FI-001]** `igs/TKB_infrastructure_eservicesupply_forminteraction/input/fsh/codesystems/FormCategoryCS.fsh` och `PublishStatusCS.fsh`
   Komplettera CodeSystems med faktiska koder när kodlistorna är kända. Nuvarande filer är fragment (`^content = #fragment`).
+
+---
+
+## infrastructure.directory.organization v5.0 — `igs/TKB_infrastructure_directory_organization/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-19
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-IDO-001]** `igs/TKB_infrastructure_directory_organization/input/fsh/logical-models/GetUnit.fsh` · fält `telephoneHour.fromTime`, `telephoneHour.toTime` (och motsvarande i `dropInHour`, `surgeryHour`, `visitingHour`, `unitFunction.telephoneHour`)
+  FHIR-primitiven `time` orsakade SUSHI-krascher ("Cannot read properties of undefined (reading 'sdType')") i nästlade BackboneElement-fält. Tidsfälten har modellerats som `string` med kommentaren "Format: HH:MM (ISO-8601)" som workaround. Om SUSHI-stödet för `time` förbättras i en framtida version kan dessa fält återkonverteras till korrekt FHIR-typ.
+
+- [ ] **[ASSUME-IDO-002]** `igs/TKB_infrastructure_directory_organization/input/fsh/logical-models/GetUnit.fsh` · fält `unit.financingOrganization`
+  Fältet modelleras som `0..* string` (organisationsnummer). Korrekt FHIR-typ vore `Identifier` med system för organisationsnummer, men `string` används som fallback eftersom kodformatet inte specificeras tydligt i TKB. Verifiera med domänexpert om `Identifier` är mer lämpligt.
+
+- [ ] **[ASSUME-IDO-003]** `igs/TKB_infrastructure_directory_organization/input/fsh/logical-models/GetUnit.fsh` · fält `unit.jpegPhoto`, `unit.jpegLogotype`
+  Base-64-kodade bildfält modelleras som `0..1 string`. Korrekt FHIR-typ vore `base64Binary`. Konservativt val gjordes för att undvika valideringsfel — verifiera om `base64Binary` ska användas istället.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-IDO-001]** `igs/TKB_infrastructure_directory_organization/input/fsh/logical-models/GetUnit.fsh`
+  Tidsfälten (`fromTime`, `toTime`) i tidsfönster-BackboneElements (telephoneHour, dropInHour, surgeryHour, visitingHour, unitFunction/telephoneHour) är modellerade som `string`. Om framtida SUSHI-version stöder `time` i nästlade BackboneElements: konvertera till `time` för semantisk korrekthet.
