@@ -30,7 +30,7 @@ Characteristics: #can-be-target
     * medicationPrescription 1..* BackboneElement "Enskild ordination inom behandlingssekvensen"
       * medicationPrescriptionId 1..1 Identifier "Unikt id för ordinationen"
       * registrationData 1..1 BackboneElement "Registreringsdata"
-        * id 1..1 Identifier "Systeminternt id"
+        * registrationDataId 1..1 Identifier "Systeminternt id"
         * registeredBy 1..1 BackboneElement "Registrerande person"
         * registrationTime 1..1 dateTime "Registreringstidpunkt"
       * medicationInformation 1..1 BackboneElement "Läkemedelsinformation"

@@ -11,7 +11,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
-* type 0..1 string "Den typ av registrering i kvalitetsregistret som notifieringen avses ge upphov till"
+* registrationType 0..1 string "Den typ av registrering i kvalitetsregistret som notifieringen avses ge upphov till"
     """
     Den typ av registrering i kvalitetsregistret som notifieringen avses ge upphov till.
     Ska anges enligt den informationsspecifikation som kvalitetsregistret tillhandahåller

@@ -29,7 +29,7 @@ Characteristics: #can-be-target
       Motsvarar klasserna Observation och Uppgift i patientjournal i NI 2017.
       Kardinalitet: Obligatorisk (1..1).
       """
-    * id 1..1 Identifier "Identitet för observationen, unik inom vårdgivaren."
+    * observationId 1..1 Identifier "Identitet för observationen, unik inom vårdgivaren."
         """
         - root: Den informationsägande vårdgivarens HSA-id
         - extension: Den inom vårdgivaren unika id-beteckningen för observationen
@@ -40,14 +40,14 @@ Characteristics: #can-be-target
         Kan skilja sig från signeringstidpunkt (som återfinns i header).
         Kardinalitet: Obligatorisk (1..1).
         """
-    * type 0..1 CodeableConcept "NI 2017 (Observation.typ) — typ av observation."
+    * observationType 0..1 CodeableConcept "NI 2017 (Observation.typ) — typ av observation."
         """
         Kod för den typ av observation, används då typen inte framgår av attributet värde.
         Exempel: "längd mätt utan skor" eller "huvuddiagnos".
         Fälten codeSystemVersion (0..1) och displayName (1..1) ingår.
         Kardinalitet: Valfri (0..1).
         """
-    * value 1..1 BackboneElement "NI 2017 (Observation.värde) — det faktiska observerade hälsotillståndet."
+    * observationValue 1..1 BackboneElement "NI 2017 (Observation.värde) — det faktiska observerade hälsotillståndet."
         """
         Representeras av ValueANYType — en av: cv (CVType/kodat värde), pq (mätvärde),
         ivl_pq (intervall), ts (tidpunkt), ivl_ts (tidsintervall), st (fritext), int (heltal).
@@ -66,7 +66,7 @@ Characteristics: #can-be-target
         Exempel: AUDIT-skalan (0-40 poäng) eller AB0-blodgruppsystemet.
         Kardinalitet: Valfri (0..1).
         """
-    * status 1..1 CodeableConcept "NI 2017 (Observation.status) — observationens status."
+    * observationStatus 1..1 CodeableConcept "NI 2017 (Observation.status) — observationens status."
         """
         Koder tillhandahålls av Socialstyrelsen som urval ur Snomed CT (urvals-id: 56431000052106).
         Snomed CT OID: 1.2.752.116.2.1.1.
@@ -105,7 +105,7 @@ Characteristics: #can-be-target
         Motsvarar klassen Patient i NI 2017. Se PatientInformationType.
         Kardinalitet: Obligatorisk (1..1).
         """
-      * id 0..1 Identifier "NI 2017 (Patient.id) — nationell reservidentitet om tillämpligt."
+      * patientId 0..1 Identifier "NI 2017 (Patient.id) — nationell reservidentitet om tillämpligt."
           """
           OID: 1.2.752.74.9.1. Obligatoriskt att ange antingen person-id (i person) eller id på patient.
           """
@@ -114,7 +114,7 @@ Characteristics: #can-be-target
           Se övrig regel 3 (avsnitt 6.1.3.3). Inkluderar id, givenName, surname, gender,
           dateOfBirth, confidentialityIndicator m.m.
           """
-        * id 0..1 Identifier "Person-id (personnummer eller samordningsnummer)."
+        * personId 0..1 Identifier "Person-id (personnummer eller samordningsnummer)."
         * givenName 0..* string "NI 2017 (Person.förnamn)."
         * middleSurname 0..1 string "NI 2017 (Person.mellannamn)."
         * surname 0..1 string "NI 2017 (Person.efternamn)."
@@ -136,7 +136,7 @@ Characteristics: #can-be-target
         Motsvarar klassen Deltagande i NI 2017.
         Kardinalitet: Valfri, lista (0..*).
         """
-      * type 1..1 CodeableConcept "Typ av deltagande (utförare, vittne, ansvarig etc.)."
+      * participantType 1..1 CodeableConcept "Typ av deltagande (utförare, vittne, ansvarig etc.)."
           """
           Koder tillhandahålls av Socialstyrelsen som urval ur Snomed CT (urvals-id: 53351000052100).
           Snomed CT OID: 1.2.752.116.2.1.1.
@@ -148,7 +148,7 @@ Characteristics: #can-be-target
           license (legitimation, 0..*), specialistQualification (specialistkompetens, 0..*),
           organisation (1..1), address (0..*), electronicAddress (0..*).
           """
-        * id 0..1 Identifier "HSA-id. OID: 1.2.752.129.2.1.4.1."
+        * performerId 0..1 Identifier "HSA-id. OID: 1.2.752.129.2.1.4.1."
         * person 1..1 BackboneElement "Uppgifter om personen. Se PersonType."
         * jobCode 0..1 CodeableConcept "NI 2017 (Hälso- och sjukvårdspersonal.befattning). 0..1 pga tillgänglighet i källsystem."
         * license 0..* CodeableConcept "NI 2017 (Hälso- och sjukvårdspersonal.legitimation)."
@@ -178,14 +178,14 @@ Characteristics: #can-be-target
         Exempel: ett systoliskt blodtryck (observation) är resultat av aktiviteten blodtrycksmätning.
         Kardinalitet: Valfri, lista (0..*).
         """
-      * type 1..1 CodeableConcept "NI 2017 (Samband.typ) — kod för relationstyp."
+      * relationType 1..1 CodeableConcept "NI 2017 (Samband.typ) — kod för relationstyp."
           """
           Koder tillhandahålls av Socialstyrelsen som urval ur Snomed CT (urvals-id: 53371000052106).
           Snomed CT OID: 1.2.752.116.2.1.1.
           """
       * referredInformation 1..1 BackboneElement "Referens till en uppgift i patientjournal som observationen har samband till."
-        * id 1..1 Identifier "Identitet på den refererade informationen."
+        * referenceId 1..1 Identifier "Identitet på den refererade informationen."
         * time 1..1 string "Starttid för refererad information. Format: ÅÅÅÅMMDDttmmss (varierande precision). Se övrig regel 4."
         * categorization 1..1 string "Typ av information som sambandet pekar ut (kod från Categorization i engagemangsindexposten)."
         * informationOwner 1..1 BackboneElement "Vårdgivare som är informationsägare av den refererade informationen."
-          * id 1..1 Identifier "Identitet för informationsägande vårdgivare. OID: 1.2.752.129.2.1.4.1."
+          * careGiverId 1..1 Identifier "Identitet för informationsägande vårdgivare. OID: 1.2.752.129.2.1.4.1."

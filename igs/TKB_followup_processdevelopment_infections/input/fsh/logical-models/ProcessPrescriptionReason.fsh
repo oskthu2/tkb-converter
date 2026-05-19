@@ -103,7 +103,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
-* code 1..1 string "Resultatkod: OK, ERROR eller INFO"
+* resultCode 1..1 string "Resultatkod: OK, ERROR eller INFO"
   """
   OK = operationen genomförd utan fel
   ERROR = Fel vid operationen. Felet beskrivs i elementet comment

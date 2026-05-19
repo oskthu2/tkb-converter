@@ -28,6 +28,6 @@ Characteristics: #can-be-target
 * intygsId 1..1 Identifier "Unikt ID för det intyg vars status ska sättas"
 * part 1..1 CodeableConcept "Kodat värde för den part statusen gäller för"
 * part from PartVS (required)
-* status 1..1 CodeableConcept "Kodat värde för intygsstatus"
-* status from StatuskodVS (required)
+* certificateStatus 1..1 CodeableConcept "Kodat värde för intygsstatus"
+* certificateStatus from StatuskodVS (required)
 * tidpunkt 1..1 dateTime "Tidpunkt då statusen sattes"

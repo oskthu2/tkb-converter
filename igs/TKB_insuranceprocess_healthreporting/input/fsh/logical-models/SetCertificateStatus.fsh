@@ -20,8 +20,8 @@ Characteristics: #can-be-target
   """
 * nationalIdentityNumber 1..1 Identifier "Patientens personnummer eller samordningsnummer"
 * target 1..1 string "Mottagare för statusändringen (t.ex. FK)"
-* status 1..1 CodeableConcept "Typ av statusändring för intyget"
-* status from StatusVS (extensible)
+* certificateStatus 1..1 CodeableConcept "Typ av statusändring för intyget"
+* certificateStatus from StatusVS (extensible)
 * timestamp 0..1 dateTime "När anropet sattes för intyget"
 
 

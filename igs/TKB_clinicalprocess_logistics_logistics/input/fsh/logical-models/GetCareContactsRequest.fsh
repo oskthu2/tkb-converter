@@ -2,6 +2,11 @@
 // Kontrakt: GetCareContacts v3.0 — Request
 // Genererad: 2026-03-19
 
+Invariant: getcarecontacts-sourcesystemhsaid-required
+Description: "sourceSystemHSAId ska anges när careContactId är angivet"
+Expression: "careContactId.exists() implies sourceSystemHSAId.exists()"
+Severity: #warning
+
 Logical: GetCareContactsRequest
 Id: getcarecontacts-request
 Title: "GetCareContacts — Request"
