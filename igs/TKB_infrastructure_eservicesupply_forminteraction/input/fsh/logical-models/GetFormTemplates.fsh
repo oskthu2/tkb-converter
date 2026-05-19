@@ -21,9 +21,9 @@ Characteristics: #can-be-target
   * publishStatus 1..1 CodeableConcept "Publiceringsstatus" "Mallens publiceringsstatus."
   * publishStatus from PublishStatusVS (required)
   * mandatory 1..1 boolean "Obligatorisk" "Indikerar om formuläret är obligatoriskt att fylla i av användaren."
-  * language 1..1 string "Språk" "Beskriver vilket språk som används i formuläret, t.ex. swe eller eng."
+  * formLanguage 1..1 string "Språk" "Beskriver vilket språk som används i formuläret, t.ex. swe eller eng."
   * formCompleteText 0..1 string "Avslutningstext" "Text som visas för invånaren när formuläret är besvarat."
-  * code 0..1 BackboneElement "Kod" "Koppling till klass för code. Används för att beskriva t.ex. formulärinstrument (AUDIT-C, PHQ-9, EQ-5D)."
+  * instrumentCode 0..1 BackboneElement "Kod" "Koppling till klass för code. Används för att beskriva t.ex. formulärinstrument (AUDIT-C, PHQ-9, EQ-5D)."
     * codeSystem 0..1 string "Kodsystem" "Kodsystemets identifierare."
     * codeValue 0..1 string "Kodvärde" "Kodvärdet inom kodsystemet."
     * displayName 0..1 string "Visningsnamn" "Visningsnamn för koden."

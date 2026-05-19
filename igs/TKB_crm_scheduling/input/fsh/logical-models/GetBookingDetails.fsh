@@ -2,6 +2,11 @@
 // Kontrakt: GetBookingDetails v1.1
 // Genererad: 2026-03-24
 
+Invariant: getbookingdetails-purpose-required
+Description: "purpose ska anges om isInvitation är true (kallelse)"
+Expression: "isInvitation = true implies purpose.exists()"
+Severity: #warning
+
 Logical: GetBookingDetails
 Id: getbookingdetails
 Title: "GetBookingDetails"
@@ -18,6 +23,7 @@ Characteristics: #can-be-target
     Information om den aktuella bokade/kallade tiden.
     Kardinalitet: Obligatorisk.
     """
+* timeslotDetail ^obeys getbookingdetails-purpose-required
   * startTimeInclusive 0..1 string "Startdatum och klockslag (ÅÅÅÅMMDDttmmss)"
       """
       Startdatum och klockslag. Kan saknas för öppen kallelse.

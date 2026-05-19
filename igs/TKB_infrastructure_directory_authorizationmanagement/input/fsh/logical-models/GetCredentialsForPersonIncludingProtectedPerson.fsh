@@ -62,7 +62,7 @@ Characteristics: #can-be-target
       """
       För personnummer: 1.2.752.129.2.1.3.1, för samordningsnummer: 1.2.752.129.2.1.3.3.
       """
-    * extension 1..1 string "Person- eller samordningsnummer"
+    * personNumber 1..1 string "Person- eller samordningsnummer"
   * healthcareProfessionalLicenseIdentityNumber 0..1 string "Personens HOSP-id"
     """
     Ref. HOSP-id (hospIdentityNumber) [R5].

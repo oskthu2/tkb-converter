@@ -27,7 +27,7 @@ Characteristics: #can-be-target
   * publishStatus 1..1 CodeableConcept "Publiceringsstatus"
   * publishStatus from PublishStatusVS (required)
   * mandatory 1..1 boolean "Om formuläret är obligatoriskt"
-  * language 1..1 string "Språkkod"
+  * formLanguage 1..1 string "Språkkod"
   * anonymousForm 0..1 boolean "Om formuläret tillåter anonym användning"
   * healthcareFacilityUnit 1..1 string "HSA-id för mallens ägare"
   * pages 0..* BackboneElement "Sidor i mallen"

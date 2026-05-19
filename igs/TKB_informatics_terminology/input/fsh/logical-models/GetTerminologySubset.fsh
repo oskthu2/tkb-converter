@@ -27,7 +27,7 @@ Characteristics: #can-be-target
       Identifierare för det kodsystem som begreppet tillhör (t.ex. ICD-10, SNOMED CT, ATC).
       Kardinalitet: Obligatorisk.
       """
-  * code 1..1 string "Begreppskod"
+  * conceptCode 1..1 string "Begreppskod"
       """
       Begreppets kod i det angivna kodsystemet.
       Kardinalitet: Obligatorisk.
@@ -43,12 +43,12 @@ Characteristics: #can-be-target
       som skall fyllas i vid sändande av t.ex. ordinationsorsak till Infektionsverktyget.
       Kardinalitet: Valfri, lista.
       """
-    * name 1..1 string "Identifierar typ av metadata"
+    * metadataName 1..1 string "Identifierar typ av metadata"
         """
         Nyckel som identifierar typen av metadata.
         Kardinalitet: Obligatorisk.
         """
-    * value 1..1 string "Metadatavärde"
+    * metadataValue 1..1 string "Metadatavärde"
         """
         Värdet för den angivna metadatatypen.
         Kardinalitet: Obligatorisk.

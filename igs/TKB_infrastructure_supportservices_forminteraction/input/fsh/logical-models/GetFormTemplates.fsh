@@ -59,7 +59,7 @@ Characteristics: #can-be-target
   * templateId 1..1 string "Typ av formulär — KV Malltyp (t.ex. MHV1 för Mödrahälsovårdsjournal)"
   * templateVersion 1..1 string "Mallens version"
   * mandatory 1..1 boolean "Om formuläret är obligatoriskt för användaren"
-  * language 1..1 string "Språkkod enligt SS-ISO 639-1:2005 (t.ex. sv eller en)"
+  * formLanguage 1..1 string "Språkkod enligt SS-ISO 639-1:2005 (t.ex. sv eller en)"
   * formTitle 0..1 string "Mallens/formulärets rubrik"
   * formName 1..1 string "Mallens namn (t.ex. Hälsodeklaration Mödravård)"
   * description 0..1 string "Formulärets beskrivning och instruktioner"

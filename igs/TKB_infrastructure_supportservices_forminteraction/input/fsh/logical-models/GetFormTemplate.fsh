@@ -42,7 +42,7 @@ Characteristics: #can-be-target
   * publishStatus 1..1 CodeableConcept "Publiceringsstatus"
   * publishStatus from PublishStatusVS (required)
   * mandatory 1..1 boolean "Om formuläret är obligatoriskt"
-  * language 1..1 string "Språkkod (SS-ISO 639-1:2005)"
+  * formLanguage 1..1 string "Språkkod (SS-ISO 639-1:2005)"
   * anonymousForm 0..1 boolean "Om formuläret tillåter anonym användning"
   * term 1..1 string "Villkorstext"
   * informationURL 0..1 url "URL till ytterligare information"

@@ -120,7 +120,7 @@ Characteristics: #can-be-target
     * toDate 0..1 string "Till datum. Exempel: 20101131."
     * temporaryInformation 1..1 string "Tillfällig information."
   * unitFunction 0..* BackboneElement "Information från direkta funktionsobjekt med reserverat funktionsnamn. Profilattribut: *a."
-    * name 1..1 string "Funktionens namn. Ref. objektnamn (cn) [R5], kodverk för Reserverade funktionsnamn."
+    * functionName 1..1 string "Funktionens namn. Ref. objektnamn (cn) [R5], kodverk för Reserverade funktionsnamn."
     * telephoneHour 0..* BackboneElement "Telefontider för funktionen. Ref. telefontid (telephoneHours) [R5]."
       * fromDay 1..1 string "Från dag."
       * fromTime 1..1 string "Från tid. Format: HH:MM (ISO-8601)."

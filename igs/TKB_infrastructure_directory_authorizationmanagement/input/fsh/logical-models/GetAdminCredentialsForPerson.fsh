@@ -31,6 +31,6 @@ Characteristics: #can-be-target
       * sector 0..* BackboneElement "Organisationsomfång"
         * unitHsaId 1..1 string "HSA-id för objektet i organisationsomfånget"
         * sectorFlag 0..1 boolean "True: objektets alla underliggande objekt ingår"
-        * name 1..1 string "Namn på objektet i organisationsomfånget"
+        * objectName 1..1 string "Namn på objektet i organisationsomfånget"
         * feignedUnit 0..1 boolean "Objektet är ett fingerat objekt"
       * feignedAdminCommission 0..1 boolean "Administrativt medarbetaruppdrag är ett fingerat objekt"

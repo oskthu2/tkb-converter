@@ -2,6 +2,11 @@
 // Kontrakt: GetCommissionsForPerson v1.0
 // Genererad: 2026-04-09
 
+Invariant: getcommissions-careprovider-xor
+Description: "Antingen healthCareProviderHsaId eller healthCareProviderName ska anges"
+Expression: "healthCareProviderHsaId.exists() or healthCareProviderName.exists()"
+Severity: #warning
+
 Logical: GetCommissionsForPerson
 Id: getcommissionsforperson
 Title: "GetCommissionsForPerson"
@@ -55,6 +60,7 @@ Characteristics: #can-be-target
     Datatyp CommissionType.
     Kardinalitet: Valfri, lista.
     """
+* commissions ^obeys getcommissions-careprovider-xor
 * commissions.commissionHsaId 1..1 string "Medarbetaruppdragets HSA-id"
     """
     Unikt HSA-id för medarbetaruppdraget. Maxlängd: 32 tecken.

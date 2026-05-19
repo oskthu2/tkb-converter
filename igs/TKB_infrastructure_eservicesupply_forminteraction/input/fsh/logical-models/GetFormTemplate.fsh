@@ -22,7 +22,7 @@ Characteristics: #can-be-target
   * publishStatus 1..1 CodeableConcept "Publiceringsstatus" "Mallens publiceringsstatus."
   * publishStatus from PublishStatusVS (required)
   * mandatory 1..1 boolean "Obligatorisk" "Indikerar om formuläret är obligatoriskt."
-  * language 1..1 string "Språk" "Formulärets språk, t.ex. swe eller eng."
+  * formLanguage 1..1 string "Språk" "Formulärets språk, t.ex. swe eller eng."
   * formCompleteText 0..1 string "Avslutningstext" "Text som visas när formuläret är besvarat."
 
 Logical: GetFormTemplateRequest

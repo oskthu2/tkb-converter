@@ -26,7 +26,7 @@ Characteristics: #can-be-target
   * occupationalCode 0..* string "Utökad yrkeskod"
   * personalIdentity 0..1 BackboneElement "Personens person- eller samordningsnummer (extended1)"
     * root 1..1 string "Typ av personnummer (OID)"
-    * extension 1..1 string "Person- eller samordningsnummer"
+    * personNumber 1..1 string "Person- eller samordningsnummer"
   * healthcareProfessionalLicenseIdentityNumber 0..1 string "Personens HOSP-id"
   * personalPrescriptionCode 0..1 string "Personens förskrivarkod"
   * groupPrescriptionCode 0..* string "Gruppförskrivarkod"

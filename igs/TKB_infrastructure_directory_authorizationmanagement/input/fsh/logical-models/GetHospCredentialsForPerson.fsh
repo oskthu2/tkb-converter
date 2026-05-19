@@ -17,7 +17,7 @@ Characteristics: #can-be-target
     """
     För personnummer: 1.2.752.129.2.1.3.1, för samordningsnummer: 1.2.752.129.2.1.3.3.
     """
-  * extension 1..1 string "Person- eller samordningsnummer"
+  * personNumber 1..1 string "Person- eller samordningsnummer"
 * healthCareProfessionalLicence 0..* BackboneElement "Personens legitimerade yrkestitel(-lar)"
   * healthCareProfessionalLicenceCode 1..1 string "Kod för legitimerad yrkestitel (Socialstyrelsens kodverk 1.2.752.116.3.1.3)"
   * healtCareProfessionalLicenceName 1..1 string "Klartext för legitimerad yrkestitel"
