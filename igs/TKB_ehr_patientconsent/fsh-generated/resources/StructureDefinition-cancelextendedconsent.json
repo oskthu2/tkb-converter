@@ -1,0 +1,74 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "cancelextendedconsent",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-patientconsent/StructureDefinition/cancelextendedconsent",
+  "name": "CancelExtendedConsent",
+  "title": "CancelExtendedConsent",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet CancelExtendedConsent\n(RIV-TA urn:riv:ehr:patientconsent:administration:CancelExtendedConsentResponder:1).\nRepresenterar responsens informationsstruktur.\n\nTjänst som återkallar ett samtycke i samtyckestjänsten. Intyget raderas inte utan markeras som\nåterkallad (ej längre giltig) för historikens skull. En återkallan kan ej återtas.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-patientconsent/StructureDefinition/cancelextendedconsent",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "cancelextendedconsent",
+        "path": "cancelextendedconsent",
+        "short": "CancelExtendedConsent",
+        "definition": "Logisk modell för tjänstekontraktet CancelExtendedConsent\n(RIV-TA urn:riv:ehr:patientconsent:administration:CancelExtendedConsentResponder:1).\nRepresenterar responsens informationsstruktur.\n\nTjänst som återkallar ett samtycke i samtyckestjänsten. Intyget raderas inte utan markeras som\nåterkallad (ej längre giltig) för historikens skull. En återkallan kan ej återtas."
+      },
+      {
+        "id": "cancelextendedconsent.result",
+        "path": "cancelextendedconsent.result",
+        "short": "Status för om återkallningen utfördes",
+        "definition": "Status för om återkallningen utfördes",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "cancelextendedconsent.result.resultCode",
+        "path": "cancelextendedconsent.result.resultCode",
+        "short": "Svarskod",
+        "definition": "Svarskod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-patientconsent/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "cancelextendedconsent.result.resultText",
+        "path": "cancelextendedconsent.result.resultText",
+        "short": "Fritext beskrivning av resultatet",
+        "definition": "Fritext beskrivning av resultatet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

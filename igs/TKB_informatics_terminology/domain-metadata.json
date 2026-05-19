@@ -1,0 +1,131 @@
+{
+  "domain_id": "informatics.terminology",
+  "domain_title": "informatics: terminology",
+  "domain_version": "1.4",
+  "rivta_namespace_base": "urn:riv:informatics:terminology",
+  "docx_converted_dir": "igs/TKB_informatics_terminology/docx-converted/",
+  "note": "TKB har icke-standardiserad struktur: Inledning, Generella regler, SLA-krav/support, GetTerminologySubset, Tillgängliga urval. Avsnitt 2-7 saknas. Mappat om till IG-sidor baserat på faktisk dokumentstruktur.",
+  "sections": {
+    "1_inledning": "igs/TKB_informatics_terminology/docx-converted/sections/1-inledning.md",
+    "2_generella_regler": null,
+    "3_sla_krav_support": null,
+    "4_tillgangliga_urval": null
+  },
+  "contracts": [
+    {
+      "section_number": "4",
+      "id": "GetTerminologySubset",
+      "display_name": "Hämta terminologiurval",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:informatics:terminology:GetTerminologySubset:1",
+      "description": "GetTerminologySubset hämtar ut en delmängd (subset) av en terminologi (exempelvis SNOMED CT, ICD-10, ATC-kodverket) som är användbar i ett visst sammanhang. Stöttar bland annat det dynamiska urvalet av orsaker till antibiotikainsättning som rapporteras till Infektionsregistret. Tjänsten levererar förutom en kod och en visningsterm ytterligare metadata.",
+      "request_fields": [
+        {
+          "name": "subsetIdentity",
+          "type": "String",
+          "cardinality": "1..1",
+          "description": "Identifierare för urvalet",
+          "constraints": null,
+          "kodverk": null
+        },
+        {
+          "name": "localOrganizationExtension",
+          "type": "String",
+          "cardinality": "0..1",
+          "description": "HSAId för organisationspost motsvarande vårdgivare i HSA-trädet. Om denna anges returneras nationellt urval tillsammans med koder specifika för aktuell vårdgivare.",
+          "constraints": null,
+          "kodverk": null
+        },
+        {
+          "name": "termType",
+          "type": "String",
+          "cardinality": "1..1",
+          "description": "Typ av term som ska användas. Fixt värde: DisplayName",
+          "constraints": "Fixt värde: DisplayName",
+          "kodverk": null
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "concept",
+          "type": "ConceptType",
+          "cardinality": "0..*",
+          "description": "Svaret består av en lista med begrepp",
+          "constraints": null,
+          "kodverk": null
+        }
+      ],
+      "complex_types": {
+        "ConceptType": [
+          {
+            "name": "codeSystem",
+            "type": "String",
+            "cardinality": "1..1",
+            "description": "Identifierare av kodsystem"
+          },
+          {
+            "name": "code",
+            "type": "String",
+            "cardinality": "1..1",
+            "description": "Begreppskod"
+          },
+          {
+            "name": "term",
+            "type": "String",
+            "cardinality": "1..1",
+            "description": "Term som beskriver begreppet"
+          },
+          {
+            "name": "metadata",
+            "type": "MetadataType",
+            "cardinality": "0..*",
+            "description": "Lista med metadata"
+          }
+        ],
+        "MetadataType": [
+          {
+            "name": "name",
+            "type": "String",
+            "cardinality": "1..1",
+            "description": "Identifierar typ av metadata"
+          },
+          {
+            "name": "value",
+            "type": "String",
+            "cardinality": "1..1",
+            "description": "Metadatavärde"
+          }
+        ]
+      },
+      "available_subsets": [
+        { "subsetId": "14EF2CE5-5B02-45D6-BBB3-10A958BD85A4", "comment": "Starturval för val av ordinationsorsak" },
+        { "subsetId": "5FD548C5-E551-4417-8871-4CC3BA24B6F0", "comment": "ATC-trigger för att ange ordinationsorsak" },
+        { "subsetId": "90E066BB-E1A9-4907-9433-00E849D6A151", "comment": "Diagnostrigger. De diagnoser som skall sändas till infektionsverktyget" },
+        { "subsetId": "8A0C81CC-4D32-484C-B7B7-C5F1F01C59B3", "comment": "Åtgärdstrigger. De åtgärder som skall sändas till Infektionsverktyget" },
+        { "subsetId": "CA29A6CA-3A9F-45E2-90FD-F0459881AF46", "comment": "NPU-trigger. NPU-koder för de laboratoriefynd som skall sändas till Infektionsverktyget" },
+        { "subsetId": "12C61DE8-1CDC-43B2-8AE4-244F18C82D96", "comment": "Riskåtgärder för postop inf (kirurgiska åtgärder)" }
+      ],
+      "shared_components_refs": [],
+      "other_rules": "Vid tekniskt fel levereras ett generellt undantag (SOAP-Exception). SLA: kontorstidssupport, normal tillgänglighet 24h/dygn, svarstid <0.5 sekunder, 100 000 anrop/dygn.",
+      "error_codes": [],
+      "contract_specific_codesystems": [],
+      "open_questions_from_parsing": [
+        "GetTerminologySubsetVersion: Interaktionskatalogen visar en andra interaktion (GetTerminologySubsetVersionInteraction 1.0 RIVTABP21) men TKB-dokumentet beskriver den inte. Ska den inkluderas?",
+        "Ingen explicit versionstagning i dokumentet — P1.4 (2013-04-09) är senaste revisionen men inget versionsnummer anges för TKB:n som helhet. Antagen version: 1.4.",
+        "termType-fältet har fixt värde 'DisplayName' — ska detta modelleras som en binding till ett CodeSystem eller som en fixed value constraint?"
+      ]
+    }
+  ],
+  "wsdl_files": [
+    "input/files/wsdl/GetTerminologySubsetInteraction_1.0_RIVTABP20.wsdl",
+    "input/files/wsdl/GetTerminologySubsetVersionInteraction_1.0_RIVTABP21.wsdl"
+  ],
+  "xsd_files": [
+    "input/files/schema/TerminologyServiceBaseTypes_1.0.xsd",
+    "input/files/schema/itintegration_registry_1.0.xsd",
+    "input/files/schema/ws-addressing-1.0.xsd",
+    "input/files/schema/GetTerminologySubsetResponder_1.0.xsd",
+    "input/files/schema/GetTerminologySubsetVersionResponder_1.0.xsd"
+  ],
+  "doc_files": []
+}

@@ -650,3 +650,34 @@ Inga blockerare.
 - [ ] **[TODO-CHB-002]** `igs/TKB_clinicalprocess_healthcond_basic/sushi-config.yaml`
   Beroendet `se.inera.rivta.core#current` har tagits bort eftersom paketet inte existerar lokalt eller i kända FHIR-paketregister. Om paketet skapas i framtiden bör det läggas tillbaka. Verifiera med Inera arkitektur om detta paket ska finnas och var det publiceras.
   Källa: contracts-registry.json BLOCK-EI-003 (samma problem identifierat för EI-domänen).
+
+---
+
+## ehr.patientconsent v1.0.1 — `igs/TKB_ehr_patientconsent/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-19
+
+SUSHI kördes och genererade 21 artefakter (14 logiska modeller, 3 CodeSystems, 3 ValueSets, 1 ImplementationGuide). Kvarstående SUSHI-"error" är nätverksrelaterat (se.inera.rivta.core#current kan inte laddas — packages.fhir.org blockerat), inte ett FSH-kompileringsfel. Alla 7 tjänstekontrakt modellerade med response- och request-modeller.
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-PC-001]** `igs/TKB_ehr_patientconsent/sushi-config.yaml` · beroende `se.inera.rivta.core#current`
+  Paketet `se.inera.rivta.core#current` kan inte laddas ned (packages.fhir.org nätverksblockerat i denna miljö). SUSHI rapporterar detta som ERROR men FSH-kompileringen lyckas ändå utan paketet. Om/när nätverksåtkomst finns, eller om paketet installeras manuellt i `~/.fhir/packages/`, bör detta beroende kopplas in. Verifiera med Inera arkitektur om paketet är publicerat och var.
+  Källa: SUSHI-körning 2026-05-19, rad "Failed to load se.inera.rivta.core#current".
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-PC-001]** `igs/TKB_ehr_patientconsent/input/fsh/logical-models/` · alla modeller med fältet `startDate`/`endDate`
+  TKB använder `xs:dateTime` för datum/tid-fälten `startDate` och `endDate` på PDLAssertion. FSH-modellerna mappar dessa till `dateTime`. Om det i praktiken alltid räcker med datumdel (utan tidsdel), kan `date` vara mer lämpligt. Verifiera med domänexpert om `dateTime` eller `date` är korrekt representation i FHIR-kontext för giltighetstider på samtycken.
+  Källa: TKB avsnitt 10 (Datatyper), `patientconsent:PDLAssertion`, fälten `startDate` och `endDate`.
+
+- [ ] **[ASSUME-PC-002]** `igs/TKB_ehr_patientconsent/input/fsh/logical-models/GetConsentsForCareProvider.fsh` · fält `moreOnOrAfter`
+  Fältet `moreOnOrAfter` returneras alltid (kardinalitet 1..1) enligt TKB:n, även när inga fler intyg finns. Det modelleras som `1..1 dateTime`. TKB anger att om inga fler finns, representerar värdet "nästa möjliga hämtningstidpunkt". Verifiera att denna semantik är korrekt och att 1..1 är rätt kardinalitet, inte 0..1 (fältet kan i princip alltid saknas om implementation väljer att inte returnera det vid `hasMore = false`).
+  Källa: TKB avsnitt 10 (Datatyper), `patientconsent:GetAllAssertionsResult`, fältet `moreOnOrAfter`.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-PC-001]** `igs/TKB_ehr_patientconsent/input/pagecontent/10-datatyper.md`
+  Sidan `10-datatyper.md` skapades från `docx-converted/full-document.md` eftersom sektionsfilen saknades i `docx-converted/sections/` (konverteraren splittrade inte på kapitel 10). Kontrollera att innehållet är komplett och stämmer mot källdokumentet.
+  Källa: TKB kapitel 10 (Datatyper).

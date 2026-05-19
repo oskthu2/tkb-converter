@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-18T11:26:11.017650+00:00",
+  "last_updated": "2026-05-19T00:00:00Z",
   "domains": [
     {
       "id": "itintegration.engagementindex",
@@ -629,15 +629,30 @@
       "id": "ehr.patientconsent",
       "bitbucket_slug": "riv.ehr.patientconsent",
       "zip_url": null,
-      "domain_version": null,
-      "status": "pending",
+      "domain_version": "1.0.1",
+      "status": "done",
       "blocked_reason": null,
       "output_dir": "igs/TKB_ehr_patientconsent/",
-      "contracts": [],
-      "questions_count": 0,
-      "sushi_result": null,
-      "started_at": null,
-      "completed_at": null
+      "contracts": [
+        { "id": "CheckConsent", "version": "1.0", "sub_namespace": "accesscontrol" },
+        { "id": "GetConsentsForPatient", "version": "1.0", "sub_namespace": "querying" },
+        { "id": "GetConsentsForCareProvider", "version": "1.0", "sub_namespace": "querying" },
+        { "id": "GetExtendedConsentsForPatient", "version": "1.0", "sub_namespace": "administration" },
+        { "id": "RegisterExtendedConsent", "version": "1.0", "sub_namespace": "administration" },
+        { "id": "CancelExtendedConsent", "version": "1.0", "sub_namespace": "administration" },
+        { "id": "DeleteExtendedConsent", "version": "1.0", "sub_namespace": "administration" }
+      ],
+      "questions_count": 3,
+      "sushi_result": {
+        "ran_at": "2026-05-19T00:00:00Z",
+        "errors": 1,
+        "warnings": 19,
+        "artifacts_generated": 21,
+        "passed": true,
+        "note": "FSH-kompilering lyckades: 14 logiska modeller, 3 CodeSystems, 3 ValueSets, 1 ImplementationGuide genererade. Kvarstående 'error' är nätverksfel: Failed to load se.inera.rivta.core#current (packages.fhir.org blockerat i denna miljö — inte ett FSH-kompileringsfel). ig.ini uppdaterad: ig = fsh-generated/resources/ImplementationGuide-inera.ehr-patientconsent.json + template = fhir2.base.template. 10-datatyper.md skapad från docx-converted/full-document.md (Datatyper-sektion saknades i pagecontent)."
+      },
+      "started_at": "2026-05-19T00:00:00Z",
+      "completed_at": "2026-05-19T00:00:00Z"
     },
     {
       "id": "ehr.patientrelationship",

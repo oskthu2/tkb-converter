@@ -1,0 +1,325 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "registerextendedconsent-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-patientconsent/StructureDefinition/registerextendedconsent-request",
+  "name": "RegisterExtendedConsentRequest",
+  "title": "RegisterExtendedConsent — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i RegisterExtendedConsent.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-patientconsent/StructureDefinition/registerextendedconsent-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "registerextendedconsent-request",
+        "path": "registerextendedconsent-request",
+        "short": "RegisterExtendedConsent — Request",
+        "definition": "Logisk modell för requestparametrar i RegisterExtendedConsent."
+      },
+      {
+        "id": "registerextendedconsent-request.assertionId",
+        "path": "registerextendedconsent-request.assertionId",
+        "short": "Unik, global identifierare för intyget (UUID-format, max 36 tecken)",
+        "definition": "Tjänstekonsumenten ansvarar för att generera id:et.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedconsent-request.assertionType",
+        "path": "registerextendedconsent-request.assertionType",
+        "short": "Typ av intyg (Consent eller Emergency)",
+        "definition": "Anger om intyget är ett patientsamtycke eller nödsituationsintyg.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-patientconsent/ValueSet/assertiontype-vs"
+        }
+      },
+      {
+        "id": "registerextendedconsent-request.scope",
+        "path": "registerextendedconsent-request.scope",
+        "short": "Omfånget/tillämpningsområde på intyget",
+        "definition": "Omfånget/tillämpningsområde på intyget",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-patientconsent/ValueSet/scope-vs"
+        }
+      },
+      {
+        "id": "registerextendedconsent-request.patientId",
+        "path": "registerextendedconsent-request.patientId",
+        "short": "Patientens personnummer alternativt samordningsnummer (max 12 tecken)",
+        "definition": "Patientens personnummer alternativt samordningsnummer (max 12 tecken)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedconsent-request.careProviderId",
+        "path": "registerextendedconsent-request.careProviderId",
+        "short": "HSA-id på den vårdgivare som intyget gäller för/kopplas till (max 32 tecken)",
+        "definition": "HSA-id på den vårdgivare som intyget gäller för/kopplas till (max 32 tecken)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedconsent-request.careUnitId",
+        "path": "registerextendedconsent-request.careUnitId",
+        "short": "HSA-id på den vårdenhet som intyget gäller för/kopplas till (max 32 tecken)",
+        "definition": "HSA-id på den vårdenhet som intyget gäller för/kopplas till (max 32 tecken)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedconsent-request.employeeId",
+        "path": "registerextendedconsent-request.employeeId",
+        "short": "Medarbetar-id — anges om samtycket är personligt (max 32 tecken)",
+        "definition": "Om samtycket gäller all behörig personal på angiven vårdenhet, skall inget medarbetarid anges.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedconsent-request.startDate",
+        "path": "registerextendedconsent-request.startDate",
+        "short": "Ej obligatoriskt startdatum för intygets giltighetstid",
+        "definition": "Om ett startdatum är angivet gäller intyget fr.o.m denna tidpunkt, annars gäller samtycket fr.o.m registreringstidpunkten.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedconsent-request.endDate",
+        "path": "registerextendedconsent-request.endDate",
+        "short": "Ej obligatoriskt slutdatum för intygets giltighetstid",
+        "definition": "Om ett slutdatum är angivet gäller intyget t.o.m denna tidpunkt. Om inget slutdatum anges gäller samtycket tills återkallat/makulerat.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedconsent-request.representedBy",
+        "path": "registerextendedconsent-request.representedBy",
+        "short": "Ej obligatorisk företrädare/vårdnadshavare som företräder patienten (max 12 tecken)",
+        "definition": "Ej obligatorisk företrädare/vårdnadshavare som företräder patienten (max 12 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedconsent-request.registrationAction",
+        "path": "registerextendedconsent-request.registrationAction",
+        "short": "Identifierar de personer som begärt och registrerat intyget samt tidpunkter",
+        "definition": "Identifierar de personer som begärt och registrerat intyget samt tidpunkter",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedconsent-request.registrationAction.requestDate",
+        "path": "registerextendedconsent-request.registrationAction.requestDate",
+        "short": "Tidpunkt för begäran om registrering",
+        "definition": "Tidpunkt för begäran om registrering",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedconsent-request.registrationAction.requestedBy",
+        "path": "registerextendedconsent-request.registrationAction.requestedBy",
+        "short": "Aktör som begärt registreringen",
+        "definition": "Aktör som begärt registreringen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedconsent-request.registrationAction.requestedBy.employeeId",
+        "path": "registerextendedconsent-request.registrationAction.requestedBy.employeeId",
+        "short": "HSA-id för medarbetaren (max 32 tecken)",
+        "definition": "HSA-id för medarbetaren (max 32 tecken)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedconsent-request.registrationAction.requestedBy.assignmentId",
+        "path": "registerextendedconsent-request.registrationAction.requestedBy.assignmentId",
+        "short": "HSA-id för medarbetaruppdraget (max 32 tecken)",
+        "definition": "HSA-id för medarbetaruppdraget (max 32 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedconsent-request.registrationAction.requestedBy.assignmentName",
+        "path": "registerextendedconsent-request.registrationAction.requestedBy.assignmentName",
+        "short": "Namn på medarbetaruppdraget (max 256 tecken)",
+        "definition": "Namn på medarbetaruppdraget (max 256 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedconsent-request.registrationAction.registrationDate",
+        "path": "registerextendedconsent-request.registrationAction.registrationDate",
+        "short": "Tidpunkt för genomförd registrering",
+        "definition": "Tidpunkt för genomförd registrering",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedconsent-request.registrationAction.registeredBy",
+        "path": "registerextendedconsent-request.registrationAction.registeredBy",
+        "short": "Aktör som utfört registreringen",
+        "definition": "Aktör som utfört registreringen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedconsent-request.registrationAction.registeredBy.employeeId",
+        "path": "registerextendedconsent-request.registrationAction.registeredBy.employeeId",
+        "short": "HSA-id för medarbetaren (max 32 tecken)",
+        "definition": "HSA-id för medarbetaren (max 32 tecken)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedconsent-request.registrationAction.registeredBy.assignmentId",
+        "path": "registerextendedconsent-request.registrationAction.registeredBy.assignmentId",
+        "short": "HSA-id för medarbetaruppdraget (max 32 tecken)",
+        "definition": "HSA-id för medarbetaruppdraget (max 32 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedconsent-request.registrationAction.registeredBy.assignmentName",
+        "path": "registerextendedconsent-request.registrationAction.registeredBy.assignmentName",
+        "short": "Namn på medarbetaruppdraget (max 256 tecken)",
+        "definition": "Namn på medarbetaruppdraget (max 256 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedconsent-request.registrationAction.reasonText",
+        "path": "registerextendedconsent-request.registrationAction.reasonText",
+        "short": "Anledning till åtgärden i fritext (max 1024 tecken)",
+        "definition": "Anledning till åtgärden i fritext (max 1024 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

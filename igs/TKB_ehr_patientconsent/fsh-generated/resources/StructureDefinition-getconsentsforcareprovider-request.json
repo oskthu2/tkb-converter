@@ -1,0 +1,70 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getconsentsforcareprovider-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-patientconsent/StructureDefinition/getconsentsforcareprovider-request",
+  "name": "GetConsentsForCareProviderRequest",
+  "title": "GetConsentsForCareProvider — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i GetConsentsForCareProvider.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-patientconsent/StructureDefinition/getconsentsforcareprovider-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getconsentsforcareprovider-request",
+        "path": "getconsentsforcareprovider-request",
+        "short": "GetConsentsForCareProvider — Request",
+        "definition": "Logisk modell för requestparametrar i GetConsentsForCareProvider."
+      },
+      {
+        "id": "getconsentsforcareprovider-request.careProviderId",
+        "path": "getconsentsforcareprovider-request.careProviderId",
+        "short": "HSA-id på den vårdgivare vars samtycken skall hämtas",
+        "definition": "Identifierare för vårdgivare. system = urn:oid:1.2.752.129.2.1.4.1. Max 32 tecken.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider-request.createdOnOrAfter",
+        "path": "getconsentsforcareprovider-request.createdOnOrAfter",
+        "short": "Ej obligatoriskt startdatum för hur gamla samtyckesintyg som skall hämtas",
+        "definition": "Om angivet returneras endast samtyckesintyg som är giltiga i tjänsten på eller efter denna tidpunkt.\nAnvändbart vid upprepande förfrågningar för att undvika att data som redan inhämtats returneras.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider-request.getCancelledFlag",
+        "path": "getconsentsforcareprovider-request.getCancelledFlag",
+        "short": "Flagga som avgör om makulerade och återkallade samtyckesintyg skall returneras",
+        "definition": "Om true returneras även makulerade och återkallade intyg som inte är utgångna.\nUtgångna intyg (giltigt t o m har passerats) returneras ej oavsett makulering eller återkallning.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      }
+    ]
+  }
+}
