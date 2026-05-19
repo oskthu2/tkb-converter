@@ -830,3 +830,32 @@ _Inga blockerare._
 
 - [ ] **[TODO-IDAM-001]** `igs/TKB_infrastructure_directory_authorizationmanagement/input/fsh/logical-models/`
   SUSHI-varning: "Type characteristics code system not found" för alla 13 logiska modeller. Beror på att `se.inera.rivta.core#current` inte laddades (paket ej tillgängligt offline). Ignorera tills nätverksåtkomst finns eller paketet installeras lokalt.
+
+---
+
+## eservicesupply.eoffering v1.0.0 — `igs/TKB_eservicesupply_eoffering/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-19
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-EO-001]** `igs/TKB_eservicesupply_eoffering/input/fsh/logical-models/GetAvailableEServices.fsh` · fält `availableEServices.eservice.restrictions.referalTypeId`
+  Fältet refererar till "KV Framställantyp" (kodverk för remisstyper 1–8). Canonical URL för detta kodverk är okänd. Ska fältet bindas till ett externt ValueSet (om KV Framställantyp har känd FHIR-URL), eller ska ett lokalt CodeSystem/ValueSet skapas?
+  Källa: domain-metadata.json, open_questions_from_parsing.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-EO-001]** `igs/TKB_eservicesupply_eoffering/input/fsh/codesystems/GenderEofferingCS.fsh`
+  Fältet `gender` är av typen `genderType (string)` i XSD-schemat utan enumeration. TKB-texten anger värdena 1=Man, 2=Kvinna. Antagande: modellat med ett domänspecifikt ValueSet (GenderEofferingVS) med koder `#1` och `#2`. Verifiera om ett standardiserat FHIR-kodverk (t.ex. `http://hl7.org/fhir/administrative-gender`) vore mer lämpligt. Notera dock att RIV-TA-koderna (1/2) inte matchar FHIR:s `male`/`female`.
+
+- [ ] **[ASSUME-EO-002]** `igs/TKB_eservicesupply_eoffering/input/fsh/logical-models/GetAvailableEServices.fsh` · fält `availableEServices.eservice.securitylevel`
+  Autentiseringsnivåerna AL1–AL4 modellerades med ett domänspecifikt CodeSystem (SecurityLevelCS). Inget OID hittades i källmaterialet. Verifiera om detta kodverk har ett registrerat OID i Ineras terminologiregister — om så är fallet, uppdatera `^url` i SecurityLevelCS.fsh till `urn:oid:{OID}` och ta bort motsvarande rad ur `special-url` i sushi-config.yaml.
+
+- [ ] **[ASSUME-EO-003]** `igs/TKB_eservicesupply_eoffering/` · TKB-version
+  TKB-dokumentet är version 0.3 (utkast, 2011-04-18). Det är oklart om detta är den senaste publicerade versionen eller om nyare versioner existerar. IG:n använder version 1.0.0 (baserat på tjänstekontraktets version 1.0). Verifiera med Inera om TKB har uppdaterats efter 2011.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-EO-001]** `igs/TKB_eservicesupply_eoffering/input/fsh/logical-models/GetAvailableEServices.fsh`
+  SUSHI-varning: "Type characteristics code system not found" för GetAvailableEServices logisk modell. Beror på att `se.inera.rivta.core#current` inte laddades (paket ej tillgängligt offline). Ignorera tills nätverksåtkomst finns eller paketet installeras lokalt.
