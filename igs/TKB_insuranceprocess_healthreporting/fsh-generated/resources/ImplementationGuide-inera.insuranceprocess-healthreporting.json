@@ -1,0 +1,462 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "inera.insuranceprocess-healthreporting",
+  "url": "https://fhir.inera.se/ig/insuranceprocess-healthreporting/ImplementationGuide/inera.insuranceprocess-healthreporting",
+  "version": "3.1.0",
+  "name": "insuranceprocesshealthreporting",
+  "title": "insuranceprocess: healthreporting",
+  "status": "draft",
+  "contact": [
+    {
+      "name": "Inera Arkitektur",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.inera.se"
+        }
+      ]
+    }
+  ],
+  "copyright": "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "packageId": "inera.insuranceprocess-healthreporting",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.r4.core",
+      "version": "4.0.1",
+      "uri": "http://fhir.org/packages/hl7.fhir.r4.core/ImplementationGuide/hl7.fhir.r4.core",
+      "id": "hl7_fhir_r4_core"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "CodeSystem/aktivitetskod-cs"
+        },
+        "name": "Aktivitetskod",
+        "description": "Kodverk för aktivitetskoder i tjänstekontraktet RegisterMedicalCertificate (blankett FK7263).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/aktivitetskod-vs"
+        },
+        "name": "Aktivitetskod — ValueSet",
+        "description": "Tillåtna värden för aktivitetskod i RegisterMedicalCertificate.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/amne-cs"
+        },
+        "name": "Amne",
+        "description": "Kodverk för ämne i fråge/svar-interaktionerna i tjänstedomänen insuranceprocess:healthreporting.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/amne-vs"
+        },
+        "name": "Amne — ValueSet",
+        "description": "Tillåtna värden för ämne i fråge/svar-interaktionerna.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/deleteanswers"
+        },
+        "name": "DeleteAnswers",
+        "description": "Logisk modell för responsens informationsstruktur i tjänstekontraktet DeleteAnswers\n(RIV-TA urn:riv:insuranceprocess:healthreporting:DeleteAnswers:1).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/deleteanswers-request"
+        },
+        "name": "DeleteAnswers — Request",
+        "description": "Logisk modell för requestparametrar i tjänstekontraktet DeleteAnswers\n(RIV-TA urn:riv:insuranceprocess:healthreporting:DeleteAnswers:1).\nTar bort svar som mellanlagrats av vården och tidigare hämtats via FindAllAnswers.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/deletequestions"
+        },
+        "name": "DeleteQuestions",
+        "description": "Logisk modell för responsens informationsstruktur i tjänstekontraktet DeleteQuestions\n(RIV-TA urn:riv:insuranceprocess:healthreporting:DeleteQuestions:1).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/deletequestions-request"
+        },
+        "name": "DeleteQuestions — Request",
+        "description": "Logisk modell för requestparametrar i tjänstekontraktet DeleteQuestions\n(RIV-TA urn:riv:insuranceprocess:healthreporting:DeleteQuestions:1).\nTar bort frågor som mellanlagrats av vården och tidigare hämtats via FindAllQuestions.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/findallanswers"
+        },
+        "name": "FindAllAnswers",
+        "description": "Logisk modell för responsens informationsstruktur i tjänstekontraktet FindAllAnswers\n(RIV-TA urn:riv:insuranceprocess:healthreporting:FindAllAnswers:1).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/findallanswers-request"
+        },
+        "name": "FindAllAnswers — Request",
+        "description": "Logisk modell för requestparametrar i tjänstekontraktet FindAllAnswers\n(RIV-TA urn:riv:insuranceprocess:healthreporting:FindAllAnswers:1).\nReturnerar svar från FK på tidigare skickade frågor från vården.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/findallquestions"
+        },
+        "name": "FindAllQuestions",
+        "description": "Logisk modell för responsens informationsstruktur i tjänstekontraktet FindAllQuestions\n(RIV-TA urn:riv:insuranceprocess:healthreporting:FindAllQuestions:1).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/findallquestions-request"
+        },
+        "name": "FindAllQuestions — Request",
+        "description": "Logisk modell för requestparametrar i tjänstekontraktet FindAllQuestions\n(RIV-TA urn:riv:insuranceprocess:healthreporting:FindAllQuestions:1).\nReturnerar frågor från FK som mellanlagrats av vården.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getcertificate"
+        },
+        "name": "GetCertificate",
+        "description": "Logisk modell för responsens informationsstruktur i tjänstekontraktet GetCertificate\n(RIV-TA urn:riv:insuranceprocess:healthreporting:GetCertificate:1).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getcertificate-request"
+        },
+        "name": "GetCertificate — Request",
+        "description": "Logisk modell för requestparametrar i tjänstekontraktet GetCertificate\n(RIV-TA urn:riv:insuranceprocess:healthreporting:GetCertificate:1).\nHämtar ett specifikt läkarintyg från intygstjänsten.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/listcertificates"
+        },
+        "name": "ListCertificates",
+        "description": "Logisk modell för responsens informationsstruktur i tjänstekontraktet ListCertificates\n(RIV-TA urn:riv:insuranceprocess:healthreporting:ListCertificates:1).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/listcertificates-request"
+        },
+        "name": "ListCertificates — Request",
+        "description": "Logisk modell för requestparametrar i tjänstekontraktet ListCertificates\n(RIV-TA urn:riv:insuranceprocess:healthreporting:ListCertificates:1).\nBegär en lista av registrerade läkarintyg från intygstjänsten.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/nedsattningsgrad-cs"
+        },
+        "name": "Nedsattningsgrad",
+        "description": "Kodverk för grad av arbetsförmågenedsättning i tjänstekontraktet RegisterMedicalCertificate (blankett FK7263 Fält 8b).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/nedsattningsgrad-vs"
+        },
+        "name": "Nedsattningsgrad — ValueSet",
+        "description": "Tillåtna värden för grad av arbetsförmågenedsättning i RegisterMedicalCertificate.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/receivemedicalcertificateanswer"
+        },
+        "name": "ReceiveMedicalCertificateAnswer",
+        "description": "Logisk modell för responsens informationsstruktur i tjänstekontraktet ReceiveMedicalCertificateAnswer\n(RIV-TA urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateAnswer:1).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/receivemedicalcertificateanswer-request"
+        },
+        "name": "ReceiveMedicalCertificateAnswer — Request",
+        "description": "Logisk modell för requestparametrar i tjänstekontraktet ReceiveMedicalCertificateAnswer\n(RIV-TA urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateAnswer:1).\nTar emot svar från Försäkringskassan på en tidigare skickad fråga från vården.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/receivemedicalcertificatequestion"
+        },
+        "name": "ReceiveMedicalCertificateQuestion",
+        "description": "Logisk modell för responsens informationsstruktur i tjänstekontraktet ReceiveMedicalCertificateQuestion\n(RIV-TA urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateQuestion:1).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/receivemedicalcertificatequestion-request"
+        },
+        "name": "ReceiveMedicalCertificateQuestion — Request",
+        "description": "Logisk modell för requestparametrar i tjänstekontraktet ReceiveMedicalCertificateQuestion\n(RIV-TA urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateQuestion:1).\nTar emot frågor från Försäkringskassan för ett läkarintyg.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/referenstyp-cs"
+        },
+        "name": "Referenstyp",
+        "description": "Kodverk för typ av referens i tjänstekontraktet RegisterMedicalCertificate.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/referenstyp-vs"
+        },
+        "name": "Referenstyp — ValueSet",
+        "description": "Tillåtna värden för typ av referens i RegisterMedicalCertificate.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/registermedicalcertificate"
+        },
+        "name": "RegisterMedicalCertificate",
+        "description": "Logisk modell för responsens informationsstruktur i tjänstekontraktet RegisterMedicalCertificate\n(RIV-TA urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificate:3).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/registermedicalcertificate-request"
+        },
+        "name": "RegisterMedicalCertificate — Request",
+        "description": "Logisk modell för requestparametrar i tjänstekontraktet RegisterMedicalCertificate\n(RIV-TA urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificate:3).\nSkickar ett komplett läkarintyg FK7263.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/revokemedicalcertificate"
+        },
+        "name": "RevokeMedicalCertificate",
+        "description": "Logisk modell för responsens informationsstruktur i tjänstekontraktet RevokeMedicalCertificate\n(RIV-TA urn:riv:insuranceprocess:healthreporting:RevokeMedicalCertificate:1).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/revokemedicalcertificate-request"
+        },
+        "name": "RevokeMedicalCertificate — Request",
+        "description": "Logisk modell för requestparametrar i tjänstekontraktet RevokeMedicalCertificate\n(RIV-TA urn:riv:insuranceprocess:healthreporting:RevokeMedicalCertificate:1).\nSkickar ett meddelande om rättelse av ett tidigare inskickat läkarintyg.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/sendmedicalcertificate"
+        },
+        "name": "SendMedicalCertificate",
+        "description": "Logisk modell för responsens informationsstruktur i tjänstekontraktet SendMedicalCertificate\n(RIV-TA urn:riv:insuranceprocess:healthreporting:SendMedicalCertificate:1).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/sendmedicalcertificate-request"
+        },
+        "name": "SendMedicalCertificate — Request",
+        "description": "Logisk modell för requestparametrar i tjänstekontraktet SendMedicalCertificate\n(RIV-TA urn:riv:insuranceprocess:healthreporting:SendMedicalCertificate:1).\nSkickar ett meddelande om att ett läkarintyg skall skickas vidare till FK.\nLäkarintyget är tidigare insänt via RegisterMedicalCertificate.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/sendmedicalcertificateanswer"
+        },
+        "name": "SendMedicalCertificateAnswer",
+        "description": "Logisk modell för responsens informationsstruktur i tjänstekontraktet SendMedicalCertificateAnswer\n(RIV-TA urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateAnswer:1).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/sendmedicalcertificateanswer-request"
+        },
+        "name": "SendMedicalCertificateAnswer — Request",
+        "description": "Logisk modell för requestparametrar i tjänstekontraktet SendMedicalCertificateAnswer\n(RIV-TA urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateAnswer:1).\nSkickar ett svar till Försäkringskassan på en tidigare mottagen fråga.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/sendmedicalcertificatequestion"
+        },
+        "name": "SendMedicalCertificateQuestion",
+        "description": "Logisk modell för responsens informationsstruktur i tjänstekontraktet SendMedicalCertificateQuestion\n(RIV-TA urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateQuestion:1).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/sendmedicalcertificatequestion-request"
+        },
+        "name": "SendMedicalCertificateQuestion — Request",
+        "description": "Logisk modell för requestparametrar i tjänstekontraktet SendMedicalCertificateQuestion\n(RIV-TA urn:riv:insuranceprocess:healthreporting:SendMedicalCertificateQuestion:1).\nSkickar en fråga till Försäkringskassan för ett läkarintyg.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/setcertificatestatus"
+        },
+        "name": "SetCertificateStatus",
+        "description": "Logisk modell för responsens informationsstruktur i tjänstekontraktet SetCertificateStatus\n(RIV-TA urn:riv:insuranceprocess:healthreporting:SetCertificateStatus:1).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/setcertificatestatus-request"
+        },
+        "name": "SetCertificateStatus — Request",
+        "description": "Logisk modell för requestparametrar i tjänstekontraktet SetCertificateStatus\n(RIV-TA urn:riv:insuranceprocess:healthreporting:SetCertificateStatus:1).\nSätter status för ett registrerat läkarintyg i intygstjänsten.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/status-cs"
+        },
+        "name": "Status",
+        "description": "Kodverk för statustyp för läkarintyg i tjänstekontrakten ListCertificates och SetCertificateStatus.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/status-vs"
+        },
+        "name": "Status — ValueSet",
+        "description": "Tillåtna värden för statustyp för läkarintyg.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/vardkontakttyp-cs"
+        },
+        "name": "Vardkontakttyp",
+        "description": "Kodverk för typ av vårdkontakt i tjänstekontraktet RegisterMedicalCertificate.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/vardkontakttyp-vs"
+        },
+        "name": "Vardkontakttyp — ValueSet",
+        "description": "Tillåtna värden för typ av vårdkontakt i RegisterMedicalCertificate.",
+        "exampleBoolean": false
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Hem",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "1-inledning.html",
+          "title": "1 Inledning",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "2-versionsinformation.html",
+          "title": "2 Versionsinformation",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "3-tjanstedomanens-arkitektur.html",
+          "title": "3 Tjänstedomänens arkitektur",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "4-tjanstedomanens-krav-och-regler.html",
+          "title": "4 Tjänstedomänens krav och regler",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "5-tjanstedomanens-meddelandemodeller.html",
+          "title": "5 Tjänstedomänens meddelandemodeller",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "6-gemensamma-informationskomponenter.html",
+          "title": "6 Gemensamma informationskomponenter",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "7-tjanstekontrakt.html",
+          "title": "7 Tjänstekontrakt",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2024+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "draft"
+      },
+      {
+        "code": "show-inherited-invariants",
+        "value": "false"
+      },
+      {
+        "code": "apply-contact",
+        "value": "true"
+      },
+      {
+        "code": "apply-publisher",
+        "value": "true"
+      },
+      {
+        "code": "apply-version",
+        "value": "true"
+      },
+      {
+        "code": "apply-copyright",
+        "value": "true"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/vardkontakttyp-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/referenstyp-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/aktivitetskod-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/nedsattningsgrad-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/typavutlatande-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/amne-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/status-cs"
+      }
+    ]
+  }
+}

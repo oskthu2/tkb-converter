@@ -1,0 +1,477 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "receivemedicalcertificatequestion-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/insuranceprocess-healthreporting/StructureDefinition/receivemedicalcertificatequestion-request",
+  "name": "ReceiveMedicalCertificateQuestionRequest",
+  "title": "ReceiveMedicalCertificateQuestion — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i tjänstekontraktet ReceiveMedicalCertificateQuestion\n(RIV-TA urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateQuestion:1).\nTar emot frågor från Försäkringskassan för ett läkarintyg.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/insuranceprocess-healthreporting/StructureDefinition/receivemedicalcertificatequestion-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "receivemedicalcertificatequestion-request",
+        "path": "receivemedicalcertificatequestion-request",
+        "short": "ReceiveMedicalCertificateQuestion — Request",
+        "definition": "Logisk modell för requestparametrar i tjänstekontraktet ReceiveMedicalCertificateQuestion\n(RIV-TA urn:riv:insuranceprocess:healthreporting:ReceiveMedicalCertificateQuestion:1).\nTar emot frågor från Försäkringskassan för ett läkarintyg."
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.fkReferensId",
+        "path": "receivemedicalcertificatequestion-request.fkReferensId",
+        "short": "Försäkringskassans referens-id",
+        "definition": "Samma referens-id kan förekomma i flera meddelanden.\nVid påminnelse ska referens-id vara samma som för den fråga påminnelsen gäller.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.amne",
+        "path": "receivemedicalcertificatequestion-request.amne",
+        "short": "Ämne som frågan gäller",
+        "definition": "Ämne som frågan gäller",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/insuranceprocess-healthreporting/ValueSet/amne-vs"
+        }
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.fraga",
+        "path": "receivemedicalcertificatequestion-request.fraga",
+        "short": "Frågan",
+        "definition": "Frågan",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.fraga.meddelandeText",
+        "path": "receivemedicalcertificatequestion-request.fraga.meddelandeText",
+        "short": "Frågetext rörande det angivna läkarintyget",
+        "definition": "Frågetext rörande det angivna läkarintyget",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.fraga.signeringsTidpunkt",
+        "path": "receivemedicalcertificatequestion-request.fraga.signeringsTidpunkt",
+        "short": "Signeringstidpunkt för frågan",
+        "definition": "Signeringstidpunkt för frågan",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.avsantTidpunkt",
+        "path": "receivemedicalcertificatequestion-request.avsantTidpunkt",
+        "short": "Tidpunkt då frågan skickades från Försäkringskassan",
+        "definition": "Tidpunkt då frågan skickades från Försäkringskassan",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.fkKontaktInfo",
+        "path": "receivemedicalcertificatequestion-request.fkKontaktInfo",
+        "short": "Rader med kontaktinformation",
+        "definition": "Rader med kontaktinformation",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.fkKontaktInfo.kontakt",
+        "path": "receivemedicalcertificatequestion-request.fkKontaktInfo.kontakt",
+        "short": "Kontaktinformation för person som ställt frågan från FK",
+        "definition": "Kontaktinformation för person som ställt frågan från FK",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.adressVard",
+        "path": "receivemedicalcertificatequestion-request.adressVard",
+        "short": "Vårdadress",
+        "definition": "Vårdadress",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.adressVard.hosPersonal",
+        "path": "receivemedicalcertificatequestion-request.adressVard.hosPersonal",
+        "short": "Vårdpersonal",
+        "definition": "Vårdpersonal",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.personalId",
+        "path": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.personalId",
+        "short": "HSA-Id för Hos-person som utfärdade läkarintyget",
+        "definition": "HSA-Id för Hos-person som utfärdade läkarintyget",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.fullstandigtNamn",
+        "path": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.fullstandigtNamn",
+        "short": "Namn för Hos-person som utfärdade läkarintyget",
+        "definition": "Namn för Hos-person som utfärdade läkarintyget",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.enhet",
+        "path": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.enhet",
+        "short": "Vårdenhet",
+        "definition": "Vårdenhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.enhet.enhetsId",
+        "path": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.enhet.enhetsId",
+        "short": "HSA-Id för Hos-vårdenhet",
+        "definition": "HSA-Id för Hos-vårdenhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.enhet.enhetsNamn",
+        "path": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.enhet.enhetsNamn",
+        "short": "Namn på Hos-vårdenhet",
+        "definition": "Namn på Hos-vårdenhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.enhet.postadress",
+        "path": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.enhet.postadress",
+        "short": "Postadress",
+        "definition": "Postadress",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.enhet.postnummer",
+        "path": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.enhet.postnummer",
+        "short": "Postnummer",
+        "definition": "Postnummer",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.enhet.postort",
+        "path": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.enhet.postort",
+        "short": "Postort",
+        "definition": "Postort",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.enhet.telefonnummer",
+        "path": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.enhet.telefonnummer",
+        "short": "Telefonnummer",
+        "definition": "Telefonnummer",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.enhet.epost",
+        "path": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.enhet.epost",
+        "short": "Epost",
+        "definition": "Epost",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.enhet.vardgivare",
+        "path": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.enhet.vardgivare",
+        "short": "Vårdgivare",
+        "definition": "Vårdgivare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.enhet.vardgivare.vardgivareId",
+        "path": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.enhet.vardgivare.vardgivareId",
+        "short": "HSA-Id för Hos-vårdgivare",
+        "definition": "HSA-Id för Hos-vårdgivare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.enhet.vardgivare.vardgivareNamn",
+        "path": "receivemedicalcertificatequestion-request.adressVard.hosPersonal.enhet.vardgivare.vardgivareNamn",
+        "short": "Namn på Hos-vårdgivare",
+        "definition": "Namn på Hos-vårdgivare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.fkMeddelanderubrik",
+        "path": "receivemedicalcertificatequestion-request.fkMeddelanderubrik",
+        "short": "Extra rubrik från Försäkringskassan",
+        "definition": "Extra rubrik från Försäkringskassan",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.fkKomplettering",
+        "path": "receivemedicalcertificatequestion-request.fkKomplettering",
+        "short": "Komplettering",
+        "definition": "Komplettering",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.fkKomplettering.falt",
+        "path": "receivemedicalcertificatequestion-request.fkKomplettering.falt",
+        "short": "Referens till fält på blanketten MU7263",
+        "definition": "Referens till fält på blanketten MU7263",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.fkKomplettering.text",
+        "path": "receivemedicalcertificatequestion-request.fkKomplettering.text",
+        "short": "Orsak till komplettering för detta fält",
+        "definition": "Orsak till komplettering för detta fält",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.fkSistaDatumForSvar",
+        "path": "receivemedicalcertificatequestion-request.fkSistaDatumForSvar",
+        "short": "Datum då FK senast vill ha svar",
+        "definition": "Datum då FK senast vill ha svar",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.lakarutlatande",
+        "path": "receivemedicalcertificatequestion-request.lakarutlatande",
+        "short": "Läkarintyget som frågan gäller",
+        "definition": "Läkarintyget som frågan gäller",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.lakarutlatande.lakarutlatandeId",
+        "path": "receivemedicalcertificatequestion-request.lakarutlatande.lakarutlatandeId",
+        "short": "Unikt id för läkarintyget",
+        "definition": "Unikt id för läkarintyget",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.lakarutlatande.signeringsTidpunkt",
+        "path": "receivemedicalcertificatequestion-request.lakarutlatande.signeringsTidpunkt",
+        "short": "Signeringstidpunkt för läkarintyget",
+        "definition": "Signeringstidpunkt för läkarintyget",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.lakarutlatande.patient",
+        "path": "receivemedicalcertificatequestion-request.lakarutlatande.patient",
+        "short": "Patienten",
+        "definition": "Patienten",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.lakarutlatande.patient.personId",
+        "path": "receivemedicalcertificatequestion-request.lakarutlatande.patient.personId",
+        "short": "Patientens personnummer eller samordningsnummer",
+        "definition": "Patientens personnummer eller samordningsnummer",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "receivemedicalcertificatequestion-request.lakarutlatande.patient.fullstandigtNamn",
+        "path": "receivemedicalcertificatequestion-request.lakarutlatande.patient.fullstandigtNamn",
+        "short": "Patientens namn",
+        "definition": "Patientens namn",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

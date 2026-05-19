@@ -1,0 +1,282 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getcertificate",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/insuranceprocess-healthreporting/StructureDefinition/getcertificate",
+  "name": "GetCertificate",
+  "title": "GetCertificate",
+  "status": "draft",
+  "description": "Logisk modell för responsens informationsstruktur i tjänstekontraktet GetCertificate\n(RIV-TA urn:riv:insuranceprocess:healthreporting:GetCertificate:1).",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/insuranceprocess-healthreporting/StructureDefinition/getcertificate",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getcertificate",
+        "path": "getcertificate",
+        "short": "GetCertificate",
+        "definition": "Logisk modell för responsens informationsstruktur i tjänstekontraktet GetCertificate\n(RIV-TA urn:riv:insuranceprocess:healthreporting:GetCertificate:1)."
+      },
+      {
+        "id": "getcertificate.meta",
+        "path": "getcertificate.meta",
+        "short": "Metadata om intyget",
+        "definition": "Metadata om intyget",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcertificate.meta.certificateId",
+        "path": "getcertificate.meta.certificateId",
+        "short": "Identitet på intyget (GUID)",
+        "definition": "Identitet på intyget (GUID)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcertificate.meta.certificateType",
+        "path": "getcertificate.meta.certificateType",
+        "short": "Typ av intyg",
+        "definition": "Typ av intyg",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcertificate.meta.validFrom",
+        "path": "getcertificate.meta.validFrom",
+        "short": "Startdatum för sjukskrivningsperioden",
+        "definition": "Startdatum för sjukskrivningsperioden",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "getcertificate.meta.validTo",
+        "path": "getcertificate.meta.validTo",
+        "short": "Slutdatum för sjukskrivningsperioden",
+        "definition": "Slutdatum för sjukskrivningsperioden",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "getcertificate.meta.issuerName",
+        "path": "getcertificate.meta.issuerName",
+        "short": "Namn för Hos-person som utfärdat intyget",
+        "definition": "Namn för Hos-person som utfärdat intyget",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcertificate.meta.facilityName",
+        "path": "getcertificate.meta.facilityName",
+        "short": "Namn på Hos-vårdenhet där intyget utfärdats",
+        "definition": "Namn på Hos-vårdenhet där intyget utfärdats",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcertificate.meta.signDate",
+        "path": "getcertificate.meta.signDate",
+        "short": "Datum och tid när intyget signerades",
+        "definition": "Datum och tid när intyget signerades",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcertificate.meta.available",
+        "path": "getcertificate.meta.available",
+        "short": "Om intyget är tillgängligt",
+        "definition": "Om intyget är tillgängligt",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcertificate.meta.status",
+        "path": "getcertificate.meta.status",
+        "short": "Statustyper för olika mottagare",
+        "definition": "Statustyper för olika mottagare",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcertificate.meta.status.target",
+        "path": "getcertificate.meta.status.target",
+        "short": "Mottagare för en status (t.ex. FK)",
+        "definition": "Mottagare för en status (t.ex. FK)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcertificate.meta.status.type",
+        "path": "getcertificate.meta.status.type",
+        "short": "Typ av statusändring för intyget",
+        "definition": "Typ av statusändring för intyget",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "https://fhir.inera.se/ig/insuranceprocess-healthreporting/ValueSet/status-vs"
+        }
+      },
+      {
+        "id": "getcertificate.meta.status.timestamp",
+        "path": "getcertificate.meta.status.timestamp",
+        "short": "När statusen sattes",
+        "definition": "När statusen sattes",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcertificate.certificate",
+        "path": "getcertificate.certificate",
+        "short": "Platshållare för intyget (generisk, se meta.certificateType för typ)",
+        "definition": "ASSUME: Intyget är generiskt XML - mappat till string i avvaktan på formell FHIR-modell.\nSe QUESTIONS.md ASSUME-HR-002.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcertificate.result",
+        "path": "getcertificate.result",
+        "short": "Resultatinformation",
+        "definition": "Resultatinformation",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcertificate.result.resultCode",
+        "path": "getcertificate.result.resultCode",
+        "short": "Resultatkod (OK, ERROR, INFO)",
+        "definition": "Resultatkod (OK, ERROR, INFO)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcertificate.result.infoText",
+        "path": "getcertificate.result.infoText",
+        "short": "Extra information om anropets utgång",
+        "definition": "Extra information om anropets utgång",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcertificate.result.errorId",
+        "path": "getcertificate.result.errorId",
+        "short": "Felkategori",
+        "definition": "Felkategori",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcertificate.result.errorText",
+        "path": "getcertificate.result.errorText",
+        "short": "Beskrivande text för felet",
+        "definition": "Beskrivande text för felet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,723 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "registermedicalcertificate-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/insuranceprocess-healthreporting/StructureDefinition/registermedicalcertificate-request",
+  "name": "RegisterMedicalCertificateRequest",
+  "title": "RegisterMedicalCertificate — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i tjänstekontraktet RegisterMedicalCertificate\n(RIV-TA urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificate:3).\nSkickar ett komplett läkarintyg FK7263.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/insuranceprocess-healthreporting/StructureDefinition/registermedicalcertificate-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "registermedicalcertificate-request",
+        "path": "registermedicalcertificate-request",
+        "short": "RegisterMedicalCertificate — Request",
+        "definition": "Logisk modell för requestparametrar i tjänstekontraktet RegisterMedicalCertificate\n(RIV-TA urn:riv:insuranceprocess:healthreporting:RegisterMedicalCertificate:3).\nSkickar ett komplett läkarintyg FK7263."
+      },
+      {
+        "id": "registermedicalcertificate-request.lakarutlatandeId",
+        "path": "registermedicalcertificate-request.lakarutlatandeId",
+        "short": "Identitet på läkarintyget (GUID)",
+        "definition": "Unik identifierare för läkarintyget. Är en GUID.\nFält: lakarutlatande.lakarutlatande-id. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.typAvUtlatande",
+        "path": "registermedicalcertificate-request.typAvUtlatande",
+        "short": "Typ av utlåtande",
+        "definition": "Fix text: 'Läkarintyg enligt 3 kap, 8 § lagen (1962:381) om allmän försäkring'.\nFält: lakarutlatande.typAvUtlatande. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.kommentar",
+        "path": "registermedicalcertificate-request.kommentar",
+        "short": "Extra upplysningar i fritext (Fält 13)",
+        "definition": "Extra upplysningar i fritext. Fält 13 på blanketten.\nVillkorligt: obligatoriskt om Prognosangivelse=DET_GAR_INTE_ATT_BEDOMMA eller Referenstyp=Annat.\nFält: lakarutlatande.kommentar. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.signeringsdatum",
+        "path": "registermedicalcertificate-request.signeringsdatum",
+        "short": "När läkarintyget signerades (Fält 14)",
+        "definition": "Datum och tid för signering. Fält 14 på blanketten.\nFält: lakarutlatande.signeringsdatum. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.skickatdatum",
+        "path": "registermedicalcertificate-request.skickatdatum",
+        "short": "När läkarintyget skickades till FK",
+        "definition": "Datum och tid för utskick till Försäkringskassan.\nFält: lakarutlatande.skickatdatum. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.patient",
+        "path": "registermedicalcertificate-request.patient",
+        "short": "Patienten",
+        "definition": "Patienten",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.patient.personId",
+        "path": "registermedicalcertificate-request.patient.personId",
+        "short": "Patientens personnummer eller samordningsnummer",
+        "definition": "Patientens personnummer eller samordningsnummer.\nFält: lakarutlatande.patient.person-id. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.patient.fullstandigtNamn",
+        "path": "registermedicalcertificate-request.patient.fullstandigtNamn",
+        "short": "Patientens hela namn",
+        "definition": "Fält: lakarutlatande.patient.fullstandigtNamn. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.skapadAvHosPersonal",
+        "path": "registermedicalcertificate-request.skapadAvHosPersonal",
+        "short": "Vårdpersonal som utfärdar läkarintyget",
+        "definition": "Vårdpersonal som utfärdar läkarintyget",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.skapadAvHosPersonal.personalId",
+        "path": "registermedicalcertificate-request.skapadAvHosPersonal.personalId",
+        "short": "HSA-Id för Hos-person som utfärdar läkarintyget",
+        "definition": "system = urn:oid:1.2.752.129.2.1.4.1 (HSA-ID).\nFält: lakarutlatande.skapadAvHosPersonal.personal-id. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.skapadAvHosPersonal.forskrivarkod",
+        "path": "registermedicalcertificate-request.skapadAvHosPersonal.forskrivarkod",
+        "short": "Förskrivarkod för Hos-person",
+        "definition": "Förskrivarkod för Hos-person",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.skapadAvHosPersonal.fullstandigtNamn",
+        "path": "registermedicalcertificate-request.skapadAvHosPersonal.fullstandigtNamn",
+        "short": "Namn för Hos-person som utfärdar läkarintyget",
+        "definition": "Namn för Hos-person som utfärdar läkarintyget",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.skapadAvHosPersonal.enhet",
+        "path": "registermedicalcertificate-request.skapadAvHosPersonal.enhet",
+        "short": "Vårdenhet",
+        "definition": "Vårdenhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.skapadAvHosPersonal.enhet.enhetsId",
+        "path": "registermedicalcertificate-request.skapadAvHosPersonal.enhet.enhetsId",
+        "short": "HSA-Id för Hos-vårdenhet",
+        "definition": "HSA-Id för Hos-vårdenhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.skapadAvHosPersonal.enhet.arbetsplatskod",
+        "path": "registermedicalcertificate-request.skapadAvHosPersonal.enhet.arbetsplatskod",
+        "short": "Arbetsplatskoden för vårdenheten (Fält 17)",
+        "definition": "Arbetsplatskoden för vårdenheten (Fält 17)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.skapadAvHosPersonal.enhet.enhetsNamn",
+        "path": "registermedicalcertificate-request.skapadAvHosPersonal.enhet.enhetsNamn",
+        "short": "Namn på Hos-vårdenhet",
+        "definition": "Namn på Hos-vårdenhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.skapadAvHosPersonal.enhet.postadress",
+        "path": "registermedicalcertificate-request.skapadAvHosPersonal.enhet.postadress",
+        "short": "Postadress för Hos-vårdenhet",
+        "definition": "Postadress för Hos-vårdenhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.skapadAvHosPersonal.enhet.postnummer",
+        "path": "registermedicalcertificate-request.skapadAvHosPersonal.enhet.postnummer",
+        "short": "Postnummer för Hos-vårdenhet",
+        "definition": "Postnummer för Hos-vårdenhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.skapadAvHosPersonal.enhet.postort",
+        "path": "registermedicalcertificate-request.skapadAvHosPersonal.enhet.postort",
+        "short": "Postort för Hos-vårdenhet",
+        "definition": "Postort för Hos-vårdenhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.skapadAvHosPersonal.enhet.telefonnummer",
+        "path": "registermedicalcertificate-request.skapadAvHosPersonal.enhet.telefonnummer",
+        "short": "Telefonnummer till Hos-vårdenhet",
+        "definition": "Telefonnummer till Hos-vårdenhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.skapadAvHosPersonal.enhet.epost",
+        "path": "registermedicalcertificate-request.skapadAvHosPersonal.enhet.epost",
+        "short": "Epost adress för Hos-vårdenhet",
+        "definition": "Epost adress för Hos-vårdenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.skapadAvHosPersonal.enhet.vardgivare",
+        "path": "registermedicalcertificate-request.skapadAvHosPersonal.enhet.vardgivare",
+        "short": "Vårdgivare",
+        "definition": "Vårdgivare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.skapadAvHosPersonal.enhet.vardgivare.vardgivareId",
+        "path": "registermedicalcertificate-request.skapadAvHosPersonal.enhet.vardgivare.vardgivareId",
+        "short": "HSA-Id för Hos-vårdgivare",
+        "definition": "HSA-Id för Hos-vårdgivare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.skapadAvHosPersonal.enhet.vardgivare.vardgivareNamn",
+        "path": "registermedicalcertificate-request.skapadAvHosPersonal.enhet.vardgivare.vardgivareNamn",
+        "short": "Namn på Hos-vårdgivare",
+        "definition": "Namn på Hos-vårdgivare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.vardkontakt",
+        "path": "registermedicalcertificate-request.vardkontakt",
+        "short": "Vårdkontakt",
+        "definition": "Typ av vårdkontakt. Fält 4, de 2 översta kryssrutorna.\nValfritt om fält 1 (Avstängning SmL) är valt.",
+        "min": 0,
+        "max": "2",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.vardkontakt.vardkontakttyp",
+        "path": "registermedicalcertificate-request.vardkontakt.vardkontakttyp",
+        "short": "Typ av vårdkontakt",
+        "definition": "Typ av vårdkontakt",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/insuranceprocess-healthreporting/ValueSet/vardkontakttyp-vs"
+        }
+      },
+      {
+        "id": "registermedicalcertificate-request.vardkontakt.vardkontaktstid",
+        "path": "registermedicalcertificate-request.vardkontakt.vardkontaktstid",
+        "short": "Datum då vårdkontakten skedde",
+        "definition": "Datum då vårdkontakten skedde",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.referens",
+        "path": "registermedicalcertificate-request.referens",
+        "short": "Referens",
+        "definition": "Typ av referens. Fält 4, de 2 nedre kryssrutorna.",
+        "min": 0,
+        "max": "2",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.referens.referenstyp",
+        "path": "registermedicalcertificate-request.referens.referenstyp",
+        "short": "Typ av referens",
+        "definition": "Typ av referens",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/insuranceprocess-healthreporting/ValueSet/referenstyp-vs"
+        }
+      },
+      {
+        "id": "registermedicalcertificate-request.referens.datum",
+        "path": "registermedicalcertificate-request.referens.datum",
+        "short": "Datum för ovanstående referens",
+        "definition": "Datum för ovanstående referens",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.aktivitet",
+        "path": "registermedicalcertificate-request.aktivitet",
+        "short": "Aktiviteter",
+        "definition": "Aktivitetskoder som representerar olika val i blanketten.\nFält 1, Fält 6a, Fält 6b, Fält 7, Fält 11, Fält 12.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.aktivitet.aktivitetskod",
+        "path": "registermedicalcertificate-request.aktivitet.aktivitetskod",
+        "short": "Aktivitetskod",
+        "definition": "Aktivitetskod",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/insuranceprocess-healthreporting/ValueSet/aktivitetskod-vs"
+        }
+      },
+      {
+        "id": "registermedicalcertificate-request.aktivitet.beskrivning",
+        "path": "registermedicalcertificate-request.aktivitet.beskrivning",
+        "short": "Fritext kopplad till aktivitetskoden",
+        "definition": "Fritext kopplad till aktivitetskoden",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.bedomtTillstand",
+        "path": "registermedicalcertificate-request.bedomtTillstand",
+        "short": "Bedömt tillstånd",
+        "definition": "Bedömt tillstånd",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.bedomtTillstand.beskrivning",
+        "path": "registermedicalcertificate-request.bedomtTillstand.beskrivning",
+        "short": "Aktuellt sjukdomsförlopp (Fält 3)",
+        "definition": "Aktuellt sjukdomsförlopp (Fält 3)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.medicinsktTillstand",
+        "path": "registermedicalcertificate-request.medicinsktTillstand",
+        "short": "Medicinskt tillstånd",
+        "definition": "Valfritt om fält 1 är valt, annars obligatoriskt.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.medicinsktTillstand.beskrivning",
+        "path": "registermedicalcertificate-request.medicinsktTillstand.beskrivning",
+        "short": "Diagnosinformation i fritext (Fält 2)",
+        "definition": "Diagnosinformation i fritext (Fält 2)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.medicinsktTillstand.tillstandskod",
+        "path": "registermedicalcertificate-request.medicinsktTillstand.tillstandskod",
+        "short": "Diagnoskod enligt ICD-10-SE alt. KSH97P (Fält 2)",
+        "definition": "ASSUME: Diagnoskodverket är ICD-10-SE eller KSH97P. Canonical URL ej verifierad.\nSe QUESTIONS.md ASSUME-HR-001.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.funktionstillstand",
+        "path": "registermedicalcertificate-request.funktionstillstand",
+        "short": "Funktionstillstånd",
+        "definition": "Funktionstillstånd. Fält 4 (funktionsnedsättning) och Fält 5 (aktivitetsbegränsning).\nValfritt om fält 1 är valt, annars obligatoriskt.",
+        "min": 0,
+        "max": "2",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.funktionstillstand.beskrivning",
+        "path": "registermedicalcertificate-request.funktionstillstand.beskrivning",
+        "short": "Beskrivning av funktionsnedsättning eller aktivitetsbegränsning",
+        "definition": "Beskrivning av funktionsnedsättning eller aktivitetsbegränsning",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.funktionstillstand.typAvFunktionstillstand",
+        "path": "registermedicalcertificate-request.funktionstillstand.typAvFunktionstillstand",
+        "short": "Typ av funktionstillstånd (Kroppsfunktion eller Aktivitet)",
+        "definition": "Typ av funktionstillstånd (Kroppsfunktion eller Aktivitet)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.funktionstillstand.arbetsformaga",
+        "path": "registermedicalcertificate-request.funktionstillstand.arbetsformaga",
+        "short": "Arbetsförmåga (enbart då typAvFunktionstillstand=Aktivitet)",
+        "definition": "Arbetsförmåga (enbart då typAvFunktionstillstand=Aktivitet)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.funktionstillstand.arbetsformaga.motivering",
+        "path": "registermedicalcertificate-request.funktionstillstand.arbetsformaga.motivering",
+        "short": "Arbetsförmågebedömning (Fält 9)",
+        "definition": "Arbetsförmågebedömning (Fält 9)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.funktionstillstand.arbetsformaga.prognosangivelse",
+        "path": "registermedicalcertificate-request.funktionstillstand.arbetsformaga.prognosangivelse",
+        "short": "Prognosangivelse (Fält 10)",
+        "definition": "Värden: Prognosangivelse.ATERSTALLAS_HELT, ATERSTALLAS_DELVIS, INTE_ATERSTALLAS, DET_GAR_INTE_ATT_BEDOMMA.\nOm DET_GAR_INTE_ATT_BEDOMMA skall Fält 13 fyllas i.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.funktionstillstand.arbetsformaga.arbetsuppgift",
+        "path": "registermedicalcertificate-request.funktionstillstand.arbetsformaga.arbetsuppgift",
+        "short": "Arbetsuppgift",
+        "definition": "Arbetsuppgift",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.funktionstillstand.arbetsformaga.arbetsuppgift.typAvArbetsuppgift",
+        "path": "registermedicalcertificate-request.funktionstillstand.arbetsformaga.arbetsuppgift.typAvArbetsuppgift",
+        "short": "Typ av arbetsuppgift i fritext (Fält 8a)",
+        "definition": "Typ av arbetsuppgift i fritext (Fält 8a)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.funktionstillstand.arbetsformaga.arbetsformagaNedsattning",
+        "path": "registermedicalcertificate-request.funktionstillstand.arbetsformaga.arbetsformagaNedsattning",
+        "short": "Arbetsförmågenedsättning (Fält 8b)",
+        "definition": "Minst 1 av 4 kryssrutor måste alltid väljas.",
+        "min": 0,
+        "max": "4",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.funktionstillstand.arbetsformaga.arbetsformagaNedsattning.varaktighetFrom",
+        "path": "registermedicalcertificate-request.funktionstillstand.arbetsformaga.arbetsformagaNedsattning.varaktighetFrom",
+        "short": "Från när arbetsförmågan är nedsatt",
+        "definition": "Från när arbetsförmågan är nedsatt",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.funktionstillstand.arbetsformaga.arbetsformagaNedsattning.varaktighetTom",
+        "path": "registermedicalcertificate-request.funktionstillstand.arbetsformaga.arbetsformagaNedsattning.varaktighetTom",
+        "short": "Till när arbetsförmågan är nedsatt",
+        "definition": "Till när arbetsförmågan är nedsatt",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.funktionstillstand.arbetsformaga.arbetsformagaNedsattning.nedsattningsgrad",
+        "path": "registermedicalcertificate-request.funktionstillstand.arbetsformaga.arbetsformagaNedsattning.nedsattningsgrad",
+        "short": "Grad av arbetsförmågenedsättning",
+        "definition": "Grad av arbetsförmågenedsättning",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/insuranceprocess-healthreporting/ValueSet/nedsattningsgrad-vs"
+        }
+      },
+      {
+        "id": "registermedicalcertificate-request.funktionstillstand.arbetsformaga.sysselsattning",
+        "path": "registermedicalcertificate-request.funktionstillstand.arbetsformaga.sysselsattning",
+        "short": "Sysselsättning (Fält 8a alla kryssrutor)",
+        "definition": "Sysselsättning (Fält 8a alla kryssrutor)",
+        "min": 0,
+        "max": "3",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registermedicalcertificate-request.funktionstillstand.arbetsformaga.sysselsattning.typAvSysselsattning",
+        "path": "registermedicalcertificate-request.funktionstillstand.arbetsformaga.sysselsattning.typAvSysselsattning",
+        "short": "Patientens typ av sysselsättning",
+        "definition": "Värden: TypAvSysselsattning.FORVARVSARBETE, ARBETSLOSHET, FORALDRALEDIGHET.\nOm FORVARVSARBETE skall arbetsuppgifter anges.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

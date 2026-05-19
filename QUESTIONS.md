@@ -996,3 +996,59 @@ Inga blockerare.
 
 - [ ] **[TODO-LTP-002]** `igs/TKB_masterdata_organisationalresources_licensetopractice/input/fsh/logical-models/GetHospPersonForIVO.fsh` · fält `ovrigBehorighet.behorighet`
   OIDer för övrig behörighet (utbildningskoder) saknas i TKB-dokumentet — det hänvisas till informationsspecifikationen. Komplettera ValueSet-bindning när OIDer är kända.
+
+---
+
+## clinicalprocess.healthcond.certificate v4.1-RC1 — `igs/TKB_clinicalprocess_healthcond_certificate/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-19
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-CERT-001]** `igs/TKB_clinicalprocess_healthcond_certificate/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Avsnitt 6 "Gemensamma informationskomponenter" saknas helt i källdokumentet. TKB:n använder avsnitt 8 ("Gemensamma fälttyper") istället för standard avsnitt 6. Ska avsnitt 6 tas bort från sidstrukturen och avsnitt 8 läggas till som en ny sida? Eller ska avsnitt 8:s innehåll placeras i sida 6?
+  Källa: docx_to_md.py output — avsnitt 6 markerat "SAKNAS i källdokumentet".
+
+- [ ] **[BLOCK-CERT-002]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/codesystems/AmneskodCS.fsh`
+  Kodverket för ämneskoder (Amneskod) är definierat med exempelkoder. Den fullständiga listan med giltiga ämnen inkl. OID finns i XSD-filen schemas/core_components/clinicalprocess_healthcond_certificate_3.3.xsd. Verifiera att alla ämneskoder är med och komplettera vid behov.
+  Källa: TKB avsnitt 7.2.1 "Ämneskod".
+
+- [ ] **[BLOCK-CERT-003]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/codesystems/HandelskodCS.fsh`
+  Händelsekoderna för CertificateStatusUpdateForCare är baserade på domänkunskap och XSD-analysen — inte en komplett lista i TKB-dokumentet. Verifiera med domänexpert att alla giltiga händelsekoder inkluderas.
+  Källa: TKB avsnitt 7.2.4 "Händelsekod".
+
+- [ ] **[BLOCK-CERT-004]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/codesystems/PartCS.fsh`
+  Parter definierade enligt TKB-dokumentet (FKASSA, HSVARD, INVANA, ARBGIVARE, TRANSP). Verifiera att listan är komplett — kan finnas fler parter i nyare versioner. OID-baserad canonical kan behövas om FK har publicerat ett officiellt kodverk.
+  Källa: TKB avsnitt 7.2.9 "Part".
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-CERT-001]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/logical-models/CreateDraftCertificate.fsh`
+  TKB anger version 3.2 men WSDL-filen heter `CreateDraftCertificateInteraction_3.3_RIVTABP21.wsdl`. Antagande: TKB-sektionen speglar innehåll från en äldre version och WSDL:en är senaste. FSH-modellen baseras på TKB-version 3.2. Verifiera korrekt versionsangivelse.
+
+- [ ] **[ASSUME-CERT-002]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/logical-models/CertificateStatusUpdateForCare.fsh`
+  TKB anger version 3.1 men WSDL heter `CertificateStatusUpdateForCareInteraction_3.2_RIVTABP21.wsdl`. Antagande: WSDL är nyare. Versionsavvikelse noterad — verifiera.
+
+- [ ] **[ASSUME-CERT-003]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/logical-models/ListCertificatesForCareWithQA.fsh`
+  TKB anger version 3.2 men WSDL heter `ListCertificatesForCareWithQAInteraction_3.3_RIVTABP21.wsdl`. Antagande: WSDL är nyare. Versionsavvikelse noterad — verifiera.
+
+- [ ] **[ASSUME-CERT-004]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/logical-models/ListCertificatesForCare.fsh` · fält `vardgivareId` och `enhetsId`
+  XML schema choice-elementet som gör vardgivareId och enhetsId ömsesidigt exklusiva modelleras som `0..1` respektive `0..*` utan FHIR-invariant. En invariant (t.ex. `enhetsId.exists() xor vardgivareId.exists()`) skulle ge bättre semantik men kräver bekräftelse om det är önskat.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-CERT-001]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/codesystems/AmneskodCS.fsh`
+  Extrahera fullständig ämneskodslista från XSD-filen `clinicalprocess_healthcond_certificate_3.3.xsd` och uppdatera CodeSystem.
+
+- [ ] **[TODO-CERT-002]** `igs/TKB_clinicalprocess_healthcond_certificate/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Ersätt placeholder med faktiskt innehåll från avsnitt 8 i TKB-dokumentet ("Gemensamma fälttyper") — alternativt skapa en separat sida `8-gemensamma-falttyper.md` och lägg till i sushi-config.yaml/pages.
+
+- [ ] **[TODO-CERT-003]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/logical-models/GetCertificate.fsh`
+  Den gemensamma typen `Intyg` (med alla undertyper: Patient, HoSPersonal, Enhet, Vårdgivare, Relation, Status) förekommer i nästan alla kontrakt. Överväg att extrahera till en separat gemensam Logical-modell `Intyg.fsh` och referera till den från kontraktsmodellerna.
+
+- [ ] **[TODO-CERT-004]** `igs/TKB_clinicalprocess_healthcond_certificate/sushi-config.yaml`
+  Lägg till `se.inera.rivta.core`-dependency om/när det paketet publiceras. Nuvarande setup har ingen dependency-koppling till gemensamma RIV-TA-bastyper.
+
+- [ ] **[TODO-CERT-005]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/logical-models/ListSickLeavesForCare.fsh` · fält `diagnoskod`
+  Diagnoskoder följer sannolikt ICD-10-SE eller SNOMED CT. Strukturen modelleras som `BackboneElement` med fri `code`-sträng. Verifiera vilket kodsystem som faktiskt används och lägg till ValueSet-binding om möjligt.

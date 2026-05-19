@@ -1,0 +1,330 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "revokemedicalcertificate-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/insuranceprocess-healthreporting/StructureDefinition/revokemedicalcertificate-request",
+  "name": "RevokeMedicalCertificateRequest",
+  "title": "RevokeMedicalCertificate — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i tjänstekontraktet RevokeMedicalCertificate\n(RIV-TA urn:riv:insuranceprocess:healthreporting:RevokeMedicalCertificate:1).\nSkickar ett meddelande om rättelse av ett tidigare inskickat läkarintyg.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/insuranceprocess-healthreporting/StructureDefinition/revokemedicalcertificate-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "revokemedicalcertificate-request",
+        "path": "revokemedicalcertificate-request",
+        "short": "RevokeMedicalCertificate — Request",
+        "definition": "Logisk modell för requestparametrar i tjänstekontraktet RevokeMedicalCertificate\n(RIV-TA urn:riv:insuranceprocess:healthreporting:RevokeMedicalCertificate:1).\nSkickar ett meddelande om rättelse av ett tidigare inskickat läkarintyg."
+      },
+      {
+        "id": "revokemedicalcertificate-request.revoke",
+        "path": "revokemedicalcertificate-request.revoke",
+        "short": "Rättelsen",
+        "definition": "Rättelsen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "revokemedicalcertificate-request.revoke.vardReferensId",
+        "path": "revokemedicalcertificate-request.revoke.vardReferensId",
+        "short": "Identitet för denna rättelse från vården",
+        "definition": "Identitet för denna rättelse från vården",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "revokemedicalcertificate-request.revoke.meddelande",
+        "path": "revokemedicalcertificate-request.revoke.meddelande",
+        "short": "Beskrivning om orsak till rättningen",
+        "definition": "Beskrivning om orsak till rättningen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "revokemedicalcertificate-request.revoke.avsantTidpunkt",
+        "path": "revokemedicalcertificate-request.revoke.avsantTidpunkt",
+        "short": "Tidpunkt då rättelsen skickades från vården",
+        "definition": "Tidpunkt då rättelsen skickades från vården",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "revokemedicalcertificate-request.revoke.adressVard",
+        "path": "revokemedicalcertificate-request.revoke.adressVard",
+        "short": "Vårdadress",
+        "definition": "Vårdadress",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal",
+        "path": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal",
+        "short": "Vårdpersonal som skickade rättelsen",
+        "definition": "Vårdpersonal som skickade rättelsen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.fullstandigtNamn",
+        "path": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.fullstandigtNamn",
+        "short": "Namn för Hos-person som skickade rättelsen",
+        "definition": "Namn för Hos-person som skickade rättelsen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.enhet",
+        "path": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.enhet",
+        "short": "Vårdenhet",
+        "definition": "Vårdenhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.enhet.enhetsId",
+        "path": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.enhet.enhetsId",
+        "short": "HSA-Id för Hos-vårdenhet",
+        "definition": "HSA-Id för Hos-vårdenhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.enhet.enhetsNamn",
+        "path": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.enhet.enhetsNamn",
+        "short": "Namn på Hos-vårdenhet",
+        "definition": "Namn på Hos-vårdenhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.enhet.postadress",
+        "path": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.enhet.postadress",
+        "short": "Postadress",
+        "definition": "Postadress",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.enhet.postnummer",
+        "path": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.enhet.postnummer",
+        "short": "Postnummer",
+        "definition": "Postnummer",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.enhet.postort",
+        "path": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.enhet.postort",
+        "short": "Postort",
+        "definition": "Postort",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.enhet.telefonnummer",
+        "path": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.enhet.telefonnummer",
+        "short": "Telefonnummer",
+        "definition": "Telefonnummer",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.enhet.epost",
+        "path": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.enhet.epost",
+        "short": "Epost",
+        "definition": "Epost",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.enhet.vardgivare",
+        "path": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.enhet.vardgivare",
+        "short": "Vårdgivaren",
+        "definition": "Vårdgivaren",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.enhet.vardgivare.vardgivareId",
+        "path": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.enhet.vardgivare.vardgivareId",
+        "short": "HSA-Id för Hos-vårdgivare",
+        "definition": "HSA-Id för Hos-vårdgivare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.enhet.vardgivare.vardgivareNamn",
+        "path": "revokemedicalcertificate-request.revoke.adressVard.hosPersonal.enhet.vardgivare.vardgivareNamn",
+        "short": "Namn på Hos-vårdgivare",
+        "definition": "Namn på Hos-vårdgivare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "revokemedicalcertificate-request.lakarutlatandeId",
+        "path": "revokemedicalcertificate-request.lakarutlatandeId",
+        "short": "Unikt id för läkarintyget som rättelsen gäller",
+        "definition": "Unikt id för läkarintyget som rättelsen gäller",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "revokemedicalcertificate-request.lakarutlatandeSigneringsTidpunkt",
+        "path": "revokemedicalcertificate-request.lakarutlatandeSigneringsTidpunkt",
+        "short": "Signeringstidpunkt för läkarintyget som rättelsen gäller",
+        "definition": "Signeringstidpunkt för läkarintyget som rättelsen gäller",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "revokemedicalcertificate-request.patient",
+        "path": "revokemedicalcertificate-request.patient",
+        "short": "Patienten",
+        "definition": "Patienten",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "revokemedicalcertificate-request.patient.personId",
+        "path": "revokemedicalcertificate-request.patient.personId",
+        "short": "Patientens personnummer eller samordningsnummer",
+        "definition": "Patientens personnummer eller samordningsnummer",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "revokemedicalcertificate-request.patient.fullstandigtNamn",
+        "path": "revokemedicalcertificate-request.patient.fullstandigtNamn",
+        "short": "Patientens namn",
+        "definition": "Patientens namn",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}
