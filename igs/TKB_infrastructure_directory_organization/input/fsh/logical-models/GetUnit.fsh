@@ -2,42 +2,6 @@
 // Kontrakt: GetUnit v5.0
 // Genererad: 2026-05-19
 
-Logical: GetUnitRequest
-Id: getunit-request
-Title: "GetUnit — Request"
-Description: "Logisk modell för requestparametrar i GetUnit (RIV-TA urn:riv:infrastructure:directory:organization:GetUnit:5)."
-Characteristics: #can-be-target
-
-* unitHsaId 1..1 string "HSA-id för sökt organisatorisk enhet. Ref. hsaIdentity [R5]."
-    """
-    Kardinalitet: Obligatorisk.
-    """
-* searchBase 0..1 string "Sökbas. Om ingen sökbas anges används c=SE som sökbas."
-    """
-    DN-format.
-    Kardinalitet: Valfri.
-    """
-* includeFeignedObject 0..1 boolean "true: om metoden ska leverera svar med fingerade objekt."
-    """
-    Uteblivet värde tolkas som false.
-    Kardinalitet: Valfri.
-    """
-* profile 0..* string "Anger hur mycket information om enheten som begärs."
-    """
-    Tillåtna värden: basic, extended, extended2, all (default).
-    basic: bara grundläggande information (*b).
-    extended: grundläggande + vård- och omsorgsinformation (*b, *e).
-    extended2: även nonPublicTelephoneNumber (*f), måste kombineras med annat profilvärde.
-    all: all tillgänglig information (*b, *e, *a) förutom nonPublicTelephoneNumber.
-    Kardinalitet: Valfri, lista.
-    """
-
----
-
-// Genererad från TKB infrastructure:directory:organization v5.0
-// Kontrakt: GetUnit v5.0
-// Genererad: 2026-05-19
-
 Logical: GetUnit
 Id: getunit
 Title: "GetUnit"
@@ -91,9 +55,9 @@ Characteristics: #can-be-target
     * town 1..1 string "Postort."
   * telephoneHour 0..* BackboneElement "Telefontider. Ref. telefontid (telephoneHours) [R5]. Profilattribut: *b."
     * fromDay 1..1 string "Från dag. Måndag (1) – Söndag (7)."
-    * fromTime 1..1 time "Från tid. Format enligt ISO-8601."
+    * fromTime 1..1 string "Från tid. Format: HH:MM (ISO-8601)."
     * toDay 1..1 string "Till dag. Måndag (1) – Söndag (7)."
-    * toTime 1..1 time "Till tid. Format enligt ISO-8601."
+    * toTime 1..1 string "Till tid. Format: HH:MM (ISO-8601)."
     * comment 0..1 string "Information om aktuellt tidsintervall."
     * fromDate 0..1 string "Gäller från och med detta datum."
     * toDate 0..1 string "Gäller till och med detta datum."
@@ -119,25 +83,25 @@ Characteristics: #can-be-target
   * geographicalCoordinatesSWEREF99Longitude 0..1 string "Y-koordinat (E) SWEREF99. Ref. hsaSweref99Longitude [R5]. Profilattribut: *e."
   * dropInHour 0..* BackboneElement "Tider för dropin-besök (utan tidbokning). Ref. dropInHours [R5]. Profilattribut: *e."
     * fromDay 1..1 string "Från dag. Måndag (1) – Söndag (7)."
-    * fromTime 1..1 time "Från tid. Format enligt ISO-8601."
+    * fromTime 1..1 string "Från tid. Format: HH:MM (ISO-8601)."
     * toDay 1..1 string "Till dag. Måndag (1) – Söndag (7)."
-    * toTime 1..1 time "Till tid. Format enligt ISO-8601."
+    * toTime 1..1 string "Till tid. Format: HH:MM (ISO-8601)."
     * comment 0..1 string "Information om aktuellt tidsintervall."
     * fromDate 0..1 string "Gäller från och med detta datum."
     * toDate 0..1 string "Gäller till och med detta datum."
   * surgeryHour 0..* BackboneElement "Öppettider. Ref. surgeryHours [R5]. Profilattribut: *e."
     * fromDay 1..1 string "Från dag. Måndag (1) – Söndag (7)."
-    * fromTime 1..1 time "Från tid. Format enligt ISO-8601."
+    * fromTime 1..1 string "Från tid. Format: HH:MM (ISO-8601)."
     * toDay 1..1 string "Till dag. Måndag (1) – Söndag (7)."
-    * toTime 1..1 time "Till tid. Format enligt ISO-8601."
+    * toTime 1..1 string "Till tid. Format: HH:MM (ISO-8601)."
     * comment 0..1 string "Information om aktuellt tidsintervall."
     * fromDate 0..1 string "Gäller från och med detta datum."
     * toDate 0..1 string "Gäller till och med detta datum."
   * visitingHour 0..* BackboneElement "Besökstider för anhöriga. Ref. visitingHours [R5]. Profilattribut: *e."
     * fromDay 1..1 string "Från dag. Måndag (1) – Söndag (7)."
-    * fromTime 1..1 time "Från tid. Format enligt ISO-8601."
+    * fromTime 1..1 string "Från tid. Format: HH:MM (ISO-8601)."
     * toDay 1..1 string "Till dag. Måndag (1) – Söndag (7)."
-    * toTime 1..1 time "Till tid. Format enligt ISO-8601."
+    * toTime 1..1 string "Till tid. Format: HH:MM (ISO-8601)."
     * comment 0..1 string "Information om aktuellt tidsintervall."
     * fromDate 0..1 string "Gäller från och med detta datum."
     * toDate 0..1 string "Gäller till och med detta datum."
@@ -159,9 +123,9 @@ Characteristics: #can-be-target
     * name 1..1 string "Funktionens namn. Ref. objektnamn (cn) [R5], kodverk för Reserverade funktionsnamn."
     * telephoneHour 0..* BackboneElement "Telefontider för funktionen. Ref. telefontid (telephoneHours) [R5]."
       * fromDay 1..1 string "Från dag."
-      * fromTime 1..1 time "Från tid."
+      * fromTime 1..1 string "Från tid. Format: HH:MM (ISO-8601)."
       * toDay 1..1 string "Till dag."
-      * toTime 1..1 time "Till tid."
+      * toTime 1..1 string "Till tid. Format: HH:MM (ISO-8601)."
       * comment 0..1 string "Information om aktuellt tidsintervall."
       * fromDate 0..1 string "Gäller från och med detta datum."
       * toDate 0..1 string "Gäller till och med detta datum."
