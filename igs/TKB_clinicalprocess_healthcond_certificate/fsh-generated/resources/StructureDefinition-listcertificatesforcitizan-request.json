@@ -1,0 +1,113 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "listcertificatesforcitizan-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/listcertificatesforcitizan-request",
+  "name": "ListCertificatesForCitizanRequest",
+  "title": "ListCertificatesForCitizen — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i ListCertificatesForCitizen.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/listcertificatesforcitizan-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "listcertificatesforcitizan-request",
+        "path": "listcertificatesforcitizan-request",
+        "short": "ListCertificatesForCitizen — Request",
+        "definition": "Logisk modell för requestparametrar i ListCertificatesForCitizen."
+      },
+      {
+        "id": "listcertificatesforcitizan-request.personId",
+        "path": "listcertificatesforcitizan-request.personId",
+        "short": "Person- eller samordningsnummer för patienten",
+        "definition": "Person- eller samordningsnummer för patienten",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcitizan-request.intygTyp",
+        "path": "listcertificatesforcitizan-request.intygTyp",
+        "short": "Typ av intyg att filtrera på (utelämnas för alla typer)",
+        "definition": "Typ av intyg att filtrera på (utelämnas för alla typer)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcitizan-request.arkiverade",
+        "path": "listcertificatesforcitizan-request.arkiverade",
+        "short": "Om arkiverade intyg ska inkluderas (true) eller ej (false)",
+        "definition": "Om arkiverade intyg ska inkluderas (true) eller ej (false)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcitizan-request.fromDatum",
+        "path": "listcertificatesforcitizan-request.fromDatum",
+        "short": "Hämta intyg signerade från och med detta datum",
+        "definition": "Hämta intyg signerade från och med detta datum",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcitizan-request.tomDatum",
+        "path": "listcertificatesforcitizan-request.tomDatum",
+        "short": "Hämta intyg signerade till och med detta datum",
+        "definition": "Hämta intyg signerade till och med detta datum",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcitizan-request.part",
+        "path": "listcertificatesforcitizan-request.part",
+        "short": "Part som skickar begäran",
+        "definition": "Part som skickar begäran",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/part-vs"
+        }
+      }
+    ]
+  }
+}

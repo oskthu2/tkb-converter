@@ -1,0 +1,200 @@
+{
+  "domain_id": "ehr.log",
+  "domain_title": "ehr: log",
+  "domain_version": "1.2.3",
+  "rivta_namespace_base": "urn:riv:ehr:log",
+  "bitbucket_slug": "riv.ehr.log",
+  "source_type": "bitbucket_source_api",
+  "zip_url": null,
+  "docx_converted_dir": "igs/TKB_ehr_log/docx-converted/",
+  "note": "TKB has non-standard structure (no numbered sections 1-7). Chapters are: 1=Inledning, 2=Generella regler, 3-9=contracts (StoreLog, GetLogsForCareProvider, GetLogsForUser, GetLogsForPatient, GetAccessLogsForPatient, GetInfoLogsForCareProvider, GetInfoLogsForPatient), 10=Datatyper",
+  "sections": {
+    "1_inledning": "igs/TKB_ehr_log/docx-converted/sections/1-inledning.md",
+    "2_generella_regler": null,
+    "3_9_tjanstekontrakt": null,
+    "10_datatyper": null
+  },
+  "contracts": [
+    {
+      "section_number": "7.1",
+      "id": "StoreLog",
+      "display_name": "Spara loggposter",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:ehr:log:store:StoreLogResponder:1",
+      "subdomain": "store",
+      "description": "Tjänst som sparar en eller flera loggposter i loggtjänsten för att möjliggöra uppföljning enligt PDL. Loggposter sparas i ett arkiv med löpnummer samt signeras för att säkerställa integriteten av loggposter.",
+      "request_fields": [
+        {"name": "log", "type": "log:Log", "cardinality": "1..*", "description": "En kollektion av loggposter som ska lagras i loggtjänsten."}
+      ],
+      "response_fields": [
+        {"name": "storeLog", "type": "log.store:Result", "cardinality": "1..1", "description": "Result Objekt som anger om loggposter sparats eller om fel har inträffat."}
+      ],
+      "wsdl_file": "StoreLogInteraction_1.0_RIVTABP21.wsdl",
+      "xsd_file": "StoreLogResponder_1.0.xsd"
+    },
+    {
+      "section_number": "7.2",
+      "id": "GetLogsForCareProvider",
+      "display_name": "Hämta loggposter per vårdgivare",
+      "version": "1.1",
+      "rivta_namespace": "urn:riv:ehr:log:querying:GetLogsForCareProviderResponder:1",
+      "subdomain": "querying",
+      "description": "Tjänst som returnerar loggposter för angiven vårdgivare, all åtkomst som har skett av vårdgivarens medarbetare.",
+      "request_fields": [
+        {"name": "careProviderId", "type": "log:HsaId", "cardinality": "1..1", "description": "Vårdgivare som är ägare till loggposter och som urvalet av loggposter baseras på."},
+        {"name": "fromDate", "type": "xs:dateTime", "cardinality": "1..1", "description": "Obligatoriskt startdatum för att begränsa rapportuttaget."},
+        {"name": "toDate", "type": "xs:dateTime", "cardinality": "1..1", "description": "Obligatoriskt slutdatum för att begränsa rapportuttaget."},
+        {"name": "queuedReportId", "type": "log:Id", "cardinality": "0..1", "description": "Id på en pågående rapport."},
+        {"name": "careUnitId", "type": "log:HsaId", "cardinality": "0..1", "description": "Ej obligatoriskt fält för att filtrera ut loggposter för en specifik vårdenhet."}
+      ],
+      "response_fields": [
+        {"name": "getLogsForCareProvider", "type": "log.querying:LogsResult", "cardinality": "1..1", "description": "Resultatobjekt med status och lista med loggposter."}
+      ],
+      "wsdl_file": "GetLogsForCareProviderInteraction_1.1_RIVTABP21.wsdl",
+      "xsd_file": "GetLogsForCareProviderResponder_1.1.xsd"
+    },
+    {
+      "section_number": "7.3",
+      "id": "GetLogsForUser",
+      "display_name": "Hämta loggposter per medarbetare",
+      "version": "1.1",
+      "rivta_namespace": "urn:riv:ehr:log:querying:GetLogsForUserResponder:1",
+      "subdomain": "querying",
+      "description": "Tjänst som returnerar loggposter för angiven vårdgivare samt medarbetare, all åtkomst som har skett av medarbetaren.",
+      "request_fields": [
+        {"name": "careProviderId", "type": "log:HsaId", "cardinality": "1..1", "description": "Vårdgivare som är ägare till loggposter."},
+        {"name": "userId", "type": "log:HsaId", "cardinality": "1..1", "description": "Medarbetare som haft åtkomst."},
+        {"name": "fromDate", "type": "xs:dateTime", "cardinality": "1..1", "description": "Obligatoriskt startdatum."},
+        {"name": "toDate", "type": "xs:dateTime", "cardinality": "1..1", "description": "Obligatoriskt slutdatum."},
+        {"name": "queuedReportId", "type": "log:Id", "cardinality": "0..1", "description": "Id på en pågående rapport."},
+        {"name": "careUnitId", "type": "log:HsaId", "cardinality": "0..1", "description": "Ej obligatoriskt fält för att filtrera ut loggposter för en specifik vårdenhet."}
+      ],
+      "response_fields": [
+        {"name": "getLogsForUser", "type": "log.querying:LogsResult", "cardinality": "1..1", "description": "Resultatobjekt med status och lista med loggposter."}
+      ],
+      "wsdl_file": "GetLogsForUserInteraction_1.1_RIVTABP21.wsdl",
+      "xsd_file": "GetLogsForUserResponder_1.1.xsd"
+    },
+    {
+      "section_number": "7.4",
+      "id": "GetLogsForPatient",
+      "display_name": "Hämta loggposter per patient",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:ehr:log:querying:GetLogsForPatientResponder:1",
+      "subdomain": "querying",
+      "description": "Tjänst som returnerar loggposter för angiven vårdgivare samt patient, all åtkomst som har skett av vårdgivarens medarbetare till patientens information.",
+      "request_fields": [
+        {"name": "careProviderId", "type": "log:HsaId", "cardinality": "1..1", "description": "Vårdgivare som är ägare till loggposter."},
+        {"name": "patientId", "type": "log:PersonId", "cardinality": "1..1", "description": "Patientens personnummer, samordningsnummer, alternativt reservnummer."},
+        {"name": "careUnitId", "type": "log:HsaId", "cardinality": "0..1", "description": "Ej obligatoriskt fält för att filtrera ut loggposter för en specifik vårdenhet."},
+        {"name": "fromDate", "type": "xs:dateTime", "cardinality": "1..1", "description": "Obligatoriskt startdatum."},
+        {"name": "toDate", "type": "xs:dateTime", "cardinality": "1..1", "description": "Obligatoriskt slutdatum."},
+        {"name": "queuedReportId", "type": "log:Id", "cardinality": "0..1", "description": "Id på en pågående rapport."}
+      ],
+      "response_fields": [
+        {"name": "getLogsForPatient", "type": "log.querying:LogsResult", "cardinality": "1..1", "description": "Resultatobjekt med status och lista med loggposter."}
+      ],
+      "wsdl_file": "GetLogsForPatientInteraction_1.0_RIVTABP21.wsdl",
+      "xsd_file": "GetLogsForPatientResponder_1.0.xsd"
+    },
+    {
+      "section_number": "7.5",
+      "id": "GetAccessLogsForPatient",
+      "display_name": "Hämta åtkomstloggar per patient",
+      "version": "1.1",
+      "rivta_namespace": "urn:riv:ehr:log:querying:GetAccessLogsForPatientResponder:1",
+      "subdomain": "querying",
+      "description": "Tjänst som returnerar lista för angiven patient, vilka vårdgivare och vårdaktör som har haft åtkomst till information.",
+      "request_fields": [
+        {"name": "patientId", "type": "log:PersonId", "cardinality": "1..1", "description": "Patientens personnummer, samordningsnummer, alternativt reservnummer."},
+        {"name": "fromDate", "type": "xs:dateTime", "cardinality": "1..1", "description": "Obligatoriskt startdatum."},
+        {"name": "toDate", "type": "xs:dateTime", "cardinality": "1..1", "description": "Obligatoriskt slutdatum."},
+        {"name": "queuedReportId", "type": "log:Id", "cardinality": "0..1", "description": "Id på en pågående rapport. Skall inte användas när aggregerande tjänst anropas."}
+      ],
+      "response_fields": [
+        {"name": "accessLogsResult", "type": "log.querying:AccessLogsResult", "cardinality": "1..1", "description": "Resultatobjekt med status och lista med åtkomstloggar."}
+      ],
+      "wsdl_file": "GetAccessLogsForPatientInteraction_1.1_RIVTABP21.wsdl",
+      "xsd_file": "GetAccessLogsForPatientResponder_1.1.xsd"
+    },
+    {
+      "section_number": "7.6",
+      "id": "GetInfoLogsForCareProvider",
+      "display_name": "Hämta informationsloggar per vårdgivare",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:ehr:log:querying:GetInfoLogsForCareProviderResponder:1",
+      "subdomain": "querying",
+      "description": "Tjänst som returnerar lista för angiven vårdgivare, vilka vårdgivare som har haft åtkomst till vårdgivarens information där vårdgivaren är informationsägare.",
+      "request_fields": [
+        {"name": "careProviderId", "type": "log:HsaId", "cardinality": "1..1", "description": "Vårdgivare som är informationsägare av loggpost."},
+        {"name": "fromDate", "type": "xs:dateTime", "cardinality": "1..1", "description": "Obligatoriskt startdatum."},
+        {"name": "toDate", "type": "xs:dateTime", "cardinality": "1..1", "description": "Obligatoriskt slutdatum."},
+        {"name": "queuedReportId", "type": "log:Id", "cardinality": "0..1", "description": "Id på en pågående rapport."}
+      ],
+      "response_fields": [
+        {"name": "getInfoLogsForCareProvider", "type": "log.querying:InfoLogsResult", "cardinality": "1..1", "description": "Resultatobjekt med status och lista av vårdgivare."}
+      ],
+      "wsdl_file": "GetInfoLogsForCareProviderInteraction_1.0_RIVTABP21.wsdl",
+      "xsd_file": "GetInfoLogsForCareProviderResponder_1.0.xsd"
+    },
+    {
+      "section_number": "7.7",
+      "id": "GetInfoLogsForPatient",
+      "display_name": "Hämta informationsloggar per patient",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:ehr:log:querying:GetInfoLogsForPatientResponder:1",
+      "subdomain": "querying",
+      "description": "Tjänst som returnerar lista för angiven vårdgivare samt patient, vilka vårdgivare som har haft åtkomst till vårdgivarens information där vårdgivaren är informationsägare.",
+      "request_fields": [
+        {"name": "careProviderId", "type": "log:HsaId", "cardinality": "1..1", "description": "Vårdgivare som är informationsägare av loggpost."},
+        {"name": "patientId", "type": "log:PersonId", "cardinality": "1..1", "description": "Patientens personnummer, samordningsnummer, alternativt reservnummer."},
+        {"name": "fromDate", "type": "xs:dateTime", "cardinality": "1..1", "description": "Obligatoriskt startdatum."},
+        {"name": "toDate", "type": "xs:dateTime", "cardinality": "1..1", "description": "Obligatoriskt slutdatum."},
+        {"name": "queuedReportId", "type": "log:Id", "cardinality": "0..1", "description": "Id på en pågående rapport."}
+      ],
+      "response_fields": [
+        {"name": "getInfoLogsForPatient", "type": "log.querying:InfoLogsResult", "cardinality": "1..1", "description": "Resultatobjekt med status och lista av vårdgivare."}
+      ],
+      "wsdl_file": "GetInfoLogsForPatientInteraction_1.0_RIVTABP21.wsdl",
+      "xsd_file": "GetInfoLogsForPatientResponder_1.0.xsd"
+    }
+  ],
+  "shared_datatypes": {
+    "namespace_log_1": "urn:riv:ehr:log:1",
+    "namespace_log_querying_1": "urn:riv:ehr:log.querying:1",
+    "namespace_log_store_1": "urn:riv:ehr:log.store:1",
+    "key_types": ["log:Log", "log:Activity", "log:User", "log:Resources", "log:Resource", "log:CareProvider", "log:CareUnit", "log:Patient", "log:System", "log.querying:LogsResult", "log.querying:AccessLogsResult", "log.querying:InfoLogsResult", "log.store:Result"]
+  },
+  "codesystems": [
+    {
+      "name": "ActivityType",
+      "slug": "activitytype",
+      "description": "Typ av aktivitet som utförts i systemet",
+      "codes": [
+        {"code": "Läsa", "display": "Läsa", "definition": "En läsning av data har utförts."},
+        {"code": "Skriva", "display": "Skriva", "definition": "En aktivitet där något läggs till."},
+        {"code": "Signera", "display": "Signera", "definition": "Signering har utförts."},
+        {"code": "Utskrift", "display": "Utskrift", "definition": "En utskrift har utförts."},
+        {"code": "Vidimera", "display": "Vidimera", "definition": "En autentisering har utförts."},
+        {"code": "Radera", "display": "Radera", "definition": "Något har raderats."},
+        {"code": "Nödöppning", "display": "Nödöppning", "definition": "Nödöppning har gjorts."}
+      ]
+    },
+    {
+      "name": "ResultCode",
+      "slug": "resultcode",
+      "description": "Resultatkoder som returneras av tjänsterna",
+      "codes": [
+        {"code": "OK", "display": "OK", "definition": "Anropet genomfördes utan fel."},
+        {"code": "INFO", "display": "INFO", "definition": "Anropet genomfördes med informationsmeddelande."},
+        {"code": "ERROR", "display": "ERROR", "definition": "Tekniskt fel uppstod."},
+        {"code": "VALIDATIONERROR", "display": "VALIDATIONERROR", "definition": "Valideringsfel i indata."},
+        {"code": "ACCESSDENIED", "display": "ACCESSDENIED", "definition": "Åtkomst nekad."},
+        {"code": "REPORTONQUEUE", "display": "REPORTONQUEUE", "definition": "Rapport köad för generering."},
+        {"code": "REPORTINPROCESS", "display": "REPORTINPROCESS", "definition": "Rapport håller på att genereras."},
+        {"code": "REPORTNOTFOUND", "display": "REPORTNOTFOUND", "definition": "Rapport med angivet ID hittades inte."},
+        {"code": "MAXQUERYRESULTEXCEEDED", "display": "MAXQUERYRESULTEXCEEDED", "definition": "Maxantalet loggposter i svaret överskridits."}
+      ]
+    }
+  ]
+}

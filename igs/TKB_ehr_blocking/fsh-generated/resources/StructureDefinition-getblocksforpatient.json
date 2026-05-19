@@ -1,0 +1,338 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getblocksforpatient",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/getblocksforpatient",
+  "name": "GetBlocksForPatient",
+  "title": "GetBlocksForPatient",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetBlocksForPatient\n(RIV-TA urn:riv:ehr:blocking:querying:GetBlocksForPatientResponder:2).\nLäser alla spärrar för en viss patient och organisation (lokal nivå).\nRepresenterar responsens informationsstruktur.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/getblocksforpatient",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getblocksforpatient",
+        "path": "getblocksforpatient",
+        "short": "GetBlocksForPatient",
+        "definition": "Logisk modell för tjänstekontraktet GetBlocksForPatient\n(RIV-TA urn:riv:ehr:blocking:querying:GetBlocksForPatientResponder:2).\nLäser alla spärrar för en viss patient och organisation (lokal nivå).\nRepresenterar responsens informationsstruktur."
+      },
+      {
+        "id": "getblocksforpatient.result",
+        "path": "getblocksforpatient.result",
+        "short": "Resultat av anropet",
+        "definition": "Resultat av anropet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getblocksforpatient.result.resultCode",
+        "path": "getblocksforpatient.result.resultCode",
+        "short": "Svarskod",
+        "definition": "Svarskod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-blocking/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "getblocksforpatient.result.resultText",
+        "path": "getblocksforpatient.result.resultText",
+        "short": "Beskrivande text till svarskoden",
+        "definition": "Beskrivande text till svarskoden",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getblocksforpatient.blocks",
+        "path": "getblocksforpatient.blocks",
+        "short": "Lista över funna aktiva spärrar för angiven patient och vårdgivare",
+        "definition": "Lista över funna aktiva spärrar för angiven patient och vårdgivare",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getblocksforpatient.blocks.blockId",
+        "path": "getblocksforpatient.blocks.blockId",
+        "short": "Unik identifierare för spärren (UUID)",
+        "definition": "Unik identifierare för spärren (UUID)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getblocksforpatient.blocks.blockType",
+        "path": "getblocksforpatient.blocks.blockType",
+        "short": "Typ av spärr",
+        "definition": "Typ av spärr",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-blocking/ValueSet/blocktype-vs"
+        }
+      },
+      {
+        "id": "getblocksforpatient.blocks.patientId",
+        "path": "getblocksforpatient.blocks.patientId",
+        "short": "Patientens personnummer eller samordningsnummer",
+        "definition": "Patientens personnummer eller samordningsnummer",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getblocksforpatient.blocks.informationStartDate",
+        "path": "getblocksforpatient.blocks.informationStartDate",
+        "short": "Startdatum för vilken information spärren gäller",
+        "definition": "Startdatum för vilken information spärren gäller",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getblocksforpatient.blocks.informationEndDate",
+        "path": "getblocksforpatient.blocks.informationEndDate",
+        "short": "Slutdatum för vilken information spärren gäller",
+        "definition": "Slutdatum för vilken information spärren gäller",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getblocksforpatient.blocks.informationCareUnitId",
+        "path": "getblocksforpatient.blocks.informationCareUnitId",
+        "short": "HSA-id för vårdenhet (vid inre spärr)",
+        "definition": "HSA-id för vårdenhet (vid inre spärr)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getblocksforpatient.blocks.informationCareProviderId",
+        "path": "getblocksforpatient.blocks.informationCareProviderId",
+        "short": "HSA-id för vårdgivare",
+        "definition": "HSA-id för vårdgivare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getblocksforpatient.blocks.excludedInformationTypes",
+        "path": "getblocksforpatient.blocks.excludedInformationTypes",
+        "short": "Informationstyper undantagna från spärren",
+        "definition": "Informationstyper undantagna från spärren",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getblocksforpatient.blocks.excludedInformationTypes.infoTypeId",
+        "path": "getblocksforpatient.blocks.excludedInformationTypes.infoTypeId",
+        "short": "ID för informationstypen",
+        "definition": "ID för informationstypen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getblocksforpatient.blocks.excludedInformationTypes.infoTypeDescription",
+        "path": "getblocksforpatient.blocks.excludedInformationTypes.infoTypeDescription",
+        "short": "Beskrivning av informationstypen",
+        "definition": "Beskrivning av informationstypen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getblocksforpatient.blocks.temporaryRevokes",
+        "path": "getblocksforpatient.blocks.temporaryRevokes",
+        "short": "Aktiva tillfälliga hävningar",
+        "definition": "Aktiva tillfälliga hävningar",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getblocksforpatient.blocks.temporaryRevokes.temporaryRevokeId",
+        "path": "getblocksforpatient.blocks.temporaryRevokes.temporaryRevokeId",
+        "short": "Unik ID för tillfällig hävning",
+        "definition": "Unik ID för tillfällig hävning",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getblocksforpatient.blocks.temporaryRevokes.endDate",
+        "path": "getblocksforpatient.blocks.temporaryRevokes.endDate",
+        "short": "Datum när hävningen upphör",
+        "definition": "Datum när hävningen upphör",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getblocksforpatient.blocks.temporaryRevokes.revokedForCareUnitId",
+        "path": "getblocksforpatient.blocks.temporaryRevokes.revokedForCareUnitId",
+        "short": "HSA-id för vårdenhet med hävning",
+        "definition": "HSA-id för vårdenhet med hävning",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getblocksforpatient.blocks.temporaryRevokes.revokedForEmployeeId",
+        "path": "getblocksforpatient.blocks.temporaryRevokes.revokedForEmployeeId",
+        "short": "HSA-id för enskild medarbetare",
+        "definition": "HSA-id för enskild medarbetare",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getblocksforpatient.blocks.temporaryRevokes.ownerId",
+        "path": "getblocksforpatient.blocks.temporaryRevokes.ownerId",
+        "short": "System som registrerade hävningen",
+        "definition": "System som registrerade hävningen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getblocksforpatient.blocks.ownerId",
+        "path": "getblocksforpatient.blocks.ownerId",
+        "short": "System som registrerade spärren",
+        "definition": "System som registrerade spärren",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getblocksforpatient.nextCreatedOnOrAfter",
+        "path": "getblocksforpatient.nextCreatedOnOrAfter",
+        "short": "Tidsstämpel för nästa inkrementella hämtning",
+        "definition": "Tidsstämpel för nästa inkrementella hämtning",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getblocksforpatient.latestCancellation",
+        "path": "getblocksforpatient.latestCancellation",
+        "short": "Senaste makulerings- eller hävningstidpunkt",
+        "definition": "Senaste makulerings- eller hävningstidpunkt",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

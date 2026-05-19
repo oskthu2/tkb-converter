@@ -1,0 +1,400 @@
+{
+  "domain_id": "crm.carelisting",
+  "domain_title": "crm: carelisting",
+  "domain_version": "1.0",
+  "rivta_namespace_base": "urn:riv:crm:carelisting",
+  "source_document": "igs/TKB_crm_carelisting/source/Dokumentation/RIV_spec_Nationell_Listningsstjänsten.docx",
+  "note": "Domänen saknar standard TKB_*.docx-fil. Källdokumentet är RIV_spec_Nationell_Listningsstjänsten.docx (informationsspecifikation). Strukturen avviker från standard-TKB med eget rubriksystem (V-DIM/V-MIM). Avsnitt 7 genererades tomt av docx_to_md.py — kontrakt dokumenteras via XSD-analys.",
+  "docx_converted_dir": "igs/TKB_crm_carelisting/docx-converted/",
+  "sections": {
+    "1_inledning": "igs/TKB_crm_carelisting/docx-converted/sections/1-inledning.md",
+    "2_versionsinformation": "igs/TKB_crm_carelisting/docx-converted/sections/2-versionsinformation.md",
+    "3_tjanstedomanens_arkitektur": "igs/TKB_crm_carelisting/docx-converted/sections/3-tjanstedomanens-arkitektur.md",
+    "4_tjanstedomanens_krav_och_regler": "igs/TKB_crm_carelisting/docx-converted/sections/4-tjanstedomanens-krav-och-regler.md",
+    "5_tjanstedomanens_meddelandemodeller": "igs/TKB_crm_carelisting/docx-converted/sections/5-tjanstedomanens-meddelandemodeller.md",
+    "6_gemensamma_informationskomponenter": "igs/TKB_crm_carelisting/docx-converted/sections/6-gemensamma-informationskomponenter.md"
+  },
+  "contracts": [
+    {
+      "section_number": "7.1",
+      "id": "GetListing",
+      "display_name": "Visa tjänsteval",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:crm:carelisting:GetListingResponder:1",
+      "description": "Hämtar information om en persons aktiva listning (tjänsteval). Konsumenten anger personId och får tillbaka SubjectOfCare med information om listningen.",
+      "request_fields": [
+        {
+          "name": "personId",
+          "type": "SubjectOfCareIdType (string med pattern)",
+          "fhir_type": "string",
+          "cardinality": "1..1",
+          "description": "Personnummer för vård- och omsorgstagaren. Kan anges med eller utan sekelsiffror och med eller utan bindestreck.",
+          "constraints": "Pattern: (([1-9]\\d{7})|(\\d{6}))[\\-]?\\d{4}",
+          "kodverk": null
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "subjectOfCare",
+          "type": "SubjectOfCare",
+          "fhir_type": "BackboneElement",
+          "cardinality": "1..1",
+          "description": "En persons listningar."
+        },
+        {
+          "name": "subjectOfCare.personId",
+          "type": "SubjectOfCareIdType",
+          "fhir_type": "string",
+          "cardinality": "1..1",
+          "description": "Identitetsbeteckning för vård- och omsorgstagaren."
+        },
+        {
+          "name": "subjectOfCare.listing",
+          "type": "Listing",
+          "fhir_type": "BackboneElement",
+          "cardinality": "0..*",
+          "description": "En listning för en person."
+        },
+        {
+          "name": "subjectOfCare.listing.validFromDate",
+          "type": "dateTime",
+          "fhir_type": "dateTime",
+          "cardinality": "0..1",
+          "description": "Datum för när listningen började gälla."
+        },
+        {
+          "name": "subjectOfCare.listing.validToDate",
+          "type": "dateTime",
+          "fhir_type": "dateTime",
+          "cardinality": "0..1",
+          "description": "Datum när listningen slutade gälla, om datum saknas så blir det implicit obestämt in i framtiden."
+        },
+        {
+          "name": "subjectOfCare.listing.listingType",
+          "type": "ListingType",
+          "fhir_type": "string",
+          "cardinality": "1..1",
+          "description": "Typ av listning, t.ex. BVC, HLM, FL."
+        },
+        {
+          "name": "subjectOfCare.listing.healthcare_facility",
+          "type": "Facility",
+          "fhir_type": "BackboneElement",
+          "cardinality": "1..1",
+          "description": "Vårdinrättning/vårdenhet som ansvarar för personen."
+        },
+        {
+          "name": "subjectOfCare.listing.healthcare_facility.facilityId",
+          "type": "HsaIdType",
+          "fhir_type": "Identifier",
+          "cardinality": "1..1",
+          "description": "HSA-ID för vårdenheten."
+        },
+        {
+          "name": "subjectOfCare.listing.healthcare_facility.facilityName",
+          "type": "string",
+          "fhir_type": "string",
+          "cardinality": "1..1",
+          "description": "Namn på vårdenheten."
+        },
+        {
+          "name": "subjectOfCare.listing.healthcare_facility.hasQueue",
+          "type": "boolean",
+          "fhir_type": "boolean",
+          "cardinality": "0..1",
+          "description": "Indikerar om vårdenheten har kö vid listningar."
+        },
+        {
+          "name": "subjectOfCare.listing.healthcare_facility.supportedListingTypes",
+          "type": "ListingType",
+          "fhir_type": "string",
+          "cardinality": "0..*",
+          "description": "Lista med listningstyper som vårdenheten stödjer. Utelämnad i GetListing-svaret (per postcondition)."
+        },
+        {
+          "name": "subjectOfCare.listing.resource",
+          "type": "Resource",
+          "fhir_type": "BackboneElement",
+          "cardinality": "0..1",
+          "description": "Specifik resurs som utför listningstjänsten, t.ex. en läkare eller husläkarteam."
+        },
+        {
+          "name": "subjectOfCare.listing.resource.resourceId",
+          "type": "HsaIdType",
+          "fhir_type": "Identifier",
+          "cardinality": "1..1",
+          "description": "HSA-ID för resursen."
+        },
+        {
+          "name": "subjectOfCare.listing.resource.resourceName",
+          "type": "string",
+          "fhir_type": "string",
+          "cardinality": "1..1",
+          "description": "Namn på vårdgivaren."
+        }
+      ],
+      "contract_specific_codesystems": [],
+      "open_questions_from_parsing": [
+        "Källdokumentet saknar standard avsnitt 7 med kontrakt-specifik fälttabell. XSD-filerna har används som primär källa för datamodellering."
+      ]
+    },
+    {
+      "section_number": "7.2",
+      "id": "GetAvailableFacilities",
+      "display_name": "Visa möjliga tjänsteutövare",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:crm:carelisting:GetAvailableFacilitiesResponder:1",
+      "description": "Hämtar lista med tillgängliga vårdenheter (tjänsteutövare) inom en region, optionellt filtrerat på listningstyp eller specifika HSA-ID:n.",
+      "request_fields": [
+        {
+          "name": "countyCode",
+          "type": "CountyCode",
+          "fhir_type": "string",
+          "cardinality": "1..1",
+          "description": "Länskod (SCB-kod) för regionen vars tillgängliga vårdenheter söks."
+        },
+        {
+          "name": "healthcare_facilities",
+          "type": "HsaIdType",
+          "fhir_type": "Identifier",
+          "cardinality": "0..*",
+          "description": "Lista med HSA-ID:n för specifika vårdenheter att hämta information om. Tom lista = hämta alla."
+        },
+        {
+          "name": "listingType",
+          "type": "ListingType",
+          "fhir_type": "string",
+          "cardinality": "0..*",
+          "description": "Anger vilka typer av vårdenheter som skall sökas fram. Om inget anges hämtas alla."
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "healthcare_facilities",
+          "type": "Facility",
+          "fhir_type": "BackboneElement",
+          "cardinality": "1..*",
+          "description": "Lista med tillgängliga vårdenheter."
+        },
+        {
+          "name": "healthcare_facilities.facilityId",
+          "type": "HsaIdType",
+          "fhir_type": "Identifier",
+          "cardinality": "1..1",
+          "description": "HSA-ID för vårdenheten."
+        },
+        {
+          "name": "healthcare_facilities.facilityName",
+          "type": "string",
+          "fhir_type": "string",
+          "cardinality": "1..1",
+          "description": "Namn på vårdenheten."
+        },
+        {
+          "name": "healthcare_facilities.hasQueue",
+          "type": "boolean",
+          "fhir_type": "boolean",
+          "cardinality": "0..1",
+          "description": "Indikerar om vårdenheten har kö vid listningar."
+        },
+        {
+          "name": "healthcare_facilities.supportedListingTypes",
+          "type": "ListingType",
+          "fhir_type": "string",
+          "cardinality": "0..*",
+          "description": "Lista med listningstyper som vårdenheten stödjer."
+        }
+      ],
+      "contract_specific_codesystems": [],
+      "open_questions_from_parsing": []
+    },
+    {
+      "section_number": "7.3",
+      "id": "CreateListing",
+      "display_name": "Göra tjänsteval",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:crm:carelisting:CreateListingResponder:1",
+      "description": "Skapar en ny listning — kopplar ett personId till en vårdenhet och optionellt en specifik resurs (läkare). Konsumenten anger om personen vill ställa sig i kö om det finns kö.",
+      "request_fields": [
+        {
+          "name": "personId",
+          "type": "SubjectOfCareIdType",
+          "fhir_type": "string",
+          "cardinality": "1..1",
+          "description": "Personnummer för den person som önskar göra ett tjänsteval."
+        },
+        {
+          "name": "listingType",
+          "type": "ListingType",
+          "fhir_type": "string",
+          "cardinality": "1..1",
+          "description": "Typ av listning som önskas, t.ex. BVC."
+        },
+        {
+          "name": "healthcare_facility",
+          "type": "HsaIdType",
+          "fhir_type": "Identifier",
+          "cardinality": "1..1",
+          "description": "HSA-ID för den vårdenhet som personen önskar lista sig på."
+        },
+        {
+          "name": "healthcare_professional",
+          "type": "HsaIdType",
+          "fhir_type": "Identifier",
+          "cardinality": "0..1",
+          "description": "HSA-ID för specifik resurs (läkare/husläkarteam) att lista sig på."
+        },
+        {
+          "name": "addToQueue",
+          "type": "boolean",
+          "fhir_type": "boolean",
+          "cardinality": "1..1",
+          "description": "Anger om personen vill ställa sig i kö om det är kö på vårdenheten/resursen."
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "success",
+          "type": "boolean",
+          "fhir_type": "boolean",
+          "cardinality": "1..1",
+          "description": "True om listningen genomfördes framgångsrikt, annars false."
+        },
+        {
+          "name": "comment",
+          "type": "string",
+          "fhir_type": "string",
+          "cardinality": "0..1",
+          "description": "Information som kompletterar angiven status."
+        },
+        {
+          "name": "systemCode",
+          "type": "string",
+          "fhir_type": "string",
+          "cardinality": "0..1",
+          "description": "Kod från underliggande listningssystem för felsökning. Konsumenten får inte binda logik till dessa koder."
+        }
+      ],
+      "contract_specific_codesystems": [],
+      "open_questions_from_parsing": []
+    },
+    {
+      "section_number": "7.4",
+      "id": "GetListingTypes",
+      "display_name": "Visa listningstyp",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:crm:carelisting:GetListingTypesResponder:1",
+      "description": "Hämtar lista med möjliga listningstyper som en given person kan bruka vid listning.",
+      "request_fields": [
+        {
+          "name": "personId",
+          "type": "SubjectOfCareIdType",
+          "fhir_type": "string",
+          "cardinality": "1..1",
+          "description": "PersonID för den person vars möjliga listningstyper önskas."
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "listingType",
+          "type": "ListingType",
+          "fhir_type": "string",
+          "cardinality": "0..*",
+          "description": "Lista med koder som avser listningstyper, t.ex. BVC."
+        }
+      ],
+      "contract_specific_codesystems": [],
+      "open_questions_from_parsing": []
+    },
+    {
+      "section_number": "7.5",
+      "id": "GetPersonQueueStatus",
+      "display_name": "Visa köstatus",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:crm:carelisting:GetPersonQueueStatusResponder:1",
+      "description": "Hämtar köstatus för en person — returnerar om personen är i kö samt vilken vårdenhet köstatusen gäller för.",
+      "request_fields": [
+        {
+          "name": "personId",
+          "type": "SubjectOfCareIdType",
+          "fhir_type": "string",
+          "cardinality": "1..1",
+          "description": "PersonID för den person vars köstatus önskas."
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "queueStatus",
+          "type": "PersonQueueStatus",
+          "fhir_type": "code",
+          "cardinality": "1..1",
+          "description": "Köstatus: 'inQueue' eller 'notInQueue'.",
+          "kodverk": "PersonQueueStatusCS"
+        },
+        {
+          "name": "healthcare_facility",
+          "type": "Facility",
+          "fhir_type": "BackboneElement",
+          "cardinality": "0..1",
+          "description": "Vårdenhet vars köstatus gäller."
+        },
+        {
+          "name": "healthcare_facility.facilityId",
+          "type": "HsaIdType",
+          "fhir_type": "Identifier",
+          "cardinality": "1..1",
+          "description": "HSA-ID för vårdenheten."
+        },
+        {
+          "name": "healthcare_facility.facilityName",
+          "type": "string",
+          "fhir_type": "string",
+          "cardinality": "1..1",
+          "description": "Namn på vårdenheten."
+        },
+        {
+          "name": "healthcare_facility.hasQueue",
+          "type": "boolean",
+          "fhir_type": "boolean",
+          "cardinality": "0..1",
+          "description": "Indikerar om vårdenheten har kö."
+        },
+        {
+          "name": "healthcare_facility.supportedListingTypes",
+          "type": "ListingType",
+          "fhir_type": "string",
+          "cardinality": "0..*",
+          "description": "Lista med listningstyper som vårdenheten stödjer."
+        }
+      ],
+      "contract_specific_codesystems": [
+        {
+          "name": "PersonQueueStatusCS",
+          "slug": "personqueuestatus",
+          "codes": [
+            {"code": "inQueue", "display": "I kö", "definition": "Personen är i kö för listning."},
+            {"code": "notInQueue", "display": "Inte i kö", "definition": "Personen är inte i kö för listning."}
+          ]
+        }
+      ],
+      "open_questions_from_parsing": []
+    }
+  ],
+  "shared_codesystems": [],
+  "wsdl_files": [
+    "CreateListingInteraction_1.0_rivtabp20.wsdl",
+    "GetAvailableFacilitiesInteraction_1.0_rivtabp20.wsdl",
+    "GetListingInteraction_1.0_rivtabp20.wsdl",
+    "GetListingTypesInteraction_1.0_rivtabp20.wsdl",
+    "GetPersonQueueStatusInteraction_1.0_rivtabp20.wsdl"
+  ],
+  "xsd_files": [
+    "crm_carelisting_1_0.xsd",
+    "CreateListing_1_0.xsd",
+    "GetAvailableFacilities_1_0.xsd",
+    "GetListing_1_0.xsd",
+    "GetListingTypes_1_0.xsd",
+    "GetPersonQueueStatus_1_0.xsd",
+    "ws-addressing-1.0.xsd"
+  ]
+}

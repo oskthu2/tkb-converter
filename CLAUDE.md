@@ -350,6 +350,9 @@ parameters:
   apply-publisher: true
   apply-version: true
   apply-copyright: true
+  special-url:                                     # lägg till en rad per CodeSystem med https://fhir.inera.se/CodeSystem/...-url
+    - https://fhir.inera.se/CodeSystem/{kodverk-slug-1}-cs
+    # ... fler CodeSystem-URL:er
 
 publisher: Inera AB
 contact:
@@ -373,7 +376,16 @@ FHIR Implementation Guide för tjänstedomänen **{domain_title}** version {doma
 Genererad från Ineras Tjänstekontraktsbeskrivning (TKB).
 
 Domänen innehåller följande tjänstekontrakt:
-{lista med kontrakt-ID och version, en rad per kontrakt}
+
+| Kontrakt | Version | Beskrivning |
+|----------|---------|-------------|
+| [GetCareDocumentation](7-tjanstekontrakt.html#getcaredocumentation) | 3.0 | ... |
+| [GetDiagnosis](7-tjanstekontrakt.html#getdiagnosis) | 2.0 | ... |
+```
+
+**KRITISKT — ankarformat:** Rubrikerna i `7-tjanstekontrakt.md` är alltid `### GetContractName` (utan nummerprefixet 7.1, 7.2). Ankaret blir då `#getcontractname` (lowercase). Skriv **aldrig** `#71-getcontractname` eller `#7.1-getcontractname` — dessa ankare existerar inte och ger brutna länkar vid validering.
+
+```markdown
 
 ## Innehåll
 
@@ -539,6 +551,46 @@ Characteristics: #can-be-target
 
 **Vid villkorlig kardinalitet:** skapa en kommentar i fält-description och lägg till en öppen fråga i QUESTIONS.md om villkoret kräver en FHIR-invariant.
 
+#### Fältregler → FHIRPath-invarianter (KRITISKT)
+
+Fältregler i sektion 7 (kolumnen "Villkor", "Regel" eller liknande fritext) ska översättas till FSH-invarianter direkt i den logiska modellen — **inte** enbart som kommentar i fält-description.
+
+**Så här skriver du en invariant:**
+
+```fsh
+Logical: GetDiagnosis
+Id: getdiagnosis
+...
+Invariant: diagnosis-code-required-when-type
+Description: "diagnosCode ska anges när diagnosType är satt"
+Expression: "diagnosType.exists() implies diagnosCode.exists()"
+Severity: #error
+
+* diagnosCode 0..1 CodeableConcept "Diagnoskod"
+  * ^obeys diagnosis-code-required-when-type
+* diagnosType 0..1 CodeableConcept "Diagnostyp"
+```
+
+**Invariantens id** ska följa mönstret `{modell-lowercase}-{kort-beskrivning}`, t.ex. `getdiagnosis-code-required`.
+
+**Vanliga FHIRPath-mönster för RIV-TA-regler:**
+
+| TKB-regel | FHIRPath-uttryck |
+|---|---|
+| "Ska anges om X är satt" | `X.exists() implies Y.exists()` |
+| "Får ej anges om X är satt" | `X.exists() implies Y.empty()` |
+| "Antingen A eller B ska finnas" | `A.exists() or B.exists()` |
+| "Exakt ett av A, B ska finnas" | `(A.exists() xor B.exists())` |
+| "Värdet ska vara positivt" | `value > 0` |
+| "Längst 10 tecken" | `value.length() <= 10` |
+| "Om fritext (1), kodvärde krävs ej" | `(type = '1') implies code.empty()` |
+
+**När FHIRPath inte kan fånga regeln:** (t.ex. regelns semantik kräver extern data eller är domänspecifik)
+- Skriv regeln som `Description` på invarianten med `Severity: #warning`
+- Lägg till BLOCK i QUESTIONS.md med exakt FHIRPath-förslag för domänexpert att verifiera
+
+**Undantag:** Enklare kardinalitetsregler (obligatorisk/valfri) behöver ingen invariant — de hanteras via kardinalitet. Invarianter används bara för villkorliga regler som inte kan uttryckas med `0..1` / `1..1` ensamt.
+
 #### Namnkonventioner
 
 - Logical model namn: PascalCase = interaktionsnamnet, t.ex. `GetCareDocumentation`
@@ -549,6 +601,37 @@ Characteristics: #can-be-target
 - Extension Id: `{koncept-slug}-extension`
 - Canonical base: `https://fhir.inera.se/`
 - IG-katalognamn: `TKB_{domain_id_with_underscores}`, t.ex. `TKB_clinicalprocess_healthcond_description`
+
+#### Reserverade FHIR-elementnamn (KRITISKT — orsakar byggrefel i IG Publisher)
+
+Vissa elementnamn är reserverade i FHIR R4 och **får inte användas direkt** som fältnamn i `Logical:`-modeller. IG Publisher kastar fel av typen `"Element name 'id' is not valid"` eller liknande om dessa används.
+
+**Reserverade namn som ALDRIG får användas som fältnamn:**
+
+| Reserverat namn | Konsekvent ersättning |
+|---|---|
+| `id` | `{modellPrefix}Id` (t.ex. `careDocumentationId`, `patientId`) |
+| `text` | `{modellPrefix}Text` (t.ex. `noteText`, `documentText`) |
+| `code` | `{modellPrefix}Code` (t.ex. `diagnosisCode`, `activityCode`) |
+| `status` | `{modellPrefix}Status` (t.ex. `careStatus`, `certificateStatus`) |
+| `value` | `{modellPrefix}Value` (t.ex. `measurementValue`, `numericValue`) |
+| `name` | `{modellPrefix}Name` (t.ex. `unitName`, `personName`) |
+| `type` | `{modellPrefix}Type` (t.ex. `documentType`, `diagnosisType`) |
+| `version` | `{modellPrefix}Version` (t.ex. `contractVersion`) |
+| `language` | `{modellPrefix}Language` |
+| `meta` | `{modellPrefix}Meta` |
+| `extension` | (använd aldrig som fältnamn — reserverat FHIR-koncept) |
+| `contained` | (använd aldrig) |
+| `implicitRules` | (använd aldrig) |
+
+**Principen:** Prefixet ska vara det begrepp som fältet tillhör på svenska eller engelska, t.ex.:
+- RIV-TA-fält `id` på en `CareDocumentation`-struktur → `careDocumentationId`
+- RIV-TA-fält `code` på en `Diagnosis`-struktur → `diagnosisCode`
+- RIV-TA-fält `status` på toppnivå i modellen → `{ContractName}Status`, t.ex. `getCertificateStatus`
+
+**Nästlade BackboneElements:** Även inom nästlade strukturer gäller samma regel. Om elementet heter `address.type` i TKB:n, skriv det som `addressType` i FSH.
+
+**Verifiera alltid efter SUSHI:** Om SUSHI ger fel med `"Element name ... is not valid"` eller `"Cannot override ... in differential"`, byt namn på det berörda elementet och kör om.
 
 #### Datatypmappning: RIV-TA → FHIR
 
@@ -572,12 +655,28 @@ CodeSystem: {KodverkNamn}CS
 Id: {kodverk-slug}-cs
 Title: "{KodverkNamn}"
 Description: "Kodverk {KodverkNamn} enligt {Källsystem}. OID: {OID}."
-* ^url = "urn:oid:{OID}"
+* ^url = "https://fhir.inera.se/CodeSystem/{kodverk-slug}-cs"
 * ^status = #active
 * ^content = #complete             // eller #fragment om ej komplett
 * #KOD1 "{KOD1}" "{Beskrivning}"
 * #KOD2 "{KOD2}" "{Beskrivning}"
 ```
+
+**KRITISKT — `special-url` i sushi-config.yaml:** Eftersom CodeSystem-URL:en `https://fhir.inera.se/CodeSystem/...` ligger utanför IG:ns canonical namespace (`https://fhir.inera.se/ig/{domain-slug}`), **måste** varje CodeSystem-URL listas under `special-url` i `sushi-config.yaml`. Annars genererar IG Publisher `RESOURCE_CANONICAL_MISMATCH`-fel som gör bygget rött. Lägg till ett `special-url`-block i `parameters`-sektionen för **varje** CodeSystem du skapar:
+
+```yaml
+parameters:
+  show-inherited-invariants: false
+  apply-contact: true
+  apply-publisher: true
+  apply-version: true
+  apply-copyright: true
+  special-url:
+    - https://fhir.inera.se/CodeSystem/{kodverk-slug-1}-cs
+    - https://fhir.inera.se/CodeSystem/{kodverk-slug-2}-cs
+```
+
+Alternativt kan du använda OID-baserad canonical om kodverket har ett känt OID: `* ^url = "urn:oid:{OID}"` — OID-URL:er utlöser aldrig `RESOURCE_CANONICAL_MISMATCH` och behöver inte listas i `special-url`.
 
 **Om kodverket är externdefinierat** (t.ex. ICD-10-SE, KSH97, Snomed CT):
 - Skapa INTE ett eget CodeSystem

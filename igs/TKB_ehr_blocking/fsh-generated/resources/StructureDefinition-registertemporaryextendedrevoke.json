@@ -1,0 +1,74 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "registertemporaryextendedrevoke",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/registertemporaryextendedrevoke",
+  "name": "RegisterTemporaryExtendedRevoke",
+  "title": "RegisterTemporaryExtendedRevoke",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet RegisterTemporaryExtendedRevoke\n(RIV-TA urn:riv:ehr:blocking:administration:RegisterTemporaryExtendedRevokeResponder:2).\nRegistrerar en tillfällig hävning med utökad information i lokal spärrtjänst.\nRepresenterar responsens informationsstruktur.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/registertemporaryextendedrevoke",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "registertemporaryextendedrevoke",
+        "path": "registertemporaryextendedrevoke",
+        "short": "RegisterTemporaryExtendedRevoke",
+        "definition": "Logisk modell för tjänstekontraktet RegisterTemporaryExtendedRevoke\n(RIV-TA urn:riv:ehr:blocking:administration:RegisterTemporaryExtendedRevokeResponder:2).\nRegistrerar en tillfällig hävning med utökad information i lokal spärrtjänst.\nRepresenterar responsens informationsstruktur."
+      },
+      {
+        "id": "registertemporaryextendedrevoke.result",
+        "path": "registertemporaryextendedrevoke.result",
+        "short": "Resultat av registreringen",
+        "definition": "Resultat av registreringen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registertemporaryextendedrevoke.result.resultCode",
+        "path": "registertemporaryextendedrevoke.result.resultCode",
+        "short": "Svarskod",
+        "definition": "Svarskod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-blocking/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "registertemporaryextendedrevoke.result.resultText",
+        "path": "registertemporaryextendedrevoke.result.resultText",
+        "short": "Beskrivande text till svarskoden",
+        "definition": "Beskrivande text till svarskoden",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

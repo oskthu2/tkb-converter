@@ -1,0 +1,190 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "inera.crm-requeststatus",
+  "url": "https://fhir.inera.se/ig/crm-requeststatus/ImplementationGuide/inera.crm-requeststatus",
+  "version": "2.0.1",
+  "name": "crmrequeststatus",
+  "title": "crm: requeststatus",
+  "status": "draft",
+  "contact": [
+    {
+      "name": "Inera Arkitektur",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.inera.se"
+        }
+      ]
+    }
+  ],
+  "copyright": "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "packageId": "inera.crm-requeststatus",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.r4.core",
+      "version": "4.0.1",
+      "uri": "http://fhir.org/packages/hl7.fhir.r4.core/ImplementationGuide/hl7.fhir.r4.core",
+      "id": "hl7_fhir_r4_core"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "StructureDefinition/getrequestactivities"
+        },
+        "name": "GetRequestActivities",
+        "description": "Logisk modell för tjänstekontraktet GetRequestActivities\n(RIV-TA urn:riv:crm:requeststatus:GetRequestActivities:2).\nRepresenterar responsens informationsstruktur — en lista med statusrader för en patients remisser.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getrequestactivities-request"
+        },
+        "name": "GetRequestActivities — Request",
+        "description": "Logisk modell för requestparametrar i tjänstekontraktet GetRequestActivities\n(RIV-TA urn:riv:crm:requeststatus:GetRequestActivities:2).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/kvformavframstallan-cs"
+        },
+        "name": "Kv Form av framställan",
+        "description": "Kodverk Kv Form av framställan — anger medium/form för en remiss/framställan. OID: 1.2.752.129.2.2.2.7.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/kvformavframstallan-vs"
+        },
+        "name": "Kv Form av framställan — ValueSet",
+        "description": "Tillåtna värden för medium för remiss/framställan (request.medium) enligt Kv Form av framställan (OID: 1.2.752.129.2.2.2.7).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/kvframstallantyp-cs"
+        },
+        "name": "Kv framställantyp",
+        "description": "Kodverk Kv framställantyp — anger typ av remiss/framställan. OID: 1.2.752.129.2.2.2.24.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/kvframstallantyp-vs"
+        },
+        "name": "Kv framställantyp — ValueSet",
+        "description": "Tillåtna värden för remisstyp (typeOfRequest, request.type) enligt Kv framställantyp (OID: 1.2.752.129.2.2.2.24).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/kvstatusvardbegaran-cs"
+        },
+        "name": "Kv status vårdbegäran",
+        "description": "Kodverk Kv status vårdbegäran — anger status för en remiss/vårdbegäran. OID: 1.2.752.129.2.2.2.43.\nKodverket kan komma att kompletteras utan versionsuppdatering av tjänstekontraktet.\nKonsumenter MÅSTE vara förberedda på nya koder.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/kvstatusvardbegaran-vs"
+        },
+        "name": "Kv status vårdbegäran — ValueSet",
+        "description": "Tillåtna värden för remisstatus (statusCode) enligt Kv status vårdbegäran (OID: 1.2.752.129.2.2.2.43). Kodverket kan utökas utan versionsuppdatering.",
+        "exampleBoolean": false
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Hem",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "1-inledning.html",
+          "title": "1 Inledning",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "2-versionsinformation.html",
+          "title": "2 Versionsinformation",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "3-tjanstedomanens-arkitektur.html",
+          "title": "3 Tjänstedomänens arkitektur",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "4-tjanstedomanens-krav-och-regler.html",
+          "title": "4 Tjänstedomänens krav och regler",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "5-tjanstedomanens-meddelandemodeller.html",
+          "title": "5 Tjänstedomänens meddelandemodeller",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "6-gemensamma-informationskomponenter.html",
+          "title": "6 Gemensamma informationskomponenter",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "7-tjanstekontrakt.html",
+          "title": "7 Tjänstekontrakt",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2024+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "draft"
+      },
+      {
+        "code": "show-inherited-invariants",
+        "value": "false"
+      },
+      {
+        "code": "apply-contact",
+        "value": "true"
+      },
+      {
+        "code": "apply-publisher",
+        "value": "true"
+      },
+      {
+        "code": "apply-version",
+        "value": "true"
+      },
+      {
+        "code": "apply-copyright",
+        "value": "true"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/kvframstallantyp-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/kvformavframstallan-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/kvstatusvardbegaran-cs"
+      }
+    ]
+  }
+}

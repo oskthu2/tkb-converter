@@ -66,6 +66,26 @@ with open('$REGISTRY', 'w') as f:
 PYEOF
 }
 
+# ── Kopiera förinstallerade FHIR-paket (inkl. template) till runtime-cachen ──
+# Paketen laddades ned under docker build och lagrades i /opt/fhir-packages/.
+# /root/.fhir är volymonterad från värddatorn — de förinstallerade paketen
+# kopieras dit om de saknas, så att IG Publisher hittar dem offline.
+ensure_fhir_packages() {
+    local pkg_base="/opt/fhir-packages"
+    [ -d "$pkg_base" ] || return 0
+    mkdir -p "/root/.fhir/packages"
+    for pkg_dir in "$pkg_base"/*/; do
+        [ -d "$pkg_dir" ] || continue
+        local pkg_name
+        pkg_name=$(basename "$pkg_dir")
+        local target="/root/.fhir/packages/$pkg_name"
+        if [ ! -d "$target" ]; then
+            log "Installerar förinstallerat FHIR-paket: $pkg_name"
+            cp -r "$pkg_dir" "$target"
+        fi
+    done
+}
+
 # ── Ladda ned IG Publisher om jar saknas ─────────────────────────────────────
 ensure_publisher() {
     if [ -f "$PUBLISHER_JAR" ]; then
@@ -98,8 +118,8 @@ requested = '$requested'
 if requested == 'all':
     ready = [
         d['id'] for d in r.get('domains', [])
-        if d.get('sushi_result', {}).get('passed')
-        and d.get('ig_publisher_result', {}).get('status') not in ('success',)
+        if (d.get('sushi_result') or {}).get('passed')
+        and (d.get('ig_publisher_result') or {}).get('status') not in ('success',)
     ]
 else:
     ready = [s.strip() for s in requested.split(',') if s.strip()]
@@ -123,16 +143,50 @@ PYEOF
 # ── Fixa ig.ini så att den pekar på SUSHI-genererad IG-resurs ───────────────
 fix_ig_ini() {
     local ig_dir="$1"
+    ig_dir="${ig_dir//$'\r'/}"
     # Hitta IG-ID från sushi-config.yaml
     local ig_id
-    ig_id=$(grep -m1 '^id:' "$ig_dir/sushi-config.yaml" | awk '{print $2}' | tr -d '"')
+    ig_id=$(grep -m1 '^id:' "$ig_dir/sushi-config.yaml" | awk '{print $2}' | tr -d '"\r')
     local sushi_ig="fsh-generated/resources/ImplementationGuide-${ig_id}.json"
+    local resources_dir="$ig_dir/fsh-generated/resources"
 
     if [ ! -f "$ig_dir/$sushi_ig" ]; then
         warn "Kan inte hitta SUSHI-genererad IG-resurs: $ig_dir/$sushi_ig"
-        warn "Kör sushi först eller kontrollera att sushi-config.yaml har rätt id:"
-        return 1
+        if [ -d "$resources_dir" ]; then
+            local fallback
+            fallback=$(find "$resources_dir" -maxdepth 1 -type f -name 'ImplementationGuide-*.json' | sort | head -1 || true)
+            if [ -n "$fallback" ]; then
+                sushi_ig="fsh-generated/resources/$(basename "$fallback")"
+                warn "Använder fallback-IG-resurs: $sushi_ig"
+            else
+                warn "Ingen ImplementationGuide-*.json hittades i: $resources_dir"
+                warn "Kör sushi först eller kontrollera att sushi-config.yaml har rätt id:"
+                return 1
+            fi
+        else
+            warn "Resurskatalog saknas: $resources_dir"
+            warn "Kör sushi först eller kontrollera att sushi-config.yaml har rätt id:"
+            return 1
+        fi
     fi
+
+    # IG Publisher lägger till core-paket implicit; explicit dependsOn för core
+    # kan orsaka dublettfel vid package.json-generering.
+    python3 - "$ig_dir/$sushi_ig" <<'PYEOF'
+import json, sys
+path = sys.argv[1]
+with open(path, encoding='utf-8') as f:
+    ig = json.load(f)
+depends = ig.get('dependsOn', [])
+filtered = [d for d in depends if d.get('packageId') != 'hl7.fhir.r4.core']
+if len(filtered) != len(depends):
+    if filtered:
+        ig['dependsOn'] = filtered
+    else:
+        ig.pop('dependsOn', None)
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(ig, f, ensure_ascii=False, indent=2)
+PYEOF
 
     cat > "$ig_dir/ig.ini" <<INI
 [IG]
@@ -202,6 +256,7 @@ build_domain() {
     local exit_code=0
     java -Xmx4g -jar "$PUBLISHER_JAR" \
         -ig "$ig_dir/ig.ini" \
+        -version 4.0.1 \
         -no-sushi \
         -tx "$TX_SERVER" \
         2>&1 | tee -a "$build_log" || exit_code=$?
@@ -224,26 +279,19 @@ build_domain() {
     local qa_html="$ig_dir/output/qa.html"
     local qa_json_src="$ig_dir/output/qa.json"
 
-    if [ -f "$qa_json_src" ]; then
-        log "Kopierar qa.json..."
-        python3 /usr/local/bin/parse-qa \
-            --qa-json "$qa_json_src" \
-            --domain "$domain_id" \
-            --log "$build_log" \
-            --output "$qa_json"
-    elif [ -f "$qa_html" ]; then
-        log "Parsar qa.html..."
-        python3 /usr/local/bin/parse-qa \
-            --qa-html "$qa_html" \
-            --domain "$domain_id" \
-            --log "$build_log" \
-            --output "$qa_json"
+    # Skicka alltid med BÅDA --qa-json och --qa-html när de finns.
+    # parse-qa.py kombinerar dem: qa.json för summor, qa.html för detaljer
+    # (äldre IG Publisher-format har enbart summor i qa.json).
+    local parse_args=(--domain "$domain_id" --log "$build_log" --output "$qa_json")
+    [ -f "$qa_json_src" ] && parse_args+=(--qa-json "$qa_json_src")
+    [ -f "$qa_html" ]     && parse_args+=(--qa-html "$qa_html")
+
+    if [ -f "$qa_json_src" ] || [ -f "$qa_html" ]; then
+        log "Parsar QA-rapport (json=$([ -f "$qa_json_src" ] && echo ja || echo nej), html=$([ -f "$qa_html" ] && echo ja || echo nej))..."
+        python3 /usr/local/bin/parse-qa "${parse_args[@]}"
     else
         log "Ingen QA-rapport hittad (output/ saknas?)"
-        python3 /usr/local/bin/parse-qa \
-            --domain "$domain_id" \
-            --log "$build_log" \
-            --output "$qa_json"
+        python3 /usr/local/bin/parse-qa "${parse_args[@]}"
     fi
 
     # Skriv tillbaka till registry
@@ -279,6 +327,7 @@ main() {
     log "Workspace: $WORKSPACE"
     log "Registry:  $REGISTRY"
 
+    ensure_fhir_packages
     ensure_publisher
 
     local domain_ids

@@ -1,0 +1,70 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getextendedpatientrelationsforpatient-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-patientrelationship/StructureDefinition/getextendedpatientrelationsforpatient-request",
+  "name": "GetExtendedPatientRelationsForPatientRequest",
+  "title": "GetExtendedPatientRelationsForPatient — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i GetExtendedPatientRelationsForPatient.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-patientrelationship/StructureDefinition/getextendedpatientrelationsforpatient-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getextendedpatientrelationsforpatient-request",
+        "path": "getextendedpatientrelationsforpatient-request",
+        "short": "GetExtendedPatientRelationsForPatient — Request",
+        "definition": "Logisk modell för requestparametrar i GetExtendedPatientRelationsForPatient."
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient-request.careProviderId",
+        "path": "getextendedpatientrelationsforpatient-request.careProviderId",
+        "short": "HSA-id på den vårdgivare vars patientrelationer skall hämtas",
+        "definition": "HSA-id på den vårdgivare vars patientrelationer skall hämtas",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient-request.patientId",
+        "path": "getextendedpatientrelationsforpatient-request.patientId",
+        "short": "Patientens personnummer alternativt samordningsnummer (max 12 tecken)",
+        "definition": "Patientens personnummer alternativt samordningsnummer (max 12 tecken)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getextendedpatientrelationsforpatient-request.getCancelledFlag",
+        "path": "getextendedpatientrelationsforpatient-request.getCancelledFlag",
+        "short": "Flagga som avgör om ogiltiga patientrelationer (makulerade, återkallade, utgångna) skall returneras",
+        "definition": "Flagga som avgör om ogiltiga patientrelationer (makulerade, återkallade, utgångna) skall returneras",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,381 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "saveformtemplate-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/StructureDefinition/saveformtemplate-request",
+  "name": "SaveFormTemplateRequest",
+  "title": "SaveFormTemplate — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i SaveFormTemplate\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:SaveFormTemplate:2).\nSparar en formulärmall hos tjänsteproducenten.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/StructureDefinition/saveformtemplate-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "saveformtemplate-request",
+        "path": "saveformtemplate-request",
+        "short": "SaveFormTemplate — Request",
+        "definition": "Logisk modell för requestparametrar i SaveFormTemplate\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:SaveFormTemplate:2).\nSparar en formulärmall hos tjänsteproducenten."
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate",
+        "path": "saveformtemplate-request.formTemplate",
+        "short": "Formulärmallen som skall sparas (FormTemplate)",
+        "definition": "Komplett formulärmall med sidor och frågor. Se GetFormTemplate för detaljerad struktur.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.templateId",
+        "path": "saveformtemplate-request.formTemplate.templateId",
+        "short": "Mallens typ-id",
+        "definition": "Mallens typ-id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.templateVersion",
+        "path": "saveformtemplate-request.formTemplate.templateVersion",
+        "short": "Mallens version",
+        "definition": "Mallens version",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.formName",
+        "path": "saveformtemplate-request.formTemplate.formName",
+        "short": "Mallens namn",
+        "definition": "Mallens namn",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.formTitle",
+        "path": "saveformtemplate-request.formTemplate.formTitle",
+        "short": "Mallens rubrik",
+        "definition": "Mallens rubrik",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.description",
+        "path": "saveformtemplate-request.formTemplate.description",
+        "short": "Formulärets beskrivning",
+        "definition": "Formulärets beskrivning",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.descriptionInternal",
+        "path": "saveformtemplate-request.formTemplate.descriptionInternal",
+        "short": "Intern beskrivning för personal",
+        "definition": "Intern beskrivning för personal",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.category",
+        "path": "saveformtemplate-request.formTemplate.category",
+        "short": "Formulärets kategori",
+        "definition": "Formulärets kategori",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/ValueSet/formcategory-vs"
+        }
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.publishStatus",
+        "path": "saveformtemplate-request.formTemplate.publishStatus",
+        "short": "Publiceringsstatus",
+        "definition": "Publiceringsstatus",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/ValueSet/publishstatus-vs"
+        }
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.mandatory",
+        "path": "saveformtemplate-request.formTemplate.mandatory",
+        "short": "Om formuläret är obligatoriskt",
+        "definition": "Om formuläret är obligatoriskt",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.formLanguage",
+        "path": "saveformtemplate-request.formTemplate.formLanguage",
+        "short": "Språkkod",
+        "definition": "Språkkod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.anonymousForm",
+        "path": "saveformtemplate-request.formTemplate.anonymousForm",
+        "short": "Om formuläret tillåter anonym användning",
+        "definition": "Om formuläret tillåter anonym användning",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.healthcareFacilityUnit",
+        "path": "saveformtemplate-request.formTemplate.healthcareFacilityUnit",
+        "short": "HSA-id för mallens ägare",
+        "definition": "HSA-id för mallens ägare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.pages",
+        "path": "saveformtemplate-request.formTemplate.pages",
+        "short": "Sidor i mallen",
+        "definition": "Sidor i mallen",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.pages.pageNumber",
+        "path": "saveformtemplate-request.formTemplate.pages.pageNumber",
+        "short": "Sidans nummer",
+        "definition": "Sidans nummer",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.pages.subject",
+        "path": "saveformtemplate-request.formTemplate.pages.subject",
+        "short": "Sidans rubrik",
+        "definition": "Sidans rubrik",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.pages.templateQuestionBlock",
+        "path": "saveformtemplate-request.formTemplate.pages.templateQuestionBlock",
+        "short": "Frågegrupperingsmallar",
+        "definition": "Frågegrupperingsmallar",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.pages.templateQuestionBlock.blockNumber",
+        "path": "saveformtemplate-request.formTemplate.pages.templateQuestionBlock.blockNumber",
+        "short": "Blocknummer",
+        "definition": "Blocknummer",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.pages.templateQuestionBlock.templateQuestion",
+        "path": "saveformtemplate-request.formTemplate.pages.templateQuestionBlock.templateQuestion",
+        "short": "Frågmallar",
+        "definition": "Frågmallar",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.pages.templateQuestionBlock.templateQuestion.questionId",
+        "path": "saveformtemplate-request.formTemplate.pages.templateQuestionBlock.templateQuestion.questionId",
+        "short": "Frågans ID",
+        "definition": "Frågans ID",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.pages.templateQuestionBlock.templateQuestion.questionText",
+        "path": "saveformtemplate-request.formTemplate.pages.templateQuestionBlock.templateQuestion.questionText",
+        "short": "Frågetext",
+        "definition": "Frågetext",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.pages.templateQuestionBlock.templateQuestion.questionType",
+        "path": "saveformtemplate-request.formTemplate.pages.templateQuestionBlock.templateQuestion.questionType",
+        "short": "Typ av fråga",
+        "definition": "Typ av fråga",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/ValueSet/questiontype-vs"
+        }
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.pages.templateQuestionBlock.templateQuestion.mandatory",
+        "path": "saveformtemplate-request.formTemplate.pages.templateQuestionBlock.templateQuestion.mandatory",
+        "short": "Om frågan är obligatorisk",
+        "definition": "Om frågan är obligatorisk",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.pages.templateQuestionBlock.templateQuestion.answerAlternative",
+        "path": "saveformtemplate-request.formTemplate.pages.templateQuestionBlock.templateQuestion.answerAlternative",
+        "short": "Svarsalternativ",
+        "definition": "Svarsalternativ",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.pages.templateQuestionBlock.templateQuestion.answerAlternative.alternativeId",
+        "path": "saveformtemplate-request.formTemplate.pages.templateQuestionBlock.templateQuestion.answerAlternative.alternativeId",
+        "short": "Alternativets ID",
+        "definition": "Alternativets ID",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "saveformtemplate-request.formTemplate.pages.templateQuestionBlock.templateQuestion.answerAlternative.alternativeText",
+        "path": "saveformtemplate-request.formTemplate.pages.templateQuestionBlock.templateQuestion.answerAlternative.alternativeText",
+        "short": "Alternativets text",
+        "definition": "Alternativets text",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

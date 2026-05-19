@@ -1,0 +1,321 @@
+{
+  "domain_id": "crm.requeststatus",
+  "domain_title": "crm: requeststatus",
+  "domain_version": "2.0.1",
+  "rivta_namespace_base": "urn:riv:crm:requeststatus",
+  "docx_converted_dir": "igs/TKB_crm_requeststatus/docx-converted/",
+  "sections": {
+    "1_inledning": "igs/TKB_crm_requeststatus/docx-converted/sections/1-inledning.md",
+    "2_versionsinformation": "igs/TKB_crm_requeststatus/docx-converted/sections/2-versionsinformation.md",
+    "3_tjanstedomanens_arkitektur": "igs/TKB_crm_requeststatus/docx-converted/sections/3-tjanstedomanens-arkitektur.md",
+    "4_tjanstedomanens_krav_och_regler": "igs/TKB_crm_requeststatus/docx-converted/sections/4-tjanstedomanens-krav-och-regler.md",
+    "5_tjanstedomanens_meddelandemodeller": "igs/TKB_crm_requeststatus/docx-converted/sections/5-tjanstedomanens-meddelandemodeller.md",
+    "6_gemensamma_informationskomponenter": "igs/TKB_crm_requeststatus/docx-converted/sections/6-gemensamma-informationskomponenter.md"
+  },
+  "contracts": [
+    {
+      "section_number": "7.1",
+      "id": "GetRequestActivities",
+      "display_name": "Hämta remissstatus",
+      "version": "2.0",
+      "rivta_namespace": "urn:riv:crm:requeststatus:GetRequestActivities:2",
+      "description": "Detta kontrakt returnerar en lista med status för en patients remisser. Tjänsten returnerar status/aktivitetsrader för de remisser som finns på det personnummer som är inkluderat i anropet. Tjänsten levererar en rad för varje aktivitet/status som en remiss passerat i remissprocessen.",
+      "request_fields": [
+        {
+          "name": "careUnitHSAId",
+          "type": "IIType",
+          "cardinality": "0..*",
+          "description": "Filtrering på vårdenhet. root = OID 1.2.752.129.2.1.4.1 (HSA), extension = HSA-id på vårdenhet.",
+          "constraints": null,
+          "kodverk": null
+        },
+        {
+          "name": "careGiverHSAId",
+          "type": "IIType",
+          "cardinality": "0..*",
+          "description": "Filtrering på vårdgivare. root = OID 1.2.752.129.2.1.4.1 (HSA), extension = HSA-id på vårdgivare.",
+          "constraints": null,
+          "kodverk": null
+        },
+        {
+          "name": "patientId",
+          "type": "IIType",
+          "cardinality": "1..1",
+          "description": "Patientens personidentifierare. root = OID för typ av personidentifierare.",
+          "constraints": null,
+          "kodverk": null
+        },
+        {
+          "name": "datePeriod",
+          "type": "DatePeriodType",
+          "cardinality": "0..1",
+          "description": "Begränsar sökningen till angiven tidsperiod.",
+          "constraints": null,
+          "kodverk": null
+        },
+        {
+          "name": "sourceSystemHSAId",
+          "type": "IIType",
+          "cardinality": "0..1",
+          "description": "Källsystemets id. Begränsar sökningen till angiven källsystem.",
+          "constraints": null,
+          "kodverk": null
+        },
+        {
+          "name": "typeOfRequest",
+          "type": "CVType",
+          "cardinality": "0..*",
+          "description": "Remisstyp. Kv framställantyp, OID: 1.2.752.129.2.2.2.24",
+          "constraints": null,
+          "kodverk": "KvFramstallantyp"
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "requestActivity",
+          "type": "RequestActivityType",
+          "cardinality": "0..*",
+          "description": "Remisstatus som matchar begäran."
+        },
+        {
+          "name": "requestActivity.header",
+          "type": "HeaderType",
+          "cardinality": "1..1",
+          "description": "Gemensam information om remisstatusen."
+        },
+        {
+          "name": "requestActivity.header.accessControlHeader",
+          "type": "AccessControlHeaderType",
+          "cardinality": "1..1",
+          "description": "Information för åtkomstkontroll."
+        },
+        {
+          "name": "requestActivity.header.accessControlHeader.accountableHealthcareProvider",
+          "type": "IIType",
+          "cardinality": "1..1",
+          "description": "Id för uppgiftsägande vårdgivare. Regel 2.1"
+        },
+        {
+          "name": "requestActivity.header.accessControlHeader.accountableCareUnit",
+          "type": "IIType",
+          "cardinality": "0..1",
+          "description": "HSA-id för vårdenhet. Regel 2.1"
+        },
+        {
+          "name": "requestActivity.header.accessControlHeader.originalPatientId",
+          "type": "IIType",
+          "cardinality": "0..1",
+          "description": "Personidentifierare som uppgiften lagrades under vid skapande."
+        },
+        {
+          "name": "requestActivity.header.accessControlHeader.careProcessId",
+          "type": "IIType",
+          "cardinality": "0..1",
+          "description": "Id för individanpassad vårdprocess."
+        },
+        {
+          "name": "requestActivity.header.accessControlHeader.lockTime",
+          "type": "TimeStampType",
+          "cardinality": "0..0",
+          "description": "Ska ej användas. Regel 2.2"
+        },
+        {
+          "name": "requestActivity.header.accessControlHeader.blockComparisonTime",
+          "type": "TimeStampType",
+          "cardinality": "1..1",
+          "description": "Tidpunkt för spärrkontroll."
+        },
+        {
+          "name": "requestActivity.header.accessControlHeader.approvedForPatient",
+          "type": "boolean",
+          "cardinality": "1..1",
+          "description": "Beslut om remisstatusen får delas med patient."
+        },
+        {
+          "name": "requestActivity.header.sourceSystemId",
+          "type": "IIType",
+          "cardinality": "1..1",
+          "description": "Källsystemet som remisstatusen lagras i."
+        },
+        {
+          "name": "requestActivity.header.record",
+          "type": "RecordType",
+          "cardinality": "1..1",
+          "description": "Information om remisstatusen."
+        },
+        {
+          "name": "requestActivity.header.record.id",
+          "type": "IIType",
+          "cardinality": "1..1",
+          "description": "Identifierare för remisstatus. Ska vara beständig."
+        },
+        {
+          "name": "requestActivity.header.record.timestamp",
+          "type": "TimeStampType",
+          "cardinality": "1..1",
+          "description": "Tidpunkt då remisstatusen skapades i källsystemet."
+        },
+        {
+          "name": "requestActivity.header.author",
+          "type": "AuthorType",
+          "cardinality": "0..1",
+          "description": "Information om den som dokumenterat remisstatusen."
+        },
+        {
+          "name": "requestActivity.header.author.id",
+          "type": "IIType",
+          "cardinality": "0..1",
+          "description": "HSA-id för dokumenterande hälso- och sjukvårdspersonal."
+        },
+        {
+          "name": "requestActivity.header.author.name",
+          "type": "string",
+          "cardinality": "0..1",
+          "description": "Namn på hälso- och sjukvårdspersonal."
+        },
+        {
+          "name": "requestActivity.header.author.timestamp",
+          "type": "TimeStampType",
+          "cardinality": "1..1",
+          "description": "Tidpunkt då remisstatusen dokumenterades."
+        },
+        {
+          "name": "requestActivity.header.author.byRole",
+          "type": "CVType",
+          "cardinality": "0..1",
+          "description": "Befattning för personal. OID: 1.2.752.129.2.2.1.4 (HSAs kodverk Befattning)."
+        },
+        {
+          "name": "requestActivity.header.signature",
+          "type": "AuthorType",
+          "cardinality": "0..0",
+          "description": "Ej aktuell för remisstatus."
+        },
+        {
+          "name": "requestActivity.body",
+          "type": "RequestActivityBodyType",
+          "cardinality": "1..1",
+          "description": "Innehåll för remisstatusen."
+        },
+        {
+          "name": "requestActivity.body.statusCode",
+          "type": "CVType",
+          "cardinality": "1..1",
+          "description": "Status remissen befinner sig i. Kv status vårdbegäran, OID: 1.2.752.129.2.2.2.43.",
+          "kodverk": "KvStatusVardbegaran"
+        },
+        {
+          "name": "requestActivity.body.eventTime",
+          "type": "TimeStampType",
+          "cardinality": "1..1",
+          "description": "Händelsetidpunkt — när ändring av remisstatus sker."
+        },
+        {
+          "name": "requestActivity.body.request",
+          "type": "RequestType",
+          "cardinality": "1..1",
+          "description": "Den utfärdade remissen."
+        },
+        {
+          "name": "requestActivity.body.request.id",
+          "type": "string",
+          "cardinality": "1..1",
+          "description": "Remiss-id. Unik identifierare av remissen."
+        },
+        {
+          "name": "requestActivity.body.request.type",
+          "type": "CVType",
+          "cardinality": "0..1",
+          "description": "Remisstyp. Kv framställantyp, OID: 1.2.752.129.2.2.2.24",
+          "kodverk": "KvFramstallantyp"
+        },
+        {
+          "name": "requestActivity.body.request.medium",
+          "type": "CVType",
+          "cardinality": "0..1",
+          "description": "Medium. Kv Form av framställan, OID: 1.2.752.129.2.2.2.7",
+          "kodverk": "KvFormAvFramstallan"
+        },
+        {
+          "name": "requestActivity.body.request.author",
+          "type": "RequestAuthorType",
+          "cardinality": "0..1",
+          "description": "Remittent — författare av remissen."
+        },
+        {
+          "name": "requestActivity.body.request.author.name",
+          "type": "string",
+          "cardinality": "1..1",
+          "description": "Remittentens namn."
+        },
+        {
+          "name": "requestActivity.body.request.author.organization",
+          "type": "OrganizationType",
+          "cardinality": "1..1",
+          "description": "Remitterande enhet."
+        },
+        {
+          "name": "requestActivity.body.request.author.organization.id",
+          "type": "IIType",
+          "cardinality": "0..1",
+          "description": "Remitterande enhetens id (HSA-id)."
+        },
+        {
+          "name": "requestActivity.body.request.author.organization.name",
+          "type": "string",
+          "cardinality": "1..1",
+          "description": "Remitterande enhetens namn."
+        },
+        {
+          "name": "requestActivity.body.request.receivingOrganization",
+          "type": "OrganizationType",
+          "cardinality": "1..1",
+          "description": "Remissmottagande enhet."
+        },
+        {
+          "name": "requestActivity.body.request.receivingOrganization.id",
+          "type": "IIType",
+          "cardinality": "0..1",
+          "description": "Remissmottagande enhets id (HSA-id)."
+        },
+        {
+          "name": "requestActivity.body.request.receivingOrganization.name",
+          "type": "string",
+          "cardinality": "1..1",
+          "description": "Remissmottagande enhetens namn."
+        }
+      ],
+      "contract_specific_codesystems": [
+        {
+          "name": "KvFramstallantyp",
+          "oid": "1.2.752.129.2.2.2.24",
+          "codes": [
+            {"code": "1", "display": "röntgenremiss"},
+            {"code": "2", "display": "labbremiss"},
+            {"code": "4", "display": "allmänremiss"}
+          ]
+        },
+        {
+          "name": "KvFormAvFramstallan",
+          "oid": "1.2.752.129.2.2.2.7",
+          "codes": [
+            {"code": "3", "display": "skriftligt elektroniskt"},
+            {"code": "4", "display": "skriftligt papper"}
+          ]
+        },
+        {
+          "name": "KvStatusVardbegaran",
+          "oid": "1.2.752.129.2.2.2.43",
+          "codes": [],
+          "note": "Kodverket kan komma att kompletteras över tid — konsumenter måste vara förberedda på nya koder utan versionsuppdatering."
+        }
+      ],
+      "open_questions_from_parsing": [
+        "KvStatusVardbegaran-koderna är inte fullständigt listade i TKB — kod 1=Skickad, kod 7=Svar mottaget, kod 11=Makulerad nämns i övriga regler, men komplett lista saknas."
+      ],
+      "wsdl_files": ["GetRequestActivitiesInteraction_2.0_RIVTABP21.wsdl"],
+      "xsd_files": ["crm_requeststatus_2.0.xsd", "GetRequestActivitiesResponder_2.0.xsd", "interoperability_headers_1.0.xsd"],
+      "doc_files": ["SjD_TK_GetRequestActivities_2.0.docx", "SjD_TP_GetRequestActivities_2.0.docx"]
+    }
+  ]
+}

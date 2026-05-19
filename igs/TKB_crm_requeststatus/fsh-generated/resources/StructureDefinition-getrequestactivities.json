@@ -1,0 +1,472 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getrequestactivities",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/crm-requeststatus/StructureDefinition/getrequestactivities",
+  "name": "GetRequestActivities",
+  "title": "GetRequestActivities",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetRequestActivities\n(RIV-TA urn:riv:crm:requeststatus:GetRequestActivities:2).\nRepresenterar responsens informationsstruktur — en lista med statusrader för en patients remisser.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/crm-requeststatus/StructureDefinition/getrequestactivities",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getrequestactivities",
+        "path": "getrequestactivities",
+        "short": "GetRequestActivities",
+        "definition": "Logisk modell för tjänstekontraktet GetRequestActivities\n(RIV-TA urn:riv:crm:requeststatus:GetRequestActivities:2).\nRepresenterar responsens informationsstruktur — en lista med statusrader för en patients remisser."
+      },
+      {
+        "id": "getrequestactivities.requestActivity",
+        "path": "getrequestactivities.requestActivity",
+        "short": "Remisstatus som matchar begäran",
+        "definition": "Lista med statusrader för remisser. En rad per aktivitet/status som en remiss passerat i remissprocessen.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.header",
+        "path": "getrequestactivities.requestActivity.header",
+        "short": "Gemensam information om remisstatusen",
+        "definition": "Innehåller information som är gemensam för remisstatusen, exempelvis information om hälso- och\nsjukvårdspersonal och signering.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.header.accessControlHeader",
+        "path": "getrequestactivities.requestActivity.header.accessControlHeader",
+        "short": "Information för åtkomstkontroll",
+        "definition": "Information som används för kontroll av åtkomst enligt PDL.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.header.accessControlHeader.accountableHealthcareProvider",
+        "path": "getrequestactivities.requestActivity.header.accessControlHeader.accountableHealthcareProvider",
+        "short": "Uppgiftsägande vårdgivare",
+        "definition": "Id för uppgiftsägande vårdgivare. I första hand HSA-id, i andra hand organisationsnummer.\nOm HSA-id: root = 1.2.752.129.2.1.4.1, extension = HSA-id.\nOm org.nr: root = 1.2.752.29.4.3, extension = organisationsnumret.\nRegel 2.1: Krävs för spärrhantering, åtkomstkontroll och loggning (PDL).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.header.accessControlHeader.accountableCareUnit",
+        "path": "getrequestactivities.requestActivity.header.accessControlHeader.accountableCareUnit",
+        "short": "Vårdenhet",
+        "definition": "HSA-id för vårdenhet där uppgiften är dokumenterad.\nroot = 1.2.752.129.2.1.4.1 (HSA OID), extension = HSA-id.\nRegel 2.1: Krävs för PDL-hantering.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.header.accessControlHeader.originalPatientId",
+        "path": "getrequestactivities.requestActivity.header.accessControlHeader.originalPatientId",
+        "short": "Ursprunglig patientidentifierare",
+        "definition": "Personidentifieraren som remisstatusen lagrades under vid skapande. Anges endast om den\nskiljer sig från patientId i begäran (t.ex. samordningsnummer → personnummer).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.header.accessControlHeader.careProcessId",
+        "path": "getrequestactivities.requestActivity.header.accessControlHeader.careProcessId",
+        "short": "Vårdprocess-id",
+        "definition": "Id för individanpassad vårdprocess som remisstatusen journalförts inom.\nLokalt genererat UUID: root = UUID, extension anges ej.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.header.accessControlHeader.blockComparisonTime",
+        "path": "getrequestactivities.requestActivity.header.accessControlHeader.blockComparisonTime",
+        "short": "Tidpunkt för spärrkontroll",
+        "definition": "Den tidpunkt mot vilken spärrkontroll sker vid sammanhållen journalföring (yttre och inre spärr).\nInformationsägaren väljer en lämplig tidpunkt, t.ex. då remissen först skickades.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.header.accessControlHeader.approvedForPatient",
+        "path": "getrequestactivities.requestActivity.header.accessControlHeader.approvedForPatient",
+        "short": "Godkänd för patientåtkomst",
+        "definition": "Beslut om remisstatusen får delas med patient (Individens direktåtkomst).\ntrue = får delas, false = får inte delas.\nVärdet kan förändras över tid (rådrumstid, policybyte) — källsystemet ska uppdatera engagemangsindex.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.header.sourceSystemId",
+        "path": "getrequestactivities.requestActivity.header.sourceSystemId",
+        "short": "Källsystem-id",
+        "definition": "Det källsystem där remisstatusen lagras.\nroot = 1.2.752.129.2.1.4.1 (HSA OID), extension = källsystemets HSA-id.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.header.record",
+        "path": "getrequestactivities.requestActivity.header.record",
+        "short": "Remissstatuspost",
+        "definition": "Information om remisstatusen som tillgängliggörs.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.header.record.id",
+        "path": "getrequestactivities.requestActivity.header.record.id",
+        "short": "Identifierare för remisstatus",
+        "definition": "Beständig identifierare för remisstatusen. Ska vara konsistent mellan majorversioner av\ntjänstekontrakt och mellan olika tjänstekontrakt.\nRoot = systemHSA-id, Extension = id för remissen.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.header.record.timestamp",
+        "path": "getrequestactivities.requestActivity.header.record.timestamp",
+        "short": "Tidpunkt då remissstatusen skapades",
+        "definition": "Den tidpunkt då remisstatusen skapades i tjänsteproducentens källsystem.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.header.author",
+        "path": "getrequestactivities.requestActivity.header.author",
+        "short": "Dokumenterande personal",
+        "definition": "Information om den hälso- och sjukvårdspersonal som dokumenterat remisstatusen.\nAvser inte den som enbart registrerar uppgiften från annan källa.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.header.author.id",
+        "path": "getrequestactivities.requestActivity.header.author.id",
+        "short": "HSA-id för dokumenterande personal",
+        "definition": "HSA-id för hälso- och sjukvårdspersonal som dokumenterat remisstatusen.\nroot = 1.2.752.129.2.1.4.1, extension = HSA-id.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.header.author.name",
+        "path": "getrequestactivities.requestActivity.header.author.name",
+        "short": "Namn på dokumenterande personal",
+        "definition": "Namn på hälso- och sjukvårdspersonal. Anges med tilltalsnamn och efternamn.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.header.author.timestamp",
+        "path": "getrequestactivities.requestActivity.header.author.timestamp",
+        "short": "Dokumentationstidpunkt",
+        "definition": "Tidpunkt då remisstatusen dokumenterades eller senast uppdaterades.\nOm ursprungligen dokumenterad i annat system (t.ex. LIS), speglas den tidpunkten.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.header.author.byRole",
+        "path": "getrequestactivities.requestActivity.header.author.byRole",
+        "short": "Befattning vid dokumentationstidpunkten",
+        "definition": "Hälso- och sjukvårdspersonalens befattning (HSAs kodverk Befattning, OID: 1.2.752.129.2.2.1.4).\nOm kod ej tillgänglig anges befattning som klartext i originalText.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.body",
+        "path": "getrequestactivities.requestActivity.body",
+        "short": "Remisstatusens innehåll",
+        "definition": "Innehåll för remisstatusen (body).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.body.statusCode",
+        "path": "getrequestactivities.requestActivity.body.statusCode",
+        "short": "Remissstatus",
+        "definition": "Angivelse av vilken status remissen befinner sig i.\nKv status vårdbegäran (OID: 1.2.752.129.2.2.2.43).\nKodverket kan kompletteras — konsumenter ska vara förberedda på nya koder utan versionsuppdatering.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/crm-requeststatus/ValueSet/kvstatusvardbegaran-vs"
+        }
+      },
+      {
+        "id": "getrequestactivities.requestActivity.body.eventTime",
+        "path": "getrequestactivities.requestActivity.body.eventTime",
+        "short": "Händelsetidpunkt",
+        "definition": "Tidpunkt då händelsen inträffade, dvs. när ändring av remisstatus skedde.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.body.request",
+        "path": "getrequestactivities.requestActivity.body.request",
+        "short": "Remissen",
+        "definition": "Den utfärdade remissen.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.body.request.id",
+        "path": "getrequestactivities.requestActivity.body.request.id",
+        "short": "Remiss-id",
+        "definition": "Unik identifierare för remissen.\nVid kännedom om remittentens id anges detta för att kunna koppla ihop statusrader.\nAnnars anges källsystemets lokala id.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.body.request.type",
+        "path": "getrequestactivities.requestActivity.body.request.type",
+        "short": "Remisstyp",
+        "definition": "Kod och klartext för remisstyp (Kv framställantyp, OID: 1.2.752.129.2.2.2.24).\n1 = röntgenremiss, 2 = labbremiss, 4 = allmänremiss.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/crm-requeststatus/ValueSet/kvframstallantyp-vs"
+        }
+      },
+      {
+        "id": "getrequestactivities.requestActivity.body.request.medium",
+        "path": "getrequestactivities.requestActivity.body.request.medium",
+        "short": "Medium för remissen",
+        "definition": "Kod och klartext för medium (Kv Form av framställan, OID: 1.2.752.129.2.2.2.7).\n3 = skriftligt elektroniskt, 4 = skriftligt papper.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/crm-requeststatus/ValueSet/kvformavframstallan-vs"
+        }
+      },
+      {
+        "id": "getrequestactivities.requestActivity.body.request.author",
+        "path": "getrequestactivities.requestActivity.body.request.author",
+        "short": "Remittent",
+        "definition": "Remittent — författare av remissen.\nObligatoriskt när statusCode = 1 (Skickad), 7 (Svar mottaget) eller 11 (Makulerad).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.body.request.author.name",
+        "path": "getrequestactivities.requestActivity.body.request.author.name",
+        "short": "Remittentens namn",
+        "definition": "Remittentens namn.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.body.request.author.organization",
+        "path": "getrequestactivities.requestActivity.body.request.author.organization",
+        "short": "Remitterande enhet",
+        "definition": "Den enhet som remittenten tillhör.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.body.request.author.organization.id",
+        "path": "getrequestactivities.requestActivity.body.request.author.organization.id",
+        "short": "Remitterande enhetens id",
+        "definition": "Remitterande enhetens HSA-id.\nroot = 1.2.752.129.2.1.4.1, extension = HSA-id.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.body.request.author.organization.name",
+        "path": "getrequestactivities.requestActivity.body.request.author.organization.name",
+        "short": "Remitterande enhetens namn",
+        "definition": "Remitterande enhetens namn.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.body.request.receivingOrganization",
+        "path": "getrequestactivities.requestActivity.body.request.receivingOrganization",
+        "short": "Remissmottagande enhet",
+        "definition": "Den enhet som är mottagare av remissen (eller faktisk mottagare om remissen skickats vidare).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.body.request.receivingOrganization.id",
+        "path": "getrequestactivities.requestActivity.body.request.receivingOrganization.id",
+        "short": "Remissmottagande enhets id",
+        "definition": "Remissmottagande enhets HSA-id.\nroot = 1.2.752.129.2.1.4.1, extension = HSA-id.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getrequestactivities.requestActivity.body.request.receivingOrganization.name",
+        "path": "getrequestactivities.requestActivity.body.request.receivingOrganization.name",
+        "short": "Remissmottagande enhetens namn",
+        "definition": "Remissmottagande enhetens namn.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

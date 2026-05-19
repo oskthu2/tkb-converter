@@ -1,0 +1,122 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getterminologysubset",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/informatics-terminology/StructureDefinition/getterminologysubset",
+  "name": "GetTerminologySubset",
+  "title": "GetTerminologySubset",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetTerminologySubset\n(RIV-TA urn:riv:informatics:terminology:GetTerminologySubset:1).\nRepresenterar responsens informationsstruktur.\n\nTjänsten hämtar en delmängd (subset) av en terminologi (exempelvis SNOMED CT,\nICD-10, ATC-kodverket) som är användbar i ett visst sammanhang.\nStöder bl.a. dynamiskt urval av orsaker till antibiotikainsättning\nsom rapporteras till Infektionsregistret.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/informatics-terminology/StructureDefinition/getterminologysubset",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getterminologysubset",
+        "path": "getterminologysubset",
+        "short": "GetTerminologySubset",
+        "definition": "Logisk modell för tjänstekontraktet GetTerminologySubset\n(RIV-TA urn:riv:informatics:terminology:GetTerminologySubset:1).\nRepresenterar responsens informationsstruktur.\n\nTjänsten hämtar en delmängd (subset) av en terminologi (exempelvis SNOMED CT,\nICD-10, ATC-kodverket) som är användbar i ett visst sammanhang.\nStöder bl.a. dynamiskt urval av orsaker till antibiotikainsättning\nsom rapporteras till Infektionsregistret."
+      },
+      {
+        "id": "getterminologysubset.concept",
+        "path": "getterminologysubset.concept",
+        "short": "Svaret består av en lista med begrepp",
+        "definition": "En lista med terminologibegrepp från det begärda urvalet.\nKardinalitet: Valfri, lista. Kan vara tom om urvalet saknar matchande begrepp.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getterminologysubset.concept.codeSystem",
+        "path": "getterminologysubset.concept.codeSystem",
+        "short": "Identifierare av kodsystem",
+        "definition": "Identifierare för det kodsystem som begreppet tillhör (t.ex. ICD-10, SNOMED CT, ATC).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getterminologysubset.concept.conceptCode",
+        "path": "getterminologysubset.concept.conceptCode",
+        "short": "Begreppskod",
+        "definition": "Begreppets kod i det angivna kodsystemet.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getterminologysubset.concept.term",
+        "path": "getterminologysubset.concept.term",
+        "short": "Term som beskriver begreppet",
+        "definition": "Visningsterm för begreppet (av den typ som angavs i TermType-parametern, normalt DisplayName).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getterminologysubset.concept.metadata",
+        "path": "getterminologysubset.concept.metadata",
+        "short": "Lista med metadata",
+        "definition": "Ytterligare metadata som krävs för att veta vilka delar av OpenEHR-templaten\nsom skall fyllas i vid sändande av t.ex. ordinationsorsak till Infektionsverktyget.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getterminologysubset.concept.metadata.metadataName",
+        "path": "getterminologysubset.concept.metadata.metadataName",
+        "short": "Identifierar typ av metadata",
+        "definition": "Nyckel som identifierar typen av metadata.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getterminologysubset.concept.metadata.metadataValue",
+        "path": "getterminologysubset.concept.metadata.metadataValue",
+        "short": "Metadatavärde",
+        "definition": "Värdet för den angivna metadatatypen.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

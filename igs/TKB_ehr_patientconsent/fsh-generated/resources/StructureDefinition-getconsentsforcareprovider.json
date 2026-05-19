@@ -1,0 +1,290 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getconsentsforcareprovider",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-patientconsent/StructureDefinition/getconsentsforcareprovider",
+  "name": "GetConsentsForCareProvider",
+  "title": "GetConsentsForCareProvider",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetConsentsForCareProvider\n(RIV-TA urn:riv:ehr:patientconsent:querying:GetConsentsForCareProviderResponder:1).\nRepresenterar responsens informationsstruktur.\n\nTjänst som läser alla giltiga samtyckesintyg för en viss vårdgivare med grundinformation.\nStödjer paginering via flaggan HasMore och CreatedOnOrAfter för inkrementell hämtning.\nValfritt returneras även makulerade/återkallade intyg via getCancelledFlag.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-patientconsent/StructureDefinition/getconsentsforcareprovider",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getconsentsforcareprovider",
+        "path": "getconsentsforcareprovider",
+        "short": "GetConsentsForCareProvider",
+        "definition": "Logisk modell för tjänstekontraktet GetConsentsForCareProvider\n(RIV-TA urn:riv:ehr:patientconsent:querying:GetConsentsForCareProviderResponder:1).\nRepresenterar responsens informationsstruktur.\n\nTjänst som läser alla giltiga samtyckesintyg för en viss vårdgivare med grundinformation.\nStödjer paginering via flaggan HasMore och CreatedOnOrAfter för inkrementell hämtning.\nValfritt returneras även makulerade/återkallade intyg via getCancelledFlag."
+      },
+      {
+        "id": "getconsentsforcareprovider.result",
+        "path": "getconsentsforcareprovider.result",
+        "short": "Statusinformation för anropet",
+        "definition": "Statusinformation för anropet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.result.resultCode",
+        "path": "getconsentsforcareprovider.result.resultCode",
+        "short": "Svarskod",
+        "definition": "Svarskod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-patientconsent/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "getconsentsforcareprovider.result.resultText",
+        "path": "getconsentsforcareprovider.result.resultText",
+        "short": "Fritext beskrivning av resultatet",
+        "definition": "Fritext beskrivning av resultatet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.moreOnOrAfter",
+        "path": "getconsentsforcareprovider.moreOnOrAfter",
+        "short": "Tidpunkt från och med vilken nästa sekvens av intyg kan hämtas",
+        "definition": "Returneras alltid. Används som inparameter i nästa anrop vid HasMore = true.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.hasMore",
+        "path": "getconsentsforcareprovider.hasMore",
+        "short": "Flagga om det finns fler intyg att hämta",
+        "definition": "Flagga om det finns fler intyg att hämta",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.assertions",
+        "path": "getconsentsforcareprovider.assertions",
+        "short": "Lista med giltiga PDL-intyg",
+        "definition": "Lista med giltiga PDL-intyg",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.assertions.assertionId",
+        "path": "getconsentsforcareprovider.assertions.assertionId",
+        "short": "Unik identifierare för intyget (UUID-format, max 36 tecken)",
+        "definition": "Unik identifierare för intyget (UUID-format, max 36 tecken)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.assertions.assertionType",
+        "path": "getconsentsforcareprovider.assertions.assertionType",
+        "short": "Typ av intyg (Consent eller Emergency)",
+        "definition": "Typ av intyg (Consent eller Emergency)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-patientconsent/ValueSet/assertiontype-vs"
+        }
+      },
+      {
+        "id": "getconsentsforcareprovider.assertions.scope",
+        "path": "getconsentsforcareprovider.assertions.scope",
+        "short": "Omfång/tillämpningsområde för intyget",
+        "definition": "Omfång/tillämpningsområde för intyget",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-patientconsent/ValueSet/scope-vs"
+        }
+      },
+      {
+        "id": "getconsentsforcareprovider.assertions.patientId",
+        "path": "getconsentsforcareprovider.assertions.patientId",
+        "short": "Patientens personnummer eller samordningsnummer (max 12 tecken)",
+        "definition": "Patientens personnummer eller samordningsnummer (max 12 tecken)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.assertions.careProviderId",
+        "path": "getconsentsforcareprovider.assertions.careProviderId",
+        "short": "HSA-id på vårdgivare som intyget gäller för (max 32 tecken)",
+        "definition": "HSA-id på vårdgivare som intyget gäller för (max 32 tecken)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.assertions.careUnitId",
+        "path": "getconsentsforcareprovider.assertions.careUnitId",
+        "short": "HSA-id på vårdenhet som intyget gäller för (max 32 tecken)",
+        "definition": "HSA-id på vårdenhet som intyget gäller för (max 32 tecken)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.assertions.employeeId",
+        "path": "getconsentsforcareprovider.assertions.employeeId",
+        "short": "HSA-id för medarbetare om samtycket är personligt (max 32 tecken)",
+        "definition": "HSA-id för medarbetare om samtycket är personligt (max 32 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.assertions.startDate",
+        "path": "getconsentsforcareprovider.assertions.startDate",
+        "short": "Startdatum för intygets giltighetstid",
+        "definition": "Startdatum för intygets giltighetstid",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.assertions.endDate",
+        "path": "getconsentsforcareprovider.assertions.endDate",
+        "short": "Slutdatum för intygets giltighetstid",
+        "definition": "Slutdatum för intygets giltighetstid",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.assertions.ownerId",
+        "path": "getconsentsforcareprovider.assertions.ownerId",
+        "short": "Teknisk identifierare för systemet som registrerade artifakten (max 512 tecken)",
+        "definition": "Teknisk identifierare för systemet som registrerade artifakten (max 512 tecken)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.cancelledAssertions",
+        "path": "getconsentsforcareprovider.cancelledAssertions",
+        "short": "Lista med makulerade/återkallade intyg (returneras om getCancelledFlag = true)",
+        "definition": "Lista med makulerade/återkallade intyg (returneras om getCancelledFlag = true)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.cancelledAssertions.assertionId",
+        "path": "getconsentsforcareprovider.cancelledAssertions.assertionId",
+        "short": "Unik identifierare för det makulerade/återkallade intyget (UUID-format)",
+        "definition": "Unik identifierare för det makulerade/återkallade intyget (UUID-format)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.cancelledAssertions.cancellationDate",
+        "path": "getconsentsforcareprovider.cancelledAssertions.cancellationDate",
+        "short": "Tidpunkt när makuleringen eller återkallan utfördes",
+        "definition": "Tidpunkt när makuleringen eller återkallan utfördes",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

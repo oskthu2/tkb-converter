@@ -1,0 +1,490 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "storelog-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-log/StructureDefinition/storelog-request",
+  "name": "StoreLogRequest",
+  "title": "StoreLog — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i StoreLog\n(RIV-TA urn:riv:ehr:log:store:StoreLogResponder:1).\nInnehåller en samling loggposter (log:Log) som ska lagras.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-log/StructureDefinition/storelog-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "storelog-request",
+        "path": "storelog-request",
+        "short": "StoreLog — Request",
+        "definition": "Logisk modell för requestparametrar i StoreLog\n(RIV-TA urn:riv:ehr:log:store:StoreLogResponder:1).\nInnehåller en samling loggposter (log:Log) som ska lagras."
+      },
+      {
+        "id": "storelog-request.log",
+        "path": "storelog-request.log",
+        "short": "En loggpost att lagra i loggtjänsten",
+        "definition": "En kollektion av loggposter som ska lagras i loggtjänsten.\nDatatyp: log:Log. Kardinalitet: Obligatorisk, lista (minst ett element).",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.logId",
+        "path": "storelog-request.log.logId",
+        "short": "Unikt UUID-identifikationsnummer för loggposten",
+        "definition": "Format: UUID (36 tecken). Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.system",
+        "path": "storelog-request.log.system",
+        "short": "Systemet som utförde aktiviteten",
+        "definition": "Systemet som utförde aktiviteten",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.system.systemId",
+        "path": "storelog-request.log.system.systemId",
+        "short": "Systemets HSA-id",
+        "definition": "Systemets unika HSA-identifierare. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.system.systemName",
+        "path": "storelog-request.log.system.systemName",
+        "short": "Systemets namn",
+        "definition": "Systemets läsbarare namn. Maxlängd: 256. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.activity",
+        "path": "storelog-request.log.activity",
+        "short": "Aktivitetsinformation",
+        "definition": "Aktivitetsinformation",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.activity.activityType",
+        "path": "storelog-request.log.activity.activityType",
+        "short": "Typ av aktivitet",
+        "definition": "Anger vilken typ av aktivitet som utförts.\nTillåtna värden: Läsa, Skriva, Signera, Utskrift, Vidimera, Radera, Nödöppning.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-log/ValueSet/activitytype-vs"
+        }
+      },
+      {
+        "id": "storelog-request.log.activity.activityLevel",
+        "path": "storelog-request.log.activity.activityLevel",
+        "short": "Nivå på aktiviteten",
+        "definition": "Information om vilken nivå aktiviteten utfördes på. Maxlängd: 50. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.activity.activityArgs",
+        "path": "storelog-request.log.activity.activityArgs",
+        "short": "Övrig information för aktiviteten",
+        "definition": "T.ex. parametrar för en rapport. Maxlängd: 8192. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.activity.startDate",
+        "path": "storelog-request.log.activity.startDate",
+        "short": "Tidpunkt för aktiviteten",
+        "definition": "Tidpunkt då aktiviteten utfördes. Format: YYYY-MM-DDThh:mm:ss.zzz (CET/CEST).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.activity.purpose",
+        "path": "storelog-request.log.activity.purpose",
+        "short": "Syftet med aktiviteten",
+        "definition": "Anger syftet med aktiviteten (t.ex. Vård och behandling, Kvalitetssäkring).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.user",
+        "path": "storelog-request.log.user",
+        "short": "Användaren som utförde aktiviteten",
+        "definition": "Användaren som utförde aktiviteten",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.user.userId",
+        "path": "storelog-request.log.user.userId",
+        "short": "Användarens HSA-id",
+        "definition": "Medarbetarens HSA-identifierare. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.user.employeeName",
+        "path": "storelog-request.log.user.employeeName",
+        "short": "Användarens namn",
+        "definition": "Medarbetarens namn. Maxlängd: 256. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.user.personId",
+        "path": "storelog-request.log.user.personId",
+        "short": "Medarbetarens personnummer",
+        "definition": "Personnummer eller samordningsnummer för medarbetaren. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.user.assignment",
+        "path": "storelog-request.log.user.assignment",
+        "short": "Medarbetarens uppdragsnamn",
+        "definition": "Namn på medarbetaren i uppdrag. Maxlängd: 256. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.user.title",
+        "path": "storelog-request.log.user.title",
+        "short": "Medarbetarens yrkestitel",
+        "definition": "Maxlängd: 256. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.user.careProvider",
+        "path": "storelog-request.log.user.careProvider",
+        "short": "Medarbetarens vårdgivare",
+        "definition": "Medarbetarens vårdgivare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.user.careProvider.careProviderId",
+        "path": "storelog-request.log.user.careProvider.careProviderId",
+        "short": "Vårdgivarens HSA-id",
+        "definition": "HSA-id för den vårdgivare medarbetaren arbetar för. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.user.careProvider.careProviderName",
+        "path": "storelog-request.log.user.careProvider.careProviderName",
+        "short": "Vårdgivarens namn",
+        "definition": "Maxlängd: 256. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.user.careUnit",
+        "path": "storelog-request.log.user.careUnit",
+        "short": "Medarbetarens vårdenhet",
+        "definition": "Medarbetarens vårdenhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.user.careUnit.careUnitId",
+        "path": "storelog-request.log.user.careUnit.careUnitId",
+        "short": "Vårdenhetens HSA-id",
+        "definition": "HSA-id för den vårdenhet medarbetaren arbetar på. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.user.careUnit.careUnitName",
+        "path": "storelog-request.log.user.careUnit.careUnitName",
+        "short": "Vårdenhetens namn",
+        "definition": "Maxlängd: 256. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.resources",
+        "path": "storelog-request.log.resources",
+        "short": "Resurser som aktiviteten avsåg",
+        "definition": "Resurser som aktiviteten avsåg",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.resources.resource",
+        "path": "storelog-request.log.resources.resource",
+        "short": "En resurs (vanligtvis en patient)",
+        "definition": "En resurs (vanligtvis en patient)",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.resources.resource.resourceType",
+        "path": "storelog-request.log.resources.resource.resourceType",
+        "short": "Typ av resurs",
+        "definition": "Anger vilken typ av resurs aktiviteten avsåg. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.resources.resource.patient",
+        "path": "storelog-request.log.resources.resource.patient",
+        "short": "Patient som resursen avser",
+        "definition": "Patient som resursen avser",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.resources.resource.patient.patientId",
+        "path": "storelog-request.log.resources.resource.patient.patientId",
+        "short": "Patientens personnummer/samordningsnummer",
+        "definition": "Patientens identifierare. Kardinalitet: Obligatorisk om patient finns.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.resources.resource.patient.patientName",
+        "path": "storelog-request.log.resources.resource.patient.patientName",
+        "short": "Patientens namn",
+        "definition": "Maxlängd: 256. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.resources.resource.careProvider",
+        "path": "storelog-request.log.resources.resource.careProvider",
+        "short": "Resursens ägande vårdgivare",
+        "definition": "Resursens ägande vårdgivare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.resources.resource.careProvider.careProviderId",
+        "path": "storelog-request.log.resources.resource.careProvider.careProviderId",
+        "short": "Vårdgivarens HSA-id",
+        "definition": "Vårdgivarens HSA-id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.resources.resource.careProvider.careProviderName",
+        "path": "storelog-request.log.resources.resource.careProvider.careProviderName",
+        "short": "Vårdgivarens namn",
+        "definition": "Vårdgivarens namn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.resources.resource.careUnit",
+        "path": "storelog-request.log.resources.resource.careUnit",
+        "short": "Resursens vårdenhet",
+        "definition": "Resursens vårdenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.resources.resource.careUnit.careUnitId",
+        "path": "storelog-request.log.resources.resource.careUnit.careUnitId",
+        "short": "Vårdenhetens HSA-id",
+        "definition": "Vårdenhetens HSA-id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "storelog-request.log.resources.resource.careUnit.careUnitName",
+        "path": "storelog-request.log.resources.resource.careUnit.careUnitName",
+        "short": "Vårdenhetens namn",
+        "definition": "Vårdenhetens namn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

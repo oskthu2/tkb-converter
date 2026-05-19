@@ -15,10 +15,10 @@ Namespace-bas: `urn:riv:clinicalprocess:healthcond:actoutcome`
 
 | Kontrakt | Version | Beskrivning |
 |----------|---------|-------------|
-| [GetLaboratoryOrderOutcome](7-tjanstekontrakt.html#71-getlaboratoryorderoutcome) | 4.2 | Returnerar multidisciplinära laboratoriesvar för en patient |
-| [GetReferralOutcome](7-tjanstekontrakt.html#72-getreferraloutcome) | 3.2 | Returnerar svar på konsultationsremiss och begäran om övertagande av vårdansvar |
-| [GetMaternityMedicalHistory](7-tjanstekontrakt.html#73-getmaternitymedicalhistory) | 2.0 | Returnerar mödravårdsjournal för en patient |
-| [GetImagingOutcome](7-tjanstekontrakt.html#74-getimagingoutcome) | 1.0 | Returnerar bilddiagnostiska resultat för en patient |
+| [GetLaboratoryOrderOutcome](7-tjanstekontrakt.html#getlaboratoryorderoutcome) | 4.2 | Returnerar multidisciplinära laboratoriesvar för en patient |
+| [GetReferralOutcome](7-tjanstekontrakt.html#getreferraloutcome) | 3.2 | Returnerar svar på konsultationsremiss och begäran om övertagande av vårdansvar |
+| [GetMaternityMedicalHistory](7-tjanstekontrakt.html#getmaternitymedicalhistory) | 2.0 | Returnerar mödravårdsjournal för en patient |
+| [GetImagingOutcome](7-tjanstekontrakt.html#getimagingoutcome) | 1.0 | Returnerar bilddiagnostiska resultat för en patient |
 
 ## Innehåll
 

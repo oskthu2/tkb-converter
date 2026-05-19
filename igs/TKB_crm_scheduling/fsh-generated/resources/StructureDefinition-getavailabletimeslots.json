@@ -1,0 +1,278 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getavailabletimeslots",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/getavailabletimeslots",
+  "name": "GetAvailableTimeslots",
+  "title": "GetAvailableTimeslots",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetAvailableTimeslots\n(RIV-TA urn:riv:crm:scheduling:GetAvailableTimeslots:1).\nRepresenterar responsens informationsstruktur.\nTjänsten hämtar lediga tider för angivet datumintervall.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/getavailabletimeslots",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getavailabletimeslots",
+        "path": "getavailabletimeslots",
+        "short": "GetAvailableTimeslots",
+        "definition": "Logisk modell för tjänstekontraktet GetAvailableTimeslots\n(RIV-TA urn:riv:crm:scheduling:GetAvailableTimeslots:1).\nRepresenterar responsens informationsstruktur.\nTjänsten hämtar lediga tider för angivet datumintervall."
+      },
+      {
+        "id": "getavailabletimeslots.timeslotDetail",
+        "path": "getavailabletimeslots.timeslotDetail",
+        "short": "Lista med tillgängliga tider (TimeslotType)",
+        "definition": "Lista med tillgängliga tider.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getavailabletimeslots.timeslotDetail.startTimeInclusive",
+        "path": "getavailabletimeslots.timeslotDetail.startTimeInclusive",
+        "short": "Startdatum och klockslag (ÅÅÅÅMMDDttmmss)",
+        "definition": "Startdatum och klockslag för bokad tid, på formatet ÅÅÅÅMMDDttmmss.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getavailabletimeslots.timeslotDetail.endTimeExclusive",
+        "path": "getavailabletimeslots.timeslotDetail.endTimeExclusive",
+        "short": "Slutdatum och klockslag (ÅÅÅÅMMDDttmmss)",
+        "definition": "Slutdatum och klockslag för bokad tid, på formatet ÅÅÅÅMMDDttmmss.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getavailabletimeslots.timeslotDetail.healthcare_facility",
+        "path": "getavailabletimeslots.timeslotDetail.healthcare_facility",
+        "short": "HSA-id för mottagning/vårdenhet",
+        "definition": "HSA-id för mottagning/vårdenhet.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getavailabletimeslots.timeslotDetail.performer",
+        "path": "getavailabletimeslots.timeslotDetail.performer",
+        "short": "HSA-id för Hos-person",
+        "definition": "HSA-id för Hos-person som besöket är bokat hos.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getavailabletimeslots.timeslotDetail.bookingId",
+        "path": "getavailabletimeslots.timeslotDetail.bookingId",
+        "short": "Bokningsidentitet",
+        "definition": "Bokningsidentitet för det bokade besöket.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getavailabletimeslots.timeslotDetail.purpose",
+        "path": "getavailabletimeslots.timeslotDetail.purpose",
+        "short": "Beskrivning av besöksorsak angiven av vårdenhet",
+        "definition": "Beskrivning av besöksorsak angiven av vårdenhet.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getavailabletimeslots.timeslotDetail.reason",
+        "path": "getavailabletimeslots.timeslotDetail.reason",
+        "short": "Kontaktorsak som invånare uppger vid bokning",
+        "definition": "Kontaktorsak som invånare uppger vid bokning.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getavailabletimeslots.timeslotDetail.resourceName",
+        "path": "getavailabletimeslots.timeslotDetail.resourceName",
+        "short": "Namn på resurs",
+        "definition": "Namn på resurs.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getavailabletimeslots.timeslotDetail.healthcare_facility_name",
+        "path": "getavailabletimeslots.timeslotDetail.healthcare_facility_name",
+        "short": "Namn på bokad mottagning/vårdenhet",
+        "definition": "Namn på bokad mottagning/vårdenhet.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getavailabletimeslots.timeslotDetail.performerName",
+        "path": "getavailabletimeslots.timeslotDetail.performerName",
+        "short": "Namn på HoS-person",
+        "definition": "Namn på HoS-person som besöket är bokat hos.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getavailabletimeslots.timeslotDetail.resourceID",
+        "path": "getavailabletimeslots.timeslotDetail.resourceID",
+        "short": "Identifierare för resurs",
+        "definition": "Identifierare för resurs.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getavailabletimeslots.timeslotDetail.timeTypeName",
+        "path": "getavailabletimeslots.timeslotDetail.timeTypeName",
+        "short": "Tidstyp för det bokade besöket",
+        "definition": "Tidstyp för det bokade besöket.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getavailabletimeslots.timeslotDetail.timeTypeID",
+        "path": "getavailabletimeslots.timeslotDetail.timeTypeID",
+        "short": "Identifierare för tidstyp",
+        "definition": "Identifierare för tidstyp.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getavailabletimeslots.timeslotDetail.careTypeName",
+        "path": "getavailabletimeslots.timeslotDetail.careTypeName",
+        "short": "Klartext för vårdtyp",
+        "definition": "Klartext för vårdtyp.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getavailabletimeslots.timeslotDetail.careTypeID",
+        "path": "getavailabletimeslots.timeslotDetail.careTypeID",
+        "short": "Identifierare för vårdtyp",
+        "definition": "Identifierare för vårdtyp.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getavailabletimeslots.timeslotDetail.cancel_booking_allowed",
+        "path": "getavailabletimeslots.timeslotDetail.cancel_booking_allowed",
+        "short": "Om bokningen kan avbokas",
+        "definition": "Sätts av producenten. Anger om bokningen kan avbokas.\nAvbokning är inte tillåten om värdet saknas eller är false.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getavailabletimeslots.timeslotDetail.rebooking_allowed",
+        "path": "getavailabletimeslots.timeslotDetail.rebooking_allowed",
+        "short": "Om bokningen kan ombokas",
+        "definition": "Sätts av producenten. Anger om bokningen kan ombokas.\nOmbokning är inte tillåten om värdet saknas eller är false.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getavailabletimeslots.timeslotDetail.message_allowed",
+        "path": "getavailabletimeslots.timeslotDetail.message_allowed",
+        "short": "Om orsak till av/ombokning kan skickas",
+        "definition": "Sätts av producenten. Anger om orsak till av- eller ombokning kan skickas med i berörda tjänster.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      }
+    ]
+  }
+}

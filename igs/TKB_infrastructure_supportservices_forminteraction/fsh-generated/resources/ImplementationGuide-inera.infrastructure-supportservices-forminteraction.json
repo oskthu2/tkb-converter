@@ -1,0 +1,382 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "inera.infrastructure-supportservices-forminteraction",
+  "url": "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/ImplementationGuide/inera.infrastructure-supportservices-forminteraction",
+  "version": "2.0.0",
+  "name": "infrastructuresupportservicesforminteraction",
+  "title": "infrastructure: supportservices: forminteraction",
+  "status": "draft",
+  "contact": [
+    {
+      "name": "Inera Arkitektur",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.inera.se"
+        }
+      ]
+    }
+  ],
+  "copyright": "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "packageId": "inera.infrastructure-supportservices-forminteraction",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.r4.core",
+      "version": "4.0.1",
+      "uri": "http://fhir.org/packages/hl7.fhir.r4.core/ImplementationGuide/hl7.fhir.r4.core",
+      "id": "hl7_fhir_r4_core"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "CodeSystem/answertype-cs"
+        },
+        "name": "AnswerType",
+        "description": "Kodverk för typ av svar i ett formulär enligt infrastructure:supportservices:forminteraction v2.0.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cancelform"
+        },
+        "name": "CancelForm",
+        "description": "Logisk modell för svar (response) i tjänstekontraktet CancelForm\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:CancelForm:2).\nBekräftar att formuläret har avbrutits och raderats.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cancelform-request"
+        },
+        "name": "CancelForm — Request",
+        "description": "Logisk modell för requestparametrar i CancelForm\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:CancelForm:2).\nAvbryter och raderar ett pågående formulär.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/createform"
+        },
+        "name": "CreateForm",
+        "description": "Logisk modell för svar (response) i tjänstekontraktet CreateForm\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:CreateForm:2).\nReturnerar det skapade formuläret inkl. första sidan med frågor.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/createform-request"
+        },
+        "name": "CreateForm — Request",
+        "description": "Logisk modell för requestparametrar i CreateForm\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:CreateForm:2).\nSkapar och initierar/startar ett formulär.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/createformrequest"
+        },
+        "name": "CreateFormRequest",
+        "description": "Logisk modell för svar (response) i tjänstekontraktet CreateFormRequest\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:CreateFormRequest:2).\nBekräftar att formulärbegäran har registrerats.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/createformrequest-request"
+        },
+        "name": "CreateFormRequest — Request",
+        "description": "Logisk modell för requestparametrar i CreateFormRequest\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:CreateFormRequest:2).\nEtt vårdsystem skapar en begäran om att patient skall fylla i ett formulär.\nFormulärmotor skapar ett formulär och skickar indexpost till engagemangsindex\n(categorization = FormCreated).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/formcategory-cs"
+        },
+        "name": "FormCategory",
+        "description": "Kodverk för formulärets kategori (KV Formulärkategori) enligt infrastructure:supportservices:forminteraction v2.0. Definierar formulärets typ.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/formcategory-vs"
+        },
+        "name": "FormCategory — ValueSet",
+        "description": "Tillåtna värden för formulärets kategori enligt KV Formulärkategori.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/formstatus-cs"
+        },
+        "name": "FormStatus",
+        "description": "Kodverk för formulärets status (KV Form Status) enligt infrastructure:supportservices:forminteraction v2.0.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/formstatus-vs"
+        },
+        "name": "FormStatus — ValueSet",
+        "description": "Tillåtna värden för formulärstatus enligt KV Form Status.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getform"
+        },
+        "name": "GetForm",
+        "description": "Logisk modell för svar (response) i tjänstekontraktet GetForm\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetForm:2).\nReturnerar ett specifikt formulär med aktuell sida och frågor.\nCOMPLETED = Läsläge (komplett formulär returneras).\nONGOING = Senaste/aktuella sida returneras.\nPENDING_COMPLETION = Senaste sida returneras.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getform-request"
+        },
+        "name": "GetForm — Request",
+        "description": "Logisk modell för requestparametrar i GetForm\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetForm:2).\nHämtar ett specifikt formulär inkl. aktuell sida med frågor.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getformquestionpage"
+        },
+        "name": "GetFormQuestionPage",
+        "description": "Logisk modell för svar (response) i tjänstekontraktet GetFormQuestionPage\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetFormQuestionPage:2).\nReturnerar formuläret med den begärda sidan.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getformquestionpage-request"
+        },
+        "name": "GetFormQuestionPage — Request",
+        "description": "Logisk modell för requestparametrar i GetFormQuestionPage\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetFormQuestionPage:2).\nHoppa/navigera framåt eller bakåt i ett formulär.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getforms"
+        },
+        "name": "GetForms",
+        "description": "Logisk modell för svar (response) i tjänstekontraktet GetForms\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetForms:2).\nReturnerar lista med formulär (summering, ej komplett formulär med frågor).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getforms-request"
+        },
+        "name": "GetForms — Request",
+        "description": "Logisk modell för requestparametrar i GetForms\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetForms:2).\nHämtar alla pågående eller avslutade formulär för en invånare.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getformtemplate"
+        },
+        "name": "GetFormTemplate",
+        "description": "Logisk modell för svar (response) i tjänstekontraktet GetFormTemplate\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetFormTemplate:2).\nReturnerar komplett formulärmall inkl. alla sidor, frågegrupperingar och frågor.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getformtemplate-request"
+        },
+        "name": "GetFormTemplate — Request",
+        "description": "Logisk modell för requestparametrar i GetFormTemplate\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetFormTemplate:2).\nHämtar en specifik formulärmall inkl. alla sidor och frågor.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getformtemplates"
+        },
+        "name": "GetFormTemplates",
+        "description": "Logisk modell för svar (response) i tjänstekontraktet GetFormTemplates\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetFormTemplates:2).\nReturnerar lista med tillgängliga formulärmallar.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getformtemplates-request"
+        },
+        "name": "GetFormTemplates — Request",
+        "description": "Logisk modell för requestparametrar i GetFormTemplates\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetFormTemplates:2).\nTjänst för att hämta tillgängliga formulärmallar för invånare.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/publishstatus-cs"
+        },
+        "name": "PublishStatus",
+        "description": "Kodverk för mallens publiceringsstatus (KV Publicerings status) enligt infrastructure:supportservices:forminteraction v2.0.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/publishstatus-vs"
+        },
+        "name": "PublishStatus — ValueSet",
+        "description": "Tillåtna värden för mallens publiceringsstatus enligt KV Publicerings status.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/questiontype-cs"
+        },
+        "name": "QuestionType",
+        "description": "Kodverk för typ av fråga (KV Frågetype) i ett formulär enligt infrastructure:supportservices:forminteraction v2.0.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/questiontype-vs"
+        },
+        "name": "QuestionType — ValueSet",
+        "description": "Tillåtna värden för typ av fråga i formulär.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/saveform"
+        },
+        "name": "SaveForm",
+        "description": "Logisk modell för svar (response) i tjänstekontraktet SaveForm\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:SaveForm:2).\nBekräftar att formuläret har avslutats och fått status COMPLETED.\nFormulärmotorn skickar notifiering till engagemangsindex (categorization = FormComplete).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/saveform-request"
+        },
+        "name": "SaveForm — Request",
+        "description": "Logisk modell för requestparametrar i SaveForm\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:SaveForm:2).\nAvslutar och sparar ett formulär. Formuläret byter status till COMPLETED.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/saveformpage"
+        },
+        "name": "SaveFormPage",
+        "description": "Logisk modell för svar (response) i tjänstekontraktet SaveFormPage\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:SaveFormPage:2).\nReturnerar nästa sida med frågor (eller samma sida vid temporarySave).\nVid valideringsfel returneras felindikering via ResultCode och AnswerStatus.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/saveformpage-request"
+        },
+        "name": "SaveFormPage — Request",
+        "description": "Logisk modell för requestparametrar i SaveFormPage\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:SaveFormPage:2).\nSparar invånarens besvarade frågor på en sida under pågående formulärsession.\nOm temporarySave anges: spara utan validering, returnera samma sida.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/saveformtemplate"
+        },
+        "name": "SaveFormTemplate",
+        "description": "Logisk modell för svar (response) i tjänstekontraktet SaveFormTemplate\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:SaveFormTemplate:2).\nBekräftar att formulärmallen har sparats.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/saveformtemplate-request"
+        },
+        "name": "SaveFormTemplate — Request",
+        "description": "Logisk modell för requestparametrar i SaveFormTemplate\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:SaveFormTemplate:2).\nSparar en formulärmall hos tjänsteproducenten.",
+        "exampleBoolean": false
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Hem",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "1-inledning.html",
+          "title": "1 Inledning",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "2-versionsinformation.html",
+          "title": "2 Versionsinformation",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "3-tjanstedomanens-arkitektur.html",
+          "title": "3 Tjänstedomänens arkitektur",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "4-tjanstedomanens-krav-och-regler.html",
+          "title": "4 Tjänstedomänens krav och regler",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "5-tjanstedomanens-meddelandemodeller.html",
+          "title": "5 Tjänstedomänens meddelandemodeller",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "6-tjanster-sammanstallning.html",
+          "title": "6 Tjänster sammanställning",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "7-tjanstekontrakt.html",
+          "title": "7 Tjänstekontrakt",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2024+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "draft"
+      },
+      {
+        "code": "show-inherited-invariants",
+        "value": "false"
+      },
+      {
+        "code": "apply-contact",
+        "value": "true"
+      },
+      {
+        "code": "apply-publisher",
+        "value": "true"
+      },
+      {
+        "code": "apply-version",
+        "value": "true"
+      },
+      {
+        "code": "apply-copyright",
+        "value": "true"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/formstatus-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/formcategory-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/publishstatus-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/questiontype-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/answertype-cs"
+      }
+    ]
+  }
+}

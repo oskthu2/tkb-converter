@@ -1,0 +1,338 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getallblocks",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/getallblocks",
+  "name": "GetAllBlocks",
+  "title": "GetAllBlocks",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetAllBlocks\n(RIV-TA urn:riv:ehr:blocking:querying:GetAllBlocksResponder:2).\nLäser alla nationellt kända/lagrade spärrar. Representerar responsens informationsstruktur.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/getallblocks",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getallblocks",
+        "path": "getallblocks",
+        "short": "GetAllBlocks",
+        "definition": "Logisk modell för tjänstekontraktet GetAllBlocks\n(RIV-TA urn:riv:ehr:blocking:querying:GetAllBlocksResponder:2).\nLäser alla nationellt kända/lagrade spärrar. Representerar responsens informationsstruktur."
+      },
+      {
+        "id": "getallblocks.result",
+        "path": "getallblocks.result",
+        "short": "Resultat av anropet",
+        "definition": "Resultat av anropet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getallblocks.result.resultCode",
+        "path": "getallblocks.result.resultCode",
+        "short": "Svarskod",
+        "definition": "Svarskod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-blocking/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "getallblocks.result.resultText",
+        "path": "getallblocks.result.resultText",
+        "short": "Beskrivande text till svarskoden",
+        "definition": "Beskrivande text till svarskoden",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getallblocks.blocks",
+        "path": "getallblocks.blocks",
+        "short": "Lista över funna aktiva spärrar",
+        "definition": "Lista över funna aktiva spärrar",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getallblocks.blocks.blockId",
+        "path": "getallblocks.blocks.blockId",
+        "short": "Unik identifierare för spärren (UUID-format)",
+        "definition": "Unik identifierare för spärren (UUID-format)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getallblocks.blocks.blockType",
+        "path": "getallblocks.blocks.blockType",
+        "short": "Typ av spärr (Inner/Outer)",
+        "definition": "Typ av spärr (Inner/Outer)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-blocking/ValueSet/blocktype-vs"
+        }
+      },
+      {
+        "id": "getallblocks.blocks.patientId",
+        "path": "getallblocks.blocks.patientId",
+        "short": "Patientens personnummer, samordningsnummer eller reservnummer",
+        "definition": "Patientens personnummer, samordningsnummer eller reservnummer",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getallblocks.blocks.informationStartDate",
+        "path": "getallblocks.blocks.informationStartDate",
+        "short": "Startdatum för vilken information spärren gäller",
+        "definition": "Startdatum för vilken information spärren gäller",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getallblocks.blocks.informationEndDate",
+        "path": "getallblocks.blocks.informationEndDate",
+        "short": "Slutdatum för vilken information spärren gäller",
+        "definition": "Slutdatum för vilken information spärren gäller",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getallblocks.blocks.informationCareUnitId",
+        "path": "getallblocks.blocks.informationCareUnitId",
+        "short": "HSA-id för vårdenhet vars information spärren gäller (vid inre spärr)",
+        "definition": "HSA-id för vårdenhet vars information spärren gäller (vid inre spärr)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getallblocks.blocks.informationCareProviderId",
+        "path": "getallblocks.blocks.informationCareProviderId",
+        "short": "HSA-id för vårdgivare vars information spärren gäller",
+        "definition": "HSA-id för vårdgivare vars information spärren gäller",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getallblocks.blocks.excludedInformationTypes",
+        "path": "getallblocks.blocks.excludedInformationTypes",
+        "short": "Informationstyper undantagna från spärren",
+        "definition": "Informationstyper undantagna från spärren",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getallblocks.blocks.excludedInformationTypes.infoTypeId",
+        "path": "getallblocks.blocks.excludedInformationTypes.infoTypeId",
+        "short": "Identifierare för informationstypen (t.ex. 'lak' eller 'upp')",
+        "definition": "Identifierare för informationstypen (t.ex. 'lak' eller 'upp')",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getallblocks.blocks.excludedInformationTypes.infoTypeDescription",
+        "path": "getallblocks.blocks.excludedInformationTypes.infoTypeDescription",
+        "short": "Beskrivning av informationstypen (max 64 tecken)",
+        "definition": "Beskrivning av informationstypen (max 64 tecken)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getallblocks.blocks.temporaryRevokes",
+        "path": "getallblocks.blocks.temporaryRevokes",
+        "short": "Aktiva tillfälliga hävningar för denna spärr",
+        "definition": "Aktiva tillfälliga hävningar för denna spärr",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getallblocks.blocks.temporaryRevokes.temporaryRevokeId",
+        "path": "getallblocks.blocks.temporaryRevokes.temporaryRevokeId",
+        "short": "Unik identifierare för tillfällig hävning (UUID)",
+        "definition": "Unik identifierare för tillfällig hävning (UUID)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getallblocks.blocks.temporaryRevokes.endDate",
+        "path": "getallblocks.blocks.temporaryRevokes.endDate",
+        "short": "Datum när den tillfälliga hävningen upphör",
+        "definition": "Datum när den tillfälliga hävningen upphör",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getallblocks.blocks.temporaryRevokes.revokedForCareUnitId",
+        "path": "getallblocks.blocks.temporaryRevokes.revokedForCareUnitId",
+        "short": "HSA-id för vårdenhet som har tillfällig hävning",
+        "definition": "HSA-id för vårdenhet som har tillfällig hävning",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getallblocks.blocks.temporaryRevokes.revokedForEmployeeId",
+        "path": "getallblocks.blocks.temporaryRevokes.revokedForEmployeeId",
+        "short": "HSA-id för enskild medarbetare med tillfällig hävning",
+        "definition": "HSA-id för enskild medarbetare med tillfällig hävning",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getallblocks.blocks.temporaryRevokes.ownerId",
+        "path": "getallblocks.blocks.temporaryRevokes.ownerId",
+        "short": "System som registrerade hävningen",
+        "definition": "System som registrerade hävningen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getallblocks.blocks.ownerId",
+        "path": "getallblocks.blocks.ownerId",
+        "short": "System som registrerade spärren",
+        "definition": "System som registrerade spärren",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getallblocks.nextCreatedOnOrAfter",
+        "path": "getallblocks.nextCreatedOnOrAfter",
+        "short": "Tidsstämpel att använda i nästa anrop för inkrementell hämtning",
+        "definition": "Tidsstämpel att använda i nästa anrop för inkrementell hämtning",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getallblocks.latestCancellation",
+        "path": "getallblocks.latestCancellation",
+        "short": "Senaste makulerings- eller hävningstidpunkt i resultatet",
+        "definition": "Senaste makulerings- eller hävningstidpunkt i resultatet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

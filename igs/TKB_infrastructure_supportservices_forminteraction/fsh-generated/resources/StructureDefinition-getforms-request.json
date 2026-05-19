@@ -1,0 +1,87 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getforms-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/StructureDefinition/getforms-request",
+  "name": "GetFormsRequest",
+  "title": "GetForms — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i GetForms\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetForms:2).\nHämtar alla pågående eller avslutade formulär för en invånare.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/StructureDefinition/getforms-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getforms-request",
+        "path": "getforms-request",
+        "short": "GetForms — Request",
+        "definition": "Logisk modell för requestparametrar i GetForms\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetForms:2).\nHämtar alla pågående eller avslutade formulär för en invånare."
+      },
+      {
+        "id": "getforms-request.healthcareFacilityCareUnit",
+        "path": "getforms-request.healthcareFacilityCareUnit",
+        "short": "HSA-id för vårdenhet",
+        "definition": "HSA-id för vårdenhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getforms-request.subjectOfCare",
+        "path": "getforms-request.subjectOfCare",
+        "short": "Invånarens personnummer (yyyymmddnnnn)",
+        "definition": "Invånarens personnummer (yyyymmddnnnn)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getforms-request.formStatus",
+        "path": "getforms-request.formStatus",
+        "short": "Filterering på formulärstatus",
+        "definition": "Filterering på formulärstatus",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/ValueSet/formstatus-vs"
+        }
+      },
+      {
+        "id": "getforms-request.clinicalProcessInterestId",
+        "path": "getforms-request.clinicalProcessInterestId",
+        "short": "Hälsoärende-id",
+        "definition": "Hälsoärende-id",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

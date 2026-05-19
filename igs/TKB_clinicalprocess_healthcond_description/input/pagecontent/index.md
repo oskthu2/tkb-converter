@@ -13,10 +13,10 @@ formellt regelverk som reglerar integrationskrav.
 
 | Kontrakt | Version | Beskrivning |
 |---------|---------|-------------|
-| [GetCareDocumentation](7-tjanstekontrakt.html#71-getcaredocumentation) | 3.0 | Returnerar journalanteckningar för en patient |
-| [GetDiagnosis](7-tjanstekontrakt.html#72-getdiagnosis) | 2.0 | Returnerar registrerade diagnoser för en patient |
-| [GetAlertInformation](7-tjanstekontrakt.html#73-getalertinformation) | 2.0 | Returnerar uppmärksamhetsinformation för en patient |
-| [GetFunctionalStatus](7-tjanstekontrakt.html#74-getfunctionalstatus) | 2.0 | Returnerar dokumenterade bedömningar av funktionsnedsättningar |
+| [GetCareDocumentation](7-tjanstekontrakt.html#getcaredocumentation) | 3.0 | Returnerar journalanteckningar för en patient |
+| [GetDiagnosis](7-tjanstekontrakt.html#getdiagnosis) | 2.0 | Returnerar registrerade diagnoser för en patient |
+| [GetAlertInformation](7-tjanstekontrakt.html#getalertinformation) | 2.0 | Returnerar uppmärksamhetsinformation för en patient |
+| [GetFunctionalStatus](7-tjanstekontrakt.html#getfunctionalstatus) | 2.0 | Returnerar dokumenterade bedömningar av funktionsnedsättningar |
 
 ## Innehåll
 

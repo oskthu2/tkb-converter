@@ -1,0 +1,406 @@
+{
+  "domain_id": "ehr.patientconsent",
+  "domain_title": "ehr: patientconsent",
+  "domain_display_name": "Samtyckeshantering",
+  "domain_version": "1.0.1_RC1",
+  "rivta_namespace_base": "urn:riv:ehr:patientconsent",
+  "docx_converted_dir": "igs/TKB_ehr_patientconsent/docx-converted/",
+  "note_structure": "Denna TKB följer en icke-standard rubrikstruktur. Sektioner 1-2 = Inledning + Generella regler. Kontrakten är sektionerna 3-9. Sektion 10 = Datatyper. Ingen separat sektion 2 (Versionsinformation), 3 (Arkitektur) etc.",
+  "sections": {
+    "1_inledning": "igs/TKB_ehr_patientconsent/docx-converted/sections/1-inledning.md",
+    "2_generella_regler": "igs/TKB_ehr_patientconsent/docx-converted/full-document.md",
+    "10_datatyper": "igs/TKB_ehr_patientconsent/docx-converted/full-document.md"
+  },
+  "contracts": [
+    {
+      "section_number": "7.1",
+      "id": "GetConsentsForPatient",
+      "display_name": "Hämta samtycken för patient",
+      "version": "1.0",
+      "subdomain": "querying",
+      "rivta_namespace": "urn:riv:ehr:patientconsent:querying:GetConsentsForPatientResponder:1",
+      "description": "Tjänst som läser giltiga samtyckesintyg för en viss patient och en viss vårdgivare med grundinformation.",
+      "mandatory": "Obligatorisk för tjänsteproducent",
+      "request_fields": [
+        {
+          "name": "careProviderId",
+          "type": "patientconsent:HsaId",
+          "cardinality": "1..1",
+          "description": "Obligatoriskt id på den vårdgivare vars samtycken skall hämtas.",
+          "kodverk": null
+        },
+        {
+          "name": "patientId",
+          "type": "patientconsent:PersonIdValue",
+          "cardinality": "1..1",
+          "description": "Patientens personnummer alternativt samordningsnummer vars samtycken skall hämtas.",
+          "kodverk": null
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "getConsentsForPatient",
+          "type": "patientconsent:GetConsentsResult",
+          "cardinality": "1..1",
+          "description": "Lista med giltiga samtycken för patient.",
+          "kodverk": null
+        }
+      ],
+      "contract_specific_codesystems": [],
+      "open_questions_from_parsing": []
+    },
+    {
+      "section_number": "7.2",
+      "id": "GetConsentsForCareProvider",
+      "display_name": "Hämta samtycken för vårdgivare",
+      "version": "1.0",
+      "subdomain": "querying",
+      "rivta_namespace": "urn:riv:ehr:patientconsent:querying:GetConsentsForCareProviderResponder:1",
+      "description": "Tjänst som läser alla giltiga samtyckesintyg för en viss vårdgivare med grundinformation.",
+      "mandatory": "Obligatorisk för tjänsteproducent",
+      "request_fields": [
+        {
+          "name": "careProviderId",
+          "type": "patientconsent:HsaId",
+          "cardinality": "1..1",
+          "description": "HSA-id på den vårdgivare vars samtycken skall hämtas.",
+          "kodverk": null
+        },
+        {
+          "name": "createdOnOrAfter",
+          "type": "xs:dateTime",
+          "cardinality": "0..1",
+          "description": "Ej obligatoriskt startdatum för hur gamla samtyckesintyg som skall hämtas.",
+          "kodverk": null
+        },
+        {
+          "name": "getCancelledFlag",
+          "type": "xs:boolean",
+          "cardinality": "1..1",
+          "description": "Flagga som avgör om makulerade och återkallade samtyckesintyg skall returneras.",
+          "kodverk": null
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "getConsentsForCareProvider",
+          "type": "patientconsent:GetAllAssertionsResult",
+          "cardinality": "1..1",
+          "description": "Lista med giltiga samtyckesintyg och eventuellt ogiltiga. Information om fler finns att hämta samt ny starttidpunkt.",
+          "kodverk": null
+        }
+      ],
+      "contract_specific_codesystems": [],
+      "open_questions_from_parsing": []
+    },
+    {
+      "section_number": "7.3",
+      "id": "GetExtendedConsentsForPatient",
+      "display_name": "Hämta utökade samtycken för patient",
+      "version": "1.0",
+      "subdomain": "administration",
+      "rivta_namespace": "urn:riv:ehr:patientconsent:administration:GetExtendedConsentsForPatientResponder:1",
+      "description": "Tjänst som läser registrerade samtyckesintyg för en viss patient med utökad information.",
+      "mandatory": "Obligatorisk för tjänsteproducent",
+      "request_fields": [
+        {
+          "name": "careProviderId",
+          "type": "patientconsent:HsaId",
+          "cardinality": "1..1",
+          "description": "HSA-id på den vårdgivare vars samtycken skall hämtas.",
+          "kodverk": null
+        },
+        {
+          "name": "patientId",
+          "type": "patientconsent:PersonIdValue",
+          "cardinality": "1..1",
+          "description": "Patientens personnummer alternativt samordningsnummer vars samtycken skall hämtas.",
+          "kodverk": null
+        },
+        {
+          "name": "getCancelledFlag",
+          "type": "xs:boolean",
+          "cardinality": "1..1",
+          "description": "Flagga som avgör om ogiltiga samtyckesintyg skall returneras.",
+          "kodverk": null
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "getExtendedConsentsForPatient",
+          "type": "patientconsent:GetExtendedConsentsResult",
+          "cardinality": "1..1",
+          "description": "Utökad information för samtycke.",
+          "kodverk": null
+        }
+      ],
+      "contract_specific_codesystems": [],
+      "open_questions_from_parsing": []
+    },
+    {
+      "section_number": "7.4",
+      "id": "CheckConsent",
+      "display_name": "Kontrollera samtycke",
+      "version": "1.0",
+      "subdomain": "accesscontrol",
+      "rivta_namespace": "urn:riv:ehr:patientconsent:accesscontrol:CheckConsentResponder:1",
+      "description": "Tjänst som kontrollerar om det finns ett giltigt samtycke, alternativt intyg om nödsituation, gällande åtkomst för viss aktör.",
+      "mandatory": "Obligatorisk för tjänsteproducent",
+      "request_fields": [
+        {
+          "name": "accessingActor",
+          "type": "patientconsent:AccessingActor",
+          "cardinality": "1..1",
+          "description": "Representerar den aktör/person som önskar åtkomst till informationen.",
+          "kodverk": null
+        },
+        {
+          "name": "patientId",
+          "type": "patientconsent:PersonIdValue",
+          "cardinality": "1..1",
+          "description": "Patientens personnummer alternativt samordningsnummer vars information aktören önskar åtkomst till.",
+          "kodverk": null
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "checkConsent",
+          "type": "patientconsent:CheckResult",
+          "cardinality": "1..1",
+          "description": "Status för om ett giltigt intyg gällande åtkomst för angiven aktör hittades.",
+          "kodverk": null
+        }
+      ],
+      "contract_specific_codesystems": [],
+      "open_questions_from_parsing": []
+    },
+    {
+      "section_number": "7.5",
+      "id": "RegisterExtendedConsent",
+      "display_name": "Registrera utökat samtycke",
+      "version": "1.0",
+      "subdomain": "administration",
+      "rivta_namespace": "urn:riv:ehr:patientconsent:administration:RegisterExtendedConsentResponder:1",
+      "description": "Tjänst som registrerar ett intyg gällande viss patient som ger direktåtkomst till patientens information från andra vårdgivare enligt PDL.",
+      "mandatory": "Obligatorisk för tjänsteproducent",
+      "request_fields": [
+        {
+          "name": "assertionId",
+          "type": "patientconsent:Id",
+          "cardinality": "1..1",
+          "description": "Unik, global identifierare för intyget. UUID-format.",
+          "kodverk": null
+        },
+        {
+          "name": "assertionType",
+          "type": "patientconsent:AssertionType",
+          "cardinality": "1..1",
+          "description": "Typ av intyg (Consent eller Emergency).",
+          "kodverk": "AssertionTypeCS"
+        },
+        {
+          "name": "scope",
+          "type": "patientconsent:Scope",
+          "cardinality": "1..1",
+          "description": "Omfånget/tillämpningsområde på intyget.",
+          "kodverk": "ScopeCS"
+        },
+        {
+          "name": "patientId",
+          "type": "patientconsent:PersonIdValue",
+          "cardinality": "1..1",
+          "description": "Patientens personnummer alternativt samordningsnummer.",
+          "kodverk": null
+        },
+        {
+          "name": "careProviderId",
+          "type": "patientconsent:HsaId",
+          "cardinality": "1..1",
+          "description": "Id på den vårdgivare som intyget gäller för/kopplas till.",
+          "kodverk": null
+        },
+        {
+          "name": "careUnitId",
+          "type": "patientconsent:HsaId",
+          "cardinality": "1..1",
+          "description": "Id på den vårdenhet som intyget gäller för/kopplas till.",
+          "kodverk": null
+        },
+        {
+          "name": "employeeId",
+          "type": "patientconsent:HsaId",
+          "cardinality": "0..1",
+          "description": "Medarbetar id. Anges om samtycket är personligt.",
+          "kodverk": null
+        },
+        {
+          "name": "startDate",
+          "type": "xs:dateTime",
+          "cardinality": "0..1",
+          "description": "Ej obligatoriskt startdatum för intygets giltighetstid.",
+          "kodverk": null
+        },
+        {
+          "name": "endDate",
+          "type": "xs:dateTime",
+          "cardinality": "0..1",
+          "description": "Ej obligatoriskt slutdatum för intygets giltighetstid.",
+          "kodverk": null
+        },
+        {
+          "name": "representedBy",
+          "type": "patientconsent:PersonIdValue",
+          "cardinality": "0..1",
+          "description": "Ej obligatorisk företrädare/vårdnadshavare som företräder patienten.",
+          "kodverk": null
+        },
+        {
+          "name": "registrationAction",
+          "type": "patientconsent:Action",
+          "cardinality": "1..1",
+          "description": "Identifierar de personer som begärt och registrerat intyget samt tidpunkter för dessa.",
+          "kodverk": null
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "registerExtendedConsent",
+          "type": "patientconsent:Result",
+          "cardinality": "1..1",
+          "description": "Status för om tjänsten utfördes.",
+          "kodverk": null
+        }
+      ],
+      "contract_specific_codesystems": [],
+      "open_questions_from_parsing": []
+    },
+    {
+      "section_number": "7.6",
+      "id": "CancelExtendedConsent",
+      "display_name": "Återkalla utökat samtycke",
+      "version": "1.0",
+      "subdomain": "administration",
+      "rivta_namespace": "urn:riv:ehr:patientconsent:administration:CancelExtendedConsentResponder:1",
+      "description": "Tjänst som återkallar ett samtycke i samtyckestjänsten.",
+      "mandatory": "Obligatorisk för tjänsteproducent",
+      "request_fields": [
+        {
+          "name": "assertionId",
+          "type": "patientconsent:Id",
+          "cardinality": "1..1",
+          "description": "Identifierare för det intyg som skall återkallas.",
+          "kodverk": null
+        },
+        {
+          "name": "cancellationAction",
+          "type": "patientconsent:Action",
+          "cardinality": "1..1",
+          "description": "Identifierar de personer som begärt och registrerat återkallan samt tidpunkter för dessa.",
+          "kodverk": null
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "cancelExtendedConsent",
+          "type": "patientconsent:Result",
+          "cardinality": "1..1",
+          "description": "Status för om tjänsten utfördes.",
+          "kodverk": null
+        }
+      ],
+      "contract_specific_codesystems": [],
+      "open_questions_from_parsing": []
+    },
+    {
+      "section_number": "7.7",
+      "id": "DeleteExtendedConsent",
+      "display_name": "Makulera utökat samtycke",
+      "version": "1.0",
+      "subdomain": "administration",
+      "rivta_namespace": "urn:riv:ehr:patientconsent:administration:DeleteExtendedConsentResponder:1",
+      "description": "Tjänst som makulerar ett samtycke i samtyckestjänsten.",
+      "mandatory": "Obligatorisk för tjänsteproducent",
+      "request_fields": [
+        {
+          "name": "assertionId",
+          "type": "patientconsent:Id",
+          "cardinality": "1..1",
+          "description": "Identifierar det intyg som skall makuleras.",
+          "kodverk": null
+        },
+        {
+          "name": "deletionAction",
+          "type": "patientconsent:Action",
+          "cardinality": "1..1",
+          "description": "Identifierar de personer som begärt och utfört makulering samt tidpunkter för dessa.",
+          "kodverk": null
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "deleteExtendedConsent",
+          "type": "patientconsent:Result",
+          "cardinality": "1..1",
+          "description": "Status för om tjänsten utfördes.",
+          "kodverk": null
+        }
+      ],
+      "contract_specific_codesystems": [],
+      "open_questions_from_parsing": []
+    }
+  ],
+  "domain_codesystems": [
+    {
+      "name": "AssertionTypeCS",
+      "slug": "assertiontype",
+      "description": "Typ av intyg som ger direktåtkomst till information från andra vårdgivare enligt PDL.",
+      "codes": [
+        {"code": "Consent", "display": "Patienten/Företrädaren har givit sitt samtycke."},
+        {"code": "Emergency", "display": "Nödsituation föreligger. Patientens samtycke kunde ej inhämtas."}
+      ]
+    },
+    {
+      "name": "ScopeCS",
+      "slug": "scope",
+      "description": "Omfånget/tillämpningsområde på intyget.",
+      "codes": [
+        {"code": "NationalLevel", "display": "Intyget gäller på nationell nivå."}
+      ]
+    },
+    {
+      "name": "ResultCodeCS",
+      "slug": "resultcode",
+      "description": "Svarskoder för samtycketjänstens operationer.",
+      "codes": [
+        {"code": "OK", "display": "Transaktionen har utförts enligt uppdraget."},
+        {"code": "INFO", "display": "Transaktionen har utförts men med meddelande till konsumenten."},
+        {"code": "ERROR", "display": "Transaktionen har INTE kunnat utföras p.g.a ett logiskt fel."},
+        {"code": "VALIDATION_ERROR", "display": "En eller flera inparametrar innehåller felaktiga värden."},
+        {"code": "ACCESSDENIED", "display": "Behörighet saknas för att utföra begärd tjänst."},
+        {"code": "NOTFOUND", "display": "Angiven artifakt finns ej."},
+        {"code": "ALREADYEXISTS", "display": "Angiven artifakt finns redan."},
+        {"code": "INVALIDSTATE", "display": "Angiven tjänst utfördes ej då tjänsten eller artifakten var i ett felaktigt tillstånd."}
+      ]
+    }
+  ],
+  "wsdl_files": [
+    "CheckConsentInteraction_1.0_RIVTABP21.wsdl",
+    "CancelExtendedConsentInteraction_1.0_RIVTABP21.wsdl",
+    "DeleteExtendedConsentInteraction_1.0_RIVTABP21.wsdl",
+    "GetExtendedConsentsForPatientInteraction_1.0_RIVTABP21.wsdl",
+    "RegisterExtendedConsentInteraction_1.0_RIVTABP21.wsdl",
+    "GetConsentsForCareProviderInteraction_1.0_RIVTABP21.wsdl",
+    "GetConsentsForPatientInteraction_1.0_RIVTABP21.wsdl"
+  ],
+  "xsd_files": [
+    "ehr_patientconsent_1.0.xsd",
+    "itintegration_registry_1.0.xsd",
+    "CheckConsentResponder_1.0.xsd",
+    "CancelExtendedConsentResponder_1.0.xsd",
+    "DeleteExtendedConsentResponder_1.0.xsd",
+    "GetExtendedConsentsForPatientResponder_1.0.xsd",
+    "RegisterExtendedConsentResponder_1.0.xsd",
+    "GetConsentsForCareProviderResponder_1.0.xsd",
+    "GetConsentsForPatientResponder_1.0.xsd"
+  ]
+}

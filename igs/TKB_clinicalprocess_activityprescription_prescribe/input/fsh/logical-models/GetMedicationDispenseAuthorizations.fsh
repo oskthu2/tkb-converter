@@ -19,8 +19,8 @@ Characteristics: #can-be-target
   * medicationDispenseCaseId 1..1 Identifier "Unikt id för expedieringsärendet"
   * medicationDispenseAuthorization 1..* BackboneElement "Expedieringsunderlag"
     * dispenseAuthorizationId 1..1 Identifier "Unikt id för expedieringsunderlaget"
-    * status 1..1 code "Status: ATTACHED eller NOT_ATTACHED"
-    * status from DispenseAuthorizationStatusVS (required)
+    * dispenseAuthorizationStatus 1..1 code "Status: ATTACHED eller NOT_ATTACHED"
+    * dispenseAuthorizationStatus from DispenseAuthorizationStatusVS (required)
     * medicationInformation 1..1 BackboneElement "Läkemedelsinformation"
     * registrationData 1..1 BackboneElement "Registreringsdata"
     * startTime 1..1 dateTime "Giltighetsdatum från"

@@ -1,0 +1,61 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "cancelextendedpatientrelation",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-patientrelationship/StructureDefinition/cancelextendedpatientrelation",
+  "name": "CancelExtendedPatientRelation",
+  "title": "CancelExtendedPatientRelation",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet CancelExtendedPatientRelation\n(RIV-TA urn:riv:ehr:patientrelationship:administration:CancelExtendedPatientRelationResponder:1).\nRepresenterar responsens informationsstruktur — status för om återkallelsen utfördes.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-patientrelationship/StructureDefinition/cancelextendedpatientrelation",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "cancelextendedpatientrelation",
+        "path": "cancelextendedpatientrelation",
+        "short": "CancelExtendedPatientRelation",
+        "definition": "Logisk modell för tjänstekontraktet CancelExtendedPatientRelation\n(RIV-TA urn:riv:ehr:patientrelationship:administration:CancelExtendedPatientRelationResponder:1).\nRepresenterar responsens informationsstruktur — status för om återkallelsen utfördes."
+      },
+      {
+        "id": "cancelextendedpatientrelation.resultCode",
+        "path": "cancelextendedpatientrelation.resultCode",
+        "short": "Svarskod för åtgärden",
+        "definition": "Svarskod för åtgärden",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-patientrelationship/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "cancelextendedpatientrelation.resultText",
+        "path": "cancelextendedpatientrelation.resultText",
+        "short": "Optionellt felmeddelande (tomt om resultCode=OK)",
+        "definition": "Optionellt felmeddelande (tomt om resultCode=OK)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

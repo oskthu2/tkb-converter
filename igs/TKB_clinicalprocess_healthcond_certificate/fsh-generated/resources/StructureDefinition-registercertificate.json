@@ -1,0 +1,91 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "registercertificate",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/registercertificate",
+  "name": "RegisterCertificate",
+  "title": "RegisterCertificate",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet RegisterCertificate\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:RegisterCertificate:3).\nRepresenterar responsens informationsstruktur.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/registercertificate",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "registercertificate",
+        "path": "registercertificate",
+        "short": "RegisterCertificate",
+        "definition": "Logisk modell för tjänstekontraktet RegisterCertificate\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:RegisterCertificate:3).\nRepresenterar responsens informationsstruktur."
+      },
+      {
+        "id": "registercertificate.result",
+        "path": "registercertificate.result",
+        "short": "Information om anropets resultat",
+        "definition": "Information om anropets resultat",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registercertificate.result.resultCode",
+        "path": "registercertificate.result.resultCode",
+        "short": "Resultatkod (OK/INFO/ERROR)",
+        "definition": "Resultatkod (OK/INFO/ERROR)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/resultkod-vs"
+        }
+      },
+      {
+        "id": "registercertificate.result.resultText",
+        "path": "registercertificate.result.resultText",
+        "short": "Fritext med mer information om resultatet",
+        "definition": "Fritext med mer information om resultatet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registercertificate.result.errorId",
+        "path": "registercertificate.result.errorId",
+        "short": "Felkod vid ERROR",
+        "definition": "Felkod vid ERROR",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/errorid-vs"
+        }
+      }
+    ]
+  }
+}

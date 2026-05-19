@@ -1,0 +1,78 @@
+{
+  "domain_id": "ehr.accesscontrol",
+  "domain_title": "ehr:accesscontrol",
+  "domain_version": "1.0.6",
+  "rivta_namespace_base": "urn:riv:ehr:accesscontrol",
+  "bitbucket_slug": "riv.ehr.accesscontrol",
+  "docx_converted_dir": "igs/TKB_ehr_accesscontrol/docx-converted/",
+  "sections": {
+    "1_inledning": "igs/TKB_ehr_accesscontrol/docx-converted/sections/1-inledning.md",
+    "2_versionsinformation": "igs/TKB_ehr_accesscontrol/docx-converted/sections/2-versionsinformation.md",
+    "3_tjanstedomanens_arkitektur": "igs/TKB_ehr_accesscontrol/docx-converted/sections/3-tjanstedomanens-arkitektur.md",
+    "4_tjanstedomanens_krav_och_regler": "igs/TKB_ehr_accesscontrol/docx-converted/sections/4-tjanstedomanens-krav-och-regler.md",
+    "5_tjanstedomanens_meddelandemodeller": "igs/TKB_ehr_accesscontrol/docx-converted/sections/5-tjanstedomanens-meddelandemodeller.md",
+    "6_gemensamma_informationskomponenter": "SAKNAS I KÄLLDOKUMENT"
+  },
+  "contracts": [
+    {
+      "section_number": "7.1",
+      "id": "AssertCareEngagement",
+      "display_name": "AssertCareEngagement",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:ehr:accesscontrol:AssertCareEngagement:1",
+      "description": "Ger svar på om en medarbetare med uppdrag på angiven vårdenhet ska ges möjlighet att begära åtkomst till sammanhållen journalföring. Tjänsteproducenter verifierar rättigheten genom att hitta administrativa informationsmängder som indirekt styrker att vårdenheten har en roll i något aktuellt hälsoärende för angiven patient.",
+      "request_fields": [
+        {
+          "name": "performer",
+          "type": "string (HSA-id)",
+          "cardinality": "1..1",
+          "description": "HSA-id för medarbetare som begär åtkomst till sammanhållen journalföring.",
+          "constraints": "Ska vara HSA-id för den medarbetare som är autentiserad i tjänstekonsumenten.",
+          "kodverk": null
+        },
+        {
+          "name": "subjectOfCareId",
+          "type": "string",
+          "cardinality": "1..1",
+          "description": "Person- eller samordningsnummer. 12 tecken enligt Skatteverkets format (ej bindestreck).",
+          "constraints": null,
+          "kodverk": null
+        },
+        {
+          "name": "careUnitHsaIdentity",
+          "type": "string (HSA-id)",
+          "cardinality": "1..1",
+          "description": "HSA-id för medarbetarens uppdragsvårdenhet",
+          "constraints": null,
+          "kodverk": null
+        },
+        {
+          "name": "careGiverHsaIdentity",
+          "type": "string (HSA-id)",
+          "cardinality": "1..1",
+          "description": "HSA-id för vårdgivaren där vårdenhet med HSA-id enligt careUnitHsaIdentity ingår.",
+          "constraints": null,
+          "kodverk": null
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "hasCareEngagement",
+          "type": "boolean",
+          "cardinality": "1..1",
+          "description": "\"true\" om åtkomstberättigande vårdrelation kan anses föreligga, annars \"false\".",
+          "constraints": null,
+          "kodverk": null
+        }
+      ],
+      "shared_components_refs": [],
+      "other_rules": "Producentregel P1: Tjänsteproducenten ska tillämpa regelverk i enlighet med avsnitt 4.3.1. Konsumentregel K1: Medarbetarens identitet ska vara fastställd enligt gällande nationellt regelverk.",
+      "error_codes": [],
+      "contract_specific_codesystems": [],
+      "open_questions_from_parsing": [
+        "Fältnamnet HasCareEngagement skrivs med versalt H i TKB-tabellen men med gement h i XSD. Har normaliserat till hasCareEngagement i FSH-modellen.",
+        "Kardinaliteten för HasCareEngagement anges som '1' (utan punktnotation) i tabellen — tolkat som 1..1."
+      ]
+    }
+  ]
+}

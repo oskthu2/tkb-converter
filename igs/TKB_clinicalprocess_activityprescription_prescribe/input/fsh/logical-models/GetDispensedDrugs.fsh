@@ -24,7 +24,7 @@ Characteristics: #can-be-target
     * strength 0..1 string "Styrka"
     * form 0..1 string "Läkemedelsform"
   * dispensedQuantity 0..1 BackboneElement "Expedierad mängd"
-    * value 1..1 decimal "Numeriskt värde"
+    * quantityValue 1..1 decimal "Numeriskt värde"
     * unit 1..1 string "Enhet"
   * dispensedDrugBody 0..1 BackboneElement "Expedieringstext (om svarstyp inkluderar TEXT)"
   * dispensedDrugMultimedia 0..1 BackboneElement "Expediering som multimedia (om svarstyp inkluderar MULTIMEDIA)"

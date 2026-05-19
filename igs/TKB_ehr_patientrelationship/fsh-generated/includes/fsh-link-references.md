@@ -1,0 +1,16 @@
+[CancelExtendedPatientRelation]: StructureDefinition-cancelextendedpatientrelation.html
+[CancelExtendedPatientRelationRequest]: StructureDefinition-cancelextendedpatientrelation-request.html
+[CheckPatientRelation]: StructureDefinition-checkpatientrelation.html
+[CheckPatientRelationRequest]: StructureDefinition-checkpatientrelation-request.html
+[DeleteExtendedPatientRelation]: StructureDefinition-deleteextendedpatientrelation.html
+[DeleteExtendedPatientRelationRequest]: StructureDefinition-deleteextendedpatientrelation-request.html
+[GetExtendedPatientRelationsForPatient]: StructureDefinition-getextendedpatientrelationsforpatient.html
+[GetExtendedPatientRelationsForPatientRequest]: StructureDefinition-getextendedpatientrelationsforpatient-request.html
+[GetPatientRelationsForCareProvider]: StructureDefinition-getpatientrelationsforcareprovider.html
+[GetPatientRelationsForCareProviderRequest]: StructureDefinition-getpatientrelationsforcareprovider-request.html
+[GetPatientRelationsForPatient]: StructureDefinition-getpatientrelationsforpatient.html
+[GetPatientRelationsForPatientRequest]: StructureDefinition-getpatientrelationsforpatient-request.html
+[RegisterExtendedPatientRelation]: StructureDefinition-registerextendedpatientrelation.html
+[RegisterExtendedPatientRelationRequest]: StructureDefinition-registerextendedpatientrelation-request.html
+[ResultCodeCS]: CodeSystem-resultcode-cs.html
+[ResultCodeVS]: ValueSet-resultcode-vs.html

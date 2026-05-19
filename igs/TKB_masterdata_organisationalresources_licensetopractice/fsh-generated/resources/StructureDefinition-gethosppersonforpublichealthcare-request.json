@@ -1,0 +1,83 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "gethosppersonforpublichealthcare-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/gethosppersonforpublichealthcare-request",
+  "name": "GetHospPersonForPublicHealthcareRequest",
+  "title": "GetHospPersonForPublicHealthcare — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i GetHospPersonForPublicHealthcare.\nAntingen anges personId, eller ett eller flera av fälten efternamn, fornamn, fodelsedatum.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/gethosppersonforpublichealthcare-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "gethosppersonforpublichealthcare-request",
+        "path": "gethosppersonforpublichealthcare-request",
+        "short": "GetHospPersonForPublicHealthcare — Request",
+        "definition": "Logisk modell för requestparametrar i GetHospPersonForPublicHealthcare.\nAntingen anges personId, eller ett eller flera av fälten efternamn, fornamn, fodelsedatum."
+      },
+      {
+        "id": "gethosppersonforpublichealthcare-request.personId",
+        "path": "gethosppersonforpublichealthcare-request.personId",
+        "short": "Personnummer eller samordningsnummer",
+        "definition": "Personnummer (OID: 1.2.752.129.2.1.3.1) eller\nsamordningsnummer (OID: 1.2.752.129.2.1.3.3).\nFormat: ÅÅÅÅMMDDXXXX (12 siffror).\nOm personId inte anges måste minst ett av efternamn, fornamn eller fodelsedatum anges.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforpublichealthcare-request.fodelsedatum",
+        "path": "gethosppersonforpublichealthcare-request.fodelsedatum",
+        "short": "Födelsedatum (ÅÅÅÅMMDD)",
+        "definition": "Söker personer efter födelsedatum. Format: ÅÅÅÅMMDD.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforpublichealthcare-request.efternamn",
+        "path": "gethosppersonforpublichealthcare-request.efternamn",
+        "short": "Efternamn",
+        "definition": "Söker personer efter efternamn.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforpublichealthcare-request.fornamn",
+        "path": "gethosppersonforpublichealthcare-request.fornamn",
+        "short": "Förnamn",
+        "definition": "Söker personer efter förnamn. Kan anges 0 eller fler.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

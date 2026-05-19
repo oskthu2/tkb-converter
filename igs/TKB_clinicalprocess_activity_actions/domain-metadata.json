@@ -1,0 +1,65 @@
+{
+  "domain_id": "clinicalprocess.activity.actions",
+  "domain_title": "clinicalprocess: activity: actions",
+  "domain_version": "1.3",
+  "rivta_namespace_base": "urn:riv:clinicalprocess:activity:actions",
+  "bitbucket_slug": "riv.clinicalprocess.activity.actions",
+  "source_retrieved": "bitbucket-api-src",
+  "docx_converted_dir": "igs/TKB_clinicalprocess_activity_actions/docx-converted/",
+  "sections": {
+    "1_inledning": "igs/TKB_clinicalprocess_activity_actions/docx-converted/sections/1-inledning.md",
+    "2_versionsinformation": "igs/TKB_clinicalprocess_activity_actions/docx-converted/sections/2-versionsinformation.md",
+    "3_tjanstedomanens_arkitektur": "igs/TKB_clinicalprocess_activity_actions/docx-converted/sections/3-tjanstedomanens-arkitektur.md",
+    "4_tjanstedomanens_krav_och_regler": "igs/TKB_clinicalprocess_activity_actions/docx-converted/sections/4-tjanstedomanens-krav-och-regler.md",
+    "5_tjanstedomanens_meddelandemodeller": "igs/TKB_clinicalprocess_activity_actions/docx-converted/sections/5-tjanstedomanens-meddelandemodeller.md",
+    "6_gemensamma_informationskomponenter": "SAKNAS I KÄLLDOKUMENTET"
+  },
+  "contracts": [
+    {
+      "section_number": "7.1",
+      "id": "GetActivities",
+      "display_name": "Hämta aktiviteter",
+      "version": "1.3",
+      "rivta_namespace": "urn:riv:clinicalprocess:activity:actions:GetActivities:1",
+      "description": "Returnerar strukturerade aktiviteter för en patient. En aktivitet kan exempelvis vara en operation eller en genomförd undersökning.",
+      "request_fields": [
+        {"name": "patientId", "type": "IIType", "cardinality": "1..1", "description": "Personidentifierare för patient"},
+        {"name": "time", "type": "TimePeriodType", "cardinality": "0..1", "description": "Sökintervall"},
+        {"name": "activityCode", "type": "CVType", "cardinality": "0..*", "description": "Filter på typ av aktivitet"},
+        {"name": "activityId", "type": "IIType", "cardinality": "0..*", "description": "Filter på aktivitetsidentifierare"},
+        {"name": "sourceSystemId", "type": "IIType", "cardinality": "0..1", "description": "Filter på källsystem"},
+        {"name": "careGiverId", "type": "IIType", "cardinality": "0..1", "description": "Filter på vårdgivare"},
+        {"name": "careUnitId", "type": "IIType", "cardinality": "0..1", "description": "Filter på vårdenhet"},
+        {"name": "interactionAgreementId", "type": "UUIDType", "cardinality": "1..1", "description": "Används ej — ange fast UUID"},
+        {"name": "relation", "type": "RelationFilterType", "cardinality": "0..*", "description": "Filter på relationer"}
+      ],
+      "response_fields": [
+        {"name": "activityGroup", "type": "ActivityGroupType", "cardinality": "0..*", "description": "Grupp av aktiviteter"}
+      ],
+      "shared_components_refs": ["avsnitt 5"],
+      "contract_specific_codesystems": [],
+      "open_questions_from_parsing": [
+        "activityGroup.performerRole.id — villkorlig kardinalitet beroende på om utföraren är hälso- och sjukvårdspersonal (Regel 2.1)",
+        "activityGroup.activity.time — villkorlig (obligatorisk om status=utförd eller saknas) (Regel 2.3)",
+        "activityGroup.legalAuthenticator.id och .name — minst ett av dem ska anges (Regel 2.4)",
+        "additionalParticipant — exklusivitet mellan person/organisation/device/location ej möjlig att modellera direkt i FSH utan Slice",
+        "activityGroup.activity.additionalInformation.value — har typen Any i källdokument (kan vara timestamp eller CVType-sträng)",
+        "interactionAgreementId — används inte i kontraktet men är obligatorisk (alltid fast UUID)"
+      ],
+      "wsdl_files": ["input/files/wsdl/GetActivitiesInteraction_1.3_RIVTABP21.wsdl"],
+      "xsd_files": [
+        "input/files/schema/clinicalprocess_activity_actions_1.3.xsd",
+        "input/files/schema/clinicalprocess_activity_actions_1.3_ext.xsd",
+        "input/files/schema/clinicalprocess_activity_actions_enum_1.3.xsd",
+        "input/files/schema/itintegration_registry_1.0.xsd",
+        "input/files/schema/GetActivitiesResponder_1.3.xsd"
+      ],
+      "doc_files": [
+        "input/files/docs/SjD_TK_GetActivities_1.3.docx",
+        "input/files/docs/SjD_TP_GetActivities_1.3.docx",
+        "input/files/docs/AB_clinicalprocess_activity_actions.docx"
+      ]
+    }
+  ],
+  "generated_at": "2026-05-18T00:00:00Z"
+}

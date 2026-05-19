@@ -1,0 +1,74 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "registertemporaryrevoke",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/registertemporaryrevoke",
+  "name": "RegisterTemporaryRevoke",
+  "title": "RegisterTemporaryRevoke",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet RegisterTemporaryRevoke\n(RIV-TA urn:riv:ehr:blocking:synchronization:RegisterTemporaryRevokeResponder:2).\nRegistrerar en tillfällig hävning av en spärr i nationell spärrtjänst.\nRepresenterar responsens informationsstruktur.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/registertemporaryrevoke",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "registertemporaryrevoke",
+        "path": "registertemporaryrevoke",
+        "short": "RegisterTemporaryRevoke",
+        "definition": "Logisk modell för tjänstekontraktet RegisterTemporaryRevoke\n(RIV-TA urn:riv:ehr:blocking:synchronization:RegisterTemporaryRevokeResponder:2).\nRegistrerar en tillfällig hävning av en spärr i nationell spärrtjänst.\nRepresenterar responsens informationsstruktur."
+      },
+      {
+        "id": "registertemporaryrevoke.result",
+        "path": "registertemporaryrevoke.result",
+        "short": "Resultat av registreringen",
+        "definition": "Resultat av registreringen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registertemporaryrevoke.result.resultCode",
+        "path": "registertemporaryrevoke.result.resultCode",
+        "short": "Svarskod",
+        "definition": "Svarskod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-blocking/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "registertemporaryrevoke.result.resultText",
+        "path": "registertemporaryrevoke.result.resultText",
+        "short": "Beskrivande text till svarskoden",
+        "definition": "Beskrivande text till svarskoden",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

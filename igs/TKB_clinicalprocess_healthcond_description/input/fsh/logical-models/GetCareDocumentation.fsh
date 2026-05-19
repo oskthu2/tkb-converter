@@ -3,6 +3,16 @@
 // Namespace: urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3
 // Genererad: 2026-03-19
 
+Invariant: getcaredocumentation-body-xor
+Description: "Antingen clinicalDocumentNoteText eller multimediaEntry ska anges, ej båda"
+Expression: "clinicalDocumentNoteText.exists() xor multimediaEntry.exists()"
+Severity: #error
+
+Invariant: getcaredocumentation-multimedia-xor
+Description: "Antingen value eller reference ska anges i multimediaEntry, ej båda"
+Expression: "value.exists() xor reference.exists()"
+Severity: #error
+
 Logical: GetCareDocumentation
 Id: getcaredocumentation
 Title: "GetCareDocumentation"
@@ -153,6 +163,7 @@ Characteristics: #can-be-target
     Journalanteckning — informationsinnehållet i anteckningen.
     Kardinalitet: Obligatorisk.
   """
+* careDocumentation.body obeys getcaredocumentation-body-xor
 
 * careDocumentation.body.clinicalDocumentNoteCode 1..1 CodeableConcept "Typ av anteckning" """
     Typ av anteckning. Kod tas från KV Anteckningstyp (OID: 1.2.752.129.2.2.2.11).
@@ -176,6 +187,7 @@ Characteristics: #can-be-target
     Ömsesidigt uteslutande med clinicalDocumentNoteText.
     Kardinalitet: Valfri. XSD-regel: exakt ett av clinicalDocumentNoteText/multimediaEntry ska anges.
   """
+* careDocumentation.body.multimediaEntry obeys getcaredocumentation-multimedia-xor
 
 * careDocumentation.body.multimediaEntry.mediaType 1..1 string "Medietyp" """
     Typ av multimedia (MIME-typ). Tillåtna värden enligt MediaTypeEnum.

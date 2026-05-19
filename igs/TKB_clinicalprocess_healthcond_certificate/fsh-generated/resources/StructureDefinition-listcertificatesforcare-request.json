@@ -1,0 +1,70 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "listcertificatesforcare-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/listcertificatesforcare-request",
+  "name": "ListCertificatesForCareRequest",
+  "title": "ListCertificatesForCare — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i ListCertificatesForCare.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/listcertificatesforcare-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "listcertificatesforcare-request",
+        "path": "listcertificatesforcare-request",
+        "short": "ListCertificatesForCare — Request",
+        "definition": "Logisk modell för requestparametrar i ListCertificatesForCare."
+      },
+      {
+        "id": "listcertificatesforcare-request.personId",
+        "path": "listcertificatesforcare-request.personId",
+        "short": "Person- eller samordningsnummer för patienten",
+        "definition": "Person- eller samordningsnummer för patienten",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcare-request.vardgivareId",
+        "path": "listcertificatesforcare-request.vardgivareId",
+        "short": "HSA-id för vårdgivaren (exklusivt med enhetsId)",
+        "definition": "HSA-id för den vårdgivare vars intyg ska sökas. Kan ej kombineras med enhetsId.\nVillkorlig kardinalitet: antingen vardgivareId eller enhetsId ska anges.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcare-request.enhetsId",
+        "path": "listcertificatesforcare-request.enhetsId",
+        "short": "HSA-id för enhet/enheter (exklusivt med vardgivareId)",
+        "definition": "HSA-id för en eller flera enheter vars intyg ska sökas. Kan ej kombineras med vardgivareId.\nVillkorlig kardinalitet: antingen enhetsId eller vardgivareId ska anges.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      }
+    ]
+  }
+}

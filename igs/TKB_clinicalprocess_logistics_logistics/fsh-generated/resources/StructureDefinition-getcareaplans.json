@@ -375,6 +375,15 @@
           {
             "code": "BackboneElement"
           }
+        ],
+        "constraint": [
+          {
+            "key": "getcareplans-content-xor",
+            "severity": "error",
+            "human": "Antingen value eller reference ska anges i content, inte båda",
+            "expression": "(value.exists() or reference.exists()) and (value.exists().not() or reference.exists().not())",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/getcareaplans"
+          }
         ]
       },
       {

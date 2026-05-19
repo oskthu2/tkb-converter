@@ -1,0 +1,70 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getallhealthcarefacilities-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/getallhealthcarefacilities-request",
+  "name": "GetAllHealthcareFacilitiesRequest",
+  "title": "GetAllHealthcareFacilities — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i GetAllHealthcareFacilities.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/getallhealthcarefacilities-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getallhealthcarefacilities-request",
+        "path": "getallhealthcarefacilities-request",
+        "short": "GetAllHealthcareFacilities — Request",
+        "definition": "Logisk modell för requestparametrar i GetAllHealthcareFacilities."
+      },
+      {
+        "id": "getallhealthcarefacilities-request.healthcare_facility",
+        "path": "getallhealthcarefacilities-request.healthcare_facility",
+        "short": "HSA-id för mottagning/vårdenhet",
+        "definition": "HSA-id för mottagning/vårdenhet (kallande organisation).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getallhealthcarefacilities-request.subject_of_care",
+        "path": "getallhealthcarefacilities-request.subject_of_care",
+        "short": "Personnummer enl. yyyymmddxxxx",
+        "definition": "Personnummer för invånaren. Kan användas för att filtrera svar per invånare.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getallhealthcarefacilities-request.bookingId",
+        "path": "getallhealthcarefacilities-request.bookingId",
+        "short": "Internt bokningsid",
+        "definition": "Internt bokningsid. Obligatoriskt när förfrågan gäller ombokning.\nKardinalitet: Valfri (villkorlig: obligatorisk vid ombokning).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

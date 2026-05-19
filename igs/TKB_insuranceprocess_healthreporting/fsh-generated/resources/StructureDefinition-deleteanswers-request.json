@@ -1,0 +1,70 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "deleteanswers-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/insuranceprocess-healthreporting/StructureDefinition/deleteanswers-request",
+  "name": "DeleteAnswersRequest",
+  "title": "DeleteAnswers — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i tjänstekontraktet DeleteAnswers\n(RIV-TA urn:riv:insuranceprocess:healthreporting:DeleteAnswers:1).\nTar bort svar som mellanlagrats av vården och tidigare hämtats via FindAllAnswers.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/insuranceprocess-healthreporting/StructureDefinition/deleteanswers-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "deleteanswers-request",
+        "path": "deleteanswers-request",
+        "short": "DeleteAnswers — Request",
+        "definition": "Logisk modell för requestparametrar i tjänstekontraktet DeleteAnswers\n(RIV-TA urn:riv:insuranceprocess:healthreporting:DeleteAnswers:1).\nTar bort svar som mellanlagrats av vården och tidigare hämtats via FindAllAnswers."
+      },
+      {
+        "id": "deleteanswers-request.careUnitId",
+        "path": "deleteanswers-request.careUnitId",
+        "short": "Vårdenhetens HSA-id",
+        "definition": "Vårdenhetens HSA-id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "deleteanswers-request.careGiverId",
+        "path": "deleteanswers-request.careGiverId",
+        "short": "Vårdgivarens HSA-id",
+        "definition": "Vårdgivarens HSA-id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "deleteanswers-request.answerId",
+        "path": "deleteanswers-request.answerId",
+        "short": "Ärendelådans identitet på svar som skall tas bort",
+        "definition": "Ärendelådans identitet på svar som skall tas bort",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

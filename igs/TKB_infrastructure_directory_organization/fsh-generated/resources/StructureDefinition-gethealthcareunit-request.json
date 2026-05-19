@@ -1,0 +1,70 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "gethealthcareunit-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-directory-organization/StructureDefinition/gethealthcareunit-request",
+  "name": "GetHealthCareUnitRequest",
+  "title": "GetHealthCareUnit — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i GetHealthCareUnit (RIV-TA urn:riv:infrastructure:directory:organization:GetHealthCareUnit:2).",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-directory-organization/StructureDefinition/gethealthcareunit-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "gethealthcareunit-request",
+        "path": "gethealthcareunit-request",
+        "short": "GetHealthCareUnit — Request",
+        "definition": "Logisk modell för requestparametrar i GetHealthCareUnit (RIV-TA urn:riv:infrastructure:directory:organization:GetHealthCareUnit:2)."
+      },
+      {
+        "id": "gethealthcareunit-request.healthCareUnitMemberHsaId",
+        "path": "gethealthcareunit-request.healthCareUnitMemberHsaId",
+        "short": "HSA-id för en enhet eller funktion som är kopplad till en vårdenhet enligt PDL.",
+        "definition": "Ref. HSA-id (hsaIdentity) i Informationsspecifikationen [R5].\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit-request.searchBase",
+        "path": "gethealthcareunit-request.searchBase",
+        "short": "Sökbas. Om ingen sökbas anges används c=SE som sökbas.",
+        "definition": "DN-format (Distinguished Name).\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethealthcareunit-request.includeFeignedObject",
+        "path": "gethealthcareunit-request.includeFeignedObject",
+        "short": "true: om metoden ska leverera svar med fingerade objekt.",
+        "definition": "Uteblivet värde tolkas som false, dvs inga fingerade objekt levereras.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      }
+    ]
+  }
+}

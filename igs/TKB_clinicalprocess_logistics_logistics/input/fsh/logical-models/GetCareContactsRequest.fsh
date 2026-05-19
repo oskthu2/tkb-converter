@@ -2,6 +2,11 @@
 // Kontrakt: GetCareContacts v3.0 — Request
 // Genererad: 2026-03-19
 
+Invariant: getcarecontacts-sourcesystemhsaid-required
+Description: "sourceSystemHSAId ska anges när careContactId är angivet"
+Expression: "careContactId.exists() implies sourceSystemHSAId.exists()"
+Severity: #warning
+
 Logical: GetCareContactsRequest
 Id: getcarecontacts-request
 Title: "GetCareContacts — Request"
@@ -11,6 +16,7 @@ Description: """
   Representerar GetCareContactsType i GetCareContactsResponder_3.0.xsd.
 """
 Characteristics: #can-be-target
+* obeys getcarecontacts-sourcesystemhsaid-required
 
 * careUnitHSAId 0..* string "Filtrering på PDL-enhet (vårdenhetens HSA-id)"
     """

@@ -1,0 +1,334 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "registerextendedblock-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/registerextendedblock-request",
+  "name": "RegisterExtendedBlockRequest",
+  "title": "RegisterExtendedBlock — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i RegisterExtendedBlock.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/registerextendedblock-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "registerextendedblock-request",
+        "path": "registerextendedblock-request",
+        "short": "RegisterExtendedBlock — Request",
+        "definition": "Logisk modell för requestparametrar i RegisterExtendedBlock."
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock",
+        "path": "registerextendedblock-request.extendedBlock",
+        "short": "Utökat spärrobjekt med komplett metadata",
+        "definition": "Utökat spärrobjekt med komplett metadata",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock.blockId",
+        "path": "registerextendedblock-request.extendedBlock.blockId",
+        "short": "Unik identifierare för spärren (UUID)",
+        "definition": "Unik identifierare för spärren (UUID)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock.blockType",
+        "path": "registerextendedblock-request.extendedBlock.blockType",
+        "short": "Typ av spärr",
+        "definition": "Typ av spärr",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-blocking/ValueSet/blocktype-vs"
+        }
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock.patientId",
+        "path": "registerextendedblock-request.extendedBlock.patientId",
+        "short": "Patientens personnummer eller samordningsnummer",
+        "definition": "Patientens personnummer eller samordningsnummer",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock.informationStartDate",
+        "path": "registerextendedblock-request.extendedBlock.informationStartDate",
+        "short": "Startdatum för information spärren gäller",
+        "definition": "Startdatum för information spärren gäller",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock.informationEndDate",
+        "path": "registerextendedblock-request.extendedBlock.informationEndDate",
+        "short": "Slutdatum för information spärren gäller",
+        "definition": "Slutdatum för information spärren gäller",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock.informationCareUnitId",
+        "path": "registerextendedblock-request.extendedBlock.informationCareUnitId",
+        "short": "HSA-id för vårdenhet (vid inre spärr)",
+        "definition": "HSA-id för vårdenhet (vid inre spärr)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock.informationCareProviderId",
+        "path": "registerextendedblock-request.extendedBlock.informationCareProviderId",
+        "short": "HSA-id för vårdgivare",
+        "definition": "HSA-id för vårdgivare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock.excludedInformationTypes",
+        "path": "registerextendedblock-request.extendedBlock.excludedInformationTypes",
+        "short": "Informationstyper undantagna från spärren",
+        "definition": "Informationstyper undantagna från spärren",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock.excludedInformationTypes.infoTypeId",
+        "path": "registerextendedblock-request.extendedBlock.excludedInformationTypes.infoTypeId",
+        "short": "ID för informationstypen",
+        "definition": "ID för informationstypen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock.excludedInformationTypes.infoTypeDescription",
+        "path": "registerextendedblock-request.extendedBlock.excludedInformationTypes.infoTypeDescription",
+        "short": "Beskrivning av informationstypen",
+        "definition": "Beskrivning av informationstypen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock.registrationInfo",
+        "path": "registerextendedblock-request.extendedBlock.registrationInfo",
+        "short": "Aktörsinfo för registreringen",
+        "definition": "Aktörsinfo för registreringen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock.registrationInfo.requestDate",
+        "path": "registerextendedblock-request.extendedBlock.registrationInfo.requestDate",
+        "short": "Datum när spärren begärdes",
+        "definition": "Datum när spärren begärdes",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock.registrationInfo.requestedBy",
+        "path": "registerextendedblock-request.extendedBlock.registrationInfo.requestedBy",
+        "short": "Aktören som begärde spärren",
+        "definition": "Aktören som begärde spärren",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock.registrationInfo.requestedBy.employeeId",
+        "path": "registerextendedblock-request.extendedBlock.registrationInfo.requestedBy.employeeId",
+        "short": "HSA-id för anställd",
+        "definition": "HSA-id för anställd",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock.registrationInfo.requestedBy.assignmentId",
+        "path": "registerextendedblock-request.extendedBlock.registrationInfo.requestedBy.assignmentId",
+        "short": "HSA-id för medarbetaruppdrag",
+        "definition": "HSA-id för medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock.registrationInfo.requestedBy.assignmentName",
+        "path": "registerextendedblock-request.extendedBlock.registrationInfo.requestedBy.assignmentName",
+        "short": "Namn på medarbetaruppdrag",
+        "definition": "Namn på medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock.registrationInfo.registrationDate",
+        "path": "registerextendedblock-request.extendedBlock.registrationInfo.registrationDate",
+        "short": "Datum när spärren registrerades",
+        "definition": "Datum när spärren registrerades",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock.registrationInfo.registeredBy",
+        "path": "registerextendedblock-request.extendedBlock.registrationInfo.registeredBy",
+        "short": "Aktören som registrerade spärren",
+        "definition": "Aktören som registrerade spärren",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock.registrationInfo.registeredBy.employeeId",
+        "path": "registerextendedblock-request.extendedBlock.registrationInfo.registeredBy.employeeId",
+        "short": "HSA-id för anställd",
+        "definition": "HSA-id för anställd",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock.registrationInfo.registeredBy.assignmentId",
+        "path": "registerextendedblock-request.extendedBlock.registrationInfo.registeredBy.assignmentId",
+        "short": "HSA-id för medarbetaruppdrag",
+        "definition": "HSA-id för medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock.registrationInfo.registeredBy.assignmentName",
+        "path": "registerextendedblock-request.extendedBlock.registrationInfo.registeredBy.assignmentName",
+        "short": "Namn på medarbetaruppdrag",
+        "definition": "Namn på medarbetaruppdrag",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "registerextendedblock-request.extendedBlock.registrationInfo.reasonText",
+        "path": "registerextendedblock-request.extendedBlock.registrationInfo.reasonText",
+        "short": "Orsak till spärren (fritext)",
+        "definition": "Orsak till spärren (fritext)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

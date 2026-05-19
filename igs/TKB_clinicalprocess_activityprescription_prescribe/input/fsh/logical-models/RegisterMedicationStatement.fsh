@@ -15,7 +15,7 @@ Characteristics: #can-be-target
 
 * medicationStatement 1..* BackboneElement "Registrerade egenmediciningar"
   * registrationData 1..1 BackboneElement "Registreringsdata"
-    * id 1..1 Identifier "Systeminternt id tilldelat av producenten"
+    * registrationDataId 1..1 Identifier "Systeminternt id tilldelat av producenten"
     * registeredBy 1..1 BackboneElement "Den som registrerade"
     * registrationTime 1..1 dateTime "Registreringstidpunkt"
   * medicationInformation 1..1 BackboneElement "Läkemedelsinformation för egenmedicineringen"

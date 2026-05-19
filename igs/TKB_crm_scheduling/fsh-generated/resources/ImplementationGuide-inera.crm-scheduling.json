@@ -1,0 +1,310 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "inera.crm-scheduling",
+  "url": "https://fhir.inera.se/ig/crm-scheduling/ImplementationGuide/inera.crm-scheduling",
+  "version": "1.1",
+  "name": "crmscheduling",
+  "title": "crm: scheduling",
+  "status": "draft",
+  "contact": [
+    {
+      "name": "Inera Arkitektur",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.inera.se"
+        }
+      ]
+    }
+  ],
+  "copyright": "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "packageId": "inera.crm-scheduling",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.r4.core",
+      "version": "4.0.1",
+      "uri": "http://fhir.org/packages/hl7.fhir.r4.core/ImplementationGuide/hl7.fhir.r4.core",
+      "id": "hl7_fhir_r4_core"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "StructureDefinition/cancelbooking"
+        },
+        "name": "CancelBooking",
+        "description": "Logisk modell för tjänstekontraktet CancelBooking\n(RIV-TA urn:riv:crm:scheduling:CancelBooking:1).\nRepresenterar responsens informationsstruktur.\nTjänst för att avboka en bokning vid en vårdenhet.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cancelbooking-request"
+        },
+        "name": "CancelBooking — Request",
+        "description": "Logisk modell för requestparametrar i CancelBooking.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getallcaretypes"
+        },
+        "name": "GetAllCareTypes",
+        "description": "Logisk modell för tjänstekontraktet GetAllCareTypes\n(RIV-TA urn:riv:crm:scheduling:GetAllCareTypes:1).\nRepresenterar responsens informationsstruktur.\nTjänst att för invånaren kunna visa en lista över vilka typer av vård\nsom kan bokas hos en viss vårdenhet/mottagning.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getallcaretypes-request"
+        },
+        "name": "GetAllCareTypes — Request",
+        "description": "Logisk modell för requestparametrar i GetAllCareTypes.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getallhealthcarefacilities"
+        },
+        "name": "GetAllHealthcareFacilities",
+        "description": "Logisk modell för tjänstekontraktet GetAllHealthcareFacilities\n(RIV-TA urn:riv:crm:scheduling:GetAllHealthcareFacilities:1).\nRepresenterar responsens informationsstruktur.\nTjänst för att hämta alla vårdenheter som erbjuds för ombokning eller nybokning för aktuell invånare.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getallhealthcarefacilities-request"
+        },
+        "name": "GetAllHealthcareFacilities — Request",
+        "description": "Logisk modell för requestparametrar i GetAllHealthcareFacilities.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getallperformers"
+        },
+        "name": "GetAllPerformers",
+        "description": "Logisk modell för tjänstekontraktet GetAllPerformers\n(RIV-TA urn:riv:crm:scheduling:GetAllPerformers:1).\nRepresenterar responsens informationsstruktur.\nTjänst för att hämta en lista över medarbetare i vårdprofessionen som är bokningsbara online hos angiven vårdenhet.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getallperformers-request"
+        },
+        "name": "GetAllPerformers — Request",
+        "description": "Logisk modell för requestparametrar i GetAllPerformers.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getalltimetypes"
+        },
+        "name": "GetAllTimeTypes",
+        "description": "Logisk modell för tjänstekontraktet GetAllTimeTypes\n(RIV-TA urn:riv:crm:scheduling:GetAllTimeTypes:1).\nRepresenterar responsens informationsstruktur.\nTjänsten hämtar alla tidstyper som kan användas vid nybokning hos angiven vårdenhet.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getalltimetypes-request"
+        },
+        "name": "GetAllTimeTypes — Request",
+        "description": "Logisk modell för requestparametrar i GetAllTimeTypes.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getavailabledates"
+        },
+        "name": "GetAvailableDates",
+        "description": "Logisk modell för tjänstekontraktet GetAvailableDates\n(RIV-TA urn:riv:crm:scheduling:GetAvailableDates:1).\nRepresenterar responsens informationsstruktur.\nTjänsten hämtar datum med lediga tider för angivet datumintervall.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getavailabledates-request"
+        },
+        "name": "GetAvailableDates — Request",
+        "description": "Logisk modell för requestparametrar i GetAvailableDates.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getavailabletimeslots"
+        },
+        "name": "GetAvailableTimeslots",
+        "description": "Logisk modell för tjänstekontraktet GetAvailableTimeslots\n(RIV-TA urn:riv:crm:scheduling:GetAvailableTimeslots:1).\nRepresenterar responsens informationsstruktur.\nTjänsten hämtar lediga tider för angivet datumintervall.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getavailabletimeslots-request"
+        },
+        "name": "GetAvailableTimeslots — Request",
+        "description": "Logisk modell för requestparametrar i GetAvailableTimeslots.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getbookingdetails"
+        },
+        "name": "GetBookingDetails",
+        "description": "Logisk modell för tjänstekontraktet GetBookingDetails\n(RIV-TA urn:riv:crm:scheduling:GetBookingDetails:1).\nRepresenterar responsens informationsstruktur.\nTjänsten hämtar detaljinformation för en befintlig bokning vid en vårdenhet.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getbookingdetails-request"
+        },
+        "name": "GetBookingDetails — Request",
+        "description": "Logisk modell för requestparametrar i GetBookingDetails.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getsubjectofcareschedule"
+        },
+        "name": "GetSubjectOfCareSchedule",
+        "description": "Logisk modell för tjänstekontraktet GetSubjectOfCareSchedule\n(RIV-TA urn:riv:crm:scheduling:GetSubjectOfCareSchedule:1).\nRepresenterar responsens informationsstruktur.\nTjänsten hämtar alla bokade tider för en invånare.\nÖppna kallelser ingår inte i svaret.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getsubjectofcareschedule-request"
+        },
+        "name": "GetSubjectOfCareSchedule — Request",
+        "description": "Logisk modell för requestparametrar i GetSubjectOfCareSchedule.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/makebooking"
+        },
+        "name": "MakeBooking",
+        "description": "Logisk modell för tjänstekontraktet MakeBooking\n(RIV-TA urn:riv:crm:scheduling:MakeBooking:1).\nRepresenterar responsens informationsstruktur.\nTjänst för nybokning vid en vårdenhet.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/makebooking-request"
+        },
+        "name": "MakeBooking — Request",
+        "description": "Logisk modell för requestparametrar i MakeBooking.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/result-code-cs"
+        },
+        "name": "ResultCode",
+        "description": "Kodverk för resultatkoder i tjänstedomänen crm:scheduling. Används i svaren för CancelBooking, MakeBooking och UpdateBooking.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/result-code-vs"
+        },
+        "name": "ResultCode — ValueSet",
+        "description": "Tillåtna värden för resultatkoder i tjänstedomänen crm:scheduling.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/updatebooking"
+        },
+        "name": "UpdateBooking",
+        "description": "Logisk modell för tjänstekontraktet UpdateBooking\n(RIV-TA urn:riv:crm:scheduling:UpdateBooking:1).\nRepresenterar responsens informationsstruktur.\nTjänst för att uppdatera en bokning med nytt datum och tid (ombokning).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/updatebooking-request"
+        },
+        "name": "UpdateBooking — Request",
+        "description": "Logisk modell för requestparametrar i UpdateBooking.",
+        "exampleBoolean": false
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Hem",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "1-inledning.html",
+          "title": "1 Inledning",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "2-versionsinformation.html",
+          "title": "2 Versionsinformation",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "3-tjanstedomanens-arkitektur.html",
+          "title": "3 Tjänstedomänens arkitektur",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "4-tjanstedomanens-krav-och-regler.html",
+          "title": "4 Tjänstedomänens krav och regler",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "5-tjanstedomanens-meddelandemodeller.html",
+          "title": "5 Tjänstedomänens meddelandemodeller",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "6-gemensamma-informationskomponenter.html",
+          "title": "6 Gemensamma informationskomponenter",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "7-tjanstekontrakt.html",
+          "title": "7 Tjänstekontrakt",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2024+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "draft"
+      },
+      {
+        "code": "show-inherited-invariants",
+        "value": "false"
+      },
+      {
+        "code": "apply-contact",
+        "value": "true"
+      },
+      {
+        "code": "apply-publisher",
+        "value": "true"
+      },
+      {
+        "code": "apply-version",
+        "value": "true"
+      },
+      {
+        "code": "apply-copyright",
+        "value": "true"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/result-code-cs"
+      }
+    ]
+  }
+}

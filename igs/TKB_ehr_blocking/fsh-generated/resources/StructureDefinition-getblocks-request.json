@@ -1,0 +1,57 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getblocks-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/getblocks-request",
+  "name": "GetBlocksRequest",
+  "title": "GetBlocks — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i GetBlocks.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/getblocks-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getblocks-request",
+        "path": "getblocks-request",
+        "short": "GetBlocks — Request",
+        "definition": "Logisk modell för requestparametrar i GetBlocks."
+      },
+      {
+        "id": "getblocks-request.careProviderId",
+        "path": "getblocks-request.careProviderId",
+        "short": "HSA-id på den vårdgivare vars spärrar skall hämtas.",
+        "definition": "HSA-id på den vårdgivare vars spärrar skall hämtas.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getblocks-request.createdOnOrAfter",
+        "path": "getblocks-request.createdOnOrAfter",
+        "short": "Startdatum för inkrementell hämtning.",
+        "definition": "Startdatum för inkrementell hämtning.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

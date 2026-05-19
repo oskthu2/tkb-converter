@@ -1,0 +1,70 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "cancelform-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/StructureDefinition/cancelform-request",
+  "name": "CancelFormRequest",
+  "title": "CancelForm — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i CancelForm\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:CancelForm:2).\nAvbryter och raderar ett pågående formulär.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/StructureDefinition/cancelform-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "cancelform-request",
+        "path": "cancelform-request",
+        "short": "CancelForm — Request",
+        "definition": "Logisk modell för requestparametrar i CancelForm\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:CancelForm:2).\nAvbryter och raderar ett pågående formulär."
+      },
+      {
+        "id": "cancelform-request.formId",
+        "path": "cancelform-request.formId",
+        "short": "Formulärets unika ID (GUID) som skall avbrytas",
+        "definition": "Formulärets unika ID (GUID) som skall avbrytas",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "cancelform-request.subjectOfCare",
+        "path": "cancelform-request.subjectOfCare",
+        "short": "Invånarens personnummer (yyyymmddnnnn)",
+        "definition": "Invånarens personnummer (yyyymmddnnnn)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "cancelform-request.reason",
+        "path": "cancelform-request.reason",
+        "short": "Anledning till avbrytning (valfri kommentar)",
+        "definition": "Anledning till avbrytning (valfri kommentar)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

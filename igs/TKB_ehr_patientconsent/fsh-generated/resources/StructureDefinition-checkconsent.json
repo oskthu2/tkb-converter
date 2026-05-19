@@ -1,0 +1,104 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "checkconsent",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-patientconsent/StructureDefinition/checkconsent",
+  "name": "CheckConsent",
+  "title": "CheckConsent",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet CheckConsent\n(RIV-TA urn:riv:ehr:patientconsent:accesscontrol:CheckConsentResponder:1).\nRepresenterar responsens informationsstruktur.\n\nTjänst som kontrollerar om det finns ett giltigt samtycke, alternativt intyg om nödsituation,\ngällande åtkomst för viss aktör (vårdenhet eller medarbetare). Med giltigt samtycke avses ett\nsamtycke som fortfarande är giltigt, ej makulerat eller återkallat.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-patientconsent/StructureDefinition/checkconsent",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "checkconsent",
+        "path": "checkconsent",
+        "short": "CheckConsent",
+        "definition": "Logisk modell för tjänstekontraktet CheckConsent\n(RIV-TA urn:riv:ehr:patientconsent:accesscontrol:CheckConsentResponder:1).\nRepresenterar responsens informationsstruktur.\n\nTjänst som kontrollerar om det finns ett giltigt samtycke, alternativt intyg om nödsituation,\ngällande åtkomst för viss aktör (vårdenhet eller medarbetare). Med giltigt samtycke avses ett\nsamtycke som fortfarande är giltigt, ej makulerat eller återkallat."
+      },
+      {
+        "id": "checkconsent.result",
+        "path": "checkconsent.result",
+        "short": "Statusinformation för anropet",
+        "definition": "Statusinformation för anropet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "checkconsent.result.resultCode",
+        "path": "checkconsent.result.resultCode",
+        "short": "Svarskod",
+        "definition": "Svarskod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-patientconsent/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "checkconsent.result.resultText",
+        "path": "checkconsent.result.resultText",
+        "short": "Fritext beskrivning av resultatet",
+        "definition": "Fritext beskrivning av resultatet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "checkconsent.hasConsent",
+        "path": "checkconsent.hasConsent",
+        "short": "Om ett giltigt intyg gällande åtkomst för angiven aktör hittades",
+        "definition": "Om ett giltigt intyg gällande åtkomst för angiven aktör hittades",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "checkconsent.assertionType",
+        "path": "checkconsent.assertionType",
+        "short": "Typ av funnet intyg (Consent eller Emergency)",
+        "definition": "Returneras om ett giltigt intyg hittades (hasConsent = true).\nAnger om det är ett samtycke eller nödsituationsintyg.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-patientconsent/ValueSet/assertiontype-vs"
+        }
+      }
+    ]
+  }
+}

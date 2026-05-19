@@ -4,6 +4,26 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 
 ---
 
+## followup.qualityregistry.nkrr v1.2.2 — `igs/TKB_followup_qualityregistry_nkrr/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-19
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-NKRR-001]** `igs/TKB_followup_qualityregistry_nkrr/input/fsh/logical-models/ProcessRegistrationNotificationRequest.fsh` · fält `patientId`, `healthcareProviderId`, `nkrrParameters.careUnitId`
+  Mappat till FHIR-typ `Identifier` med antagandet att IIType (root + extension) lämpligen representeras som FHIR Identifier (system + value). Inget officiellt `se.inera.rivta.core`-paket kunde laddas (offline). Verifiera att Identifier är rätt typ och att ingen annan gemensam bastyp ska användas.
+
+- [ ] **[ASSUME-NKRR-002]** `igs/TKB_followup_qualityregistry_nkrr/input/fsh/codesystems/ResultCodeCS.fsh`
+  ResultCodeEnum (OK/INFO/ERROR) är gemensam för båda kontrakten i domänen. Kodverket har definierats med URL `https://fhir.inera.se/CodeSystem/resultcode-cs`. Verifiera om ett gemensamt Inera-kodverk för resultatkoder redan finns med känd canonical URL — i så fall ska detta CodeSystem ersättas med en referens till det externa.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-NKRR-001]** `igs/TKB_followup_qualityregistry_nkrr/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Avsnitt 6 (Gemensamma informationskomponenter) saknas i källdokumentet TKB v1.2.2. Sidan är skapad med en notering, men om en uppdaterad TKB med avsnitt 6 publiceras bör det extraheras och läggas till.
+
+---
+
 ## itintegration.engagementindex v1.0.9
 
 **Status:** blocked
@@ -258,3 +278,828 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 - [ ] **[TODO-ACT-006]** `typeOfVaccine` och `vaccineTargetDisease` i GetVaccinationHistory refererar till vaccinklassificering respektive sjukdomsklassificering. Lägg till kommentarer om lämpliga internationella kodverk (t.ex. SNOMED CT, ATC, Folkhälsomyndighetens vaccinregisterkoder).
 
 - [ ] **[TODO-ACT-007]** SjD-dokumenten (`SjD_TK_GetMedicationHistory_2.1.docx`, `SjD_TK_GetVaccinationHistory_2.0.docx`) är inte parsade. Dessa kan innehålla systemskiftesspecifika regler. Lägg till referenser i respektive kontraktssektion i IG:n.
+
+---
+
+## IG Publisher-byggen 2026-03-20 — sammanfattning
+
+**Körda domäner:** itintegration.engagementindex, clinicalprocess.healthcond.description, clinicalprocess.activityprescription.actoutcome
+
+| Domän | Errors | Warnings | Hints | Status |
+|-------|--------|----------|-------|--------|
+| itintegration.engagementindex | 0 | 92 | 0 | ✅ passerade |
+| clinicalprocess.healthcond.description | 0 | 0 | 0 | ✅ rent bygge |
+| clinicalprocess.activityprescription.actoutcome | 0 | 51 | 9 | ✅ passerade |
+
+**Ej körda domäner (kör `make build-one D=...`):**
+- `clinicalprocess.logistics.logistics`
+- `clinicalprocess.healthcond.actoutcome`
+- `clinicalprocess.activityprescription.prescribe`
+
+### TODO — granska varningar i IG Publisher-output
+
+- [ ] **[TODO-IGP-001]** `igs/TKB_itintegration_engagementindex/` — 92 varningar i IG Publisher-bygget. Granska `output/qa.html` för att identifiera och kategorisera varningarna. Typiska orsakar: saknade display-värden i CodeSystem, terminology-bindings mot okänd server, snapshot-generering.
+
+- [ ] **[TODO-IGP-002]** `igs/TKB_clinicalprocess_activityprescription_actoutcome/` — 51 varningar + 9 hints. Granska `output/qa.html`. Troliga orsaker: komplexa typer som BackboneElement utan snapshot (TODO-ACT-002, ACT-003) och XOR-kardinalitetsvarningar.
+
+- [ ] **[TODO-IGP-003]** Bygg de tre återstående domänerna med IG Publisher och ladda upp qa-errors.json: `clinicalprocess.logistics.logistics`, `clinicalprocess.healthcond.actoutcome`, `clinicalprocess.activityprescription.prescribe`.
+
+---
+
+## ehr.accesscontrol v1.0.6 — `igs/TKB_ehr_accesscontrol/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-03-24
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+Inga blockerare.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-EA-001]** `igs/TKB_ehr_accesscontrol/sushi-config.yaml`
+  Dependency `se.inera.rivta.core#current` borttagen från sushi-config.yaml eftersom paketet inte finns tillgängligt i den lokala FHIR-cachen och nätverket är blockerat. Övriga IGs i projektet saknar också denna dependency. Verifiera om paketet behövs och i så fall hur det ska göras tillgängligt.
+
+- [ ] **[ASSUME-EA-002]** `igs/TKB_ehr_accesscontrol/input/fsh/logical-models/AssertCareEngagement.fsh` · fält `hasCareEngagement`
+  Fältnamnet anges som `HasCareEngagement` (versalt H) i TKB-tabellen men som `hasCareEngagement` i XSD. Normaliserat till camelCase (`hasCareEngagement`) i FHIR-modellen. Verifiera att detta är korrekt.
+  Kardinaliteten anges som `1` (utan punktnotation) i TKB — tolkat som `1..1`. Verifiera om `1..*` var avsett.
+
+- [ ] **[ASSUME-EA-003]** `igs/TKB_ehr_accesscontrol/input/fsh/logical-models/AssertCareEngagementRequest.fsh`
+  Alla fyra requestfält (performer, subjectOfCareId, careUnitHsaIdentity, careGiverHsaIdentity) mappade till `Identifier` eftersom de är HSA-id och personnummer. TKB-tabellen anger typ som `sträng/Sträng` — ett riv-ta-tekniskt begrepp. System-URL:er (urn:oid:1.2.752.129.2.1.4.1 för HSA) anges i kommentarer men saknar formell bindning i FSH-modellen. Verifiera om explicitare Identifier.system-bindningar behövs.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-EA-001]** `igs/TKB_ehr_accesscontrol/`
+  Bygg IG med IG Publisher (`make build-one D=ehr.accesscontrol`) och granska qa.html för eventuella varningar.
+
+- [ ] **[TODO-EA-002]** `igs/TKB_ehr_accesscontrol/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Avsnitt 6 saknas i källdokumentet. Kontrollera om domänen har gemensamma komponenter som bör dokumenteras här.
+
+---
+
+## crm.requeststatus v2.0.1 — `igs/TKB_crm_requeststatus/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-03-24T11:00:00Z
+
+**Not om datahämtning:** Inga zip-filer finns i Bitbucket Downloads för detta repo. Källfiler hämtades direkt från repots `src/master/`-träd via Bitbucket API.
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-CRM-001]** `igs/TKB_crm_requeststatus/input/fsh/codesystems/KvStatusVardbegaranCS.fsh`
+  KvStatusVardbegaran (OID: 1.2.752.129.2.2.2.43) är inte komplett listad i TKB. Koder 1 (Skickad), 7 (Svar mottaget) och 11 (Makulerad) nämns i "Övriga regler", men hela listan saknas. Hämta fullständig kodlista från [R5] (hänvisning i TKB) och komplettera CodeSystem-filen. Tills vidare är `^content = #fragment` satt.
+  Källa: TKB avsnitt 7.1 "Övriga regler", rad statusCode [sch].
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-CRM-001]** `igs/TKB_crm_requeststatus/input/fsh/logical-models/GetRequestActivities.fsh`
+  Domänens namespace antaget till `urn:riv:crm:requeststatus` baserat på domännamnet och WSDL-filens namn. Verifiera mot WSDL-filens targetNamespace.
+
+- [ ] **[ASSUME-CRM-002]** `igs/TKB_crm_requeststatus/input/fsh/codesystems/KvFramstallantypCS.fsh` · kodsystem KvFramstallantyp
+  Koderna 1, 2, 4 (röntgenremiss, labbremiss, allmänremiss) är listade i TKB som "giltiga värden". Övriga koder i OID 1.2.752.129.2.2.2.24 kan existera — `^content = #fragment` är satt. Verifiera om fullständig lista behövs för korrekt validering.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-CRM-001]** `igs/TKB_crm_requeststatus/`
+  Bygg IG med IG Publisher (`make build-one D=crm.requeststatus`) och granska qa.html för eventuella varningar.
+
+- [ ] **[TODO-CRM-002]** `igs/TKB_crm_requeststatus/sushi-config.yaml`
+  SUSHI-varning: "Configuration property publisher has a value with an unexpected type." Troligen ett SUSHI-versionsspecifikt problem med hur `publisher` och `contact` kombineras. Granska sushi-config.yaml om IG Publisher-bygget ger fel relaterade till detta.
+
+
+---
+
+## crm.carelisting v1.0 — `igs/TKB_crm_carelisting/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-03-24
+
+> **Anmärkning:** Källdokumentet för denna domän (RIV_spec_Nationell_Listningsstjänsten.docx) är en informationsspecifikation snarare än en TKB med standard-rubriknumrering (avsnitt 1–7). Bitbucket-repositoriet saknar en `downloads`-sektion; zip hämtades från tagged commit `TD_CARELISTING_1_0_R`.
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-CARELISTING-001]** `igs/TKB_crm_carelisting/input/fsh/logical-models/GetListing.fsh` · alla kontrakt
+  Källdokumentet saknar ett dedikerat avsnitt 7 (Tjänstekontrakt). Kontraktsspecifikationerna är baserade på XSD-analys och V-MIM-avsnitt i informationsspecifikationen. Verifiera med domänexpert att alla fält, kardinaliteter och beskrivningar är korrekta mot den ursprungliga avsedda specifikationen.
+  Källa: RIV_spec_Nationell_Listningsstjänsten.docx — avsnitt saknas.
+
+- [ ] **[BLOCK-CARELISTING-002]** `igs/TKB_crm_carelisting/input/fsh/logical-models/GetListing.fsh` · fält `listingType` i alla kontrakt
+  Listningstyp (t.ex. BVC, HLM, FL) är definierad som `xs:string` i XSD utan centralt kodverk. Källdokumentet anger explicit "KV Listningstyp: Finns inte för tillfället, istället använd en fritext." Ska FHIR-modellen använda `string` (nuvarande) eller ska ett lokalt CodeSystem med `#fragment` skapas som platshållare?
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-CARELISTING-001]** `igs/TKB_crm_carelisting/input/fsh/logical-models/GetListing.fsh` · fält `facilityId` och `resourceId`
+  HSA-ID (HsaIdType i XSD) är mappat till FHIR `Identifier`. Antagandet är att system-OID `urn:oid:1.2.752.129.2.1.4.1` används. Verifiera mot hur HSA-ID ska representeras i FHIR-context.
+
+- [ ] **[ASSUME-CARELISTING-002]** `igs/TKB_crm_carelisting/input/fsh/logical-models/GetListing.fsh` · BackboneElements för nästlade strukturer
+  Nästlade XSD-typer (Facility, Resource, SubjectOfCare, Listing) är modellerade som `BackboneElement` i den logiska modellen. Dessa existerar inte som separata FHIR-resurser. Verifiera om de bör brytas ut till egna `Logical:` resurser för återanvändbarhet.
+
+- [ ] **[ASSUME-CARELISTING-003]** `igs/TKB_crm_carelisting/sushi-config.yaml`
+  `se.inera.rivta.core#current`-dependency borttagen eftersom paketet inte är tillgängligt offline och inte används i andra domän-IGs. Verifiera om det behövs för gemensamma bastyper.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-CARELISTING-001]** `igs/TKB_crm_carelisting/`
+  Bygg IG med IG Publisher (`make build-one D=crm.carelisting`) och granska qa.html för eventuella varningar.
+
+- [ ] **[TODO-CARELISTING-002]** `igs/TKB_crm_carelisting/sushi-config.yaml`
+  SUSHI-varning: "Configuration property publisher has a value with an unexpected type." Troligen SUSHI-versionsspecifikt problem. Granska om IG Publisher-bygget ger relaterade fel.
+
+- [ ] **[TODO-CARELISTING-003]** `igs/TKB_crm_carelisting/input/fsh/logical-models/`
+  SUSHI-varning: "Type characteristics code system not found" för alla 10 logiska modeller. Detta är en offline-varning (codesystem-uri inte laddad) och hindrar inte kompilering. Kan ignoreras tills IG Publisher körs.
+
+- [ ] **[TODO-CARELISTING-004]** `igs/TKB_crm_carelisting/input/includes/menu.xml`
+  SUSHI-varning om menu.xml-dublett (både i sushi-config.yaml och som fil). menu-property i sushi-config ignoreras. Rätt beteende — menu.xml-filen används. Ingen åtgärd krävs.
+
+---
+
+## crm.scheduling v1.1 — `igs/TKB_crm_scheduling/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-03-24
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-CRM-001]** `igs/TKB_crm_scheduling/input/fsh/logical-models/GetBookingDetails.fsh` · fält `timeslotDetail.purpose`
+  Elementet `purpose` har kardinalitet `0..1` men är beskrivs i TKB som obligatoriskt om `isInvitation = true` (kallelse). Villkorlig kardinalitet kräver en FHIR-invariant. FSH-modellen använder `0..1` med kommentar om villkoret.
+  Källa: TKB avsnitt 7.8 (GetBookingDetails), Övriga regler.
+  Förslag: Lägg till en invariant `purpose.exists() or isInvitation = false` om semantiken ska modelleras formellt i FHIR.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-CRM-001]** `igs/TKB_crm_scheduling/input/fsh/logical-models/GetAllPerformers.fsh` · fält `performerInfos.performer`
+  I XSD-schemat stavas fältnamnet `perfomer` (ett 'r' saknas, issue id 19 i källrepo). FSH-modellen använder korrekt stavning `performer`. Verifiera att detta är rätt beslut — alternativet vore att matcha XSD-stavningen exakt.
+  Källa: TKB avsnitt 7.4 (GetAllPerformers).
+
+- [ ] **[ASSUME-CRM-002]** `igs/TKB_crm_scheduling/input/fsh/codesystems/ResultCodeCS.fsh`
+  ResultCodeEnum (OK/INFO/ERROR) är inte ett explicit kodverk i TKB, utan en enum i XSD-schemat. Skapades som CodeSystem med de tre koderna. Verifiera att enumvärdena är kompletta och att det inte finns fler möjliga värden.
+  Källa: `crm_scheduling_1.1.xsd`.
+
+- [ ] **[ASSUME-CRM-003]** Allmänt — inga zip-filer i Bitbucket downloads.
+  Domänens källfiler hämtades direkt från Bitbucket repository source-katalog (commit `d5bfa3372dce578af559cf352be132e51fd109dd`). Det saknas zip-artefakt i downloads-sektionen. Verifiera att denna commit representerar den senaste godkända versionen av domänen.
+  Källa: `https://api.bitbucket.org/2.0/repositories/rivta-domains/riv.crm.scheduling/downloads` (tom).
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-CRM-001]** `igs/TKB_crm_scheduling/input/fsh/logical-models/` — alla filer
+  Flera fältnamn innehåller underscore (t.ex. `healthcare_facility`, `subject_of_care`, `cancel_booking_allowed`). SUSHI genererar 72 varningar om `Inadvisable path`. Dessa matchar de ursprungliga RIV-TA-fältnamnen. Överväg att antingen byta till camelCase-ekvivalenter i FSH (t.ex. `healthcareFacility`) och dokumentera mappningen, eller acceptera varningarna.
+  Ref: SUSHI-varning `eld-20`.
+
+- [ ] **[TODO-CRM-002]** `igs/TKB_crm_scheduling/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Avsnitt 6 saknas i källdokumentet TKB_crm_scheduling.docx. En platshållar-sida skapades. De komplexa typerna (TimeslotType, SubjectOfCareType m.fl.) som definieras i avsnitt 8 i källdokumentet bör läggas till i avsnitt 6 eller sammanfogas med avsnitt 7-tjanstekontrakt.md.
+
+- [ ] **[TODO-CRM-003]** `igs/TKB_crm_scheduling/sushi-config.yaml` — SUSHI-varning om publisher-typ
+  SUSHI rapporterar: "Configuration property publisher has a value with an unexpected type." Verifiera sushi-config.yaml publisher-formatets korrekthet mot senaste SUSHI-specifikation.
+
+- [ ] **[TODO-CRM-004]** `igs/TKB_crm_scheduling/input/fsh/` — komplextyper som egna Logical-modeller
+  De gemensamma datatyperna `TimeslotType`, `SubjectOfCareType`, `PerformerInfoType`, `HealthcareFacilityInfoType` etc. är inbäddade som `BackboneElement` i respektive kontrakt. Överväg att modellera dem som egna `Logical:`-definitioner och referera till dessa från kontrakt-modellerna — skulle minska duplicering och öka återanvändbarhet.
+
+---
+
+## ehr.commission v1.0 — `igs/TKB_ehr_commission/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-04-09
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-EC-001]** `igs/TKB_ehr_commission/input/fsh/logical-models/GetCommissionsForPerson.fsh` · fält `selectionPerformed`
+  Konflikt mellan TKB-tabell och XSD: TKB-tabell (avsnitt 7.1 Fältregler) anger kardinalitet `1` (obligatorisk) för `selectionPerformed` i GetCommissionsForPersonResult. XSD-schemat `ehr_commission_1.0.xsd` definierar elementet med `minOccurs="0"` (valfritt). FSH-modellen har modellerats som `0..1` i enlighet med XSD (säkrare val). Verifiera vilket som är korrekt — XSD eller TKB-tabell?
+  Källa: TKB avsnitt 7.1 Fältregler rad `selectionPerformed`; `ehr_commission_1.0.xsd` typ `GetCommissionsForPersonResultType`.
+
+- [ ] **[BLOCK-EC-002]** `igs/TKB_ehr_commission/input/fsh/logical-models/GetCommissionsForPerson.fsh` · fält `commissions.healthCareProviderHsaId` och `commissions.healthCareProviderName`
+  Konflikt mellan TKB-tabell och XSD: TKB-tabell (avsnitt Datatyper — commissionservice:Commission) anger kardinalitet `1` (obligatorisk) för `healthCareProviderHsaId` och `healthCareProviderName`. XSD-schemat `ehr_commission_1.0.xsd` definierar dessa element med `minOccurs="0"` (valfria) i `CommissionType`. FSH-modellen har modellerats som `0..1` i enlighet med XSD. Verifiera vilket som är korrekt.
+  Källa: TKB avsnitt Datatyper — commissionservice:Commission; `ehr_commission_1.0.xsd` typ `CommissionType`.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-EC-001]** `igs/TKB_ehr_commission/input/fsh/logical-models/GetCommissionsForPersonRequest.fsh` och `SetSelectedCommissionForPersonRequest.fsh` · fälten `personalHsaId` och `personalIdentityNumber`
+  Båda fälten modelleras som `0..1` eftersom regeln "exakt ett av dessa ska anges" är en affärsregel som inte kan uttryckas som enkel kardinalitet. Villkoret dokumenteras som kommentar i fältbeskrivningarna. En FHIR-invariant (constraint) vore korrekt modellering men har inte skapats — det kräver ett beslut om hur invarianter ska hanteras i IG:n generellt.
+  Källa: TKB avsnitt 7.1 och 7.2 — Regler.
+
+- [ ] **[ASSUME-EC-002]** Allmänt — inga zip-filer i Bitbucket downloads.
+  Domänens källfiler hämtades direkt från Bitbucket repository source-katalog (master-gren). Det saknas zip-artefakt i downloads-sektionen för `riv.ehr.commission`. Dokumentet är märkt `1.0_RC1` (Release Candidate 1). Verifiera om detta är den senaste/slutliga versionen eller om det finns en nyare version.
+  Källa: `https://api.bitbucket.org/2.0/repositories/rivta-domains/riv.ehr.commission/downloads` (tom).
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-EC-001]** `igs/TKB_ehr_commission/input/pagecontent/5-tjanstedomanens-meddelandemodeller.md` och `6-gemensamma-informationskomponenter.md`
+  Avsnitt 5 och 6 saknas i källdokumentet TKB_ehr_commission_1.0_RC1.docx. Platshållar-sidor skapades. Datatyperna (`CommissionType`, `GetCommissionsForPersonResultType`, `ResultType`, `HsaId`, `PersonalIdentityNumber`) som dokumenteras i källdokumentets "Datatyper"-kapitel bör läggas till i avsnitt 6 (Gemensamma informationskomponenter).
+
+- [ ] **[TODO-EC-002]** `igs/TKB_ehr_commission/input/fsh/logical-models/` — gemensamma datatyper som egna Logical-modeller
+  De delade datatyperna `CommissionType` och `ResultType` är inbäddade som `BackboneElement` i `GetCommissionsForPerson`-modellen. Överväg att modellera dessa som egna `Logical:`-definitioner och referera till dem från kontrakt-modellerna.
+
+- [ ] **[TODO-EC-003]** `igs/TKB_ehr_commission/sushi-config.yaml` — SUSHI-varning om publisher-typ
+  SUSHI rapporterar: "Configuration property publisher has a value with an unexpected type." Verifiera sushi-config.yaml publisher-formatets korrekthet mot senaste SUSHI-specifikation (gemensamt problem med andra IGs — se TODO-CRM-003).
+
+- [ ] **[TODO-EC-004]** `igs/TKB_ehr_commission/input/fsh/logical-models/GetCommissionsForPerson.fsh` och `SetSelectedCommissionForPerson.fsh`
+  SUSHI varnar: "Type characteristics code system not found. Skipping validation of characteristics for [Logical name]." Detta är förväntat i offline-miljön (sushi-r5forR4-paketet saknar code system för `#can-be-target`). Bekräfta att varningarna försvinner i en online-miljö eller med komplett paketcache.
+
+---
+
+## ehr.log v1.2.3 — `igs/TKB_ehr_log/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-04-09
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-EL-001]** `igs/TKB_ehr_log/sushi-config.yaml` — dependency `se.inera.rivta.core`
+  Beroendet `se.inera.rivta.core#current` finns inte tillgängligt lokalt och kan inte laddas hem (nätverket blockerat). Beroendet togs bort för att SUSHI ska köra utan fel. Verifiera om detta beroende behövs och hur det ska lösas — antingen via lokal paketkopia eller ett alternativt paket. De domänspecifika bastyperna (log:HsaId, log:PersonId, etc.) är för tillfället modellerade direkt som `Identifier` och `string` i FSH-filerna.
+  Källa: SUSHI-fel: "Failed to load se.inera.rivta.core#current".
+
+- [ ] **[BLOCK-EL-002]** `igs/TKB_ehr_log/` — Ingen zip-fil i Bitbucket downloads
+  Källfiler för domänen saknas som publicerad zip i Bitbucket downloads (`https://api.bitbucket.org/2.0/repositories/rivta-domains/riv.ehr.log/downloads`). Filer hämtades direkt från master-branchen via Bitbucket source API. Verifiera att master-branchen innehåller den senaste/slutliga versionen (TKB v1.2.3 daterad 2016-06-21). Eventuellt finns en nyare version.
+  Källa: `https://api.bitbucket.org/2.0/repositories/rivta-domains/riv.ehr.log/downloads` (returnerade tom lista).
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-EL-001]** `igs/TKB_ehr_log/input/fsh/logical-models/` — icke-standardiserad kapitelstruktur
+  TKB:n för ehr.log följer inte standard TKB-rubrikstruktur (avsnitt 1-7). Istället har dokumentet kapitlen: 1=Inledning, 2=Generella regler, 3-9=tjänstekontrakt (StoreLog, GetLogsForCareProvider, GetLogsForUser, GetLogsForPatient, GetAccessLogsForPatient, GetInfoLogsForCareProvider, GetInfoLogsForPatient), 10=Datatyper. IG-sidstrukturen är anpassad: 1-inledning.md, 2-generella-regler.md, 7-tjanstekontrakt.md, 8-datatyper.md. Avsnitt 3–6 existerar inte i källdokumentet och har inte skapats som placeholder-sidor.
+
+- [ ] **[ASSUME-EL-002]** `igs/TKB_ehr_log/input/fsh/logical-models/StoreLogRequest.fsh` — kardinalitet på `log.resources.resource.patient` och `log.resources.resource.careProvider`
+  TKB-tabellen anger `careProvider` som obligatorisk (kardinalitet `1`) men inte `patient`. I XSD-schemat (`ehr_log_1.0.xsd`) är `Patient` optional (`minOccurs="0"`). Patient modelleras som `0..1` och CareProvider som `1..1` för resursen, i linje med XSD. Verifiera detta mot domänspecifikation — en resurs kan principiellt vara av annan typ än patient men torde alltid ha en ägande vårdgivare.
+  Källa: TKB avsnitt Datatyper — log:Resource; `ehr_log_1.0.xsd`.
+
+- [ ] **[ASSUME-EL-003]** `igs/TKB_ehr_log/input/fsh/codesystems/ActivityTypeCS.fsh` — ActivityType är en enumeration, inte ett kodverk med OID
+  ActivityType (log:ActivityTypeValue) representeras i TKB:n som en enumeration med svenska värden: Läsa, Skriva, Signera, Utskrift, Vidimera, Radera, Nödöppning. Dessa modelleras som ett FHIR CodeSystem med URL `https://fhir.inera.se/CodeSystem/activitytype-cs`. Inget OID finns dokumenterat i TKB:n. Verifiera om ett officiellt OID borde användas för detta kodverk.
+  Källa: TKB avsnitt Datatyper — log:ActivityType.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-EL-001]** `igs/TKB_ehr_log/input/fsh/logical-models/` — delade datatyper som egna Logical-modeller
+  De delade datatyperna log:Log, log:Activity, log:User, log:Resources, log:Resource, log:CareProvider, log:CareUnit, log:Patient, log:System är återanvända i fem av sju kontrakt. För tillfället är de inbäddade som BackboneElement i varje kontrakt. Överväg att extrahera dessa som egna `Logical:`-definitioner och referera till dem.
+
+- [ ] **[TODO-EL-002]** `igs/TKB_ehr_log/input/pagecontent/8-datatyper.md`
+  Datatype-sidan innehåller alla datatypbeskrivningar från TKB. Dessa bör eventuellt länkas från de enskilda logiska modellerna (StructureDefinition-sidor) med direktreferenser till relevant avsnitt i 8-datatyper.html.
+
+- [ ] **[TODO-EL-003]** SUSHI-varning: "Type characteristics code system not found" (19 varningar)
+  Alla 14 logiska modeller ger varningen "Type characteristics code system not found. Skipping validation of characteristics for [Logical name]." Detta är förväntat i offline-miljön. Bekräfta att varningarna försvinner i en online-miljö eller med komplett paketcache.
+
+---
+
+## ehr.blocking v3.2.2 — `igs/TKB_ehr_blocking/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-04-22
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-EB-001]** `igs/TKB_ehr_blocking/sushi-config.yaml` — dependency `se.inera.rivta.core`
+  Beroendet `se.inera.rivta.core#current` finns inte tillgängligt lokalt och kan inte laddas hem (nätverket blockerat). Beroendet togs bort för att SUSHI ska köra utan fel. Verifiera om detta beroende behövs och hur det ska lösas — antingen via lokal paketkopia eller alternativt paket. De domänspecifika bastyperna (HsaId, PatientId etc.) är för tillfället modellerade direkt som `string` eller `Identifier` i FSH-filerna.
+  Källa: SUSHI-varning: "Failed to load se.inera.rivta.core#current".
+
+- [ ] **[BLOCK-EB-002]** `igs/TKB_ehr_blocking/input/fsh/logical-models/RegisterTemporaryExtendedRevoke.fsh` — saknad request-modell
+  Kontraktet `RegisterTemporaryExtendedRevoke` saknar en request-modell (ingen `RegisterTemporaryExtendedRevokeRequest.fsh`). Alla övriga 14 kontrakt har separata request-modeller. Verifiera om request-parametrarna för detta kontrakt är identiska med `RegisterTemporaryRevoke` (återanvändning) eller om en egen request-modell behöver skapas.
+  Källa: `igs/TKB_ehr_blocking/input/fsh/logical-models/` — ingen `RegisterTemporaryExtendedRevokeRequest.fsh` finns.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-EB-001]** `igs/TKB_ehr_blocking/input/fsh/logical-models/` — HSA-ID och patient-ID som `string`
+  Fält av typerna HSAId och PatientId (personnummer/samordningsnummer) är modellerade som `string` i stället för `Identifier` med OID-system, eftersom `se.inera.rivta.core`-paketet (som definierar dessa bastyper) inte är tillgängligt offline. I en produktionsmiljö med paketet tillgängligt bör dessa modelleras som `Identifier` med `system = "urn:oid:1.2.752.129.2.1.4.1"` (HSA) respektive lämpliga OID:er för personnummer. Verifiera korrekt OID-val.
+  Källa: `igs/TKB_ehr_blocking/input/fsh/logical-models/GetBlocks.fsh` fält `patientId`, `informationCareUnitId`, `informationCareProviderId`.
+
+- [ ] **[ASSUME-EB-002]** `igs/TKB_ehr_blocking/input/fsh/logical-models/CheckBlocks.fsh` — `checkStatus` som `code`
+  Fältet `checkStatus` returnerar ett av värdena BLOCKED/UNBLOCKED/VALIDATIONERROR men ingen formell kodverksdefinition finns i TKB:n för detta fält (det är en inline-enumeration i texten, inte ett namngivet kodverk). Antagandet gjordes att `code` med fritext-enumeration är tillräcklig och att inget eget CodeSystem behöver skapas. Om ett formellt kodverk krävs: skapa `CheckStatusCS` och tillhörande `CheckStatusVS`.
+  Källa: `igs/TKB_ehr_blocking/input/fsh/logical-models/CheckBlocks.fsh` fält `checkStatus`.
+
+- [ ] **[ASSUME-EB-003]** `igs/TKB_ehr_blocking/` — domänens tjänstekontrakt grupperas i sub-namespaces
+  TKB ehr:blocking innehåller tjänstekontrakt i fyra sub-namespaces: `accesscontrol` (CheckBlocks), `querying` (GetBlocks, GetBlocksForPatient, GetAllBlocks, GetAllBlocksForPatient), `administration` (RegisterBlock, RegisterExtendedBlock, GetExtendedBlocksForPatient, DeleteExtendedBlock, RegisterTemporaryRevoke, RegisterTemporaryExtendedRevoke, RevokeExtendedBlock, UnregisterBlock, GetPatientIds) och `synchronization` (GetBlocks, GetBlocksForPatient, GetAllBlocks, UnregisterBlock, RegisterBlock, RegisterTemporaryRevoke, UnregisterTemporaryRevoke). Antagandet gjordes att alla modelleras i samma IG (TKB_ehr_blocking). Verifiera om sub-namespacen ska ge separata IGs eller om sammanslagen IG är korrekt.
+  Källa: `// Kontrakt:`-kommentarerna i FSH-filerna (namespace anges i parentes).
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-EB-001]** `igs/TKB_ehr_blocking/ig.ini` — pekar på fsh-generated
+  `ig.ini` uppdaterades från `input/ImplementationGuide-inera.ehr-blocking.json` till `fsh-generated/resources/ImplementationGuide-inera.ehr-blocking.json` och `template = fhir.base.template#current` lades till (krävdes för att SUSHI inte skulle rapportera error). IG Publisher körs separat med `make build-one D=ehr.blocking`.
+
+- [ ] **[TODO-EB-002]** SUSHI-varning: "Type characteristics code system not found" (29 varningar)
+  Alla 29 logiska modeller ger varningen. Förväntat i offline-miljön — bekräfta att varningarna försvinner i en online-miljö med komplett paketcache.
+
+- [ ] **[TODO-EB-003]** SUSHI-varning: "menu property ignored — menu.xml found"
+  Både `menu`-egenskapen i `sushi-config.yaml` och `input/includes/menu.xml` existerar. SUSHI ignorerar sushi-config-menyn och använder menu.xml. Verifiera att menu.xml är korrekt och komplett — eller ta bort den och låt SUSHI generera menu.xml från sushi-config.
+
+- [ ] **[TODO-EB-004]** `igs/TKB_ehr_blocking/input/fsh/` — delade datatyper som egna Logical-modeller
+  BlockType-relaterade fält (`blockId`, `blockType`, `patientId`, `informationCareProviderId`, `informationCareUnitId`) återkommer i GetBlocks, GetBlocksForPatient, GetAllBlocks, GetAllBlocksForPatient och GetExtendedBlocksForPatient. Överväg att extrahera en gemensam `BlockType`-Logical och referera till den från kontrakt-modellerna.
+
+- [ ] **[TODO-EB-005]** `igs/TKB_ehr_blocking/input/pagecontent/` — sidor saknas
+  IG:n har bara 4 sidor (index, 1-inledning, 2-generella-regler, 7-tjanstekontrakt). Standard TKB-struktur kräver avsnitt 3–6. Verifiera om dessa avsnitt finns i källdokumentet och komplettera i så fall med sidor för 3-tjanstedomanens-arkitektur.md, 4-tjanstedomanens-krav-och-regler.md, 5-tjanstedomanens-meddelandemodeller.md och 6-gemensamma-informationskomponenter.md.
+
+---
+
+## clinicalprocess.activity.actions v1.3 — `igs/TKB_clinicalprocess_activity_actions/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-18
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-CAA-001]** `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivities.fsh` · fält `activityGroup.additionalParticipant` · exklusivitet person/organisation/device/location
+  Fälttabellen anger att exakt en av `person`, `organisation`, `device` eller `location` ska anges i `additionalParticipant`. Denna exklusivitetsbegränsning (choice) kan inte modelleras direkt i FHIR Logical utan slice eller invariant. Nuvarande modell har alla fyra som valfria (0..1). Ska en FSH-invariant läggas till (`obeys` med ett villkor att exakt ett av fälten är satt), eller är det tillräckligt att dokumentera detta i fältbeskrivningen?
+  Källa: TKB avsnitt 7.1 Svarsdel activityGroup/additionalParticipant.
+
+- [ ] **[BLOCK-CAA-002]** `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivities.fsh` · fält `activityGroup.activity.time`
+  TKB Regel 2.3 anger att `activity.time` är obligatorisk (1..1) när status är utförd eller saknas, men valfri (0..1) när status är planerad. Detta är en villkorlig kardinalitet som inte kan modelleras direkt i FSH utan en invariant. Nuvarande modell sätter `0..1` (säkrare alternativ). Ska en FHIR-invariant skapas för detta villkor?
+  Källa: TKB avsnitt 7.1 Svarsdel activityGroup/activity, Regel 2.3.
+
+- [ ] **[BLOCK-CAA-003]** `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivities.fsh` · fält `activityGroup.legalAuthenticator`
+  TKB Regel 2.4 anger att minst ett av `legalAuthenticator.id` eller `legalAuthenticator.name` ska anges. Nuvarande modell har båda som `0..1`. Ska en FHIR-invariant läggas till som kräver att minst ett av dem är satt?
+  Källa: TKB avsnitt 7.1 Svarsdel activityGroup/legalAuthenticator, Regel 2.4.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-CAA-001]** `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivities.fsh` · fält `activityGroup.activity.status`
+  Status-kodsystemet är SNOMED CT refset aktivitetsstatus (SCTID: 56421000052109, `1.2.752.116.2.1.1`). Inget eget CodeSystem har skapats — koder refereras direkt via OID-baserad URL i fältbeskrivning. Verifiera att SNOMED CT refset SCTID 56421000052109 är rätt referens och att canonical URL `urn:oid:1.2.752.116.2.1.1` är korrekt för snomed-ct-se.
+  Källa: TKB avsnitt 7.1 Svarsdel activityGroup/activity fält `status`.
+
+- [ ] **[ASSUME-CAA-002]** `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivities.fsh` · fält `activityGroup.activity.additionalInformation.value`
+  Källdokumentet anger typen som `Any` — kan vara antingen `PartialTimeStampType` (för `Planeringstid`) eller CVType-kodning (för `Orsak`). Modelleras som `string` i FSH som fallback. Rätt modellering vore en `choice[x]`-typ med `dateTime` och `CodeableConcept`, men det kräver att sushi-logiken för val-element fungerar med Logical. Verifiera om `string` är acceptabelt eller om en mer typat modell behövs.
+  Källa: TKB avsnitt 7.1 Svarsdel activityGroup/activity, fält `additionalInformation.value`.
+
+- [ ] **[ASSUME-CAA-003]** `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivitiesRequest.fsh` · fält `interactionAgreementId`
+  Fältet är obligatoriskt (1..1) i TKB men tjänar inget syfte — TKB anger att det ska sättas till ett fast UUID-värde och "används inte". Modelleras som `string` med beskrivning av det fasta värdet. Verifiera om detta fält bör tas bort helt från FHIR-modellen eller behållas för fullständighet.
+  Källa: TKB avsnitt 7.1 Begäransfälttabell rad `interactionAgreementId`.
+
+- [ ] **[ASSUME-CAA-004]** `igs/TKB_clinicalprocess_activity_actions/` — avsnitt 6 saknas
+  Källdokumentet `TKB_clinicalprocess_activity_actions.docx` saknar avsnitt 6 (Gemensamma informationskomponenter). En platshållarsida har skapats med hänvisning till avsnitt 5. Verifiera om detta avsnitt avsiktligt utelämnats i källdokumentet eller om det ska fyllas i från ett annat källdokument.
+  Källa: docx_to_md.py-konverteringen rapporterade `sections/6-gemensamma-informationskomponenter.md: SAKNAS i källdokumentet`.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-CAA-001]** `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivities.fsh` · fält `activityGroup.activity.code`
+  Möjliga kodsystem för `activity.code` nämns i TKB men specificeras inte explicit (t.ex. KVÅ för åtgärder). Om specifika ValueSets behöver bindas till `activity.code`, `activity.status`, `activity.targetSite`, `activity.method` behöver dessa ValueSet + CodeSystem-resurser skapas. Avvaktar domänkompetens om vilka kodverk som är obligatoriska.
+  Källa: TKB avsnitt 7.1 Svarsdel activityGroup/activity, fält `code`.
+
+- [ ] **[TODO-CAA-002]** `igs/TKB_clinicalprocess_activity_actions/input/fsh/logical-models/GetActivities.fsh`
+  Lägg till FSH-invarianter för blockerare BLOCK-CAA-001, BLOCK-CAA-002 och BLOCK-CAA-003 när beslut har fattats om korrekt modellering.
+
+- [ ] **[TODO-CAA-003]** `igs/TKB_clinicalprocess_activity_actions/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Komplettera med faktiskt innehåll när källdokument för avsnitt 6 identifieras (se ASSUME-CAA-004).
+
+---
+
+## clinicalprocess.healthcond.basic v2.0 — `igs/TKB_clinicalprocess_healthcond_basic/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-18
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-CHB-001]** `igs/TKB_clinicalprocess_healthcond_basic/input/fsh/logical-models/GetObservationsRequest.fsh` · fält `relation/referredInformationCategorization`
+  Fältet modelleras med kardinalitet 1..1 i begäran, men TKB-tabell för relation-filtret är otydlig om huruvida detta fält alltid är obligatoriskt. Källdokument (TKB avsnitt 7.1, fälttabell Begäran, rad `relation/referredInformationCategorization`) anger `1..1` men kontextuellt är det oklart om detta kan vara 0..1 när `relationType` anges utan `referredInformationId`. Verifiera korrekt kardinalitet med domänexpert.
+  Källa: TKB avsnitt 7.1, Begäranstabell, rad `relation/referredInformationCategorization`.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-CHB-001]** `igs/TKB_clinicalprocess_healthcond_basic/input/fsh/logical-models/GetObservations.fsh` · fält `observations.observationBody.value`
+  ValueANYType är en union-typ (exklusiv eller): cv, pq, ivl_pq, ts, ivl_ts, st, int. FSH:s `BackboneElement` kan inte uttrycka exklusiv-or direkt — alla alternativ modelleras som 0..1-fält med kommentaren att exakt ett måste väljas. Verifiera om FHIR-invariant ska läggas till för att tvinga exklusiviteten, eller om prosatext i beskrivningen räcker.
+  Källa: TKB avsnitt 5.1 V-MIM samt avsnitt 7.1 Svarsdel, ValueANYType.
+
+- [ ] **[ASSUME-CHB-002]** `igs/TKB_clinicalprocess_healthcond_basic/input/fsh/logical-models/GetObservations.fsh` · fält `observations.observationBody.participation`
+  Deltagandetyp-fältet (type) refererar till Snomed CT urval (urvals-id: 53351000052100) och obs-statusfältet refererar till Snomed CT urval (urvals-id: 56431000052106). Dessa urval administreras av Socialstyrelsen. Inget lokalt CodeSystem har skapats — värden hämtas från Snomed CT via OID 1.2.752.116.2.1.1. Verifiera att referensen urn:oid:1.2.752.116.2.1.1 är korrekt canonical för Snomed CT-SE i FHIR-kontext.
+  Källa: TKB avsnitt 7.1 Svarsdel, fälttabeller för `participation/type`, `status`, `relation/type`.
+
+- [ ] **[ASSUME-CHB-003]** `igs/TKB_clinicalprocess_healthcond_basic/` — avsnitt 6 saknas
+  Källdokumentet `TKB_clinicalprocess_healthcond_basic.docx` saknar avsnitt 6 (Gemensamma informationskomponenter). Ingen sida `6-gemensamma-informationskomponenter.md` har skapats — sidan saknas även från sushi-config.yaml. Verifiera om avsnitt 6 avsiktligt utelämnats i källdokumentet (dokumentet anger att gemensamma komponenter beskrivs i avsnitt 5.1 V-MIM istället) eller om det ska hämtas från separat dokument.
+  Källa: docx_to_md.py-konverteringen rapporterade `sections/6-gemensamma-informationskomponenter.md: SAKNAS i källdokumentet`.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-CHB-001]** `igs/TKB_clinicalprocess_healthcond_basic/input/fsh/logical-models/GetObservations.fsh`
+  Kontraktet refererar till Interaktionsöverenskommelser (IO) för semantiska deklarationer om specifika observationstyper. Dessa IO är externa dokument och ingår inte i TKB. Lägg till en not i index.md och sektion 7 som förklarar att IO-dokumenten måste läsas komplementärt för att förstå vilka observationstyper en specifik producent stödjer.
+  Källa: TKB avsnitt 1 Inledning och avsnitt 3 Tjänstedomänens arkitektur.
+
+- [ ] **[TODO-CHB-002]** `igs/TKB_clinicalprocess_healthcond_basic/sushi-config.yaml`
+  Beroendet `se.inera.rivta.core#current` har tagits bort eftersom paketet inte existerar lokalt eller i kända FHIR-paketregister. Om paketet skapas i framtiden bör det läggas tillbaka. Verifiera med Inera arkitektur om detta paket ska finnas och var det publiceras.
+  Källa: contracts-registry.json BLOCK-EI-003 (samma problem identifierat för EI-domänen).
+
+---
+
+## ehr.patientconsent v1.0.1 — `igs/TKB_ehr_patientconsent/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-19
+
+SUSHI kördes och genererade 21 artefakter (14 logiska modeller, 3 CodeSystems, 3 ValueSets, 1 ImplementationGuide). Kvarstående SUSHI-"error" är nätverksrelaterat (se.inera.rivta.core#current kan inte laddas — packages.fhir.org blockerat), inte ett FSH-kompileringsfel. Alla 7 tjänstekontrakt modellerade med response- och request-modeller.
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-PC-001]** `igs/TKB_ehr_patientconsent/sushi-config.yaml` · beroende `se.inera.rivta.core#current`
+  Paketet `se.inera.rivta.core#current` kan inte laddas ned (packages.fhir.org nätverksblockerat i denna miljö). SUSHI rapporterar detta som ERROR men FSH-kompileringen lyckas ändå utan paketet. Om/när nätverksåtkomst finns, eller om paketet installeras manuellt i `~/.fhir/packages/`, bör detta beroende kopplas in. Verifiera med Inera arkitektur om paketet är publicerat och var.
+  Källa: SUSHI-körning 2026-05-19, rad "Failed to load se.inera.rivta.core#current".
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-PC-001]** `igs/TKB_ehr_patientconsent/input/fsh/logical-models/` · alla modeller med fältet `startDate`/`endDate`
+  TKB använder `xs:dateTime` för datum/tid-fälten `startDate` och `endDate` på PDLAssertion. FSH-modellerna mappar dessa till `dateTime`. Om det i praktiken alltid räcker med datumdel (utan tidsdel), kan `date` vara mer lämpligt. Verifiera med domänexpert om `dateTime` eller `date` är korrekt representation i FHIR-kontext för giltighetstider på samtycken.
+  Källa: TKB avsnitt 10 (Datatyper), `patientconsent:PDLAssertion`, fälten `startDate` och `endDate`.
+
+- [ ] **[ASSUME-PC-002]** `igs/TKB_ehr_patientconsent/input/fsh/logical-models/GetConsentsForCareProvider.fsh` · fält `moreOnOrAfter`
+  Fältet `moreOnOrAfter` returneras alltid (kardinalitet 1..1) enligt TKB:n, även när inga fler intyg finns. Det modelleras som `1..1 dateTime`. TKB anger att om inga fler finns, representerar värdet "nästa möjliga hämtningstidpunkt". Verifiera att denna semantik är korrekt och att 1..1 är rätt kardinalitet, inte 0..1 (fältet kan i princip alltid saknas om implementation väljer att inte returnera det vid `hasMore = false`).
+  Källa: TKB avsnitt 10 (Datatyper), `patientconsent:GetAllAssertionsResult`, fältet `moreOnOrAfter`.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-PC-001]** `igs/TKB_ehr_patientconsent/input/pagecontent/10-datatyper.md`
+  Sidan `10-datatyper.md` skapades från `docx-converted/full-document.md` eftersom sektionsfilen saknades i `docx-converted/sections/` (konverteraren splittrade inte på kapitel 10). Kontrollera att innehållet är komplett och stämmer mot källdokumentet.
+  Källa: TKB kapitel 10 (Datatyper).
+
+---
+
+## informatics.terminology v1.4
+
+**Status:** done (SUSHI 0 errors, 7 warnings)
+**Senast uppdaterad:** 2026-05-19
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-IT-001]** `igs/TKB_informatics_terminology/` · WSDL- och XSD-källfiler saknas i IG:n
+  Bitbucket API returnerade HTTP 429 (rate-limit) vid nedladdning av alla binärfiler (WSDL, XSD). Källfilerna finns i Bitbuckets repo men kunde inte kopieras till `input/files/`. Sidan `4-tjanstekontrakt.md` har en platshållarnotis istället för en filförteckning.
+  Åtgärd: Kör nedladdningen manuellt när rate-limit hävts:
+  ```bash
+  COMMIT="ad00410ceb4eee0f5da4f586729f18303ab2481e"
+  BASE="https://api.bitbucket.org/2.0/repositories/rivta-domains/riv.informatics.terminology/src/${COMMIT}"
+  # Ladda ner från schemas/interactions/ och schemas/core_components/
+  ```
+
+- [ ] **[BLOCK-IT-002]** `igs/TKB_informatics_terminology/` · GetTerminologySubsetVersion-kontraktet saknar TKB-dokumentation
+  Interaktionskatalogen innehåller en andra interaktion (`GetTerminologySubsetVersionInteraction_1.0_RIVTABP21.wsdl`) men TKB-dokumentet beskriver den inte alls. Oklart om kontraktet är aktivt, deprecated, eller avsett att dokumenteras i en separat TKB.
+  Åtgärd: Verifiera med domänansvarig om `GetTerminologySubsetVersion` ska inkluderas i IG:n.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-IT-001]** `igs/TKB_informatics_terminology/input/fsh/logical-models/GetTerminologySubsetRequest.fsh` · fält `termType`
+  Fältet `TermType` har ett fixt värde `DisplayName` enligt TKB. Antagandet gjordes att detta modelleras som en `string`-typ med dokumentation om det fasta värdet, snarare än som en explicit `fixed value`-bindning i FSH. En FSH fixed-value-constraint (`* termType = "DisplayName"`) skulle förhindra att fältet används med andra värden i framtida versioner.
+  Verifiera: Ska fixed value-constraint användas, eller är dokumentation tillräckligt?
+
+- [ ] **[ASSUME-IT-002]** `igs/TKB_informatics_terminology/domain-metadata.json` · domain_version
+  TKB-dokumentet saknar ett explicit versionsnummer — "TKB-version". Senaste revisionen är P1.4 daterad 2013-04-09. Versionsnumret `1.4` har antagits baserat på revisionsnummret P1.4 (P = preliminär/produktion, 1.4 = revisionsnummer).
+  Verifiera: Är `1.4` rätt versionsnummer att använda för IG:n?
+
+- [ ] **[ASSUME-IT-003]** `igs/TKB_informatics_terminology/input/fsh/logical-models/GetTerminologySubset.fsh` · fält `concept.codeSystem`
+  Fältet `ConceptType.CodeSystem` är modellerat som `string` (identifierare för kodsystem, t.ex. `ICD-10`, `SNOMED CT`, `ATC`). Alternativet vore `uri` eller `CodeableConcept`. Eftersom källsystemet skickar ett fritt identifikationsuttryck (inte en URI) valdes `string` som fallback.
+  Verifiera: Ska `codeSystem` vara `uri` för maskinläsbarhet, eller är `string` acceptabelt?
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-IT-001]** `igs/TKB_informatics_terminology/input/pagecontent/5-tillgangliga-urval.md`
+  Tabellen över tillgängliga SubsetId:n (6 kända värden) är statisk och daterad från 2013. Kontrollera om listan är aktuell och om fler urval har tillkommit i produktionssystemet. SubsetId:na är UUID:n och korresponderar mot Infektionsverktygets terminologier.
+
+- [ ] **[TODO-IT-002]** `igs/TKB_informatics_terminology/input/fsh/logical-models/GetTerminologySubset.fsh`
+  `metadata.name`-fältet är generiskt (`string`) men TKB nämner att metadata behövs för att veta vilka OpenEHR-template-delar som ska fyllas i. Om kända metadata-nycklar finns dokumenterade bör ett CodeSystem skapas för dessa. Verifiera med implementerande system vilka `Name`-värden som faktiskt förekommer i produktionen.
+
+---
+
+## infrastructure.directory.employee v4.0 — `igs/TKB_infrastructure_directory_employee/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-19
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-DE-001]** `igs/TKB_infrastructure_directory_employee/input/fsh/logical-models/GetEmployeeIncludingProtectedPerson.fsh` · fält `personInformation.telephoneHour.fromTime` / `toTime`
+  TKB anger typen `Time` (ISO-8601-format) för telefontider. FSH-primitiven `time` stöds tekniskt men gav SUSHI-kompileringsfel (sdType undefined) i lokal offline-miljö. Tidsfälten är därför modellerade som `string` med dokumentation om ISO-8601-format. Verifiera att `string` är acceptabelt eller om specifik FHIR-tidsdatatyp bör användas vid online-kompilering med fullt pakestöd.
+
+- [ ] **[ASSUME-DE-002]** `igs/TKB_infrastructure_directory_employee/input/fsh/logical-models/GetEmployeeIncludingProtectedPerson.fsh` · fält `personInformation.age` / `gender`
+  Fälten `age` och `gender` är villkorliga — de returneras enbart då requestparametern `profile` är satt till `extended1`. Kardinaliteten är modellerad som `0..1` med beskrivning av villkoret i fältkommentaren. Alternativet vore att skapa en FHIR-invariant. Verifiera att dokumentationskommentar är tillräckligt eller om en formell invariant krävs.
+
+- [ ] **[ASSUME-DE-003]** `igs/TKB_infrastructure_directory_employee/input/fsh/` · inga CodeSystems/ValueSets skapade
+  Domänen refererar till flera kodverk: legitimerad yrkesgrupp (hsaTitle), commissionPurpose (hsaCommissionPurpose), commissionRights (hsaCommissionRight). Dessa är externt definierade i Informationsspecifikationen för Katalogtjänst HSA [R5] och har inga kända FHIR-canonicals. ANTAGANDE: Inga lokala CodeSystems skapas — kodverken dokumenteras som `string`-fält med hänvisning till [R5]. Verifiera om HSA-kodverk ska modelleras som FHIR CodeSystems eller om texthänvisning är tillräckligt.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-DE-001]** `igs/TKB_infrastructure_directory_employee/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Avsnitt 6 saknades i källdokumentet (TKB innehåller inget avsnitt 6 — innehållet från avsnitt 6 finns inbäddat i avsnitt 7). Sidan innehåller en notis om detta. Verifiera om sidan ska tas bort från IG:n (och menyn uppdateras) eller om en hänvisning till avsnitt 7 är tillräcklig.
+
+- [ ] **[TODO-DE-002]** `igs/TKB_infrastructure_directory_employee/input/pagecontent/7-tjanstekontrakt.md` · GetEmployee och GetCommissionMembers
+  Dessa två kontrakt är beskrivna kortfattat i TKB som "identiska med IncludingProtectedPerson-varianten förutom att skyddade personer aldrig returneras". Sektion 7 hänvisar tillbaka till respektive IncludingProtectedPerson-kontrakt för fullständiga fältregler. Verifiera att denna hänvisningsstil är acceptabel för publicering eller om hela fälttabellen ska upprepas.
+
+---
+
+## followup.processdevelopment.infections v1.0.2 — `igs/TKB_followup_processdevelopment_infections/`
+
+**Status:** in-progress (SUSHI passerat, inväntar manuell IG Publisher-körning)
+**Senast uppdaterad:** 2026-05-19
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-FPI-001]** `igs/TKB_followup_processdevelopment_infections/input/fsh/logical-models/DeletePrescriptionReason.fsh` · fält `activityId` och `conditionId`
+  Regeln kräver att exakt en av `activityId` eller `conditionId` ska anges (XOR-villkor). Båda är modellerade som `0..1`. Ska detta modelleras som en FHIR-invariant (`obeys`-regel)? Kräver beslut — en invariant kräver att vi formulerar en FHIRPath-expression.
+  Källa: TKB avsnitt 7.2 "Övriga regler", Fält 1.
+
+- [ ] **[BLOCK-FPI-002]** `igs/TKB_followup_processdevelopment_infections/input/fsh/logical-models/ProcessLaboratoryReport.fsh` · fält `patient`
+  TKB-fälttabellen för ProcessLaboratoryReport anger `Patient | PersonType` — dvs. två olika typer. XSD-schemat definierar `PatientType` (med id, birthTime, gender). Är det `PatientType` eller `PersonType` som gäller? Modellen antar `PatientType` (säkrare). Verifiera med domänexpert.
+  Källa: TKB avsnitt 7.4 fälttabell rad "Patient".
+
+- [ ] **[BLOCK-FPI-003]** `igs/TKB_followup_processdevelopment_infections/` · dependency `se.inera.rivta.core#current`
+  SUSHI kan inte ladda ner `se.inera.rivta.core#current` (nätverksåtkomst blockerad). FSH-kompilering passerade men utan validering mot Ineras bastyper. Kör SUSHI i en miljö med internetåtkomst för fullständig validering. Alternativt: ta bort dependency och lägg till en notering om att bastyper inte kan valideras offline.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-FPI-001]** `igs/TKB_followup_processdevelopment_infections/input/fsh/logical-models/ProcessPrescriptionReason.fsh`
+  Fälten `conditionId`, `conditionCode`, `source` är `0..1` i TKB-fälttabellen men `1..1` i XSD-schemat. Antagit TKB-fälttabellen som normativ (0..1) eftersom XSD kan vara en äldre version. Verifiera vilket som gäller.
+  Källa: jämförelse mellan TKB avsnitt 7.1 och XSD `followup_processdevelopment_infections_1.0.xsd`.
+
+- [ ] **[ASSUME-FPI-002]** `igs/TKB_followup_processdevelopment_infections/input/fsh/logical-models/ProcessCareEncounter.fsh` · fält `careEncounter.type`, `careEncounter.status`
+  TKB-fälttabellen anger kardinalitet "1" (utan ..1) för type och status. XSD-schemat anger `0..1`. Antagit XSD-definition (0..1) som normativ. Verifiera med domänexpert.
+
+- [ ] **[ASSUME-FPI-003]** `igs/TKB_followup_processdevelopment_infections/input/fsh/logical-models/ProcessCareEncounter.fsh` · fält `careEncounter.location.name`
+  TKB anger "1" (obligatorisk) för LocationType.name men regeln är villkorlig: obligatorisk endast när PerformerRole.id anges. Modellerat som `1..1` i FSH med kommentar om villkoret. Verifiera om `0..1` är korrekt med invariant.
+
+- [ ] **[ASSUME-FPI-004]** `igs/TKB_followup_processdevelopment_infections/` · versionsnummer
+  Repository saknar publicerade zip-filer. Källan är master-branchen (commit b9bb3968). Tag `followup_processdevelopment_infections_1.0.2_RC1` finns — antaget att version 1.0.2 är senaste. Verifiera om versionen är korrekt.
+
+- [ ] **[ASSUME-FPI-005]** `igs/TKB_followup_processdevelopment_infections/input/fsh/logical-models/ProcessCareEncounter.fsh` · fält `careEncounter.performerRole.careUnit`
+  XSD-schemat (CareEncounterType) anger `performerRole.careUnit` som obligatorisk (1..1 CareUnitType). TKB-tabellen listar den som `1` utan tydlig kardinalitet. Modellerat som `0..1` i FSH (säkrare, XSD verkar inkonsekvent med TKB för detta fält). Verifiera.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-FPI-001]** `igs/TKB_followup_processdevelopment_infections/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Avsnitt 6 saknas i källdokumentet. Sidan innehåller en notis om detta. Verifiera om sidan ska tas bort från IG:n eller om innehållet finns i annat avsnitt.
+
+- [ ] **[TODO-FPI-002]** `igs/TKB_followup_processdevelopment_infections/input/files/schema/`
+  Interaktions-specifika XSD-filer (ProcessCareEncounterResponder_1.0.xsd m.fl.) laddades inte ner pga Bitbucket rate-limiting (HTTP 429). Dessa bör laddas ner manuellt och läggas in i `input/files/schema/` för en komplett källfils-referens. Kör: `curl -L -o input/files/schema/ProcessCareEncounterResponder_1.0.xsd "https://api.bitbucket.org/2.0/repositories/rivta-domains/riv.followup.processdevelopment.infections/src/master/schemas/interactions/ProcessCareEncounterInteraction/ProcessCareEncounterResponder_1.0.xsd"` (och motsvarande för de 6 övriga interaktionsschemana).
+
+- [ ] **[TODO-FPI-003]** `igs/TKB_followup_processdevelopment_infections/sushi-config.yaml`
+  Varning: `Configuration property publisher has a value with an unexpected type.` — SUSHI förväntar sig en mer komplex publisher-struktur (object). Uppdatera till: `publisher: {name: "Inera AB", url: "https://www.inera.se"}` om varningen ska elimineras.
+
+- [ ] **[TODO-FPI-004]** `igs/TKB_followup_processdevelopment_infections/input/fsh/logical-models/`
+  SUSHI-varning: "Type characteristics code system not found" för alla 14 modeller. Detta beror på att `se.inera.rivta.core#current` inte laddades (se BLOCK-FPI-003). Ignorera tills nätverksåtkomst finns.
+
+- [ ] **[TODO-FPI-005]** `igs/TKB_followup_processdevelopment_infections/input/pagecontent/7-tjanstekontrakt.md`
+  Källfils-tabellerna refererar inte de interaktions-specifika XSD-schemana (se TODO-FPI-002) eftersom de inte laddades ner. Uppdatera tabellerna när XSD-filerna finns på plats.
+
+---
+
+## infrastructure.directory.authorizationmanagement — `igs/TKB_infrastructure_directory_authorizationmanagement/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-19
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-IDAM-001]** `igs/TKB_infrastructure_directory_authorizationmanagement/input/fsh/logical-models/GetCredentialsForPerson.fsh`
+  Datamappningar antagna baserat på XSD-struktur och domänkunskap. Fält som `personalIdentity` (personnummer) modellerades som BackboneElement med `root`/`extension` i stället för FHIR Identifier, för att bättre spegla IIType i RIV-TA. Verifiera kardinaliteter och typmappningar med domänexpert.
+
+- [ ] **[ASSUME-IDAM-002]** `igs/TKB_infrastructure_directory_authorizationmanagement/input/fsh/codesystems/HospOperationCS.fsh`
+  Kodverket HospOperationCS skapades med koderna `#add` och `#remove` baserat på kontextbeskrivningen i TKB för HandleHospCertificationPerson. Inget OID eller officiell källreferens identifierades. Verifiera om kodverket har ett definierat OID i Ineras terminologiregister, och uppdatera `^url` till `urn:oid:{OID}` om tillämpligt.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-IDAM-001]** `igs/TKB_infrastructure_directory_authorizationmanagement/input/fsh/logical-models/`
+  SUSHI-varning: "Type characteristics code system not found" för alla 13 logiska modeller. Beror på att `se.inera.rivta.core#current` inte laddades (paket ej tillgängligt offline). Ignorera tills nätverksåtkomst finns eller paketet installeras lokalt.
+
+---
+
+## eservicesupply.eoffering v1.0.0 — `igs/TKB_eservicesupply_eoffering/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-19
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-EO-001]** `igs/TKB_eservicesupply_eoffering/input/fsh/logical-models/GetAvailableEServices.fsh` · fält `availableEServices.eservice.restrictions.referalTypeId`
+  Fältet refererar till "KV Framställantyp" (kodverk för remisstyper 1–8). Canonical URL för detta kodverk är okänd. Ska fältet bindas till ett externt ValueSet (om KV Framställantyp har känd FHIR-URL), eller ska ett lokalt CodeSystem/ValueSet skapas?
+  Källa: domain-metadata.json, open_questions_from_parsing.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-EO-001]** `igs/TKB_eservicesupply_eoffering/input/fsh/codesystems/GenderEofferingCS.fsh`
+  Fältet `gender` är av typen `genderType (string)` i XSD-schemat utan enumeration. TKB-texten anger värdena 1=Man, 2=Kvinna. Antagande: modellat med ett domänspecifikt ValueSet (GenderEofferingVS) med koder `#1` och `#2`. Verifiera om ett standardiserat FHIR-kodverk (t.ex. `http://hl7.org/fhir/administrative-gender`) vore mer lämpligt. Notera dock att RIV-TA-koderna (1/2) inte matchar FHIR:s `male`/`female`.
+
+- [ ] **[ASSUME-EO-002]** `igs/TKB_eservicesupply_eoffering/input/fsh/logical-models/GetAvailableEServices.fsh` · fält `availableEServices.eservice.securitylevel`
+  Autentiseringsnivåerna AL1–AL4 modellerades med ett domänspecifikt CodeSystem (SecurityLevelCS). Inget OID hittades i källmaterialet. Verifiera om detta kodverk har ett registrerat OID i Ineras terminologiregister — om så är fallet, uppdatera `^url` i SecurityLevelCS.fsh till `urn:oid:{OID}` och ta bort motsvarande rad ur `special-url` i sushi-config.yaml.
+
+- [ ] **[ASSUME-EO-003]** `igs/TKB_eservicesupply_eoffering/` · TKB-version
+  TKB-dokumentet är version 0.3 (utkast, 2011-04-18). Det är oklart om detta är den senaste publicerade versionen eller om nyare versioner existerar. IG:n använder version 1.0.0 (baserat på tjänstekontraktets version 1.0). Verifiera med Inera om TKB har uppdaterats efter 2011.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-EO-001]** `igs/TKB_eservicesupply_eoffering/input/fsh/logical-models/GetAvailableEServices.fsh`
+  SUSHI-varning: "Type characteristics code system not found" för GetAvailableEServices logisk modell. Beror på att `se.inera.rivta.core#current` inte laddades (paket ej tillgängligt offline). Ignorera tills nätverksåtkomst finns eller paketet installeras lokalt.
+
+---
+
+## infrastructure.eservicesupply.forminteraction v2.1 — `igs/TKB_infrastructure_eservicesupply_forminteraction/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-19
+
+SUSHI: 0 errors, 46 warnings. 20 StructureDefinitions, 5 CodeSystems, 5 ValueSets, 1 ImplementationGuide genererade.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-FI-001]** `igs/TKB_infrastructure_eservicesupply_forminteraction/input/fsh/codesystems/FormCategoryCS.fsh`
+  KV Formulärkategori saknar explicita koder i TKB-dokumentet. TKB nämner exempel ("Anmälan, registrering, hälsodeklaration") men listar inga officiella kodvärden. CodeSystem skapades med `^content = #fragment`. Verifiera fullständig kodlista med Inera formulärmotorförvaltning.
+
+- [ ] **[ASSUME-FI-002]** `igs/TKB_infrastructure_eservicesupply_forminteraction/input/fsh/codesystems/PublishStatusCS.fsh`
+  KV Publicerings status saknar explicita koder i TKB-dokumentet (v2.1). TKB refererar till kodverket men listar inga koder. CodeSystem skapades med `^content = #fragment`. Verifiera fullständig kodlista med Inera.
+
+- [ ] **[ASSUME-FI-003]** `igs/TKB_infrastructure_eservicesupply_forminteraction/input/fsh/logical-models/CreateForm.fsh`
+  Logical model för CreateForm request (Id: `createform-request`) namnges `CreateFormInput` i FSH-källan istället för `CreateFormRequest` för att undvika namnkollision med det separata tjänstekontraktet `CreateFormRequest` (Id: `createformrequest`). Namnvalet är tekniskt korrekt men avviker från konventionen — verifiera att detta är acceptabelt.
+
+- [ ] **[ASSUME-FI-004]** `igs/TKB_infrastructure_eservicesupply_forminteraction/input/fsh/logical-models/GetFormTemplate.fsh`
+  Villkorlig kardinalitet för `GetFormTemplateRequest`: TKB anger att minst ett av `healthcare_facility_CareUnit` eller `templateId` måste anges, men båda är modellerade som `0..1`. En FHIR-invariant skulle kunna formalisera detta krav. Bedömning: komplexiteten motiverar ej en invariant i detta skede — notera som antagande.
+
+- [ ] **[ASSUME-FI-005]** `igs/TKB_infrastructure_eservicesupply_forminteraction/input/fsh/logical-models/`
+  Elementnamn med underscore (`healthcare_CareGiver`, `healthcare_facility_CareUnit` m.fl.) orsakar SUSHI-varningar "Inadvisable path" (eld-20). Namnen behålls för att spegla RIV-TA-originalet och underlätta mappning mot WSDL/XSD. En framtida refaktorering kan byta till camelCase om IG Publisher ger fel.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-FI-001]** `igs/TKB_infrastructure_eservicesupply_forminteraction/input/fsh/codesystems/FormCategoryCS.fsh` och `PublishStatusCS.fsh`
+  Komplettera CodeSystems med faktiska koder när kodlistorna är kända. Nuvarande filer är fragment (`^content = #fragment`).
+
+---
+
+## infrastructure.directory.organization v5.0 — `igs/TKB_infrastructure_directory_organization/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-19
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-IDO-001]** `igs/TKB_infrastructure_directory_organization/input/fsh/logical-models/GetUnit.fsh` · fält `telephoneHour.fromTime`, `telephoneHour.toTime` (och motsvarande i `dropInHour`, `surgeryHour`, `visitingHour`, `unitFunction.telephoneHour`)
+  FHIR-primitiven `time` orsakade SUSHI-krascher ("Cannot read properties of undefined (reading 'sdType')") i nästlade BackboneElement-fält. Tidsfälten har modellerats som `string` med kommentaren "Format: HH:MM (ISO-8601)" som workaround. Om SUSHI-stödet för `time` förbättras i en framtida version kan dessa fält återkonverteras till korrekt FHIR-typ.
+
+- [ ] **[ASSUME-IDO-002]** `igs/TKB_infrastructure_directory_organization/input/fsh/logical-models/GetUnit.fsh` · fält `unit.financingOrganization`
+  Fältet modelleras som `0..* string` (organisationsnummer). Korrekt FHIR-typ vore `Identifier` med system för organisationsnummer, men `string` används som fallback eftersom kodformatet inte specificeras tydligt i TKB. Verifiera med domänexpert om `Identifier` är mer lämpligt.
+
+- [ ] **[ASSUME-IDO-003]** `igs/TKB_infrastructure_directory_organization/input/fsh/logical-models/GetUnit.fsh` · fält `unit.jpegPhoto`, `unit.jpegLogotype`
+  Base-64-kodade bildfält modelleras som `0..1 string`. Korrekt FHIR-typ vore `base64Binary`. Konservativt val gjordes för att undvika valideringsfel — verifiera om `base64Binary` ska användas istället.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-IDO-001]** `igs/TKB_infrastructure_directory_organization/input/fsh/logical-models/GetUnit.fsh`
+  Tidsfälten (`fromTime`, `toTime`) i tidsfönster-BackboneElements (telephoneHour, dropInHour, surgeryHour, visitingHour, unitFunction/telephoneHour) är modellerade som `string`. Om framtida SUSHI-version stöder `time` i nästlade BackboneElements: konvertera till `time` för semantisk korrekthet.
+
+## processmanagement.decisionsupport.insurancemedicinedecisio v1.0 — `igs/TKB_processmanagement_decisionsupport_insurancemedicinedecisio/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-19
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-PMD-001]** `igs/TKB_processmanagement_decisionsupport_insurancemedicinedecisio/input/fsh/logical-models/GetFmb.fsh` · fält `beslutsunderlag.villkor`
+  Villkor-strukturen är komplex (AND/OR-logik över UrvalArbetsbelastning, UrvalSjukdomsforlopp, etc.). TKB specificerar att villkor är OCH-villkor mellan urvalklasser men ELLER-villkor inom ett urval. Ska detta modelleras med FHIR-invarianter, eller är en textuell beskrivning tillräckligt? Nuvarande modell använder BackboneElement utan invarianter.
+  Källa: TKB avsnitt 7.1, stycket "Villkor" (övriga regler för GetFmb)
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-PMD-001]** `igs/TKB_processmanagement_decisionsupport_insurancemedicinedecisio/input/fsh/logical-models/GetFmb.fsh` · fält `beslutsunderlag.sjukskrivningsgrad`
+  CVType (kod + kodverk + display) mappas till `CodeableConcept`. Kodverket är lokalt (Socialstyrelsen) och innehåller minst "Heltid" och "Deltid". Inget OID anges i TKB. ASSUME: `CodeableConcept` utan bundet ValueSet. Verifiera om ett formellt kodverk finns med OID för sjukskrivningsgrad.
+  Källa: TKB avsnitt 7.1, fältregel för `../sjukskrivningsgrad`
+
+- [ ] **[ASSUME-PMD-002]** `igs/TKB_processmanagement_decisionsupport_insurancemedicinedecisio/input/fsh/logical-models/GetFmb.fsh` · fält `beslutsunderlag.sjukskrivningstidVarde` och `beslutsunderlag.sjukskrivningstidEnhet`
+  PQType (värde + enhet) mappas till separata `decimal` + `string` fält (istället för FHIR `Quantity`). Valet gjordes för att undvika nästlingskomplexitet i BackboneElement. Verifiera om `Quantity` är mer semantiskt korrekt och tekniskt möjligt i SUSHI-versionen.
+  Källa: TKB avsnitt 7.1, fältregler för `../sjukskrivningstid`
+
+- [ ] **[ASSUME-PMD-003]** `igs/TKB_processmanagement_decisionsupport_insurancemedicinedecisio/input/fsh/logical-models/GetDiagnosInformation.fsh` · fält `diagnosInformation.aktivitetsbegransning.kod` och `diagnosInformation.funktionsnedsattning.kod`
+  CVType (kodverk + kod) mappas till `CodeableConcept`. TKB anger ej vilket kodverk som används. ASSUME: lokala kodverk för aktivitetsbegränsning och funktionsnedsättning (troligen ICF). Verifiera kodverksreferenser med Socialstyrelsen/Inera.
+  Källa: TKB avsnitt 7.2, fältregler för aktivitetsbegransning och funktionsnedsattning
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-PMD-001]** `igs/TKB_processmanagement_decisionsupport_insurancemedicinedecisio/sushi-config.yaml`
+  Domänen har inga egna CodeSystems definierade — alla kodverk refererar till externa system (ICD-10-SE, lokala Socialstyrelsen-kodverk). Om Socialstyrelsen publicerar sina kodverk med formella OID:er eller FHIR-CodeSystem-URLs, lägg till dessa som `special-url` och skapa ValueSets med bindningar.
+
+- [ ] **[TODO-PMD-002]** `igs/TKB_processmanagement_decisionsupport_insurancemedicinedecisio/input/fsh/logical-models/GetFmb.fsh`
+  Lägg till ValueSet-bindningar för diagnoskoder (ICD-10-SE) i fälten `beslutsunderlag.huvudDiagnos.varde` och `beslutsunderlag.villkor.urvalSamsjuklighet.samsjuklighet` när blockerare PMD-001 är löst och rätt canonical URL för ICD-10-SE är verifierad.
+
+---
+
+## masterdata.organisationalresources.licensetopractice v2.0 — `igs/TKB_masterdata_organisationalresources_licensetopractice/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-19
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+Inga blockerare.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-LTP-001]** `igs/TKB_masterdata_organisationalresources_licensetopractice/input/fsh/codesystems/KonCS.fsh` · kodverk `kon`
+  TKB-dokumentet anger OID `1.2.752.116.3.1.3` för kön, men XSD-filen (KonType) anger `1.2.752.129.2.2.1.1`. FSH-modellen använder `KonVS` med OID `1.2.752.129.2.2.1.1` (XSD som källa). Verifiera att korrekt OID används — det är en diskrepans mellan TKB-dokumenttexten och XSD-schemat.
+
+- [ ] **[ASSUME-LTP-002]** `igs/TKB_masterdata_organisationalresources_licensetopractice/input/fsh/logical-models/GetHospPersonForPublicHealthcare.fsh` · kontraktsversion
+  TKB-dokumentet uppger version "1.1" för GetHospPersonForPublicHealthcare och GetHospPersonForIVO i sektion 7 (versionsinformation), men domänversionen är 2.0 och XSD-namespace anger version 2. WSDL-filerna anger 2.0. FSH-modellen är skapad som v2.0 i enlighet med domänversionen och WSDL. Verifiera om tjänstekontrakt-versionerna i sektion 7 i TKB är felaktiga (1.1/1.0 istället för 2.0).
+
+- [ ] **[ASSUME-LTP-003]** `igs/TKB_masterdata_organisationalresources_licensetopractice/input/fsh/logical-models/GetHospPersonForIVO.fsh` · fält `skyddadIdentitet` och `utvandrad`
+  TKB (GetHospPersonForPublicHealthcare) inkluderar inte fälten `skyddadIdentitet`, `mellannamn`, `tilltalsnamn`, `kon`, `lan`, `kommun`, `folkbokforingsort`, `avliden`, `utvandrad` men GetHospPersonForIVO inkluderar dem. XSD:n `HospPersonType` definierar alla fält. Antagande: den publika tjänsten returnerar en delmängd av HospPersonType medan IVO-tjänsten returnerar den fullständiga typen. Detta stämmer med säkerhetskravet att skydda känsliga personuppgifter.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-LTP-001]** `igs/TKB_masterdata_organisationalresources_licensetopractice/sushi-config.yaml`
+  Lägg till `se.inera.rivta.core`-dependency om/när det paketet publiceras och innehåller gemensamma RIV-TA-bastyper. För nuvarande är inget core-paket tillgängligt.
+
+- [ ] **[TODO-LTP-002]** `igs/TKB_masterdata_organisationalresources_licensetopractice/input/fsh/logical-models/GetHospPersonForIVO.fsh` · fält `ovrigBehorighet.behorighet`
+  OIDer för övrig behörighet (utbildningskoder) saknas i TKB-dokumentet — det hänvisas till informationsspecifikationen. Komplettera ValueSet-bindning när OIDer är kända.
+
+---
+
+## clinicalprocess.healthcond.certificate v4.1-RC1 — `igs/TKB_clinicalprocess_healthcond_certificate/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-19
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-CERT-001]** `igs/TKB_clinicalprocess_healthcond_certificate/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Avsnitt 6 "Gemensamma informationskomponenter" saknas helt i källdokumentet. TKB:n använder avsnitt 8 ("Gemensamma fälttyper") istället för standard avsnitt 6. Ska avsnitt 6 tas bort från sidstrukturen och avsnitt 8 läggas till som en ny sida? Eller ska avsnitt 8:s innehåll placeras i sida 6?
+  Källa: docx_to_md.py output — avsnitt 6 markerat "SAKNAS i källdokumentet".
+
+- [ ] **[BLOCK-CERT-002]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/codesystems/AmneskodCS.fsh`
+  Kodverket för ämneskoder (Amneskod) är definierat med exempelkoder. Den fullständiga listan med giltiga ämnen inkl. OID finns i XSD-filen schemas/core_components/clinicalprocess_healthcond_certificate_3.3.xsd. Verifiera att alla ämneskoder är med och komplettera vid behov.
+  Källa: TKB avsnitt 7.2.1 "Ämneskod".
+
+- [ ] **[BLOCK-CERT-003]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/codesystems/HandelskodCS.fsh`
+  Händelsekoderna för CertificateStatusUpdateForCare är baserade på domänkunskap och XSD-analysen — inte en komplett lista i TKB-dokumentet. Verifiera med domänexpert att alla giltiga händelsekoder inkluderas.
+  Källa: TKB avsnitt 7.2.4 "Händelsekod".
+
+- [ ] **[BLOCK-CERT-004]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/codesystems/PartCS.fsh`
+  Parter definierade enligt TKB-dokumentet (FKASSA, HSVARD, INVANA, ARBGIVARE, TRANSP). Verifiera att listan är komplett — kan finnas fler parter i nyare versioner. OID-baserad canonical kan behövas om FK har publicerat ett officiellt kodverk.
+  Källa: TKB avsnitt 7.2.9 "Part".
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-CERT-001]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/logical-models/CreateDraftCertificate.fsh`
+  TKB anger version 3.2 men WSDL-filen heter `CreateDraftCertificateInteraction_3.3_RIVTABP21.wsdl`. Antagande: TKB-sektionen speglar innehåll från en äldre version och WSDL:en är senaste. FSH-modellen baseras på TKB-version 3.2. Verifiera korrekt versionsangivelse.
+
+- [ ] **[ASSUME-CERT-002]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/logical-models/CertificateStatusUpdateForCare.fsh`
+  TKB anger version 3.1 men WSDL heter `CertificateStatusUpdateForCareInteraction_3.2_RIVTABP21.wsdl`. Antagande: WSDL är nyare. Versionsavvikelse noterad — verifiera.
+
+- [ ] **[ASSUME-CERT-003]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/logical-models/ListCertificatesForCareWithQA.fsh`
+  TKB anger version 3.2 men WSDL heter `ListCertificatesForCareWithQAInteraction_3.3_RIVTABP21.wsdl`. Antagande: WSDL är nyare. Versionsavvikelse noterad — verifiera.
+
+- [ ] **[ASSUME-CERT-004]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/logical-models/ListCertificatesForCare.fsh` · fält `vardgivareId` och `enhetsId`
+  XML schema choice-elementet som gör vardgivareId och enhetsId ömsesidigt exklusiva modelleras som `0..1` respektive `0..*` utan FHIR-invariant. En invariant (t.ex. `enhetsId.exists() xor vardgivareId.exists()`) skulle ge bättre semantik men kräver bekräftelse om det är önskat.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-CERT-001]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/codesystems/AmneskodCS.fsh`
+  Extrahera fullständig ämneskodslista från XSD-filen `clinicalprocess_healthcond_certificate_3.3.xsd` och uppdatera CodeSystem.
+
+- [ ] **[TODO-CERT-002]** `igs/TKB_clinicalprocess_healthcond_certificate/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Ersätt placeholder med faktiskt innehåll från avsnitt 8 i TKB-dokumentet ("Gemensamma fälttyper") — alternativt skapa en separat sida `8-gemensamma-falttyper.md` och lägg till i sushi-config.yaml/pages.
+
+- [ ] **[TODO-CERT-003]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/logical-models/GetCertificate.fsh`
+  Den gemensamma typen `Intyg` (med alla undertyper: Patient, HoSPersonal, Enhet, Vårdgivare, Relation, Status) förekommer i nästan alla kontrakt. Överväg att extrahera till en separat gemensam Logical-modell `Intyg.fsh` och referera till den från kontraktsmodellerna.
+
+- [ ] **[TODO-CERT-004]** `igs/TKB_clinicalprocess_healthcond_certificate/sushi-config.yaml`
+  Lägg till `se.inera.rivta.core`-dependency om/när det paketet publiceras. Nuvarande setup har ingen dependency-koppling till gemensamma RIV-TA-bastyper.
+
+- [ ] **[TODO-CERT-005]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/logical-models/ListSickLeavesForCare.fsh` · fält `diagnoskod`
+  Diagnoskoder följer sannolikt ICD-10-SE eller SNOMED CT. Strukturen modelleras som `BackboneElement` med fri `code`-sträng. Verifiera vilket kodsystem som faktiskt används och lägg till ValueSet-binding om möjligt.
+
+---
+
+## insuranceprocess.healthreporting v3.1.0 — `igs/TKB_insuranceprocess_healthreporting/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-19
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-HR-001]** `igs/TKB_insuranceprocess_healthreporting/input/fsh/logical-models/GetCertificate.fsh` · kontrakt `GetCertificate` · fält `certificateId` och `nationalIdentityNumber`
+  Fälttabellen använder 'O' för kardinalitet för båda request-fälten, utan att ange 1..1 eller 0..1. Är båda obligatoriska? Är det ett 'eller'-val? Nuvarande modell använder 0..1 för båda.
+  Källa: TKB avsnitt 7.12 (GetCertificate Fältregler).
+
+- [ ] **[BLOCK-HR-002]** `igs/TKB_insuranceprocess_healthreporting/input/fsh/logical-models/SetCertificateStatus.fsh` · kontrakt `SetCertificateStatus` · fält `certificateId`
+  Tabellen i TKB anger att raderna är förväxlade: rubriken "Begäran" har "Identitet på intyget. Är en GUID." som beskrivning, och `certificateId`-raden har "Patientens personnummer" som typ/beskrivning. Detta verkar vara en kopieringsfel i dokumentet. Bekräfta korrekt fältordning.
+  Källa: TKB avsnitt 7.13 (SetCertificateStatus Fältregler).
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-HR-001]** `igs/TKB_insuranceprocess_healthreporting/input/fsh/logical-models/RegisterMedicalCertificate.fsh` · fält `medicinsktTillstand.tillstandskod`
+  Diagnoskodverket anges som "ICD-10-SE alt. KSH97P" men canonical URL är inte specificerad i TKB. FHIR-typen mappas till `CodeableConcept` utan binding. Verifiera korrekt canonical URL för ICD-10-SE och KSH97P i svensk kontext och lägg till ValueSet.
+  Källa: TKB avsnitt 7.1 (RegisterMedicalCertificate Fältregler, Fält 2).
+
+- [ ] **[ASSUME-HR-002]** `igs/TKB_insuranceprocess_healthreporting/input/fsh/logical-models/GetCertificate.fsh` · fält `certificate`
+  Fältet `certificate` är `<any>` i XSD — ett generiskt XML-platshållarefält för själva intyget. Mappat till `string` som fallback. Korrekt modellering kräver antagligen ett separat Logical för varje intygtyp (FK7263 etc.) eller ett extensions-baserat mönster.
+
+- [ ] **[ASSUME-HR-003]** `igs/TKB_insuranceprocess_healthreporting/input/fsh/codesystems/AmneCS.fsh` · kodverk `Amne`
+  Kodverket för Amne-typ är ej fullständigt dokumenterat i TKB-texten. Tre koder har lagts till baserat på kontexten i dokumentet (KOMPLETTERING, PAMINNELSE, OVRIGT). Verifiera att dessa är fullständiga och korrekta — XSD-filen `MedicalCertificateQuestionsAnswers_1.0.xsd` kan innehålla fullständig lista.
+  Källa: TKB avsnitt 7.2 (ReceiveMedicalCertificateQuestion Fältregler).
+
+- [ ] **[ASSUME-HR-004]** `igs/TKB_insuranceprocess_healthreporting/input/fsh/codesystems/StatusCS.fsh` · kodverk `Status`
+  Kodverket för Status (typ av statusändring för intyg) är ej dokumenterat i TKB. Fyra koder har lagts till baserat på kontext (SENT, RECEIVED, CANCELLED, DELETED). Verifiera mot XSD-filen `insuranceprocess_certificate_1.0.xsd`.
+  Källa: TKB avsnitt 7.11 (ListCertificates) och 7.13 (SetCertificateStatus).
+
+- [ ] **[ASSUME-HR-005]** `igs/TKB_insuranceprocess_healthreporting/input/fsh/logical-models/ListCertificates.fsh` · fält `available`
+  Fältet `available` är definierat som `string` i XSD men används som boolean (true/false). Mappat till `boolean` i FHIR. Verifiera att detta stämmer och att inga andra värden är möjliga.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-HR-001]** `igs/TKB_insuranceprocess_healthreporting/input/fsh/codesystems/AktivitetskodCS.fsh`
+  Det finns fler Prognosangivelse-koder (ATERSTALLAS_HELT, ATERSTALLAS_DELVIS, INTE_ATERSTALLAS, DET_GAR_INTE_ATT_BEDOMMA) och TypAvSysselsattning-koder (FORVARVSARBETE, ARBETSLOSHET, FORALDRALEDIGHET) nämnda i TKB. Överväg att skapa separata CodeSystems för dessa istället för att lägga dem som fri text i Logical-modellen.
+
+- [ ] **[TODO-HR-002]** `igs/TKB_insuranceprocess_healthreporting/input/fsh/logical-models/RegisterMedicalCertificate.fsh`
+  De komplexa villkorsreglerna för blankett FK7263 (Fält 1 påverkar krav på Fält 2, 4, 5, 8a etc.) borde modelleras som FHIR-invarianter. Nuvarande modell dokumenterar reglerna i kommentarer men tillämpar dem inte maskinläsbart. Kräver beslut om BLOCK-HR-001 och ASSUME-HR-001 löses.
+
+- [ ] **[TODO-HR-003]** `igs/TKB_insuranceprocess_healthreporting/input/fsh/logical-models/FindAllQuestions.fsh` och `FindAllAnswers.fsh`
+  Fältet `questions.question.questionData` / `answers.answer.answerData` refererar till hela strukturen från ReceiveMedicalCertificateQuestion/Answer. I en fullständig modell borde dessa vara typed references (t.ex. `Reference(ReceiveMedicalCertificateQuestion)`) istället för generiska BackboneElement. Kräver FHIR-modellbeslut.
+
+- [ ] **[TODO-HR-004]** `igs/TKB_insuranceprocess_healthreporting/sushi-config.yaml`
+  Det finns ingen WSDL för SendMedicalCertificate och SetCertificateStatus i Bitbucket-repots interaktionskataloger. De är "nyare" kontrakt (v3.1.0) utan egna WSDL-filer. Verifiera om WSDLs finns på annan plats eller om kontrakten enbart definieras via XSD.

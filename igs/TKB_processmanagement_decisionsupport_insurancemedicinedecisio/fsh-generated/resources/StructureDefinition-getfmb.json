@@ -1,0 +1,473 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getfmb",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/getfmb",
+  "name": "GetFmb",
+  "title": "GetFmb",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetFmb\n(RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetFmb:1).\nRepresenterar responsens informationsstruktur — beslutsunderlag från FMB\n(Försäkringsmedicinskt beslutsstöd).",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/getfmb",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getfmb",
+        "path": "getfmb",
+        "short": "GetFmb",
+        "definition": "Logisk modell för tjänstekontraktet GetFmb\n(RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetFmb:1).\nRepresenterar responsens informationsstruktur — beslutsunderlag från FMB\n(Försäkringsmedicinskt beslutsstöd)."
+      },
+      {
+        "id": "getfmb.beslutsunderlag",
+        "path": "getfmb.beslutsunderlag",
+        "short": "Beslutsunderlag",
+        "definition": "Beslutsunderlag innehåller information om beslutsunderlag som kan användas vid bedömning om\nsjukskrivning. Ett beslutunderlag kan användas som underlag för bedömning när samtliga villkor\nkopplade till klassen är uppfyllda.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.underlagsId",
+        "path": "getfmb.beslutsunderlag.underlagsId",
+        "short": "Globalt unik identifierare för beslutsunderlaget",
+        "definition": "Globalt unik identifierare för beslutsunderlaget",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.giltighetstidStart",
+        "path": "getfmb.beslutsunderlag.giltighetstidStart",
+        "short": "Giltighetstid — starttid",
+        "definition": "Starttid för giltighetstiden. Starttiden skall alltid anges.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.giltighetstidSlut",
+        "path": "getfmb.beslutsunderlag.giltighetstidSlut",
+        "short": "Giltighetstid — sluttid",
+        "definition": "Sluttid för giltighetstiden. Om sluttid ej anges är beslutsrekommendationen aktiv.\nEtt beslutsunderlag som inte är aktiv skall innehålla ett slutdatum som ligger tidigare\nän aktuellt datum, eller ett startdatum som ligger senare än aktuellt datum.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.version",
+        "path": "getfmb.beslutsunderlag.version",
+        "short": "Versionsnummer för beslutsunderlaget",
+        "definition": "Versionen räknas upp när ett beslutsunderlag förändrats i sin innebörd eller ändrar giltighetstid.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.textuelltUnderlag",
+        "path": "getfmb.beslutsunderlag.textuelltUnderlag",
+        "short": "Textuell beskrivning av beslutsunderlaget",
+        "definition": "Varje beslutsunderlag beskrivs i textuell form, som omfattar alla villkor och rekommendationer\nsom omfattas av beslutsunderlag samt annan information som är relevant i beslutsfattandet.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.sjukskrivningstidText",
+        "path": "getfmb.beslutsunderlag.sjukskrivningstidText",
+        "short": "Sjukskrivningstid — textuell representation",
+        "definition": "Totala sjukskrivningstidens längd med början från första intygsdag.\nTextuell representation som alltid är ifylld även där sjukskrivningstiden inte kan kvantifieras.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.sjukskrivningstidVarde",
+        "path": "getfmb.beslutsunderlag.sjukskrivningstidVarde",
+        "short": "Sjukskrivningstid — numeriskt värde",
+        "definition": "Numeriskt värde för sjukskrivningstiden. Anges ej om sjukskrivningstiden inte kan kvantifieras.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "decimal"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.sjukskrivningstidEnhet",
+        "path": "getfmb.beslutsunderlag.sjukskrivningstidEnhet",
+        "short": "Sjukskrivningstid — enhet (UCUM)",
+        "definition": "Enhet för tidsangivelsen enligt UCUM: månad='mo', vecka='wk', dag='d'.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.sjukskrivningsgrad",
+        "path": "getfmb.beslutsunderlag.sjukskrivningsgrad",
+        "short": "Grad av sjukskrivning",
+        "definition": "Anger grad av sjukskrivning. Exempel på värden: Heltid, Deltid.\nKodas med lokalt kodverk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.senastAndrad",
+        "path": "getfmb.beslutsunderlag.senastAndrad",
+        "short": "Tidpunkt när beslutsunderlaget senast ändrades",
+        "definition": "Tidpunkt när beslutsunderlaget senast ändrades",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.rehabiliteringsInformation",
+        "path": "getfmb.beslutsunderlag.rehabiliteringsInformation",
+        "short": "Rehabiliteringsinformation",
+        "definition": "Rehabiliteringsinformation",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.rehabiliteringsInformation.beskrivning",
+        "path": "getfmb.beslutsunderlag.rehabiliteringsInformation.beskrivning",
+        "short": "Beskrivning av rehabiliteringsåtgärd",
+        "definition": "Beskrivning av rehabiliteringsåtgärd",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.huvudDiagnos",
+        "path": "getfmb.beslutsunderlag.huvudDiagnos",
+        "short": "Huvuddiagnos för vilken beslutsunderlaget gäller",
+        "definition": "Huvuddiagnos för vilken beslutsunderlaget gäller",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.huvudDiagnos.varde",
+        "path": "getfmb.beslutsunderlag.huvudDiagnos.varde",
+        "short": "Huvuddiagnos angiven med ICD-10-SE-kod",
+        "definition": "Huvuddiagnos angiven med ICD-10-SE-kod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.villkor",
+        "path": "getfmb.beslutsunderlag.villkor",
+        "short": "Villkor för att beslutsunderlaget skall gälla",
+        "definition": "Villkor samlar underliggande faktorer som måste vara uppfyllda för att ett beslutsunderlag\nskall gälla. Förekomsten av en 'urvals-klass' är ett OCH-villkor. Flera koder inom ett urval\när ett ELLER-villkor.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.villkor.urvalArbetsbelastning",
+        "path": "getfmb.beslutsunderlag.villkor.urvalArbetsbelastning",
+        "short": "Urval av arbetsbelastning (villkor)",
+        "definition": "Urval av arbetsbelastning (villkor)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.villkor.urvalArbetsbelastning.arbetsbelastning",
+        "path": "getfmb.beslutsunderlag.villkor.urvalArbetsbelastning.arbetsbelastning",
+        "short": "Koder för arbetsbelastning",
+        "definition": "Koder för arbetsbelastning",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.villkor.urvalKomplicerandeFaktor",
+        "path": "getfmb.beslutsunderlag.villkor.urvalKomplicerandeFaktor",
+        "short": "Urval av komplicerande faktorer (villkor)",
+        "definition": "Urval av komplicerande faktorer (villkor)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.villkor.urvalKomplicerandeFaktor.komplicerandeFaktor",
+        "path": "getfmb.beslutsunderlag.villkor.urvalKomplicerandeFaktor.komplicerandeFaktor",
+        "short": "Koder för komplicerande faktorer",
+        "definition": "Koder för komplicerande faktorer",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.villkor.urvalPlaneradAtgard",
+        "path": "getfmb.beslutsunderlag.villkor.urvalPlaneradAtgard",
+        "short": "Urval av planerade åtgärder (villkor)",
+        "definition": "Urval av planerade åtgärder (villkor)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.villkor.urvalPlaneradAtgard.planeradAtgard",
+        "path": "getfmb.beslutsunderlag.villkor.urvalPlaneradAtgard.planeradAtgard",
+        "short": "Koder för planerade åtgärder",
+        "definition": "Koder för planerade åtgärder",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.villkor.urvalPagaendeAtgard",
+        "path": "getfmb.beslutsunderlag.villkor.urvalPagaendeAtgard",
+        "short": "Urval av pågående åtgärder (villkor)",
+        "definition": "Urval av pågående åtgärder (villkor)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.villkor.urvalPagaendeAtgard.pagaendeAtgard",
+        "path": "getfmb.beslutsunderlag.villkor.urvalPagaendeAtgard.pagaendeAtgard",
+        "short": "Koder för pågående åtgärder",
+        "definition": "Koder för pågående åtgärder",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.villkor.urvalSamsjuklighet",
+        "path": "getfmb.beslutsunderlag.villkor.urvalSamsjuklighet",
+        "short": "Urval av samsjuklighet (villkor)",
+        "definition": "Urval av samsjuklighet (villkor)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.villkor.urvalSamsjuklighet.samsjuklighet",
+        "path": "getfmb.beslutsunderlag.villkor.urvalSamsjuklighet.samsjuklighet",
+        "short": "Koder för samsjuklighet (ICD-10-SE)",
+        "definition": "Koder för samsjuklighet (ICD-10-SE)",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.villkor.urvalSjukdomsforlopp",
+        "path": "getfmb.beslutsunderlag.villkor.urvalSjukdomsforlopp",
+        "short": "Urval av sjukdomsförlopp (villkor)",
+        "definition": "Urval av sjukdomsförlopp (villkor)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.villkor.urvalSjukdomsforlopp.sjukdomsforlopp",
+        "path": "getfmb.beslutsunderlag.villkor.urvalSjukdomsforlopp.sjukdomsforlopp",
+        "short": "Koder för sjukdomsförlopp",
+        "definition": "Koder för sjukdomsförlopp",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.villkor.urvalSvarighetsgrad",
+        "path": "getfmb.beslutsunderlag.villkor.urvalSvarighetsgrad",
+        "short": "Urval av svårighetsgrad (villkor)",
+        "definition": "Urval av svårighetsgrad (villkor)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.villkor.urvalSvarighetsgrad.svarighetsgrad",
+        "path": "getfmb.beslutsunderlag.villkor.urvalSvarighetsgrad.svarighetsgrad",
+        "short": "Koder för svårighetsgrad (Lindrig, Medelsvår, Svår)",
+        "definition": "Koder för svårighetsgrad (Lindrig, Medelsvår, Svår)",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.beslutsunderlag.villkor.utfordAtgard",
+        "path": "getfmb.beslutsunderlag.villkor.utfordAtgard",
+        "short": "Koder för utförda åtgärder",
+        "definition": "Koder för utförda åtgärder",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.fmbVersion",
+        "path": "getfmb.fmbVersion",
+        "short": "Versionsinformation för hela FMB",
+        "definition": "Versionsinformation för hela FMB",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.fmbVersion.senasteVersionsuppdatering",
+        "path": "getfmb.fmbVersion.senasteVersionsuppdatering",
+        "short": "Tidpunkt för senaste versionsuppdatering bland alla beslutsunderlag",
+        "definition": "Tidpunkt för senaste versionsuppdatering bland alla beslutsunderlag",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getfmb.fmbVersion.senasteAndring",
+        "path": "getfmb.fmbVersion.senasteAndring",
+        "short": "Tidpunkt för senaste ändring bland alla beslutsunderlag",
+        "definition": "Tidpunkt för senaste ändring bland alla beslutsunderlag",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

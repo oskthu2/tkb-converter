@@ -1,0 +1,12 @@
+[CreateListing]: StructureDefinition-createlisting.html
+[CreateListingRequest]: StructureDefinition-createlisting-request.html
+[GetAvailableFacilities]: StructureDefinition-getavailablefacilities.html
+[GetAvailableFacilitiesRequest]: StructureDefinition-getavailablefacilities-request.html
+[GetListing]: StructureDefinition-getlisting.html
+[GetListingRequest]: StructureDefinition-getlisting-request.html
+[GetListingTypes]: StructureDefinition-getlistingtypes.html
+[GetListingTypesRequest]: StructureDefinition-getlistingtypes-request.html
+[GetPersonQueueStatus]: StructureDefinition-getpersonqueuestatus.html
+[GetPersonQueueStatusRequest]: StructureDefinition-getpersonqueuestatus-request.html
+[PersonQueueStatusCS]: CodeSystem-personqueuestatus-cs.html
+[PersonQueueStatusVS]: ValueSet-personqueuestatus-vs.html

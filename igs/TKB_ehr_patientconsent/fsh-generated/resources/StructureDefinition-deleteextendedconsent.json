@@ -1,0 +1,74 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "deleteextendedconsent",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-patientconsent/StructureDefinition/deleteextendedconsent",
+  "name": "DeleteExtendedConsent",
+  "title": "DeleteExtendedConsent",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet DeleteExtendedConsent\n(RIV-TA urn:riv:ehr:patientconsent:administration:DeleteExtendedConsentResponder:1).\nRepresenterar responsens informationsstruktur.\n\nTjänst som makulerar ett samtycke i samtyckestjänsten. Makulering av samtycke används enbart\nför borttagning av felregistrerade samtycken. Samtycket raderas inte utan markeras som makulerad\n(ej längre giltig) för historikens skull. En makulering kan ej återtas.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-patientconsent/StructureDefinition/deleteextendedconsent",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "deleteextendedconsent",
+        "path": "deleteextendedconsent",
+        "short": "DeleteExtendedConsent",
+        "definition": "Logisk modell för tjänstekontraktet DeleteExtendedConsent\n(RIV-TA urn:riv:ehr:patientconsent:administration:DeleteExtendedConsentResponder:1).\nRepresenterar responsens informationsstruktur.\n\nTjänst som makulerar ett samtycke i samtyckestjänsten. Makulering av samtycke används enbart\nför borttagning av felregistrerade samtycken. Samtycket raderas inte utan markeras som makulerad\n(ej längre giltig) för historikens skull. En makulering kan ej återtas."
+      },
+      {
+        "id": "deleteextendedconsent.result",
+        "path": "deleteextendedconsent.result",
+        "short": "Status för om makuleringen utfördes",
+        "definition": "Status för om makuleringen utfördes",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "deleteextendedconsent.result.resultCode",
+        "path": "deleteextendedconsent.result.resultCode",
+        "short": "Svarskod",
+        "definition": "Svarskod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-patientconsent/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "deleteextendedconsent.result.resultText",
+        "path": "deleteextendedconsent.result.resultText",
+        "short": "Fritext beskrivning av resultatet",
+        "definition": "Fritext beskrivning av resultatet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

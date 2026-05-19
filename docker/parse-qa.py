@@ -67,13 +67,19 @@ def parse_log(log_path: Path) -> dict:
 # ── qa.json-parsning ─────────────────────────────────────────────────────────
 
 def parse_qa_json(qa_json_path: Path) -> dict:
-    """Läs maskinläsbar qa.json (IG Publisher >= 1.4)."""
+    """Läs maskinläsbar qa.json (IG Publisher >= 1.4).
+
+    IG Publisher qa.json kan ha olika format beroende på version:
+    - Äldre: {"errors": N, "warnings": N, "hints": N}  (enbart summor)
+    - Nyare: {"messages": [{level, message, location, ...}]}
+    - Alternativt: {"issues": [...]} eller {"results": [...]}
+    """
     with open(qa_json_path, encoding="utf-8") as f:
         raw = json.load(f)
 
     issues = {"fatal": [], "errors": [], "warnings": [], "hints": []}
 
-    # Format varierar mellan versioner — försök flera kända strukturer
+    # Försök läsa individuella meddelanden (nyare format)
     messages = (
         raw.get("messages") or
         raw.get("issues") or
@@ -81,9 +87,11 @@ def parse_qa_json(qa_json_path: Path) -> dict:
         []
     )
     for item in messages:
-        level = (item.get("level") or item.get("severity") or "").upper()
+        if not isinstance(item, dict):
+            continue
+        level = (item.get("level") or item.get("severity") or item.get("type") or "").upper()
         msg   = (item.get("message") or item.get("details") or item.get("text") or "")
-        location = item.get("location") or item.get("source") or ""
+        location = item.get("location") or item.get("source") or item.get("file") or ""
         full = f"{location}: {msg}" if location else msg
         if level in ("FATAL", "FATALE"):
             issues["fatal"].append(full)
@@ -91,15 +99,25 @@ def parse_qa_json(qa_json_path: Path) -> dict:
             issues["errors"].append(full)
         elif level in ("WARN", "WARNING"):
             issues["warnings"].append(full)
-        elif level in ("HINT", "INFORMATION", "INFO"):
+        elif level in ("HINT", "INFORMATION", "INFO", "NOTE"):
             issues["hints"].append(full)
 
-    # Fallback: top-level counts
+    # Fallback: top-level counts (äldre format — returnerar summor, inga detaljer)
+    # Returnerar en sentinel-sträng så att build.sh kan försöka qa.html istället.
     if not any(issues.values()):
-        for key in ("errors", "warnings", "hints"):
-            count = raw.get(key, 0)
-            if count:
-                issues[key].append(f"({count} {key} — se qa.html för detaljer)")
+        has_counts = False
+        for count_key, issue_key in [
+            ("errors", "errors"), ("errorCount", "errors"),
+            ("warnings", "warnings"), ("warningCount", "warnings"),
+            ("hints", "hints"), ("hintCount", "hints"),
+        ]:
+            count = raw.get(count_key, 0)
+            if isinstance(count, int) and count > 0:
+                has_counts = True
+                issues[issue_key].append(f"__COUNT_ONLY_{count}__")
+        if not has_counts:
+            # Helt tomt — ingen info alls
+            pass
 
     return issues
 
@@ -169,16 +187,49 @@ def build_output(domain_id: str, issues: dict, log_issues: dict, meta: dict) -> 
     """Bygg det strukturerade JSON-dokument som återförs till Claude."""
 
     # Slå ihop issues från QA-rapport och logg (deduplicera)
+    # Ta bort sentinel-strängar __COUNT_ONLY_N__ — dessa ersätts av log_issues
+    def clean(lst):
+        return [x for x in lst if not x.startswith("__COUNT_ONLY_")]
+
+    # Extrahera rena count från sentinels (används i summary om inga detaljer finns)
+    def count_from_sentinel(lst):
+        for x in lst:
+            if x.startswith("__COUNT_ONLY_"):
+                try:
+                    return int(x.split("_")[-1])
+                except ValueError:
+                    pass
+        return 0
+
     merged = {}
     for key in ("fatal", "errors", "warnings", "hints"):
         seen = set()
         merged[key] = []
-        for item in list(issues.get(key, [])) + list(log_issues.get(key, [])):
+        cleaned_qa = clean(issues.get(key, []))
+        for item in cleaned_qa + list(log_issues.get(key, [])):
             if item not in seen:
                 seen.add(item)
                 merged[key].append(item)
 
-    summary = {k: len(v) for k, v in merged.items()}
+    # Om inga detaljerade meddelanden alls men vi har counts från qa.json — bevara counts
+    for key in ("fatal", "errors", "warnings", "hints"):
+        if not merged[key]:
+            n = count_from_sentinel(issues.get(key, []))
+            if n:
+                merged[key] = [f"({n} {key} — se qa.html för detaljer)"]
+
+    summary = {}
+    for key in ("fatal", "errors", "warnings", "hints"):
+        lst = merged[key]
+        if len(lst) == 1 and lst[0].startswith("(") and "se qa.html" in lst[0]:
+            # Sentinel — extrahera antal
+            try:
+                summary[key] = int(lst[0].split()[0][1:])
+            except (ValueError, IndexError):
+                summary[key] = 1
+        else:
+            summary[key] = len(lst)
+
     passed = summary["fatal"] == 0 and summary["errors"] == 0
 
     return {
@@ -211,9 +262,25 @@ def main():
     qa_issues = {}
     meta = {}
 
+    # Försök qa.json först; om det bara innehåller summor (COUNT_ONLY-sentinels),
+    # försök också qa.html för individuella meddelanden.
     if args.qa_json and args.qa_json.exists():
         meta["source"] = str(args.qa_json)
         qa_issues = parse_qa_json(args.qa_json)
+
+        # Kolla om vi bara fick summor — prova då qa.html för detaljer
+        is_counts_only = all(
+            not v or all(x.startswith("__COUNT_ONLY_") for x in v)
+            for v in qa_issues.values()
+        )
+        if is_counts_only and args.qa_html and args.qa_html.exists():
+            html_issues = parse_qa_html(args.qa_html)
+            if any(html_issues.values()):
+                meta["source"] = f"{args.qa_json} + {args.qa_html}"
+                # Bevara summor från qa.json, men byt ut sentinels mot HTML-detaljer
+                for key in ("fatal", "errors", "warnings", "hints"):
+                    if html_issues.get(key):
+                        qa_issues[key] = html_issues[key]
     elif args.qa_html and args.qa_html.exists():
         meta["source"] = str(args.qa_html)
         qa_issues = parse_qa_html(args.qa_html)

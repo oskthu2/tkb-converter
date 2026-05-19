@@ -1,0 +1,256 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "createform",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/StructureDefinition/createform",
+  "name": "CreateForm",
+  "title": "CreateForm",
+  "status": "draft",
+  "description": "Logisk modell för svar (response) i tjänstekontraktet CreateForm\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:CreateForm:2).\nReturnerar det skapade formuläret inkl. första sidan med frågor.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/StructureDefinition/createform",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "createform",
+        "path": "createform",
+        "short": "CreateForm",
+        "definition": "Logisk modell för svar (response) i tjänstekontraktet CreateForm\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:CreateForm:2).\nReturnerar det skapade formuläret inkl. första sidan med frågor."
+      },
+      {
+        "id": "createform.form",
+        "path": "createform.form",
+        "short": "Formulärobjekt (FormType)",
+        "definition": "Det skapade formuläret. Returnerar alltid ett formulär. Om fel uppstår returneras SOAP-fault.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "createform.form.formId",
+        "path": "createform.form.formId",
+        "short": "Formulärets unika ID (GUID). Genererat av formulärmotor eller konsument.",
+        "definition": "Formulärets unika ID (GUID). Genererat av formulärmotor eller konsument.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "createform.form.subjectOfCare",
+        "path": "createform.form.subjectOfCare",
+        "short": "Patientens personnummer (yyyymmddnnnn)",
+        "definition": "Patientens personnummer (yyyymmddnnnn)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "createform.form.healthcareFacilityCareUnit",
+        "path": "createform.form.healthcareFacilityCareUnit",
+        "short": "HSA-id för ansvarig vårdenhet",
+        "definition": "HSA-id för ansvarig vårdenhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "createform.form.healthcareFacilityCareUnitName",
+        "path": "createform.form.healthcareFacilityCareUnitName",
+        "short": "Vårdenhetens namn",
+        "definition": "Vårdenhetens namn",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "createform.form.formStatus",
+        "path": "createform.form.formStatus",
+        "short": "Formulärets status",
+        "definition": "Formulärets status",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/ValueSet/formstatus-vs"
+        }
+      },
+      {
+        "id": "createform.form.createdDateTime",
+        "path": "createform.form.createdDateTime",
+        "short": "Datum när formuläret skapades (ISO 8601 yyyyMMddThhmmss)",
+        "definition": "Datum när formuläret skapades (ISO 8601 yyyyMMddThhmmss)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "createform.form.expireDate",
+        "path": "createform.form.expireDate",
+        "short": "Formulärets giltighetstid (ISO 8601 yyyyMMdd)",
+        "definition": "Formulärets giltighetstid (ISO 8601 yyyyMMdd)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "createform.form.formText",
+        "path": "createform.form.formText",
+        "short": "Unik text för formuläret",
+        "definition": "Unik text för formuläret",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "createform.form.formTemplate",
+        "path": "createform.form.formTemplate",
+        "short": "Formulärmall kopplad till formuläret",
+        "definition": "Formulärmall kopplad till formuläret",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "createform.form.formTemplate.templateId",
+        "path": "createform.form.formTemplate.templateId",
+        "short": "Mallens typ-id",
+        "definition": "Mallens typ-id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "createform.form.formTemplate.templateVersion",
+        "path": "createform.form.formTemplate.templateVersion",
+        "short": "Mallens version",
+        "definition": "Mallens version",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "createform.form.formTemplate.formName",
+        "path": "createform.form.formTemplate.formName",
+        "short": "Mallens namn",
+        "definition": "Mallens namn",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "createform.form.currentPage",
+        "path": "createform.form.currentPage",
+        "short": "Aktuell sida med frågor",
+        "definition": "Aktuell sida med frågor",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "createform.form.currentPage.pageNumber",
+        "path": "createform.form.currentPage.pageNumber",
+        "short": "Sidnummer",
+        "definition": "Sidnummer",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "createform.form.currentPage.subject",
+        "path": "createform.form.currentPage.subject",
+        "short": "Sidans rubrik",
+        "definition": "Sidans rubrik",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "createform.form.currentPage.lastPage",
+        "path": "createform.form.currentPage.lastPage",
+        "short": "Indikerar om detta är sista sidan",
+        "definition": "Indikerar om detta är sista sidan",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,603 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getemployee",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/getemployee",
+  "name": "GetEmployee",
+  "title": "GetEmployee",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetEmployee\n(RIV-TA urn:riv:infrastructure:directory:employee:GetEmployee:4).\nRepresenterar responsens informationsstruktur.\nÄr identisk med GetEmployeeIncludingProtectedPerson förutom att skyddade personer\naldrig returneras — fältet protectedPerson returneras alltså aldrig.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/getemployee",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getemployee",
+        "path": "getemployee",
+        "short": "GetEmployee",
+        "definition": "Logisk modell för tjänstekontraktet GetEmployee\n(RIV-TA urn:riv:infrastructure:directory:employee:GetEmployee:4).\nRepresenterar responsens informationsstruktur.\nÄr identisk med GetEmployeeIncludingProtectedPerson förutom att skyddade personer\naldrig returneras — fältet protectedPerson returneras alltså aldrig."
+      },
+      {
+        "id": "getemployee.personInformation",
+        "path": "getemployee.personInformation",
+        "short": "Information om personen",
+        "definition": "Information om personen. Om personen har flera person-objekt returneras en instans per objekt.\nSkyddade personer returneras aldrig i detta kontrakt.\nKardinalitet: 0..*.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.personHsaId",
+        "path": "getemployee.personInformation.personHsaId",
+        "short": "Personens HSA-id",
+        "definition": "Personens HSA-id. Ref. HSA-id (hsaIdentity) [R5]. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.givenName",
+        "path": "getemployee.personInformation.givenName",
+        "short": "Tilltalsnamn",
+        "definition": "Tilltalsnamn. Ref. tilltalsnamn (givenName, gn) [R5]. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.middleAndSurName",
+        "path": "getemployee.personInformation.middleAndSurName",
+        "short": "Mellan- och Efternamn",
+        "definition": "Mellan- och Efternamn separerade med mellanslag. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.nickName",
+        "path": "getemployee.personInformation.nickName",
+        "short": "Smeknamn",
+        "definition": "Smeknamn. Får ej användas för presentation, endast för sökning. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.mail",
+        "path": "getemployee.personInformation.mail",
+        "short": "E-postadress",
+        "definition": "E-postadress",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.telephoneNumber",
+        "path": "getemployee.personInformation.telephoneNumber",
+        "short": "Publikt direkttelefonnummer",
+        "definition": "Publikt direkttelefonnummer",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.switchboardNumber",
+        "path": "getemployee.personInformation.switchboardNumber",
+        "short": "Telefonnummer till växel",
+        "definition": "Telefonnummer till växel",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.nonPublicTelephoneNumber",
+        "path": "getemployee.personInformation.nonPublicTelephoneNumber",
+        "short": "Tjänstetelefonnummer",
+        "definition": "Tjänstetelefonnummer",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.mobileNumber",
+        "path": "getemployee.personInformation.mobileNumber",
+        "short": "Mobiltelefonnummer",
+        "definition": "Mobiltelefonnummer",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.facsimileTelephoneNumber",
+        "path": "getemployee.personInformation.facsimileTelephoneNumber",
+        "short": "Faxnummer",
+        "definition": "Faxnummer",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.telephoneHour",
+        "path": "getemployee.personInformation.telephoneHour",
+        "short": "Telefontider",
+        "definition": "Telefontider",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.telephoneHour.fromDay",
+        "path": "getemployee.personInformation.telephoneHour.fromDay",
+        "short": "Från dag (1=Måndag, 7=Söndag)",
+        "definition": "Från dag (1=Måndag, 7=Söndag)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.telephoneHour.fromTime",
+        "path": "getemployee.personInformation.telephoneHour.fromTime",
+        "short": "Från tid (ISO-8601)",
+        "definition": "Från tid (ISO-8601)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.telephoneHour.toDay",
+        "path": "getemployee.personInformation.telephoneHour.toDay",
+        "short": "Till dag (1=Måndag, 7=Söndag)",
+        "definition": "Till dag (1=Måndag, 7=Söndag)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.telephoneHour.toTime",
+        "path": "getemployee.personInformation.telephoneHour.toTime",
+        "short": "Till tid (ISO-8601)",
+        "definition": "Till tid (ISO-8601)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.telephoneHour.comment",
+        "path": "getemployee.personInformation.telephoneHour.comment",
+        "short": "Information om aktuellt tidsintervall",
+        "definition": "Information om aktuellt tidsintervall",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.telephoneHour.fromDate",
+        "path": "getemployee.personInformation.telephoneHour.fromDate",
+        "short": "Gäller från och med detta datum",
+        "definition": "Gäller från och med detta datum",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.telephoneHour.toDate",
+        "path": "getemployee.personInformation.telephoneHour.toDate",
+        "short": "Gäller till och med detta datum",
+        "definition": "Gäller till och med detta datum",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.postalAddress",
+        "path": "getemployee.personInformation.postalAddress",
+        "short": "Postadress (ostrukturerat format)",
+        "definition": "Postadress (ostrukturerat format)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.postalAddress.addressLine",
+        "path": "getemployee.personInformation.postalAddress.addressLine",
+        "short": "Adressrad",
+        "definition": "Adressrad",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.structuredPostalAddress",
+        "path": "getemployee.personInformation.structuredPostalAddress",
+        "short": "Postadress (strukturerat format)",
+        "definition": "Postadress (strukturerat format)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.structuredPostalAddress.addressee",
+        "path": "getemployee.personInformation.structuredPostalAddress.addressee",
+        "short": "Adressat",
+        "definition": "Adressat",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.structuredPostalAddress.street",
+        "path": "getemployee.personInformation.structuredPostalAddress.street",
+        "short": "Gata",
+        "definition": "Gata",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.structuredPostalAddress.premisesNumber",
+        "path": "getemployee.personInformation.structuredPostalAddress.premisesNumber",
+        "short": "Adressplatsnummer",
+        "definition": "Adressplatsnummer",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.structuredPostalAddress.premisesLetter",
+        "path": "getemployee.personInformation.structuredPostalAddress.premisesLetter",
+        "short": "Adressplatslittera",
+        "definition": "Adressplatslittera",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.structuredPostalAddress.postCode",
+        "path": "getemployee.personInformation.structuredPostalAddress.postCode",
+        "short": "Postnummer",
+        "definition": "Postnummer",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.structuredPostalAddress.town",
+        "path": "getemployee.personInformation.structuredPostalAddress.town",
+        "short": "Postort",
+        "definition": "Postort",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.description",
+        "path": "getemployee.personInformation.description",
+        "short": "Generell beskrivning",
+        "definition": "Generell beskrivning",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.title",
+        "path": "getemployee.personInformation.title",
+        "short": "Titel i fritext",
+        "definition": "Titel i fritext",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.healthCareProfessionalLicence",
+        "path": "getemployee.personInformation.healthCareProfessionalLicence",
+        "short": "Legitimerad yrkesgrupp",
+        "definition": "Legitimerad yrkesgrupp",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.healthCareProfessionalLicenceSpeciality",
+        "path": "getemployee.personInformation.healthCareProfessionalLicenceSpeciality",
+        "short": "Legitimerad yrkesgrupp och specialitet",
+        "definition": "Legitimerad yrkesgrupp och specialitet",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicence",
+        "path": "getemployee.personInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicence",
+        "short": "Kod för legitimerad yrkesgrupp",
+        "definition": "Kod för legitimerad yrkesgrupp",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.healthCareProfessionalLicenceSpeciality.specialityCode",
+        "path": "getemployee.personInformation.healthCareProfessionalLicenceSpeciality.specialityCode",
+        "short": "Kod för specialistutbildning",
+        "definition": "Kod för specialistutbildning",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.healthCareProfessionalLicenceSpeciality.specialityName",
+        "path": "getemployee.personInformation.healthCareProfessionalLicenceSpeciality.specialityName",
+        "short": "Klartext för specialistutbildning",
+        "definition": "Klartext för specialistutbildning",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.paTitle",
+        "path": "getemployee.personInformation.paTitle",
+        "short": "Personens befattning",
+        "definition": "Personens befattning",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.paTitle.paTitleName",
+        "path": "getemployee.personInformation.paTitle.paTitleName",
+        "short": "Befattning",
+        "definition": "Befattning",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.paTitle.paTitleCode",
+        "path": "getemployee.personInformation.paTitle.paTitleCode",
+        "short": "Befattningskod",
+        "definition": "Befattningskod",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.specialityName",
+        "path": "getemployee.personInformation.specialityName",
+        "short": "Specialistutbildning (klartext)",
+        "definition": "Specialistutbildning (klartext)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.specialityCode",
+        "path": "getemployee.personInformation.specialityCode",
+        "short": "Specialistutbildning (kod)",
+        "definition": "Specialistutbildning (kod)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.dn",
+        "path": "getemployee.personInformation.dn",
+        "short": "Distinguished Name (DN)",
+        "definition": "Distinguished Name — objektets placering (sökväg) i katalogen. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.feignedPerson",
+        "path": "getemployee.personInformation.feignedPerson",
+        "short": "true om personen är ett fingerat objekt",
+        "definition": "true om personen är ett fingerat objekt",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.age",
+        "path": "getemployee.personInformation.age",
+        "short": "Personens ålder i hela år (kräver profile=extended1)",
+        "definition": "Personens ålder i hela år (kräver profile=extended1)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployee.personInformation.gender",
+        "path": "getemployee.personInformation.gender",
+        "short": "Personens kön (0=okänt, 1=man, 2=kvinna; kräver profile=extended1)",
+        "definition": "Personens kön (0=okänt, 1=man, 2=kvinna; kräver profile=extended1)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "makebooking",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/makebooking",
+  "name": "MakeBooking",
+  "title": "MakeBooking",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet MakeBooking\n(RIV-TA urn:riv:crm:scheduling:MakeBooking:1).\nRepresenterar responsens informationsstruktur.\nTjänst för nybokning vid en vårdenhet.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/crm-scheduling/StructureDefinition/makebooking",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "makebooking",
+        "path": "makebooking",
+        "short": "MakeBooking",
+        "definition": "Logisk modell för tjänstekontraktet MakeBooking\n(RIV-TA urn:riv:crm:scheduling:MakeBooking:1).\nRepresenterar responsens informationsstruktur.\nTjänst för nybokning vid en vårdenhet."
+      },
+      {
+        "id": "makebooking.bookingId",
+        "path": "makebooking.bookingId",
+        "short": "Id för skapad bokning",
+        "definition": "Id för skapad bokning. Ska anges vid genomförd bokning (resultCode OK eller INFO), annars inte (ERROR).\nKardinalitet: Valfri (villkorlig).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "makebooking.resultCode",
+        "path": "makebooking.resultCode",
+        "short": "Status för den gjorda bokningen",
+        "definition": "ResultCodeEnum: Status för den gjorda bokningen.\nMöjliga värden: OK, INFO, ERROR.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "makebooking.resultText",
+        "path": "makebooking.resultText",
+        "short": "Ev. meddelande kopplat till resultatkoden",
+        "definition": "Fritext meddelande kopplat till resultatkoden.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

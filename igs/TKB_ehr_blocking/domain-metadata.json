@@ -1,0 +1,342 @@
+{
+  "domain_id": "ehr.blocking",
+  "domain_title": "ehr: blocking",
+  "domain_title_sv": "Spärrhantering",
+  "domain_version": "3.2.2",
+  "rivta_namespace_base": "urn:riv:ehr:blocking",
+  "bitbucket_slug": "riv.ehr.blocking",
+  "docx_converted_dir": "igs/TKB_ehr_blocking/docx-converted/",
+  "note": "Dokumentet har icke-standardstruktur: kapitel 1=Inledning, 2=Generella regler, 3-18=Kontrakt, 19-20=Datatyper. Ingen zip-fil på Bitbucket — hämtat via source API.",
+  "sections": {
+    "1_inledning": "igs/TKB_ehr_blocking/docx-converted/sections/1-inledning.md",
+    "2_generella_regler": "igs/TKB_ehr_blocking/docx-converted/sections/2-versionsinformation.md",
+    "datatyper": "igs/TKB_ehr_blocking/docx-converted/full-document.md"
+  },
+  "contracts": [
+    {
+      "section_number": "7.1",
+      "chapter_number": "3",
+      "id": "GetAllBlocks",
+      "display_name": "Läs alla spärrar",
+      "version": "2.0",
+      "subdomain": "querying",
+      "rivta_namespace": "urn:riv:ehr:blocking:querying:GetAllBlocksResponder:2",
+      "description": "Tjänst som läser alla nationellt kända/lagrade spärrar. Endast aktiva spärrar returneras (ej makulerade eller permanent hävda). Varje spärr kompletteras också med aktiva tillfälliga hävningar om sådana finns.",
+      "mandatory": "Obligatorisk för tjänsteproducent",
+      "request_fields": [
+        { "name": "careProviderIds", "type": "blocking:HsaId", "cardinality": "0..*", "description": "Ej obligatorisk lista med HSA-id på de vårdgivare vars spärrar skall hämtas." },
+        { "name": "createdOnOrAfter", "type": "xs:dateTime", "cardinality": "0..1", "description": "Ej obligatoriskt startdatum för hur gamla spärrobjekt som skall hämtas." }
+      ],
+      "response_fields": [
+        { "name": "getAllBlocks", "type": "blocking:BlockHeader", "cardinality": "1..1", "description": "Lista över funna spärrar som är aktiva." }
+      ]
+    },
+    {
+      "section_number": "7.2",
+      "chapter_number": "4",
+      "id": "GetAllBlocksForPatient",
+      "display_name": "Läs alla spärrar för patient",
+      "version": "2.0",
+      "subdomain": "querying",
+      "rivta_namespace": "urn:riv:ehr:blocking:querying:GetAllBlocksForPatientResponder:2",
+      "description": "Tjänst som läser alla nationellt kända/lagrade spärrar för en viss patient, samt för viss organisation eller oavsett organisation.",
+      "mandatory": "Obligatorisk för tjänsteproducent",
+      "request_fields": [
+        { "name": "patientId", "type": "blocking:PersonIdValue", "cardinality": "1..1", "description": "Patientens personnummer eller samordningsnummer vars spärrar skall hämtas." },
+        { "name": "careProviderIds", "type": "blocking:HsaId", "cardinality": "0..*", "description": "Ej obligatorisk lista med HSA-id på de vårdgivare vars spärrar skall hämtas." },
+        { "name": "createdOnOrAfter", "type": "xs:dateTime", "cardinality": "0..1", "description": "Ej obligatoriskt startdatum för hur gamla spärrobjekt som skall hämtas." }
+      ],
+      "response_fields": [
+        { "name": "getAllBlocksForPatient", "type": "blocking:BlockHeader", "cardinality": "1..1", "description": "Lista över funna spärrar som är aktiva för angiven patient." }
+      ]
+    },
+    {
+      "section_number": "7.3",
+      "chapter_number": "5",
+      "id": "GetPatientIds",
+      "display_name": "Läs patient-ID för spärrade patienter",
+      "version": "2.0",
+      "subdomain": "administration",
+      "rivta_namespace": "urn:riv:ehr:blocking:administration:GetPatientIdsResponder:2",
+      "description": "Tjänst som läser alla patienter med minst en aktivt spärr för en viss organisation.",
+      "mandatory": "Frivillig för tjänsteproducent",
+      "request_fields": [
+        { "name": "careProviderId", "type": "blocking:HsaId", "cardinality": "1..1", "description": "HSA-id på den vårdgivare vars spärrar skall hämtas." }
+      ],
+      "response_fields": [
+        { "name": "getPatientIds", "type": "administration:GetPatientIdResult", "cardinality": "1..1", "description": "Lista över unika patienter som har aktiva spärrar." }
+      ]
+    },
+    {
+      "section_number": "7.4",
+      "chapter_number": "6",
+      "id": "GetBlocks",
+      "display_name": "Läs spärrar för vårdgivare",
+      "version": "2.0",
+      "subdomain": "querying",
+      "rivta_namespace": "urn:riv:ehr:blocking:querying:GetBlocksResponder:2",
+      "description": "Tjänst som läser alla registrerade spärrar för en viss organisation.",
+      "mandatory": "Obligatorisk för tjänsteproducent",
+      "request_fields": [
+        { "name": "careProviderId", "type": "blocking:HsaId", "cardinality": "1..1", "description": "HSA-id på de vårdgivare vars spärrar skall hämtas." },
+        { "name": "createdOnOrAfter", "type": "xs:dateTime", "cardinality": "0..1", "description": "Ej obligatoriskt startdatum för hur gamla spärrobjekt som skall hämtas." }
+      ],
+      "response_fields": [
+        { "name": "getBlocks", "type": "blocking:BlockHeader", "cardinality": "1..1", "description": "Lista över funna spärrar som är aktiva." }
+      ]
+    },
+    {
+      "section_number": "7.5",
+      "chapter_number": "7",
+      "id": "GetBlocksForPatient",
+      "display_name": "Läs spärrar för patient och vårdgivare",
+      "version": "2.0",
+      "subdomain": "querying",
+      "rivta_namespace": "urn:riv:ehr:blocking:querying:GetBlocksForPatientResponder:2",
+      "description": "Tjänst som läser alla spärrar för en viss patient, samt för viss organisation.",
+      "mandatory": "Obligatorisk för tjänsteproducent",
+      "request_fields": [
+        { "name": "patientId", "type": "blocking:PersonIdValue", "cardinality": "1..1", "description": "Patientens personnummer eller samordningsnummer vars spärrar skall hämtas." },
+        { "name": "careProviderId", "type": "blocking:HsaId", "cardinality": "1..1", "description": "HSA-id på den vårdgivare vars spärrar skall hämtas." },
+        { "name": "createdOnOrAfter", "type": "xs:dateTime", "cardinality": "0..1", "description": "Ej obligatoriskt startdatum för hur gamla spärrobjekt som skall hämtas." }
+      ],
+      "response_fields": [
+        { "name": "getBlocksForPatient", "type": "blocking:BlockHeader", "cardinality": "1..1", "description": "Lista över funna spärrar som är aktiva för angiven patient." }
+      ]
+    },
+    {
+      "section_number": "7.6",
+      "chapter_number": "8",
+      "id": "GetExtendedBlocksForPatient",
+      "display_name": "Läs utökade spärrar för patient",
+      "version": "2.0",
+      "subdomain": "administration",
+      "rivta_namespace": "urn:riv:ehr:blocking:administration:GetExtendedBlocksForPatientResponder:2",
+      "description": "Tjänst som läser spärrar för en viss patient med utökad information (t.ex. aktörsinformation).",
+      "mandatory": "Frivillig för tjänsteproducent",
+      "request_fields": [
+        { "name": "patientId", "type": "blocking:PersonIdValue", "cardinality": "1..1", "description": "Patientens personnummer eller samordningsnummer vars spärrar skall hämtas." }
+      ],
+      "response_fields": [
+        { "name": "getExtendedBlocksForPatient", "type": "administration:GetExtendedBlocksResult", "cardinality": "1..1", "description": "Lista med utökad spärrinformation för angiven patient." }
+      ]
+    },
+    {
+      "section_number": "7.7",
+      "chapter_number": "9",
+      "id": "CheckBlocks",
+      "display_name": "Kontrollera spärr",
+      "version": "3.0",
+      "subdomain": "accesscontrol",
+      "rivta_namespace": "urn:riv:ehr:blocking:accesscontrol:CheckBlocksResponder:3",
+      "description": "Tjänst som kontrollerar om spärr finns relativ viss personal/vårdenhet och information.",
+      "mandatory": "Obligatorisk för tjänsteproducent",
+      "request_fields": [
+        { "name": "accessingActor", "type": "blocking.accesscontrol:AccessingActor", "cardinality": "1..1", "description": "Aktör (personal/vårdenhet) som vill ha åtkomst till information." },
+        { "name": "informationEntities", "type": "blocking.accesscontrol:InformationEntity", "cardinality": "1..*", "description": "Lista med de informationsresurser som åtkomst begärs till." }
+      ],
+      "response_fields": [
+        { "name": "checkBlocksResult", "type": "blocking.accesscontrol:CheckBlocksResult", "cardinality": "1..1", "description": "Resultatlista per informationsresurs." }
+      ]
+    },
+    {
+      "section_number": "7.8",
+      "chapter_number": "10",
+      "id": "RegisterBlock",
+      "display_name": "Registrera spärr",
+      "version": "2.0",
+      "subdomain": "synchronization",
+      "rivta_namespace": "urn:riv:ehr:blocking:synchronization:RegisterBlockResponder:2",
+      "description": "Tjänst för att registrera en grundläggande spärr i nationell spärrtjänst.",
+      "mandatory": "Obligatorisk för tjänsteproducent",
+      "request_fields": [
+        { "name": "block", "type": "blocking:Block", "cardinality": "1..1", "description": "Spärrobjektet som skall registreras." }
+      ],
+      "response_fields": [
+        { "name": "result", "type": "blocking:Result", "cardinality": "1..1", "description": "Resultat av registreringen." }
+      ]
+    },
+    {
+      "section_number": "7.9",
+      "chapter_number": "11",
+      "id": "UnregisterBlock",
+      "display_name": "Avregistrera spärr",
+      "version": "2.0",
+      "subdomain": "synchronization",
+      "rivta_namespace": "urn:riv:ehr:blocking:synchronization:UnregisterBlockResponder:2",
+      "description": "Tjänst för att avregistrera en spärr från nationell spärrtjänst.",
+      "mandatory": "Obligatorisk för tjänsteproducent",
+      "request_fields": [
+        { "name": "blockId", "type": "blocking:Id", "cardinality": "1..1", "description": "Unik identifierare för spärren som skall avregistreras." }
+      ],
+      "response_fields": [
+        { "name": "result", "type": "blocking:Result", "cardinality": "1..1", "description": "Resultat av avregistreringen." }
+      ]
+    },
+    {
+      "section_number": "7.10",
+      "chapter_number": "12",
+      "id": "RegisterTemporaryRevoke",
+      "display_name": "Registrera tillfällig hävning",
+      "version": "2.0",
+      "subdomain": "synchronization",
+      "rivta_namespace": "urn:riv:ehr:blocking:synchronization:RegisterTemporaryRevokeResponder:2",
+      "description": "Tjänst för att registrera en tillfällig hävning av en spärr i nationell spärrtjänst.",
+      "mandatory": "Obligatorisk för tjänsteproducent",
+      "request_fields": [
+        { "name": "temporaryRevoke", "type": "blocking:TemporaryRevoke", "cardinality": "1..1", "description": "Den tillfälliga hävningen som skall registreras." }
+      ],
+      "response_fields": [
+        { "name": "result", "type": "blocking:Result", "cardinality": "1..1", "description": "Resultat av registreringen." }
+      ]
+    },
+    {
+      "section_number": "7.11",
+      "chapter_number": "13",
+      "id": "UnregisterTemporaryRevoke",
+      "display_name": "Avregistrera tillfällig hävning",
+      "version": "2.0",
+      "subdomain": "synchronization",
+      "rivta_namespace": "urn:riv:ehr:blocking:synchronization:UnregisterTemporaryRevokeResponder:2",
+      "description": "Tjänst för att avregistrera en tillfällig hävning från nationell spärrtjänst.",
+      "mandatory": "Obligatorisk för tjänsteproducent",
+      "request_fields": [
+        { "name": "temporaryRevokeId", "type": "blocking:Id", "cardinality": "1..1", "description": "Unik identifierare för tillfällig hävning som skall avregistreras." }
+      ],
+      "response_fields": [
+        { "name": "result", "type": "blocking:Result", "cardinality": "1..1", "description": "Resultat av avregistreringen." }
+      ]
+    },
+    {
+      "section_number": "7.12",
+      "chapter_number": "14",
+      "id": "RegisterExtendedBlock",
+      "display_name": "Registrera utökad spärr",
+      "version": "2.0",
+      "subdomain": "administration",
+      "rivta_namespace": "urn:riv:ehr:blocking:administration:RegisterExtendedBlockResponder:2",
+      "description": "Tjänst för att registrera en spärr med utökad information (aktörsdata, tidsstämplar m.m.).",
+      "mandatory": "Obligatorisk för tjänsteproducent",
+      "request_fields": [
+        { "name": "extendedBlock", "type": "administration:ExtendedBlock", "cardinality": "1..1", "description": "Utökat spärrobjekt med komplett metadata." }
+      ],
+      "response_fields": [
+        { "name": "result", "type": "blocking:Result", "cardinality": "1..1", "description": "Resultat av registreringen." }
+      ]
+    },
+    {
+      "section_number": "7.13",
+      "chapter_number": "15",
+      "id": "RevokeExtendedBlock",
+      "display_name": "Häv spärr permanent",
+      "version": "2.0",
+      "subdomain": "administration",
+      "rivta_namespace": "urn:riv:ehr:blocking:administration:RevokeExtendedBlockResponder:2",
+      "description": "Tjänst för att permanent häva en spärr (lokal spärrtjänst).",
+      "mandatory": "Obligatorisk för tjänsteproducent",
+      "request_fields": [
+        { "name": "blockId", "type": "blocking:Id", "cardinality": "1..1", "description": "Unik identifierare för spärren som skall hävas." },
+        { "name": "action", "type": "blocking:Action", "cardinality": "1..1", "description": "Aktörsinformation för den som häver spärren." }
+      ],
+      "response_fields": [
+        { "name": "result", "type": "blocking:Result", "cardinality": "1..1", "description": "Resultat av hävningen." }
+      ]
+    },
+    {
+      "section_number": "7.14",
+      "chapter_number": "16",
+      "id": "DeleteExtendedBlock",
+      "display_name": "Makulera spärr",
+      "version": "2.0",
+      "subdomain": "administration",
+      "rivta_namespace": "urn:riv:ehr:blocking:administration:DeleteExtendedBlockResponder:2",
+      "description": "Tjänst för att makulera (ta bort) en spärr i lokal spärrtjänst.",
+      "mandatory": "Frivillig för tjänsteproducent",
+      "request_fields": [
+        { "name": "blockId", "type": "blocking:Id", "cardinality": "1..1", "description": "Unik identifierare för spärren som skall makuleras." },
+        { "name": "action", "type": "blocking:Action", "cardinality": "1..1", "description": "Aktörsinformation för den som makulerar spärren." }
+      ],
+      "response_fields": [
+        { "name": "result", "type": "blocking:Result", "cardinality": "1..1", "description": "Resultat av makuleringen." }
+      ]
+    },
+    {
+      "section_number": "7.15",
+      "chapter_number": "17",
+      "id": "RegisterTemporaryExtendedRevoke",
+      "display_name": "Registrera tillfällig hävning (utökad)",
+      "version": "2.0",
+      "subdomain": "administration",
+      "rivta_namespace": "urn:riv:ehr:blocking:administration:RegisterTemporaryExtendedRevokeResponder:2",
+      "description": "Tjänst för att registrera en tillfällig hävning med utökad information i lokal spärrtjänst.",
+      "mandatory": "Obligatorisk för tjänsteproducent",
+      "request_fields": [
+        { "name": "extendedTemporaryRevoke", "type": "administration:ExtendedTemporaryRevoke", "cardinality": "1..1", "description": "Utökad tillfällig hävning med komplett metadata." }
+      ],
+      "response_fields": [
+        { "name": "result", "type": "blocking:Result", "cardinality": "1..1", "description": "Resultat av registreringen." }
+      ]
+    },
+    {
+      "section_number": "7.16",
+      "chapter_number": "18",
+      "id": "CancelTemporaryExtendedRevoke",
+      "display_name": "Återkalla tillfällig hävning",
+      "version": "2.0",
+      "subdomain": "administration",
+      "rivta_namespace": "urn:riv:ehr:blocking:administration:CancelTemporaryExtendedRevokeResponder:2",
+      "description": "Tjänst för att återkalla en tillfällig hävning i lokal spärrtjänst.",
+      "mandatory": "Obligatorisk för tjänsteproducent",
+      "request_fields": [
+        { "name": "temporaryRevokeId", "type": "blocking:Id", "cardinality": "1..1", "description": "Unik identifierare för den tillfälliga hävning som skall återkallas." },
+        { "name": "action", "type": "blocking:Action", "cardinality": "1..1", "description": "Aktörsinformation för den som återkallar hävningen." }
+      ],
+      "response_fields": [
+        { "name": "result", "type": "blocking:Result", "cardinality": "1..1", "description": "Resultat av återkallningen." }
+      ]
+    }
+  ],
+  "codesystems": [
+    {
+      "name": "ResultCode",
+      "slug": "resultcode",
+      "namespace": "urn:riv:ehr:blocking:2",
+      "description": "Svarskoder för spärrtjänsternas operationer",
+      "codes": [
+        { "code": "OK", "display": "OK", "definition": "Transaktionen har utförts enligt uppdraget." },
+        { "code": "INFO", "display": "Info", "definition": "Transaktionen har utförts, men det finns ett meddelande som konsumenten måste visa upp." },
+        { "code": "ERROR", "display": "Fel", "definition": "Transaktionen har INTE kunnat utföras p.g.a ett logiskt fel." },
+        { "code": "VALIDATIONERROR", "display": "Valideringsfel", "definition": "En eller flera inparametrar innehåller felaktiga värden." },
+        { "code": "ACCESSDENIED", "display": "Åtkomst nekad", "definition": "Behörighet saknas för att utföra begärd tjänst." },
+        { "code": "NOTFOUND", "display": "Hittades inte", "definition": "Angiven artifakt finns ej." },
+        { "code": "ALREADYEXISTS", "display": "Finns redan", "definition": "Angiven artifakt finns redan." },
+        { "code": "INVALIDSTATE", "display": "Ogiltigt tillstånd", "definition": "Tjänsten eller artifakten var i ett felaktigt tillstånd." }
+      ]
+    },
+    {
+      "name": "BlockType",
+      "slug": "blocktype",
+      "namespace": "urn:riv:ehr:blocking:2",
+      "description": "Typ av spärr",
+      "codes": [
+        { "code": "Inner", "display": "Inre spärr", "definition": "Representerar en inre spärr (inom vårdenhet)." },
+        { "code": "Outer", "display": "Yttre spärr", "definition": "Representerar en yttre spärr (inom vårdgivare)." }
+      ]
+    },
+    {
+      "name": "TemporaryRevokeReason",
+      "slug": "temporaryrevokereason",
+      "namespace": "urn:riv:ehr:blocking:2",
+      "description": "Orsak till tillfällig hävning av spärr",
+      "codes": [
+        { "code": "PatientsConsent", "display": "Patientens samtycke", "definition": "Patienten har givit sitt samtycke till en tillfällig hävning." },
+        { "code": "Emergency", "display": "Nödsituation", "definition": "Nödsituation föreligger. Patientens samtycke för en tillfällig hävning kunde ej inhämtas." }
+      ]
+    }
+  ],
+  "open_questions_from_parsing": [
+    "Dokumentet följer inte standard-TKB-formatet (kapitel 1-7). Kapitel 1=Inledning, 2=Generella regler, 3-18=Kontrakt, 19-20=Datatyper.",
+    "InformationTypeIdValue-typen anger giltiga värden 'lak' och 'upp' men dessa är inte definierade som ett formellt kodverk i XSD — dokumenterade som string med maxLength 6.",
+    "CheckBlocks version 3.0 medan övriga kontrakt är version 2.0 — två separata versioner av samma domän."
+  ]
+}

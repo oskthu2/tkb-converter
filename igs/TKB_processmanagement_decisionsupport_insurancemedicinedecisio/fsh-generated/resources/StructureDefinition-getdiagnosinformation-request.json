@@ -1,0 +1,57 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getdiagnosinformation-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/getdiagnosinformation-request",
+  "name": "GetDiagnosInformationRequest",
+  "title": "GetDiagnosInformation — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i GetDiagnosInformation.\n(RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetDiagnosInformation:1).\nAnges ej parametern diagnosKod returneras diagnosinformation för alla diagnoskoder.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/getdiagnosinformation-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getdiagnosinformation-request",
+        "path": "getdiagnosinformation-request",
+        "short": "GetDiagnosInformation — Request",
+        "definition": "Logisk modell för requestparametrar i GetDiagnosInformation.\n(RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetDiagnosInformation:1).\nAnges ej parametern diagnosKod returneras diagnosinformation för alla diagnoskoder."
+      },
+      {
+        "id": "getdiagnosinformation-request.diagnosKod",
+        "path": "getdiagnosinformation-request.diagnosKod",
+        "short": "Diagnoskod för filtrering av diagnosinformation",
+        "definition": "Anger om endast diagnosinformation skall hämtas för en eller ett antal diagnoskoder.\nAnges ej parametern returneras diagnosinformation för alla diagnoskoder.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosinformation-request.avenEjAktiva",
+        "path": "getdiagnosinformation-request.avenEjAktiva",
+        "short": "Anger om även inaktiv diagnosinformation skall hämtas",
+        "definition": "Anger om även ej aktiv diagnosinformation skall hämtas.\nAnges ej villkoret returneras endast aktiva.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      }
+    ]
+  }
+}

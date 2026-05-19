@@ -1,0 +1,70 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getfmb-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/getfmb-request",
+  "name": "GetFmbRequest",
+  "title": "GetFmb — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i GetFmb.\n(RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetFmb:1).\nAnges inga parametrar returneras samtliga aktiva underlag.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/getfmb-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getfmb-request",
+        "path": "getfmb-request",
+        "short": "GetFmb — Request",
+        "definition": "Logisk modell för requestparametrar i GetFmb.\n(RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetFmb:1).\nAnges inga parametrar returneras samtliga aktiva underlag."
+      },
+      {
+        "id": "getfmb-request.underlagsId",
+        "path": "getfmb-request.underlagsId",
+        "short": "Identifierare för ett specifikt beslutsunderlag",
+        "definition": "Anger om endast ett eller ett antal underlag skall hämtas och i så fall vilka.\nAnges inget underlagsId returneras alla underlag.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getfmb-request.diagnosKod",
+        "path": "getfmb-request.diagnosKod",
+        "short": "Diagnoskod för filtrering av beslutsunderlag",
+        "definition": "Anger om beslutsunderlag endast skall hämtas för en eller ett antal diagnoskoder.\nAnges med ICD-10-SE kodverket.\nAnges ingen diagnoskod returneras alla underlag.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getfmb-request.avenEjAktiva",
+        "path": "getfmb-request.avenEjAktiva",
+        "short": "Anger om även inaktiva beslutsunderlag skall hämtas",
+        "definition": "Anger om även ej aktiva beslutsunderlag skall hämtas.\nAnges ej attributet hämtas endast aktiva.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      }
+    ]
+  }
+}

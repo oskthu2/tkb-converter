@@ -1,0 +1,70 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getblocksforpatient-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/getblocksforpatient-request",
+  "name": "GetBlocksForPatientRequest",
+  "title": "GetBlocksForPatient — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i GetBlocksForPatient.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/getblocksforpatient-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getblocksforpatient-request",
+        "path": "getblocksforpatient-request",
+        "short": "GetBlocksForPatient — Request",
+        "definition": "Logisk modell för requestparametrar i GetBlocksForPatient."
+      },
+      {
+        "id": "getblocksforpatient-request.patientId",
+        "path": "getblocksforpatient-request.patientId",
+        "short": "Patientens personnummer eller samordningsnummer vars spärrar skall hämtas.",
+        "definition": "Patientens personnummer eller samordningsnummer vars spärrar skall hämtas.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getblocksforpatient-request.careProviderId",
+        "path": "getblocksforpatient-request.careProviderId",
+        "short": "HSA-id på den vårdgivare vars spärrar skall hämtas.",
+        "definition": "HSA-id på den vårdgivare vars spärrar skall hämtas.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getblocksforpatient-request.createdOnOrAfter",
+        "path": "getblocksforpatient-request.createdOnOrAfter",
+        "short": "Startdatum för inkrementell hämtning.",
+        "definition": "Startdatum för inkrementell hämtning.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

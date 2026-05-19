@@ -24,7 +24,16 @@
         "id": "getcarecontacts-request",
         "path": "getcarecontacts-request",
         "short": "GetCareContacts — Request",
-        "definition": "Logisk modell för requestparametrar i tjänstekontraktet GetCareContacts\n(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCareContacts:3).\nRepresenterar GetCareContactsType i GetCareContactsResponder_3.0.xsd."
+        "definition": "Logisk modell för requestparametrar i tjänstekontraktet GetCareContacts\n(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCareContacts:3).\nRepresenterar GetCareContactsType i GetCareContactsResponder_3.0.xsd.",
+        "constraint": [
+          {
+            "key": "getcarecontacts-sourcesystemhsaid-required",
+            "severity": "warning",
+            "human": "sourceSystemHSAId ska anges när careContactId är angivet",
+            "expression": "careContactId.exists() implies sourceSystemHSAId.exists()",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/getcarecontacts-request"
+          }
+        ]
       },
       {
         "id": "getcarecontacts-request.careUnitHSAId",

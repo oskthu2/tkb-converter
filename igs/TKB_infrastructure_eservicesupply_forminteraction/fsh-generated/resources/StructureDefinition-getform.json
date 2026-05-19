@@ -1,0 +1,282 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getform",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/StructureDefinition/getform",
+  "name": "GetForm",
+  "title": "GetForm",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetForm\n(RIV-TA urn:riv:infrastructure:eservicesupply:forminteraction:GetForm:2).\nRepresenterar responsens informationsstruktur — returnerar ett specifikt formulär med aktuell sida.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/StructureDefinition/getform",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getform",
+        "path": "getform",
+        "short": "GetForm",
+        "definition": "Logisk modell för tjänstekontraktet GetForm\n(RIV-TA urn:riv:infrastructure:eservicesupply:forminteraction:GetForm:2).\nRepresenterar responsens informationsstruktur — returnerar ett specifikt formulär med aktuell sida."
+      },
+      {
+        "id": "getform.form",
+        "path": "getform.form",
+        "short": "Formulär (FormType)",
+        "definition": "Det begärda formuläret inklusive aktuell sida.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.healthcare_CareGiver",
+        "path": "getform.form.healthcare_CareGiver",
+        "short": "Enhets-id vårdgivare",
+        "definition": "Ansvarig vårdgivare. HSA-id.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.healthcare_MedUnit",
+        "path": "getform.form.healthcare_MedUnit",
+        "short": "Enhets-id medicinskt ansvarig",
+        "definition": "Medicinsk ansvarig klinik. HSA-id.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.healthcare_facility_CareUnit",
+        "path": "getform.form.healthcare_facility_CareUnit",
+        "short": "Enhets-id vårdenhet",
+        "definition": "Vårdenheten som tillhandahåller formuläret. HSA-id.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.healthcare_facility_CareUnitName",
+        "path": "getform.form.healthcare_facility_CareUnitName",
+        "short": "Enhetsnamn",
+        "definition": "Vårdenhetens namn.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.clinicalProcessInterestId",
+        "path": "getform.form.clinicalProcessInterestId",
+        "short": "Hälsoärende-id",
+        "definition": "Globalt/nationellt hälsoärende ID.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.formStatus",
+        "path": "getform.form.formStatus",
+        "short": "Formulärstatus",
+        "definition": "Formulärets status: ONGOING, PENDING_COMPLETION eller COMPLETED.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/formstatus-vs"
+        }
+      },
+      {
+        "id": "getform.form.formID",
+        "path": "getform.form.formID",
+        "short": "Formulär-id",
+        "definition": "Formulärets unika ID (GUID).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.subjectOfCare",
+        "path": "getform.form.subjectOfCare",
+        "short": "Patient-id",
+        "definition": "Patienten formuläret avser. Personnummer format yyyymmddnnnn.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.expireDate",
+        "path": "getform.form.expireDate",
+        "short": "Giltighetsdatum",
+        "definition": "Formulärets giltighetstid.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.createdDateTime",
+        "path": "getform.form.createdDateTime",
+        "short": "Skapandedatum",
+        "definition": "Datum när formuläret skapades.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.lastSavedDate",
+        "path": "getform.form.lastSavedDate",
+        "short": "Senaste sparningsdatum",
+        "definition": "Datum för senaste temporärsparning.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.keepUntil",
+        "path": "getform.form.keepUntil",
+        "short": "Bevaras till",
+        "definition": "Datum för hur länge formuläret lagras.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.formTemplate",
+        "path": "getform.form.formTemplate",
+        "short": "Formulärmall",
+        "definition": "Referens till formulärmallen.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.formTemplate.templateId",
+        "path": "getform.form.formTemplate.templateId",
+        "short": "Mall-id",
+        "definition": "Typ av formulär.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.formTemplate.templateVersion",
+        "path": "getform.form.formTemplate.templateVersion",
+        "short": "Mallens version",
+        "definition": "Versionsnummer.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.currentPage",
+        "path": "getform.form.currentPage",
+        "short": "Aktuell sida (PageType)",
+        "definition": "Den aktuella sidan i formuläret att presentera för invånaren.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.currentPage.pageNumber",
+        "path": "getform.form.currentPage.pageNumber",
+        "short": "Sidnummer",
+        "definition": "Sidans nummer i formuläret.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getform.form.currentPage.lastPage",
+        "path": "getform.form.currentPage.lastPage",
+        "short": "Sista sidan",
+        "definition": "Indikerar om detta är den sista sidan i formuläret.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      }
+    ]
+  }
+}

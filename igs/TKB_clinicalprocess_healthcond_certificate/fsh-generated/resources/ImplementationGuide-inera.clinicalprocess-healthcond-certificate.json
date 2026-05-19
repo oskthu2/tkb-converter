@@ -1,0 +1,446 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "inera.clinicalprocess-healthcond-certificate",
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ImplementationGuide/inera.clinicalprocess-healthcond-certificate",
+  "version": "4.1-RC1",
+  "name": "clinicalprocesshealthcondcertificate",
+  "title": "clinicalprocess: healthcond: certificate",
+  "status": "draft",
+  "contact": [
+    {
+      "name": "Inera Arkitektur",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.inera.se"
+        }
+      ]
+    }
+  ],
+  "copyright": "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "packageId": "inera.clinicalprocess-healthcond-certificate",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.r4.core",
+      "version": "4.0.1",
+      "uri": "http://fhir.org/packages/hl7.fhir.r4.core/ImplementationGuide/hl7.fhir.r4.core",
+      "id": "hl7_fhir_r4_core"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "StructureDefinition/certificatestatusupdateforcare"
+        },
+        "name": "CertificateStatusUpdateForCare",
+        "description": "Logisk modell för tjänstekontraktet CertificateStatusUpdateForCare\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:CertificateStatusUpdateForCare:3).\nRepresenterar responsens informationsstruktur.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/certificatestatusupdateforcare-request"
+        },
+        "name": "CertificateStatusUpdateForCare — Request",
+        "description": "Logisk modell för requestparametrar i CertificateStatusUpdateForCare.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/createdraftcertificate"
+        },
+        "name": "CreateDraftCertificate",
+        "description": "Logisk modell för tjänstekontraktet CreateDraftCertificate\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:CreateDraftCertificate:3).\nRepresenterar responsens informationsstruktur — intygs-id på skapade intygsutkastet.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/createdraftcertificate-request"
+        },
+        "name": "CreateDraftCertificate — Request",
+        "description": "Logisk modell för requestparametrar i CreateDraftCertificate.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/errorid-cs"
+        },
+        "name": "Fel-ID",
+        "description": "Kodsystem för felkoder i ResultType.errorId enligt clinicalprocess:healthcond:certificate.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/errorid-vs"
+        },
+        "name": "Fel-ID — ValueSet",
+        "description": "Tillåtna felkoder i ResultType.errorId.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getcertificate"
+        },
+        "name": "GetCertificate",
+        "description": "Logisk modell för tjänstekontraktet GetCertificate\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:GetCertificate:2).\nRepresenterar responsens informationsstruktur — ett intyg med tillhörande metadata.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getcertificate-request"
+        },
+        "name": "GetCertificate — Request",
+        "description": "Logisk modell för requestparametrar i GetCertificate.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/handelskod-cs"
+        },
+        "name": "Händelsekod",
+        "description": "Kodsystem för händelsetyper i CertificateStatusUpdateForCare enligt clinicalprocess:healthcond:certificate.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/handelskod-vs"
+        },
+        "name": "Händelsekod — ValueSet",
+        "description": "Tillåtna händelsetyper i CertificateStatusUpdateForCare.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/listcertificatesforcare"
+        },
+        "name": "ListCertificatesForCare",
+        "description": "Logisk modell för tjänstekontraktet ListCertificatesForCare\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:ListCertificatesForCare:3).\nRepresenterar responsens lista med intyg för en patient på en enhet eller hos en vårdgivare.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/listcertificatesforcare-request"
+        },
+        "name": "ListCertificatesForCare — Request",
+        "description": "Logisk modell för requestparametrar i ListCertificatesForCare.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/listcertificatesforcarewithqa"
+        },
+        "name": "ListCertificatesForCareWithQA",
+        "description": "Logisk modell för tjänstekontraktet ListCertificatesForCareWithQA\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:ListCertificatesForCareWithQA:3).\nRepresenterar responsens lista med intyg inkl. händelser och ärendekommunikation.\nInkluderar både signerade, makulerade och intygsutkast.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/listcertificatesforcarewithqa-request"
+        },
+        "name": "ListCertificatesForCareWithQA — Request",
+        "description": "Logisk modell för requestparametrar i ListCertificatesForCareWithQA.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/listcertificatesforcitizan"
+        },
+        "name": "ListCertificatesForCitizen",
+        "description": "Logisk modell för tjänstekontraktet ListCertificatesForCitizen\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:ListCertificatesForCitizen:4).\nRepresenterar responsens lista med intyg för en invånare med alla statusar.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/listcertificatesforcitizan-request"
+        },
+        "name": "ListCertificatesForCitizen — Request",
+        "description": "Logisk modell för requestparametrar i ListCertificatesForCitizen.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/listsickleavesforcare"
+        },
+        "name": "ListSickLeavesForCare",
+        "description": "Logisk modell för tjänstekontraktet ListSickLeavesForCare\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:ListSickLeavesForCare:1).\nRepresenterar responsens lista med pågående sjukfall på en enhet.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/listsickleavesforcare-request"
+        },
+        "name": "ListSickLeavesForCare — Request",
+        "description": "Logisk modell för requestparametrar i ListSickLeavesForCare.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/part-cs"
+        },
+        "name": "Part",
+        "description": "Kodsystem för parter i intygshanteringsprocessen enligt clinicalprocess:healthcond:certificate.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/part-vs"
+        },
+        "name": "Part — ValueSet",
+        "description": "Tillåtna parter i intygshanteringsprocessen.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/registercertificate"
+        },
+        "name": "RegisterCertificate",
+        "description": "Logisk modell för tjänstekontraktet RegisterCertificate\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:RegisterCertificate:3).\nRepresenterar responsens informationsstruktur.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/registercertificate-request"
+        },
+        "name": "RegisterCertificate — Request",
+        "description": "Logisk modell för requestparametrar i RegisterCertificate.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/resultkod-cs"
+        },
+        "name": "Resultatkod",
+        "description": "Kodsystem för resultat av tjänsteanrop (ResultType) enligt clinicalprocess:healthcond:certificate.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/resultkod-vs"
+        },
+        "name": "Resultatkod — ValueSet",
+        "description": "Tillåtna resultatkoder för tjänsteanrop.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/revokecertificate"
+        },
+        "name": "RevokeCertificate",
+        "description": "Logisk modell för tjänstekontraktet RevokeCertificate\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:RevokeCertificate:2).\nRepresenterar responsens informationsstruktur.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/revokecertificate-request"
+        },
+        "name": "RevokeCertificate — Request",
+        "description": "Logisk modell för requestparametrar i RevokeCertificate.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/sendcertificatetorecipient"
+        },
+        "name": "SendCertificateToRecipient",
+        "description": "Logisk modell för tjänstekontraktet SendCertificateToRecipient\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:SendCertificateToRecipient:2).\nRepresenterar responsens informationsstruktur.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/sendcertificatetorecipient-request"
+        },
+        "name": "SendCertificateToRecipient — Request",
+        "description": "Logisk modell för requestparametrar i SendCertificateToRecipient.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/sendmessagetocare"
+        },
+        "name": "SendMessageToCare",
+        "description": "Logisk modell för tjänstekontraktet SendMessageToCare\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:SendMessageToCare:2).\nRepresenterar responsens informationsstruktur.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/sendmessagetocare-request"
+        },
+        "name": "SendMessageToCare — Request",
+        "description": "Logisk modell för requestparametrar i SendMessageToCare (meddelande från intygsmottagare till vården).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/sendmessagetorecipient"
+        },
+        "name": "SendMessageToRecipient",
+        "description": "Logisk modell för tjänstekontraktet SendMessageToRecipient\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:SendMessageToRecipient:2).\nRepresenterar responsens informationsstruktur.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/sendmessagetorecipient-request"
+        },
+        "name": "SendMessageToRecipient — Request",
+        "description": "Logisk modell för requestparametrar i SendMessageToRecipient (meddelande från vården till intygsmottagare).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/setcertificatestatus"
+        },
+        "name": "SetCertificateStatus",
+        "description": "Logisk modell för tjänstekontraktet SetCertificateStatus\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:SetCertificateStatus:2).\nRepresenterar responsens informationsstruktur.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/setcertificatestatus-request"
+        },
+        "name": "SetCertificateStatus — Request",
+        "description": "Logisk modell för requestparametrar i SetCertificateStatus.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/statuskod-cs"
+        },
+        "name": "Statuskod",
+        "description": "Kodsystem för intygsstatus i SetCertificateStatus och GetCertificate enligt clinicalprocess:healthcond:certificate.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/statuskod-vs"
+        },
+        "name": "Statuskod — ValueSet",
+        "description": "Tillåtna statuskoder för intyg i SetCertificateStatus.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/amneskod-cs"
+        },
+        "name": "Ämneskod",
+        "description": "Kodsystem för ämnen i ärendekommunikation enligt clinicalprocess:healthcond:certificate.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/amneskod-vs"
+        },
+        "name": "Ämneskod — ValueSet",
+        "description": "Tillåtna ämnen för ärendekommunikation i clinicalprocess:healthcond:certificate.",
+        "exampleBoolean": false
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Hem",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "1-inledning.html",
+          "title": "1 Inledning",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "2-versionsinformation.html",
+          "title": "2 Versionsinformation",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "3-tjanstedomanens-arkitektur.html",
+          "title": "3 Tjänstedomänens arkitektur",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "4-tjanstedomanens-krav-och-regler.html",
+          "title": "4 Tjänstedomänens krav och regler",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "5-tjanstedomanens-meddelandemodeller.html",
+          "title": "5 Tjänstedomänens meddelandemodeller",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "6-gemensamma-informationskomponenter.html",
+          "title": "6 Gemensamma informationskomponenter",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "7-tjanstekontrakt.html",
+          "title": "7 Tjänstekontrakt",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2024+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "draft"
+      },
+      {
+        "code": "show-inherited-invariants",
+        "value": "false"
+      },
+      {
+        "code": "apply-contact",
+        "value": "true"
+      },
+      {
+        "code": "apply-publisher",
+        "value": "true"
+      },
+      {
+        "code": "apply-version",
+        "value": "true"
+      },
+      {
+        "code": "apply-copyright",
+        "value": "true"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/amneskod-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/handelskod-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/statuskod-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/typavrelation-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/part-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/resultkod-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/errorid-cs"
+      }
+    ]
+  }
+}

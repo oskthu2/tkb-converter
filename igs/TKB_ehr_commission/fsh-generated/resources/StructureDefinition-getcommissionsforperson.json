@@ -1,0 +1,278 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getcommissionsforperson",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-commission/StructureDefinition/getcommissionsforperson",
+  "name": "GetCommissionsForPerson",
+  "title": "GetCommissionsForPerson",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetCommissionsForPerson\n(RIV-TA urn:riv:ehr:commission:GetCommissionsForPersonResponder:1).\nRepresenterar responsens informationsstruktur (GetCommissionsForPersonResult).\n\nTjänsten hämtar alla medarbetaruppdrag som personen är kopplad till,\nreturnerar det senast valda uppdraget och anger om ett uppdrag valts\ninom de senaste 12 timmarna.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-commission/StructureDefinition/getcommissionsforperson",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getcommissionsforperson",
+        "path": "getcommissionsforperson",
+        "short": "GetCommissionsForPerson",
+        "definition": "Logisk modell för tjänstekontraktet GetCommissionsForPerson\n(RIV-TA urn:riv:ehr:commission:GetCommissionsForPersonResponder:1).\nRepresenterar responsens informationsstruktur (GetCommissionsForPersonResult).\n\nTjänsten hämtar alla medarbetaruppdrag som personen är kopplad till,\nreturnerar det senast valda uppdraget och anger om ett uppdrag valts\ninom de senaste 12 timmarna."
+      },
+      {
+        "id": "getcommissionsforperson.result",
+        "path": "getcommissionsforperson.result",
+        "short": "Resultatkod och valfritt felmeddelande",
+        "definition": "Datatyp ResultType — returneras som generellt svar.\nEn anropande klient skall alltid kontrollera att resultatkoden inte\ninnehåller fel för att på så sätt veta om anropet lyckades.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionsforperson.result.resultCode",
+        "path": "getcommissionsforperson.result.resultCode",
+        "short": "Svarskod för åtgärden",
+        "definition": "Anger svarskod för åtgärden enligt ResultCode-kodverket.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-commission/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "getcommissionsforperson.result.resultText",
+        "path": "getcommissionsforperson.result.resultText",
+        "short": "Felmeddelande (tomt vid OK)",
+        "definition": "Optionellt felmeddelande som innehåller information om felet som uppstod.\nFältet är tomt om resultatkoden är OK.\nKardinalitet: Obligatorisk (men innehållet kan vara tomt sträng).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionsforperson.lastSelectedCommissionHsaId",
+        "path": "getcommissionsforperson.lastSelectedCommissionHsaId",
+        "short": "Senast valt uppdrag (HSA-id)",
+        "definition": "Personens senast valda medarbetaruppdrag (HSA-id).\nReturneras alltid, även om inget val gjorts de senaste 12 timmarna.\nMaxlängd: 32 tecken.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionsforperson.selectionPerformed",
+        "path": "getcommissionsforperson.selectionPerformed",
+        "short": "Uppdrag valt inom 12 timmar",
+        "definition": "Anger om ett uppdrag valts inom de senaste 12 timmarna.\nTKB-tabell anger kardinalitet 1 (obligatorisk) men XSD definierar minOccurs=0.\nASSUME: Modellerad som 0..1 (valfri) i enlighet med XSD — se QUESTIONS.md BLOCK-EC-001.\nKardinalitet: Valfri (XSD) / Obligatorisk (TKB-tabell).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionsforperson.commissions",
+        "path": "getcommissionsforperson.commissions",
+        "short": "Medarbetaruppdrag kopplade till personen",
+        "definition": "De medarbetaruppdrag som personen är kopplad till.\nDatatyp CommissionType.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "getcommissions-careprovider-xor",
+            "severity": "warning",
+            "human": "Antingen healthCareProviderHsaId eller healthCareProviderName ska anges",
+            "expression": "healthCareProviderHsaId.exists() or healthCareProviderName.exists()",
+            "source": "https://fhir.inera.se/ig/ehr-commission/StructureDefinition/getcommissionsforperson"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionsforperson.commissions.commissionHsaId",
+        "path": "getcommissionsforperson.commissions.commissionHsaId",
+        "short": "Medarbetaruppdragets HSA-id",
+        "definition": "Unikt HSA-id för medarbetaruppdraget. Maxlängd: 32 tecken.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionsforperson.commissions.commissionName",
+        "path": "getcommissionsforperson.commissions.commissionName",
+        "short": "Medarbetaruppdragets namn",
+        "definition": "Visningsnamn för medarbetaruppdraget.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionsforperson.commissions.commissionPurpose",
+        "path": "getcommissionsforperson.commissions.commissionPurpose",
+        "short": "Medarbetaruppdragets ändamål",
+        "definition": "Beskrivning av uppdragets syfte/ändamål.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionsforperson.commissions.healthCareUnitHsaId",
+        "path": "getcommissionsforperson.commissions.healthCareUnitHsaId",
+        "short": "HSA-id för vårdenhet enligt PDL",
+        "definition": "HSA-id för den vårdenhet som uppdraget är kopplat till, enligt PDL.\nMaxlängd: 32 tecken.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionsforperson.commissions.healthCareUnitName",
+        "path": "getcommissionsforperson.commissions.healthCareUnitName",
+        "short": "Vårdenhetens namn",
+        "definition": "Visningsnamn för vårdenheten.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionsforperson.commissions.healthCareUnitStartDate",
+        "path": "getcommissionsforperson.commissions.healthCareUnitStartDate",
+        "short": "Startdatum för vårdenhetens verksamhet",
+        "definition": "Datum då vårdenhetens verksamhet startade.\nFormat: ÅÅÅÅ-MM-DDTtt:mm:ss (ISO 8601, CET/CEST).\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionsforperson.commissions.healthCareUnitEndDate",
+        "path": "getcommissionsforperson.commissions.healthCareUnitEndDate",
+        "short": "Slutdatum för vårdenhetens verksamhet",
+        "definition": "Datum då vårdenhetens verksamhet upphörde.\nFormat: ÅÅÅÅ-MM-DDTtt:mm:ss (ISO 8601, CET/CEST).\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionsforperson.commissions.healthCareProviderHsaId",
+        "path": "getcommissionsforperson.commissions.healthCareProviderHsaId",
+        "short": "Vårdgivarens HSA-id",
+        "definition": "HSA-id för den vårdgivare som uppdraget är kopplat till.\nMaxlängd: 32 tecken.\nTKB-tabell anger kardinalitet 1 (obligatorisk) men XSD definierar minOccurs=0.\nASSUME: Modellerad som 0..1 i enlighet med XSD — se QUESTIONS.md BLOCK-EC-002.\nKardinalitet: Valfri (XSD) / Obligatorisk (TKB-tabell).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionsforperson.commissions.healthCareProviderName",
+        "path": "getcommissionsforperson.commissions.healthCareProviderName",
+        "short": "Vårdgivarens namn",
+        "definition": "Visningsnamn för vårdgivaren.\nTKB-tabell anger kardinalitet 1 (obligatorisk) men XSD definierar minOccurs=0.\nASSUME: Modellerad som 0..1 i enlighet med XSD — se QUESTIONS.md BLOCK-EC-002.\nKardinalitet: Valfri (XSD) / Obligatorisk (TKB-tabell).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionsforperson.commissions.healthCareProviderOrgNo",
+        "path": "getcommissionsforperson.commissions.healthCareProviderOrgNo",
+        "short": "Vårdgivarens organisationsnummer",
+        "definition": "Organisationsnummer för vårdgivaren.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionsforperson.commissions.healthCareProviderStartDate",
+        "path": "getcommissionsforperson.commissions.healthCareProviderStartDate",
+        "short": "Startdatum för vårdgivarens verksamhet",
+        "definition": "Datum då vårdgivarens verksamhet startade.\nFormat: ÅÅÅÅ-MM-DDTtt:mm:ss (ISO 8601, CET/CEST).\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionsforperson.commissions.healthCareProviderEndDate",
+        "path": "getcommissionsforperson.commissions.healthCareProviderEndDate",
+        "short": "Slutdatum för vårdgivarens verksamhet",
+        "definition": "Datum då vårdgivarens verksamhet upphörde.\nFormat: ÅÅÅÅ-MM-DDTtt:mm:ss (ISO 8601, CET/CEST).\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

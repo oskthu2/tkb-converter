@@ -1,0 +1,8 @@
+[GetCommissionMembers]: StructureDefinition-getcommissionmembers.html
+[GetCommissionMembersRequest]: StructureDefinition-getcommissionmembers-request.html
+[GetCommissionMembersIncludingProtectedPerson]: StructureDefinition-getcommissionmembersincludingprotectedperson.html
+[GetCommissionMembersIncludingProtectedPersonRequest]: StructureDefinition-getcommissionmembersincludingprotectedperson-request.html
+[GetEmployee]: StructureDefinition-getemployee.html
+[GetEmployeeRequest]: StructureDefinition-getemployee-request.html
+[GetEmployeeIncludingProtectedPerson]: StructureDefinition-getemployeeincludingprotectedperson.html
+[GetEmployeeIncludingProtectedPersonRequest]: StructureDefinition-getemployeeincludingprotectedperson-request.html

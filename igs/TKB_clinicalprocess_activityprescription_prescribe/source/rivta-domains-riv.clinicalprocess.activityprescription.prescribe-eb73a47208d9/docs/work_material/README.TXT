@@ -1,1 +1,0 @@
-Diagrams for TKB and VIS documents
