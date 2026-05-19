@@ -1,0 +1,109 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getcommissionmembers-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/getcommissionmembers-request",
+  "name": "GetCommissionMembersRequest",
+  "title": "GetCommissionMembers — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i tjänstekontraktet GetCommissionMembers\n(RIV-TA urn:riv:infrastructure:directory:employee:GetCommissionMembers:3).\nÄr identisk med GetCommissionMembersIncludingProtectedPersonRequest förutom att\nskyddade personer aldrig returneras.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/getcommissionmembers-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getcommissionmembers-request",
+        "path": "getcommissionmembers-request",
+        "short": "GetCommissionMembers — Request",
+        "definition": "Logisk modell för requestparametrar i tjänstekontraktet GetCommissionMembers\n(RIV-TA urn:riv:infrastructure:directory:employee:GetCommissionMembers:3).\nÄr identisk med GetCommissionMembersIncludingProtectedPersonRequest förutom att\nskyddade personer aldrig returneras."
+      },
+      {
+        "id": "getcommissionmembers-request.healthCareUnitHsaId",
+        "path": "getcommissionmembers-request.healthCareUnitHsaId",
+        "short": "HSA-id för vårdenhet (PDL)",
+        "definition": "HSA-id för vårdenhet enligt PDL.\nRef. HSA-id (hsaIdentity) [R5]. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers-request.commissionPurpose",
+        "path": "getcommissionmembers-request.commissionPurpose",
+        "short": "Vårdmedarbetaruppdragets ändamål",
+        "definition": "Vårdmedarbetaruppdragets ändamål enligt definierad värdemängd.\nRef. vårdmedarbetaruppdragets ändamål (hsaCommissionPurpose) [R5].\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers-request.commissionRights",
+        "path": "getcommissionmembers-request.commissionRights",
+        "short": "Vårdmedarbetaruppdragets rättigheter",
+        "definition": "Vårdmedarbetaruppdragets rättigheter enligt definierade värdemängder.\nSyntax: Aktivitet;Informationstyp;Omfång — alla delar behöver anges.\nRef. vårdmedarbetaruppdragets rättigheter (hsaCommissionRight) [R5].\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers-request.healthCareProfessionalLicense",
+        "path": "getcommissionmembers-request.healthCareProfessionalLicense",
+        "short": "Legitimerad yrkesgrupp (filter)",
+        "definition": "Legitimerad yrkesgrupp enligt definierad värdemängd. Används som filter.\nRef. legitimerad yrkesgrupp (hsaTitle) [R5]. Kardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers-request.searchBase",
+        "path": "getcommissionmembers-request.searchBase",
+        "short": "Sökbas (DN)",
+        "definition": "Sökbas. Om ingen sökbas anges används c=SE som sökbas. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers-request.includeFeignedObject",
+        "path": "getcommissionmembers-request.includeFeignedObject",
+        "short": "Inkludera fingerade objekt",
+        "definition": "true: om metoden ska leverera svar med fingerade objekt. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      }
+    ]
+  }
+}

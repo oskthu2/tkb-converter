@@ -681,3 +681,47 @@ SUSHI kördes och genererade 21 artefakter (14 logiska modeller, 3 CodeSystems, 
 - [ ] **[TODO-PC-001]** `igs/TKB_ehr_patientconsent/input/pagecontent/10-datatyper.md`
   Sidan `10-datatyper.md` skapades från `docx-converted/full-document.md` eftersom sektionsfilen saknades i `docx-converted/sections/` (konverteraren splittrade inte på kapitel 10). Kontrollera att innehållet är komplett och stämmer mot källdokumentet.
   Källa: TKB kapitel 10 (Datatyper).
+
+---
+
+## informatics.terminology v1.4
+
+**Status:** done (SUSHI 0 errors, 7 warnings)
+**Senast uppdaterad:** 2026-05-19
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-IT-001]** `igs/TKB_informatics_terminology/` · WSDL- och XSD-källfiler saknas i IG:n
+  Bitbucket API returnerade HTTP 429 (rate-limit) vid nedladdning av alla binärfiler (WSDL, XSD). Källfilerna finns i Bitbuckets repo men kunde inte kopieras till `input/files/`. Sidan `4-tjanstekontrakt.md` har en platshållarnotis istället för en filförteckning.
+  Åtgärd: Kör nedladdningen manuellt när rate-limit hävts:
+  ```bash
+  COMMIT="ad00410ceb4eee0f5da4f586729f18303ab2481e"
+  BASE="https://api.bitbucket.org/2.0/repositories/rivta-domains/riv.informatics.terminology/src/${COMMIT}"
+  # Ladda ner från schemas/interactions/ och schemas/core_components/
+  ```
+
+- [ ] **[BLOCK-IT-002]** `igs/TKB_informatics_terminology/` · GetTerminologySubsetVersion-kontraktet saknar TKB-dokumentation
+  Interaktionskatalogen innehåller en andra interaktion (`GetTerminologySubsetVersionInteraction_1.0_RIVTABP21.wsdl`) men TKB-dokumentet beskriver den inte alls. Oklart om kontraktet är aktivt, deprecated, eller avsett att dokumenteras i en separat TKB.
+  Åtgärd: Verifiera med domänansvarig om `GetTerminologySubsetVersion` ska inkluderas i IG:n.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-IT-001]** `igs/TKB_informatics_terminology/input/fsh/logical-models/GetTerminologySubsetRequest.fsh` · fält `termType`
+  Fältet `TermType` har ett fixt värde `DisplayName` enligt TKB. Antagandet gjordes att detta modelleras som en `string`-typ med dokumentation om det fasta värdet, snarare än som en explicit `fixed value`-bindning i FSH. En FSH fixed-value-constraint (`* termType = "DisplayName"`) skulle förhindra att fältet används med andra värden i framtida versioner.
+  Verifiera: Ska fixed value-constraint användas, eller är dokumentation tillräckligt?
+
+- [ ] **[ASSUME-IT-002]** `igs/TKB_informatics_terminology/domain-metadata.json` · domain_version
+  TKB-dokumentet saknar ett explicit versionsnummer — "TKB-version". Senaste revisionen är P1.4 daterad 2013-04-09. Versionsnumret `1.4` har antagits baserat på revisionsnummret P1.4 (P = preliminär/produktion, 1.4 = revisionsnummer).
+  Verifiera: Är `1.4` rätt versionsnummer att använda för IG:n?
+
+- [ ] **[ASSUME-IT-003]** `igs/TKB_informatics_terminology/input/fsh/logical-models/GetTerminologySubset.fsh` · fält `concept.codeSystem`
+  Fältet `ConceptType.CodeSystem` är modellerat som `string` (identifierare för kodsystem, t.ex. `ICD-10`, `SNOMED CT`, `ATC`). Alternativet vore `uri` eller `CodeableConcept`. Eftersom källsystemet skickar ett fritt identifikationsuttryck (inte en URI) valdes `string` som fallback.
+  Verifiera: Ska `codeSystem` vara `uri` för maskinläsbarhet, eller är `string` acceptabelt?
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-IT-001]** `igs/TKB_informatics_terminology/input/pagecontent/5-tillgangliga-urval.md`
+  Tabellen över tillgängliga SubsetId:n (6 kända värden) är statisk och daterad från 2013. Kontrollera om listan är aktuell och om fler urval har tillkommit i produktionssystemet. SubsetId:na är UUID:n och korresponderar mot Infektionsverktygets terminologier.
+
+- [ ] **[TODO-IT-002]** `igs/TKB_informatics_terminology/input/fsh/logical-models/GetTerminologySubset.fsh`
+  `metadata.name`-fältet är generiskt (`string`) men TKB nämner att metadata behövs för att veta vilka OpenEHR-template-delar som ska fyllas i. Om kända metadata-nycklar finns dokumenterade bör ett CodeSystem skapas för dessa. Verifiera med implementerande system vilka `Name`-värden som faktiskt förekommer i produktionen.

@@ -1,0 +1,460 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getcommissionmembers",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/getcommissionmembers",
+  "name": "GetCommissionMembers",
+  "title": "GetCommissionMembers",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetCommissionMembers\n(RIV-TA urn:riv:infrastructure:directory:employee:GetCommissionMembers:3).\nRepresenterar responsens informationsstruktur.\nÄr identisk med GetCommissionMembersIncludingProtectedPerson förutom att\nskyddade personer aldrig returneras — fältet protectedPerson returneras alltså aldrig.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/getcommissionmembers",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getcommissionmembers",
+        "path": "getcommissionmembers",
+        "short": "GetCommissionMembers",
+        "definition": "Logisk modell för tjänstekontraktet GetCommissionMembers\n(RIV-TA urn:riv:infrastructure:directory:employee:GetCommissionMembers:3).\nRepresenterar responsens informationsstruktur.\nÄr identisk med GetCommissionMembersIncludingProtectedPerson förutom att\nskyddade personer aldrig returneras — fältet protectedPerson returneras alltså aldrig."
+      },
+      {
+        "id": "getcommissionmembers.personInformation",
+        "path": "getcommissionmembers.personInformation",
+        "short": "Information om personen",
+        "definition": "Information om personen. En person (ett HSA-id) returneras bara en gång\näven om personen är medlem i flera matchande vårdmedarbetaruppdrag.\nSkyddade personer returneras aldrig i detta kontrakt.\nKardinalitet: 0..*.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.personHsaId",
+        "path": "getcommissionmembers.personInformation.personHsaId",
+        "short": "Personens HSA-id",
+        "definition": "Personens HSA-id. Ref. HSA-id (hsaIdentity) [R5]. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.givenName",
+        "path": "getcommissionmembers.personInformation.givenName",
+        "short": "Tilltalsnamn",
+        "definition": "Tilltalsnamn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.middleAndSurName",
+        "path": "getcommissionmembers.personInformation.middleAndSurName",
+        "short": "Mellan- och Efternamn",
+        "definition": "Mellan- och Efternamn",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.nickName",
+        "path": "getcommissionmembers.personInformation.nickName",
+        "short": "Smeknamn",
+        "definition": "Smeknamn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.personStartDate",
+        "path": "getcommissionmembers.personInformation.personStartDate",
+        "short": "Startdatum för personens anställning",
+        "definition": "Startdatum för personens anställning",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.personEndDate",
+        "path": "getcommissionmembers.personInformation.personEndDate",
+        "short": "Slutdatum för personens anställning",
+        "definition": "Slutdatum för personens anställning",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.mail",
+        "path": "getcommissionmembers.personInformation.mail",
+        "short": "E-postadress",
+        "definition": "E-postadress",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.telephoneNumber",
+        "path": "getcommissionmembers.personInformation.telephoneNumber",
+        "short": "Publikt direkttelefonnummer",
+        "definition": "Publikt direkttelefonnummer",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.switchboardNumber",
+        "path": "getcommissionmembers.personInformation.switchboardNumber",
+        "short": "Telefonnummer till växel",
+        "definition": "Telefonnummer till växel",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.nonPublicTelephoneNumber",
+        "path": "getcommissionmembers.personInformation.nonPublicTelephoneNumber",
+        "short": "Tjänstetelefonnummer",
+        "definition": "Tjänstetelefonnummer",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.mobileNumber",
+        "path": "getcommissionmembers.personInformation.mobileNumber",
+        "short": "Mobiltelefonnummer",
+        "definition": "Mobiltelefonnummer",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.facsimileTelephoneNumber",
+        "path": "getcommissionmembers.personInformation.facsimileTelephoneNumber",
+        "short": "Faxnummer",
+        "definition": "Faxnummer",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.telephoneHour",
+        "path": "getcommissionmembers.personInformation.telephoneHour",
+        "short": "Telefontider",
+        "definition": "Telefontider",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.telephoneHour.fromDay",
+        "path": "getcommissionmembers.personInformation.telephoneHour.fromDay",
+        "short": "Från dag (1=Måndag, 7=Söndag)",
+        "definition": "Från dag (1=Måndag, 7=Söndag)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.telephoneHour.fromTime",
+        "path": "getcommissionmembers.personInformation.telephoneHour.fromTime",
+        "short": "Från tid (ISO-8601)",
+        "definition": "Från tid (ISO-8601)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.telephoneHour.toDay",
+        "path": "getcommissionmembers.personInformation.telephoneHour.toDay",
+        "short": "Till dag (1=Måndag, 7=Söndag)",
+        "definition": "Till dag (1=Måndag, 7=Söndag)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.telephoneHour.toTime",
+        "path": "getcommissionmembers.personInformation.telephoneHour.toTime",
+        "short": "Till tid (ISO-8601)",
+        "definition": "Till tid (ISO-8601)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.telephoneHour.comment",
+        "path": "getcommissionmembers.personInformation.telephoneHour.comment",
+        "short": "Information om aktuellt tidsintervall",
+        "definition": "Information om aktuellt tidsintervall",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.telephoneHour.fromDate",
+        "path": "getcommissionmembers.personInformation.telephoneHour.fromDate",
+        "short": "Gäller från och med detta datum",
+        "definition": "Gäller från och med detta datum",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.telephoneHour.toDate",
+        "path": "getcommissionmembers.personInformation.telephoneHour.toDate",
+        "short": "Gäller till och med detta datum",
+        "definition": "Gäller till och med detta datum",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.title",
+        "path": "getcommissionmembers.personInformation.title",
+        "short": "Titel i fritext",
+        "definition": "Titel i fritext",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.healthCareProfessionalLicence",
+        "path": "getcommissionmembers.personInformation.healthCareProfessionalLicence",
+        "short": "Legitimerad yrkesgrupp",
+        "definition": "Legitimerad yrkesgrupp",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.paTitle",
+        "path": "getcommissionmembers.personInformation.paTitle",
+        "short": "Personens befattning",
+        "definition": "Personens befattning",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.paTitle.paTitleName",
+        "path": "getcommissionmembers.personInformation.paTitle.paTitleName",
+        "short": "Befattning",
+        "definition": "Befattning",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.paTitle.paTitleCode",
+        "path": "getcommissionmembers.personInformation.paTitle.paTitleCode",
+        "short": "Befattningskod",
+        "definition": "Befattningskod",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.specialityName",
+        "path": "getcommissionmembers.personInformation.specialityName",
+        "short": "Specialistutbildning (klartext)",
+        "definition": "Specialistutbildning (klartext)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.specialityCode",
+        "path": "getcommissionmembers.personInformation.specialityCode",
+        "short": "Specialistutbildning (kod)",
+        "definition": "Specialistutbildning (kod)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.healthCareProfessionalLicenceSpeciality",
+        "path": "getcommissionmembers.personInformation.healthCareProfessionalLicenceSpeciality",
+        "short": "Legitimerad yrkesgrupp och specialitet",
+        "definition": "Legitimerad yrkesgrupp och specialitet",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicence",
+        "path": "getcommissionmembers.personInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicence",
+        "short": "Kod för legitimerad yrkesgrupp",
+        "definition": "Kod för legitimerad yrkesgrupp",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.healthCareProfessionalLicenceSpeciality.specialityCode",
+        "path": "getcommissionmembers.personInformation.healthCareProfessionalLicenceSpeciality.specialityCode",
+        "short": "Kod för specialistutbildning",
+        "definition": "Kod för specialistutbildning",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.healthCareProfessionalLicenceSpeciality.specialityName",
+        "path": "getcommissionmembers.personInformation.healthCareProfessionalLicenceSpeciality.specialityName",
+        "short": "Klartext för specialistutbildning",
+        "definition": "Klartext för specialistutbildning",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembers.personInformation.feignedPerson",
+        "path": "getcommissionmembers.personInformation.feignedPerson",
+        "short": "true om personen är ett fingerat objekt",
+        "definition": "true om personen är ett fingerat objekt",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      }
+    ]
+  }
+}

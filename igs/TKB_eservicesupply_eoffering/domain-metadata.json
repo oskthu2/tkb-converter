@@ -1,0 +1,203 @@
+{
+  "domain_id": "eservicesupply.eoffering",
+  "domain_title": "eservicesupply: eoffering",
+  "domain_version": "1.0",
+  "rivta_namespace_base": "urn:riv:eservicesupply:eoffering",
+  "source_note": "No zip available in Bitbucket downloads. Source files fetched directly via Bitbucket source API from master branch (commit 4414f8292a4ed90dd29e707d022c90dd15920915). TKB document is in old .doc format (v0.3, 2011-04-18). Content extracted from raw binary and PDF.",
+  "docx_converted_dir": "igs/TKB_eservicesupply_eoffering/docx-converted/",
+  "sections": {
+    "note": "TKB is in old .doc format (not .docx), docx_to_md.py could not be run. Sections reconstructed from raw extraction and PDF."
+  },
+  "contracts": [
+    {
+      "section_number": "7.1",
+      "id": "GetAvailableEServices",
+      "display_name": "Hämta tillgängliga e-tjänster",
+      "version": "1.0",
+      "rivta_namespace": "urn:riv:eservicesupply:eoffering:GetAvailableEServicesResponder:1",
+      "description": "Tjänsten redovisar vilka e-tjänster en vårdenhet (HSA-ID) erbjuder. Tjänstekontraktets huvuddomän är 'eservicesupply', underdomänen är 'eoffering'. Alla e-tjänster är kopplade till en vårdenhet (HSA-ID). SLA-krav: < 3 sekunder under 95% av alla anrop, tillgänglighet 24x7 99,5%, 1 transaktion per sekund.",
+      "request_fields": [
+        {
+          "name": "logicalAddress",
+          "type": "string",
+          "cardinality": "1..1",
+          "description": "Adresseringsparameter. Adressen till tjänsteproducent."
+        },
+        {
+          "name": "healthcare_facility",
+          "type": "hsaIdType (string)",
+          "cardinality": "1..*",
+          "description": "Hsa-id för vårdenhet(er). Hsa-id måste vara ett giltigt hsa-id i HSA-katalogen."
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "availableEServices",
+          "type": "availableEServicesType",
+          "cardinality": "0..*",
+          "description": "Lista med e-tjänster per vårdenhet."
+        },
+        {
+          "name": "availableEServices.healthcare_facility",
+          "type": "healthcareFacilityInfoType",
+          "cardinality": "1..1",
+          "description": "Vårdenhet som erbjuder e-tjänster."
+        },
+        {
+          "name": "availableEServices.healthcare_facility.healthcare_facility",
+          "type": "hsaIdType (string)",
+          "cardinality": "1..1",
+          "description": "Vårdenhetens hsa-id."
+        },
+        {
+          "name": "availableEServices.healthcare_facility.healthcare_facility_name",
+          "type": "string",
+          "cardinality": "0..1",
+          "description": "Vårdenhetens namn. Utelämnas detta fält ska vårdenhetens namn hämtas från HSA-katalog."
+        },
+        {
+          "name": "availableEServices.eservice",
+          "type": "eServiceType",
+          "cardinality": "0..*",
+          "description": "Information om e-tjänsten."
+        },
+        {
+          "name": "availableEServices.eservice.commonName",
+          "type": "string",
+          "cardinality": "1..1",
+          "description": "E-tjänstens namn. Ex: Tidbokning."
+        },
+        {
+          "name": "availableEServices.eservice.description",
+          "type": "string",
+          "cardinality": "1..1",
+          "description": "Information om e-tjänsten. Kan innehålla beskrivningar och villkor för användandet av tjänsten (riktad mot användare/patient)."
+        },
+        {
+          "name": "availableEServices.eservice.resourceId",
+          "type": "string",
+          "cardinality": "1..1",
+          "description": "E-tjänstens id. Unikt id för e-tjänsten. Tjänsteproducentens unika id."
+        },
+        {
+          "name": "availableEServices.eservice.securitylevel",
+          "type": "securitylevelType (enum: AL1, AL2, AL3, AL4)",
+          "cardinality": "0..1",
+          "description": "Tjänstens krav på autentiseringsnivå (Assurance Level, ISO/IEC 29115). AL3 = Mjuka certifikat/stark autentisering med engångskod. AL4 = Hårda certifikat."
+        },
+        {
+          "name": "availableEServices.eservice.url",
+          "type": "anyURI",
+          "cardinality": "0..1",
+          "description": "URL till e-tjänst. URL måste kunna nås via internet. Ex: https://host/funktion?operation&param."
+        },
+        {
+          "name": "availableEServices.eservice.restrictions",
+          "type": "restrictionType",
+          "cardinality": "0..1",
+          "description": "Restriktioner för att använda e-tjänsten. En e-tjänst utan restriktioner är tillgänglig för alla."
+        },
+        {
+          "name": "availableEServices.eservice.restrictions.eserviceAreaCode",
+          "type": "eServiceAreaCodeType",
+          "cardinality": "0..1",
+          "description": "Betjäningsområde — geografiskt område e-tjänsten täcker (län, kommun, kommundel)."
+        },
+        {
+          "name": "availableEServices.eservice.restrictions.eserviceAreaCode.countycode",
+          "type": "string",
+          "cardinality": "1..*",
+          "description": "Länskod. Anger i vilka län e-tjänsten är tillgänglig/erbjuds."
+        },
+        {
+          "name": "availableEServices.eservice.restrictions.eserviceAreaCode.municipalityCode",
+          "type": "string",
+          "cardinality": "0..*",
+          "description": "Kommunkod. Avgränsar länskod. Visar i vilka specifika kommuner e-tjänsten erbjuds. Utelämnas denna gäller hela länet."
+        },
+        {
+          "name": "availableEServices.eservice.restrictions.eserviceAreaCode.municipalitySectionCode",
+          "type": "string",
+          "cardinality": "0..*",
+          "description": "Kommundelskod. Avgränsar kommunkod. Visar i vilka specifika kommundelar e-tjänsten erbjuds. Utelämnas denna gäller hela kommunen."
+        },
+        {
+          "name": "availableEServices.eservice.restrictions.gender",
+          "type": "genderType (string)",
+          "cardinality": "0..1",
+          "description": "E-tjänsten riktar sig till ett visst kön. 1 = Man, 2 = Kvinna."
+        },
+        {
+          "name": "availableEServices.eservice.restrictions.listing",
+          "type": "boolean",
+          "cardinality": "1..1",
+          "description": "Listningskrav. true = kräver listning, false = kräver ej listning."
+        },
+        {
+          "name": "availableEServices.eservice.restrictions.referal",
+          "type": "boolean",
+          "cardinality": "1..1",
+          "description": "Remisskrav. true = kräver remiss, false = kräver ej remiss."
+        },
+        {
+          "name": "availableEServices.eservice.restrictions.referalTypeId",
+          "type": "string",
+          "cardinality": "0..1",
+          "description": "Kodverk för remisstyper 1-8 (KV Framställantyp). Definiera vilken typ av remiss e-tjänsten kräver."
+        },
+        {
+          "name": "availableEServices.eservice.restrictions.ageMin",
+          "type": "integer",
+          "cardinality": "0..1",
+          "description": "Ålderskrav minimum (år)."
+        },
+        {
+          "name": "availableEServices.eservice.restrictions.ageMax",
+          "type": "integer",
+          "cardinality": "0..1",
+          "description": "Ålderskrav maximum (år)."
+        }
+      ],
+      "contract_specific_codesystems": [
+        {
+          "name": "SecurityLevel",
+          "oid": null,
+          "codes": [
+            {"code": "AL1", "display": "Tillitsnivå 1"},
+            {"code": "AL2", "display": "Tillitsnivå 2"},
+            {"code": "AL3", "display": "Tillitsnivå 3 — Mjuka certifikat, stark autentisering med engångskod"},
+            {"code": "AL4", "display": "Tillitsnivå 4 — Hårda certifikat"}
+          ]
+        },
+        {
+          "name": "Gender",
+          "oid": null,
+          "codes": [
+            {"code": "1", "display": "Man"},
+            {"code": "2", "display": "Kvinna"}
+          ]
+        }
+      ],
+      "wsdl_files": [
+        "GetAvailableEServicesInteraction_1.0_RIVTABP20.wsdl",
+        "GetAvailableEServicesInteraction_1.0_RIVTABP21.wsdl"
+      ],
+      "xsd_files": [
+        "eservicesupply_eoffering_1.0.xsd",
+        "GetAvailableEServicesResponder_1.0.xsd",
+        "itintegration_registry_1.0.xsd",
+        "ws-addressing-1.0.xsd"
+      ],
+      "doc_files": [
+        "TKB_eservicesupply_eoffering_v0.3.pdf",
+        "Erbjuden_e-tjanst_SAD_v1.0.docx"
+      ],
+      "open_questions_from_parsing": [
+        "Källdokument är i .doc-format (ej .docx) — docx_to_md.py kunde ej köras. Innehåll extraherat från rå binärläsning och PDF.",
+        "gender-fältet i restrictionType är av typen genderType (string utan enumeration i XSD), men TKB-texten anger värdena 1=Man, 2=Kvinna. Ska detta modelleras med ett domänspecifikt ValueSet?",
+        "referalTypeId refererar till KV Framställantyp — canonical URL för detta kodverk är okänd.",
+        "TKB version är 0.3 (utkast från 2011) — är detta den senaste publicerade versionen?"
+      ]
+    }
+  ]
+}

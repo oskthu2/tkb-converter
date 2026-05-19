@@ -1,0 +1,2 @@
+[GetTerminologySubset]: StructureDefinition-getterminologysubset.html
+[GetTerminologySubsetRequest]: StructureDefinition-getterminologysubset-request.html

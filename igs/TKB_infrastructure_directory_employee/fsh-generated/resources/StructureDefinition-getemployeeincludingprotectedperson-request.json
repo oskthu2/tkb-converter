@@ -1,0 +1,96 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getemployeeincludingprotectedperson-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/getemployeeincludingprotectedperson-request",
+  "name": "GetEmployeeIncludingProtectedPersonRequest",
+  "title": "GetEmployeeIncludingProtectedPerson — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i tjänstekontraktet GetEmployeeIncludingProtectedPerson\n(RIV-TA urn:riv:infrastructure:directory:employee:GetEmployeeIncludingProtectedPerson:4).\nOBS: Exakt ett av fälten personHsaId och personalIdentityNumber ska anges (*1).",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/getemployeeincludingprotectedperson-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getemployeeincludingprotectedperson-request",
+        "path": "getemployeeincludingprotectedperson-request",
+        "short": "GetEmployeeIncludingProtectedPerson — Request",
+        "definition": "Logisk modell för requestparametrar i tjänstekontraktet GetEmployeeIncludingProtectedPerson\n(RIV-TA urn:riv:infrastructure:directory:employee:GetEmployeeIncludingProtectedPerson:4).\nOBS: Exakt ett av fälten personHsaId och personalIdentityNumber ska anges (*1)."
+      },
+      {
+        "id": "getemployeeincludingprotectedperson-request.personHsaId",
+        "path": "getemployeeincludingprotectedperson-request.personHsaId",
+        "short": "Sökt persons HSA-id",
+        "definition": "Sökt persons HSA-id. Ref. HSA-id (hsaIdentity) [R5].\nKardinalitet: Villkorlig (*1) — exakt ett av personHsaId/personalIdentityNumber ska anges.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployeeincludingprotectedperson-request.personalIdentityNumber",
+        "path": "getemployeeincludingprotectedperson-request.personalIdentityNumber",
+        "short": "Sökt persons Person-id (personnummer eller samordningsnummer)",
+        "definition": "Sökt persons Person-id (personnummer eller samordningsnummer).\nRef. person-id (personalIdentityNumber) [R5].\nKardinalitet: Villkorlig (*1) — exakt ett av personHsaId/personalIdentityNumber ska anges.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployeeincludingprotectedperson-request.searchBase",
+        "path": "getemployeeincludingprotectedperson-request.searchBase",
+        "short": "Sökbas (DN)",
+        "definition": "Sökbas. Om ingen sökbas anges används c=SE som sökbas.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getemployeeincludingprotectedperson-request.includeFeignedObject",
+        "path": "getemployeeincludingprotectedperson-request.includeFeignedObject",
+        "short": "Inkludera fingerade objekt",
+        "definition": "true: om metoden ska leverera svar med fingerade objekt.\nUteblivet värde tolkas som false. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getemployeeincludingprotectedperson-request.profile",
+        "path": "getemployeeincludingprotectedperson-request.profile",
+        "short": "Profilval för returnerade attribut (BASIC, TITLE, CONTACT, FULL, extended1)",
+        "definition": "Anger vilka attribut som returneras i svaret.\nBASIC: personHsaId, givenName, middleAndSurName, nickname, dn, protectedPerson, feignedPerson.\nTITLE: Alla BASIC-attribut samt description, title, healthCareProfessionalLicence, m.fl.\nCONTACT: Alla BASIC-attribut samt mail, telefonnummer, adress m.fl.\nFULL: Alla BASIC-, TITLE- och CONTACT-attribut.\nextended1: Alla FULL-attribut samt age och gender.\nOm värdet utelämnas antas FULL.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

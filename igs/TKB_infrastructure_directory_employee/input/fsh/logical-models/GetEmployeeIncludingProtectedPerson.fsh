@@ -73,9 +73,9 @@ Characteristics: #can-be-target
     Ref. telefontid (telephoneHours) [R5]. Kardinalitet: Valfri, lista.
     """
 * personInformation.telephoneHour.fromDay 1..1 string "Från dag (1=Måndag, 7=Söndag)"
-* personInformation.telephoneHour.fromTime 1..1 time "Från tid (ISO-8601)"
+* personInformation.telephoneHour.fromTime 1..1 string "Från tid (ISO-8601)"
 * personInformation.telephoneHour.toDay 1..1 string "Till dag (1=Måndag, 7=Söndag)"
-* personInformation.telephoneHour.toTime 1..1 time "Till tid (ISO-8601)"
+* personInformation.telephoneHour.toTime 1..1 string "Till tid (ISO-8601)"
 * personInformation.telephoneHour.comment 0..1 string "Information om aktuellt tidsintervall"
 * personInformation.telephoneHour.fromDate 0..1 string "Gäller från och med detta datum"
 * personInformation.telephoneHour.toDate 0..1 string "Gäller till och med detta datum"

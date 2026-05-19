@@ -1,0 +1,473 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getcommissionmembersincludingprotectedperson",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/getcommissionmembersincludingprotectedperson",
+  "name": "GetCommissionMembersIncludingProtectedPerson",
+  "title": "GetCommissionMembersIncludingProtectedPerson",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetCommissionMembersIncludingProtectedPerson\n(RIV-TA urn:riv:infrastructure:directory:employee:GetCommissionMembersIncludingProtectedPerson:3).\nRepresenterar responsens informationsstruktur.\nReturnerar information om personer kopplade till vårdmedarbetaruppdrag för angiven\nvårdenhet, inklusive skyddade personer.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-directory-employee/StructureDefinition/getcommissionmembersincludingprotectedperson",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getcommissionmembersincludingprotectedperson",
+        "path": "getcommissionmembersincludingprotectedperson",
+        "short": "GetCommissionMembersIncludingProtectedPerson",
+        "definition": "Logisk modell för tjänstekontraktet GetCommissionMembersIncludingProtectedPerson\n(RIV-TA urn:riv:infrastructure:directory:employee:GetCommissionMembersIncludingProtectedPerson:3).\nRepresenterar responsens informationsstruktur.\nReturnerar information om personer kopplade till vårdmedarbetaruppdrag för angiven\nvårdenhet, inklusive skyddade personer."
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation",
+        "short": "Information om personen",
+        "definition": "Information om personen. En person (ett HSA-id) returneras bara en gång\näven om personen är medlem i flera matchande vårdmedarbetaruppdrag.\nKardinalitet: 0..*.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.personHsaId",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.personHsaId",
+        "short": "Personens HSA-id",
+        "definition": "Personens HSA-id. Ref. HSA-id (hsaIdentity) [R5]. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.givenName",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.givenName",
+        "short": "Tilltalsnamn",
+        "definition": "Tilltalsnamn. Ref. tilltalsnamn (givenName, gn) [R5]. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.middleAndSurName",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.middleAndSurName",
+        "short": "Mellan- och Efternamn",
+        "definition": "Mellan- och Efternamn separerade med mellanslag. Kardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.nickName",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.nickName",
+        "short": "Smeknamn",
+        "definition": "Smeknamn. Får ej användas för presentation, endast för sökning. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.personStartDate",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.personStartDate",
+        "short": "Startdatum för personens anställning",
+        "definition": "Eventuellt startdatum för personens anställning.\nOm startdatum ännu inte inträtt är anställningen ännu inte aktiv.\nRef. startdatum (startDate) [R5]. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.personEndDate",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.personEndDate",
+        "short": "Slutdatum för personens anställning",
+        "definition": "Eventuellt slutdatum för personens anställning.\nOm slutdatum passerats är anställningen inte längre aktiv.\nRef. slutdatum (endDate) [R5]. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.mail",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.mail",
+        "short": "E-postadress",
+        "definition": "E-postadress. Ref. e-postadress (mail) [R5]. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.telephoneNumber",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.telephoneNumber",
+        "short": "Publikt direkttelefonnummer",
+        "definition": "Publikt direkttelefonnummer. Ref. direkttelefon (telephoneNumber) [R5].\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.switchboardNumber",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.switchboardNumber",
+        "short": "Telefonnummer till växel",
+        "definition": "Telefonnummer till växel. Ref. växeltelefon (hsaSwitchboardNumber) [R5]. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.nonPublicTelephoneNumber",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.nonPublicTelephoneNumber",
+        "short": "Tjänstetelefonnummer",
+        "definition": "Tjänstetelefonnummer. Ref. tjänstetelefon (hsaTelephoneNumber) [R5].\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.mobileNumber",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.mobileNumber",
+        "short": "Mobiltelefonnummer",
+        "definition": "Mobiltelefonnummer. Ref. mobiltelefon (mobile) [R5]. Kardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.facsimileTelephoneNumber",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.facsimileTelephoneNumber",
+        "short": "Faxnummer",
+        "definition": "Faxnummer. Ref. fax (facsimileTelephoneNumber) [R5]. Kardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour",
+        "short": "Telefontider",
+        "definition": "Telefontider för publik telefon (telephoneNumber). Ref. telefontid (telephoneHours) [R5].",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.fromDay",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.fromDay",
+        "short": "Från dag (1=Måndag, 7=Söndag)",
+        "definition": "Från dag (1=Måndag, 7=Söndag)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.fromTime",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.fromTime",
+        "short": "Från tid (ISO-8601)",
+        "definition": "Från tid (ISO-8601)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.toDay",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.toDay",
+        "short": "Till dag (1=Måndag, 7=Söndag)",
+        "definition": "Till dag (1=Måndag, 7=Söndag)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.toTime",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.toTime",
+        "short": "Till tid (ISO-8601)",
+        "definition": "Till tid (ISO-8601)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.comment",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.comment",
+        "short": "Information om aktuellt tidsintervall",
+        "definition": "Information om aktuellt tidsintervall",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.fromDate",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.fromDate",
+        "short": "Gäller från och med detta datum",
+        "definition": "Gäller från och med detta datum",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.toDate",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.telephoneHour.toDate",
+        "short": "Gäller till och med detta datum",
+        "definition": "Gäller till och med detta datum",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.title",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.title",
+        "short": "Titel i fritext",
+        "definition": "Titel i fritext. Ref. titel (title) [R5]. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.healthCareProfessionalLicence",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.healthCareProfessionalLicence",
+        "short": "Legitimerad yrkesgrupp",
+        "definition": "Legitimerad yrkesgrupp. Ref. legitimerad yrkesgrupp (hsaTitle) [R5].\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.paTitle",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.paTitle",
+        "short": "Personens befattning",
+        "definition": "Personens befattning. Kardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.paTitle.paTitleName",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.paTitle.paTitleName",
+        "short": "Befattning",
+        "definition": "Befattning. Ref. befattning (paTitleName) [R5].",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.paTitle.paTitleCode",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.paTitle.paTitleCode",
+        "short": "Befattningskod",
+        "definition": "Befattningskod. Ref. befattningskod (paTitleCode) [R5].",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.specialityName",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.specialityName",
+        "short": "Specialistutbildning (klartext)",
+        "definition": "Specialistutbildning utöver grundutbildning för läkare eller tandläkare.\nRef. specialitet (specialityName) [R5]. Kardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.specialityCode",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.specialityCode",
+        "short": "Specialistutbildning (kod)",
+        "definition": "Klassificeringskod för specialistutbildning utöver grundutbildning.\nRef. specialitetskod (specialityCode) [R5]. Kardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality",
+        "short": "Legitimerad yrkesgrupp och specialitet",
+        "definition": "Legitimerad yrkesgrupp och specialitet för läkare och tandläkare.\nRef. leg.yrkesgrupp och specialitet (hsaSosTitleCodeSpeciality) [R5].",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicence",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality.healthCareProfessionalLicence",
+        "short": "Kod för legitimerad yrkesgrupp",
+        "definition": "Kod för legitimerad yrkesgrupp",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality.specialityCode",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality.specialityCode",
+        "short": "Kod för specialistutbildning",
+        "definition": "Kod för specialistutbildning",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality.specialityName",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.healthCareProfessionalLicenceSpeciality.specialityName",
+        "short": "Klartext för specialistutbildning",
+        "definition": "Klartext för specialistutbildning",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.protectedPerson",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.protectedPerson",
+        "short": "true om person har skyddad identitet",
+        "definition": "true: om person har skyddad identitet.\nRef. hjälpklassen Skyddad person (hsaConfidentialPerson) [R5]. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getcommissionmembersincludingprotectedperson.personInformation.feignedPerson",
+        "path": "getcommissionmembersincludingprotectedperson.personInformation.feignedPerson",
+        "short": "true om personen är ett fingerat objekt",
+        "definition": "true: om personen är ett fingerat objekt.\nRef. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]. Kardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      }
+    ]
+  }
+}
