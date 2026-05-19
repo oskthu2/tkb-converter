@@ -1052,3 +1052,54 @@ Inga blockerare.
 
 - [ ] **[TODO-CERT-005]** `igs/TKB_clinicalprocess_healthcond_certificate/input/fsh/logical-models/ListSickLeavesForCare.fsh` · fält `diagnoskod`
   Diagnoskoder följer sannolikt ICD-10-SE eller SNOMED CT. Strukturen modelleras som `BackboneElement` med fri `code`-sträng. Verifiera vilket kodsystem som faktiskt används och lägg till ValueSet-binding om möjligt.
+
+---
+
+## insuranceprocess.healthreporting v3.1.0 — `igs/TKB_insuranceprocess_healthreporting/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-19
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-HR-001]** `igs/TKB_insuranceprocess_healthreporting/input/fsh/logical-models/GetCertificate.fsh` · kontrakt `GetCertificate` · fält `certificateId` och `nationalIdentityNumber`
+  Fälttabellen använder 'O' för kardinalitet för båda request-fälten, utan att ange 1..1 eller 0..1. Är båda obligatoriska? Är det ett 'eller'-val? Nuvarande modell använder 0..1 för båda.
+  Källa: TKB avsnitt 7.12 (GetCertificate Fältregler).
+
+- [ ] **[BLOCK-HR-002]** `igs/TKB_insuranceprocess_healthreporting/input/fsh/logical-models/SetCertificateStatus.fsh` · kontrakt `SetCertificateStatus` · fält `certificateId`
+  Tabellen i TKB anger att raderna är förväxlade: rubriken "Begäran" har "Identitet på intyget. Är en GUID." som beskrivning, och `certificateId`-raden har "Patientens personnummer" som typ/beskrivning. Detta verkar vara en kopieringsfel i dokumentet. Bekräfta korrekt fältordning.
+  Källa: TKB avsnitt 7.13 (SetCertificateStatus Fältregler).
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-HR-001]** `igs/TKB_insuranceprocess_healthreporting/input/fsh/logical-models/RegisterMedicalCertificate.fsh` · fält `medicinsktTillstand.tillstandskod`
+  Diagnoskodverket anges som "ICD-10-SE alt. KSH97P" men canonical URL är inte specificerad i TKB. FHIR-typen mappas till `CodeableConcept` utan binding. Verifiera korrekt canonical URL för ICD-10-SE och KSH97P i svensk kontext och lägg till ValueSet.
+  Källa: TKB avsnitt 7.1 (RegisterMedicalCertificate Fältregler, Fält 2).
+
+- [ ] **[ASSUME-HR-002]** `igs/TKB_insuranceprocess_healthreporting/input/fsh/logical-models/GetCertificate.fsh` · fält `certificate`
+  Fältet `certificate` är `<any>` i XSD — ett generiskt XML-platshållarefält för själva intyget. Mappat till `string` som fallback. Korrekt modellering kräver antagligen ett separat Logical för varje intygtyp (FK7263 etc.) eller ett extensions-baserat mönster.
+
+- [ ] **[ASSUME-HR-003]** `igs/TKB_insuranceprocess_healthreporting/input/fsh/codesystems/AmneCS.fsh` · kodverk `Amne`
+  Kodverket för Amne-typ är ej fullständigt dokumenterat i TKB-texten. Tre koder har lagts till baserat på kontexten i dokumentet (KOMPLETTERING, PAMINNELSE, OVRIGT). Verifiera att dessa är fullständiga och korrekta — XSD-filen `MedicalCertificateQuestionsAnswers_1.0.xsd` kan innehålla fullständig lista.
+  Källa: TKB avsnitt 7.2 (ReceiveMedicalCertificateQuestion Fältregler).
+
+- [ ] **[ASSUME-HR-004]** `igs/TKB_insuranceprocess_healthreporting/input/fsh/codesystems/StatusCS.fsh` · kodverk `Status`
+  Kodverket för Status (typ av statusändring för intyg) är ej dokumenterat i TKB. Fyra koder har lagts till baserat på kontext (SENT, RECEIVED, CANCELLED, DELETED). Verifiera mot XSD-filen `insuranceprocess_certificate_1.0.xsd`.
+  Källa: TKB avsnitt 7.11 (ListCertificates) och 7.13 (SetCertificateStatus).
+
+- [ ] **[ASSUME-HR-005]** `igs/TKB_insuranceprocess_healthreporting/input/fsh/logical-models/ListCertificates.fsh` · fält `available`
+  Fältet `available` är definierat som `string` i XSD men används som boolean (true/false). Mappat till `boolean` i FHIR. Verifiera att detta stämmer och att inga andra värden är möjliga.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-HR-001]** `igs/TKB_insuranceprocess_healthreporting/input/fsh/codesystems/AktivitetskodCS.fsh`
+  Det finns fler Prognosangivelse-koder (ATERSTALLAS_HELT, ATERSTALLAS_DELVIS, INTE_ATERSTALLAS, DET_GAR_INTE_ATT_BEDOMMA) och TypAvSysselsattning-koder (FORVARVSARBETE, ARBETSLOSHET, FORALDRALEDIGHET) nämnda i TKB. Överväg att skapa separata CodeSystems för dessa istället för att lägga dem som fri text i Logical-modellen.
+
+- [ ] **[TODO-HR-002]** `igs/TKB_insuranceprocess_healthreporting/input/fsh/logical-models/RegisterMedicalCertificate.fsh`
+  De komplexa villkorsreglerna för blankett FK7263 (Fält 1 påverkar krav på Fält 2, 4, 5, 8a etc.) borde modelleras som FHIR-invarianter. Nuvarande modell dokumenterar reglerna i kommentarer men tillämpar dem inte maskinläsbart. Kräver beslut om BLOCK-HR-001 och ASSUME-HR-001 löses.
+
+- [ ] **[TODO-HR-003]** `igs/TKB_insuranceprocess_healthreporting/input/fsh/logical-models/FindAllQuestions.fsh` och `FindAllAnswers.fsh`
+  Fältet `questions.question.questionData` / `answers.answer.answerData` refererar till hela strukturen från ReceiveMedicalCertificateQuestion/Answer. I en fullständig modell borde dessa vara typed references (t.ex. `Reference(ReceiveMedicalCertificateQuestion)`) istället för generiska BackboneElement. Kräver FHIR-modellbeslut.
+
+- [ ] **[TODO-HR-004]** `igs/TKB_insuranceprocess_healthreporting/sushi-config.yaml`
+  Det finns ingen WSDL för SendMedicalCertificate och SetCertificateStatus i Bitbucket-repots interaktionskataloger. De är "nyare" kontrakt (v3.1.0) utan egna WSDL-filer. Verifiera om WSDLs finns på annan plats eller om kontrakten enbart definieras via XSD.
