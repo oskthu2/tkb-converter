@@ -1,0 +1,308 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "sendmessagetorecipient-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/sendmessagetorecipient-request",
+  "name": "SendMessageToRecipientRequest",
+  "title": "SendMessageToRecipient — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i SendMessageToRecipient (meddelande från vården till intygsmottagare).",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/sendmessagetorecipient-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "sendmessagetorecipient-request",
+        "path": "sendmessagetorecipient-request",
+        "short": "SendMessageToRecipient — Request",
+        "definition": "Logisk modell för requestparametrar i SendMessageToRecipient (meddelande från vården till intygsmottagare)."
+      },
+      {
+        "id": "sendmessagetorecipient-request.meddelandeId",
+        "path": "sendmessagetorecipient-request.meddelandeId",
+        "short": "Unikt ID för meddelandet (GUID)",
+        "definition": "Unikt ID för meddelandet (GUID)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetorecipient-request.referensId",
+        "path": "sendmessagetorecipient-request.referensId",
+        "short": "Valfri referens till entitet hos sändande part",
+        "definition": "Valfri referens till entitet hos sändande part",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetorecipient-request.skickatTidpunkt",
+        "path": "sendmessagetorecipient-request.skickatTidpunkt",
+        "short": "Tidpunkt då meddelandet skickades",
+        "definition": "Tidpunkt då meddelandet skickades",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetorecipient-request.intygsId",
+        "path": "sendmessagetorecipient-request.intygsId",
+        "short": "Unikt ID för det intyg meddelandet hör till",
+        "definition": "Unikt ID för det intyg meddelandet hör till",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetorecipient-request.patientPersonId",
+        "path": "sendmessagetorecipient-request.patientPersonId",
+        "short": "Person- eller samordningsnummer för patienten",
+        "definition": "Person- eller samordningsnummer för patienten",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetorecipient-request.logiskAdressMottagare",
+        "path": "sendmessagetorecipient-request.logiskAdressMottagare",
+        "short": "Logisk adress för intygsmottagaren",
+        "definition": "Logisk adress för intygsmottagaren",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetorecipient-request.amne",
+        "path": "sendmessagetorecipient-request.amne",
+        "short": "Ämne för frågan/meddelandet",
+        "definition": "Ämne för frågan/meddelandet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/amneskod-vs"
+        }
+      },
+      {
+        "id": "sendmessagetorecipient-request.rubrik",
+        "path": "sendmessagetorecipient-request.rubrik",
+        "short": "Valfri rubrik",
+        "definition": "Valfri rubrik",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetorecipient-request.meddelande",
+        "path": "sendmessagetorecipient-request.meddelande",
+        "short": "Meddelandets text",
+        "definition": "Meddelandets text",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetorecipient-request.paminnelseMeddelandeId",
+        "path": "sendmessagetorecipient-request.paminnelseMeddelandeId",
+        "short": "ID på meddelande detta är en påminnelse om (endast vid ämne Påminnelse)",
+        "definition": "ID på meddelande detta är en påminnelse om (endast vid ämne Påminnelse)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetorecipient-request.svarPa",
+        "path": "sendmessagetorecipient-request.svarPa",
+        "short": "Referens till fråga från intygsmottagaren om detta är ett svar",
+        "definition": "Referens till fråga från intygsmottagaren om detta är ett svar",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetorecipient-request.svarPa.meddelandeId",
+        "path": "sendmessagetorecipient-request.svarPa.meddelandeId",
+        "short": "ID på ursprungsfrågan",
+        "definition": "ID på ursprungsfrågan",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetorecipient-request.svarPa.referensId",
+        "path": "sendmessagetorecipient-request.svarPa.referensId",
+        "short": "Referens-ID",
+        "definition": "Referens-ID",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetorecipient-request.skickatAv",
+        "path": "sendmessagetorecipient-request.skickatAv",
+        "short": "HoS-personal som skickar meddelandet",
+        "definition": "HoS-personal som skickar meddelandet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetorecipient-request.skickatAv.personalId",
+        "path": "sendmessagetorecipient-request.skickatAv.personalId",
+        "short": "HSA-id",
+        "definition": "HSA-id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetorecipient-request.skickatAv.fullstandigtNamn",
+        "path": "sendmessagetorecipient-request.skickatAv.fullstandigtNamn",
+        "short": "Personalens fullständiga namn",
+        "definition": "Personalens fullständiga namn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetorecipient-request.skickatAv.enhet",
+        "path": "sendmessagetorecipient-request.skickatAv.enhet",
+        "short": "Enhet",
+        "definition": "Enhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetorecipient-request.skickatAv.enhet.enhetsId",
+        "path": "sendmessagetorecipient-request.skickatAv.enhet.enhetsId",
+        "short": "HSA-id för enheten",
+        "definition": "HSA-id för enheten",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetorecipient-request.skickatAv.enhet.vardgivare",
+        "path": "sendmessagetorecipient-request.skickatAv.enhet.vardgivare",
+        "short": "Vårdgivare",
+        "definition": "Vårdgivare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetorecipient-request.skickatAv.enhet.vardgivare.vardgivareId",
+        "path": "sendmessagetorecipient-request.skickatAv.enhet.vardgivare.vardgivareId",
+        "short": "HSA-id för vårdgivaren",
+        "definition": "HSA-id för vårdgivaren",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetorecipient-request.sistaDatumForSvar",
+        "path": "sendmessagetorecipient-request.sistaDatumForSvar",
+        "short": "Datum då vården senast vill ha svar (endast vid fråga)",
+        "definition": "Datum då vården senast vill ha svar (endast vid fråga)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      }
+    ]
+  }
+}

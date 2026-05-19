@@ -1,0 +1,61 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getcertificate-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/getcertificate-request",
+  "name": "GetCertificateRequest",
+  "title": "GetCertificate — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i GetCertificate.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/getcertificate-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getcertificate-request",
+        "path": "getcertificate-request",
+        "short": "GetCertificate — Request",
+        "definition": "Logisk modell för requestparametrar i GetCertificate."
+      },
+      {
+        "id": "getcertificate-request.intygsId",
+        "path": "getcertificate-request.intygsId",
+        "short": "Unikt ID för det intyg som ska hämtas",
+        "definition": "Unikt identifierare för det efterfrågade intyget.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getcertificate-request.part",
+        "path": "getcertificate-request.part",
+        "short": "Part som skickar begäran",
+        "definition": "Kodat värde som anger vilken part i intygshanteringsprocessen som skickar begäran.\nStyr vilka statusposter som returneras.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/part-vs"
+        }
+      }
+    ]
+  }
+}

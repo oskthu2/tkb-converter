@@ -1,0 +1,104 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "createdraftcertificate",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/createdraftcertificate",
+  "name": "CreateDraftCertificate",
+  "title": "CreateDraftCertificate",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet CreateDraftCertificate\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:CreateDraftCertificate:3).\nRepresenterar responsens informationsstruktur — intygs-id på skapade intygsutkastet.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/createdraftcertificate",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "createdraftcertificate",
+        "path": "createdraftcertificate",
+        "short": "CreateDraftCertificate",
+        "definition": "Logisk modell för tjänstekontraktet CreateDraftCertificate\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:CreateDraftCertificate:3).\nRepresenterar responsens informationsstruktur — intygs-id på skapade intygsutkastet."
+      },
+      {
+        "id": "createdraftcertificate.intygsId",
+        "path": "createdraftcertificate.intygsId",
+        "short": "Unikt ID för det intygsutkast som skapats",
+        "definition": "Returneras om anropet lyckades. Utelämnas vid fel.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "createdraftcertificate.result",
+        "path": "createdraftcertificate.result",
+        "short": "Information om anropets resultat",
+        "definition": "Information om anropets resultat",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "createdraftcertificate.result.resultCode",
+        "path": "createdraftcertificate.result.resultCode",
+        "short": "Resultatkod (OK/INFO/ERROR)",
+        "definition": "Resultatkod (OK/INFO/ERROR)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/resultkod-vs"
+        }
+      },
+      {
+        "id": "createdraftcertificate.result.resultText",
+        "path": "createdraftcertificate.result.resultText",
+        "short": "Fritext",
+        "definition": "Fritext",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "createdraftcertificate.result.errorId",
+        "path": "createdraftcertificate.result.errorId",
+        "short": "Felkod vid ERROR",
+        "definition": "Felkod vid ERROR",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/errorid-vs"
+        }
+      }
+    ]
+  }
+}

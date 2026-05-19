@@ -1,0 +1,290 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "listcertificatesforcitizan",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/listcertificatesforcitizan",
+  "name": "ListCertificatesForCitizan",
+  "title": "ListCertificatesForCitizen",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet ListCertificatesForCitizen\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:ListCertificatesForCitizen:4).\nRepresenterar responsens lista med intyg för en invånare med alla statusar.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/listcertificatesforcitizan",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "listcertificatesforcitizan",
+        "path": "listcertificatesforcitizan",
+        "short": "ListCertificatesForCitizen",
+        "definition": "Logisk modell för tjänstekontraktet ListCertificatesForCitizen\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:ListCertificatesForCitizen:4).\nRepresenterar responsens lista med intyg för en invånare med alla statusar."
+      },
+      {
+        "id": "listcertificatesforcitizan.intygLista",
+        "path": "listcertificatesforcitizan.intygLista",
+        "short": "Lista av intyg",
+        "definition": "Lista av intyg",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcitizan.intygLista.intyg",
+        "path": "listcertificatesforcitizan.intygLista.intyg",
+        "short": "Ett intyg",
+        "definition": "Ett intyg",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcitizan.intygLista.intyg.intygsId",
+        "path": "listcertificatesforcitizan.intygLista.intyg.intygsId",
+        "short": "Unikt ID för intyget",
+        "definition": "Unikt ID för intyget",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcitizan.intygLista.intyg.typAvIntyg",
+        "path": "listcertificatesforcitizan.intygLista.intyg.typAvIntyg",
+        "short": "Typ av intyg",
+        "definition": "Typ av intyg",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcitizan.intygLista.intyg.signeringsTidpunkt",
+        "path": "listcertificatesforcitizan.intygLista.intyg.signeringsTidpunkt",
+        "short": "Tidpunkt då intyget signerades",
+        "definition": "Filterfält i request: fromDatum / tomDatum filtrerar på signeringsdatum.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcitizan.intygLista.intyg.patient",
+        "path": "listcertificatesforcitizan.intygLista.intyg.patient",
+        "short": "Patientuppgifter",
+        "definition": "Patientuppgifter",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcitizan.intygLista.intyg.patient.personId",
+        "path": "listcertificatesforcitizan.intygLista.intyg.patient.personId",
+        "short": "Person- eller samordningsnummer",
+        "definition": "Person- eller samordningsnummer",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcitizan.intygLista.intyg.skapadAv",
+        "path": "listcertificatesforcitizan.intygLista.intyg.skapadAv",
+        "short": "HoS-personal",
+        "definition": "HoS-personal",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcitizan.intygLista.intyg.skapadAv.personalId",
+        "path": "listcertificatesforcitizan.intygLista.intyg.skapadAv.personalId",
+        "short": "HSA-id",
+        "definition": "HSA-id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcitizan.intygLista.intyg.skapadAv.enhet",
+        "path": "listcertificatesforcitizan.intygLista.intyg.skapadAv.enhet",
+        "short": "Enhet",
+        "definition": "Enhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcitizan.intygLista.intyg.skapadAv.enhet.enhetsId",
+        "path": "listcertificatesforcitizan.intygLista.intyg.skapadAv.enhet.enhetsId",
+        "short": "HSA-id för enheten",
+        "definition": "HSA-id för enheten",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcitizan.intygLista.intyg.skapadAv.enhet.vardgivare",
+        "path": "listcertificatesforcitizan.intygLista.intyg.skapadAv.enhet.vardgivare",
+        "short": "Vårdgivare",
+        "definition": "Vårdgivare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcitizan.intygLista.intyg.skapadAv.enhet.vardgivare.vardgivareId",
+        "path": "listcertificatesforcitizan.intygLista.intyg.skapadAv.enhet.vardgivare.vardgivareId",
+        "short": "HSA-id för vårdgivaren",
+        "definition": "HSA-id för vårdgivaren",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcitizan.intygLista.intyg.mottagare",
+        "path": "listcertificatesforcitizan.intygLista.intyg.mottagare",
+        "short": "Intygsmottagare",
+        "definition": "Intygsmottagare",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcitizan.intygLista.intyg.mottagare.part",
+        "path": "listcertificatesforcitizan.intygLista.intyg.mottagare.part",
+        "short": "Part",
+        "definition": "Part",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/part-vs"
+        }
+      },
+      {
+        "id": "listcertificatesforcitizan.intygLista.intyg.status",
+        "path": "listcertificatesforcitizan.intygLista.intyg.status",
+        "short": "Intygsstatus (alla statusar inkl. invånarens)",
+        "definition": "Intygsstatus (alla statusar inkl. invånarens)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcitizan.intygLista.intyg.status.part",
+        "path": "listcertificatesforcitizan.intygLista.intyg.status.part",
+        "short": "Part som statusen gäller för",
+        "definition": "Part som statusen gäller för",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/part-vs"
+        }
+      },
+      {
+        "id": "listcertificatesforcitizan.intygLista.intyg.status.statuskod",
+        "path": "listcertificatesforcitizan.intygLista.intyg.status.statuskod",
+        "short": "Statuskod",
+        "definition": "Statuskod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/statuskod-vs"
+        }
+      },
+      {
+        "id": "listcertificatesforcitizan.intygLista.intyg.status.tidpunkt",
+        "path": "listcertificatesforcitizan.intygLista.intyg.status.tidpunkt",
+        "short": "Tidpunkt",
+        "definition": "Tidpunkt",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -4,6 +4,26 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 
 ---
 
+## followup.qualityregistry.nkrr v1.2.2 — `igs/TKB_followup_qualityregistry_nkrr/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-19
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-NKRR-001]** `igs/TKB_followup_qualityregistry_nkrr/input/fsh/logical-models/ProcessRegistrationNotificationRequest.fsh` · fält `patientId`, `healthcareProviderId`, `nkrrParameters.careUnitId`
+  Mappat till FHIR-typ `Identifier` med antagandet att IIType (root + extension) lämpligen representeras som FHIR Identifier (system + value). Inget officiellt `se.inera.rivta.core`-paket kunde laddas (offline). Verifiera att Identifier är rätt typ och att ingen annan gemensam bastyp ska användas.
+
+- [ ] **[ASSUME-NKRR-002]** `igs/TKB_followup_qualityregistry_nkrr/input/fsh/codesystems/ResultCodeCS.fsh`
+  ResultCodeEnum (OK/INFO/ERROR) är gemensam för båda kontrakten i domänen. Kodverket har definierats med URL `https://fhir.inera.se/CodeSystem/resultcode-cs`. Verifiera om ett gemensamt Inera-kodverk för resultatkoder redan finns med känd canonical URL — i så fall ska detta CodeSystem ersättas med en referens till det externa.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-NKRR-001]** `igs/TKB_followup_qualityregistry_nkrr/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Avsnitt 6 (Gemensamma informationskomponenter) saknas i källdokumentet TKB v1.2.2. Sidan är skapad med en notering, men om en uppdaterad TKB med avsnitt 6 publiceras bör det extraheras och läggas till.
+
+---
+
 ## itintegration.engagementindex v1.0.9
 
 **Status:** blocked

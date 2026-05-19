@@ -1,0 +1,312 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "sendmessagetocare-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/sendmessagetocare-request",
+  "name": "SendMessageToCareRequest",
+  "title": "SendMessageToCare — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i SendMessageToCare (meddelande från intygsmottagare till vården).",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/sendmessagetocare-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "sendmessagetocare-request",
+        "path": "sendmessagetocare-request",
+        "short": "SendMessageToCare — Request",
+        "definition": "Logisk modell för requestparametrar i SendMessageToCare (meddelande från intygsmottagare till vården)."
+      },
+      {
+        "id": "sendmessagetocare-request.meddelandeId",
+        "path": "sendmessagetocare-request.meddelandeId",
+        "short": "Unikt ID för meddelandet (GUID)",
+        "definition": "Unikt ID för meddelandet (GUID)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetocare-request.referensId",
+        "path": "sendmessagetocare-request.referensId",
+        "short": "Valfri referens till entitet hos sändande part",
+        "definition": "Valfri referens till entitet hos sändande part",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetocare-request.skickatTidpunkt",
+        "path": "sendmessagetocare-request.skickatTidpunkt",
+        "short": "Tidpunkt då meddelandet skickades",
+        "definition": "Tidpunkt då meddelandet skickades",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetocare-request.intygsId",
+        "path": "sendmessagetocare-request.intygsId",
+        "short": "Unikt ID för det intyg meddelandet hör till",
+        "definition": "Unikt ID för det intyg meddelandet hör till",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetocare-request.patientPersonId",
+        "path": "sendmessagetocare-request.patientPersonId",
+        "short": "Person- eller samordningsnummer för patienten",
+        "definition": "Person- eller samordningsnummer för patienten",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetocare-request.logiskAdressMottagare",
+        "path": "sendmessagetocare-request.logiskAdressMottagare",
+        "short": "Logisk adress för den vårdenhet meddelandet ska vidarebefordras till",
+        "definition": "För nya frågor: enheten som utfärdade intyget.\nFör svar: hämtas från frågan (skickatAv.enhet.enhets-id.extension).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetocare-request.amne",
+        "path": "sendmessagetocare-request.amne",
+        "short": "Ämne för frågan/meddelandet",
+        "definition": "Ämne för frågan/meddelandet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/amneskod-vs"
+        }
+      },
+      {
+        "id": "sendmessagetocare-request.rubrik",
+        "path": "sendmessagetocare-request.rubrik",
+        "short": "Valfri rubrik som beskriver meddelandet",
+        "definition": "Valfri rubrik som beskriver meddelandet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetocare-request.meddelande",
+        "path": "sendmessagetocare-request.meddelande",
+        "short": "Meddelandets text",
+        "definition": "Om ämne är 'Komplettering' kan detta fält vara tomt (FK-avtal).\nKompletteringstext per fråga skickas i fältet komplettering.text.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetocare-request.paminnelseMeddelandeId",
+        "path": "sendmessagetocare-request.paminnelseMeddelandeId",
+        "short": "ID på meddelande detta är en påminnelse om (endast vid ämne Påminnelse)",
+        "definition": "ID på meddelande detta är en påminnelse om (endast vid ämne Påminnelse)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetocare-request.svarPa",
+        "path": "sendmessagetocare-request.svarPa",
+        "short": "Referens till fråga från vården om detta är ett svar",
+        "definition": "Referens till fråga från vården om detta är ett svar",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetocare-request.svarPa.meddelandeId",
+        "path": "sendmessagetocare-request.svarPa.meddelandeId",
+        "short": "ID på ursprungsfrågan",
+        "definition": "ID på ursprungsfrågan",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetocare-request.svarPa.referensId",
+        "path": "sendmessagetocare-request.svarPa.referensId",
+        "short": "Referens-ID",
+        "definition": "Referens-ID",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetocare-request.skickatAv",
+        "path": "sendmessagetocare-request.skickatAv",
+        "short": "Information om avsändande part",
+        "definition": "Information om avsändande part",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetocare-request.skickatAv.part",
+        "path": "sendmessagetocare-request.skickatAv.part",
+        "short": "Part som skickar meddelandet",
+        "definition": "Part som skickar meddelandet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/part-vs"
+        }
+      },
+      {
+        "id": "sendmessagetocare-request.skickatAv.kontaktInfo",
+        "path": "sendmessagetocare-request.skickatAv.kontaktInfo",
+        "short": "Kontaktinformation (rader)",
+        "definition": "Kontaktinformation (rader)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetocare-request.komplettering",
+        "path": "sendmessagetocare-request.komplettering",
+        "short": "Kompletteringsbegäran per fråga (endast vid ämne Komplettering)",
+        "definition": "Kompletteringsbegäran per fråga (endast vid ämne Komplettering)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetocare-request.komplettering.frageId",
+        "path": "sendmessagetocare-request.komplettering.frageId",
+        "short": "Identitet på frågan som ska kompletteras",
+        "definition": "Identitet på frågan som ska kompletteras",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetocare-request.komplettering.instans",
+        "path": "sendmessagetocare-request.komplettering.instans",
+        "short": "Instansnummer för fråga med flera instanser (lägsta värde 1)",
+        "definition": "Instansnummer för fråga med flera instanser (lägsta värde 1)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetocare-request.komplettering.text",
+        "path": "sendmessagetocare-request.komplettering.text",
+        "short": "Kompletteringsmeddelande för specifik fråga",
+        "definition": "Kompletteringsmeddelande för specifik fråga",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "sendmessagetocare-request.sistaDatumForSvar",
+        "path": "sendmessagetocare-request.sistaDatumForSvar",
+        "short": "Datum då intygsmottagaren senast vill ha svar (endast vid fråga)",
+        "definition": "Datum då intygsmottagaren senast vill ha svar (endast vid fråga)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      }
+    ]
+  }
+}

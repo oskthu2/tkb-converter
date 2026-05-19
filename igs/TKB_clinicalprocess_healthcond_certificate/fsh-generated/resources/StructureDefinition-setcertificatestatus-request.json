@@ -1,0 +1,91 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "setcertificatestatus-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/setcertificatestatus-request",
+  "name": "SetCertificateStatusRequest",
+  "title": "SetCertificateStatus — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i SetCertificateStatus.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/setcertificatestatus-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "setcertificatestatus-request",
+        "path": "setcertificatestatus-request",
+        "short": "SetCertificateStatus — Request",
+        "definition": "Logisk modell för requestparametrar i SetCertificateStatus."
+      },
+      {
+        "id": "setcertificatestatus-request.intygsId",
+        "path": "setcertificatestatus-request.intygsId",
+        "short": "Unikt ID för det intyg vars status ska sättas",
+        "definition": "Unikt ID för det intyg vars status ska sättas",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "setcertificatestatus-request.part",
+        "path": "setcertificatestatus-request.part",
+        "short": "Kodat värde för den part statusen gäller för",
+        "definition": "Kodat värde för den part statusen gäller för",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/part-vs"
+        }
+      },
+      {
+        "id": "setcertificatestatus-request.status",
+        "path": "setcertificatestatus-request.status",
+        "short": "Kodat värde för intygsstatus",
+        "definition": "Kodat värde för intygsstatus",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/statuskod-vs"
+        }
+      },
+      {
+        "id": "setcertificatestatus-request.tidpunkt",
+        "path": "setcertificatestatus-request.tidpunkt",
+        "short": "Tidpunkt då statusen sattes",
+        "definition": "Tidpunkt då statusen sattes",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

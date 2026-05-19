@@ -1,0 +1,412 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "listcertificatesforcarewithqa",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/listcertificatesforcarewithqa",
+  "name": "ListCertificatesForCareWithQA",
+  "title": "ListCertificatesForCareWithQA",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet ListCertificatesForCareWithQA\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:ListCertificatesForCareWithQA:3).\nRepresenterar responsens lista med intyg inkl. händelser och ärendekommunikation.\nInkluderar både signerade, makulerade och intygsutkast.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/listcertificatesforcarewithqa",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "listcertificatesforcarewithqa",
+        "path": "listcertificatesforcarewithqa",
+        "short": "ListCertificatesForCareWithQA",
+        "definition": "Logisk modell för tjänstekontraktet ListCertificatesForCareWithQA\n(RIV-TA urn:riv:clinicalprocess:healthcond:certificate:ListCertificatesForCareWithQA:3).\nRepresenterar responsens lista med intyg inkl. händelser och ärendekommunikation.\nInkluderar både signerade, makulerade och intygsutkast."
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list",
+        "path": "listcertificatesforcarewithqa.list",
+        "short": "Lista med intyg (null om inga hittades)",
+        "definition": "Lista med intyg (null om inga hittades)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item",
+        "path": "listcertificatesforcarewithqa.list.item",
+        "short": "Listobjekt som håller ihop intyg, händelser och ärenden",
+        "definition": "Listobjekt som håller ihop intyg, händelser och ärenden",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.intyg",
+        "path": "listcertificatesforcarewithqa.list.item.intyg",
+        "short": "Intyget",
+        "definition": "Intyget",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.intyg.intygsId",
+        "path": "listcertificatesforcarewithqa.list.item.intyg.intygsId",
+        "short": "Unikt ID för intyget",
+        "definition": "Unikt ID för intyget",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.intyg.typAvIntyg",
+        "path": "listcertificatesforcarewithqa.list.item.intyg.typAvIntyg",
+        "short": "Typ av intyg",
+        "definition": "Typ av intyg",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.intyg.signeringsTidpunkt",
+        "path": "listcertificatesforcarewithqa.list.item.intyg.signeringsTidpunkt",
+        "short": "Tidpunkt för signering (saknas för utkast)",
+        "definition": "Tidpunkt för signering (saknas för utkast)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.intyg.patient",
+        "path": "listcertificatesforcarewithqa.list.item.intyg.patient",
+        "short": "Patientuppgifter",
+        "definition": "Patientuppgifter",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.intyg.patient.personId",
+        "path": "listcertificatesforcarewithqa.list.item.intyg.patient.personId",
+        "short": "Person- eller samordningsnummer",
+        "definition": "Person- eller samordningsnummer",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.intyg.skapadAv",
+        "path": "listcertificatesforcarewithqa.list.item.intyg.skapadAv",
+        "short": "HoS-personal",
+        "definition": "HoS-personal",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.intyg.skapadAv.personalId",
+        "path": "listcertificatesforcarewithqa.list.item.intyg.skapadAv.personalId",
+        "short": "HSA-id",
+        "definition": "HSA-id",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.intyg.skapadAv.enhet",
+        "path": "listcertificatesforcarewithqa.list.item.intyg.skapadAv.enhet",
+        "short": "Enhet",
+        "definition": "Enhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.intyg.skapadAv.enhet.enhetsId",
+        "path": "listcertificatesforcarewithqa.list.item.intyg.skapadAv.enhet.enhetsId",
+        "short": "HSA-id för enheten",
+        "definition": "HSA-id för enheten",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.intyg.skapadAv.enhet.vardgivare",
+        "path": "listcertificatesforcarewithqa.list.item.intyg.skapadAv.enhet.vardgivare",
+        "short": "Vårdgivare",
+        "definition": "Vårdgivare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.intyg.skapadAv.enhet.vardgivare.vardgivareId",
+        "path": "listcertificatesforcarewithqa.list.item.intyg.skapadAv.enhet.vardgivare.vardgivareId",
+        "short": "HSA-id för vårdgivaren",
+        "definition": "HSA-id för vårdgivaren",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.handelser",
+        "path": "listcertificatesforcarewithqa.list.item.handelser",
+        "short": "Lista med händelser för intyget",
+        "definition": "Lista med händelser för intyget",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.handelser.handelse",
+        "path": "listcertificatesforcarewithqa.list.item.handelser.handelse",
+        "short": "En händelse",
+        "definition": "En händelse",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.handelser.handelse.handelsekod",
+        "path": "listcertificatesforcarewithqa.list.item.handelser.handelse.handelsekod",
+        "short": "Händelsetyp",
+        "definition": "Händelsetyp",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/ValueSet/handelskod-vs"
+        }
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.handelser.handelse.tidpunkt",
+        "path": "listcertificatesforcarewithqa.list.item.handelser.handelse.tidpunkt",
+        "short": "Tidpunkt",
+        "definition": "Tidpunkt",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.skickadeFragor",
+        "path": "listcertificatesforcarewithqa.list.item.skickadeFragor",
+        "short": "Frågor skickade från vården",
+        "definition": "Frågor skickade från vården",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.skickadeFragor.totalt",
+        "path": "listcertificatesforcarewithqa.list.item.skickadeFragor.totalt",
+        "short": "Totalt antal",
+        "definition": "Totalt antal",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.skickadeFragor.ejBesvarade",
+        "path": "listcertificatesforcarewithqa.list.item.skickadeFragor.ejBesvarade",
+        "short": "Antal obesvarade",
+        "definition": "Antal obesvarade",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.skickadeFragor.besvarade",
+        "path": "listcertificatesforcarewithqa.list.item.skickadeFragor.besvarade",
+        "short": "Antal besvarade",
+        "definition": "Antal besvarade",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.skickadeFragor.hanterade",
+        "path": "listcertificatesforcarewithqa.list.item.skickadeFragor.hanterade",
+        "short": "Antal hanterade",
+        "definition": "Antal hanterade",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.mottagnaFragor",
+        "path": "listcertificatesforcarewithqa.list.item.mottagnaFragor",
+        "short": "Frågor mottagna från intygsmottagare",
+        "definition": "Frågor mottagna från intygsmottagare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.mottagnaFragor.totalt",
+        "path": "listcertificatesforcarewithqa.list.item.mottagnaFragor.totalt",
+        "short": "Totalt antal",
+        "definition": "Totalt antal",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.mottagnaFragor.ejBesvarade",
+        "path": "listcertificatesforcarewithqa.list.item.mottagnaFragor.ejBesvarade",
+        "short": "Antal obesvarade",
+        "definition": "Antal obesvarade",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.mottagnaFragor.besvarade",
+        "path": "listcertificatesforcarewithqa.list.item.mottagnaFragor.besvarade",
+        "short": "Antal besvarade",
+        "definition": "Antal besvarade",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.mottagnaFragor.hanterade",
+        "path": "listcertificatesforcarewithqa.list.item.mottagnaFragor.hanterade",
+        "short": "Antal hanterade",
+        "definition": "Antal hanterade",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "listcertificatesforcarewithqa.list.item.ref",
+        "path": "listcertificatesforcarewithqa.list.item.ref",
+        "short": "Referens till entitet i integrerande vårdsystem",
+        "definition": "Referens till entitet i integrerande vårdsystem",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

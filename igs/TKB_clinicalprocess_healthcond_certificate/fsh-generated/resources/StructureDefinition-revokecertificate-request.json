@@ -1,0 +1,174 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "revokecertificate-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/revokecertificate-request",
+  "name": "RevokeCertificateRequest",
+  "title": "RevokeCertificate — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i RevokeCertificate.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/revokecertificate-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "revokecertificate-request",
+        "path": "revokecertificate-request",
+        "short": "RevokeCertificate — Request",
+        "definition": "Logisk modell för requestparametrar i RevokeCertificate."
+      },
+      {
+        "id": "revokecertificate-request.meddelande",
+        "path": "revokecertificate-request.meddelande",
+        "short": "Beskrivning av orsak till makuleringen",
+        "definition": "Beskrivning av orsak till makuleringen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "revokecertificate-request.skickatTidpunkt",
+        "path": "revokecertificate-request.skickatTidpunkt",
+        "short": "Tidpunkt då makuleringen skickades från vården",
+        "definition": "Tidpunkt då makuleringen skickades från vården",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "revokecertificate-request.intygsId",
+        "path": "revokecertificate-request.intygsId",
+        "short": "Unikt ID för det intyg som ska makuleras",
+        "definition": "Unikt ID för det intyg som ska makuleras",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "revokecertificate-request.patientPersonId",
+        "path": "revokecertificate-request.patientPersonId",
+        "short": "Person- eller samordningsnummer för patienten",
+        "definition": "Ska överensstämma med person-id på det intyg som ska makuleras.\nInkluderas för att förenkla sökning.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "revokecertificate-request.skickatAv",
+        "path": "revokecertificate-request.skickatAv",
+        "short": "Identifierar den som utför makuleringen",
+        "definition": "Identifierar den som utför makuleringen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "revokecertificate-request.skickatAv.personalId",
+        "path": "revokecertificate-request.skickatAv.personalId",
+        "short": "HSA-id för hälso- och sjukvårdspersonalen",
+        "definition": "HSA-id för hälso- och sjukvårdspersonalen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "revokecertificate-request.skickatAv.fullstandigtNamn",
+        "path": "revokecertificate-request.skickatAv.fullstandigtNamn",
+        "short": "Personalens fullständiga namn",
+        "definition": "Personalens fullständiga namn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "revokecertificate-request.skickatAv.enhet",
+        "path": "revokecertificate-request.skickatAv.enhet",
+        "short": "Enhet",
+        "definition": "Enhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "revokecertificate-request.skickatAv.enhet.enhetsId",
+        "path": "revokecertificate-request.skickatAv.enhet.enhetsId",
+        "short": "HSA-id för enheten",
+        "definition": "HSA-id för enheten",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "revokecertificate-request.skickatAv.enhet.vardgivare",
+        "path": "revokecertificate-request.skickatAv.enhet.vardgivare",
+        "short": "Vårdgivare",
+        "definition": "Vårdgivare",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "revokecertificate-request.skickatAv.enhet.vardgivare.vardgivareId",
+        "path": "revokecertificate-request.skickatAv.enhet.vardgivare.vardgivareId",
+        "short": "HSA-id för vårdgivaren",
+        "definition": "HSA-id för vårdgivaren",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      }
+    ]
+  }
+}
