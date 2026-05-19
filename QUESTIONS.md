@@ -859,3 +859,34 @@ _Inga blockerare._
 
 - [ ] **[TODO-EO-001]** `igs/TKB_eservicesupply_eoffering/input/fsh/logical-models/GetAvailableEServices.fsh`
   SUSHI-varning: "Type characteristics code system not found" för GetAvailableEServices logisk modell. Beror på att `se.inera.rivta.core#current` inte laddades (paket ej tillgängligt offline). Ignorera tills nätverksåtkomst finns eller paketet installeras lokalt.
+
+---
+
+## infrastructure.eservicesupply.forminteraction v2.1 — `igs/TKB_infrastructure_eservicesupply_forminteraction/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-19
+
+SUSHI: 0 errors, 46 warnings. 20 StructureDefinitions, 5 CodeSystems, 5 ValueSets, 1 ImplementationGuide genererade.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-FI-001]** `igs/TKB_infrastructure_eservicesupply_forminteraction/input/fsh/codesystems/FormCategoryCS.fsh`
+  KV Formulärkategori saknar explicita koder i TKB-dokumentet. TKB nämner exempel ("Anmälan, registrering, hälsodeklaration") men listar inga officiella kodvärden. CodeSystem skapades med `^content = #fragment`. Verifiera fullständig kodlista med Inera formulärmotorförvaltning.
+
+- [ ] **[ASSUME-FI-002]** `igs/TKB_infrastructure_eservicesupply_forminteraction/input/fsh/codesystems/PublishStatusCS.fsh`
+  KV Publicerings status saknar explicita koder i TKB-dokumentet (v2.1). TKB refererar till kodverket men listar inga koder. CodeSystem skapades med `^content = #fragment`. Verifiera fullständig kodlista med Inera.
+
+- [ ] **[ASSUME-FI-003]** `igs/TKB_infrastructure_eservicesupply_forminteraction/input/fsh/logical-models/CreateForm.fsh`
+  Logical model för CreateForm request (Id: `createform-request`) namnges `CreateFormInput` i FSH-källan istället för `CreateFormRequest` för att undvika namnkollision med det separata tjänstekontraktet `CreateFormRequest` (Id: `createformrequest`). Namnvalet är tekniskt korrekt men avviker från konventionen — verifiera att detta är acceptabelt.
+
+- [ ] **[ASSUME-FI-004]** `igs/TKB_infrastructure_eservicesupply_forminteraction/input/fsh/logical-models/GetFormTemplate.fsh`
+  Villkorlig kardinalitet för `GetFormTemplateRequest`: TKB anger att minst ett av `healthcare_facility_CareUnit` eller `templateId` måste anges, men båda är modellerade som `0..1`. En FHIR-invariant skulle kunna formalisera detta krav. Bedömning: komplexiteten motiverar ej en invariant i detta skede — notera som antagande.
+
+- [ ] **[ASSUME-FI-005]** `igs/TKB_infrastructure_eservicesupply_forminteraction/input/fsh/logical-models/`
+  Elementnamn med underscore (`healthcare_CareGiver`, `healthcare_facility_CareUnit` m.fl.) orsakar SUSHI-varningar "Inadvisable path" (eld-20). Namnen behålls för att spegla RIV-TA-originalet och underlätta mappning mot WSDL/XSD. En framtida refaktorering kan byta till camelCase om IG Publisher ger fel.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-FI-001]** `igs/TKB_infrastructure_eservicesupply_forminteraction/input/fsh/codesystems/FormCategoryCS.fsh` och `PublishStatusCS.fsh`
+  Komplettera CodeSystems med faktiska koder när kodlistorna är kända. Nuvarande filer är fragment (`^content = #fragment`).
