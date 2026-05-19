@@ -60,7 +60,7 @@ Characteristics: #can-be-target
     Datatyp CommissionType.
     Kardinalitet: Valfri, lista.
     """
-* commissions ^obeys getcommissions-careprovider-xor
+* commissions obeys getcommissions-careprovider-xor
 * commissions.commissionHsaId 1..1 string "Medarbetaruppdragets HSA-id"
     """
     Unikt HSA-id för medarbetaruppdraget. Maxlängd: 32 tecken.

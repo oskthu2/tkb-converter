@@ -106,6 +106,15 @@
           {
             "code": "BackboneElement"
           }
+        ],
+        "constraint": [
+          {
+            "key": "getcommissions-careprovider-xor",
+            "severity": "warning",
+            "human": "Antingen healthCareProviderHsaId eller healthCareProviderName ska anges",
+            "expression": "healthCareProviderHsaId.exists() or healthCareProviderName.exists()",
+            "source": "https://fhir.inera.se/ig/ehr-commission/StructureDefinition/getcommissionsforperson"
+          }
         ]
       },
       {
