@@ -1,0 +1,169 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getformtemplate",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/StructureDefinition/getformtemplate",
+  "name": "GetFormTemplate",
+  "title": "GetFormTemplate",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetFormTemplate\n(RIV-TA urn:riv:infrastructure:eservicesupply:forminteraction:GetFormTemplate:2).\nRepresenterar responsens informationsstruktur — returnerar en eller flera formulärmallar.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/StructureDefinition/getformtemplate",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getformtemplate",
+        "path": "getformtemplate",
+        "short": "GetFormTemplate",
+        "definition": "Logisk modell för tjänstekontraktet GetFormTemplate\n(RIV-TA urn:riv:infrastructure:eservicesupply:forminteraction:GetFormTemplate:2).\nRepresenterar responsens informationsstruktur — returnerar en eller flera formulärmallar."
+      },
+      {
+        "id": "getformtemplate.formTemplates",
+        "path": "getformtemplate.formTemplates",
+        "short": "Formulärmallar (FormTemplateType)",
+        "definition": "De hämtade formulärmallarna.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.templateId",
+        "path": "getformtemplate.formTemplates.templateId",
+        "short": "Mall-id",
+        "definition": "Typ av formulär. Kodverk för standardiserade id.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.templateVersion",
+        "path": "getformtemplate.formTemplates.templateVersion",
+        "short": "Mallens version",
+        "definition": "Versionsnummer för formulärmallen.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.healthcare_facility_CareUnit",
+        "path": "getformtemplate.formTemplates.healthcare_facility_CareUnit",
+        "short": "Vårdenhetens HSA-id",
+        "definition": "Ägare till formulärmallen.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.anonymousForm",
+        "path": "getformtemplate.formTemplates.anonymousForm",
+        "short": "Anonym formulär",
+        "definition": "Styr huruvida formulärmotorn stöder anonym användning av formuläret.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.category",
+        "path": "getformtemplate.formTemplates.category",
+        "short": "Formulärkategori",
+        "definition": "Formulärets kategori.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/formcategory-vs"
+        }
+      },
+      {
+        "id": "getformtemplate.formTemplates.publishStatus",
+        "path": "getformtemplate.formTemplates.publishStatus",
+        "short": "Publiceringsstatus",
+        "definition": "Mallens publiceringsstatus.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/publishstatus-vs"
+        }
+      },
+      {
+        "id": "getformtemplate.formTemplates.mandatory",
+        "path": "getformtemplate.formTemplates.mandatory",
+        "short": "Obligatorisk",
+        "definition": "Indikerar om formuläret är obligatoriskt.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.language",
+        "path": "getformtemplate.formTemplates.language",
+        "short": "Språk",
+        "definition": "Formulärets språk, t.ex. swe eller eng.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplate.formTemplates.formCompleteText",
+        "path": "getformtemplate.formTemplates.formCompleteText",
+        "short": "Avslutningstext",
+        "definition": "Text som visas när formuläret är besvarat.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

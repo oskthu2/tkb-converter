@@ -810,3 +810,23 @@ _Inga blockerare._
 
 - [ ] **[TODO-FPI-005]** `igs/TKB_followup_processdevelopment_infections/input/pagecontent/7-tjanstekontrakt.md`
   Källfils-tabellerna refererar inte de interaktions-specifika XSD-schemana (se TODO-FPI-002) eftersom de inte laddades ner. Uppdatera tabellerna när XSD-filerna finns på plats.
+
+---
+
+## infrastructure.directory.authorizationmanagement — `igs/TKB_infrastructure_directory_authorizationmanagement/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-19
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-IDAM-001]** `igs/TKB_infrastructure_directory_authorizationmanagement/input/fsh/logical-models/GetCredentialsForPerson.fsh`
+  Datamappningar antagna baserat på XSD-struktur och domänkunskap. Fält som `personalIdentity` (personnummer) modellerades som BackboneElement med `root`/`extension` i stället för FHIR Identifier, för att bättre spegla IIType i RIV-TA. Verifiera kardinaliteter och typmappningar med domänexpert.
+
+- [ ] **[ASSUME-IDAM-002]** `igs/TKB_infrastructure_directory_authorizationmanagement/input/fsh/codesystems/HospOperationCS.fsh`
+  Kodverket HospOperationCS skapades med koderna `#add` och `#remove` baserat på kontextbeskrivningen i TKB för HandleHospCertificationPerson. Inget OID eller officiell källreferens identifierades. Verifiera om kodverket har ett definierat OID i Ineras terminologiregister, och uppdatera `^url` till `urn:oid:{OID}` om tillämpligt.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-IDAM-001]** `igs/TKB_infrastructure_directory_authorizationmanagement/input/fsh/logical-models/`
+  SUSHI-varning: "Type characteristics code system not found" för alla 13 logiska modeller. Beror på att `se.inera.rivta.core#current` inte laddades (paket ej tillgängligt offline). Ignorera tills nätverksåtkomst finns eller paketet installeras lokalt.

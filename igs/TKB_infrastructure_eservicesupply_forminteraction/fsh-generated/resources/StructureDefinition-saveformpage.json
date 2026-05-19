@@ -1,0 +1,143 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "saveformpage",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/StructureDefinition/saveformpage",
+  "name": "SaveFormPage",
+  "title": "SaveFormPage",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet SaveFormPage\n(RIV-TA urn:riv:infrastructure:eservicesupply:forminteraction:SaveFormPage:2).\nRepresenterar responsens informationsstruktur — returnerar nästa sida med frågor, eller felindikation.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/StructureDefinition/saveformpage",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "saveformpage",
+        "path": "saveformpage",
+        "short": "SaveFormPage",
+        "definition": "Logisk modell för tjänstekontraktet SaveFormPage\n(RIV-TA urn:riv:infrastructure:eservicesupply:forminteraction:SaveFormPage:2).\nRepresenterar responsens informationsstruktur — returnerar nästa sida med frågor, eller felindikation."
+      },
+      {
+        "id": "saveformpage.form",
+        "path": "saveformpage.form",
+        "short": "Formulär (FormType)",
+        "definition": "Formuläret med nästa sida eller felindikation. Null indikerar att formuläret är färdigifyllt.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage.form.formID",
+        "path": "saveformpage.form.formID",
+        "short": "Formulär-id",
+        "definition": "Formulärets unika ID (GUID).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage.form.formStatus",
+        "path": "saveformpage.form.formStatus",
+        "short": "Formulärstatus",
+        "definition": "Formulärets status.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/formstatus-vs"
+        }
+      },
+      {
+        "id": "saveformpage.form.currentPage",
+        "path": "saveformpage.form.currentPage",
+        "short": "Aktuell sida (PageType)",
+        "definition": "Nästa sida att presentera, eller den aktuella sidan vid fel.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage.form.currentPage.pageNumber",
+        "path": "saveformpage.form.currentPage.pageNumber",
+        "short": "Sidnummer",
+        "definition": "Sidans nummer.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage.form.currentPage.lastPage",
+        "path": "saveformpage.form.currentPage.lastPage",
+        "short": "Sista sidan",
+        "definition": "Indikerar om detta är den sista sidan.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage.comment",
+        "path": "saveformpage.comment",
+        "short": "Kommentar",
+        "definition": "Attribut för felsignalering. Skall kunna visas för slutanvändaren.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "saveformpage.resultCode",
+        "path": "saveformpage.resultCode",
+        "short": "Resultatkod",
+        "definition": "Status på operationen.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/resultcode-vs"
+        }
+      }
+    ]
+  }
+}

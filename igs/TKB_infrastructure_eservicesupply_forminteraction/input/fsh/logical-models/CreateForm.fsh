@@ -32,7 +32,7 @@ Characteristics: #can-be-target
     * templateId 1..1 string "Mall-id" "Typ av formulär."
     * templateVersion 1..1 integer "Mallens version" "Versionsnummer."
 
-Logical: CreateFormRequest
+Logical: CreateFormInput
 Id: createform-request
 Title: "CreateForm — Request"
 Description: "Logisk modell för requestparametrar i CreateForm."

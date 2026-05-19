@@ -1,0 +1,208 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getformtemplates",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/StructureDefinition/getformtemplates",
+  "name": "GetFormTemplates",
+  "title": "GetFormTemplates",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetFormTemplates\n(RIV-TA urn:riv:infrastructure:eservicesupply:forminteraction:GetFormTemplates:2).\nRepresenterar responsens informationsstruktur — returnerar tillgängliga formulärmallar för invånare.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/StructureDefinition/getformtemplates",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getformtemplates",
+        "path": "getformtemplates",
+        "short": "GetFormTemplates",
+        "definition": "Logisk modell för tjänstekontraktet GetFormTemplates\n(RIV-TA urn:riv:infrastructure:eservicesupply:forminteraction:GetFormTemplates:2).\nRepresenterar responsens informationsstruktur — returnerar tillgängliga formulärmallar för invånare."
+      },
+      {
+        "id": "getformtemplates.formTemplate",
+        "path": "getformtemplates.formTemplate",
+        "short": "Formulärmall (FormTemplateType)",
+        "definition": "Lista med formulärmallar som matchar sökkriterierna.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplate.templateId",
+        "path": "getformtemplates.formTemplate.templateId",
+        "short": "Mall-id",
+        "definition": "Typ av formulär. Kodverk för standardiserade id för formulärtyper.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplate.templateVersion",
+        "path": "getformtemplates.formTemplate.templateVersion",
+        "short": "Mallens version",
+        "definition": "Versionsnummer för formulärmallen.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplate.anonymousForm",
+        "path": "getformtemplates.formTemplate.anonymousForm",
+        "short": "Anonym formulär",
+        "definition": "Styr huruvida formulärmotorn stöder anonym användning av formuläret.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplate.category",
+        "path": "getformtemplates.formTemplate.category",
+        "short": "Formulärkategori",
+        "definition": "Formulärets kategori, t.ex. Anmälan, registrering, hälsodeklaration.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/formcategory-vs"
+        }
+      },
+      {
+        "id": "getformtemplates.formTemplate.publishStatus",
+        "path": "getformtemplates.formTemplate.publishStatus",
+        "short": "Publiceringsstatus",
+        "definition": "Mallens publiceringsstatus.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/publishstatus-vs"
+        }
+      },
+      {
+        "id": "getformtemplates.formTemplate.mandatory",
+        "path": "getformtemplates.formTemplate.mandatory",
+        "short": "Obligatorisk",
+        "definition": "Indikerar om formuläret är obligatoriskt att fylla i av användaren.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplate.language",
+        "path": "getformtemplates.formTemplate.language",
+        "short": "Språk",
+        "definition": "Beskriver vilket språk som används i formuläret, t.ex. swe eller eng.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplate.formCompleteText",
+        "path": "getformtemplates.formTemplate.formCompleteText",
+        "short": "Avslutningstext",
+        "definition": "Text som visas för invånaren när formuläret är besvarat.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplate.code",
+        "path": "getformtemplates.formTemplate.code",
+        "short": "Kod",
+        "definition": "Koppling till klass för code. Används för att beskriva t.ex. formulärinstrument (AUDIT-C, PHQ-9, EQ-5D).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplate.code.codeSystem",
+        "path": "getformtemplates.formTemplate.code.codeSystem",
+        "short": "Kodsystem",
+        "definition": "Kodsystemets identifierare.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplate.code.codeValue",
+        "path": "getformtemplates.formTemplate.code.codeValue",
+        "short": "Kodvärde",
+        "definition": "Kodvärdet inom kodsystemet.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates.formTemplate.code.displayName",
+        "path": "getformtemplates.formTemplate.code.displayName",
+        "short": "Visningsnamn",
+        "definition": "Visningsnamn för koden.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

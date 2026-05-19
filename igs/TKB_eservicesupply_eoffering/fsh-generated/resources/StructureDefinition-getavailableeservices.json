@@ -1,0 +1,312 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getavailableeservices",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/eservicesupply-eoffering/StructureDefinition/getavailableeservices",
+  "name": "GetAvailableEServices",
+  "title": "GetAvailableEServices",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetAvailableEServices\n(RIV-TA urn:riv:eservicesupply:eoffering:GetAvailableEServicesResponder:1).\nRepresenterar responsens informationsstruktur.\n\nTjänsten redovisar vilka e-tjänster en vårdenhet (identifierad via HSA-ID) erbjuder\n(stödtjänst Erbjuden e-tjänst).",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/eservicesupply-eoffering/StructureDefinition/getavailableeservices",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getavailableeservices",
+        "path": "getavailableeservices",
+        "short": "GetAvailableEServices",
+        "definition": "Logisk modell för tjänstekontraktet GetAvailableEServices\n(RIV-TA urn:riv:eservicesupply:eoffering:GetAvailableEServicesResponder:1).\nRepresenterar responsens informationsstruktur.\n\nTjänsten redovisar vilka e-tjänster en vårdenhet (identifierad via HSA-ID) erbjuder\n(stödtjänst Erbjuden e-tjänst)."
+      },
+      {
+        "id": "getavailableeservices.availableEServices",
+        "path": "getavailableeservices.availableEServices",
+        "short": "E-tjänster per vårdenhet",
+        "definition": "Lista med tillgängliga e-tjänster per vårdenhet.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getavailableeservices.availableEServices.healthcareFacility",
+        "path": "getavailableeservices.availableEServices.healthcareFacility",
+        "short": "Vårdenhetsinformation",
+        "definition": "Vårdenhet som erbjuder e-tjänster.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getavailableeservices.availableEServices.healthcareFacility.healthcareFacilityId",
+        "path": "getavailableeservices.availableEServices.healthcareFacility.healthcareFacilityId",
+        "short": "Vårdenhetens HSA-id",
+        "definition": "Vårdenhetens hsa-id. Hsa-id måste vara ett giltigt hsa-id i HSA-katalogen.\nXSD: hsaIdType (string).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getavailableeservices.availableEServices.healthcareFacility.healthcareFacilityName",
+        "path": "getavailableeservices.availableEServices.healthcareFacility.healthcareFacilityName",
+        "short": "Vårdenhetens namn",
+        "definition": "Vårdenhetens namn. Om utelämnat ska vårdenhetens namn hämtas från HSA-katalog.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getavailableeservices.availableEServices.eservice",
+        "path": "getavailableeservices.availableEServices.eservice",
+        "short": "E-tjänst",
+        "definition": "Information om e-tjänsten.\nKardinalitet: Valfri, lista (en vårdenhet kan ha noll eller flera e-tjänster).",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getavailableeservices.availableEServices.eservice.commonName",
+        "path": "getavailableeservices.availableEServices.eservice.commonName",
+        "short": "E-tjänstens namn",
+        "definition": "E-tjänstens (resursens) namn. Ex: Tidbokning.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getavailableeservices.availableEServices.eservice.description",
+        "path": "getavailableeservices.availableEServices.eservice.description",
+        "short": "Beskrivning av e-tjänst",
+        "definition": "Information om e-tjänsten. Kan innehålla beskrivningar och villkor för användandet\nav tjänsten (riktad mot användare/patient).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getavailableeservices.availableEServices.eservice.resourceId",
+        "path": "getavailableeservices.availableEServices.eservice.resourceId",
+        "short": "E-tjänstens id",
+        "definition": "E-tjänstens id. Unikt id för e-tjänsten. Tjänsteproducentens unika id.\nXSD: resourceIdType (string).\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getavailableeservices.availableEServices.eservice.securitylevel",
+        "path": "getavailableeservices.availableEServices.eservice.securitylevel",
+        "short": "Autentiseringsnivå",
+        "definition": "Tjänstens krav på autentiseringsnivå (Assurance Level, ISO/IEC 29115).\nAL1 = Tillitsnivå 1, AL2 = Tillitsnivå 2,\nAL3 = Mjuka certifikat/stark autentisering med engångskod,\nAL4 = Hårda certifikat.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/eservicesupply-eoffering/ValueSet/securitylevel-vs"
+        }
+      },
+      {
+        "id": "getavailableeservices.availableEServices.eservice.url",
+        "path": "getavailableeservices.availableEServices.eservice.url",
+        "short": "URL till e-tjänst",
+        "definition": "URL till e-tjänst. URL måste kunna nås via internet.\nEx: https://host/funktion?operation&param.\nXSD: anyURI.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "url"
+          }
+        ]
+      },
+      {
+        "id": "getavailableeservices.availableEServices.eservice.restrictions",
+        "path": "getavailableeservices.availableEServices.eservice.restrictions",
+        "short": "Restriktioner",
+        "definition": "Information om de restriktioner som finns kopplade till e-tjänsten.\nEn e-tjänst utan restriktioner är tillgänglig för alla.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode",
+        "path": "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode",
+        "short": "Betjäningsområde",
+        "definition": "Information om e-tjänstens geografiska betjäningsområde (län, kommun och kommundel).\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode.countycode",
+        "path": "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode.countycode",
+        "short": "Länskod",
+        "definition": "Länskod. Anger i vilka län e-tjänsten är tillgänglig/erbjuds.\nE-tjänsten betjänar invånare i detta län.\nXSD: countycode (string).\nKardinalitet: Obligatorisk, lista (minst ett lärn krävs).",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode.municipalityCode",
+        "path": "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode.municipalityCode",
+        "short": "Kommunkod",
+        "definition": "Kommunkod. Avgränsar länskod. Visar i vilka specifika kommuner e-tjänsten erbjuds.\nUtelämnas denna gäller hela länet.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode.municipalitySectionCode",
+        "path": "getavailableeservices.availableEServices.eservice.restrictions.eserviceAreaCode.municipalitySectionCode",
+        "short": "Kommundelskod",
+        "definition": "Kommundelskod. Avgränsar kommunkod. Visar i vilka specifika kommundelar e-tjänsten erbjuds.\nUtelämnas denna gäller hela kommunen.\nKardinalitet: Valfri, lista.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getavailableeservices.availableEServices.eservice.restrictions.gender",
+        "path": "getavailableeservices.availableEServices.eservice.restrictions.gender",
+        "short": "Kön",
+        "definition": "E-tjänsten riktar sig till ett visst kön.\n1 = Man, 2 = Kvinna.\nASSUME: Modellat som code med domänspecifikt ValueSet.\nXSD: genderType (string — ej enumeration i schemat).\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/eservicesupply-eoffering/ValueSet/gender-eoffering-vs"
+        }
+      },
+      {
+        "id": "getavailableeservices.availableEServices.eservice.restrictions.listing",
+        "path": "getavailableeservices.availableEServices.eservice.restrictions.listing",
+        "short": "Listningskrav",
+        "definition": "Listningskrav. true = kräver listning, false = kräver ej listning.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getavailableeservices.availableEServices.eservice.restrictions.referal",
+        "path": "getavailableeservices.availableEServices.eservice.restrictions.referal",
+        "short": "Remisskrav",
+        "definition": "Remisskrav. true = kräver remiss, false = kräver ej remiss.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getavailableeservices.availableEServices.eservice.restrictions.referalTypeId",
+        "path": "getavailableeservices.availableEServices.eservice.restrictions.referalTypeId",
+        "short": "Remisstyp",
+        "definition": "Kodverk för remisstyper 1–8 (KV Framställantyp).\nDefiniera vilken typ av remiss e-tjänsten kräver.\nQUESTIONS: Canonical URL för KV Framställantyp är okänd — se QUESTIONS.md.\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getavailableeservices.availableEServices.eservice.restrictions.ageMin",
+        "path": "getavailableeservices.availableEServices.eservice.restrictions.ageMin",
+        "short": "Ålderskrav minimum",
+        "definition": "Ålderskrav minimum (år).\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getavailableeservices.availableEServices.eservice.restrictions.ageMax",
+        "path": "getavailableeservices.availableEServices.eservice.restrictions.ageMax",
+        "short": "Ålderskrav maximum",
+        "definition": "Ålderskrav maximum (år).\nKardinalitet: Valfri.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      }
+    ]
+  }
+}

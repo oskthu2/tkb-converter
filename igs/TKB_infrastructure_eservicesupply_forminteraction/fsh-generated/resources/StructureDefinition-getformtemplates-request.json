@@ -1,0 +1,100 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getformtemplates-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/StructureDefinition/getformtemplates-request",
+  "name": "GetFormTemplatesRequest",
+  "title": "GetFormTemplates — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i GetFormTemplates.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/StructureDefinition/getformtemplates-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getformtemplates-request",
+        "path": "getformtemplates-request",
+        "short": "GetFormTemplates — Request",
+        "definition": "Logisk modell för requestparametrar i GetFormTemplates."
+      },
+      {
+        "id": "getformtemplates-request.healthcare_Facility_CareUnit",
+        "path": "getformtemplates-request.healthcare_Facility_CareUnit",
+        "short": "Vårdenhetens HSA-id",
+        "definition": "Hsa-Id (Vårdenhet/enhets-id). T.ex. se2321000016-1hz3.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates-request.publishedStatus",
+        "path": "getformtemplates-request.publishedStatus",
+        "short": "Publiceringsstatus",
+        "definition": "Indikerar vilken status en mall skall ha.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/publishstatus-vs"
+        }
+      },
+      {
+        "id": "getformtemplates-request.subjectOfCare",
+        "path": "getformtemplates-request.subjectOfCare",
+        "short": "Personnummer",
+        "definition": "Starkt autentiserad användares personnummer. T.ex. 191212121212 (yyyymmddnnnn).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates-request.templateIds",
+        "path": "getformtemplates-request.templateIds",
+        "short": "Mall-id:n",
+        "definition": "Typ av formulärmall. Om denna inte anges returneras ALLA tillgängliga formulärmallar för medborgaren.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformtemplates-request.clinicalProcessInterestIds",
+        "path": "getformtemplates-request.clinicalProcessInterestIds",
+        "short": "Hälsoärenden",
+        "definition": "Hälsoärende-id:n för filtrering.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      }
+    ]
+  }
+}
