@@ -281,20 +281,64 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 
 ---
 
-## IG Publisher-byggen 2026-03-20 — sammanfattning
+## IG Publisher-byggen — sammanfattning
 
-**Körda domäner:** itintegration.engagementindex, clinicalprocess.healthcond.description, clinicalprocess.activityprescription.actoutcome
+### Körning 2026-03-22 (lokal agent — alla 6 byggnda domäner)
 
-| Domän | Errors | Warnings | Hints | Status |
-|-------|--------|----------|-------|--------|
-| itintegration.engagementindex | 0 | 92 | 0 | ✅ passerade |
-| clinicalprocess.healthcond.description | 0 | 0 | 0 | ✅ rent bygge |
-| clinicalprocess.activityprescription.actoutcome | 0 | 51 | 9 | ✅ passerade |
+| Domän | Errors | Warnings | Hints | Status | Registry-status |
+|-------|--------|----------|-------|--------|-----------------|
+| itintegration.engagementindex | 0 | 92 | 0 | ✅ passerade | done |
+| clinicalprocess.healthcond.description | 0 | 0 | 0 | ✅ rent bygge | done |
+| clinicalprocess.activityprescription.actoutcome | 8 | 0 | 69 | ❌ FAILED | **needs-re-evaluation** |
+| clinicalprocess.logistics.logistics | 0 | 0 | 61 | ✅ passerade | done |
+| clinicalprocess.healthcond.actoutcome | 0 | 0 | 0 | ✅ rent bygge | done |
+| clinicalprocess.activityprescription.prescribe | 0 | 0 | 0 | ✅ rent bygge | done |
 
-**Ej körda domäner (kör `make build-one D=...`):**
-- `clinicalprocess.logistics.logistics`
-- `clinicalprocess.healthcond.actoutcome`
-- `clinicalprocess.activityprescription.prescribe`
+### clinicalprocess.activityprescription.actoutcome — IG Publisher-fel (2026-03-22)
+
+**Status:** `needs-re-evaluation` — felen nedan verkar åtgärdade i nuvarande kod men kräver ett nytt bygge för bekräftelse.
+
+**Åtgärd för GitHub Copilot:**
+```bash
+make build-one D=clinicalprocess.activityprescription.actoutcome
+# Verifiera sedan: igs/TKB_clinicalprocess_activityprescription_actoutcome/ig-publisher-logs/qa-errors.json
+```
+Om bygget passerar: uppdatera `contracts-registry.json` → `status: "done"` och `ig_publisher_result.passed: true`.
+
+#### Fel som hittades (förväntade vara lösta)
+
+- [ ] **[BLOCK-ACT-IGP-001]** `igs/TKB_clinicalprocess_activityprescription_actoutcome/sushi-config.yaml` — `RESOURCE_CANONICAL_MISMATCH` för 5 CodeSystems
+  Filen i `fsh-generated/resources/` har URL `https://fhir.inera.se/CodeSystem/{slug}` men IG Publisher förväntade sig IG-canonical-baserad URL.
+  **Förväntad fix:** `special-url`-lista finns redan i `sushi-config.yaml` för alla 5 CodeSystems (`errorcode-actoutcome`, `nonreplaceable-actoutcome`, `prescriptionstatus`, `resultcode-actoutcome`, `typeofprescription`). Kör om bygget för att verifiera att detta är tillräckligt.
+  Källa: `ig-publisher-logs/qa-errors.json` 2026-03-22.
+
+- [ ] **[BLOCK-ACT-IGP-002]** `igs/TKB_clinicalprocess_activityprescription_actoutcome/input/pagecontent/index.md` — brutna ankarlänkar
+  IG Publisher kunde inte lösa `7-tjanstekontrakt.html#71-getvaccinationhistory` och `#72-getmedicationhistory`.
+  **Förväntad fix:** `index.md` använder nu `#getvaccinationhistory` (lowercase utan prefix). Kör om bygget för att verifiera.
+  Källa: `ig-publisher-logs/qa-errors.json` hints-rad 10–11.
+
+#### Varningar (eld-20) — TODO
+
+- [ ] **[TODO-ACT-IGP-001]** `igs/TKB_clinicalprocess_activityprescription_actoutcome/fsh-generated/resources/` — 68 `eld-20`-varningar
+  IG Publisher-valideringen flaggar att snapshot-element i LogicalModel-resurser inte matchar regex `[A-Za-z][A-Za-z0-9]*(\.[a-z][A-Za-z0-9]*)*`. Rotorsaken är att SUSHI inkluderar path-prefix med modellnamnet (t.ex. `GetMedicationHistory`) i snapshot-elementlistan. Detta är en FHIR IG Publisher-varning specifik för Logical-modeller och är **inte blockerande** — den påverkar inte validering eller webbpublikation. Samma mönster syns i `logistics.logistics` (61 hints) men utan fel. Lämna som TODO.
+
+### Domäner med IG Publisher-resultat (status overview)
+
+```
+done (IG Publisher passerade):
+  ✅ itintegration.engagementindex
+  ✅ clinicalprocess.healthcond.description
+  ✅ clinicalprocess.logistics.logistics
+  ✅ clinicalprocess.healthcond.actoutcome
+  ✅ clinicalprocess.activityprescription.prescribe
+
+needs-re-evaluation (IG Publisher misslyckades — fix sannolikt klar, verifiera med nytt bygge):
+  ❌ clinicalprocess.activityprescription.actoutcome
+     → Kör: make build-one D=clinicalprocess.activityprescription.actoutcome
+
+pending (IG Publisher ej kört ännu):
+  ⏳ ~45 domäner kvarstår — bearbeta med make build-one D={domain} efter SUSHI-konvertering
+```
 
 ### TODO — granska varningar i IG Publisher-output
 
