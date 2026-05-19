@@ -1,0 +1,10 @@
+[GetHospPersonForIVO]: StructureDefinition-gethosppersonforivo.html
+[GetHospPersonForIVORequest]: StructureDefinition-gethosppersonforivo-request.html
+[GetHospPersonForPublicHealthcare]: StructureDefinition-gethosppersonforpublichealthcare.html
+[GetHospPersonForPublicHealthcareRequest]: StructureDefinition-gethosppersonforpublichealthcare-request.html
+[KonCS]: CodeSystem-kon-cs.html
+[KonVS]: ValueSet-kon-vs.html
+[LegitimeratYrkeCS]: CodeSystem-legitimerat-yrke-cs.html
+[LegitimeratYrkeVS]: ValueSet-legitimerat-yrke-vs.html
+[TypAvBehorighetsbegransningCS]: CodeSystem-typ-av-behorighetsbegransning-cs.html
+[TypAvBehorighetsbegransningVS]: ValueSet-typ-av-behorighetsbegransning-vs.html

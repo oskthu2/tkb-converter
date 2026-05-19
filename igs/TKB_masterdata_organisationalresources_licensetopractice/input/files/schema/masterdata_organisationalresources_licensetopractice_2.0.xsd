@@ -1,0 +1,585 @@
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Socialstyrelsen licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->		
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' 
+  xmlns:tns='urn:riv:masterdata:organisationalresources:licensetopractice:2' 
+  targetNamespace='urn:riv:masterdata:organisationalresources:licensetopractice:2' 
+  elementFormDefault='qualified' 
+  attributeFormDefault='unqualified' 
+  version='2.0'>
+
+  
+  <xs:complexType name="HospPersonType">
+    <xs:sequence>
+      <xs:element name="hospId" type="tns:HospIdType"/>
+      <xs:element name="personId" type="tns:PersonIdType" minOccurs="0"/>
+      <xs:element name="tidigarePersonId" type="tns:PersonIdType" minOccurs="0"/>
+      <xs:element name="efternamn" type="tns:EjTomStrangType"/>
+      <xs:element name="mellannamn" type="tns:EjTomStrangType" minOccurs="0"/>
+      <xs:element name="samtligaFornamn" type="tns:EjTomStrangType" maxOccurs="unbounded"/>
+      <xs:element name="tilltalsnamn" type="tns:EjTomStrangType" minOccurs="0"/>
+      <xs:element name="fodelsedatum" type="tns:DateType" />
+      <xs:element name="kon" type="tns:KonType" minOccurs="0"/>
+      <xs:element name="lan" type="tns:LanType" minOccurs="0"/>
+      <xs:element name="kommun" type="tns:KommunType" minOccurs="0"/>
+      <xs:element name="folkbokforingsort" type="tns:EjTomStrangType" minOccurs="0"/>
+      <xs:element name="skyddadIdentitet" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="skyddadIdentitetUpplysning" type="tns:EjTomStrangType" minOccurs="0"/>
+      <xs:element name="avliden" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="avlidenDatum" type="tns:PartielltDatum" minOccurs="0"/>
+      <xs:element name="utvandrad" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="forskrivarkod" type="tns:ForskrivarkodType" minOccurs="0"/>
+      <xs:element name="legitimation" type="tns:LegitimationType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LegitimationType">
+    <xs:sequence>
+      <xs:element name="legitimeratYrke" type="tns:LegitimeratYrkeTyp"/>
+      <xs:element name="giltigLegitimation" type="xs:boolean"/>
+      <xs:element name="utbildning" type="tns:UtbildningType" minOccurs="0"/>
+      <xs:element name="utbildningsland" type="tns:EjTomStrangType" minOccurs="0"/>
+      <xs:element name="internationellOverrenskommelse" type="tns:EjTomStrangType" minOccurs="0"/>
+      <xs:element name="legitimationsDatum" type="tns:PartielltDatum"/>
+      <xs:element name="beslutsdatumFysioterapeut" type="tns:PartielltDatum" minOccurs="0"/>
+      <xs:element name="examensdatum" type="tns:PartielltDatum" minOccurs="0"/>
+      <xs:element name="larosate" type="tns:EjTomStrangType" minOccurs="0"/>
+      <xs:element name="grundyrke" type="tns:EjTomStrangType" minOccurs="0"/>
+      <xs:element name="forskrivningsratt" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="forskrivningsrattDatum" type="tns:PartielltDatum" minOccurs="0"/>        
+      <xs:element name="specialistbevis" type="tns:SpecialistbevisType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="behorighetsbegransning" type="tns:BehorighetsbegransningType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ovrigBehorighet" type="tns:OvrigBehorighetType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="SpecialistbevisType">
+    <xs:sequence>
+      <xs:element name="specialistinriktning" type="tns:SpecialistinriktningType"/>
+      <xs:element name="utbildningsland" type="tns:EjTomStrangType" minOccurs="0"/>
+      <xs:element name="internationellOverrenskommelse" type="tns:EjTomStrangType" minOccurs="0"/>
+      <xs:element name="specialistbevisDatum" type="tns:PartielltDatum"/>
+      <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+      
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="OvrigBehorighetType">
+    <xs:sequence>
+      <xs:element name="behorighet" type="tns:UtbildningType"/>
+      <xs:element name="behorighetsDatum" type="tns:PartielltDatum"/>
+      <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="BehorighetsbegransningType">
+      <xs:sequence>
+        <xs:element name="typAvBehorighetsbegransning" type="tns:TypAvBehorighetsbegransning"/>
+        <xs:element name="fromDatum" type="tns:DateType"/>
+        <xs:element name="tomDatum" type="tns:DateType" minOccurs="0"/>
+        <xs:element name="begransadForskrivningsrattText" type="tns:EjTomStrangType" minOccurs="0"/>
+        <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+      </xs:sequence>
+  </xs:complexType> 
+  
+  <!-- Identiteter som används för element av typen II -->
+  
+  <xs:complexType name="PersonIdType">
+    <xs:sequence>
+      <xs:element name="extension" type="tns:PersonIdentitet"/>
+      <xs:element name="root" type="tns:PersonIdentitetOid" minOccurs="0"/>
+      <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:simpleType name="PersonIdentitet">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="PersonIdentitetOid">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1.2.752.129.2.1.3.1">
+        <xs:annotation>
+          <xs:documentation>Personnummer</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1.2.752.129.2.1.3.3">
+        <xs:annotation>
+          <xs:documentation>Samordningsnummer</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="HospIdType">
+    <xs:sequence>
+      <xs:element name="extension" type="xs:int" />
+      <xs:element name="root" type="xs:string" minOccurs="1" fixed="1.2.752.116.3.1.1"/>
+      <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ForskrivarkodType">
+    <xs:sequence>
+      <xs:element name="extension" type="xs:int"/>
+      <xs:element name="root" type="xs:string" minOccurs="1" fixed="1.2.752.116.3.1.2"/>
+      <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Kodverk som används för element av typen CV -->
+  
+  <xs:simpleType name="SpecialistinriktningOid">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="1.2.752.116.3.1.6">
+        <xs:annotation>
+          <xs:documentation>Specialistinriktning läkare 1992</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1.2.752.116.3.1.7">
+        <xs:annotation>
+          <xs:documentation>Specialistinriktning läkare 1996</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1.2.752.116.3.1.8">
+        <xs:annotation>
+          <xs:documentation>Specialistinriktning läkare 2008</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1.2.752.116.3.1.9">
+        <xs:annotation>
+          <xs:documentation>Specialistinriktning läkare 2015</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1.2.752.116.3.1.10">
+        <xs:annotation>
+          <xs:documentation>Specialistinriktning tandläkare 1993</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CVType">
+    <xs:annotation>
+      <xs:documentation>
+        Grundtyp för att utrycka kodvärden från ett kodverk inklusive förklarande text
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="xs:string" minOccurs="0"/>
+      <xs:element name="codeSystem" type="xs:string" minOccurs="0"/>
+      <xs:element name="codeSystemName" type="xs:string" minOccurs="0"/>
+      <xs:element name="codeSystemVersion" type="xs:string" minOccurs="0"/>
+      <xs:element name="displayName" type="xs:string" minOccurs="0"/>
+      <xs:element name="originalText" type="xs:string" minOccurs="0"/>
+      <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="LegitimeratYrkeTyp">
+    <xs:annotation>
+      <xs:documentation>Typ som visar en kod samt förklarande text</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="tns:CVType">
+        <xs:sequence>
+          <xs:element name="code" type="tns:LegitimeratYrkeVarden" minOccurs="1"/>
+          <xs:element name="codeSystem" type="xs:string" minOccurs="1" fixed="1.2.752.116.3.1.3" />
+          <xs:element name="displayName" type="xs:string" minOccurs="1" />
+          <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType> 
+  
+  <xs:simpleType name="LegitimeratYrkeVarden">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AP">
+        <xs:annotation>
+          <xs:documentation>Apotekare</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AT">
+        <xs:annotation>
+          <xs:documentation>Arbetsterapeut</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AU">
+        <xs:annotation>
+          <xs:documentation>Audionom</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BA">
+        <xs:annotation>
+          <xs:documentation>Biomedicinsk analytiker</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BM">
+        <xs:annotation>
+          <xs:documentation>Barnmorska</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DT">
+        <xs:annotation>
+          <xs:documentation>Dietist</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FT">
+        <xs:annotation>
+          <xs:documentation>Fysioterapeut</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="KP">
+        <xs:annotation>
+          <xs:documentation>Kiropraktor</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LG">
+        <xs:annotation>
+          <xs:documentation>Logoped</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LK">
+        <xs:annotation>
+          <xs:documentation>Läkare</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NA">
+        <xs:annotation>
+          <xs:documentation>Naprapat</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OP">
+        <xs:annotation>
+          <xs:documentation>Optiker</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OT">
+        <xs:annotation>
+          <xs:documentation>Ortopedingenjör</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PS">
+        <xs:annotation>
+          <xs:documentation>Psykolog</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PT">
+        <xs:annotation>
+          <xs:documentation>Psykoterapeut</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RC">
+        <xs:annotation>
+          <xs:documentation>Receptarie</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RS">
+        <xs:annotation>
+          <xs:documentation>Röntgensjuksköterska</xs:documentation>
+        </xs:annotation>      
+      </xs:enumeration>
+      <xs:enumeration value="SF">
+        <xs:annotation>
+          <xs:documentation>Sjukhusfysiker</xs:documentation>
+        </xs:annotation>      
+      </xs:enumeration>
+      <xs:enumeration value="SG">
+        <xs:annotation>
+          <xs:documentation>Sjukgymnast</xs:documentation>
+        </xs:annotation>      
+      </xs:enumeration>
+      <xs:enumeration value="SJ">
+        <xs:annotation>
+          <xs:documentation>Sjuksköterska</xs:documentation>
+        </xs:annotation>      
+      </xs:enumeration>
+      <xs:enumeration value="TH">
+        <xs:annotation>
+          <xs:documentation>Tandhygienist</xs:documentation>
+        </xs:annotation>      
+      </xs:enumeration>    
+      <xs:enumeration value="TL">
+        <xs:annotation>
+          <xs:documentation>Tandläkare</xs:documentation>
+        </xs:annotation>      
+      </xs:enumeration>            
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="KonType">
+    <xs:annotation>
+      <xs:documentation>Kod för kön</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="tns:CVType">
+        <xs:sequence>
+          <xs:element name="code" type="tns:KonVarden" minOccurs="1"/>
+          <xs:element name="codeSystem" type="xs:string" minOccurs="1" fixed="1.2.752.129.2.2.1.1" />
+          <xs:element name="displayName" type="xs:string" minOccurs="1" />
+          <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType> 
+
+  <xs:simpleType name="KonVarden">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="0">
+        <xs:annotation>
+          <xs:documentation>okänt</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation>man</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation>kvinna</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="9">
+        <xs:annotation>
+          <xs:documentation>ej tillämpligt</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="UtbildningType">
+    <xs:annotation>
+      <xs:documentation>Kod för utbildning</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="tns:CVType">
+        <xs:sequence>
+          <xs:element name="code" type="xs:string" minOccurs="1"/>
+          <xs:element name="codeSystem" type="xs:string" minOccurs="1" fixed="1.2.752.116.3.1.4" /> 
+          <xs:element name="displayName" type="xs:string" minOccurs="1" />
+          <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <xs:complexType name="SpecialistinriktningType">
+    <xs:annotation>
+      <xs:documentation>Kod för specialistinriktning</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="tns:CVType">
+        <xs:sequence>
+          <xs:element name="code" type="xs:string" minOccurs="1"/>
+          <xs:element name="codeSystem" type="tns:SpecialistinriktningOid" minOccurs="1" /> 
+          <xs:element name="displayName" type="xs:string" minOccurs="1" />
+          <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+    </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <xs:complexType name="TypAvBehorighetsbegransning">
+    <xs:annotation>
+      <xs:documentation>Typ för typ av behorighetsbegränsning</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="tns:CVType">
+        <xs:sequence>
+          <xs:element name="code" type="tns:TypAvBehorighetsbegransningVarden" minOccurs="1"/>
+          <xs:element name="codeSystem" type="xs:string" minOccurs="1" fixed="1.2.752.116.3.1.5" /> 
+          <xs:element name="displayName" type="xs:string" minOccurs="1" />
+          <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <xs:simpleType name="TypAvBehorighetsbegransningVarden">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="001">
+        <xs:annotation>
+          <xs:documentation>Återkallad legitimation</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="002">
+        <xs:annotation>
+          <xs:documentation>Prövotid</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="003">
+        <xs:annotation>
+          <xs:documentation>Begränsad förskrivningsrätt</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  
+  <xs:complexType name="KommunType">
+    <xs:annotation>
+      <xs:documentation>Kommunkod</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="tns:CVType">
+        <xs:sequence>
+          <xs:element name="code" type="xs:string" minOccurs="1"/>
+          <xs:element name="codeSystem" type="xs:string" minOccurs="1" fixed="1.2.752.129.2.2.1.17" /> 
+          <xs:element name="displayName" type="xs:string" minOccurs="1" />
+          <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <xs:complexType name="LanType">
+    <xs:annotation>
+      <xs:documentation>Länskod</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="tns:CVType">
+        <xs:sequence>
+          <xs:element name="code" type="xs:string" minOccurs="1"/>
+          <xs:element name="codeSystem" type="xs:string" minOccurs="1" fixed="1.2.752.129.2.2.1.18" /> 
+          <xs:element name="displayName" type="xs:string" minOccurs="1" />
+          <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <!-- Övriga datatyper -->
+  
+  <xs:simpleType name="EjTomStrangType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="DateType">
+    <xs:annotation>
+      <xs:documentation>
+        Datum uttrycks på formatet ”ÅÅÅÅMMDD”
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="PartielltDatum">
+    <xs:annotation>
+      <xs:documentation>
+        Partielltdatum är en begränsning av Datum. Denna typ tillåter formaten &#34;ÅÅÅÅ[MM[DD]]&#34;
+        Dvs enbart år eller år och månad.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[1-2][0-9]{3,3}(((0[1-9])|(1[0-2]))(((0[1-9])|([1-2][0-9])|(3[0-1])))?)?"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  
+  
+  <xs:complexType name="ResultatType">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">
+        Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc.
+        En anropande klient skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om
+        anropet lyckades.
+        Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.
+        Om svarskoden är INFO skall fältet resultText innehålla mer information.
+        Om svarskorden är ERROR skall fältet errorId innehålla en specifik felkod, och fältet
+        resultText innehålla mer information.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="resultatKod" type="tns:ResultatKodType"/>
+      <xs:element name="resultatText" type="xs:string" minOccurs="0"/>
+      <xs:element name="errorId" type="tns:ErrorIdType" minOccurs="0"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:simpleType name="ResultatKodType">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">
+        Enumerationsvärde som anger de svarskoder som finns.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">
+            Transaktionen har utförts enligt uppdraget.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="INFO">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">
+            Transaktionen har utförts enligt begäran, men det finns ett meddelande som konsumenten bör visa upp.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ERROR">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">
+            Transaktionen har INTE kunnat utföras. Det finns en felkod som klassificerar felet, samt
+            ett meddelande som konsumenten bör visa upp.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="ErrorIdType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="VALIDERINGS_FEL">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">
+            En eller flera inparametrar innehåller felaktiga värden. Angiven tjänst utfördes ej, och omsändning av
+            transaktionen är inte tillämpbart.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="APPLIKATIONS_FEL">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">
+            Transaktionen har INTE kunnat utföras p.g.a ett logiskt fel. Det finns ett meddelande som konsumenten bör
+            visa upp. Då felet är logisk är omsändning av transaktionen inte tillämpbart.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TEKNISK_FEL">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">
+            Transaktionen har INTE kunnat utföras p.g.a ett tekniskt fel. Det finns ett meddelande som konsumenten bör
+            visa upp. Felet kan vara intermittent, varför omsändning av transaktionen är tillämpbart.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  
+</xs:schema>

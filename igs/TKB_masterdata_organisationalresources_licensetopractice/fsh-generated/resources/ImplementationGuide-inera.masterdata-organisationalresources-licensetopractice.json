@@ -1,0 +1,206 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "inera.masterdata-organisationalresources-licensetopractice",
+  "url": "https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/ImplementationGuide/inera.masterdata-organisationalresources-licensetopractice",
+  "version": "2.0.0",
+  "name": "masterdataorganisationalresourceslicensetopractice",
+  "title": "masterdata: organisationalresources: licensetopractice",
+  "status": "draft",
+  "contact": [
+    {
+      "name": "Inera Arkitektur",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.inera.se"
+        }
+      ]
+    }
+  ],
+  "copyright": "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "packageId": "inera.masterdata-organisationalresources-licensetopractice",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.r4.core",
+      "version": "4.0.1",
+      "uri": "http://fhir.org/packages/hl7.fhir.r4.core/ImplementationGuide/hl7.fhir.r4.core",
+      "id": "hl7_fhir_r4_core"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "StructureDefinition/gethosppersonforivo"
+        },
+        "name": "GetHospPersonForIVO",
+        "description": "Logisk modell för tjänstekontraktet GetHospPersonForIVO\n(RIV-TA urn:riv:masterdata:organisationalresources:licensetopractice:GetHospPersonForIvoResponder:2).\nRepresenterar responsens informationsstruktur — en lista av HoSp-personer med fullständig legitimationsinformation.\nTjänsten ger Inspektionen för vård och omsorg (IVO) direktåtkomst till Socialstyrelsens register\növer hälso- och sjukvårdspersonal (HoSp) med utökade sökparametrar jämfört med den publika tjänsten.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/gethosppersonforivo-request"
+        },
+        "name": "GetHospPersonForIVO — Request",
+        "description": "Logisk modell för requestparametrar i GetHospPersonForIVO.\nIVO har utökade sökparametrar jämfört med den publika tjänsten, bland annat möjlighet att\nfiltrera på länskod, kommunkod, folkbokföringsort, förskrivarkod, yrke och specialistinriktning.\nSökfälten folkbokforingsort, yrke och specialistinriktning stöder wildcard-sökning.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/gethosppersonforpublichealthcare"
+        },
+        "name": "GetHospPersonForPublicHealthcare",
+        "description": "Logisk modell för tjänstekontraktet GetHospPersonForPublicHealthcare\n(RIV-TA urn:riv:masterdata:organisationalresources:licensetopractice:GetHospPersonForPublicHealthCareResponder:2).\nRepresenterar responsens informationsstruktur — en lista av HoSp-personer med legitimationsinformation.\nTjänsten ger offentliga vårdgivare direktåtkomst till Socialstyrelsens register över hälso- och\nsjukvårdspersonal (HoSp).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/gethosppersonforpublichealthcare-request"
+        },
+        "name": "GetHospPersonForPublicHealthcare — Request",
+        "description": "Logisk modell för requestparametrar i GetHospPersonForPublicHealthcare.\nAntingen anges personId, eller ett eller flera av fälten efternamn, fornamn, fodelsedatum.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/kon-cs"
+        },
+        "name": "Kön",
+        "description": "Kodverk för kön. OID: 1.2.752.129.2.2.1.1.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/kon-vs"
+        },
+        "name": "Kön — ValueSet",
+        "description": "Tillåtna värden för kön enligt kodverket Kön (OID: 1.2.752.129.2.2.1.1).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/legitimerat-yrke-cs"
+        },
+        "name": "Legitimerat yrke",
+        "description": "Kodverk för legitimerade yrken inom hälso- och sjukvård. OID: 1.2.752.116.3.1.3.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/legitimerat-yrke-vs"
+        },
+        "name": "Legitimerat yrke — ValueSet",
+        "description": "Tillåtna värden för legitimerat yrke enligt kodverket LegitimeratYrke (OID: 1.2.752.116.3.1.3).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/typ-av-behorighetsbegransning-cs"
+        },
+        "name": "Typ av behörighetsbegränsning",
+        "description": "Kodverk för typer av behörighetsbegränsning för legitimerade yrken. OID: 1.2.752.116.3.1.5.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/typ-av-behorighetsbegransning-vs"
+        },
+        "name": "Typ av behörighetsbegränsning — ValueSet",
+        "description": "Tillåtna värden för typ av behörighetsbegränsning (OID: 1.2.752.116.3.1.5).",
+        "exampleBoolean": false
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Hem",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "1-inledning.html",
+          "title": "1 Inledning",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "2-versionsinformation.html",
+          "title": "2 Versionsinformation",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "3-tjanstedomanens-arkitektur.html",
+          "title": "3 Tjänstedomänens arkitektur",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "4-tjanstedomanens-krav-och-regler.html",
+          "title": "4 Tjänstedomänens krav och regler",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "5-tjanstedomanens-meddelandemodeller.html",
+          "title": "5 Tjänstedomänens meddelandemodeller",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "6-gemensamma-informationskomponenter.html",
+          "title": "6 Gemensamma informationskomponenter",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "7-tjanstekontrakt.html",
+          "title": "7 Tjänstekontrakt",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2024+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "draft"
+      },
+      {
+        "code": "show-inherited-invariants",
+        "value": "false"
+      },
+      {
+        "code": "apply-contact",
+        "value": "true"
+      },
+      {
+        "code": "apply-publisher",
+        "value": "true"
+      },
+      {
+        "code": "apply-version",
+        "value": "true"
+      },
+      {
+        "code": "apply-copyright",
+        "value": "true"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/legitimerat-yrke-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/kon-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/typ-av-behorighetsbegransning-cs"
+      }
+    ]
+  }
+}

@@ -1,0 +1,304 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getdiagnosinformation",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/getdiagnosinformation",
+  "name": "GetDiagnosInformation",
+  "title": "GetDiagnosInformation",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetDiagnosInformation\n(RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetDiagnosInformation:1).\nRepresenterar responsens informationsstruktur — generell information om diagnoser.\nSådan information kan gälla för en eller flera diagnoser samtidigt.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/getdiagnosinformation",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getdiagnosinformation",
+        "path": "getdiagnosinformation",
+        "short": "GetDiagnosInformation",
+        "definition": "Logisk modell för tjänstekontraktet GetDiagnosInformation\n(RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetDiagnosInformation:1).\nRepresenterar responsens informationsstruktur — generell information om diagnoser.\nSådan information kan gälla för en eller flera diagnoser samtidigt."
+      },
+      {
+        "id": "getdiagnosinformation.diagnosInformation",
+        "path": "getdiagnosinformation.diagnosInformation",
+        "short": "Diagnosinformation",
+        "definition": "Diagnosinformation",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosinformation.diagnosInformation.informationsId",
+        "path": "getdiagnosinformation.diagnosInformation.informationsId",
+        "short": "Identitet för diagnosinformationen",
+        "definition": "Identitet för diagnosinformationen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosinformation.diagnosInformation.giltighetsTidStart",
+        "path": "getdiagnosinformation.diagnosInformation.giltighetsTidStart",
+        "short": "Giltighetstid — starttid",
+        "definition": "Starttiden i intervallet skall alltid anges.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosinformation.diagnosInformation.giltighetsTidSlut",
+        "path": "getdiagnosinformation.diagnosInformation.giltighetsTidSlut",
+        "short": "Giltighetstid — sluttid",
+        "definition": "Om sluttid ej anges är diagnosinformationen aktiv.\nDiagnosinformation som inte är aktiv skall innehålla ett slutdatum som ligger tidigare\nän aktuellt datum, eller ett startdatum som ligger senare än aktuellt datum.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosinformation.diagnosInformation.version",
+        "path": "getdiagnosinformation.diagnosInformation.version",
+        "short": "Versionsnummer för diagnosinformationen",
+        "definition": "Versionen räknas upp när diagnosinformationen förändrats i sin innebörd eller ändrar giltighetstid.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosinformation.diagnosInformation.rubrik",
+        "path": "getdiagnosinformation.diagnosInformation.rubrik",
+        "short": "Rubrik för diagnosinformationen",
+        "definition": "Rubrik för diagnosinformationen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosinformation.diagnosInformation.aktivitetsbegransningBeskrivning",
+        "path": "getdiagnosinformation.diagnosInformation.aktivitetsbegransningBeskrivning",
+        "short": "Beskrivning av aktivitetsbegränsningar",
+        "definition": "En beskrivande text för aktivitetsbegränsningar förknippade med diagnosen.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosinformation.diagnosInformation.funktionsnedsattningsBeskrivning",
+        "path": "getdiagnosinformation.diagnosInformation.funktionsnedsattningsBeskrivning",
+        "short": "Beskrivning av funktionsnedsättningar",
+        "definition": "En beskrivande text för funktionsnedsättningar förknippade med diagnosen.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosinformation.diagnosInformation.senastAndrad",
+        "path": "getdiagnosinformation.diagnosInformation.senastAndrad",
+        "short": "Tidpunkt när diagnosinformationen senast ändrades",
+        "definition": "Tidpunkt när diagnosinformationen senast ändrades",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosinformation.diagnosInformation.huvuddiagnos",
+        "path": "getdiagnosinformation.diagnosInformation.huvuddiagnos",
+        "short": "Huvuddiagnos",
+        "definition": "Huvuddiagnos",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosinformation.diagnosInformation.huvuddiagnos.varde",
+        "path": "getdiagnosinformation.diagnosInformation.huvuddiagnos.varde",
+        "short": "Diagnos angiven med ICD-10-SE-kod",
+        "definition": "Diagnos angiven med ICD-10-SE-kod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosinformation.diagnosInformation.aktivitetsbegransning",
+        "path": "getdiagnosinformation.diagnosInformation.aktivitetsbegransning",
+        "short": "Aktivitetsbegränsning",
+        "definition": "Innehåller information om en eller flera aktivitetsbegränsningar som vanligt förekommer\nför den eller de diagnoser som diagnosgruppen omfattar.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosinformation.diagnosInformation.aktivitetsbegransning.kod",
+        "path": "getdiagnosinformation.diagnosInformation.aktivitetsbegransning.kod",
+        "short": "Kod som anger aktivitetsbegränsning",
+        "definition": "Kod som anger aktivitetsbegränsning",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosinformation.diagnosInformation.funktionsnedsattning",
+        "path": "getdiagnosinformation.diagnosInformation.funktionsnedsattning",
+        "short": "Funktionsnedsättning",
+        "definition": "Innehåller information om en eller flera funktionsnedsättningar som vanligt förekommer\nför den eller de diagnoser som diagnosgruppen omfattar.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosinformation.diagnosInformation.funktionsnedsattning.kod",
+        "path": "getdiagnosinformation.diagnosInformation.funktionsnedsattning.kod",
+        "short": "Kod som anger funktionsnedsättning",
+        "definition": "Kod som anger funktionsnedsättning",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosinformation.diagnosInformation.ovrigFmbInformation",
+        "path": "getdiagnosinformation.diagnosInformation.ovrigFmbInformation",
+        "short": "Övrig FMB-information",
+        "definition": "Övrig FMB-information",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosinformation.diagnosInformation.ovrigFmbInformation.symtomPrognosBehandling",
+        "path": "getdiagnosinformation.diagnosInformation.ovrigFmbInformation.symtomPrognosBehandling",
+        "short": "Allmän information om symtom, prognos och behandling",
+        "definition": "Allmän information om symtom, prognos och behandling",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosinformation.diagnosInformation.ovrigFmbInformation.generellInformation",
+        "path": "getdiagnosinformation.diagnosInformation.ovrigFmbInformation.generellInformation",
+        "short": "Information av betydelse för bedömning av sjukskrivningsbehov",
+        "definition": "Information av betydelse för bedömning av sjukskrivningsbehov",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosinformation.version",
+        "path": "getdiagnosinformation.version",
+        "short": "Versionsinformation för hela FMB",
+        "definition": "Versionsinformation för hela FMB",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosinformation.version.senasteVersionsuppdatering",
+        "path": "getdiagnosinformation.version.senasteVersionsuppdatering",
+        "short": "Tidpunkt för senaste versionsuppdatering bland all diagnosinformation",
+        "definition": "Tidpunkt för senaste versionsuppdatering bland all diagnosinformation",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getdiagnosinformation.version.senasteAndring",
+        "path": "getdiagnosinformation.version.senasteAndring",
+        "short": "Tidpunkt för senaste ändring bland all diagnosinformation",
+        "definition": "Tidpunkt för senaste ändring bland all diagnosinformation",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

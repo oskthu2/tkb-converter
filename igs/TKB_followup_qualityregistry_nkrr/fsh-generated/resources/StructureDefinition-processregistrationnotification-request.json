@@ -1,0 +1,174 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "processregistrationnotification-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/followup-qualityregistry-nkrr/StructureDefinition/processregistrationnotification-request",
+  "name": "ProcessRegistrationNotificationRequest",
+  "title": "ProcessRegistrationNotification — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i ProcessRegistrationNotification\n(RIV-TA urn:riv:followup:qualityregistry:nkrr:ProcessRegistrationNotification:1).",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/followup-qualityregistry-nkrr/StructureDefinition/processregistrationnotification-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "processregistrationnotification-request",
+        "path": "processregistrationnotification-request",
+        "short": "ProcessRegistrationNotification — Request",
+        "definition": "Logisk modell för requestparametrar i ProcessRegistrationNotification\n(RIV-TA urn:riv:followup:qualityregistry:nkrr:ProcessRegistrationNotification:1)."
+      },
+      {
+        "id": "processregistrationnotification-request.type",
+        "path": "processregistrationnotification-request.type",
+        "short": "Den typ av registrering i kvalitetsregistret som notifieringen avses ge upphov till",
+        "definition": "Den typ av registrering i kvalitetsregistret som notifieringen avses ge upphov till.\nSka anges enligt den informationsspecifikation som kvalitetsregistret tillhandahåller\nför att beskriva hanteringen av notifiering till registret.\nTypen av registrering ska vara unik inom en tjänsteproducent.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processregistrationnotification-request.patientId",
+        "path": "processregistrationnotification-request.patientId",
+        "short": "Id för patienten",
+        "definition": "Id för patienten där fältet extension sätts till patientens identitetsbeteckning.\nAnges med 12 tecken utan avskiljare.\nFältet root sätts till OID för typ av identifierare.\nFör personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.\nFör samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "processregistrationnotification-request.healthcareProviderId",
+        "path": "processregistrationnotification-request.healthcareProviderId",
+        "short": "Id för informationsägande vårdgivare",
+        "definition": "Id för informationsägande vårdgivare för informationen i notifieringen.\nI första hand HSA-id (root = OID 1.2.752.129.2.1.4.1) alternativt i andra hand\norganisationsnummer (root = OID 1.2.752.29.4.3).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "processregistrationnotification-request.registerUnitId",
+        "path": "processregistrationnotification-request.registerUnitId",
+        "short": "Id för registerenhet",
+        "definition": "Id för registerenhet. Registerenhet är den minsta indelning av datatillhörighet som ett\nkvalitetsregister använder för registrering och analys av data.\nSka anges enligt den informationsspecifikation som kvalitetsregistret tillhandahåller.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processregistrationnotification-request.reference",
+        "path": "processregistrationnotification-request.reference",
+        "short": "Information om referenser till tidigare registreringar i kvalitetsregistret",
+        "definition": "Information om referenser till tidigare registreringar i kvalitetsregistret.\nInformationen används för att ge rätt kontext på den avsedda registreringen.\nSka anges enligt den informationsspecifikation som kvalitetsregistret tillhandahåller.\nObs: NkrrParameters eller reference får inte anges om fler än en patient anges.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "processregistrationnotification-request.reference.key",
+        "path": "processregistrationnotification-request.reference.key",
+        "short": "Nyckel för referens",
+        "definition": "Nyckel för referens. Vad som ska anges som nyckel ska framgå i den informationsspecifikation\nsom kvalitetsregistret tillhandahåller.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processregistrationnotification-request.reference.value",
+        "path": "processregistrationnotification-request.reference.value",
+        "short": "Information om tidigare registrering",
+        "definition": "Information om tidigare registrering enligt den angivna nyckeln.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processregistrationnotification-request.nkrrParameters",
+        "path": "processregistrationnotification-request.nkrrParameters",
+        "short": "Parametrar för tjänstekontraktet GetFormData",
+        "definition": "Parametrar som används i begäran för tjänstekontraktet GetFormData.\nSka fyllas i enligt den informationsspecifikation som kvalitetsregistret tillhandahåller.\nObs: NkrrParameters eller reference får inte anges om fler än en patient anges.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "processregistrationnotification-request.nkrrParameters.formId",
+        "path": "processregistrationnotification-request.nkrrParameters.formId",
+        "short": "Identifierare av mallen",
+        "definition": "Identifierare av mallen.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processregistrationnotification-request.nkrrParameters.sampleDate",
+        "path": "processregistrationnotification-request.nkrrParameters.sampleDate",
+        "short": "Datum för filtrering vid insamling av underlag",
+        "definition": "Datum för filtrering vid insamling av underlag. Datum som skickas i attributet används för att\npopulera attributen careEncounterStartDate och careEncounterEndDate i tjänstekontraktet GetFormData.\nObservera att ordningen på datumen som skickas kan ha betydelse.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processregistrationnotification-request.nkrrParameters.careUnitId",
+        "path": "processregistrationnotification-request.nkrrParameters.careUnitId",
+        "short": "Vårdenheter inom vilka underlag för registrering ska hämtas",
+        "definition": "Vårdenheter inom vilka underlag för registrering ska hämtas.\nFältet root sätts till OID (1.2.752.129.2.1.4.1) för HSA.\nFältet extension sätts till HSA-id på vårdenhet.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      }
+    ]
+  }
+}

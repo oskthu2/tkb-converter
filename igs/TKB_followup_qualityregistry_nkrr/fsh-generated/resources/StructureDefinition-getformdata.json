@@ -1,0 +1,217 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getformdata",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/followup-qualityregistry-nkrr/StructureDefinition/getformdata",
+  "name": "GetFormData",
+  "title": "GetFormData",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetFormData\n(RIV-TA urn:riv:followup:qualityregistry:nkrr:GetFormData:1).\nRepresenterar responsens informationsstruktur.\nGetFormData hämtar underlag för ett enskilt kvalitetsregisterformulär.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/followup-qualityregistry-nkrr/StructureDefinition/getformdata",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getformdata",
+        "path": "getformdata",
+        "short": "GetFormData",
+        "definition": "Logisk modell för tjänstekontraktet GetFormData\n(RIV-TA urn:riv:followup:qualityregistry:nkrr:GetFormData:1).\nRepresenterar responsens informationsstruktur.\nGetFormData hämtar underlag för ett enskilt kvalitetsregisterformulär."
+      },
+      {
+        "id": "getformdata.formElement",
+        "path": "getformdata.formElement",
+        "short": "Svaret består av en lista med formulärets enskilda element",
+        "definition": "Svaret består av en lista med formulärets enskilda element.\nOm ett givet formulär innehåller N frågor kan en konsument förvänta sig M answer-element\ndär M ≤ N (R1 – Flexibel ifyllnadsgrad).",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getformdata.formElement.formID",
+        "path": "getformdata.formElement.formID",
+        "short": "Identifierare av mallen",
+        "definition": "Identifierare av mallen.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformdata.formElement.query",
+        "path": "getformdata.formElement.query",
+        "short": "Identitet för fråga",
+        "definition": "Identitet för fråga.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformdata.formElement.answer",
+        "path": "getformdata.formElement.answer",
+        "short": "Svar på fråga",
+        "definition": "Svar på fråga.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getformdata.formElement.answer.value",
+        "path": "getformdata.formElement.answer.value",
+        "short": "Svar på fråga",
+        "definition": "Svar på fråga.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformdata.formElement.answer.type",
+        "path": "getformdata.formElement.answer.type",
+        "short": "Typning av svaret",
+        "definition": "Typning av svaret.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformdata.formElement.sourceData",
+        "path": "getformdata.formElement.sourceData",
+        "short": "Beskrivning på hur svaret framställts",
+        "definition": "Beskrivning på hur svaret framställts. Kan visas för slutanvändare i konsumentapplikationen.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getformdata.formElement.sourceData.name",
+        "path": "getformdata.formElement.sourceData.name",
+        "short": "Domän + kontraktsnamn för grunddata",
+        "definition": "Domän + kontraktsnamn för grunddata.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformdata.formElement.sourceData.entry",
+        "path": "getformdata.formElement.sourceData.entry",
+        "short": "Del av underlaget för svaret",
+        "definition": "Del av underlaget för svaret.",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getformdata.formElement.sourceData.entry.name",
+        "path": "getformdata.formElement.sourceData.entry.name",
+        "short": "Namn på del av underlaget",
+        "definition": "Namn på del av underlaget. Exempelvis enhet, födelseår eller kön.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformdata.formElement.sourceData.entry.value",
+        "path": "getformdata.formElement.sourceData.entry.value",
+        "short": "Värde för del av underlaget",
+        "definition": "Värde för del av underlaget.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformdata.resultCode",
+        "path": "getformdata.resultCode",
+        "short": "Resultatkod",
+        "definition": "OK = Hämtningen av underlag utfört utan fel.\nERROR = Fel har uppstått. Felet beskrivs i elementet resultText.\nINFO = Information finns om hämtningen. Informationen beskrivs i elementet resultText.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/followup-qualityregistry-nkrr/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "getformdata.resultText",
+        "path": "getformdata.resultText",
+        "short": "Beskrivning av fel eller information om genomförd registrering",
+        "definition": "Beskrivning av fel som uppstått alternativt information om genomförd registrering.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getformdata.logId",
+        "path": "getformdata.logId",
+        "short": "Identifierare av loggpost hos tjänsteproducenten",
+        "definition": "Identifierare av loggpost hos tjänsteproducenten, t.ex. ett UUID som kan användas vid felsökning.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

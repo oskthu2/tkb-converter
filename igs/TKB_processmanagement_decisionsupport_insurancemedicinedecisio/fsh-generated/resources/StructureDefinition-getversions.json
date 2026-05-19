@@ -1,0 +1,96 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getversions",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/getversions",
+  "name": "GetVersions",
+  "title": "GetVersions",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetVersions\n(RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetVersions:1).\nReturnerar tidpunkten när FMB och diagnosinformation senast versionsuppdaterades,\nrespektive senast ändrades. Begäran har inga inparametrar.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/processmanagement-decisionsupport-insurancemedicinedecisio/StructureDefinition/getversions",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getversions",
+        "path": "getversions",
+        "short": "GetVersions",
+        "definition": "Logisk modell för tjänstekontraktet GetVersions\n(RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetVersions:1).\nReturnerar tidpunkten när FMB och diagnosinformation senast versionsuppdaterades,\nrespektive senast ändrades. Begäran har inga inparametrar."
+      },
+      {
+        "id": "getversions.versioner",
+        "path": "getversions.versioner",
+        "short": "Versionsinformation för FMB och diagnosinformation",
+        "definition": "Versionsinformation för FMB och diagnosinformation",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getversions.versioner.fmbSenasteVersionsuppdatering",
+        "path": "getversions.versioner.fmbSenasteVersionsuppdatering",
+        "short": "FMB — tidpunkt för senaste versionsuppdatering",
+        "definition": "Anger när ett beslutsunderlag senast bytte versionsnummer (skapades, ändrade innebörd eller togs bort)\nbland alla producentens beslutsunderlag. Det kan vara ett underlag som ej returnerats i svaret\nsom föranlett ett nytt datum.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getversions.versioner.fmbSenasteAndring",
+        "path": "getversions.versioner.fmbSenasteAndring",
+        "short": "FMB — tidpunkt för senaste ändring",
+        "definition": "Anger när ett beslutsunderlag senast uppdaterades, både mindre förändringar som ej givit en ny version\nOCH versionsuppdateringar bland alla producentens beslutsunderlag. Det kan vara ett underlag som ej\nreturnerats i svaret.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getversions.versioner.diagnosInformationSenasteVersionsuppdatering",
+        "path": "getversions.versioner.diagnosInformationSenasteVersionsuppdatering",
+        "short": "Diagnosinformation — tidpunkt för senaste versionsuppdatering",
+        "definition": "Anger när diagnosinformation senast bytte versionsnummer (skapades, ändrade innebörd eller togs bort)\nbland alla diagnosinformation. Det kan vara diagnosinformation som ej returnerats i svaret som\nföranlett ett nytt datum.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getversions.versioner.diagnosInformationSenasteAndring",
+        "path": "getversions.versioner.diagnosInformationSenasteAndring",
+        "short": "Diagnosinformation — tidpunkt för senaste ändring",
+        "definition": "Anger när diagnosinformation senast uppdaterades; både mindre förändringar som ej givit en ny version\nOCH versionsuppdateringar bland alla producentens diagnosinformation. Det kan vara diagnosinformation\nsom ej returnerats i svaret.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

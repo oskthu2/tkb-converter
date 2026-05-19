@@ -1,0 +1,615 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "gethosppersonforivo",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/gethosppersonforivo",
+  "name": "GetHospPersonForIVO",
+  "title": "GetHospPersonForIVO",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetHospPersonForIVO\n(RIV-TA urn:riv:masterdata:organisationalresources:licensetopractice:GetHospPersonForIvoResponder:2).\nRepresenterar responsens informationsstruktur — en lista av HoSp-personer med fullständig legitimationsinformation.\nTjänsten ger Inspektionen för vård och omsorg (IVO) direktåtkomst till Socialstyrelsens register\növer hälso- och sjukvårdspersonal (HoSp) med utökade sökparametrar jämfört med den publika tjänsten.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/StructureDefinition/gethosppersonforivo",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "gethosppersonforivo",
+        "path": "gethosppersonforivo",
+        "short": "GetHospPersonForIVO",
+        "definition": "Logisk modell för tjänstekontraktet GetHospPersonForIVO\n(RIV-TA urn:riv:masterdata:organisationalresources:licensetopractice:GetHospPersonForIvoResponder:2).\nRepresenterar responsens informationsstruktur — en lista av HoSp-personer med fullständig legitimationsinformation.\nTjänsten ger Inspektionen för vård och omsorg (IVO) direktåtkomst till Socialstyrelsens register\növer hälso- och sjukvårdspersonal (HoSp) med utökade sökparametrar jämfört med den publika tjänsten."
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson",
+        "path": "gethosppersonforivo.hospPerson",
+        "short": "HoSp-person",
+        "definition": "En post i HOSP-registret med fullständig legitimationsinformation.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.hospId",
+        "path": "gethosppersonforivo.hospPerson.hospId",
+        "short": "Unikt ID för person i HOSP",
+        "definition": "Unikt identifierare för personen i HOSP-registret.\nOID för root: 1.2.752.116.3.1.1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.personId",
+        "path": "gethosppersonforivo.hospPerson.personId",
+        "short": "Personnummer eller samordningsnummer",
+        "definition": "Personnummer (OID: 1.2.752.129.2.1.3.1) eller\nsamordningsnummer (OID: 1.2.752.129.2.1.3.3).\nFormat: ÅÅÅÅMMDDXXXX (12 siffror).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.tidigarePersonId",
+        "path": "gethosppersonforivo.hospPerson.tidigarePersonId",
+        "short": "Tidigare personnummer eller samordningsnummer",
+        "definition": "Tidigare personnummer eller samordningsnummer om personen bytt identitet.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.efternamn",
+        "path": "gethosppersonforivo.hospPerson.efternamn",
+        "short": "Efternamn",
+        "definition": "Efternamn",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.mellannamn",
+        "path": "gethosppersonforivo.hospPerson.mellannamn",
+        "short": "Mellannamn",
+        "definition": "Mellannamn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.samtligaFornamn",
+        "path": "gethosppersonforivo.hospPerson.samtligaFornamn",
+        "short": "Samtliga förnamn",
+        "definition": "Samtliga förnamn",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.tilltalsnamn",
+        "path": "gethosppersonforivo.hospPerson.tilltalsnamn",
+        "short": "Tilltalsnamnsmarkering",
+        "definition": "Tilltalsnamnsmarkering",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.fodelsedatum",
+        "path": "gethosppersonforivo.hospPerson.fodelsedatum",
+        "short": "Födelsedatum (ÅÅÅÅMMDD)",
+        "definition": "Datum för personens födelse. Format: ÅÅÅÅMMDD.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.kon",
+        "path": "gethosppersonforivo.hospPerson.kon",
+        "short": "Kön",
+        "definition": "Personens kön. OID: 1.2.752.129.2.2.1.1 (notera: dokumentet anger 1.2.752.116.3.1.3 men XSD-filen anger 1.2.752.129.2.2.1.1).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/ValueSet/kon-vs"
+        }
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.lan",
+        "path": "gethosppersonforivo.hospPerson.lan",
+        "short": "Länstillhörighet",
+        "definition": "Personens länstillhörighet. OID: 1.2.752.129.2.2.1.18.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.kommun",
+        "path": "gethosppersonforivo.hospPerson.kommun",
+        "short": "Kommuntillhörighet",
+        "definition": "Personens kommuntillhörighet. OID: 1.2.752.129.2.2.1.17.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.folkbokforingsort",
+        "path": "gethosppersonforivo.hospPerson.folkbokforingsort",
+        "short": "Folkbokföringsort",
+        "definition": "Folkbokföringsort",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.skyddadIdentitet",
+        "path": "gethosppersonforivo.hospPerson.skyddadIdentitet",
+        "short": "Skyddad identitet",
+        "definition": "Sant om personen har en sekretessmarkering.\nVid skyddad identitet returneras begränsad information.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.skyddadIdentitetUpplysning",
+        "path": "gethosppersonforivo.hospPerson.skyddadIdentitetUpplysning",
+        "short": "Upplysning vid skyddad identitet",
+        "definition": "Upplysningstext att kontakta Socialstyrelsen, vid skyddad identitet.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.avliden",
+        "path": "gethosppersonforivo.hospPerson.avliden",
+        "short": "Avliden",
+        "definition": "Sant om personen är avliden.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.avlidenDatum",
+        "path": "gethosppersonforivo.hospPerson.avlidenDatum",
+        "short": "Dödsdatum (ÅÅÅÅMMDD)",
+        "definition": "Datum för dödsfallet. Format: ÅÅÅÅMMDD.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.utvandrad",
+        "path": "gethosppersonforivo.hospPerson.utvandrad",
+        "short": "Utvandrad",
+        "definition": "Sant om personen har utvandrat.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.forskrivarkod",
+        "path": "gethosppersonforivo.hospPerson.forskrivarkod",
+        "short": "Förskrivarkod",
+        "definition": "Personens förskrivarkod. OID för root: 1.2.752.116.3.1.2.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation",
+        "path": "gethosppersonforivo.hospPerson.legitimation",
+        "short": "Legitimation",
+        "definition": "Beskrivning av personens legitimation.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.legitimeratYrke",
+        "path": "gethosppersonforivo.hospPerson.legitimation.legitimeratYrke",
+        "short": "Legitimerat yrke",
+        "definition": "Anger vilket legitimerat yrke som avses.\nKodas enligt kodverket LegitimeratYrke (OID: 1.2.752.116.3.1.3).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/ValueSet/legitimerat-yrke-vs"
+        }
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.giltigLegitimation",
+        "path": "gethosppersonforivo.hospPerson.legitimation.giltigLegitimation",
+        "short": "Giltig legitimation",
+        "definition": "Anger om legitimationen är giltig (true/false).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.utbildning",
+        "path": "gethosppersonforivo.hospPerson.legitimation.utbildning",
+        "short": "Utbildning",
+        "definition": "Anger personens utbildning för denna legitimation.\nOID: 1.2.752.116.3.1.4.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.utbildningsland",
+        "path": "gethosppersonforivo.hospPerson.legitimation.utbildningsland",
+        "short": "Utbildningsland",
+        "definition": "Land där utbildning skedde om ej svensk utbildning.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.internationellOverrenskommelse",
+        "path": "gethosppersonforivo.hospPerson.legitimation.internationellOverrenskommelse",
+        "short": "Internationell överrenskommelse",
+        "definition": "Internationell överrenskommelse, anges för personer som har primär legitimation inom annat EU/EES-land.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.legitimationsDatum",
+        "path": "gethosppersonforivo.hospPerson.legitimation.legitimationsDatum",
+        "short": "Legitimationsdatum (ÅÅÅÅMMDD)",
+        "definition": "Datum från vilket legitimationen är giltig. Format: ÅÅÅÅMMDD.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.beslutsdatumFysioterapeut",
+        "path": "gethosppersonforivo.hospPerson.legitimation.beslutsdatumFysioterapeut",
+        "short": "Beslutsdatum fysioterapeut (ÅÅÅÅMMDD)",
+        "definition": "Anger datum då en person övergått från legitimerat yrke SG (Sjukgymnast) till FT (Fysioterapeut).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.examensdatum",
+        "path": "gethosppersonforivo.hospPerson.legitimation.examensdatum",
+        "short": "Examensdatum (ÅÅÅÅMMDD)",
+        "definition": "Datum för examen. Format: ÅÅÅÅMMDD.\nSaknar motsvarighet i RIM.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.larosate",
+        "path": "gethosppersonforivo.hospPerson.legitimation.larosate",
+        "short": "Lärosäte",
+        "definition": "Lärosäte för examen. Saknar motsvarighet i RIM.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.grundyrke",
+        "path": "gethosppersonforivo.hospPerson.legitimation.grundyrke",
+        "short": "Grundyrke",
+        "definition": "Grundyrke för examen. Saknar motsvarighet i RIM.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.forskrivningsratt",
+        "path": "gethosppersonforivo.hospPerson.legitimation.forskrivningsratt",
+        "short": "Förskrivningsrätt",
+        "definition": "Anger om personen har förskrivningsrätt (true/false).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.forskrivningsrattDatum",
+        "path": "gethosppersonforivo.hospPerson.legitimation.forskrivningsrattDatum",
+        "short": "Datum för förskrivningsrätt (ÅÅÅÅMMDD)",
+        "definition": "Anger datum för förskrivningsrätt.\nFör LK, TL, TH: samma datum som för legitimationen.\nFör BM och SJ med förskrivningsrätt: datum för godkänd ansökan.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.specialistbevis",
+        "path": "gethosppersonforivo.hospPerson.legitimation.specialistbevis",
+        "short": "Specialistbevis",
+        "definition": "Specialistbevis kopplade till legitimationen.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.specialistbevis.specialistinriktning",
+        "path": "gethosppersonforivo.hospPerson.legitimation.specialistbevis.specialistinriktning",
+        "short": "Specialistinriktning",
+        "definition": "Anger vilken specialistinriktning som avses.\nOIDer: 1.2.752.116.3.1.6 (läkare 1992), 1.2.752.116.3.1.7 (läkare 1996),\n1.2.752.116.3.1.8 (läkare 2008), 1.2.752.116.3.1.9 (läkare 2015),\n1.2.752.116.3.1.10 (tandläkare 1993).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.specialistbevis.utbildningsland",
+        "path": "gethosppersonforivo.hospPerson.legitimation.specialistbevis.utbildningsland",
+        "short": "Utbildningsland",
+        "definition": "Land där utbildning skedde om ej svensk utbildning.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.specialistbevis.internationellOverrenskommelse",
+        "path": "gethosppersonforivo.hospPerson.legitimation.specialistbevis.internationellOverrenskommelse",
+        "short": "Internationell överrenskommelse",
+        "definition": "Internationell överrenskommelse för primär legitimation inom annat EU/EES-land.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.specialistbevis.specialistbevisDatum",
+        "path": "gethosppersonforivo.hospPerson.legitimation.specialistbevis.specialistbevisDatum",
+        "short": "Specialistbevis datum (ÅÅÅÅMMDD)",
+        "definition": "Datum från vilket specialistbeviset är giltigt. Format: ÅÅÅÅMMDD.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning",
+        "path": "gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning",
+        "short": "Behörighetsbegränsning",
+        "definition": "Begränsning i behörighet för legitimationen.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.typAvBehorighetsbegransning",
+        "path": "gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.typAvBehorighetsbegransning",
+        "short": "Typ av behörighetsbegränsning",
+        "definition": "Anger typ av behörighetsbegränsning.\nKodas enligt kodverket TypAvBehorighetsbegransning (OID: 1.2.752.116.3.1.5).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/masterdata-organisationalresources-licensetopractice/ValueSet/typ-av-behorighetsbegransning-vs"
+        }
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.fromDatum",
+        "path": "gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.fromDatum",
+        "short": "Från-datum (ÅÅÅÅMMDD)",
+        "definition": "Anger från när begränsningen gäller. Format: ÅÅÅÅMMDD.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.tomDatum",
+        "path": "gethosppersonforivo.hospPerson.legitimation.behorighetsbegransning.tomDatum",
+        "short": "Tom-datum (ÅÅÅÅMMDD)",
+        "definition": "Används vid behörighetsbegränsning av typ Prövotid. Format: ÅÅÅÅMMDD.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.ovrigBehorighet",
+        "path": "gethosppersonforivo.hospPerson.legitimation.ovrigBehorighet",
+        "short": "Övrig behörighet",
+        "definition": "Övrig behörighet kopplad till legitimationen.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.ovrigBehorighet.behorighet",
+        "path": "gethosppersonforivo.hospPerson.legitimation.ovrigBehorighet.behorighet",
+        "short": "Behörighet",
+        "definition": "Anger vilken övrig behörighet som avses. OIDer se informationsspecifikationen.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "gethosppersonforivo.hospPerson.legitimation.ovrigBehorighet.behorighetsDatum",
+        "path": "gethosppersonforivo.hospPerson.legitimation.ovrigBehorighet.behorighetsDatum",
+        "short": "Behörighetsdatum (ÅÅÅÅMMDD)",
+        "definition": "Datum från vilket behörigheten är giltig. Format: ÅÅÅÅMMDD.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

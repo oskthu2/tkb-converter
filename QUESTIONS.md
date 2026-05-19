@@ -913,3 +913,66 @@ SUSHI: 0 errors, 46 warnings. 20 StructureDefinitions, 5 CodeSystems, 5 ValueSet
 
 - [ ] **[TODO-IDO-001]** `igs/TKB_infrastructure_directory_organization/input/fsh/logical-models/GetUnit.fsh`
   Tidsfälten (`fromTime`, `toTime`) i tidsfönster-BackboneElements (telephoneHour, dropInHour, surgeryHour, visitingHour, unitFunction/telephoneHour) är modellerade som `string`. Om framtida SUSHI-version stöder `time` i nästlade BackboneElements: konvertera till `time` för semantisk korrekthet.
+
+## processmanagement.decisionsupport.insurancemedicinedecisio v1.0 — `igs/TKB_processmanagement_decisionsupport_insurancemedicinedecisio/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-19
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-PMD-001]** `igs/TKB_processmanagement_decisionsupport_insurancemedicinedecisio/input/fsh/logical-models/GetFmb.fsh` · fält `beslutsunderlag.villkor`
+  Villkor-strukturen är komplex (AND/OR-logik över UrvalArbetsbelastning, UrvalSjukdomsforlopp, etc.). TKB specificerar att villkor är OCH-villkor mellan urvalklasser men ELLER-villkor inom ett urval. Ska detta modelleras med FHIR-invarianter, eller är en textuell beskrivning tillräckligt? Nuvarande modell använder BackboneElement utan invarianter.
+  Källa: TKB avsnitt 7.1, stycket "Villkor" (övriga regler för GetFmb)
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-PMD-001]** `igs/TKB_processmanagement_decisionsupport_insurancemedicinedecisio/input/fsh/logical-models/GetFmb.fsh` · fält `beslutsunderlag.sjukskrivningsgrad`
+  CVType (kod + kodverk + display) mappas till `CodeableConcept`. Kodverket är lokalt (Socialstyrelsen) och innehåller minst "Heltid" och "Deltid". Inget OID anges i TKB. ASSUME: `CodeableConcept` utan bundet ValueSet. Verifiera om ett formellt kodverk finns med OID för sjukskrivningsgrad.
+  Källa: TKB avsnitt 7.1, fältregel för `../sjukskrivningsgrad`
+
+- [ ] **[ASSUME-PMD-002]** `igs/TKB_processmanagement_decisionsupport_insurancemedicinedecisio/input/fsh/logical-models/GetFmb.fsh` · fält `beslutsunderlag.sjukskrivningstidVarde` och `beslutsunderlag.sjukskrivningstidEnhet`
+  PQType (värde + enhet) mappas till separata `decimal` + `string` fält (istället för FHIR `Quantity`). Valet gjordes för att undvika nästlingskomplexitet i BackboneElement. Verifiera om `Quantity` är mer semantiskt korrekt och tekniskt möjligt i SUSHI-versionen.
+  Källa: TKB avsnitt 7.1, fältregler för `../sjukskrivningstid`
+
+- [ ] **[ASSUME-PMD-003]** `igs/TKB_processmanagement_decisionsupport_insurancemedicinedecisio/input/fsh/logical-models/GetDiagnosInformation.fsh` · fält `diagnosInformation.aktivitetsbegransning.kod` och `diagnosInformation.funktionsnedsattning.kod`
+  CVType (kodverk + kod) mappas till `CodeableConcept`. TKB anger ej vilket kodverk som används. ASSUME: lokala kodverk för aktivitetsbegränsning och funktionsnedsättning (troligen ICF). Verifiera kodverksreferenser med Socialstyrelsen/Inera.
+  Källa: TKB avsnitt 7.2, fältregler för aktivitetsbegransning och funktionsnedsattning
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-PMD-001]** `igs/TKB_processmanagement_decisionsupport_insurancemedicinedecisio/sushi-config.yaml`
+  Domänen har inga egna CodeSystems definierade — alla kodverk refererar till externa system (ICD-10-SE, lokala Socialstyrelsen-kodverk). Om Socialstyrelsen publicerar sina kodverk med formella OID:er eller FHIR-CodeSystem-URLs, lägg till dessa som `special-url` och skapa ValueSets med bindningar.
+
+- [ ] **[TODO-PMD-002]** `igs/TKB_processmanagement_decisionsupport_insurancemedicinedecisio/input/fsh/logical-models/GetFmb.fsh`
+  Lägg till ValueSet-bindningar för diagnoskoder (ICD-10-SE) i fälten `beslutsunderlag.huvudDiagnos.varde` och `beslutsunderlag.villkor.urvalSamsjuklighet.samsjuklighet` när blockerare PMD-001 är löst och rätt canonical URL för ICD-10-SE är verifierad.
+
+---
+
+## masterdata.organisationalresources.licensetopractice v2.0 — `igs/TKB_masterdata_organisationalresources_licensetopractice/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-05-19
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+Inga blockerare.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-LTP-001]** `igs/TKB_masterdata_organisationalresources_licensetopractice/input/fsh/codesystems/KonCS.fsh` · kodverk `kon`
+  TKB-dokumentet anger OID `1.2.752.116.3.1.3` för kön, men XSD-filen (KonType) anger `1.2.752.129.2.2.1.1`. FSH-modellen använder `KonVS` med OID `1.2.752.129.2.2.1.1` (XSD som källa). Verifiera att korrekt OID används — det är en diskrepans mellan TKB-dokumenttexten och XSD-schemat.
+
+- [ ] **[ASSUME-LTP-002]** `igs/TKB_masterdata_organisationalresources_licensetopractice/input/fsh/logical-models/GetHospPersonForPublicHealthcare.fsh` · kontraktsversion
+  TKB-dokumentet uppger version "1.1" för GetHospPersonForPublicHealthcare och GetHospPersonForIVO i sektion 7 (versionsinformation), men domänversionen är 2.0 och XSD-namespace anger version 2. WSDL-filerna anger 2.0. FSH-modellen är skapad som v2.0 i enlighet med domänversionen och WSDL. Verifiera om tjänstekontrakt-versionerna i sektion 7 i TKB är felaktiga (1.1/1.0 istället för 2.0).
+
+- [ ] **[ASSUME-LTP-003]** `igs/TKB_masterdata_organisationalresources_licensetopractice/input/fsh/logical-models/GetHospPersonForIVO.fsh` · fält `skyddadIdentitet` och `utvandrad`
+  TKB (GetHospPersonForPublicHealthcare) inkluderar inte fälten `skyddadIdentitet`, `mellannamn`, `tilltalsnamn`, `kon`, `lan`, `kommun`, `folkbokforingsort`, `avliden`, `utvandrad` men GetHospPersonForIVO inkluderar dem. XSD:n `HospPersonType` definierar alla fält. Antagande: den publika tjänsten returnerar en delmängd av HospPersonType medan IVO-tjänsten returnerar den fullständiga typen. Detta stämmer med säkerhetskravet att skydda känsliga personuppgifter.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-LTP-001]** `igs/TKB_masterdata_organisationalresources_licensetopractice/sushi-config.yaml`
+  Lägg till `se.inera.rivta.core`-dependency om/när det paketet publiceras och innehåller gemensamma RIV-TA-bastyper. För nuvarande är inget core-paket tillgängligt.
+
+- [ ] **[TODO-LTP-002]** `igs/TKB_masterdata_organisationalresources_licensetopractice/input/fsh/logical-models/GetHospPersonForIVO.fsh` · fält `ovrigBehorighet.behorighet`
+  OIDer för övrig behörighet (utbildningskoder) saknas i TKB-dokumentet — det hänvisas till informationsspecifikationen. Komplettera ValueSet-bindning när OIDer är kända.
