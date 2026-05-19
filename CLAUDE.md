@@ -551,6 +551,46 @@ Characteristics: #can-be-target
 
 **Vid villkorlig kardinalitet:** skapa en kommentar i fält-description och lägg till en öppen fråga i QUESTIONS.md om villkoret kräver en FHIR-invariant.
 
+#### Fältregler → FHIRPath-invarianter (KRITISKT)
+
+Fältregler i sektion 7 (kolumnen "Villkor", "Regel" eller liknande fritext) ska översättas till FSH-invarianter direkt i den logiska modellen — **inte** enbart som kommentar i fält-description.
+
+**Så här skriver du en invariant:**
+
+```fsh
+Logical: GetDiagnosis
+Id: getdiagnosis
+...
+Invariant: diagnosis-code-required-when-type
+Description: "diagnosCode ska anges när diagnosType är satt"
+Expression: "diagnosType.exists() implies diagnosCode.exists()"
+Severity: #error
+
+* diagnosCode 0..1 CodeableConcept "Diagnoskod"
+  * ^obeys diagnosis-code-required-when-type
+* diagnosType 0..1 CodeableConcept "Diagnostyp"
+```
+
+**Invariantens id** ska följa mönstret `{modell-lowercase}-{kort-beskrivning}`, t.ex. `getdiagnosis-code-required`.
+
+**Vanliga FHIRPath-mönster för RIV-TA-regler:**
+
+| TKB-regel | FHIRPath-uttryck |
+|---|---|
+| "Ska anges om X är satt" | `X.exists() implies Y.exists()` |
+| "Får ej anges om X är satt" | `X.exists() implies Y.empty()` |
+| "Antingen A eller B ska finnas" | `A.exists() or B.exists()` |
+| "Exakt ett av A, B ska finnas" | `(A.exists() xor B.exists())` |
+| "Värdet ska vara positivt" | `value > 0` |
+| "Längst 10 tecken" | `value.length() <= 10` |
+| "Om fritext (1), kodvärde krävs ej" | `(type = '1') implies code.empty()` |
+
+**När FHIRPath inte kan fånga regeln:** (t.ex. regelns semantik kräver extern data eller är domänspecifik)
+- Skriv regeln som `Description` på invarianten med `Severity: #warning`
+- Lägg till BLOCK i QUESTIONS.md med exakt FHIRPath-förslag för domänexpert att verifiera
+
+**Undantag:** Enklare kardinalitetsregler (obligatorisk/valfri) behöver ingen invariant — de hanteras via kardinalitet. Invarianter används bara för villkorliga regler som inte kan uttryckas med `0..1` / `1..1` ensamt.
+
 #### Namnkonventioner
 
 - Logical model namn: PascalCase = interaktionsnamnet, t.ex. `GetCareDocumentation`
@@ -561,6 +601,37 @@ Characteristics: #can-be-target
 - Extension Id: `{koncept-slug}-extension`
 - Canonical base: `https://fhir.inera.se/`
 - IG-katalognamn: `TKB_{domain_id_with_underscores}`, t.ex. `TKB_clinicalprocess_healthcond_description`
+
+#### Reserverade FHIR-elementnamn (KRITISKT — orsakar byggrefel i IG Publisher)
+
+Vissa elementnamn är reserverade i FHIR R4 och **får inte användas direkt** som fältnamn i `Logical:`-modeller. IG Publisher kastar fel av typen `"Element name 'id' is not valid"` eller liknande om dessa används.
+
+**Reserverade namn som ALDRIG får användas som fältnamn:**
+
+| Reserverat namn | Konsekvent ersättning |
+|---|---|
+| `id` | `{modellPrefix}Id` (t.ex. `careDocumentationId`, `patientId`) |
+| `text` | `{modellPrefix}Text` (t.ex. `noteText`, `documentText`) |
+| `code` | `{modellPrefix}Code` (t.ex. `diagnosisCode`, `activityCode`) |
+| `status` | `{modellPrefix}Status` (t.ex. `careStatus`, `certificateStatus`) |
+| `value` | `{modellPrefix}Value` (t.ex. `measurementValue`, `numericValue`) |
+| `name` | `{modellPrefix}Name` (t.ex. `unitName`, `personName`) |
+| `type` | `{modellPrefix}Type` (t.ex. `documentType`, `diagnosisType`) |
+| `version` | `{modellPrefix}Version` (t.ex. `contractVersion`) |
+| `language` | `{modellPrefix}Language` |
+| `meta` | `{modellPrefix}Meta` |
+| `extension` | (använd aldrig som fältnamn — reserverat FHIR-koncept) |
+| `contained` | (använd aldrig) |
+| `implicitRules` | (använd aldrig) |
+
+**Principen:** Prefixet ska vara det begrepp som fältet tillhör på svenska eller engelska, t.ex.:
+- RIV-TA-fält `id` på en `CareDocumentation`-struktur → `careDocumentationId`
+- RIV-TA-fält `code` på en `Diagnosis`-struktur → `diagnosisCode`
+- RIV-TA-fält `status` på toppnivå i modellen → `{ContractName}Status`, t.ex. `getCertificateStatus`
+
+**Nästlade BackboneElements:** Även inom nästlade strukturer gäller samma regel. Om elementet heter `address.type` i TKB:n, skriv det som `addressType` i FSH.
+
+**Verifiera alltid efter SUSHI:** Om SUSHI ger fel med `"Element name ... is not valid"` eller `"Cannot override ... in differential"`, byt namn på det berörda elementet och kör om.
 
 #### Datatypmappning: RIV-TA → FHIR
 
