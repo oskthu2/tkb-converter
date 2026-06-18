@@ -2,6 +2,11 @@
 // Kontrakt: GetLaboratoryOrderOutcome v4.2
 // Genererad: 2026-03-19
 
+Invariant: lab-result-anyvalue-xor
+Description: "Exakt ett av valueQuantity, valueString, valueBoolean, valueCodeableConcept ska anges i result.anyValue (AnyValueType XOR-villkor)"
+Expression: "(iif(valueQuantity.exists(),1,0) + iif(valueString.exists(),1,0) + iif(valueBoolean.exists(),1,0) + iif(valueCodeableConcept.exists(),1,0)) = 1"
+Severity: #error
+
 Logical: GetLaboratoryOrderOutcome
 Id: getlaboratoryorderoutcome
 Title: "GetLaboratoryOrderOutcome"
@@ -120,11 +125,17 @@ Characteristics: #can-be-target
 
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result 0..* BackboneElement "Analysresultat"
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.type 0..1 CodeableConcept "Resultattyp"
-* laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.value 1..1 string "Resultatvärde (AnyValueType — se anmärkning)"
+* laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.anyValue 1..1 BackboneElement "Resultatvärde (AnyValueType — union, exakt ett fält ska anges)"
   """
-  ASSUME-001: AnyValueType kan innehålla PQ, string, boolean eller kodad typ.
-  Modellerad som string i avvaktan på mappningsverifiering. Se QUESTIONS.md.
+  XSD AnyValueType är en union: PQType (numeriskt mätvärde med enhet), string,
+  boolean, eller CVType (kodad typ). Exakt ett av fälten nedan ska vara satt.
+  Invariant lab-result-anyvalue-xor enforcar detta villkor.
   """
+  * valueQuantity 0..1 Quantity "Numeriskt mätvärde med enhet (PQType)"
+  * valueString 0..1 string "Strängvärde"
+  * valueBoolean 0..1 boolean "Boolesk"
+  * valueCodeableConcept 0..1 CodeableConcept "Kodad typ (CVType)"
+* laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.anyValue obeys lab-result-anyvalue-xor
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.comment 0..1 string "Kommentar till resultatet"
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.interpretation 0..* CodeableConcept "Tolkning av resultatet"
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.reference 0..1 BackboneElement "Referensintervall"

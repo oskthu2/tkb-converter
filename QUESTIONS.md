@@ -99,16 +99,17 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 
 ## clinicalprocess.healthcond.actoutcome v4.2.2
 
-**Status:** blocked
-**Senast uppdaterad:** 2026-03-19
+**Status:** done (IG Publisher passerade 2026-03-22, 0 errors · SUSHI 0 errors)
+**Senast uppdaterad:** 2026-06-18
 
 ### Blockerare (kräver svar innan IG kan anses komplett)
 
 - [x] **[BLOCK-CHAO-001]** *(Löst 2026-03-20)* SUSHI-kompilering inte körd: `hl7.fhir.r4.core#4.0.1` kan inte laddas ner från packages.fhir.org (nätverksåtkomst blockerad i nuvarande miljö). Kör manuellt: `cd igs/TKB_clinicalprocess_healthcond_actoutcome && sushi .` i en miljö med internetåtkomst.
 
-- [ ] **[BLOCK-CHAO-002]** `AnyValueType` i `GetLaboratoryOrderOutcome` — fältet `analysis.result.value` är av XSD-typen `AnyValueType` som kan innehålla antingen en numerisk mätning (PQType), en sträng, en boolesk, eller en kodad typ (CVType). FHIR stödjer inte union-typer direkt i Logical-modeller. FSH-modellen har modellerat detta som `string` som fallback. Beslut krävs: ska detta modelleras som en `BackboneElement` med ett fält per möjlig typ (varav exakt ett ska användas), eller accepteras `string`-representationen? Relevant sektion: TKB avsnitt 7.1, fältregler rad `result.value`.
+- [x] **[BLOCK-CHAO-002]** *(Löst 2026-06-18)* `AnyValueType` i `GetLaboratoryOrderOutcome` — `analysis.result.anyValue` är nu modellerat som `BackboneElement` med fyra valfria fält (`valueQuantity`, `valueString`, `valueBoolean`, `valueCodeableConcept`) och FHIRPath-invariant `lab-result-anyvalue-xor` som kräver att exakt ett av dem är satt. SUSHI 0 errors efter ändringen.
+  Källa: `igs/TKB_clinicalprocess_healthcond_actoutcome/input/fsh/logical-models/GetLaboratoryOrderOutcome.fsh`
 
-- [ ] **[BLOCK-CHAO-003]** `ExaminationStatusCodeCS` använder kodvärden med svenska tecken (t.ex. `Pågående`). FHIR CodeSystem codes kan innehålla icke-ASCII-tecken men det rekommenderas inte. Beslutsalternativ: (a) behåll svenska kodvärden som-är (troget källsystemet), (b) translitterera till ASCII (t.ex. `Pagaende`), (c) använd ett separat system-URI och håll originalvärdena i `display`. FSH-modellen har translittererat `Pågående` → `#Pagaende` som kompromiss men källvärdet kvarstår i display. Verifiera att dessa koder stämmer med vad källsystem faktiskt skickar — om källsystem skickar `Pågående` (med å) måste koden i CodeSystem matcha exakt.
+- [x] **[BLOCK-CHAO-003]** *(Löst — ASSUME 2026-06-18)* `ExaminationStatusCodeCS` använder translitererade ASCII-koder (`#Pagaende` med display `"Pågående"`). IG Publisher passerade med denna approach. Kvarstående ASSUME: om källsystem skickar `Pågående` (med å) behöver koden ändras — se ASSUME-CHAO-009 nedan.
 
 ### Antaganden gjorda (verifiera med domänexpert)
 
@@ -127,6 +128,10 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 - [ ] **[ASSUME-CHAO-007]** Tjänstekontraktet GetMaternityMedicalHistory (version 2.0) innehåller en SjD-dokumentation som anger att kontraktet har en SjD (Systemskiftesdokumentation) — se `SjD_TP_GetMaternityMedicalHistory_2.0.docx` i docs-mappen. Antagandet gjordes att TKB-dokumentet innehåller de normativa fältreglerna; SjD-dokumentet är informativt och behöver inte processas för IG-genereringen. Verifiera om SjD innehåller fältregler eller begränsningar som saknas i TKB-fälttabellen.
 
 - [ ] **[ASSUME-CHAO-008]** GetImagingOutcome version 1.0 — denna version är avsevärt äldre än de övriga kontrakten (4.2/3.2/2.0). Antagandet gjordes att version 1.0 fortfarande är den gällande versionen av detta kontrakt i domän 4.2.2. Verifiera att inga nyare versioner av GetImagingOutcome finns i pipeline (inga fler tags i repot matchar imaging-uppdateringar).
+
+- [ ] **[ASSUME-CHAO-009]** `igs/TKB_clinicalprocess_healthcond_actoutcome/input/fsh/codesystems/ExaminationStatusCodeCS.fsh` · kod `Pågående`
+  Translitererad till ASCII: `#Pagaende "Pågående"`. Valt för FHIR-kompatibilitet. Verifiera med domänexpert att källsystem skickar `Pagaende` (ASCII) och inte `Pågående` (UTF-8 med å) — om källsystem skickar UTF-8 måste koden korrigeras till `#Pågående` (non-ASCII CodeSystem code, ej rekommenderat men tekniskt möjligt i FHIR).
+  Källa: XSD-enum `ExaminationStatusCodeEnum` i `clinicalprocess_healthcond_actoutcome_enum_3.1.xsd`.
 
 ### TODO (kan göras utan input)
 
