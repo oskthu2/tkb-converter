@@ -1028,15 +1028,76 @@
         ]
       },
       {
-        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.value",
-        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.value",
-        "short": "Resultatvärde (AnyValueType — se anmärkning)",
-        "definition": "ASSUME-001: AnyValueType kan innehålla PQ, string, boolean eller kodad typ.\nModellerad som string i avvaktan på mappningsverifiering. Se QUESTIONS.md.",
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.anyValue",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.anyValue",
+        "short": "Resultatvärde (AnyValueType — union, exakt ett fält ska anges)",
+        "definition": "XSD AnyValueType är en union: PQType (numeriskt mätvärde med enhet), string,\nboolean, eller CVType (kodad typ). Exakt ett av fälten nedan ska vara satt.\nInvariant lab-result-anyvalue-xor enforcar detta villkor.",
         "min": 1,
         "max": "1",
         "type": [
           {
+            "code": "BackboneElement"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "lab-result-anyvalue-xor",
+            "severity": "error",
+            "human": "Exakt ett av valueQuantity, valueString, valueBoolean, valueCodeableConcept ska anges i result.anyValue (AnyValueType XOR-villkor)",
+            "expression": "(iif(valueQuantity.exists(),1,0) + iif(valueString.exists(),1,0) + iif(valueBoolean.exists(),1,0) + iif(valueCodeableConcept.exists(),1,0)) = 1",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getlaboratoryorderoutcome"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.anyValue.valueQuantity",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.anyValue.valueQuantity",
+        "short": "Numeriskt mätvärde med enhet (PQType)",
+        "definition": "Numeriskt mätvärde med enhet (PQType)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.anyValue.valueString",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.anyValue.valueString",
+        "short": "Strängvärde",
+        "definition": "Strängvärde",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
             "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.anyValue.valueBoolean",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.anyValue.valueBoolean",
+        "short": "Boolesk",
+        "definition": "Boolesk",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.anyValue.valueCodeableConcept",
+        "path": "getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.anyValue.valueCodeableConcept",
+        "short": "Kodad typ (CVType)",
+        "definition": "Kodad typ (CVType)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
           }
         ]
       },
