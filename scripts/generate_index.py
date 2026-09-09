@@ -36,11 +36,16 @@ def main():
         qa_file = status_file.parent / "qa-errors.json"
         qa = json.loads(qa_file.read_text(encoding="utf-8")) if qa_file.exists() else {}
         summary = qa.get("summary", {})
+        # status.json speglar publisher-processens faktiska exitkod, som är
+        # den auktoritativa signalen — qa.get("passed") bygger enbart på
+        # mönstermatchning av ERROR:/FATAL:-loggrader och missar t.ex. en
+        # rå Java-stacktrace från en kraschande subprocess (Jekyll). Båda
+        # måste vara gröna för att domänen räknas som godkänd.
         entries.append({
             "slug": slug,
             "title": read_title(Path(status["dir"])),
             "status": status["status"],
-            "passed": qa.get("passed", status["status"] == "success"),
+            "passed": status["status"] == "success" and qa.get("passed", True),
             "fatal": summary.get("fatal", 0),
             "errors": summary.get("errors", 0),
             "warnings": summary.get("warnings", 0),

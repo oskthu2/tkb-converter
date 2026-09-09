@@ -42,7 +42,13 @@ permissions:
 env:
   # Pinnad HL7 IG Publisher-release. Uppdatera medvetet — se
   # https://github.com/HL7/fhir-ig-publisher/releases
-  PUBLISHER_VERSION: "1.7.3"
+  # 1.7.3 (tidigare pinning) var kraftigt föråldrad (aktuell serie är 2.3.x)
+  # och drog in en trasig ballot-snapshot av hl7.fhir.uv.extensions.r4 via
+  # sin interna hl7.fhir.xver-extensions-hantering, vilket fick 22/30
+  # domäner att krascha vid HTML-rendering (se körning 34356588086).
+  # 2.3.4 = senaste release vid skrivande stund (publisher.jar bekräftat
+  # nedladdningsbart, 244 MB).
+  PUBLISHER_VERSION: "2.3.4"
 
 jobs:
   build:
@@ -68,6 +74,13 @@ jobs:
 
       - name: Installera SUSHI
         run: npm install -g fsh-sushi
+
+      - name: Installera Jekyll (IG Publisher kör detta som subprocess för HTML-rendering)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ruby-full ruby-bundler
+          sudo gem install jekyll bundler --no-document
+          jekyll --version
 
       - name: Cacha FHIR-paket och IG Publisher-jar
         uses: actions/cache@v4

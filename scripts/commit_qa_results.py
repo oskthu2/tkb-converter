@@ -56,7 +56,11 @@ def main():
             "errors": summary.get("errors", 0),
             "warnings": summary.get("warnings", 0),
             "hints": summary.get("hints", 0),
-            "passed": qa.get("passed", status.get("status") == "success"),
+            # status.get("status") speglar publisher-processens faktiska
+            # exitkod — den auktoritativa signalen. qa.get("passed") bygger
+            # enbart på mönstermatchning av loggrader och missar t.ex. en rå
+            # Java-stacktrace från en kraschande subprocess. Båda krävs.
+            "passed": status.get("status") == "success" and qa.get("passed", True),
             "note": "Byggd av GitHub Actions (build-and-publish.yml)",
         }
         domain["publish_status"] = status.get("status", "unknown")

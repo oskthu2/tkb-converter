@@ -24,7 +24,7 @@ Characteristics: #can-be-target
     Den patient som aktivitetsgruppen avser (PatientType).
     Kardinalitet: Obligatorisk.
     """
-* activityGroup.patient.id 1..1 Identifier "Id för patienten"
+* activityGroup.patient.patientId 1..1 Identifier "Id för patienten"
     """
     Id för patienten (IIType). Ska anges med 12 tecken utan avskiljare.
     root = OID för typ av identifierare (personnummer: 1.2.752.129.2.1.3.1,
@@ -48,7 +48,7 @@ Characteristics: #can-be-target
     Den som utfört aktiviteter inom gruppen (PerformerRoleType).
     Kardinalitet: Obligatorisk.
     """
-* activityGroup.performerRole.id 0..1 Identifier "HSA-id för utförande person"
+* activityGroup.performerRole.performerRoleId 0..1 Identifier "HSA-id för utförande person"
     """
     Identitet för personen som utfört aktiviteten (IIType).
     Anges enbart om aktiviteten utförts av hälso- och sjukvårdspersonal. Anges med HSA-id.
@@ -65,7 +65,7 @@ Characteristics: #can-be-target
     Beskriver den person som utfört aktiviteten (PersonType).
     Kardinalitet: Villkorlig (se Regel 2.1).
     """
-* activityGroup.performerRole.person.id 0..1 Identifier "Identifierare för person"
+* activityGroup.performerRole.person.personId 0..1 Identifier "Identifierare för person"
     """
     Identifierare för person som utfört aktiviteten. Anges endast om aktiviteten utförts av
     person som INTE klassas som hälso- och sjukvårdspersonal.
@@ -83,7 +83,7 @@ Characteristics: #can-be-target
     Se Regel 2.1 och 2.6.
     Kardinalitet: Villkorlig.
     """
-* activityGroup.performerRole.careUnit.id 1..1 Identifier "HSA-id för PDL vårdenhet"
+* activityGroup.performerRole.careUnit.careUnitId 1..1 Identifier "HSA-id för PDL vårdenhet"
     """
     HSA-id för PDL vårdenhet som har ansvar för aktiviteten. Se Regel 2.6.
     root = OID för HSA-id: 1.2.752.129.2.1.4.1.
@@ -99,7 +99,7 @@ Characteristics: #can-be-target
     Den vårdgivare som enheten hör till (CareGiverType).
     Kardinalitet: Obligatorisk.
     """
-* activityGroup.performerRole.careUnit.careGiver.id 1..1 Identifier "HSA-id för vårdgivaren"
+* activityGroup.performerRole.careUnit.careGiver.careGiverId 1..1 Identifier "HSA-id för vårdgivaren"
     """
     Vårdgivarens identitet som enheten är anknuten till (IIType).
     root = OID för HSA-id: 1.2.752.129.2.1.4.1. Se Regel 2.6.
@@ -117,10 +117,10 @@ Characteristics: #can-be-target
     Se Regel 2.4.
     Kardinalitet: Valfri.
     """
-* activityGroup.legalAuthenticator.id 0..1 Identifier "HSA-id för signerande person"
+* activityGroup.legalAuthenticator.legalAuthenticatorId 0..1 Identifier "HSA-id för signerande person"
     """
     HSA-id för personen som signerat aktiviteterna. Se Regel 2.4.
-    Minst ett av attributen id eller name ska anges.
+    Minst ett av attributen legalAuthenticatorId eller name ska anges.
     Kardinalitet: Villkorlig.
     """
 * activityGroup.legalAuthenticator.time 1..1 dateTime "Tid för signeringen"
@@ -131,7 +131,7 @@ Characteristics: #can-be-target
 * activityGroup.legalAuthenticator.name 0..1 string "Namn på signerande person"
     """
     För- och efternamn i klartext för signerande person. Se Regel 2.4.
-    Minst ett av attributen id eller name ska anges.
+    Minst ett av attributen legalAuthenticatorId eller name ska anges.
     Kardinalitet: Villkorlig.
     """
 
@@ -140,7 +140,7 @@ Characteristics: #can-be-target
     Övriga deltagare relaterat till aktiviteterna inom gruppen (AdditionalParticipantType).
     Kardinalitet: Valfri, lista.
     """
-* activityGroup.additionalParticipant.id 0..1 Identifier "Identifierare för ytterligare deltagare"
+* activityGroup.additionalParticipant.additionalParticipantId 0..1 Identifier "Identifierare för ytterligare deltagare"
     """
     Identifierare för ytterligare deltagare (IIType).
     Anges enbart om deltagaren klassas som hälso- och sjukvårdspersonal (HSA-id).
@@ -167,7 +167,7 @@ Characteristics: #can-be-target
     Deltagande övrig person (PersonType). Exklusiv med organisation, device, location.
     Kardinalitet: Valfri.
     """
-* activityGroup.additionalParticipant.person.id 0..1 Identifier "Identifierare för person"
+* activityGroup.additionalParticipant.person.personId 0..1 Identifier "Identifierare för person"
     """
     Identifierare för deltagande övrig person.
     Kardinalitet: Valfri.
@@ -182,7 +182,7 @@ Characteristics: #can-be-target
     Deltagande övrig organisation (OrganisationType). Exklusiv med person, device, location.
     Kardinalitet: Valfri.
     """
-* activityGroup.additionalParticipant.organisation.id 1..1 Identifier "HSA-id för organisation"
+* activityGroup.additionalParticipant.organisation.organisationId 1..1 Identifier "HSA-id för organisation"
     """
     HSA-id för den organisation som denna ytterligare deltagare har sitt uppdrag hos.
     root = OID för HSA-id: 1.2.752.129.2.1.4.1.
@@ -198,7 +198,7 @@ Characteristics: #can-be-target
     Deltagande medicinskteknisk produkt (DeviceType). Exklusiv med person, organisation, location.
     Kardinalitet: Valfri.
     """
-* activityGroup.additionalParticipant.device.id 0..1 Identifier "Identifierare för medicinskteknisk produkt"
+* activityGroup.additionalParticipant.device.deviceId 0..1 Identifier "Identifierare för medicinskteknisk produkt"
     """
     Identifierare för instans av medicinskteknisk produkt.
     Kardinalitet: Valfri.
@@ -218,7 +218,7 @@ Characteristics: #can-be-target
     Deltagande plats (LocationType). Exklusiv med person, organisation, device.
     Kardinalitet: Valfri.
     """
-* activityGroup.additionalParticipant.location.id 0..1 Identifier "HSA-id för plats/vårdenhet"
+* activityGroup.additionalParticipant.location.locationId 0..1 Identifier "HSA-id för plats/vårdenhet"
     """
     Identifiering för platsen. Anges om platsen är en vårdenhet (HSA-id).
     Kardinalitet: Valfri.
@@ -240,7 +240,7 @@ Characteristics: #can-be-target
     Källsystem som aktivitetsgruppen lagras i (SourceSystemType).
     Kardinalitet: Obligatorisk.
     """
-* activityGroup.sourceSystem.id 1..1 Identifier "HSA-id för källsystem"
+* activityGroup.sourceSystem.sourceSystemId 1..1 Identifier "HSA-id för källsystem"
     """
     HSA-id för källsystemet (IIType).
     root = OID för HSA-id: 1.2.752.129.2.1.4.1.
@@ -252,7 +252,7 @@ Characteristics: #can-be-target
     De aktiviteter som ligger inom denna grupp (ActivityType).
     Kardinalitet: Obligatorisk, lista (minst en).
     """
-* activityGroup.activity.id 1..1 Identifier "Unik identifierare för aktiviteten"
+* activityGroup.activity.activityId 1..1 Identifier "Unik identifierare för aktiviteten"
     """
     En unik identifierare för aktiviteten (IIType). Ska vara konsistent och beständig
     mellan majorversioner av kontrakt och mellan kontrakt.
@@ -324,7 +324,7 @@ Characteristics: #can-be-target
     Den refererade externa informationen (ReferredInformationType).
     Kardinalitet: Obligatorisk.
     """
-* activityGroup.activity.relation.referredInformation.id 1..1 Identifier "Id för refererad information"
+* activityGroup.activity.relation.referredInformation.referredInformationId 1..1 Identifier "Id för refererad information"
     """
     Den refererade externa informationens identitet (IIType).
     root = HSA-id för källsystem.
@@ -347,7 +347,7 @@ Characteristics: #can-be-target
     Vårdgivare som är informationsägare av den refererade informationen (InformationOwnerType).
     Kardinalitet: Obligatorisk.
     """
-* activityGroup.activity.relation.referredInformation.informationOwner.id 1..1 Identifier "Informationsägarens HSA-id"
+* activityGroup.activity.relation.referredInformation.informationOwner.informationOwnerId 1..1 Identifier "Informationsägarens HSA-id"
     """
     Informationsägare av refererad information (IIType).
     root = OID för HSA-id: 1.2.752.129.2.1.4.1.

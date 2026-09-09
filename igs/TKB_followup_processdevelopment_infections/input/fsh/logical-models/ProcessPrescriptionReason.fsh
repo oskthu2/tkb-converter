@@ -77,7 +77,7 @@ Characteristics: #can-be-target
   """
   Kardinalitet: Obligatorisk.
   """
-* patient.id 1..1 Identifier "Patientens identifierare"
+* patient.patientId 1..1 Identifier "Patientens identifierare"
 * patient.birthTime 1..1 date "Patientens födelseår (ÅÅÅÅMMDD, ÅÅÅÅMM eller ÅÅÅÅ)"
 * patient.gender 1..1 CodeableConcept "Patientens kön"
   """

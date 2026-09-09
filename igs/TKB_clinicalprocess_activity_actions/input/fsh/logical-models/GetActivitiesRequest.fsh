@@ -77,7 +77,7 @@ Characteristics: #can-be-target
     """
     Begränsar sökningen till aktiviteter med avseende på hur de är relaterade till
     andra uppgifter i journalsystem (RelationFilterType).
-    Minst en av relation.typeCode och relation.id ska vara angiven.
+    Minst en av relation.typeCode och relation.relationId ska vara angiven.
     Kardinalitet: Valfri, lista.
     """
 * relation.typeCode 0..1 CodeableConcept "Filter på relations-/sambandstyp"
@@ -86,7 +86,7 @@ Characteristics: #can-be-target
     code och codeSystem är valfria; displayName, codeSystemName, codeSystemVersion ska ignoreras.
     Kardinalitet: Valfri.
     """
-* relation.id 0..1 Identifier "Filter på identitet i relation"
+* relation.relationId 0..1 Identifier "Filter på identitet i relation"
     """
     Begränsar sökningen till aktiviteter med den identitet som anges i sambandet (IIType).
     Exempelvis möjlighet att söka alla aktiviteter med relation till en viss observation.

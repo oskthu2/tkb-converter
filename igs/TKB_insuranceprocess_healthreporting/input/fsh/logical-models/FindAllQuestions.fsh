@@ -36,7 +36,7 @@ Characteristics: #can-be-target
 * questionsLeft 1..1 integer "Antal kvarvarande frågor för denna vårdenhet"
 * questions 0..1 BackboneElement "Frågor"
 * questions.question 0..* BackboneElement "Lista av frågor"
-* questions.question.id 1..1 integer "Ärendelådans identitet på den returnerade frågan"
+* questions.question.questionId 1..1 integer "Ärendelådans identitet på den returnerade frågan"
   """
   Används när man vill ta bort frågan från ärendelådan via DeleteQuestions.
   """
