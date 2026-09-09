@@ -124,24 +124,21 @@ jobs:
     if: github.event_name != 'pull_request' && needs.build.outputs.any_ready == 'true'
     runs-on: ubuntu-latest
     permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      contents: write
     steps:
       - name: Ladda ned Pages-sajten
         uses: actions/download-artifact@v4
         with:
           name: pages-site
           path: _site
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - name: Publicera till gh-pages-branchen
+        uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0
         with:
-          path: _site
-      - name: Publicera till GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: _site
+          publish_branch: gh-pages
+          force_orphan: true
+          commit_message: "deploy: publicera IG:ar från ${{ github.sha }}"
 
   commit-results:
     needs: build

@@ -782,7 +782,7 @@ IG Publisher omvandlar SUSHI-genererade FHIR-resurser + pagecontent till en komp
 
 Byggskripten ligger i `scripts/` (`build_ig.sh`, `build_all.sh`, `discover_domains.sh`, `fetch_ig_publisher.sh`, `parse_qa.py`, `generate_index.py`, `check_quality_gate.sh`, `commit_qa_results.py`). CI-jobbet i GitHub Actions har riktig internetåtkomst, så SUSHI och IG Publisher hämtar `hl7.fhir.r4.core` och `fhir.base.template` direkt från de officiella paketregistren — ingen offline-stub behövs där (till skillnad från i den sandboxade utvecklingsmiljön, se `gen_fhir_stubs.py` och Steg 4.5).
 
-Den publicerade sajten nås via GitHub Pages (repots *Settings → Pages*, källa "GitHub Actions"). Root-sidan (`index.html`) listar alla byggda domäner med status, varningsantal och länk till varje IG samt dess `qa.html`.
+Den publicerade sajten nås via GitHub Pages, som publiceras från `gh-pages`-branchen (repots *Settings → Pages* ska ha källa "Deploy from a branch", branch `gh-pages`, mapp `/ (root)`). `deploy`-jobbet skriver hela sajten dit med `force_orphan: true` (en enda commit per publicering — branchen behåller ingen historik). Root-sidan (`index.html`) listar alla byggda domäner med status, varningsantal och länk till varje IG samt dess `qa.html`.
 
 ### Feedbackloop — agenten läser qa-errors.json
 
