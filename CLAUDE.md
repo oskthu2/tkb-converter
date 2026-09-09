@@ -771,32 +771,29 @@ Om `passed` är `false`: orchestratorn ska **inte** gå vidare till QA Tracker u
 
 ---
 
-## Steg 4.6 — IG Publisher (körs lokalt av användaren, inte av agenten)
+## Steg 4.6 — IG Publisher & publicering (GitHub Actions + GitHub Pages)
 
-IG Publisher omvandlar SUSHI-genererade FHIR-resurser + pagecontent till en komplett publicerad HTML-IG. **Agenten kör inte detta steg direkt** — det sker lokalt med Docker:
+IG Publisher omvandlar SUSHI-genererade FHIR-resurser + pagecontent till en komplett publicerad HTML-IG. **Agenten kör inte detta steg direkt och det finns inget lokalt eller Docker-baserat sätt att göra det längre** — det sker i CI via `.github/workflows/build-and-publish.yml`:
 
-```bash
-# Bygg alla SUSHI-godkända IGs
-make build
+- **Push till `main`** (ändringar under `igs/**`) → bygger **alla** domäner som har en `sushi-config.yaml` (fullständig ombyggnad, så Pages-sajten alltid är konsekvent), publicerar hela sajten till GitHub Pages, och skriver tillbaka QA-resultat + `contracts-registry.json` till repot.
+- **Pull request** → bygger bara de domäner vars filer ändrats, som en snabb kvalitetscheck (SUSHI + IG Publisher + QA). Ingen publicering, inga commits.
+- **Manuell körning** (fliken *Actions* → *Bygg och publicera FHIR IG:ar* → *Run workflow*) → ange `domains` som `all` eller en kommaseparerad lista med katalognamn, t.ex. `TKB_itintegration_engagementindex`.
+- **Schemalagt** varje måndag 03:00 UTC → full ombyggnad, som skydd mot att sajten driftar iväg.
 
-# Bygg en specifik domän
-make build-one D=itintegration.engagementindex
+Byggskripten ligger i `scripts/` (`build_ig.sh`, `build_all.sh`, `discover_domains.sh`, `fetch_ig_publisher.sh`, `parse_qa.py`, `generate_index.py`, `check_quality_gate.sh`, `commit_qa_results.py`). CI-jobbet i GitHub Actions har riktig internetåtkomst, så SUSHI och IG Publisher hämtar `hl7.fhir.r4.core` och `fhir.base.template` direkt från de officiella paketregistren — ingen offline-stub behövs där (till skillnad från i den sandboxade utvecklingsmiljön, se `gen_fhir_stubs.py` och Steg 4.5).
 
-# Visa felrapport efteråt
-make qa D=itintegration.engagementindex
-```
-
-Se `docker-compose.yml` och `Makefile` för konfigurationsalternativ (`TX_SERVER`, `DOMAINS`, m.m.).
+Den publicerade sajten nås via GitHub Pages, som publiceras från `gh-pages`-branchen (repots *Settings → Pages* ska ha källa "Deploy from a branch", branch `gh-pages`, mapp `/ (root)`). `deploy`-jobbet skriver hela sajten dit med `force_orphan: true` (en enda commit per publicering — branchen behåller ingen historik). Root-sidan (`index.html`) listar alla byggda domäner med status, varningsantal och länk till varje IG samt dess `qa.html`.
 
 ### Feedbackloop — agenten läser qa-errors.json
 
-När IG Publisher har körts klart skriver build-skriptet:
+Efter varje CI-körning som bygger domänen skrivs (och committas till `main` av `commit-results`-jobbet):
 
 ```
 igs/TKB_{domain_id}/ig-publisher-logs/
-├── build.log        ← rålogg (stdout/stderr från publisher.jar)
-└── qa-errors.json   ← strukturerat JSON med fel/varningar (se nedan)
+└── qa-errors.json   ← strukturerat JSON med fel/varningar (se nedan). build.log checkas inte in.
 ```
+
+Agenten läser detta direkt från repot efter att CI har körts klart — kontrollera senaste körning för `.github/workflows/build-and-publish.yml` (t.ex. via GitHub MCP-verktygen) om det är oklart om resultatet är färskt. Vill agenten trigga en ombyggnad direkt (t.ex. för att verifiera en FSH-fix) utan att vänta på nästa push, kan den köra workflowen manuellt (`workflow_dispatch` med `domains` satt till den aktuella katalogen) via GitHub MCP-verktygen.
 
 **qa-errors.json-format:**
 ```json
@@ -831,8 +828,8 @@ När användaren ber Claude att agera på IG Publisher-resultaten:
      Källa: ig-publisher-logs/qa-errors.json rad 12
    ```
 5. **Fixa** syntaktiska/tekniska fel direkt (t.ex. felaktiga FSH-typer, brutna bildlänkar, `url`-fel i CodeSystem)
-6. **Kör `make sushi-one`** lokalt (eller be användaren göra det) för att verifiera att FSH-fixen kompilerar
-7. **Uppdatera registry**: sätt `ig_publisher_result.status` till `"needs-retry"` för domäner med åtgärdade fel
+6. **Kör `make sushi-one D=TKB_{domain_id}`** lokalt för att snabbt verifiera att FSH-fixen kompilerar (SUSHI-nivå), och pusha ändringen till `main` (eller öppna en PR) för att låta GitHub Actions köra hela IG Publisher-bygget och QA-kontrollen på nytt
+7. **Uppdatera registry**: sätt `ig_publisher_result.status` till `"needs-retry"` för domäner med åtgärdade fel (skrivs annars över automatiskt vid nästa CI-körning)
 
 **Prioriteringsordning för fel:**
 | Feltyp | Åtgärd |
@@ -938,7 +935,7 @@ Varje fråga ska ha:
 3. Lägg till saknade domäner som `pending` i registret
 4. Hitta första domän med status `pending` (eller `in-progress` om tidigare avbrutet)
 5. Kör pipeline: Fetcher → Parser → IG Builder → Model Builder → SUSHI Validator → QA Tracker
-   _(IG Publisher körs separat av användaren med `make build` — se Steg 4.6)_
+   _(IG Publisher-bygge och publicering till GitHub Pages sker automatiskt i GitHub Actions vid push till `main` — se Steg 4.6)_
 6. Uppdatera status i registret
 7. Upprepa för nästa domän
 8. När alla domäner är `done` eller `blocked`: skriv en sammanfattning till `MIGRATION_SUMMARY.md`

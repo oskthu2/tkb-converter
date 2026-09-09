@@ -5,21 +5,25 @@
 # (viktiga filer kopieras till input/files/ av IG Builder)
 igs/*/source/
 
-# IG Publisher output — stora filer, regenererbara med 'make build'
+# IG Publisher output — stora filer, regenereras av GitHub Actions
+# (.github/workflows/build-and-publish.yml) och publiceras till GitHub Pages
 igs/*/output/
 igs/*/temp/
 igs/*/template/
 igs/*/input-cache/
 igs/*/Requirements-fromNarrative.json
 
-# Docker-build temporärlogg
-docker-build.log
-
 # Bilder i docx-converted/ är exakta kopior av input/images/ (IG Publisher-källan)
 # Undviker dubblering — input/images/ spåras och är vad som räknas
 igs/*/docx-converted/images/
 
-# IG Publisher build-loggar — individuella varningar fångas i qa-errors.json av parse-qa.py.
+# IG Publisher build-loggar — individuella varningar fångas i qa-errors.json av scripts/parse_qa.py.
 # Om qa-errors.json efter rebuild fortfarande saknar detaljer: ta bort raden nedan
 # och kör 'git add igs/*/ig-publisher-logs/build.log' för att fånga råloggen istället.
 igs/*/ig-publisher-logs/*.log
+
+# Lokala körningar av scripts/build_all.sh (samma jobb som GitHub Actions kör)
+_site/
+qa-results/
+domains.txt
+__pycache__/

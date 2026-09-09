@@ -1,21 +1,20 @@
 #!/usr/bin/env python3
 """
-parse-qa — Extrahera strukturerade fel/varningar från IG Publisher-output.
+parse_qa — Extrahera strukturerade fel/varningar från IG Publisher-output.
 
 Läser qa.json (nyare IG Publisher) eller qa.html (äldre) och/eller
 skannar build.log för ERROR/WARN/FATAL-rader. Skriver ett JSON-dokument
-som Claude kan läsa och agera på.
+som Claude (eller CI-jobbet) kan läsa och agera på.
 
-Användning (körs av build.sh):
-    parse-qa --qa-json output/qa.json --domain my.domain --log build.log --output qa-errors.json
-    parse-qa --qa-html output/qa.html --domain my.domain --log build.log --output qa-errors.json
-    parse-qa                          --domain my.domain --log build.log --output qa-errors.json
+Användning (körs av scripts/build_ig.sh i GitHub Actions):
+    parse_qa.py --qa-json output/qa.json --domain my.domain --log build.log --output qa-errors.json
+    parse_qa.py --qa-html output/qa.html --domain my.domain --log build.log --output qa-errors.json
+    parse_qa.py                          --domain my.domain --log build.log --output qa-errors.json
 """
 
 import argparse
 import json
 import re
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -103,7 +102,7 @@ def parse_qa_json(qa_json_path: Path) -> dict:
             issues["hints"].append(full)
 
     # Fallback: top-level counts (äldre format — returnerar summor, inga detaljer)
-    # Returnerar en sentinel-sträng så att build.sh kan försöka qa.html istället.
+    # Returnerar en sentinel-sträng så att build_ig.sh kan försöka qa.html istället.
     if not any(issues.values()):
         has_counts = False
         for count_key, issue_key in [
@@ -184,7 +183,7 @@ def parse_qa_html(qa_html_path: Path) -> dict:
 # ── Sammanställ output-JSON ──────────────────────────────────────────────────
 
 def build_output(domain_id: str, issues: dict, log_issues: dict, meta: dict) -> dict:
-    """Bygg det strukturerade JSON-dokument som återförs till Claude."""
+    """Bygg det strukturerade JSON-dokument som återförs till Claude/CI."""
 
     # Slå ihop issues från QA-rapport och logg (deduplicera)
     # Ta bort sentinel-strängar __COUNT_ONLY_N__ — dessa ersätts av log_issues
@@ -239,7 +238,7 @@ def build_output(domain_id: str, issues: dict, log_issues: dict, meta: dict) -> 
         "summary": summary,
         "issues": merged,
         "meta": meta,
-        # Komprimerad lista för snabb Claude-läsning (max 20 fel)
+        # Komprimerad lista för snabb läsning (max 20 fel)
         "top_issues": (
             [f"[FATAL] {m}" for m in merged["fatal"][:5]] +
             [f"[ERROR] {m}" for m in merged["errors"][:10]] +
@@ -298,10 +297,10 @@ def main():
     # Skriv sammanfattning till stdout
     s = output["summary"]
     status = "PASS" if output["passed"] else "FAIL"
-    print(f"[parse-qa] {args.domain}: {status} — "
+    print(f"[parse_qa] {args.domain}: {status} — "
           f"fatal={s['fatal']} errors={s['errors']} warnings={s['warnings']} hints={s['hints']}")
     if output["top_issues"]:
-        print("[parse-qa] Topp-problem:")
+        print("[parse_qa] Topp-problem:")
         for issue in output["top_issues"][:10]:
             print(f"  {issue}")
 
