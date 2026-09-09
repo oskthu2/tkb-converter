@@ -1,0 +1,177 @@
+name: Bygg och publicera FHIR IG:ar
+
+# Ersätter det tidigare Docker/lokala IG Publisher-flödet helt.
+#
+# - pull_request: bygger bara ändrade domäner som en snabb kvalitetscheck
+#   (SUSHI + IG Publisher + QA-parsning). Ingen publicering.
+# - push till main / schema / manuell körning: bygger alla domäner som har
+#   en sushi-config.yaml, publicerar hela sajten till GitHub Pages, och
+#   skriver tillbaka QA-resultat + contracts-registry.json till repot.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "igs/**"
+      - "scripts/**"
+      - ".github/workflows/build-and-publish.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "igs/**"
+      - "scripts/**"
+      - ".github/workflows/build-and-publish.yml"
+  workflow_dispatch:
+    inputs:
+      domains:
+        description: "Kommaseparerad lista med katalognamn (t.ex. TKB_itintegration_engagementindex) eller 'all'"
+        required: false
+        default: "all"
+  schedule:
+    # Full ombyggnad varje måndag 03:00 UTC, så Pages-sajten aldrig driftar
+    # iväg från main även om inget pushats.
+    - cron: "0 3 * * 1"
+
+concurrency:
+  group: ig-build-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  # Pinnad HL7 IG Publisher-release. Uppdatera medvetet — se
+  # https://github.com/HL7/fhir-ig-publisher/releases
+  PUBLISHER_VERSION: "1.7.3"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      any_ready: ${{ steps.discover.outputs.any_ready }}
+    steps:
+      - name: Checka ut repot
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Sätt upp Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Sätt upp Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Installera SUSHI
+        run: npm install -g fsh-sushi
+
+      - name: Cacha FHIR-paket och IG Publisher-jar
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.fhir/packages
+            ~/.cache/ig-publisher
+          key: fhir-cache-${{ env.PUBLISHER_VERSION }}
+
+      - name: Hämta IG Publisher + fhir.base.template
+        run: scripts/fetch_ig_publisher.sh
+
+      - name: Avgör vilka domäner som ska byggas
+        id: discover
+        run: scripts/discover_domains.sh
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          DISPATCH_DOMAINS: ${{ github.event.inputs.domains }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+
+      - name: Bygg IG:ar (SUSHI + IG Publisher + QA-parsning)
+        if: steps.discover.outputs.any_ready == 'true'
+        run: scripts/build_all.sh
+        env:
+          TX_SERVER: "n/a"
+
+      - name: Skriv kvalitetsrapport till jobbsammanfattningen
+        if: always() && steps.discover.outputs.any_ready == 'true'
+        run: scripts/write_summary.sh >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Ladda upp Pages-sajten
+        if: always() && steps.discover.outputs.any_ready == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: pages-site
+          path: _site
+          retention-days: 7
+
+      - name: Ladda upp QA-resultat
+        if: always() && steps.discover.outputs.any_ready == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-results
+          path: qa-results
+          retention-days: 30
+
+      - name: Kvalitetsgrind
+        if: always() && steps.discover.outputs.any_ready == 'true'
+        run: scripts/check_quality_gate.sh
+
+  deploy:
+    needs: build
+    if: github.event_name != 'pull_request' && needs.build.outputs.any_ready == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Ladda ned Pages-sajten
+        uses: actions/download-artifact@v4
+        with:
+          name: pages-site
+          path: _site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Publicera till GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  commit-results:
+    needs: build
+    if: github.event_name != 'pull_request' && needs.build.outputs.any_ready == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checka ut main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Ladda ned QA-resultat
+        uses: actions/download-artifact@v4
+        with:
+          name: qa-results
+          path: qa-results
+
+      - name: Skriv qa-errors.json och uppdatera registret
+        run: python3 scripts/commit_qa_results.py
+
+      - name: Committa och pusha
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "igs/*/ig-publisher-logs/qa-errors.json" contracts-registry.json
+          if git diff --cached --quiet; then
+            echo "Inga ändringar att committa."
+            exit 0
+          fi
+          git commit -m "ci: uppdatera QA-resultat och registry från IG Publisher-bygge"
+          git push origin HEAD:main
