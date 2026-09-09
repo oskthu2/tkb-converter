@@ -1,0 +1,251 @@
+# RegisterCertificate — Request - clinicalprocess: healthcond: certificate v4.1-RC1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **RegisterCertificate — Request**
+
+## Logical Model: RegisterCertificate — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/registercertificate-request | *Version*:4.1-RC1 |
+| Draft as of 2026-09-09 | *Computable Name*:RegisterCertificateRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för requestparametrar i RegisterCertificate. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-healthcond-certificate|current/StructureDefinition/StructureDefinition-registercertificate-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-registercertificate-request.csv), [Excel](StructureDefinition-registercertificate-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "registercertificate-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/registercertificate-request",
+  "version" : "4.1-RC1",
+  "name" : "RegisterCertificateRequest",
+  "title" : "RegisterCertificate — Request",
+  "status" : "draft",
+  "date" : "2026-09-09T16:46:17+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för requestparametrar i RegisterCertificate.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-certificate/StructureDefinition/registercertificate-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "registercertificate-request",
+      "path" : "registercertificate-request",
+      "short" : "RegisterCertificate — Request",
+      "definition" : "Logisk modell för requestparametrar i RegisterCertificate."
+    },
+    {
+      "id" : "registercertificate-request.svarPa",
+      "path" : "registercertificate-request.svarPa",
+      "short" : "Referens till meddelande som detta intyg svarar på (komplettering)",
+      "definition" : "Ska anges om intyget utfärdas som svar på en kompletteringsbegäran.\nreferensId ska anges om det skickades i frågan.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "registercertificate-request.svarPa.meddelandeId",
+      "path" : "registercertificate-request.svarPa.meddelandeId",
+      "short" : "ID på det meddelande detta intyg svarar på",
+      "definition" : "ID på det meddelande detta intyg svarar på",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registercertificate-request.svarPa.referensId",
+      "path" : "registercertificate-request.svarPa.referensId",
+      "short" : "Valfri referens till entitet hos sändande part",
+      "definition" : "Valfri referens till entitet hos sändande part",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "registercertificate-request.intyg",
+      "path" : "registercertificate-request.intyg",
+      "short" : "Intyget som ska registreras",
+      "definition" : "Komplett intyg inkl. patient, skapadAv, enhet och vårdgivare.\nmottagare ska ej anges vid registrering.\nskickatTidpunkt ska ange aktuell tidpunkt.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "registercertificate-request.intyg.intygsId",
+      "path" : "registercertificate-request.intyg.intygsId",
+      "short" : "Unikt ID för intyget",
+      "definition" : "Unikt ID för intyget",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registercertificate-request.intyg.typAvIntyg",
+      "path" : "registercertificate-request.intyg.typAvIntyg",
+      "short" : "Typ av intyg",
+      "definition" : "Typ av intyg",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "registercertificate-request.intyg.signeringsTidpunkt",
+      "path" : "registercertificate-request.intyg.signeringsTidpunkt",
+      "short" : "Tidpunkt då intyget signerades",
+      "definition" : "Tidpunkt då intyget signerades",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "registercertificate-request.intyg.skickatTidpunkt",
+      "path" : "registercertificate-request.intyg.skickatTidpunkt",
+      "short" : "Tidpunkt då intyget skickades (aktuell tidpunkt)",
+      "definition" : "Tidpunkt då intyget skickades (aktuell tidpunkt)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "registercertificate-request.intyg.patient",
+      "path" : "registercertificate-request.intyg.patient",
+      "short" : "Patientuppgifter",
+      "definition" : "Patientuppgifter",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "registercertificate-request.intyg.patient.personId",
+      "path" : "registercertificate-request.intyg.patient.personId",
+      "short" : "Person- eller samordningsnummer",
+      "definition" : "Person- eller samordningsnummer",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registercertificate-request.intyg.skapadAv",
+      "path" : "registercertificate-request.intyg.skapadAv",
+      "short" : "HoS-personal",
+      "definition" : "HoS-personal",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "registercertificate-request.intyg.skapadAv.personalId",
+      "path" : "registercertificate-request.intyg.skapadAv.personalId",
+      "short" : "HSA-id",
+      "definition" : "HSA-id",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registercertificate-request.intyg.skapadAv.enhet",
+      "path" : "registercertificate-request.intyg.skapadAv.enhet",
+      "short" : "Enhet",
+      "definition" : "Enhet",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "registercertificate-request.intyg.skapadAv.enhet.enhetsId",
+      "path" : "registercertificate-request.intyg.skapadAv.enhet.enhetsId",
+      "short" : "HSA-id för enheten",
+      "definition" : "HSA-id för enheten",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "registercertificate-request.intyg.skapadAv.enhet.vardgivare",
+      "path" : "registercertificate-request.intyg.skapadAv.enhet.vardgivare",
+      "short" : "Vårdgivare",
+      "definition" : "Vårdgivare",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "registercertificate-request.intyg.skapadAv.enhet.vardgivare.vardgivareId",
+      "path" : "registercertificate-request.intyg.skapadAv.enhet.vardgivare.vardgivareId",
+      "short" : "HSA-id för vårdgivaren",
+      "definition" : "HSA-id för vårdgivaren",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    }]
+  }
+}
+
+```

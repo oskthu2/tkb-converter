@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>4 Tjänstekontrakt - informatics: terminology v1.4</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"5"}
+    h3,h4,h5,h6{--heading-prefix:"5"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">informatics: terminology</span>
+            <br/>
+            <span style="display:inline-block;">1.4 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-generella-regler.html">2 Generella regler</a></li>
+  <li><a href="3-sla-krav-support.html">3 SLA-krav/support</a></li>
+  <li><a href="4-tjanstekontrakt.html">4 Tjänstekontrakt</a></li>
+  <li><a href="5-tillgangliga-urval.html">5 Tillgängliga urval</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>4 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">informatics: terminology - Local Development build (v1.4) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/informatics-terminology/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>4 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstekontrakt" id="markdown-toc-tjänstekontrakt">Tjänstekontrakt</a>    <ul>
+      <li><a href="#getterminologysubset" id="markdown-toc-getterminologysubset">GetTerminologySubset</a></li>
+      <li><a href="#källfiler-riv-ta" id="markdown-toc-källfiler-riv-ta">Källfiler (RIV-TA)</a></li>
+      <li><a href="#fhir-artefakter" id="markdown-toc-fhir-artefakter">FHIR-artefakter</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstekontrakt">Tjänstekontrakt</h2>
+
+<h3 id="getterminologysubset">GetTerminologySubset</h3>
+
+<p>GetTerminologySubset hämtar ut en delmängd (subset) av en terminologi (exempelvis SNOMED CT, ICD-10, ATC-kodverket) som är användbar i ett visst sammanhang.
+Denna tjänst stöttar bland annat det dynamiska urvalet av orsaker till antibiotikainsättning som skall rapporteras till Infektionsregistret. Tjänsten levererar även urvalet av ATC-koder som skall trigga frågan om ordinationsorsak. Tjänsten skall förutom en kod och en visningsterm kunna returnera ytterligare metadata som krävs för att veta vilka delar av OpenEHR templaten som skall fyllas i vid sändande av ordinationsorsaken till Infektionsverktyget.</p>
+
+<h4 id="begäran-request">Begäran (Request)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Soapenv:Header</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">LogicalAddress</td>
+      <td style="text-align: left">wsa:To</td>
+      <td style="text-align: left">HSASERVICES-10BK</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">GetTerminologySubsetRequest</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">SubsetIdentity</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Identifierare för urvalet</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LocalOrganizationExtension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">HSAId för organisationspost motsvarande vårdgivare i HSA-trädet. Om denna anges kommer det nationella urvalet returneras tillsammans med de koder i urvalet som är specifika för den aktuella vårdgivaren.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TermType</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Typ av term som ska användas. / Fixt värde: DisplayName</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="svar-response">Svar (Response)</h4>
+
+<p>Tjänsten retunerar förutom en kod och en visningsterm ytterligare metadata som krävs för att veta vilka delar som skall fyllas i vid sändande av ordinationsorsaken till Infektionsverktyget.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">GetTerminologySubsetResponseType</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Concept</td>
+      <td style="text-align: left">ConceptType</td>
+      <td style="text-align: left">Svaret består av en lista med begrepp</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">ConceptType</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">CodeSystem</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Identifierare av kodsystem</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Code</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Begreppskod</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Term</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Term som beskriver begreppet</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Metadata</td>
+      <td style="text-align: left">MetadataType</td>
+      <td style="text-align: left">Lista med metadata</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">MetadataType</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Identifierar typ av metadata.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Value</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Metadatavärde.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="tjänsteinteraktion">Tjänsteinteraktion</h4>
+
+<p>GetTerminologySubset</p>
+
+<h3 id="källfiler-riv-ta">Källfiler (RIV-TA)</h3>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<blockquote>
+  <p><strong>OBS:</strong> Källfilerna kunde ej kopieras till denna IG — Bitbucket API rate-limitade nedladdningarna vid insamlingstillfället. Se <a href="https://bitbucket.org/rivta-domains/riv.informatics.terminology/src/master/schemas/">riv.informatics.terminology på Bitbucket</a> för aktuella filer.</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GetTerminologySubsetInteraction_1.0_RIVTABP20.wsdl</td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td>TerminologyServiceBaseTypes_1.0.xsd</td>
+      <td>Domänschema (bastyper)</td>
+    </tr>
+    <tr>
+      <td>GetTerminologySubsetResponder_1.0.xsd</td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td>itintegration_registry_1.0.xsd</td>
+      <td>Registerschema (delat)</td>
+    </tr>
+    <tr>
+      <td>ws-addressing-1.0.xsd</td>
+      <td>WS-Addressing schema (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fhir-artefakter">FHIR-artefakter</h3>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getterminologysubset.html">StructureDefinition/getterminologysubset</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getterminologysubset-request.html">StructureDefinition/getterminologysubset-request</a></li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.informatics-terminology#1.4 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 9, 2026 16:58+0000">2026-09-09</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

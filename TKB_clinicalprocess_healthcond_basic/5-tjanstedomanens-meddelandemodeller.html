@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>5 Tjänstedomänens meddelandemodeller - clinicalprocess: healthcond: basic v2.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link rel="stylesheet" href="fhir.css"/>
+
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-fhir.css"/>
+
+      <!-- Project extras -->
+    <link rel="stylesheet" href="assets/css/project.css"/>
+    <link rel="stylesheet" href="assets/css/pygments-manni.css"/>
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+  	<link rel="stylesheet" href="assets/css/prism.css"/>
+  	<link rel="stylesheet" href="assets/css/cqf.css"/>
+      <!-- Placeholder for child template CSS declarations -->
+
+    <script src="fhir-table-scripts.js" type="text/javascript"> </script>
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- [if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif] -->
+
+      <!-- Favicons -->
+    <link sizes="144x144" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-144.png"/>
+    <link sizes="114x114" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-114.png"/>
+    <link sizes="72x72" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script src="assets/js/mermaid.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
+    <style type="text/css">h2{--heading-prefix:"6"}
+    h3,h4,h5,h6{--heading-prefix:"6"}</style>
+    <div id="segment-header" class="segment">    <!-- segment-header -->
+      <div class="container">    <!-- container -->
+
+          <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">clinicalprocess: healthcond: basic</span>
+            <br/>
+            <span style="display:inline-block;">2.0.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div>   <!-- /container -->
+    </div>    <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">    <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">    <!-- container -->
+          <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+            <!-- status-bar -->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a href="http://hl7.org/fhir/R4/index.html" class="navbar-brand hidden">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul class="nav-tabs">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+  <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+  <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+  <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artifacts</a></li>
+</ul>
+
+            </div>    <!-- /.nav-collapse -->
+          </div>    <!-- /.container -->
+        </nav>    <!-- /.navbar -->
+        <!-- /HEADER CONTENT -->
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-navbar -->
+      <!-- status-bar -->
+
+    <div id="segment-breadcrumb" class="segment">    <!-- segment-breadcrumb -->
+      <div class="container">    <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>5 Tjänstedomänens meddelandemodeller</b></li>
+
+        </ul>
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">    <!-- segment-content -->
+      <div class="container">    <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+    <!-- ReleaseHeader --><p id="publish-box">clinicalprocess: healthcond: basic - Local Development build (v2.0.0) built by the FHIR (HL7&reg; FHIR&reg; Standard) Build Tools. See the <a href="https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  <h2>5 Tjänstedomänens meddelandemodeller</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>  <!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstedomänens-meddelandemodeller" id="markdown-toc-tjänstedomänens-meddelandemodeller">Tjänstedomänens meddelandemodeller</a>    <ul>
+      <li><a href="#v-mim--observationer" id="markdown-toc-v-mim--observationer">V-MIM – Observationer</a></li>
+      <li><a href="#formatregler" id="markdown-toc-formatregler">Formatregler</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstedomänens-meddelandemodeller">Tjänstedomänens meddelandemodeller</h2>
+<p>Här beskrivs de meddelandemodeller som tjänstekontrakten bygger på. För varje meddelandemodell beskrivs hur mappning ser ut mot NI 2017samt mot schema (XSD) för tjänstekontrakt.</p>
+
+<h3 id="v-mim--observationer">V-MIM – Observationer</h3>
+<p>Nedan redovisas meddelandeinformationsmodellen för en observation (exklusive header) som returneras i ett svar på en begäran.
+Ljusblå klasser har en direkt mappning till NI 2017.
+Orange klasser är tillägg utan mappning till NI 2017.
+Mörkblå klasser är tekniska platshållare till informationen.</p>
+
+<p><a name="l279">​</a><img src="images/img_003.png" alt="img_003.png"/></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">V-MIM</th>
+      <th style="text-align: left">XSD Schema</th>
+      <th style="text-align: left">Mappning mot NI 2017</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Observation.id</td>
+      <td style="text-align: left">observations/observationBody/id</td>
+      <td style="text-align: left">Uppgift i patientjournal.id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Observation.dokumentationstidpunkt</td>
+      <td style="text-align: left">observations/observationBody/registrationTime</td>
+      <td style="text-align: left">Uppgift i patientjournal.dokumentationstidpunkt</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Observation.typ</td>
+      <td style="text-align: left">observations/observationBody/type</td>
+      <td style="text-align: left">Observation.typ</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Observation.värde</td>
+      <td style="text-align: left">observations/observationBody/value</td>
+      <td style="text-align: left">Observation.värde</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Observation.skala</td>
+      <td style="text-align: left">observations/observationBody/scale</td>
+      <td style="text-align: left">Observation.skala</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Observation.status</td>
+      <td style="text-align: left">observations/observationBody/status</td>
+      <td style="text-align: left">Observation.status</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Observation.lokalisation</td>
+      <td style="text-align: left">observations/observationBody/targetSite</td>
+      <td style="text-align: left">Observation.lokalisation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Observation.beskrivning</td>
+      <td style="text-align: left">observations/observationBody/description</td>
+      <td style="text-align: left">Observation.beskrivning</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Observation.tid</td>
+      <td style="text-align: left">observations/observationBody/time</td>
+      <td style="text-align: left">Observation.tid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Observation.negation</td>
+      <td style="text-align: left">observations/observationBody/valueNegation</td>
+      <td style="text-align: left">Observation.negation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Individanpassad vårdprocess.id</td>
+      <td style="text-align: left">observations/header/accessControlHeader/careProcessId</td>
+      <td style="text-align: left">Individanpassad vårdprocess.id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Samband.typ</td>
+      <td style="text-align: left">observations/observationBody/relation/type</td>
+      <td style="text-align: left">Samband.typ</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Referens till uppgift i patientjournal.id</td>
+      <td style="text-align: left">observations/observationBody/relation/referredInformation/id</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Referens till uppgift i patientjournal.tidpunkt</td>
+      <td style="text-align: left">observations/observationBody/relation/referredInformation/time</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Referens till uppgift i patientjournal.kategori</td>
+      <td style="text-align: left">observations/observationBody/relation/referredInformation/categorization</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Vårdgivare.id</td>
+      <td style="text-align: left">observations/observationBody/relation/referredInformation/informationOwner/id</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Deltagande.typ</td>
+      <td style="text-align: left">observations/observationBody/participation/type</td>
+      <td style="text-align: left">Deltagande.typ</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Deltagande.tid</td>
+      <td style="text-align: left">observations/observationBody/participation/time</td>
+      <td style="text-align: left">Deltagande.tid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal.id</td>
+      <td style="text-align: left">observations/observationBody/participation/healthcareProfessional/id</td>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal.id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal.befattning</td>
+      <td style="text-align: left">observations/observationBody/participation/healthcareProfessional/jobCode</td>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal.befattning</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal.adress</td>
+      <td style="text-align: left">observations/observationBody/participation/healthcareProfessional/address</td>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal.adress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal.elektroniskAdress</td>
+      <td style="text-align: left">observations/observationBody/participation/healthcareProfessional/electronicAddress</td>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal.elektroniskAdress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal.legitimation</td>
+      <td style="text-align: left">observations/observationBody/participation/healthcareProfessional/license</td>
+      <td style="text-align: left">Person med kompetens att utföra hälso- och sjukvård.legitimation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal.specialistkompetens</td>
+      <td style="text-align: left">observations/observationBody/participation/healthcareProfessional/specialistQualification</td>
+      <td style="text-align: left">Person med kompetens att utföra hälso- och sjukvård.specialistkompetens</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patient.id</td>
+      <td style="text-align: left">observations/observationBody/patient/id / och / observations/observationBody/participation/patient/id</td>
+      <td style="text-align: left">Patient.id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patient.adress</td>
+      <td style="text-align: left">observations/observationBody/patient/address / och / observations/observationBody/participation/patient/address</td>
+      <td style="text-align: left">Patient.adress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patient.elektroniskAdress</td>
+      <td style="text-align: left">observations/observationBody/patient/electronicAddress / och / observations/observationBody/participation/patient/electronicAddress</td>
+      <td style="text-align: left">Patient.elektroniskAdress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Annan person.typ</td>
+      <td style="text-align: left">observations/observationBody/participation/otherPerson/type</td>
+      <td style="text-align: left">Annan person.typ</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Roll för plats.typ</td>
+      <td style="text-align: left">observations/observationBody/participation/locationRole/type</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Plats.id</td>
+      <td style="text-align: left">observations/observationBody/participation/locationRole/location/id</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Plats.typ</td>
+      <td style="text-align: left">observations/observationBody/participation/locationRole/location/type</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Plats.namn</td>
+      <td style="text-align: left">observations/observationBody/participation/locationRole/location/name</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Plats.belägenhetsadress</td>
+      <td style="text-align: left">observations/observationBody/participation/locationRole/location/locationAddress</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Position.longitud</td>
+      <td style="text-align: left">observations/observationBody/participation/locationRole/location/position/longitude</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Position.latitud</td>
+      <td style="text-align: left">observations/observationBody/participation/locationRole/location/position/latitude</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Position.altitud</td>
+      <td style="text-align: left">observations/observationBody/participation/locationRole/location/position/altitude</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Resurs.id</td>
+      <td style="text-align: left">observations/observationBody/participation/resource/id</td>
+      <td style="text-align: left">Resurs.id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Resurs.typ</td>
+      <td style="text-align: left">observations/observationBody/participation/resource/type</td>
+      <td style="text-align: left">Resurs.typ</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Resurs.gruppidentitet</td>
+      <td style="text-align: left">observations/observationBody/participation/resource/groupId</td>
+      <td style="text-align: left">Resurs.gruppidentitet</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Resurs.mängd</td>
+      <td style="text-align: left">observations/observationBody/participation/resource/amount</td>
+      <td style="text-align: left">Resurs.mängd</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Resursegenskap.typ</td>
+      <td style="text-align: left">observations/observationBody/participation/resource/resourceProperty/type</td>
+      <td style="text-align: left">Resursegenskap.typ</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Resursegenskap.värde</td>
+      <td style="text-align: left">observations/observationBody/participation/resource/resourceProperty/value</td>
+      <td style="text-align: left">Resursegenskap.värde</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisation.id</td>
+      <td style="text-align: left">observations/observationBody/participation/organisation/id / och / observations/observationBody/participation/healthcareProfessional/organisation/id / och / observations/observationBody/participation/otherPerson/organisation/id</td>
+      <td style="text-align: left">Organisation.id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisation.typ</td>
+      <td style="text-align: left">observations/observationBody/participation/organisation/type / och / observations/observationBody/participation/healthcareProfessional/organisation/type / och / observations/observationBody/participation/organisation/type</td>
+      <td style="text-align: left">Organisation.typ</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisation.namn</td>
+      <td style="text-align: left">observations/observationBody/participation/organisation/name / och / observations/observationBody/participation/healthcareProfessional/organisation/name / och / observations/observationBody/participation/organisation/name</td>
+      <td style="text-align: left">Organisation.namn</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisation.adress</td>
+      <td style="text-align: left">observations/observationBody/participation/organisation/address / och / observations/observationBody/participation/healthcareProfessional/organisation/address / och / observations/observationBody/participation/organisation/address</td>
+      <td style="text-align: left">Organisation.adress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisation.elektroniskAdress</td>
+      <td style="text-align: left">observations/observationBody/participation/organisation/electronicAddress / och / observations/observationBody/participation/healthcareProfessional/organisation/electronicAddress / och / observations/observationBody/participation/organisation/electronicAddress</td>
+      <td style="text-align: left">Organisation.elektroniskAdress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Person.person-id</td>
+      <td style="text-align: left">observations/observationBody/patient/person/id / och / observations/observationBody/participation/healthcareProfessional/person/id / och / observations/observationBody/participation/patient/person/id / och / observations/observationBody/participation/otherPerson/person/id</td>
+      <td style="text-align: left">Person.person-id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Person.namn</td>
+      <td style="text-align: left">observations/observationBody/patient/person/name / och / observations/observationBody/participation/healthcareProfessional/person/name / och / observations/observationBody/participation/patient/person/name / och / observations/observationBody/participation/otherPerson/person/name</td>
+      <td style="text-align: left">Person.namn</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="formatregler">Formatregler</h3>
+<p>Inga utöver de som beskrivs i fältregler i kapitel 6 Tjänstekontrakt.</p>
+
+
+
+
+</div>
+        </div>    <!-- /inner-wrapper -->
+      </div>    <!-- /row -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-content -->
+
+  <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script src="assets/js/jquery-ui.min.js" type="text/javascript"> </script>
+
+  <script src="assets/js/window-hash.js" type="text/javascript"> </script>
+  <a name="bottom"> </a>
+  <div igtool="footer" id="segment-footer" class="segment">    <!-- segment-footer -->
+    <div class="container">    <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &copy; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.clinicalprocess-healthcond-basic#2.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 9, 2026 16:45+0000">2026-09-09</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>    <!-- /inner-wrapper -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">    <!-- segment-post-footer -->
+    <div class="container">    <!-- container -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-post-footer -->
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+  <script src="assets/js/respond.min.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard-btn.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor-hover.js" type="text/javascript"> </script>
+    <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>

@@ -1,0 +1,3594 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>7 Tjänstekontrakt - insuranceprocess: healthreporting v3.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link rel="stylesheet" href="fhir.css"/>
+
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-fhir.css"/>
+
+      <!-- Project extras -->
+    <link rel="stylesheet" href="assets/css/project.css"/>
+    <link rel="stylesheet" href="assets/css/pygments-manni.css"/>
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+  	<link rel="stylesheet" href="assets/css/prism.css"/>
+  	<link rel="stylesheet" href="assets/css/cqf.css"/>
+      <!-- Placeholder for child template CSS declarations -->
+
+    <script src="fhir-table-scripts.js" type="text/javascript"> </script>
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- [if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif] -->
+
+      <!-- Favicons -->
+    <link sizes="144x144" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-144.png"/>
+    <link sizes="114x114" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-114.png"/>
+    <link sizes="72x72" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script src="assets/js/mermaid.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">    <!-- segment-header -->
+      <div class="container">    <!-- container -->
+
+          <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">insuranceprocess: healthreporting</span>
+            <br/>
+            <span style="display:inline-block;">3.1.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div>   <!-- /container -->
+    </div>    <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">    <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">    <!-- container -->
+          <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+            <!-- status-bar -->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a href="http://hl7.org/fhir/R4/index.html" class="navbar-brand hidden">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul class="nav navbar-nav">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+  <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+  <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+  <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+  <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma informationskomponenter</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artifacts</a></li>
+</ul>
+
+            </div>    <!-- /.nav-collapse -->
+          </div>    <!-- /.container -->
+        </nav>    <!-- /.navbar -->
+        <!-- /HEADER CONTENT -->
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-navbar -->
+      <!-- status-bar -->
+
+    <div id="segment-breadcrumb" class="segment">    <!-- segment-breadcrumb -->
+      <div class="container">    <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">    <!-- segment-content -->
+      <div class="container">    <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+    <!-- ReleaseHeader --><p id="publish-box">insuranceprocess: healthreporting - Local Development build (v3.1.0) built by the FHIR (HL7&reg; FHIR&reg; Standard) Build Tools. See the <a href="https://fhir.inera.se/ig/insuranceprocess-healthreporting/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>  <!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstekontrakt" id="markdown-toc-tjänstekontrakt">Tjänstekontrakt</a>    <ul>
+      <li><a href="#registermedicalcertificate" id="markdown-toc-registermedicalcertificate">RegisterMedicalCertificate</a></li>
+      <li><a href="#receivemedicalcertificatequestion" id="markdown-toc-receivemedicalcertificatequestion">ReceiveMedicalCertificateQuestion</a></li>
+      <li><a href="#receivemedicalcertificateanswer" id="markdown-toc-receivemedicalcertificateanswer">ReceiveMedicalCertificateAnswer</a></li>
+      <li><a href="#sendmedicalcertificatequestion" id="markdown-toc-sendmedicalcertificatequestion">SendMedicalCertificateQuestion</a></li>
+      <li><a href="#sendmedicalcertificateanswer" id="markdown-toc-sendmedicalcertificateanswer">SendMedicalCertificateAnswer</a></li>
+      <li><a href="#findallquestions" id="markdown-toc-findallquestions">FindAllQuestions</a></li>
+      <li><a href="#findallanswers" id="markdown-toc-findallanswers">FindAllAnswers</a></li>
+      <li><a href="#deletequestions" id="markdown-toc-deletequestions">DeleteQuestions</a></li>
+      <li><a href="#deleteanswers" id="markdown-toc-deleteanswers">DeleteAnswers</a></li>
+      <li><a href="#revokemedicalcertificate" id="markdown-toc-revokemedicalcertificate">RevokeMedicalCertificate</a></li>
+      <li><a href="#sendmedicalcertificate" id="markdown-toc-sendmedicalcertificate">SendMedicalCertificate</a></li>
+      <li><a href="#listcertificates" id="markdown-toc-listcertificates">ListCertificates</a></li>
+      <li><a href="#getcertificate" id="markdown-toc-getcertificate">GetCertificate</a></li>
+      <li><a href="#setcertificatestatus" id="markdown-toc-setcertificatestatus">SetCertificateStatus</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstekontrakt">Tjänstekontrakt</h2>
+
+<h3 id="registermedicalcertificate">RegisterMedicalCertificate</h3>
+<p>Tjänsten skickar ett komplett läkarintyg med informationsmängden enligt blankett FK7263. Både begäran och svar består av xml-dokument.</p>
+
+<h4 id="version">Version</h4>
+<p>3.1</p>
+
+<h4 id="fältregler">Fältregler</h4>
+<p>Nedanstående tabell beskriver varje individuellt fält i begäran och svar. Kardinaliteten beskriver om ett fält är valfritt (0..1) eller obligatoriskt (1..1). Har denna benämning en * finns ytterliggare regler för detta element och beskrivs mer i detalj i efterkommande stycke Tjänstekontraktsspecifika krav och regler.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.lakarutlatande-id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Identitet på läkarintyget. Är en GUID.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.typAvUtlatande</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Fix text enligt: Läkarintyg enligt 3 kap, 8 &sect; lagen (1962:381) om allmän försäkring</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.kommentar</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Extra upplysningar i fritext (Fält 13)</td>
+      <td style="text-align: left">0..1*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.signeringsdatum</td>
+      <td style="text-align: left">datetime</td>
+      <td style="text-align: left">När läkarintyget signerades (Fält 14)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.skickatdatum</td>
+      <td style="text-align: left">datetime</td>
+      <td style="text-align: left">När läkarintyget skickades till FK</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.patient</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Patienten</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..patient.person-id</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left">Patientens personnummer eller samordningsnummer</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..patient.fullstandigtNamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Patientens hela namn</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.skapadAvHosPersonal</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdpersonal</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..skapadAvHosPersonal.personal-id</td>
+      <td style="text-align: left">hsaid</td>
+      <td style="text-align: left">Hsa-Id för Hos-person som utfärdar läkarintyget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..skapadAvHosPersonal.forskrivarkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Förskrivarkod för Hos-person</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..skapadAvHosPersonal.fullstandigtNamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn för Hos-person som utfärdar läkarintyget</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..skapadAvHosPersonal.enhet</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdenhet</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.enhets-id</td>
+      <td style="text-align: left">hsaId</td>
+      <td style="text-align: left">Hsa-Id för Hos-vårdenhet där läkarintyget utfärdas</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.arbetsplatskod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Arbetsplatskoden för vårdenheten (Fält 17)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.enhets-namn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på Hos-vårdenhet där läkarintyget utfärdas</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.postadress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postadress för Hos-vårdenhet där läkarintyget utfärdas</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.postnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postnummer för Hos-vårdenhet där läkarintyget utfärdas</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.postort</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postort för Hos-vårdenhet där läkarintyget utfärdas</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.telefonnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Telefonnummer till Hos-vårdenhet där läkarintyget utfärdas</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.epost</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Epost adress för Hos-vårdenhet där läkarintyget utfärdas</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.vardgivare</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdgivare</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..vardgivare.vardgivare-id</td>
+      <td style="text-align: left">hsaId</td>
+      <td style="text-align: left">Hsa-Id för Hos-vårdgivare där läkarintyget utfärdas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..vardgivare.vardgivare-namn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på Hos-vårdgivare där läkarintyget utfärdas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.vardkontakt</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdkontakt</td>
+      <td style="text-align: left">0..2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..vardkontakt.vardkontakttyp</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Typ av vårdkontakt (min undersökning av patienten eller min telefonkontakt med patienten) / (Fält 4, de 2 översta kryssrutorna)</td>
+      <td style="text-align: left">0..1*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..vardkontakt.vardkontaktstid</td>
+      <td style="text-align: left">datum</td>
+      <td style="text-align: left">Datum då vårdkontakten skedde</td>
+      <td style="text-align: left">0..1*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.referens</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Referens</td>
+      <td style="text-align: left">0..2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..referens.referenstyp</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Typ av referens (journaluppgifter eller annat) / (Fält 4, de 2 nedre kryssrutorna)</td>
+      <td style="text-align: left">0..1*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..referens.datum</td>
+      <td style="text-align: left">datum</td>
+      <td style="text-align: left">Datum för ovanstående referens</td>
+      <td style="text-align: left">0..1*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.aktivitet</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Aktiviteter</td>
+      <td style="text-align: left">0..n*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..aktivitet.aktivitetskod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Aktivitetskoder som representerar olika val i blanketten. / (Fält 1, Fält 6a alla kryssrutor, Fält 6b alla kryssrutor, Fält 7 alla kryssrutor, Fält 11 alla kryssrutor, Fält 12)</td>
+      <td style="text-align: left">0..1*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..aktivitet.beskrivning</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">En eventuell fritext som hänger ihop med aktivitetskoden.</td>
+      <td style="text-align: left">0..1*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.bedomtTillstand</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Bedömt tillstånd</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..bedomtTillstand.beskrivning</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Aktuellt sjukdomsförlopp (Fält 3)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.medicinsktTillstand</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Medicinskt tillstånd</td>
+      <td style="text-align: left">0..1*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..medicinsktTillstand.beskrivning</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Diagnosinformation i fritext (Fält 2)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..medicinsktTillstand.tillstandskod</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Diagnoskod enligt ICD-10-SE alt. KSH97P (Fält 2)</td>
+      <td style="text-align: left">0..1*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..tillstandskod.code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">kod</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..tillstandskod.codeSystem</td>
+      <td style="text-align: left">Uid</td>
+      <td style="text-align: left">Kodsystemets identifierare</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..tillstandskod.codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kodsystemets namn</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..tillstandskod.codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Version av kodsystemet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.funktionstillstand</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Funktionstillstånd</td>
+      <td style="text-align: left">0..2*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..funktionstillstand.beskrivning</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Om typAvFunktionstillstand=Kroppsfunktion avses funktionsnedsättning (Fält 4) / Om typAvFunktionstillstand=Aktivitet avses aktivitetsbegränsning (Fält 5)</td>
+      <td style="text-align: left">0..1*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..funktionstillstand.typAvFunktionstillstand</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Styr olika typer enligt ovan</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..funktionstillstand.arbetsformaga</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Arbetsförmåga, enbart då typAvFunktionstillstand=Aktivitet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..arbetsformaga.motivering</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Arbetsförmågebedömning (Fält 9)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..arbetsformaga.prognosangivelse</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Prognosangivelse (Fält 10 alla kryssrutor)</td>
+      <td style="text-align: left">0..1*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..arbetsformaga.arbetsuppgift</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Arbetsuppgift</td>
+      <td style="text-align: left">0..1*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..arbetsuppgift.typAvArbetsuppgift</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Anger patientens typ av arbetsuppgift i fritext (Fält 8a fritexten kopplad till översta kryssrutan)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..arbetsformaga.arbetsformagaNedsattning</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">0..4*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..arbetsformagaNedsattning.varaktighetFrom</td>
+      <td style="text-align: left">datum</td>
+      <td style="text-align: left">Från när arbetsförmågan är nedsatt (Fält 8b)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..arbetsformagaNedsattning.varaktighetTom</td>
+      <td style="text-align: left">datum</td>
+      <td style="text-align: left">Till när arbetsförmågan är nedsatt (Fält 8b)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..arbetsformagaNedsattning.nedsattningsgrad</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Hur mycket arbetsförmågan är nedsatt (Fält 8b)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..arbetsformaga.sysselsattning</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Sysselsättning(Fält 8a alla kryssrutor)</td>
+      <td style="text-align: left">0..3*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..sysselsattning.typAvSysselsattning</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Patientens typ av sysselsättning</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Information om anropet gick bra(OK, ERROR, INFO)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.resultCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Information om anropet gick bra(OK, ERROR, INFO)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.infoText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som anger extra information om anropets utgång. Anropet har gått bra, men det finns mer information kring anropet i denna text.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Olika kategorier av fel (VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som ytterliggare beskriver felet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler">Övriga regler</h4>
+<p>Till denna informationsmängd finns en hel del regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan. Informationen är organiserad utifrån blankett FK7263 och dess fältidentiteter.
+Fält 1 - Avstängning enligt SmL
+Om detta fält är satt behöver inte fält 2 till och med 8a fyllas i. Om dessa fält fylls i gäller reglerna som anges i tabellen ovan eller i specifika fältregler nedan.
+Motsvaras av värdet: Aktivitetskod.AVSTANGNING_ENLIGT_SM_L_PGA_SMITTA
+Fält 2 - diagnoskod
+Valfritt om fält 1 är valt annars obligatoriskt.
+Fält 4 - funktionsnedsättning
+Valfritt om fält 1 är valt annars obligatoriskt.
+Fält 4 - intyget baseras på – de 4 kryssrutorna
+Valfritt om fält 1 är valt.
+Om fält 1 inte är valt måste minst en kryssryta enligt nedan väljas.
+Fält 4 - intyget baseras på – undersökning
+Motsvaras av värdet: Vardkontakttyp.MIN_UNDERSOKNING_AV_PATIENTEN
+Valfritt om fält 1 är valt.
+Om man väljer denna kryssruta skall tillhörande datum alltid anges (gäller även om fält 1 är valt).
+Fält 4 - intyget baseras på – telefonkontakt
+Motsvaras av värdet: Vardkontakttyp.MIN_TELEFONKONTAKT_MED_PATIENTEN
+Valfritt om fält 1 är valt.
+Om man väljer denna kryssruta skall tillhörande datum alltid anges (gäller även om fält 1 är valt).
+Fält 4 - intyget baseras på – journaluppgift
+Motsvaras av värdet: Referenstyp.Journaluppgifter
+Valfritt om fält 1 är valt.
+Om man väljer denna kryssruta skall tillhörande datum alltid anges (gäller även om fält 1 är valt).
+Fält 4 - intyget baseras på – annat
+Motsvaras av värdet: Referenstyp.Annat
+Valfritt om fält 1 är valt.
+Om man väljer denna kryssruta skall tillhörande datum alltid anges  (gäller även om fält 1 är valt).
+Om man väljer denna kryssruta skall fält 13 – Övriga upplysningar fyllas i med kompletterande information(gäller även om fält 1 är valt).
+Fält 6a - rekommendationer - kontakt med Arbetsförmedlingen
+Valfritt och motsvaras av värdet: Aktivitetskod.PATIENTEN_BEHOVER_FA_KONTAKT_MED_ARBETSFORMEDLINGEN
+Fält 6a - rekommendationer - kontakt med företagshälsovård
+Valfritt och motsvaras av värdet: Aktivitetskod.PATIENTEN_BEHOVER_FA_KONTAKT_MED_FORETAGSHALSOVARDEN
+Fält 6a - rekommendationer - Övrigt
+Valfritt och motsvaras av värdet: Aktivitetskod.OVRIGT
+Om man väljer denna kryssruta skall tillhörande beskrivning fyllas i (gäller även om fält 1 är valt).
+Fält 6b - planerad eller pågående behandling eller åtgärd -  inom sjukvården
+Valfritt och motsvaras av värdet: Aktivitetskod.PLANERAD_ELLER_PAGAENDE_BEHANDLING_ELLER_ATGARD_INOM_SJUKVARDEN
+Om man väljer denna kryssruta skall tillhörande beskrivning fyllas i (gäller även om fält 1 är valt).
+Fält 6b - planerad eller pågående behandling eller åtgärd - annan
+Valfritt och motsvaras av värdet: Aktivitetskod.PLANERAD_ELLER_PAGAENDE_ANNAN_ATGARD
+Om man väljer denna kryssruta skall tillhörande beskrivning fyllas i (gäller även om fält 1 är valt).
+Fält 7 - arbetslivsinriktad rehabilitering aktuell - Ja/Nej/Går ej att bedömma
+Valfritt och motsvaras av värdena: Aktivitetskod.ARBETSLIVSINRIKTAD_REHABILITERING_AR_AKTUELL Aktivitetskod.ARBETSLIVSINRIKTAD_REHABILITERING_AR_EJ_AKTUELL Aktivitetskod.GAR_EJ_ATT_BEDOMMA_OM_ARBETSLIVSINRIKTAD_REHABILITERING_AR_AKTUELL
+Man får endast välja en av dessa 3 kryssrutor.
+Fält 8a - arbetsförmåga bedöms i förhållande till  - arbete/arbetslöshet/föräldraledig
+Valfritt om fält 1 är valt annars skall minst en av de tre övre valen finnas.
+Motsvaras av värdena: TypAvSysselsattning.FORVARVSARBETE
+TypAvSysselsattning.ARBETSLOSHET
+TypAvSysselsattning.FORALDRALEDIGHET
+Om man väljer kryssruta : TypAvSysselsattning.FORVARVSARBETE skall tillhörande arbetsuppgifter alltid anges (gäller även om fält 1 är valt).
+Fält 8b - bedömning patientens arbetsförmåga – de 4 kryssrutorna
+Minst 1 av dessa 4 kryssrutor måste alltid väljas.
+Fält 8b - bedömning patientens arbetsförmåga - nedsatt med 1/4
+Motsvaras av värdet: Nedsattningsgrad.NEDSATT_MED_1_4
+Om man väljer denna kryssruta skall tillhörande 2 datum fält också fyllas i. Ett tom datum måste vara större än ett from datum.
+Fält 8b - bedömning patientens arbetsförmåga - nedsatt med hälften
+Motsvaras av värdet: Nedsattningsgrad.NEDSATT_MED_1_2
+Om man väljer denna kryssruta skall tillhörande 2 datum fält också fyllas i. Ett tom datum måste vara större än ett from datum.
+Fält 8b - bedömning patientens arbetsförmåga - nedsatt med 3/4
+Motsvaras av värdet: Nedsattningsgrad.NEDSATT_MED_3_4
+Om man väljer denna kryssruta skall tillhörande 2 datum fält också fyllas i. Ett tom datum måste vara större än ett from datum.
+Fält 8b - bedömning patientens arbetsförmåga – helt nedsatt
+Motsvaras av värdet: Nedsattningsgrad.HELT_NEDSATT
+Om man väljer denna kryssruta skall tillhörande 2 datum fält också fyllas i. Ett tom datum måste vara större än ett from datum.
+Fält 10 - prognos återfå arbetsförmåga - Ja/Delvis/Nej/Går ej att bedöma
+Valfritt och man kan endast välja 1 av dessa 4 kryssrutor.
+Motsvaras av värdena: Prognosangivelse.ATERSTALLAS_HELT Prognosangivelse.ATERSTALLAS_DELVIS
+Prognosangivelse.INTE_ATERSTALLAS
+Prognosangivelse.DET_GAR_INTE_ATT_BEDOMMA
+Om man väljer Prognosangivelse.DET_GAR_INTE_ATT_BEDOMMA skall fält 13 – Övriga upplysningar fyllas i med kompletternade information.
+Fält 11 - resor till från arbetet - ja/nej
+Valfritt och man kan endast välja 1 av dessa 2 kryssrutor.
+Motsvaras av värdena: Aktivitetskod.FORANDRAT_RESSATT_TILL_ARBETSPLATSEN_AR_EJ_AKTUELLT Aktivitetskod.FORANDRAT_RESSATT_TILL_ARBETSPLATSEN_AR_AKTUELLT
+Fält 12 - kontakt önskas med FK
+Valfritt och motsvaras av värdet:
+Aktivitetskod.KONTAKT_MED_FORSAKRINGSKASSAN_AR_AKTUELL</p>
+
+<h4 id="källfiler-riv-ta">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l1354">​</a><a href="files/wsdl/RegisterMedicalCertificateInteraction_3.1_rivtabp20.wsdl">RegisterMedicalCertificateInteraction_3.1_rivtabp20.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l1364">​</a><a href="files/schema/RegisterMedicalCertificateResponder_3.1.xsd">RegisterMedicalCertificateResponder_3.1.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l1374">​</a><a href="files/schema/MU7263-RIV_3.1.xsd">MU7263-RIV_3.1.xsd</a></td>
+      <td>Domänschema (läkarintyg 7263)</td>
+    </tr>
+    <tr>
+      <td><a name="l1384">​</a><a href="files/schema/Insuranceprocess_healthreporting_2.0.xsd">Insuranceprocess_healthreporting_2.0.xsd</a></td>
+      <td>Domänschema (gemensamt)</td>
+    </tr>
+    <tr>
+      <td><a name="l1394">​</a><a href="files/schema/ISO_dt_subset_1.0.xsd">ISO_dt_subset_1.0.xsd</a></td>
+      <td>Datatypschema</td>
+    </tr>
+    <tr>
+      <td><a name="l1404">​</a><a href="files/docs/MU7263_ny_blankett.pdf">MU7263_ny_blankett.pdf</a></td>
+      <td>Blankett FK7263</td>
+    </tr>
+    <tr>
+      <td><a name="l1414">​</a><a href="files/docs/AB_insuranceprocess_healthreporting.docx">AB_insuranceprocess_healthreporting.docx</a></td>
+      <td>Arkitekturbeskrivning</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-registermedicalcertificate-request.html">StructureDefinition/registermedicalcertificate-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-registermedicalcertificate.html">StructureDefinition/registermedicalcertificate</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-vardkontakttyp-cs.html">CodeSystem/vardkontakttyp-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-vardkontakttyp-vs.html">ValueSet/vardkontakttyp-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-referenstyp-cs.html">CodeSystem/referenstyp-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-referenstyp-vs.html">ValueSet/referenstyp-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-aktivitetskod-cs.html">CodeSystem/aktivitetskod-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-aktivitetskod-vs.html">ValueSet/aktivitetskod-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-nedsattningsgrad-cs.html">CodeSystem/nedsattningsgrad-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-nedsattningsgrad-vs.html">ValueSet/nedsattningsgrad-vs</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="receivemedicalcertificatequestion">ReceiveMedicalCertificateQuestion</h3>
+<p>Tjänsten tar emot frågor från Försäkringskassan för ett läkarintyg. Både begäran och svar består av xml-dokument.</p>
+
+<h4 id="version-1">Version</h4>
+<p>1.0</p>
+
+<h4 id="fältregler-1">Fältregler</h4>
+<p>Frågan som Försäkringskassan skickar till vården utgår alltid från ett specifikt tidigare inskickat läkarintyg. Detta innebär att en mängd information i meddelandet härstammar från detta läkarintyg. Nedanstående tabell beskriver varje individuellt fält i begäran och svar. Kardinaliteten beskriver om ett fält är valfritt (0..1) eller obligatoriskt (1..1).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fkReferens-id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Försäkringskassans referens-id. *</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">amne</td>
+      <td style="text-align: left">Amne typ</td>
+      <td style="text-align: left">Ämne som frågan gäller. Finns en avgränsad mängd</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fraga</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Frågan</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fraga.meddelandeText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Frågetexten rörande det angivna läkarintyg</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fraga.signeringsTidpunkt</td>
+      <td style="text-align: left">datumtid</td>
+      <td style="text-align: left">Signeringstidpunkt för själva frågan</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">avsantTidpunkt</td>
+      <td style="text-align: left">datumtid</td>
+      <td style="text-align: left">Tidpunkt då frågan skickades från Försäkringskassan</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fkKontaktInfo</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Rader med kontaktinformation</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fkKontaktInfo.kontakt</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Mer detaljerad kontaktinformation för den person som ställt frågan från Försäkringskassan.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">adressVard</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdadress</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">adressVard.hosPersonal</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdpersonal</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..hosPersonal.personal-id</td>
+      <td style="text-align: left">hsaId</td>
+      <td style="text-align: left">Hsa-Id för Hos-person som utfärdade läkarintyget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..hosPersonal.fullstandigtNamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn för Hos-person som utfärdade läkarintyget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..hosPersonal.forskrivarkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Används ej</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..hosPersonal.enhet</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdenhet</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.enhets-id</td>
+      <td style="text-align: left">hsaId</td>
+      <td style="text-align: left">Hsa-Id för Hos-vårdenhet där läkarintyget utfärdades.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.arbetsplatskod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Används ej</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.enhets-namn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på Hos-vårdenhet där läkarintyget utfärdades.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.postadress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postadress för Hos-vårdenhet där läkarintyget utfärdades.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.postnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postnummer för Hos-vårdenhet där läkarintyget utfärdades.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.postort</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postort för Hos-vårdenhet där läkarintyget utfärdades.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.telefonnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Telefonnummer till Hos-vårdenhet där läkarintyget utfärdades.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.epost</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Epost adress för Hos-vårdenhet där läkarintyget utfärdades.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.vardgivare</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdgivare</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..vardgivare.vardgivare-id</td>
+      <td style="text-align: left">hsaId</td>
+      <td style="text-align: left">Hsa-Id för Hos-vårdgivare där läkarintyget utfärdades.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..vardgivare.vardgivare-namn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på Hos-vårdgivare där läkarintyget utfärdades.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fkMeddelanderubrik</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">En extra rubrik som Försäkringskassan kan använda för att beskriva frågan.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fkKomplettering</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Komplettering</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fkKomplettering.falt</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Referens till fält på blanketten MU7263</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fkKomplettering.text</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Orsak till komplettering för detta fält</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fkSistaDatumForSvar</td>
+      <td style="text-align: left">datum</td>
+      <td style="text-align: left">Datum då Försäkringskassan senast vill ha ett svar</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.lakarutlatande-id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt id för läkarintyget som frågan gäller</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.signeringsTidpunkt</td>
+      <td style="text-align: left">datumtid</td>
+      <td style="text-align: left">Signeringstidpunkt för läkarintyget som frågan gäller</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.patient</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..patient.person-id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Patientens personnummer eller samordningnummer</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..patient.fullstandigtNamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Patientens namn</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.resultCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Information om anropet gick bra(OK, ERROR, INFO)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.infoText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som anger extra information om anropets utgång. Anropet har gått bra, men det finns mer information kring anropet i denna text.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Olika kategorier av fel (VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som ytterliggare beskriver felet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-1">Övriga regler</h4>
+<p>fkReferens-id
+Samma referens-id kan förekomma i flera meddelanden. Försäkringskassan skickar ett id som refererar till deras interna ärende. När ämnet är påminnelse ska referens-id vara samma som för den fråga som påminnelsen gäller.</p>
+
+<h4 id="källfiler-riv-ta-1">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l2222">​</a><a href="files/wsdl/ReceiveMedicalCertificateQuestionInteraction_1.0_rivtabp20.wsdl">ReceiveMedicalCertificateQuestionInteraction_1.0_rivtabp20.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l2232">​</a><a href="files/schema/ReceiveMedicalCertificateQuestionResponder_1.0.xsd">ReceiveMedicalCertificateQuestionResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l2242">​</a><a href="files/schema/MedicalCertificateQuestionsAnswers_1.0.xsd">MedicalCertificateQuestionsAnswers_1.0.xsd</a></td>
+      <td>Domänschema (frågor/svar)</td>
+    </tr>
+    <tr>
+      <td><a name="l2252">​</a><a href="files/schema/Insuranceprocess_healthreporting_2.0.xsd">Insuranceprocess_healthreporting_2.0.xsd</a></td>
+      <td>Domänschema (gemensamt)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-1">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-receivemedicalcertificatequestion-request.html">StructureDefinition/receivemedicalcertificatequestion-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-receivemedicalcertificatequestion.html">StructureDefinition/receivemedicalcertificatequestion</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-amne-cs.html">CodeSystem/amne-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-amne-vs.html">ValueSet/amne-vs</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="receivemedicalcertificateanswer">ReceiveMedicalCertificateAnswer</h3>
+<p>Tjänsten tar emot svar från Försäkringskassan på en tidigare skickad fråga från vården för ett läkarintyg. Både begäran och svar består av xml-dokument.</p>
+
+<h4 id="version-2">Version</h4>
+<p>1.0</p>
+
+<h4 id="fältregler-2">Fältregler</h4>
+<p>Svaret som Försäkringskassan skickar till vården utgår alltid från en tidigare inskickad fråga från vården för ett specifikt tidigare inskickat läkarintyg. Detta innebär att en mängd information i meddelandet härstammar från denna fråga (och tidigare från läkarintyget). Nedanstående tabell beskriver varje individuellt fält i begäran och svar. Kardinaliteten beskriver om ett fält är valfritt (0..1) eller obligatoriskt (1..1).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">vardReferens-id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Referens-id för den fråga från vården som detta svar gäller. *</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fkReferens-id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Försäkringskassans referens-id. *</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">amne</td>
+      <td style="text-align: left">Amne typ</td>
+      <td style="text-align: left">Ämne som fråga/svar gäller.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fraga</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Frågan</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fraga.meddelandeText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Frågetexten rörande det angivna läkarintyg</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fraga.signeringsTidpunkt</td>
+      <td style="text-align: left">datumtid</td>
+      <td style="text-align: left">Signeringstidpunkt för själva frågan</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Svaret</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">svar.meddelandeText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Själva svaret på ställd fråga</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">svar.signeringsTidpunkt</td>
+      <td style="text-align: left">datumtid</td>
+      <td style="text-align: left">Signeringstidpunkt för själva svaret</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">avsantTidpunkt</td>
+      <td style="text-align: left">datumtid</td>
+      <td style="text-align: left">Tidpunkt då svaret skickades från Försäkringskassan</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fkKontaktInfo</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Rader med kontaktinformation</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fkKontaktInfo.kontakt</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Mer detaljerad kontaktinformation för den person som svarat från Försäkringskassan.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">adressVard</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdadress</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">adressVard.hosPersonal</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdpersonal</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..hosPersonal.personal-id</td>
+      <td style="text-align: left">hsaId</td>
+      <td style="text-align: left">Hsa-Id för Hos-person som ställde frågan.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..hosPersonal.fullstandigtNamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn för Hos-person som ställde frågan.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..hosPersonal.forskrivarkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Används ej</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..hosPersonal.enhet</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdenhet</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.enhets-id</td>
+      <td style="text-align: left">hsaId</td>
+      <td style="text-align: left">Hsa-Id för Hos-vårdenhet varifrån frågan ställdes</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.arbetsplatskod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Används ej</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.enhets-namn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på Hos-vårdenhet varifrån frågan ställdes</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.postadress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postadress för Hos-vårdenhet varifrån frågan ställdes</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.postnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postnummer för Hos-vårdenhet varifrån frågan ställdes</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.postort</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postort för Hos-vårdenhet varifrån frågan ställdes</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.telefonnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Telefonnummer till Hos-vårdenhet varifrån frågan ställdes</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.epost</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Epost adress för Hos-vårdenhet varifrån frågan ställdes</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.vardgivare</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdgivare</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..vardgivare.vardgivare-id</td>
+      <td style="text-align: left">hsaId</td>
+      <td style="text-align: left">Hsa-Id för Hos-vårdgivare varifrån frågan ställdes</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..vardgivare.vardgivare-namn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på Hos-vårdgivare varifrån frågan ställdes</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.lakarutlatande-id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt id för läkarintyget som fråga/svar gäller</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.signeringsTidpunkt</td>
+      <td style="text-align: left">datumtid</td>
+      <td style="text-align: left">Signeringstidpunkt för läkarintyget som fråga/svar gäller</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.patient</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..patient.person-id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Patientens personnummer eller samordningnummer</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..patient.fullstandigtNamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Patientens namn</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.resultCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Information om anropet gick bra(OK, ERROR, INFO)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.infoText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som anger extra information om anropets utgång. Anropet har gått bra, men det finns mer information kring anropet i denna text.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Olika kategorier av fel (VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som ytterliggare beskriver felet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-2">Övriga regler</h4>
+<p>vardReferens-id
+Samma vardReferens-id kan förekomma i flera meddelanden, t.ex. om en påminnelse har skickats. Id:t måste överensstämma med id:t som skickades i den fråga som detta svar gäller.
+fkReferens-id
+Samma fkReferens-id kan förekomma i flera meddelanden. Försäkringskassan skickar ett id som refererar till deras interna ärende.</p>
+
+<h4 id="källfiler-riv-ta-2">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l3003">​</a><a href="files/wsdl/ReceiveMedicalCertificateAnswerInteraction_1.0_rivtabp20.wsdl">ReceiveMedicalCertificateAnswerInteraction_1.0_rivtabp20.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l3013">​</a><a href="files/schema/ReceiveMedicalCertificateAnswerResponder_1.0.xsd">ReceiveMedicalCertificateAnswerResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l3023">​</a><a href="files/schema/MedicalCertificateQuestionsAnswers_1.0.xsd">MedicalCertificateQuestionsAnswers_1.0.xsd</a></td>
+      <td>Domänschema (frågor/svar)</td>
+    </tr>
+    <tr>
+      <td><a name="l3033">​</a><a href="files/schema/Insuranceprocess_healthreporting_2.0.xsd">Insuranceprocess_healthreporting_2.0.xsd</a></td>
+      <td>Domänschema (gemensamt)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-2">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-receivemedicalcertificateanswer-request.html">StructureDefinition/receivemedicalcertificateanswer-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-receivemedicalcertificateanswer.html">StructureDefinition/receivemedicalcertificateanswer</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="sendmedicalcertificatequestion">SendMedicalCertificateQuestion</h3>
+<p>Tjänsten skickar en fråga till Försäkringskassan för ett läkarintyg. Både begäran och svar består av xml-dokument.</p>
+
+<h4 id="version-3">Version</h4>
+<p>1.0</p>
+
+<h4 id="fältregler-3">Fältregler</h4>
+<p>Fråga som vården skickar till Försäkringskassan utgår alltid från ett specifikt tidigare inskickat läkarintyg. Detta innebär att en mängd information i meddelandet härstammar från detta läkarintyg. Nedanstående tabell beskriver varje individuellt fält i begäran och svar. Kardinaliteten beskriver om ett fält är valfritt (0..1) eller obligatoriskt (1..1).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">vardReferens-id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Identitet för denna fråga från vården. *</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">amne</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Ämne som frågan gäller.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fraga</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Frågan</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fraga.meddelandeText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Själva frågan</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fraga.signeringsTidpunkt</td>
+      <td style="text-align: left">datumtid</td>
+      <td style="text-align: left">Signeringstidpunkt för själva frågan</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">avsantTidpunkt</td>
+      <td style="text-align: left">datumtid</td>
+      <td style="text-align: left">Tidpunkt då frågan skickades från vården</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">adressVard</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdadress</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">adressVard.hosPersonal</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdpersonal</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..hosPersonal.personal-id</td>
+      <td style="text-align: left">hsaId</td>
+      <td style="text-align: left">Hsa-Id för Hos-person som ställde frågan.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..hosPersonal.fullstandigtNamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn för Hos-person som ställde frågan.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..hosPersonal.forskrivarkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Används ej</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.enhets-id</td>
+      <td style="text-align: left">hsaId</td>
+      <td style="text-align: left">Hsa-Id för Hos-vårdenhet varifrån frågan ställdes</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.arbetsplatskod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Används ej</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.enhets-namn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på Hos-vårdenhet varifrån frågan ställdes</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.postadress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postadress för Hos-vårdenhet varifrån frågan ställdes</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.postnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postnummer för Hos-vårdenhet varifrån frågan ställdes</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.postort</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postort för Hos-vårdenhet varifrån frågan ställdes</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.telefonnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Telefonnummer till Hos-vårdenhet varifrån frågan ställdes</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.epost</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Epost adress för Hos-vårdenhet varifrån frågan ställdes</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.vardgivare</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdgivare</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..vardgivare.vardgivare-id</td>
+      <td style="text-align: left">hsaId</td>
+      <td style="text-align: left">Hsa-Id för Hos-vårdgivare varifrån frågan ställdes</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..vardgivare.vardgivare-namn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på Hos-vårdgivare varifrån frågan ställdes</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.lakarutlatande-id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt id för läkarintyget som frågan gäller</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.signeringsTidpunkt</td>
+      <td style="text-align: left">datumtid</td>
+      <td style="text-align: left">Signeringstidpunkt för läkarintyget som frågan gäller</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.patient</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..patient.person-id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Patientens personnummer eller samordningnummer</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..patient.fullstandigtNamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Patientens namn</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.resultCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Information om anropet gick bra(OK, ERROR, INFO)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.infoText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som anger extra information om anropets utgång. Anropet har gått bra, men det finns mer information kring anropet i denna text.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Olika kategorier av fel (VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som ytterliggare beskriver felet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-3">Övriga regler</h4>
+<p>Observera att en mängd information skall tas från det tidigare inskickade läkarintyget och därmed överensstämma med denna.
+vardReferens-id
+Samma vardReferens-id kan förekomma i flera meddelanden, t.ex. om en påminnelse har skickats. För att tekniskt kunna koppla ett inkommet svar till en skickad fråga bör dock varje ny fråga tilldelas ett unikt id.</p>
+
+<h4 id="källfiler-riv-ta-3">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l3665">​</a><a href="files/wsdl/FindAllQuestionsInteraction_1.0_rivtabp20.wsdl">FindAllQuestionsInteraction_1.0_rivtabp20.wsdl</a></td>
+      <td>WSDL-kontrakt (FindAllQuestions, används av SendMedicalCertificateQuestion)</td>
+    </tr>
+    <tr>
+      <td><a name="l3675">​</a><a href="files/schema/MedicalCertificateQuestionsAnswers_1.0.xsd">MedicalCertificateQuestionsAnswers_1.0.xsd</a></td>
+      <td>Domänschema (frågor/svar)</td>
+    </tr>
+    <tr>
+      <td><a name="l3685">​</a><a href="files/schema/Insuranceprocess_healthreporting_2.0.xsd">Insuranceprocess_healthreporting_2.0.xsd</a></td>
+      <td>Domänschema (gemensamt)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-3">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-sendmedicalcertificatequestion-request.html">StructureDefinition/sendmedicalcertificatequestion-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-sendmedicalcertificatequestion.html">StructureDefinition/sendmedicalcertificatequestion</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="sendmedicalcertificateanswer">SendMedicalCertificateAnswer</h3>
+<p>Tjänsten skickar ett svar till Försäkringskassan på en tidigare mottagen fråga från Försäkringskassan för ett läkarintyg. Både begäran och svar består av xml-dokument.</p>
+
+<h4 id="version-4">Version</h4>
+<p>1.0</p>
+
+<h4 id="fältregler-4">Fältregler</h4>
+<p>Svaret som vården skickar till Försäkringskassan utgår alltid från en tidigare skickad fråga från Försäkringskassan för ett specifikt tidigare inskickat läkarintyg. Detta innebär att en mängd information i meddelandet härstammar från denna fråga (och tidigare från läkarintyget). Nedanstående tabell beskriver varje individuellt fält i begäran och svar. Kardinaliteten beskriver om ett fält är valfritt (0..1) eller obligatoriskt (1..1).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">vardReferens-id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Identitet för detta svar från vården *</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fkReferens-id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Försäkringskassans referens-id *</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">amne</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Ämne som fråga/svar gäller.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fraga</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Frågan</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fraga.meddelandeText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Själva frågan</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fraga.signeringsTidpunkt</td>
+      <td style="text-align: left">datumtid</td>
+      <td style="text-align: left">Signeringstidpunkt för själva frågan</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Svaret</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">svar.meddelandeText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Själva svaret på ställd fråga</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">svar.signeringsTidpunkt</td>
+      <td style="text-align: left">datumtid</td>
+      <td style="text-align: left">Signeringstidpunkt för själva svaret</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">avsantTidpunkt</td>
+      <td style="text-align: left">datumtid</td>
+      <td style="text-align: left">Tidpunkt då svaret skickades från vården</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">adressVard</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdadress</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">adressVard.hosPersonal</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdpersonal</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..hosPersonal.personal-id</td>
+      <td style="text-align: left">hsaId</td>
+      <td style="text-align: left">Hsa-Id för Hos-person som svarar på frågan.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..hosPersonal.fullstandigtNamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn för Hos-person som svarar på frågan.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..hosPersonal.forskrivarkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Används ej</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.enhets-id</td>
+      <td style="text-align: left">hsaId</td>
+      <td style="text-align: left">Hsa-Id för Hos-vårdenhet varifrån svaret skickas</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.arbetsplatskod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Används ej</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.enhets-namn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på Hos-vårdenhet varifrån svaret skickas</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.postadress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postadress för Hos-vårdenhet varifrån svaret skickas</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.postnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postnummer för Hos-vårdenhet varifrån svaret skickas</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.postort</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postort för Hos-vårdenhet varifrån svaret skickas</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.telefonnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Telefonnummer till Hos-vårdenhet varifrån svaret skickas</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.epost</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Epost adress för Hos-vårdenhet varifrån svaret skickas</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.vardgivare</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdgivare</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">vardgivare.vardgivare-id</td>
+      <td style="text-align: left">hsaId</td>
+      <td style="text-align: left">Hsa-Id för Hos-vårdgivare varifrån svaret skickas</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">vardgivare.vardgivare-namn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på Hos-vårdgivare varifrån svaret skickas</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.lakarutlatande-id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt id för läkarintyget som fråga/svar gäller</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.signeringsTidpunkt</td>
+      <td style="text-align: left">datumtid</td>
+      <td style="text-align: left">Signeringstidpunkt för läkarintyget som fråga/svar gäller</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.patient</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..patient.person-id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Patientens personnummer eller samordningnummer</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..patient.fullstandigtNamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Patientens namn</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.resultCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Information om anropet gick bra(OK, ERROR, INFO)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.infoText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som anger extra information om anropets utgång. Anropet har gått bra, men det finns mer information kring anropet i denna text.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Olika kategorier av fel (VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som ytterliggare beskriver felet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-4">Övriga regler</h4>
+<p>Observera att en mängd information skall tas från det tidigare inskickade läkarintyget och tidigare inkommen fråga från Försäkringskassan och därmed överensstämma med dessa.
+vardReferens-id
+Samma vardReferens-id kan förekomma i flera meddelanden.
+fkReferens-id
+Samma fkReferens-id kan förekomma i flera meddelanden. Försäkringskassan skickar ett id som refererar till deras interna ärende. Id:t måste överensstämma med id:t som skickades i den fråga som detta svar gäller.</p>
+
+<h4 id="källfiler-riv-ta-4">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l4377">​</a><a href="files/wsdl/FindAllAnswersInteraction_1.0_rivtabp20.wsdl">FindAllAnswersInteraction_1.0_rivtabp20.wsdl</a></td>
+      <td>WSDL-kontrakt (FindAllAnswers, används av SendMedicalCertificateAnswer)</td>
+    </tr>
+    <tr>
+      <td><a name="l4387">​</a><a href="files/schema/MedicalCertificateQuestionsAnswers_1.0.xsd">MedicalCertificateQuestionsAnswers_1.0.xsd</a></td>
+      <td>Domänschema (frågor/svar)</td>
+    </tr>
+    <tr>
+      <td><a name="l4397">​</a><a href="files/schema/Insuranceprocess_healthreporting_2.0.xsd">Insuranceprocess_healthreporting_2.0.xsd</a></td>
+      <td>Domänschema (gemensamt)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-4">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-sendmedicalcertificateanswer-request.html">StructureDefinition/sendmedicalcertificateanswer-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-sendmedicalcertificateanswer.html">StructureDefinition/sendmedicalcertificateanswer</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="findallquestions">FindAllQuestions</h3>
+<p>Tjänsten returnerar frågor från Försäkringskassan för ett läkarintyg som mellanlagrats av vården. Både begäran och svar består av xml-dokument.</p>
+
+<h4 id="version-5">Version</h4>
+<p>1.0</p>
+
+<h4 id="fältregler-5">Fältregler</h4>
+<p>Frågor som Försäkringskassan skickat till vården och som vården lagrat i en ärendelåda. Frågans struktur följer den fråga som definieras under ReceiveMedicalCertificateQuestion. Nedanstående tabell beskriver varje individuellt fält i begäran och svar. Kardinaliteten beskriver om ett fält är valfritt (0..1) eller obligatoriskt (1..1).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnitId</td>
+      <td style="text-align: left">hsaid</td>
+      <td style="text-align: left">Vårdenhetens hsa-id</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careGiverId</td>
+      <td style="text-align: left">hsaid</td>
+      <td style="text-align: left">Vårdgivarens hsa-id</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.resultCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Information om anropet gick bra(OK, ERROR, INFO)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.infoText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som anger extra information om anropets utgång. Anropet har gått bra, men det finns mer information kring anropet i denna text.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Olika kategorier av fel (VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som ytterliggare beskriver felet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">questionsLeft</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Antal kvarvarande frågor för denna vårdenhet</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">questions</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Fråga</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">questions.question</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Lista av frågor</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..question.question</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Själva frågan, se ReceiveMedicalCertificateQuestion</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..question.id</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Ärendelådans identitet på den returnerade frågan. Används när man senare vill ta bort frågan från ärendelådan</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..question.receivedDate</td>
+      <td style="text-align: left">datum</td>
+      <td style="text-align: left">Datum då frågan inkom</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-5">Övriga regler</h4>
+<p>Inga extra förutom de som anger om fält är obligatoriska eller valbara under fältregler</p>
+
+<h4 id="källfiler-riv-ta-5">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l4729">​</a><a href="files/wsdl/FindAllQuestionsInteraction_1.0_rivtabp20.wsdl">FindAllQuestionsInteraction_1.0_rivtabp20.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l4739">​</a><a href="files/schema/FindAllQuestionsResponder_1.0.xsd">FindAllQuestionsResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l4749">​</a><a href="files/schema/MedicalCertificateQuestionsAnswers_1.0.xsd">MedicalCertificateQuestionsAnswers_1.0.xsd</a></td>
+      <td>Domänschema (frågor/svar)</td>
+    </tr>
+    <tr>
+      <td><a name="l4759">​</a><a href="files/schema/Insuranceprocess_healthreporting_2.0.xsd">Insuranceprocess_healthreporting_2.0.xsd</a></td>
+      <td>Domänschema (gemensamt)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-5">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-findallquestions-request.html">StructureDefinition/findallquestions-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-findallquestions.html">StructureDefinition/findallquestions</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="findallanswers">FindAllAnswers</h3>
+<p>Tjänsten returnerar svar från Försäkringskassan på tidigare skickade frågor från vården för ett läkarintyg som mellanlagrats av vården. Både begäran och svar består av xml-dokument.</p>
+
+<h4 id="version-6">Version</h4>
+<p>1.0</p>
+
+<h4 id="fältregler-6">Fältregler</h4>
+<p>Svar som Försäkringskassan skickat till vården och som vården lagrat i en ärendelåda. Svarets struktur följer det svar som definieras under ReceiveMedicalCertificateAnswer. Nedanstående tabell beskriver varje individuellt fält i begäran och svar. Kardinaliteten beskriver om ett fält är valfritt (0..1) eller obligatoriskt (1..1).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnitId</td>
+      <td style="text-align: left">hsaid</td>
+      <td style="text-align: left">Vårdenhetens hsa-id</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careGiverId</td>
+      <td style="text-align: left">hsaid</td>
+      <td style="text-align: left">Vårdgivarens hsa-id</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.resultCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Information om anropet gick bra(OK, ERROR, INFO)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.infoText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som anger extra information om anropets utgång. Anropet har gått bra, men det finns mer information kring anropet i denna text.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Olika kategorier av fel (VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som ytterliggare beskriver felet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">answersLeft</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Antal kvarvarande svar för denna vårdenhet</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">answers</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">answers.answer</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Lista av svar</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">answers.answer</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Själva svaret, se ReceiveMedicalCertificateAnswer</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">answers.id</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Ärendelådans dentitet på det returnerade svaret. Används när man senare vill ta bort svaret från ärendelådan</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">answers.receivedDate</td>
+      <td style="text-align: left">datum</td>
+      <td style="text-align: left">Datum då svaret inkom</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-6">Övriga regler</h4>
+<p>Inga extra förutom de som anger om fält är obligatoriska eller valbara under fältregler.</p>
+
+<h4 id="källfiler-riv-ta-6">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l5091">​</a><a href="files/wsdl/FindAllAnswersInteraction_1.0_rivtabp20.wsdl">FindAllAnswersInteraction_1.0_rivtabp20.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l5101">​</a><a href="files/schema/FindAllAnswersResponder_1.0.xsd">FindAllAnswersResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l5111">​</a><a href="files/schema/MedicalCertificateQuestionsAnswers_1.0.xsd">MedicalCertificateQuestionsAnswers_1.0.xsd</a></td>
+      <td>Domänschema (frågor/svar)</td>
+    </tr>
+    <tr>
+      <td><a name="l5121">​</a><a href="files/schema/Insuranceprocess_healthreporting_2.0.xsd">Insuranceprocess_healthreporting_2.0.xsd</a></td>
+      <td>Domänschema (gemensamt)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-6">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-findallanswers-request.html">StructureDefinition/findallanswers-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-findallanswers.html">StructureDefinition/findallanswers</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="deletequestions">DeleteQuestions</h3>
+<p>Tjänsten tar bort frågor som mellanlagrats av vården och som tidigare hämtats(FindAllQuestions). Både begäran och svar består av xml-dokument.</p>
+
+<h4 id="fältregler-7">Fältregler</h4>
+<p>Frågor som skall tas bort ur vårdens ärendelåda. Nedanstående tabell beskriver varje individuellt fält i begäran och svar. Kardinaliteten beskriver om ett fält är valfritt (0..1) eller obligatoriskt (1..1).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnitId</td>
+      <td style="text-align: left">hsaid</td>
+      <td style="text-align: left">Vårdenhetens hsa-id</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careGiverId</td>
+      <td style="text-align: left">hsaid</td>
+      <td style="text-align: left">Vårdgivarens hsa-id</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">questionId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Ärendelådans identitet på frågor som skall tas bort ur ärendelådan.</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.resultCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Information om anropet gick bra(OK, ERROR, INFO)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.infoText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som anger extra information om anropets utgång. Anropet har gått bra, men det finns mer information kring anropet i denna text.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Olika kategorier av fel (VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som ytterliggare beskriver felet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-7">Övriga regler</h4>
+<p>Inga extra förutom de som anger om fält är obligatoriska eller valbara under fältregler.</p>
+
+<h4 id="källfiler-riv-ta-7">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l5372">​</a><a href="files/wsdl/DeleteQuestionsInteraction_1.0_rivtabp20.wsdl">DeleteQuestionsInteraction_1.0_rivtabp20.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l5382">​</a><a href="files/schema/DeleteQuestionsResponder_1.0.xsd">DeleteQuestionsResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l5392">​</a><a href="files/schema/Insuranceprocess_healthreporting_2.0.xsd">Insuranceprocess_healthreporting_2.0.xsd</a></td>
+      <td>Domänschema (gemensamt)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-7">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-deletequestions-request.html">StructureDefinition/deletequestions-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-deletequestions.html">StructureDefinition/deletequestions</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="deleteanswers">DeleteAnswers</h3>
+<p>Tjänsten tar bort svar som mellanlagrats av vården och som tidigare hämtats(FindAllAnswer). Både begäran och svar består av xml-dokument.</p>
+
+<h4 id="version-7">Version</h4>
+<p>1.0</p>
+
+<h4 id="fältregler-8">Fältregler</h4>
+<p>Svar som skall tas bort ur vårdens ärendelåda. Nedanstående tabell beskriver varje individuellt fält i begäran och svar. Kardinaliteten beskriver om ett fält är valfritt (0..1) eller obligatoriskt (1..1).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnitId</td>
+      <td style="text-align: left">hsaid</td>
+      <td style="text-align: left">Vårdenhetens hsa-id</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careGiverId</td>
+      <td style="text-align: left">hsaid</td>
+      <td style="text-align: left">Vårdgivarens hsa-id</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">answerId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Ärendelådans identitet på svaren som skall tas bort ur ärendelådan.</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.resultCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Information om anropet gick bra(OK, ERROR, INFO)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.infoText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som anger extra information om anropets utgång. Anropet har gått bra, men det finns mer information kring anropet i denna text.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Olika kategorier av fel (VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som ytterliggare beskriver felet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-8">Övriga regler</h4>
+<p>Inga extra förutom de som anger om fält är obligatoriska eller valbara under fältregler.</p>
+
+<h4 id="källfiler-riv-ta-8">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l5649">​</a><a href="files/wsdl/DeleteAnswersInteraction_1.0_rivtabp20.wsdl">DeleteAnswersInteraction_1.0_rivtabp20.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l5659">​</a><a href="files/schema/DeleteAnswersResponder_1.0.xsd">DeleteAnswersResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l5669">​</a><a href="files/schema/Insuranceprocess_healthreporting_2.0.xsd">Insuranceprocess_healthreporting_2.0.xsd</a></td>
+      <td>Domänschema (gemensamt)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-8">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-deleteanswers-request.html">StructureDefinition/deleteanswers-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-deleteanswers.html">StructureDefinition/deleteanswers</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="revokemedicalcertificate">RevokeMedicalCertificate</h3>
+<p>Tjänsten skickar ett meddelande om en rättelse av ett tidigare inskickat läkarintyg. Både begäran och svar består av xml-dokument.</p>
+
+<h4 id="fältregler-9">Fältregler</h4>
+<p>Rättelse som vården skickar till Försäkringskassan utgår alltid från ett specifikt tidigare inskickat läkarintyg. Detta innebär att en mängd information i meddelandet härstammar från detta läkarintyg. Nedanstående tabell beskriver varje individuellt fält i begäran och svar. Kardinaliteten beskriver om ett fält är valfritt (0..1) eller obligatoriskt (1..1).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">revoke</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Rättelsen</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">revoke.vardReferens-id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Identitet för denna rättelse från vården</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">revoke.meddelande</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Beskrivning om orsk till rättningen</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">revoke.avsantTidpunkt</td>
+      <td style="text-align: left">datumtid</td>
+      <td style="text-align: left">Tidpunkt då rättelsen skickades från vården</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">revoke.adressVard</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdadress</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..adressVard.hosPersonal</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdpersonal</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..hosPersonal.fullstandigtNamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn för Hos-person som skickade rättelsen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..hosPersonal.forskrivarkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Används ej</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..hosPersonal.enhet</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdenhet</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.enhets-id</td>
+      <td style="text-align: left">hsaId</td>
+      <td style="text-align: left">Hsa-Id för Hos-vårdenhet varifrån rättelsen skickades.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.arbetsplatskod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Används ej</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.enhets-namn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på Hos-vårdenhet varifrån rättelsen skickades.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.postadress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postadress för Hos-vårdenhet varifrån rättelsen skickades.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.postnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postnummer för Hos-vårdenhet varifrån rättelsen skickades.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.postort</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postort för Hos-vårdenhet varifrån rättelsen skickades.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.telefonnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Telefonnummer till Hos-vårdenhet varifrån rättelsen skickades.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.epost</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Epost adress för Hos-vårdenhet varifrån rättelsen skickades.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.vardgivare</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdgivaren</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..vardgivare.vardgivare-id</td>
+      <td style="text-align: left">hsaId</td>
+      <td style="text-align: left">Hsa-Id för Hos-vårdgivare varifrån rättelsen skickades.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..vardgivare.vardgivare-namn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på Hos-vårdgivare varifrån rättelsen skickades.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.lakarutlatande-id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt id för läkarintyget som rättelsen gäller</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.signeringsTidpunkt</td>
+      <td style="text-align: left">datumtid</td>
+      <td style="text-align: left">Signeringstidpunkt för läkarintyget som rättelsen gäller</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.patient</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Patienten</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patient.person-id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Patientens personnummer eller samordningnummer</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patient.fullstandigtNamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Patientens namn</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.resultCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Information om anropet gick bra(OK, ERROR, INFO)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.infoText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som anger extra information om anropets utgång. Anropet har gått bra, men det finns mer information kring anropet i denna text.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Olika kategorier av fel (VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som ytterliggare beskriver felet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-9">Övriga regler</h4>
+<p>Inga extra förutom de som anger om fält är obligatoriska eller valbara under fältregler.
+Observera att en mängd information skall tas från det tidigare inskickade läkarintyget och därmed överensstämma med detta.</p>
+
+<h4 id="källfiler-riv-ta-9">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l6250">​</a><a href="files/wsdl/RevokeMedicalCertificateInteraction_1.0_rivtabp20.wsdl">RevokeMedicalCertificateInteraction_1.0_rivtabp20.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l6260">​</a><a href="files/schema/RevokeMedicalCertificateResponder_1.0.xsd">RevokeMedicalCertificateResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l6270">​</a><a href="files/schema/insuranceprocess_certificate_1.0.xsd">insuranceprocess_certificate_1.0.xsd</a></td>
+      <td>Domänschema (intyg)</td>
+    </tr>
+    <tr>
+      <td><a name="l6280">​</a><a href="files/schema/Insuranceprocess_healthreporting_2.0.xsd">Insuranceprocess_healthreporting_2.0.xsd</a></td>
+      <td>Domänschema (gemensamt)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-9">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-revokemedicalcertificate-request.html">StructureDefinition/revokemedicalcertificate-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-revokemedicalcertificate.html">StructureDefinition/revokemedicalcertificate</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="sendmedicalcertificate">SendMedicalCertificate</h3>
+<p>Tjänsten skickar ett meddelande om att ett läkarintyg skall skickas vidare till Försäkringskassan. Själva läkarintyget är tidigare insänt via RegisterMedicalCertificate. Både begäran och svar består av xml-dokument.</p>
+
+<h4 id="version-8">Version</h4>
+<p>1.0</p>
+
+<h4 id="fältregler-10">Fältregler</h4>
+<p>En begäran om att ett läkarintyg skall skickas vidare till Försäkringskassan utgår alltid från ett specifikt tidigare inskickat läkarintyg. Detta innebär att en mängd information i meddelandet härstammar från detta läkarintyg. Nedanstående tabell beskriver varje individuellt fält i begäran och svar. Kardinaliteten beskriver om ett fält är valfritt (0..1) eller obligatoriskt (1..1).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">send</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Sända signal om att skicka ett intyg</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">send.vardReferens-id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Identitet för detta meddelande från vården</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">send.avsantTidpunkt</td>
+      <td style="text-align: left">datumtid</td>
+      <td style="text-align: left">Tidpunkt då meddelandet skickades från vården</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">send.adressVard</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdadress</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..adressVard.hosPersonal</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdpersonal</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..hosPersonal.personal-id</td>
+      <td style="text-align: left">hsaId</td>
+      <td style="text-align: left">Hsa-Id för Hos-person som skickade meddelandet.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..hosPersonal.fullstandigtNamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn för Hos-person som skickade meddelandet.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..hosPersonal.forskrivarkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Används ej</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..hosPersonal.enhet</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdenhet</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.enhets-id</td>
+      <td style="text-align: left">hsaId</td>
+      <td style="text-align: left">Hsa-Id för Hos-vårdenhet varifrån meddelandet skickades.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.arbetsplatskod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Används ej</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.enhets-namn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på Hos-vårdenhet varifrån meddelandet skickades.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.postadress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postadress för Hos-vårdenhet varifrån meddelandet skickades.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.postnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postnummer för Hos-vårdenhet varifrån meddelandet skickades.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.postort</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postort för Hos-vårdenhet varifrån meddelandet skickades.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.telefonnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Telefonnummer till Hos-vårdenhet varifrån meddelandet skickades.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.epost</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Epost adress för Hos-vårdenhet varifrån meddelandet skickades.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..enhet.vardgivare</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdgivare</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..vardgivare.vardgivare-id</td>
+      <td style="text-align: left">hsaId</td>
+      <td style="text-align: left">Hsa-Id för Hos-vårdgivare varifrån meddelandet skickades.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..vardgivare.vardgivare-namn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på Hos-vårdgivare varifrån meddelandet skickades.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Läkarutlåtandet</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.lakarutlatande-id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt id för läkarintyget som meddelandet gäller</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.signeringsTidpunkt</td>
+      <td style="text-align: left">datumtid</td>
+      <td style="text-align: left">Signeringstidpunkt för läkarintyget som meddelandet gäller</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakarutlatande.patient</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Patienten</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patient.person-id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Patientens personnummer eller samordningnummer</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patient.fullstandigtNamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Patientens namn</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.resultCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Information om anropet gick bra(OK, ERROR, INFO)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.infoText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som anger extra information om anropets utgång. Anropet har gått bra, men det finns mer information kring anropet i denna text.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Olika kategorier av fel (VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som ytterliggare beskriver felet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-10">Övriga regler</h4>
+<p>Inga extra förutom de som anger om fält är obligatoriska eller valbara under fältregler
+Observera att en mängd information skall tas från det tidigare inskickade läkarintyget och därmed överensstämma med denna.</p>
+
+<h4 id="källfiler-riv-ta-10">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l6882">​</a><a href="files/schema/insuranceprocess_certificate_1.0.xsd">insuranceprocess_certificate_1.0.xsd</a></td>
+      <td>Domänschema (intyg)</td>
+    </tr>
+    <tr>
+      <td><a name="l6892">​</a><a href="files/schema/Insuranceprocess_healthreporting_2.0.xsd">Insuranceprocess_healthreporting_2.0.xsd</a></td>
+      <td>Domänschema (gemensamt)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-10">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-sendmedicalcertificate-request.html">StructureDefinition/sendmedicalcertificate-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-sendmedicalcertificate.html">StructureDefinition/sendmedicalcertificate</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="listcertificates">ListCertificates</h3>
+<p>Tjänsten begär en lista av registrerade läkarintyg från intygstjänsten. Både begäran och svar består av xml-dokument.</p>
+
+<h4 id="version-9">Version</h4>
+<p>1.0</p>
+
+<h4 id="fältregler-11">Fältregler</h4>
+<p>En begäran om en lista gäller för en specifik personidentitet. Nedanstående tabell beskriver varje element i begäran och svar Kardinaliteten beskriver om ett fält är valfritt (0..1) eller obligatoriskt (1..1).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">nationalIdentityNumber</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Patientens personnummer eller samordningsnummer</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">certificateType</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Typ av intyg. Om inget anges returneras alla typer.</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">available</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Anger om man skall returnera tillgängliga (true) eller icke tillgängliga (false) intyg som är registrerade i intygstjänsten. Dvs om det kan användas (hämtas). / Om inget anges antas true.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fromDate</td>
+      <td style="text-align: left">datum</td>
+      <td style="text-align: left">Startdatum för sökning för utfärdandedatum för intyget. Om inget anges görs ingen datum begränsning.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">toDate</td>
+      <td style="text-align: left">datum</td>
+      <td style="text-align: left">Slutdatum för sökning för utfärdandedatum för intyget. Om inget anges görs ingen datum begränsning.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meta</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Metadata information</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meta.certificateId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Identitet på intyget. Är en GUID.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meta.certificateType</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Typ av intyg. Om inget anges returneras alla typer.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meta.validFrom</td>
+      <td style="text-align: left">datum</td>
+      <td style="text-align: left">Startdatum för sjukskrivningsperioden.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meta.validTo</td>
+      <td style="text-align: left">datum</td>
+      <td style="text-align: left">Slutdatum för sjukskrivningsperioden.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meta.issuerName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn för Hos-person som utfärdat intyget</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meta.facilityName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på Hos-vårdenhet där intyget utfärdats</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meta.signDate</td>
+      <td style="text-align: left">date</td>
+      <td style="text-align: left">Datum när intyget signerades</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meta.available</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Anger om intyget är tillgängligt och kan användas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meta.status</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">En lista över statustyper för olika mottagare</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..status.target</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Mottagare för en status. Ex FK</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..status.type</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Typ av statusändring för intyget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..status.timestamp</td>
+      <td style="text-align: left">datetime</td>
+      <td style="text-align: left">När statusen sattes för intyget</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.resultCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Information om anropet gick bra(OK, ERROR, INFO)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.infoText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som anger extra information om anropets utgång. Anropet har gått bra, men det finns mer information kring anropet i denna text.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Olika kategorier av fel (VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som ytterliggare beskriver felet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="tjänstekontraktsspecifika-krav-och-regler">Tjänstekontraktsspecifika krav och regler</h4>
+<p>Inga extra förutom de som anger om fält är obligatoriska eller valbara under fältregler.</p>
+
+<h4 id="källfiler-riv-ta-11">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l7374">​</a><a href="files/wsdl/ListCertificatesInteraction_1.0_rivtabp20.wsdl">ListCertificatesInteraction_1.0_rivtabp20.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l7384">​</a><a href="files/schema/ListCertificatesResponder_1.0.xsd">ListCertificatesResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l7394">​</a><a href="files/schema/insuranceprocess_certificate_1.0.xsd">insuranceprocess_certificate_1.0.xsd</a></td>
+      <td>Domänschema (intyg)</td>
+    </tr>
+    <tr>
+      <td><a name="l7404">​</a><a href="files/schema/Insuranceprocess_healthreporting_2.0.xsd">Insuranceprocess_healthreporting_2.0.xsd</a></td>
+      <td>Domänschema (gemensamt)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-11">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-listcertificates-request.html">StructureDefinition/listcertificates-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-listcertificates.html">StructureDefinition/listcertificates</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-status-cs.html">CodeSystem/status-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-status-vs.html">ValueSet/status-vs</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="getcertificate">GetCertificate</h3>
+<p>Tjänsten hämtar ett läkarintyg från intygstjänsten. Både begäran och svar består av xml-dokument.</p>
+
+<h4 id="version-10">Version</h4>
+<p>1.0</p>
+
+<h4 id="fältregler-12">Fältregler</h4>
+<p>En begäran om ett läkarintyg från intygstjänsten. Nedanstående tabell beskriver varje element i begäran och svar Kardinaliteten beskriver om ett fält är valfritt (0..1) eller obligatoriskt (1..1).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">certificateId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Identitet på intyget. Är en GUID.</td>
+      <td style="text-align: left">O</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">nationalIdentityNumber</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Patientens personnummer eller samordningsnummer</td>
+      <td style="text-align: left">O</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meta.certificateId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Identitet på intyget. Är en GUID.</td>
+      <td style="text-align: left">O</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meta.certificateType</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Typ av intyg. Om inget anges returneras alla typer.</td>
+      <td style="text-align: left">O</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meta.validFrom</td>
+      <td style="text-align: left">datum</td>
+      <td style="text-align: left">Startdatum för sjukskrivningsperioden.</td>
+      <td style="text-align: left">O</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meta.validTo</td>
+      <td style="text-align: left">datum</td>
+      <td style="text-align: left">Slutdatum för sjukskrivningsperioden.</td>
+      <td style="text-align: left">O</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meta.issuerName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn för Hos-person som utfärdat intyget</td>
+      <td style="text-align: left">O</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meta.facilityName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på Hos-vårdenhet där intyget utfärdats</td>
+      <td style="text-align: left">O</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meta.signDate</td>
+      <td style="text-align: left">datetime</td>
+      <td style="text-align: left">Datum och tid när intyget signerades</td>
+      <td style="text-align: left">O</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meta.available</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Anger om intyget är tillgängligt.</td>
+      <td style="text-align: left">O</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meta.status</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">En lista över statustyper för olika mottagare</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meta.status.target</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Mottagare för en status. Ex FK</td>
+      <td style="text-align: left">O</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meta.status.type</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Typ av statusändring för intyget.</td>
+      <td style="text-align: left">O</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meta.status.timestamp</td>
+      <td style="text-align: left">datetime</td>
+      <td style="text-align: left">När statusen sattes för intyget</td>
+      <td style="text-align: left">O</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">certificate</td>
+      <td style="text-align: left"><any></any></td>
+      <td style="text-align: left">Platshållare för intyget som är generisk. Typ av intyg anges i meta.certificateType.</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.resultCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Information om anropet gick bra(OK, ERROR, INFO)</td>
+      <td style="text-align: left">O</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.infoText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som anger extra information om anropets utgång. Anropet har gått bra, men det finns mer information kring anropet i denna text.</td>
+      <td style="text-align: left">V</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Olika kategorier av fel (VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR)</td>
+      <td style="text-align: left">V</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som ytterliggare beskriver felet</td>
+      <td style="text-align: left">V</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="tjänstekontraktsspecifika-krav-och-regler-1">Tjänstekontraktsspecifika krav och regler</h4>
+<p>Inga extra förutom de som anger om fält är obligatoriska eller valbara under fältregler.</p>
+
+<h4 id="källfiler-riv-ta-12">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l7840">​</a><a href="files/wsdl/GetCertificateInteraction_1.0_rivtabp20.wsdl">GetCertificateInteraction_1.0_rivtabp20.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l7850">​</a><a href="files/schema/GetCertificateResponder_1.0.xsd">GetCertificateResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l7860">​</a><a href="files/schema/insuranceprocess_certificate_1.0.xsd">insuranceprocess_certificate_1.0.xsd</a></td>
+      <td>Domänschema (intyg)</td>
+    </tr>
+    <tr>
+      <td><a name="l7870">​</a><a href="files/schema/Insuranceprocess_healthreporting_2.0.xsd">Insuranceprocess_healthreporting_2.0.xsd</a></td>
+      <td>Domänschema (gemensamt)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-12">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getcertificate-request.html">StructureDefinition/getcertificate-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getcertificate.html">StructureDefinition/getcertificate</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="setcertificatestatus">SetCertificateStatus</h3>
+<p>Tjänsten sätter status för ett registrerat läkarintyg i intygstjänsten. Både begäran och svar består av xml-dokument.</p>
+
+<h4 id="fältregler-13">Fältregler</h4>
+<p>En ändring av status fäller ett tidigare registrerat läkarintyg i intygstjänsten. Nedanstående tabell beskriver varje element i begäran och svar Kardinaliteten beskriver om ett fält är valfritt (0..1) eller obligatoriskt (1..1).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Identitet på intyget. Är en GUID.</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">certificateId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Patientens personnummer eller samordningsnummer</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">nationalIdentityNumber</td>
+      <td style="text-align: left">datumtid</td>
+      <td style="text-align: left">Tidpunkt då meddelandet skickades från vården</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">target</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Mottagare för en status. Ex FK</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">status</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Typ av statusändring för intyget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">timestamp</td>
+      <td style="text-align: left">datetime</td>
+      <td style="text-align: left">När anropet sattes för intyget</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.resultCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Information om anropet gick bra(OK, ERROR, INFO)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.infoText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som anger extra information om anropets utgång. Anropet har gått bra, men det finns mer information kring anropet i denna text.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Olika kategorier av fel (VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som ytterliggare beskriver felet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="tjänstekontraktsspecifika-krav-och-regler-2">Tjänstekontraktsspecifika krav och regler</h4>
+<p>Inga extra förutom de som anger om fält är obligatoriska eller valbara under fältregler.</p>
+
+<h4 id="källfiler-riv-ta-13">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l8151">​</a><a href="files/schema/insuranceprocess_certificate_1.0.xsd">insuranceprocess_certificate_1.0.xsd</a></td>
+      <td>Domänschema (intyg)</td>
+    </tr>
+    <tr>
+      <td><a name="l8161">​</a><a href="files/schema/Insuranceprocess_healthreporting_2.0.xsd">Insuranceprocess_healthreporting_2.0.xsd</a></td>
+      <td>Domänschema (gemensamt)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-13">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-setcertificatestatus-request.html">StructureDefinition/setcertificatestatus-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-setcertificatestatus.html">StructureDefinition/setcertificatestatus</a></li>
+</ul>
+
+
+
+
+</div>
+        </div>    <!-- /inner-wrapper -->
+      </div>    <!-- /row -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-content -->
+
+  <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script src="assets/js/jquery-ui.min.js" type="text/javascript"> </script>
+
+  <script src="assets/js/window-hash.js" type="text/javascript"> </script>
+  <a name="bottom"> </a>
+  <div igtool="footer" id="segment-footer" class="segment">    <!-- segment-footer -->
+    <div class="container">    <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &copy; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.insuranceprocess-healthreporting#3.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 9, 2026 17:03+0000">2026-09-09</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>    <!-- /inner-wrapper -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">    <!-- segment-post-footer -->
+    <div class="container">    <!-- container -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-post-footer -->
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+  <script src="assets/js/respond.min.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard-btn.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor-hover.js" type="text/javascript"> </script>
+    <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>

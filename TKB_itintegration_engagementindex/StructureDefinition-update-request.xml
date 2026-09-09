@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="update-request"/>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: StructureDefinition update-request</b></p><table border="0" cellpadding="0" cellspacing="0" style="border: 0px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;"><tr style="border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top"><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="The logical name of the element">Name</a></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Information about the use of the element">Flags</a></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Minimum and Maximum # of times the element can appear in the instance">Card.</a></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px; width: 100px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Reference to the type of the element">Type</a></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Additional information about the element">Description &amp; Constraints</a><span style="float: right"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC" alt="doco" style="background-color: inherit"/></a></span></th></tr><tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_element.gif" alt="." style="background-color: white; background-color: inherit" title="Element" class="hierarchy"/> <a href="StructureDefinition-update-request-definitions.html#update-request" title="Logisk modell för requestparametrar i tjänstekontraktet Update
+(RIV-TA urn:riv:itintegration:engagementindex:Update:1).
+Kontraktet används av källsystem för att skapa, uppdatera och radera
+indexposter i ett engagemangsindex. Flera engagemangstransaktioner
+kan paketeras i ett och samma anrop (max 1000 poster i nationell instans).
+
+Alla fält i EngagementType-typen ingår i modellen, inklusive fält som
+sätts av engagemangsindex och INTE ska populeras av konsumenten
+(creationTime, updateTime, owner). Se respektive fältbeskrivning.">update-request</a><a name="update-request"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><span style="opacity: 0.5">0</span><span style="opacity: 0.5">..</span><span style="opacity: 0.5">*</span></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://build.fhir.org/types.html#Base">Base</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Update — Request<br/><span style="font-weight:bold">Instances of this type can be the target of a Reference</span></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck01.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"/> <a href="StructureDefinition-update-request-definitions.html#update-request.engagementTransaction" title="En eller flera engagemangstransaktioner. Varje transaktion avser en indexpost.
+Alla poster i en begäran måste vara sinsemellan unika avseende postens unikhetsnyckel.
+Om duplikat hittas returneras ResultCode ERROR.
+Kardinalitet: Obligatorisk, lista (minst en transaktion krävs).">engagementTransaction</a><a name="update-request.engagementTransaction"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..*</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Base</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Engagemangstransaktion<br/></td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-update-request-definitions.html#update-request.engagementTransaction.deleteFlag" title="Anger om posten ska skapas/uppdateras (false) eller tas bort (true).
+true: Posten med samma unikhetsnyckel raderas.
+false: Posten skapas om den inte finns, eller uppdateras om den redan finns.
+Kardinalitet: Obligatorisk.">deleteFlag</a><a name="update-request.engagementTransaction.deleteFlag"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#boolean">boolean</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Raderingsflagga</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck001.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"/> <a href="StructureDefinition-update-request-definitions.html#update-request.engagementTransaction.engagement" title="Engagemangspostens datavärden. Unikhet bestäms av en kombination av
+registeredResidentIdentification, serviceDomain, categorization,
+logicalAddress och businessObjectInstanceIdentifier.
+Kardinalitet: Obligatorisk.">engagement</a><a name="update-request.engagementTransaction.engagement"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Base</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Engagemangspost</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-update-request-definitions.html#update-request.engagementTransaction.engagement.registeredResidentIdentification" title="Person- eller samordningsnummer (12 tecken) eller nationellt reservnummer (12 tecken).
+Format: CCYYMMDDNNNN eller [0-9]{8}[0-9A-Zptf]{4}.
+Kardinalitet: Obligatorisk.">registeredResidentIdentification</a><a name="update-request.engagementTransaction.engagement.registeredResidentIdentification"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Personidentitet</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-update-request-definitions.html#update-request.engagementTransaction.engagement.serviceDomain" title="Namnrymd för tjänstedomän i URN-format.
+Exempel: urn:riv:clinicalprocess:activity:request
+Kardinalitet: Obligatorisk.">serviceDomain</a><a name="update-request.engagementTransaction.engagement.serviceDomain"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#uri">uri</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Tjänstedomänens namnrymd (URN)</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-update-request-definitions.html#update-request.engagementTransaction.engagement.categorization" title="Kategorisering enligt den tillämpande tjänstedomänens dokumentation.
+Kardinalitet: Obligatorisk.">categorization</a><a name="update-request.engagementTransaction.engagement.categorization"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Kategorisering</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-update-request-definitions.html#update-request.engagementTransaction.engagement.logicalAddress" title="Logisk adress för den tjänsteproducent som har information för posten.
+Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.
+Kardinalitet: Obligatorisk.">logicalAddress</a><a name="update-request.engagementTransaction.engagement.logicalAddress"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Logisk adress</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-update-request-definitions.html#update-request.engagementTransaction.engagement.businessObjectInstanceIdentifier" title="Identifierare för det specifika affärsobjekt som posten avser.
+Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.
+Kardinalitet: Obligatorisk.">businessObjectInstanceIdentifier</a><a name="update-request.engagementTransaction.engagement.businessObjectInstanceIdentifier"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Affärsobjektets instansidentifierare</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-update-request-definitions.html#update-request.engagementTransaction.engagement.clinicalProcessInterestId" title="Identifierare för kliniskt processintresse.
+Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.
+Kardinalitet: Obligatorisk.">clinicalProcessInterestId</a><a name="update-request.engagementTransaction.engagement.clinicalProcessInterestId"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Kliniskt processintresse-ID</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-update-request-definitions.html#update-request.engagementTransaction.engagement.mostRecentContent" title="Tidpunkt för senast relevant innehåll. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).
+Regler för användning bestäms av den tillämpande tjänstedomänens TKB.
+Kardinalitet: Valfri.">mostRecentContent</a><a name="update-request.engagementTransaction.engagement.mostRecentContent"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">dateTime</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Senast relevant innehållstidpunkt</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Data Type" class="hierarchy"/> <a href="StructureDefinition-update-request-definitions.html#update-request.engagementTransaction.engagement.sourceSystem" title="HSA-id för källsystemet som innehåller den information som EI-posten pekar ut.
+I regel det vårdsystem som skapade informationen eller det system hos vårdgivaren
+som är master för informationen.
+System: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).
+Kardinalitet: Obligatorisk.">sourceSystem</a><a name="update-request.engagementTransaction.engagement.sourceSystem"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#Identifier">Identifier</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Källsystem (HSA-id)</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-update-request-definitions.html#update-request.engagementTransaction.engagement.dataController" title="Identitet för den personuppgiftsansvariga organisation (PUA) som ansvarar för postens innehåll.
+I första hand organisationsnummer eller HSA-id för PUA, i andra hand en källsystemsintern
+identitet för PUA som möjliggör för PUA att fullgöra sin roll som personuppgiftsansvarig.
+OBS: Kan innehålla organisationsnummer, HSA-id eller källsystemsintern identitet —
+ingen entydig FHIR Identifier-typ. Modelleras som string; se öppen fråga om korrekt typ.
+Kardinalitet: Obligatorisk.">dataController</a><a name="update-request.engagementTransaction.engagement.dataController"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Personuppgiftsansvarig organisation</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-update-request-definitions.html#update-request.engagementTransaction.engagement.creationTime" title="Tidpunkt då engagemangsposten skapades i engagemangsindexet.
+KONSUMENTEN SKA INTE SÄTTA DETTA FÄLT — det sätts automatiskt av engagemangsindex
+vid mottagning av Update-anropet. Om fältet populeras av konsumenten ignoreras värdet.
+Kardinalitet: Valfri (från konsumentperspektiv; alltid populerad i lagrat engagemang).">creationTime</a><a name="update-request.engagementTransaction.engagement.creationTime"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">dateTime</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Skapandetidpunkt (sätts av EI)</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0010.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-update-request-definitions.html#update-request.engagementTransaction.engagement.updateTime" title="Tidpunkt då engagemangsposten senast uppdaterades i engagemangsindexet.
+KONSUMENTEN SKA INTE SÄTTA DETTA FÄLT — det sätts automatiskt av engagemangsindex
+vid mottagning av Update-anropet. Om fältet populeras av konsumenten ignoreras värdet.
+Kardinalitet: Valfri (från konsumentperspektiv; alltid populerad i lagrat engagemang).">updateTime</a><a name="update-request.engagementTransaction.engagement.updateTime"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">dateTime</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Uppdateringstidpunkt (sätts av EI)</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0000.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_blank.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitive Data Type" class="hierarchy"/> <a href="StructureDefinition-update-request-definitions.html#update-request.engagementTransaction.engagement.owner" title="Identitet för den engagemangsindexinstans som äger posten (logisk adress för EI-instansen).
+KONSUMENTEN SKA INTE SÄTTA DETTA FÄLT — det sätts automatiskt av engagemangsindex
+vid mottagning av Update-anropet. Om fältet populeras av konsumenten ignoreras värdet.
+Kardinalitet: Valfri (från konsumentperspektiv; alltid populerad i lagrat engagemang).">owner</a><a name="update-request.engagementTransaction.engagement.owner"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Ägare (sätts av EI)</td></tr>
+<tr><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC" alt="doco" style="background-color: inherit"/> Documentation for this format</a></td></tr></table></div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics">
+    <valueCode value="can-be-target"/>
+  </extension>
+  <url value="https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/update-request"/>
+  <version value="1.0.9"/>
+  <name value="UpdateRequest"/>
+  <title value="Update — Request"/>
+  <status value="draft"/>
+  <date value="2026-09-09T17:04:05+00:00"/>
+  <contact>
+    <name value="Inera Arkitektur"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://www.inera.se"/>
+    </telecom>
+  </contact>
+  <description value="Logisk modell för requestparametrar i tjänstekontraktet Update&#xA;(RIV-TA urn:riv:itintegration:engagementindex:Update:1).&#xA;Kontraktet används av källsystem för att skapa, uppdatera och radera&#xA;indexposter i ett engagemangsindex. Flera engagemangstransaktioner&#xA;kan paketeras i ett och samma anrop (max 1000 poster i nationell instans).&#xA;&#xA;Alla fält i EngagementType-typen ingår i modellen, inklusive fält som&#xA;sätts av engagemangsindex och INTE ska populeras av konsumenten&#xA;(creationTime, updateTime, owner). Se respektive fältbeskrivning."/>
+  <copyright value="Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0."/>
+  <fhirVersion value="4.0.1"/>
+  <kind value="logical"/>
+  <abstract value="false"/>
+  <type value="https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/update-request"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Base"/>
+  <derivation value="specialization"/>
+  <snapshot>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/snapshot-base-version">
+      <valueString value="4.0.1"/>
+    </extension>
+    <element id="update-request">
+      <path value="update-request"/>
+      <short value="Update — Request"/>
+      <definition value="Logisk modell för requestparametrar i tjänstekontraktet Update&#xA;(RIV-TA urn:riv:itintegration:engagementindex:Update:1).&#xA;Kontraktet används av källsystem för att skapa, uppdatera och radera&#xA;indexposter i ett engagemangsindex. Flera engagemangstransaktioner&#xA;kan paketeras i ett och samma anrop (max 1000 poster i nationell instans).&#xA;&#xA;Alla fält i EngagementType-typen ingår i modellen, inklusive fält som&#xA;sätts av engagemangsindex och INTE ska populeras av konsumenten&#xA;(creationTime, updateTime, owner). Se respektive fältbeskrivning."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Base"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <isModifier value="false"/>
+    </element>
+    <element id="update-request.engagementTransaction">
+      <path value="update-request.engagementTransaction"/>
+      <short value="Engagemangstransaktion"/>
+      <definition value="En eller flera engagemangstransaktioner. Varje transaktion avser en indexpost.&#xA;Alla poster i en begäran måste vara sinsemellan unika avseende postens unikhetsnyckel.&#xA;Om duplikat hittas returneras ResultCode ERROR.&#xA;Kardinalitet: Obligatorisk, lista (minst en transaktion krävs)."/>
+      <min value="1"/>
+      <max value="*"/>
+      <base>
+        <path value="update-request.engagementTransaction"/>
+        <min value="1"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.deleteFlag">
+      <path value="update-request.engagementTransaction.deleteFlag"/>
+      <short value="Raderingsflagga"/>
+      <definition value="Anger om posten ska skapas/uppdateras (false) eller tas bort (true).&#xA;true: Posten med samma unikhetsnyckel raderas.&#xA;false: Posten skapas om den inte finns, eller uppdateras om den redan finns.&#xA;Kardinalitet: Obligatorisk."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="update-request.engagementTransaction.deleteFlag"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement">
+      <path value="update-request.engagementTransaction.engagement"/>
+      <short value="Engagemangspost"/>
+      <definition value="Engagemangspostens datavärden. Unikhet bestäms av en kombination av&#xA;registeredResidentIdentification, serviceDomain, categorization,&#xA;logicalAddress och businessObjectInstanceIdentifier.&#xA;Kardinalitet: Obligatorisk."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="update-request.engagementTransaction.engagement"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.registeredResidentIdentification">
+      <path value="update-request.engagementTransaction.engagement.registeredResidentIdentification"/>
+      <short value="Personidentitet"/>
+      <definition value="Person- eller samordningsnummer (12 tecken) eller nationellt reservnummer (12 tecken).&#xA;Format: CCYYMMDDNNNN eller [0-9]{8}[0-9A-Zptf]{4}.&#xA;Kardinalitet: Obligatorisk."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="update-request.engagementTransaction.engagement.registeredResidentIdentification"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.serviceDomain">
+      <path value="update-request.engagementTransaction.engagement.serviceDomain"/>
+      <short value="Tjänstedomänens namnrymd (URN)"/>
+      <definition value="Namnrymd för tjänstedomän i URN-format.&#xA;Exempel: urn:riv:clinicalprocess:activity:request&#xA;Kardinalitet: Obligatorisk."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="update-request.engagementTransaction.engagement.serviceDomain"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.categorization">
+      <path value="update-request.engagementTransaction.engagement.categorization"/>
+      <short value="Kategorisering"/>
+      <definition value="Kategorisering enligt den tillämpande tjänstedomänens dokumentation.&#xA;Kardinalitet: Obligatorisk."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="update-request.engagementTransaction.engagement.categorization"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.logicalAddress">
+      <path value="update-request.engagementTransaction.engagement.logicalAddress"/>
+      <short value="Logisk adress"/>
+      <definition value="Logisk adress för den tjänsteproducent som har information för posten.&#xA;Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.&#xA;Kardinalitet: Obligatorisk."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="update-request.engagementTransaction.engagement.logicalAddress"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.businessObjectInstanceIdentifier">
+      <path value="update-request.engagementTransaction.engagement.businessObjectInstanceIdentifier"/>
+      <short value="Affärsobjektets instansidentifierare"/>
+      <definition value="Identifierare för det specifika affärsobjekt som posten avser.&#xA;Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.&#xA;Kardinalitet: Obligatorisk."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="update-request.engagementTransaction.engagement.businessObjectInstanceIdentifier"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.clinicalProcessInterestId">
+      <path value="update-request.engagementTransaction.engagement.clinicalProcessInterestId"/>
+      <short value="Kliniskt processintresse-ID"/>
+      <definition value="Identifierare för kliniskt processintresse.&#xA;Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.&#xA;Kardinalitet: Obligatorisk."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="update-request.engagementTransaction.engagement.clinicalProcessInterestId"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.mostRecentContent">
+      <path value="update-request.engagementTransaction.engagement.mostRecentContent"/>
+      <short value="Senast relevant innehållstidpunkt"/>
+      <definition value="Tidpunkt för senast relevant innehåll. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).&#xA;Regler för användning bestäms av den tillämpande tjänstedomänens TKB.&#xA;Kardinalitet: Valfri."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="update-request.engagementTransaction.engagement.mostRecentContent"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.sourceSystem">
+      <path value="update-request.engagementTransaction.engagement.sourceSystem"/>
+      <short value="Källsystem (HSA-id)"/>
+      <definition value="HSA-id för källsystemet som innehåller den information som EI-posten pekar ut.&#xA;I regel det vårdsystem som skapade informationen eller det system hos vårdgivaren&#xA;som är master för informationen.&#xA;System: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).&#xA;Kardinalitet: Obligatorisk."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="update-request.engagementTransaction.engagement.sourceSystem"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Identifier"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.dataController">
+      <path value="update-request.engagementTransaction.engagement.dataController"/>
+      <short value="Personuppgiftsansvarig organisation"/>
+      <definition value="Identitet för den personuppgiftsansvariga organisation (PUA) som ansvarar för postens innehåll.&#xA;I första hand organisationsnummer eller HSA-id för PUA, i andra hand en källsystemsintern&#xA;identitet för PUA som möjliggör för PUA att fullgöra sin roll som personuppgiftsansvarig.&#xA;OBS: Kan innehålla organisationsnummer, HSA-id eller källsystemsintern identitet —&#xA;ingen entydig FHIR Identifier-typ. Modelleras som string; se öppen fråga om korrekt typ.&#xA;Kardinalitet: Obligatorisk."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="update-request.engagementTransaction.engagement.dataController"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.creationTime">
+      <path value="update-request.engagementTransaction.engagement.creationTime"/>
+      <short value="Skapandetidpunkt (sätts av EI)"/>
+      <definition value="Tidpunkt då engagemangsposten skapades i engagemangsindexet.&#xA;KONSUMENTEN SKA INTE SÄTTA DETTA FÄLT — det sätts automatiskt av engagemangsindex&#xA;vid mottagning av Update-anropet. Om fältet populeras av konsumenten ignoreras värdet.&#xA;Kardinalitet: Valfri (från konsumentperspektiv; alltid populerad i lagrat engagemang)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="update-request.engagementTransaction.engagement.creationTime"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.updateTime">
+      <path value="update-request.engagementTransaction.engagement.updateTime"/>
+      <short value="Uppdateringstidpunkt (sätts av EI)"/>
+      <definition value="Tidpunkt då engagemangsposten senast uppdaterades i engagemangsindexet.&#xA;KONSUMENTEN SKA INTE SÄTTA DETTA FÄLT — det sätts automatiskt av engagemangsindex&#xA;vid mottagning av Update-anropet. Om fältet populeras av konsumenten ignoreras värdet.&#xA;Kardinalitet: Valfri (från konsumentperspektiv; alltid populerad i lagrat engagemang)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="update-request.engagementTransaction.engagement.updateTime"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.owner">
+      <path value="update-request.engagementTransaction.engagement.owner"/>
+      <short value="Ägare (sätts av EI)"/>
+      <definition value="Identitet för den engagemangsindexinstans som äger posten (logisk adress för EI-instansen).&#xA;KONSUMENTEN SKA INTE SÄTTA DETTA FÄLT — det sätts automatiskt av engagemangsindex&#xA;vid mottagning av Update-anropet. Om fältet populeras av konsumenten ignoreras värdet.&#xA;Kardinalitet: Valfri (från konsumentperspektiv; alltid populerad i lagrat engagemang)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="update-request.engagementTransaction.engagement.owner"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+  </snapshot>
+  <differential>
+    <element id="update-request">
+      <path value="update-request"/>
+      <short value="Update — Request"/>
+      <definition value="Logisk modell för requestparametrar i tjänstekontraktet Update&#xA;(RIV-TA urn:riv:itintegration:engagementindex:Update:1).&#xA;Kontraktet används av källsystem för att skapa, uppdatera och radera&#xA;indexposter i ett engagemangsindex. Flera engagemangstransaktioner&#xA;kan paketeras i ett och samma anrop (max 1000 poster i nationell instans).&#xA;&#xA;Alla fält i EngagementType-typen ingår i modellen, inklusive fält som&#xA;sätts av engagemangsindex och INTE ska populeras av konsumenten&#xA;(creationTime, updateTime, owner). Se respektive fältbeskrivning."/>
+    </element>
+    <element id="update-request.engagementTransaction">
+      <path value="update-request.engagementTransaction"/>
+      <short value="Engagemangstransaktion"/>
+      <definition value="En eller flera engagemangstransaktioner. Varje transaktion avser en indexpost.&#xA;Alla poster i en begäran måste vara sinsemellan unika avseende postens unikhetsnyckel.&#xA;Om duplikat hittas returneras ResultCode ERROR.&#xA;Kardinalitet: Obligatorisk, lista (minst en transaktion krävs)."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.deleteFlag">
+      <path value="update-request.engagementTransaction.deleteFlag"/>
+      <short value="Raderingsflagga"/>
+      <definition value="Anger om posten ska skapas/uppdateras (false) eller tas bort (true).&#xA;true: Posten med samma unikhetsnyckel raderas.&#xA;false: Posten skapas om den inte finns, eller uppdateras om den redan finns.&#xA;Kardinalitet: Obligatorisk."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement">
+      <path value="update-request.engagementTransaction.engagement"/>
+      <short value="Engagemangspost"/>
+      <definition value="Engagemangspostens datavärden. Unikhet bestäms av en kombination av&#xA;registeredResidentIdentification, serviceDomain, categorization,&#xA;logicalAddress och businessObjectInstanceIdentifier.&#xA;Kardinalitet: Obligatorisk."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.registeredResidentIdentification">
+      <path value="update-request.engagementTransaction.engagement.registeredResidentIdentification"/>
+      <short value="Personidentitet"/>
+      <definition value="Person- eller samordningsnummer (12 tecken) eller nationellt reservnummer (12 tecken).&#xA;Format: CCYYMMDDNNNN eller [0-9]{8}[0-9A-Zptf]{4}.&#xA;Kardinalitet: Obligatorisk."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.serviceDomain">
+      <path value="update-request.engagementTransaction.engagement.serviceDomain"/>
+      <short value="Tjänstedomänens namnrymd (URN)"/>
+      <definition value="Namnrymd för tjänstedomän i URN-format.&#xA;Exempel: urn:riv:clinicalprocess:activity:request&#xA;Kardinalitet: Obligatorisk."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.categorization">
+      <path value="update-request.engagementTransaction.engagement.categorization"/>
+      <short value="Kategorisering"/>
+      <definition value="Kategorisering enligt den tillämpande tjänstedomänens dokumentation.&#xA;Kardinalitet: Obligatorisk."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.logicalAddress">
+      <path value="update-request.engagementTransaction.engagement.logicalAddress"/>
+      <short value="Logisk adress"/>
+      <definition value="Logisk adress för den tjänsteproducent som har information för posten.&#xA;Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.&#xA;Kardinalitet: Obligatorisk."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.businessObjectInstanceIdentifier">
+      <path value="update-request.engagementTransaction.engagement.businessObjectInstanceIdentifier"/>
+      <short value="Affärsobjektets instansidentifierare"/>
+      <definition value="Identifierare för det specifika affärsobjekt som posten avser.&#xA;Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.&#xA;Kardinalitet: Obligatorisk."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.clinicalProcessInterestId">
+      <path value="update-request.engagementTransaction.engagement.clinicalProcessInterestId"/>
+      <short value="Kliniskt processintresse-ID"/>
+      <definition value="Identifierare för kliniskt processintresse.&#xA;Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.&#xA;Kardinalitet: Obligatorisk."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.mostRecentContent">
+      <path value="update-request.engagementTransaction.engagement.mostRecentContent"/>
+      <short value="Senast relevant innehållstidpunkt"/>
+      <definition value="Tidpunkt för senast relevant innehåll. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).&#xA;Regler för användning bestäms av den tillämpande tjänstedomänens TKB.&#xA;Kardinalitet: Valfri."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.sourceSystem">
+      <path value="update-request.engagementTransaction.engagement.sourceSystem"/>
+      <short value="Källsystem (HSA-id)"/>
+      <definition value="HSA-id för källsystemet som innehåller den information som EI-posten pekar ut.&#xA;I regel det vårdsystem som skapade informationen eller det system hos vårdgivaren&#xA;som är master för informationen.&#xA;System: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).&#xA;Kardinalitet: Obligatorisk."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.dataController">
+      <path value="update-request.engagementTransaction.engagement.dataController"/>
+      <short value="Personuppgiftsansvarig organisation"/>
+      <definition value="Identitet för den personuppgiftsansvariga organisation (PUA) som ansvarar för postens innehåll.&#xA;I första hand organisationsnummer eller HSA-id för PUA, i andra hand en källsystemsintern&#xA;identitet för PUA som möjliggör för PUA att fullgöra sin roll som personuppgiftsansvarig.&#xA;OBS: Kan innehålla organisationsnummer, HSA-id eller källsystemsintern identitet —&#xA;ingen entydig FHIR Identifier-typ. Modelleras som string; se öppen fråga om korrekt typ.&#xA;Kardinalitet: Obligatorisk."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.creationTime">
+      <path value="update-request.engagementTransaction.engagement.creationTime"/>
+      <short value="Skapandetidpunkt (sätts av EI)"/>
+      <definition value="Tidpunkt då engagemangsposten skapades i engagemangsindexet.&#xA;KONSUMENTEN SKA INTE SÄTTA DETTA FÄLT — det sätts automatiskt av engagemangsindex&#xA;vid mottagning av Update-anropet. Om fältet populeras av konsumenten ignoreras värdet.&#xA;Kardinalitet: Valfri (från konsumentperspektiv; alltid populerad i lagrat engagemang)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.updateTime">
+      <path value="update-request.engagementTransaction.engagement.updateTime"/>
+      <short value="Uppdateringstidpunkt (sätts av EI)"/>
+      <definition value="Tidpunkt då engagemangsposten senast uppdaterades i engagemangsindexet.&#xA;KONSUMENTEN SKA INTE SÄTTA DETTA FÄLT — det sätts automatiskt av engagemangsindex&#xA;vid mottagning av Update-anropet. Om fältet populeras av konsumenten ignoreras värdet.&#xA;Kardinalitet: Valfri (från konsumentperspektiv; alltid populerad i lagrat engagemang)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="update-request.engagementTransaction.engagement.owner">
+      <path value="update-request.engagementTransaction.engagement.owner"/>
+      <short value="Ägare (sätts av EI)"/>
+      <definition value="Identitet för den engagemangsindexinstans som äger posten (logisk adress för EI-instansen).&#xA;KONSUMENTEN SKA INTE SÄTTA DETTA FÄLT — det sätts automatiskt av engagemangsindex&#xA;vid mottagning av Update-anropet. Om fältet populeras av konsumenten ignoreras värdet.&#xA;Kardinalitet: Valfri (från konsumentperspektiv; alltid populerad i lagrat engagemang)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

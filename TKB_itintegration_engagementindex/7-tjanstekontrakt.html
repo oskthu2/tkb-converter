@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>7 Tjänstekontrakt - itintegration: engagementindex v1.0.9</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">itintegration: engagementindex</span>
+            <br/>
+            <span style="display:inline-block;">1.0.9 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <?xml version="1.0" encoding="UTF-8"?>
+<menu xmlns="http://hl7.org/fhir">
+  <item name="Home" href="index.html"/>
+  <item name="1 Inledning" href="1-inledning.html"/>
+  <item name="2 Versionsinformation" href="2-versionsinformation.html"/>
+  <item name="3 Tjänstedomänens arkitektur" href="3-tjanstedomanens-arkitektur.html"/>
+  <item name="4 Tjänstedomänens krav och regler" href="4-tjanstedomanens-krav-och-regler.html"/>
+  <item name="5 Tjänstedomänens meddelandemodeller" href="5-tjanstedomanens-meddelandemodeller.html"/>
+  <item name="6 Gemensamma informationskomponenter" href="6-gemensamma-informationskomponenter.html"/>
+  <item name="7 Tjänstekontrakt" href="7-tjanstekontrakt.html"/>
+  <item name="Artifacts" href="artifacts.html"/>
+</menu>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">itintegration: engagementindex - Local Development build (v1.0.9) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/itintegration-engagementindex/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstekontraktens-tekniska-beskrivning" id="markdown-toc-tjänstekontraktens-tekniska-beskrivning">Tjänstekontraktens tekniska beskrivning</a>    <ul>
+      <li><a href="#domänspecifika-attribut" id="markdown-toc-domänspecifika-attribut">Domänspecifika attribut</a></li>
+      <li><a href="#update" id="markdown-toc-update">Update</a></li>
+      <li><a href="#findcontent" id="markdown-toc-findcontent">FindContent</a></li>
+      <li><a href="#processnotification" id="markdown-toc-processnotification">ProcessNotification</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstekontraktens-tekniska-beskrivning">Tjänstekontraktens tekniska beskrivning</h2>
+
+<h3 id="domänspecifika-attribut">Domänspecifika attribut</h3>
+<p>Ett antal av attributen i tjänstekontrakten för engagemangsindex definieras endast tekniskt avseende namn, typ och multiplicitet. Användningen av dessa attribut i tjänstekontrakten definieras av den tjänstedomän som informationen avser. Krav och regler beskrivs i respektive tjänstedomäns tjänstekontraktsbeskrivning.
+Detta innebär att ett attribut som tekniskt sett är valfritt (multiplicitet 0..1 eller 0..*) kan vara obligatoriskt i en viss tjänstedomän. Kravet kan uttryckas via skrivningar i tjänstekontraktsbeskrivning och ibland kompletterat med schematronfiler.
+Notera också att vissa attribut kan vara tekniskt obligatoriska men inte användas inom domänen. I dessa fall sätts attributet till NA (för Not Applicable) för att indikera detta men ändå tekniskt uppfylla tjänstekontraktet.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar / Nedan ges den beskrivning av attributen som är den vanligaste. Varje tjänstedomän kan dock definiera om attributens betydelse.</th>
+      <th style="text-align: left">Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">*engagement</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">*.serviceDomain</td>
+      <td style="text-align: left">URN</td>
+      <td style="text-align: left">Namnrymd för den Tjänstedomän som innehåller det tjänstekontrakt som ska användas för att läsa den information som EI-posten gäller. / exempel:</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">urn:riv:clinicalprocess:activity:request</td>
+      <td style="text-align: left">1..1</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">*.categorization</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Identifierar den informationskategori som EI-posten gäller, t.ex. vaccination eller journalanteckning. De informations-kategorier som är giltiga för en viss tjänstedomän anges i tjänstedomänens tjänstekontraktsbeskrivning.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">*.logicalAddress</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Den logiska adress som ska anropas för att nå den tjänsteproducent som har den information som indexposten avser. / Den logiska adressen följer den adresseringsmodell som gäller för den tjänstedomän som anges av fältet Service Domain.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">*.engagementTransaction .engagement.businessObjectInstanceIdentifier</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Definieras av respektive tjänstedomän. / ”NA” anger att attributet inte är tillämpbart i aktuell tjänstedomän.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">*.clinicalProcess InterestId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Definieras av respektive tjänstedomän. / ”NA” anger att attributet inte är tillämpbart i aktuell tjänstedomän.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">*.mostRecentContent</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left">Definieras av respektive tjänstedomän.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="update">Update</h3>
+
+<h4 id="version">Version</h4>
+<p>1.0</p>
+
+<h4 id="fältregler">Fältregler</h4>
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.</p>
+
+<h5 id="begäran">Begäran</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">engagementTransaction</td>
+      <td style="text-align: left">EngagementTransactionType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction.deleteFlag</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">True anger att posten ska tas bort. False anger att posten ska skapas/uppdateras.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement</td>
+      <td style="text-align: left">EngagementType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.registeredResidentIdentification</td>
+      <td style="text-align: left">Nationell accepterad personidentitet</td>
+      <td style="text-align: left">Enligt formatregler i meddelandemodellen</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.serviceDomain</td>
+      <td style="text-align: left">URN</td>
+      <td style="text-align: left">Namnrymd för Tjänstedomän / exempel:</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">urn:riv:clinicalprocess:activity:request</td>
+      <td style="text-align: left">1..1</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.categorization</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Enligt tjänstedomänens dokumentation.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.logicalAddress</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Enligt tjänstedomänens dokumentation.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.businessObjectInstanceIdentifier</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Enligt tjänstedomänens dokumentation.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.clinicalProcess InterestId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Enligt tjänstedomänens dokumentation.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.mostRecentContent</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left">Enligt tjänstedomänens dokumentation.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.sourceSystem</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">Källsystemet som innehåller den information som EI-posten pekar ut. / I regel det vårdsystem som skapade informationen eller det system hos vårdgivaren som är master för informationen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.dataController</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Identitet för den PUA som ansvarar för postens innehåll. / I första hand organisations-nummer eller HSA-id för den PUA som ansvarar för postens innehåll, i andra hand en källsystemsintern identitet för PUA. (Tidigare har även källsystemets HSA-id tillåtits.) / Viktigt att välja ett värde som PUA kan använda för att fullgöra sin roll som personuppgifts-ansvarig för sin information i engagemangsindex.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>| Notera att vissa element finns representerade i schemafilerna på grund av att typen som används är gemensamt definierad. Dessa ska inte användas i denna interaktion, detta gäller: / engagementTransaction .engagement.creationTime / engagementTransaction .engagement.updateTime / engagementTransaction .engagement.owner |
+| :— |</p>
+
+<h5 id="svar">Svar</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">Kodverk</td>
+      <td style="text-align: left">Status enligt generell regel.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Meddelande enligt generell regel</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="findcontent">FindContent</h3>
+
+<h4 id="begäran-1">Begäran</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">registeredResidentIdentification</td>
+      <td style="text-align: left">Nationell accepterad personidentitet</td>
+      <td style="text-align: left">Enligt formatregler i meddelandemodellen</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">serviceDomain</td>
+      <td style="text-align: left">URN</td>
+      <td style="text-align: left">Namnrymd för Tjänstedomän / exempel:</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">urn:riv:clinicalprocess:activity:request</td>
+      <td style="text-align: left">1..1</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">categorization</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kodverk enligt tjänstedomänens dokumentation.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">logicalAddress</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Enligt tjänstedomänens dokumentation.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.businessObjectInstanceIdentifier</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Enligt tjänstedomänens dokumentation.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">clinicalProcessInterestId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Enligt tjänstedomänens dokumentation</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mostRecentContent</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left">YYYYMMDDhhmmss.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sourceSystem</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">Källsystemet som innehåller den information som EI-posten pekar ut. / I regel det vårdsystem som skapade informationen eller det system hos vårdgivaren som är master för informationen.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dataController</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Identitet för den PUA som ansvarar för postens innehåll. / I första hand organisationsnummer eller HSA-id för den PUA som ansvarar för postens innehåll, i andra hand en källsystemsintern identitet för PUA. (Tidigare har även källsystemets HSA-id tillåtits.) / Viktigt att välja ett värde som PUA kan använda för att fullgöra sin roll som personuppgiftsansvarig för sin information i engagemangsindex.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">owner</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">HSA-id för den organisations vars index tog emot uppdateringsbegäran.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="svar-1">Svar</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">engagement</td>
+      <td style="text-align: left">EngagementType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagement.registeredResidentIdentification</td>
+      <td style="text-align: left">Nationell accepterad personidentitet</td>
+      <td style="text-align: left">Enligt formatregler i meddelandemodell</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagement.serviceDomain</td>
+      <td style="text-align: left">URN</td>
+      <td style="text-align: left">Namnrymd för Tjänstedomän / exempel:</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">urn:riv:clinicalprocess:activity:request</td>
+      <td style="text-align: left">1..1</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagement.categorization</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Enligt tjänstedomänens dokumentation.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagement.logicalAddress</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Enligt tjänstedomänens dokumentation.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.businessObjectInstanceIdentifier</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Enligt tjänstedomänens dokumentation.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagement.clinicalProcessInterestId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Enligt tjänstedomänens dokumentation.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagement.mostRecentContent</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left">YYYYMMDDhhmmss</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagement.sourceSystem</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">Källsystemet som innehåller den information som EI-posten pekar ut. / I regel det vårdsystem som skapade informationen eller det system hos vårdgivaren som är master för informationen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagement.creationTime</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left">YYYYMMDDhhmmss</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagement.updateTime</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left">YYYYMMDDhhmmss</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagement.dataController</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Identitet för den PUA som ansvarar för postens innehåll. / I första hand organisationsnummer eller HSA-id för den PUA som ansvarar för postens innehåll, i andra hand en källsystemsintern identitet för PUA. (Tidigare har även källsystemets HSA-id tillåtits.) / Viktigt att välja ett värde som PUA kan använda för att fullgöra sin roll som personuppgiftsansvarig för sin information i engagemangsindex.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagement.owner</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">HSA-id för den organisations vars index tog emot uppdateringsbegäran.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="processnotification">ProcessNotification</h3>
+
+<h4 id="begäran-2">Begäran</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kardin-alitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">engagementTransaction</td>
+      <td style="text-align: left">EngagementTransactionType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction.deleteFlag</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">”true” anger att posten ska tas bort. False anger att posten ska skapas/uppdateras.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement</td>
+      <td style="text-align: left">EngagementType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.registeredResidentIdentification</td>
+      <td style="text-align: left">Nationell accepterad personidentitet</td>
+      <td style="text-align: left">Enligt formatregler i meddelandemodell</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.serviceDomain</td>
+      <td style="text-align: left">URN</td>
+      <td style="text-align: left">Namnrymd för Tjänstedomän / exempel:</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">urn:riv:clinicalprocess:activity:request</td>
+      <td style="text-align: left">1..1</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.categorization</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Enligt tjänstedomänens dokumentation.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.logicalAddress</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Enligt tjänstedomänens dokumentation.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.businessObjectInstanceIdentifier</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Enligt tjänstedomänens dokumentation.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.clinicalProcessInterestId</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">Enligt tjänstedomänens dokumentation.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.mostRecentContent</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left">Enligt tjänstedomänens dokumentation.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.sourceSystem</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">Källsystemet som innehåller den information som EI-posten pekar ut. / I regel det vårdsystem som skapade informationen eller det system hos vårdgivaren som är master för informationen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.creationTime</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left">YYYYMMDDhhmmss</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.updateTime</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left">YYYYMMDDhhmmss</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.dataController</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Identitet för den PUA som ansvarar för postens innehåll. / I första hand organisations-nummer eller HSA-id för den PUA som ansvarar för postens innehåll, i andra hand en källsystemsintern identitet för PUA. (Tidigare har även källsystemets HSA-id tillåtits.) / Viktigt att välja ett värde som PUA kan använda för att fullgöra sin roll som personuppgifts-ansvarig för sin information i engagemangsindex.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">engagementTransaction .engagement.owner</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">HSA-id för den organisations vars index tog emot ursprunglig uppdateringsbegäran.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="svar-2">Svar</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">Kodverk</td>
+      <td style="text-align: left">Status enligt generell regel.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Meddelande enligt generell regel</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.itintegration-engagementindex#1.0.9 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 9, 2026 17:04+0000">2026-09-09</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

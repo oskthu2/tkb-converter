@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>2 Generella regler - ehr: blocking — Spärrhantering v3.2.2</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link rel="stylesheet" href="fhir.css"/>
+
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-fhir.css"/>
+
+      <!-- Project extras -->
+    <link rel="stylesheet" href="assets/css/project.css"/>
+    <link rel="stylesheet" href="assets/css/pygments-manni.css"/>
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+  	<link rel="stylesheet" href="assets/css/prism.css"/>
+  	<link rel="stylesheet" href="assets/css/cqf.css"/>
+      <!-- Placeholder for child template CSS declarations -->
+
+    <script src="fhir-table-scripts.js" type="text/javascript"> </script>
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- [if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif] -->
+
+      <!-- Favicons -->
+    <link sizes="144x144" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-144.png"/>
+    <link sizes="114x114" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-114.png"/>
+    <link sizes="72x72" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script src="assets/js/mermaid.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
+    <style type="text/css">h2{--heading-prefix:"3"}
+    h3,h4,h5,h6{--heading-prefix:"3"}</style>
+    <div id="segment-header" class="segment">    <!-- segment-header -->
+      <div class="container">    <!-- container -->
+
+          <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">ehr: blocking — Spärrhantering</span>
+            <br/>
+            <span style="display:inline-block;">3.2.2 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div>   <!-- /container -->
+    </div>    <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">    <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">    <!-- container -->
+          <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+            <!-- status-bar -->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a href="http://hl7.org/fhir/R4/index.html" class="navbar-brand hidden">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-generella-regler.html">2 Generella regler</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>    <!-- /.nav-collapse -->
+          </div>    <!-- /.container -->
+        </nav>    <!-- /.navbar -->
+        <!-- /HEADER CONTENT -->
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-navbar -->
+      <!-- status-bar -->
+
+    <div id="segment-breadcrumb" class="segment">    <!-- segment-breadcrumb -->
+      <div class="container">    <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>2 Generella regler</b></li>
+
+        </ul>
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">    <!-- segment-content -->
+      <div class="container">    <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+    <!-- ReleaseHeader --><p id="publish-box">ehr: blocking — Spärrhantering - Local Development build (v3.2.2) built by the FHIR (HL7&reg; FHIR&reg; Standard) Build Tools. See the <a href="https://fhir.inera.se/ig/ehr-blocking/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  <h2>2 Generella regler</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>  <!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#generella-regler" id="markdown-toc-generella-regler">Generella regler</a>    <ul>
+      <li><a href="#säkerhet" id="markdown-toc-säkerhet">Säkerhet</a></li>
+      <li><a href="#hantering-av-otillgänglighet" id="markdown-toc-hantering-av-otillgänglighet">Hantering av otillgänglighet</a></li>
+      <li><a href="#felhantering" id="markdown-toc-felhantering">Felhantering</a></li>
+      <li><a href="#format-för-datum" id="markdown-toc-format-för-datum">Format för Datum</a></li>
+      <li><a href="#format-för-tidpunkter" id="markdown-toc-format-för-tidpunkter">Format för tidpunkter</a></li>
+      <li><a href="#tidszon-för-tidpunkter" id="markdown-toc-tidszon-för-tidpunkter">Tidszon för tidpunkter</a></li>
+      <li><a href="#logisk-adressering" id="markdown-toc-logisk-adressering">Logisk adressering</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="generella-regler">Generella regler</h2>
+
+<h3 id="säkerhet">Säkerhet</h3>
+
+<h4 id="förlitande-parter-enligt-riv-ta-basic-profile">Förlitande parter enligt RIV TA Basic Profile</h4>
+<p>Tjänsterna följer RIV Tekniska Anvisningar Basic Profile 2.1, vilket innebär att ett tekniskt trust-förhållande krävs mellan tjänstekonsumenten och tjänsteproducenten, baserat på att att konsument och producent ömsesidigt kan verifera det andra systemet via dess funktionscertifikat. Se vidare [RIV TA 2].</p>
+
+<h4 id="behörighetsstyrning">Behörighetsstyrning</h4>
+<p>Tjänsterna skall också utföra åtkomstkontroll för att kunna regelstyra vilken/vilka vårdgivares spärrar anropande system får operera på. Eftersom en viss tjänsteinstans normalt hanterar flera vårdgivares spärrnformation, behöver det finnas en logisk uppdelning som håller i sär vad respektive organisation kommer åt.
+Se respektive tjänst för specifika detaljer kring denna åtkomstkontroll.</p>
+
+<h4 id="stark-autentisering-av-slutanvändare">Stark autentisering av slutanvändare</h4>
+<p>Vid spärrhantering åligger krav på vårdgivaren att tillse att all åtkomst sker genom att användarna är starkt autentiserade och inte får åtkomst till mer uppgifter än nödvändigt i enlighet socialstyrelsens föreskrifter (SOSFS 2008:14). Dessa krav måste hanteras av det system som konsumerar tjänsterna enligt kontraktet. Om man som exempel bygger ett webbgränssnitt för spärradministration baserat på tjänstekontraktet för administration, behöver webbgränssnittet realisera dessa säkerhetskrav.</p>
+
+<h3 id="hantering-av-otillgänglighet">Hantering av otillgänglighet</h3>
+<p>Tjänstekontrakten stödjer en arkitektur där där det är möjligt att integrera mot tjänsterna utan att skapa ett hårt beroende till dessa i run-time.
+Ett vårdsystem som endast har behov av spärrar tillhörande lokala/regionala vårdgivare, kan anropa tjänsten på  lokal nivå med angivande av ett begränsat organisationsomfång. Otillgänglighet på nationell spärrtjänst får inte påverka ett sådant svar från tjänsten.
+För frågor som ställs med det nationella omfånget finns ett naturligt beroende till tillgång till det samlade underlaget i nationell spärrtjänst.
+För att hantera åtkomst till vårdinformation i ett system är det främst tillgång till spärrunderlaget som är kritiskt. Ett vårdsystem kan skydda sig från ett absolut beroende till tjänsterna i run-time genom att mellanlagra senaste spärrunderlaget respektive senaste spärrkontrollsbeslutet. Verksamhetens krav på aktualitet på spärrunderlaget måste här avgöra hur länge spärrinformationen kan mellanlagras.
+Tjänsteproducenten, t ex på lokal nivå, kan nyttja mellanlagring för att öka tillgängligheten på tjänsterna. Ett svar kan då returneras även om bakomliggande system för tillfället är otillgängligt. Det måste dock anges i SLA för en viss implemention av tjänsten vilken förväntad aktualitet som gäller.
+Lokal spärrtjänst skall ej påverkas av ett scenario där den nationella spärrtjänsten blir otillgänglig. De spärrar som finns tillgängliga i den lokala spärrtjänsten skall alltid returneras till anroparen.</p>
+
+<h3 id="felhantering">Felhantering</h3>
+<p>Vid ett tekniskt fel levereras ett undantag (SOAP-Exception). Exempel på detta kan vara deadlock i databasen eller följdeffekter av programmeringsfel. Denna information bör loggas av konsumenten. Informationen är inte riktad till användaren.
+Vid ett logiskt fel i de uppdaterande tjänsterna levereras typen ResultType (resultCode, resultText).
+En anropande klient skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom "OK" och ”INFO” betyder att åtgärden inte genomfördes. Se ResultType nedan för detaljerad specifikation.
+Ett förlåtande tillvägagångssätt när det gäller hantering av fel rekommenderas. T.ex om ett vårdsystem försöker registrera en spärr dubbelt bör resultatet i båda fallen bli ”OK” för att minska ner möjliga felsituationer.</p>
+
+<h3 id="format-för-datum">Format för Datum</h3>
+<p>Datum anges alltid på formatet ”ÅÅÅÅ-MM-DD”, vilket motsvara den ISO 8601 och ISO 8824-kompatibla formatbeskrivningen ”YYYY-MM-DD”. W3C-datatypen date används i tjänstekontrakten för att realisera detta.</p>
+
+<h3 id="format-för-tidpunkter">Format för tidpunkter</h3>
+<p>Flera av tjänsterna handlar om att utbyta information om tidpunkter.
+Tidpunkter anges alltid på formatet ”ÅÅÅÅ-MM-DDTtt:mm:ss”, vilket motsvara den ISO 8601 och ISO 8824-kompatibla formatbeskrivningen ”YYYY-MM-DDThh:mm:ss”. W3C-datatypen dateTime används i tjänstekontrakten för att realisera detta.</p>
+
+<h3 id="tidszon-för-tidpunkter">Tidszon för tidpunkter</h3>
+<p>Tidszon anges inte i meddelandeformaten. Alla information om datum och tidpunkter som utbyts via tjänsterna ska ange datum och tidpunkter i den tidszon som gäller/gällde i Sverige vid den tidpunkt som respektive datum- eller tidpunktsfält bär information om. Såväl tjänstekonsumenter som tjänsteproducenter skall med andra ord förutsätta att datum och tidpunkter som utbyts är i tidszonerna CET (svensk normaltid) respektive CEST (svensk normaltid med justering för sommartid).</p>
+
+<h3 id="logisk-adressering">Logisk adressering</h3>
+<p>Alla tjänster i tjänstegränssnitten följer RIV-TA-profilens standard för logisk adressering. Med logisk adressering ges möjligheten att kunna ange en logisk adress/mottagare i det fall en tjänsteväxel (tjänsteplattform) används. Detta möjliggör att en för avsändaren transparent tjänsteväxel kan förmedla anrop vidare till en viss instans av spärrtjänsten och även behörighetsstyra anropet. Logisk adressat skall anges även om spärrtjänsten för stunden inte går via en tjänsteväxel.
+Alla tjänster har ett obligatoriskt meddelandefält där mottagande vårdgivares HSA-id skall anges som logisk adressat. För de generella/nationella tjänsterna som inte har en specifik organisationstillhörighet skall Ineras nationella HSA-id SE165565594230-1000. De generella tjänsterna representerar en nationell nivå och hanterar alla nationellt kända informationsposter. Se tabellen nedan hur adressat skall anges.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Operation</th>
+      <th style="text-align: left">Logisk adressat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">GetAllBlocks</td>
+      <td style="text-align: left">Om anropet sker på nationell nivå används SE165565594230-1000, i annat fall anges HSA-id för den organisation vars tjänst adresseras (t ex HSA-id för Region Skåne) Undantagsvis kan s.k. källsystembaserad adressering användas, (t ex. HSA-id för Region Skånes lokala spärrtjänst).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetAllBlocksForPatient</td>
+      <td style="text-align: left">Om anropet sker på nationell nivå används SE165565594230-1000, i annat fall anges HSA-id för den organisation vars tjänst adresseras (t ex HSA-id för Region Skåne) Undantagsvis kan s.k. källsystembaserad adressering användas, (t ex. HSA-id för Region Skånes lokala spärrtjänst).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CheckBlocks</td>
+      <td style="text-align: left">Om anropet sker på nationell nivå används SE165565594230-1000, i annat fall anges HSA-id för den organisation vars tjänst adresseras (t ex HSA-id för Region Skåne) Undantagsvis kan s.k. källsystembaserad adressering användas, (t ex. HSA-id för Region Skånes lokala spärrtjänst).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetBlocks</td>
+      <td style="text-align: left">HSA-id för aktörens vårdgivare</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetBlocksForPatient</td>
+      <td style="text-align: left">HSA-id för aktörens vårdgivare</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetPatientIds</td>
+      <td style="text-align: left">HSA-id för aktörens vårdgivare</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetExtendedBlocksForPatient</td>
+      <td style="text-align: left">HSA-id för aktörens vårdgivare</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RegisterBlock</td>
+      <td style="text-align: left">SE165565594230-1000</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UnregisterBlock</td>
+      <td style="text-align: left">SE165565594230-1000</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RegisterTemporaryRevoke</td>
+      <td style="text-align: left">SE165565594230-1000</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UnregisterTemporaryRevoke</td>
+      <td style="text-align: left">SE165565594230-1000</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RegisterExtendedBlock</td>
+      <td style="text-align: left">HSA-id för vårdgivaren som spärren gäller för</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RevokeExtendedBlock</td>
+      <td style="text-align: left">HSA-id för vårdgivaren som spärren gäller för</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RegisterTemporaryExtendedRevoke</td>
+      <td style="text-align: left">HSA-id för vårdgivaren som spärren gäller för</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CancelTemporaryExtendedRevoke</td>
+      <td style="text-align: left">HSA-id för vårdgivaren som spärren gäller för</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DeleteExtendedBlock</td>
+      <td style="text-align: left">HSA-id för vårdgivaren som spärren gäller för</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="exempel-på-logisk-adressering-för-operationen-getallblocksforpatient">Exempel på logisk adressering för operationen GetAllBlocksForPatient</h4>
+<p>Nedan visas ett exempel på hur logisk adressering kan användas för operationen GetAllBlocksForPatient. Det lokala systemet B1 kan använda den logiska addressen ”S”, som motsvarar källsystemsaddresseringen av den regionala spärrtjänsten, eller organisationstillhörigheten, dvs den logiska adressen ”B” i exemplet nedan. Bägge addresseringarna gör att anropet routas till den regionala spärrtjänsten. Alternativt, ifall det lokala systmetet B1 vill att anropet ska nå den nationella spärrtjänsten ska den logiska adressen sättas till ”Inera”, dvs hsa-id:et SE165565594230-1000.</p>
+
+<p><a name="l503">​</a><img src="images/img_002.png" alt="img_002.png"/></p>
+
+
+
+</div>
+        </div>    <!-- /inner-wrapper -->
+      </div>    <!-- /row -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-content -->
+
+  <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script src="assets/js/jquery-ui.min.js" type="text/javascript"> </script>
+
+  <script src="assets/js/window-hash.js" type="text/javascript"> </script>
+  <a name="bottom"> </a>
+  <div igtool="footer" id="segment-footer" class="segment">    <!-- segment-footer -->
+    <div class="container">    <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &copy; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.ehr-blocking#3.2.2 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 9, 2026 16:51+0000">2026-09-09</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>    <!-- /inner-wrapper -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">    <!-- segment-post-footer -->
+    <div class="container">    <!-- container -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-post-footer -->
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+  <script src="assets/js/respond.min.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard-btn.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor-hover.js" type="text/javascript"> </script>
+    <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>

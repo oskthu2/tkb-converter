@@ -1,0 +1,233 @@
+# SaveFormPage - infrastructure: supportservices: forminteraction v2.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **SaveFormPage**
+
+## Logical Model: SaveFormPage 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/StructureDefinition/saveformpage | *Version*:2.0.0 |
+| Draft as of 2026-09-09 | *Computable Name*:SaveFormPage |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svar (response) i tjänstekontraktet SaveFormPage (RIV-TA urn:riv:infrastructure:supportservices:forminteraction:SaveFormPage:2). Returnerar nästa sida med frågor (eller samma sida vid temporarySave). Vid valideringsfel returneras felindikering via ResultCode och AnswerStatus. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.infrastructure-supportservices-forminteraction|current/StructureDefinition/StructureDefinition-saveformpage.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-saveformpage.csv), [Excel](StructureDefinition-saveformpage.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "saveformpage",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/StructureDefinition/saveformpage",
+  "version" : "2.0.0",
+  "name" : "SaveFormPage",
+  "title" : "SaveFormPage",
+  "status" : "draft",
+  "date" : "2026-09-09T17:02:06+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svar (response) i tjänstekontraktet SaveFormPage\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:SaveFormPage:2).\nReturnerar nästa sida med frågor (eller samma sida vid temporarySave).\nVid valideringsfel returneras felindikering via ResultCode och AnswerStatus.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/StructureDefinition/saveformpage",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "saveformpage",
+      "path" : "saveformpage",
+      "short" : "SaveFormPage",
+      "definition" : "Logisk modell för svar (response) i tjänstekontraktet SaveFormPage\n(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:SaveFormPage:2).\nReturnerar nästa sida med frågor (eller samma sida vid temporarySave).\nVid valideringsfel returneras felindikering via ResultCode och AnswerStatus."
+    },
+    {
+      "id" : "saveformpage.form",
+      "path" : "saveformpage.form",
+      "short" : "Formuläret med nästa sida (eller samma sida vid temporarySave)",
+      "definition" : "Formuläret med nästa sida (eller samma sida vid temporarySave)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "saveformpage.form.formId",
+      "path" : "saveformpage.form.formId",
+      "short" : "Formulärets unika ID",
+      "definition" : "Formulärets unika ID",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "saveformpage.form.formStatus",
+      "path" : "saveformpage.form.formStatus",
+      "short" : "Formulärets status",
+      "definition" : "Formulärets status",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/ValueSet/formstatus-vs"
+      }
+    },
+    {
+      "id" : "saveformpage.form.currentPage",
+      "path" : "saveformpage.form.currentPage",
+      "short" : "Nästa/aktuella sida med frågor",
+      "definition" : "Nästa/aktuella sida med frågor",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "saveformpage.form.currentPage.pageNumber",
+      "path" : "saveformpage.form.currentPage.pageNumber",
+      "short" : "Sidans nummer",
+      "definition" : "Sidans nummer",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "saveformpage.form.currentPage.subject",
+      "path" : "saveformpage.form.currentPage.subject",
+      "short" : "Sidans rubrik",
+      "definition" : "Sidans rubrik",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "saveformpage.form.currentPage.lastPage",
+      "path" : "saveformpage.form.currentPage.lastPage",
+      "short" : "True = sista sidan",
+      "definition" : "True = sista sidan",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "saveformpage.form.currentPage.questionBlock",
+      "path" : "saveformpage.form.currentPage.questionBlock",
+      "short" : "Frågegrupperingar",
+      "definition" : "Frågegrupperingar",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "saveformpage.form.currentPage.questionBlock.question",
+      "path" : "saveformpage.form.currentPage.questionBlock.question",
+      "short" : "Frågor med eventuell felindikering",
+      "definition" : "Frågor med eventuell felindikering",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "saveformpage.form.currentPage.questionBlock.question.questionId",
+      "path" : "saveformpage.form.currentPage.questionBlock.question.questionId",
+      "short" : "Frågans ID",
+      "definition" : "Frågans ID",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "saveformpage.form.currentPage.questionBlock.question.questionText",
+      "path" : "saveformpage.form.currentPage.questionBlock.question.questionText",
+      "short" : "Frågetext",
+      "definition" : "Frågetext",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "saveformpage.form.currentPage.questionBlock.question.answerStatus",
+      "path" : "saveformpage.form.currentPage.questionBlock.question.answerStatus",
+      "short" : "Valideringsstatus (vid fel)",
+      "definition" : "Valideringsstatus (vid fel)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "saveformpage.form.currentPage.questionBlock.question.answerStatus.resultCode",
+      "path" : "saveformpage.form.currentPage.questionBlock.question.answerStatus.resultCode",
+      "short" : "Svarskod: OK, ERROR etc.",
+      "definition" : "Svarskod: OK, ERROR etc.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "saveformpage.form.currentPage.questionBlock.question.answerStatus.comment",
+      "path" : "saveformpage.form.currentPage.questionBlock.question.answerStatus.comment",
+      "short" : "Kommentar/felbeskrivning",
+      "definition" : "Kommentar/felbeskrivning",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

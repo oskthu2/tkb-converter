@@ -1,0 +1,978 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>8 Datatyper - ehr: log v1.2.3</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"5"}
+    h3,h4,h5,h6{--heading-prefix:"5"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">ehr: log</span>
+            <br/>
+            <span style="display:inline-block;">1.2.3 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <menu xmlns="http://www.w3.org/1999/xhtml">
+  <item name="Home" url="index.html"/>
+  <item name="1 Inledning" url="1-inledning.html"/>
+  <item name="2 Generella regler" url="2-generella-regler.html"/>
+  <item name="7 Tjänstekontrakt" url="7-tjanstekontrakt.html"/>
+  <item name="8 Datatyper" url="8-datatyper.html"/>
+  <item name="Artifacts" url="artifacts.html"/>
+</menu>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>8 Datatyper</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">ehr: log - Local Development build (v1.2.3) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/ehr-log/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>8 Datatyper</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#datatyper" id="markdown-toc-datatyper">Datatyper</a>    <ul>
+      <li><a href="#datatyper-från-namnrymd-urnrivehrlog1" id="markdown-toc-datatyper-från-namnrymd-urnrivehrlog1">Datatyper från namnrymd urn:riv:ehr:log:1</a></li>
+      <li><a href="#datatyper-från-namnrymd-urnrivehrlogquerying1" id="markdown-toc-datatyper-från-namnrymd-urnrivehrlogquerying1">Datatyper från namnrymd urn:riv:ehr:log.querying:1</a></li>
+      <li><a href="#datatyper-från-namnrymd-urnrivehrlogstore1" id="markdown-toc-datatyper-från-namnrymd-urnrivehrlogstore1">Datatyper från namnrymd urn:riv:ehr:log.store:1</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="datatyper">Datatyper</h2>
+<p>Kaptitlet beskriver alla datatyper som används av tjänsterna, version 1.0.</p>
+
+<h3 id="datatyper-från-namnrymd-urnrivehrlog1">Datatyper från namnrymd urn:riv:ehr:log:1</h3>
+<p>Nedan beskrivs några komplexa datatyper som är deklarerade i den beroende namnrymden urn:riv:ehr:log:1, version 1.0. Dessa datatyper är vanligt förekommande i övriga tjänster senare i kapitlet.</p>
+
+<h4 id="logactivity">log:Activity</h4>
+<p>Datatyp som representerar vilken typ av aktivitet som utförts, på vilken nivå, tidpunkt samt syftet med aktiviteten.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">activityType</td>
+      <td style="text-align: left">log:ActivityTypeValue</td>
+      <td style="text-align: left">Värde som anger vilken typ av aktivitet som utförts. / Något av dessa värden ska anges: Läsa, Skriva, Signera, Utskrift, Vidimera, Radera och Nödöppning</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">activityLevel</td>
+      <td style="text-align: left">log:ActivityLevel</td>
+      <td style="text-align: left">Information om vilken nivå som aktivitet utförts på.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">activityArgs</td>
+      <td style="text-align: left">log:ActivityArgs</td>
+      <td style="text-align: left">Övrig information för aktiviteten. T.ex. parameterar för en rapport.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">startDate</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Information om tidpunkt som aktivitet utfördes på.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">purpose</td>
+      <td style="text-align: left">log:PurposeDescription</td>
+      <td style="text-align: left">Information om syftet med aktiviten. / Något av dessa värden ska anges: Vård och behandling, Kvalitetssäkring, Annan dokumentation enligt lag, Statistik, Administration och Kvalitetsregister.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logactivityargs">log:ActivityArgs</h4>
+<p>Datatyp som representerar en .
+Maxlängd: 8192</p>
+
+<h4 id="logactivitylevel">log:ActivityLevel</h4>
+<p>Datatyp som representerar en aktivitets nivå.
+Maxlängd: 50</p>
+
+<h4 id="logactivitytype">log:ActivityType</h4>
+<p>Enumerationsvärde som anger typ av aktivitet som utförts.
+Kan vara Läsa, Skriva, Signera, Utskrift, Vidimera, Radera, Nödöppning</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">"Läsa"</td>
+      <td style="text-align: left">En läsning av data har utförts.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"Skriva"</td>
+      <td style="text-align: left">En aktivitet där något läggs till.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"Signera"</td>
+      <td style="text-align: left">Signering har utförts.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"Utskrift"</td>
+      <td style="text-align: left">En utskrift har utförts.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"Vidimera"</td>
+      <td style="text-align: left">En autentisering har utförts.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"Radera"</td>
+      <td style="text-align: left">Något har raderats.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"Nödöppning"</td>
+      <td style="text-align: left">Nödöppning har gjorts.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logassignment">log:Assignment</h4>
+<p>Datatyp som representerar namn på medarbetare i uppdrag.
+Maxlängd: 256</p>
+
+<h4 id="logcareprovider">log:CareProvider</h4>
+<p>Datatyp som representerar en vårdgivare.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">careProviderId</td>
+      <td style="text-align: left">log:HsaId</td>
+      <td style="text-align: left">Vårdgivarens id.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderName</td>
+      <td style="text-align: left">log:CareProviderName</td>
+      <td style="text-align: left">Vårdgivarens namn. Värdet är ej obligatoriskt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logcareprovidername">log:CareProviderName</h4>
+<p>Datatyp som representerar namn på en vårdgivare.
+Maxlängd: 256</p>
+
+<h4 id="logcareunit">log:CareUnit</h4>
+<p>Datatyp som representerar en vårdenhet.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">careUnitId</td>
+      <td style="text-align: left">log:HsaId</td>
+      <td style="text-align: left">Vårdenhetens id.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnitName</td>
+      <td style="text-align: left">log:CareUnitName</td>
+      <td style="text-align: left">Vårdenhetens namn. Värdet är ej obligatoriskt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logcareunitname">log:CareUnitName</h4>
+<p>Datatyp som representerar namn på en vårdenhet.
+Maxlängd: 256</p>
+
+<h4 id="loghsaid">log:HsaId</h4>
+<p>Datatyp som representerar det unika nummer som identifierar en anställd, uppdragstagare, strukturenhet eller en HCC funktion (HSA-id).
+Specificerat enligt HSA-schema tjänsteträdet version 3.9.
+Maxlängd: 32</p>
+
+<h4 id="logid">log:Id</h4>
+<p>Datatyp som representerar ett unikt identifikationsnummer enligt formatet för UUID (Universally Unique Identifier).
+Maxlängd: 36</p>
+
+<h4 id="loglog">log:Log</h4>
+<p>Datatyp som representerar en loggpost enligt PDL. Datatypen beskriver grundformatet för en loggpost.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">logId</td>
+      <td style="text-align: left">log:Id</td>
+      <td style="text-align: left">Unik, global identifierare för loggposten.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">system</td>
+      <td style="text-align: left">log:System</td>
+      <td style="text-align: left">Information om systemet som skapar loggpost. Innehåller systemets id samt eventuellt namn.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">activity</td>
+      <td style="text-align: left">log:Activity</td>
+      <td style="text-align: left">Information om aktivitet som utförts och som ska loggas. Innehåller typ av aktivitet, datum för aktiviteten och i vilket syfte som aktiviteten utfördes.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">user</td>
+      <td style="text-align: left">log:User</td>
+      <td style="text-align: left">Information om användaren som utfört aktivitet. Innehåller användarens id samt till vilken vårdenhet användaren tillhör. Kan även innehålla ej obligatoriska uppgifter som namn, personnummer, uppdrag och titel.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resources</td>
+      <td style="text-align: left">log:Resources</td>
+      <td style="text-align: left">Information om aktuella resurser.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logpatient">log:Patient</h4>
+<p>Datatyp som representerar en patient i en resurs.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">log:PersonId</td>
+      <td style="text-align: left">Patientens id nummer, kan vara personnummer, samordningsnummer alternativt reservnummer.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientName</td>
+      <td style="text-align: left">log:PatientName</td>
+      <td style="text-align: left">Patienten namn. Värdet är ej obligatoriskt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logpatientname">log:PatientName</h4>
+<p>Datatyp som representerar en patients namn.
+Maxlängd: 256</p>
+
+<h4 id="logpersonid">log:PersonId</h4>
+<p>Datatyp som representerar ett personnummer, samordningsnummer eller ett reservnummer.
+Maxlängd: 12</p>
+
+<h4 id="logpurposedescription">log:PurposeDescription</h4>
+<p>Datatyp som representerar beskrivning av ett syfte i Hsa.
+Maxlängd: 256</p>
+
+<h4 id="logactivitytypevalue">log:ActivityTypeValue</h4>
+<p>Datatyp som representerar beskrivning av en aktivitetstyp.
+Maxlängd: 256</p>
+
+<h4 id="logresource">log:Resource</h4>
+<p>Datatyp som representerar en resurs i loggposten.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">resourceType</td>
+      <td style="text-align: left">log:ResourceTypeValue</td>
+      <td style="text-align: left">Information om vilken typ av resurs som loggpost avser. Kan vara kemlabbsvar, journaltext, remiss, översikt, samtycke, patientrelation, sätta spärr, rapport osv.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patient</td>
+      <td style="text-align: left">log:Patient</td>
+      <td style="text-align: left">Information om vilken patient som resursen avser. Värdet är ej obligatoriskt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProvider</td>
+      <td style="text-align: left">log:CareProvider</td>
+      <td style="text-align: left">Information om vilken vårdgivare resursen tillhör.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnit</td>
+      <td style="text-align: left">log:CareUnit</td>
+      <td style="text-align: left">Information om vilken vårdenhet resursen tillhör.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logresourcetypevalue">log:ResourceTypeValue</h4>
+<p>Datatyp som representerar en aktivitets nivå.
+Maxlängd: 50</p>
+
+<h4 id="logresources">log:Resources</h4>
+<p>Information om aktuella resurser. En loggpost kan hålla en eller flera resurser.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">resource</td>
+      <td style="text-align: left">log:Resource</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logresultcode">log:ResultCode</h4>
+<p>Enumerationsvärde som anger de svarskoder som finns.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">"OK"</td>
+      <td style="text-align: left">Transaktionen har utförts enligt uppdraget.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"INFO"</td>
+      <td style="text-align: left">Transaktionen har utförts enligt begäran, men det finns ett meddelande som konsumenten måste visa upp för användaren (om tillämpbart). Exempel på detta kan vara "kom fastande".</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"ERROR"</td>
+      <td style="text-align: left">Transaktionen har INTE kunnat utföras p.g.a ett logiskt fel. Det finns ett meddelande som konsumenten måste visa upp. Exempel på detta kan vara "tiden har bokats av annan patient".</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"VALIDATION_ERROR"</td>
+      <td style="text-align: left">En eller flera inparametrar innehåller felaktiga värden. Angiven tjänst utfördes ej.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"ACCESSDENIED"</td>
+      <td style="text-align: left">Behörighet saknas för att utföra begärd tjänst. Angiven tjänst utfördes ej.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"REPORT_ON_QUEUE"</td>
+      <td style="text-align: left">Angiven rapport är ej klar. Rapporten ligger på kö för att genereras. Ytterligere anrop kan göras för att kontrollera om jobbet är klart.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"REPORT_IN_PROCESS"</td>
+      <td style="text-align: left">Angiven rapport är ej klar. Rapporten är under uppbyggnad. Ytterligere anrop kan göras för att kontrollera om jobbet är klart.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"REPORT_NOT_FOUND"</td>
+      <td style="text-align: left">Felaktig id angivet. Angiven tjänst ej kan hitta rapport med angivet id som är skapad eller rapport som ligger på kö för att skapas.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"MAX_QUERY_RESULT_EXCEEDED"</td>
+      <td style="text-align: left">Max antal loggposter som tjänsten kan returnera har överstigits. Ändra sökparametrar för att begränsa rapportuttaget.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logsystem">log:System</h4>
+<p>Datatyp som representerar ett system i loggposten. Det system som skapar loggposten.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">systemId</td>
+      <td style="text-align: left">log:HsaId</td>
+      <td style="text-align: left">Systemets id.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">systemName</td>
+      <td style="text-align: left">log:SystemName</td>
+      <td style="text-align: left">Systemets namn. Värdet är ej obligatoriskt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logsystemname">log:SystemName</h4>
+<p>Datatyp som representerar namn på ett system.
+Maxlängd: 256</p>
+
+<h4 id="loguser">log:User</h4>
+<p>Datatyp som representerar användaren som utfört aktivitet, tillika ägare av loggpost.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">userId</td>
+      <td style="text-align: left">log:HsaId</td>
+      <td style="text-align: left">Användarens id. Loggpostens ägare.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">log:UserName</td>
+      <td style="text-align: left">Användarens fulla namn. Värdet är ej obligatoriskt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId</td>
+      <td style="text-align: left">log:PersonId</td>
+      <td style="text-align: left">Användarens id nummer, kan vara personnummer, samordningsnummer alternativt reservnummer. Värdet är ej obligatoriskt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">assignment</td>
+      <td style="text-align: left">log:Assignment</td>
+      <td style="text-align: left">Namn på medarbetare i uppdrag, exempelvis sjuksköterska på kirurgkliniken. Värdet är ej obligatoriskt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">title</td>
+      <td style="text-align: left">log:UserTitle</td>
+      <td style="text-align: left">Användarens titel. Värdet är ej obligatoriskt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProvider</td>
+      <td style="text-align: left">log:CareProvider</td>
+      <td style="text-align: left">Användarens vårdgivare när aktivitet utfördes. Den vårdgivaren är ägare av loggposten.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnit</td>
+      <td style="text-align: left">log:CareUnit</td>
+      <td style="text-align: left">Användarens vårdenhet när aktivitet utfördes.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logusername">log:UserName</h4>
+<p>Datatyp som representerar namn för en användare.
+Maxlängd: 256</p>
+
+<h4 id="logusertitle">log:UserTitle</h4>
+<p>Datatyp som representerar titel på användare.
+Maxlängd: 256</p>
+
+<h3 id="datatyper-från-namnrymd-urnrivehrlogquerying1">Datatyper från namnrymd urn:riv:ehr:log.querying:1</h3>
+<p>Nedan beskrivs några komplexa datatyper som är deklarerade i aktuell namnrymd urn:riv:ehr:log.querying:1, version 1.0. Dessa datatyper är vanligt förekommande i övriga tjänster senare i kapitlet.</p>
+
+<h4 id="logqueryingaccesslogtype">log.querying:AccessLogType</h4>
+<p>Datatyp som håller information för vilken vårdgivare och vårdenhet som haft åtkomst samt typ av resurs, orsak och tidpunkt.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">CareProviderId</td>
+      <td style="text-align: left">log:HsaId</td>
+      <td style="text-align: left">Vårdgivare som haft åtkomst.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CareProviderName</td>
+      <td style="text-align: left">log:CareProviderName</td>
+      <td style="text-align: left">Namn på vårdgivare som haft åtkomst.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CareUnitId</td>
+      <td style="text-align: left">log:HsaId</td>
+      <td style="text-align: left">Vårdenhet som haft åtkomst.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CareUnitName</td>
+      <td style="text-align: left">log:CareUnitName</td>
+      <td style="text-align: left">Namn på vårdenhet som haft åtkomst.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AccessDate</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Tidpunkt för åtkomst.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UserId</td>
+      <td style="text-align: left">log:HsaId</td>
+      <td style="text-align: left">Aktörens Id</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UserName</td>
+      <td style="text-align: left">log:UserName</td>
+      <td style="text-align: left">Namn på vårdaktören</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UserTitle</td>
+      <td style="text-align: left">log:UserTitle</td>
+      <td style="text-align: left">Titel på vårdaktören</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Purpose</td>
+      <td style="text-align: left">log:PurposeDescription</td>
+      <td style="text-align: left">Information om syftet med aktiviten. / kan vara något av dessa värden: Vård och behandling, Kvalitetssäkring, Annan dokumentation enligt lag, Statistik, Administration och Kvalitetsregister.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ResourceType</td>
+      <td style="text-align: left">log:ResourceTypeValue</td>
+      <td style="text-align: left">Typ av resurs.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logqueryingaccesslogs">log.querying:AccessLogs</h4>
+<p>Datatyp som håller lista med Access loggar. Kan vara en tom lista.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">accessLog</td>
+      <td style="text-align: left">log.querying:AccessLog</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logqueryingaccesslogsresult">log.querying:AccessLogsResult</h4>
+<p>Datatyp som returneras av tjänst. accessLogs ej satt vid eventuella fel.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">accesssLogs</td>
+      <td style="text-align: left">log.querying:AccessLogs</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logqueryingcareproviders">log.querying:CareProviders</h4>
+<p>Datatyp som håller lista med vårdgivare. Kan vara en tom lista.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">careProvider</td>
+      <td style="text-align: left">log:CareProvider</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logqueryinginfologsresult">log.querying:InfoLogsResult</h4>
+<p>Datatyp som returneras av tjänst. careProviders är ej satt vid eventuella fel.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">careProviders</td>
+      <td style="text-align: left">log.querying:CareProviders</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logqueryinglogs">log.querying:Logs</h4>
+<p>Datatyp som håller lista med loggposter. Kan vara en tom lista</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">log</td>
+      <td style="text-align: left">log:Log</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logqueryinglogsresult">log.querying:LogsResult</h4>
+<p>Datatyp som returneras av tjänst. logs är ej satt vid eventuella fel.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">logs</td>
+      <td style="text-align: left">log.querying:Logs</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logqueryingresult">log.querying:Result</h4>
+<p>Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc.
+En anropande klient skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades.
+Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">log:ResultCode</td>
+      <td style="text-align: left">Anger svarskod för åtgärden.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">xs:string</td>
+      <td style="text-align: left">Optionellt felmeddelande som innehåller information om felet som uppstod. Fältet är tomt om resultatkoden är "OK".</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">startInterval</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Parameter som anger datum för första loggposten som finns för uppföljning när rapporten skapas.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">endInterval</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Parameter som anger datum för sista loggposten som finns för uppföljning när rapporten skapas.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">queuedReportId</td>
+      <td style="text-align: left">log:Id</td>
+      <td style="text-align: left">Parameter som anger id på den rapport som efterfrågas och returneras om anropet avslutas innan rapporten är genererad. Ytterligare anrop kan då göras / med raport id som inparameter för att hämta rapport. Finns för att undvika hängande anrop samt köa upp jobb vid hög belastning.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">queueTime</td>
+      <td style="text-align: left">xs:int</td>
+      <td style="text-align: left">Parameter som anger ungefärlig tid det förväntas ta innan rapporten är genererad och returneras tillsammans med queuedReportId. / Ytterligare anrop kan då göras av anropande system efter föväntad tid har gått.	Finns för att undvika hängande anrop. Anges i sekunder.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="datatyper-från-namnrymd-urnrivehrlogstore1">Datatyper från namnrymd urn:riv:ehr:log.store:1</h3>
+<p>Nedan beskrivs några komplexa datatyper som är deklarerade i aktuell namnrymd urn:riv:ehr:log.store:1, version 1.0. Dessa datatyper är vanligt förekommande i övriga tjänster senare i kapitlet.</p>
+
+<h4 id="logstoreresult">log.store:Result</h4>
+<p>Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc.
+En anropande klient skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades.
+Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">log:ResultCode</td>
+      <td style="text-align: left">Anger svarskod för åtgärden.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">xs:string</td>
+      <td style="text-align: left">Optionellt felmeddelande som innehåller information om felet som uppstod. Fältet är tomt om resultatkoden är "OK".</td>
+      <td style="text-align: left">1</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.ehr-log#1.2.3 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 9, 2026 16:53+0000">2026-09-09</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

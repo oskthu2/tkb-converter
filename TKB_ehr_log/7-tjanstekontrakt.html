@@ -1,0 +1,1903 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>7 Tjänstekontrakt - ehr: log v1.2.3</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link rel="stylesheet" href="fhir.css"/>
+
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-fhir.css"/>
+
+      <!-- Project extras -->
+    <link rel="stylesheet" href="assets/css/project.css"/>
+    <link rel="stylesheet" href="assets/css/pygments-manni.css"/>
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+  	<link rel="stylesheet" href="assets/css/prism.css"/>
+  	<link rel="stylesheet" href="assets/css/cqf.css"/>
+      <!-- Placeholder for child template CSS declarations -->
+
+    <script src="fhir-table-scripts.js" type="text/javascript"> </script>
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- [if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif] -->
+
+      <!-- Favicons -->
+    <link sizes="144x144" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-144.png"/>
+    <link sizes="114x114" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-114.png"/>
+    <link sizes="72x72" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script src="assets/js/mermaid.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
+    <style type="text/css">h2{--heading-prefix:"4"}
+    h3,h4,h5,h6{--heading-prefix:"4"}</style>
+    <div id="segment-header" class="segment">    <!-- segment-header -->
+      <div class="container">    <!-- container -->
+
+          <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">ehr: log</span>
+            <br/>
+            <span style="display:inline-block;">1.2.3 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div>   <!-- /container -->
+    </div>    <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">    <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">    <!-- container -->
+          <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+            <!-- status-bar -->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a href="http://hl7.org/fhir/R4/index.html" class="navbar-brand hidden">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <menu>
+  <item name="Home" url="index.html"></item>
+  <item name="1 Inledning" url="1-inledning.html"></item>
+  <item name="2 Generella regler" url="2-generella-regler.html"></item>
+  <item name="7 Tjänstekontrakt" url="7-tjanstekontrakt.html"></item>
+  <item name="8 Datatyper" url="8-datatyper.html"></item>
+  <item name="Artifacts" url="artifacts.html"></item>
+</menu>
+
+            </div>    <!-- /.nav-collapse -->
+          </div>    <!-- /.container -->
+        </nav>    <!-- /.navbar -->
+        <!-- /HEADER CONTENT -->
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-navbar -->
+      <!-- status-bar -->
+
+    <div id="segment-breadcrumb" class="segment">    <!-- segment-breadcrumb -->
+      <div class="container">    <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">    <!-- segment-content -->
+      <div class="container">    <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+    <!-- ReleaseHeader --><p id="publish-box">ehr: log - Local Development build (v1.2.3) built by the FHIR (HL7&reg; FHIR&reg; Standard) Build Tools. See the <a href="https://fhir.inera.se/ig/ehr-log/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>  <!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#storelog" id="markdown-toc-storelog">StoreLog</a>    <ul>
+      <li><a href="#frivillighet" id="markdown-toc-frivillighet">Frivillighet</a></li>
+      <li><a href="#version" id="markdown-toc-version">Version</a></li>
+      <li><a href="#sla-krav" id="markdown-toc-sla-krav">SLA-krav</a></li>
+      <li><a href="#fältregler" id="markdown-toc-fältregler">Fältregler</a></li>
+      <li><a href="#regler" id="markdown-toc-regler">Regler</a></li>
+      <li><a href="#tjänsteinteraktion" id="markdown-toc-tjänsteinteraktion">Tjänsteinteraktion</a></li>
+      <li><a href="#exempel" id="markdown-toc-exempel">Exempel</a></li>
+      <li><a href="#källfiler-riv-ta" id="markdown-toc-källfiler-riv-ta">Källfiler (RIV-TA)</a></li>
+      <li><a href="#fhir-artefakter" id="markdown-toc-fhir-artefakter">FHIR-artefakter</a></li>
+    </ul>
+  </li>
+  <li><a href="#getlogsforcareprovider" id="markdown-toc-getlogsforcareprovider">GetLogsForCareProvider</a>    <ul>
+      <li><a href="#frivillighet-1" id="markdown-toc-frivillighet-1">Frivillighet</a></li>
+      <li><a href="#version-1" id="markdown-toc-version-1">Version</a></li>
+      <li><a href="#sla-krav-1" id="markdown-toc-sla-krav-1">SLA-krav</a></li>
+      <li><a href="#fältregler-1" id="markdown-toc-fältregler-1">Fältregler</a></li>
+      <li><a href="#regler-1" id="markdown-toc-regler-1">Regler</a></li>
+      <li><a href="#tjänsteinteraktion-1" id="markdown-toc-tjänsteinteraktion-1">Tjänsteinteraktion</a></li>
+      <li><a href="#exempel-1" id="markdown-toc-exempel-1">Exempel</a></li>
+      <li><a href="#källfiler-riv-ta-1" id="markdown-toc-källfiler-riv-ta-1">Källfiler (RIV-TA)</a></li>
+      <li><a href="#fhir-artefakter-1" id="markdown-toc-fhir-artefakter-1">FHIR-artefakter</a></li>
+    </ul>
+  </li>
+  <li><a href="#getlogsforuser" id="markdown-toc-getlogsforuser">GetLogsForUser</a>    <ul>
+      <li><a href="#frivillighet-2" id="markdown-toc-frivillighet-2">Frivillighet</a></li>
+      <li><a href="#version-2" id="markdown-toc-version-2">Version</a></li>
+      <li><a href="#sla-krav-2" id="markdown-toc-sla-krav-2">SLA-krav</a></li>
+      <li><a href="#fältregler-2" id="markdown-toc-fältregler-2">Fältregler</a></li>
+      <li><a href="#regler-2" id="markdown-toc-regler-2">Regler</a></li>
+      <li><a href="#tjänsteinteraktion-2" id="markdown-toc-tjänsteinteraktion-2">Tjänsteinteraktion</a></li>
+      <li><a href="#exempel-2" id="markdown-toc-exempel-2">Exempel</a></li>
+      <li><a href="#källfiler-riv-ta-2" id="markdown-toc-källfiler-riv-ta-2">Källfiler (RIV-TA)</a></li>
+      <li><a href="#fhir-artefakter-2" id="markdown-toc-fhir-artefakter-2">FHIR-artefakter</a></li>
+    </ul>
+  </li>
+  <li><a href="#getlogsforpatient" id="markdown-toc-getlogsforpatient">GetLogsForPatient</a>    <ul>
+      <li><a href="#frivillighet-3" id="markdown-toc-frivillighet-3">Frivillighet</a></li>
+      <li><a href="#version-3" id="markdown-toc-version-3">Version</a></li>
+      <li><a href="#sla-krav-3" id="markdown-toc-sla-krav-3">SLA-krav</a></li>
+      <li><a href="#fältregler-3" id="markdown-toc-fältregler-3">Fältregler</a></li>
+      <li><a href="#regler-3" id="markdown-toc-regler-3">Regler</a></li>
+      <li><a href="#tjänsteinteraktion-3" id="markdown-toc-tjänsteinteraktion-3">Tjänsteinteraktion</a></li>
+      <li><a href="#exempel-3" id="markdown-toc-exempel-3">Exempel</a></li>
+      <li><a href="#källfiler-riv-ta-3" id="markdown-toc-källfiler-riv-ta-3">Källfiler (RIV-TA)</a></li>
+      <li><a href="#fhir-artefakter-3" id="markdown-toc-fhir-artefakter-3">FHIR-artefakter</a></li>
+    </ul>
+  </li>
+  <li><a href="#getaccesslogsforpatient" id="markdown-toc-getaccesslogsforpatient">GetAccessLogsForPatient</a>    <ul>
+      <li><a href="#frivillighet-4" id="markdown-toc-frivillighet-4">Frivillighet</a></li>
+      <li><a href="#version-4" id="markdown-toc-version-4">Version</a></li>
+      <li><a href="#sla-krav-4" id="markdown-toc-sla-krav-4">SLA-krav</a></li>
+      <li><a href="#fältregler-4" id="markdown-toc-fältregler-4">Fältregler</a></li>
+      <li><a href="#regler-4" id="markdown-toc-regler-4">Regler</a></li>
+      <li><a href="#tjänsteinteraktion-4" id="markdown-toc-tjänsteinteraktion-4">Tjänsteinteraktion</a></li>
+      <li><a href="#exempel-4" id="markdown-toc-exempel-4">Exempel</a></li>
+      <li><a href="#källfiler-riv-ta-4" id="markdown-toc-källfiler-riv-ta-4">Källfiler (RIV-TA)</a></li>
+      <li><a href="#fhir-artefakter-4" id="markdown-toc-fhir-artefakter-4">FHIR-artefakter</a></li>
+    </ul>
+  </li>
+  <li><a href="#getinfologsforcareprovider" id="markdown-toc-getinfologsforcareprovider">GetInfoLogsForCareProvider</a>    <ul>
+      <li><a href="#frivillighet-5" id="markdown-toc-frivillighet-5">Frivillighet</a></li>
+      <li><a href="#version-5" id="markdown-toc-version-5">Version</a></li>
+      <li><a href="#sla-krav-5" id="markdown-toc-sla-krav-5">SLA-krav</a></li>
+      <li><a href="#fältregler-5" id="markdown-toc-fältregler-5">Fältregler</a></li>
+      <li><a href="#regler-5" id="markdown-toc-regler-5">Regler</a></li>
+      <li><a href="#tjänsteinteraktion-5" id="markdown-toc-tjänsteinteraktion-5">Tjänsteinteraktion</a></li>
+      <li><a href="#exempel-5" id="markdown-toc-exempel-5">Exempel</a></li>
+      <li><a href="#källfiler-riv-ta-5" id="markdown-toc-källfiler-riv-ta-5">Källfiler (RIV-TA)</a></li>
+      <li><a href="#fhir-artefakter-5" id="markdown-toc-fhir-artefakter-5">FHIR-artefakter</a></li>
+    </ul>
+  </li>
+  <li><a href="#getinfologsforpatient" id="markdown-toc-getinfologsforpatient">GetInfoLogsForPatient</a>    <ul>
+      <li><a href="#frivillighet-6" id="markdown-toc-frivillighet-6">Frivillighet</a></li>
+      <li><a href="#version-6" id="markdown-toc-version-6">Version</a></li>
+      <li><a href="#sla-krav-6" id="markdown-toc-sla-krav-6">SLA-krav</a></li>
+      <li><a href="#fältregler-6" id="markdown-toc-fältregler-6">Fältregler</a></li>
+      <li><a href="#regler-6" id="markdown-toc-regler-6">Regler</a></li>
+      <li><a href="#tjänsteinteraktion-6" id="markdown-toc-tjänsteinteraktion-6">Tjänsteinteraktion</a></li>
+      <li><a href="#exempel-6" id="markdown-toc-exempel-6">Exempel</a></li>
+      <li><a href="#källfiler-riv-ta-6" id="markdown-toc-källfiler-riv-ta-6">Källfiler (RIV-TA)</a></li>
+      <li><a href="#fhir-artefakter-6" id="markdown-toc-fhir-artefakter-6">FHIR-artefakter</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="storelog">StoreLog</h2>
+<p>Tjänst som sparar en eller flera loggposter i loggtjänsten för att möjliggöra uppföljning enligt PDL. Loggposter sparas i ett arkiv med löpnummer samt signeras för att säkerställa integriteten av loggposter.
+Loggposter valideras enligt schema. Resultat av anropet returneras i ett Result objekt med statuskod. Vi fel sparas ej loggposter i loggtjänsten.</p>
+
+<h3 id="frivillighet">Frivillighet</h3>
+<p>Obligatorisk, nationellt.</p>
+
+<h3 id="version">Version</h3>
+<p>1.0</p>
+
+<h3 id="sla-krav">SLA-krav</h3>
+<p>Loggtjänsten har höga krav på tillgänglighet enär loggande tillämpningar kan drabbas av funktionsstörningar om loggtjänsten är otillgänglig. För att minska detta beroende bör loggande tillämpningar ha köfunktionalitet vid avbrott i loggtjänsten.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svarstid</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tillgänglighet</td>
+      <td style="text-align: left">99,80%</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Last</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Tjänsten garanterar att lagring av loggposter skett då anropet genomförts utan fel. Loggposter ska vara tillgängliga för uppföljning inom 24 timmar.</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fältregler">Fältregler</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">log</td>
+      <td style="text-align: left">log:Log</td>
+      <td style="text-align: left">En kollektion av loggposter som ska lagras i loggtjänsten.</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">storeLog</td>
+      <td style="text-align: left">log.store:Result</td>
+      <td style="text-align: left">Result Objekt som anger om loggposter sparats eller om fel har inträffat. Resultat koder som kan returneras är OK, INFO, ERROR, VALIDATIONERROR och ACCESSDENIED.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="regler">Regler</h3>
+<p>Tjänsten skall kontrollera om anropande system har behörighet att lagra loggposter. Om behörighet nekas skall ett fel returneras och flödet avbrytas.</p>
+
+<h3 id="tjänsteinteraktion">Tjänsteinteraktion</h3>
+<p>StoreLog</p>
+
+<h3 id="exempel">Exempel</h3>
+
+<h4 id="exempel-på-anrop">Exempel på anrop</h4>
+<p>Följande XML visar strukturen på ett anrop till tjänsten.</p>
+<StoreLogRequest xmlns="urn:riv:ehr:log:store:StoreLogResponder:1" xmlns:ns1="urn:riv:ehr:log:store:1" xmlns:ns2="urn:riv:ehr:log:1">
+  <!-- Array -->
+<Log>
+<LogId xmlns="urn:riv:ehr:log:1">?</LogId>
+<System xmlns="urn:riv:ehr:log:1">
+<SystemId>?</SystemId>
+  <!-- Optional -->
+<SystemName>?</SystemName>
+</System>
+<Activity xmlns="urn:riv:ehr:log:1">
+<ActivityType>?</ActivityType>
+  <!-- Optional -->
+<ActivityLevel>?</ActivityLevel>
+  <!-- Optional -->
+<ActivityArgs>?</ActivityArgs>
+<StartDate>?</StartDate>
+<Purpose>?</Purpose>
+</Activity>
+<User xmlns="urn:riv:ehr:log:1">
+<UserId>?</UserId>
+  <!-- Optional -->
+<Name>?</Name>
+  <!-- Optional -->
+<PersonId>?</PersonId>
+  <!-- Optional -->
+<Assignment>?</Assignment>
+  <!-- Optional -->
+<Title>?</Title>
+<CareProvider>
+<CareProviderId>?</CareProviderId>
+  <!-- Optional -->
+<CareProviderName>?</CareProviderName>
+</CareProvider>
+<CareUnit>
+<CareUnitId>?</CareUnitId>
+  <!-- Optional -->
+<CareUnitName>?</CareUnitName>
+</CareUnit>
+</User>
+<Resources xmlns="urn:riv:ehr:log:1">
+  <!-- Array -->
+<Resource>
+<ResourceType>?</ResourceType>
+  <!-- Optional -->
+<Patient>
+<PatientId>?</PatientId>
+  <!-- Optional -->
+<PatientName>?</PatientName>
+</Patient>
+<CareProvider>
+<CareProviderId>?</CareProviderId>
+  <!-- Optional -->
+<CareProviderName>?</CareProviderName>
+</CareProvider>
+  <!-- Optional -->
+<CareUnit>
+<CareUnitId>?</CareUnitId>
+  <!-- Optional -->
+<CareUnitName>?</CareUnitName>
+</CareUnit>
+</Resource>
+</Resources>
+</Log>
+</StoreLogRequest>
+
+<h4 id="exempel-på-svar">Exempel på svar</h4>
+<p>Följande XML visar strukturen på svarsmeddelandet från tjänsten.</p>
+<StoreLogResponse xmlns="urn:riv:ehr:log:store:StoreLogResponder:1" xmlns:ns1="urn:riv:ehr:log:store:1">
+<StoreLog>
+<ResultCode xmlns="urn:riv:ehr:log:store:1">?</ResultCode>
+<ResultText xmlns="urn:riv:ehr:log:store:1">?</ResultText>
+</StoreLog>
+</StoreLogResponse>
+
+<h3 id="källfiler-riv-ta">Källfiler (RIV-TA)</h3>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l922">​</a><a href="files/wsdl/StoreLogInteraction_1.0_RIVTABP21.wsdl">StoreLogInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l932">​</a><a href="files/schema/StoreLogResponder_1.0.xsd">StoreLogResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l942">​</a><a href="files/schema/ehr_logstore_1.0.xsd">ehr_logstore_1.0.xsd</a></td>
+      <td>Underdomänschema</td>
+    </tr>
+    <tr>
+      <td><a name="l952">​</a><a href="files/schema/ehr_log_1.0.xsd">ehr_log_1.0.xsd</a></td>
+      <td>Gemensamt domänschema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fhir-artefakter">FHIR-artefakter</h3>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-storelog.html">StructureDefinition/storelog</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-storelog-request.html">StructureDefinition/storelog-request</a></li>
+</ul>
+
+<h2 id="getlogsforcareprovider">GetLogsForCareProvider</h2>
+<p>Tjänst som returnerar loggposter för angiven vårdgivare, all åtkomst som har skett av vårdgivarens medarbetare.
+Logguttaget begränsas av angivet datumintervall.
+Tjänsten returnerar en lista med loggposter (kan vara noll dvs en tom lista) om resultatkod är OK.
+Tjänsten returnerar alltid inom 15 sekunder, även ifall rapporten ännu inte har hunnit skapats. Tiden är konfigurerbar av systemet och kan ändras vid behov.
+Om rapporten inte har hunnit skapats av tjänsten returneras ett id (queuedReportId) som identifierar den rapport som håller på att skapas, man får även i detta fall resultkoden REPORTONQUEUE eller REPORTINPROCESS. Man får även en indikation på hur länge det förväntas ta innan rapporten är genererad (queueTime).
+Med hjälp av queuedReportId skall ytterligare anrop sedan göras av det anropade systemet för att kontrollera/hämta den skapade rapporten. Obeservera att man måste ange queuedReportId, i annat fall kommer en ny rapport att skapas.
+queueTime rekomenderas att användas av det anropande systemet för att bestämma när nästa anrop ska ske.
+VIKTIGT att ytterligare anrop sker med queuedReportId om tidigare anrop avslutats med felkod REPORTONQUEUE eller REPORTINPROCESS för att inte köa upp flera rapporter.
+Tjänsten returnerar statuskod REPORTNOTFOUND ifall man har angett ett felaktigt id(queuedReportId) för att hämta rapport. Ingen ny rapport skapas.
+Tjänsten returnerar max 10000 loggposter. Om fler loggposter finns i rapportuttaget avslutas anropet med felkod MAXQUERYRESULTEXCEEDED. Datumintervall kan då justeras för ett mindra antal loggposter.
+Max antal loggposter som kan returneras är konfigurerbart av systemet och kan ändras vid behov.</p>
+
+<h3 id="frivillighet-1">Frivillighet</h3>
+<p>Obligatorisk, nationellt.</p>
+
+<h3 id="version-1">Version</h3>
+<p>1.1</p>
+
+<h3 id="sla-krav-1">SLA-krav</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svarstid</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tillgänglighet</td>
+      <td style="text-align: left">99,80%</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Last</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Grundprincipen är att loggrapport skapas från senaste loggdata. Loggdata från de senaste 18 månaderna ska finnas tillgängligt för uppföljning. Aktuellt intervall av loggdata som finns tillgängligt för uppföljning returneras i svaret. (Se kapitel 1.5 Läsning av åtkomstloggar som är äldre än 18 månader).</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fältregler-1">Fältregler</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderId</td>
+      <td style="text-align: left">log:HsaId</td>
+      <td style="text-align: left">Vårdgivare som är ägare till loggposter och som urvalet av loggposter baseras på.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fromDate</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Obligatoriskt startdatum för att begränsa rapportuttaget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">toDate</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Obligatoriskt slutdatum för att begränsa rapportuttaget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">queuedReportId</td>
+      <td style="text-align: left">log:Id</td>
+      <td style="text-align: left">Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigstälts.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnitId</td>
+      <td style="text-align: left">log:HsaId</td>
+      <td style="text-align: left">Ej obligatoriskt fält för att filtrera ut loggposter för en specifik vårdenhet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getLogsForCareProvider</td>
+      <td style="text-align: left">log.querying:LogsResult</td>
+      <td style="text-align: left">Resultatobjekt med status hurvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista med loggposter samt resultatkod OK. / Vid eventuella fel i tjänsteanropet returneras inga loggposter. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="regler-1">Regler</h3>
+<p>Tjänsten skall kontrollera om anropande system har behörighet baserat på det anropande systemets certifikat.
+Om tjänsten har behov av att filtrera åtkomsten ska detta baseras på ”x-rivta-original-serviceconsumer-hsaid” i RIV TA-headern.
+Normalt så är en tjänst ansluten via en Tjänsteplattform och då är det den som reglerar åtkomsten.</p>
+
+<h3 id="tjänsteinteraktion-1">Tjänsteinteraktion</h3>
+<p>GetLogsForCareProvider</p>
+
+<h3 id="exempel-1">Exempel</h3>
+
+<h4 id="exempel-på-anrop-1">Exempel på anrop</h4>
+<p>Följande XML visar strukturen på ett anrop till tjänsten.</p>
+<GetLogsForCareProviderRequest xmlns="urn:riv:ehr:log:querying:GetLogsForCareProviderResponder:1" xmlns:ns1="urn:riv:ehr:log:querying:1">
+<CareProviderId>?</CareProviderId>
+<FromDate>?</FromDate>
+<ToDate>?</ToDate>
+  <!-- Optional -->
+<QueuedReportId>?</QueuedReportId>
+  <!-- Optional -->
+<CareUnitId>?</CareUnitId>
+</GetLogsForCareProviderRequest>
+
+<h4 id="exempel-på-svar-1">Exempel på svar</h4>
+<p>Följande XML visar strukturen på svarsmeddelandet från tjänsten.</p>
+<GetLogsForCareProviderResponse xmlns="urn:riv:ehr:log:querying:GetLogsForCareProviderResponder:1" xmlns:ns1="urn:riv:ehr:log:querying:1" xmlns:ns2="urn:riv:ehr:log:1">
+<GetLogsForCareProvider>
+<Result xmlns="urn:riv:ehr:log:querying:1">
+<ResultCode>?</ResultCode>
+<ResultText>?</ResultText>
+  <!-- Optional -->
+<StartInterval>?</StartInterval>
+  <!-- Optional -->
+<EndInterval>?</EndInterval>
+  <!-- Optional -->
+<QueuedReportId>?</QueuedReportId>
+  <!-- Optional -->
+<QueueTime>?</QueueTime>
+</Result>
+  <!-- Optional -->
+<Logs xmlns="urn:riv:ehr:log:querying:1">
+  <!-- Optional -->
+  <!-- Array -->
+<Log>
+<LogId xmlns="urn:riv:ehr:log:1">?</LogId>
+<System xmlns="urn:riv:ehr:log:1">
+<SystemId>?</SystemId>
+  <!-- Optional -->
+<SystemName>?</SystemName>
+</System>
+<Activity xmlns="urn:riv:ehr:log:1">
+<ActivityType>?</ActivityType>
+  <!-- Optional -->
+<ActivityLevel>?</ActivityLevel>
+  <!-- Optional -->
+<ActivityArgs>?</ActivityArgs>
+<StartDate>?</StartDate>
+<Purpose>?</Purpose>
+</Activity>
+<User xmlns="urn:riv:ehr:log:1">
+<UserId>?</UserId>
+  <!-- Optional -->
+<Name>?</Name>
+  <!-- Optional -->
+<PersonId>?</PersonId>
+  <!-- Optional -->
+<Assignment>?</Assignment>
+  <!-- Optional -->
+<Title>?</Title>
+<CareProvider>
+<CareProviderId>?</CareProviderId>
+  <!-- Optional -->
+<CareProviderName>?</CareProviderName>
+</CareProvider>
+<CareUnit>
+<CareUnitId>?</CareUnitId>
+  <!-- Optional -->
+<CareUnitName>?</CareUnitName>
+</CareUnit>
+</User>
+<Resources xmlns="urn:riv:ehr:log:1">
+  <!-- Array -->
+<Resource>
+<ResourceType>?</ResourceType>
+  <!-- Optional -->
+<Patient>
+<PatientId>?</PatientId>
+  <!-- Optional -->
+<PatientName>?</PatientName>
+</Patient>
+<CareProvider>
+<CareProviderId>?</CareProviderId>
+  <!-- Optional -->
+<CareProviderName>?</CareProviderName>
+</CareProvider>
+  <!-- Optional -->
+<CareUnit>
+<CareUnitId>?</CareUnitId>
+  <!-- Optional -->
+<CareUnitName>?</CareUnitName>
+</CareUnit>
+</Resource>
+</Resources>
+</Log>
+</Logs>
+</GetLogsForCareProvider>
+</GetLogsForCareProviderResponse>
+
+<h3 id="källfiler-riv-ta-1">Källfiler (RIV-TA)</h3>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l1474">​</a><a href="files/wsdl/GetLogsForCareProviderInteraction_1.1_RIVTABP21.wsdl">GetLogsForCareProviderInteraction_1.1_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l1484">​</a><a href="files/schema/GetLogsForCareProviderResponder_1.1.xsd">GetLogsForCareProviderResponder_1.1.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l1494">​</a><a href="files/schema/ehr_logquerying_1.1.xsd">ehr_logquerying_1.1.xsd</a></td>
+      <td>Underdomänschema</td>
+    </tr>
+    <tr>
+      <td><a name="l1504">​</a><a href="files/schema/ehr_log_1.0.xsd">ehr_log_1.0.xsd</a></td>
+      <td>Gemensamt domänschema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fhir-artefakter-1">FHIR-artefakter</h3>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getlogsforcareprovider.html">StructureDefinition/getlogsforcareprovider</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getlogsforcareprovider-request.html">StructureDefinition/getlogsforcareprovider-request</a></li>
+</ul>
+
+<h2 id="getlogsforuser">GetLogsForUser</h2>
+<p>Tjänst som returnerar loggposter för angiven vårdgivare samt medarbetare, all åtkomst som har skett av medarbetaren.
+Logguttaget begränsas av angivet datumintervall .
+Tjänsten returnerar en lista med loggposter (kan vara noll dvs en tom lista) om resultatkod är OK.
+Tjänsten returnerar alltid inom 15 sekunder, även ifall rapporten ännu inte har hunnit skapats. Tiden är konfigurerbar av systemet och kan ändras vid behov.
+Om rapporten inte har hunnit skapas av tjänsten returneras ett id (queuedReportId) som identifierar den rapport som håller på att skapas, man får även i detta fall resultatkoden REPORTONQUEUE eller REPORTINPROCESS. Man får även en indikation på hur länge det förväntas ta innan rapporten är genererad (queueTime).
+Med hjälp av queuedReportId skall ytterligare anrop sedan göras av det anropade systemet för att kontrollera/hämta den skapade rapporten. Obeservera att man måste ange queuedReportId, i annat fall kommer en ny rapport att skapas.
+queueTime rekomenderas att användas av det anropande systemet för att bestämma när nästa anrop ska ske.
+VIKTIGT att ytterligare anrop sker med queuedReportId om tidigare anrop avslutats med felkod REPORTONQUEUE eller REPORTINPROCESS för att inte köa upp flera rapporter.
+Tjänsten returnerar statuskod REPORTNOTFOUND ifall man har angett ett felaktigt id(queuedReportId) för att hämta rapport. Ingen ny rapport skapas.
+Tjänsten returnerar max 10000 loggposter. Om fler loggposter finns i rapportuttaget avslutas anropet med felkod MAXQUERYRESULTEXCEEDED. Datumintervall kan då justeras för ett mindra antal loggposter.
+Max antal loggposter som kan returneras är konfigurerbart av systemet och kan ändras vid behov.</p>
+
+<h3 id="frivillighet-2">Frivillighet</h3>
+<p>Obligatorisk, nationellt.</p>
+
+<h3 id="version-2">Version</h3>
+<p>1.1</p>
+
+<h3 id="sla-krav-2">SLA-krav</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svarstid</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tillgänglighet</td>
+      <td style="text-align: left">99,80%</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Last</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Grundprincipen är att loggrapport skapas från senaste loggdata. Loggdata från de senaste 18 månaderna ska finnas tillgängligt för uppföljning. Aktuellt intervall av loggdata som finns tillgängligt för uppföljning returneras i svaret. (Se kapitel 1.5 Läsning av åtkomstloggar som är äldre än 18 månader).</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fältregler-2">Fältregler</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderId</td>
+      <td style="text-align: left">log:HsaId</td>
+      <td style="text-align: left">Vårdgivare som är ägare till loggposter och som urvalet av loggposter baseras på.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">userId</td>
+      <td style="text-align: left">log:HsaId</td>
+      <td style="text-align: left">Medarbetare som haft åtkomst.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fromDate</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Obligatoriskt startdatum för att begränsa rapportuttaget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">toDate</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Obligatoriskt slutdatum för att begränsa rapportuttaget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">queuedReportId</td>
+      <td style="text-align: left">log:Id</td>
+      <td style="text-align: left">Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigstälts.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnitId</td>
+      <td style="text-align: left">log:HsaId</td>
+      <td style="text-align: left">Ej obligatoriskt fält för att filtrera ut loggposter för en specifik vårdenhet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getLogsForUser</td>
+      <td style="text-align: left">log.querying:LogsResult</td>
+      <td style="text-align: left">Resultatobjekt med status hurvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista med loggposter samt resultatkod OK. / Vid eventuella fel i tjänsteanropet returneras inga loggposter. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="regler-2">Regler</h3>
+<p>Tjänsten skall kontrollera om anropande system har behörighet baserat på det anropande systemets certifikat.
+Om tjänsten har behov av att filtrera åtkomsten ska detta baseras på ”x-rivta-original-serviceconsumer-hsaid” i RIV TA-headern.
+Normalt så är en tjänst ansluten via en Tjänsteplattform och då är det den som reglerar åtkomsten.</p>
+
+<h3 id="tjänsteinteraktion-2">Tjänsteinteraktion</h3>
+<p>GetLogsForUser</p>
+
+<h3 id="exempel-2">Exempel</h3>
+
+<h4 id="exempel-på-anrop-2">Exempel på anrop</h4>
+<p>Följande XML visar strukturen på ett anrop till tjänsten.</p>
+<GetLogsForUserRequest xmlns="urn:riv:ehr:log:querying:GetLogsForUserResponder:1" xmlns:ns1="urn:riv:ehr:log:querying:1">
+<CareProviderId>?</CareProviderId>
+<UserId>?</UserId>
+<FromDate>?</FromDate>
+<ToDate>?</ToDate>
+  <!-- Optional -->
+<QueuedReportId>?</QueuedReportId>
+  <!-- Optional -->
+<CareUnitId>?</CareUnitId>
+</GetLogsForUserRequest>
+
+<h4 id="exempel-på-svar-2">Exempel på svar</h4>
+<p>Följande XML visar strukturen på svarsmeddelandet från tjänsten.</p>
+<GetLogsForUserResponse xmlns="urn:riv:ehr:log:querying:GetLogsForUserResponder:1" xmlns:ns1="urn:riv:ehr:log:querying:1" xmlns:ns2="urn:riv:ehr:log:1">
+<GetLogsForUser>
+<Result xmlns="urn:riv:ehr:log:querying:1">
+<ResultCode>?</ResultCode>
+<ResultText>?</ResultText>
+  <!-- Optional -->
+<StartInterval>?</StartInterval>
+  <!-- Optional -->
+<EndInterval>?</EndInterval>
+  <!-- Optional -->
+<QueuedReportId>?</QueuedReportId>
+  <!-- Optional -->
+<QueueTime>?</QueueTime>
+</Result>
+  <!-- Optional -->
+<Logs xmlns="urn:riv:ehr:log:querying:1">
+  <!-- Optional -->
+  <!-- Array -->
+<Log>
+<LogId xmlns="urn:riv:ehr:log:1">?</LogId>
+<System xmlns="urn:riv:ehr:log:1">
+<SystemId>?</SystemId>
+  <!-- Optional -->
+<SystemName>?</SystemName>
+</System>
+<Activity xmlns="urn:riv:ehr:log:1">
+<ActivityType>?</ActivityType>
+  <!-- Optional -->
+<ActivityLevel>?</ActivityLevel>
+  <!-- Optional -->
+<ActivityArgs>?</ActivityArgs>
+<StartDate>?</StartDate>
+<Purpose>?</Purpose>
+</Activity>
+<User xmlns="urn:riv:ehr:log:1">
+<UserId>?</UserId>
+  <!-- Optional -->
+<Name>?</Name>
+  <!-- Optional -->
+<PersonId>?</PersonId>
+  <!-- Optional -->
+<Assignment>?</Assignment>
+  <!-- Optional -->
+<Title>?</Title>
+<CareProvider>
+<CareProviderId>?</CareProviderId>
+  <!-- Optional -->
+<CareProviderName>?</CareProviderName>
+</CareProvider>
+<CareUnit>
+<CareUnitId>?</CareUnitId>
+  <!-- Optional -->
+<CareUnitName>?</CareUnitName>
+</CareUnit>
+</User>
+<Resources xmlns="urn:riv:ehr:log:1">
+  <!-- Array -->
+<Resource>
+<ResourceType>?</ResourceType>
+  <!-- Optional -->
+<Patient>
+<PatientId>?</PatientId>
+  <!-- Optional -->
+<PatientName>?</PatientName>
+</Patient>
+<CareProvider>
+<CareProviderId>?</CareProviderId>
+  <!-- Optional -->
+<CareProviderName>?</CareProviderName>
+</CareProvider>
+  <!-- Optional -->
+<CareUnit>
+<CareUnitId>?</CareUnitId>
+  <!-- Optional -->
+<CareUnitName>?</CareUnitName>
+</CareUnit>
+</Resource>
+</Resources>
+</Log>
+</Logs>
+</GetLogsForUser>
+</GetLogsForUserResponse>
+
+<h3 id="källfiler-riv-ta-2">Källfiler (RIV-TA)</h3>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l2044">​</a><a href="files/wsdl/GetLogsForUserInteraction_1.1_RIVTABP21.wsdl">GetLogsForUserInteraction_1.1_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l2054">​</a><a href="files/schema/GetLogsForUserResponder_1.1.xsd">GetLogsForUserResponder_1.1.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l2064">​</a><a href="files/schema/ehr_logquerying_1.1.xsd">ehr_logquerying_1.1.xsd</a></td>
+      <td>Underdomänschema</td>
+    </tr>
+    <tr>
+      <td><a name="l2074">​</a><a href="files/schema/ehr_log_1.0.xsd">ehr_log_1.0.xsd</a></td>
+      <td>Gemensamt domänschema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fhir-artefakter-2">FHIR-artefakter</h3>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getlogsforuser.html">StructureDefinition/getlogsforuser</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getlogsforuser-request.html">StructureDefinition/getlogsforuser-request</a></li>
+</ul>
+
+<h2 id="getlogsforpatient">GetLogsForPatient</h2>
+<p>Tjänst som returnerar loggposter för angiven vårdgivare samt patient, all åtkomst som har skett av vårdgivarens medarbetare till patientens information.
+Logguttaget begränsas av angivet datumintervall.
+Tjänsten returnerar en lista med loggposter (kan vara noll dvs en tom lista) om resultatkod är OK.
+Tjänsten returnerar alltid inom 15 sekunder, även ifall rapporten ännu inte har hunnit skapats. Tiden är konfigurerbar av systemet och kan ändras vid behov.
+Om rapporten inte har hunnit skapats av tjänsten returneras ett id (queuedReportId) som identifierar den rapport som håller på att skapas, man får även i detta fall resultkoden REPORTONQUEUE eller REPORTINPROCESS. Man får även en indikation på hur länge det förväntas ta innan rapporten är genererad (queueTime).
+Med hjälp av queuedReportId skall ytterligare anrop sedan göras av det anropade systemet för att kontrollera/hämta den skapade rapporten. Obeservera att man måste ange queuedReportId, i annat fall kommer en ny rapport att skapas.
+queueTime rekomenderas att användas av det anropande systemet för att bestämma när nästa anrop ska ske.
+VIKTIGT att ytterligare anrop sker med queuedReportId om tidigare anrop avslutats med felkod REPORTONQUEUE eller REPORTINPROCESS för att inte köa upp flera rapporter.
+Tjänsten returnerar statuskod REPORTNOTFOUND ifall man har angett ett felaktigt id(queuedReportId) för att hämta rapport. Ingen ny rapport skapas.
+Tjänsten returnerar max 10000 loggposter. Om fler loggposter finns i rapportuttaget avslutas anropet med felkod MAXQUERYRESULTEXCEEDED. Datumintervall kan då justeras för ett mindra antal loggposter.
+Max antal loggposter som kan returneras är konfigurerbart av systemet och kan ändras vid behov.</p>
+
+<h3 id="frivillighet-3">Frivillighet</h3>
+<p>Obligatorisk, nationellt.</p>
+
+<h3 id="version-3">Version</h3>
+<p>1.0</p>
+
+<h3 id="sla-krav-3">SLA-krav</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svarstid</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tillgänglighet</td>
+      <td style="text-align: left">99,80%</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Last</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Grundprincipen är att loggrapport skapas från senaste loggdata. Loggdata från de senaste 18 månaderna ska finnas tillgängligt för uppföljning. Aktuellt intervall av loggdata som finns tillgängligt för uppföljning returneras i svaret. (Se kapitel 1.5 Läsning av åtkomstloggar som är äldre än 18 månader).</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fältregler-3">Fältregler</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderId</td>
+      <td style="text-align: left">log:HsaId</td>
+      <td style="text-align: left">Vårdgivare som är ägare till loggposter och som urvalet av loggposter baseras på.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">log:PersonId</td>
+      <td style="text-align: left">Patientens personnummer, samordningsnummer, alternativt reservnummer som vårdgivare haft åtkomst till.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnitId</td>
+      <td style="text-align: left">log:HsaId</td>
+      <td style="text-align: left">Ej obligatoriskt fält för att filtrera ut loggposter för en specifik vårdenhet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fromDate</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Obligatoriskt startdatum för att begränsa rapportuttaget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">toDate</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Obligatoriskt slutdatum för att begränsa rapportuttaget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">queuedReportId</td>
+      <td style="text-align: left">log:Id</td>
+      <td style="text-align: left">Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigstälts.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getLogsForPatient</td>
+      <td style="text-align: left">log.querying:LogsResult</td>
+      <td style="text-align: left">Resultatobjekt med status hurvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista med loggposter samt resultatkod OK. / Vid eventuella fel i tjänsteanropet returneras inga loggposter. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="regler-3">Regler</h3>
+<p>Tjänsten skall kontrollera om anropande system har behörighet baserat på det anropande systemets certifikat.
+Om tjänsten har behov av att filtrera åtkomsten ska detta baseras på ”x-rivta-original-serviceconsumer-hsaid” i RIV TA-headern.
+Normalt så är en tjänst ansluten via en Tjänsteplattform och då är det den som reglerar åtkomsten.
+.</p>
+
+<h3 id="tjänsteinteraktion-3">Tjänsteinteraktion</h3>
+<p>GetLogsForPatient</p>
+
+<h3 id="exempel-3">Exempel</h3>
+
+<h4 id="exempel-på-anrop-3">Exempel på anrop</h4>
+<p>Följande XML visar strukturen på ett anrop till tjänsten.</p>
+<GetLogsForPatientRequest xmlns="urn:riv:ehr:log:querying:GetLogsForPatientResponder:1" xmlns:ns1="urn:riv:ehr:log:querying:1">
+<CareProviderId>?</CareProviderId>
+<PatientId>?</PatientId>
+  <!-- Optional -->
+<CareUnitId>?</CareUnitId>
+<FromDate>?</FromDate>
+<ToDate>?</ToDate>
+  <!-- Optional -->
+<QueuedReportId>?</QueuedReportId>
+</GetLogsForPatientRequest>
+
+<h4 id="exempel-på-svar-3">Exempel på svar</h4>
+<p>Följande XML visar strukturen på svarsmeddelandet från tjänsten.</p>
+<GetLogsForPatientResponse xmlns="urn:riv:ehr:log:querying:GetLogsForPatientResponder:1" xmlns:ns1="urn:riv:ehr:log:querying:1" xmlns:ns2="urn:riv:ehr:log:1">
+<GetLogsForPatient>
+<Result xmlns="urn:riv:ehr:log:querying:1">
+<ResultCode>?</ResultCode>
+<ResultText>?</ResultText>
+  <!-- Optional -->
+<StartInterval>?</StartInterval>
+  <!-- Optional -->
+<EndInterval>?</EndInterval>
+  <!-- Optional -->
+<QueuedReportId>?</QueuedReportId>
+  <!-- Optional -->
+<QueueTime>?</QueueTime>
+</Result>
+  <!-- Optional -->
+<Logs xmlns="urn:riv:ehr:log:querying:1">
+  <!-- Optional -->
+  <!-- Array -->
+<Log>
+<LogId xmlns="urn:riv:ehr:log:1">?</LogId>
+<System xmlns="urn:riv:ehr:log:1">
+<SystemId>?</SystemId>
+  <!-- Optional -->
+<SystemName>?</SystemName>
+</System>
+<Activity xmlns="urn:riv:ehr:log:1">
+<ActivityType>?</ActivityType>
+  <!-- Optional -->
+<ActivityLevel>?</ActivityLevel>
+  <!-- Optional -->
+<ActivityArgs>?</ActivityArgs>
+<StartDate>?</StartDate>
+<Purpose>?</Purpose>
+</Activity>
+<User xmlns="urn:riv:ehr:log:1">
+<UserId>?</UserId>
+  <!-- Optional -->
+<Name>?</Name>
+  <!-- Optional -->
+<PersonId>?</PersonId>
+  <!-- Optional -->
+<Assignment>?</Assignment>
+  <!-- Optional -->
+<Title>?</Title>
+<CareProvider>
+<CareProviderId>?</CareProviderId>
+  <!-- Optional -->
+<CareProviderName>?</CareProviderName>
+</CareProvider>
+<CareUnit>
+<CareUnitId>?</CareUnitId>
+  <!-- Optional -->
+<CareUnitName>?</CareUnitName>
+</CareUnit>
+</User>
+<Resources xmlns="urn:riv:ehr:log:1">
+  <!-- Array -->
+<Resource>
+<ResourceType>?</ResourceType>
+  <!-- Optional -->
+<Patient>
+<PatientId>?</PatientId>
+  <!-- Optional -->
+<PatientName>?</PatientName>
+</Patient>
+<CareProvider>
+<CareProviderId>?</CareProviderId>
+  <!-- Optional -->
+<CareProviderName>?</CareProviderName>
+</CareProvider>
+  <!-- Optional -->
+<CareUnit>
+<CareUnitId>?</CareUnitId>
+  <!-- Optional -->
+<CareUnitName>?</CareUnitName>
+</CareUnit>
+</Resource>
+</Resources>
+</Log>
+</Logs>
+</GetLogsForPatient>
+</GetLogsForPatientResponse>
+
+<h3 id="källfiler-riv-ta-3">Källfiler (RIV-TA)</h3>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l2614">​</a><a href="files/wsdl/GetLogsForPatientInteraction_1.0_RIVTABP21.wsdl">GetLogsForPatientInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l2624">​</a><a href="files/schema/GetLogsForPatientResponder_1.0.xsd">GetLogsForPatientResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l2634">​</a><a href="files/schema/ehr_logquerying_1.1.xsd">ehr_logquerying_1.1.xsd</a></td>
+      <td>Underdomänschema</td>
+    </tr>
+    <tr>
+      <td><a name="l2644">​</a><a href="files/schema/ehr_log_1.0.xsd">ehr_log_1.0.xsd</a></td>
+      <td>Gemensamt domänschema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fhir-artefakter-3">FHIR-artefakter</h3>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getlogsforpatient.html">StructureDefinition/getlogsforpatient</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getlogsforpatient-request.html">StructureDefinition/getlogsforpatient-request</a></li>
+</ul>
+
+<h2 id="getaccesslogsforpatient">GetAccessLogsForPatient</h2>
+<p>Tjänst som returnerar lista för angiven patient, vilka vårdgivare och vårdaktör som har haft åtkomst till information. Informationen som returneras innehåller även tidpunkt, syfte och typ av resurs.
+Logguttaget begränsas av angivet datumintervall.
+Tjänsten returnerar en lista med vårdgivare (kan vara noll dvs en tom lista) om resultatkod är OK .
+Tjänsten returnerar alltid inom 15 sekunder, även ifall rapporten ännu inte har hunnit skapats. Tiden är konfigurerbar av systemet och kan ändras vid behov.
+Om rapporten inte har hunnit skapats av tjänsten returneras ett id (queuedReportId) som identifierar den rapport som håller på att skapas, man får även i detta fall resultkoden REPORTONQUEUE eller REPORTINPROCESS. Man får även en indikation på hur länge det förväntas ta innan rapporten är genererad (queueTime).
+Med hjälp av queuedReportId skall ytterligare anrop sedan göras av det anropade systemet för att kontrollera/hämta den skapade rapporten. Obeservera att man måste ange queuedReportId, i annat fall kommer en ny rapport att skapas.
+queueTime rekomenderas att användas av det anropande systemet för att bestämma när nästa anrop ska ske.
+VIKTIGT att ytterligare anrop sker med queuedReportId om tidigare anrop avslutats med felkod REPORTONQUEUE eller REPORTINPROCESS för att inte köa upp flera rapporter.
+Tjänsten returnerar statuskod REPORTNOTFOUND ifall man har angett ett felaktigt id(queuedReportId) för att hämta rapport. Ingen ny rapport skapas.
+Tjänsten returnerar max 10000 loggposter. Om fler loggposter finns i rapportuttaget avslutas anropet med felkod MAXQUERYRESULTEXCEEDED. Datumintervall kan då justeras för ett mindra antal loggposter.
+Max antal loggposter som kan returneras är konfigurerbart av systemet och kan ändras vid behov.</p>
+
+<h3 id="frivillighet-4">Frivillighet</h3>
+<p>Obligatorisk, nationellt.</p>
+
+<h3 id="version-4">Version</h3>
+<p>1.1</p>
+
+<h3 id="sla-krav-4">SLA-krav</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svarstid</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tillgänglighet</td>
+      <td style="text-align: left">99,80%</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Last</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Grundprincipen är att loggrapport skapas från senaste loggdata. Loggdata från de senaste 18 månaderna ska finnas tillgängligt för uppföljning. Aktuellt intervall av loggdata som finns tillgängligt för uppföljning returneras i svaret. (Se kapitel 1.5 Läsning av åtkomstloggar som är äldre än 18 månader).</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fältregler-4">Fältregler</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PatientId</td>
+      <td style="text-align: left">log:PersonId</td>
+      <td style="text-align: left">Patientens personnummer, samordningsnummer, alternativt reservnummer som någon vårdgivare haft åtkomst till.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FromDate</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Obligatoriskt startdatum för att begränsa rapportuttaget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ToDate</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Obligatoriskt slutdatum för att begränsa rapportuttaget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">QueuedReportId</td>
+      <td style="text-align: left">log:Id</td>
+      <td style="text-align: left">Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigstälts. / Skall inte användas när aggregerande tjänst anropas.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AccessLogsResultType</td>
+      <td style="text-align: left">logquerying:AccessLogsResultType</td>
+      <td style="text-align: left">Resultatobjekt med status hurvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts korrekt returneras en lista med patientinformation och resultatkod OK. / Vid eventuella fel i tjänsteanropet returneras ingen patientinformation. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="regler-4">Regler</h3>
+<p>Tjänsten skall kontrollera om anropande system har behörighet till ”patientbunden” logginformation. Normalt så sker detta via behörighetskontrollen i en Tjänsteplattform. Anropande konsument har att säkerställa att patienten är starkt autentiserad.</p>
+
+<h3 id="tjänsteinteraktion-4">Tjänsteinteraktion</h3>
+<p>GetAccessLogsForPatient</p>
+
+<h3 id="exempel-4">Exempel</h3>
+
+<h4 id="exempel-på-anrop-4">Exempel på anrop</h4>
+<p>Följande XML visar strukturen på ett anrop till tjänsten.</p>
+<GetAccessLogsForPatientRequest xmlns="urn:riv:ehr:log:querying:GetAccessLogsForPatientResponder:1" xmlns:ns1="urn:riv:ehr:log:querying:1">
+<PatientId>?</PatientId>
+<FromDate>?</FromDate>
+<ToDate>?</ToDate>
+  <!-- Optional -->
+<QueuedReportId>?</QueuedReportId>
+</GetAccessLogsForPatientRequest>
+
+<h4 id="exempel-på-svar-4">Exempel på svar</h4>
+<p>Följande XML visar strukturen på svarsmeddelandet från tjänsten.</p>
+<GetAccessLogsForPatientResponse xmlns="urn:riv:ehr:log:querying:GetAccessLogsForPatientResponder:1" xmlns:ns1="urn:riv:ehr:log:querying:1">
+<GetAccessLogsForPatient>
+<Result xmlns="urn:riv:ehr:log:querying:1">
+<ResultCode>?</ResultCode>
+<ResultText>?</ResultText>
+  <!-- Optional -->
+<StartInterval>?</StartInterval>
+  <!-- Optional -->
+<EndInterval>?</EndInterval>
+  <!-- Optional -->
+<QueuedReportId>?</QueuedReportId>
+  <!-- Optional -->
+<QueueTime>?</QueueTime>
+</Result>
+  <!-- Optional -->
+<AccesssLogs xmlns="urn:riv:ehr:log:querying:1">
+  <!-- Optional -->
+  <!-- Array -->
+<AccessLog>
+<CareProviderId>?</CareProviderId>
+  <!-- Optional -->
+<CareProviderName>?</CareProviderName>
+<CareUnitId>?</CareUnitId>
+  <!-- Optional -->
+<CareUnitName>?</CareUnitName>
+<UserId>?</UserId>
+  <!-- Optional -->
+<UserName>?</UserName>
+  <!-- Optional -->
+<UserTitle>?</UserTitle>
+<AccessDate>?</AccessDate>
+<Purpose>?</Purpose>
+<ResourceType>?</ResourceType>
+</AccessLog>
+</AccesssLogs>
+</GetAccessLogsForPatient>
+</GetAccessLogsForPatientResponse>
+
+<h3 id="källfiler-riv-ta-4">Källfiler (RIV-TA)</h3>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l3052">​</a><a href="files/wsdl/GetAccessLogsForPatientInteraction_1.1_RIVTABP21.wsdl">GetAccessLogsForPatientInteraction_1.1_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l3062">​</a><a href="files/schema/GetAccessLogsForPatientResponder_1.1.xsd">GetAccessLogsForPatientResponder_1.1.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l3072">​</a><a href="files/schema/ehr_logquerying_1.1.xsd">ehr_logquerying_1.1.xsd</a></td>
+      <td>Underdomänschema</td>
+    </tr>
+    <tr>
+      <td><a name="l3082">​</a><a href="files/schema/ehr_log_1.0.xsd">ehr_log_1.0.xsd</a></td>
+      <td>Gemensamt domänschema</td>
+    </tr>
+    <tr>
+      <td><a name="l3092">​</a><a href="files/docs/SjD_TP_GetAccessLogsForPatient_1.1.docx">SjD_TP_GetAccessLogsForPatient_1.1.docx</a></td>
+      <td>Tjänstebeskrivning</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fhir-artefakter-4">FHIR-artefakter</h3>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getaccesslogsforpatient.html">StructureDefinition/getaccesslogsforpatient</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getaccesslogsforpatient-request.html">StructureDefinition/getaccesslogsforpatient-request</a></li>
+</ul>
+
+<h2 id="getinfologsforcareprovider">GetInfoLogsForCareProvider</h2>
+<p>Tjänst som returnerar lista för angiven vårdgivare, vilka vårdgivare som har haft åtkomst till vårdgivarens information där vårdgivaren är informationsägare.
+Logguttaget begränsas av angivet datumintervall.
+Tjänsten returnerar en lista med vårdgivare (kan vara noll dvs en tom lista) om resultatkod är OK.
+Tjänsten returnerar alltid inom 15 sekunder, även ifall rapporten ännu inte har hunnit skapats. Tiden är konfigurerbar av systemet och kan ändras vid behov.
+Om rapporten inte har hunnit skapats av tjänsten returneras ett id (queuedReportId) som identifierar den rapport som håller på att skapas, man får även i detta fall resultkoden REPORTONQUEUE eller REPORTINPROCESS. Man får även en indikation på hur länge det förväntas ta innan rapporten är genererad (queueTime).
+Med hjälp av queuedReportId skall ytterligare anrop sedan göras av det anropade systemet för att kontrollera/hämta den skapade rapporten. Obeservera att man måste ange queuedReportId, i annat fall kommer en ny rapport att skapas.
+queueTime rekomenderas att användas av det anropande systemet för att bestämma när nästa anrop ska ske.
+VIKTIGT att ytterligare anrop sker med queuedReportId om tidigare anrop avslutats med felkod REPORTONQUEUE eller REPORTINPROCESS för att inte köa upp flera rapporter.
+Tjänsten returnerar statuskod REPORTNOTFOUND ifall man har angett ett felaktigt id(queuedReportId) för att hämta rapport. Ingen ny rapport skapas.
+Tjänsten returnerar max 10000 loggposter. Om fler loggposter finns i rapportuttaget avslutas anropet med felkod MAXQUERYRESULTEXCEEDED. Datumintervall kan då justeras för ett mindra antal loggposter.
+Max antal loggposter som kan returneras är konfigurerbart av systemet och kan ändras vid behov.</p>
+
+<h3 id="frivillighet-5">Frivillighet</h3>
+<p>Obligatorisk, nationellt.</p>
+
+<h3 id="version-5">Version</h3>
+<p>1.0</p>
+
+<h3 id="sla-krav-5">SLA-krav</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svarstid</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tillgänglighet</td>
+      <td style="text-align: left">99,80%</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Last</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Grundprincipen är att loggrapport skapas från senaste loggdata. Loggdata från de senaste 18 månaderna ska finnas tillgängligt för uppföljning. Aktuellt intervall av loggdata som finns tillgängligt för uppföljning returneras i svaret. (Se kapitel 1.5 Läsning av åtkomstloggar som är äldre än 18 månader).</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fältregler-5">Fältregler</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderId</td>
+      <td style="text-align: left">log:HsaId</td>
+      <td style="text-align: left">Vårdgivare som är informationsägare av loggpost.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fromDate</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Obligatoriskt startdatum för att begränsa rapportuttaget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">toDate</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Obligatoriskt slutdatum för att begränsa rapportuttaget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">queuedReportId</td>
+      <td style="text-align: left">log:Id</td>
+      <td style="text-align: left">Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigstälts.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getInfoLogsForCareProvider</td>
+      <td style="text-align: left">log.querying:InfoLogsResult</td>
+      <td style="text-align: left">Resultatobjekt med status hurvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista av vårdgivare samt resultatkod OK. / Vid eventuella fel i tjänsteanropet returneras inga vårdgivare. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="regler-5">Regler</h3>
+<p>Tjänsten skall kontrollera om anropande system har behörighet baserat på det anropande systemets certifikat.
+Om tjänsten har behov av att filtrera åtkomsten ska detta baseras på ”x-rivta-original-serviceconsumer-hsaid” i RIV TA-headern.
+Normalt så är en tjänst ansluten via en Tjänsteplattform och då är det den som reglerar åtkomsten.</p>
+
+<h3 id="tjänsteinteraktion-5">Tjänsteinteraktion</h3>
+<p>GetInfoLogsForCareProvider</p>
+
+<h3 id="exempel-5">Exempel</h3>
+
+<h4 id="exempel-på-anrop-5">Exempel på anrop</h4>
+<p>Följande XML visar strukturen på ett anrop till tjänsten.</p>
+<GetInfoLogsForCareProviderRequest xmlns="urn:riv:ehr:log:querying:GetInfoLogsForCareProviderResponder:1" xmlns:ns1="urn:riv:ehr:log:querying:1">
+<CareProviderId>?</CareProviderId>
+<FromDate>?</FromDate>
+<ToDate>?</ToDate>
+  <!-- Optional -->
+<QueuedReportId>?</QueuedReportId>
+</GetInfoLogsForCareProviderRequest>
+
+<h4 id="exempel-på-svar-5">Exempel på svar</h4>
+<p>Följande XML visar strukturen på svarsmeddelandet från tjänsten.</p>
+<GetInfoLogsForCareProviderResponse xmlns="urn:riv:ehr:log:querying:GetInfoLogsForCareProviderResponder:1" xmlns:ns1="urn:riv:ehr:log:querying:1" xmlns:ns2="urn:riv:ehr:log:1">
+<GetInfoLogsForCareProvider>
+<Result xmlns="urn:riv:ehr:log:querying:1">
+<ResultCode>?</ResultCode>
+<ResultText>?</ResultText>
+  <!-- Optional -->
+<StartInterval>?</StartInterval>
+  <!-- Optional -->
+<EndInterval>?</EndInterval>
+  <!-- Optional -->
+<QueuedReportId>?</QueuedReportId>
+  <!-- Optional -->
+<QueueTime>?</QueueTime>
+</Result>
+  <!-- Optional -->
+<CareProviders xmlns="urn:riv:ehr:log:querying:1">
+  <!-- Optional -->
+  <!-- Array -->
+<CareProvider>
+<CareProviderId xmlns="urn:riv:ehr:log:1">?</CareProviderId>
+  <!-- Optional -->
+<CareProviderName xmlns="urn:riv:ehr:log:1">?</CareProviderName>
+</CareProvider>
+</CareProviders>
+</GetInfoLogsForCareProvider>
+</GetInfoLogsForCareProviderResponse>
+
+<h3 id="källfiler-riv-ta-5">Källfiler (RIV-TA)</h3>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l3470">​</a><a href="files/wsdl/GetInfoLogsForCareProviderInteraction_1.0_RIVTABP21.wsdl">GetInfoLogsForCareProviderInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l3480">​</a><a href="files/schema/GetInfoLogsForCareProviderResponder_1.0.xsd">GetInfoLogsForCareProviderResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l3490">​</a><a href="files/schema/ehr_logquerying_1.1.xsd">ehr_logquerying_1.1.xsd</a></td>
+      <td>Underdomänschema</td>
+    </tr>
+    <tr>
+      <td><a name="l3500">​</a><a href="files/schema/ehr_log_1.0.xsd">ehr_log_1.0.xsd</a></td>
+      <td>Gemensamt domänschema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fhir-artefakter-5">FHIR-artefakter</h3>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getinfologsforcareprovider.html">StructureDefinition/getinfologsforcareprovider</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getinfologsforcareprovider-request.html">StructureDefinition/getinfologsforcareprovider-request</a></li>
+</ul>
+
+<h2 id="getinfologsforpatient">GetInfoLogsForPatient</h2>
+<p>Tjänst som returnerar lista för angiven vårdgivare samt patient, vilka vårdgivare som har haft åtkomst till vårdgivarens information där vårdgivaren är informationsägare
+Logguttaget begränsas av angivet datumintervall.
+Tjänsten returnerar en lista med vårdgivare (kan vara noll dvs en tom lista) om resultatkod är OK.
+Tjänsten returnerar alltid inom 15 sekunder, även ifall rapporten ännu inte har hunnit skapats. Tiden är konfigurerbar av systemet och kan ändras vid behov.
+Om rapporten inte har hunnit skapats av tjänsten returneras ett id (queuedReportId) som identifierar den rapport som håller på att skapas, man får även i detta fall resultkoden REPORTONQUEUE eller REPORTINPROCESS. Man får även en indikation på hur länge det förväntas ta innan rapporten är genererad (queueTime).
+Med hjälp av queuedReportId skall ytterligare anrop sedan göras av det anropade systemet för att kontrollera/hämta den skapade rapporten. Obeservera att man måste ange queuedReportId, i annat fall kommer en ny rapport att skapas.
+queueTime rekomenderas att användas av det anropande systemet för att bestämma när nästa anrop ska ske.
+VIKTIGT att ytterligare anrop sker med queuedReportId om tidigare anrop avslutats med felkod REPORTONQUEUE eller REPORTINPROCESS för att inte köa upp flera rapporter.
+Tjänsten returnerar statuskod REPORTNOTFOUND ifall man har angett ett felaktigt id(queuedReportId) för att hämta rapport. Ingen ny rapport skapas.
+Tjänsten returnerar max 10000 loggposter. Om fler loggposter finns i rapportuttaget avslutas anropet med felkod MAXQUERYRESULTEXCEEDED. Datumintervall kan då justeras för ett mindra antal loggposter.
+Max antal loggposter som kan returneras är konfigurerbart av systemet och kan ändras vid behov.</p>
+
+<h3 id="frivillighet-6">Frivillighet</h3>
+<p>Obligatorisk, nationellt.</p>
+
+<h3 id="version-6">Version</h3>
+<p>1.0</p>
+
+<h3 id="sla-krav-6">SLA-krav</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svarstid</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tillgänglighet</td>
+      <td style="text-align: left">99,80%</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Last</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Grundprincipen är att loggrapport skapas från senaste loggdata. Loggdata från de senaste 18 månaderna ska finnas tillgängligt för uppföljning. Aktuellt intervall av loggdata som finns tillgängligt för uppföljning returneras i svaret. (Se kapitel 1.5 Läsning av åtkomstloggar som är äldre än 18 månader).</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fältregler-6">Fältregler</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderId</td>
+      <td style="text-align: left">log:HsaId</td>
+      <td style="text-align: left">Vårdgivare som är informationsägare av loggpost.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">log:PersonId</td>
+      <td style="text-align: left">Patientens personnummer, samordningsnummer, alternativt reservnummer som annan vårdgivare än informationsägaren haft åtkomst till.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fromDate</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Obligatoriskt startdatum för att begränsa rapportuttaget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">toDate</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Obligatoriskt slutdatum för att begränsa rapportuttaget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">queuedReportId</td>
+      <td style="text-align: left">log:Id</td>
+      <td style="text-align: left">Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigstälts.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getInfoLogsForPatient</td>
+      <td style="text-align: left">log.querying:InfoLogsResult</td>
+      <td style="text-align: left">Resultatobjekt med status hurvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista av vårdgivare samt resultatkod OK. / Vid eventuella fel i tjänsteanropet returneras inga vårdgivare. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="regler-6">Regler</h3>
+<p>Tjänsten skall kontrollera om anropande system har behörighet baserat på det anropande systemets certifikat.
+Om tjänsten har behov av att filtrera åtkomsten ska detta baseras på ”x-rivta-original-serviceconsumer-hsaid” i RIV TA-headern.
+Normalt så är en tjänst ansluten via en Tjänsteplattform och då är det den som reglerar åtkomsten.</p>
+
+<h3 id="tjänsteinteraktion-6">Tjänsteinteraktion</h3>
+<p>GetInfoLogsForPatient</p>
+
+<h3 id="exempel-6">Exempel</h3>
+
+<h4 id="exempel-på-anrop-6">Exempel på anrop</h4>
+<p>Följande XML visar strukturen på ett anrop till tjänsten.</p>
+<GetInfoLogsForPatientRequest xmlns="urn:riv:ehr:log:querying:GetInfoLogsForPatientResponder:1" xmlns:ns1="urn:riv:ehr:log:querying:1">
+<CareProviderId>?</CareProviderId>
+<PatientId>?</PatientId>
+<FromDate>?</FromDate>
+<ToDate>?</ToDate>
+  <!-- Optional -->
+<QueuedReportId>?</QueuedReportId>
+</GetInfoLogsForPatientRequest>
+
+<h4 id="exempel-på-svar-6">Exempel på svar</h4>
+<p>Följande XML visar strukturen på svarsmeddelandet från tjänsten.</p>
+<GetInfoLogsForPatientResponse xmlns="urn:riv:ehr:log:querying:GetInfoLogsForPatientResponder:1" xmlns:ns1="urn:riv:ehr:log:querying:1" xmlns:ns2="urn:riv:ehr:log:1">
+<GetInfoLogsForPatient>
+<Result xmlns="urn:riv:ehr:log:querying:1">
+<ResultCode>?</ResultCode>
+<ResultText>?</ResultText>
+  <!-- Optional -->
+<StartInterval>?</StartInterval>
+  <!-- Optional -->
+<EndInterval>?</EndInterval>
+  <!-- Optional -->
+<QueuedReportId>?</QueuedReportId>
+  <!-- Optional -->
+<QueueTime>?</QueueTime>
+</Result>
+  <!-- Optional -->
+<CareProviders xmlns="urn:riv:ehr:log:querying:1">
+  <!-- Optional -->
+  <!-- Array -->
+<CareProvider>
+<CareProviderId xmlns="urn:riv:ehr:log:1">?</CareProviderId>
+  <!-- Optional -->
+<CareProviderName xmlns="urn:riv:ehr:log:1">?</CareProviderName>
+</CareProvider>
+</CareProviders>
+</GetInfoLogsForPatient>
+</GetInfoLogsForPatientResponse>
+
+<h3 id="källfiler-riv-ta-6">Källfiler (RIV-TA)</h3>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l3896">​</a><a href="files/wsdl/GetInfoLogsForPatientInteraction_1.0_RIVTABP21.wsdl">GetInfoLogsForPatientInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l3906">​</a><a href="files/schema/GetInfoLogsForPatientResponder_1.0.xsd">GetInfoLogsForPatientResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l3916">​</a><a href="files/schema/ehr_logquerying_1.1.xsd">ehr_logquerying_1.1.xsd</a></td>
+      <td>Underdomänschema</td>
+    </tr>
+    <tr>
+      <td><a name="l3926">​</a><a href="files/schema/ehr_log_1.0.xsd">ehr_log_1.0.xsd</a></td>
+      <td>Gemensamt domänschema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fhir-artefakter-6">FHIR-artefakter</h3>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getinfologsforpatient.html">StructureDefinition/getinfologsforpatient</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getinfologsforpatient-request.html">StructureDefinition/getinfologsforpatient-request</a></li>
+</ul>
+
+
+
+
+</div>
+        </div>    <!-- /inner-wrapper -->
+      </div>    <!-- /row -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-content -->
+
+  <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script src="assets/js/jquery-ui.min.js" type="text/javascript"> </script>
+
+  <script src="assets/js/window-hash.js" type="text/javascript"> </script>
+  <a name="bottom"> </a>
+  <div igtool="footer" id="segment-footer" class="segment">    <!-- segment-footer -->
+    <div class="container">    <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &copy; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.ehr-log#1.2.3 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 9, 2026 16:53+0000">2026-09-09</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>    <!-- /inner-wrapper -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">    <!-- segment-post-footer -->
+    <div class="container">    <!-- container -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-post-footer -->
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+  <script src="assets/js/respond.min.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard-btn.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor-hover.js" type="text/javascript"> </script>
+    <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>

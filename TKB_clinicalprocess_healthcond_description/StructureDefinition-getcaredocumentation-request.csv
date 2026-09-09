@@ -1,0 +1,25 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getcaredocumentation-request","getcaredocumentation-request","","","",0,*,"","","","null {[]} {[]}
+","GetCareDocumentation — Request","Logisk modell för requestparametrar i GetCareDocumentation
+(RIV-TA urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3).
+Söker journalanteckningar för en patient med valfri filtrering.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getcaredocumentation-request.careUnit","getcaredocumentation-request.careUnit","","","",0,*,"","","","Identifier {[]} {[]}
+","Filtrering på vårdenhet","Filtrering på vårdenhet vilket motsvarar accountableCareUnit HSA-id i svaret.
+Kardinalitet: Valfri, lista.","","","","","","","","","",,,,,"",,,,"getcaredocumentation-request.careUnit",0,*,"",""
+"getcaredocumentation-request.healthcareProvider","getcaredocumentation-request.healthcareProvider","","","",0,*,"","","","Identifier {[]} {[]}
+","Filtrering på vårdgivare","Filtrering på vårdgivare vilket motsvarar accountableHealthcareProvider HSA-id i svaret.
+Kardinalitet: Valfri, lista.","","","","","","","","","",,,,,"",,,,"getcaredocumentation-request.healthcareProvider",0,*,"",""
+"getcaredocumentation-request.patientId","getcaredocumentation-request.patientId","","","",1,1,"","","","Identifier {[]} {[]}
+","Patientens id","Id för patienten. extension sätts till personnummer eller samordningsnummer (12 tecken).
+root sätts till OID för typ av identifierare.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcaredocumentation-request.patientId",1,1,"",""
+"getcaredocumentation-request.datePeriod","getcaredocumentation-request.datePeriod","","","",0,1,"","","","Period {[]} {[]}
+","Datumintervall för sökning","Begränsar sökningen till det angivna intervallet. start och end anges på formatet ÅÅÅÅMMDD.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcaredocumentation-request.datePeriod",0,1,"",""
+"getcaredocumentation-request.sourceSystemId","getcaredocumentation-request.sourceSystemId","","","",0,1,"","","","Identifier {[]} {[]}
+","Källsystem-id","Begränsar sökningen till anteckningar som är skapade i det angivna källsystemet.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcaredocumentation-request.sourceSystemId",0,1,"",""
+"getcaredocumentation-request.hasMoreReference","getcaredocumentation-request.hasMoreReference","","","",0,1,"","","","string {[]} {[]}
+","Referens för partiell hämtning","Kan anges av tjänstekonsument när man tidigare fått ett svar med hasMore.
+Anropet måste då vara direktadresserat till den logiska adressen som angavs i hasMore.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcaredocumentation-request.hasMoreReference",0,1,"",""

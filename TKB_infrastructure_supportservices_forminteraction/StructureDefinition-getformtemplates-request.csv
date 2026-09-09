@@ -1,0 +1,16 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getformtemplates-request","getformtemplates-request","","","",0,*,"","","","null {[]} {[]}
+","GetFormTemplates — Request","Logisk modell för requestparametrar i GetFormTemplates
+(RIV-TA urn:riv:infrastructure:supportservices:forminteraction:GetFormTemplates:2).
+Tjänst för att hämta tillgängliga formulärmallar för invånare.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getformtemplates-request.healthcareFacilityCareUnit","getformtemplates-request.healthcareFacilityCareUnit","","","",1,1,"","","","string {[]} {[]}
+","Hsa-Id för vårdenhet (enhets-id). T.ex. se2321000016-1hz3","HSA-id för vårdenhet/enhets-id. Obligatoriskt.","","","","","","","","","",,,,,"",,,,"getformtemplates-request.healthcareFacilityCareUnit",1,1,"",""
+"getformtemplates-request.publishedStatus","getformtemplates-request.publishedStatus","","","",0,*,"","","","CodeableConcept {[]} {[]}
+","Indikerar vilken status en mall skall ha","Filtreringsparameter för mallens publiceringsstatus. Valfri, kan ange flera.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/infrastructure-supportservices-forminteraction/ValueSet/publishstatus-vs","",,,,"getformtemplates-request.publishedStatus",0,*,"",""
+"getformtemplates-request.subjectOfCare","getformtemplates-request.subjectOfCare","","","",0,1,"","","","string {[]} {[]}
+","Starkt autentiserad användares personnummer (yyyymmddnnnn)","Personnummer för den invånare formuläret avser. FormTemplate-attributet anonymousForm
+styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt.","","","","","","","","","",,,,,"",,,,"getformtemplates-request.subjectOfCare",0,1,"",""
+"getformtemplates-request.templateId","getformtemplates-request.templateId","","","",0,*,"","","","string {[]} {[]}
+","Typ av formulärmall (kodverk KV Malltyp)","Filtrerar svar på specifik formulärtyp. Om ej angiven returneras ALLA tillgängliga mallar.","","","","","","","","","",,,,,"",,,,"getformtemplates-request.templateId",0,*,"",""
+"getformtemplates-request.clinicalProcessInterestId","getformtemplates-request.clinicalProcessInterestId","","","",0,*,"","","","string {[]} {[]}
+","Hälsoärende — HSA-id för framställarens enhet/process + unik identifierare","Globalt/nationellt hälsoärende ID. Filtrerar formulär kopplade till ett eller flera hälsoärenden.","","","","","","","","","",,,,,"",,,,"getformtemplates-request.clinicalProcessInterestId",0,*,"",""

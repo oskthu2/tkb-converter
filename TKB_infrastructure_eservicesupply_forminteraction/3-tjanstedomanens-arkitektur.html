@@ -1,0 +1,743 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>3 Tjänstedomänens arkitektur - infrastructure: eservicesupply: forminteraction v2.1</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link rel="stylesheet" href="fhir.css"/>
+
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-fhir.css"/>
+
+      <!-- Project extras -->
+    <link rel="stylesheet" href="assets/css/project.css"/>
+    <link rel="stylesheet" href="assets/css/pygments-manni.css"/>
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+  	<link rel="stylesheet" href="assets/css/prism.css"/>
+  	<link rel="stylesheet" href="assets/css/cqf.css"/>
+      <!-- Placeholder for child template CSS declarations -->
+
+    <script src="fhir-table-scripts.js" type="text/javascript"> </script>
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- [if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif] -->
+
+      <!-- Favicons -->
+    <link sizes="144x144" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-144.png"/>
+    <link sizes="114x114" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-114.png"/>
+    <link sizes="72x72" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script src="assets/js/mermaid.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
+    <style type="text/css">h2{--heading-prefix:"4"}
+    h3,h4,h5,h6{--heading-prefix:"4"}</style>
+    <div id="segment-header" class="segment">    <!-- segment-header -->
+      <div class="container">    <!-- container -->
+
+          <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">infrastructure: eservicesupply: forminteraction</span>
+            <br/>
+            <span style="display:inline-block;">2.1 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div>   <!-- /container -->
+    </div>    <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">    <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">    <!-- container -->
+          <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+            <!-- status-bar -->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a href="http://hl7.org/fhir/R4/index.html" class="navbar-brand hidden">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul class="nav navbar-nav">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+  <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+  <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+  <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artifacts</a></li>
+</ul>
+
+            </div>    <!-- /.nav-collapse -->
+          </div>    <!-- /.container -->
+        </nav>    <!-- /.navbar -->
+        <!-- /HEADER CONTENT -->
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-navbar -->
+      <!-- status-bar -->
+
+    <div id="segment-breadcrumb" class="segment">    <!-- segment-breadcrumb -->
+      <div class="container">    <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>3 Tjänstedomänens arkitektur</b></li>
+
+        </ul>
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">    <!-- segment-content -->
+      <div class="container">    <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+    <!-- ReleaseHeader --><p id="publish-box">infrastructure: eservicesupply: forminteraction - Local Development build (v2.1) built by the FHIR (HL7&reg; FHIR&reg; Standard) Build Tools. See the <a href="https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  <h2>3 Tjänstedomänens arkitektur</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>  <!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstedomänens-arkitektur" id="markdown-toc-tjänstedomänens-arkitektur">Tjänstedomänens arkitektur</a>    <ul>
+      <li><a href="#flöden" id="markdown-toc-flöden">Flöden</a></li>
+      <li><a href="#adressering" id="markdown-toc-adressering">Adressering</a></li>
+      <li><a href="#notifieringar-med-processnotification" id="markdown-toc-notifieringar-med-processnotification">Notifieringar med ProcessNotification</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstedomänens-arkitektur">Tjänstedomänens arkitektur</h2>
+
+<p><a name="l274">​</a><img src="images/img_012.png" alt="img_012.png"/></p>
+
+<h3 id="flöden">Flöden</h3>
+
+<h4 id="flöde-af-1-skapa-formulärmall">Flöde AF-1 Skapa formulärmall</h4>
+
+<p><a name="l283">​</a><img src="images/img_005.jpeg" alt="img_005.jpeg"/>
+<em>Figur 1: Flöde AF-1</em>
+Mall-administratör designar ny formulärmall eller ändrar i befintlig formulärmall i e-tjänst för mall-administration. Mallen sparas i producenten (formulärmotor).</p>
+
+<h4 id="flöde-af-2-begär-formulärinsamling-av-patient">Flöde AF-2 Begär formulärinsamling av patient</h4>
+<p>Användningsfallet kan även benämnas ”Skapa formulärbegäran”.</p>
+
+<p><a name="l296">​</a><img src="images/img_003.png" alt="img_003.png"/>
+<em>Figur 1: Flöde AF-2</em>
+I flödet begär vårdpersonal att en patient skall fylla i ett formulär (t.ex. en hälsodeklaration). Begäran kan göras i formulärmotorns användargränssnitt eller via det vårdsystem som används. Önskas begäran via vårdsystemet anropas tjänstekontraktet (CreateFormRequest) för ”1: Begär formulärifyllnad”.
+Vid en formulärbegäran skapas ett formulär – en formulärinstans baserat på en utpekar formulärmall - där patient, verksamhet och formulärmall kopplas ihop.
+Flöde:
+Vårdpersonal: Gör en formulärbegär (t.ex. en hälsodeklaration) i lokalt vårdsystem eller via formulärmotorns användargränssnitt. En formulärbegäran kan även implementeras i verksamhetssystemet för att genereras automatiskt t.ex. i samband med en tidsbokning eller en remiss.
+Om formulärbegäran implementeras i verksamhetssystemet anropas tjänstekontraktet ”CreateFormRequest”. Denna integrerade lösning medger en bättre processtyrning samt mindre handgrepp för medarbetare/vårdpersonal.
+Formulärmotorn skapar ett formulär (status ONGOING).
+Formulärmotorn: Notifierar e-tjänst om ny formulärbegäran, där följande attribut sätts:
+”categorization” sätts till ”FormCreated” (Formulärbegäran).
+”businessObjectInstanceIdentifier” sätts till unikt id på formulär ”FormID”.
+E-tjänsten: Mottager notifiering om formulärbegäran och tillhandahåller e-tjänst för formulärifyllnad till användaren/patienten.
+E-tjänsten kan avisera användaren/patienten om händelsen, exempelvis via SMS.</p>
+
+<h4 id="flöde-af-3a-patient-fyller-i-formulär-redan-skapat">Flöde AF-3A Patient fyller i formulär (redan skapat)</h4>
+
+<p><a name="l306">​</a><img src="images/img_014.png" alt="img_014.png"/>
+<em>Figur 2: Flöde AF-3A</em>
+I flödet använder användaren e-tjänst för att fylla i ett formulär. E-tjänsten (konsumenten) kommunicerar med formulärmotorn med hjälp av tjänstekontrakt. E-tjänsten presenterar formulärets frågor för användaren/patienten som besvarar dessa.
+Användningsfallet förutsätter att ett formulär är skapat.
+Flöde:
+Tillgängliga formulär hämtas/listas genom att anropa formulärmotorns ”GetForms”. Om e-tjänst redan
+Formuläret ”startas” genom att användaren väljer ett formulär i ovanstående steg. ”GetForm” anropas.
+Formulärstatus ”COMPLETED”. Formuläret är avslutat.
+Formulärstatus ”ONGOING”. Pågående, frågor har temporärsparats.
+Formulärstatus ”PENDING_COMPLETION”. Pågående, frågor har temporärsparats. Alla frågor är besvarade.
+Formulärets frågor besvaras(invånare) och skickas med formulärmotorns ”SaveFormPage”.
+När det inte finns flera frågor signaleras detta med ”LastPage” sätts till ”true”.
+Ett formulär avslutas genom att e-tjänsten anropar formulärmotorns ”SaveForm”.
+Formuläret får status ”COMPLETE”.
+Formulärmotorn notifierar Vårdsystemet hos ansvarig vårdgivare när formuläret är avslutat.
+”categorization” sätts till ”FormComplete” (Avslutat).
+”businessObjectInstanceIdentifier” sätts till unikt id på formulär ”FormID”.
+Vårdsystemet kan hämta användarens/patientens besvarade formulär (T.ex. Hälsodeklaration)
+Se AF-6 för detaljering av notifieringsflöde.
+Användaren kan avbryta ett formulär genom att e-tjänsten anropar formulärmotorns ”CancelForm”.</p>
+
+<h4 id="flöde-af-3b-patient-fyller-i-formulär-efter-notifiering">Flöde AF-3B Patient fyller i formulär efter notifiering</h4>
+
+<p><a name="l316">​</a><img src="images/img_010.png" alt="img_010.png"/>
+<em>Figur 2: Flöde AF-3B</em>
+I flödet använder användaren e-tjänst för att fylla i ett formulär. E-tjänsten (klient) kommunicerar med formulärmotorn med hjälp av tjänstekontraktet. E-tjänsten presenterar dess frågor för användaren/patienten som besvarar dessa.
+Användningsfallet förutsätter att ett formulär är skapat och därmed att en formulärbegäran genererats.
+Flöde:
+E-tjänst notifieras av formulärmotorn om att ny formulärbegäran skapats.
+Formuläret ”startas” genom att användaren öppnar formuläret enligt formulärbegäran. ”GetForm” anropas.
+Formulärets frågor besvaras och skickas med formulärmotorns ”SaveFormPage”.
+När det inte finns flera frågor signaleras detta med ”LastPage” sätts till ”true”.
+Ett formulär avslutas genom att e-tjänsten anropar formulärmotorns ”SaveForm”.
+Formuläret får status ”COMPLETE”.
+Formulärmotorn notifierar Vårdsystemet hos ansvarig vårdgivare när formuläret är avslutat.
+”categorization” sätts till ”FormComplete” (Avslutat).
+”businessObjectInstanceIdentifier” sätts till unikt id på formulär ”FormID”.
+Vårdsystemet kan hämta användarens/patientens besvarade formulär (T.ex. Hälsodeklaration)
+Se AF-6 för detaljering av notifieringsflöde.
+Användaren kan avbryta ett formulär genom att e-tjänsten anropar formulärmotorns ”CancelForm”.</p>
+
+<h4 id="flöde-af-3c-patient-fyller-i-formulär">Flöde AF-3C Patient fyller i formulär</h4>
+<p>Flödet illustrerar fallet då patienten skapar ett formulär utan att en ”formulärbegäran” är skapad. Patienten kan välja formulärmall.</p>
+
+<p><a name="l329">​</a><img src="images/img_008.png" alt="img_008.png"/>
+<em>Figur 3: Flöde AF-3C</em>
+I flödet använder användaren en e-tjänst för att välja och fylla i ett formulär. E-tjänsten (klient) kommunicerar med formulärmotorn med hjälp av tjänstekontraktet. E-tjänsten presenterar dess frågor för användaren/patienten som besvarar dessa.
+Flöde:
+Tillgängliga formulärmallar hämtas genom att anropa formulärmotorns ”GetFormTemplates”. Detta för att få tillgång till valbara ”TemplateID”.
+Formuläret ”startas” genom att användaren väljer ett formulär och formulärmotorns ”CreateForm” anropas.
+Ett formulär skapas i formulärmotorn.
+Formulärmotorn notifierar vårdsystemet hos ansvarig vårdgivare om ny formulärbegäran, där följande attribut sätts:
+”categorization” sätts till ”FormCreated” (Formulär skapat).
+”businessObjectInstanceIdentifier” sätts till unikt id på formulär ”FormID”.
+Formulärets frågor besvaras och skickas med formulärmotorns ”SaveFormPage”.
+När det inte finns flera frågor signaleras detta med ”LastPage” sätts till ”true”.
+Ett formulär avslutas genom att e-tjänsten anropar formulärmotorns ”SaveForm”.
+Formuläret får status ”COMPLETE”.
+Formulärmotorn notifierar Vårdsystemet hos ansvarig vårdgivare när formuläret är avslutat.
+”categorization” sätts till ”FormComplete” (Avslutat).
+”businessObjectInstanceIdentifier” sätts till unikt id på formulär ”FormID”.
+Vårdsystem får därmed möjlighet att hämta användarens/patientens besvarade formulär (T.ex. Hälsodeklaration)
+Se AF-6 för detaljering av notifieringsflöde.
+Användaren kan avbryta ett formulär genom att e-tjänsten anropar formulärmotorns ”CancelForm”.</p>
+
+<h4 id="flöde-af-4-återuppta-formulär">Flöde AF-4 Återuppta formulär.</h4>
+
+<p><a name="l339">​</a><img src="images/img_018.png" alt="img_018.png"/>
+<em>Figur 4: Flöde AF-4</em>
+I flödet använder användaren en e-tjänst för att återuppta i ett formulär. E-tjänsten (klient) kommunicerar med formulärmotorn med hjälp av tjänstekontraktet. E-tjänsten presenterar dess frågor för användaren/patienten som besvarar dessa.
+Flöde:
+Tillgängliga formulärmallar hämtas genom att anropa formulärmotorns ”GetForms”.
+Formuläret ”startas” genom att användaren väljer ett formulär och formulärmotorns ”GetForm” anropas.
+Formulärets frågor besvaras och skickas med formulärmotorns ”SaveFormPage”.
+När det inte finns flera frågor signaleras detta med ”LastPage” sätts till ”true”.
+Ett formulär avslutas genom att e-tjänsten anropar formulärmotorns ”SaveForm”.
+Formulärmotorn notifierar Vårdsystemet hos ansvarig vårdgivare när formuläret är avslutat.
+”categorization” sätts till ”FormComplete” (Avslutat).
+”businessObjectInstanceIdentifier” sätts till unikt id på formulär ”FormID”.
+Vårdsystem får därmed möjlighet att hämta användarens/patientens besvarade formulär (T.ex. Hälsodeklaration)
+Användaren kan avbryta ett formulär genom att e-tjänsten anropar formulärmotorns ”CancelForm”.</p>
+
+<h4 id="flöde-af-5-notifiera">Flöde AF-5 Notifiera</h4>
+<p>Se kapitel 3.18 för mer detaljerad beskrivning av notifieringsmeddelanden.
+En tjänsteproducent av tjänstekontrakten för formulärhantering ska kunna notifiera statusförändringar till berörda parter. Notifiering behövs vid två olika tillfällen i process-kedjan.
+Notifiera invånare eller patient om behov av att fylla i ett formulär
+Vårdpersonal initierar en formulärbegäran för utvalt invånare/patient via sitt verksamhetssystem/journalsystem. Systemet anropar tjänstekontraktet CreateFormRequest gentemot formulärmotorn, som i sin tur notifierar e-tjänsten ”besvara formulär” med categorization = FormCreated.
+(Som alternativ erbjuder den nationella implementationen av formulärmotorn ett användargränssnitt till vårdpersonal för att initiera formulärbegäran. I detta specialfall agerar den nationella formulärmotorn e-tjänst och initierar internt formulärbegäran och notifiering.)</p>
+
+<p><a name="l352">​</a><img src="images/img_002.png" alt="img_002.png"/>
+Notifiera vårdgivare/vårdpersonal om att ett formulär fyllts i
+När invånare/patient fyllt i ett formulär och sparat det i e-tjänst anropar e-tjänsten tjänstekontraktet SaveForm() gentemot formulärmotorn. Formulärmotorn notifierar vårdsystemet hos ansvarig vårdgivare med categorization = FormCompleted.</p>
+
+<p><a name="l356">​</a><img src="images/img_015.png" alt="img_015.png"/></p>
+
+<h4 id="flöde-af-6-vårdsystem-hämtar-användarenspatientens-formulär">Flöde AF-6 Vårdsystem hämtar användarens/patientens formulär.</h4>
+
+<p><a name="l362">​</a><img src="images/img_011.png" alt="img_011.png"/>
+<em>Figur 5: Flöde AF-6</em>
+I flödet beskriv hur ett vårdsystem med hjälp av efter notifiering på ett systematiskt sätt kan hämta en användarens/patients formulär (T.ex. Hälsodeklaration).
+Genom att tillämpa detta flöde hämtas användarens/patientens formulär och kan lagras som en del av vårdsystemet. Medarbetaren behöver inte ha kunskap kring hur formulärmotorn utan kan arbeta som vanligt i sitt vårdsystem.
+Flöde:
+En patient har med hjälp av e-tjänst för att besvara formulär fyllt i ett formulär.
+Formulärmotorn notifierar vårdsystemet.
+Vårdsystemet mottager notifiering (ProcessNotification)
+Notifiering innehåller bl.a. nyckel till användarens formulär ”FormID”.
+Vårdsystemet analyserar notifiering och hämtar användarens formulär genom att anropa formulärmotorns ”GetForm”.
+Vårdsystemet lagrar mottaget formulärsvar.
+Vårdpersonal tar del av svaret som lagrats i vårdsystemet.</p>
+
+<h4 id="flöde-af7---fylla-i-och-avsluta-ett-formulär">Flöde AF7 - Fylla i och avsluta ett formulär</h4>
+
+<p><a name="l372">​</a><img src="images/img_006.jpeg" alt="img_006.jpeg"/>
+Formulär skapas genom att tjänsten CreateForm anropas med hsa-id på vårdcentral, personnummer för den som ska fylla i formuläret (om det inte är anonymt) och id på formulärmallen. Formulär skapas utifrån det mall-id som skickats med. Det nya formuläret sparas i databasen och returneras med första formulärsidan till användaren. Formuläret har nu statusen ONGOING.</p>
+
+<h4 id="flöde-af-8-fyll-i-formulär">Flöde AF-8 Fyll i formulär</h4>
+<p>Användaren fyller i den aktuella formulärsidan och anropar SaveFormPage. Formulärmotorn validerar svaren och om allt är korrekt sparas sidan ner och nästa sida returneras till användaren. Formuläret har statusen ONGOING så länge det finns sidor kvar att fylla i.
+När man nått sista sidan kommer fältet form inte att returneras och formuläret kommer nu få status PENDING_COMPLETION. Detta innebär att formuläret är redo att avslutas. Användaren får nu tillbaks hela det ifyllda formuläret och kan granska om allt ser ok ut.</p>
+
+<h4 id="flöde-af-9-spara-och-avsluta-formulär">Flöde AF-9 Spara och avsluta formulär</h4>
+<p>Om formuläret är korrekt ifyllt kan användaren avsluta formuläret genom att anropa tjänsten SaveForm. Formuläret kommer nu sparas i databasen med status COMPLETED. Det går därefter inte att ändra i formuläret och användaren får tillbaks en OK-status om att formuläret är sparat och avslutat.</p>
+
+<p><a name="l388">​</a><img src="images/img_016.jpeg" alt="img_016.jpeg"/></p>
+
+<h4 id="flöde-af-10-hämta-formulär">Flöde AF-10 Hämta formulär</h4>
+<p>Invånare väljer ett formulär (formulärinstans) antingen via en länk i ett inkorgsmeddelande eller från en lista med tillgängliga formulärinstanser. Formuläret visas för invånaren.</p>
+
+<p><a name="l397">​</a><img src="images/img_013.jpeg" alt="img_013.jpeg"/></p>
+
+<h4 id="flöde-af-11-avbryta-formulär">Flöde AF-11 Avbryta formulär</h4>
+<p>Invånaren kan närsomhelst efter att en formulärinmatning påbörjats välja att ångra sig och därmed radera formuläret. E-tjänst (konsumenten) anropar då tjänstekontraktet CancelForm med formulärinstansens unika formulärId (formid). Formuläret måste befinna sig i ett av tillstånden ONGOING eller PENDING_COMPLETION. Om formuläret sparats (SaveForm anropats) kan formuläret inte längre raderas.</p>
+
+<p><a name="l406">​</a><img src="images/img_009.jpeg" alt="img_009.jpeg"/></p>
+
+<h4 id="flöde-af-12-hämta-formulärlista">Flöde AF-12 Hämta formulärlista</h4>
+<p>E-tjänst (konsument) kan anropa tjänstekontraktet GetForms för att hämta invånares alla formulär. Svaret kommer att innehålla både de ännu ej-påbörjade formulär som initierats från exempelvis ett verksamhetssystem som anropat CreateFormRequest, men även formulär som invånaren påbörjat men ännu inte färdigställt. Likaså returneras de avslutade (sparade) formulären. E-tjänst/invånare har möjlighet att filtrera anropet baserat på formulärmall-typ (templateId).</p>
+
+<p><a name="l415">​</a><img src="images/img_019.jpeg" alt="img_019.jpeg"/></p>
+
+<h4 id="flöde-af-13-hämta-mallar">Flöde AF-13 Hämta mallar</h4>
+<p>E-tjänst (konsument) kan anropa tjänstekontraktet GetFormTemplates för att hämta möjliga formulärmallar som kan tillgängliggöras för invånare. Konsumenten har möjlighet att filtrera ut en eller flera formulärmallar genom att i anropet ange en lista med formulärmallstyper (templateIds).</p>
+
+<p><a name="l424">​</a><img src="images/img_004.jpeg" alt="img_004.jpeg"/></p>
+
+<h4 id="obligatoriska-kontrakt">Obligatoriska kontrakt</h4>
+<p>Följande tabell specificerar vilka kontrakt som är obligatoriska att realisera för respektive flöde.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Tjänstekontrakt</th>
+      <th style="text-align: left">Flöde AF1</th>
+      <th style="text-align: left">Flöde AF2</th>
+      <th style="text-align: left">Flöde AF3A,B</th>
+      <th style="text-align: left">Flöde AF3C</th>
+      <th style="text-align: left">Flöde AF4</th>
+      <th style="text-align: left">Flöde AF5</th>
+      <th style="text-align: left">Flöde AF6</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">GetFormTemplate</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SaveFormTemplate</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CreateForm</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CreateFormRequest</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetForm</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">X</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetFormQuestionPage</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetForms</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetFormTemplates</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SaveForm</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SaveFormPage</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CancelForm</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">(X)</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ProcessNotification (itintegration:engagementindex)</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänstekontrakt</td>
+      <td style="text-align: left">Flöde AF7</td>
+      <td style="text-align: left">Flöde AF8</td>
+      <td style="text-align: left">Flöde AF9</td>
+      <td style="text-align: left">Flöde AF10</td>
+      <td style="text-align: left">Flöde AF11</td>
+      <td style="text-align: left">Flöde AF12</td>
+      <td style="text-align: left">Flöde AF13</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetFormTemplate</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SaveFormTemplate</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CreateForm</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CreateFormRequest</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetForm</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetFormQuestionPage</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetForms</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetFormTemplates</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">X</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SaveForm</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SaveFormPage</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CancelForm</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ProcessNotification (itintegration:engagementindex)</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="adressering">Adressering</h3>
+<p>För tjänstedomänen gäller följande regler för logisk adressering:
+Referens till informationskällan enligt tjänste-domänens definition till informationskälla.
+Systemadressering <Formulärmotor hsa-id="null"></Formulärmotor></p>
+
+<h3 id="notifieringar-med-processnotification">Notifieringar med ProcessNotification</h3>
+<p>I versioner av tjänstedomänen före 2.1.1 användes Engagemangsindex i notifieringsflöden. Detta är ej längre möjligt på grund av ändrade regelverk. För bakåtkompatibilitet med redan anslutna notifieringsmottagare används dock fortsatt tjänstekontraktet ProcessNotification från tjänstedomänen Engagemangsindex (urn:riv:itintegration:engagementindex:ProcessNotificationResponder:1).
+Formulärmotorn agerar tjänstekonsument för ProcessNotification, dvs skickar notifieringar. Notifieringar får endast skickas till:
+vårdsystem kopplat till ansvarig vårdgivare/vårdenhet för den aktuella formulärinstansen
+e-tjänst för besvarande av formulär
+Det är inte obligatoriskt för en aktör att motta notifieringar. Om ett verksamhetssystem saknar integration för notifieringar kan detta kompenseras med manuella rutiner i de olika flödena.
+Följande regler gäller för notifieringar som rör denna tjänstedomän (infrastructure:eservicesupply:forminteraction):
+Categorization
+Fältet används för att signalera när ett formulär/mall är skapad för en användare/patient eller när en användare/patient har besvarat/avslutat ett formulär.
+categorization ”FormCreated”
+Indikerar att ett specifikt formulär är skapat för användaren/patienten.
+T.ex. Patienten skall fylla i en hälsodeklaration.
+categorization ”FormComplete”
+Indikerar att ett formulär är skapat och lagras(temporärt) i en formulärmotor.
+Tabellen beskriver de attribut som är unika för tjänstedomänen. Utöver nedanstående tabell se tjänstekontraktsbeskrivning för engagemangsindex [ref R3].</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attributnamn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">serviceDomain</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">infrastructure:eservicesupply:forminteraction</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">categorization</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kategorier för engagemangsindexpost. / FormCreated (Indikerar att ett specifikt formulär är skapat för användaren.) / FormComplete (Indikerar att ett specifikt formulär är avslutat)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">businessObjectInstanceIdentifier</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Unik identifierare för händelse-bärande objekt.</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Id som motsvarar ”FormId” (i objekt Form</td>
+      <td style="text-align: left">1..1</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LogicalAddress</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Referens till informationskällan enligt tjänste-domänens definition till informationskälla. / &lt; SourceSystem hsa-id&gt;</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dataController</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Identifierare som pekar på personuppgiftsansvarig (PuA) för formuläret. Ska motsvara det HSAId som har satts i attributet healthcare_facility_CareUnit i formulärinstansen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+</div>
+        </div>    <!-- /inner-wrapper -->
+      </div>    <!-- /row -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-content -->
+
+  <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script src="assets/js/jquery-ui.min.js" type="text/javascript"> </script>
+
+  <script src="assets/js/window-hash.js" type="text/javascript"> </script>
+  <a name="bottom"> </a>
+  <div igtool="footer" id="segment-footer" class="segment">    <!-- segment-footer -->
+    <div class="container">    <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &copy; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.infrastructure-eservicesupply-forminteraction#2.1 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 9, 2026 17:01+0000">2026-09-09</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>    <!-- /inner-wrapper -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">    <!-- segment-post-footer -->
+    <div class="container">    <!-- container -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-post-footer -->
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+  <script src="assets/js/respond.min.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard-btn.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor-hover.js" type="text/javascript"> </script>
+    <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>

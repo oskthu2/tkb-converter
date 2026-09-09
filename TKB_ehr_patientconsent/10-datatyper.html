@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>10 Datatyper - ehr: patientconsent — Samtyckeshantering v1.0.1</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"5"}
+    h3,h4,h5,h6{--heading-prefix:"5"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">ehr: patientconsent — Samtyckeshantering</span>
+            <br/>
+            <span style="display:inline-block;">1.0.1 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-generella-regler.html">2 Generella regler</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="10-datatyper.html">10 Datatyper</a></li>
+  <li><a href="artifacts.html">Artifacts</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>10 Datatyper</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">ehr: patientconsent — Samtyckeshantering - Local Development build (v1.0.1) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/ehr-patientconsent/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>10 Datatyper</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div>
+<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
+</div>
+<h2 id="datatyper">Datatyper</h2>
+<p>Kaptitlet beskriver alla datatyper som används av tjänsterna, version 1.0.</p>
+
+<h3 id="datatyper-från-namnrymd-urnrivehrpatientconsent1">Datatyper från namnrymd urn:riv:ehr:patientconsent:1</h3>
+<p>Nedan beskrivs några komplexa datatyper som är deklarerade i aktuell namnrymd urn:riv:ehr:patientconsent:1, version 1.0. Dessa datatyper är vanligt förekommande i övriga tjänster senare i kapitlet.</p>
+
+<h4 id="patientconsentaccessingactor">patientconsent:AccessingActor</h4>
+<p>Datatyp som identifierar en medarbetare/person som vill ha åtkomst till specifik information.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">employeeId</td>
+      <td style="text-align: left">patientconsent:HsaId</td>
+      <td style="text-align: left">Id för medarbetaren/personen.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderId</td>
+      <td style="text-align: left">patientconsent:HsaId</td>
+      <td style="text-align: left">Id på medarbetarens vårdgivare enligt aktuellt medarbetaruppdrag.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnitId</td>
+      <td style="text-align: left">patientconsent:HsaId</td>
+      <td style="text-align: left">Id på medarbetarens vårdenhet enligt aktuellt medarbetaruppdrag.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="patientconsentaction">patientconsent:Action</h4>
+<p>Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med
+en möjlig orsak/anledning angivet som fritext.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">requestDate</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Tidpunkt då åtgärden begärdes.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">requestedBy</td>
+      <td style="text-align: left">patientconsent:Actor</td>
+      <td style="text-align: left">Anger vem som begärt åtgärden.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">registrationDate</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Tidpunkt då händelsen registrerades. Kan vara samma tidpunkt som när åtgärden begärdes.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">registeredBy</td>
+      <td style="text-align: left">patientconsent:Actor</td>
+      <td style="text-align: left">Anger vem som registrerat åtgärden. Detta värde kan vara samma som den som begärt åtgärden.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">reasonText</td>
+      <td style="text-align: left">patientconsent:ReasonText</td>
+      <td style="text-align: left">Optionellt fritext fält som anger orsaken/anledningen till åtgärden.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="patientconsentactor">patientconsent:Actor</h4>
+<p>Datatyp som identifierar en medarbetare/person.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">employeeId</td>
+      <td style="text-align: left">patientconsent:HsaId</td>
+      <td style="text-align: left">Id för medarbetaren/personen.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">assignmentId</td>
+      <td style="text-align: left">patientconsent:HsaId</td>
+      <td style="text-align: left">Optionellt id för medarbetarens aktuella uppdrag.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">assignmentName</td>
+      <td style="text-align: left">patientconsent:AssignmentNameType</td>
+      <td style="text-align: left">Optionellt namn på medarbetarens aktuella uppdrag.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="patientconsentassertiontype">patientconsent:AssertionType</h4>
+<p>Enumerationsvärde som anger typ av intyg som ger direktåtkomst till information från andra vådgivare enligt PDL.
+Kan vara patientens samtycke eller nödsituation.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">"Consent"</td>
+      <td style="text-align: left">Patienten/Företrädaren har givit sitt samtycke.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"Emergency"</td>
+      <td style="text-align: left">Nödsituation föreligger. Patientens samtycke kunde ej inhämtas.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="patientconsentassignmentnametype">patientconsent:AssignmentNameType</h4>
+<p>Datatyp som representerar namn på medarbetaruppdrag.
+Maxlängd: 256</p>
+
+<h4 id="patientconsentcancelledassertion">patientconsent:CancelledAssertion</h4>
+<p>Datatyp som representerar ett makulerat eller återkallat samtycke samt tidpunkten när makuleringen eller återkallan utfördes.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">assertionId</td>
+      <td style="text-align: left">patientconsent:Id</td>
+      <td style="text-align: left">Id på det makulerade eller återkallade samtycket.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cancellationDate</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Tidpunkt när makuleringen eller återkallan utfördes.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="patientconsentcheckresult">patientconsent:CheckResult</h4>
+<p>Datatyp som anger om det finns ett giltigt samtycke, alternativt intyg om nödsituation, gällande åtkomst för viss aktör.
+Datatypen utökar datatypen Result.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">hasConsent</td>
+      <td style="text-align: left">xs:boolean</td>
+      <td style="text-align: left">Anger om aktören har ett giltigt samtycke, alternativt intyg om nödsituation, gällande åtkomst.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">assertionType</td>
+      <td style="text-align: left">patientconsent:AssertionType</td>
+      <td style="text-align: left">Anger vilken typ av intyg som hittades. / Om olika typer av samtyckesintyg finns registrerade returneras endast typen för det senaste registrerade intyget.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="patientconsentextendedpdlassertion">patientconsent:ExtendedPDLAssertion</h4>
+<p>Datatyp som representerar ett samtycke med ett utökat format. Innehåller information vem som har begärt respektive registrerat samtycket, samt om och när samtycket är återkallat eller makulerat.
+Datatypen utökar datatypen PDLAssertion.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">representedBy</td>
+      <td style="text-align: left">patientconsent:PersonIdValue</td>
+      <td style="text-align: left">Information om den företrädare/vårdnadshavare som företräder patienten. Värdet är ej obligatoriskt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">registrationInfo</td>
+      <td style="text-align: left">patientconsent:Action</td>
+      <td style="text-align: left">Innehåller information om vem som begärt och registrerat samtycket samt tidpunkten för begäran och registreringen.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cancellationInfo</td>
+      <td style="text-align: left">patientconsent:Action</td>
+      <td style="text-align: left">Information om en eventuell utförd återkallan av samtycket. Innehåller vem som begärt och registrerat återkallan, tidpunkten för begäran och registreringen av återkallan, samt anledningen till återkallan.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">deletionInfo</td>
+      <td style="text-align: left">patientconsent:Action</td>
+      <td style="text-align: left">Information om en eventuell utförd makulering av samtycket. Innehåller vem som begärt och registrerat makuleringen, tidpunkten för begäran och registreringen av makuleringen, samt anledningen till makuleringen.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="patientconsentgetallassertionsresult">patientconsent:GetAllAssertionsResult</h4>
+<p>Datatyp som representerar en lista med giltiga intyg tillsammans med en lista av makulerade och återkallade intyg. Den används för att dela upp svaret från tjänsten i mindre delar baserat på tidpunkt.
+Datatypen innehåller information om det finns ytterligare intyg att hämta samt en ny starttidpunkt för när nästa sekvens av intyg startar.
+Datatypen utökar datatypen Result.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">moreOnOrAfter</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Anger fr.o.m. vilken tidpunkt ytterligare samtyckesintyg finns att hämta. Tidpunkten kan användas iterativt i anrop till tjänsten som ett värde till parametern CreatedOnOrAfter. / Om inga fler samtyckesintyg finns att tillgå returneras ändå en tidpunkt vilket då får representera nästa möjliga hämtningstidpunkt, dvs nya samtyckesintyg kommer att bli registrerade efter denna tidpunkt.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hasMore</td>
+      <td style="text-align: left">xs:boolean</td>
+      <td style="text-align: left">Anger om det finns ytterligare samtycken att hämta. Om fler samtycken finns att hämta bör hämtningen utgå fr.o.m. den tidpunkt som anges i MoreOnOrAfter.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">assertions</td>
+      <td style="text-align: left">patientconsent:PDLAssertion</td>
+      <td style="text-align: left">Lista med giltiga intyg.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cancelledAssertions</td>
+      <td style="text-align: left">patientconsent:CancelledAssertion</td>
+      <td style="text-align: left">Lista med ej utgångna makulerade och återkallade intyg.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="patientconsentgetconsentsresult">patientconsent:GetConsentsResult</h4>
+<p>Datatyp som innehåller resultatet från en hämtning av samtyckesintyg enligt det utökade formatet tillsammans med hämtade samtyckesintyg.
+Datatypen utökar datatypen Result.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">pdlAssertions</td>
+      <td style="text-align: left">patientconsent:PDLAssertion</td>
+      <td style="text-align: left">Lista med hämtade intyg.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="patientconsentgetextendedconsentsresult">patientconsent:GetExtendedConsentsResult</h4>
+<p>Datatyp som innehåller resultatet från en hämtning av samtyckesintyg enligt det utökade formatet tillsammans med hämtade samtyckesintyg.
+Datatypen utökar datatypen Result.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">pdlAssertions</td>
+      <td style="text-align: left">patientconsent:ExtendedPDLAssertion</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="patientconsenthsaid">patientconsent:HsaId</h4>
+<p>Datatyp som representerar det unika nummer som identifierar en anställd, uppdragstagare, strukturenhet eller en HCC funktion (HSA-id).
+Specificerat enligt HSA-schema tjänsteträdet version 3.9.
+Maxlängd: 32</p>
+
+<h4 id="patientconsentid">patientconsent:Id</h4>
+<p>Datatyp som representerar ett unikt identifikationsnummer enligt formatet för UUID (Universally Unique Identifier).
+Maxlängd: 36</p>
+
+<h4 id="patientconsentownerid">patientconsent:OwnerId</h4>
+<p>Datatyp som identifierar systemet som registrerade/skapade artifakten. Används endast för tekniskt bruk för t.ex. uppföljning och spårning.
+Maxlängd: 512</p>
+
+<h4 id="patientconsentpdlassertion">patientconsent:PDLAssertion</h4>
+<p>Datatyp som representerar ett intyg som ger direktåtkomst till andra vårdgivares information enligt PDL. Datatypen beskriver grundformatet för ett intyg.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">assertionId</td>
+      <td style="text-align: left">patientconsent:Id</td>
+      <td style="text-align: left">Unik, global identifierare för intyget.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">assertionType</td>
+      <td style="text-align: left">patientconsent:AssertionType</td>
+      <td style="text-align: left">Typ av intyg som ger direktåtkomst till information från andra vådgivare enligt PDL. Kan vara patientens samtycke eller nödsituation.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">scope</td>
+      <td style="text-align: left">patientconsent:Scope</td>
+      <td style="text-align: left">Omfånget/tillämpningsområde på samtycket.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">patientconsent:PersonIdValue</td>
+      <td style="text-align: left">Patientens id nummer, kan vara personnummer alternativt samordningsnummer.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderId</td>
+      <td style="text-align: left">patientconsent:HsaId</td>
+      <td style="text-align: left">Vårdgivare id. Intyget kopplas till den vårdgivare som medarbetaren är kopplad till via dennes aktuella medarbetaruppdrag.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnitId</td>
+      <td style="text-align: left">patientconsent:HsaId</td>
+      <td style="text-align: left">Vårdenhets id. Intyget kopplas till den vårdenhet som medarbetaren är kopplad till via dennes aktuella medarbetaruppdrag.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">employeeId</td>
+      <td style="text-align: left">patientconsent:HsaId</td>
+      <td style="text-align: left">Medarbetare id. Om samtycket är personligt anges medarbetarens id. Om samtycket gäller all behörig personal på vårdenheten skall inget värde anges.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">startDate</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Startdatum för vilken giltighetstid samtycket avser.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">endDate</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Optionellt slutdatum för vilken giltighetstid samtycket avser. Om ett slutdatum är angivet gäller samtycket t.o.m denna tidpunkt. Om inget slutdatum anges, gäller samtycket tills det blir återkallat eller makulerat.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ownerId</td>
+      <td style="text-align: left">patientconsent:OwnerId</td>
+      <td style="text-align: left">Optionell identifierare för det system som skapade samtycket. Används endast för tekniskt bruk för t.ex. uppföljning och spårning.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="patientconsentpersonidvalue">patientconsent:PersonIdValue</h4>
+<p>Datatyp som representerar ett personnummer eller samordningsnummer.
+Maxlängd: 12</p>
+
+<h4 id="patientconsentreasontext">patientconsent:ReasonText</h4>
+<p>Datatyp som representerar en orsak eller anledning till en viss åtgärd.
+Maxlängd: 1024</p>
+
+<h4 id="patientconsentresult">patientconsent:Result</h4>
+<p>Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc.
+En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades.
+Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">patientconsent:ResultCode</td>
+      <td style="text-align: left">Anger svarskod för åtgärden.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">xs:string</td>
+      <td style="text-align: left">Optionellt felmeddelande som innehåller information om felet som uppstod. Fältet är tomt om resultatkoden är "OK".</td>
+      <td style="text-align: left">1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="patientconsentresultcode">patientconsent:ResultCode</h4>
+<p>Enumerationsvärde som anger de svarskoder som finns.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">"OK"</td>
+      <td style="text-align: left">Transaktionen har utförts enligt uppdraget.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"INFO"</td>
+      <td style="text-align: left">Transaktionen har utförts enligt begäran, men det finns ett meddelande som konsumenten måste visa upp för användaren (om tillämpbart). Exempel på detta kan vara "kom fastande".</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"ERROR"</td>
+      <td style="text-align: left">Transaktionen har INTE kunnat utföras p.g.a ett logiskt fel. Det finns ett meddelande som konsumenten måste visa upp. Exempel på detta kan vara "tiden har bokats av annan patient".</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"VALIDATION_ERROR"</td>
+      <td style="text-align: left">En eller flera inparametrar innehåller felaktiga värden. Angiven tjänst utfördes ej.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"ACCESSDENIED"</td>
+      <td style="text-align: left">Behörighet saknas för att utföra begärd tjänst. Angiven tjänst utfördes ej.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"NOTFOUND"</td>
+      <td style="text-align: left">Angiven artifakt finns ej. Angiven tjänst utfördes ej.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"ALREADYEXISTS"</td>
+      <td style="text-align: left">Angiven artifakt finns redan. Angiven tjänst utfördes ej.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"INVALIDSTATE"</td>
+      <td style="text-align: left">Angiven tjänst utfördes ej då tjänsten eller artifakten var i ett felaktigt tillstånd.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="patientconsentscope">patientconsent:Scope</h4>
+<p>Enumerationsvärde som anger omfånget/tillämpningsområde på intyget.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">"NationalLevel"</td>
+      <td style="text-align: left">Intyget gäller på nationell nivå.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.ehr-patientconsent#1.0.1 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 9, 2026 16:54+0000">2026-09-09</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

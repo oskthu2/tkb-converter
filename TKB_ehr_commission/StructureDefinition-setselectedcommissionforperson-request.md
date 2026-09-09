@@ -1,0 +1,109 @@
+# SetSelectedCommissionForPerson — Request - ehr: commission v1.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **SetSelectedCommissionForPerson — Request**
+
+## Logical Model: SetSelectedCommissionForPerson — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/ehr-commission/StructureDefinition/setselectedcommissionforperson-request | *Version*:1.0.0 |
+| Draft as of 2026-09-09 | *Computable Name*:SetSelectedCommissionForPersonRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för requestparametrar i SetSelectedCommissionForPerson (RIV-TA urn:riv:ehr:commission:SetSelectedCommissionForPersonResponder:1). 
+Exakt ett av fälten personalHsaId och personalIdentityNumber ska anges. commissionHsaId är valfritt — om det utelämnas nollställs valet (t.ex. vid utloggning). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.ehr-commission|current/StructureDefinition/StructureDefinition-setselectedcommissionforperson-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-setselectedcommissionforperson-request.csv), [Excel](StructureDefinition-setselectedcommissionforperson-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "setselectedcommissionforperson-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/ehr-commission/StructureDefinition/setselectedcommissionforperson-request",
+  "version" : "1.0.0",
+  "name" : "SetSelectedCommissionForPersonRequest",
+  "title" : "SetSelectedCommissionForPerson — Request",
+  "status" : "draft",
+  "date" : "2026-09-09T16:52:40+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för requestparametrar i SetSelectedCommissionForPerson\n(RIV-TA urn:riv:ehr:commission:SetSelectedCommissionForPersonResponder:1).\n\nExakt ett av fälten personalHsaId och personalIdentityNumber ska anges.\ncommissionHsaId är valfritt — om det utelämnas nollställs valet (t.ex. vid utloggning).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/ehr-commission/StructureDefinition/setselectedcommissionforperson-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "setselectedcommissionforperson-request",
+      "path" : "setselectedcommissionforperson-request",
+      "short" : "SetSelectedCommissionForPerson — Request",
+      "definition" : "Logisk modell för requestparametrar i SetSelectedCommissionForPerson\n(RIV-TA urn:riv:ehr:commission:SetSelectedCommissionForPersonResponder:1).\n\nExakt ett av fälten personalHsaId och personalIdentityNumber ska anges.\ncommissionHsaId är valfritt — om det utelämnas nollställs valet (t.ex. vid utloggning)."
+    },
+    {
+      "id" : "setselectedcommissionforperson-request.personalHsaId",
+      "path" : "setselectedcommissionforperson-request.personalHsaId",
+      "short" : "HSA-id för den aktör vars uppdragsval ska sättas",
+      "definition" : "HSA-id för den person vars medarbetaruppdragsval ska registreras.\nMaxlängd: 32 tecken.\nVillkor: Exakt ett av personalHsaId och personalIdentityNumber ska anges.\nKardinalitet: Villkorlig (0..1) — se ASSUME-EC-001 i QUESTIONS.md.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "setselectedcommissionforperson-request.personalIdentityNumber",
+      "path" : "setselectedcommissionforperson-request.personalIdentityNumber",
+      "short" : "Personnummer för den aktör vars uppdragsval ska sättas",
+      "definition" : "Personnummer eller samordningsnummer för den person vars uppdragsval ska registreras.\nMaxlängd: 12 tecken.\nVillkor: Exakt ett av personalHsaId och personalIdentityNumber ska anges.\nKardinalitet: Villkorlig (0..1) — se ASSUME-EC-001 i QUESTIONS.md.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "setselectedcommissionforperson-request.commissionHsaId",
+      "path" : "setselectedcommissionforperson-request.commissionHsaId",
+      "short" : "HSA-id för det valda uppdraget",
+      "definition" : "HSA-id för det medarbetaruppdrag som ska väljas som aktivt.\nOm detta fält utelämnas nollställs uppdragsvalet.\nDetta kan användas av autentiseringstjänsten för att tvinga fram ett\nnytt uppdragsval (t.ex. funktionen Byta Uppdrag).\nMaxlängd: 32 tecken.\nKardinalitet: Valfri.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

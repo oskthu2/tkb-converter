@@ -1,0 +1,1696 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>7 Tjänstekontrakt - infrastructure: eservicesupply: forminteraction v2.1</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link rel="stylesheet" href="fhir.css"/>
+
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-fhir.css"/>
+
+      <!-- Project extras -->
+    <link rel="stylesheet" href="assets/css/project.css"/>
+    <link rel="stylesheet" href="assets/css/pygments-manni.css"/>
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+  	<link rel="stylesheet" href="assets/css/prism.css"/>
+  	<link rel="stylesheet" href="assets/css/cqf.css"/>
+      <!-- Placeholder for child template CSS declarations -->
+
+    <script src="fhir-table-scripts.js" type="text/javascript"> </script>
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- [if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif] -->
+
+      <!-- Favicons -->
+    <link sizes="144x144" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-144.png"/>
+    <link sizes="114x114" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-114.png"/>
+    <link sizes="72x72" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script src="assets/js/mermaid.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
+    <style type="text/css">h2{--heading-prefix:"7"}
+    h3,h4,h5,h6{--heading-prefix:"7"}</style>
+    <div id="segment-header" class="segment">    <!-- segment-header -->
+      <div class="container">    <!-- container -->
+
+          <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">infrastructure: eservicesupply: forminteraction</span>
+            <br/>
+            <span style="display:inline-block;">2.1 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div>   <!-- /container -->
+    </div>    <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">    <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">    <!-- container -->
+          <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+            <!-- status-bar -->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a href="http://hl7.org/fhir/R4/index.html" class="navbar-brand hidden">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul class="nav navbar-nav">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+  <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+  <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+  <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artifacts</a></li>
+</ul>
+
+            </div>    <!-- /.nav-collapse -->
+          </div>    <!-- /.container -->
+        </nav>    <!-- /.navbar -->
+        <!-- /HEADER CONTENT -->
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-navbar -->
+      <!-- status-bar -->
+
+    <div id="segment-breadcrumb" class="segment">    <!-- segment-breadcrumb -->
+      <div class="container">    <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">    <!-- segment-content -->
+      <div class="container">    <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+    <!-- ReleaseHeader --><p id="publish-box">infrastructure: eservicesupply: forminteraction - Local Development build (v2.1) built by the FHIR (HL7&reg; FHIR&reg; Standard) Build Tools. See the <a href="https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>  <!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstekontrakt" id="markdown-toc-tjänstekontrakt">Tjänstekontrakt</a>    <ul>
+      <li><a href="#getformtemplates" id="markdown-toc-getformtemplates">GetFormTemplates</a></li>
+      <li><a href="#createform" id="markdown-toc-createform">CreateForm</a></li>
+      <li><a href="#getforms" id="markdown-toc-getforms">GetForms</a></li>
+      <li><a href="#getform" id="markdown-toc-getform">GetForm</a></li>
+      <li><a href="#getformquestionpage" id="markdown-toc-getformquestionpage">GetFormQuestionPage</a></li>
+      <li><a href="#saveformpage" id="markdown-toc-saveformpage">SaveFormPage</a></li>
+      <li><a href="#saveform" id="markdown-toc-saveform">SaveForm</a></li>
+      <li><a href="#cancelform" id="markdown-toc-cancelform">CancelForm</a></li>
+      <li><a href="#createformrequest" id="markdown-toc-createformrequest">CreateFormRequest</a></li>
+      <li><a href="#getformtemplate" id="markdown-toc-getformtemplate">GetFormTemplate</a></li>
+      <li><a href="#saveformtemplate" id="markdown-toc-saveformtemplate">SaveFormTemplate</a></li>
+      <li><a href="#deleteformtemplate" id="markdown-toc-deleteformtemplate">DeleteFormTemplate</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstekontrakt">Tjänstekontrakt</h2>
+
+<h3 id="getformtemplates">GetFormTemplates</h3>
+<p>Tjänst för att hämta tillgängliga formulärmallar för invånare. Tjänsten används för att lista de formulärmalar som invånaren kan använda för att skapa formulär.
+Tjänsten returnerar formulärmallar baserat på olika parametrar.
+Vårdenhets hsa-id.
+Personnummer.
+Indikerar att producerande system kan presentera formulär anpassat till användaren.
+Lista med id på befintliga formulärmallar.
+Indikerar att producerandesystem skall filtrera ut endast de formulärmallar i begäran om dessaa finns tillgängliga.
+Hälsoärende.
+Indikerar att producerande system skall visa formulär kopplade till hälsoärende.
+Tjänst används för att:
+Hämta och lista formulärmallar som användaren kan välja att använda/fylla i.
+Hämta specifika formulärmallar, utifrån en lista med mall-id  som användaren skall fylla i.
+Hämta formulärmallar som användaren skall använda som resultat av en vårdprocess/vårdaktivitet.</p>
+
+<h4 id="version">Version</h4>
+<p>2.0</p>
+
+<h4 id="fältregler">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Healthcare_Facility_CareUnit</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Hsa-Id (Vårdenhet/enhets-id). T.ex. se2321000016-1hz3</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PublishedStatus</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Indikerar vilken status en mall skall ha.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SubjectOfCare</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Starkt autentiserad användares personnummer. T.ex. 191212121212 (yyyymmddnnnn). FormTemplate attributet "anonymousForm" styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TemplateIds</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Typ av formulärmall. Kodverk. Om denna inte anges skall formulärtjänsten som default returnera ALLA tillgängliga formulärmallar för medborgaren.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ClinicalProcessInterestIds</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Hälsoärenden.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FormTemplate</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Objekt FormTemplateType.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler">Övriga regler</h4>
+
+<h5 id="begäran">Begäran</h5>
+<p>Tjänsteproducenten validerar begäran enligt regler som specificerats i per attribut ovan. Anropande system kan begära filtrerade svar med följande parametrar.
+Filtreringsprioritet:
+Personnummer (subjectOfCare).
+Hälsoärenden (ClinicalProcessInterestIds). Formulär relaterade till ett eller flera hälsoärenden.
+Formulärtyp (TemplateIds).</p>
+
+<h5 id="svar">Svar</h5>
+<p>Sökresultatet framställs genom att svaret begränsas av de värden som angivits i begäran.
+Null/tomt indikerar att det inte finns något formulär för angivna sökparametrar.</p>
+
+<h4 id="tjänsteinteraktion">Tjänsteinteraktion</h4>
+<p>GetFormTemplatesInteraction</p>
+
+<h4 id="källfiler-riv-ta">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l514">​</a><a href="files/wsdl/GetFormTemplatesInteraction_2.0_RIVTABP21.wsdl">GetFormTemplatesInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l524">​</a><a href="files/schema/GetFormTemplatesResponder_2.0.xsd">GetFormTemplatesResponder_2.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l534">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1.xsd">infrastructure_eservicesupply_forminteraction_2.1.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l544">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1_ext.xsd">infrastructure_eservicesupply_forminteraction_2.1_ext.xsd</a></td>
+      <td>Domänschema utökningar (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getformtemplates.html">StructureDefinition/getformtemplates</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getformtemplates-request.html">StructureDefinition/getformtemplates-request</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="createform">CreateForm</h3>
+<p>Tjänsten används för att skapa och initiera/starta ett formulär.
+Tjänsten anropas när användaren vill:
+Starta/skapa ett nytt formulär.
+En "CreateForm" kan hämta nödvändiga parametrar från tjänsten GetFormTemplates eller från en alternativ källa.</p>
+
+<h4 id="version-1">Version</h4>
+<p>2.1</p>
+
+<h4 id="fältregler-1">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Healthcare_Facility_CareUnit</td>
+      <td style="text-align: left">HsaIdType</td>
+      <td style="text-align: left">Hsa-Id (Vårdenhet/enhets-id). T.ex. se2321000016-1hz3</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SubjectOfCare</td>
+      <td style="text-align: left">SubjectOfCareType</td>
+      <td style="text-align: left">Starkt autentiserad användares personnummer. T.ex. 191212121212 (yyyymmddnnnn). Konsument ska kontrollera attributet "anonymousForm" för den specifika formulärmallen innan. Om Formulärmallen är definierad för att besvaras anonymt ska konsument inte skicka med SubjectOfCare, annars måste fältet vara med.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TemplateId</td>
+      <td style="text-align: left">TemplateIdType</td>
+      <td style="text-align: left">Mallid.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TemplateVersion</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Mallens version. Utelämnas denna parameter skall producerande system använda den senaste versionen.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ClinicalProcessInterestId</td>
+      <td style="text-align: left">ClinicalProcessInterestIdType (string)</td>
+      <td style="text-align: left">Hälsoärende id. Parameter indikerar att formuläret ingår i ett Hälsoärende.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Actor</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Aktör som skapar formuläret. Aktören kan vara invånaren/patienten själv, vårdnadshavare som fyller i formuläret åt sitt barn eller vårdpersonal hos vårdgivare som företräder patienten</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Form</td>
+      <td style="text-align: left">FormType</td>
+      <td style="text-align: left">Objekt CreateFormResponseType</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-1">Övriga regler</h4>
+
+<h5 id="begäran-1">Begäran</h5>
+<p>Tjänsteproducenten validerar begäran enligt regler som specificerats i per attribut ovan. Anropande system kan använda följande parametrar.
+Filtreringsprioritet:
+Personnummer (subjectOfCare) — Personnummer indikerar starkt autentiserad invånare. Tomt fält indikerar anonym användare.
+Hälsoärende (ClinicalProcessInterestId) — Indikerar att formuläret skall kopplas till ett hälsoärende.</p>
+
+<h5 id="svar-1">Svar</h5>
+<p>Sökresultatet framställs genom att svaret begränsas av de värden som angivits i begäran. Formulärets (Form, FormTemplate) sida med frågor (Page) skall av konsumerande system (e-tjänst) presenteras för invånaren utan uppdelning.
+Vid komplexa formulär med många frågor bör frågor delas upp i flera sidor (Page).</p>
+
+<h4 id="tjänsteinteraktion-1">Tjänsteinteraktion</h4>
+<p>CreateFormInteraction</p>
+
+<h4 id="källfiler-riv-ta-1">Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l795">​</a><a href="files/wsdl/CreateFormInteraction_2.1_RIVTABP21.wsdl">CreateFormInteraction_2.1_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l805">​</a><a href="files/schema/CreateFormResponder_2.1.xsd">CreateFormResponder_2.1.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l815">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1.xsd">infrastructure_eservicesupply_forminteraction_2.1.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l825">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1_ext.xsd">infrastructure_eservicesupply_forminteraction_2.1_ext.xsd</a></td>
+      <td>Domänschema utökningar (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-1">FHIR-artefakter</h4>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-createform.html">StructureDefinition/createform</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-createform-request.html">StructureDefinition/createform-request</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="getforms">GetForms</h3>
+<p>Tjänsten används för att lista alla pågående/avslutade formulär.
+Tjänsten returnerar formulär baserat på olika parametrar.
+Vårdenhets hsa-id, Personnummer, Formulärtyp och Hälsoärende.
+Formulär kan ha följande status:
+ONGOING = Formulär skapat/formulärbegäran skapad. Pågående, frågor har temporärsparats.
+PENDING_COMPLETION = Pågående, frågor har temporärsparats. Alla frågor är besvarade.
+COMPLETED = Avslutad.</p>
+
+<h4 id="version-2">Version</h4>
+<p>2.0</p>
+
+<h4 id="fältregler-2">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Healthcare_Facility_CareUnit</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Hsa-Id (Vårdenhet/enhets-id). T.ex. se2321000016-1hz3. Konsument ska säkerställa att konsument endast anropar med HSAId:n som motsvarar organisationer som konsument har avtal med (PuB-avtal).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SubjectOfCare</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Starkt autentiserad användares personnummer. T.ex. 191212121212 (yyyymmddnnnn).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TemplateIds</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Ett unikt id för en formulärtyp/formulärmall.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ClinicalProcessInterestIds</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Hälsoärende ID</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Formulär (Form)</td>
+      <td style="text-align: left">FormsType</td>
+      <td style="text-align: left">Objekt GetFormsResponse</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-2">Övriga regler</h4>
+
+<h5 id="begäran-2">Begäran</h5>
+<p>Tjänsteproducenten validerar begäran. Filtreringsprioritet: Healthcare_Facility_CareUnit, Personnummer (subjectOfCare), Hälsoärende (ClinicalProcessInterestIds), Formulärtyp (TemplateIds). Flera villkor kan anges.</p>
+
+<h5 id="svar-2">Svar</h5>
+<p>Formulär som returneras kan ha status: ONGOING, PENDING_COMPLETION eller COMPLETED.</p>
+
+<h4 id="tjänsteinteraktion-2">Tjänsteinteraktion</h4>
+<p>GetFormsInteraction</p>
+
+<h4 id="källfiler-riv-ta-2">Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l1043">​</a><a href="files/wsdl/GetFormsInteraction_2.0_RIVTABP21.wsdl">GetFormsInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l1053">​</a><a href="files/schema/GetFormsResponder_2.0.xsd">GetFormsResponder_2.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l1063">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1.xsd">infrastructure_eservicesupply_forminteraction_2.1.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l1073">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1_ext.xsd">infrastructure_eservicesupply_forminteraction_2.1_ext.xsd</a></td>
+      <td>Domänschema utökningar (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-2">FHIR-artefakter</h4>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getforms.html">StructureDefinition/getforms</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getforms-request.html">StructureDefinition/getforms-request</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="getform">GetForm</h3>
+<p>Tjänsten används för att hämta ett specifikt formulär. Nödvändiga parametrar kan hämtas från tjänsten GetForms (GetFormsInteraction) alternativt notifiering.
+Tjänsten anropas när:
+En invånare vill återuppta ett formulär (ONGOING).
+En invånare vill se en sammanställning av ifyllt formulär (PENDING_COMPLETE).
+Ett vårdsystem skall hämta ett ifyllt, avslutat formulär (COMPLETED).</p>
+
+<h4 id="version-3">Version</h4>
+<p>2.1</p>
+
+<h4 id="fältregler-3">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FormID</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Ett unikt id (GUID) för ett formulär.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SubjectOfCare</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Starkt autentiserad användares personnummer. T.ex. 191212121212 (yyyymmddnnnn).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Form</td>
+      <td style="text-align: left">FormType</td>
+      <td style="text-align: left">Objekt FormResponseType</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-3">Övriga regler</h4>
+
+<h5 id="begäran-3">Begäran</h5>
+<p>Tjänsteproducenten validerar begäran. Om formuläret är uppdelat i sidor (Page) skall det sista ifyllda sidan i sekvensen returneras.</p>
+
+<h5 id="svar-3">Svar</h5>
+<p>COMPLETED = Avslutat. Formuläret är besvarat och avslutat av invånaren. Kan endast visas i "läsläge".
+ONGOING = Pågående. Producenten skall returnera det sista/senaste Page i sekvensen (currentPage).
+PENDING_COMPLETION = Invånaren har besvarat formulärets samtliga frågor. Formuläret byter status till COMPLETED via tjänsten SaveForm.
+Om formulär saknas returneras ett SOAP exception.</p>
+
+<h4 id="tjänsteinteraktion-3">Tjänsteinteraktion</h4>
+<p>GetFormInteraction</p>
+
+<h4 id="källfiler-riv-ta-3">Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l1261">​</a><a href="files/wsdl/GetFormInteraction_2.1_RIVTABP21.wsdl">GetFormInteraction_2.1_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l1271">​</a><a href="files/schema/GetFormResponder_2.1.xsd">GetFormResponder_2.1.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l1281">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1.xsd">infrastructure_eservicesupply_forminteraction_2.1.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l1291">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1_ext.xsd">infrastructure_eservicesupply_forminteraction_2.1_ext.xsd</a></td>
+      <td>Domänschema utökningar (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-3">FHIR-artefakter</h4>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getform.html">StructureDefinition/getform</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getform-request.html">StructureDefinition/getform-request</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="getformquestionpage">GetFormQuestionPage</h3>
+<p>Tjänsten används för att hoppa/navigera framåt eller bakåt i ett formulär.
+Tjänsten anropas när användaren vill hoppa framåt eller bakåt bland besvarade och sparade frågor.</p>
+
+<h4 id="version-4">Version</h4>
+<p>2.0</p>
+
+<h4 id="fältregler-4">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FormID</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Ett unikt id (GUID) för ett formulär.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">pageNumber</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Nummer på sidan som navigering utgår ifrån.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Direction</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Kodverk. FORWARD, BACK</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">subjectOfCare</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Invånarens personnummer.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Form</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Objekt FormType</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-4">Övriga regler</h4>
+
+<h5 id="begäran-4">Begäran</h5>
+<p>Tjänsteproducenten validerar begäran. Konsumenten kan endast hoppa till en gruppering (FormType.currentPage) med sparade frågor.
+Direction "BACK" är inte tillåtet om objektet "PageNumber" är 1.
+Direction "FORWARD" är inte tillåtet om objektets LastPage (PageType) är sant (true).
+Anges "PageNumber = 0" och "direction = FORWARD" för att gå till första sidan.
+Anges "PageNumber = 0" och "direction = BACK" för att gå till sista sidan.
+Vid ovanstående fel genereras ett exception.</p>
+
+<h5 id="svar-4">Svar</h5>
+<p>Sökresultatet framställs genom att svaret begränsas av de värden som angivits i begäran.</p>
+
+<h4 id="tjänsteinteraktion-4">Tjänsteinteraktion</h4>
+<p>GetFormQuestionPageInteraction</p>
+
+<h4 id="källfiler-riv-ta-4">Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l1509">​</a><a href="files/wsdl/GetFormQuestionPageInteraction_2.0_RIVTABP21.wsdl">GetFormQuestionPageInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l1519">​</a><a href="files/schema/GetFormQuestionPageResponder_2.0.xsd">GetFormQuestionPageResponder_2.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l1529">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1.xsd">infrastructure_eservicesupply_forminteraction_2.1.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l1539">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1_ext.xsd">infrastructure_eservicesupply_forminteraction_2.1_ext.xsd</a></td>
+      <td>Domänschema utökningar (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-4">FHIR-artefakter</h4>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getformquestionpage.html">StructureDefinition/getformquestionpage</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getformquestionpage-request.html">StructureDefinition/getformquestionpage-request</a></li>
+  <li><strong>ValueSet (Direction):</strong> <a href="ValueSet-questionnavigationdirection-vs.html">ValueSet/questionnavigationdirection-vs</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="saveformpage">SaveFormPage</h3>
+<p>Tjänsten används för att spara invånarens besvarade frågor. Tjänsten används under pågående formulärsession.
+E-tjänsten (konsumerande system) skickar invånarens svar med "PageAnswers". Formulärmotor (producerande system) returnerar nästa sida med frågor.
+Om parametern "temporarySave" anges kommer formulärmotorn spara formulärvärden som skickas in (utan validering) och returnera samma Form och Page.</p>
+
+<h4 id="version-5">Version</h4>
+<p>2.1</p>
+
+<h4 id="fältregler-5">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FormID</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Formulärets unika id.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PageAnswers</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Objekt PageAnswerType.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SubjectOfCare</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Starkt autentiserad användares personnummer. T.ex. 191212121212 (yyyymmddnnnn).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">temporarySave</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Parameter för att indikera temporärsparning. True = temporär, False = normal hantering, Utelämnad = normal hantering.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Actor</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Aktör som skapar formuläret. Aktören kan vara invånaren/patienten själv, vårdnadshavare eller vårdpersonal.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Form</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Objekt FormType.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Attribut för felsignalering. Skall kunna visas för slutanvändaren.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Objekt StatusType.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-5">Övriga regler</h4>
+
+<h5 id="begäran-5">Begäran</h5>
+<p>Tjänsteproducenten validerar begäran. Endast formulär som har FormStatus "ONGOING" kan använda denna tjänst.</p>
+
+<h5 id="svar-5">Svar</h5>
+<p>Attributet "LastPage" = sant (Objekt PageType) indikerar att detta är det sista frågesida.
+Status = "ERROR": Vid valideringsfel skall producerande system (formulärmotorn) skicka objekt (FormType) tillbaka och markera felaktiga fält via AnswerStatusType.
+Status = "OK": Vid godkänd begäran returneras validerade frågor/svar. Null "form" bedöms formuläret färdigifyllt.</p>
+
+<h4 id="tjänsteinteraktion-5">Tjänsteinteraktion</h4>
+<p>SaveFormAnswerPageInteraction</p>
+
+<h4 id="källfiler-riv-ta-5">Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l1809">​</a><a href="files/wsdl/SaveFormPageInteraction_2.1_RIVTABP21.wsdl">SaveFormPageInteraction_2.1_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l1819">​</a><a href="files/schema/SaveFormPageResponder_2.1.xsd">SaveFormPageResponder_2.1.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l1829">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1.xsd">infrastructure_eservicesupply_forminteraction_2.1.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l1839">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1_ext.xsd">infrastructure_eservicesupply_forminteraction_2.1_ext.xsd</a></td>
+      <td>Domänschema utökningar (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-5">FHIR-artefakter</h4>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-saveformpage.html">StructureDefinition/saveformpage</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-saveformpage-request.html">StructureDefinition/saveformpage-request</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="saveform">SaveForm</h3>
+<p>Tjänsten används för att indikera/signalera att invånarens formulär är färdigt ifyllt och skall avslutas/stängas.
+Konsumerandesystem (e-tjänst) hämtar en sammanställning via GetForm, användaren/patienten granskar och godkänner, sedan anropas SaveForm för att avsluta formuläret.</p>
+
+<h4 id="version-6">Version</h4>
+<p>2.1</p>
+
+<h4 id="fältregler-6">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FormID</td>
+      <td style="text-align: left">FormIdType</td>
+      <td style="text-align: left">Formulärets ID.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SubjectOfCare</td>
+      <td style="text-align: left">SubjectOfCareIdType (string)</td>
+      <td style="text-align: left">Starkt autentiserad användares personnummer. T.ex. 191212121212 (yyyymmddnnnn).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Actor</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Aktör som skapar formuläret. Aktören kan vara invånaren/patienten själv, vårdnadshavare eller vårdpersonal.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">ResultCodeEnumType</td>
+      <td style="text-align: left">Signalera status på operationen (gick det bra/uppstod fel).</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Comment</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Attribut för felsignalering. Skall kunna visas för slutanvändaren.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-6">Övriga regler</h4>
+
+<h5 id="begäran-6">Begäran</h5>
+<p>Tjänsteproducenten validerar begäran. Endast formulär som har FormStatus "PENDING_COMPLETE" kan använda tjänsten.</p>
+
+<h5 id="svar-6">Svar</h5>
+<p>Vid valideringsfel meddelas användaren fel via "resultCode".</p>
+
+<h4 id="tjänsteinteraktion-6">Tjänsteinteraktion</h4>
+<p>SaveFormInteraction</p>
+
+<h4 id="källfiler-riv-ta-6">Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l2057">​</a><a href="files/wsdl/SaveFormInteraction_2.1_RIVTABP21.wsdl">SaveFormInteraction_2.1_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l2067">​</a><a href="files/schema/SaveFormResponder_2.1.xsd">SaveFormResponder_2.1.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l2077">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1.xsd">infrastructure_eservicesupply_forminteraction_2.1.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l2087">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1_ext.xsd">infrastructure_eservicesupply_forminteraction_2.1_ext.xsd</a></td>
+      <td>Domänschema utökningar (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-6">FHIR-artefakter</h4>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-saveform.html">StructureDefinition/saveform</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-saveform-request.html">StructureDefinition/saveform-request</a></li>
+  <li><strong>CodeSystem (ResultCode):</strong> <a href="CodeSystem-resultcode-cs.html">CodeSystem/resultcode-cs</a></li>
+  <li><strong>ValueSet (ResultCode):</strong> <a href="ValueSet-resultcode-vs.html">ValueSet/resultcode-vs</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="cancelform">CancelForm</h3>
+<p>Tjänsten används för att avbryta/radera formulär. Tjänsten används av tjänstekonsument (e-tjänst eller verksamhetssystem).
+Pågående (ONGOING, PENDING_COMPLETION) formulär kan närsomhelst raderas på användarens begäran.
+Ett avslutat formulär (SaveForm har anropats) behöver inte automatiskt raderas. Anropet skall i detta fall ses som en begäran om makulering. Lokala verksamhetsregler i producerande system gäller.</p>
+
+<h4 id="version-7">Version</h4>
+<p>2.0</p>
+
+<h4 id="fältregler-7">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FormID</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Formulärets unika id.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">subjectOfCare</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Starkt autentiserad användares personnummer. T.ex. 191212121212 (yyyymmddnnnn).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">ResultCodeEnumType</td>
+      <td style="text-align: left">Objekt för att signalera status på operationen (gick det bra/uppstod fel).</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Comment</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Attribut för felsignalering. Skall kunna visas för slutanvändaren.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-7">Övriga regler</h4>
+
+<h5 id="begäran-7">Begäran</h5>
+<p>Tjänsteproducenten validerar begäran.</p>
+
+<h5 id="svar-7">Svar</h5>
+<p>Vid valideringsfel meddelas användaren fel via "resultCode". Eventuellt felmeddelande presenteras för användaren.</p>
+
+<h4 id="tjänsteinteraktion-7">Tjänsteinteraktion</h4>
+<p>CancelFormInteraction</p>
+
+<h4 id="källfiler-riv-ta-7">Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l2304">​</a><a href="files/wsdl/CancelFormInteraction_2.0_RIVTABP21.wsdl">CancelFormInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l2314">​</a><a href="files/schema/CancelFormResponder_2.0.xsd">CancelFormResponder_2.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l2324">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1.xsd">infrastructure_eservicesupply_forminteraction_2.1.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l2334">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1_ext.xsd">infrastructure_eservicesupply_forminteraction_2.1_ext.xsd</a></td>
+      <td>Domänschema utökningar (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-7">FHIR-artefakter</h4>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-cancelform.html">StructureDefinition/cancelform</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-cancelform-request.html">StructureDefinition/cancelform-request</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="createformrequest">CreateFormRequest</h3>
+<p>Tjänsten används av ett system (Verksamhetssystem) för att skapa en begäran om formulär (formulärbegäran), d.v.s. att en patient skall fylla i t.ex. en hälsodeklaration. Formulärmotorn ansvarar för att skapa ett unikt id (FormID) för formulärbegäran.
+Begäran (CreateFormRequest) om formulär instruerar Formulärmotorn (tjänsteproducent) att notifiera e-tjänst för besvarande av formulär.</p>
+
+<h4 id="version-8">Version</h4>
+<p>2.0</p>
+
+<h4 id="fältregler-8">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formRequests</td>
+      <td style="text-align: left">FormRequestType</td>
+      <td style="text-align: left">Objekt FormRequestType. Innehåller information för att skapa en formulärbegäran.</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formRequests.healthcare_CareGiver</td>
+      <td style="text-align: left">HsaIdType (String)</td>
+      <td style="text-align: left">Hsa-id vårdgivare (informationsägare).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formRequests.healthcare_MedUnit</td>
+      <td style="text-align: left">HsaIdType (String)</td>
+      <td style="text-align: left">Hsa-id medicinskt ansvarig (informationsägare).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formRequests.healthcare_Facility_CareUnit</td>
+      <td style="text-align: left">HsaIdType (String)</td>
+      <td style="text-align: left">Hsa-id vårdenhet (informationsägare).</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formRequests.healthcare_systemID</td>
+      <td style="text-align: left">HsaIdType (String)</td>
+      <td style="text-align: left">Hsa-id vårdsystem.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formRequests.subjectOfCare</td>
+      <td style="text-align: left">SubjectOfCareType (String)</td>
+      <td style="text-align: left">Personnummer patient/invånare. Utelämnas parameter hanteras formulär som anonymt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formRequests.templateId</td>
+      <td style="text-align: left">TemplateIdType (String)</td>
+      <td style="text-align: left">Formulärmall id.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formRequests.templateVersion</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Formulärmall version.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formRequests.clinicalProcessInterestId</td>
+      <td style="text-align: left">ClinicalProcesInterestIdType (String)</td>
+      <td style="text-align: left">Hälsoärende id.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formRequests.formText</td>
+      <td style="text-align: left">(String)</td>
+      <td style="text-align: left">Formulärtext för formulärbegäran.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formRequests.expireDate</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Datum för att reglera hur länge patient/invånaren kan besvara formulär.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formRequests.keepUntil</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Datum för hur länge formulär kommer lagras innan gallring/arkivering. Tomt indikerar tillsvidare.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formRequestResponses</td>
+      <td style="text-align: left">FormRequestResponseType</td>
+      <td style="text-align: left">Objekt FormRequestResponseType.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formRequestResponses.clinicalProcessInterestId</td>
+      <td style="text-align: left">ClinicalProcesInterestIdType (String)</td>
+      <td style="text-align: left">Hälsoärende id.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formRequestResponses.formId</td>
+      <td style="text-align: left">FormIdType (String)</td>
+      <td style="text-align: left">Det skapade formulärets unika id, sätts av producenten.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formRequestResponses.healthcare_Facility_CareUnit</td>
+      <td style="text-align: left">HsaIdType (String)</td>
+      <td style="text-align: left">Hsa-id vårdenhet (informationsägare).</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formRequestResponses.subjectOfCare</td>
+      <td style="text-align: left">SubjectOfCareType (String)</td>
+      <td style="text-align: left">Personnummer patient/invånare.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Attribut för felsignalering. Skall kunna visas för slutanvändaren.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultCodeEnum</td>
+      <td style="text-align: left">Möjliga värden: OK (lyckat anrop), INFO (anropet lyckades men info behöver förmedlas), ERROR (transaktion misslyckades p g a logiskt fel).</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-8">Övriga regler</h4>
+
+<h5 id="begäran-8">Begäran</h5>
+<p>Tjänsteproducenten validerar begäran. Formulärmotorn returnerar respektive formulärbegärans unika id (formID) för det formulär som lyckades skapas.</p>
+
+<h5 id="svar-8">Svar</h5>
+<p>Sökresultatet framställs genom att svaret begränsas av de värden som angivits i begäran.</p>
+
+<h4 id="tjänsteinteraktion-8">Tjänsteinteraktion</h4>
+<p>CreateFormRequestInteraction</p>
+
+<h4 id="källfiler-riv-ta-8">Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l2762">​</a><a href="files/wsdl/CreateFormRequestInteraction_2.0_RIVTABP21.wsdl">CreateFormRequestInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l2772">​</a><a href="files/schema/CreateFormRequestResponder_2.0.xsd">CreateFormRequestResponder_2.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l2782">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1.xsd">infrastructure_eservicesupply_forminteraction_2.1.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l2792">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1_ext.xsd">infrastructure_eservicesupply_forminteraction_2.1_ext.xsd</a></td>
+      <td>Domänschema utökningar (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-8">FHIR-artefakter</h4>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-createformrequest.html">StructureDefinition/createformrequest</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-createformrequest-request.html">StructureDefinition/createformrequest-request</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="getformtemplate">GetFormTemplate</h3>
+<p>Tjänsten används av ett system (t.ex. Verksamhetssystem) för att hämta en formulärmall från tjänsteproducent (t.ex. Invånartjänsters Formulärmotor). Formulärmallar adresseras med formulär mall id och version.</p>
+
+<h4 id="version-9">Version</h4>
+<p>2.1</p>
+
+<h4 id="fältregler-9">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcare_facility_CareUnit</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Vårdenhetens hsa-id (ägaren av formulärmall)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">templateId</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Mallens id.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">templateVersion</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Mallens version.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FormTemplates</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Objekt FormTemplateType (Formulärmallar)</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-9">Övriga regler</h4>
+
+<h5 id="begäran-9">Begäran</h5>
+<p>Tjänsteproducenten validerar begäran.
+Utelämnas "healthcare_facility_CareUnit" är "templateId" obligatorisk — samtliga mallar (templateId) skall returneras.
+Utelämnas "templateId" är "healthcare_facility_CareUnit" obligatorisk — vårdenhetens samtliga mallar skall returneras.
+Utelämnas "templateVersion" skall samtliga versioner returneras (ej arkiverade mallar).</p>
+
+<h5 id="svar-9">Svar</h5>
+<p>Sökresultatet framställs genom att svaret begränsas av de värden som angivits i begäran.</p>
+
+<h4 id="tjänsteinteraktion-9">Tjänsteinteraktion</h4>
+<p>GetFormTemplateInteraction</p>
+
+<h4 id="källfiler-riv-ta-9">Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l2995">​</a><a href="files/wsdl/GetFormTemplateInteraction_2.1_RIVTABP21.wsdl">GetFormTemplateInteraction_2.1_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l3005">​</a><a href="files/schema/GetFormTemplateResponder_2.1.xsd">GetFormTemplateResponder_2.1.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l3015">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1.xsd">infrastructure_eservicesupply_forminteraction_2.1.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l3025">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1_ext.xsd">infrastructure_eservicesupply_forminteraction_2.1_ext.xsd</a></td>
+      <td>Domänschema utökningar (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-9">FHIR-artefakter</h4>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getformtemplate.html">StructureDefinition/getformtemplate</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getformtemplate-request.html">StructureDefinition/getformtemplate-request</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="saveformtemplate">SaveFormTemplate</h3>
+<p>Tjänsten används av ett system (t.ex. Verksamhetssystem) för att spara en formulärmall.</p>
+
+<h4 id="version-10">Version</h4>
+<p>2.1</p>
+
+<h4 id="fältregler-10">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formTemplate</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Objektet innehåller formulärmallen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Svarskod</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Comment</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Kommentar.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-10">Övriga regler</h4>
+
+<h5 id="begäran-10">Begäran</h5>
+<p>Tjänsteproducenten validerar begäran.</p>
+
+<h5 id="svar-10">Svar</h5>
+<p>Sökresultatet framställs genom att svaret begränsas av de värden som angivits i begäran.</p>
+
+<h4 id="tjänsteinteraktion-10">Tjänsteinteraktion</h4>
+<p>SaveFormTemplateInteraction</p>
+
+<h4 id="källfiler-riv-ta-10">Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l3213">​</a><a href="files/wsdl/SaveFormTemplateInteraction_2.1_RIVTABP21.wsdl">SaveFormTemplateInteraction_2.1_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l3223">​</a><a href="files/schema/SaveFormTemplateResponder_2.1.xsd">SaveFormTemplateResponder_2.1.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l3233">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1.xsd">infrastructure_eservicesupply_forminteraction_2.1.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l3243">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1_ext.xsd">infrastructure_eservicesupply_forminteraction_2.1_ext.xsd</a></td>
+      <td>Domänschema utökningar (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-10">FHIR-artefakter</h4>
+
+<ul>
+  <li><a name="l3258">​</a><strong>Logisk modell (response):</strong> <a href="StructureDefinition-saveformtemplate.html">StructureDefinition/saveformtemplate</a></li>
+  <li><a name="l3265">​</a><strong>Logisk modell (request):</strong> <a href="StructureDefinition-saveformtemplate-request.html">StructureDefinition/saveformtemplate-request</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="deleteformtemplate">DeleteFormTemplate</h3>
+<p>Tjänsten används av ett system (t.ex. Verksamhetssystem) för att makulera en formulärmall. För att anropet ska accepteras av producent får inga formulärinstanser vara aktiva baserade på mallen samt att mallen har blivit arkiverad.</p>
+
+<h4 id="version-11">Version</h4>
+<p>1.0</p>
+
+<h4 id="fältregler-11">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">templateId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Unikt id för formulärmallen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">templateVersion</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left">Version av formulärmall som ska makuleras</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthCareFacilityUnit</td>
+      <td style="text-align: left">HsaIdType</td>
+      <td style="text-align: left">HSAId för den vårdenhet som är ägare till formulärmallen</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Svarskod</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Kommentar.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-11">Övriga regler</h4>
+
+<h5 id="begäran-11">Begäran</h5>
+<p>Tjänsteproducenten validerar begäran.</p>
+
+<h5 id="svar-11">Svar</h5>
+<p>Sökresultatet framställs genom att svaret begränsas av de värden som angivits i begäran.</p>
+
+<h4 id="tjänsteinteraktion-11">Tjänsteinteraktion</h4>
+<p>DeleteFormTemplateInteraction</p>
+
+<h4 id="källfiler-riv-ta-11">Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l3461">​</a><a href="files/wsdl/DeleteFormTemplateInteraction_1.0_RIVTABP21.wsdl">DeleteFormTemplateInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l3471">​</a><a href="files/schema/DeleteFormTemplateResponder_1.0.xsd">DeleteFormTemplateResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l3481">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1.xsd">infrastructure_eservicesupply_forminteraction_2.1.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l3491">​</a><a href="files/schema/infrastructure_eservicesupply_forminteraction_2.1_ext.xsd">infrastructure_eservicesupply_forminteraction_2.1_ext.xsd</a></td>
+      <td>Domänschema utökningar (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-11">FHIR-artefakter</h4>
+
+<ul>
+  <li><a name="l3506">​</a><strong>Logisk modell (response):</strong> <a href="StructureDefinition-deleteformtemplate.html">StructureDefinition/deleteformtemplate</a></li>
+  <li><a name="l3513">​</a><strong>Logisk modell (request):</strong> <a href="StructureDefinition-deleteformtemplate-request.html">StructureDefinition/deleteformtemplate-request</a></li>
+</ul>
+
+
+
+
+</div>
+        </div>    <!-- /inner-wrapper -->
+      </div>    <!-- /row -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-content -->
+
+  <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script src="assets/js/jquery-ui.min.js" type="text/javascript"> </script>
+
+  <script src="assets/js/window-hash.js" type="text/javascript"> </script>
+  <a name="bottom"> </a>
+  <div igtool="footer" id="segment-footer" class="segment">    <!-- segment-footer -->
+    <div class="container">    <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &copy; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.infrastructure-eservicesupply-forminteraction#2.1 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 9, 2026 17:01+0000">2026-09-09</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>    <!-- /inner-wrapper -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">    <!-- segment-post-footer -->
+    <div class="container">    <!-- container -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-post-footer -->
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+  <script src="assets/js/respond.min.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard-btn.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor-hover.js" type="text/javascript"> </script>
+    <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>

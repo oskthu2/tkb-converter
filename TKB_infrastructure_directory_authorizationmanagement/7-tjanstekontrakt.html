@@ -1,0 +1,1516 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>7 Tjänstekontrakt - infrastructure: directory: authorizationmanagement v2.4.4</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link rel="stylesheet" href="fhir.css"/>
+
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-fhir.css"/>
+
+      <!-- Project extras -->
+    <link rel="stylesheet" href="assets/css/project.css"/>
+    <link rel="stylesheet" href="assets/css/pygments-manni.css"/>
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+  	<link rel="stylesheet" href="assets/css/prism.css"/>
+  	<link rel="stylesheet" href="assets/css/cqf.css"/>
+      <!-- Placeholder for child template CSS declarations -->
+
+    <script src="fhir-table-scripts.js" type="text/javascript"> </script>
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- [if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif] -->
+
+      <!-- Favicons -->
+    <link sizes="144x144" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-144.png"/>
+    <link sizes="114x114" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-114.png"/>
+    <link sizes="72x72" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script src="assets/js/mermaid.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">    <!-- segment-header -->
+      <div class="container">    <!-- container -->
+
+          <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">infrastructure: directory: authorizationmanagement</span>
+            <br/>
+            <span style="display:inline-block;">2.4.4 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div>   <!-- /container -->
+    </div>    <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">    <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">    <!-- container -->
+          <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+            <!-- status-bar -->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a href="http://hl7.org/fhir/R4/index.html" class="navbar-brand hidden">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul class="nav navbar-nav">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+  <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+  <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+  <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+  <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma informationskomponenter</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artifacts</a></li>
+</ul>
+
+            </div>    <!-- /.nav-collapse -->
+          </div>    <!-- /.container -->
+        </nav>    <!-- /.navbar -->
+        <!-- /HEADER CONTENT -->
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-navbar -->
+      <!-- status-bar -->
+
+    <div id="segment-breadcrumb" class="segment">    <!-- segment-breadcrumb -->
+      <div class="container">    <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">    <!-- segment-content -->
+      <div class="container">    <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+    <!-- ReleaseHeader --><p id="publish-box">infrastructure: directory: authorizationmanagement - Local Development build (v2.4.4) built by the FHIR (HL7&reg; FHIR&reg; Standard) Build Tools. See the <a href="https://fhir.inera.se/ig/infrastructure-directory-authorizationmanagement/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>  <!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstekontrakt" id="markdown-toc-tjänstekontrakt">Tjänstekontrakt</a>    <ul>
+      <li><a href="#getcredentialsforpersonincludingprotectedperson" id="markdown-toc-getcredentialsforpersonincludingprotectedperson">GetCredentialsForPersonIncludingProtectedPerson</a></li>
+      <li><a href="#getcredentialsforperson" id="markdown-toc-getcredentialsforperson">GetCredentialsForPerson</a></li>
+      <li><a href="#getadmincredentialsforpersonincludingprotectedperson" id="markdown-toc-getadmincredentialsforpersonincludingprotectedperson">GetAdminCredentialsForPersonIncludingProtectedPerson</a></li>
+      <li><a href="#getadmincredentialsforperson" id="markdown-toc-getadmincredentialsforperson">GetAdminCredentialsForPerson</a></li>
+      <li><a href="#gethosplastupdate" id="markdown-toc-gethosplastupdate">GetHospLastUpdate</a></li>
+      <li><a href="#gethospcredentialsforperson" id="markdown-toc-gethospcredentialsforperson">GetHospCredentialsForPerson</a></li>
+      <li><a href="#handlehospcertificationperson" id="markdown-toc-handlehospcertificationperson">HandleHospCertificationPerson</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstekontrakt">Tjänstekontrakt</h2>
+
+<h3 id="getcredentialsforpersonincludingprotectedperson">GetCredentialsForPersonIncludingProtectedPerson</h3>
+<p>GetCredentialsForPersonIncludingProtectedPerson används för att söka ut behörighetsgrundande egenskaper för angiven person. Informationen används som regel av e-tjänster (normalt via en IdP, Identity Provider) för att auktorisera användare mot den egna tjänstens regelverk för åtkomst till information/funktionalitet, normalt i enlighet med den nationella behörighetsmodellen [R6].
+De behörighetsegenskaper som returneras är
+De Vårdmedarbetaruppdrag som personen är knuten till inklusive information om vårdgivaren och vårdenheten, samt
+Personliga egenskaper: Legitimerad yrkestitel, Förskrivarkod(-er), Befattning,
+Individuell egenskap för it-tjänster, Personens specialistkoder kopplat till aktuell legitimerade yrkesgrupp samt Utökad yrkeskod.
+Detta tjänstekontrakt skiljer sig från kontraktet beskrivet i 6.2 på så sätt att det även ger åtkomst till personer med skyddade personuppgifter. Se AB-2.7 [R1]. Informationsägaren avgör om tjänstekonsumenten ska beviljas åtkomst till personer med skyddade personuppgifter.</p>
+
+<h4 id="version">Version</h4>
+<p>Version på detta kontrakt är 2.2.</p>
+
+<h4 id="fältregler">Fältregler</h4>
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler. Attributen som levereras beskrivs mer ingående i Informationsspecifikationen [R5], med avseende på t.ex. fältlängder och krav på innehållet.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning, Ref Informationsspec.</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personHsaId *1)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Unik identifierare för den person vars behörighetsegenskaper ska sökas ut. / Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personalIdentityNumber *1)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Person-id för den person vars behörighetsegenskaper ska sökas ut. Ref. person-id (personalIdentityNumber) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">searchBase *4)</td>
+      <td style="text-align: left">DN</td>
+      <td style="text-align: left">Sökbas. Om ingen sökbas anges används c=SE som sökbas.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">includeFeignedObject</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">true: om metoden ska leverera svar med fingerade objekt. Uteblivet värde tolkas som false, dvs inga fingerade objekt levereras.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">profile</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">profile kan endast ha värdet "extended1" och med detta värde satt returneras även personalIdentity,</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">credentialInformation *2)</td>
+      <td style="text-align: left">CredentialInformationType</td>
+      <td style="text-align: left">Behörighetsegenskaper för sökt person</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..givenName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Tilltalsnamn. Endast ett litet antal personer saknar helt förnamn enligt befolkningsregistret och därmed även denna parameter. / Ref. tilltalsnamn (givenName, gn) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..middleAndSurName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Personens Mellannamn och efternamn.  Namnen är separerade med mellanslag. / Ref. mellannamn (middleName) [R5] / Ref. efternamn (sn, surName) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..personHsaId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Personens HSA-id / Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareProfessionalLicence</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Personens Legitimerade yrkestitel(-lar) i klartext / Ref. legitimerad yrkesgrupp (hsaTitle) [R5] och Socialstyrelsens kodverk [R7]: 1.2.752.116.3.1.3</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. healthCareProfessionalLicenceCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för personens Legitimerade yrkestitel. / Ref. legitimerad yrkesgrupp (hsaTitle) [R5] och Socialstyrelsens kodverk [R7]: 1.2.752.116.3.1.3</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. healthCareProfessionalLicenceSpeciality</td>
+      <td style="text-align: left">HCPSpecialityCodesType</td>
+      <td style="text-align: left">Personens Specialistkoder kopplat till aktuell Legitimerade Yrkesgrupp. Ref. Leg. yrkesgrupp och specialitet för läkare och tandläkare (hsaSosTitleCodeSpeciality) [R5]</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. healthCareProfessionalLicenceCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för den Legitimerade yrkestitel som specialistkoden hör till. Ref. Socialstyrelsens kodverk [R7]: 1.2.752.116.3.1.3</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..specialityCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Specialistkod, enligt något av Socialstyrelsens kodverk.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..specialityName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Specialitet i klartext. Klartext för specialityCode ovan.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..occupationalCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Utökad yrkeskod, används för icke-legitimerade medarbetares åtkomst till tjänster hos eHälsomyndigheten.</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..personalIdentity *5)</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Personens person- eller samordningsnummer / Ref. Person-id (personalIdentityNumber) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..root</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Anger typ av personalIdentity som returneras, för personnummer: 1.2.752.129.2.1.3.1, och för samordningsnummer: 1.2.752.129.2.1.3.3</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..extension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Person eller samordningsnummer. / Ref. Person-id (personalIdentityNumber) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. healthcareProfessionalLicenseIdentityNumber</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Personens Hosp-Id / Ref. HOSP-id (hospIdentityNumber) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..personalPrescriptionCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Personens förskrivarkod. Ref förskrivarkod (personalPrescriptionCode) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..groupPrescriptionCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Gruppförskrivarkod (er) som personen tilldelats av sin arbetsgivare. Ref. gruppförskrivarkod (hsaGroupPrescriptionCode) [R5]</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..nursePrescriptionRight</td>
+      <td style="text-align: left">NursePrescriptionRightType</td>
+      <td style="text-align: left">Förskrivningsrätt för barnmorska/sjuksköterska. Ref. förskrivningsrätt för barnmorskor/ sjuksköterskor (hsaSosNursePrescriptionRight) [R5]</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareProfessionalLicence</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Personens Legitimerade yrkestitel inom vilken denne har förskrivningsrätt. BM för Barnmorska eller SJ för Sjuksköterska</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..prescriptionRight</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">Personen har förskrivningsrätt inom den angivna Legitimerade yrkestiteln</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..hsaSystemRole</td>
+      <td style="text-align: left">HsaSystemRoleType</td>
+      <td style="text-align: left">Personens Individuella egenskaper för it-tjänster. Ref. individuell egenskap för it-tjänster (hsaSystemRole) [R5]</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..systemId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">IT-tjänstens SystemId</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..role</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Personens Roll inom IT-tjänsten</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..paTitleCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Personens Befattningskoder / Ref. befattningskod (paTitleCode) [R5]</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..protectedPerson</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om person har skyddade personuppgifter</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..feignedPerson</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om personen är ett fingerat objekt</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..commission</td>
+      <td style="text-align: left">CommissionType</td>
+      <td style="text-align: left">De vårdmedarbetaruppdrag som personen är kopplad till</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..commissionName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdmedarbetaruppdragets Namn / Ref. objektnamn (cn) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..commissionHsaId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdmedarbetaruppdragets HSA-id / Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..commissionPurpose</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdmedarbetaruppdragets ändamål / Ref. vårdmedarbetaruppdragets ändamål (hsaCommissionPurpose) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..commissionRight</td>
+      <td style="text-align: left">CommissionRightType</td>
+      <td style="text-align: left">Vårdmedarbetaruppdragets rättigheter / Ref. vårdmedarbetaruppdragets rättigheter (hsaCommissionRight) [R5]</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. ..activity</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Rättighet aktivitet</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. ..informationClass</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Rättighet informationstyp</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. ..scope</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Rättighet omfång</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..pharmacyIdentifier</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Unikt id för apotek. Ref. (hsaGlnCode + hsaBusinessCode) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..feignedCommission</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om vårdmedarbetaruppdraget är ett fingerat objekt</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareUnitHsaId *3)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">HSA-id för vårdenhet enligt PDL / Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareUnitName *3)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdenhetens namn / Ref. hjälpklassen Vårdenhet (hsaHealthCareUnit) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareUnitStartDate *3)</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Startdatum för vårdenhetens verksamhet / Ref. startdatum (startDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareUnitEndDate *3)</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Slutdatum för vårdenhetens verksamhet / Ref. slutdatum (endDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..feignedHealthCareUnit</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om vårdenheten är ett fingerat objekt</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..archivedHealthCareUnit</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om vårdenheten är ett arkiverat objekt</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareProviderHsaId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdgivarens HSA-id / Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareProviderName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdgivarens Namn. Ref. hjälpklassen Vårdenhet (hsaHealthCareUnit) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareProviderOrgNo</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdgivarens organisationsnummer / Ref. organisationsnummer (orgNo) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareProviderStartDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Startdatum för vårdgivarens verksamhet / Ref. startdatum (startDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareProviderEndDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Slutdatum för vårdgivarens verksamhet / Ref. slutdatum (endDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..feignedHealthCareProvider</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om vårdgivaren är ett fingerat objekt</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..archivedHealthCareProvider</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om vårdgivaren är ett arkiverat objekt</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="tjänstekontraktsspecifika-krav-och-regler">Tjänstekontraktsspecifika krav och regler</h4>
+<p>Till denna informationsmängd finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan.
+*1) personHsaId och personalIdentityNumber
+Exakt ett av fälten personHsaId och personalIdentityNumber ska anges.
+*2) credentialInformation
+En person kan ha flera olika HSA-id om personen har lagts upp i olika organisationers grenar av katalogen.
+Vid sökning med person-id så kommer i sådant fall en credentialInformation returneras per HSA-id (bl.a. eftersom kopplingen mellan personobjekt och vårdmedarbetaruppdrag görs via personens HSA-id).
+*3) Vårdenhets- (healthCareUnit-) attribut
+I det fall ett Vårdmedarbetaruppdrag ligger direkt under Vårdgivaren så returneras inga Vårdenhetsattribut, d.v.s. inga värden returneras för de attribut vars namn inleds med healthCareUnit.
+*4) searchBase
+För GetCredentialsForPersonIncludingProtectedPerson används följande sökningar/sökbaser:</p>
+<ul>
+  <li>Sök efter person: i anropet angiven sökbas</li>
+  <li>Sök efter vårdmedarbetaruppdrag: i anropet angiven sökbas</li>
+  <li>Sök efter vårdenheter: utgår från DN för resp. vårdmedarbetaruppdrag, dvs ingen sökning</li>
+  <li>Sök efter vårdgivare: här används sökbasen c=SE
+*5) Attribut som returneras då inparametern "profile" är satt till "extended1" och om de finns definierade i personposten:</li>
+  <li>personalIdentity, person- eller samordningsnummer</li>
+</ul>
+
+<h4 id="sla-krav">SLA-krav</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Antal returnerade vårdmedarbetaruppdrag</th>
+      <th style="text-align: left">Svarstider måste garanteras upp till följande last</th>
+      <th style="text-align: left">Svarstid för 95 % av alla anropen ska ligga inom</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Person med 0-1 vårdmedarbetaruppdrag</td>
+      <td style="text-align: left">10 anrop/s</td>
+      <td style="text-align: left">150 ms</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Person med 2-9 vårdmedarbetaruppdrag</td>
+      <td style="text-align: left">5 anrop/s</td>
+      <td style="text-align: left">300 ms</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Person med 10-199 vårdmedarbetaruppdrag</td>
+      <td style="text-align: left">1 anrop/s</td>
+      <td style="text-align: left">2000 ms</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logiska-fel">Logiska fel</h4>
+<p>Om angiven sökbas inte finns i katalogen, returneras ett tomt svar.
+Om sökt person inte kan hittas i katalogen, så returneras tomt svar.
+Saknar personobjektet obligatorisk uppgift om HSA-id eller Efternamn så returneras tomt svar.
+Om både personHsaId och personIdentityNumber har angetts som sökparametrar, så är anropet felaktigt och ett soap-fault returneras.</p>
+
+<h4 id="källfiler-riv-ta">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l1290">​</a><a href="files/wsdl/GetCredentialsForPersonIncludingProtectedPersonInteraction_2.2_RIVTABP21.wsdl">GetCredentialsForPersonIncludingProtectedPersonInteraction_2.2_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l1300">​</a><a href="files/schema/infrastructure_directory_authorizationmanagement_2.4.xsd">infrastructure_directory_authorizationmanagement_2.4.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l1310">​</a><a href="files/schema/GetCredentialsForPersonIncludingProtectedPersonResponder_2.2.xsd">GetCredentialsForPersonIncludingProtectedPersonResponder_2.2.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l1320">​</a><a href="files/schema/GetCredentialsForPersonIncludingProtectedPersonResponder_2.1_ext.xsd">GetCredentialsForPersonIncludingProtectedPersonResponder_2.1_ext.xsd</a></td>
+      <td>Schematillägg v2.1</td>
+    </tr>
+    <tr>
+      <td><a name="l1330">​</a><a href="files/docs/AB_infrastructure_directory_authorizationmanagement.docx">AB_infrastructure_directory_authorizationmanagement.docx</a></td>
+      <td>Arkitekturellt beslut</td>
+    </tr>
+    <tr>
+      <td><a name="l1340">​</a><a href="files/docs/informationsspecifikation_for_katalogtjanst_hsa_version_3.1.pdf">informationsspecifikation_for_katalogtjanst_hsa_version_3.1.pdf</a></td>
+      <td>Informationsspecifikation HSA</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getcredentialsforpersonincludingprotectedperson.html">StructureDefinition/getcredentialsforpersonincludingprotectedperson</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getcredentialsforpersonincludingprotectedperson-request.html">StructureDefinition/getcredentialsforpersonincludingprotectedperson-request</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="getcredentialsforperson">GetCredentialsForPerson</h3>
+<p>Metoden är identisk med GetCredentialsForPersonIncludingProtectedPerson, förutom att information om skyddade personer aldrig returneras.
+Det innebär också att fältet protectedPerson aldrig kommer att returneras.
+För beskrivning av metoden se kap 6.1 GetCredentialsForPersonIncludingProtectedPerson ovan.</p>
+
+<h4 id="version-1">Version</h4>
+<p>Version på detta kontrakt är 2.2.</p>
+
+<h4 id="fältregler-1">Fältregler</h4>
+<p>Eftersom att skyddade personer aldrig returneras, så innebär det att fältet protectedPerson (se 6.1.2 Fältregler) aldrig kommer att returneras. Se fältregler under GetCredentialsForPersonIncludingProtectedPerson för fullständig lista.</p>
+
+<h4 id="källfiler-riv-ta-1">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l1417">​</a><a href="files/wsdl/GetCredentialsForPersonInteraction_2.2_RIVTABP21.wsdl">GetCredentialsForPersonInteraction_2.2_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l1427">​</a><a href="files/schema/infrastructure_directory_authorizationmanagement_2.4.xsd">infrastructure_directory_authorizationmanagement_2.4.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l1437">​</a><a href="files/schema/GetCredentialsForPersonResponder_2.2.xsd">GetCredentialsForPersonResponder_2.2.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l1447">​</a><a href="files/schema/GetCredentialsForPersonResponder_2.1_ext.xsd">GetCredentialsForPersonResponder_2.1_ext.xsd</a></td>
+      <td>Schematillägg v2.1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-1">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getcredentialsforperson.html">StructureDefinition/getcredentialsforperson</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getcredentialsforperson-request.html">StructureDefinition/getcredentialsforperson-request</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="getadmincredentialsforpersonincludingprotectedperson">GetAdminCredentialsForPersonIncludingProtectedPerson</h3>
+<p>GetAdminCredentialsForPersonIncludingProtectedPerson används för att söka ut en persons administrativa behörighetsegenskaper inom ett visst Behörighetsområde, dvs de behörighetsområdesegenskaper med tillhörande enheter / grenar som de gäller för. Syftet är att leverera de behörighetsgrundande egenskaper som krävs för att en användare ska få rätt behörigheter i en tjänst. Anropet sker normalt från en IdP (Identity Provider).
+De behörighetsegenskaper som returneras är
+Personliga egenskaper: Namn och HSA-Id
+Personens Administrativa behörighetsegenskaper och för vilket organisatoriskt omfång de gäller
+Detta tjänstekontrakt skiljer sig från kontraktet beskrivet i 6.4 på så sätt att det även ger åtkomst till personer med skyddade personuppgifter. Se AB-2.7 [R1]. Informationsägaren avgör om tjänstekonsumenten ska beviljas åtkomst till personer med skyddade personuppgifter.</p>
+
+<h4 id="version-2">Version</h4>
+<p>Version på detta kontrakt är 2.0.</p>
+
+<h4 id="fältregler-2">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning, Ref Informationsspec.</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personHsaId *1)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Unik identifierare för den person vars behörighetsegenskaper ska sökas ut. / Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personalIdentityNumber *1)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Person-id för den person vars behörighetsegenskaper ska sökas ut. Ref. person-id (personalIdentityNumber) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">authorizationScopeCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Behörighetsområdeskod som ska ingå i sökt Administrativt medarbetaruppdrag. Optional.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">authorizationScopePropertyCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för behörighetsområdesegenskap som ska ingå i sökt Administrativt medarbetaruppdrag. Optional.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">searchBase *2)</td>
+      <td style="text-align: left">DN</td>
+      <td style="text-align: left">Sökbas för behörighetsegenskaper. Om ingen sökbas anges används c=SE som sökbas.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">includeFeignedObject</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">true: om metoden ska leverera svar med fingerade objekt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">adminCredentialInformation</td>
+      <td style="text-align: left">AdminCredentialInformationType</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..personHsaId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Personens HSA-id. Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..givenName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Personens tilltalsnamn. Ref. tilltalsnamn (givenName, gn) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..middleAndSurName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Personens mellannamn och efternamn. Ref. mellannamn (middleName) [R5] / Ref. efternamn (sn, surName) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..protectedPerson</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om person har skyddade personuppgifter</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..feignedPerson</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om personen är ett fingerat objekt</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..authorizationScopeProperties</td>
+      <td style="text-align: left">AuthorizationScopePropertyType</td>
+      <td style="text-align: left">Administrativa behörighetsegenskaper för sökt person</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..authorizationScopeCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Behörighetsområdeskod. Ref Behörighetsområdeskod (hsaDomainCode) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..authorizationScopeName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Behörighetsområdets namn. Ref Objektnamn (cn) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..authorizationScopeDescription</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Behörighetsområdets beskrivning. Ref Beskrivning (description) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..authorizationScopePropertyCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Behörighetsområdesegenskap. Ref Kod för Behörighetsområdesegenskap (hsaDomainAreaCode) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..authorizationScopePropertyName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Behörighetsområdesegenskapens namn. Ref Objektnamn (cn) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..authorizationScopePropertyDescription</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Behörighetsområdesegenskapens beskrivning. Ref Beskrivning (description) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..adminCommission</td>
+      <td style="text-align: left">AdminCommissionType</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">1..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. ..adminCommissionHsaId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">HSA-id för det administrativa medarbetaruppdrag varifrån uppgifterna hämtats. Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. ..adminCommissionResponsibleOrganisation</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Organisationsnummer för organisationen som ansvarar för det administrativa medarbetaruppdraget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. ..sector</td>
+      <td style="text-align: left">SectorType</td>
+      <td style="text-align: left">Organisationsomfång för behörighetsområdesegenskapen inom uppdraget.</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. .. ..unitHsaId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">HSA-id för det objekt som pekas ut i organisationsomfånget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. .. ..sectorFlag</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">True innebär att objektets alla hierarkiskt underliggande objekt ingår.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. .. ..name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Namnet på det objekt som pekas ut i organisationsomfånget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. .. ..feignedUnit</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">True om det objekt som pekas ut i organisationsomfånget är ett fingerat objekt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. ..feignedAdminCommission</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">True om behörighetsområdesegenskapen kommer från ett fingerat administrativt medarbetaruppdrag.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="tjänstekontraktsspecifika-krav-och-regler-1">Tjänstekontraktsspecifika krav och regler</h4>
+<p>*1) personHsaId och personalIdentityNumber
+Exakt ett av fälten personHsaId och personalIdentityNumber ska anges.
+*2) searchBase, sökbas som används vid sökning efter administrativa medarbetaruppdrag, enhet samt personens uppgifter.</p>
+
+<h4 id="sla-krav-1">SLA-krav</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Antal returnerade administrativa behörighetsegenskaper</th>
+      <th style="text-align: left">Svarstider måste garanteras upp till följande last</th>
+      <th style="text-align: left">Svarstid för 95 % av alla anropen ska ligga inom</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Person med 0-1 administrativa medarbetaruppdrag</td>
+      <td style="text-align: left">10 anrop/s</td>
+      <td style="text-align: left">150 ms</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Person med 2-9 administrativa medarbetaruppdrag</td>
+      <td style="text-align: left">5 anrop/s</td>
+      <td style="text-align: left">300 ms</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Person med 10-199 administrativa medarbetaruppdrag</td>
+      <td style="text-align: left">1 anrop/s</td>
+      <td style="text-align: left">2000 ms</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logiska-fel-1">Logiska fel</h4>
+<p>Om angiven sökbas inte finns i katalogen, returneras ett tomt svar.
+Om sökt person inte kan hittas i katalogen, så returneras tomt svar.
+Saknar personobjektet obligatorisk uppgift om HSA-id eller Efternamn så returneras tomt svar.
+Om både personHsaId och personIdentityNumber har angetts som sökparametrar, så är anropet felaktigt och ett soap-fault returneras.</p>
+
+<h4 id="källfiler-riv-ta-2">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l2067">​</a><a href="files/wsdl/GetAdminCredentialsForPersonIncludingProtectedPersonInteraction_2.0_RIVTABP21.wsdl">GetAdminCredentialsForPersonIncludingProtectedPersonInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l2077">​</a><a href="files/schema/infrastructure_directory_authorizationmanagement_2.4.xsd">infrastructure_directory_authorizationmanagement_2.4.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l2087">​</a><a href="files/schema/GetAdminCredentialsForPersonIncludingProtectedPersonResponder_2.0.xsd">GetAdminCredentialsForPersonIncludingProtectedPersonResponder_2.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-2">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getadmincredentialsforpersonincludingprotectedperson.html">StructureDefinition/getadmincredentialsforpersonincludingprotectedperson</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getadmincredentialsforpersonincludingprotectedperson-request.html">StructureDefinition/getadmincredentialsforpersonincludingprotectedperson-request</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="getadmincredentialsforperson">GetAdminCredentialsForPerson</h3>
+<p>Metoden är identisk med GetAdminCredentialsForPersonIncludingProtectedPerson, förutom att skyddade personer aldrig returneras. Det innebär också att fältet protectedPerson aldrig kommer att returneras.
+För beskrivning av metoden se kap 6.3 GetAdminCredentialsForPersonIncludingProtectedPerson ovan.</p>
+
+<h4 id="version-3">Version</h4>
+<p>Version på detta kontrakt är 2.0.</p>
+
+<h4 id="fältregler-3">Fältregler</h4>
+<p>Eftersom att skyddade personer aldrig returneras, så innebär det att fältet protectedPerson (se 6.3.2 Fältregler) aldrig kommer att returneras.</p>
+
+<h4 id="källfiler-riv-ta-3">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l2164">​</a><a href="files/wsdl/GetAdminCredentialsForPersonInteraction_2.0_RIVTABP21.wsdl">GetAdminCredentialsForPersonInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l2174">​</a><a href="files/schema/infrastructure_directory_authorizationmanagement_2.4.xsd">infrastructure_directory_authorizationmanagement_2.4.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l2184">​</a><a href="files/schema/GetAdminCredentialsForPersonResponder_2.0.xsd">GetAdminCredentialsForPersonResponder_2.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-3">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getadmincredentialsforperson.html">StructureDefinition/getadmincredentialsforperson</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getadmincredentialsforperson-request.html">StructureDefinition/getadmincredentialsforperson-request</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="gethosplastupdate">GetHospLastUpdate</h3>
+<p>GetHospLastUpdate används för att hämta tidpunkt för då HOSP-informationen tillgängliggjorts efter det senaste utlämnandet från Socialstyrelsen. GetHospLastUpdate anropas lämpligen innan anrop till GetHospCredentialsForPerson så inte onödiga slagningar efter samma person görs innan ny HOSP-information utlämnats och tillgängliggjorts.</p>
+
+<h4 id="version-4">Version</h4>
+<p>Version på detta kontrakt är 1.0.</p>
+
+<h4 id="fältregler-4">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning, Ref Informationsspec.</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">Kontraktet har inga inparametrar</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lastUpdate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Tidpunkten då HOSP-informationen tillgängliggjorts efter det senaste utlämnandet</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="sla-krav-2">SLA-krav</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Tjänstekontrakt</th>
+      <th style="text-align: left">Svarstider måste garanteras upp till följande last</th>
+      <th style="text-align: left">Svarstid för 95 % av alla anropen ska ligga inom</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">GetHospLastUpdate</td>
+      <td style="text-align: left">10 anrop/s</td>
+      <td style="text-align: left">100 ms</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="källfiler-riv-ta-4">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l2378">​</a><a href="files/wsdl/GetHospLastUpdateInteraction_1.0_RIVTABP21.wsdl">GetHospLastUpdateInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l2388">​</a><a href="files/schema/infrastructure_directory_authorizationmanagement_2.4.xsd">infrastructure_directory_authorizationmanagement_2.4.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l2398">​</a><a href="files/schema/GetHospLastUpdateResponder_1.0.xsd">GetHospLastUpdateResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-4">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-gethosplastupdate.html">StructureDefinition/gethosplastupdate</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="gethospcredentialsforperson">GetHospCredentialsForPerson</h3>
+<p>GetHospCredentialsForPerson används för att hämta från Socialstyrelsen utlämnad behörighetsgrundande HOSP-information för angiven person. Användning av GetHospCredentialsForPerson bör föregås av anrop till GetHospLastUpdate så att inte samma information hämtas i onödan innan ny utlämning tillgängliggjorts.</p>
+
+<h4 id="version-5">Version</h4>
+<p>Version på detta kontrakt är 1.0.</p>
+
+<h4 id="fältregler-5">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning, Ref Informationsspec.</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personalIdentityNumber</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Person-id för den person vars HoSp-uppgifter ska sökas ut. Ref. person-id (personalIdentityNumber) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personalIdentityNumber</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Personens person- eller samordningsnummer / Ref. Person-id (personalIdentityNumber) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. root</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Anger typ av personalIdentity som returneras</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. extension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Person eller samordningsnummer.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthCareProfessionalLicence</td>
+      <td style="text-align: left">healthCareProfessionalLicenceType</td>
+      <td style="text-align: left">Personens Legitimerade yrkestitel(-lar)</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. healthCareProfessionalLicenceCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för personens Legitimerade yrkestitel.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. healtCareProfessionalLicenceName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Klartext för personens Legitimerade yrkestitel.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personalPrescriptionCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Personlig förskrivarkod. Ref. Förskrivarkod (personalPrescriptionCode) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthCareProfessionalLicenceSpeciality</td>
+      <td style="text-align: left">HCPSpecialityCodesType</td>
+      <td style="text-align: left">Personens specialistkod(er) kopplat till aktuell legitimerad yrkesgrupp.</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. healthCareProfessionalLicenceCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för den legitimerade yrkestitel som specialistkoden hör till.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. specialityCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Specialistkod, enligt något av Socialstyrelsens kodverk.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. specialityName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Specialitet i klartext.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">nursePrescriptionRight</td>
+      <td style="text-align: left">NursePrescriptionRightType</td>
+      <td style="text-align: left">Förskrivningsrätt för barnmorska/sjuksköterska</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. healthCareProfessionalLicence</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Personens legitimerade yrkestitel inom vilken denne har förskrivningsrätt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. prescriptionRight</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">Personen har förskrivningsrätt inom den angivna Legitimerade yrkestiteln</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareProfessionalLicenseIdentityNumber</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Personens HoSp-id. / Ref. HOSP-id (hospIdentityNumber) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">educationCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Utbildningskod. Ref. Socialstyrelsens kodverk [R7] HoSp utbildningskod 1.2.752.116.3.1.4</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">restrictions</td>
+      <td style="text-align: left">RestrictionType</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">0..n</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. healthCareProfessionalLicenceCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för den Legitimerade yrkestitel som restriktionskoden hör till.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. restrictionCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Restriktionskod. Ref Socialstyrelsens kodverk [R7] Behörighetsbegränsning 1.2.752.116.3.1.5</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. restrictionName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Restriktionskod i klartext.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">feignedPerson</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om personen är en fingerad person</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="sla-krav-3">SLA-krav</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Tjänstekontrakt</th>
+      <th style="text-align: left">Svarstider måste garanteras upp till följande last</th>
+      <th style="text-align: left">Svarstid för 95 % av alla anropen ska ligga inom</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">GetHospCredentialsForPerson</td>
+      <td style="text-align: left">10 anrop/s</td>
+      <td style="text-align: left">100 ms</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logiska-fel-2">Logiska fel</h4>
+<p>Om sökt person inte kan hittas bland utlämnade HOSP-uppgifter returneras tomt svar.</p>
+
+<h4 id="källfiler-riv-ta-5">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l2891">​</a><a href="files/wsdl/GetHospCredentialsForPersonInteraction_1.0_RIVTABP21.wsdl">GetHospCredentialsForPersonInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l2901">​</a><a href="files/schema/infrastructure_directory_authorizationmanagement_2.4.xsd">infrastructure_directory_authorizationmanagement_2.4.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l2911">​</a><a href="files/schema/GetHospCredentialsForPersonResponder_1.0.xsd">GetHospCredentialsForPersonResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l2921">​</a><a href="files/docs/informationsspecifikation_for_katalogtjanst_hsa_version_3.1.pdf">informationsspecifikation_for_katalogtjanst_hsa_version_3.1.pdf</a></td>
+      <td>Informationsspecifikation HSA</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-5">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-gethospcredentialsforperson.html">StructureDefinition/gethospcredentialsforperson</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-gethospcredentialsforperson-request.html">StructureDefinition/gethospcredentialsforperson-request</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="handlehospcertificationperson">HandleHospCertificationPerson</h3>
+<p>HandleHospCertificationPerson används för att lägga till eller ta bort personobjekt från kommande utlämningsförfrågningar av HoSp-information till Socialstyrelsen. När sedan en sådan utlämningsförfrågan behandlats, tillgängliggörs HoSp-informationen via GetHospCredentialsForPerson (se avsnitt 6.8). När personobjektet tagits bort garanteras inte HoSp-informationen längre finnas nåbar via GetHospCredentialsForPerson.</p>
+
+<h4 id="version-6">Version</h4>
+<p>Version på detta kontrakt är 1.0.</p>
+
+<h4 id="fältregler-6">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning, Ref Informationsspec.</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personalIdentityNumber</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Person-id för den person vars HoSp-uppgifter ska begäras utlämnade från Socialstyrelsen. Ref. person-id (personalIdentityNumber) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">operation</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">"add" för att lägga till personen, "remove" för att ta bort personen från utlämningsförfrågningar.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">certificationId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Frivillig uppgift. Alternativ id för personposten</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">reason</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Frivillig uppgift om anledning till avregistrering. Uppgiften sparas inte utan kommer bara loggas i tjänstekontraktets logg.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Resultat av ett "add" eller "remove"-anrop (OK eller ERROR).</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Beskrivning av fel vid resultCode=ERROR.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="sla-krav-4">SLA-krav</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Tjänstekontrakt</th>
+      <th style="text-align: left">Svarstider måste garanteras upp till följande last</th>
+      <th style="text-align: left">Svarstid för 95 % av alla anropen ska ligga inom</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">HandleHospCertificationPerson</td>
+      <td style="text-align: left">5 anrop/s</td>
+      <td style="text-align: left">200 ms</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="logiska-fel-3">Logiska fel</h4>
+<p>Personposter som läggs till får en märkning unik för den anropande tjänsten, om personposten redan finns adderas bara märkningen till den befintliga posten. Vid borttag av personpost som lagts till av flera tjänster tas bara den anropande tjänstens märkning bort. Personposten tas bara bort i sin helhet när den bara är märkt med den tjänst som gör borttaget.</p>
+
+<h4 id="källfiler-riv-ta-6">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l3181">​</a><a href="files/wsdl/HandleHospCertificationPersonInteraction_1.0_RIVTABP21.wsdl">HandleHospCertificationPersonInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l3191">​</a><a href="files/schema/infrastructure_directory_authorizationmanagement_2.4.xsd">infrastructure_directory_authorizationmanagement_2.4.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l3201">​</a><a href="files/schema/HandleHospCertificationPersonResponder_1.0.xsd">HandleHospCertificationPersonResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-6">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-handlehospcertificationperson.html">StructureDefinition/handlehospcertificationperson</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-handlehospcertificationperson-request.html">StructureDefinition/handlehospcertificationperson-request</a></li>
+  <li><strong>CodeSystem:</strong> <a href="CodeSystem-hosp-operation-cs.html">CodeSystem/hosp-operation-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-hosp-operation-vs.html">ValueSet/hosp-operation-vs</a></li>
+</ul>
+
+
+
+
+</div>
+        </div>    <!-- /inner-wrapper -->
+      </div>    <!-- /row -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-content -->
+
+  <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script src="assets/js/jquery-ui.min.js" type="text/javascript"> </script>
+
+  <script src="assets/js/window-hash.js" type="text/javascript"> </script>
+  <a name="bottom"> </a>
+  <div igtool="footer" id="segment-footer" class="segment">    <!-- segment-footer -->
+    <div class="container">    <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &copy; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.infrastructure-directory-authorizationmanagement#2.4.4 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 9, 2026 16:58+0000">2026-09-09</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>    <!-- /inner-wrapper -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">    <!-- segment-post-footer -->
+    <div class="container">    <!-- container -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-post-footer -->
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+  <script src="assets/js/respond.min.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard-btn.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor-hover.js" type="text/javascript"> </script>
+    <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>

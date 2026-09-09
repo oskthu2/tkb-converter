@@ -1,0 +1,163 @@
+"Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getcommissionsforperson-request","getcommissionsforperson-request","getcommissionsforperson-request","","","",0,*,"","","","null {[]} {[]}
+","GetCommissionsForPerson — Request","Logisk modell för requestparametrar i GetCommissionsForPerson
+(RIV-TA urn:riv:ehr:commission:GetCommissionsForPersonResponder:1).
+
+Exakt ett av fälten personalHsaId och personalIdentityNumber ska anges.
+Om inget av dessa anges, eller om värdet är ogiltigt, returneras statuskod VALIDATIONERROR.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getcommissionsforperson-request","getcommissionsforperson-request.personalHsaId","getcommissionsforperson-request.personalHsaId","","","",0,1,"","","","string {[]} {[]}
+","HSA-id för den aktör som medarbetaruppdrag ska hämtas för","HSA-id för den person vars medarbetaruppdrag efterfrågas.
+Maxlängd: 32 tecken.
+Villkor: Exakt ett av personalHsaId och personalIdentityNumber ska anges.
+Kardinalitet: Villkorlig (0..1) — se ASSUME-EC-001 i QUESTIONS.md.","","","","","","","","","",,,,,"",,,,"getcommissionsforperson-request.personalHsaId",0,1,"",""
+"getcommissionsforperson-request","getcommissionsforperson-request.personalIdentityNumber","getcommissionsforperson-request.personalIdentityNumber","","","",0,1,"","","","string {[]} {[]}
+","Personnummer för den aktör som medarbetaruppdrag ska hämtas för","Personnummer eller samordningsnummer för den person vars medarbetaruppdrag efterfrågas.
+Maxlängd: 12 tecken.
+Villkor: Exakt ett av personalHsaId och personalIdentityNumber ska anges.
+Kardinalitet: Villkorlig (0..1) — se ASSUME-EC-001 i QUESTIONS.md.","","","","","","","","","",,,,,"",,,,"getcommissionsforperson-request.personalIdentityNumber",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson","getcommissionsforperson","","","",0,*,"","","","null {[]} {[]}
+","GetCommissionsForPerson","Logisk modell för tjänstekontraktet GetCommissionsForPerson
+(RIV-TA urn:riv:ehr:commission:GetCommissionsForPersonResponder:1).
+Representerar responsens informationsstruktur (GetCommissionsForPersonResult).
+
+Tjänsten hämtar alla medarbetaruppdrag som personen är kopplad till,
+returnerar det senast valda uppdraget och anger om ett uppdrag valts
+inom de senaste 12 timmarna.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getcommissionsforperson","getcommissionsforperson.result","getcommissionsforperson.result","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Resultatkod och valfritt felmeddelande","Datatyp ResultType — returneras som generellt svar.
+En anropande klient skall alltid kontrollera att resultatkoden inte
+innehåller fel för att på så sätt veta om anropet lyckades.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.result",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getcommissionsforperson","getcommissionsforperson.result.id","getcommissionsforperson.result.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson.result.extension","getcommissionsforperson.result.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcommissionsforperson","getcommissionsforperson.result.modifierExtension","getcommissionsforperson.result.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcommissionsforperson","getcommissionsforperson.result.resultCode","getcommissionsforperson.result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","Svarskod för åtgärden","Anger svarskod för åtgärden enligt ResultCode-kodverket.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-commission/ValueSet/resultcode-vs","",,,,"getcommissionsforperson.result.resultCode",1,1,"",""
+"getcommissionsforperson","getcommissionsforperson.result.resultText","getcommissionsforperson.result.resultText","","","",1,1,"","","","string {[]} {[]}
+","Felmeddelande (tomt vid OK)","Optionellt felmeddelande som innehåller information om felet som uppstod.
+Fältet är tomt om resultatkoden är OK.
+Kardinalitet: Obligatorisk (men innehållet kan vara tomt sträng).","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.result.resultText",1,1,"",""
+"getcommissionsforperson","getcommissionsforperson.lastSelectedCommissionHsaId","getcommissionsforperson.lastSelectedCommissionHsaId","","","",0,1,"","","","string {[]} {[]}
+","Senast valt uppdrag (HSA-id)","Personens senast valda medarbetaruppdrag (HSA-id).
+Returneras alltid, även om inget val gjorts de senaste 12 timmarna.
+Maxlängd: 32 tecken.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.lastSelectedCommissionHsaId",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson.selectionPerformed","getcommissionsforperson.selectionPerformed","","","",0,1,"","","","boolean {[]} {[]}
+","Uppdrag valt inom 12 timmar","Anger om ett uppdrag valts inom de senaste 12 timmarna.
+TKB-tabell anger kardinalitet 1 (obligatorisk) men XSD definierar minOccurs=0.
+ASSUME: Modellerad som 0..1 (valfri) i enlighet med XSD — se QUESTIONS.md BLOCK-EC-001.
+Kardinalitet: Valfri (XSD) / Obligatorisk (TKB-tabell).","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.selectionPerformed",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson.commissions","getcommissionsforperson.commissions","","","",0,*,"","","","BackboneElement {[]} {[]}
+","Medarbetaruppdrag kopplade till personen","De medarbetaruppdrag som personen är kopplad till.
+Datatyp CommissionType.
+Kardinalitet: Valfri, lista.","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.commissions",0,*,"","getcommissions-careprovider-xor:Antingen healthCareProviderHsaId eller healthCareProviderName ska anges {healthCareProviderHsaId.exists() or healthCareProviderName.exists()}
+ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}"
+"getcommissionsforperson","getcommissionsforperson.commissions.id","getcommissionsforperson.commissions.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson.commissions.extension","getcommissionsforperson.commissions.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcommissionsforperson","getcommissionsforperson.commissions.modifierExtension","getcommissionsforperson.commissions.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcommissionsforperson","getcommissionsforperson.commissions.commissionHsaId","getcommissionsforperson.commissions.commissionHsaId","","","",1,1,"","","","string {[]} {[]}
+","Medarbetaruppdragets HSA-id","Unikt HSA-id för medarbetaruppdraget. Maxlängd: 32 tecken.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.commissions.commissionHsaId",1,1,"",""
+"getcommissionsforperson","getcommissionsforperson.commissions.commissionName","getcommissionsforperson.commissions.commissionName","","","",1,1,"","","","string {[]} {[]}
+","Medarbetaruppdragets namn","Visningsnamn för medarbetaruppdraget.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.commissions.commissionName",1,1,"",""
+"getcommissionsforperson","getcommissionsforperson.commissions.commissionPurpose","getcommissionsforperson.commissions.commissionPurpose","","","",1,1,"","","","string {[]} {[]}
+","Medarbetaruppdragets ändamål","Beskrivning av uppdragets syfte/ändamål.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.commissions.commissionPurpose",1,1,"",""
+"getcommissionsforperson","getcommissionsforperson.commissions.healthCareUnitHsaId","getcommissionsforperson.commissions.healthCareUnitHsaId","","","",0,1,"","","","string {[]} {[]}
+","HSA-id för vårdenhet enligt PDL","HSA-id för den vårdenhet som uppdraget är kopplat till, enligt PDL.
+Maxlängd: 32 tecken.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.commissions.healthCareUnitHsaId",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson.commissions.healthCareUnitName","getcommissionsforperson.commissions.healthCareUnitName","","","",0,1,"","","","string {[]} {[]}
+","Vårdenhetens namn","Visningsnamn för vårdenheten.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.commissions.healthCareUnitName",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson.commissions.healthCareUnitStartDate","getcommissionsforperson.commissions.healthCareUnitStartDate","","","",0,1,"","","","dateTime {[]} {[]}
+","Startdatum för vårdenhetens verksamhet","Datum då vårdenhetens verksamhet startade.
+Format: ÅÅÅÅ-MM-DDTtt:mm:ss (ISO 8601, CET/CEST).
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.commissions.healthCareUnitStartDate",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson.commissions.healthCareUnitEndDate","getcommissionsforperson.commissions.healthCareUnitEndDate","","","",0,1,"","","","dateTime {[]} {[]}
+","Slutdatum för vårdenhetens verksamhet","Datum då vårdenhetens verksamhet upphörde.
+Format: ÅÅÅÅ-MM-DDTtt:mm:ss (ISO 8601, CET/CEST).
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.commissions.healthCareUnitEndDate",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson.commissions.healthCareProviderHsaId","getcommissionsforperson.commissions.healthCareProviderHsaId","","","",0,1,"","","","string {[]} {[]}
+","Vårdgivarens HSA-id","HSA-id för den vårdgivare som uppdraget är kopplat till.
+Maxlängd: 32 tecken.
+TKB-tabell anger kardinalitet 1 (obligatorisk) men XSD definierar minOccurs=0.
+ASSUME: Modellerad som 0..1 i enlighet med XSD — se QUESTIONS.md BLOCK-EC-002.
+Kardinalitet: Valfri (XSD) / Obligatorisk (TKB-tabell).","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.commissions.healthCareProviderHsaId",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson.commissions.healthCareProviderName","getcommissionsforperson.commissions.healthCareProviderName","","","",0,1,"","","","string {[]} {[]}
+","Vårdgivarens namn","Visningsnamn för vårdgivaren.
+TKB-tabell anger kardinalitet 1 (obligatorisk) men XSD definierar minOccurs=0.
+ASSUME: Modellerad som 0..1 i enlighet med XSD — se QUESTIONS.md BLOCK-EC-002.
+Kardinalitet: Valfri (XSD) / Obligatorisk (TKB-tabell).","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.commissions.healthCareProviderName",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson.commissions.healthCareProviderOrgNo","getcommissionsforperson.commissions.healthCareProviderOrgNo","","","",0,1,"","","","string {[]} {[]}
+","Vårdgivarens organisationsnummer","Organisationsnummer för vårdgivaren.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.commissions.healthCareProviderOrgNo",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson.commissions.healthCareProviderStartDate","getcommissionsforperson.commissions.healthCareProviderStartDate","","","",0,1,"","","","dateTime {[]} {[]}
+","Startdatum för vårdgivarens verksamhet","Datum då vårdgivarens verksamhet startade.
+Format: ÅÅÅÅ-MM-DDTtt:mm:ss (ISO 8601, CET/CEST).
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.commissions.healthCareProviderStartDate",0,1,"",""
+"getcommissionsforperson","getcommissionsforperson.commissions.healthCareProviderEndDate","getcommissionsforperson.commissions.healthCareProviderEndDate","","","",0,1,"","","","dateTime {[]} {[]}
+","Slutdatum för vårdgivarens verksamhet","Datum då vårdgivarens verksamhet upphörde.
+Format: ÅÅÅÅ-MM-DDTtt:mm:ss (ISO 8601, CET/CEST).
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcommissionsforperson.commissions.healthCareProviderEndDate",0,1,"",""
+"setselectedcommissionforperson-request","setselectedcommissionforperson-request","setselectedcommissionforperson-request","","","",0,*,"","","","null {[]} {[]}
+","SetSelectedCommissionForPerson — Request","Logisk modell för requestparametrar i SetSelectedCommissionForPerson
+(RIV-TA urn:riv:ehr:commission:SetSelectedCommissionForPersonResponder:1).
+
+Exakt ett av fälten personalHsaId och personalIdentityNumber ska anges.
+commissionHsaId är valfritt — om det utelämnas nollställs valet (t.ex. vid utloggning).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"setselectedcommissionforperson-request","setselectedcommissionforperson-request.personalHsaId","setselectedcommissionforperson-request.personalHsaId","","","",0,1,"","","","string {[]} {[]}
+","HSA-id för den aktör vars uppdragsval ska sättas","HSA-id för den person vars medarbetaruppdragsval ska registreras.
+Maxlängd: 32 tecken.
+Villkor: Exakt ett av personalHsaId och personalIdentityNumber ska anges.
+Kardinalitet: Villkorlig (0..1) — se ASSUME-EC-001 i QUESTIONS.md.","","","","","","","","","",,,,,"",,,,"setselectedcommissionforperson-request.personalHsaId",0,1,"",""
+"setselectedcommissionforperson-request","setselectedcommissionforperson-request.personalIdentityNumber","setselectedcommissionforperson-request.personalIdentityNumber","","","",0,1,"","","","string {[]} {[]}
+","Personnummer för den aktör vars uppdragsval ska sättas","Personnummer eller samordningsnummer för den person vars uppdragsval ska registreras.
+Maxlängd: 12 tecken.
+Villkor: Exakt ett av personalHsaId och personalIdentityNumber ska anges.
+Kardinalitet: Villkorlig (0..1) — se ASSUME-EC-001 i QUESTIONS.md.","","","","","","","","","",,,,,"",,,,"setselectedcommissionforperson-request.personalIdentityNumber",0,1,"",""
+"setselectedcommissionforperson-request","setselectedcommissionforperson-request.commissionHsaId","setselectedcommissionforperson-request.commissionHsaId","","","",0,1,"","","","string {[]} {[]}
+","HSA-id för det valda uppdraget","HSA-id för det medarbetaruppdrag som ska väljas som aktivt.
+Om detta fält utelämnas nollställs uppdragsvalet.
+Detta kan användas av autentiseringstjänsten för att tvinga fram ett
+nytt uppdragsval (t.ex. funktionen Byta Uppdrag).
+Maxlängd: 32 tecken.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"setselectedcommissionforperson-request.commissionHsaId",0,1,"",""
+"setselectedcommissionforperson","setselectedcommissionforperson","setselectedcommissionforperson","","","",0,*,"","","","null {[]} {[]}
+","SetSelectedCommissionForPerson","Logisk modell för tjänstekontraktet SetSelectedCommissionForPerson
+(RIV-TA urn:riv:ehr:commission:SetSelectedCommissionForPersonResponder:1).
+Representerar responsens informationsstruktur (Result).
+
+Tjänsten sätter vilket medarbetaruppdrag som valdes aktivt av en person.
+Valet är aktuellt under nästkommande 12 timmar.
+Möjlighet finns att nollställa valet genom att utelämna commissionHsaId.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"setselectedcommissionforperson","setselectedcommissionforperson.resultCode","setselectedcommissionforperson.resultCode","","","",1,1,"","","","code {[]} {[]}
+","Svarskod för åtgärden","Anger svarskod för åtgärden enligt ResultCode-kodverket.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/ehr-commission/ValueSet/resultcode-vs","",,,,"setselectedcommissionforperson.resultCode",1,1,"",""
+"setselectedcommissionforperson","setselectedcommissionforperson.resultText","setselectedcommissionforperson.resultText","","","",1,1,"","","","string {[]} {[]}
+","Felmeddelande (tomt vid OK)","Optionellt felmeddelande som innehåller information om felet som uppstod.
+Fältet är tomt om resultatkoden är OK.
+Kardinalitet: Obligatorisk (men innehållet kan vara tomt sträng).","","","","","","","","","",,,,,"",,,,"setselectedcommissionforperson.resultText",1,1,"",""

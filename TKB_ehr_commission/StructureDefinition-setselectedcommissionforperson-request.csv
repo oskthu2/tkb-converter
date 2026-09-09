@@ -1,0 +1,24 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"setselectedcommissionforperson-request","setselectedcommissionforperson-request","","","",0,*,"","","","null {[]} {[]}
+","SetSelectedCommissionForPerson — Request","Logisk modell för requestparametrar i SetSelectedCommissionForPerson
+(RIV-TA urn:riv:ehr:commission:SetSelectedCommissionForPersonResponder:1).
+
+Exakt ett av fälten personalHsaId och personalIdentityNumber ska anges.
+commissionHsaId är valfritt — om det utelämnas nollställs valet (t.ex. vid utloggning).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"setselectedcommissionforperson-request.personalHsaId","setselectedcommissionforperson-request.personalHsaId","","","",0,1,"","","","string {[]} {[]}
+","HSA-id för den aktör vars uppdragsval ska sättas","HSA-id för den person vars medarbetaruppdragsval ska registreras.
+Maxlängd: 32 tecken.
+Villkor: Exakt ett av personalHsaId och personalIdentityNumber ska anges.
+Kardinalitet: Villkorlig (0..1) — se ASSUME-EC-001 i QUESTIONS.md.","","","","","","","","","",,,,,"",,,,"setselectedcommissionforperson-request.personalHsaId",0,1,"",""
+"setselectedcommissionforperson-request.personalIdentityNumber","setselectedcommissionforperson-request.personalIdentityNumber","","","",0,1,"","","","string {[]} {[]}
+","Personnummer för den aktör vars uppdragsval ska sättas","Personnummer eller samordningsnummer för den person vars uppdragsval ska registreras.
+Maxlängd: 12 tecken.
+Villkor: Exakt ett av personalHsaId och personalIdentityNumber ska anges.
+Kardinalitet: Villkorlig (0..1) — se ASSUME-EC-001 i QUESTIONS.md.","","","","","","","","","",,,,,"",,,,"setselectedcommissionforperson-request.personalIdentityNumber",0,1,"",""
+"setselectedcommissionforperson-request.commissionHsaId","setselectedcommissionforperson-request.commissionHsaId","","","",0,1,"","","","string {[]} {[]}
+","HSA-id för det valda uppdraget","HSA-id för det medarbetaruppdrag som ska väljas som aktivt.
+Om detta fält utelämnas nollställs uppdragsvalet.
+Detta kan användas av autentiseringstjänsten för att tvinga fram ett
+nytt uppdragsval (t.ex. funktionen Byta Uppdrag).
+Maxlängd: 32 tecken.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"setselectedcommissionforperson-request.commissionHsaId",0,1,"",""

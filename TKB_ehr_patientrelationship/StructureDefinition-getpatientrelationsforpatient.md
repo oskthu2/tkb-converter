@@ -1,0 +1,211 @@
+# GetPatientRelationsForPatient - ehr: patientrelationship v1.0.1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetPatientRelationsForPatient**
+
+## Logical Model: GetPatientRelationsForPatient 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/ehr-patientrelationship/StructureDefinition/getpatientrelationsforpatient | *Version*:1.0.1 |
+| Draft as of 2026-09-09 | *Computable Name*:GetPatientRelationsForPatient |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetPatientRelationsForPatient (RIV-TA urn:riv:ehr:patientrelationship:querying:GetPatientRelationsForPatientResponder:1). Representerar responsens informationsstruktur — lista med giltiga patientrelationer för en patient. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.ehr-patientrelationship|current/StructureDefinition/StructureDefinition-getpatientrelationsforpatient.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getpatientrelationsforpatient.csv), [Excel](StructureDefinition-getpatientrelationsforpatient.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getpatientrelationsforpatient",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/ehr-patientrelationship/StructureDefinition/getpatientrelationsforpatient",
+  "version" : "1.0.1",
+  "name" : "GetPatientRelationsForPatient",
+  "title" : "GetPatientRelationsForPatient",
+  "status" : "draft",
+  "date" : "2026-09-09T16:55:08+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetPatientRelationsForPatient\n(RIV-TA urn:riv:ehr:patientrelationship:querying:GetPatientRelationsForPatientResponder:1).\nRepresenterar responsens informationsstruktur — lista med giltiga patientrelationer för en patient.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/ehr-patientrelationship/StructureDefinition/getpatientrelationsforpatient",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getpatientrelationsforpatient",
+      "path" : "getpatientrelationsforpatient",
+      "short" : "GetPatientRelationsForPatient",
+      "definition" : "Logisk modell för tjänstekontraktet GetPatientRelationsForPatient\n(RIV-TA urn:riv:ehr:patientrelationship:querying:GetPatientRelationsForPatientResponder:1).\nRepresenterar responsens informationsstruktur — lista med giltiga patientrelationer för en patient."
+    },
+    {
+      "id" : "getpatientrelationsforpatient.result",
+      "path" : "getpatientrelationsforpatient.result",
+      "short" : "Svarskod och eventuellt resultatmeddelande",
+      "definition" : "Innehåller resultCode och resultText. Alla koder förutom OK och INFO indikerar att åtgärden ej genomfördes.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getpatientrelationsforpatient.result.resultCode",
+      "path" : "getpatientrelationsforpatient.result.resultCode",
+      "short" : "Svarskod",
+      "definition" : "Svarskod",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/ehr-patientrelationship/ValueSet/resultcode-vs"
+      }
+    },
+    {
+      "id" : "getpatientrelationsforpatient.result.resultText",
+      "path" : "getpatientrelationsforpatient.result.resultText",
+      "short" : "Optionellt felmeddelande (tomt om resultCode=OK)",
+      "definition" : "Optionellt felmeddelande (tomt om resultCode=OK)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpatientrelationsforpatient.patientRelations",
+      "path" : "getpatientrelationsforpatient.patientRelations",
+      "short" : "Lista med giltiga patientrelationer för patienten",
+      "definition" : "Lista med aktiva patientrelationer. Ogiltiga (utgångna, makulerade, återkallade) returneras ej.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getpatientrelationsforpatient.patientRelations.patientRelationId",
+      "path" : "getpatientrelationsforpatient.patientRelations.patientRelationId",
+      "short" : "Unik UUID-identifierare för patientrelationen (max 36 tecken)",
+      "definition" : "Unik UUID-identifierare för patientrelationen (max 36 tecken)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpatientrelationsforpatient.patientRelations.patientId",
+      "path" : "getpatientrelationsforpatient.patientRelations.patientId",
+      "short" : "Patientens personnummer eller samordningsnummer (max 12 tecken)",
+      "definition" : "Patientens personnummer eller samordningsnummer (max 12 tecken)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpatientrelationsforpatient.patientRelations.careProviderId",
+      "path" : "getpatientrelationsforpatient.patientRelations.careProviderId",
+      "short" : "Vårdgivare-id (HSA-id, max 32 tecken)",
+      "definition" : "HSA-id för den vårdgivare som intyget är kopplat till.\nsystem = urn:oid:1.2.752.129.2.1.4.1",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getpatientrelationsforpatient.patientRelations.careUnitId",
+      "path" : "getpatientrelationsforpatient.patientRelations.careUnitId",
+      "short" : "Vårdenhet-id (HSA-id, max 32 tecken)",
+      "definition" : "HSA-id för den vårdenhet som intyget är kopplat till.\nsystem = urn:oid:1.2.752.129.2.1.4.1",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getpatientrelationsforpatient.patientRelations.employeeId",
+      "path" : "getpatientrelationsforpatient.patientRelations.employeeId",
+      "short" : "Medarbetare-id (HSA-id, max 32 tecken)",
+      "definition" : "HSA-id för den medarbetare som patientrelationen avser.\nsystem = urn:oid:1.2.752.129.2.1.4.1",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getpatientrelationsforpatient.patientRelations.startDate",
+      "path" : "getpatientrelationsforpatient.patientRelations.startDate",
+      "short" : "Startdatum för patientrelationens giltighetstid",
+      "definition" : "Startdatum för patientrelationens giltighetstid",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getpatientrelationsforpatient.patientRelations.endDate",
+      "path" : "getpatientrelationsforpatient.patientRelations.endDate",
+      "short" : "Slutdatum/tidpunkt då giltigheten går ut",
+      "definition" : "Slutdatum/tidpunkt då giltigheten går ut",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getpatientrelationsforpatient.patientRelations.ownerId",
+      "path" : "getpatientrelationsforpatient.patientRelations.ownerId",
+      "short" : "Optionell identifierare för systemet som skapade patientrelationen (max 512 tecken)",
+      "definition" : "Optionell identifierare för systemet som skapade patientrelationen (max 512 tecken)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

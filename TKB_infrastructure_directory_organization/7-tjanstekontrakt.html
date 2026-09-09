@@ -1,0 +1,2293 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>7 Tjänstekontrakt - infrastructure: directory: organization v5</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link rel="stylesheet" href="fhir.css"/>
+
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-fhir.css"/>
+
+      <!-- Project extras -->
+    <link rel="stylesheet" href="assets/css/project.css"/>
+    <link rel="stylesheet" href="assets/css/pygments-manni.css"/>
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+  	<link rel="stylesheet" href="assets/css/prism.css"/>
+  	<link rel="stylesheet" href="assets/css/cqf.css"/>
+      <!-- Placeholder for child template CSS declarations -->
+
+    <script src="fhir-table-scripts.js" type="text/javascript"> </script>
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- [if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif] -->
+
+      <!-- Favicons -->
+    <link sizes="144x144" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-144.png"/>
+    <link sizes="114x114" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-114.png"/>
+    <link sizes="72x72" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script src="assets/js/mermaid.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">    <!-- segment-header -->
+      <div class="container">    <!-- container -->
+
+          <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">infrastructure: directory: organization</span>
+            <br/>
+            <span style="display:inline-block;">5 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div>   <!-- /container -->
+    </div>    <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">    <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">    <!-- container -->
+          <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+            <!-- status-bar -->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a href="http://hl7.org/fhir/R4/index.html" class="navbar-brand hidden">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+  <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+  <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+  <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+  <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma informationskomponenter</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>    <!-- /.nav-collapse -->
+          </div>    <!-- /.container -->
+        </nav>    <!-- /.navbar -->
+        <!-- /HEADER CONTENT -->
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-navbar -->
+      <!-- status-bar -->
+
+    <div id="segment-breadcrumb" class="segment">    <!-- segment-breadcrumb -->
+      <div class="container">    <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">    <!-- segment-content -->
+      <div class="container">    <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+    <!-- ReleaseHeader --><p id="publish-box">infrastructure: directory: organization - Local Development build (v5) built by the FHIR (HL7&reg; FHIR&reg; Standard) Build Tools. See the <a href="https://fhir.inera.se/ig/infrastructure-directory-organization/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>  <!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstekontrakt" id="markdown-toc-tjänstekontrakt">Tjänstekontrakt</a>    <ul>
+      <li><a href="#gethealthcareunit" id="markdown-toc-gethealthcareunit">GetHealthCareUnit</a></li>
+      <li><a href="#gethealthcareunitlist" id="markdown-toc-gethealthcareunitlist">GetHealthCareUnitList</a></li>
+      <li><a href="#gethealthcareunitmembers" id="markdown-toc-gethealthcareunitmembers">GetHealthCareUnitMembers</a></li>
+      <li><a href="#getunit" id="markdown-toc-getunit">GetUnit</a></li>
+      <li><a href="#gethealthcareprovider" id="markdown-toc-gethealthcareprovider">GetHealthCareProvider</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstekontrakt">Tjänstekontrakt</h2>
+
+<h3 id="gethealthcareunit">GetHealthCareUnit</h3>
+<p>Söker ut vilken vårdenhet den angivna enheten eller funktionen är kopplad till. Kan användas av tjänstekonsumenten för att koppla ihop en enhet eller funktion i ett vårdsystem med vårdenhet i enlighet med PDL. Notera särskilt att alla enheter inte är kopplade till en vårdenhet. Om enheten i sig själv är utpekad som vårdenhet markeras detta med en flagga i svaret.</p>
+
+<h4 id="version">Version</h4>
+<p>Version på detta kontrakt är 2.0.</p>
+
+<h4 id="fältregler">Fältregler</h4>
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler. Attributen som levereras beskrivs mer ingående i Informationsspecifikationen [R5], med avseende på till exempel fältlängder och krav på innehållet.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning, Ref Informationsspec.</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthCareUnitMemberHsaId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">HSA-id för en enhet eller funktion som är kopplad till en vårdenhet enligt PDL. Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">searchBase *1)</td>
+      <td style="text-align: left">DN</td>
+      <td style="text-align: left">Sökbas. Om ingen sökbas anges används c=SE som sökbas.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">includeFeignedObject</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">true: om metoden ska leverera svar med fingerade objekt. Uteblivet värde tolkas som false, dvs inga fingerade objekt levereras.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthCareUnit</td>
+      <td style="text-align: left">HealthCareUnitType</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareUnitMemberHsaId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Enhetens (funktionens) HSA-id. Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareUnitMemberName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Enhetens (funktionens) namn. Ref. organisationsnamn (o), enhetsnamn (ou) resp. objektnamn (cn) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareUnitMemberPublicName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Publikt officiellt namn. Det publika namnet beräknas i första hand utifrån enhetens DN tillsammans med värdet i attributet displayOption. Om displayOption saknas beräknas det publika namnet enligt: enhetens namn blanktecken location / Ref. alternativ namnvisning (displayOption), organisationsnamn (o), enhetsnamn (ou), objektnamn (cn), resp geografisk plats (l, localityName) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareUnitMemberStartDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Startdatum för enhetens (funktionens) verksamhet. Ref. startdatum (startDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareUnitMemberEndDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Slutdatum för enhetens (funktionens) verksamhet. Ref. slutdatum (endDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareUnitHsaId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdenhetens HSA-id. Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..unitIsHealthCareUnit</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">True, om enheten (funktionen) själv är en vårdenhet. Om enheten (funktionen) inte är vårdenhet kommer inget värde att returneras. Ref. hjälpklassen Vårdenhet (hsaHealthCareUnit) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareUnitName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdenhetens namn. Ref. organisationsnamn (o) resp. enhetsnamn (ou) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareUnitPublicName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Publikt officiellt namn. Ref. alternativ namnvisning (displayOption), organisationsnamn (o), enhetsnamn (ou), objektnamn (cn), resp geografisk plats (l, localityName) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareUnitStartDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Startdatum för vårdenhetens verksamhet. Ref. startdatum (startDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareUnitEndDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Slutdatum för vårdenhetens verksamhet. Ref. slutdatum (endDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareProviderHsaId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdgivarens HSA-id. Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareProviderName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdgivarens namn. Ref. organisationsnamn (o) resp. enhetsnamn (ou) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareProviderPublicName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Publikt officiellt namn. Ref. alternativ namnvisning (displayOption), organisationsnamn (o), enhetsnamn (ou), objektnamn (cn), resp geografisk plats (l, localityName) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareProviderOrgNo</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdgivarens organisationsnummer. Ref. organisationsnummer (orgNo) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareProviderStartDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Startdatum för vårdgivarens verksamhet. Ref. startdatum (startDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareProviderEndDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Slutdatum för vårdgivarens verksamhet. Ref. slutdatum (endDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..feignedHealthCareUnitMember</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om enheten är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..feignedHealthCareUnit</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om vårdenheten är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..feignedHealthCareProvider</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om vårdgivaren är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..archivedHealthCareUnitMember</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om enheten är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..archivedHealthCareUnit</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om vårdenheten är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..archivedHealthCareProvider</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om vårdgivaren är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="tjänstekontraktsspecifika-krav-och-regler">Tjänstekontraktsspecifika krav och regler</h4>
+<p>Till denna informationsmängd finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan.</p>
+
+<p>*1) searchBase
+För GetHealthCareUnit används följande sökningar/sökbaser:</p>
+<ul>
+  <li>Sök efter kopplad enhet: i anropet angiven sökbas</li>
+  <li>Sök efter vårdenhet: i anropet angiven sökbas</li>
+  <li>Sök efter vårdgivare: i anropet angiven sökbas</li>
+</ul>
+
+<h5 id="icke-funktionella-krav">Icke funktionella krav</h5>
+
+<h6 id="sla-krav">SLA-krav</h6>
+<p>Krav på svarstider anges under förutsättning att TLS-uppkoppling är etablerad, d.v.s. TLS-förhandlingstid tillkommer vid start av ny TLS-session. Angivna krav på svarstid utgår ifrån mätning från Tjänsteplattformen mot Katalogtjänsten, och exklusive den tid som tjänsteplattformen behöver för att förmedla fråga och svar. Svarstid ska kunna garanteras upp till angiven last.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Metod</th>
+      <th style="text-align: left">Svarstider måste garanteras upp till följande last</th>
+      <th style="text-align: left">Svarstid för 95 % av alla anrop ligger inom</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">GetHealthCareUnit</td>
+      <td style="text-align: left">10 anrop/s</td>
+      <td style="text-align: left">100 ms</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="logiska-fel">Logiska fel</h6>
+<p>Logiska fel hanteras enligt:
+Om angiven sökbas inte finns i katalogen, returneras ett tomt svar.
+Om sökt enhet inte kan hittas i katalogen, så returneras tomt svar.
+Om sökt enhet inte är en vårdenhet eller kopplad till en vårdenhet, så returneras tomt svar.
+Om enheten, vårdenheten eller vårdgivaren saknar obligatorisk uppgift så returneras tomt svar. Dvs om Namn, HSA-id, Organisationsnummer hos vårdgivaren eller korrekt utpekning av vårdgivare hos vårdenheten saknas så levereras tomt svar.
+för kontroll av att returnerade attributvärden följer specificerad syntax, så rekommenderas använda den Schematron vi tillhandahåller.</p>
+
+<h4 id="annan-information-om-kontraktet">Annan information om kontraktet</h4>
+<p>Information returneras endast om angiven enhet är kopplad till en vårdenhet, eller om enheten i sig själv är en vårdenhet.</p>
+
+<h4 id="källfiler-riv-ta">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l862">​</a><a href="files/wsdl/GetHealthCareUnitInteraction_2.0_RIVTABP21.wsdl">GetHealthCareUnitInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l872">​</a><a href="files/schema/GetHealthCareUnitResponder_2.0.xsd">GetHealthCareUnitResponder_2.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l882">​</a><a href="files/schema/infrastructure_directory_organization_5.0.xsd">infrastructure_directory_organization_5.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-gethealthcareunit-request.html">StructureDefinition/gethealthcareunit-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-gethealthcareunit.html">StructureDefinition/gethealthcareunit</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="gethealthcareunitlist">GetHealthCareUnitList</h3>
+<p>Söker fram och listar en angiven vårdgivares alla vårdenheter, definierade enligt PDL. Kan användas av tjänstekonsumenten för att t.ex. skapa en förvalslista i ett användargränssnitt.</p>
+
+<h4 id="version-1">Version</h4>
+<p>Version på detta kontrakt är 2.0.</p>
+
+<h4 id="fältregler-1">Fältregler</h4>
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler. Attributen som levereras beskrivs mer ingående i Informationsspecifikationen [R5], med avseende på t.ex. fältlängder och krav på innehållet.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning, Ref Informationsspec.</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthCareProviderHsaId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdgivarens HSA-id. Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">searchBase *1)</td>
+      <td style="text-align: left">DN</td>
+      <td style="text-align: left">Sökbas. Om ingen sökbas anges används c=SE som sökbas. searchBase används både för sökning av den kopplade enheten, vårdenheten och vårdgivaren.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">includeFeignedObject</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">true: om metoden ska leverera svar med fingerade objekt. Uteblivet värde tolkas som false, dvs inga fingerade objekt levereras.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthCareUnitList</td>
+      <td style="text-align: left">HealthCareUnitListType</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareProviderHsaId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdgivarens HSA-id. Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareProviderName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdgivarens namn. Ref. organisationsnamn (o) resp. enhetsnamn (ou) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareProviderPublicName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Publikt officiellt namn. Ref. alternativ namnvisning (displayOption), organisationsnamn (o), enhetsnamn (ou), objektnamn (cn), resp geografisk plats (l, localityName) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareProviderOrgNo</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdgivarens organisationsnummer. Ref. organisationsnummer (orgNo) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareProviderStartDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Startdatum för vårdgivarens verksamhet. Ref. startdatum (startDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareProviderEndDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Slutdatum för vårdgivarens verksamhet. Ref. slutdatum (endDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..feignedHealthCareProvider</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om vårdgivaren är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..archivedHealthCareProvider</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om vårdgivaren är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareUnit</td>
+      <td style="text-align: left">HealthCareUnitType</td>
+      <td style="text-align: left">Ingående vårdenhet enligt PDL</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareUnitHsaId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">HSA-identitet ingående enhet. Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareUnitName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Namn ingående enhet. Ref. organisationsnamn (o) resp. enhetsnamn (ou) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareUnitPublicName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Publikt officiellt namn. Ref. alternativ namnvisning (displayOption), organisationsnamn (o), enhetsnamn (ou), objektnamn (cn), resp geografisk plats (l, localityName) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareUnitStartDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Startdatum för vårdenhetens verksamhet. Ref. startdatum (startDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareUnitEndDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Slutdatum för vårdenhetens verksamhet. Ref. slutdatum (endDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..feignedHealthCareUnit</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om vårdenheten är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..archivedHealthCareUnit</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om vårdenheten är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="tjänstekontraktsspecifika-krav-och-regler-1">Tjänstekontraktsspecifika krav och regler</h4>
+<p>Till denna informationsmängd finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan.</p>
+
+<p>*1) searchBase
+För GetHealthCareUnitList används följande sökningar/sökbaser:</p>
+<ul>
+  <li>Sök efter vårdgivaren: i anropet angiven sökbas</li>
+  <li>Sök efter vårdenheter: i anropet angiven sökbas</li>
+</ul>
+
+<h5 id="icke-funktionella-krav-1">Icke funktionella krav</h5>
+
+<h6 id="sla-krav-1">SLA-krav</h6>
+<p>Krav på svarstider anges under förutsättning att TLS-uppkoppling är etablerad, d.v.s. TLS-förhandlingstid tillkommer vid start av ny TLS-session. Angivna krav på svarstid utgår ifrån mätning från Tjänsteplattformen mot Katalogtjänsten, och exklusive den tid som tjänsteplattformen behöver för att förmedla fråga och svar. Svarstid ska kunna garanteras upp till angiven last.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Metod</th>
+      <th style="text-align: left">Svarstider måste garanteras upp till följande last</th>
+      <th style="text-align: left">Svarstid för 95 % av alla anrop ligger inom</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">GetHealthCareUnitList</td>
+      <td style="text-align: left">1 anrop/s</td>
+      <td style="text-align: left">2000 ms</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="logiska-fel-1">Logiska fel</h6>
+<p>Logiska fel hanteras enligt:
+Om angiven sökbas inte finns i katalogen, returneras ett tomt svar.
+Om sökt vårdgivare inte kan hittas i katalogen, så returneras tomt svar.
+Om sökt enhet inte är en vårdgivare, eller om vårdgivaren saknar någon obligatorisk uppgift (namn, HSA-id eller organisationsnummer), så returneras tomt svar.
+Om en vårdgivare saknar någon obligatorisk uppgift (namn eller HSA-id) så returneras ingen information om den vårdenheten.
+för kontroll av att returnerade attributvärden följer specificerad syntax, så rekommenderas använda den Schematron vi tillhandahåller.</p>
+
+<h4 id="annan-information-om-kontraktet-1">Annan information om kontraktet</h4>
+<p>-</p>
+
+<h4 id="källfiler-riv-ta-1">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l1385">​</a><a href="files/wsdl/GetHealthCareUnitListInteraction_2.0_RIVTABP21.wsdl">GetHealthCareUnitListInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l1395">​</a><a href="files/schema/GetHealthCareUnitListResponder_2.0.xsd">GetHealthCareUnitListResponder_2.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l1405">​</a><a href="files/schema/infrastructure_directory_organization_5.0.xsd">infrastructure_directory_organization_5.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-1">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-gethealthcareunitlist-request.html">StructureDefinition/gethealthcareunitlist-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-gethealthcareunitlist.html">StructureDefinition/gethealthcareunitlist</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="gethealthcareunitmembers">GetHealthCareUnitMembers</h3>
+<p>Metoden söker fram alla kopplade enheter för den angivna vårdenheten. Kan användas av tjänstekonsumenten för att se vilka mottagningar och avdelningar som ingår i en klinik eller för att i ett användargränssnitt skapa en förvalslista med samtliga arbetsplatskoder kopplade till vårdenheten. Notera särskilt att alla enheter inte är kopplade till en vårdenhet och att samtliga arbetsplatskoder inte finns registrerade.</p>
+
+<h4 id="version-2">Version</h4>
+<p>Version på detta kontrakt är 2.1.</p>
+
+<h4 id="fältregler-2">Fältregler</h4>
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler. Attributen som levereras beskrivs mer ingående i Informationsspecifikationen [R5], med avseende på t.ex. fältlängder och krav på innehållet.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning, Ref Informationsspec.</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthCareUnitHsaId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">HSA-id för vårdenhet enligt PDL. Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">searchBase *1)</td>
+      <td style="text-align: left">DN</td>
+      <td style="text-align: left">Sökbas. Om ingen sökbas anges används c=SE som sökbas.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">includeFeignedObject</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">true: om metoden ska leverera svar med fingerade objekt. Uteblivet värde tolkas som false, dvs inga fingerade objekt levereras.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthCareUnitMembers</td>
+      <td style="text-align: left">HealthCareUnitMembersType</td>
+      <td style="text-align: left">Information om vårdenheten och dess kopplade enheter</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareUnitName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdenhetens namn. Ref. organisationsnamn (o) resp. enhetsnamn (ou) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareUnitPublicName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Publikt officiellt namn. Ref. alternativ namnvisning (displayOption), organisationsnamn (o), enhetsnamn (ou), objektnamn (cn), resp geografisk plats (l, localityName) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareUnitHsaId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdenhetens HSA-id. Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareUnitStartDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Startdatum för vårdenhetens verksamhet. Ref. startdatum (startDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareUnitEndDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Slutdatum för vårdenhetens verksamhet. Ref. slutdatum (endDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareUnitPrescriptionCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdenhetens arbetsplatskod(-er). Ref. arbetsplatskod (unitPrescriptionCode) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..telephoneNumber</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdenhetens publika direkttelefonnummer. Ref. direkttelefon (telephoneNumber) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..postalAddress</td>
+      <td style="text-align: left">AddressType</td>
+      <td style="text-align: left">Vårdenhetens postadress i ostrukturerat format. Ref. postadress (postalAddress) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..addressLine</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Adressrader</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..structuredPostalAddress</td>
+      <td style="text-align: left">structuredPostalAddressType</td>
+      <td style="text-align: left">Vårdenhetens postadress i strukturerat format. Ref. Strukturerad postadress (hsaPostalAddress) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..addressee</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Adressat</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..street</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Gata</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..premisesNumber</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Adressplatsnummer</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..premisesLetter</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Adressplatslittera</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..postCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Postnummer</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..town</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Postort</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..postalCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdenheten postnummer där verksamheten bedrivs. Ref. postnummer (postalCode) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..feignedhealthCareUnit</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om vårdenheten är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..archivedHealthCareUnit</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om vårdenheten är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareProvider</td>
+      <td style="text-align: left">HealthCareProviderType</td>
+      <td style="text-align: left">Den vårdgivare som vårdenheten tillhör</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareProviderName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdgivarens namn. Ref. organisationsnamn (o) resp. enhetsnamn (ou) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareProviderPublicName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Publikt officiellt namn. Ref. alternativ namnvisning (displayOption) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareProviderHsaId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdgivarens HSA-id. Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareProviderOrgNo</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdgivarens organisationsnummer</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareProviderStartDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Startdatum för Vårdgivarens verksamhet. Ref. startdatum (startDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareProviderEndDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Slutdatum för Vårdgivarens verksamhet. Ref. slutdatum (endDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareProviderPrescriptionCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdgivarens arbetsplatskod(-er). Ref. arbetsplatskod (unitPrescriptionCode) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..telephoneNumber</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdgivarens publika direkttelefonnummer. Ref. direkttelefon (telephoneNumber) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..postalAddress</td>
+      <td style="text-align: left">AddressType</td>
+      <td style="text-align: left">Vårdgivarens postadress i ostrukturerat format. Ref. postadress (postalAddress) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. ..addressLine</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Adressrader</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..structuredPostalAddress (vårdgivare)</td>
+      <td style="text-align: left">structuredPostalAddressType</td>
+      <td style="text-align: left">Vårdgivarens postadress i strukturerat format. Ref. Strukturerad postadress (hsaPostalAddress) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..addressee</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Adressat</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..street</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Gata</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..premisesNumber</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Adressplatsnummer</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..premisesLetter</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Adressplatslittera</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..postCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Postnummer</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..town</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Postort</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..postalCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdgivarens postnummer där verksamheten bedrivs. Ref. postnummer (postalCode) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..feignedHealthCareProvider</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om Vårdgivaren är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..archivedHealthCareProvider</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om Vårdgivaren är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareUnitMember</td>
+      <td style="text-align: left">HealthCareUnitMemberType</td>
+      <td style="text-align: left">Information om en kopplad enhet</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareUnitMemberName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Den kopplade enhetens namn. Ref. organisationsnamn (o), enhetsnamn (ou) resp. objektnamn (cn) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareUnitMemberPublicName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Publikt officiellt namn. Ref. alternativ namnvisning (displayOption) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareUnitMemberHsaId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Den kopplade enhetens HSA-id. Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareUnitMemberStartDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Startdatum för kopplade enhetens verksamhet. Ref. startdatum (startDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareUnitMemberEndDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Slutdatum för kopplade enhetens verksamhet. Ref. slutdatum (endDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareUnitMemberPrescriptionCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Den kopplade enhetens arbetsplatskod(-er). Ref. arbetsplatskod (unitPrescriptionCode) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareUnitMemberTelephoneNumber</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Den kopplade enhetens publika direkttelefonnummer. Ref. direkttelefon (telephoneNumber) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareUnitMemberPostalAddress</td>
+      <td style="text-align: left">AddressType</td>
+      <td style="text-align: left">Den kopplade enhetens postadress i ostrukturerat format. Ref. postadress (postalAddress) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. ..addressLine</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Adressrader</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareUnitMemberStructuredPostalAddress</td>
+      <td style="text-align: left">structuredPostalAddressType</td>
+      <td style="text-align: left">Den kopplade enhetens postadress i strukturerat format. Ref. Strukturerad postadress (hsaPostalAddress) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. ..addressee</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Adressat</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. ..street</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Gata</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. ..premisesNumber</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Adressplatsnummer</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. ..premisesLetter</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Adressplatslittera</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. ..postCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Postnummer</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. ..town</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Postort</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..healthCareUnitMemberPostalCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Den kopplade enhetens postnummer för där verksamheten bedrivs. Ref. postnummer (postalCode) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..feignedHealthCareUnitMember</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om enheten är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..archivedHealthCareUnitMember</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om enheten är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="tjänstekontraktsspecifika-krav-och-regler-2">Tjänstekontraktsspecifika krav och regler</h4>
+<p>Till denna informationsmängd finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan.</p>
+
+<p>*1) searchBase
+För GetHealthCareUnitMembers används följande sökningar/sökbaser:</p>
+<ul>
+  <li>Sök efter vårdenheten: i anropet angiven sökbas</li>
+  <li>Sök efter kopplade enheter: här används sökbasen c=se</li>
+</ul>
+
+<h5 id="icke-funktionella-krav-2">Icke funktionella krav</h5>
+
+<h6 id="sla-krav-2">SLA-krav</h6>
+<p>Krav på svarstider anges under förutsättning att TLS-uppkoppling är etablerad, d.v.s. TLS-förhandlingstid tillkommer vid start av ny TLS-session. Angivna krav på svarstid utgår ifrån mätning från Tjänsteplattformen mot Katalogtjänsten, och exklusive den tid som tjänsteplattformen behöver för att förmedla fråga och svar. Svarstid ska kunna garanteras upp till angiven last.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Vårdenhet med kopplade enheter eller inte</th>
+      <th style="text-align: left">Svarstider måste garanteras upp till följande last</th>
+      <th style="text-align: left">Svarstid för 95 % av alla anrop ligger inom</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svarstid för vårdenhet utan kopplade enheter</td>
+      <td style="text-align: left">10 anrop/s</td>
+      <td style="text-align: left">100 ms</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svarstid för vårdenhet med kopplade enheter</td>
+      <td style="text-align: left">1 anrop/s</td>
+      <td style="text-align: left">1000 ms</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="logiska-fel-2">Logiska fel</h6>
+<p>Logiska fel hanteras enligt:
+Om sökt vårdenhet inte kan hittas i katalogen, så returneras tomt svar.
+Om sökt enhet inte är en vårdenhet, eller saknar någon obligatorisk uppgift (namn, HSA-id eller korrekt utpekning av vårdgivartillhörighet), så returneras tomt svar.
+Om vårdgivaren saknar obligatorisk uppgift (Namn, HSA-id, Organisationsnummer) så returneras tomt svar.
+Om en kopplad enhet saknar någon obligatorisk uppgift (namn eller HSA-id) så returneras ingen information om den enheten.
+för kontroll av att returnerade attributvärden följer specificerad syntax, så rekommenderas använda den Schematron vi tillhandahåller.</p>
+
+<h4 id="annan-information-om-kontraktet-2">Annan information om kontraktet</h4>
+<p>-</p>
+
+<h4 id="källfiler-riv-ta-2">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l2580">​</a><a href="files/wsdl/GetHealthCareUnitMembersInteraction_2.1_RIVTABP21.wsdl">GetHealthCareUnitMembersInteraction_2.1_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l2590">​</a><a href="files/schema/GetHealthCareUnitMembersResponder_2.1.xsd">GetHealthCareUnitMembersResponder_2.1.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l2600">​</a><a href="files/schema/GetHealthCareUnitMembersResponder_2.1_ext.xsd">GetHealthCareUnitMembersResponder_2.1_ext.xsd</a></td>
+      <td>Tjänstespecifikt schema (extension)</td>
+    </tr>
+    <tr>
+      <td><a name="l2610">​</a><a href="files/schema/infrastructure_directory_organization_5.0.xsd">infrastructure_directory_organization_5.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-2">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-gethealthcareunitmembers-request.html">StructureDefinition/gethealthcareunitmembers-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-gethealthcareunitmembers.html">StructureDefinition/gethealthcareunitmembers</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="getunit">GetUnit</h3>
+<p>GetUnit returnerar information om den angivna enheten (med enhet avses här alla typer av organisatoriska objekt, d.v.s. både organisation, enhet och funktion). Kan användas av tjänstekonsumenten för att presentera detaljerad information om en enhet i t.ex. en vårdsökning eller en kontaktlista. Notera särskilt att alla attribut inte är obligatoriska och att ytterst få enheter innehåller samtlig information enligt specifikationen nedan.</p>
+
+<h4 id="version-3">Version</h4>
+<p>Version på detta kontrakt är 5.0.</p>
+
+<h4 id="fältregler-3">Fältregler</h4>
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler. Attributen som levereras beskrivs mer ingående i Informationsspecifikationen [R5], med avseende på t.ex. fältlängder och krav på innehållet.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning, Ref Informationsspec.</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">unitHsaId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">HSA-id för sökt organisatorisk enhet. Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">searchBase *1)</td>
+      <td style="text-align: left">DN</td>
+      <td style="text-align: left">Sökbas. Om ingen sökbas anges används c=SE som sökbas.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">includeFeignedObject</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">true: om metoden ska leverera svar med fingerade objekt. Uteblivet värde tolkas som false, dvs inga fingerade objekt levereras.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Profile *2)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Anger hur mycket information om enheten som begärs. Följande värden finns definierade: basic (bara grundläggande information), extended (även vård- och omsorgsinformation), extended2 (nonPublicTelephoneNumber, måste kombineras), all (default, all tillgänglig information).</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Unit</td>
+      <td style="text-align: left">unitType</td>
+      <td style="text-align: left">Information om den angivna organisatoriska enheten</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..alternateName *b)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Alternativt namn på enheten. Ref. alternativt namn (ouShort) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..alternateText *b)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Beskrivande text till bild på enhet. Ref. [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..businessClassification *e)</td>
+      <td style="text-align: left">BusinessClassificationType</td>
+      <td style="text-align: left">Verksamhetskod</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..businessClassificationName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Verksamhetskod(-er) i klartext. Ref. verksamhet (businessClassificationName) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..businessClassificationCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Verksamhetskod(-er) kod. Ref. verksamhetskod (businessClassificationCode) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..businessType *e)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Klassificering av enhet (t.ex. sjukhus). Ref. enhetstyp (hsaBusinessType) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..careType *e)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdform. Ref. vård- och omsorgsform (careType) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..countyName *b)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Namn på län. Ref. länsnamn (countyName) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..countyCode *b)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för län. Ref. länskod (countyCode) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..description *e)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Allmän beskrivning för enheten. Ref. beskrivning (description) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..directoryContact *b)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Mailadress till ansvarig för informationen om enheten. Ref. innehållsansvarigs e-postadress (hsaDirectoryContact) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..displayOption *b)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Används för att beräkna enhetens publika namn (publicName). Ref. alternativ namnvisning (displayOption) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..dropInHour *e)</td>
+      <td style="text-align: left">TimeSpan</td>
+      <td style="text-align: left">Tider för dropin-besök (utan tidbokning). Ref. tid för dropin-besök utan tidsbokning (dropInHours) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..fromDay</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Från dag. Måndag (1) – Söndag (7).</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..fromTime</td>
+      <td style="text-align: left">Time</td>
+      <td style="text-align: left">Från tid. Format enligt ISO-8601.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..toDay</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Till dag. Måndag (1) – Söndag (7).</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..toTime</td>
+      <td style="text-align: left">Time</td>
+      <td style="text-align: left">Till tid. Format enligt ISO-8601.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Information om aktuellt tidsintervall.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..fromDate</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Tiden gäller från och med detta datum</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..toDate</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Tider gäller till och med detta datum</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..mail *b)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Mailadress till enheten. Ref. e-postadress (mail) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..facsimileTelephoneNumber *b)</td>
+      <td style="text-align: left">Telefon</td>
+      <td style="text-align: left">Faxnummer till enheten. Ref. fax (facsimileTelephoneNumber) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..geographicalCoordinatesRt90 *e)</td>
+      <td style="text-align: left">GeoCoordRt90Type</td>
+      <td style="text-align: left">Geografiska koordinater RT90. Ref. geografiska koordinater RT90 (geographicalCoordinates) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..xCoordinate</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">X-koordinat.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..yCoordinate</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Y-koordinat.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..geographicalCoordinatesSWEREF99 (används ej)</td>
+      <td style="text-align: left">GeoCoordSWEREF99Type</td>
+      <td style="text-align: left">Geografiska koordinater SWEREF99. Ref. geografiska koordinater SWEREF 99 TM (geographicalCoordinatesSweref99TM) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..nCoordinate</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">N-koordinat.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..eCoordinate</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">E-koordinat.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..geographicalCoordinatesSWEREF99Latitude *e)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">X-koordinat (N) SWEREF99. Ref. (hsaSweref99Latitude) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..geographicalCoordinatesSWEREF99Longitude *e)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Y-koordinat (E) SWEREF99. Ref. (hsaSweref99Longitude) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..destinationIndicator *e)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Anger vilka parter som får ta del av enhetens information. Ref. visas för (hsaDestinationIndicator) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..unitHsaId *b)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Enhetens HSA-id. Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..jpegPhoto *a)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Bild för enheten. Base-64-format. Ref. bild (jpegPhoto) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..jpegLogotype *a)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Logotype för enheten. Base-64-format. Ref. logotyp (hsaJpegLogotype) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..alternateTextLogotype *a)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Beskrivande text till logotype för enheten. Ref. [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..labeledUri *b)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Fullständig webbadress. Ref. webbadress (labeledURI) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..location *b)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Namn på geografiskt område. Ref. geografisk plats (l, localityName) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..webPage1177 *b)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Länk till Enhetens sida på 1177.se. Ref. 1177-kontaktkortslänk (hsaVpwWebPage) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..management *e)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Ägarform i klartext. Ref. ägarform (management) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..municipalityName *b)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Namn på kommun. Ref. kommunnamn (municipalityName) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..municipalityCode *b)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för kommun. Ref. kommunkod (municipalityCode) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..nonPublicTelephoneNumber *f)</td>
+      <td style="text-align: left">Telefon</td>
+      <td style="text-align: left">Tjänstetelefonnummer. Ref. tjänstetelefon (hsaTelephoneNumber) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..unitName *b)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Namnet på enheten. Ref. organisationsnamn (o), enhetsnamn (ou) resp. objektnamn (cn) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..patientInformation *e)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Informationstext till patienter. Ref. [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..postalAddress *b)</td>
+      <td style="text-align: left">Address</td>
+      <td style="text-align: left">Postadress i ostrukturerat format. Ref. [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..addressLine</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Adressrad.</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..structuredPostalAddress *b)</td>
+      <td style="text-align: left">structuredPostalAddressType</td>
+      <td style="text-align: left">Postadress i strukturerat format. Ref. Strukturerad postadress (hsaPostalAddress) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..addressee</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Adressat</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..street</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Gata</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..premisesNumber</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Adressplatsnummer</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..premisesLetter</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Adressplatslittera</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..postCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Postnummer</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..town</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Postort</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..postalCode *b)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Postnummer där verksamheten bedrivs. Ref. [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..publicName *b)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Publikt officiellt namn. Ref. alternativ namnvisning (displayOption), organisationsnamn (o), enhetsnamn (ou), objektnamn (cn), resp geografisk plats (l, localityName) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..relatedUnitHsaId *e)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">HSA-identitet på en relaterad enhet. Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..route *e)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vägbeskrivning. Ref. färdväg (route) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..indoorRouteDescription *e)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vägbeskrivning inomhus. Ref. inre vägbeskrivning (indoorRouteDescription) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..schoolType *e)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för typ av skolform. Ref. skolform (hsaSchoolType) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..street *e)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Besöksadress i ostrukturerat format. Ref. besöksadress (street) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..structuredVisitingAddress *e)</td>
+      <td style="text-align: left">structuredVisitingAddressType</td>
+      <td style="text-align: left">Besöksadress i strukturerat format. Ref. Strukturerad besöksadress (hsaVisitingAddress) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..street</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Gata</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..premisesNumber</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Adressplatsnummer</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..premisesLetter</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Adressplatslittera</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..town</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Ortnamn</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..surgeryHour *e)</td>
+      <td style="text-align: left">TimeSpan</td>
+      <td style="text-align: left">Öppettider. Ref. öppettider (surgeryHours) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..fromDay</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Från dag.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..fromTime</td>
+      <td style="text-align: left">Time</td>
+      <td style="text-align: left">Från tid.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..toDay</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Till dag.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..toTime</td>
+      <td style="text-align: left">Time</td>
+      <td style="text-align: left">Till tid.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Information om aktuellt tidsintervall.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..fromDate</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Från datum.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..toDate</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Till datum.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..switchboardNumber *b)</td>
+      <td style="text-align: left">Telefon</td>
+      <td style="text-align: left">Telefonnummer till växel. Ref. växeltelefon (hsaSwitchboardNumber) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..telephoneHour *b)</td>
+      <td style="text-align: left">TimeSpan</td>
+      <td style="text-align: left">Telefontider. Ref. telefontid (telephoneHours) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..fromDay</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Från dag.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..fromTime</td>
+      <td style="text-align: left">Time</td>
+      <td style="text-align: left">Från tid.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..toDay</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Till dag.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..toTime</td>
+      <td style="text-align: left">Time</td>
+      <td style="text-align: left">Till tid.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Information om aktuellt tidsintervall.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..fromDate</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Från datum.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..toDate</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Till datum.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..telephoneNumber *b)</td>
+      <td style="text-align: left">Telefon</td>
+      <td style="text-align: left">Publikt direkttelefonnummer. Ref. direkttelefon (telephoneNumber) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..textTelephoneNumber *b)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Adress till texttelefon. Ref. texttelefon (hsaTextTelephoneNumber) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..unitExtraInformation *e)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kompletterande information om enheten. Ref. mer om (hsaVpwInformation1) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..unitFunction *a)</td>
+      <td style="text-align: left">UnitFunctionType</td>
+      <td style="text-align: left">Information från direkta funktionsobjekt med reserverat funktionsnamn.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Funktionens namn. Ref. objektnamn (cn) [R5], kodverk för Reserverade funktionsnamn.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..telephoneHour</td>
+      <td style="text-align: left">TimeSpan</td>
+      <td style="text-align: left">Telefontider för funktionen. Ref. telefontid (telephoneHours) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. ..fromDay</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Från dag.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. ..fromTime</td>
+      <td style="text-align: left">Time</td>
+      <td style="text-align: left">Från tid.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. ..toDay</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Till dag.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. ..toTime</td>
+      <td style="text-align: left">Time</td>
+      <td style="text-align: left">Till tid.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. ..comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Information om aktuellt tidsintervall.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. ..fromDate</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Från datum.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. .. ..toDate</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Till datum.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..telephoneNumber</td>
+      <td style="text-align: left">Telefon</td>
+      <td style="text-align: left">Publikt direkttelefonnummer för funktionen. Ref. direkttelefon (telephoneNumber) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..unitTemporaryInformation *e)</td>
+      <td style="text-align: left">DateSpan</td>
+      <td style="text-align: left">Tillfällig information om enheten. Ref. tillfällig information (hsaVpwInformation2) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..fromDate</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Från datum.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..toDate</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Till datum.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..temporaryInformation</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Tillfällig information</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..visitingHour *e)</td>
+      <td style="text-align: left">TimeSpan</td>
+      <td style="text-align: left">Besökstider för anhöriga. Ref. besökstider för anhöriga (visitingHours) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..fromDay</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Från dag.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..fromTime</td>
+      <td style="text-align: left">Time</td>
+      <td style="text-align: left">Från tid.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..toDay</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Till dag.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..toTime</td>
+      <td style="text-align: left">Time</td>
+      <td style="text-align: left">Till tid.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Information om aktuellt tidsintervall.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..fromDate</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Från datum.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..toDate</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Till datum.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..videoPhone *b)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Adress för kommunikation via bildtelefon. Ref. bildtelefon (hsaVideoPhone) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..visitingRuleAge *e)</td>
+      <td style="text-align: left">AgeSpan</td>
+      <td style="text-align: left">Åldersintervall på patienter som tas emot. Ref. åldersregler för vårdkontakt (hsaVisitingRuleAge) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..fromAge</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Från ålder. 00 för nyfödd.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..toAge</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Till ålder. 99 för ingen övre åldersgräns.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">.. ..comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kommentar till åldersintervallet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..referralRules *b)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Beskrivning av remisskrav. Ref. remisskrav (hsaVisitingRuleReferral) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..visitingRules *e)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Besöksregler. Ref. besöksregler för anhöriga (hsaVisitingRules) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..unitStartDate *b)</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Startdatum för enhetens verksamhet. Ref. startdatum (startDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..unitEndDate *b)</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Slutdatum för enhetens verksamhet. Ref. slutdatum (endDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..feignedUnit *b)</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om enheten är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..financingOrganization *b)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Organisationsnummer för finansierande landsting/kommuner. Ref. (financingOrganization) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..administrativeCareLevel *e)</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för nivå av specialisering i hälso- och sjukvård. Ref. (hsaAdministrativeCareLevel) [R5]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="tjänstekontraktsspecifika-krav-och-regler-3">Tjänstekontraktsspecifika krav och regler</h4>
+<p>Till denna informationsmängd finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan.</p>
+
+<p>*1) searchBase
+För GetUnit används följande sökningar/sökbaser:</p>
+<ul>
+  <li>Sök efter enheten: i anropet angiven sökbas</li>
+</ul>
+
+<p>*2) profile
+För att begränsa mängden information som returneras från GetUnit kan profile-parametern användas. Följande profiler finns definierade:</p>
+<ul>
+  <li><strong>basic</strong>: bara grundläggande information returneras, dvs de attribut som markerats med *b) ovan.</li>
+  <li><strong>extended</strong>: både grundläggande information och information som är relaterad till vård och omsorg returneras, dvs alla attribut som markerats med *b) eller *e) ovan returneras.</li>
+  <li><strong>extended2</strong>: även nonPublicTelephoneNumber returneras, attribut markerat med *f), måste kombineras med ytterligare profilevärde.</li>
+  <li><strong>all</strong>: som också är default (dvs om ingen profil-parameter anges, tolkas det som "all"), all tillgänglig information returneras förutom nonPublicTelephoneNumber, dvs både de attribut som markerats med *b), *e) och *a) returneras.</li>
+</ul>
+
+<h5 id="icke-funktionella-krav-3">Icke funktionella krav</h5>
+
+<h6 id="sla-krav-3">SLA-krav</h6>
+<p>Krav på svarstider anges under förutsättning att TLS-uppkoppling är etablerad, d.v.s. TLS-förhandlingstid tillkommer vid start av ny TLS-session. Angivna krav på svarstid utgår ifrån mätning från Tjänsteplattformen mot Katalogtjänsten, och exklusive den tid som tjänsteplattformen behöver för att förmedla fråga och svar. Svarstid ska kunna garanteras upp till angiven last.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Metod</th>
+      <th style="text-align: left">Svarstider måste garanteras upp till följande last</th>
+      <th style="text-align: left">Svarstid för 95 % av alla anrop ligger inom</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">GetUnit</td>
+      <td style="text-align: left">10 anrop/s</td>
+      <td style="text-align: left">200 ms</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="logiska-fel-3">Logiska fel</h6>
+<p>Logiska fel hanteras enligt:
+Om angiven sökbas inte finns i katalogen, returneras ett tomt svar.
+Om sökt enhet inte kan hittas i katalogen, så returneras tomt svar.
+Om enheten saknar obligatorisk uppgift (Namn och HSA-id) så returneras tomt svar.
+För komplexa returvärden som inte följer specificerad syntax m a p sammansättningen, returneras inte det aktuella värdet. Detta gäller för:</p>
+<ul>
+  <li>Verksamhetskod som utgår från separata attribut i HSA (kod och klartext) som behöver kunna matchas ihop.</li>
+  <li>Län och Kommun som utgår från separata attribut i HSA (kod och klartext för Län samt kod och klartext för Kommun) som alla behöver kunna matchas ihop.</li>
+  <li>Tider (dropInHour, surgeryHour, telephoneHour och visitingHour) ska innehålla 4 eller upp till 7 delar separerade med "#".</li>
+  <li>Koordinater (geographicalCoordinatesRt90 och geographicalCoordinatesSWEREF99) som ska innehåll två delar separerade med ",".</li>
+  <li>unitTemporaryInformation som ska innehålla 3 delar separerade med ";".</li>
+  <li>visitingRuleAge som ska innehålla 2 eller 3 delar separerade med ";".
+för kontroll av att returnerade attributvärden följer specificerad syntax, så rekommenderas använda den Schematron vi tillhandahåller.</li>
+</ul>
+
+<h4 id="annan-information-om-kontraktet-3">Annan information om kontraktet</h4>
+<p>-</p>
+
+<h4 id="källfiler-riv-ta-3">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l4732">​</a><a href="files/wsdl/GetUnitInteraction_5.0_RIVTABP21.wsdl">GetUnitInteraction_5.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l4742">​</a><a href="files/schema/GetUnitResponder_5.0.xsd">GetUnitResponder_5.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l4752">​</a><a href="files/schema/infrastructure_directory_organization_5.0.xsd">infrastructure_directory_organization_5.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-3">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getunit-request.html">StructureDefinition/getunit-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getunit.html">StructureDefinition/getunit</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="gethealthcareprovider">GetHealthCareProvider</h3>
+<p>Metoden söker ut och returnerar information om en vårdgivare. Kan användas av tjänstekonsumenten för att hämta information som HSA-id, organisationsnummer, namn, eller eventuella start- och slutdatum för en vårdgivare. Notera att det kan förekomma att en och samma vårdgivare (utgående från organisationsnummer) kan finnas registrerad flera gånger med olika HSA-id.</p>
+
+<h4 id="version-4">Version</h4>
+<p>Version på detta kontrakt är 1.0.</p>
+
+<h4 id="fältregler-4">Fältregler</h4>
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler. Attributen som levereras beskrivs mer ingående i Informationsspecifikationen [R5], med avseende på t.ex. fältlängder och krav på innehållet.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning, Ref Informationsspec.</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthCareProviderHsaId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">HSA-id för en vårdgivare enligt PDL. Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">0..1 *1)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthCareProviderOrgNo</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Organisationsnummer för en vårdgivare</td>
+      <td style="text-align: left">0..1 *1)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">searchBase *2)</td>
+      <td style="text-align: left">DN</td>
+      <td style="text-align: left">Sökbas. Om ingen sökbas anges används c=SE som sökbas.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">includeFeignedObject</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">true: om metoden ska leverera svar med fingerade objekt. Uteblivet värde tolkas som false, dvs inga fingerade objekt levereras.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthCareProvider</td>
+      <td style="text-align: left">HealthCareProviderType</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareProviderHsaId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdgivarens HSA-id. Ref. HSA-id (hsaIdentity) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareProviderName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdgivarens namn. Ref. organisationsnamn (o) resp. enhetsnamn (ou) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareProviderOrgNo</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdgivarens organisationsnummer. Ref. organisationsnummer (orgNo) [R5]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareProviderStartDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Startdatum för vårdgivarens verksamhet. Ref. startdatum (startDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..healthCareProviderEndDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Slutdatum för vårdgivarens verksamhet. Ref. slutdatum (endDate) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..feignedHealthCareProvider</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om vårdgivaren är ett fingerat objekt. Ref. hjälpklassen Fingerat objekt (hsaFeignedObject) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">..archivedHealthCareProvider</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">true: om vårdgivaren är ett arkiverat objekt. Ref. hjälpklassen arkiverat objekt (hsaArchivedObject) [R5]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="tjänstekontraktsspecifika-krav-och-regler-4">Tjänstekontraktsspecifika krav och regler</h4>
+<p>Till denna informationsmängd finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan.</p>
+
+<p>*1) healthCareProviderHsaId och healthCareProviderOrgNo
+Exakt ett av fälten ska anges.</p>
+
+<p>*2) searchBase
+För GetHealthCareProvider används följande sökningar/sökbaser:</p>
+<ul>
+  <li>Sök efter vårdgivare: i anropet angiven sökbas</li>
+</ul>
+
+<h5 id="icke-funktionella-krav-4">Icke funktionella krav</h5>
+
+<h6 id="sla-krav-4">SLA-krav</h6>
+<p>Krav på svarstider anges under förutsättning att TLS-uppkoppling är etablerad, d.v.s. TLS-förhandlingstid tillkommer vid start av ny TLS-session. Angivna krav på svarstid utgår ifrån mätning från Tjänsteplattformen mot Katalogtjänsten, och exklusive den tid som tjänsteplattformen behöver för att förmedla fråga och svar. Svarstid ska kunna garanteras upp till angiven last.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Metod</th>
+      <th style="text-align: left">Svarstider måste garanteras upp till följande last</th>
+      <th style="text-align: left">Svarstid för 95 % av alla anrop ligger inom</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">GetHealthCareProvider</td>
+      <td style="text-align: left">10 anrop/s</td>
+      <td style="text-align: left">100 ms</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="logiska-fel-4">Logiska fel</h6>
+<p>Logiska fel hanteras enligt:
+Om angiven sökbas inte finns i katalogen, returneras ett tomt svar.
+Om sökt vårdgivare inte kan hittas i katalogen, så returneras tomt svar.
+Om sökt vårdgivare inte är en vårdgivare, så returneras tomt svar.
+Om fler än en av sökparametrarna healthCareProviderHsaId och healthCareProviderOrgNo har angetts, så är anropet felaktigt och ett soap-fault returneras.
+Om vårdgivaren saknar någon obligatorisk uppgift så returneras tomt svar. Dvs om Namn, HSA-id, eller organisationsnummer saknas eller inte följer specificerad syntax så returneras tomt svar.
+För kontroll av att returnerade attributvärden följer specificerad syntax, så rekommenderas använda den Schematron vi tillhandahåller.</p>
+
+<h4 id="annan-information-om-kontraktet-4">Annan information om kontraktet</h4>
+<p>-</p>
+
+<h4 id="källfiler-riv-ta-4">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l5135">​</a><a href="files/wsdl/GetHealthCareProviderInteraction_1.0_RIVTABP21.wsdl">GetHealthCareProviderInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l5145">​</a><a href="files/schema/GetHealthCareProviderResponder_1.0.xsd">GetHealthCareProviderResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l5155">​</a><a href="files/schema/infrastructure_directory_organization_5.0.xsd">infrastructure_directory_organization_5.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-4">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><a name="l5173">​</a><strong>Logisk modell (request):</strong> <a href="StructureDefinition-gethealthcareprovider-request.html">StructureDefinition/gethealthcareprovider-request</a></li>
+  <li><a name="l5180">​</a><strong>Logisk modell (response):</strong> <a href="StructureDefinition-gethealthcareprovider.html">StructureDefinition/gethealthcareprovider</a></li>
+</ul>
+
+
+
+
+</div>
+        </div>    <!-- /inner-wrapper -->
+      </div>    <!-- /row -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-content -->
+
+  <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script src="assets/js/jquery-ui.min.js" type="text/javascript"> </script>
+
+  <script src="assets/js/window-hash.js" type="text/javascript"> </script>
+  <a name="bottom"> </a>
+  <div igtool="footer" id="segment-footer" class="segment">    <!-- segment-footer -->
+    <div class="container">    <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &copy; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.infrastructure-directory-organization#5 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 9, 2026 17:00+0000">2026-09-09</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>    <!-- /inner-wrapper -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">    <!-- segment-post-footer -->
+    <div class="container">    <!-- container -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-post-footer -->
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+  <script src="assets/js/respond.min.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard-btn.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor-hover.js" type="text/javascript"> </script>
+    <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>

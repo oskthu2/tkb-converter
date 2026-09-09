@@ -1,0 +1,38 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getversions","getversions","","","",0,*,"","","","null {[]} {[]}
+","GetVersions","Logisk modell för tjänstekontraktet GetVersions
+(RIV-TA urn:riv:processmanagement:decisionsupport:insurancemedicinedecisionsupport:GetVersions:1).
+Returnerar tidpunkten när FMB och diagnosinformation senast versionsuppdaterades,
+respektive senast ändrades. Begäran har inga inparametrar.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getversions.versioner","getversions.versioner","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Versionsinformation för FMB och diagnosinformation","Versionsinformation för FMB och diagnosinformation","","","","","","","","","",,,,,"",,,,"getversions.versioner",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getversions.versioner.id","getversions.versioner.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getversions.versioner.extension","getversions.versioner.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getversions.versioner.modifierExtension","getversions.versioner.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getversions.versioner.fmbSenasteVersionsuppdatering","getversions.versioner.fmbSenasteVersionsuppdatering","","","",1,1,"","","","dateTime {[]} {[]}
+","FMB — tidpunkt för senaste versionsuppdatering","Anger när ett beslutsunderlag senast bytte versionsnummer (skapades, ändrade innebörd eller togs bort)
+bland alla producentens beslutsunderlag. Det kan vara ett underlag som ej returnerats i svaret
+som föranlett ett nytt datum.","","","","","","","","","",,,,,"",,,,"getversions.versioner.fmbSenasteVersionsuppdatering",1,1,"",""
+"getversions.versioner.fmbSenasteAndring","getversions.versioner.fmbSenasteAndring","","","",1,1,"","","","dateTime {[]} {[]}
+","FMB — tidpunkt för senaste ändring","Anger när ett beslutsunderlag senast uppdaterades, både mindre förändringar som ej givit en ny version
+OCH versionsuppdateringar bland alla producentens beslutsunderlag. Det kan vara ett underlag som ej
+returnerats i svaret.","","","","","","","","","",,,,,"",,,,"getversions.versioner.fmbSenasteAndring",1,1,"",""
+"getversions.versioner.diagnosInformationSenasteVersionsuppdatering","getversions.versioner.diagnosInformationSenasteVersionsuppdatering","","","",1,1,"","","","dateTime {[]} {[]}
+","Diagnosinformation — tidpunkt för senaste versionsuppdatering","Anger när diagnosinformation senast bytte versionsnummer (skapades, ändrade innebörd eller togs bort)
+bland alla diagnosinformation. Det kan vara diagnosinformation som ej returnerats i svaret som
+föranlett ett nytt datum.","","","","","","","","","",,,,,"",,,,"getversions.versioner.diagnosInformationSenasteVersionsuppdatering",1,1,"",""
+"getversions.versioner.diagnosInformationSenasteAndring","getversions.versioner.diagnosInformationSenasteAndring","","","",1,1,"","","","dateTime {[]} {[]}
+","Diagnosinformation — tidpunkt för senaste ändring","Anger när diagnosinformation senast uppdaterades; både mindre förändringar som ej givit en ny version
+OCH versionsuppdateringar bland alla producentens diagnosinformation. Det kan vara diagnosinformation
+som ej returnerats i svaret.","","","","","","","","","",,,,,"",,,,"getversions.versioner.diagnosInformationSenasteAndring",1,1,"",""

@@ -1,0 +1,241 @@
+# Update — Request - itintegration: engagementindex v1.0.9
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **Update — Request**
+
+## Logical Model: Update — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/update-request | *Version*:1.0.9 |
+| Draft as of 2026-09-09 | *Computable Name*:UpdateRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för requestparametrar i tjänstekontraktet Update (RIV-TA urn:riv:itintegration:engagementindex:Update:1). Kontraktet används av källsystem för att skapa, uppdatera och radera indexposter i ett engagemangsindex. Flera engagemangstransaktioner kan paketeras i ett och samma anrop (max 1000 poster i nationell instans). 
+Alla fält i EngagementType-typen ingår i modellen, inklusive fält som sätts av engagemangsindex och INTE ska populeras av konsumenten (creationTime, updateTime, owner). Se respektive fältbeskrivning. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.itintegration-engagementindex|current/StructureDefinition/StructureDefinition-update-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-update-request.csv), [Excel](StructureDefinition-update-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "update-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/update-request",
+  "version" : "1.0.9",
+  "name" : "UpdateRequest",
+  "title" : "Update — Request",
+  "status" : "draft",
+  "date" : "2026-09-09T17:04:05+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för requestparametrar i tjänstekontraktet Update\n(RIV-TA urn:riv:itintegration:engagementindex:Update:1).\nKontraktet används av källsystem för att skapa, uppdatera och radera\nindexposter i ett engagemangsindex. Flera engagemangstransaktioner\nkan paketeras i ett och samma anrop (max 1000 poster i nationell instans).\n\nAlla fält i EngagementType-typen ingår i modellen, inklusive fält som\nsätts av engagemangsindex och INTE ska populeras av konsumenten\n(creationTime, updateTime, owner). Se respektive fältbeskrivning.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/itintegration-engagementindex/StructureDefinition/update-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "update-request",
+      "path" : "update-request",
+      "short" : "Update — Request",
+      "definition" : "Logisk modell för requestparametrar i tjänstekontraktet Update\n(RIV-TA urn:riv:itintegration:engagementindex:Update:1).\nKontraktet används av källsystem för att skapa, uppdatera och radera\nindexposter i ett engagemangsindex. Flera engagemangstransaktioner\nkan paketeras i ett och samma anrop (max 1000 poster i nationell instans).\n\nAlla fält i EngagementType-typen ingår i modellen, inklusive fält som\nsätts av engagemangsindex och INTE ska populeras av konsumenten\n(creationTime, updateTime, owner). Se respektive fältbeskrivning."
+    },
+    {
+      "id" : "update-request.engagementTransaction",
+      "path" : "update-request.engagementTransaction",
+      "short" : "Engagemangstransaktion",
+      "definition" : "En eller flera engagemangstransaktioner. Varje transaktion avser en indexpost.\nAlla poster i en begäran måste vara sinsemellan unika avseende postens unikhetsnyckel.\nOm duplikat hittas returneras ResultCode ERROR.\nKardinalitet: Obligatorisk, lista (minst en transaktion krävs).",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "update-request.engagementTransaction.deleteFlag",
+      "path" : "update-request.engagementTransaction.deleteFlag",
+      "short" : "Raderingsflagga",
+      "definition" : "Anger om posten ska skapas/uppdateras (false) eller tas bort (true).\ntrue: Posten med samma unikhetsnyckel raderas.\nfalse: Posten skapas om den inte finns, eller uppdateras om den redan finns.\nKardinalitet: Obligatorisk.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "update-request.engagementTransaction.engagement",
+      "path" : "update-request.engagementTransaction.engagement",
+      "short" : "Engagemangspost",
+      "definition" : "Engagemangspostens datavärden. Unikhet bestäms av en kombination av\nregisteredResidentIdentification, serviceDomain, categorization,\nlogicalAddress och businessObjectInstanceIdentifier.\nKardinalitet: Obligatorisk.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }]
+    },
+    {
+      "id" : "update-request.engagementTransaction.engagement.registeredResidentIdentification",
+      "path" : "update-request.engagementTransaction.engagement.registeredResidentIdentification",
+      "short" : "Personidentitet",
+      "definition" : "Person- eller samordningsnummer (12 tecken) eller nationellt reservnummer (12 tecken).\nFormat: CCYYMMDDNNNN eller [0-9]{8}[0-9A-Zptf]{4}.\nKardinalitet: Obligatorisk.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "update-request.engagementTransaction.engagement.serviceDomain",
+      "path" : "update-request.engagementTransaction.engagement.serviceDomain",
+      "short" : "Tjänstedomänens namnrymd (URN)",
+      "definition" : "Namnrymd för tjänstedomän i URN-format.\nExempel: urn:riv:clinicalprocess:activity:request\nKardinalitet: Obligatorisk.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "update-request.engagementTransaction.engagement.categorization",
+      "path" : "update-request.engagementTransaction.engagement.categorization",
+      "short" : "Kategorisering",
+      "definition" : "Kategorisering enligt den tillämpande tjänstedomänens dokumentation.\nKardinalitet: Obligatorisk.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "update-request.engagementTransaction.engagement.logicalAddress",
+      "path" : "update-request.engagementTransaction.engagement.logicalAddress",
+      "short" : "Logisk adress",
+      "definition" : "Logisk adress för den tjänsteproducent som har information för posten.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.\nKardinalitet: Obligatorisk.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "update-request.engagementTransaction.engagement.businessObjectInstanceIdentifier",
+      "path" : "update-request.engagementTransaction.engagement.businessObjectInstanceIdentifier",
+      "short" : "Affärsobjektets instansidentifierare",
+      "definition" : "Identifierare för det specifika affärsobjekt som posten avser.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.\nKardinalitet: Obligatorisk.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "update-request.engagementTransaction.engagement.clinicalProcessInterestId",
+      "path" : "update-request.engagementTransaction.engagement.clinicalProcessInterestId",
+      "short" : "Kliniskt processintresse-ID",
+      "definition" : "Identifierare för kliniskt processintresse.\nExakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.\nKardinalitet: Obligatorisk.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "update-request.engagementTransaction.engagement.mostRecentContent",
+      "path" : "update-request.engagementTransaction.engagement.mostRecentContent",
+      "short" : "Senast relevant innehållstidpunkt",
+      "definition" : "Tidpunkt för senast relevant innehåll. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).\nRegler för användning bestäms av den tillämpande tjänstedomänens TKB.\nKardinalitet: Valfri.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "update-request.engagementTransaction.engagement.sourceSystem",
+      "path" : "update-request.engagementTransaction.engagement.sourceSystem",
+      "short" : "Källsystem (HSA-id)",
+      "definition" : "HSA-id för källsystemet som innehåller den information som EI-posten pekar ut.\nI regel det vårdsystem som skapade informationen eller det system hos vårdgivaren\nsom är master för informationen.\nSystem: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).\nKardinalitet: Obligatorisk.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "update-request.engagementTransaction.engagement.dataController",
+      "path" : "update-request.engagementTransaction.engagement.dataController",
+      "short" : "Personuppgiftsansvarig organisation",
+      "definition" : "Identitet för den personuppgiftsansvariga organisation (PUA) som ansvarar för postens innehåll.\nI första hand organisationsnummer eller HSA-id för PUA, i andra hand en källsystemsintern\nidentitet för PUA som möjliggör för PUA att fullgöra sin roll som personuppgiftsansvarig.\nOBS: Kan innehålla organisationsnummer, HSA-id eller källsystemsintern identitet —\ningen entydig FHIR Identifier-typ. Modelleras som string; se öppen fråga om korrekt typ.\nKardinalitet: Obligatorisk.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "update-request.engagementTransaction.engagement.creationTime",
+      "path" : "update-request.engagementTransaction.engagement.creationTime",
+      "short" : "Skapandetidpunkt (sätts av EI)",
+      "definition" : "Tidpunkt då engagemangsposten skapades i engagemangsindexet.\nKONSUMENTEN SKA INTE SÄTTA DETTA FÄLT — det sätts automatiskt av engagemangsindex\nvid mottagning av Update-anropet. Om fältet populeras av konsumenten ignoreras värdet.\nKardinalitet: Valfri (från konsumentperspektiv; alltid populerad i lagrat engagemang).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "update-request.engagementTransaction.engagement.updateTime",
+      "path" : "update-request.engagementTransaction.engagement.updateTime",
+      "short" : "Uppdateringstidpunkt (sätts av EI)",
+      "definition" : "Tidpunkt då engagemangsposten senast uppdaterades i engagemangsindexet.\nKONSUMENTEN SKA INTE SÄTTA DETTA FÄLT — det sätts automatiskt av engagemangsindex\nvid mottagning av Update-anropet. Om fältet populeras av konsumenten ignoreras värdet.\nKardinalitet: Valfri (från konsumentperspektiv; alltid populerad i lagrat engagemang).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "update-request.engagementTransaction.engagement.owner",
+      "path" : "update-request.engagementTransaction.engagement.owner",
+      "short" : "Ägare (sätts av EI)",
+      "definition" : "Identitet för den engagemangsindexinstans som äger posten (logisk adress för EI-instansen).\nKONSUMENTEN SKA INTE SÄTTA DETTA FÄLT — det sätts automatiskt av engagemangsindex\nvid mottagning av Update-anropet. Om fältet populeras av konsumenten ignoreras värdet.\nKardinalitet: Valfri (från konsumentperspektiv; alltid populerad i lagrat engagemang).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

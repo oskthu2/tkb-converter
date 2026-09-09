@@ -1,0 +1,882 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>7 Tjänstekontrakt - followup: qualityregistry: nkrr v1.2.2</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link rel="stylesheet" href="fhir.css"/>
+
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-fhir.css"/>
+
+      <!-- Project extras -->
+    <link rel="stylesheet" href="assets/css/project.css"/>
+    <link rel="stylesheet" href="assets/css/pygments-manni.css"/>
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+  	<link rel="stylesheet" href="assets/css/prism.css"/>
+  	<link rel="stylesheet" href="assets/css/cqf.css"/>
+      <!-- Placeholder for child template CSS declarations -->
+
+    <script src="fhir-table-scripts.js" type="text/javascript"> </script>
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- [if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif] -->
+
+      <!-- Favicons -->
+    <link sizes="144x144" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-144.png"/>
+    <link sizes="114x114" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-114.png"/>
+    <link sizes="72x72" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script src="assets/js/mermaid.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">    <!-- segment-header -->
+      <div class="container">    <!-- container -->
+
+          <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">followup: qualityregistry: nkrr</span>
+            <br/>
+            <span style="display:inline-block;">1.2.2 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div>   <!-- /container -->
+    </div>    <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">    <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">    <!-- container -->
+          <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+            <!-- status-bar -->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a href="http://hl7.org/fhir/R4/index.html" class="navbar-brand hidden">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul class="nav navbar-nav">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+  <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+  <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+  <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+  <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma informationskomponenter</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artifacts</a></li>
+</ul>
+
+            </div>    <!-- /.nav-collapse -->
+          </div>    <!-- /.container -->
+        </nav>    <!-- /.navbar -->
+        <!-- /HEADER CONTENT -->
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-navbar -->
+      <!-- status-bar -->
+
+    <div id="segment-breadcrumb" class="segment">    <!-- segment-breadcrumb -->
+      <div class="container">    <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">    <!-- segment-content -->
+      <div class="container">    <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+    <!-- ReleaseHeader --><p id="publish-box">followup: qualityregistry: nkrr - Local Development build (v1.2.2) built by the FHIR (HL7&reg; FHIR&reg; Standard) Build Tools. See the <a href="https://fhir.inera.se/ig/followup-qualityregistry-nkrr/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>  <!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstekontrakt" id="markdown-toc-tjänstekontrakt">Tjänstekontrakt</a>    <ul>
+      <li><a href="#processregistrationnotification" id="markdown-toc-processregistrationnotification">ProcessRegistrationNotification</a></li>
+      <li><a href="#getformdata" id="markdown-toc-getformdata">GetFormData</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstekontrakt">Tjänstekontrakt</h2>
+
+<h3 id="processregistrationnotification">ProcessRegistrationNotification</h3>
+<p>Tjänstekontraktet ProcessRegistrationNotification möjliggör för vårdgivare att notifiera kvalitetsregister om att vårdgivaren har uppgifter om en patient som vårdgivaren avser ska registreras i registret.</p>
+
+<h4 id="version">Version</h4>
+<p>1.0</p>
+
+<h4 id="gemensamma-informationskomponenter">Gemensamma informationskomponenter</h4>
+<p>Gemensamma informationskomponenter är typer gemensamma för användning i tjänstekontrakt i flera domäner. Nedan listas de gemensamma typer som används i kontraktet ProcessRegistrationNotification.
+Användning av datatyperna sker i enlighet med hur de är definierade, dvs. regler som anges för respektive datatyp och kardinalitet för de olika attributen ska följas. I de fall det finns restriktioner på en eller flera datatyper anges det i fältregeltabellerna.
+Version 22 av gemensamma datatyper har använts för det här kontraktet.</p>
+
+<h5 id="iitype">IIType</h5>
+<p>En IIType är en numerisk eller alfanumerisk sträng som kan härledas till ett enskilt objekt eller entitet i ett känt system. Exempel är ett personnummer eller ett vårdkontakts-id.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">En identifierare som i sig själv eller tillsammans med värdet för extension är universellt unik. Om extension anges är root en unik identifierare av namnrymden för värdet som anges i extension.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">En identifierare som tillsammans med värdet för root är universellt unik. Används om värdet på root inte är universellt unikt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Regler</p>
+
+<p>root
+När root används som en identifierare av en namnrymd ska identifieraren vara en Universally Unique Identifier (UUID), Object Identifier (OID), eller Uniform Resource Identifier (URI).</p>
+
+<p>extension
+Vissa scheman för identifierare definierar formateringsmöjligheter för deras kodvärden. Till exempel så skrivs personnumret vanligtvis med bindestreck, 19121212-1212. Bindestrecket bär dock ingen betydelse och kan utelämnas, som i 191212121212.</p>
+
+<h4 id="fältregler">Fältregler</h4>
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Referens till ytterligare regler för enskilda element anges i kolumnen "Namn". Dessa regler beskrivs mer i detalj i kapitlet "Övriga regler".</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Den typ av registrering i kvalitetsregistret som notifieringen avses ge upphov till. / Ska anges enligt den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Id för patienten där fältet extension sätts till patientens identitetsbeteckning. Anges med 12 tecken utan avskiljare. / Fältet root sätts till OID för typ av identifierare. / För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas. / För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareProviderId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Id för informationsägande vårdgivare för informationen i notifieringen. / Anges för att möjliggöra spårbarhet till informationsägande vårdgivare för informationen som lämnas ut och som hanteras av informationsmottaren eller andra parter. / I första hand HSA-id alternativt i andra hand organisationsnummer. / Om HSA-id används sätts fältet root till OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id. / Om organisationsnummer används skall fältet root sättas till OID för organisationsnummer (1.2.752.29.4.3) och fältet extension sättas till organisationsnumret. / Enskild näringsidkare har i rollen som juridisk person sitt personnummer som organisationsnummer.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">registerUnitId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Id för registerenhet. / Registerenhet är den minsta indelning av datatillhörighet som ett kvalitetsregister använder för registrering och analys av data. Inte sällan motsvarar en registerenhet en vårdenhet inom vårdgivaren, men inte alltid. / Ska anges enligt den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">reference</td>
+      <td style="text-align: left">ReferenceType</td>
+      <td style="text-align: left">Information om referenser till tidigare registreringar i kvalitetsregistret. Informationen används för att ge rätt kontext på den avsedda registreringen. / Ska anges enligt den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">NkrrParameters</td>
+      <td style="text-align: left">NkrrParametersType</td>
+      <td style="text-align: left">Här kan parametrar som används i begäran för tjänstekontraktet GetFormData anges. / Parametrarna ska fyllas i enligt den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">referenceId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Identifierare som kan lämnas som referens. / Ska specificeras och hanteras enligt den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Information om mottagningen av notifieringen lyckades.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultCode</td>
+      <td style="text-align: left">ResultCodeEnum</td>
+      <td style="text-align: left">Anger resultatet av notifieringen. / Kan endast vara OK, INFO eller ERROR.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">En beskrivande text som kan anges vid INFO eller ERROR.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ReferenceType</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">key</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Nyckel för referens. / Vad som ska anges som nyckel ska framgå i den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">value</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Information om tidigare registrering enligt den angivna nyckeln.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">NkrrParametersType</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Identifierare av mallen</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sampleDate</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Datum för filtrering vid insamling av underlag. / Datum som skickas i attributet används för att populera attributen careEncounterStartDate och careEncounterEndDate i tjänstekontraktet GetFormData. / Attributet ska fyllas i enligt den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret. / Observera att ordningen på datumen som skickas kan ha betydelse och måste därför följa den ordning som beskrivs i informationsspecifikationen som kvalitetsregistret tillhandahåller.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnitId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Vårdenheter inom vilka underlag för registrering ska hämtas. / Fältet root sätts till OID (1.2.752.129.2.1.4.1) för HSA. / Fältet extension sätts till HSA-id på vårdenhet.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler">Övriga regler</h4>
+<p>Till detta tjänstekontrakt finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan. Regler markerade med [sch] återfinns i schematron (constraints).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">ID</th>
+      <th style="text-align: left">Kontext</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Regler i begäran</td>
+      <td style="text-align: left">Regler i begäran</td>
+      <td style="text-align: left">Regler i begäran</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Verify OID for patientId.root [sch]</td>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">extension ska vara 1.2.752.129.2.1.3.1 eller 1.2.752.129.2.1.3.3.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Verify single patient if NkrrParameters or reference is used [sch]</td>
+      <td style="text-align: left">NkrrParameters / reference</td>
+      <td style="text-align: left">NkrrParameters eller reference får inte anges om fler än en patient anges då dessa uppgifter är patientspecifika. Ska någon av dessa uppgifter hanteras behöver tjänstekonsumenten skicka en notifiering per patient.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Unik typ av registrering</td>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">Typen av registrering ska vara unik inom en tjänsteproducent.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Regler i svaret</td>
+      <td style="text-align: left">Regler i svaret</td>
+      <td style="text-align: left">Regler i svaret</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Allmänna regler</td>
+      <td style="text-align: left">Allmänna regler</td>
+      <td style="text-align: left">Allmänna regler</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Verify non-empty elements [sch]</td>
+      <td style="text-align: left">Alla element.</td>
+      <td style="text-align: left">Tomma värden får inte anges.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tillämpad specifikation</td>
+      <td style="text-align: left">Elementen type, registerUnitId, reference och NkrrParameters behöver beskrivas i den tillämpad specifikation. / Hantering av övriga element kan också beskrivas i den tillämpade specifikationen, men det är inte nödvändigt.</td>
+      <td style="text-align: left">Tjänsteproducenter behöver tillhandahålla en tillämpad specifikation i form av t.ex. en informationsspecifikation för att beskriva hanteringen av notifiering till registret. Den tillämpade specifikationen beskriver regler för användning av tjänstekontraktet och dess innehåll utöver reglerna i denna TKB. Den tillämpade specifikationen kan t.ex. begränsa kardinaliteten för attributet patientId som uttrycker om en eller flera patienter får skickas i en notifiering. / Tjänstekonsumenter behöver utöver denna TKB även följa regler och anvisningar i den tillämpade specifikationen.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="icke-funktionella-krav">Icke funktionella krav</h5>
+
+<h6 id="sla-krav">SLA-krav</h6>
+<p>Kvalitetsregistrets informationsspecifikation eller annan tillämpad specifikation anger krav som en tjänsteproducent av tjänstekontraktet ProcessRegistrationNotification ställer på en tjänstekonsument.</p>
+
+<h6 id="logiska-fel">Logiska fel</h6>
+<p>Vid ett logiskt fel i anrop levereras felinformation i resultCode och resultText.
+Koden som anges i resultCode kan vara:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">OK</td>
+      <td style="text-align: left">Transaktionen har utförts enligt uppdraget.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">INFO</td>
+      <td style="text-align: left">Transaktionen har utförts enligt uppdraget. En beskrivande text kan anges i resultTest. / Kvalitetsregistrets informationsspecifikation eller annan tillämpad specifikation anger hantering av beskrivande text när resultatkoden INFO används.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ERROR</td>
+      <td style="text-align: left">Transaktionen har INTE kunnat utföras p.g.a. ett logiskt fel. / Kvalitetsregistrets informationsspecifikation eller annan tillämpad specifikation anger hantering av logiska fel.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="annan-information-om-kontraktet">Annan information om kontraktet</h4>
+
+<h6 id="loggning">Loggning</h6>
+<p>För loggning och för att underlätta spårning tillhandahåller Virtualiseringsplattformen i SKLTP (Referensimplementation av tjänsteplattform) [R2] en HTTP-header med namnet "x-skltp-correlation-id" till tjänstekonsumenten och tjänsteproducenten.</p>
+
+<h4 id="källfiler-riv-ta">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l904">​</a><a href="files/wsdl/ProcessRegistrationNotificationInteraction_1.0_RIVTABP21.wsdl">ProcessRegistrationNotificationInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l914">​</a><a href="files/schema/followup_qualityregistry_nkrr_1.0.xsd">followup_qualityregistry_nkrr_1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l924">​</a><a href="files/schema/itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l934">​</a><a href="files/schema/ProcessRegistrationNotificationResponder_1.0.xsd">ProcessRegistrationNotificationResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l944">​</a><a href="files/docs/SjD_TK_ProcessRegistrationNotification_1.0.docx">SjD_TK_ProcessRegistrationNotification_1.0.docx</a></td>
+      <td>Tjänstebeskrivning</td>
+    </tr>
+    <tr>
+      <td><a name="l954">​</a><a href="files/docs/SjD_TP_ProcessRegistrationNotification_1.0.docx">SjD_TP_ProcessRegistrationNotification_1.0.docx</a></td>
+      <td>Tjänsteplattformsbeskrivning</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-processregistrationnotification-request.html">StructureDefinition/processregistrationnotification-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-processregistrationnotification.html">StructureDefinition/processregistrationnotification</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-resultcode-cs.html">CodeSystem/resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-resultcode-vs.html">ValueSet/resultcode-vs</a></li>
+</ul>
+
+<hr/>
+
+<h3 id="getformdata">GetFormData</h3>
+<p>GetFormData hämtar underlag för ett enskilt kvalitetsregisterformulär. Anropet anger aktuellt kvalitetsregister-formulär, patient, vårdgivare, medarbetare, samt eventuellt datum för start av vårdkontakt och vårdenheter inom vilka underlag ska hämtas. Tjänsten evaluerar de frågor om finns definierade för formuläret. Frågorna evalueras mot underlag hämtat från informationskällorna utifrån de givna förutsättningarna, och resultaten med associerat underlag sammanställs i svaret till konsumenten.</p>
+
+<h4 id="version-1">Version</h4>
+<p>1.2</p>
+
+<h4 id="fältregler-1">Fältregler</h4>
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Referens till ytterligare regler för enskilda element anges i kolumnen "Namn". Dessa regler beskrivs mer i detalj i kapitlet "Övriga regler".</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Identifierare av mallen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">subjectOfCareId</td>
+      <td style="text-align: left">SubjectOfCareIdType</td>
+      <td style="text-align: left">Identifierare av patienten.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careEncounterStartDate</td>
+      <td style="text-align: left">Iso8601DateType</td>
+      <td style="text-align: left">Datum för start av vårdhändelse. / Tjänsteproducenter kan välja att komplettera denna beskrivning om användning av attributet careEncounterStartDate i en informationsspecifikation eller annan tillämpad specifikation.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careEncounterEndDate</td>
+      <td style="text-align: left">Iso8601DateType</td>
+      <td style="text-align: left">Datum för slut av vårdhändelse. / Tjänsteproducenter kan välja att komplettera denna beskrivning om användning av attributet careEncounterEndDate i en informationsspecifikation eller annan tillämpad specifikation.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnitHSAId</td>
+      <td style="text-align: left">HsaIdType</td>
+      <td style="text-align: left">Vårdenheter inom vilka underlag ska hämtas.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">employeeId</td>
+      <td style="text-align: left">HsaIdType</td>
+      <td style="text-align: left">Identifierare av medarbetare.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">employeePersonId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Medarbetares personnummer. Anges med 12 tecken utan avskiljare.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formElement</td>
+      <td style="text-align: left">FormElementType</td>
+      <td style="text-align: left">Svaret består av en lista med formulärets enskilda element.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultCodeEnum</td>
+      <td style="text-align: left">OK = Hämtningen av underlag utfört utan fel. / ERROR = Fel har uppstått. / Felet beskrivs i elementet resultText. / INFO = Information finns om hämtningen. Informationen beskrivs i elementet resultText.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Beskrivning av fel som uppstått alternativt information om genomförd registrering.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">logId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Identifierare av loggpost hos tjänsteproducenten, t.ex. ett UUID som kan användas vid felsökning.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FormElementType</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formID</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Identifierare av mallen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">query</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Identitet för fråga.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">answer</td>
+      <td style="text-align: left">AnswerType</td>
+      <td style="text-align: left">Svar på fråga.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sourceData</td>
+      <td style="text-align: left">SourceDataType</td>
+      <td style="text-align: left">Beskrivning på hur svaret framställts. Kan visas för slutanvändare i konsumentapplikationen.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AnswerType</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">value</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Svar på fråga.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Typning av svaret.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SourceDataType</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Domän + kontraktsnamn för grunddata.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">entry</td>
+      <td style="text-align: left">SourceDataEntryType</td>
+      <td style="text-align: left">Del av underlaget för svaret.</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SourceDataEntryType</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på del av underlaget. Exempelvis enhet, födelseår eller kön.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">value</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Värde för del av underlaget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-1">Övriga regler</h4>
+<p>Till detta tjänstekontrakt finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan. Regler markerade med [sch] återfinns i schematron (constraints).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">ID</th>
+      <th style="text-align: left">Kontext</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Regler i begäran</td>
+      <td style="text-align: left">Regler i begäran</td>
+      <td style="text-align: left">Regler i begäran</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R3 – Registrator måste anges</td>
+      <td style="text-align: left">employeeId / employeePersonId</td>
+      <td style="text-align: left">Vid scenariet att en sjukvårdspersonal (registrator) loggar in i aktuellt kvalitetsregister och i ett registreringsformulär, per patient, begär hämtning av uppgifter från vårddokumentationen hos vårdgivaren för automatisk förifyllnad av fält måste uppgift om registratorn anges antingen med HSA-Id i fältet employeeId eller med personnummer i fältet employeePersonId. / I ett helautomatiserat förlopp efter en notifiering ska fälten employeeId och employeePersonId inte anges.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Regler i svaret</td>
+      <td style="text-align: left">Regler i svaret</td>
+      <td style="text-align: left">Regler i svaret</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R2 – Svar är osorterade</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Tjänsteproducenten behöver inte garantera att de svar som returneras är sorterade i en viss ordning.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R4 – Filtrering på LogicalAddress</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Filtrera enligt RIVTA-headern LogicalAddress. Svarsmeddelandet får endast innehålla information som hämtats från den vårdgivare som anges av frågemeddelandets LogicalAddress.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Allmänna regler</td>
+      <td style="text-align: left">Allmänna regler</td>
+      <td style="text-align: left">Allmänna regler</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R1 - Flexibel ifyllnadsgrad</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Om ett givet formulär innehåller N frågor kan en konsument av tjänsten förvänta sig M answer-element där M ≤ N. Även för ett givet formulär måste en konsument hantera att beroende på övriga inparametrar och när anropet sker kan en variabel mängd svar returneras.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="icke-funktionella-krav-1">Icke funktionella krav</h5>
+
+<h6 id="sla-krav-1">SLA-krav</h6>
+<p>Resultatet av tjänsteanrop till GetFormData används bland annat också interaktivt med vårdpersonal som en del i arbetet med registrering av uppgifter i kvalitetsregister. Det är därför viktigt att svarstider hålls låga för att systemet inte ska upplevas negativt. Annan användning avser mera automatiserade flöden som också ställer krav på svarstider.
+Följande SLA-krav gäller för tjänsteproducenter av detta tjänstekontrakt.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svarstid</td>
+      <td style="text-align: left">1 sek + den tid som adderas av underliggande informationstjänster</td>
+      <td style="text-align: left">Ett enskilt anrop ska besvaras inom 1 sekund.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tillgänglighet</td>
+      <td style="text-align: left">kontorstid</td>
+      <td style="text-align: left">Om ett kvalitetsregister inte kan nå tjänsteproducenten så förutsätts att informationen fortfarande läsas manuellt ur respektive vårdgivares vårddatasystem av kvalitetsregisterapportören (på samma sätt som sker idag).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Last</td>
+      <td style="text-align: left">10 000 anrop/dygn</td>
+      <td style="text-align: left">Verklig last förväntas vara mellan 1000 och 10 000 anrop per dygn (kontorstid).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Informationen skall alltid sammanställas vid anropet</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="logiska-fel-1">Logiska fel</h6>
+<p>Vid ett logiskt fel i anrop levereras felinformation i resultCode, resultText.
+Felkoden kan vara:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Felkod</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">INFO</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Uppslag har utförts enligt begäran, men det finns obesvarade frågor. Det finns ett meddelande som beskriver felet.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ERROR</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Uppslag har INTE kunnat utföras. Det finns ett meddelande som beskriver felet. Exempel på detta kan vara ogiltigt inmatade inparametrar i frågemeddelandet. Denna felkod erhålls också om det inte finns någon data registrerad för patienten. Data kan returneras tillsammans med denna felkod, tex om ett källsystem svarar med felkod medans ett eller flera andra källsystem svarar med data. Returnerad data kan då vara korrekt och komplett, men behöver inte vara det.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="annan-information-om-kontraktet-1">Annan information om kontraktet</h4>
+<p>Ingen annan information om kontraktet finns.</p>
+
+<h4 id="källfiler-riv-ta-1">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a name="l1732">​</a><a href="files/wsdl/GetFormDataInteraction_1.2_RIVTABP21.wsdl">GetFormDataInteraction_1.2_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a name="l1742">​</a><a href="files/schema/followup_qualityregistry_nkrr_1.0.xsd">followup_qualityregistry_nkrr_1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l1752">​</a><a href="files/schema/itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a name="l1762">​</a><a href="files/schema/GetFormDataResponder_1.2.xsd">GetFormDataResponder_1.2.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a name="l1772">​</a><a href="files/schema/GetFormDataResponder_1.2_ext.xsd">GetFormDataResponder_1.2_ext.xsd</a></td>
+      <td>Tjänstespecifikt schema (ext)</td>
+    </tr>
+    <tr>
+      <td><a name="l1782">​</a><a href="files/schema/GetFormDataResponder_1.1_ext.xsd">GetFormDataResponder_1.1_ext.xsd</a></td>
+      <td>Tjänstespecifikt schema (ext v1.1, bakåtkompatibilitet)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-1">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getformdata-request.html">StructureDefinition/getformdata-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getformdata.html">StructureDefinition/getformdata</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-resultcode-cs.html">CodeSystem/resultcode-cs</a> (delat med ProcessRegistrationNotification)</li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-resultcode-vs.html">ValueSet/resultcode-vs</a></li>
+</ul>
+
+
+
+
+</div>
+        </div>    <!-- /inner-wrapper -->
+      </div>    <!-- /row -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-content -->
+
+  <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script src="assets/js/jquery-ui.min.js" type="text/javascript"> </script>
+
+  <script src="assets/js/window-hash.js" type="text/javascript"> </script>
+  <a name="bottom"> </a>
+  <div igtool="footer" id="segment-footer" class="segment">    <!-- segment-footer -->
+    <div class="container">    <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &copy; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.followup-qualityregistry-nkrr#1.2.2 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 9, 2026 16:57+0000">2026-09-09</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>    <!-- /inner-wrapper -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">    <!-- segment-post-footer -->
+    <div class="container">    <!-- container -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-post-footer -->
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+  <script src="assets/js/respond.min.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard-btn.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor-hover.js" type="text/javascript"> </script>
+    <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>

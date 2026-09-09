@@ -1,0 +1,548 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>5 Tjänstedomänens meddelandemodeller - clinicalprocess: logistics: logistics v3.0.13</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link rel="stylesheet" href="fhir.css"/>
+
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-fhir.css"/>
+
+      <!-- Project extras -->
+    <link rel="stylesheet" href="assets/css/project.css"/>
+    <link rel="stylesheet" href="assets/css/pygments-manni.css"/>
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+  	<link rel="stylesheet" href="assets/css/prism.css"/>
+  	<link rel="stylesheet" href="assets/css/cqf.css"/>
+      <!-- Placeholder for child template CSS declarations -->
+
+    <script src="fhir-table-scripts.js" type="text/javascript"> </script>
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- [if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif] -->
+
+      <!-- Favicons -->
+    <link sizes="144x144" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-144.png"/>
+    <link sizes="114x114" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-114.png"/>
+    <link sizes="72x72" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script src="assets/js/mermaid.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
+    <style type="text/css">h2{--heading-prefix:"6"}
+    h3,h4,h5,h6{--heading-prefix:"6"}</style>
+    <div id="segment-header" class="segment">    <!-- segment-header -->
+      <div class="container">    <!-- container -->
+
+          <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">clinicalprocess: logistics: logistics</span>
+            <br/>
+            <span style="display:inline-block;">3.0.13 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div>   <!-- /container -->
+    </div>    <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">    <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">    <!-- container -->
+          <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+            <!-- status-bar -->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a href="http://hl7.org/fhir/R4/index.html" class="navbar-brand hidden">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+                <!-- ?xml version="1.0" encoding="UTF-8"? -->
+<div xsi:schemaLocation="urn:hl7-org:v3 ../schema/core/datatypes.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ul class="nav navbar-nav">
+    <li><a href="index.html">Hem</a></li>
+    <li><a href="1-inledning.html">1 Inledning</a></li>
+    <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+    <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+    <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+    <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+    <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma informationskomponenter</a></li>
+    <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+    <li><a href="artifacts.html">Artifacts</a></li>
+  </ul>
+</div>
+
+            </div>    <!-- /.nav-collapse -->
+          </div>    <!-- /.container -->
+        </nav>    <!-- /.navbar -->
+        <!-- /HEADER CONTENT -->
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-navbar -->
+      <!-- status-bar -->
+
+    <div id="segment-breadcrumb" class="segment">    <!-- segment-breadcrumb -->
+      <div class="container">    <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>5 Tjänstedomänens meddelandemodeller</b></li>
+
+        </ul>
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">    <!-- segment-content -->
+      <div class="container">    <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+    <!-- ReleaseHeader --><p id="publish-box">clinicalprocess: logistics: logistics - Local Development build (v3.0.13) built by the FHIR (HL7&reg; FHIR&reg; Standard) Build Tools. See the <a href="https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  <h2>5 Tjänstedomänens meddelandemodeller</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>  <!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstedomänens-meddelandemodeller" id="markdown-toc-tjänstedomänens-meddelandemodeller">Tjänstedomänens meddelandemodeller</a>    <ul>
+      <li><a href="#v-mim-getcarecontacts--vårdkontakter" id="markdown-toc-v-mim-getcarecontacts--vårdkontakter">V-MIM GetCareContacts – Vårdkontakter</a></li>
+      <li><a href="#mim-getcareplans--vård--och-omsorgsplan" id="markdown-toc-mim-getcareplans--vård--och-omsorgsplan">MIM GetCarePlans – Vård- och omsorgsplan</a></li>
+      <li><a href="#formatregler" id="markdown-toc-formatregler">Formatregler</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstedomänens-meddelandemodeller">Tjänstedomänens meddelandemodeller</h2>
+<p>Här beskrivs de meddelandemodeller som tjänstekontrakten bygger på. För varje meddelandemodell beskrivs hur mappning ser ut mot schema (XSD) för tjänstekontrakt.</p>
+
+<h3 id="v-mim-getcarecontacts--vårdkontakter">V-MIM GetCareContacts – Vårdkontakter</h3>
+
+<p><a name="l289">​</a><img src="images/img_005.png" alt="img_005.png"/></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Klass.attribut</th>
+      <th style="text-align: left">Mappning mot XSD schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">careContact</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careContactHeader.documentId</td>
+      <td style="text-align: left">careContact/careContactHeader/documentId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careContactHeader.sourceSystemHSAId</td>
+      <td style="text-align: left">careContact/careContactHeader/sourceSystemHSAId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careContactHeader.patientId</td>
+      <td style="text-align: left">careContact/careContactHeader/patientId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careContactHeader.accountableHealthcareProfessional</td>
+      <td style="text-align: left">careContact/careContactHeader/accountableHealthcareProfessional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">accountableHealthcareProfessional.authorTime</td>
+      <td style="text-align: left">careContact/careContactHeader/ accountableHealthcareProfessional /authorTime</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">accountableHealthcareProfessional.healthcareProfessionalHSAId</td>
+      <td style="text-align: left">careContact/careContactHeader/accountableHealthcareProfessional/healthcareProfessionalHSAId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">accountableHealthcareProfessional.healthcareProfessionalName</td>
+      <td style="text-align: left">careContact/careContactHeader/accountableHealthcareProfessional/healthcareProfessionalName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">accountableHealthcareProfessional.healthcareProfessionalRoleCode</td>
+      <td style="text-align: left">careContact/careContactHeader/accountableHealthcareProfessional/healthcareProfessionalRoleCode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareProfessionalOrgUnit.orgUnitHSAId</td>
+      <td style="text-align: left">careContact/careContactHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitHSAId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareProfessionalOrgUnit.orgUnitname</td>
+      <td style="text-align: left">careContact/careContactHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitname</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareProfessionalOrgUnit.orgUnitTelecom</td>
+      <td style="text-align: left">careContact/careContactHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitTelecom</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareProfessionalOrgUnit.orgUnitEmail</td>
+      <td style="text-align: left">careContact/careContactHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitEmail</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareProfessionalOrgUnit.orgUnitAddress</td>
+      <td style="text-align: left">careContact/careContactHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitAddress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareProfessionalOrgUnit.orgUnitLocation</td>
+      <td style="text-align: left">careContact/careContactHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitLocation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId</td>
+      <td style="text-align: left">careContact/careContactHeader/accountableHealthcareProfessional/healthcareProfessionalCareUnitHSAId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId</td>
+      <td style="text-align: left">careContact/careContactHeader/accountableHealthcareProfessional/healthcareProfessionalCareGiverHSAId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careContactHeader.approvedForPatient</td>
+      <td style="text-align: left">careContact/careContactHeader/approvedForPatient</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careContactBody</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careContactBody.careContactCode</td>
+      <td style="text-align: left">careContact/careContactBody/careContactCode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careContactBody.careContactReason</td>
+      <td style="text-align: left">careContact/careContactBody/careContactReason</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careContactBody.careContactTimePeriod</td>
+      <td style="text-align: left">careContact/careContactBody/careContactTimePeriod</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careContactBody.careContactStatus</td>
+      <td style="text-align: left">careContact/careContactBody/careContactStatus</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">additionalPatientInformationType.dateOfBirth</td>
+      <td style="text-align: left">careContact/careContactBody/additionalPatientInformation/dateOfBirth</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">additionalPatientInformationType.gender</td>
+      <td style="text-align: left">careContact/careContactBody/additionalPatientInformation/gender</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careContactBody.careContactOrgUnit</td>
+      <td style="text-align: left">careContact/careContactBody/careContactOrgUnit</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careContactOrgUnit.orgUnitHSAId</td>
+      <td style="text-align: left">careContact/careContactBody/careContactOrgUnit/orgUnitHSAId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careContactOrgUnit.orgUnitName</td>
+      <td style="text-align: left">careContact/careContactBody/careContactOrgUnit/orgUnitName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careContactOrgUnit.orgUnitTelecom</td>
+      <td style="text-align: left">careContact/careContactBody/careContactOrgUnit/orgUnitTelecom</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careContactOrgUnit.orgUnitEmail</td>
+      <td style="text-align: left">careContact/careContactBody/careContactOrgUnit/orgUnitEmail</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careContactOrgUnit.orgUnitAddress</td>
+      <td style="text-align: left">careContact/careContactBody/careContactOrgUnit/orgUnitAddress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careContactOrgUnit.orgUnitLocation</td>
+      <td style="text-align: left">careContact/careContactBody/careContactOrgUnit/orgUnitLocation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">additionalPatientInformation.dateOfBirth</td>
+      <td style="text-align: left">careContact/careContactBody/additionalPatientInformation/dateOfBirth</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">additionalPatientInformation.gender</td>
+      <td style="text-align: left">careContact/careContactBody/additionalPatientInformation/gender</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">result</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.resultCode</td>
+      <td style="text-align: left">result/resultCode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.errorCode</td>
+      <td style="text-align: left">result/errorCode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.subcode</td>
+      <td style="text-align: left">result/subcode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.logId</td>
+      <td style="text-align: left">result/logId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result.message</td>
+      <td style="text-align: left">result/message</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="mim-getcareplans--vård--och-omsorgsplan">MIM GetCarePlans – Vård- och omsorgsplan</h3>
+
+<p><a name="l673">​</a><img src="images/img_008.png" alt="img_008.png"/></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Klass.attribut</th>
+      <th style="text-align: left">Mappning mot XSD schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">CarePlanType</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PatientSummaryHeaderType.documentId</td>
+      <td style="text-align: left">carePlan/carePlanHeader/documentId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PatientSummaryHeaderType.sourceSystemHSAId</td>
+      <td style="text-align: left">carePlan/carePlanHeader/sourceSystemHSAId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PatientSummaryHeaderType.documentTitle</td>
+      <td style="text-align: left">carePlan/carePlanHeader/documentTitle</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PatientSummaryHeaderType.documentTime</td>
+      <td style="text-align: left">carePlan/carePlanHeader/documentTime</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PatientSummaryHeaderType.patientId</td>
+      <td style="text-align: left">carePlan/carePlanHeader/patientId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PatientSummaryHeaderType.accountableHealthcareProfessional</td>
+      <td style="text-align: left">carePlan/carePlanHeader/accountableHealthcareProfessional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HealthcareProfessionalType</td>
+      <td style="text-align: left">carePlan/carePlanHeader/accountableHealthcareProfessional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HealthcareProfessionalType.authorTime</td>
+      <td style="text-align: left">carePlan/carePlanHeader/accountableHealthcareProfessional /authorTime</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HealthcareProfessionalType.healthcareProfessionalHSAId</td>
+      <td style="text-align: left">carePlan/carePlanHeader/accountableHealthcareProfessional/healthcareProfessionalHSAId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HealthcareProfessionalType.healthcareProfessionalName</td>
+      <td style="text-align: left">carePlan/carePlanHeader/accountableHealthcareProfessional/healthcareProfessionalName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HealthcareProfessionalType.healthcareProfessionalRoleCode</td>
+      <td style="text-align: left">carePlan/carePlanHeader/accountableHealthcareProfessional/healthcareProfessionalRoleCode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HealthcareProfessionalOrgUnitType.orgUnitHSAId</td>
+      <td style="text-align: left">carePlan/carePlanHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitHSAId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HealthcareProfessionalOrgUnitType.orgUnitname</td>
+      <td style="text-align: left">carePlan/carePlanHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitname</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HealthcareProfessionalOrgUnitType.orgUnitTelecom</td>
+      <td style="text-align: left">carePlan/carePlanHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitTelecom</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HealthcareProfessionalOrgUnitType.orgUnitEmail</td>
+      <td style="text-align: left">carePlan/carePlanHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitEmail</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HealthcareProfessionalOrgUnitType.orgUnitAddress</td>
+      <td style="text-align: left">carePlan/carePlanHeader/accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitAddress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HealthcareProfessionalOrgUnitType.orgUnitLocation</td>
+      <td style="text-align: left">carePlan/carePlanHeader//accountableHealthcareProfessional/healthcareProfessionalOrgUnit/orgUnitLocation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HealthcareProfessionalType.healthcareProfessionalCareUnitHSAId</td>
+      <td style="text-align: left">carePlan/carePlanHeader/accountableHealthcareProfessional/healthcareProfessionalCareUnitHSAId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HealthcareProfessionalType.healthcareProfessionalCareGiverHSAId</td>
+      <td style="text-align: left">carePlan/carePlanHeader/accountableHealthcareProfessional/healthcareProfessionalCareGiverHSAId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LegalAuthenticatorType.legalAuthenticatorTime</td>
+      <td style="text-align: left">carePlan/carePlanHeader/legalAuthenticator/legalAuthenticatorTime</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LegalAuthenticatorType.legalAuthenticatorHSAId</td>
+      <td style="text-align: left">carePlan/carePlanHeader/legalAuthenticator/legalAuthenticatorHSAId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LegalAuthenticatorType.legalAuthenticatorName</td>
+      <td style="text-align: left">carePlan/carePlanHeader/legalAuthenticator/legalAuthenticatorName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LegalAuthenticatorType.legalAuthenticatorRoleCode</td>
+      <td style="text-align: left">carePlan/carePlanHeader/legalAuthenticator/legalAuthenticator RoleCode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PatientSummaryHeaderType.approvedForPatient</td>
+      <td style="text-align: left">carePlan/carePlanHeader/approvedForPatient</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PatientSummaryHeaderType.careContactId</td>
+      <td style="text-align: left">carePlan/carePlanHeader/careContactId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CarePlanBodyType</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CarePlanBodyType.content</td>
+      <td style="text-align: left">carePlan/carePlanBody/content</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CarePlanBodyType.participatingCareUnit</td>
+      <td style="text-align: left">carePlan/carePlanBody/participatingCareUnit</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CarePlanBodyType.typeOfCarePlan</td>
+      <td style="text-align: left">carePlan/carePlanBody/typeOfCarePlanEnum</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">result</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ResultType.resultCode</td>
+      <td style="text-align: left">result/resultCode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ResultType.errorCode</td>
+      <td style="text-align: left">result/errorCode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ResultType.subcode</td>
+      <td style="text-align: left">result/subcode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ResultType.logId</td>
+      <td style="text-align: left">result/logId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ResultType.message</td>
+      <td style="text-align: left">result/message</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="formatregler">Formatregler</h3>
+
+<h4 id="format-för-datum-och-tidpunkter">Format för datum och tidpunkter</h4>
+<p>Datum anges på formatet ”ÅÅÅÅMMDD”. Detta motsvarar den ISO 8601 och ISO 8824-kompatibla formatbeskrivningen ”YYYYMMDD” (se referens [R8]).
+Tidpunkter anges alltid på formatet ”ÅÅÅÅMMDDttmmss”, vilket motsvarar den ISO 8601 och ISO 8824-kompatibla formatbeskrivningen ”YYYYMMDDhhmmss”.</p>
+
+<h4 id="tidszon-för-tidpunkter">Tidszon för tidpunkter</h4>
+<p>Tidszon anges inte i meddelandeformaten. All information om datum och tidpunkter som utbyts via tjänsterna ska ange datum och tidpunkter i den tidszon som gäller/gällde i Sverige vid den tidpunkt som respektive datum- eller tidpunktsfält bär information om. Såväl tjänstekonsumenter som tjänsteproducenter ska med andra ord förutsätta att datum och tidpunkter som utbyts är i tidszonerna CET (svensk normaltid) respektive CEST (svensk normaltid med justering för sommartid).</p>
+
+
+
+
+</div>
+        </div>    <!-- /inner-wrapper -->
+      </div>    <!-- /row -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-content -->
+
+  <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script src="assets/js/jquery-ui.min.js" type="text/javascript"> </script>
+
+  <script src="assets/js/window-hash.js" type="text/javascript"> </script>
+  <a name="bottom"> </a>
+  <div igtool="footer" id="segment-footer" class="segment">    <!-- segment-footer -->
+    <div class="container">    <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &copy; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.clinicalprocess-logistics-logistics#3.0.13 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 9, 2026 16:48+0000">2026-09-09</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>    <!-- /inner-wrapper -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">    <!-- segment-post-footer -->
+    <div class="container">    <!-- container -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-post-footer -->
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+  <script src="assets/js/respond.min.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard-btn.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor-hover.js" type="text/javascript"> </script>
+    <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>

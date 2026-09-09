@@ -1,0 +1,1441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>3 Tjänstedomänens arkitektur - followup: processdevelopment: infections v1.0.2</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"4"}
+    h3,h4,h5,h6{--heading-prefix:"4"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">followup: processdevelopment: infections</span>
+            <br/>
+            <span style="display:inline-block;">1.0.2 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+  <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+  <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+  <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+  <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma informationskomponenter</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artifacts</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>3 Tjänstedomänens arkitektur</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">followup: processdevelopment: infections - Local Development build (v1.0.2) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/followup-processdevelopment-infections/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>3 Tjänstedomänens arkitektur</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstedomänens-arkitektur" id="markdown-toc-tjänstedomänens-arkitektur">Tjänstedomänens arkitektur</a>    <ul>
+      <li><a href="#flöden" id="markdown-toc-flöden">Flöden</a></li>
+      <li><a href="#adressering" id="markdown-toc-adressering">Adressering</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstedomänens-arkitektur">Tjänstedomänens arkitektur</h2>
+<p>Detta kapitel beskriver de flöden som är relevanta för tjänstedomänen. Beskrivningarna är i form av modeller, för varje flöde finns dels ett arbetsflöde som beskriver vilka steg som ingår i flödet och dels ett sekvensdiagram som tar hänsyn till vilka tjänstekontrakt som nyttjas i de olika stegen.</p>
+
+<h3 id="flöden">Flöden</h3>
+
+<h4 id="skicka-ordinationsdata">Skicka ordinationsdata</h4>
+<p>Nedanstående diagram visar hur flödet ser ut när ordinationsdata skickas.</p>
+
+<h5 id="arbetsflödesdiagram">Arbetsflödesdiagram</h5>
+
+<h6 id="roller-aktörer-i-arbetsflödet">Roller (Aktörer) i arbetsflödet</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Händelsekälla</td>
+      <td style="text-align: left">Med händelsekälla avses en person som matar in ny data eller att data inkommer automatiskt.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="arbetssteg">Arbetssteg</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Registrerar/uppdaterar ordinationsdata</td>
+      <td style="text-align: left">Information som innefattar ordinationsdata registreras.  Detta kan vara i form av nyregistrering eller uppdatering av befintlig ordinationsdata.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar på hur skrivningen gick.</td>
+      <td style="text-align: left">Information om hur skrivningen hos tjänsteproducenten gick tas emot.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="informationsmängder">Informationsmängder</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Ordinationsdata</td>
+      <td style="text-align: left">Information om ordinationsdata</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">En begäran för att skriva ordinationsdata skickas till beststämd destination.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">Svar på hur skrivningen gick.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="informationslager">Informationslager</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">Verksamhetssystem i rollen som tjänstekonsument som interagerar med information från andra källor. I detta fall för att hämta information i form av aktiviteter.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteplattformen</td>
+      <td style="text-align: left">Ett nav mellan olika system och tjänster. Tjänsteplattformen dirigerar meddelanden vidare till rätt tjänst/system med hjälp av tjänsteadresseringskatalogen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">Tjänsteproducenter uppvisar ett tekniskt gränssnitt för tjänstekonsumenter så att dessa genom frågemeddelanden kan begära/uppdatera/skicka information.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="sekvensdiagram">Sekvensdiagram</h5>
+<p>Siffrorna i diagrammet nedan kopplar ihop begäransvar för respektive meddelande.</p>
+
+<h6 id="roller">Roller</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Händelsekälla</td>
+      <td style="text-align: left">Med händelsekälla avses en person som matar in ny data eller att data inkommer automatiskt.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">Verksamhetssystem i rollen som tjänstekonsument som interagerar med information från andra källor. I detta fall för att skicka information i form av ordinationer.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteplattformen</td>
+      <td style="text-align: left">Ett nav mellan olika system och tjänster. Tjänsteplattformen dirigerar meddelanden vidare till rätt tjänst/system med hjälp av tjänsteadresseringskatalogen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">Tjänsteproducenter uppvisar ett tekniskt gränssnitt för tjänstekonsumenter så att dessa genom frågemeddelanden kan begära/uppdatera/skicka information.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="steg">Steg</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1. Registrerar/uppdaterar ordinationsdata</td>
+      <td style="text-align: left">Information som innefattar ordinationsdata registreras.  Detta kan vara i form av nyregistrering eller uppdatering av befintlig ordinationsdata.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2. ProcessPrescriptionReason(Request)</td>
+      <td style="text-align: left">Tjänstekonsumenten vill skicka ordinationer via tjänstekontraktet ProcessPrescriptionReason kring en viss invånare/patient till en annan källa/informationsägare. Källan/informationsägaren är i detta fall är känd och därmed pekar Logical Address till rätt destination (HSA-id).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3. ProcessPrescriptionReason(Request)</td>
+      <td style="text-align: left">Tjänsteplattformen slussar informationen vidare till rätt teknisk adress enligt Logical Address med hjälp av tjänsteadresseringskatalogen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3. ProcessPrescriptionReason(Response)</td>
+      <td style="text-align: left">Tjänsteproducenten returnerar ett svar på hur skrivningen gick.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2. ProcessPrescriptionReason(Response)</td>
+      <td style="text-align: left">Tjänsteplattformen slussar vidare svaret till tjänstekonsumenten.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1. Svar på hur skrivningen gick.</td>
+      <td style="text-align: left">Information om hur skrivningen hos tjänsteproducenten gick tas emot.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="radera-ordinationsorsak">Radera ordinationsorsak</h4>
+<p>Nedanstående diagram visar hur flödet ser ut när ordinationsorsakdata raderas.</p>
+
+<h5 id="arbetsflödesdiagram-1">Arbetsflödesdiagram</h5>
+
+<h6 id="roller-aktörer-i-arbetsflödet-1">Roller (Aktörer) i arbetsflödet</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Händelsekälla</td>
+      <td style="text-align: left">Med händelsekälla avses en person som raderar data eller att data raderas automatiskt.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="arbetssteg-1">Arbetssteg</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Befintlig information om ordinationsorsak raderas.</td>
+      <td style="text-align: left">Information som innefattar ordinationsorsak raderas.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Erhåller svar på hur raderingen gick.</td>
+      <td style="text-align: left">Information om hur raderingen hos tjänsteproducenten gick tas emot.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="informationsmängder-1">Informationsmängder</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Radering</td>
+      <td style="text-align: left">Radering av befintlig data om ordinationsorsak</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">En begäran för att radera data skickas till beststämd destination.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">Svar på hur raderingen gick.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="informationslager-1">Informationslager</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">Verksamhetssystem i rollen som tjänstekonsument som interagerar med information från andra källor. I detta fall för att radera information i form av ordinationsorsak.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteplattformen</td>
+      <td style="text-align: left">Ett nav mellan olika system och tjänster. Tjänsteplattformen dirigerar meddelanden vidare till rätt tjänst/system med hjälp av tjänsteadresseringskatalogen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">Tjänsteproducenter uppvisar ett tekniskt gränssnitt för tjänstekonsumenter så att dessa genom frågemeddelanden kan begära/uppdatera/skicka information.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="sekvensdiagram-1">Sekvensdiagram</h5>
+<p>Siffrorna i diagrammet nedan kopplar ihop begäran-svar för respektive meddelande.</p>
+
+<h6 id="roller-1">Roller</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Händelsekälla</td>
+      <td style="text-align: left">Med händelsekälla avses en person som raderar data eller att data raderas automatiskt.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">Verksamhetssystem i rollen som tjänstekonsument som interagerar med information från andra källor. I detta fall för att radera information i form av ordinationsorsak.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteplattformen</td>
+      <td style="text-align: left">Ett nav mellan olika system och tjänster. Tjänsteplattformen dirigerar meddelanden vidare till rätt tjänst/system med hjälp av tjänsteadresseringskatalogen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">Tjänsteproducenter uppvisar ett tekniskt gränssnitt för tjänstekonsumenter så att dessa genom frågemeddelanden kan begära/uppdatera/skicka information.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="steg-1">Steg</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1. Radering av ordinationsorsak</td>
+      <td style="text-align: left">Information som innefattar ordinationsorsak raderas.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2. DeletePrescriptionReason(Request)</td>
+      <td style="text-align: left">Tjänstekonsumenten vill radera data via tjänstekontraktet DeletePrescriptionReason kring en viss invånare/patient hos en annan källa/informationsägare. Källan/informationsägaren är i detta fall är känd och därmed pekar Logical Address till rätt destination (HSA-id).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3. DeletePrescriptionReason(Request)</td>
+      <td style="text-align: left">Tjänsteplattformen slussar begäran om radering vidare till rätt teknisk adress enligt Logical Address med hjälp av tjänsteadresseringskatalogen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3. DeletePrescriptionReason(Response)</td>
+      <td style="text-align: left">Tjänsteproducenten returnerar ett svar på hur raderingen gick.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2. DeletePrescriptionReason (Response)</td>
+      <td style="text-align: left">Tjänsteplattformen slussar vidare svaret till tjänstekonsumenten.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1. Erhåller svar på hur raderingen gick</td>
+      <td style="text-align: left">Information om hur raderingen hos tjänsteproducenten gick tas emot.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="radera-ordinationsdata">Radera ordinationsdata</h4>
+<p>Nedanstående diagram visar hur flödet ser ut när ordinationsdata raderas.</p>
+
+<h5 id="arbetsflödesdiagram-2">Arbetsflödesdiagram</h5>
+
+<h6 id="roller-aktörer-i-arbetsflödet-2">Roller (Aktörer) i arbetsflödet</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Händelsekälla</td>
+      <td style="text-align: left">Med händelsekälla avses en person som raderar data eller att data raderas automatiskt.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="arbetssteg-2">Arbetssteg</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Befintlig information om ordinationsdata raderas.</td>
+      <td style="text-align: left">Information som innefattar ordinationsdata raderas.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Erhåller svar på hur raderingen gick.</td>
+      <td style="text-align: left">Information om hur raderingen hos tjänsteproducenten gick tas emot.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="informationsmängder-2">Informationsmängder</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Radering</td>
+      <td style="text-align: left">Radering av befintlig ordinationsdata</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">En begäran för att radera data skickas till beststämd destination.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">Svar på hur raderingen gick.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="informationslager-2">Informationslager</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">Verksamhetssystem i rollen som tjänstekonsument som interagerar med information från andra källor. I detta fall för att radera information i form av ordinationer.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteplattformen</td>
+      <td style="text-align: left">Ett nav mellan olika system och tjänster. Tjänsteplattformen dirigerar meddelanden vidare till rätt tjänst/system med hjälp av tjänsteadresseringskatalogen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">Tjänsteproducenter uppvisar ett tekniskt gränssnitt för tjänstekonsumenter så att dessa genom frågemeddelanden kan begära/uppdatera/skicka information.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="sekvensdiagram-2">Sekvensdiagram</h5>
+<p>Siffrorna i diagrammet nedan kopplar ihop begäran-svar för respektive meddelande.</p>
+
+<h6 id="roller-2">Roller</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Händelsekälla</td>
+      <td style="text-align: left">Med händelsekälla avses en person som raderar data eller att data raderas automatiskt.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">Verksamhetssystem i rollen som tjänstekonsument som interagerar med information från andra källor. I detta fall för att radera information i form av ordinationer.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteplattformen</td>
+      <td style="text-align: left">Ett nav mellan olika system och tjänster. Tjänsteplattformen dirigerar meddelanden vidare till rätt tjänst/system med hjälp av tjänsteadresseringskatalogen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">Tjänsteproducenter uppvisar ett tekniskt gränssnitt för tjänstekonsumenter så att dessa genom frågemeddelanden kan begära/uppdatera/skicka information.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="steg-2">Steg</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1. Radering av ordinationsdata</td>
+      <td style="text-align: left">Information som innefattar ordinationsdata raderas.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2. DeletePrescription(Request)</td>
+      <td style="text-align: left">Tjänstekonsumenten vill radera data via tjänstekontraktet DeletePrescription kring en viss invånare/patient hos en annan källa/informationsägare. Källan/informationsägaren är i detta fall är känd och därmed pekar Logical Address till rätt destination (HSA-id).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3. DeletePrescription(Request)</td>
+      <td style="text-align: left">Tjänsteplattformen slussar begäran om radering vidare till rätt teknisk adress enligt Logical Address med hjälp av tjänsteadresseringskatalogen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3. DeletePrescription(Response)</td>
+      <td style="text-align: left">Tjänsteproducenten returnerar ett svar på hur raderingen gick.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2. DeletePrescription(Response)</td>
+      <td style="text-align: left">Tjänsteplattformen slussar vidare svaret till tjänstekonsumenten.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1. Erhåller svar på hur raderingen gick</td>
+      <td style="text-align: left">Information om hur raderingen hos tjänsteproducenten gick tas emot.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="skicka-labdata">Skicka labdata</h4>
+<p>Nedanstående diagram visar hur flödet ser ut när information om labdata skickas.</p>
+
+<h5 id="arbetsflödesdiagram-3">Arbetsflödesdiagram</h5>
+
+<h6 id="roller-aktörer-i-arbetsflödet-3">Roller (Aktörer) i arbetsflödet</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Händelsekälla</td>
+      <td style="text-align: left">Med händelsekälla avses en person som matar in ny data eller att data inkommer automatiskt.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="arbetssteg-3">Arbetssteg</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Registrerar/uppdaterar labdata</td>
+      <td style="text-align: left">Information som innefattar labdata registreras.  Detta kan vara i form av nyregistrering eller uppdatering av befintlig labdata.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar på hur skrivningen gick.</td>
+      <td style="text-align: left">Information om hur skrivningen hos tjänsteproducenten gick tas emot.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="informationsmängder-3">Informationsmängder</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Labdata</td>
+      <td style="text-align: left">Information om labdata.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">En begäran för att skriva labdata skickas till beststämd destination.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">Svar på hur skrivningen gick.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="informationslager-3">Informationslager</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">Verksamhetssystem i rollen som tjänstekonsument som interagerar med information från andra källor. I detta fall för att skicka information i form av labdata.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteplattformen</td>
+      <td style="text-align: left">Ett nav mellan olika system och tjänster. Tjänsteplattformen dirigerar meddelanden vidare till rätt tjänst/system med hjälp av tjänsteadresseringskatalogen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">Tjänsteproducenter uppvisar ett tekniskt gränssnitt för tjänstekonsumenter så att dessa genom frågemeddelanden kan begära/uppdatera/skicka information.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="sekvensdiagram-3">Sekvensdiagram</h5>
+<p>Siffrorna i diagrammet nedan kopplar ihop begäran-svar för respektive meddelande.</p>
+
+<h6 id="roller-3">Roller</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Händelsekälla</td>
+      <td style="text-align: left">Med händelsekälla avses en person som matar in ny data eller att data inkommer automatiskt.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">Verksamhetssystem i rollen som tjänstekonsument som interagerar med information från andra källor. I detta fall för att skicka information i form av labdata.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteplattform</td>
+      <td style="text-align: left">Ett nav mellan olika system och tjänster. Tjänsteplattformen dirigerar meddelanden vidare till rätt tjänst/system med hjälp av tjänsteadresseringskatalogen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">Tjänsteproducenter uppvisar ett tekniskt gränssnitt för tjänstekonsumenter så att dessa genom frågemeddelanden kan begära/uppdatera/skicka information.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="steg-3">Steg</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1. Uppdatering/registrering av labdata</td>
+      <td style="text-align: left">Information som innefattar labdata registreras.  Detta kan vara i form av nyregistrering eller uppdatering av befintlig labdata.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2. ProcessLaboratoryReport(Request)</td>
+      <td style="text-align: left">Tjänstekonsumenten vill skicka labdata via tjänstekontraktet ProcessLaboratoryReport kring en viss invånare/patient till en annan källa/informationsägare. Källan/informationsägaren är i detta fall är känd och därmed pekar Logical Address till rätt destination (HSA-id).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3. ProcessLaboratoryReport(Request)</td>
+      <td style="text-align: left">Tjänsteplattformen slussar informationen vidare till rätt teknisk adress enligt Logical Address med hjälp av tjänsteadresseringskatalogen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3. ProcessLaboratoryReport(Response)</td>
+      <td style="text-align: left">Tjänsteproducenten returnerar ett svar på hur skrivningen gick.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2. ProcessLaboratoryReport(Response)</td>
+      <td style="text-align: left">Tjänsteplattformen slussar vidare svaret till tjänstekonsumenten.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1. Svar på hur skrivningen gick.</td>
+      <td style="text-align: left">Information om hur skrivningen hos tjänsteproducenten gick tas emot.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="radera-labdata">Radera labdata</h4>
+<p>Nedanstående diagram visar hur flödet ser ut när labdata raderas.</p>
+
+<h5 id="arbetsflödesdiagram-4">Arbetsflödesdiagram</h5>
+
+<h6 id="roller-aktörer-i-arbetsflödet-4">Roller (Aktörer) i arbetsflödet</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Händelsekälla</td>
+      <td style="text-align: left">Med händelsekälla avses en person som raderar data eller att data raderas automatiskt.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="arbetssteg-4">Arbetssteg</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Radering av registrerad labdata.</td>
+      <td style="text-align: left">Information som innefattar labdata raderas.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Erhåller svar på hur raderingen gick.</td>
+      <td style="text-align: left">Information om hur raderingen hos tjänsteproducenten gick tas emot.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="informationsmängder-4">Informationsmängder</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Radering</td>
+      <td style="text-align: left">Radering av befintlig labdata</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">En begäran för att radera labdata skickas till beststämd destination.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">Svar på hur raderingen gick.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="informationslager-4">Informationslager</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">Verksamhetssystem i rollen som tjänstekonsument som interagerar med information från andra källor. I detta fall för att radera information i form av labdata.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteplattformen</td>
+      <td style="text-align: left">Ett nav mellan olika system och tjänster. Tjänsteplattformen dirigerar meddelanden vidare till rätt tjänst/system med hjälp av tjänsteadresseringskatalogen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">Tjänsteproducenter uppvisar ett tekniskt gränssnitt för tjänstekonsumenter så att dessa genom frågemeddelanden kan begära/uppdatera/skicka information.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="sekvensdiagram-4">Sekvensdiagram</h5>
+<p>Siffrorna i diagrammet nedan kopplar ihop begäran-svar för respektive meddelande.</p>
+
+<h6 id="roller-4">Roller</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Händelsekälla</td>
+      <td style="text-align: left">Med händelsekälla avses en person som raderar data eller att data raderas automatiskt.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">Verksamhetssystem i rollen som tjänstekonsument som interagerar med information från andra källor. I detta fall för att radera information i form av labdata.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteplattformen</td>
+      <td style="text-align: left">Ett nav mellan olika system och tjänster. Tjänsteplattformen dirigerar meddelanden vidare till rätt tjänst/system med hjälp av tjänsteadresseringskatalogen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">Tjänsteproducenter uppvisar ett tekniskt gränssnitt för tjänstekonsumenter så att dessa genom frågemeddelanden kan begära/uppdatera/skicka information.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="steg-4">Steg</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1. Radering av labdata</td>
+      <td style="text-align: left">Information som innefattar labdata raderas.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2. DeleteLaboratoryReport(Request)</td>
+      <td style="text-align: left">Tjänstekonsumenten vill radera labdata via tjänstekontraktet DeleteLaboratoryReport kring en viss invånare/patient hos en annan källa/informationsägare. Källan/informationsägaren är i detta fall är känd och därmed pekar Logical Address till rätt destination (HSA-id).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3. DeleteLaboratoryReport(Request)</td>
+      <td style="text-align: left">Tjänsteplattformen slussar begäran om radering vidare till rätt teknisk adress enligt Logical Address med hjälp av tjänsteadresseringskatalogen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3. DeleteLaboratoryReport(Response)</td>
+      <td style="text-align: left">Tjänsteproducenten returnerar ett svar på hur raderingen gick.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2. DeleteLaboratoryReport(Response)</td>
+      <td style="text-align: left">Tjänsteplattformen slussar vidare svaret till tjänstekonsumenten.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1. Erhåller svar på hur raderingen gick</td>
+      <td style="text-align: left">Information om hur raderingen hos tjänsteproducenten gick tas emot.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="skicka-vårdkontaktsdata">Skicka vårdkontaktsdata</h4>
+<p>Nedanstående diagram visar hur flödet ser ut när information om vårdkontaktsdata skickas.</p>
+
+<h5 id="arbetsflödesdiagram-5">Arbetsflödesdiagram</h5>
+
+<h6 id="roller-aktörer-i-arbetsflödet-5">Roller (Aktörer) i arbetsflödet</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Händelsekälla</td>
+      <td style="text-align: left">Med händelsekälla avses en person som matar in ny data eller att data inkommer automatiskt.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="arbetssteg-5">Arbetssteg</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Registrerar/uppdaterar vårdkontaktsdata</td>
+      <td style="text-align: left">Information som innefattar vårdkontaktsdata registreras.  Detta kan vara i form av nyregistrering eller uppdatering av befintlig vårdkontaktsdata.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar på hur skrivningen gick.</td>
+      <td style="text-align: left">Information om hur skrivningen hos tjänsteproducenten gick tas emot.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="informationsmängder-5">Informationsmängder</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Vårdkontaktsdata</td>
+      <td style="text-align: left">Information om vårdkontaktsdata.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">En begäran för att skriva vårdkontaktsdata skickas till beststämd destination.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">Svar på hur skrivningen gick.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="informationslager-5">Informationslager</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">Verksamhetssystem i rollen som tjänstekonsument som interagerar med information från andra källor. I detta fall för att skicka information i form av vårdkontaktsdata.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteplattformen</td>
+      <td style="text-align: left">Ett nav mellan olika system och tjänster. Tjänsteplattformen dirigerar meddelanden vidare till rätt tjänst/system med hjälp av tjänsteadresseringskatalogen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">Tjänsteproducenter uppvisar ett tekniskt gränssnitt för tjänstekonsumenter så att dessa genom frågemeddelanden kan begära/uppdatera/skicka information.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="sekvensdiagram-5">Sekvensdiagram</h5>
+<p>Siffrorna i diagrammet nedan kopplar ihop begäran-svar för respektive meddelande.</p>
+
+<h6 id="roller-5">Roller</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Händelsekälla</td>
+      <td style="text-align: left">Med händelsekälla avses en person som matar in ny data eller att data inkommer automatiskt.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">Verksamhetssystem i rollen som tjänstekonsument som interagerar med information från andra källor. I detta fall för att skicka information i form av vårdkontaktsdata.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteplattform</td>
+      <td style="text-align: left">Ett nav mellan olika system och tjänster. Tjänsteplattformen dirigerar meddelanden vidare till rätt tjänst/system med hjälp av tjänsteadresseringskatalogen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">Tjänsteproducenter uppvisar ett tekniskt gränssnitt för tjänstekonsumenter så att dessa genom frågemeddelanden kan begära/uppdatera/skicka information.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="steg-5">Steg</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1. Uppdatering/registrering av vårdkontaktsdata</td>
+      <td style="text-align: left">Information som innefattar vårdkontaktsdata registreras.  Detta kan vara i form av nyregistrering eller uppdatering av befintlig vårdkontaktsdata.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2. ProcessCareEncounter(Request)</td>
+      <td style="text-align: left">Tjänstekonsumenten vill skicka vårdkontaktsdata via tjänstekontraktet ProcessCareEncounter kring en viss invånare/patient till en annan källa/informationsägare. Källan/informationsägaren är i detta fall är känd och därmed pekar Logical Address till rätt destination (HSA-id).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3. ProcessCareEncounter(Request)</td>
+      <td style="text-align: left">Tjänsteplattformen slussar informationen vidare till rätt teknisk adress enligt Logical Address med hjälp av tjänsteadresseringskatalogen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3. ProcessCareEncounter(Response)</td>
+      <td style="text-align: left">Tjänsteproducenten returnerar ett svar på hur skrivningen gick.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2. ProcessCareEncounter(Response)</td>
+      <td style="text-align: left">Tjänsteplattformen slussar vidare svaret till tjänstekonsumenten.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1. Svar på hur skrivningen gick.</td>
+      <td style="text-align: left">Information om hur skrivningen hos tjänsteproducenten gick tas emot.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="radera-vårdkontaktsdata">Radera vårdkontaktsdata</h4>
+<p>Nedanstående diagram visar hur flödet ser ut när vårdkontaktsdata raderas.</p>
+
+<h5 id="arbetsflödesdiagram-6">Arbetsflödesdiagram</h5>
+
+<h6 id="roller-aktörer-i-arbetsflödet-6">Roller (Aktörer) i arbetsflödet</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Händelsekälla</td>
+      <td style="text-align: left">Med händelsekälla avses en person som raderar data eller att data raderas automatiskt.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="arbetssteg-6">Arbetssteg</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Befintlig information om vårdkontaktsdata raderas.</td>
+      <td style="text-align: left">Information som innefattar vårdkontaktsdata raderas.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Erhåller svar på hur raderingen gick.</td>
+      <td style="text-align: left">Information om hur raderingen hos tjänsteproducenten gick tas emot.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="informationsmängder-6">Informationsmängder</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Radering</td>
+      <td style="text-align: left">Radering av befintlig vårdkontaktsdata</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left">En begäran för att radera vårdkontaktsdata skickas till beststämd destination.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">Svar på hur raderingen gick.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="informationslager-6">Informationslager</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">Verksamhetssystem i rollen som tjänstekonsument som interagerar med information från andra källor. I detta fall för att radera information i form av vårdkontaktsdata.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteplattformen</td>
+      <td style="text-align: left">Ett nav mellan olika system och tjänster. Tjänsteplattformen dirigerar meddelanden vidare till rätt tjänst/system med hjälp av tjänsteadresseringskatalogen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">Tjänsteproducenter uppvisar ett tekniskt gränssnitt för tjänstekonsumenter så att dessa genom frågemeddelanden kan begära/uppdatera/skicka information.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="sekvensdiagram-6">Sekvensdiagram</h5>
+<p>Siffrorna i diagrammet nedan kopplar ihop begäran-svar för respektive meddelande.</p>
+
+<h6 id="roller-6">Roller</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Händelsekälla</td>
+      <td style="text-align: left">Med händelsekälla avses en person som raderar data eller att data raderas automatiskt.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">Verksamhetssystem i rollen som tjänstekonsument som interagerar med information från andra källor. I detta fall för att radera information i form av vårdkontaktsdata.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteplattformen</td>
+      <td style="text-align: left">Ett nav mellan olika system och tjänster. Tjänsteplattformen dirigerar meddelanden vidare till rätt tjänst/system med hjälp av tjänsteadresseringskatalogen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">Tjänsteproducenter uppvisar ett tekniskt gränssnitt för tjänstekonsumenter så att dessa genom frågemeddelanden kan begära/uppdatera/skicka information.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="steg-6">Steg</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1. Radering av vårdkontaktsdata</td>
+      <td style="text-align: left">Information som innefattar vårdkontaktsdata raderas.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2. DeleteCareEncounter(Request)</td>
+      <td style="text-align: left">Tjänstekonsumenten vill radera vårdkontaktsdata via tjänstekontraktet DeleteCareEncounter kring en viss invånare/patient hos en annan källa/informationsägare. Källan/informationsägaren är i detta fall är känd och därmed pekar Logical Address till rätt destination (HSA-id).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3. DeleteCareEncounter(Request)</td>
+      <td style="text-align: left">Tjänsteplattformen slussar begäran om radering vidare till rätt teknisk adress enligt Logical Address med hjälp av tjänsteadresseringskatalogen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3. DeleteCareEncounter(Response)</td>
+      <td style="text-align: left">Tjänsteproducenten returnerar ett svar på hur raderingen gick.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2. DeleteCareEncounter(Response)</td>
+      <td style="text-align: left">Tjänsteplattformen slussar vidare svaret till tjänstekonsumenten.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1. Erhåller svar på hur raderingen gick</td>
+      <td style="text-align: left">Information om hur raderingen hos tjänsteproducenten gick tas emot.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="obligatoriska-kontrakt">Obligatoriska kontrakt</h4>
+<p>Följande tabell specificerar vilka kontrakt som är obligatoriska att realisera för respektive flöde.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Tjänstekontrakt</th>
+      <th style="text-align: left">Skicka ordina-tions-data</th>
+      <th style="text-align: left">Radera ordina-tions-orsak</th>
+      <th style="text-align: left">Radera ordina-tions-</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+    <tr>
+      <th style="text-align: left">data</th>
+      <th style="text-align: left">Skicka labdata</th>
+      <th style="text-align: left">Radera labdata</th>
+      <th style="text-align: left">Skicka vård-kontakts-data</th>
+      <th style="text-align: left">Radera vård-kontakts-data</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ProcessPrescriptionReason</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DeletePrescriptionReason</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DeletePrescription</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ProcessLaboratoryReport</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DeleteLaboratoryReport</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ProcessCareEncounter</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DeleteCareEncounter</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="adressering">Adressering</h3>
+<p>Tjänstedomänen tillämpar vårdgivaradressering. Det innebär att den logiska adressen i anropet ska innehålla informationsägande enhets HSA-Id.</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.followup-processdevelopment-infections#1.0.2 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 9, 2026 16:56+0000">2026-09-09</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

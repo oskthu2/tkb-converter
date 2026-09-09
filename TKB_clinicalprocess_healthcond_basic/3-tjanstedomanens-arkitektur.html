@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>3 Tjänstedomänens arkitektur - clinicalprocess: healthcond: basic v2.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link rel="stylesheet" href="fhir.css"/>
+
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-fhir.css"/>
+
+      <!-- Project extras -->
+    <link rel="stylesheet" href="assets/css/project.css"/>
+    <link rel="stylesheet" href="assets/css/pygments-manni.css"/>
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+  	<link rel="stylesheet" href="assets/css/prism.css"/>
+  	<link rel="stylesheet" href="assets/css/cqf.css"/>
+      <!-- Placeholder for child template CSS declarations -->
+
+    <script src="fhir-table-scripts.js" type="text/javascript"> </script>
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- [if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif] -->
+
+      <!-- Favicons -->
+    <link sizes="144x144" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-144.png"/>
+    <link sizes="114x114" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-114.png"/>
+    <link sizes="72x72" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script src="assets/js/mermaid.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
+    <style type="text/css">h2{--heading-prefix:"4"}
+    h3,h4,h5,h6{--heading-prefix:"4"}</style>
+    <div id="segment-header" class="segment">    <!-- segment-header -->
+      <div class="container">    <!-- container -->
+
+          <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">clinicalprocess: healthcond: basic</span>
+            <br/>
+            <span style="display:inline-block;">2.0.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div>   <!-- /container -->
+    </div>    <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">    <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">    <!-- container -->
+          <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+            <!-- status-bar -->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a href="http://hl7.org/fhir/R4/index.html" class="navbar-brand hidden">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul class="nav-tabs">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+  <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+  <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+  <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artifacts</a></li>
+</ul>
+
+            </div>    <!-- /.nav-collapse -->
+          </div>    <!-- /.container -->
+        </nav>    <!-- /.navbar -->
+        <!-- /HEADER CONTENT -->
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-navbar -->
+      <!-- status-bar -->
+
+    <div id="segment-breadcrumb" class="segment">    <!-- segment-breadcrumb -->
+      <div class="container">    <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>3 Tjänstedomänens arkitektur</b></li>
+
+        </ul>
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">    <!-- segment-content -->
+      <div class="container">    <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+    <!-- ReleaseHeader --><p id="publish-box">clinicalprocess: healthcond: basic - Local Development build (v2.0.0) built by the FHIR (HL7&reg; FHIR&reg; Standard) Build Tools. See the <a href="https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  <h2>3 Tjänstedomänens arkitektur</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>  <!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstedomänens-arkitektur" id="markdown-toc-tjänstedomänens-arkitektur">Tjänstedomänens arkitektur</a>    <ul>
+      <li><a href="#flöden" id="markdown-toc-flöden">Flöden</a></li>
+      <li><a href="#adressering" id="markdown-toc-adressering">Adressering</a></li>
+      <li><a href="#aggregering-och-engagemangsindex" id="markdown-toc-aggregering-och-engagemangsindex">Aggregering och engagemangsindex</a></li>
+      <li><a href="#interaktionsöverenskommelse-och-tillämpningsanvisning" id="markdown-toc-interaktionsöverenskommelse-och-tillämpningsanvisning">Interaktionsöverenskommelse och tillämpningsanvisning</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstedomänens-arkitektur">Tjänstedomänens arkitektur</h2>
+<p>I detta avsnitt beskrivs hur T-boken tillämpats i tjänstedomänen. Avsnittet syftar till att ge läsaren överblick och förståelse. Avsnittet innehåller inga regler, men ger ett sammanhang för de regler som beskrivs i övriga delar av dokumentet.
+Tjänsterna för beskrivning av observerade tillstånd erbjuder sökning av information i vård- och omsorgsgivarnas system för patientadministration och vård- och omsorgsdokumentation. Utgångspunkten för tjänsterna i denna tjänstedomän är att historisk information sammanställs från det eller de källsystem där det finns historik via s.k. aggregerande tjänster, snarare än att begära information från ett specifikt system eller en specifik verksamhet. Som en följd av detta kravställer tjänstedomänen uppdatering av engagemangsindex.
+Tjänstekontrakten erbjuder även möjlighet att nå information från ett specifikt system eller en specifik verksamhet. Behovet av att rikta en fråga till ett specifikt system uppstår främst när tjänstekonsumenten också är prenumerant på notifieringar från engagemangsindex och på det sättet (via ProcessNotification) får information om en händelse i ett specifikt system. Det är då ändamålsenligt att adressera det specifika systemet, istället för den aggregerande tjänsten, i syfte att söka fram information om just den händelse som orsakade notifieringen.
+Följande flödesmodeller beskriver översiktligt hur tjänstekontrakten är tänkta att användas. Tjänstekonsument (K) och tjänsteproducenter (P) är markerade i figurerna.</p>
+
+<h3 id="flöden">Flöden</h3>
+<p>Nedanstående diagram visar hur flödet principiellt ser ut när information ur kontrakt i tjänstedomänen efterfrågas och hanteras.</p>
+
+<h4 id="hämta-observationer">Hämta observationer</h4>
+<p>Nedanstående diagram visar hur flödet ser ut när information om observationer hämtas.</p>
+
+<h5 id="arbetsflöde">Arbetsflöde</h5>
+
+<p><a name="l296">​</a><img src="images/img_001.png" alt="img_001.png"/>
+<em>Figur 1 Exempel: Adressering vid anrop till aggregerande tjänst från patienttjänst (exempelvis från Journalen).</em></p>
+
+<p><a name="l302">​</a><img src="images/img_006.png" alt="img_006.png"/>
+<em>Figur 2 Exempel: Adressering vid anrop till aggregerande vårdgivartjänst (exempelvis från Nationell patientöversikt).</em></p>
+
+<h5 id="sekvensdiagram-för-enkel-begäran">Sekvensdiagram för enkel begäran</h5>
+<p>Siffrorna i diagrammet nedan kopplar ihop begäran-svar för respektive meddelande.</p>
+
+<p><a name="l314">​</a><img src="images/img_004.png" alt="img_004.png"/>
+Figur 3 Sekvensdiagram över sökning efter information
+Aggregerade tjänster beskrivs i [R6].</p>
+
+<h5 id="roller">Roller</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">Det system som används för att konsumera information. Dvs det system som använder tjänster enligt ett tjänstekontrakt.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteplattform</td>
+      <td style="text-align: left">Tjänsteplattformen är det lager som hanterar virtuella tjänster, aggregerande tjänster samt anpassningstjänster.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aggregerande tjänst</td>
+      <td style="text-align: left">En aggregerande tjänst är en integrationstjänst som för en tjänstekonsument sammanställer en nationell vy av informationen av den typ som är aktuell för tjänsten i fråga. Är beroende av engagemangsindex för att begränsa sökningen till relevanta informationsägare.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Engagemangsindex</td>
+      <td style="text-align: left">En tjänst där det finns uppdaterade nationella index över vilka informationsägare som har information kring en viss invånare/patient.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Vårdinformationssystem 1 och 2</td>
+      <td style="text-align: left">Det system som i detta fall utgör källsystemet som vårdpersonal direkt registrerar/uppdaterar/raderar information i.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="beskrivning-av-samband">Beskrivning av samband</h4>
+<p>Kontrakt i tjänstedomänen har stöd för att peka ut samband mellan informationsmängder. Konceptet är till för att en tjänsteproducent skall kunna förmedla till en tjänstekonsument att det finns information att hämta som har ett samband till en tidigare läst informationsmängd. En aktivitet (blindtarmsoperation) kan exempelvis ha ett samband till en tidigare observation (blindtarmsinflammation). Sambandet är av en viss typ vilket i ovanstående exempel skulle kunna vara ”har orsak”.
+Ett samband anges med hjälp av typen ReferredInformationType där fältet type beskriver vilken informationstyp som är refererad och följer tabellen för engagemangsindex-kategori, enligt fältet ”categorization”, exempelvis chb-o för att referera till en annan observation. För att endast söka i den källa som lagrar den relaterade informationsmängden används det HSA-id som återfinns i observations/observationBody/relation/referredInformation/informationOwner/id som värde i sökparametern careGiverId och som logisk adress. I denna version är endast samband inom ett källsystem tillåtet.</p>
+
+<h5 id="exempel-på-samband">Exempel på samband</h5>
+<p>I detta exempel har en patient en tidigare satt diagnos (observation) K35.2 Akut appendicit med generaliserad peritonit. På grund av denna diagnos utförs en appendektomi (aktivitet). Vid ett senare tillfälle upptäcks att en MRSA-infektion har uppkommit i operationssåret (observation). Detta exempel tar inte hänsyn till nuvarande begränsning i kontraktet där referenser inte får korsa systemgränser.</p>
+
+<p><a name="l396">​</a><img src="images/img_002.png" alt="img_002.png"/>
+<em>Figur  Exempel observationskomplikation</em>
+För detaljerade beskrivningar av klasser och attribut ovan se Nationell Informationsstruktur [R5].
+Ifall dessa data lagras i olika system, så är förutsättningen, för anrops-flödet i nästa avsnitt att identiteter för orsakande diagnos respektive operation har förmedlats vidare till nästa system i behandlingskedjan.
+Ovanstående modell skulle kunna tänkas återspegla att en patient på en närakut får diagnosen Akut Appendicit och sänds med en akutremiss till det lokala sjukhuset. Via remissen förmedlas identiteten på den satta diagnosen i primärvårdssystemets journalsystem. När sedan operationen dokumenteras skapas ett explicit orsakssamband till den tidigare diagnosen. Tre veckor efter operationen kommer patienten tillbaka till primärvården för att operationssåret inte vill läka. Efter ett labbprov konstateras en MRSA-infektion. Läkaren använder, med patientens samtycke, möjligheten att söka i sammanhållen journal och hittar då den dokumenterade aktiviteten Appendektomi som utfördes på sjukhuset. Genom att skapa ett orsakssamband mellan MRSA-infektionen och ingreppet får den opererande verksamheten möjlighet att följa upp sina operationskomplikationer även om patienten inte kom direkt till dem med det uppkomna problemet.</p>
+
+<h5 id="sekvensdiagram">Sekvensdiagram</h5>
+<p>I detta exempel hämtas de operationstyper (aktiviteter) ut som man planerar följa upp. För att se vad orsaken var till operationer samt eventuella komplikationer hämtas sedan relaterade observationer före och efter operationen. Respektive händelse har dokumenterats i olika vårdsystem, men eftersom det finns engagemangsindexposter för observationstjänsten i både system 2 och 3 kommer båda dessa system tillfrågas två gånger i nedanstående sekvens (se 3.1.1.2 Sekvensdiagram för enkel begäran för detaljerad beskrivning av hur anrop sker i aggregerad tjänst).
+Nedan så har t ex system 2 kännedom om diagnosen, vilket redan har förmedlats till system 1 där operationen finns registrerad, inklusive dess orsak (med identitet enligt system 2). Slutligen så finns t ex i system 3 komplikationer noterade, vilka är relaterade till operationens identitet (enligt system 1).</p>
+
+<p><a name="l409">​</a><img src="images/img_007.png" alt="img_007.png"/>
+Figur 5 Sekvensdiagram för komplext flöde.</p>
+
+<h5 id="roller-1">Roller</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument / (för uppföljning)</td>
+      <td style="text-align: left">Det system som används för att konsumera information. D.v.s. det system som använder tjänster enligt ett tjänstekontrakt.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteplattform</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">(GetActivities &amp; GetObservations)</td>
+      <td style="text-align: left">Tjänsteplattformen är det lager som hanterar virtuella tjänster, aggregerande tjänster samt anpassningstjänster.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetActivities/Get Observations system</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1, 2, &amp; 3</td>
+      <td style="text-align: left">De system som i detta fall utgör källsystemet som vårdpersonal direkt registrerar/uppdaterar/raderar information i.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="adressering">Adressering</h3>
+<p>Tjänstedomänen tillämpar källsystemsadressering. Observera att tjänstekonsumenter främst anropar aggregerande tjänster. Tjänstekonsumenten adresserar därför den aggregerande tjänsten med antingen nationellt HSA-id (Ineras HSA-id) eller HSA-id för aktuell huvudman om det är en regional/huvudmanna-specifik (exempelvis ”regional”) aggregerande tjänst som ska adresseras.
+Det finns också fall då en tjänstekonsument adresserar ett källsystem direkt. Det förutsätter att tjänstekonsumenten känner till källsystemets HSA-id. Det sker exempelvis genom att ett sådant anrop föregås av ett anrop till en aggregerande tjänst (källsystemets HSA-id finns då i svarsmeddelandet) eller genom att tjänstekonsumenten är producent för Engagemangsindex notifieringskontrakt (ProcessNotification). Notifieringen innehåller information om en händelse rörande en patients information i ett specifikt källsystem. Genom att använda informationen om källsystemets HSA-id kan tjänstekonsumenten direktadressera källsystemet i syfte att hämta information om den händelse som just notifierats för patienten. Konsumenten kan även på andra sätt ha fått tillgång till källsystemets HSA-id, exempelvis via samband från tidigare uthämtad information.
+Adressering sker i enlighet med RIV Tekniska Anvisningar Översikt, Rev PD2, avsnitt 8.3, där mer information kan hittas.</p>
+
+<h4 id="sammanfattning-av-adresseringsmodell">Sammanfattning av adresseringsmodell</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Åtkomstbehov för patientens journalhistorik</th>
+      <th style="text-align: left">Logisk adress</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Nationellt</td>
+      <td style="text-align: left">Ineras HSA-id / QA: 5565594230 / Prod: 5565594230</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">För en huvudman/region</td>
+      <td style="text-align: left">Huvudmannens/regionens HSA-id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">För ett källsystem</td>
+      <td style="text-align: left">Källsystemets HSA-id</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="aggregering-och-engagemangsindex">Aggregering och engagemangsindex</h3>
+<p>Samtliga lästjänster i denna domän har en tillhörande aggregerande tjänst som kan sammanställa information från flera tjänsteproducenter.
+Aggregerande tjänster har samma tjänstekontrakt och anropsadress som en traditionell virtuell tjänst, men nås via olika logiska adresser.
+Om ett källsystemets HSA-id anges som logisk adress, kommer tjänsteplattformen att dirigera frågemeddelandet vidare direkt till källsystemet utan att passera en aggregerande tjänst.
+Om logisk adress HSA-id för Inera eller en huvudman kommer anropet att dirigeras till aggregerande tjänsten som i sin tur – efter att ha konsulterat engagemangsindex – vidarebefordrar frågan till de källsystem som har information om patienten.</p>
+
+<h3 id="interaktionsöverenskommelse-och-tillämpningsanvisning">Interaktionsöverenskommelse och tillämpningsanvisning</h3>
+
+<p><a name="l542">​</a><img src="images/img_005.png" alt="img_005.png"/>
+Tjänstekonsumenter och -producenter av information inom denna tjänstedomän kan inte enbart förlita sig på informationsspecifikation och tjänstekontraktsbeskrivning för att uppnå semantisk interoperabilitet. Skälet till detta är att kombinationen av typade samband och möjligheten att använda godtyckliga kodverk för att beskriva en viss klinisk händelse ger möjlighet att skapa detaljerade modeller byggda som sammansättningar av dessa tjänster.
+En interaktionsöverenskommelse utgör en överenskommelse om hur ett visst kliniskt scenario skall representeras med tjänsterna. Genom att deklarera konformitet till en eller flera interaktionsöverenskommelser kan en vårdgivare eller vårdenhet informera en tjänstekonsument om vilken typ av information som produceras via tjänstekontrakten. En interaktionsöverenskommelse kan exempelvis beskriva hur informationen om en längdmätning kommuniceras via tjänsten GetObservations.
+En tillämpningsanvisning beskriver hur olika tjänstekontrakt kan tillämpas för att uppnå ett specifikt resultat som förutsätter att ett eller flera tjänstekontrakt används. Det kan t.ex. gälla att beskriva hur information hämtas för att en Förlossningsöversikt (”förlossningsjournal”) ska kunna sammanställas. Eftersom användningen av tjänstekontrakten i denna domän förutsätter att tjänstekontraktspecifika interaktionsöverenskommelser upprättas, behöver i dessa fall även relevanta interaktionsöverenskommelser refereras i en tillämpsningsanvisning där något av dessa kontrakt tillämpas.
+Åtkomstkontroll vid medarbetares direktåtkomst
+När en medarbetare inom hälso- och sjukvård vill ta del av information om en viss patient, t.ex. inom sammanhållen journalföring i NPÖ, behöver tjänstekonsumenten kontrollera om användaren har behörighet att ta del av informationen. För att kunna utföra åtkomstkontroll krävs det att det finns en mappning mellan interaktionsöverenskommelserna och en informationstyp i kodverket HSA Medarbetaruppdrag rättigheter som konsumenten ska använda sig av. Om informationen som hämtas via ex. GetObservations rör labbsvar, görs åtkomstkontrollen baserat på informationstypen för undersökningsresultat. Om observationer hämtas i syfte att sammanställa tillväxtinformation, behöver en motsvarande informationstyp finnas definierad och tillämpas vid åtkomstkontroll.</p>
+
+
+
+
+</div>
+        </div>    <!-- /inner-wrapper -->
+      </div>    <!-- /row -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-content -->
+
+  <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script src="assets/js/jquery-ui.min.js" type="text/javascript"> </script>
+
+  <script src="assets/js/window-hash.js" type="text/javascript"> </script>
+  <a name="bottom"> </a>
+  <div igtool="footer" id="segment-footer" class="segment">    <!-- segment-footer -->
+    <div class="container">    <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &copy; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.clinicalprocess-healthcond-basic#2.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 9, 2026 16:45+0000">2026-09-09</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>    <!-- /inner-wrapper -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">    <!-- segment-post-footer -->
+    <div class="container">    <!-- container -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-post-footer -->
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+  <script src="assets/js/respond.min.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard-btn.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor-hover.js" type="text/javascript"> </script>
+    <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>

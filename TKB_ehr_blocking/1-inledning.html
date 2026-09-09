@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>1 Inledning - ehr: blocking — Spärrhantering v3.2.2</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"2"}
+    h3,h4,h5,h6{--heading-prefix:"2"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">ehr: blocking — Spärrhantering</span>
+            <br/>
+            <span style="display:inline-block;">3.2.2 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-generella-regler.html">2 Generella regler</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>1 Inledning</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">ehr: blocking — Spärrhantering - Local Development build (v3.2.2) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/ehr-blocking/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>1 Inledning</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#inledning" id="markdown-toc-inledning">Inledning</a>    <ul>
+      <li><a href="#svenskt-namn" id="markdown-toc-svenskt-namn">Svenskt namn</a></li>
+      <li><a href="#web-beskrivning" id="markdown-toc-web-beskrivning">WEB beskrivning</a></li>
+      <li><a href="#om-dokumentet" id="markdown-toc-om-dokumentet">Om dokumentet</a></li>
+      <li><a href="#målgrupp" id="markdown-toc-målgrupp">Målgrupp</a></li>
+      <li><a href="#allmänt" id="markdown-toc-allmänt">Allmänt</a></li>
+      <li><a href="#skillnader-mellan-versioner" id="markdown-toc-skillnader-mellan-versioner">Skillnader mellan versioner</a></li>
+      <li><a href="#tjänsteöversikt" id="markdown-toc-tjänsteöversikt">Tjänsteöversikt</a></li>
+      <li><a href="#referenser" id="markdown-toc-referenser">Referenser</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="inledning">Inledning</h2>
+
+<h3 id="svenskt-namn">Svenskt namn</h3>
+<p>infrastruktur:säkerhetstjänster:spärrhantering
+spärrhantering</p>
+
+<h3 id="web-beskrivning">WEB beskrivning</h3>
+<p>Spärrhantering registrerar spärrar och kontrollerar om en patient har spärrat tillgång till patientinformation från IT-system inom och mellan vårdgivare.
+Tjänstekontrakten för Spärrhantering gör det möjligt för vårdpersonal att genom sina egna vårdsystem registrera lokala spärrar. Tjänstekontrakten gör det också möjligt att replikera de lokala spärrarna till den nationella spärrtjänsten. Detta är nödvändigt för att lokalt spärrad information även ska vara spärrad i nationella tjänster som har åtkomst till patientinformation, till exempel NPÖ.</p>
+
+<h3 id="om-dokumentet">Om dokumentet</h3>
+<p>Detta är beskrivningen av tjänstekontrakten i tjänstedomänen urn:riv:ehr:blocking (huvuddomän Electronic Health Record underdomän Blocking). Den svenska benämningen är tjänstekontrakt för ”Spärr”.
+Tjänstedomänens omfattning är spärrhantering för vårdgivare som har behov av att registrera spärr av uppgifter på patientens begäran enligt Patientdatalagens regleringar samt att utföra kontroll mot spärr i vårdsystemen.
+Den kravställande processen är att tillse att vårdgivarna inom svensk hälso- och sjukvård får verktyg att uppfylla Patientdatalagen och Socialstyrelsens föreskrifter (SOSFS 2008:14 med handbok) gällande patientens rättighet att begära spärr på sina uppgifter.
+Tjänstekontrakten för Spärr syftar till att stödja informationshanteringen både inom det inre sekretessområdet (inom vårdgivarens verksamhet) och vid sammanhållen journalföring.
+En utgångspunkt för tjänstedomänen Spärr är uppdraget Patientdatalagen i Praktiken (PDLiP) , CeHis, som syftat till att skapa förutsättningar för en nationell samsyn av tolkning och tillämpning av patientdatalagen.
+Arbetet har resulterat i rapporter samt RIV-specifikation för PDLiP [RIV PDLiP].
+Ett bakomliggande kravarbete specifikt kring spärrhantering har dessutom bedrivits av Inera på uppdrag av CeHis med representanter från SLL, Sörmland, Örebro, VGR, Östergötland. Parterna har representerats av sakkunniga inom områdena juridik, verksamhet och teknik.</p>
+
+<h3 id="målgrupp">Målgrupp</h3>
+<p>Dokumentet vänder sig till arkitekter och systemintegratörer/utvecklare i behov av att ta fram lösningar för spärrhantering lokalt såväl som nationellt.
+Det typiska behovet är att från e-tjänst/vårdsystem ansluta sig mot befintliga tjänster för spärr för att hantera PDLs krav. Tjänstekontrakten kan även ligga till grund för konstruktion av en implementation av en lokal spärrtjänst.</p>
+
+<h3 id="allmänt">Allmänt</h3>
+<p>Den nationella arkitekturen för spärrhantering är utformad för att vårdgivarnas behov att hantera spärr för lokala/regionala vårdsystem såväl som för motsvarande behov i nationella e-hälsotjänster. Noteras kan att spärrhantering krävs även om vårdsystem enbart hanterar vårdgivarens inre sekretessområde.
+Arkitekturen ska medge att vårdgivare, landsting/kommuner och regioner ska på ett flexibelt sätt kunna hantera sina "egna" spärrar och inte göra sig beroende av en enda nationell tjänst, både vad gäller tillgänglighet och vad gäller anpassning till sina lokala förutsättningar i form av befintliga vårdsystem, portaler och motsvarande.
+Spärrar hanteras därför på två nivåer:
+på lokal nivå för en eller flera vårdgivare hanteras (registreras, hävs etc) spärrar i en s k lokal spärrtjänst.
+på nationell nivå samlas kopior med grundläggande data om alla spärrar i nationell spärrtjänst genom replikering från de lokala tjänsterna.
+Spärrinformation både på lokalt och nationellt plan utbyts genom tydliga tjänstekontrakt. Bilden nedan illustrerar hur olika vårdsystem integrerar sig med de olika spärrtjänsterna samt hur spärrtjänsterna samverkar med varandra.
+Arkitekturen och tjänstekontrakten medger att lokala / regionala vårdsystem kan ansluta till en lokal spärrtjänst. Denna lokala spärrtjänst är master för de spärrar som vårdgivaren registrerar för patientens räkning. Det innnebär att man blir "självförsörjande" på det lokala planet genom den lokala spärrtjänsten för behoven att hantera och kontrollera spärr.
+Den nationella spärrtjänsten har till uppgift att tillhandahålla ett spärrunderlag för de e-hälsotjänster som opererar på det nationella planet; det är e-tjänster som t ex Nationell Patientöversikt där information samlas från många olika vårdgivare över landstings- och regiongränser. Dessa tjänster måste göra kontroll mot patientens samlade spärrar oavsett var dessa har registrerats.
+Det sker ingen direkt administration av spärrar i den nationella spärrtjänsten, enbart kopior av spärrarna tas emot från den lokala spärrtjänsten.
+Av ovan följer att en implementation av Lokal Spärrtjänst även måste ansluta mot det nationella tjänstekontraktet, så att bilden av patientens spärrar blir komplett i nationell nod (undantag från detta skulle vara om vårdgivaren helt står utanför att leverera patientuppgifter till nationella e-tjänster).
+Den nationella tjänsten utgörs logiskt sett av en enda, central instans, medan de lokala tjänsterna naturligt kan finnas i flera instanser, hos olika huvudmän. Notera dock att inget hindrar att lokal spärrtjänst driftas som en "tjänst på nätet" och att flera vårdgivare/huvudmän kan dela på gemensamma installationer ("spärrhotell"), så länge deras hantering av spärrar hålls skild åt i tjänsten.
+Lokala spärrtjänster hanterar ett utökat format för spärrar där metadata såsom aktörsinformation, registreringsdatum, m.m. lagras. Den nationella spärrtjänsten lagrar endast den grundläggande spärrinformation som behövs för att kunna utföra spärrkontroll, alltså en delmängd av den utökade spärrinformationen.</p>
+
+<h3 id="skillnader-mellan-versioner">Skillnader mellan versioner</h3>
+<p>Version 3.2.2 (2017-01-24)
+Tagit bort implementationsspecifik information kring vilka tjänstekontrakt som kan installeras lokalt respektive nationellt.
+Version 3.2.1 (2015-04-09)
+Uppdaterat att operationen GetAllBlocks kan implementeras lokalt. Uppdaterat kapitel om Logisk adressering.
+Version 3.2 (2014-09-29)
+Uppdaterat att operationen GetAllBlocksForPatient kan implementeras lokalt. Uppdaterat kapitel om Logisk adressering.
+Version 3.1 (2014-03-19)
+Ändrad logisk adressat för operationerna RegisterBlock, UnregisterBlock, RegisterTemporaryRevoke och UnregisterTemporaryRevoke till Ineras nationella HSA-id.
+Version 3.0.1 (2014-03-03)
+Dokumentets namn ändrat enligt nya riktlinjer.
+Version 3.0 (2013-06-17)
+Tjänsten CheckBlocks är uppdaterad i denna version av tjänstekontraktet till version 3. I tidigare versioner kunde en felaktig informationsresurs inte urskiljas från de övriga vilket gjorde att tjänsten returnerade felkoden VALIDATIONERROR för hela anropet. I denna version av tjänstekontraktet valideras informationsresurserna separat från varandra och kan var och en ge VALIDATIONERROR om de på något sätt är felaktiga.
+Bättre förklaring av informationstyper. Tjänsten CheckBlocks kan nu anropas med valfri informationstyp, inklusive inget/tomt värde.
+Vissa datatyper är dubblerade för att åtskilja dessa mellan version 2 och 3 av tjänstekontraktet.
+Version 2.0 (2012-11-20)
+Nya webbtjänstekontrakt enligt RIV TA 2.1
+Parameter revokedForEmployeeId i tjänsten RegisterTemporaryExtendedRevoke är ändrad till optionell.
+Referenser till WS-Addressing borttaget
+Version 1.0 (2011-11-04)
+Första utgåva av TKB
+Webbtjänstekontrakt enligt RIV TA 2.0
+Detta dokument ersätter tidigare versioner av dokumentet.</p>
+
+<h3 id="tjänsteöversikt">Tjänsteöversikt</h3>
+<p>Nedanstående tabell visar vilka tjänster som finns definierade.
+Den extra underdomänen beskriver vilket tjänsteområde/ namnrymd tjänsten tillhör. Följande underdomäner är definierade:
+querying 	- tjänstekontrakt för att hämta spärrar för spärrkontroll (lokal och nationell nivå)
+accesscontrol 	- tjänstekontrakt för spärrkontroll (lokal och nationell nivå)
+synchronization 	- tjänstekontrakt för replikering av spärrar till nationell spärrtjänst (nationell nivå)
+administration 	- tjänstekontrakt för spärradministration (lokal nivå)</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Tjänst</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Underdomän</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">GetAllBlocks</td>
+      <td style="text-align: left">Läs spärrar för alla</td>
+      <td style="text-align: left">querying</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetAllBlocksForPatient</td>
+      <td style="text-align: left">Läs spärrar för patient</td>
+      <td style="text-align: left">querying</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetBlocks</td>
+      <td style="text-align: left">Läs alla spärrar för vårdgivare</td>
+      <td style="text-align: left">querying</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetBlocksForPatient</td>
+      <td style="text-align: left">Läs spärrar för patient och vårdgivare</td>
+      <td style="text-align: left">querying</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetPatientIds</td>
+      <td style="text-align: left">Läs patienter för vårdgivare</td>
+      <td style="text-align: left">querying</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CheckBlocks</td>
+      <td style="text-align: left">Kontrollera om spärr finns relativ viss personal/vårdenhet och information</td>
+      <td style="text-align: left">accesscontrol</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RegisterBlock</td>
+      <td style="text-align: left">Registrera spärr</td>
+      <td style="text-align: left">synchronization</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UnregisterBlock</td>
+      <td style="text-align: left">Avregistrera spärr</td>
+      <td style="text-align: left">synchronization</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RegisterTemporaryRevoke</td>
+      <td style="text-align: left">Registrera tillfällig hävning</td>
+      <td style="text-align: left">synchronization</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UnregisterTemporaryRevoke</td>
+      <td style="text-align: left">Avregistrera tillfällig hävning</td>
+      <td style="text-align: left">synchronization</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetExtendedBlocksForPatient</td>
+      <td style="text-align: left">Läs spärrar för patient, med utökad information</td>
+      <td style="text-align: left">administration</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RegisterExtendedBlock</td>
+      <td style="text-align: left">Registrera spärr, med utökad information</td>
+      <td style="text-align: left">administration</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RevokeExtendedBlock</td>
+      <td style="text-align: left">Häv spärr permanent, med utökad information</td>
+      <td style="text-align: left">administration</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RegisterTemporaryExtendedRevoke</td>
+      <td style="text-align: left">Häv spärr tillfälligt, med utökad information</td>
+      <td style="text-align: left">administration</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CancelTemporaryExtendedRevoke</td>
+      <td style="text-align: left">Återkalla tillfällig hävning, med utökad information</td>
+      <td style="text-align: left">administration</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DeleteExtendedBlock</td>
+      <td style="text-align: left">Makulera spärr, med utökad information</td>
+      <td style="text-align: left">administration</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="referenser">Referenser</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Beteckning</th>
+      <th style="text-align: left">Dokument / Källa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">RIV PDLiP</td>
+      <td style="text-align: left">RIV Specifikation Patientdatalagen i Praktiken, 1.0, CeHis, www.cehis.se</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PDL</td>
+      <td style="text-align: left">Patientdatalag (2008:355), http://www.regeringen.se/sb/d/6150/a/71234</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SOS2008:14</td>
+      <td style="text-align: left">SOSFS 2008:14 föreskrifter samt handbok http://www.sos.se/sosfs</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RIVAnvisning Tjänstebeskrivning</td>
+      <td style="text-align: left">RIV_21_Anvisning_Bilaga_51_Tjanstekontraktbeskrivning_Regelverk_110220</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RIV TA 2</td>
+      <td style="text-align: left">RIV Teknisk Anvisning Basic Profile 2.1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">http://rivta.googlecode.com/svn/wiki/specs/RIV_Tekniska_Anvisningar_Basic_profile_2.1.pdf</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.ehr-blocking#3.2.2 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Wed, Sep 9, 2026 16:51+0000">2026-09-09</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

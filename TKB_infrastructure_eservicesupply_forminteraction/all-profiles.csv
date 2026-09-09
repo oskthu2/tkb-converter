@@ -1,0 +1,623 @@
+"Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"cancelform-request","cancelform-request","cancelform-request","","","",0,*,"","","","null {[]} {[]}
+","CancelForm — Request","Logisk modell för requestparametrar i CancelForm.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"cancelform-request","cancelform-request.formID","cancelform-request.formID","","","",1,1,"","","","Identifier {[]} {[]}
+","Formulär-id","Formulärets unika id.","","","","","","","","","",,,,,"",,,,"cancelform-request.formID",1,1,"",""
+"cancelform-request","cancelform-request.subjectOfCare","cancelform-request.subjectOfCare","","","",0,1,"","","","Identifier {[]} {[]}
+","Personnummer","Starkt autentiserad användares personnummer.","","","","","","","","","",,,,,"",,,,"cancelform-request.subjectOfCare",0,1,"",""
+"cancelform","cancelform","cancelform","","","",0,*,"","","","null {[]} {[]}
+","CancelForm","Logisk modell för tjänstekontraktet CancelForm
+(RIV-TA urn:riv:infrastructure:eservicesupply:forminteraction:CancelForm:2).
+Representerar responsens informationsstruktur — signalerar om avbrytningen lyckades.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"cancelform","cancelform.resultCode","cancelform.resultCode","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Resultatkod","Objekt för att signalera status på operationen.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/resultcode-vs","",,,,"cancelform.resultCode",1,1,"",""
+"cancelform","cancelform.comment","cancelform.comment","","","",0,1,"","","","string {[]} {[]}
+","Kommentar","Attribut för felsignalering. Skall kunna visas för slutanvändaren.","","","","","","","","","",,,,,"",,,,"cancelform.comment",0,1,"",""
+"createform-request","createform-request","createform-request","","","",0,*,"","","","null {[]} {[]}
+","CreateForm — Request","Logisk modell för requestparametrar i CreateForm.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"createform-request","createform-request.healthcare-Facility-CareUnit","createform-request.healthcare_Facility_CareUnit","","","",1,1,"","","","Identifier {[]} {[]}
+","Vårdenhetens HSA-id","Hsa-Id (Vårdenhet/enhets-id). T.ex. se2321000016-1hz3.","","","","","","","","","",,,,,"",,,,"createform-request.healthcare_Facility_CareUnit",1,1,"",""
+"createform-request","createform-request.subjectOfCare","createform-request.subjectOfCare","","","",0,1,"","","","Identifier {[]} {[]}
+","Personnummer","Starkt autentiserad användares personnummer. Tomt fält indikerar anonym användare.","","","","","","","","","",,,,,"",,,,"createform-request.subjectOfCare",0,1,"",""
+"createform-request","createform-request.templateId","createform-request.templateId","","","",1,1,"","","","string {[]} {[]}
+","Mall-id","Mallid för den formulärmall som skall användas.","","","","","","","","","",,,,,"",,,,"createform-request.templateId",1,1,"",""
+"createform-request","createform-request.templateVersion","createform-request.templateVersion","","","",0,1,"","","","integer {[]} {[]}
+","Mallversion","Mallens version. Utelämnas används den senaste versionen.","","","","","","","","","",,,,,"",,,,"createform-request.templateVersion",0,1,"",""
+"createform-request","createform-request.clinicalProcessInterestId","createform-request.clinicalProcessInterestId","","","",0,1,"","","","Identifier {[]} {[]}
+","Hälsoärende-id","Indikerar att formuläret ingår i ett hälsoärende.","","","","","","","","","",,,,,"",,,,"createform-request.clinicalProcessInterestId",0,1,"",""
+"createform-request","createform-request.actor","createform-request.actor","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Aktör","Aktör som skapar formuläret — invånaren själv, vårdnadshavare eller vårdpersonal.","","","","","","","","","",,,,,"",,,,"createform-request.actor",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"createform-request","createform-request.actor.id","createform-request.actor.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"createform-request","createform-request.actor.extension","createform-request.actor.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"createform-request","createform-request.actor.modifierExtension","createform-request.actor.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"createform-request","createform-request.actor.actorType","createform-request.actor.actorType","","","",1,1,"","","","string {[]} {[]}
+","Aktörstyp","Typ av aktör.","","","","","","","","","",,,,,"",,,,"createform-request.actor.actorType",1,1,"",""
+"createform-request","createform-request.actor.actorId","createform-request.actor.actorId","","","",0,1,"","","","Identifier {[]} {[]}
+","Aktörs-id","Identifierare för aktören.","","","","","","","","","",,,,,"",,,,"createform-request.actor.actorId",0,1,"",""
+"createform","createform","createform","","","",0,*,"","","","null {[]} {[]}
+","CreateForm","Logisk modell för tjänstekontraktet CreateForm
+(RIV-TA urn:riv:infrastructure:eservicesupply:forminteraction:CreateForm:2).
+Representerar responsens informationsstruktur — returnerar ett skapat och initierat formulär.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"createform","createform.form","createform.form","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Formulär (FormType)","Skapat formulär med grundläggande information och egenskaper.","","","","","","","","","",,,,,"",,,,"createform.form",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"createform","createform.form.id","createform.form.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"createform","createform.form.extension","createform.form.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"createform","createform.form.modifierExtension","createform.form.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"createform","createform.form.healthcare-CareGiver","createform.form.healthcare_CareGiver","","","",0,1,"","","","Identifier {[]} {[]}
+","Enhets-id vårdgivare","Ansvarig vårdgivare (huvudman). HSA-id.","","","","","","","","","",,,,,"",,,,"createform.form.healthcare_CareGiver",0,1,"",""
+"createform","createform.form.healthcare-MedUnit","createform.form.healthcare_MedUnit","","","",0,1,"","","","Identifier {[]} {[]}
+","Enhets-id medicinskt ansvarig","Medicinsk ansvarig klinik/vårdcentral. HSA-id.","","","","","","","","","",,,,,"",,,,"createform.form.healthcare_MedUnit",0,1,"",""
+"createform","createform.form.healthcare-facility-CareUnit","createform.form.healthcare_facility_CareUnit","","","",1,1,"","","","Identifier {[]} {[]}
+","Enhets-id vårdenhet","Vårdenheten som tillhandahåller formuläret. HSA-id.","","","","","","","","","",,,,,"",,,,"createform.form.healthcare_facility_CareUnit",1,1,"",""
+"createform","createform.form.healthcare-facility-CareUnitName","createform.form.healthcare_facility_CareUnitName","","","",1,1,"","","","string {[]} {[]}
+","Enhetsnamn","Vårdenhetens namn.","","","","","","","","","",,,,,"",,,,"createform.form.healthcare_facility_CareUnitName",1,1,"",""
+"createform","createform.form.healthcare-systemID","createform.form.healthcare_systemID","","","",0,1,"","","","Identifier {[]} {[]}
+","System-id","Id för att identifiera mottagande system. HSA-id.","","","","","","","","","",,,,,"",,,,"createform.form.healthcare_systemID",0,1,"",""
+"createform","createform.form.clinicalProcessInterestId","createform.form.clinicalProcessInterestId","","","",0,1,"","","","Identifier {[]} {[]}
+","Hälsoärende-id","Globalt/nationellt hälsoärende ID.","","","","","","","","","",,,,,"",,,,"createform.form.clinicalProcessInterestId",0,1,"",""
+"createform","createform.form.formStatus","createform.form.formStatus","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Formulärstatus","Formulärets status.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/formstatus-vs","",,,,"createform.form.formStatus",1,1,"",""
+"createform","createform.form.formText","createform.form.formText","","","",0,1,"","","","string {[]} {[]}
+","Formulärtext","Unik text för formuläret, t.ex. 'Hälsoundersökning inför besök X'.","","","","","","","","","",,,,,"",,,,"createform.form.formText",0,1,"",""
+"createform","createform.form.formID","createform.form.formID","","","",1,1,"","","","Identifier {[]} {[]}
+","Formulär-id","Formulärets unika ID (GUID). Sätts av formulärmotorn.","","","","","","","","","",,,,,"",,,,"createform.form.formID",1,1,"",""
+"createform","createform.form.subjectOfCare","createform.form.subjectOfCare","","","",1,1,"","","","Identifier {[]} {[]}
+","Patient-id","Patienten formuläret avser. Personnummer format yyyymmddnnnn.","","","","","","","","","",,,,,"",,,,"createform.form.subjectOfCare",1,1,"",""
+"createform","createform.form.expireDate","createform.form.expireDate","","","",0,1,"","","","date {[]} {[]}
+","Giltighetsdatum","Formulärets giltighetstid. Datum (ÅÅÅÅMMDD).","","","","","","","","","",,,,,"",,,,"createform.form.expireDate",0,1,"",""
+"createform","createform.form.createdDateTime","createform.form.createdDateTime","","","",1,1,"","","","dateTime {[]} {[]}
+","Skapandedatum","Datum när användaren/patienten skapade formuläret.","","","","","","","","","",,,,,"",,,,"createform.form.createdDateTime",1,1,"",""
+"createform","createform.form.lastSavedDate","createform.form.lastSavedDate","","","",0,1,"","","","dateTime {[]} {[]}
+","Senaste sparningsdatum","Datum för senaste temporärsparning.","","","","","","","","","",,,,,"",,,,"createform.form.lastSavedDate",0,1,"",""
+"createform","createform.form.keepUntil","createform.form.keepUntil","","","",0,1,"","","","date {[]} {[]}
+","Bevaras till","Datum för hur länge formuläret skall lagras. Tomt indikerar tillsvidare.","","","","","","","","","",,,,,"",,,,"createform.form.keepUntil",0,1,"",""
+"createform","createform.form.formTemplate","createform.form.formTemplate","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Formulärmall","Koppling till formulärmallen.","","","","","","","","","",,,,,"",,,,"createform.form.formTemplate",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"createform","createform.form.formTemplate.id","createform.form.formTemplate.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"createform","createform.form.formTemplate.extension","createform.form.formTemplate.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"createform","createform.form.formTemplate.modifierExtension","createform.form.formTemplate.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"createform","createform.form.formTemplate.templateId","createform.form.formTemplate.templateId","","","",1,1,"","","","string {[]} {[]}
+","Mall-id","Typ av formulär.","","","","","","","","","",,,,,"",,,,"createform.form.formTemplate.templateId",1,1,"",""
+"createform","createform.form.formTemplate.templateVersion","createform.form.formTemplate.templateVersion","","","",1,1,"","","","integer {[]} {[]}
+","Mallens version","Versionsnummer.","","","","","","","","","",,,,,"",,,,"createform.form.formTemplate.templateVersion",1,1,"",""
+"createformrequest-request","createformrequest-request","createformrequest-request","","","",0,*,"","","","null {[]} {[]}
+","CreateFormRequest — Request","Logisk modell för requestparametrar i CreateFormRequest.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"createformrequest-request","createformrequest-request.formRequests","createformrequest-request.formRequests","","","",1,*,"","","","BackboneElement {[]} {[]}
+","Formulärbegäran (FormRequestType)","Lista med formulärbegäran att skapa.","","","","","","","","","",,,,,"",,,,"createformrequest-request.formRequests",1,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"createformrequest-request","createformrequest-request.formRequests.id","createformrequest-request.formRequests.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"createformrequest-request","createformrequest-request.formRequests.extension","createformrequest-request.formRequests.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"createformrequest-request","createformrequest-request.formRequests.modifierExtension","createformrequest-request.formRequests.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"createformrequest-request","createformrequest-request.formRequests.healthcare-CareGiver","createformrequest-request.formRequests.healthcare_CareGiver","","","",0,1,"","","","Identifier {[]} {[]}
+","Vårdenhetens HSA-id (vårdgivare)","Hsa-id vårdgivare (informationsägare).","","","","","","","","","",,,,,"",,,,"createformrequest-request.formRequests.healthcare_CareGiver",0,1,"",""
+"createformrequest-request","createformrequest-request.formRequests.healthcare-MedUnit","createformrequest-request.formRequests.healthcare_MedUnit","","","",0,1,"","","","Identifier {[]} {[]}
+","Medicinsk ansvarig enhet","Hsa-id medicinskt ansvarig (informationsägare).","","","","","","","","","",,,,,"",,,,"createformrequest-request.formRequests.healthcare_MedUnit",0,1,"",""
+"createformrequest-request","createformrequest-request.formRequests.healthcare-Facility-CareUnit","createformrequest-request.formRequests.healthcare_Facility_CareUnit","","","",1,1,"","","","Identifier {[]} {[]}
+","Vårdenhetens HSA-id","Hsa-id vårdenhet (informationsägare).","","","","","","","","","",,,,,"",,,,"createformrequest-request.formRequests.healthcare_Facility_CareUnit",1,1,"",""
+"createformrequest-request","createformrequest-request.formRequests.healthcare-systemID","createformrequest-request.formRequests.healthcare_systemID","","","",0,1,"","","","Identifier {[]} {[]}
+","System-id","Hsa-id vårdsystem.","","","","","","","","","",,,,,"",,,,"createformrequest-request.formRequests.healthcare_systemID",0,1,"",""
+"createformrequest-request","createformrequest-request.formRequests.subjectOfCare","createformrequest-request.formRequests.subjectOfCare","","","",0,1,"","","","Identifier {[]} {[]}
+","Personnummer","Personnummer patient/invånare. Utelämnas hanteras formulär som anonymt.","","","","","","","","","",,,,,"",,,,"createformrequest-request.formRequests.subjectOfCare",0,1,"",""
+"createformrequest-request","createformrequest-request.formRequests.templateId","createformrequest-request.formRequests.templateId","","","",1,1,"","","","string {[]} {[]}
+","Formulärmall-id","Formulärmall id.","","","","","","","","","",,,,,"",,,,"createformrequest-request.formRequests.templateId",1,1,"",""
+"createformrequest-request","createformrequest-request.formRequests.templateVersion","createformrequest-request.formRequests.templateVersion","","","",0,1,"","","","integer {[]} {[]}
+","Mallversion","Formulärmall version.","","","","","","","","","",,,,,"",,,,"createformrequest-request.formRequests.templateVersion",0,1,"",""
+"createformrequest-request","createformrequest-request.formRequests.clinicalProcessInterestId","createformrequest-request.formRequests.clinicalProcessInterestId","","","",0,1,"","","","Identifier {[]} {[]}
+","Hälsoärende-id","Hälsoärende id.","","","","","","","","","",,,,,"",,,,"createformrequest-request.formRequests.clinicalProcessInterestId",0,1,"",""
+"createformrequest-request","createformrequest-request.formRequests.formText","createformrequest-request.formRequests.formText","","","",0,1,"","","","string {[]} {[]}
+","Formulärtext","Formulärtext för formulärbegäran.","","","","","","","","","",,,,,"",,,,"createformrequest-request.formRequests.formText",0,1,"",""
+"createformrequest-request","createformrequest-request.formRequests.expireDate","createformrequest-request.formRequests.expireDate","","","",1,1,"","","","string {[]} {[]}
+","Utgångsdatum","Datum för att reglera hur länge patient/invånaren kan besvara formulär.","","","","","","","","","",,,,,"",,,,"createformrequest-request.formRequests.expireDate",1,1,"",""
+"createformrequest-request","createformrequest-request.formRequests.keepUntil","createformrequest-request.formRequests.keepUntil","","","",1,1,"","","","string {[]} {[]}
+","Bevaras till","Datum för hur länge formulär lagras innan gallring/arkivering. Tomt indikerar tillsvidare.","","","","","","","","","",,,,,"",,,,"createformrequest-request.formRequests.keepUntil",1,1,"",""
+"createformrequest","createformrequest","createformrequest","","","",0,*,"","","","null {[]} {[]}
+","CreateFormRequest","Logisk modell för tjänstekontraktet CreateFormRequest
+(RIV-TA urn:riv:infrastructure:eservicesupply:forminteraction:CreateFormRequest:2).
+Representerar responsens informationsstruktur — returnerar skapade formulärbegärans unika id:n.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"createformrequest","createformrequest.formRequestResponses","createformrequest.formRequestResponses","","","",0,*,"","","","BackboneElement {[]} {[]}
+","Formulärbegäranssvar (FormRequestResponseType)","Lista med svar per formulärbegäran.","","","","","","","","","",,,,,"",,,,"createformrequest.formRequestResponses",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"createformrequest","createformrequest.formRequestResponses.id","createformrequest.formRequestResponses.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"createformrequest","createformrequest.formRequestResponses.extension","createformrequest.formRequestResponses.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"createformrequest","createformrequest.formRequestResponses.modifierExtension","createformrequest.formRequestResponses.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"createformrequest","createformrequest.formRequestResponses.clinicalProcessInterestId","createformrequest.formRequestResponses.clinicalProcessInterestId","","","",0,1,"","","","Identifier {[]} {[]}
+","Hälsoärende-id","Hälsoärende id.","","","","","","","","","",,,,,"",,,,"createformrequest.formRequestResponses.clinicalProcessInterestId",0,1,"",""
+"createformrequest","createformrequest.formRequestResponses.formId","createformrequest.formRequestResponses.formId","","","",1,1,"","","","Identifier {[]} {[]}
+","Formulär-id","Det skapade formulärets unika id, sätts av producenten.","","","","","","","","","",,,,,"",,,,"createformrequest.formRequestResponses.formId",1,1,"",""
+"createformrequest","createformrequest.formRequestResponses.healthcare-Facility-CareUnit","createformrequest.formRequestResponses.healthcare_Facility_CareUnit","","","",1,1,"","","","Identifier {[]} {[]}
+","Vårdenhetens HSA-id","Hsa-id vårdenhet (informationsägare).","","","","","","","","","",,,,,"",,,,"createformrequest.formRequestResponses.healthcare_Facility_CareUnit",1,1,"",""
+"createformrequest","createformrequest.formRequestResponses.subjectOfCare","createformrequest.formRequestResponses.subjectOfCare","","","",0,1,"","","","Identifier {[]} {[]}
+","Personnummer","Personnummer patient/invånare.","","","","","","","","","",,,,,"",,,,"createformrequest.formRequestResponses.subjectOfCare",0,1,"",""
+"createformrequest","createformrequest.comment","createformrequest.comment","","","",0,1,"","","","string {[]} {[]}
+","Kommentar","Attribut för felsignalering. Skall kunna visas för slutanvändaren.","","","","","","","","","",,,,,"",,,,"createformrequest.comment",0,1,"",""
+"createformrequest","createformrequest.resultCode","createformrequest.resultCode","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Resultatkod","Möjliga värden: OK, INFO, ERROR.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/resultcode-vs","",,,,"createformrequest.resultCode",1,1,"",""
+"getform-request","getform-request","getform-request","","","",0,*,"","","","null {[]} {[]}
+","GetForm — Request","Logisk modell för requestparametrar i GetForm.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getform-request","getform-request.formID","getform-request.formID","","","",1,1,"","","","Identifier {[]} {[]}
+","Formulär-id","Ett unikt id (GUID) för ett formulär.","","","","","","","","","",,,,,"",,,,"getform-request.formID",1,1,"",""
+"getform-request","getform-request.subjectOfCare","getform-request.subjectOfCare","","","",0,1,"","","","Identifier {[]} {[]}
+","Personnummer","Starkt autentiserad användares personnummer.","","","","","","","","","",,,,,"",,,,"getform-request.subjectOfCare",0,1,"",""
+"getform","getform","getform","","","",0,*,"","","","null {[]} {[]}
+","GetForm","Logisk modell för tjänstekontraktet GetForm
+(RIV-TA urn:riv:infrastructure:eservicesupply:forminteraction:GetForm:2).
+Representerar responsens informationsstruktur — returnerar ett specifikt formulär med aktuell sida.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getform","getform.form","getform.form","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Formulär (FormType)","Det begärda formuläret inklusive aktuell sida.","","","","","","","","","",,,,,"",,,,"getform.form",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getform","getform.form.id","getform.form.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getform","getform.form.extension","getform.form.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getform","getform.form.modifierExtension","getform.form.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getform","getform.form.healthcare-CareGiver","getform.form.healthcare_CareGiver","","","",0,1,"","","","Identifier {[]} {[]}
+","Enhets-id vårdgivare","Ansvarig vårdgivare. HSA-id.","","","","","","","","","",,,,,"",,,,"getform.form.healthcare_CareGiver",0,1,"",""
+"getform","getform.form.healthcare-MedUnit","getform.form.healthcare_MedUnit","","","",0,1,"","","","Identifier {[]} {[]}
+","Enhets-id medicinskt ansvarig","Medicinsk ansvarig klinik. HSA-id.","","","","","","","","","",,,,,"",,,,"getform.form.healthcare_MedUnit",0,1,"",""
+"getform","getform.form.healthcare-facility-CareUnit","getform.form.healthcare_facility_CareUnit","","","",1,1,"","","","Identifier {[]} {[]}
+","Enhets-id vårdenhet","Vårdenheten som tillhandahåller formuläret. HSA-id.","","","","","","","","","",,,,,"",,,,"getform.form.healthcare_facility_CareUnit",1,1,"",""
+"getform","getform.form.healthcare-facility-CareUnitName","getform.form.healthcare_facility_CareUnitName","","","",1,1,"","","","string {[]} {[]}
+","Enhetsnamn","Vårdenhetens namn.","","","","","","","","","",,,,,"",,,,"getform.form.healthcare_facility_CareUnitName",1,1,"",""
+"getform","getform.form.clinicalProcessInterestId","getform.form.clinicalProcessInterestId","","","",0,1,"","","","Identifier {[]} {[]}
+","Hälsoärende-id","Globalt/nationellt hälsoärende ID.","","","","","","","","","",,,,,"",,,,"getform.form.clinicalProcessInterestId",0,1,"",""
+"getform","getform.form.formStatus","getform.form.formStatus","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Formulärstatus","Formulärets status: ONGOING, PENDING_COMPLETION eller COMPLETED.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/formstatus-vs","",,,,"getform.form.formStatus",1,1,"",""
+"getform","getform.form.formID","getform.form.formID","","","",1,1,"","","","Identifier {[]} {[]}
+","Formulär-id","Formulärets unika ID (GUID).","","","","","","","","","",,,,,"",,,,"getform.form.formID",1,1,"",""
+"getform","getform.form.subjectOfCare","getform.form.subjectOfCare","","","",1,1,"","","","Identifier {[]} {[]}
+","Patient-id","Patienten formuläret avser. Personnummer format yyyymmddnnnn.","","","","","","","","","",,,,,"",,,,"getform.form.subjectOfCare",1,1,"",""
+"getform","getform.form.expireDate","getform.form.expireDate","","","",0,1,"","","","date {[]} {[]}
+","Giltighetsdatum","Formulärets giltighetstid.","","","","","","","","","",,,,,"",,,,"getform.form.expireDate",0,1,"",""
+"getform","getform.form.createdDateTime","getform.form.createdDateTime","","","",1,1,"","","","dateTime {[]} {[]}
+","Skapandedatum","Datum när formuläret skapades.","","","","","","","","","",,,,,"",,,,"getform.form.createdDateTime",1,1,"",""
+"getform","getform.form.lastSavedDate","getform.form.lastSavedDate","","","",0,1,"","","","dateTime {[]} {[]}
+","Senaste sparningsdatum","Datum för senaste temporärsparning.","","","","","","","","","",,,,,"",,,,"getform.form.lastSavedDate",0,1,"",""
+"getform","getform.form.keepUntil","getform.form.keepUntil","","","",0,1,"","","","date {[]} {[]}
+","Bevaras till","Datum för hur länge formuläret lagras.","","","","","","","","","",,,,,"",,,,"getform.form.keepUntil",0,1,"",""
+"getform","getform.form.formTemplate","getform.form.formTemplate","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Formulärmall","Referens till formulärmallen.","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getform","getform.form.formTemplate.id","getform.form.formTemplate.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getform","getform.form.formTemplate.extension","getform.form.formTemplate.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getform","getform.form.formTemplate.modifierExtension","getform.form.formTemplate.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getform","getform.form.formTemplate.templateId","getform.form.formTemplate.templateId","","","",1,1,"","","","string {[]} {[]}
+","Mall-id","Typ av formulär.","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.templateId",1,1,"",""
+"getform","getform.form.formTemplate.templateVersion","getform.form.formTemplate.templateVersion","","","",1,1,"","","","integer {[]} {[]}
+","Mallens version","Versionsnummer.","","","","","","","","","",,,,,"",,,,"getform.form.formTemplate.templateVersion",1,1,"",""
+"getform","getform.form.currentPage","getform.form.currentPage","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Aktuell sida (PageType)","Den aktuella sidan i formuläret att presentera för invånaren.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getform","getform.form.currentPage.id","getform.form.currentPage.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getform","getform.form.currentPage.extension","getform.form.currentPage.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getform","getform.form.currentPage.modifierExtension","getform.form.currentPage.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getform","getform.form.currentPage.pageNumber","getform.form.currentPage.pageNumber","","","",1,1,"","","","integer {[]} {[]}
+","Sidnummer","Sidans nummer i formuläret.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.pageNumber",1,1,"",""
+"getform","getform.form.currentPage.lastPage","getform.form.currentPage.lastPage","","","",1,1,"","","","boolean {[]} {[]}
+","Sista sidan","Indikerar om detta är den sista sidan i formuläret.","","","","","","","","","",,,,,"",,,,"getform.form.currentPage.lastPage",1,1,"",""
+"getformquestionpage-request","getformquestionpage-request","getformquestionpage-request","","","",0,*,"","","","null {[]} {[]}
+","GetFormQuestionPage — Request","Logisk modell för requestparametrar i GetFormQuestionPage.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getformquestionpage-request","getformquestionpage-request.formID","getformquestionpage-request.formID","","","",1,1,"","","","Identifier {[]} {[]}
+","Formulär-id","Ett unikt id (GUID) för ett formulär.","","","","","","","","","",,,,,"",,,,"getformquestionpage-request.formID",1,1,"",""
+"getformquestionpage-request","getformquestionpage-request.pageNumber","getformquestionpage-request.pageNumber","","","",1,1,"","","","integer {[]} {[]}
+","Sidnummer","Nummer på sidan som navigering utgår ifrån. Ange 0 för att navigera till första/sista sidan.","","","","","","","","","",,,,,"",,,,"getformquestionpage-request.pageNumber",1,1,"",""
+"getformquestionpage-request","getformquestionpage-request.direction","getformquestionpage-request.direction","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Riktning","Kodverk: FORWARD = framåt, BACK = bakåt.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/questionnavigationdirection-vs","",,,,"getformquestionpage-request.direction",1,1,"",""
+"getformquestionpage-request","getformquestionpage-request.subjectOfCare","getformquestionpage-request.subjectOfCare","","","",0,1,"","","","Identifier {[]} {[]}
+","Personnummer","Invånarens personnummer.","","","","","","","","","",,,,,"",,,,"getformquestionpage-request.subjectOfCare",0,1,"",""
+"getformquestionpage","getformquestionpage","getformquestionpage","","","",0,*,"","","","null {[]} {[]}
+","GetFormQuestionPage","Logisk modell för tjänstekontraktet GetFormQuestionPage
+(RIV-TA urn:riv:infrastructure:eservicesupply:forminteraction:GetFormQuestionPage:2).
+Representerar responsens informationsstruktur — returnerar en specifik sida i ett formulär vid navigering.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getformquestionpage","getformquestionpage.form","getformquestionpage.form","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Formulär (FormType)","Formuläret med den begärda sidan.","","","","","","","","","",,,,,"",,,,"getformquestionpage.form",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getformquestionpage","getformquestionpage.form.id","getformquestionpage.form.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getformquestionpage","getformquestionpage.form.extension","getformquestionpage.form.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getformquestionpage","getformquestionpage.form.modifierExtension","getformquestionpage.form.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getformquestionpage","getformquestionpage.form.formID","getformquestionpage.form.formID","","","",1,1,"","","","Identifier {[]} {[]}
+","Formulär-id","Formulärets unika ID (GUID).","","","","","","","","","",,,,,"",,,,"getformquestionpage.form.formID",1,1,"",""
+"getformquestionpage","getformquestionpage.form.formStatus","getformquestionpage.form.formStatus","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Formulärstatus","Formulärets status.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/formstatus-vs","",,,,"getformquestionpage.form.formStatus",1,1,"",""
+"getformquestionpage","getformquestionpage.form.currentPage","getformquestionpage.form.currentPage","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Begärd sida (PageType)","Den begärda sidan i formuläret.","","","","","","","","","",,,,,"",,,,"getformquestionpage.form.currentPage",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getformquestionpage","getformquestionpage.form.currentPage.id","getformquestionpage.form.currentPage.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getformquestionpage","getformquestionpage.form.currentPage.extension","getformquestionpage.form.currentPage.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getformquestionpage","getformquestionpage.form.currentPage.modifierExtension","getformquestionpage.form.currentPage.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getformquestionpage","getformquestionpage.form.currentPage.pageNumber","getformquestionpage.form.currentPage.pageNumber","","","",1,1,"","","","integer {[]} {[]}
+","Sidnummer","Sidans nummer i formuläret.","","","","","","","","","",,,,,"",,,,"getformquestionpage.form.currentPage.pageNumber",1,1,"",""
+"getformquestionpage","getformquestionpage.form.currentPage.lastPage","getformquestionpage.form.currentPage.lastPage","","","",1,1,"","","","boolean {[]} {[]}
+","Sista sidan","Indikerar om detta är den sista sidan.","","","","","","","","","",,,,,"",,,,"getformquestionpage.form.currentPage.lastPage",1,1,"",""
+"getforms-request","getforms-request","getforms-request","","","",0,*,"","","","null {[]} {[]}
+","GetForms — Request","Logisk modell för requestparametrar i GetForms.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getforms-request","getforms-request.healthcare-Facility-CareUnit","getforms-request.healthcare_Facility_CareUnit","","","",0,1,"","","","Identifier {[]} {[]}
+","Vårdenhetens HSA-id","Hsa-Id. Konsument ska säkerställa att konsument har avtal (PuB-avtal).","","","","","","","","","",,,,,"",,,,"getforms-request.healthcare_Facility_CareUnit",0,1,"",""
+"getforms-request","getforms-request.subjectOfCare","getforms-request.subjectOfCare","","","",0,1,"","","","Identifier {[]} {[]}
+","Personnummer","Starkt autentiserad användares personnummer.","","","","","","","","","",,,,,"",,,,"getforms-request.subjectOfCare",0,1,"",""
+"getforms-request","getforms-request.templateIds","getforms-request.templateIds","","","",0,*,"","","","string {[]} {[]}
+","Mall-id:n","Filtrera på formulärtyp.","","","","","","","","","",,,,,"",,,,"getforms-request.templateIds",0,*,"",""
+"getforms-request","getforms-request.clinicalProcessInterestIds","getforms-request.clinicalProcessInterestIds","","","",0,*,"","","","Identifier {[]} {[]}
+","Hälsoärende-id:n","Filtrera på hälsoärende.","","","","","","","","","",,,,,"",,,,"getforms-request.clinicalProcessInterestIds",0,*,"",""
+"getforms","getforms","getforms","","","",0,*,"","","","null {[]} {[]}
+","GetForms","Logisk modell för tjänstekontraktet GetForms
+(RIV-TA urn:riv:infrastructure:eservicesupply:forminteraction:GetForms:2).
+Representerar responsens informationsstruktur — returnerar lista med pågående/avslutade formulär.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getforms","getforms.form","getforms.form","","","",0,*,"","","","BackboneElement {[]} {[]}
+","Formulär","Lista med formulär som matchar sökkriterierna.","","","","","","","","","",,,,,"",,,,"getforms.form",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getforms","getforms.form.id","getforms.form.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getforms","getforms.form.extension","getforms.form.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getforms","getforms.form.modifierExtension","getforms.form.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getforms","getforms.form.healthcare-facility-CareUnit","getforms.form.healthcare_facility_CareUnit","","","",0,1,"","","","Identifier {[]} {[]}
+","Enhets-id vårdenhet","Vårdenheten som tillhandahåller formuläret. HSA-id.","","","","","","","","","",,,,,"",,,,"getforms.form.healthcare_facility_CareUnit",0,1,"",""
+"getforms","getforms.form.clinicalProcessInterestId","getforms.form.clinicalProcessInterestId","","","",0,1,"","","","Identifier {[]} {[]}
+","Hälsoärende-id","Globalt/nationellt hälsoärende ID.","","","","","","","","","",,,,,"",,,,"getforms.form.clinicalProcessInterestId",0,1,"",""
+"getforms","getforms.form.formStatus","getforms.form.formStatus","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Formulärstatus","Formulärets status: ONGOING, PENDING_COMPLETION eller COMPLETED.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/formstatus-vs","",,,,"getforms.form.formStatus",1,1,"",""
+"getforms","getforms.form.formID","getforms.form.formID","","","",1,1,"","","","Identifier {[]} {[]}
+","Formulär-id","Formulärets unika ID (GUID).","","","","","","","","","",,,,,"",,,,"getforms.form.formID",1,1,"",""
+"getforms","getforms.form.subjectOfCare","getforms.form.subjectOfCare","","","",1,1,"","","","Identifier {[]} {[]}
+","Patient-id","Patienten formuläret avser. Personnummer format yyyymmddnnnn.","","","","","","","","","",,,,,"",,,,"getforms.form.subjectOfCare",1,1,"",""
+"getforms","getforms.form.formTemplate","getforms.form.formTemplate","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Formulärmall","Referens till formulärmallen.","","","","","","","","","",,,,,"",,,,"getforms.form.formTemplate",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getforms","getforms.form.formTemplate.id","getforms.form.formTemplate.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getforms","getforms.form.formTemplate.extension","getforms.form.formTemplate.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getforms","getforms.form.formTemplate.modifierExtension","getforms.form.formTemplate.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getforms","getforms.form.formTemplate.templateId","getforms.form.formTemplate.templateId","","","",1,1,"","","","string {[]} {[]}
+","Mall-id","Typ av formulär.","","","","","","","","","",,,,,"",,,,"getforms.form.formTemplate.templateId",1,1,"",""
+"getforms","getforms.form.formTemplate.templateVersion","getforms.form.formTemplate.templateVersion","","","",1,1,"","","","integer {[]} {[]}
+","Mallens version","Versionsnummer.","","","","","","","","","",,,,,"",,,,"getforms.form.formTemplate.templateVersion",1,1,"",""
+"getforms","getforms.form.createdDateTime","getforms.form.createdDateTime","","","",1,1,"","","","dateTime {[]} {[]}
+","Skapandedatum","Datum när formuläret skapades.","","","","","","","","","",,,,,"",,,,"getforms.form.createdDateTime",1,1,"",""
+"getforms","getforms.form.lastSavedDate","getforms.form.lastSavedDate","","","",0,1,"","","","dateTime {[]} {[]}
+","Senaste sparningsdatum","Datum för senaste temporärsparning.","","","","","","","","","",,,,,"",,,,"getforms.form.lastSavedDate",0,1,"",""
+"getformtemplate-request","getformtemplate-request","getformtemplate-request","","","",0,*,"","","","null {[]} {[]}
+","GetFormTemplate — Request","Logisk modell för requestparametrar i GetFormTemplate.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getformtemplate-request","getformtemplate-request.healthcare-facility-CareUnit","getformtemplate-request.healthcare_facility_CareUnit","","","",0,1,"","","","Identifier {[]} {[]}
+","Vårdenhetens HSA-id","Ägaren av formulärmall. Obligatorisk om templateId ej anges.","","","","","","","","","",,,,,"",,,,"getformtemplate-request.healthcare_facility_CareUnit",0,1,"",""
+"getformtemplate-request","getformtemplate-request.templateId","getformtemplate-request.templateId","","","",0,1,"","","","string {[]} {[]}
+","Mall-id","Mallens id. Obligatorisk om healthcare_facility_CareUnit ej anges.","","","","","","","","","",,,,,"",,,,"getformtemplate-request.templateId",0,1,"",""
+"getformtemplate-request","getformtemplate-request.templateVersion","getformtemplate-request.templateVersion","","","",0,1,"","","","integer {[]} {[]}
+","Mallversion","Mallens version. Utelämnas returneras samtliga versioner (ej arkiverade).","","","","","","","","","",,,,,"",,,,"getformtemplate-request.templateVersion",0,1,"",""
+"getformtemplate","getformtemplate","getformtemplate","","","",0,*,"","","","null {[]} {[]}
+","GetFormTemplate","Logisk modell för tjänstekontraktet GetFormTemplate
+(RIV-TA urn:riv:infrastructure:eservicesupply:forminteraction:GetFormTemplate:2).
+Representerar responsens informationsstruktur — returnerar en eller flera formulärmallar.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getformtemplate","getformtemplate.formTemplates","getformtemplate.formTemplates","","","",0,*,"","","","BackboneElement {[]} {[]}
+","Formulärmallar (FormTemplateType)","De hämtade formulärmallarna.","","","","","","","","","",,,,,"",,,,"getformtemplate.formTemplates",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getformtemplate","getformtemplate.formTemplates.id","getformtemplate.formTemplates.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getformtemplate","getformtemplate.formTemplates.extension","getformtemplate.formTemplates.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getformtemplate","getformtemplate.formTemplates.modifierExtension","getformtemplate.formTemplates.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getformtemplate","getformtemplate.formTemplates.templateId","getformtemplate.formTemplates.templateId","","","",1,1,"","","","string {[]} {[]}
+","Mall-id","Typ av formulär. Kodverk för standardiserade id.","","","","","","","","","",,,,,"",,,,"getformtemplate.formTemplates.templateId",1,1,"",""
+"getformtemplate","getformtemplate.formTemplates.templateVersion","getformtemplate.formTemplates.templateVersion","","","",1,1,"","","","integer {[]} {[]}
+","Mallens version","Versionsnummer för formulärmallen.","","","","","","","","","",,,,,"",,,,"getformtemplate.formTemplates.templateVersion",1,1,"",""
+"getformtemplate","getformtemplate.formTemplates.healthcare-facility-CareUnit","getformtemplate.formTemplates.healthcare_facility_CareUnit","","","",0,1,"","","","Identifier {[]} {[]}
+","Vårdenhetens HSA-id","Ägare till formulärmallen.","","","","","","","","","",,,,,"",,,,"getformtemplate.formTemplates.healthcare_facility_CareUnit",0,1,"",""
+"getformtemplate","getformtemplate.formTemplates.anonymousForm","getformtemplate.formTemplates.anonymousForm","","","",0,1,"","","","boolean {[]} {[]}
+","Anonym formulär","Styr huruvida formulärmotorn stöder anonym användning av formuläret.","","","","","","","","","",,,,,"",,,,"getformtemplate.formTemplates.anonymousForm",0,1,"",""
+"getformtemplate","getformtemplate.formTemplates.category","getformtemplate.formTemplates.category","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Formulärkategori","Formulärets kategori.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/formcategory-vs","",,,,"getformtemplate.formTemplates.category",1,1,"",""
+"getformtemplate","getformtemplate.formTemplates.publishStatus","getformtemplate.formTemplates.publishStatus","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Publiceringsstatus","Mallens publiceringsstatus.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/publishstatus-vs","",,,,"getformtemplate.formTemplates.publishStatus",1,1,"",""
+"getformtemplate","getformtemplate.formTemplates.mandatory","getformtemplate.formTemplates.mandatory","","","",1,1,"","","","boolean {[]} {[]}
+","Obligatorisk","Indikerar om formuläret är obligatoriskt.","","","","","","","","","",,,,,"",,,,"getformtemplate.formTemplates.mandatory",1,1,"",""
+"getformtemplate","getformtemplate.formTemplates.formLanguage","getformtemplate.formTemplates.formLanguage","","","",1,1,"","","","string {[]} {[]}
+","Språk","Formulärets språk, t.ex. swe eller eng.","","","","","","","","","",,,,,"",,,,"getformtemplate.formTemplates.formLanguage",1,1,"",""
+"getformtemplate","getformtemplate.formTemplates.formCompleteText","getformtemplate.formTemplates.formCompleteText","","","",0,1,"","","","string {[]} {[]}
+","Avslutningstext","Text som visas när formuläret är besvarat.","","","","","","","","","",,,,,"",,,,"getformtemplate.formTemplates.formCompleteText",0,1,"",""
+"getformtemplates-request","getformtemplates-request","getformtemplates-request","","","",0,*,"","","","null {[]} {[]}
+","GetFormTemplates — Request","Logisk modell för requestparametrar i GetFormTemplates.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getformtemplates-request","getformtemplates-request.healthcare-Facility-CareUnit","getformtemplates-request.healthcare_Facility_CareUnit","","","",1,1,"","","","Identifier {[]} {[]}
+","Vårdenhetens HSA-id","Hsa-Id (Vårdenhet/enhets-id). T.ex. se2321000016-1hz3.","","","","","","","","","",,,,,"",,,,"getformtemplates-request.healthcare_Facility_CareUnit",1,1,"",""
+"getformtemplates-request","getformtemplates-request.publishedStatus","getformtemplates-request.publishedStatus","","","",0,*,"","","","CodeableConcept {[]} {[]}
+","Publiceringsstatus","Indikerar vilken status en mall skall ha.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/publishstatus-vs","",,,,"getformtemplates-request.publishedStatus",0,*,"",""
+"getformtemplates-request","getformtemplates-request.subjectOfCare","getformtemplates-request.subjectOfCare","","","",0,1,"","","","Identifier {[]} {[]}
+","Personnummer","Starkt autentiserad användares personnummer. T.ex. 191212121212 (yyyymmddnnnn).","","","","","","","","","",,,,,"",,,,"getformtemplates-request.subjectOfCare",0,1,"",""
+"getformtemplates-request","getformtemplates-request.templateIds","getformtemplates-request.templateIds","","","",0,*,"","","","string {[]} {[]}
+","Mall-id:n","Typ av formulärmall. Om denna inte anges returneras ALLA tillgängliga formulärmallar för medborgaren.","","","","","","","","","",,,,,"",,,,"getformtemplates-request.templateIds",0,*,"",""
+"getformtemplates-request","getformtemplates-request.clinicalProcessInterestIds","getformtemplates-request.clinicalProcessInterestIds","","","",0,*,"","","","Identifier {[]} {[]}
+","Hälsoärenden","Hälsoärende-id:n för filtrering.","","","","","","","","","",,,,,"",,,,"getformtemplates-request.clinicalProcessInterestIds",0,*,"",""
+"getformtemplates","getformtemplates","getformtemplates","","","",0,*,"","","","null {[]} {[]}
+","GetFormTemplates","Logisk modell för tjänstekontraktet GetFormTemplates
+(RIV-TA urn:riv:infrastructure:eservicesupply:forminteraction:GetFormTemplates:2).
+Representerar responsens informationsstruktur — returnerar tillgängliga formulärmallar för invånare.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getformtemplates","getformtemplates.formTemplate","getformtemplates.formTemplate","","","",0,*,"","","","BackboneElement {[]} {[]}
+","Formulärmall (FormTemplateType)","Lista med formulärmallar som matchar sökkriterierna.","","","","","","","","","",,,,,"",,,,"getformtemplates.formTemplate",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getformtemplates","getformtemplates.formTemplate.id","getformtemplates.formTemplate.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getformtemplates","getformtemplates.formTemplate.extension","getformtemplates.formTemplate.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getformtemplates","getformtemplates.formTemplate.modifierExtension","getformtemplates.formTemplate.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getformtemplates","getformtemplates.formTemplate.templateId","getformtemplates.formTemplate.templateId","","","",1,1,"","","","string {[]} {[]}
+","Mall-id","Typ av formulär. Kodverk för standardiserade id för formulärtyper.","","","","","","","","","",,,,,"",,,,"getformtemplates.formTemplate.templateId",1,1,"",""
+"getformtemplates","getformtemplates.formTemplate.templateVersion","getformtemplates.formTemplate.templateVersion","","","",1,1,"","","","integer {[]} {[]}
+","Mallens version","Versionsnummer för formulärmallen.","","","","","","","","","",,,,,"",,,,"getformtemplates.formTemplate.templateVersion",1,1,"",""
+"getformtemplates","getformtemplates.formTemplate.anonymousForm","getformtemplates.formTemplate.anonymousForm","","","",0,1,"","","","boolean {[]} {[]}
+","Anonym formulär","Styr huruvida formulärmotorn stöder anonym användning av formuläret.","","","","","","","","","",,,,,"",,,,"getformtemplates.formTemplate.anonymousForm",0,1,"",""
+"getformtemplates","getformtemplates.formTemplate.category","getformtemplates.formTemplate.category","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Formulärkategori","Formulärets kategori, t.ex. Anmälan, registrering, hälsodeklaration.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/formcategory-vs","",,,,"getformtemplates.formTemplate.category",1,1,"",""
+"getformtemplates","getformtemplates.formTemplate.publishStatus","getformtemplates.formTemplate.publishStatus","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Publiceringsstatus","Mallens publiceringsstatus.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/publishstatus-vs","",,,,"getformtemplates.formTemplate.publishStatus",1,1,"",""
+"getformtemplates","getformtemplates.formTemplate.mandatory","getformtemplates.formTemplate.mandatory","","","",1,1,"","","","boolean {[]} {[]}
+","Obligatorisk","Indikerar om formuläret är obligatoriskt att fylla i av användaren.","","","","","","","","","",,,,,"",,,,"getformtemplates.formTemplate.mandatory",1,1,"",""
+"getformtemplates","getformtemplates.formTemplate.formLanguage","getformtemplates.formTemplate.formLanguage","","","",1,1,"","","","string {[]} {[]}
+","Språk","Beskriver vilket språk som används i formuläret, t.ex. swe eller eng.","","","","","","","","","",,,,,"",,,,"getformtemplates.formTemplate.formLanguage",1,1,"",""
+"getformtemplates","getformtemplates.formTemplate.formCompleteText","getformtemplates.formTemplate.formCompleteText","","","",0,1,"","","","string {[]} {[]}
+","Avslutningstext","Text som visas för invånaren när formuläret är besvarat.","","","","","","","","","",,,,,"",,,,"getformtemplates.formTemplate.formCompleteText",0,1,"",""
+"getformtemplates","getformtemplates.formTemplate.instrumentCode","getformtemplates.formTemplate.instrumentCode","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Kod","Koppling till klass för code. Används för att beskriva t.ex. formulärinstrument (AUDIT-C, PHQ-9, EQ-5D).","","","","","","","","","",,,,,"",,,,"getformtemplates.formTemplate.instrumentCode",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getformtemplates","getformtemplates.formTemplate.instrumentCode.id","getformtemplates.formTemplate.instrumentCode.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getformtemplates","getformtemplates.formTemplate.instrumentCode.extension","getformtemplates.formTemplate.instrumentCode.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getformtemplates","getformtemplates.formTemplate.instrumentCode.modifierExtension","getformtemplates.formTemplate.instrumentCode.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getformtemplates","getformtemplates.formTemplate.instrumentCode.codeSystem","getformtemplates.formTemplate.instrumentCode.codeSystem","","","",0,1,"","","","string {[]} {[]}
+","Kodsystem","Kodsystemets identifierare.","","","","","","","","","",,,,,"",,,,"getformtemplates.formTemplate.instrumentCode.codeSystem",0,1,"",""
+"getformtemplates","getformtemplates.formTemplate.instrumentCode.codeValue","getformtemplates.formTemplate.instrumentCode.codeValue","","","",0,1,"","","","string {[]} {[]}
+","Kodvärde","Kodvärdet inom kodsystemet.","","","","","","","","","",,,,,"",,,,"getformtemplates.formTemplate.instrumentCode.codeValue",0,1,"",""
+"getformtemplates","getformtemplates.formTemplate.instrumentCode.displayName","getformtemplates.formTemplate.instrumentCode.displayName","","","",0,1,"","","","string {[]} {[]}
+","Visningsnamn","Visningsnamn för koden.","","","","","","","","","",,,,,"",,,,"getformtemplates.formTemplate.instrumentCode.displayName",0,1,"",""
+"saveform-request","saveform-request","saveform-request","","","",0,*,"","","","null {[]} {[]}
+","SaveForm — Request","Logisk modell för requestparametrar i SaveForm.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"saveform-request","saveform-request.formID","saveform-request.formID","","","",1,1,"","","","Identifier {[]} {[]}
+","Formulär-id","Formulärets ID.","","","","","","","","","",,,,,"",,,,"saveform-request.formID",1,1,"",""
+"saveform-request","saveform-request.subjectOfCare","saveform-request.subjectOfCare","","","",0,1,"","","","Identifier {[]} {[]}
+","Personnummer","Starkt autentiserad användares personnummer.","","","","","","","","","",,,,,"",,,,"saveform-request.subjectOfCare",0,1,"",""
+"saveform-request","saveform-request.actor","saveform-request.actor","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Aktör","Aktören kan vara invånaren/patienten själv, vårdnadshavare eller vårdpersonal.","","","","","","","","","",,,,,"",,,,"saveform-request.actor",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"saveform-request","saveform-request.actor.id","saveform-request.actor.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"saveform-request","saveform-request.actor.extension","saveform-request.actor.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"saveform-request","saveform-request.actor.modifierExtension","saveform-request.actor.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"saveform-request","saveform-request.actor.actorType","saveform-request.actor.actorType","","","",1,1,"","","","string {[]} {[]}
+","Aktörstyp","Typ av aktör.","","","","","","","","","",,,,,"",,,,"saveform-request.actor.actorType",1,1,"",""
+"saveform-request","saveform-request.actor.actorId","saveform-request.actor.actorId","","","",0,1,"","","","Identifier {[]} {[]}
+","Aktörs-id","Identifierare för aktören.","","","","","","","","","",,,,,"",,,,"saveform-request.actor.actorId",0,1,"",""
+"saveform","saveform","saveform","","","",0,*,"","","","null {[]} {[]}
+","SaveForm","Logisk modell för tjänstekontraktet SaveForm
+(RIV-TA urn:riv:infrastructure:eservicesupply:forminteraction:SaveForm:2).
+Representerar responsens informationsstruktur — signalerar om formuläravslutet lyckades.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"saveform","saveform.resultCode","saveform.resultCode","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Resultatkod","Signalerar status på operationen (OK, INFO, ERROR).","","","","","","","","","",,"required","","https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/resultcode-vs","",,,,"saveform.resultCode",1,1,"",""
+"saveform","saveform.comment","saveform.comment","","","",0,1,"","","","string {[]} {[]}
+","Kommentar","Attribut för felsignalering. Skall kunna visas för slutanvändaren.","","","","","","","","","",,,,,"",,,,"saveform.comment",0,1,"",""
+"saveformpage-request","saveformpage-request","saveformpage-request","","","",0,*,"","","","null {[]} {[]}
+","SaveFormPage — Request","Logisk modell för requestparametrar i SaveFormPage.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"saveformpage-request","saveformpage-request.formID","saveformpage-request.formID","","","",1,1,"","","","Identifier {[]} {[]}
+","Formulär-id","Formulärets unika id.","","","","","","","","","",,,,,"",,,,"saveformpage-request.formID",1,1,"",""
+"saveformpage-request","saveformpage-request.pageAnswers","saveformpage-request.pageAnswers","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Svar på sida (PageAnswerType)","Invånarens besvarade frågor för aktuell sida.","","","","","","","","","",,,,,"",,,,"saveformpage-request.pageAnswers",1,1,"",""
+"saveformpage-request","saveformpage-request.subjectOfCare","saveformpage-request.subjectOfCare","","","",0,1,"","","","Identifier {[]} {[]}
+","Personnummer","Starkt autentiserad användares personnummer.","","","","","","","","","",,,,,"",,,,"saveformpage-request.subjectOfCare",0,1,"",""
+"saveformpage-request","saveformpage-request.temporarySave","saveformpage-request.temporarySave","","","",0,1,"","","","boolean {[]} {[]}
+","Temporärspara","True = temporär sparning (utan validering), False/utelämnad = normal hantering.","","","","","","","","","",,,,,"",,,,"saveformpage-request.temporarySave",0,1,"",""
+"saveformpage-request","saveformpage-request.actor","saveformpage-request.actor","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Aktör","Aktören kan vara invånaren/patienten själv, vårdnadshavare eller vårdpersonal.","","","","","","","","","",,,,,"",,,,"saveformpage-request.actor",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"saveformpage-request","saveformpage-request.actor.id","saveformpage-request.actor.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"saveformpage-request","saveformpage-request.actor.extension","saveformpage-request.actor.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"saveformpage-request","saveformpage-request.actor.modifierExtension","saveformpage-request.actor.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"saveformpage-request","saveformpage-request.actor.actorType","saveformpage-request.actor.actorType","","","",1,1,"","","","string {[]} {[]}
+","Aktörstyp","Typ av aktör.","","","","","","","","","",,,,,"",,,,"saveformpage-request.actor.actorType",1,1,"",""
+"saveformpage-request","saveformpage-request.actor.actorId","saveformpage-request.actor.actorId","","","",0,1,"","","","Identifier {[]} {[]}
+","Aktörs-id","Identifierare för aktören.","","","","","","","","","",,,,,"",,,,"saveformpage-request.actor.actorId",0,1,"",""
+"saveformpage","saveformpage","saveformpage","","","",0,*,"","","","null {[]} {[]}
+","SaveFormPage","Logisk modell för tjänstekontraktet SaveFormPage
+(RIV-TA urn:riv:infrastructure:eservicesupply:forminteraction:SaveFormPage:2).
+Representerar responsens informationsstruktur — returnerar nästa sida med frågor, eller felindikation.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"saveformpage","saveformpage.form","saveformpage.form","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Formulär (FormType)","Formuläret med nästa sida eller felindikation. Null indikerar att formuläret är färdigifyllt.","","","","","","","","","",,,,,"",,,,"saveformpage.form",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"saveformpage","saveformpage.form.id","saveformpage.form.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"saveformpage","saveformpage.form.extension","saveformpage.form.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"saveformpage","saveformpage.form.modifierExtension","saveformpage.form.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"saveformpage","saveformpage.form.formID","saveformpage.form.formID","","","",1,1,"","","","Identifier {[]} {[]}
+","Formulär-id","Formulärets unika ID (GUID).","","","","","","","","","",,,,,"",,,,"saveformpage.form.formID",1,1,"",""
+"saveformpage","saveformpage.form.formStatus","saveformpage.form.formStatus","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Formulärstatus","Formulärets status.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/formstatus-vs","",,,,"saveformpage.form.formStatus",1,1,"",""
+"saveformpage","saveformpage.form.currentPage","saveformpage.form.currentPage","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Aktuell sida (PageType)","Nästa sida att presentera, eller den aktuella sidan vid fel.","","","","","","","","","",,,,,"",,,,"saveformpage.form.currentPage",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"saveformpage","saveformpage.form.currentPage.id","saveformpage.form.currentPage.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"saveformpage","saveformpage.form.currentPage.extension","saveformpage.form.currentPage.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"saveformpage","saveformpage.form.currentPage.modifierExtension","saveformpage.form.currentPage.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"saveformpage","saveformpage.form.currentPage.pageNumber","saveformpage.form.currentPage.pageNumber","","","",1,1,"","","","integer {[]} {[]}
+","Sidnummer","Sidans nummer.","","","","","","","","","",,,,,"",,,,"saveformpage.form.currentPage.pageNumber",1,1,"",""
+"saveformpage","saveformpage.form.currentPage.lastPage","saveformpage.form.currentPage.lastPage","","","",1,1,"","","","boolean {[]} {[]}
+","Sista sidan","Indikerar om detta är den sista sidan.","","","","","","","","","",,,,,"",,,,"saveformpage.form.currentPage.lastPage",1,1,"",""
+"saveformpage","saveformpage.comment","saveformpage.comment","","","",0,1,"","","","string {[]} {[]}
+","Kommentar","Attribut för felsignalering. Skall kunna visas för slutanvändaren.","","","","","","","","","",,,,,"",,,,"saveformpage.comment",0,1,"",""
+"saveformpage","saveformpage.resultCode","saveformpage.resultCode","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Resultatkod","Status på operationen.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/infrastructure-eservicesupply-forminteraction/ValueSet/resultcode-vs","",,,,"saveformpage.resultCode",1,1,"",""

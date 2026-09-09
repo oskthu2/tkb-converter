@@ -1,0 +1,218 @@
+# DeleteExtendedConsent — Request - ehr: patientconsent — Samtyckeshantering v1.0.1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **DeleteExtendedConsent — Request**
+
+## Logical Model: DeleteExtendedConsent — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/ehr-patientconsent/StructureDefinition/deleteextendedconsent-request | *Version*:1.0.1 |
+| Draft as of 2026-09-09 | *Computable Name*:DeleteExtendedConsentRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för requestparametrar i DeleteExtendedConsent. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.ehr-patientconsent|current/StructureDefinition/StructureDefinition-deleteextendedconsent-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-deleteextendedconsent-request.csv), [Excel](StructureDefinition-deleteextendedconsent-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "deleteextendedconsent-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/ehr-patientconsent/StructureDefinition/deleteextendedconsent-request",
+  "version" : "1.0.1",
+  "name" : "DeleteExtendedConsentRequest",
+  "title" : "DeleteExtendedConsent — Request",
+  "status" : "draft",
+  "date" : "2026-09-09T16:54:18+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för requestparametrar i DeleteExtendedConsent.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/ehr-patientconsent/StructureDefinition/deleteextendedconsent-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "deleteextendedconsent-request",
+      "path" : "deleteextendedconsent-request",
+      "short" : "DeleteExtendedConsent — Request",
+      "definition" : "Logisk modell för requestparametrar i DeleteExtendedConsent."
+    },
+    {
+      "id" : "deleteextendedconsent-request.assertionId",
+      "path" : "deleteextendedconsent-request.assertionId",
+      "short" : "Identifierar det intyg som skall makuleras (UUID-format, max 36 tecken)",
+      "definition" : "Identifierar det intyg som skall makuleras (UUID-format, max 36 tecken)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "deleteextendedconsent-request.deletionAction",
+      "path" : "deleteextendedconsent-request.deletionAction",
+      "short" : "Identifierar de personer som begärt och utfört makulering samt tidpunkter",
+      "definition" : "Identifierar de personer som begärt och utfört makulering samt tidpunkter",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "deleteextendedconsent-request.deletionAction.requestDate",
+      "path" : "deleteextendedconsent-request.deletionAction.requestDate",
+      "short" : "Tidpunkt för begäran om makulering",
+      "definition" : "Tidpunkt för begäran om makulering",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "deleteextendedconsent-request.deletionAction.requestedBy",
+      "path" : "deleteextendedconsent-request.deletionAction.requestedBy",
+      "short" : "Aktör som begärt makuleringen",
+      "definition" : "Aktör som begärt makuleringen",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "deleteextendedconsent-request.deletionAction.requestedBy.employeeId",
+      "path" : "deleteextendedconsent-request.deletionAction.requestedBy.employeeId",
+      "short" : "HSA-id för medarbetaren (max 32 tecken)",
+      "definition" : "HSA-id för medarbetaren (max 32 tecken)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "deleteextendedconsent-request.deletionAction.requestedBy.assignmentId",
+      "path" : "deleteextendedconsent-request.deletionAction.requestedBy.assignmentId",
+      "short" : "HSA-id för medarbetaruppdraget (max 32 tecken)",
+      "definition" : "HSA-id för medarbetaruppdraget (max 32 tecken)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "deleteextendedconsent-request.deletionAction.requestedBy.assignmentName",
+      "path" : "deleteextendedconsent-request.deletionAction.requestedBy.assignmentName",
+      "short" : "Namn på medarbetaruppdraget (max 256 tecken)",
+      "definition" : "Namn på medarbetaruppdraget (max 256 tecken)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "deleteextendedconsent-request.deletionAction.registrationDate",
+      "path" : "deleteextendedconsent-request.deletionAction.registrationDate",
+      "short" : "Tidpunkt för genomförd makulering",
+      "definition" : "Tidpunkt för genomförd makulering",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "deleteextendedconsent-request.deletionAction.registeredBy",
+      "path" : "deleteextendedconsent-request.deletionAction.registeredBy",
+      "short" : "Aktör som utfört makuleringen",
+      "definition" : "Aktör som utfört makuleringen",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "deleteextendedconsent-request.deletionAction.registeredBy.employeeId",
+      "path" : "deleteextendedconsent-request.deletionAction.registeredBy.employeeId",
+      "short" : "HSA-id för medarbetaren (max 32 tecken)",
+      "definition" : "HSA-id för medarbetaren (max 32 tecken)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "deleteextendedconsent-request.deletionAction.registeredBy.assignmentId",
+      "path" : "deleteextendedconsent-request.deletionAction.registeredBy.assignmentId",
+      "short" : "HSA-id för medarbetaruppdraget (max 32 tecken)",
+      "definition" : "HSA-id för medarbetaruppdraget (max 32 tecken)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "deleteextendedconsent-request.deletionAction.registeredBy.assignmentName",
+      "path" : "deleteextendedconsent-request.deletionAction.registeredBy.assignmentName",
+      "short" : "Namn på medarbetaruppdraget (max 256 tecken)",
+      "definition" : "Namn på medarbetaruppdraget (max 256 tecken)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "deleteextendedconsent-request.deletionAction.reasonText",
+      "path" : "deleteextendedconsent-request.deletionAction.reasonText",
+      "short" : "Anledning till makuleringen i fritext (max 1024 tecken)",
+      "definition" : "Anledning till makuleringen i fritext (max 1024 tecken)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

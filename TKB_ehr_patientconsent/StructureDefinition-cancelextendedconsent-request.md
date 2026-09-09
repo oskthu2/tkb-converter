@@ -1,0 +1,218 @@
+# CancelExtendedConsent — Request - ehr: patientconsent — Samtyckeshantering v1.0.1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **CancelExtendedConsent — Request**
+
+## Logical Model: CancelExtendedConsent — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/ehr-patientconsent/StructureDefinition/cancelextendedconsent-request | *Version*:1.0.1 |
+| Draft as of 2026-09-09 | *Computable Name*:CancelExtendedConsentRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för requestparametrar i CancelExtendedConsent. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.ehr-patientconsent|current/StructureDefinition/StructureDefinition-cancelextendedconsent-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-cancelextendedconsent-request.csv), [Excel](StructureDefinition-cancelextendedconsent-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "cancelextendedconsent-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/ehr-patientconsent/StructureDefinition/cancelextendedconsent-request",
+  "version" : "1.0.1",
+  "name" : "CancelExtendedConsentRequest",
+  "title" : "CancelExtendedConsent — Request",
+  "status" : "draft",
+  "date" : "2026-09-09T16:54:18+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för requestparametrar i CancelExtendedConsent.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/ehr-patientconsent/StructureDefinition/cancelextendedconsent-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "cancelextendedconsent-request",
+      "path" : "cancelextendedconsent-request",
+      "short" : "CancelExtendedConsent — Request",
+      "definition" : "Logisk modell för requestparametrar i CancelExtendedConsent."
+    },
+    {
+      "id" : "cancelextendedconsent-request.assertionId",
+      "path" : "cancelextendedconsent-request.assertionId",
+      "short" : "Identifierare för det intyg som skall återkallas (UUID-format, max 36 tecken)",
+      "definition" : "Identifierare för det intyg som skall återkallas (UUID-format, max 36 tecken)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "cancelextendedconsent-request.cancellationAction",
+      "path" : "cancelextendedconsent-request.cancellationAction",
+      "short" : "Identifierar de personer som begärt och registrerat återkallan samt tidpunkter",
+      "definition" : "Identifierar de personer som begärt och registrerat återkallan samt tidpunkter",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "cancelextendedconsent-request.cancellationAction.requestDate",
+      "path" : "cancelextendedconsent-request.cancellationAction.requestDate",
+      "short" : "Tidpunkt för begäran om återkallning",
+      "definition" : "Tidpunkt för begäran om återkallning",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "cancelextendedconsent-request.cancellationAction.requestedBy",
+      "path" : "cancelextendedconsent-request.cancellationAction.requestedBy",
+      "short" : "Aktör som begärt återkallningen",
+      "definition" : "Aktör som begärt återkallningen",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "cancelextendedconsent-request.cancellationAction.requestedBy.employeeId",
+      "path" : "cancelextendedconsent-request.cancellationAction.requestedBy.employeeId",
+      "short" : "HSA-id för medarbetaren (max 32 tecken)",
+      "definition" : "HSA-id för medarbetaren (max 32 tecken)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "cancelextendedconsent-request.cancellationAction.requestedBy.assignmentId",
+      "path" : "cancelextendedconsent-request.cancellationAction.requestedBy.assignmentId",
+      "short" : "HSA-id för medarbetaruppdraget (max 32 tecken)",
+      "definition" : "HSA-id för medarbetaruppdraget (max 32 tecken)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "cancelextendedconsent-request.cancellationAction.requestedBy.assignmentName",
+      "path" : "cancelextendedconsent-request.cancellationAction.requestedBy.assignmentName",
+      "short" : "Namn på medarbetaruppdraget (max 256 tecken)",
+      "definition" : "Namn på medarbetaruppdraget (max 256 tecken)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "cancelextendedconsent-request.cancellationAction.registrationDate",
+      "path" : "cancelextendedconsent-request.cancellationAction.registrationDate",
+      "short" : "Tidpunkt för genomförd återkallning",
+      "definition" : "Tidpunkt för genomförd återkallning",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "cancelextendedconsent-request.cancellationAction.registeredBy",
+      "path" : "cancelextendedconsent-request.cancellationAction.registeredBy",
+      "short" : "Aktör som utfört återkallningen",
+      "definition" : "Aktör som utfört återkallningen",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "cancelextendedconsent-request.cancellationAction.registeredBy.employeeId",
+      "path" : "cancelextendedconsent-request.cancellationAction.registeredBy.employeeId",
+      "short" : "HSA-id för medarbetaren (max 32 tecken)",
+      "definition" : "HSA-id för medarbetaren (max 32 tecken)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "cancelextendedconsent-request.cancellationAction.registeredBy.assignmentId",
+      "path" : "cancelextendedconsent-request.cancellationAction.registeredBy.assignmentId",
+      "short" : "HSA-id för medarbetaruppdraget (max 32 tecken)",
+      "definition" : "HSA-id för medarbetaruppdraget (max 32 tecken)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "cancelextendedconsent-request.cancellationAction.registeredBy.assignmentName",
+      "path" : "cancelextendedconsent-request.cancellationAction.registeredBy.assignmentName",
+      "short" : "Namn på medarbetaruppdraget (max 256 tecken)",
+      "definition" : "Namn på medarbetaruppdraget (max 256 tecken)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "cancelextendedconsent-request.cancellationAction.reasonText",
+      "path" : "cancelextendedconsent-request.cancellationAction.reasonText",
+      "short" : "Anledning till återkallningen i fritext (max 1024 tecken)",
+      "definition" : "Anledning till återkallningen i fritext (max 1024 tecken)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```
