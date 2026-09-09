@@ -17,7 +17,7 @@ Characteristics: #can-be-target
   """
   Kardinalitet: Obligatorisk.
   """
-* careEncounter.id 1..1 Identifier "Unikt värde för vårdkontakten"
+* careEncounter.careEncounterId 1..1 Identifier "Unikt värde för vårdkontakten"
   """
   Root: nationell OID för lokala id:n: 1.2.752.129.2.1.2.1
   Extension: HSA-id för källsystemet + ":" + ID.
@@ -46,14 +46,14 @@ Characteristics: #can-be-target
   """
   Kardinalitet: Valfri.
   """
-* careEncounter.location.id 0..1 Identifier "Identifiering för platsen (HSA-id om vårdenhet)"
+* careEncounter.location.locationId 0..1 Identifier "Identifiering för platsen (HSA-id om vårdenhet)"
   """
   Root: OID för HSA-id: 1.2.752.129.2.1.4.1
   Kardinalitet: Valfri.
   """
 * careEncounter.location.name 1..1 string "Namn på platsen där vårdkontakt genomförts"
   """
-  Obligatorisk när PerformerRole.id anges (dvs. involverar vårdpersonal).
+  Obligatorisk när performerRole.performerRoleId anges (dvs. involverar vårdpersonal).
   Kardinalitet: Obligatorisk (se övriga regler).
   """
 * careEncounter.location.address 0..* BackboneElement "Platsens adress"
@@ -62,7 +62,7 @@ Characteristics: #can-be-target
   """
   Kardinalitet: Obligatorisk.
   """
-* careEncounter.patient.id 1..1 Identifier "Patientens identifierare"
+* careEncounter.patient.patientId 1..1 Identifier "Patientens identifierare"
   """
   Root: OID för typ av identifierare (personnummer 1.2.752.129.2.1.3.1,
   samordningsnummer 1.2.752.129.2.1.3.3, reservnummer 1.2.752.129.2.1.2.1).
@@ -86,7 +86,7 @@ Characteristics: #can-be-target
   """
   Kardinalitet: Obligatorisk.
   """
-* careEncounter.performerRole.id 0..1 Identifier "Personens identitet av utförarrollen (HSA-id)"
+* careEncounter.performerRole.performerRoleId 0..1 Identifier "Personens identitet av utförarrollen (HSA-id)"
   """
   Lämnas tomt om vårdkontakten utförs av patienten själv eller annan person.
   HSAid anges om utföraren är en vårdpersonal.
@@ -101,7 +101,7 @@ Characteristics: #can-be-target
   """
   Kardinalitet: Valfri.
   """
-* careEncounter.performerRole.careUnit.id 1..1 Identifier "HSAid för PDL vårdenhet"
+* careEncounter.performerRole.careUnit.careUnitId 1..1 Identifier "HSAid för PDL vårdenhet"
   """
   Root: OID för HSA-id: 1.2.752.129.2.1.4.1
   Kardinalitet: Obligatorisk.
@@ -111,7 +111,7 @@ Characteristics: #can-be-target
   """
   Kardinalitet: Obligatorisk.
   """
-* careEncounter.performerRole.careUnit.careGiver.id 1..1 Identifier "HSAid för vårdgivaren"
+* careEncounter.performerRole.careUnit.careGiver.careGiverId 1..1 Identifier "HSAid för vårdgivaren"
   """
   Root: OID för HSA-id: 1.2.752.129.2.1.4.1
   Kardinalitet: Obligatorisk.

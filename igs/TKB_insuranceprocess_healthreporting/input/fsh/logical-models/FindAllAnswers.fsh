@@ -33,7 +33,7 @@ Characteristics: #can-be-target
 * answersLeft 1..1 integer "Antal kvarvarande svar för denna vårdenhet"
 * answers 0..1 BackboneElement "Svar"
 * answers.answer 0..* BackboneElement "Lista av svar"
-* answers.answer.id 1..1 integer "Ärendelådans identitet på det returnerade svaret"
+* answers.answer.answerId 1..1 integer "Ärendelådans identitet på det returnerade svaret"
   """
   Används när man vill ta bort svaret från ärendelådan via DeleteAnswers.
   """

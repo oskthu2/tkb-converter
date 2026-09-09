@@ -79,7 +79,7 @@ Characteristics: #can-be-target
   Information om remisstatusen som tillgängliggörs.
   """
 
-* requestActivity.header.record.id 1..1 Identifier "Identifierare för remisstatus"
+* requestActivity.header.record.recordId 1..1 Identifier "Identifierare för remisstatus"
   """
   Beständig identifierare för remisstatusen. Ska vara konsistent mellan majorversioner av
   tjänstekontrakt och mellan olika tjänstekontrakt.
@@ -97,7 +97,7 @@ Characteristics: #can-be-target
   Avser inte den som enbart registrerar uppgiften från annan källa.
   """
 
-* requestActivity.header.author.id 0..1 Identifier "HSA-id för dokumenterande personal"
+* requestActivity.header.author.authorId 0..1 Identifier "HSA-id för dokumenterande personal"
   """
   HSA-id för hälso- och sjukvårdspersonal som dokumenterat remisstatusen.
   root = 1.2.752.129.2.1.4.1, extension = HSA-id.
@@ -143,7 +143,7 @@ Characteristics: #can-be-target
   Den utfärdade remissen.
   """
 
-* requestActivity.body.request.id 1..1 string "Remiss-id"
+* requestActivity.body.request.requestId 1..1 string "Remiss-id"
   """
   Unik identifierare för remissen.
   Vid kännedom om remittentens id anges detta för att kunna koppla ihop statusrader.
@@ -180,7 +180,7 @@ Characteristics: #can-be-target
   Den enhet som remittenten tillhör.
   """
 
-* requestActivity.body.request.author.organization.id 0..1 Identifier "Remitterande enhetens id"
+* requestActivity.body.request.author.organization.organizationId 0..1 Identifier "Remitterande enhetens id"
   """
   Remitterande enhetens HSA-id.
   root = 1.2.752.129.2.1.4.1, extension = HSA-id.
@@ -196,7 +196,7 @@ Characteristics: #can-be-target
   Den enhet som är mottagare av remissen (eller faktisk mottagare om remissen skickats vidare).
   """
 
-* requestActivity.body.request.receivingOrganization.id 0..1 Identifier "Remissmottagande enhets id"
+* requestActivity.body.request.receivingOrganization.receivingOrganizationId 0..1 Identifier "Remissmottagande enhets id"
   """
   Remissmottagande enhets HSA-id.
   root = 1.2.752.129.2.1.4.1, extension = HSA-id.

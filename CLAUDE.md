@@ -313,7 +313,11 @@ releaseLabel: draft
 
 dependencies:
   hl7.fhir.r4.core: 4.0.1
-  se.inera.rivta.core: current
+  # OBS: lägg INTE till `se.inera.rivta.core: current` här — paketet är
+  # aspirationellt och har aldrig publicerats (finns inte på build.fhir.org
+  # eller packages.fhir.org). IG Publisher kraschar direkt vid
+  # dependency-upplösning om det står med. Se "FHIR-kontext" nedan för hur
+  # gemensamma bastyper hanteras istället.
 
 pages:
   index.md:
@@ -731,7 +735,7 @@ Description: "Tillåtna värden för {fält} enligt {KodverkNamn}."
 | `0 errors, 0 warnings` | Markera SUSHI-steg som `passed`, fortsätt till QA Tracker |
 | Varningar utan fel | Logga varningarna som TODO i QUESTIONS.md, fortsätt |
 | Kompileringsfel (`ERROR`) | Logga varje fel som BLOCK i QUESTIONS.md med exakt felmeddelande och filreferens |
-| Dependency-fel (package not found) | Logga som BLOCK med instruktion att verifiera `se.inera.rivta.core`-paketet |
+| Dependency-fel (package not found) | Kontrollera att `se.inera.rivta.core` inte av misstag lagts till i `dependencies:` (paketet finns inte publicerat — se sushi-config.yaml-mallen ovan) och ta bort raden. Annars logga som BLOCK med exakt paketnamn/version |
 
 4. Extrahera och verifiera att de förväntade artefakterna finns i `fsh-generated/resources/`:
    - `StructureDefinition-{interaktion-lowercase}.json` per kontrakt (t.ex. `StructureDefinition-getcaredocumentation.json`)
@@ -909,8 +913,7 @@ Varje fråga ska ha:
 
 - Använd **FHIR R4 (4.0.1)** genomgående
 - Logiska modeller ska använda `Logical:` i FSH, inte `Profile:`
-- Ineras gemensamma bastyper ska importeras via dependency `se.inera.rivta.core`
-- Om en bastyp inte finns i core-paketet: skapa en Extension eller en lokal Logical-typ och lägg till en QUESTIONS-notering
+- Det finns **inget** publicerat `se.inera.rivta.core`-paket (varken på build.fhir.org eller packages.fhir.org) — deklarera det **aldrig** som dependency i sushi-config.yaml, det får IG Publisher att krascha vid dependency-upplösning (bekräftat i CI, se GitHub Actions-körning 34356588086). Ineras gemensamma bastyper hanteras istället lokalt: skapa en Extension eller en lokal `Logical:`-typ i domänens egen `input/fsh/` och lägg till en QUESTIONS-notering
 - Använd alltid `^url` explicit i CodeSystem för att ange OID-baserad canonical
 - Alla FSH-filer ska ha header-kommentarer med kontrakts-ID, version och genereringsdatum
 
