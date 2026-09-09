@@ -69,6 +69,13 @@ jobs:
       - name: Installera SUSHI
         run: npm install -g fsh-sushi
 
+      - name: Installera Jekyll (IG Publisher kör detta som subprocess för HTML-rendering)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ruby-full ruby-bundler
+          sudo gem install jekyll bundler --no-document
+          jekyll --version
+
       - name: Cacha FHIR-paket och IG Publisher-jar
         uses: actions/cache@v4
         with:
