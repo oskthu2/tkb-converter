@@ -633,7 +633,15 @@ Vissa elementnamn är reserverade i FHIR R4 och **får inte användas direkt** s
 - RIV-TA-fält `code` på en `Diagnosis`-struktur → `diagnosisCode`
 - RIV-TA-fält `status` på toppnivå i modellen → `{ContractName}Status`, t.ex. `getCertificateStatus`
 
-**Nästlade BackboneElements:** Även inom nästlade strukturer gäller samma regel. Om elementet heter `address.type` i TKB:n, skriv det som `addressType` i FSH.
+**Nästlade BackboneElements:** Även inom nästlade strukturer gäller samma regel — **på alla nästlingsnivåer, inte bara toppnivån**. Om elementet heter `address.type` i TKB:n, skriv det som `addressType` i FSH. Detta är den enskilt vanligaste orsaken till byggfel i praktiken: ett fält fem nivåer ner i en BackboneElement-kedja (t.ex. `requestActivity.header.record.id`) är lika förbjudet som ett fält på toppnivån, men glöms betydligt oftare bort eftersom det är lätt att fokusera på strukturens toppnivåfält när man skriver modellen.
+
+**OBLIGATORISK självkontroll innan en FSH-fil anses klar (KRITISKT — hoppa aldrig över detta steg):** Kör följande sökning mot filen du precis skrivit, innan du går vidare till nästa fil:
+
+```bash
+grep -nE '(^\*\s+id|\.id)\s+[0-9]+\.\.[0-9*]+' input/fsh/logical-models/{Filnamn}.fsh
+```
+
+Varje träff är ett fält som bryter mot reglerna ovan och MÅSTE döpas om innan filen är klar. Detta gäller även om fältet "ser rätt ut" vid en snabb genomläsning — sökningen är mekanisk och missar inget, medan manuell genomläsning av en lång nästlad modell historiskt sett har missat träffar konsekvent (10 filer över 7 domäner hade detta felet samtidigt vid ett tillfälle, trots att regeln redan fanns dokumenterad ovan). Kör motsvarande sökning för övriga reserverade namn (`text`, `code`, `status`, `value`, `name`, `type`, `version`, `language`, `meta`) om du är osäker på om något av dem använts som fältnamn på en nästlad nivå.
 
 **Verifiera alltid efter SUSHI:** Om SUSHI ger fel med `"Element name ... is not valid"` eller `"Cannot override ... in differential"`, byt namn på det berörda elementet och kör om.
 
@@ -651,6 +659,33 @@ Vissa elementnamn är reserverade i FHIR R4 och **får inte användas direkt** s
 | PQType (värde + enhet) | Quantity | |
 | boolean | boolean | |
 | string / longstring | string | |
+
+#### Redeklarera aldrig ett subelement på en komplex datatyp med fel FHIR-typ (KRITISKT)
+
+När ett fält har en komplex FHIR-datatyp (`Identifier`, `CodeableConcept`, `Quantity`, `Period`, `Coding`, `HumanName`, ...) händer det att man vill dokumentera eller ytterligare begränsa ett av dess inbyggda subelement, t.ex. för att beskriva vad `system`-värdet ska innehålla. Om du då skriver en egen `*`-rad för subelementet **måste typen matcha exakt** vad FHIR R4 redan definierar för det subelementet — SUSHI/IG Publisher tillåter inte att ett ärvt element "omtypas". Detta är samma underliggande mekanism som gör `id` reserverat (se ovan), men drabbar här ett *specifikt* fältnamn (`system`, `value`, `use` ...) enbart när det står under ett fält av just den datatypen.
+
+**Vanligaste felet i praktiken:** `Identifier.system` felaktigt typat som `string` istället för `uri` (SUSHI-felet ser ut som `invalid constrained type string from uri in http://hl7.org/fhir/StructureDefinition/Base`). De inbyggda subelementen på `Identifier` är:
+
+| Identifier-subelement | FHIR-typ (oföränderlig) |
+|---|---|
+| `use` | `code` |
+| `type` | `CodeableConcept` |
+| `system` | `uri` |
+| `value` | `string` |
+| `period` | `Period` |
+| `assigner` | `Reference` |
+
+Samma princip gäller för alla andra komplexa datatyper (t.ex. `Quantity.value` är `decimal`, `Quantity.unit`/`Quantity.code` är `string`/`code`, `Quantity.system` är `uri`; `Coding.system` är `uri`, `Coding.code` är `code`). Slå upp exakt typ i FHIR R4-specifikationen (hl7.org/fhir/R4/datatypes.html) om du är osäker.
+
+**Säkraste regeln:** Om du inte behöver begränsa kardinaliteten eller lägga till en binding på subelementet, **redeklarera det inte alls** — dokumentera istället tolkningen i fält-description på föräldrafältet (t.ex. `patientId 1..1 Identifier "Patientens id" """ system = OID för personnummer/samordningsnummer, value = själva numret """`). Att helt utelämna en subelementdeklaration är alltid säkert; en felaktig typ är alltid ett byggfel som stoppar hela domänens IG Publisher-körning.
+
+**Självkontroll:** Om du ändå redeklarerar `Identifier`-subelement, kör:
+
+```bash
+grep -nE '\.(system|use|assigner)\s+[0-9]+\.\.[0-9*]+\s+(string|integer|boolean|CodeableConcept)' input/fsh/logical-models/{Filnamn}.fsh
+```
+
+En träff betyder nästan alltid fel typ (system/use/assigner ska aldrig vara string/integer/boolean, och use/system ska aldrig vara CodeableConcept).
 
 #### CodeSystem-mall
 
@@ -708,13 +743,26 @@ Description: "Tillåtna värden för {fält} enligt {KodverkNamn}."
 
 **Agenten ska:**
 
-1. Kontrollera att SUSHI är installerat:
+1. **Pre-flight lint (KRITISKT — kör detta FÖRE `sushi .`, oavsett om Model Builder redan sagt sig ha gjort sin egen självkontroll):** De vanligaste byggfelen i denna migrering är mekaniska mönster som är billigare att hitta med `grep` än att låta SUSHI/IG Publisher krascha på dem en och en. Kör mot **alla** filer i `input/fsh/`:
+   ```bash
+   # Reserverade elementnamn på valfri nästlingsnivå (id, text, code, status, value, name, type, version, language, meta)
+   grep -rnE '(^\*\s+|\.)(id|text|code|status|value|name|type|version|language|meta)\s+[0-9]+\.\.[0-9*]+' input/fsh/logical-models/
+
+   # Identifier/Coding-subelement med fel inbyggd typ (system/use/assigner ska aldrig vara string/integer/boolean/CodeableConcept)
+   grep -rnE '\.(system|use|assigner)\s+[0-9]+\.\.[0-9*]+\s+(string|integer|boolean|CodeableConcept)' input/fsh/logical-models/
+
+   # Trasig, aldrig publicerad dependency
+   grep -n "se.inera.rivta.core" sushi-config.yaml
+   ```
+   Varje träff är ett känt byggfelsmönster (se "FSH-konventioner" ovan för exakt åtgärd per mönster) — fixa alla träffar innan du går vidare till steg 2. Detta är inte en ersättning för `sushi .`/IG Publisher-körningen, utan ett snabbt första filter som fångar de mönster som historiskt återkommit flest gånger.
+
+2. Kontrollera att SUSHI är installerat:
    ```bash
    sushi --version
    ```
    Om kommandot inte hittas: lägg till BLOCK `"SUSHI är inte installerat — kör: npm install -g fsh-sushi"` och avbryt steget.
 
-2. **Förutsättning för SUSHI-körning:** Verifiera att FHIR-baspaketet finns lokalt i cachen:
+3. **Förutsättning för SUSHI-körning:** Verifiera att FHIR-baspaketet finns lokalt i cachen:
    ```bash
    ls ~/.fhir/packages/hl7.fhir.r4.core#4.0.1/package/package.json
    ```
@@ -722,13 +770,13 @@ Description: "Tillåtna värden för {fält} enligt {KodverkNamn}."
 
    **Obs:** packages.fhir.org och hl7.org är nätverksblockerade i denna miljö. SUSHI löser dock paketet från lokal cache utan nätverksanrop om katalogen `~/.fhir/packages/hl7.fhir.r4.core#4.0.1/` finns. Paketet kan skapas lokalt med skriptet `gen_fhir_stubs.py` i projektets rotkatalog.
 
-3. Köra SUSHI i kontraktets katalog:
+4. Köra SUSHI i kontraktets katalog:
    ```bash
    cd igs/{ContractId}
    sushi .
    ```
 
-3. Tolka utdata:
+5. Tolka utdata:
 
 | SUSHI-utfall | Åtgärd |
 |---|---|
@@ -737,7 +785,7 @@ Description: "Tillåtna värden för {fält} enligt {KodverkNamn}."
 | Kompileringsfel (`ERROR`) | Logga varje fel som BLOCK i QUESTIONS.md med exakt felmeddelande och filreferens |
 | Dependency-fel (package not found) | Kontrollera att `se.inera.rivta.core` inte av misstag lagts till i `dependencies:` (paketet finns inte publicerat — se sushi-config.yaml-mallen ovan) och ta bort raden. Annars logga som BLOCK med exakt paketnamn/version |
 
-4. Extrahera och verifiera att de förväntade artefakterna finns i `fsh-generated/resources/`:
+6. Extrahera och verifiera att de förväntade artefakterna finns i `fsh-generated/resources/`:
    - `StructureDefinition-{interaktion-lowercase}.json` per kontrakt (t.ex. `StructureDefinition-getcaredocumentation.json`)
    - `StructureDefinition-{interaktion-lowercase}-request.json` (om request-modell skapats)
    - En `CodeSystem-*.json` per definierat kodverk
@@ -745,7 +793,7 @@ Description: "Tillåtna värden för {fält} enligt {KodverkNamn}."
 
    Om en förväntad fil saknas trots att SUSHI rapporterar inga fel: logga som BLOCK med notering om vilken FSH-resurs som förmodligen saknar korrekt `Id`-fält.
 
-5. Uppdatera `contracts-registry.json`:
+7. Uppdatera `contracts-registry.json`:
    ```json
    "sushi_result": {
      "ran_at": "ISO-timestamp",
@@ -816,13 +864,15 @@ Agenten läser detta direkt från repot efter att CI har körts klart — kontro
 
 ### Vad agenten gör när den ser qa-errors.json
 
-När användaren ber Claude att agera på IG Publisher-resultaten:
+**Detta är standardbeteende, inte något som kräver att användaren ber om det.** Orchestratorn ska proaktivt agera på IG Publisher-resultaten som en del av varje domäns pipeline (se "Startinstruktion" — pipelinen slutar inte vid push, den slutar när CI är grön eller domänen är `blocked`). Efter varje push till `main` som rör en domän:
 
-1. **Läs** `igs/TKB_{domain_id}/ig-publisher-logs/qa-errors.json`
-2. **Läs** `igs/TKB_{domain_id}/ig-publisher-logs/build.log` vid behov (för kontext)
-3. För varje fel i `top_issues`:
+0. **Vänta in och läs det faktiska CI-resultatet** innan domänen räknas som klar — anta aldrig att en push lyckades bara för att `git push` returnerade utan fel. Använd GitHub MCP-verktygen (`actions_list`/`actions_get` mot `.github/workflows/build-and-publish.yml`) för att hitta den körning som triggades av din push, och poll:a (t.ex. varannan minut, eller använd `ScheduleWakeup`/`send_later` om tillgängligt) tills den är `completed`. En full körning tar ~15–25 minuter för alla 30 domäner — avbryt inte i förtid.
+1. **Läs** `igs/TKB_{domain_id}/ig-publisher-logs/qa-errors.json` (committas dit av `commit-results`-jobbet när CI är klart)
+2. Om CI-jobbet failade helt (t.ex. kraschade innan qa-errors.json ens skrevs): hämta jobbloggen med `get_job_logs` och läs den faktiska stacktracen/felmeddelandet — `qa-errors.json`:s `passed`-fält bygger på mönstermatchning och kan missa fel som syns som en rå exception istället för en `ERROR:`/`FATAL:`-rad (detta har hänt — se historiken i PR #5). Lita aldrig blint på att "inga poster i `top_issues`" betyder att allt är bra; kontrollera även domänens faktiska `ig_publisher_result.passed` i `contracts-registry.json` efter att `commit-results` kört.
+3. För varje fel i `top_issues` (eller i jobbloggen om steg 2 krävdes):
    - Identifiera berörd fil (FSH-modell, pagecontent-sida, sushi-config)
-   - Bestäm om felet är en **BLOCK** (kräver beslut), **ASSUME** (antagande gjordes), eller **TODO** (kan fixas autonomt)
+   - Matcha mot de kända, dokumenterade felmönstren i "FSH-konventioner" ovan (reserverat elementnamn, fel datatyp på ett inbyggt subelement, `se.inera.rivta.core`-dependency, trasig `special-url`) — dessa fixas alltid direkt, aldrig som BLOCK, eftersom lösningen redan är entydigt dokumenterad
+   - För övriga fel: bestäm om felet är en **BLOCK** (kräver beslut), **ASSUME** (antagande gjordes), eller **TODO** (kan fixas autonomt men inte prioriterat)
    - Fält/sidor som kan fixas direkt: fixa i FSH-filen eller pagecontent-sidan
    - Fält/sidor med semantisk tvetydighet: lägg till BLOCK i QUESTIONS.md
 4. **Uppdatera QUESTIONS.md** med nya poster — alltid med relativ sökväg:
@@ -832,17 +882,21 @@ När användaren ber Claude att agera på IG Publisher-resultaten:
      Källa: ig-publisher-logs/qa-errors.json rad 12
    ```
 5. **Fixa** syntaktiska/tekniska fel direkt (t.ex. felaktiga FSH-typer, brutna bildlänkar, `url`-fel i CodeSystem)
-6. **Kör `make sushi-one D=TKB_{domain_id}`** lokalt för att snabbt verifiera att FSH-fixen kompilerar (SUSHI-nivå), och pusha ändringen till `main` (eller öppna en PR) för att låta GitHub Actions köra hela IG Publisher-bygget och QA-kontrollen på nytt
+6. **Kör `make sushi-one D=TKB_{domain_id}`** lokalt för att snabbt verifiera att FSH-fixen kompilerar (SUSHI-nivå), pusha ändringen till `main`, och gå tillbaka till steg 0 (vänta in nästa CI-körning)
 7. **Uppdatera registry**: sätt `ig_publisher_result.status` till `"needs-retry"` för domäner med åtgärdade fel (skrivs annars över automatiskt vid nästa CI-körning)
+8. **Om samma domän fortfarande inte är grön efter 3 fix-försök** (push → CI-körning → fortfarande fel): sluta iterera på egen hand. Markera domänen `blocked` i registret med `blocked_reason` satt till en sammanfattning av det kvarstående felet, lägg till en BLOCK-post i QUESTIONS.md, och fortsätt till nästa `pending`-domän istället för att fastna. Rapportera detta till användaren först nästa gång du ändå pratar med dem — vänta inte in en fråga för att flagga det.
 
 **Prioriteringsordning för fel:**
 | Feltyp | Åtgärd |
 |--------|--------|
 | FATAL | Alltid BLOCK — kräver manuellt beslut |
-| ERROR på FSH-typ/kardinalitet | Försök fixa direkt om semantiken är klar |
+| Matchar ett känt, dokumenterat mönster (reserverat namn, fel datatyp på subelement, `se.inera.rivta.core`, `special-url`) | Fixa alltid direkt, aldrig BLOCK |
+| ERROR på FSH-typ/kardinalitet (okänt mönster) | Försök fixa direkt om semantiken är klar |
 | ERROR på bildlänk / sidreferens | Fixa direkt |
 | ERROR på terminology-binding | BLOCK om kodverk är okänt, fixa om känd URL |
 | WARN på snapshot/differential | TODO — kan ignoreras initialt |
+
+**När du hittar ett NYTT återkommande felmönster** (samma typ av fel i flera domäner, eller ett fel vars orsak inte redan finns dokumenterat i "FSH-konventioner"): lägg till det där, med exakt felsignatur och åtgärd, innan du går vidare — inte bara i QUESTIONS.md. QUESTIONS.md är per-domän och läses sällan av nästa domäns körning; "FSH-konventioner" är den enda platsen instruktionerna faktiskt konsulteras proaktivt av alla framtida domäner.
 
 ---
 
@@ -933,17 +987,28 @@ Varje fråga ska ha:
 
 ## Startinstruktion
 
+**Detta är en kontinuerlig pipeline, inte en enskild åtgärd per invocation.** Standardläget är att bearbeta domän efter domän utan att stanna mellan dem eller vänta på att bli ombedd att fortsätta — precis som en CI-pipeline inte stannar mellan jobb. Sluta bara i de fall som listas under "När orchestratorn ska stanna" nedan.
+
 1. Läs `contracts-registry.json` (skapa om den saknas)
 2. Hämta lista med domäner via Bitbucket API: `https://api.bitbucket.org/2.0/repositories/rivta-domains?pagelen=100`
 3. Lägg till saknade domäner som `pending` i registret
 4. Hitta första domän med status `pending` (eller `in-progress` om tidigare avbrutet)
-5. Kör pipeline: Fetcher → Parser → IG Builder → Model Builder → SUSHI Validator → QA Tracker
-   _(IG Publisher-bygge och publicering till GitHub Pages sker automatiskt i GitHub Actions vid push till `main` — se Steg 4.6)_
-6. Uppdatera status i registret
-7. Upprepa för nästa domän
-8. När alla domäner är `done` eller `blocked`: skriv en sammanfattning till `MIGRATION_SUMMARY.md`
+5. Kör pipeline för domänen: Fetcher → Parser → IG Builder → Model Builder → SUSHI Validator → QA Tracker → push till `main`
+6. **Vänta in CI-resultatet och agera på det** enligt "Vad agenten gör när den ser qa-errors.json" (Steg 4.6) — detta är en del av samma domäns pipeline, inte ett separat steg som kräver en ny begäran. En domän är inte klar förrän dess CI-körning är grön (`done`) eller domänen är `blocked` efter 3 fix-försök.
+7. Uppdatera status i registret
+8. **Fortsätt omedelbart till nästa `pending`-domän** — upprepa steg 4–7 utan att pausa för bekräftelse mellan domäner.
+9. När alla domäner är `done` eller `blocked`: skriv en sammanfattning till `MIGRATION_SUMMARY.md`
 
-**Fråga alltid användaren** innan du markerar en domän som `done` om det finns öppna BLOCK-poster. Föreslå konkret vad som behövs för att lösa blockeringen.
+### När orchestratorn ska stanna
+
+Stanna och vänta på användaren bara vid dessa tillfällen — inte annars:
+
+- **Innan en domän markeras `done`** om den har öppna BLOCK-poster i QUESTIONS.md. Föreslå konkret vad som behövs för att lösa blockeringen (detta är oförändrat sedan tidigare).
+- **Bitbucket-auth krävs** (401/403) eller annat fel som kräver mänsklig åtgärd i miljön (t.ex. SUSHI-dependencyfel som inte matchar ett känt mönster).
+- **En genuint tvetydig domänfråga** dyker upp som inte kan lösas mekaniskt (t.ex. en regel i TKB:n som kan tolkas på flera sätt och påverkar hur hela modellen ska se ut) — logga som BLOCK och fråga, hoppa inte över.
+- **Alla domäner är `done` eller `blocked`** — dags för `MIGRATION_SUMMARY.md` och en slutrapport till användaren.
+
+Allt annat — en enskild domän som blir `blocked` efter 3 fix-försök, ett känt felmönster som redan är dokumenterat och kan fixas mekaniskt, en domän som blir klar — är inte skäl att stanna. Fortsätt till nästa domän och rapportera summariskt först när något av ovanstående inträffar eller när användaren själv hör av sig.
 
 ---
 
