@@ -585,9 +585,11 @@ Expression: "diagnosType.exists() implies diagnosCode.exists()"
 Severity: #error
 
 * diagnosCode 0..1 CodeableConcept "Diagnoskod"
-  * ^obeys diagnosis-code-required-when-type
+  * obeys diagnosis-code-required-when-type
 * diagnosType 0..1 CodeableConcept "Diagnostyp"
 ```
+
+**KRITISKT — `obeys` tar INGEN `^` (caret):** `obeys` är ett eget FSH-nyckelord, inte en caret-path/metadata-regel. `* ^obeys invariant-id` ger felet `Cannot read properties of undefined (reading 'id')` vid `sushi .` (upptäckt vid migrering av `infrastructure.itintegration.registry`). Skriv alltid `* obeys invariant-id` (eller `* elementnamn obeys invariant-id` på samma rad som elementet) — aldrig `* ^obeys ...`.
 
 **Invariantens id** ska följa mönstret `{modell-lowercase}-{kort-beskrivning}`, t.ex. `getdiagnosis-code-required`.
 
@@ -767,6 +769,9 @@ Description: "Tillåtna värden för {fält} enligt {KodverkNamn}."
 
    # Trasig, aldrig publicerad dependency
    grep -n "se.inera.rivta.core" sushi-config.yaml
+
+   # Felaktig obeys-syntax (obeys tar ALDRIG caret — "^obeys" kraschar sushi)
+   grep -rn '\^obeys' input/fsh/
    ```
    Varje träff är ett känt byggfelsmönster (se "FSH-konventioner" ovan för exakt åtgärd per mönster) — fixa alla träffar innan du går vidare till steg 2. Detta är inte en ersättning för `sushi .`/IG Publisher-körningen, utan ett snabbt första filter som fångar de mönster som historiskt återkommit flest gånger.
 

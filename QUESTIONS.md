@@ -1103,3 +1103,23 @@ Inga blockerare.
 
 - [ ] **[TODO-HR-004]** `igs/TKB_insuranceprocess_healthreporting/sushi-config.yaml`
   Det finns ingen WSDL för SendMedicalCertificate och SetCertificateStatus i Bitbucket-repots interaktionskataloger. De är "nyare" kontrakt (v3.1.0) utan egna WSDL-filer. Verifiera om WSDLs finns på annan plats eller om kontrakten enbart definieras via XSD.
+
+## infrastructure.itintegration.registry v2.0 — `igs/TKB_infrastructure_itintegration_registry/`
+
+**Status:** in-progress
+**Senast uppdaterad:** 2026-09-14T09:40:00Z
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-IR-001]** `igs/TKB_infrastructure_itintegration_registry/input/fsh/logical-models/GetLogicalAddresseesByServiceContract.fsh` · fält `logicalAddressRecord`
+  R2 (TKB avsnitt 7.1 "Övriga regler") beskriver en flerstegs behörighetsfiltreringsregel över listan `logicalAddressRecord.filter[]`: saknas filter-poster tillåts anropet; annars måste ett meddelandes `serviceDomain` matcha en filter-post, och om den matchande posten har `categorization` måste meddelandets `categorization` matcha en av dessa. Detta involverar jämförelse mot en extern (inkommande) meddelandestruktur som inte finns representerad i själva svarsmodellen, och kan därför inte uttryckas fullständigt som en FHIRPath-invariant på fältnivå i den logiska modellen. Har lagts till som en `Invariant` med `Severity: #warning` och fullständig regelbeskrivning i `Description` (ingen `Expression` skriven, eftersom regeln inte går att uttrycka mot enbart denna modells egna fält). Verifiera med domänexpert om detta ska dokumenteras annorlunda, t.ex. som en separat konformitetsregel i sidtext istället för en FSH-invariant.
+  Källa: TKB avsnitt 7.1 "Övriga regler" R2, inkl. fem exempel-meddelanden.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-IR-001]** `igs/TKB_infrastructure_itintegration_registry/`
+  Domänen har inga domänspecifika kodverk (CodeSystems/ValueSets) — `filter.categorization` är fritext utan fast kodverk enligt TKB:n ("Kodverk enligt tjänstedomänens dokumentation" utan vidare specifikation). Om ett sådant kodverk identifieras senare bör `categorization` bindas till ett ValueSet istället för att vara `string`.

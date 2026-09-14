@@ -1,0 +1,104 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getlogicaladdresseesbyservicecontract",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-itintegration-registry/StructureDefinition/getlogicaladdresseesbyservicecontract",
+  "name": "GetLogicalAddresseesByServiceContract",
+  "title": "GetLogicalAddresseesByServiceContract",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet GetLogicalAddresseesByServiceContract\n(RIV-TA urn:riv:infrastructure:itintegration:registry:GetLogicalAddresseesByServiceContract:2).\nRepresenterar responsens informationsstruktur: en lista över logiska\nadressater som har en tjänsteproducent för angivet tjänstekontrakt och\nanropsbehörighet för angiven tjänstekonsument.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-itintegration-registry/StructureDefinition/getlogicaladdresseesbyservicecontract",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getlogicaladdresseesbyservicecontract",
+        "path": "getlogicaladdresseesbyservicecontract",
+        "short": "GetLogicalAddresseesByServiceContract",
+        "definition": "Logisk modell för tjänstekontraktet GetLogicalAddresseesByServiceContract\n(RIV-TA urn:riv:infrastructure:itintegration:registry:GetLogicalAddresseesByServiceContract:2).\nRepresenterar responsens informationsstruktur: en lista över logiska\nadressater som har en tjänsteproducent för angivet tjänstekontrakt och\nanropsbehörighet för angiven tjänstekonsument."
+      },
+      {
+        "id": "getlogicaladdresseesbyservicecontract.logicalAddressRecord",
+        "path": "getlogicaladdresseesbyservicecontract.logicalAddressRecord",
+        "short": "Logisk adressat som matchar frågan",
+        "definition": "Post för en logisk adressat med tjänsteproducent för angivet\ntjänstekontrakt och anropsbehörighet för angiven tjänstekonsument.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "getlogicaladdresseesbyservicecontract-filter-authorization",
+            "severity": "warning",
+            "human": "R2 (TKB avsnitt 7.1, \"Övriga regler\"): behörighetsfiltrering är en\nflerstegsregel över listan av filter-poster (saknas filter-poster ska\nanropet tillåtas; annars måste meddelandets serviceDomain matcha en\nfilter-post, och om den matchande posten har categorization måste\nmeddelandets categorization matcha en av dessa). Detta kräver iteration\növer en lista med kombinerad AND/OR-logik mellan filter-poster och kan\ninte uttryckas fullständigt som en enkel FHIRPath-invariant på fältnivå.\nSe QUESTIONS.md för domänexpert-verifiering av en ev. förenklad\nFHIRPath-representation.",
+            "source": "https://fhir.inera.se/ig/infrastructure-itintegration-registry/StructureDefinition/getlogicaladdresseesbyservicecontract"
+          }
+        ]
+      },
+      {
+        "id": "getlogicaladdresseesbyservicecontract.logicalAddressRecord.logicalAddress",
+        "path": "getlogicaladdresseesbyservicecontract.logicalAddressRecord.logicalAddress",
+        "short": "Logisk adress",
+        "definition": "Tjänstekontrakt som stöds av angiven tjänstekonsument vid tidpunkten\nför anropet av GetLogicalAddresseesByServiceContract.\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getlogicaladdresseesbyservicecontract.logicalAddressRecord.filter",
+        "path": "getlogicaladdresseesbyservicecontract.logicalAddressRecord.filter",
+        "short": "Behörighetsfilter",
+        "definition": "Behörighetsfilter för adressaten. Se invariant och TKB avsnitt 7.1\n\"Övriga regler\" (R2) för fullständig matchningssemantik.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getlogicaladdresseesbyservicecontract.logicalAddressRecord.filter.serviceDomain",
+        "path": "getlogicaladdresseesbyservicecontract.logicalAddressRecord.filter.serviceDomain",
+        "short": "Tjänstedomän",
+        "definition": "Namnrymd för Tjänstedomän enligt RIVTA-förvaltningens förvaltade\ntjänstedomäner, på formatet <regelverk>:<huvuddomän>:<underdomän>.\nAnges utan versionsnummer. Exempel: \"urn:riv:crm:scheduling\".\nKardinalitet: Obligatorisk.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ]
+      },
+      {
+        "id": "getlogicaladdresseesbyservicecontract.logicalAddressRecord.filter.categorization",
+        "path": "getlogicaladdresseesbyservicecontract.logicalAddressRecord.filter.categorization",
+        "short": "Kategorisering",
+        "definition": "Kodverk enligt tjänstedomänens dokumentation. Matchning görs enligt\nR3 (TKB avsnitt 7.1) utan hänsyn till versaler/gemener (IgnoreCase).",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

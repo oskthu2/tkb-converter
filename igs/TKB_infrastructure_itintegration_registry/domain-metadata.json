@@ -1,0 +1,146 @@
+{
+  "domain_id": "infrastructure.itintegration.registry",
+  "domain_title": "infrastructure: itintegration: registry",
+  "domain_version": "2.0",
+  "rivta_namespace_base": "urn:riv:infrastructure:itintegration:registry",
+  "docx_converted_dir": "igs/TKB_infrastructure_itintegration_registry/docx-converted/",
+  "sections": {
+    "1_inledning": "igs/TKB_infrastructure_itintegration_registry/docx-converted/sections/1-inledning.md",
+    "2_versionsinformation": "igs/TKB_infrastructure_itintegration_registry/docx-converted/sections/2-versionsinformation.md",
+    "3_tjanstedomanens_arkitektur": "igs/TKB_infrastructure_itintegration_registry/docx-converted/sections/3-tjanstedomanens-arkitektur.md",
+    "4_tjanstedomanens_krav_och_regler": "igs/TKB_infrastructure_itintegration_registry/docx-converted/sections/4-tjanstedomanens-krav-och-regler.md",
+    "5_tjanstedomanens_meddelandemodeller": "igs/TKB_infrastructure_itintegration_registry/docx-converted/sections/5-tjanstedomanens-meddelandemodeller.md",
+    "6_gemensamma_informationskomponenter": "igs/TKB_infrastructure_itintegration_registry/docx-converted/sections/6-gemensamma-informationskomponenter.md"
+  },
+  "contracts": [
+    {
+      "section_number": "7.1",
+      "id": "GetLogicalAddresseesByServiceContract",
+      "display_name": "Hämta logiska adressater för ett tjänstekontrakt",
+      "version": "2.0",
+      "rivta_namespace": "urn:riv:infrastructure:itintegration:registry:GetLogicalAddresseesByServiceContract:2",
+      "description": "Tjänsten returnerar en lista över logiska adressater som har en tjänsteproducent för angivet tjänstekontrakt (namnrymd) och som har anropsbehörighet för angiven tjänstekonsument (hsa-id).",
+      "request_fields": [
+        {
+          "name": "serviceConsumerHsaId",
+          "type": "hsaId",
+          "cardinality": "1..1",
+          "description": "Tjänstekonsument mot vars anropsbehörighet svaret filtreras.",
+          "constraints": null,
+          "kodverk": null
+        },
+        {
+          "name": "serviceContractNameSpace",
+          "type": "urn",
+          "cardinality": "1..1",
+          "description": "Det tjänstekontrakt som frågan gäller",
+          "constraints": null,
+          "kodverk": null
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "logicalAddressRecord",
+          "type": "LogicalAddresseeRecordType",
+          "cardinality": "0..*",
+          "description": "Post per logisk adressat som matchar frågan.",
+          "constraints": null,
+          "kodverk": null
+        },
+        {
+          "name": "logicalAddressRecord.logicalAddress",
+          "type": "Text",
+          "cardinality": "1..1",
+          "description": "Tjänstekontrakt som stöds av angiven tjänstekonsument vid tidpunkten för anropet av GetLogicalAddresseesByServiceContract.",
+          "constraints": null,
+          "kodverk": null
+        },
+        {
+          "name": "logicalAddressRecord.filter",
+          "type": "FilterType",
+          "cardinality": "0..*",
+          "description": "Behörighetsfilter för adressaten (se R2 i Övriga regler).",
+          "constraints": null,
+          "kodverk": null
+        },
+        {
+          "name": "logicalAddressRecord.filter.serviceDomain",
+          "type": "URN på formatet <regelverk>:<huvuddomän>:<underdomän>",
+          "cardinality": "1..1",
+          "description": "Namnrymd för Tjänstedomän enligt RIVTA-förvaltningens förvaltade tjänstedomäner. Anges utan versionsnummer. Ex: \"urn:riv:crm:scheduling\"",
+          "constraints": null,
+          "kodverk": null
+        },
+        {
+          "name": "logicalAddressRecord.filter.categorization",
+          "type": "Text",
+          "cardinality": "0..*",
+          "description": "Kodverk enligt tjänstedomänens dokumentation.",
+          "constraints": null,
+          "kodverk": null
+        }
+      ],
+      "shared_components_refs": ["avsnitt 6"],
+      "other_rules": "R1: Producenten ska filtrera svaret så att det endast innehåller de logiska adresser som angiven konsument har rättighet att adressera för angivet tjänstekontrakt. R2: Behörighetsfilter-informationen i svaret ska hanteras enligt en flerstegsregel: om logicalAddressRecord saknar filter-poster ska anropet tillåtas; annars måste meddelandets serviceDomain matcha en filter-post, och om den matchande filter-posten har categorization måste meddelandets categorization matcha en av dessa. R3: All strängmatchning (serviceDomain, categorization) görs utan hänsyn till versaler/gemener (IgnoreCase).",
+      "error_codes": [],
+      "contract_specific_codesystems": [],
+      "open_questions_from_parsing": [
+        "R2 (behörighetsfilter-matchning) är en flerstegs boolesk regel över en lista av filter-poster (logicalAddressRecord.filter[]) som involverar både serviceDomain-matchning och villkorad categorization-matchning. Detta kan inte uttryckas fullständigt som en enkel FHIRPath-invariant på fältnivå eftersom det kräver iteration över listan med kombinerad AND/OR-logik mellan filter-poster. Dokumenterat som Description med Severity #warning på modellen; se QUESTIONS.md."
+      ]
+    },
+    {
+      "section_number": "7.2",
+      "id": "GetSupportedServiceContracts",
+      "display_name": "Hämta tjänstekontrakt som stöds av en logisk adressat",
+      "version": "2.0",
+      "rivta_namespace": "urn:riv:infrastructure:itintegration:registry:GetSupportedServiceContracts:2",
+      "description": "Tjänsten returnerar en lista över tjänstekontrakt (namnrymder) som stöds av en specifik logisk adressat. Varje huvudversion uppträder som ett eget tjänstekontrakt (namnrymd).",
+      "request_fields": [
+        {
+          "name": "serviceConsumerHsaId",
+          "type": "hsaId",
+          "cardinality": "0..1",
+          "description": "Tjänstekonsument. Svaret innehåller bara de tjänstekontrakt som denna konsument har rättighet att använda mot angiven logisk adress. Sedan v2.0 är fältet frivilligt (var obligatoriskt i v1.0).",
+          "constraints": null,
+          "kodverk": null
+        },
+        {
+          "name": "logicalAdress",
+          "type": "Text",
+          "cardinality": "1..1",
+          "description": "Typ och betydelse definieras per tjänstedomän.",
+          "constraints": null,
+          "kodverk": null
+        }
+      ],
+      "response_fields": [
+        {
+          "name": "serviceContractNamespace",
+          "type": "urn",
+          "cardinality": "0..*",
+          "description": "Tjänstekontrakt som stöds av angiven logisk adress vid tidpunkten för anropet av GetSupportedServiceContracts.",
+          "constraints": null,
+          "kodverk": null
+        }
+      ],
+      "shared_components_refs": ["avsnitt 6"],
+      "other_rules": "R1: Om tjänstekonsument är angiven ska producenten filtrera svaret så att det endast innehåller de tjänstekontrakt som angiven konsument har rättighet att använda för angiven logisk adressat.",
+      "error_codes": [],
+      "contract_specific_codesystems": [],
+      "open_questions_from_parsing": []
+    }
+  ],
+  "wsdl_files": [
+    "schemas/interactions/GetLogicalAddresseesByServiceContractInteraction/GetLogicalAddresseesByServiceContractInteraction_2.0_RIVTABP21.wsdl",
+    "schemas/interactions/GetSupportedServiceContractsInteraction/GetSupportedServiceContractsInteraction_2.0_RIVTABP21.wsdl"
+  ],
+  "xsd_files": [
+    "schemas/core_components/infrastructure_itintegration_registry_2.0.xsd",
+    "schemas/core_components/itintegration_registry_1.0.xsd",
+    "schemas/interactions/GetLogicalAddresseesByServiceContractInteraction/GetLogicalAddresseesByServiceContractResponder_2.0.xsd",
+    "schemas/interactions/GetSupportedServiceContractsInteraction/GetSupportedServiceContractsResponder_2.0.xsd"
+  ],
+  "doc_files": [
+    "docs/AB_infrastructure_itintegration_registry.docx"
+  ]
+}
