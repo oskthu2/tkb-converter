@@ -1106,8 +1106,8 @@ Inga blockerare.
 
 ## infrastructure.itintegration.registry v2.0 — `igs/TKB_infrastructure_itintegration_registry/`
 
-**Status:** in-progress
-**Senast uppdaterad:** 2026-09-14T09:40:00Z
+**Status:** done
+**Senast uppdaterad:** 2026-09-14T09:56:00Z (CI: 0 fatal, 0 errors, 0 warnings — se ig-publisher-logs/qa-errors.json)
 
 ### Blockerare (kräver svar innan IG kan anses komplett)
 
