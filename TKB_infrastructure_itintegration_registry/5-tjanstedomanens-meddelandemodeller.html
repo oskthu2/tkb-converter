@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>5 Tjänstedomänens meddelandemodeller - infrastructure: itintegration: registry v2</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link rel="stylesheet" href="fhir.css"/>
+
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-fhir.css"/>
+
+      <!-- Project extras -->
+    <link rel="stylesheet" href="assets/css/project.css"/>
+    <link rel="stylesheet" href="assets/css/pygments-manni.css"/>
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+  	<link rel="stylesheet" href="assets/css/prism.css"/>
+  	<link rel="stylesheet" href="assets/css/cqf.css"/>
+      <!-- Placeholder for child template CSS declarations -->
+
+    <script src="fhir-table-scripts.js" type="text/javascript"> </script>
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- [if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif] -->
+
+      <!-- Favicons -->
+    <link sizes="144x144" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-144.png"/>
+    <link sizes="114x114" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-114.png"/>
+    <link sizes="72x72" rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script src="assets/js/mermaid.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
+    <style type="text/css">h2{--heading-prefix:"6"}
+    h3,h4,h5,h6{--heading-prefix:"6"}</style>
+    <div id="segment-header" class="segment">    <!-- segment-header -->
+      <div class="container">    <!-- container -->
+
+          <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">infrastructure: itintegration: registry</span>
+            <br/>
+            <span style="display:inline-block;">2 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div>   <!-- /container -->
+    </div>    <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">    <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">    <!-- container -->
+          <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+            <!-- status-bar -->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a href="http://hl7.org/fhir/R4/index.html" class="navbar-brand hidden">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+                <!-- ?xml version="1.0" encoding="UTF-8"? -->
+<menu xmlns="http://hl7.org/fhir">
+  <item name="Home" href="index.html"></item>
+  <item name="1 Inledning" href="1-inledning.html"></item>
+  <item name="2 Versionsinformation" href="2-versionsinformation.html"></item>
+  <item name="3 Tjänstedomänens arkitektur" href="3-tjanstedomanens-arkitektur.html"></item>
+  <item name="4 Tjänstedomänens krav och regler" href="4-tjanstedomanens-krav-och-regler.html"></item>
+  <item name="5 Tjänstedomänens meddelandemodeller" href="5-tjanstedomanens-meddelandemodeller.html"></item>
+  <item name="6 Gemensamma informationskomponenter" href="6-gemensamma-informationskomponenter.html"></item>
+  <item name="7 Tjänstekontrakt" href="7-tjanstekontrakt.html"></item>
+  <item name="Artifacts" href="artifacts.html"></item>
+</menu>
+
+            </div>    <!-- /.nav-collapse -->
+          </div>    <!-- /.container -->
+        </nav>    <!-- /.navbar -->
+        <!-- /HEADER CONTENT -->
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-navbar -->
+      <!-- status-bar -->
+
+    <div id="segment-breadcrumb" class="segment">    <!-- segment-breadcrumb -->
+      <div class="container">    <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>5 Tjänstedomänens meddelandemodeller</b></li>
+
+        </ul>
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">    <!-- segment-content -->
+      <div class="container">    <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+    <!-- ReleaseHeader --><p id="publish-box">infrastructure: itintegration: registry - Local Development build (v2) built by the FHIR (HL7&reg; FHIR&reg; Standard) Build Tools. See the <a href="https://fhir.inera.se/ig/infrastructure-itintegration-registry/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  <h2>5 Tjänstedomänens meddelandemodeller</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>  <!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstedomänens-meddelandemodeller" id="markdown-toc-tjänstedomänens-meddelandemodeller">Tjänstedomänens meddelandemodeller</a>    <ul>
+      <li><a href="#mim" id="markdown-toc-mim">MIM</a></li>
+      <li><a href="#formatregler" id="markdown-toc-formatregler">Formatregler</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstedomänens-meddelandemodeller">Tjänstedomänens meddelandemodeller</h2>
+<p>Här beskrivs de meddelandemodeller som tjänstekontrakten bygger på.</p>
+
+<h3 id="mim">MIM</h3>
+<p>Tjänstekontrakten i denna tjänstedomän speglar T-bokens tjänsteadresseringsmodell. En tjänsteproducent ska hantera tjänsteadresseringsinformation på ett sätt som speglar följande informationsmodell:</p>
+
+<p><a name="l267">​</a><img src="images/img_005.png" alt="img_005.png"/>
+I v2.0 av tjänstekontraktet är informationsmodellen utökad med ny behörighetsinformation kallade behörighetsfilter. Dessa kan användas för att begränsa anropsbehörighet baserat på innehållet i inkommande meddelande, dvs i begäran (request). Se beskrivning av tjänsten GetLogicalAddresseesByServiceContract för regelverk för behörighetsfilter.
+Första brukare av denna information är Engagemangsindex i syfte att bara anropa tjänsteproducenter av tjänsten ProcessNotification då notifieringen innehåller information som matchar tjänsteproducentens filter.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Klass</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kodverk</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">RIVTAProfil</td>
+      <td style="text-align: left">RIVTA-Profil. Namnges med aktuell profils kortnamn (se kodverk).</td>
+      <td style="text-align: left">Definieras av RIVTA-förvaltningen. Dokumenteras på av förvaltningen anvisad plats. När denna text skrevs förvaltas RIVTA av Cehis tekniska expertgrupp på projektplatsen http://code.google.com/p/rivta/</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänstekontrakt</td>
+      <td style="text-align: left">Tjänstekontraktets namnrymd enligt tjänsteschema. Namnrymden omfattar både tjänstedomän och tjänstens namn.</td>
+      <td style="text-align: left">Uppbyggnaden av namnrymd definieras av anvisning för Tjänsteschema (del av RIV TA). / Tjänstedomänen fastställs av RIVTA-förvaltningen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Logisk adressat</td>
+      <td style="text-align: left">&nbsp;</td>
+      <td style="text-align: left">Konceptet definieras av T-boken. Identifierare och innebörd beslutas per tjänstedomän och dokumenteras i respektive tjänstedomäns tjänstekontraktsbeskrivning.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänste-komponent</td>
+      <td style="text-align: left">Ett begrepp för en mjukvarukomponent som driftsätts i syfte att publicera en tjänstekomponent eller att konsumera en tjänst. Multiplicitet och regler för attributen beror av roll (konsument/producent).</td>
+      <td style="text-align: left">Kodverk saknas på nationell nivå. Landsting och leverantörer har olika angreppssätt för namnsättning och katalogisering av komponenter i sitt systemlandskap.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Anrops-behörighet</td>
+      <td style="text-align: left">En relationsklass som bygger upp en behörighet för en tjänstekonsument (Tjänstekomponent i rollen konsument) att anropa en tjänsteproducent genom att den associeras till en Logisk Adressat (t.ex. en vårdenhet) och ett Tjänstekontrakt (t.ex. ”urn:riv:crm:scheduling:MakeBookingResponder:1”. Behörigheten är löst kopplad till tjänsteproducenten. En vårdenhet som erbjuder direktbokning via Mina Vårdkontakter kan därmed byta tjänsteproducent (bokningssystem) utan att anropsbehörigheten påverkas.</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Logisk adress</td>
+      <td style="text-align: left">En relationsklass som beskriver en addresserbar tjänst. En adresserbar tjänst har ett Tjänstekontrakt som tillgängliggörs av en Logisk Adressat (en verksamhet) genom dess tjänsteproducent (Tjänstekomponent i rollen tjänsteproducent) enligt en viss RIVTA-profil.</td>
+      <td style="text-align: left">&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="formatregler">Formatregler</h3>
+
+<h4 id="format-för-personidentitet">Format för personidentitet</h4>
+<p>Personidentitet anges på formatet ÅÅÅÅMMDD-XXXX. Samma format gäller för olika typer av personidentiteter (reservnummer mm), dvs 8 siffror, bindestreck samt 4 siffror.</p>
+
+<h4 id="format-för-datum">Format för Datum</h4>
+<p>Datum anges alltid på formatet ”ÅÅÅÅ-MM-DD”. Exempel: 2010-11-26</p>
+
+<h4 id="format-för-datum-och-tid">Format för Datum och Tid</h4>
+<p>Tid och datum anges alltid på formatet ”ÅÅÅÅ-MM-DDThh:mm:ss”. Exempel: 2010-11-26T09:12:33</p>
+
+<h4 id="tidszon-för-tidpunkter">Tidszon för tidpunkter</h4>
+<p>Tidszon anges inte i meddelandeformaten. All information om datum och tidpunkter som utbyts via tjänsterna ska ange datum och tidpunkter i den tidszon som gäller/gällde i Sverige vid den tidpunkt som respektive datum- eller tidpunktsfält bär information om. Såväl tjänstekonsumenter som tjänsteproducenter skall med andra ord förutsätta att datum och tidpunkter som utbyts är i tidszonerna CET (svensk normaltid) respektive CEST (svensk normaltid med justering för sommartid).</p>
+
+
+
+
+</div>
+        </div>    <!-- /inner-wrapper -->
+      </div>    <!-- /row -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-content -->
+
+  <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script src="assets/js/jquery-ui.min.js" type="text/javascript"> </script>
+
+  <script src="assets/js/window-hash.js" type="text/javascript"> </script>
+  <a name="bottom"> </a>
+  <div igtool="footer" id="segment-footer" class="segment">    <!-- segment-footer -->
+    <div class="container">    <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &copy; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.infrastructure-itintegration-registry#2 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Sep 14, 2026 12:50+0000">2026-09-14</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>    <!-- /inner-wrapper -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">    <!-- segment-post-footer -->
+    <div class="container">    <!-- container -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-post-footer -->
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+  <script src="assets/js/respond.min.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard-btn.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor-hover.js" type="text/javascript"> </script>
+    <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
