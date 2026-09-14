@@ -1,0 +1,1 @@
+[PingForConfiguration]: StructureDefinition-pingforconfiguration.html

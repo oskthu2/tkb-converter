@@ -166,6 +166,22 @@ find "igs/TKB_{domain_id}/source/" -name "TKB_*.docx" | head -1
 Felhantering:
 - `python-docx` ej installerat → `pip install python-docx` och försök igen
 - Filen hittas inte → logga BLOCK, gå vidare
+- **Legacy `.doc`-fil istället för `.docx`** (förekommer i äldre domäner, t.ex. RIVTA 2.1-domäner från ~2011): `find` ovan hittar bara `.docx`. Sök även efter `.doc`:
+  ```bash
+  find "igs/TKB_{domain_id}/source/" -iname "*.doc" | head -1
+  ```
+  `python-docx` kan **inte** läsa gamla binära `.doc`-filer (OLE2 Compound Document, ej OOXML). Försök först konvertera med LibreOffice:
+  ```bash
+  soffice --headless -env:UserInstallation=file:///tmp/lo_profile --convert-to docx --outdir /tmp/doc_convert "{path-to-.doc}"
+  ```
+  Om detta lyckas: kör `docx_to_md.py` på den konverterade `.docx`-filen som vanligt.
+  Om LibreOffice misslyckas (`Error: source file could not be loaded` — förekommer för vissa äldre Word for Mac-varianter): installera och använd `antiword` + `iconv` som fallback för att extrahera ren text, och skriv `docx-converted/sections/*.md` manuellt utifrån den extraherade texten (kombinerat med XSD-schemat för exakta fälttyper):
+  ```bash
+  apt-get install -y antiword
+  antiword "{path-to-.doc}" > /tmp/raw.txt
+  iconv -f ISO-8859-1 -t UTF-8 /tmp/raw.txt > /tmp/utf8.txt   # antiword outputtar Latin-1 som standard
+  ```
+  Logga alltid en ASSUME-post i QUESTIONS.md om denna fallback används — manuell sektionsindelning är en tolkning, inte en mekanisk konvertering, och avsnitt som saknas i det äldre dokumentets friare struktur ska markeras `// SAKNAS I KÄLLDOKUMENT` snarare än hoppas över tyst.
 
 ---
 

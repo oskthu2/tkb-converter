@@ -1123,3 +1123,50 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-IR-001]** `igs/TKB_infrastructure_itintegration_registry/`
   Domänen har inga domänspecifika kodverk (CodeSystems/ValueSets) — `filter.categorization` är fritext utan fast kodverk enligt TKB:n ("Kodverk enligt tjänstedomänens dokumentation" utan vidare specifikation). Om ett sådant kodverk identifieras senare bör `categorization` bindas till ett ValueSet istället för att vara `string`.
+
+## itintegration.monitoring v1.0 — `igs/TKB_itintegration_monitoring/`
+
+**Status:** in-progress
+**Senast uppdaterad:** 2026-09-14T12:40:00Z
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-IM-001]** `igs/TKB_itintegration_monitoring/` (hela domänen)
+  Källdokumentet (`docs/Tjänstekontrakt Itintegration Monitoring - beskrivning.doc`) var i
+  legacy Word for Mac `.doc`-format (OLE2 Compound Document), inte `.docx`/OOXML. Verktyget
+  `docx_to_md.py` (python-docx) kan inte läsa detta format, och `libreoffice --headless
+  --convert-to docx` misslyckades också ("source file could not be loaded" — okänd orsak,
+  möjligen en ovanlig Word for Mac-variant). Text extraherades istället manuellt med
+  `antiword` (installerat via `apt-get install antiword catdoc`) och `iconv -f ISO-8859-1
+  -t UTF-8`, och sektionerna i `docx-converted/sections/` skrevs för hand utifrån den
+  extraherade texten. Verifiera att ingen information gått förlorad jämfört med originalet
+  (dokumentet var kort, 9 sidor/812 ord, så risken bedöms låg, men ingen automatiserad
+  diff mot originalet har gjorts).
+  Källa: `source/.../docs/Tjänstekontrakt Itintegration Monitoring - beskrivning.doc`
+
+- [ ] **[ASSUME-IM-002]** `igs/TKB_itintegration_monitoring/input/fsh/logical-models/PingForConfiguration.fsh` · fält `pingDateTime`
+  Källdokumentets fälttyp `TS` (RIV-TA-lokal regex-begränsad sträng, format YYYYMMDDhhmmss,
+  utan tidszon) har mappats till FHIR `instant`. `instant` kräver dock timezone-information
+  i XML-serialiseringen, vilket TS-formatet saknar. Verifiera om `dateTime` (som tillåter
+  timezone-fri representation) vore en mer korrekt mappning.
+  Källa: TKB avsnitt 7.1 (PingForConfiguration, Fältregler) samt itintegration_monitoring_1.0.xsd.
+
+- [ ] **[ASSUME-IM-003]** `igs/TKB_itintegration_monitoring/input/pagecontent/1-inledning.md`
+  Originaldokumentet innehåller en bildreferens (`[pic]`, ett schema/illustration i
+  Inledning-avsnittet) som inte kunde extraheras med `antiword` (verktyget extraherar
+  endast text, inte inbäddade bilder från binära `.doc`-filer). Illustrationen saknas
+  därför i IG:n. Om bilden är viktig för förståelsen bör den hämtas manuellt från
+  originaldokumentet.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-IM-001]** `igs/TKB_itintegration_monitoring/`
+  Avsnitt 2 (Versionsinformation), 3 (Arkitektur), 5 (Meddelandemodeller) och
+  6 (Gemensamma informationskomponenter) saknas som separata sektioner i källdokumentet
+  (äldre, kort RIVTA 2.1-dokument från 2011 som inte följer den senare fasta TKB-mallen).
+  Sidorna är markerade "SAKNAS I KÄLLDOKUMENT" i IG:n. Om kompletterande information finns
+  i något annat dokument för denna domän bör det läggas till manuellt.
