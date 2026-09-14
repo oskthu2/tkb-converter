@@ -80,20 +80,34 @@ Filtrera bort repos som inte är tjänstedomäner (t.ex. `best-practice`, `verif
 
 **Fas 2 — Hämta senaste zip per domän:**
 
+**OBS (sedan 2026-09-14): Bitbuckets "Downloads"-funktion (attachments) är tom för samtliga repos i `rivta-domains`-workspacet** — detta gäller även domäner som tidigare hämtats framgångsrikt via den (verifierat genom omprov mot en `done`-domän). Detta verkar vara en uppströms/plattformsbreddad förändring hos Bitbucket, inte ett fel i en enskild domän. Använd därför **git-tag-baserad arkivnedladdning** som primär metod. Försök Downloads-endpointen först ändå (den kan komma tillbaka), men förvänta dig ett tomt svar och fall tillbaka på tag-metoden utan att markera domänen `blocked` av den anledningen ensamt.
+
 ```bash
-# Lista downloads för en domän
+# Metod A (primär): lista git-taggar för domänen
+curl "https://api.bitbucket.org/2.0/repositories/rivta-domains/{slug}/refs/tags?pagelen=50&fields=values.name,values.target.date,next" \
+  -H "Accept: application/json"
+
+# Metod B (fallback, troligen tomt svar just nu): lista downloads
 curl "https://api.bitbucket.org/2.0/repositories/rivta-domains/{slug}/downloads?pagelen=50" \
   -H "Accept: application/json"
 ```
 
-Välj den zip-fil med **högst versionsnummer** i filnamnet (t.ex. `clinicalprocess_healthcond_description_4.0.zip` > `_3.1.zip`). Versionsnumret extraheras från filnamnet med regex `_(\d+\.\d+[\.\d]*)\.zip$`.
+**Val av tagg (Metod A):** Taggar följer inget helt enhetligt namnmönster mellan domäner (t.ex. `2.0`, `4.0`, men även äldre `{domännamn}_{version}_RC{n}`-format och milstolpetaggar som `-M5`/`-M6`). Filtrera bort release candidates (`RC`, `-rc`) och milstolpar (`-M\d`) om en icke-RC-tagg med samma huvudversion finns; välj annars taggen med **högst semver-liknande versionsnummer** (extrahera med regex `(\d+\.\d+(?:\.\d+)?)`), och vid oavgjort, senaste `target.date`. Logga ASSUME om valet är oklart.
+
+Om Downloads-endpointen (Metod B) undantagsvis returnerar träffar: välj den zip-fil med **högst versionsnummer** i filnamnet (t.ex. `clinicalprocess_healthcond_description_4.0.zip` > `_3.1.zip`), extraherat med regex `_(\d+\.\d+[\.\d]*)\.zip$`.
 
 **Fas 3 — Ladda ner och packa upp:**
 
 ```bash
-curl -L -o /tmp/{slug}.zip "{zip_url}"
+# Metod A (git-arkiv via tagg) — zip_url-mönster:
+# https://bitbucket.org/rivta-domains/{slug}/get/{tag}.zip
+curl -L -o /tmp/{slug}.zip "https://bitbucket.org/rivta-domains/{slug}/get/{tag}.zip"
 unzip /tmp/{slug}.zip -d igs/TKB_{domain_id}/source/
 ```
+
+**Viktigt om Metod A:** arkivet packar upp till en enda undermapp med commit-hash-suffix i namnet (t.ex. `rivta-domains-riv.{slug}-9bea4906443/`) istället för domänens repo-struktur direkt i roten. Kontrollera detta efter uppackning och justera sökvägar i `domain-metadata.json` (`word_document`, `xsd_files`, `wsdl_files`) därefter — leta efter TKB-dokumentet med `find igs/TKB_{domain_id}/source/ -name "TKB_*.docx"` istället för att anta en fast undermappsstruktur.
+
+`zip_url` i `contracts-registry.json` ska spegla den faktiskt använda nedladdningslänken (Metod A: `.../get/{tag}.zip`, Metod B: den ursprungliga downloads-URL:en).
 
 **Förväntat resultat från agenten:**
 ```json
@@ -111,8 +125,8 @@ unzip /tmp/{slug}.zip -d igs/TKB_{domain_id}/source/
 
 **Felhantering:**
 - 401/403 från Bitbucket API → Bitbucket kräver auth för detta repo, markera `blocked`
-- Inga zip-filer i downloads → markera `blocked` med notering "Inga publicerade zip-filer"
-- Flera zip-filer med oklart versionsläge → välj senaste datum, logga ASSUME
+- Inga taggar (Metod A) OCH inga zip-filer i downloads (Metod B) → markera `blocked` med notering "Inga publicerade zip-filer eller taggar"
+- Flera zip-filer/taggar med oklart versionsläge → välj senaste datum, logga ASSUME
 
 ---
 
