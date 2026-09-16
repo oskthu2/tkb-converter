@@ -35,6 +35,16 @@ from urllib.parse import urlsplit
 
 SKIP_PREFIXES = ("http://", "https://", "//", "mailto:", "tel:", "data:", "javascript:")
 
+# Kända, ofarliga länkar som fhir.base.template genererar i varje IG oavsett
+# innehåll — de hör till standardtemplatens egna sidor (som vi inte skriver
+# eller styr över), inte till något vi genererar. history.html skapas bara
+# när IG:n har en faktisk publiceringshistorik (package-list.json med
+# tidigare versioner), vilket ingen av dessa draft-IG:ar har — searchform.html
+# länkar dit ändå oavsett. Upptäckt 2026-09-16: detta gav en falsk positiv i
+# ALLA 31 domäner och slog rött hela kvalitetsgrinden vid check_links.py:s
+# första skarpa körning i CI (se PR-historik samma dag).
+KNOWN_BENIGN_TARGETS = {"history.html"}
+
 
 class LinkExtractor(HTMLParser):
     """Extraherar <img src>, <a href> och alla id/name-attribut ur en HTML-sida."""
@@ -91,6 +101,8 @@ def check_site(site_dir: Path):
                 continue
             split = urlsplit(raw_url)
             path_part, fragment = split.path, split.fragment
+            if path_part and Path(path_part).name in KNOWN_BENIGN_TARGETS:
+                continue
             target_file = html_file if not path_part else (html_file.parent / path_part).resolve()
 
             if not target_file.exists():
