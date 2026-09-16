@@ -3,7 +3,7 @@ Här beskrivs de modeller som beskriver informationsinnehållet i tjänstekontra
 
 ### V-MIM GetRequestActivities
 
-![Klassen i modellen med streckade linjer runt visar begäran och resten visar svaret. De klasser som är gråa är information som finns i den gemensamma headern, men är inte aktuella för detta tjänstekontrakt.](images/img_008.png)
+![Klassen i modellen med streckade linjer runt visar begäran och resten visar svaret. De klasser som är gråa är information som finns i den gemensamma headern, men är inte aktuella för detta tjänstekontrakt.](img_008.png)
 Klassen i modellen med streckade linjer runt visar begäran och resten visar svaret. De klasser som är gråa är information som finns i den gemensamma headern, men är inte aktuella för detta tjänstekontrakt.
 Meddelandemodellen visar den struktur som tjänstekontraktet har med dess header och body. Informationsmodellen i informationsspecifikationen visar behoven och har inte samma struktur som meddelandet. Tabellen nedan visar en mappning mellan informationen i meddelandemodellen (MIM:en) och informationen som den visas i informationsmodellen i informationsspecifikationen [R3]. Där mappning saknas har behoven ej framkommit vid framtagning av informationsmodellen utan är information som finns med tack vare den gemensamma headern som används eller som är av mer teknisk karaktär. Meddelandemodellen är en identisk representation av schemat och någon mappning mot schemat behövs därför inte i tabellen nedan.
 

@@ -118,10 +118,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [StoreLogInteraction_1.0_RIVTABP21.wsdl](files/wsdl/StoreLogInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [StoreLogResponder_1.0.xsd](files/schema/StoreLogResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [ehr_logstore_1.0.xsd](files/schema/ehr_logstore_1.0.xsd) | Underdomänschema |
-| [ehr_log_1.0.xsd](files/schema/ehr_log_1.0.xsd) | Gemensamt domänschema |
+| [StoreLogInteraction_1.0_RIVTABP21.wsdl](StoreLogInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [StoreLogResponder_1.0.xsd](StoreLogResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [ehr_logstore_1.0.xsd](ehr_logstore_1.0.xsd) | Underdomänschema |
+| [ehr_log_1.0.xsd](ehr_log_1.0.xsd) | Gemensamt domänschema |
 
 ### FHIR-artefakter
 
@@ -285,10 +285,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetLogsForCareProviderInteraction_1.1_RIVTABP21.wsdl](files/wsdl/GetLogsForCareProviderInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetLogsForCareProviderResponder_1.1.xsd](files/schema/GetLogsForCareProviderResponder_1.1.xsd) | Tjänstespecifikt schema |
-| [ehr_logquerying_1.1.xsd](files/schema/ehr_logquerying_1.1.xsd) | Underdomänschema |
-| [ehr_log_1.0.xsd](files/schema/ehr_log_1.0.xsd) | Gemensamt domänschema |
+| [GetLogsForCareProviderInteraction_1.1_RIVTABP21.wsdl](GetLogsForCareProviderInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetLogsForCareProviderResponder_1.1.xsd](GetLogsForCareProviderResponder_1.1.xsd) | Tjänstespecifikt schema |
+| [ehr_logquerying_1.1.xsd](ehr_logquerying_1.1.xsd) | Underdomänschema |
+| [ehr_log_1.0.xsd](ehr_log_1.0.xsd) | Gemensamt domänschema |
 
 ### FHIR-artefakter
 
@@ -454,10 +454,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetLogsForUserInteraction_1.1_RIVTABP21.wsdl](files/wsdl/GetLogsForUserInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetLogsForUserResponder_1.1.xsd](files/schema/GetLogsForUserResponder_1.1.xsd) | Tjänstespecifikt schema |
-| [ehr_logquerying_1.1.xsd](files/schema/ehr_logquerying_1.1.xsd) | Underdomänschema |
-| [ehr_log_1.0.xsd](files/schema/ehr_log_1.0.xsd) | Gemensamt domänschema |
+| [GetLogsForUserInteraction_1.1_RIVTABP21.wsdl](GetLogsForUserInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetLogsForUserResponder_1.1.xsd](GetLogsForUserResponder_1.1.xsd) | Tjänstespecifikt schema |
+| [ehr_logquerying_1.1.xsd](ehr_logquerying_1.1.xsd) | Underdomänschema |
+| [ehr_log_1.0.xsd](ehr_log_1.0.xsd) | Gemensamt domänschema |
 
 ### FHIR-artefakter
 
@@ -624,10 +624,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetLogsForPatientInteraction_1.0_RIVTABP21.wsdl](files/wsdl/GetLogsForPatientInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetLogsForPatientResponder_1.0.xsd](files/schema/GetLogsForPatientResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [ehr_logquerying_1.1.xsd](files/schema/ehr_logquerying_1.1.xsd) | Underdomänschema |
-| [ehr_log_1.0.xsd](files/schema/ehr_log_1.0.xsd) | Gemensamt domänschema |
+| [GetLogsForPatientInteraction_1.0_RIVTABP21.wsdl](GetLogsForPatientInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetLogsForPatientResponder_1.0.xsd](GetLogsForPatientResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [ehr_logquerying_1.1.xsd](ehr_logquerying_1.1.xsd) | Underdomänschema |
+| [ehr_log_1.0.xsd](ehr_log_1.0.xsd) | Gemensamt domänschema |
 
 ### FHIR-artefakter
 
@@ -741,11 +741,11 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetAccessLogsForPatientInteraction_1.1_RIVTABP21.wsdl](files/wsdl/GetAccessLogsForPatientInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetAccessLogsForPatientResponder_1.1.xsd](files/schema/GetAccessLogsForPatientResponder_1.1.xsd) | Tjänstespecifikt schema |
-| [ehr_logquerying_1.1.xsd](files/schema/ehr_logquerying_1.1.xsd) | Underdomänschema |
-| [ehr_log_1.0.xsd](files/schema/ehr_log_1.0.xsd) | Gemensamt domänschema |
-| [SjD_TP_GetAccessLogsForPatient_1.1.docx](files/docs/SjD_TP_GetAccessLogsForPatient_1.1.docx) | Tjänstebeskrivning |
+| [GetAccessLogsForPatientInteraction_1.1_RIVTABP21.wsdl](GetAccessLogsForPatientInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetAccessLogsForPatientResponder_1.1.xsd](GetAccessLogsForPatientResponder_1.1.xsd) | Tjänstespecifikt schema |
+| [ehr_logquerying_1.1.xsd](ehr_logquerying_1.1.xsd) | Underdomänschema |
+| [ehr_log_1.0.xsd](ehr_log_1.0.xsd) | Gemensamt domänschema |
+| [SjD_TP_GetAccessLogsForPatient_1.1.docx](SjD_TP_GetAccessLogsForPatient_1.1.docx) | Tjänstebeskrivning |
 
 ### FHIR-artefakter
 
@@ -850,10 +850,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetInfoLogsForCareProviderInteraction_1.0_RIVTABP21.wsdl](files/wsdl/GetInfoLogsForCareProviderInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetInfoLogsForCareProviderResponder_1.0.xsd](files/schema/GetInfoLogsForCareProviderResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [ehr_logquerying_1.1.xsd](files/schema/ehr_logquerying_1.1.xsd) | Underdomänschema |
-| [ehr_log_1.0.xsd](files/schema/ehr_log_1.0.xsd) | Gemensamt domänschema |
+| [GetInfoLogsForCareProviderInteraction_1.0_RIVTABP21.wsdl](GetInfoLogsForCareProviderInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetInfoLogsForCareProviderResponder_1.0.xsd](GetInfoLogsForCareProviderResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [ehr_logquerying_1.1.xsd](ehr_logquerying_1.1.xsd) | Underdomänschema |
+| [ehr_log_1.0.xsd](ehr_log_1.0.xsd) | Gemensamt domänschema |
 
 ### FHIR-artefakter
 
@@ -959,10 +959,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetInfoLogsForPatientInteraction_1.0_RIVTABP21.wsdl](files/wsdl/GetInfoLogsForPatientInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetInfoLogsForPatientResponder_1.0.xsd](files/schema/GetInfoLogsForPatientResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [ehr_logquerying_1.1.xsd](files/schema/ehr_logquerying_1.1.xsd) | Underdomänschema |
-| [ehr_log_1.0.xsd](files/schema/ehr_log_1.0.xsd) | Gemensamt domänschema |
+| [GetInfoLogsForPatientInteraction_1.0_RIVTABP21.wsdl](GetInfoLogsForPatientInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetInfoLogsForPatientResponder_1.0.xsd](GetInfoLogsForPatientResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [ehr_logquerying_1.1.xsd](ehr_logquerying_1.1.xsd) | Underdomänschema |
+| [ehr_log_1.0.xsd](ehr_log_1.0.xsd) | Gemensamt domänschema |
 
 ### FHIR-artefakter
 

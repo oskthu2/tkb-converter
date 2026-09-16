@@ -4,7 +4,7 @@ Här beskrivs de meddelandemodeller som tjänstekontrakten bygger på.
 ### MIM
 Tjänstekontrakten i denna tjänstedomän speglar T-bokens tjänsteadresseringsmodell. En tjänsteproducent ska hantera tjänsteadresseringsinformation på ett sätt som speglar följande informationsmodell:
 
-![img_005.png](images/img_005.png)
+![img_005.png](img_005.png)
 I v2.0 av tjänstekontraktet är informationsmodellen utökad med ny behörighetsinformation kallade behörighetsfilter. Dessa kan användas för att begränsa anropsbehörighet baserat på innehållet i inkommande meddelande, dvs i begäran (request). Se beskrivning av tjänsten GetLogicalAddresseesByServiceContract för regelverk för behörighetsfilter.
 Första brukare av denna information är Engagemangsindex i syfte att bara anropa tjänsteproducenter av tjänsten ProcessNotification då notifieringen innehåller information som matchar tjänsteproducentens filter.
 

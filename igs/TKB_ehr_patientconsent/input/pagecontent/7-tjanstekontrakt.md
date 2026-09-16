@@ -46,9 +46,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetConsentsForPatientInteraction_1.0_RIVTABP21.wsdl](files/wsdl/GetConsentsForPatientInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_patientconsent_1.0.xsd](files/schema/ehr_patientconsent_1.0.xsd) | Domänschema (delat) |
-| [GetConsentsForPatientResponder_1.0.xsd](files/schema/GetConsentsForPatientResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [GetConsentsForPatientInteraction_1.0_RIVTABP21.wsdl](GetConsentsForPatientInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_patientconsent_1.0.xsd](ehr_patientconsent_1.0.xsd) | Domänschema (delat) |
+| [GetConsentsForPatientResponder_1.0.xsd](GetConsentsForPatientResponder_1.0.xsd) | Tjänstespecifikt schema |
 
 ### FHIR-artefakter
 
@@ -108,9 +108,9 @@ Om behörighet nekas till angiven vårdgivare skall ett fel returneras (felkod A
 
 | Fil | Typ |
 |-----|-----|
-| [GetConsentsForCareProviderInteraction_1.0_RIVTABP21.wsdl](files/wsdl/GetConsentsForCareProviderInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_patientconsent_1.0.xsd](files/schema/ehr_patientconsent_1.0.xsd) | Domänschema (delat) |
-| [GetConsentsForCareProviderResponder_1.0.xsd](files/schema/GetConsentsForCareProviderResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [GetConsentsForCareProviderInteraction_1.0_RIVTABP21.wsdl](GetConsentsForCareProviderInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_patientconsent_1.0.xsd](ehr_patientconsent_1.0.xsd) | Domänschema (delat) |
+| [GetConsentsForCareProviderResponder_1.0.xsd](GetConsentsForCareProviderResponder_1.0.xsd) | Tjänstespecifikt schema |
 
 ### FHIR-artefakter
 
@@ -162,9 +162,9 @@ Om behörighet nekas till angiven vårdgivare skall ett fel returneras (felkod A
 
 | Fil | Typ |
 |-----|-----|
-| [GetExtendedConsentsForPatientInteraction_1.0_RIVTABP21.wsdl](files/wsdl/GetExtendedConsentsForPatientInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_patientconsent_1.0.xsd](files/schema/ehr_patientconsent_1.0.xsd) | Domänschema (delat) |
-| [GetExtendedConsentsForPatientResponder_1.0.xsd](files/schema/GetExtendedConsentsForPatientResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [GetExtendedConsentsForPatientInteraction_1.0_RIVTABP21.wsdl](GetExtendedConsentsForPatientInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_patientconsent_1.0.xsd](ehr_patientconsent_1.0.xsd) | Domänschema (delat) |
+| [GetExtendedConsentsForPatientResponder_1.0.xsd](GetExtendedConsentsForPatientResponder_1.0.xsd) | Tjänstespecifikt schema |
 
 ### FHIR-artefakter
 
@@ -215,9 +215,9 @@ Tjänsten skall åtkomstkontrollera om tjänstekonsumenten har behörighet till 
 
 | Fil | Typ |
 |-----|-----|
-| [CheckConsentInteraction_1.0_RIVTABP21.wsdl](files/wsdl/CheckConsentInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_patientconsent_1.0.xsd](files/schema/ehr_patientconsent_1.0.xsd) | Domänschema (delat) |
-| [CheckConsentResponder_1.0.xsd](files/schema/CheckConsentResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [CheckConsentInteraction_1.0_RIVTABP21.wsdl](CheckConsentInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_patientconsent_1.0.xsd](ehr_patientconsent_1.0.xsd) | Domänschema (delat) |
+| [CheckConsentResponder_1.0.xsd](CheckConsentResponder_1.0.xsd) | Tjänstespecifikt schema |
 
 ### FHIR-artefakter
 
@@ -279,9 +279,9 @@ Om behörighet nekas till angiven vårdgivare skall ett fel returneras (felkod A
 
 | Fil | Typ |
 |-----|-----|
-| [RegisterExtendedConsentInteraction_1.0_RIVTABP21.wsdl](files/wsdl/RegisterExtendedConsentInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_patientconsent_1.0.xsd](files/schema/ehr_patientconsent_1.0.xsd) | Domänschema (delat) |
-| [RegisterExtendedConsentResponder_1.0.xsd](files/schema/RegisterExtendedConsentResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [RegisterExtendedConsentInteraction_1.0_RIVTABP21.wsdl](RegisterExtendedConsentInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_patientconsent_1.0.xsd](ehr_patientconsent_1.0.xsd) | Domänschema (delat) |
+| [RegisterExtendedConsentResponder_1.0.xsd](RegisterExtendedConsentResponder_1.0.xsd) | Tjänstespecifikt schema |
 
 ### FHIR-artefakter
 
@@ -330,9 +330,9 @@ Om behörighet nekas till vårdgivaren som äger samtyckesinformationen skall et
 
 | Fil | Typ |
 |-----|-----|
-| [CancelExtendedConsentInteraction_1.0_RIVTABP21.wsdl](files/wsdl/CancelExtendedConsentInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_patientconsent_1.0.xsd](files/schema/ehr_patientconsent_1.0.xsd) | Domänschema (delat) |
-| [CancelExtendedConsentResponder_1.0.xsd](files/schema/CancelExtendedConsentResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [CancelExtendedConsentInteraction_1.0_RIVTABP21.wsdl](CancelExtendedConsentInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_patientconsent_1.0.xsd](ehr_patientconsent_1.0.xsd) | Domänschema (delat) |
+| [CancelExtendedConsentResponder_1.0.xsd](CancelExtendedConsentResponder_1.0.xsd) | Tjänstespecifikt schema |
 
 ### FHIR-artefakter
 
@@ -382,9 +382,9 @@ Om behörighet nekas till vårdgivaren som äger samtyckesinformationen skall et
 
 | Fil | Typ |
 |-----|-----|
-| [DeleteExtendedConsentInteraction_1.0_RIVTABP21.wsdl](files/wsdl/DeleteExtendedConsentInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_patientconsent_1.0.xsd](files/schema/ehr_patientconsent_1.0.xsd) | Domänschema (delat) |
-| [DeleteExtendedConsentResponder_1.0.xsd](files/schema/DeleteExtendedConsentResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [DeleteExtendedConsentInteraction_1.0_RIVTABP21.wsdl](DeleteExtendedConsentInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_patientconsent_1.0.xsd](ehr_patientconsent_1.0.xsd) | Domänschema (delat) |
+| [DeleteExtendedConsentResponder_1.0.xsd](DeleteExtendedConsentResponder_1.0.xsd) | Tjänstespecifikt schema |
 
 ### FHIR-artefakter
 

@@ -4,10 +4,10 @@ Här beskrivs meddelandemodeller för respektive tjänstekontrakt.
 ### GetLaboratoryOrderOutcome
 Begäran
 
-![img_003.png](images/img_003.png)
+![img_003.png](img_003.png)
 Svar
 
-![img_007.jpeg](images/img_007.jpeg)
+![img_007.jpeg](img_007.jpeg)
 Nedanstående tabell mappar mellan de svenska klass- och attributnamnen i informationsspecifikation och tillämpningsanvisning, xml-schematyperna från det tekniska kontraktet samt referensinformationsmodellen Nationell Informationsstruktur 2020:1 från Socialstyrelsen.
 
 | XSD schema | Informationsmodell | Nationell Informationsstruktur 2020:1 |
@@ -79,7 +79,7 @@ Nedanstående tabell mappar mellan de svenska klass- och attributnamnen i inform
 ### GetReferralOutcome
 Meddelandeformatet är kompatibelt med HL7v3 CDA v.2.
 
-![img_011.jpeg](images/img_011.jpeg)
+![img_011.jpeg](img_011.jpeg)
 
 | Klass.attribut | Mappning mot XSD schema |
 | :--- | :--- |
@@ -143,7 +143,7 @@ Meddelandeformatet är kompatibelt med HL7v3 CDA v.2.
 ### GetMaternityMedicalHistory
 Modellen beskriver den logiska strukturen för ett svarsmeddelande. Tjänsten baseras på Socialstyrelsens blanketter för mödravårdsjournal.
 
-![img_006.jpeg](images/img_006.jpeg)
+![img_006.jpeg](img_006.jpeg)
 
 | Klass.attribut | Mappning mot XSD schema |
 | :--- | :--- |
@@ -231,7 +231,7 @@ Modellen beskriver den logiska strukturen för ett svarsmeddelande. Tjänsten ba
 
 ### GetImagingOutcome
 
-![img_010.png](images/img_010.png)
+![img_010.png](img_010.png)
 
 | Klass.attribut | Mappning mot XSD schema |
 | :--- | :--- |

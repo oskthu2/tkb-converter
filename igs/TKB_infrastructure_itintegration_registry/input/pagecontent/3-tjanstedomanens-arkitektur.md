@@ -12,7 +12,7 @@ När EI tar emot index uppdateringar via sin Update-metod så skall registrerade
 
 ##### Sekvensdiagram
 
-![img_003.png](images/img_003.png)
+![img_003.png](img_003.png)
 
 #### En utbudstjänst vill veta vilka tjänstekontrakt en viss vårdenhet stödjer
 
@@ -24,7 +24,7 @@ Utbudstjänster och liknande konsumenter med avancerade process-logik behöver v
 
 ##### Sekvensdiagram
 
-![img_006.png](images/img_006.png)
+![img_006.png](img_006.png)
 
 #### Obligatoriska kontrakt
 Följande tabell specificerar vilka kontrakt som är obligatoriska att realisera för respektive flöde.

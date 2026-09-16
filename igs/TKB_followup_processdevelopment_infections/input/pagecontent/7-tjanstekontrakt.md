@@ -96,9 +96,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [ProcessPrescriptionReasonInteraction_1.0_RIVTABP21.wsdl](files/wsdl/ProcessPrescriptionReasonInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [followup_processdevelopment_infections_1.0.xsd](files/schema/followup_processdevelopment_infections_1.0.xsd) | Domänschema (delat) |
-| [followup_processdevelopment_infections_enum_1.0.xsd](files/schema/followup_processdevelopment_infections_enum_1.0.xsd) | Domänenumerationer (delat) |
+| [ProcessPrescriptionReasonInteraction_1.0_RIVTABP21.wsdl](ProcessPrescriptionReasonInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [followup_processdevelopment_infections_1.0.xsd](followup_processdevelopment_infections_1.0.xsd) | Domänschema (delat) |
+| [followup_processdevelopment_infections_enum_1.0.xsd](followup_processdevelopment_infections_enum_1.0.xsd) | Domänenumerationer (delat) |
 
 #### FHIR-artefakter
 
@@ -146,9 +146,9 @@ Detta tjänstekontrakt har inga avvikande SLA-krav.
 
 | Fil | Typ |
 |-----|-----|
-| [DeletePrescriptionReasonInteraction_1.0_RIVTABP21.wsdl](files/wsdl/DeletePrescriptionReasonInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [followup_processdevelopment_infections_1.0.xsd](files/schema/followup_processdevelopment_infections_1.0.xsd) | Domänschema (delat) |
-| [followup_processdevelopment_infections_enum_1.0.xsd](files/schema/followup_processdevelopment_infections_enum_1.0.xsd) | Domänenumerationer (delat) |
+| [DeletePrescriptionReasonInteraction_1.0_RIVTABP21.wsdl](DeletePrescriptionReasonInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [followup_processdevelopment_infections_1.0.xsd](followup_processdevelopment_infections_1.0.xsd) | Domänschema (delat) |
+| [followup_processdevelopment_infections_enum_1.0.xsd](followup_processdevelopment_infections_enum_1.0.xsd) | Domänenumerationer (delat) |
 
 #### FHIR-artefakter
 
@@ -189,9 +189,9 @@ Detta tjänstekontrakt har inga avvikande SLA-krav.
 
 | Fil | Typ |
 |-----|-----|
-| [DeletePrescriptionInteraction_1.0_RIVTABP21.wsdl](files/wsdl/DeletePrescriptionInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [followup_processdevelopment_infections_1.0.xsd](files/schema/followup_processdevelopment_infections_1.0.xsd) | Domänschema (delat) |
-| [followup_processdevelopment_infections_enum_1.0.xsd](files/schema/followup_processdevelopment_infections_enum_1.0.xsd) | Domänenumerationer (delat) |
+| [DeletePrescriptionInteraction_1.0_RIVTABP21.wsdl](DeletePrescriptionInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [followup_processdevelopment_infections_1.0.xsd](followup_processdevelopment_infections_1.0.xsd) | Domänschema (delat) |
+| [followup_processdevelopment_infections_enum_1.0.xsd](followup_processdevelopment_infections_enum_1.0.xsd) | Domänenumerationer (delat) |
 
 #### FHIR-artefakter
 
@@ -244,9 +244,9 @@ Detta tjänstekontrakt har inga avvikande SLA-krav.
 
 | Fil | Typ |
 |-----|-----|
-| [ProcessLaboratoryReportInteraction_1.0_RIVTABP21.wsdl](files/wsdl/ProcessLaboratoryReportInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [followup_processdevelopment_infections_1.0.xsd](files/schema/followup_processdevelopment_infections_1.0.xsd) | Domänschema (delat) |
-| [followup_processdevelopment_infections_enum_1.0.xsd](files/schema/followup_processdevelopment_infections_enum_1.0.xsd) | Domänenumerationer (delat) |
+| [ProcessLaboratoryReportInteraction_1.0_RIVTABP21.wsdl](ProcessLaboratoryReportInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [followup_processdevelopment_infections_1.0.xsd](followup_processdevelopment_infections_1.0.xsd) | Domänschema (delat) |
+| [followup_processdevelopment_infections_enum_1.0.xsd](followup_processdevelopment_infections_enum_1.0.xsd) | Domänenumerationer (delat) |
 
 #### FHIR-artefakter
 
@@ -287,9 +287,9 @@ Detta tjänstekontrakt har inga avvikande SLA-krav.
 
 | Fil | Typ |
 |-----|-----|
-| [DeleteLaboratoryReportInteraction_1.0_RIVTABP21.wsdl](files/wsdl/DeleteLaboratoryReportInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [followup_processdevelopment_infections_1.0.xsd](files/schema/followup_processdevelopment_infections_1.0.xsd) | Domänschema (delat) |
-| [followup_processdevelopment_infections_enum_1.0.xsd](files/schema/followup_processdevelopment_infections_enum_1.0.xsd) | Domänenumerationer (delat) |
+| [DeleteLaboratoryReportInteraction_1.0_RIVTABP21.wsdl](DeleteLaboratoryReportInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [followup_processdevelopment_infections_1.0.xsd](followup_processdevelopment_infections_1.0.xsd) | Domänschema (delat) |
+| [followup_processdevelopment_infections_enum_1.0.xsd](followup_processdevelopment_infections_enum_1.0.xsd) | Domänenumerationer (delat) |
 
 #### FHIR-artefakter
 
@@ -370,9 +370,9 @@ Detta tjänstekontrakt har inga avvikande SLA-krav.
 
 | Fil | Typ |
 |-----|-----|
-| [ProcessCareEncounterInteraction_1.0_RIVTABP21.wsdl](files/wsdl/ProcessCareEncounterInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [followup_processdevelopment_infections_1.0.xsd](files/schema/followup_processdevelopment_infections_1.0.xsd) | Domänschema (delat) |
-| [followup_processdevelopment_infections_enum_1.0.xsd](files/schema/followup_processdevelopment_infections_enum_1.0.xsd) | Domänenumerationer (delat) |
+| [ProcessCareEncounterInteraction_1.0_RIVTABP21.wsdl](ProcessCareEncounterInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [followup_processdevelopment_infections_1.0.xsd](followup_processdevelopment_infections_1.0.xsd) | Domänschema (delat) |
+| [followup_processdevelopment_infections_enum_1.0.xsd](followup_processdevelopment_infections_enum_1.0.xsd) | Domänenumerationer (delat) |
 
 #### FHIR-artefakter
 
@@ -413,9 +413,9 @@ Detta tjänstekontrakt har inga avvikande SLA-krav.
 
 | Fil | Typ |
 |-----|-----|
-| [DeleteCareEncounterInteraction_1.0_RIVTABP21.wsdl](files/wsdl/DeleteCareEncounterInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [followup_processdevelopment_infections_1.0.xsd](files/schema/followup_processdevelopment_infections_1.0.xsd) | Domänschema (delat) |
-| [followup_processdevelopment_infections_enum_1.0.xsd](files/schema/followup_processdevelopment_infections_enum_1.0.xsd) | Domänenumerationer (delat) |
+| [DeleteCareEncounterInteraction_1.0_RIVTABP21.wsdl](DeleteCareEncounterInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [followup_processdevelopment_infections_1.0.xsd](followup_processdevelopment_infections_1.0.xsd) | Domänschema (delat) |
+| [followup_processdevelopment_infections_enum_1.0.xsd](followup_processdevelopment_infections_enum_1.0.xsd) | Domänenumerationer (delat) |
 
 #### FHIR-artefakter
 

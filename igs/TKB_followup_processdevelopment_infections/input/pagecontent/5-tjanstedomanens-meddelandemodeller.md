@@ -4,7 +4,7 @@ Här beskrivs de meddelandemodeller som tjänstekontrakten bygger på. För varj
 ### V-MIM – Ordinationer
 Nedan illustreras modellen för ”Hantera ordinationer”. Klassnamn och klassattributen är på svenska baserat på RIV specifikationen (R1). För att koppla de svenska namnen till XSD attributen har mappning även gjorts mot schema (XSD) för tjänstekontrakt.
 
-![img_002.jpeg](images/img_002.jpeg)
+![img_002.jpeg](img_002.jpeg)
 
 | Klass.attribut | Mappning mot V-TIM 2.2 | Mappning mot XSD |
 | :--- | :--- | :--- |
@@ -24,7 +24,7 @@ Nedan illustreras modellen för ”Hantera ordinationer”. Klassnamn och klassa
 
 ### V-MIM –Labdata
 
-![img_007.jpeg](images/img_007.jpeg)
+![img_007.jpeg](img_007.jpeg)
 
 | Klass.attribut | Mappning mot V-TIM 2.2 | Mappning mot XSD |
 | :--- | :--- | :--- |

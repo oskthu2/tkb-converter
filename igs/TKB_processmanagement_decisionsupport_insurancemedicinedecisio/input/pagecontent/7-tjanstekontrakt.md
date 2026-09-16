@@ -78,9 +78,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetFmbInteraction_1.0_RIVTABP21.wsdl](files/wsdl/GetFmbInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetFmbResponder_1.0.xsd](files/schema/GetFmbResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [processmanagement_decisionsupport_insurancemedicinedecisionsupport_1.0.xsd](files/schema/processmanagement_decisionsupport_insurancemedicinedecisionsupport_1.0.xsd) | Domänschema (delat) |
+| [GetFmbInteraction_1.0_RIVTABP21.wsdl](GetFmbInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetFmbResponder_1.0.xsd](GetFmbResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [processmanagement_decisionsupport_insurancemedicinedecisionsupport_1.0.xsd](processmanagement_decisionsupport_insurancemedicinedecisionsupport_1.0.xsd) | Domänschema (delat) |
 
 ### FHIR-artefakter
 
@@ -142,9 +142,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetDiagnosInformationInteraction_1.0_RIVTABP21.wsdl](files/wsdl/GetDiagnosInformationInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetDiagnosInformationResponder_1.0.xsd](files/schema/GetDiagnosInformationResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [processmanagement_decisionsupport_insurancemedicinedecisionsupport_1.0.xsd](files/schema/processmanagement_decisionsupport_insurancemedicinedecisionsupport_1.0.xsd) | Domänschema (delat) |
+| [GetDiagnosInformationInteraction_1.0_RIVTABP21.wsdl](GetDiagnosInformationInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetDiagnosInformationResponder_1.0.xsd](GetDiagnosInformationResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [processmanagement_decisionsupport_insurancemedicinedecisionsupport_1.0.xsd](processmanagement_decisionsupport_insurancemedicinedecisionsupport_1.0.xsd) | Domänschema (delat) |
 
 ### FHIR-artefakter
 
@@ -192,9 +192,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetVersionsInteraction_1.0_RIVTABP21.wsdl](files/wsdl/GetVersionsInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetVersionsResponder_1.0.xsd](files/schema/GetVersionsResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [processmanagement_decisionsupport_insurancemedicinedecisionsupport_1.0.xsd](files/schema/processmanagement_decisionsupport_insurancemedicinedecisionsupport_1.0.xsd) | Domänschema (delat) |
+| [GetVersionsInteraction_1.0_RIVTABP21.wsdl](GetVersionsInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetVersionsResponder_1.0.xsd](GetVersionsResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [processmanagement_decisionsupport_insurancemedicinedecisionsupport_1.0.xsd](processmanagement_decisionsupport_insurancemedicinedecisionsupport_1.0.xsd) | Domänschema (delat) |
 
 ### FHIR-artefakter
 

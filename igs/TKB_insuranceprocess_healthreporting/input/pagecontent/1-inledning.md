@@ -23,5 +23,5 @@ Invånarens hantering av läkarintyg i Mina Intygstjänster eller i en Intygsmot
 Ärendehantering för ett läkarintyg mellan Journalsystem och Intygsmottagare (frågor och svar).
 Hantering av frågor och svar från en Intygsmottagare via Ärendelådan till ett journalsystem.
 
-![img_001.jpeg](images/img_001.jpeg)
+![img_001.jpeg](img_001.jpeg)
 

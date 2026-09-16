@@ -59,9 +59,9 @@ Namespace: `urn:riv:ehr:patientrelationship:querying:GetPatientRelationsForPatie
 
 | Fil | Typ |
 |-----|-----|
-| [GetPatientRelationsForPatientInteraction_1.0_RIVTABP21.wsdl](files/wsdl/GetPatientRelationsForPatientInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_patientrelationship_1.0.xsd](files/schema/ehr_patientrelationship_1.0.xsd) | Domänschema (delat) |
-| [GetPatientRelationsForPatientResponder_1.0.xsd](files/schema/GetPatientRelationsForPatientResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [GetPatientRelationsForPatientInteraction_1.0_RIVTABP21.wsdl](GetPatientRelationsForPatientInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_patientrelationship_1.0.xsd](ehr_patientrelationship_1.0.xsd) | Domänschema (delat) |
+| [GetPatientRelationsForPatientResponder_1.0.xsd](GetPatientRelationsForPatientResponder_1.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -121,9 +121,9 @@ Namespace: `urn:riv:ehr:patientrelationship:querying:GetPatientRelationsForCareP
 
 | Fil | Typ |
 |-----|-----|
-| [GetPatientRelationsForCareProviderInteraction_1.0_RIVTABP21.wsdl](files/wsdl/GetPatientRelationsForCareProviderInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_patientrelationship_1.0.xsd](files/schema/ehr_patientrelationship_1.0.xsd) | Domänschema (delat) |
-| [GetPatientRelationsForCareProviderResponder_1.0.xsd](files/schema/GetPatientRelationsForCareProviderResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [GetPatientRelationsForCareProviderInteraction_1.0_RIVTABP21.wsdl](GetPatientRelationsForCareProviderInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_patientrelationship_1.0.xsd](ehr_patientrelationship_1.0.xsd) | Domänschema (delat) |
+| [GetPatientRelationsForCareProviderResponder_1.0.xsd](GetPatientRelationsForCareProviderResponder_1.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -178,9 +178,9 @@ Namespace: `urn:riv:ehr:patientrelationship:administration:GetExtendedPatientRel
 
 | Fil | Typ |
 |-----|-----|
-| [GetExtendedPatientRelationsForPatientInteraction_1.0_RIVTABP21.wsdl](files/wsdl/GetExtendedPatientRelationsForPatientInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_patientrelationship_1.0.xsd](files/schema/ehr_patientrelationship_1.0.xsd) | Domänschema (delat) |
-| [GetExtendedPatientRelationsForPatientResponder_1.0.xsd](files/schema/GetExtendedPatientRelationsForPatientResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [GetExtendedPatientRelationsForPatientInteraction_1.0_RIVTABP21.wsdl](GetExtendedPatientRelationsForPatientInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_patientrelationship_1.0.xsd](ehr_patientrelationship_1.0.xsd) | Domänschema (delat) |
+| [GetExtendedPatientRelationsForPatientResponder_1.0.xsd](GetExtendedPatientRelationsForPatientResponder_1.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -235,9 +235,9 @@ Namespace: `urn:riv:ehr:patientrelationship:accesscontrol:CheckPatientRelationRe
 
 | Fil | Typ |
 |-----|-----|
-| [CheckPatientRelationInteraction_1.0_RIVTABP21.wsdl](files/wsdl/CheckPatientRelationInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_patientrelationship_1.0.xsd](files/schema/ehr_patientrelationship_1.0.xsd) | Domänschema (delat) |
-| [CheckPatientRelationResponder_1.0.xsd](files/schema/CheckPatientRelationResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [CheckPatientRelationInteraction_1.0_RIVTABP21.wsdl](CheckPatientRelationInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_patientrelationship_1.0.xsd](ehr_patientrelationship_1.0.xsd) | Domänschema (delat) |
+| [CheckPatientRelationResponder_1.0.xsd](CheckPatientRelationResponder_1.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -297,9 +297,9 @@ Namespace: `urn:riv:ehr:patientrelationship:administration:RegisterExtendedPatie
 
 | Fil | Typ |
 |-----|-----|
-| [RegisterExtendedPatientRelationInteraction_1.0_RIVTABP21.wsdl](files/wsdl/RegisterExtendedPatientRelationInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_patientrelationship_1.0.xsd](files/schema/ehr_patientrelationship_1.0.xsd) | Domänschema (delat) |
-| [RegisterExtendedPatientRelationResponder_1.0.xsd](files/schema/RegisterExtendedPatientRelationResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [RegisterExtendedPatientRelationInteraction_1.0_RIVTABP21.wsdl](RegisterExtendedPatientRelationInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_patientrelationship_1.0.xsd](ehr_patientrelationship_1.0.xsd) | Domänschema (delat) |
+| [RegisterExtendedPatientRelationResponder_1.0.xsd](RegisterExtendedPatientRelationResponder_1.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -351,9 +351,9 @@ Namespace: `urn:riv:ehr:patientrelationship:administration:CancelExtendedPatient
 
 | Fil | Typ |
 |-----|-----|
-| [CancelExtendedPatientRelationInteraction_1.0_RIVTABP21.wsdl](files/wsdl/CancelExtendedPatientRelationInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_patientrelationship_1.0.xsd](files/schema/ehr_patientrelationship_1.0.xsd) | Domänschema (delat) |
-| [CancelExtendedPatientRelationResponder_1.0.xsd](files/schema/CancelExtendedPatientRelationResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [CancelExtendedPatientRelationInteraction_1.0_RIVTABP21.wsdl](CancelExtendedPatientRelationInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_patientrelationship_1.0.xsd](ehr_patientrelationship_1.0.xsd) | Domänschema (delat) |
+| [CancelExtendedPatientRelationResponder_1.0.xsd](CancelExtendedPatientRelationResponder_1.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -406,9 +406,9 @@ Namespace: `urn:riv:ehr:patientrelationship:administration:DeleteExtendedPatient
 
 | Fil | Typ |
 |-----|-----|
-| [DeleteExtendedPatientRelationInteraction_1.0_RIVTABP21.wsdl](files/wsdl/DeleteExtendedPatientRelationInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_patientrelationship_1.0.xsd](files/schema/ehr_patientrelationship_1.0.xsd) | Domänschema (delat) |
-| [DeleteExtendedPatientRelationResponder_1.0.xsd](files/schema/DeleteExtendedPatientRelationResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [DeleteExtendedPatientRelationInteraction_1.0_RIVTABP21.wsdl](DeleteExtendedPatientRelationInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_patientrelationship_1.0.xsd](ehr_patientrelationship_1.0.xsd) | Domänschema (delat) |
+| [DeleteExtendedPatientRelationResponder_1.0.xsd](DeleteExtendedPatientRelationResponder_1.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 

@@ -98,11 +98,11 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetCommissionsForPersonInteraction_1.0_RIVTABP21.wsdl](files/wsdl/GetCommissionsForPersonInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_commission_1.0.xsd](files/schema/ehr_commission_1.0.xsd) | Domänschema (delat) |
-| [GetCommissionsForPersonResponder_1.0.xsd](files/schema/GetCommissionsForPersonResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [itintegration_registry_1.0.xsd](files/schema/itintegration_registry_1.0.xsd) | Beroende schema |
-| [AB_ehr_commission_1.0_RC1.docx](files/docs/AB_ehr_commission_1.0_RC1.docx) | Arkitekturbeskrivning |
+| [GetCommissionsForPersonInteraction_1.0_RIVTABP21.wsdl](GetCommissionsForPersonInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_commission_1.0.xsd](ehr_commission_1.0.xsd) | Domänschema (delat) |
+| [GetCommissionsForPersonResponder_1.0.xsd](GetCommissionsForPersonResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [itintegration_registry_1.0.xsd](itintegration_registry_1.0.xsd) | Beroende schema |
+| [AB_ehr_commission_1.0_RC1.docx](AB_ehr_commission_1.0_RC1.docx) | Arkitekturbeskrivning |
 
 #### 7.1 FHIR-artefakter
 
@@ -187,11 +187,11 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [SetSelectedCommissionForPersonInteraction_1.0_RIVTABP21.wsdl](files/wsdl/SetSelectedCommissionForPersonInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_commission_1.0.xsd](files/schema/ehr_commission_1.0.xsd) | Domänschema (delat) |
-| [SetSelectedCommissionForPersonResponder_1.0.xsd](files/schema/SetSelectedCommissionForPersonResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [itintegration_registry_1.0.xsd](files/schema/itintegration_registry_1.0.xsd) | Beroende schema |
-| [AB_ehr_commission_1.0_RC1.docx](files/docs/AB_ehr_commission_1.0_RC1.docx) | Arkitekturbeskrivning |
+| [SetSelectedCommissionForPersonInteraction_1.0_RIVTABP21.wsdl](SetSelectedCommissionForPersonInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_commission_1.0.xsd](ehr_commission_1.0.xsd) | Domänschema (delat) |
+| [SetSelectedCommissionForPersonResponder_1.0.xsd](SetSelectedCommissionForPersonResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [itintegration_registry_1.0.xsd](itintegration_registry_1.0.xsd) | Beroende schema |
+| [AB_ehr_commission_1.0_RC1.docx](AB_ehr_commission_1.0_RC1.docx) | Arkitekturbeskrivning |
 
 #### 7.2 FHIR-artefakter
 

@@ -12,7 +12,7 @@ Se Sekvensdiagram nedan.
 
 ##### Sekvensdiagram
 
-![img_002.png](images/img_002.png)
+![img_002.png](img_002.png)
 
 #### Hämta information om personal med vårdmedarbetaruppdrag inom en vårdenhet
 Flödet för en typisk användning är normalt att en tjänstekonsument hämtar information om personal med vårdmedarbetaruppdrag inom en vårdenhet via en virtuell tjänst som i sin tur anropar tjänsteproducenten samt returnerar svaret från producenten tillbaks till den anropande konsumenten. Se Sekvensdiagram nedan.
@@ -22,7 +22,7 @@ Se Sekvensdiagram nedan.
 
 ##### Sekvensdiagram
 
-![img_001.png](images/img_001.png)
+![img_001.png](img_001.png)
 
 #### Obligatoriska kontrakt
 Följande tabell specificerar vilka kontrakt som är obligatoriska att realisera för respektive flöde.

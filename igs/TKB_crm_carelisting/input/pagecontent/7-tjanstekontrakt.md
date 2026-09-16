@@ -55,9 +55,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetListingInteraction_1.0_rivtabp20.wsdl](files/wsdl/GetListingInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
-| [crm_carelisting_1_0.xsd](files/schema/crm_carelisting_1_0.xsd) | Domänschema (delat) |
-| [GetListing_1_0.xsd](files/schema/GetListing_1_0.xsd) | Tjänstespecifikt schema |
+| [GetListingInteraction_1.0_rivtabp20.wsdl](GetListingInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
+| [crm_carelisting_1_0.xsd](crm_carelisting_1_0.xsd) | Domänschema (delat) |
+| [GetListing_1_0.xsd](GetListing_1_0.xsd) | Tjänstespecifikt schema |
 
 #### 7.1 FHIR-artefakter
 
@@ -107,9 +107,9 @@ Konsumenten frågar om vilka HSA-ID:n som finns tillgängliga för listning i en
 
 | Fil | Typ |
 |-----|-----|
-| [GetAvailableFacilitiesInteraction_1.0_rivtabp20.wsdl](files/wsdl/GetAvailableFacilitiesInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
-| [crm_carelisting_1_0.xsd](files/schema/crm_carelisting_1_0.xsd) | Domänschema (delat) |
-| [GetAvailableFacilities_1_0.xsd](files/schema/GetAvailableFacilities_1_0.xsd) | Tjänstespecifikt schema |
+| [GetAvailableFacilitiesInteraction_1.0_rivtabp20.wsdl](GetAvailableFacilitiesInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
+| [crm_carelisting_1_0.xsd](crm_carelisting_1_0.xsd) | Domänschema (delat) |
+| [GetAvailableFacilities_1_0.xsd](GetAvailableFacilities_1_0.xsd) | Tjänstespecifikt schema |
 
 #### 7.2 FHIR-artefakter
 
@@ -159,9 +159,9 @@ En producent (i dagsläget MVK) skickar in ett meddelande som innehåller ett pe
 
 | Fil | Typ |
 |-----|-----|
-| [CreateListingInteraction_1.0_rivtabp20.wsdl](files/wsdl/CreateListingInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
-| [crm_carelisting_1_0.xsd](files/schema/crm_carelisting_1_0.xsd) | Domänschema (delat) |
-| [CreateListing_1_0.xsd](files/schema/CreateListing_1_0.xsd) | Tjänstespecifikt schema |
+| [CreateListingInteraction_1.0_rivtabp20.wsdl](CreateListingInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
+| [crm_carelisting_1_0.xsd](crm_carelisting_1_0.xsd) | Domänschema (delat) |
+| [CreateListing_1_0.xsd](CreateListing_1_0.xsd) | Tjänstespecifikt schema |
 
 #### 7.3 FHIR-artefakter
 
@@ -204,9 +204,9 @@ Konsumenten ställer en fråga till listningssystemet med ett person-id som inpa
 
 | Fil | Typ |
 |-----|-----|
-| [GetListingTypesInteraction_1.0_rivtabp20.wsdl](files/wsdl/GetListingTypesInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
-| [crm_carelisting_1_0.xsd](files/schema/crm_carelisting_1_0.xsd) | Domänschema (delat) |
-| [GetListingTypes_1_0.xsd](files/schema/GetListingTypes_1_0.xsd) | Tjänstespecifikt schema |
+| [GetListingTypesInteraction_1.0_rivtabp20.wsdl](GetListingTypesInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
+| [crm_carelisting_1_0.xsd](crm_carelisting_1_0.xsd) | Domänschema (delat) |
+| [GetListingTypes_1_0.xsd](GetListingTypes_1_0.xsd) | Tjänstespecifikt schema |
 
 #### 7.4 FHIR-artefakter
 
@@ -254,9 +254,9 @@ Konsumenten ställer en fråga till listningssystemet med ett person-id som inpa
 
 | Fil | Typ |
 |-----|-----|
-| [GetPersonQueueStatusInteraction_1.0_rivtabp20.wsdl](files/wsdl/GetPersonQueueStatusInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
-| [crm_carelisting_1_0.xsd](files/schema/crm_carelisting_1_0.xsd) | Domänschema (delat) |
-| [GetPersonQueueStatus_1_0.xsd](files/schema/GetPersonQueueStatus_1_0.xsd) | Tjänstespecifikt schema |
+| [GetPersonQueueStatusInteraction_1.0_rivtabp20.wsdl](GetPersonQueueStatusInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
+| [crm_carelisting_1_0.xsd](crm_carelisting_1_0.xsd) | Domänschema (delat) |
+| [GetPersonQueueStatus_1_0.xsd](GetPersonQueueStatus_1_0.xsd) | Tjänstespecifikt schema |
 
 #### 7.5 FHIR-artefakter
 

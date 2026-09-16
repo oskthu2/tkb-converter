@@ -17,5 +17,5 @@ Källfiler för gemensamma komponenter:
 
 | Fil | Beskrivning |
 |-----|-------------|
-| [processmanagement_decisionsupport_insurancemedicinedecisionsupport_1.0.xsd](files/schema/processmanagement_decisionsupport_insurancemedicinedecisionsupport_1.0.xsd) | Domängemensamt schema |
-| [itintegration_registry_1.0.xsd](files/schema/itintegration_registry_1.0.xsd) | IT-integrationsregister schema |
+| [processmanagement_decisionsupport_insurancemedicinedecisionsupport_1.0.xsd](processmanagement_decisionsupport_insurancemedicinedecisionsupport_1.0.xsd) | Domängemensamt schema |
+| [itintegration_registry_1.0.xsd](itintegration_registry_1.0.xsd) | IT-integrationsregister schema |

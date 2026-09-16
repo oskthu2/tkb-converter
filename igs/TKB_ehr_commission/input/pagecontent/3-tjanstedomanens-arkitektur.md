@@ -10,7 +10,7 @@ Hämta medarbetaruppdrag för användaren från uppdragsvalstjänsten
 Välj uppdrag
 Skicka valt uppdrag till uppdragsvalstjänsten
 
-![img_001.png](images/img_001.png)
+![img_001.png](img_001.png)
 *Figur 1 Val av medarbetaruppdrag*
 När uppdraget är valt kan man gå vidare att autentisera använderen och få ett SAML-intyg med medarbetaruppdrag.
 

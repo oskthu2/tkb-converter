@@ -76,9 +76,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetHealthCareUnitInteraction_2.0_RIVTABP21.wsdl](files/wsdl/GetHealthCareUnitInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetHealthCareUnitResponder_2.0.xsd](files/schema/GetHealthCareUnitResponder_2.0.xsd) | Tjänstespecifikt schema |
-| [infrastructure_directory_organization_5.0.xsd](files/schema/infrastructure_directory_organization_5.0.xsd) | Domänschema (delat) |
+| [GetHealthCareUnitInteraction_2.0_RIVTABP21.wsdl](GetHealthCareUnitInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetHealthCareUnitResponder_2.0.xsd](GetHealthCareUnitResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [infrastructure_directory_organization_5.0.xsd](infrastructure_directory_organization_5.0.xsd) | Domänschema (delat) |
 
 #### FHIR-artefakter
 
@@ -157,9 +157,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetHealthCareUnitListInteraction_2.0_RIVTABP21.wsdl](files/wsdl/GetHealthCareUnitListInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetHealthCareUnitListResponder_2.0.xsd](files/schema/GetHealthCareUnitListResponder_2.0.xsd) | Tjänstespecifikt schema |
-| [infrastructure_directory_organization_5.0.xsd](files/schema/infrastructure_directory_organization_5.0.xsd) | Domänschema (delat) |
+| [GetHealthCareUnitListInteraction_2.0_RIVTABP21.wsdl](GetHealthCareUnitListInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetHealthCareUnitListResponder_2.0.xsd](GetHealthCareUnitListResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [infrastructure_directory_organization_5.0.xsd](infrastructure_directory_organization_5.0.xsd) | Domänschema (delat) |
 
 #### FHIR-artefakter
 
@@ -283,10 +283,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetHealthCareUnitMembersInteraction_2.1_RIVTABP21.wsdl](files/wsdl/GetHealthCareUnitMembersInteraction_2.1_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetHealthCareUnitMembersResponder_2.1.xsd](files/schema/GetHealthCareUnitMembersResponder_2.1.xsd) | Tjänstespecifikt schema |
-| [GetHealthCareUnitMembersResponder_2.1_ext.xsd](files/schema/GetHealthCareUnitMembersResponder_2.1_ext.xsd) | Tjänstespecifikt schema (extension) |
-| [infrastructure_directory_organization_5.0.xsd](files/schema/infrastructure_directory_organization_5.0.xsd) | Domänschema (delat) |
+| [GetHealthCareUnitMembersInteraction_2.1_RIVTABP21.wsdl](GetHealthCareUnitMembersInteraction_2.1_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetHealthCareUnitMembersResponder_2.1.xsd](GetHealthCareUnitMembersResponder_2.1.xsd) | Tjänstespecifikt schema |
+| [GetHealthCareUnitMembersResponder_2.1_ext.xsd](GetHealthCareUnitMembersResponder_2.1_ext.xsd) | Tjänstespecifikt schema (extension) |
+| [infrastructure_directory_organization_5.0.xsd](infrastructure_directory_organization_5.0.xsd) | Domänschema (delat) |
 
 #### FHIR-artefakter
 
@@ -482,9 +482,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetUnitInteraction_5.0_RIVTABP21.wsdl](files/wsdl/GetUnitInteraction_5.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetUnitResponder_5.0.xsd](files/schema/GetUnitResponder_5.0.xsd) | Tjänstespecifikt schema |
-| [infrastructure_directory_organization_5.0.xsd](files/schema/infrastructure_directory_organization_5.0.xsd) | Domänschema (delat) |
+| [GetUnitInteraction_5.0_RIVTABP21.wsdl](GetUnitInteraction_5.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetUnitResponder_5.0.xsd](GetUnitResponder_5.0.xsd) | Tjänstespecifikt schema |
+| [infrastructure_directory_organization_5.0.xsd](infrastructure_directory_organization_5.0.xsd) | Domänschema (delat) |
 
 #### FHIR-artefakter
 
@@ -558,9 +558,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetHealthCareProviderInteraction_1.0_RIVTABP21.wsdl](files/wsdl/GetHealthCareProviderInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetHealthCareProviderResponder_1.0.xsd](files/schema/GetHealthCareProviderResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [infrastructure_directory_organization_5.0.xsd](files/schema/infrastructure_directory_organization_5.0.xsd) | Domänschema (delat) |
+| [GetHealthCareProviderInteraction_1.0_RIVTABP21.wsdl](GetHealthCareProviderInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetHealthCareProviderResponder_1.0.xsd](GetHealthCareProviderResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [infrastructure_directory_organization_5.0.xsd](infrastructure_directory_organization_5.0.xsd) | Domänschema (delat) |
 
 #### FHIR-artefakter
 

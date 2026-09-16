@@ -348,15 +348,15 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetActivitiesInteraction_1.3_RIVTABP21.wsdl](files/wsdl/GetActivitiesInteraction_1.3_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [clinicalprocess_activity_actions_1.3.xsd](files/schema/clinicalprocess_activity_actions_1.3.xsd) | Domänschema (delat) |
-| [clinicalprocess_activity_actions_1.3_ext.xsd](files/schema/clinicalprocess_activity_actions_1.3_ext.xsd) | Domänschema, extensions |
-| [clinicalprocess_activity_actions_enum_1.3.xsd](files/schema/clinicalprocess_activity_actions_enum_1.3.xsd) | Domänschema, enumerationer |
-| [itintegration_registry_1.0.xsd](files/schema/itintegration_registry_1.0.xsd) | Registry-schema (delat) |
-| [GetActivitiesResponder_1.3.xsd](files/schema/GetActivitiesResponder_1.3.xsd) | Tjänstespecifikt schema |
-| [SjD_TK_GetActivities_1.3.docx](files/docs/SjD_TK_GetActivities_1.3.docx) | Tjänstekontraktsbeskrivning |
-| [SjD_TP_GetActivities_1.3.docx](files/docs/SjD_TP_GetActivities_1.3.docx) | Tjänsteplattformsbeskrivning |
-| [AB_clinicalprocess_activity_actions.docx](files/docs/AB_clinicalprocess_activity_actions.docx) | Anslutningsbeskrivning |
+| [GetActivitiesInteraction_1.3_RIVTABP21.wsdl](GetActivitiesInteraction_1.3_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [clinicalprocess_activity_actions_1.3.xsd](clinicalprocess_activity_actions_1.3.xsd) | Domänschema (delat) |
+| [clinicalprocess_activity_actions_1.3_ext.xsd](clinicalprocess_activity_actions_1.3_ext.xsd) | Domänschema, extensions |
+| [clinicalprocess_activity_actions_enum_1.3.xsd](clinicalprocess_activity_actions_enum_1.3.xsd) | Domänschema, enumerationer |
+| [itintegration_registry_1.0.xsd](itintegration_registry_1.0.xsd) | Registry-schema (delat) |
+| [GetActivitiesResponder_1.3.xsd](GetActivitiesResponder_1.3.xsd) | Tjänstespecifikt schema |
+| [SjD_TK_GetActivities_1.3.docx](SjD_TK_GetActivities_1.3.docx) | Tjänstekontraktsbeskrivning |
+| [SjD_TP_GetActivities_1.3.docx](SjD_TP_GetActivities_1.3.docx) | Tjänsteplattformsbeskrivning |
+| [AB_clinicalprocess_activity_actions.docx](AB_clinicalprocess_activity_actions.docx) | Anslutningsbeskrivning |
 
 #### FHIR-artefakter
 

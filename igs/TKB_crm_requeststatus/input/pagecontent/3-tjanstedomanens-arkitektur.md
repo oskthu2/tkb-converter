@@ -12,18 +12,18 @@ Följande flödesmodeller beskriver översiktligt hur tjänstekontrakten är tä
 
 ##### Arbetsflöde
 
-![Figur 1. Exempel: Adressering vid anrop till aggregerande tjänst från patienttjänst (till exempel från Journalen på nätet)](images/img_009.png)
+![Figur 1. Exempel: Adressering vid anrop till aggregerande tjänst från patienttjänst (till exempel från Journalen på nätet)](img_009.png)
 
 #### Medarbetarens direktåtkomst
 
 ##### Arbetsflöde
 
-![img_007.png](images/img_007.png)
+![img_007.png](img_007.png)
 *Figur 2. Exempel: Adressering vid anrop till aggregerande vårdgivartjänst (till exempel från NPÖ-tillämpningen).*
 
 #### Sekvensdiagram
 
-![img_004.png](images/img_004.png)
+![img_004.png](img_004.png)
 *Figur 3. Sekvensdiagram över sökning efter information om remisstatus. Diagrammet visar på två alternativa sekvenser där det första alternativet gäller när aggregerande tjänster adresseras och det andra alternativet gäller när källsystemet adresseras.*
 
 #### Obligatoriska kontrakt
@@ -39,23 +39,23 @@ Det finns också fall då en tjänstekonsument adresserar ett källsystem. Det f
 
 #### Adressering vid nationell användning
 
-![img_002.png](images/img_002.png)
+![img_002.png](img_002.png)
 *Figur 4. Adressering vid anrop till nationell aggregerande tjänst (till exempel från Journalen på nätet eller NPÖ-tillämpningen).*
 
 #### Adressering vid regional användning
 
-![img_012.png](images/img_012.png)
+![img_012.png](img_012.png)
 *Figur 5. Adressering vid anrop till regional aggregerande tjänst (t.ex. från ett vårddokumentationssystem, Journalen på nätet eller en regional patientöversikt).*
 
 #### Adressering direkt till ett källsystem
 Tjänstekontrakten i denna domän möjliggör sökning av information relaterad till en patient.
 När patienten eller medarbetaren inom vård och omsorg använder en e-tjänst för att följa ett remissflöde används en aggregerande tjänst. Men det kan också finnas behov av händelsedrivet agera när en status förändras. Det kan göras genom att prenumerera på händelser från engagemangsindex. Då blir e-tjänsten notifierad genom att vara tjänsteproducent för tjänstekontraktet ProcessNotification. Engagemangsindex genererar då händelser när det sker förändringar i ett källsystem. Eftersom e-tjänsten då vet vilket källsystem som har en ny status, kan e-tjänsten via virtuell tjänst i en tjänsteplattform, anropa källsystemet istället för att gå via en aggregerande tjänst. Man behöver därför avgränsa en sådan fråga till ett specifikt källsystem. Det görs helt enkelt genom att ange källsystemets HSA-id som sökparameter samt att ange källsystemets HSA-id som logisk adress.
 
-![img_010.png](images/img_010.png)
+![img_010.png](img_010.png)
 *Figur 6. Flöde som förutsätter adressering med källsystemets HSAid.*
 Eftersom anropet i detta fall sker direkt mot virtuell tjänst, sker adressering med källsystemets HSA-id direkt från tjänstekonsumenten. Detta beskrivs i figuren nedan.
 
-![img_005.png](images/img_005.png)
+![img_005.png](img_005.png)
 *Figur 7. Adressering vid sökning efter information ur ett specifikt källsystem*
 
 #### Sammanfattning av adresseringsmodell
@@ -79,7 +79,7 @@ B: Källsystem ansluts via regional tjänsteplattform: Regionens tjänstplattfor
 C: Mellanlager ansluts direkt eller via regional tjänsteplattform: Ett mellanlager avskärmar källsystemen från den last som uppstår vid från nationella medarbetar- och invånartjänster
 Modellerna illustreras nedan (från höger till vänster):
 
-![img_013.png](images/img_013.png)
+![img_013.png](img_013.png)
 *Figur 8: Olika modeller för anslutning av källsystem.*
 Anslutningsmodellerna förutsätter att:
 vårdsystemen uppdaterar nationellt engagemangsindex – direkt eller indirekt via regionalt index. Källsystemets HSA-id anges i engagemangsposten jämte övrig info enligt beskrivning i särskilt avsnitt under regelverk.
@@ -89,6 +89,6 @@ tjänsteproducenten validerar att aktuell tjänstekonsument (HSA-id i http-heade
 ### Regional användning
 Regional användning innebär att tjänstekonsumenten är regional (R-K) och begär information från alla producenter i regionen, avseende ett visst tjänstekontrakt inom tjänstedomänen. Det innebär att regionen behöver utföra regional aggregering i den regionala tjänsteplattformen. Anslutningen av regional tjänsteplattform till nationell påverkas inte av att regionen inför en regional aggregerande tjänst:
 
-![img_011.png](images/img_011.png)
+![img_011.png](img_011.png)
 *Figur 9: Anslutning av källsystem via regional tjänsteplattform.*
 

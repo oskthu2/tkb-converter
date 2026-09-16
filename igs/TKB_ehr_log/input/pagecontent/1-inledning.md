@@ -42,7 +42,7 @@ Säkerställa uppföljning av åtkomst till journaluppgifter som sker i de natio
 Valfrihet för vårdgivaren hur uppföljning av åtkomstloggar ska ske
 Tillgängliggörande av åtkomstinformation till patienten innebär mindre administrativ belastning bland vårdgivarna genom att patienten själv bereds åtkomst till åtkomstloggar.
 
-![img_001.png](images/img_001.png)
+![img_001.png](img_001.png)
 *Figur 1: Principer för samverkande tjänster för logghantering & logguppföljning.*
 I figuren ovan visas som exempel en tjänst för sammanhållen patientöversikt (NPÖ) där en aktörs aktiviteter i NPÖ loggas till den nationella loggtjänsten. Uppföljning av åtkomstloggar kan sen ske antingen via den nationella loggrapporttillämpningen eller för de vårdgivare som har etablerade system för lokal logguppföljning i deras logguppföljningssystem. Dessa system kan via hämtningstjänsten hämta de loggar som tillhör dem.
 Logguppföljning sker i respektive logguppföljningssystem.

@@ -4,7 +4,7 @@ Här beskrivs de meddelandemodeller som tjänstekontrakten bygger på. För varj
 ### V-MIM
 Följande V-MIM beskriver den konceptuella vy av vårdrelation som tjänstekontraktet AssertCareEngagement ålägger producenterna att kunna representera. Konceptet ”PatientRelationship” är ett för ändamålet syntetiserat koncept som representerar att en vårdenhet via elektroniska bevis i form av administrativ vårdinformation kan intyga att medarbetare med uppdrag hos enheten eller vårdgivaren rimligen har professionella skäl att begära åtkomst till patientens sammanhållna journalföring.
 
-![img_005.png](images/img_005.png)
+![img_005.png](img_005.png)
 *Figur  V-MIM, AssertCareEngagement*
 
 | Klass.attribut | Mappning mot V-TIM 2.2 | Mappning tjänstekontrakt AssertCareEngagement |

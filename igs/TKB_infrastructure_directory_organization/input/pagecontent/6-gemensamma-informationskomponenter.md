@@ -17,4 +17,4 @@ De centrala datatyperna som delas mellan kontrakten inkluderar:
 - **BusinessClassificationType** — Verksamhetskod med kod och klartext
 - **GeoCoordRt90Type** / **GeoCoordSWEREF99Type** — Geografiska koordinater
 
-Fullständig beskrivning av datatypernas attribut och regler finns i Informationsspecifikationen [R5] och i XSD-schemana under [Källfiler](files/schema/).
+Fullständig beskrivning av datatypernas attribut och regler finns i Informationsspecifikationen [R5] och i XSD-schemana under [Källfiler]().

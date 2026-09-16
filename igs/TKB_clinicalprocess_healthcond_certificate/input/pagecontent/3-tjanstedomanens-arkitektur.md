@@ -56,73 +56,73 @@ Flödena beskrivs på en teknisk nivå som syftar till att hjälpa tjänstedomä
 
 #### Hämta sjukfall
 
-![img_017.png](images/img_017.png)
+![img_017.png](img_017.png)
 
 #### Skapa intygsutkast
 
-![img_018.jpg](images/img_018.jpg)
+![img_018.jpg](img_018.jpg)
 
 #### Registrera ett intyg
 
-![img_019.jpg](images/img_019.jpg)
+![img_019.jpg](img_019.jpg)
 
 #### Skicka ett intyg
 
 ##### Från en intygsapplikation
 
-![img_020.jpg](images/img_020.jpg)
+![img_020.jpg](img_020.jpg)
 
 ##### Från en invånartjänst för intyg
 
-![img_021.jpg](images/img_021.jpg)
+![img_021.jpg](img_021.jpg)
 
 #### Skicka makuleringsinformation för ett intyg
 
-![img_022.jpg](images/img_022.jpg)
+![img_022.jpg](img_022.jpg)
 
 #### Hämta ett intyg
 
 ##### Från en intygsapplikation
 
-![img_023.jpg](images/img_023.jpg)
+![img_023.jpg](img_023.jpg)
 
 ##### Från intygsmottagarens system
 
-![img_001.jpg](images/img_001.jpg)
+![img_001.jpg](img_001.jpg)
 
 ##### Från en invånartjänst för intyg
 
-![img_002.jpg](images/img_002.jpg)
+![img_002.jpg](img_002.jpg)
 
 #### Hämta intyg
 
 ##### Från en intygsapplikation
 
-![img_003.jpg](images/img_003.jpg)
+![img_003.jpg](img_003.jpg)
 
 ##### Från en invånartjänst för intyg
 
-![img_004.jpg](images/img_004.jpg)
+![img_004.jpg](img_004.jpg)
 
 #### Hämta intygsutkast, intyg samt tillhörande händelser och ärendekommunikation
 
-![img_005.jpg](images/img_005.jpg)
+![img_005.jpg](img_005.jpg)
 
 #### Skicka meddelande till intygsmottagare
 
-![img_006.png](images/img_006.png)
+![img_006.png](img_006.png)
 
 #### Skicka meddelande till vården
 
-![img_007.png](images/img_007.png)
+![img_007.png](img_007.png)
 
 #### Skicka intygsuppdateringar till vården
 
-![img_008.jpg](images/img_008.jpg)
+![img_008.jpg](img_008.jpg)
 
 #### Uppdatera intygsstatus i intygstjänst
 
-![img_009.jpg](images/img_009.jpg)
+![img_009.jpg](img_009.jpg)
 
 ### Adressering
 

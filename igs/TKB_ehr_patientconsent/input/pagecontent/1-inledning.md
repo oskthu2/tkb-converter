@@ -46,7 +46,7 @@ Tjänsterna syftar till att ge följande verksamhetsmässiga effekter:
 - Hälso- och sjukvårdpersonalen ska kunna åberopa nödsituation när inte samtycke är möjligt att få från patienten och det råder fara för patientens liv och hälsa.
 - Samtycken ska kunna få genomslag i anslutna tillämpningar, såväl lokala som nationella, t ex både i det egna vårdsystemet och i nationell patientöversikt, så att dubbelregistreringar undviks.
 
-![Principer för samverkande tjänster för hantering av samtycke](images/img_001.png)
+![Principer för samverkande tjänster för hantering av samtycke](img_001.png)
 
 *Figur 1: Principer för samverkande tjänster för hantering av samtycke*
 

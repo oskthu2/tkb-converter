@@ -5,19 +5,19 @@ Här beskrivs de meddelandemodeller som tjänstekontrakten bygger på. För varj
 
 #### Begäran Offentliga vårdgivare
 
-![img_001.png](images/img_001.png)
+![img_001.png](img_001.png)
 
 #### Begäran IVO
 
-![img_002.png](images/img_002.png)
+![img_002.png](img_002.png)
 
 #### Svar Offentliga vårdgivare
 
-![img_003.png](images/img_003.png)
+![img_003.png](img_003.png)
 
 #### Svar IVO
 
-![img_004.png](images/img_004.png)
+![img_004.png](img_004.png)
 
 #### Mappning mot RIM
 

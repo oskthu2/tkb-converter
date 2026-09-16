@@ -131,10 +131,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetLogicalAddresseesByServiceContractInteraction_2.0_RIVTABP21.wsdl](files/wsdl/GetLogicalAddresseesByServiceContractInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetLogicalAddresseesByServiceContractResponder_2.0.xsd](files/schema/GetLogicalAddresseesByServiceContractResponder_2.0.xsd) | Tjänstespecifikt schema |
-| [infrastructure_itintegration_registry_2.0.xsd](files/schema/infrastructure_itintegration_registry_2.0.xsd) | Domänschema (delat) |
-| [itintegration_registry_1.0.xsd](files/schema/itintegration_registry_1.0.xsd) | Domänschema (delat, används fortfarande för LogicalAddress i SOAP-header enligt RIV TA Basic Profile 2.1 regel #8) |
+| [GetLogicalAddresseesByServiceContractInteraction_2.0_RIVTABP21.wsdl](GetLogicalAddresseesByServiceContractInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetLogicalAddresseesByServiceContractResponder_2.0.xsd](GetLogicalAddresseesByServiceContractResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [infrastructure_itintegration_registry_2.0.xsd](infrastructure_itintegration_registry_2.0.xsd) | Domänschema (delat) |
+| [itintegration_registry_1.0.xsd](itintegration_registry_1.0.xsd) | Domänschema (delat, används fortfarande för LogicalAddress i SOAP-header enligt RIV TA Basic Profile 2.1 regel #8) |
 
 #### 7.1 FHIR-artefakter
 
@@ -183,10 +183,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetSupportedServiceContractsInteraction_2.0_RIVTABP21.wsdl](files/wsdl/GetSupportedServiceContractsInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetSupportedServiceContractsResponder_2.0.xsd](files/schema/GetSupportedServiceContractsResponder_2.0.xsd) | Tjänstespecifikt schema |
-| [infrastructure_itintegration_registry_2.0.xsd](files/schema/infrastructure_itintegration_registry_2.0.xsd) | Domänschema (delat) |
-| [itintegration_registry_1.0.xsd](files/schema/itintegration_registry_1.0.xsd) | Domänschema (delat, används fortfarande för LogicalAddress i SOAP-header enligt RIV TA Basic Profile 2.1 regel #8) |
+| [GetSupportedServiceContractsInteraction_2.0_RIVTABP21.wsdl](GetSupportedServiceContractsInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetSupportedServiceContractsResponder_2.0.xsd](GetSupportedServiceContractsResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [infrastructure_itintegration_registry_2.0.xsd](infrastructure_itintegration_registry_2.0.xsd) | Domänschema (delat) |
+| [itintegration_registry_1.0.xsd](itintegration_registry_1.0.xsd) | Domänschema (delat, används fortfarande för LogicalAddress i SOAP-header enligt RIV TA Basic Profile 2.1 regel #8) |
 
 #### 7.2 FHIR-artefakter
 

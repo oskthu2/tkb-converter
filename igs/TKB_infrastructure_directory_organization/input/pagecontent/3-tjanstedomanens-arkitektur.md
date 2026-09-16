@@ -13,7 +13,7 @@ Se Sekvensdiagram nedan.
 
 ##### Sekvensdiagram
 
-![img_001.png](images/img_001.png)
+![img_001.png](img_001.png)
 
 #### Hämta information om en vårdgivares alla vårdenheter
 Flödet för en typisk användning är normalt att en tjänstekonsument hämtar information om en vårdgivares alla vårdenheter via en virtuell tjänst som i sin tur anropar tjänsteproducenten samt returnerar svaret från producenten tillbaka till den anropande konsumenten. Se Sekvensdiagram nedan.
@@ -23,7 +23,7 @@ Se Sekvensdiagram nedan.
 
 ##### Sekvensdiagram
 
-![img_004.png](images/img_004.png)
+![img_004.png](img_004.png)
 
 #### Hämta information om en vårdenhets ingående enheter
 Flödet för en typisk användning är normalt att en tjänstekonsument hämtar information om en vårdenhets ingående enheter via en virtuell tjänst som i sin tur anropar tjänsteproducenten samt returnerar svaret från producenten tillbaka till den anropande konsumenten. Se Sekvensdiagram nedan.
@@ -33,7 +33,7 @@ Se Sekvensdiagram nedan.
 
 ##### Sekvensdiagram
 
-![img_003.png](images/img_003.png)
+![img_003.png](img_003.png)
 
 #### Hämta information om en organisatorisk enhet
 Flödet för en typisk användning är normalt att en tjänstekonsument hämtar information om en organisatorisk enhet via en virtuell tjänst som i sin tur anropar tjänsteproducenten samt returnerar svaret från producenten tillbaka till den anropande konsumenten. Se Sekvensdiagram nedan.
@@ -43,7 +43,7 @@ Se Sekvensdiagram nedan.
 
 ##### Sekvensdiagram
 
-![img_002.png](images/img_002.png)
+![img_002.png](img_002.png)
 
 #### Hämta information om en vårdgivare
 Flödet för en typisk användning är normalt att en tjänstekonsument hämtar information om en vårdgivare via en virtuell tjänst som i sin tur anropar tjänsteproducenten samt returnerar svaret från producenten tillbaka till den anropande konsumenten. Se Sekvensdiagram nedan.
@@ -53,7 +53,7 @@ Se Sekvensdiagram nedan.
 
 ##### Sekvensdiagram
 
-![img_005.png](images/img_005.png)
+![img_005.png](img_005.png)
 
 #### Obligatoriska kontrakt
 Följande tabell specificerar vilka kontrakt som är obligatoriska att realisera för respektive flöde.

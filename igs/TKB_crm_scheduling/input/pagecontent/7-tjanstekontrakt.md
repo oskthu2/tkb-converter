@@ -15,7 +15,7 @@ Tjänsten finns sedan 1.0. Tjänsten har inte uppdaterats sedan 1.0.
 
 #### Meddelandeinformationsmodell (MIM)
 
-![img_021.jpg](images/img_021.jpg)
+![img_021.jpg](img_021.jpg)
 
 #### Fältregler
 Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.
@@ -47,7 +47,7 @@ Tjänsten finns sedan 1.1. Tjänsten har inte uppdaterats sedan 1.1.
 
 #### Meddelandeinformationsmodell (MIM)
 
-![img_014.jpg](images/img_014.jpg)
+![img_014.jpg](img_014.jpg)
 
 #### Fältregler
 Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.
@@ -83,7 +83,7 @@ Tjänsten finns sedan 1.1. Tjänsten har inte uppdaterats sedan 1.1.
 
 #### Meddelandeinformationsmodell (MIM)
 
-![img_008.jpg](images/img_008.jpg)
+![img_008.jpg](img_008.jpg)
 
 #### Fältregler
 Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.
@@ -110,7 +110,7 @@ Tjänsten finns sedan 1.1.
 
 #### Meddelandeinformationsmodell (MIM)
 
-![img_005.jpg](images/img_005.jpg)
+![img_005.jpg](img_005.jpg)
 
 #### Fältregler
 Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.
@@ -140,7 +140,7 @@ Tjänsten finns sedan 1.0. Tjänsten har förändrats i version 1.1.
 
 #### Meddelandeinformationsmodell (MIM)
 
-![img_025.jpg](images/img_025.jpg)
+![img_025.jpg](img_025.jpg)
 
 #### Fältregler
 Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.
@@ -170,7 +170,7 @@ Tjänsten finns sedan 1.0.
 
 #### Meddelandeinformationsmodell (MIM)
 
-![img_019.jpg](images/img_019.jpg)
+![img_019.jpg](img_019.jpg)
 
 #### Fältregler
 Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.
@@ -209,7 +209,7 @@ Tjänsten finns sedan version 1.0. Tjänsten har inte förändrats sedan version
 
 #### Meddelandeinformationsmodell (MIM)
 
-![img_015.jpg](images/img_015.jpg)
+![img_015.jpg](img_015.jpg)
 
 #### Fältregler
 Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.
@@ -257,7 +257,7 @@ Tjänsten finns sedan version 1.0. Tjänsten har förändrats i version 1.1.
 
 #### Meddelandeinformationsmodell (MIM)
 
-![img_009.jpg](images/img_009.jpg)
+![img_009.jpg](img_009.jpg)
 
 #### Fältregler
 Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.
@@ -314,7 +314,7 @@ Tjänsten finns sedan version 1.0. Tjänsten har förändrats i version 1.1.
 
 #### Meddelandeinformationsmodell (MIM)
 
-![img_003.jpg](images/img_003.jpg)
+![img_003.jpg](img_003.jpg)
 
 #### Fältregler
 Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.
@@ -366,7 +366,7 @@ Tjänsten finns sedan 1.0. Tjänsten har inte förändrats sedan version 1.1.
 
 #### Meddelandeinformationsmodell (MIM)
 
-![img_016.jpg](images/img_016.jpg)
+![img_016.jpg](img_016.jpg)
 
 #### Fältregler
 Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.
@@ -428,7 +428,7 @@ Tjänsten finns sedan 1.0. Tjänsten har inte förändrats sedan version 1.1.
 
 #### Meddelandeinformationsmodell (MIM)
 
-![img_012.jpg](images/img_012.jpg)
+![img_012.jpg](img_012.jpg)
 
 #### Fältregler
 Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.
@@ -485,9 +485,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [CancelBookingInteraction_1.1_RIVTABP21.wsdl](files/wsdl/CancelBookingInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [CancelBookingResponder_1.1.xsd](files/schema/CancelBookingResponder_1.1.xsd) | Tjänstespecifikt schema |
-| [crm_scheduling_1.1.xsd](files/schema/crm_scheduling_1.1.xsd) | Domänschema (delat) |
+| [CancelBookingInteraction_1.1_RIVTABP21.wsdl](CancelBookingInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [CancelBookingResponder_1.1.xsd](CancelBookingResponder_1.1.xsd) | Tjänstespecifikt schema |
+| [crm_scheduling_1.1.xsd](crm_scheduling_1.1.xsd) | Domänschema (delat) |
 
 ### 7.1 CancelBooking — FHIR-artefakter
 
@@ -504,9 +504,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetAllCareTypesInteraction_1.1_RIVTABP21.wsdl](files/wsdl/GetAllCareTypesInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetAllCareTypesResponder_1.1.xsd](files/schema/GetAllCareTypesResponder_1.1.xsd) | Tjänstespecifikt schema |
-| [crm_scheduling_1.1.xsd](files/schema/crm_scheduling_1.1.xsd) | Domänschema (delat) |
+| [GetAllCareTypesInteraction_1.1_RIVTABP21.wsdl](GetAllCareTypesInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetAllCareTypesResponder_1.1.xsd](GetAllCareTypesResponder_1.1.xsd) | Tjänstespecifikt schema |
+| [crm_scheduling_1.1.xsd](crm_scheduling_1.1.xsd) | Domänschema (delat) |
 
 ### 7.2 GetAllCareTypes — FHIR-artefakter
 
@@ -521,9 +521,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetAllHealthcareFacilitiesInteraction_1.1_RIVTABP21.wsdl](files/wsdl/GetAllHealthcareFacilitiesInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetAllHealthcareFacilitiesResponder_1.1.xsd](files/schema/GetAllHealthcareFacilitiesResponder_1.1.xsd) | Tjänstespecifikt schema |
-| [crm_scheduling_1.1.xsd](files/schema/crm_scheduling_1.1.xsd) | Domänschema (delat) |
+| [GetAllHealthcareFacilitiesInteraction_1.1_RIVTABP21.wsdl](GetAllHealthcareFacilitiesInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetAllHealthcareFacilitiesResponder_1.1.xsd](GetAllHealthcareFacilitiesResponder_1.1.xsd) | Tjänstespecifikt schema |
+| [crm_scheduling_1.1.xsd](crm_scheduling_1.1.xsd) | Domänschema (delat) |
 
 ### 7.3 GetAllHealthcareFacilities — FHIR-artefakter
 
@@ -538,9 +538,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetAllPerformersInteraction_1.1_RIVTABP21.wsdl](files/wsdl/GetAllPerformersInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetAllPerformersResponder_1.1.xsd](files/schema/GetAllPerformersResponder_1.1.xsd) | Tjänstespecifikt schema |
-| [crm_scheduling_1.1.xsd](files/schema/crm_scheduling_1.1.xsd) | Domänschema (delat) |
+| [GetAllPerformersInteraction_1.1_RIVTABP21.wsdl](GetAllPerformersInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetAllPerformersResponder_1.1.xsd](GetAllPerformersResponder_1.1.xsd) | Tjänstespecifikt schema |
+| [crm_scheduling_1.1.xsd](crm_scheduling_1.1.xsd) | Domänschema (delat) |
 
 ### 7.4 GetAllPerformers — FHIR-artefakter
 
@@ -555,10 +555,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetAllTimeTypesInteraction_1.1_RIVTABP21.wsdl](files/wsdl/GetAllTimeTypesInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetAllTimeTypesResponder_1.1.xsd](files/schema/GetAllTimeTypesResponder_1.1.xsd) | Tjänstespecifikt schema |
-| [GetAllTimeTypesResponder_1.1_ext.xsd](files/schema/GetAllTimeTypesResponder_1.1_ext.xsd) | Utökat schema |
-| [crm_scheduling_1.1.xsd](files/schema/crm_scheduling_1.1.xsd) | Domänschema (delat) |
+| [GetAllTimeTypesInteraction_1.1_RIVTABP21.wsdl](GetAllTimeTypesInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetAllTimeTypesResponder_1.1.xsd](GetAllTimeTypesResponder_1.1.xsd) | Tjänstespecifikt schema |
+| [GetAllTimeTypesResponder_1.1_ext.xsd](GetAllTimeTypesResponder_1.1_ext.xsd) | Utökat schema |
+| [crm_scheduling_1.1.xsd](crm_scheduling_1.1.xsd) | Domänschema (delat) |
 
 ### 7.5 GetAllTimeTypes — FHIR-artefakter
 
@@ -573,10 +573,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetAvailableDatesInteraction_1.1_RIVTABP21.wsdl](files/wsdl/GetAvailableDatesInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetAvailableDatesResponder_1.1.xsd](files/schema/GetAvailableDatesResponder_1.1.xsd) | Tjänstespecifikt schema |
-| [GetAvailableDatesResponder_1.1_ext.xsd](files/schema/GetAvailableDatesResponder_1.1_ext.xsd) | Utökat schema |
-| [crm_scheduling_1.1.xsd](files/schema/crm_scheduling_1.1.xsd) | Domänschema (delat) |
+| [GetAvailableDatesInteraction_1.1_RIVTABP21.wsdl](GetAvailableDatesInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetAvailableDatesResponder_1.1.xsd](GetAvailableDatesResponder_1.1.xsd) | Tjänstespecifikt schema |
+| [GetAvailableDatesResponder_1.1_ext.xsd](GetAvailableDatesResponder_1.1_ext.xsd) | Utökat schema |
+| [crm_scheduling_1.1.xsd](crm_scheduling_1.1.xsd) | Domänschema (delat) |
 
 ### 7.6 GetAvailableDates — FHIR-artefakter
 
@@ -591,10 +591,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetAvailableTimeslotsInteraction_1.1_RIVTABP21.wsdl](files/wsdl/GetAvailableTimeslotsInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetAvailableTimeslotsResponder_1.1.xsd](files/schema/GetAvailableTimeslotsResponder_1.1.xsd) | Tjänstespecifikt schema |
-| [GetAvailableTimeslotsResponder_1.1_ext.xsd](files/schema/GetAvailableTimeslotsResponder_1.1_ext.xsd) | Utökat schema |
-| [crm_scheduling_1.1.xsd](files/schema/crm_scheduling_1.1.xsd) | Domänschema (delat) |
+| [GetAvailableTimeslotsInteraction_1.1_RIVTABP21.wsdl](GetAvailableTimeslotsInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetAvailableTimeslotsResponder_1.1.xsd](GetAvailableTimeslotsResponder_1.1.xsd) | Tjänstespecifikt schema |
+| [GetAvailableTimeslotsResponder_1.1_ext.xsd](GetAvailableTimeslotsResponder_1.1_ext.xsd) | Utökat schema |
+| [crm_scheduling_1.1.xsd](crm_scheduling_1.1.xsd) | Domänschema (delat) |
 
 ### 7.7 GetAvailableTimeslots — FHIR-artefakter
 
@@ -609,9 +609,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetBookingDetailsInteraction_1.1_RIVTABP21.wsdl](files/wsdl/GetBookingDetailsInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetBookingDetailsResponder_1.1.xsd](files/schema/GetBookingDetailsResponder_1.1.xsd) | Tjänstespecifikt schema |
-| [crm_scheduling_1.1.xsd](files/schema/crm_scheduling_1.1.xsd) | Domänschema (delat) |
+| [GetBookingDetailsInteraction_1.1_RIVTABP21.wsdl](GetBookingDetailsInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetBookingDetailsResponder_1.1.xsd](GetBookingDetailsResponder_1.1.xsd) | Tjänstespecifikt schema |
+| [crm_scheduling_1.1.xsd](crm_scheduling_1.1.xsd) | Domänschema (delat) |
 
 ### 7.8 GetBookingDetails — FHIR-artefakter
 
@@ -626,9 +626,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetSubjectOfCareScheduleInteraction_1.1_RIVTABP21.wsdl](files/wsdl/GetSubjectOfCareScheduleInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [GetSubjectOfCareScheduleResponder_1.1.xsd](files/schema/GetSubjectOfCareScheduleResponder_1.1.xsd) | Tjänstespecifikt schema |
-| [crm_scheduling_1.1.xsd](files/schema/crm_scheduling_1.1.xsd) | Domänschema (delat) |
+| [GetSubjectOfCareScheduleInteraction_1.1_RIVTABP21.wsdl](GetSubjectOfCareScheduleInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [GetSubjectOfCareScheduleResponder_1.1.xsd](GetSubjectOfCareScheduleResponder_1.1.xsd) | Tjänstespecifikt schema |
+| [crm_scheduling_1.1.xsd](crm_scheduling_1.1.xsd) | Domänschema (delat) |
 
 ### 7.9 GetSubjectOfCareSchedule — FHIR-artefakter
 
@@ -643,9 +643,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [MakeBookingInteraction_1.1_RIVTABP21.wsdl](files/wsdl/MakeBookingInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [MakeBookingResponder_1.1.xsd](files/schema/MakeBookingResponder_1.1.xsd) | Tjänstespecifikt schema |
-| [crm_scheduling_1.1.xsd](files/schema/crm_scheduling_1.1.xsd) | Domänschema (delat) |
+| [MakeBookingInteraction_1.1_RIVTABP21.wsdl](MakeBookingInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [MakeBookingResponder_1.1.xsd](MakeBookingResponder_1.1.xsd) | Tjänstespecifikt schema |
+| [crm_scheduling_1.1.xsd](crm_scheduling_1.1.xsd) | Domänschema (delat) |
 
 ### 7.10 MakeBooking — FHIR-artefakter
 
@@ -662,9 +662,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [UpdateBookingInteraction_1.1_RIVTABP21.wsdl](files/wsdl/UpdateBookingInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [UpdateBookingResponder_1.1.xsd](files/schema/UpdateBookingResponder_1.1.xsd) | Tjänstespecifikt schema |
-| [crm_scheduling_1.1.xsd](files/schema/crm_scheduling_1.1.xsd) | Domänschema (delat) |
+| [UpdateBookingInteraction_1.1_RIVTABP21.wsdl](UpdateBookingInteraction_1.1_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [UpdateBookingResponder_1.1.xsd](UpdateBookingResponder_1.1.xsd) | Tjänstespecifikt schema |
+| [crm_scheduling_1.1.xsd](crm_scheduling_1.1.xsd) | Domänschema (delat) |
 
 ### 7.11 UpdateBooking — FHIR-artefakter
 

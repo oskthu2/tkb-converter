@@ -9,11 +9,11 @@ Nedanstående diagram visar hur flödet principiellt ser ut när information ur 
 
 ##### Arbetsflöde
 
-![img_005.png](images/img_005.png)
+![img_005.png](img_005.png)
 **
 Figur 1. Exempel: Adressering vid anrop till aggregerande vårdgivartjänst (t.ex. från NPÖ).
 
-![img_009.png](images/img_009.png)
+![img_009.png](img_009.png)
 *Figur 2. Exempel: Adressering vid anrop till aggregerande tjänst från patienttjänst (t.ex. från 1177 Journal).*
 
 ###### Roller
@@ -25,7 +25,7 @@ Figur 1. Exempel: Adressering vid anrop till aggregerande vårdgivartjänst (t.e
 
 ##### Sekvensdiagram
 
-![img_002.png](images/img_002.png)
+![img_002.png](img_002.png)
 *Figur 3. Sekvensdiagram över sökning efter information där GetMaternityMedicalHistory används som exempel men samma princip gäller för alla läskontrakt i tjänstedomänen, diagrammet visar på två alternativa sekvenser där det första alternativet gäller när aggregerande tjänster adresseras och det andra alternativet gäller när källsystemet adresseras direkt av tjänstekonsument.*
 
 | Namn | Beskrivning |

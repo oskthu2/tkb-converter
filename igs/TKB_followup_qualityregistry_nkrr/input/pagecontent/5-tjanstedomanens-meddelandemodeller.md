@@ -1,7 +1,7 @@
 ## Tjänstedomänens meddelandemodeller
 Här beskrivs de modeller som beskriver informationsinnehållet i tjänstekontrakten inom tjänstedomänen. Varje tjänstekontrakt ska ha en (1..1) egen meddelandemodell som uttömmande beskriver informationen som tjänstekontraktet bär. För varje meddelandemodell beskrivs hur mappning ser ut mot tjänstekontraktets schema (XSD).
 
-![ProcessRegistrationNotification](images/img_011.jpeg)
+![ProcessRegistrationNotification](img_011.jpeg)
 ProcessRegistrationNotification
 Modellen är en UML-representation av XSD-schemat. Någon mappning mellan XSD och MIM är därmed inte inkluderad.
 Nedan beskrivs mappning mellan XSD och informationsmodellen i informationsspecifikationen.
@@ -36,7 +36,7 @@ Nedan beskrivs mappning mellan XSD och informationsmodellen i informationsspecif
 
 ### GetFormData
 
-![img_009.jpeg](images/img_009.jpeg)
+![img_009.jpeg](img_009.jpeg)
 Modellen är en UML-representation av XSD-schemat. Någon mappning mellan XSD och MIM är därmed inte inkluderad.
 Nedan beskrivs mappning mellan XSD och informationsmodellen i informationsspecifikationen.
 

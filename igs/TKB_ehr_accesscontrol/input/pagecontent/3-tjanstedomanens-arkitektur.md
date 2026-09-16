@@ -12,7 +12,7 @@ Tillträde nekas om tjänsten i steg 2 inte bekräftar behörighetsgrundande eng
 Kontroll att förutsättningar enligt PDL  6 kap 3§ är uppfyllda (samtycke, spärr etc.)
 Tillträde till sammanhållen journalföring erbjuds medarbetaren
 
-![img_007.png](images/img_007.png)
+![img_007.png](img_007.png)
 *Figur  Grafisk flödesmodell*
 
 ###### Roller
@@ -28,14 +28,14 @@ Tabellen nedan beskriver de roller i flödesmodellen som relaterar till stegen s
 ##### Sekvensdiagram
 Interaktionerna i sekvensdiagrammet nedan kan i praktiken komma att ske i en infrastruktur enligt följande figur:
 
-![img_004.png](images/img_004.png)
+![img_004.png](img_004.png)
 *Figur  AssertCareEngagement i ett sammanhang*
 UML-versionen av ovanstående visar de klasser som ingår i sekvensdiagrammet och deras inbördes förhållanden:
 
-![img_003.gif](images/img_003.gif)
+![img_003.gif](img_003.gif)
 *Figur  Modell över komponenter vars samverkan beskrivs i sekvensdiagrammet*
 
-![img_008.png](images/img_008.png)
+![img_008.png](img_008.png)
 *Figur  Sekvensdiagram, Flöde 1*
 
 #### Obligatoriska kontrakt

@@ -12,7 +12,7 @@ Se Sekvensdiagram nedan.
 
 ##### Sekvensdiagram
 
-![img_003.png](images/img_003.png)
+![img_003.png](img_003.png)
 
 #### Hämta information om en persons Administrativa behörighetsegenskaper
 Flödet för en typisk användning är normalt att en tjänstekonsument hämtar en persons behörighetsegenskaper via en virtuell tjänst som i sin tur anropar tjänsteproducenten samt returnerar svaret från producenten tillbaka till den anropande konsumenten.  Se Sekvensdiagram nedan.
@@ -22,7 +22,7 @@ Se Sekvensdiagram nedan.
 
 ##### Sekvensdiagram
 
-![img_002.png](images/img_002.png)
+![img_002.png](img_002.png)
 
 #### Hämta HOSP-uppgifter (GetHospLastUpdate och GetHospCredentialsForPerson)
 HOSP-information – det vill säga uppgifter om t.ex. legitimerad yrkesgrupp, specialistkompetens, förskrivarkod och förskrivningsrätt – hämtas till HSA från Socialstyrelsens HOSP-register och lagras i en separat och dold struktur i HSA. Därifrån kan dessa hämtas för att uppdatera en lokal HSA-katalog med aktuella HOSP-uppgifter för en eller för samtliga medarbetare.
@@ -34,7 +34,7 @@ Se Sekvensdiagram nedan.
 
 ##### Sekvensdiagram
 
-![img_001.png](images/img_001.png)
+![img_001.png](img_001.png)
 
 #### Hantera personer som behöver få HOSP-uppgifter utlämnade
 
@@ -47,7 +47,7 @@ Se Sekvensdiagram nedan.
 
 ##### Sekvensdiagram
 
-![img_004.png](images/img_004.png)
+![img_004.png](img_004.png)
 
 #### Obligatoriska kontrakt
 Följande tabell specificerar vilka kontrakt som är obligatoriska att realisera för respektive flöde.

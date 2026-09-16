@@ -454,14 +454,14 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetObservationsInteraction_2.0_RIVTABP21.wsdl](files/wsdl/GetObservationsInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [clinicalprocess_healthcond_basic_2.0.xsd](files/schema/clinicalprocess_healthcond_basic_2.0.xsd) | Domänschema (kärnkomponenter) |
-| [clinicalprocess_healthcond_basic_enum_2.0.xsd](files/schema/clinicalprocess_healthcond_basic_enum_2.0.xsd) | Domänschema (enumerationer) |
-| [GetObservationsResponder_2.0.xsd](files/schema/GetObservationsResponder_2.0.xsd) | Tjänstespecifikt schema |
-| [itintegration_registry_1.0.xsd](files/schema/itintegration_registry_1.0.xsd) | Engagemangsindex-schema |
-| [SjD_TK_GetObservations_2.0.docx](files/docs/SjD_TK_GetObservations_2.0.docx) | Tjänstekontraktsbeskrivning |
-| [SjD_TP_GetObservations_2.0.docx](files/docs/SjD_TP_GetObservations_2.0.docx) | Tjänsteproducentbeskrivning |
-| [AB_clinicalprocess_healthcond_basic.docx](files/docs/AB_clinicalprocess_healthcond_basic.docx) | Arkitekturbeskrivning |
+| [GetObservationsInteraction_2.0_RIVTABP21.wsdl](GetObservationsInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [clinicalprocess_healthcond_basic_2.0.xsd](clinicalprocess_healthcond_basic_2.0.xsd) | Domänschema (kärnkomponenter) |
+| [clinicalprocess_healthcond_basic_enum_2.0.xsd](clinicalprocess_healthcond_basic_enum_2.0.xsd) | Domänschema (enumerationer) |
+| [GetObservationsResponder_2.0.xsd](GetObservationsResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [itintegration_registry_1.0.xsd](itintegration_registry_1.0.xsd) | Engagemangsindex-schema |
+| [SjD_TK_GetObservations_2.0.docx](SjD_TK_GetObservations_2.0.docx) | Tjänstekontraktsbeskrivning |
+| [SjD_TP_GetObservations_2.0.docx](SjD_TP_GetObservations_2.0.docx) | Tjänsteproducentbeskrivning |
+| [AB_clinicalprocess_healthcond_basic.docx](AB_clinicalprocess_healthcond_basic.docx) | Arkitekturbeskrivning |
 
 ### FHIR-artefakter
 

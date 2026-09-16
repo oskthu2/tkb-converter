@@ -62,4 +62,4 @@ Alla tjänster har ett obligatoriskt meddelandefält där mottagande vårdgivare
 #### Exempel på logisk adressering för operationen GetAllBlocksForPatient
 Nedan visas ett exempel på hur logisk adressering kan användas för operationen GetAllBlocksForPatient. Det lokala systemet B1 kan använda den logiska addressen ”S”, som motsvarar källsystemsaddresseringen av den regionala spärrtjänsten, eller organisationstillhörigheten, dvs den logiska adressen ”B” i exemplet nedan. Bägge addresseringarna gör att anropet routas till den regionala spärrtjänsten. Alternativt, ifall det lokala systmetet B1 vill att anropet ska nå den nationella spärrtjänsten ska den logiska adressen sättas till ”Inera”, dvs hsa-id:et SE165565594230-1000.
 
-![img_002.png](images/img_002.png)
+![img_002.png](img_002.png)

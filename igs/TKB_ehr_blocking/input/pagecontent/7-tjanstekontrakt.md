@@ -114,9 +114,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetAllBlocksInteraction_2.0_RIVTABP21.wsdl](files/wsdl/GetAllBlocksInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_blocking_2.0.xsd](files/schema/ehr_blocking_2.0.xsd) | Domänschema (delat) |
-| [GetAllBlocksResponder_2.0.xsd](files/schema/GetAllBlocksResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [GetAllBlocksInteraction_2.0_RIVTABP21.wsdl](GetAllBlocksInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_blocking_2.0.xsd](ehr_blocking_2.0.xsd) | Domänschema (delat) |
+| [GetAllBlocksResponder_2.0.xsd](GetAllBlocksResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -231,9 +231,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetAllBlocksForPatientInteraction_2.0_RIVTABP21.wsdl](files/wsdl/GetAllBlocksForPatientInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_blocking_2.0.xsd](files/schema/ehr_blocking_2.0.xsd) | Domänschema (delat) |
-| [GetAllBlocksForPatientResponder_2.0.xsd](files/schema/GetAllBlocksForPatientResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [GetAllBlocksForPatientInteraction_2.0_RIVTABP21.wsdl](GetAllBlocksForPatientInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_blocking_2.0.xsd](ehr_blocking_2.0.xsd) | Domänschema (delat) |
+| [GetAllBlocksForPatientResponder_2.0.xsd](GetAllBlocksForPatientResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -310,10 +310,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetPatientIdsInteraction_2.0_RIVTABP21.wsdl](files/wsdl/GetPatientIdsInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_blocking_2.0.xsd](files/schema/ehr_blocking_2.0.xsd) | Domänschema (delat) |
-| [ehr_administration_2.0.xsd](files/schema/ehr_administration_2.0.xsd) | Administrations-schema (delat) |
-| [GetPatientIdsResponder_2.0.xsd](files/schema/GetPatientIdsResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [GetPatientIdsInteraction_2.0_RIVTABP21.wsdl](GetPatientIdsInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_blocking_2.0.xsd](ehr_blocking_2.0.xsd) | Domänschema (delat) |
+| [ehr_administration_2.0.xsd](ehr_administration_2.0.xsd) | Administrations-schema (delat) |
+| [GetPatientIdsResponder_2.0.xsd](GetPatientIdsResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -426,9 +426,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetBlocksInteraction_2.0_RIVTABP21.wsdl](files/wsdl/GetBlocksInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_blocking_2.0.xsd](files/schema/ehr_blocking_2.0.xsd) | Domänschema (delat) |
-| [GetBlocksResponder_2.0.xsd](files/schema/GetBlocksResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [GetBlocksInteraction_2.0_RIVTABP21.wsdl](GetBlocksInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_blocking_2.0.xsd](ehr_blocking_2.0.xsd) | Domänschema (delat) |
+| [GetBlocksResponder_2.0.xsd](GetBlocksResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -541,9 +541,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetBlocksForPatientInteraction_2.0_RIVTABP21.wsdl](files/wsdl/GetBlocksForPatientInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_blocking_2.0.xsd](files/schema/ehr_blocking_2.0.xsd) | Domänschema (delat) |
-| [GetBlocksForPatientResponder_2.0.xsd](files/schema/GetBlocksForPatientResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [GetBlocksForPatientInteraction_2.0_RIVTABP21.wsdl](GetBlocksForPatientInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_blocking_2.0.xsd](ehr_blocking_2.0.xsd) | Domänschema (delat) |
+| [GetBlocksForPatientResponder_2.0.xsd](GetBlocksForPatientResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -761,10 +761,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetExtendedBlocksForPatientInteraction_2.0_RIVTABP21.wsdl](files/wsdl/GetExtendedBlocksForPatientInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_blocking_2.0.xsd](files/schema/ehr_blocking_2.0.xsd) | Domänschema (delat) |
-| [ehr_administration_2.0.xsd](files/schema/ehr_administration_2.0.xsd) | Administrations-schema (delat) |
-| [GetExtendedBlocksForPatientResponder_2.0.xsd](files/schema/GetExtendedBlocksForPatientResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [GetExtendedBlocksForPatientInteraction_2.0_RIVTABP21.wsdl](GetExtendedBlocksForPatientInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_blocking_2.0.xsd](ehr_blocking_2.0.xsd) | Domänschema (delat) |
+| [ehr_administration_2.0.xsd](ehr_administration_2.0.xsd) | Administrations-schema (delat) |
+| [GetExtendedBlocksForPatientResponder_2.0.xsd](GetExtendedBlocksForPatientResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -874,9 +874,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [CheckBlocksInteraction_3.0_RIVTABP21.wsdl](files/wsdl/CheckBlocksInteraction_3.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_blocking_2.0.xsd](files/schema/ehr_blocking_2.0.xsd) | Domänschema (delat) |
-| [CheckBlocksResponder_3.0.xsd](files/schema/CheckBlocksResponder_3.0.xsd) | Tjänstespecifikt schema |
+| [CheckBlocksInteraction_3.0_RIVTABP21.wsdl](CheckBlocksInteraction_3.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_blocking_2.0.xsd](ehr_blocking_2.0.xsd) | Domänschema (delat) |
+| [CheckBlocksResponder_3.0.xsd](CheckBlocksResponder_3.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -980,9 +980,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [RegisterBlockInteraction_2.0_RIVTABP21.wsdl](files/wsdl/RegisterBlockInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_blocking_2.0.xsd](files/schema/ehr_blocking_2.0.xsd) | Domänschema (delat) |
-| [RegisterBlockResponder_2.0.xsd](files/schema/RegisterBlockResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [RegisterBlockInteraction_2.0_RIVTABP21.wsdl](RegisterBlockInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_blocking_2.0.xsd](ehr_blocking_2.0.xsd) | Domänschema (delat) |
+| [RegisterBlockResponder_2.0.xsd](RegisterBlockResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -1054,9 +1054,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [UnregisterBlockInteraction_2.0_RIVTABP21.wsdl](files/wsdl/UnregisterBlockInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_blocking_2.0.xsd](files/schema/ehr_blocking_2.0.xsd) | Domänschema (delat) |
-| [UnregisterBlockResponder_2.0.xsd](files/schema/UnregisterBlockResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [UnregisterBlockInteraction_2.0_RIVTABP21.wsdl](UnregisterBlockInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_blocking_2.0.xsd](ehr_blocking_2.0.xsd) | Domänschema (delat) |
+| [UnregisterBlockResponder_2.0.xsd](UnregisterBlockResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -1135,9 +1135,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [RegisterTemporaryRevokeInteraction_2.0_RIVTABP21.wsdl](files/wsdl/RegisterTemporaryRevokeInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_blocking_2.0.xsd](files/schema/ehr_blocking_2.0.xsd) | Domänschema (delat) |
-| [RegisterTemporaryRevokeResponder_2.0.xsd](files/schema/RegisterTemporaryRevokeResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [RegisterTemporaryRevokeInteraction_2.0_RIVTABP21.wsdl](RegisterTemporaryRevokeInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_blocking_2.0.xsd](ehr_blocking_2.0.xsd) | Domänschema (delat) |
+| [RegisterTemporaryRevokeResponder_2.0.xsd](RegisterTemporaryRevokeResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -1209,9 +1209,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [UnregisterTemporaryRevokeInteraction_2.0_RIVTABP21.wsdl](files/wsdl/UnregisterTemporaryRevokeInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_blocking_2.0.xsd](files/schema/ehr_blocking_2.0.xsd) | Domänschema (delat) |
-| [UnregisterTemporaryRevokeResponder_2.0.xsd](files/schema/UnregisterTemporaryRevokeResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [UnregisterTemporaryRevokeInteraction_2.0_RIVTABP21.wsdl](UnregisterTemporaryRevokeInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_blocking_2.0.xsd](ehr_blocking_2.0.xsd) | Domänschema (delat) |
+| [UnregisterTemporaryRevokeResponder_2.0.xsd](UnregisterTemporaryRevokeResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -1328,10 +1328,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [RegisterExtendedBlockInteraction_2.0_RIVTABP21.wsdl](files/wsdl/RegisterExtendedBlockInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_blocking_2.0.xsd](files/schema/ehr_blocking_2.0.xsd) | Domänschema (delat) |
-| [ehr_administration_2.0.xsd](files/schema/ehr_administration_2.0.xsd) | Administrations-schema (delat) |
-| [RegisterExtendedBlockResponder_2.0.xsd](files/schema/RegisterExtendedBlockResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [RegisterExtendedBlockInteraction_2.0_RIVTABP21.wsdl](RegisterExtendedBlockInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_blocking_2.0.xsd](ehr_blocking_2.0.xsd) | Domänschema (delat) |
+| [ehr_administration_2.0.xsd](ehr_administration_2.0.xsd) | Administrations-schema (delat) |
+| [RegisterExtendedBlockResponder_2.0.xsd](RegisterExtendedBlockResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -1429,10 +1429,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [RevokeExtendedBlockInteraction_2.0_RIVTABP21.wsdl](files/wsdl/RevokeExtendedBlockInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_blocking_2.0.xsd](files/schema/ehr_blocking_2.0.xsd) | Domänschema (delat) |
-| [ehr_administration_2.0.xsd](files/schema/ehr_administration_2.0.xsd) | Administrations-schema (delat) |
-| [RevokeExtendedBlockResponder_2.0.xsd](files/schema/RevokeExtendedBlockResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [RevokeExtendedBlockInteraction_2.0_RIVTABP21.wsdl](RevokeExtendedBlockInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_blocking_2.0.xsd](ehr_blocking_2.0.xsd) | Domänschema (delat) |
+| [ehr_administration_2.0.xsd](ehr_administration_2.0.xsd) | Administrations-schema (delat) |
+| [RevokeExtendedBlockResponder_2.0.xsd](RevokeExtendedBlockResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -1530,10 +1530,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [DeleteExtendedBlockInteraction_2.0_RIVTABP21.wsdl](files/wsdl/DeleteExtendedBlockInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_blocking_2.0.xsd](files/schema/ehr_blocking_2.0.xsd) | Domänschema (delat) |
-| [ehr_administration_2.0.xsd](files/schema/ehr_administration_2.0.xsd) | Administrations-schema (delat) |
-| [DeleteExtendedBlockResponder_2.0.xsd](files/schema/DeleteExtendedBlockResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [DeleteExtendedBlockInteraction_2.0_RIVTABP21.wsdl](DeleteExtendedBlockInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_blocking_2.0.xsd](ehr_blocking_2.0.xsd) | Domänschema (delat) |
+| [ehr_administration_2.0.xsd](ehr_administration_2.0.xsd) | Administrations-schema (delat) |
+| [DeleteExtendedBlockResponder_2.0.xsd](DeleteExtendedBlockResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -1642,10 +1642,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [RegisterTemporaryExtendedRevokeInteraction_2.0_RIVTABP21.wsdl](files/wsdl/RegisterTemporaryExtendedRevokeInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_blocking_2.0.xsd](files/schema/ehr_blocking_2.0.xsd) | Domänschema (delat) |
-| [ehr_administration_2.0.xsd](files/schema/ehr_administration_2.0.xsd) | Administrations-schema (delat) |
-| [RegisterTemporaryExtendedRevokeResponder_2.0.xsd](files/schema/RegisterTemporaryExtendedRevokeResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [RegisterTemporaryExtendedRevokeInteraction_2.0_RIVTABP21.wsdl](RegisterTemporaryExtendedRevokeInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_blocking_2.0.xsd](ehr_blocking_2.0.xsd) | Domänschema (delat) |
+| [ehr_administration_2.0.xsd](ehr_administration_2.0.xsd) | Administrations-schema (delat) |
+| [RegisterTemporaryExtendedRevokeResponder_2.0.xsd](RegisterTemporaryExtendedRevokeResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -1743,10 +1743,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [CancelTemporaryExtendedRevokeInteraction_2.0_RIVTABP21.wsdl](files/wsdl/CancelTemporaryExtendedRevokeInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [ehr_blocking_2.0.xsd](files/schema/ehr_blocking_2.0.xsd) | Domänschema (delat) |
-| [ehr_administration_2.0.xsd](files/schema/ehr_administration_2.0.xsd) | Administrations-schema (delat) |
-| [CancelTemporaryExtendedRevokeResponder_2.0.xsd](files/schema/CancelTemporaryExtendedRevokeResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [CancelTemporaryExtendedRevokeInteraction_2.0_RIVTABP21.wsdl](CancelTemporaryExtendedRevokeInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [ehr_blocking_2.0.xsd](ehr_blocking_2.0.xsd) | Domänschema (delat) |
+| [ehr_administration_2.0.xsd](ehr_administration_2.0.xsd) | Administrations-schema (delat) |
+| [CancelTemporaryExtendedRevokeResponder_2.0.xsd](CancelTemporaryExtendedRevokeResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 

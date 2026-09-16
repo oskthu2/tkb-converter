@@ -1,6 +1,6 @@
 # 7 Tjänstekontrakt
 
-## 7.1 GetAvailableEServices
+### GetAvailableEServices
 
 **Namnrymd:** `urn:riv:eservicesupply:eoffering:GetAvailableEServicesResponder:1`
 **Version:** 1.0
@@ -73,21 +73,20 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetAvailableEServicesInteraction_1.0_RIVTABP20.wsdl](files/wsdl/GetAvailableEServicesInteraction_1.0_RIVTABP20.wsdl) | WSDL-kontrakt (RIVTABP 2.0) |
-| [GetAvailableEServicesInteraction_1.0_RIVTABP21.wsdl](files/wsdl/GetAvailableEServicesInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt (RIVTABP 2.1) |
-| [eservicesupply_eoffering_1.0.xsd](files/schema/eservicesupply_eoffering_1.0.xsd) | Domänschema (gemensamma komponenter) |
-| [GetAvailableEServicesResponder_1.0.xsd](files/schema/GetAvailableEServicesResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [itintegration_registry_1.0.xsd](files/schema/itintegration_registry_1.0.xsd) | Engagemangsindex-schema (delad dependency) |
-| [ws-addressing-1.0.xsd](files/schema/ws-addressing-1.0.xsd) | WS-Addressing (infrastruktur) |
-| [TKB_eservicesupply_eoffering_v0.3.pdf](files/docs/TKB_eservicesupply_eoffering_v0.3.pdf) | Tjänstekontraktsbeskrivning (PDF) |
-| [Erbjuden_e-tjanst_SAD_v1.0.docx](files/docs/Erbjuden_e-tjanst_SAD_v1.0.docx) | Systemarkitekturdokument (SAD) |
+| [GetAvailableEServicesInteraction_1.0_RIVTABP20.wsdl](GetAvailableEServicesInteraction_1.0_RIVTABP20.wsdl) | WSDL-kontrakt (RIVTABP 2.0) |
+| [GetAvailableEServicesInteraction_1.0_RIVTABP21.wsdl](GetAvailableEServicesInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt (RIVTABP 2.1) |
+| [eservicesupply_eoffering_1.0.xsd](eservicesupply_eoffering_1.0.xsd) | Domänschema (gemensamma komponenter) |
+| [GetAvailableEServicesResponder_1.0.xsd](GetAvailableEServicesResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [itintegration_registry_1.0.xsd](itintegration_registry_1.0.xsd) | Engagemangsindex-schema (delad dependency) |
+| [ws-addressing-1.0.xsd](ws-addressing-1.0.xsd) | WS-Addressing (infrastruktur) |
+| [TKB_eservicesupply_eoffering_v0.3.pdf](TKB_eservicesupply_eoffering_v0.3.pdf) | Tjänstekontraktsbeskrivning (PDF) |
+| [Erbjuden_e-tjanst_SAD_v1.0.docx](Erbjuden_e-tjanst_SAD_v1.0.docx) | Systemarkitekturdokument (SAD) |
 
 ### FHIR-artefakter
 
 Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:
 
 * **Logisk modell (response):** [StructureDefinition/getavailableeservices](StructureDefinition-getavailableeservices.html)
-* **Logisk modell (request):** [StructureDefinition/getavailableeservices-request](StructureDefinition-getavailableeservices-request.html)
 * **Kodsystem (autentiseringsnivå):** [CodeSystem/securitylevel-cs](CodeSystem-securitylevel-cs.html)
 * **ValueSet (autentiseringsnivå):** [ValueSet/securitylevel-vs](ValueSet-securitylevel-vs.html)
 * **Kodsystem (kön):** [CodeSystem/gender-eoffering-cs](CodeSystem-gender-eoffering-cs.html)

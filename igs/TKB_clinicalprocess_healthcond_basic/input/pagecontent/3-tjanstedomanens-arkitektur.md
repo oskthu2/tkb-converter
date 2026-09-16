@@ -12,16 +12,16 @@ Nedanstående diagram visar hur flödet ser ut när information om observationer
 
 ##### Arbetsflöde
 
-![img_001.png](images/img_001.png)
+![img_001.png](img_001.png)
 *Figur 1 Exempel: Adressering vid anrop till aggregerande tjänst från patienttjänst (exempelvis från Journalen).*
 
-![img_006.png](images/img_006.png)
+![img_006.png](img_006.png)
 *Figur 2 Exempel: Adressering vid anrop till aggregerande vårdgivartjänst (exempelvis från Nationell patientöversikt).*
 
 ##### Sekvensdiagram för enkel begäran
 Siffrorna i diagrammet nedan kopplar ihop begäran-svar för respektive meddelande.
 
-![img_004.png](images/img_004.png)
+![img_004.png](img_004.png)
 Figur 3 Sekvensdiagram över sökning efter information
 Aggregerade tjänster beskrivs i [R6].
 
@@ -42,7 +42,7 @@ Ett samband anges med hjälp av typen ReferredInformationType där fältet type 
 ##### Exempel på samband
 I detta exempel har en patient en tidigare satt diagnos (observation) K35.2 Akut appendicit med generaliserad peritonit. På grund av denna diagnos utförs en appendektomi (aktivitet). Vid ett senare tillfälle upptäcks att en MRSA-infektion har uppkommit i operationssåret (observation). Detta exempel tar inte hänsyn till nuvarande begränsning i kontraktet där referenser inte får korsa systemgränser.
 
-![img_002.png](images/img_002.png)
+![img_002.png](img_002.png)
 *Figur  Exempel observationskomplikation*
 För detaljerade beskrivningar av klasser och attribut ovan se Nationell Informationsstruktur [R5].
 Ifall dessa data lagras i olika system, så är förutsättningen, för anrops-flödet i nästa avsnitt att identiteter för orsakande diagnos respektive operation har förmedlats vidare till nästa system i behandlingskedjan.
@@ -52,7 +52,7 @@ Ovanstående modell skulle kunna tänkas återspegla att en patient på en nära
 I detta exempel hämtas de operationstyper (aktiviteter) ut som man planerar följa upp. För att se vad orsaken var till operationer samt eventuella komplikationer hämtas sedan relaterade observationer före och efter operationen. Respektive händelse har dokumenterats i olika vårdsystem, men eftersom det finns engagemangsindexposter för observationstjänsten i både system 2 och 3 kommer båda dessa system tillfrågas två gånger i nedanstående sekvens (se 3.1.1.2 Sekvensdiagram för enkel begäran för detaljerad beskrivning av hur anrop sker i aggregerad tjänst).
 Nedan så har t ex system 2 kännedom om diagnosen, vilket redan har förmedlats till system 1 där operationen finns registrerad, inklusive dess orsak (med identitet enligt system 2). Slutligen så finns t ex i system 3 komplikationer noterade, vilka är relaterade till operationens identitet (enligt system 1).
 
-![img_007.png](images/img_007.png)
+![img_007.png](img_007.png)
 Figur 5 Sekvensdiagram för komplext flöde.
 
 ##### Roller
@@ -86,7 +86,7 @@ Om logisk adress HSA-id för Inera eller en huvudman kommer anropet att dirigera
 
 ### Interaktionsöverenskommelse och tillämpningsanvisning
 
-![img_005.png](images/img_005.png)
+![img_005.png](img_005.png)
 Tjänstekonsumenter och -producenter av information inom denna tjänstedomän kan inte enbart förlita sig på informationsspecifikation och tjänstekontraktsbeskrivning för att uppnå semantisk interoperabilitet. Skälet till detta är att kombinationen av typade samband och möjligheten att använda godtyckliga kodverk för att beskriva en viss klinisk händelse ger möjlighet att skapa detaljerade modeller byggda som sammansättningar av dessa tjänster.
 En interaktionsöverenskommelse utgör en överenskommelse om hur ett visst kliniskt scenario skall representeras med tjänsterna. Genom att deklarera konformitet till en eller flera interaktionsöverenskommelser kan en vårdgivare eller vårdenhet informera en tjänstekonsument om vilken typ av information som produceras via tjänstekontrakten. En interaktionsöverenskommelse kan exempelvis beskriva hur informationen om en längdmätning kommuniceras via tjänsten GetObservations.
 En tillämpningsanvisning beskriver hur olika tjänstekontrakt kan tillämpas för att uppnå ett specifikt resultat som förutsätter att ett eller flera tjänstekontrakt används. Det kan t.ex. gälla att beskriva hur information hämtas för att en Förlossningsöversikt (”förlossningsjournal”) ska kunna sammanställas. Eftersom användningen av tjänstekontrakten i denna domän förutsätter att tjänstekontraktspecifika interaktionsöverenskommelser upprättas, behöver i dessa fall även relevanta interaktionsöverenskommelser refereras i en tillämpsningsanvisning där något av dessa kontrakt tillämpas.

@@ -519,9 +519,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetCertificateInteraction_2.1_RIVTABP21.wsdl](files/wsdl/GetCertificateInteraction_2.1_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [clinicalprocess_healthcond_certificate_3.3.xsd](files/schema/clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
-| [GetCertificateResponder_2.1.xsd](files/schema/GetCertificateResponder_2.1.xsd) | Tjänstespecifikt schema |
+| [GetCertificateInteraction_2.1_RIVTABP21.wsdl](GetCertificateInteraction_2.1_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [clinicalprocess_healthcond_certificate_3.3.xsd](clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
+| [GetCertificateResponder_2.1.xsd](GetCertificateResponder_2.1.xsd) | Tjänstespecifikt schema |
 
 ### GetCertificate — FHIR-artefakter
 
@@ -534,9 +534,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [ListCertificatesForCareInteraction_3.1_RIVTABP21.wsdl](files/wsdl/ListCertificatesForCareInteraction_3.1_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [clinicalprocess_healthcond_certificate_3.3.xsd](files/schema/clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
-| [ListCertificatesForCareResponder_3.1.xsd](files/schema/ListCertificatesForCareResponder_3.1.xsd) | Tjänstespecifikt schema |
+| [ListCertificatesForCareInteraction_3.1_RIVTABP21.wsdl](ListCertificatesForCareInteraction_3.1_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [clinicalprocess_healthcond_certificate_3.3.xsd](clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
+| [ListCertificatesForCareResponder_3.1.xsd](ListCertificatesForCareResponder_3.1.xsd) | Tjänstespecifikt schema |
 
 ### ListCertificatesForCare — FHIR-artefakter
 
@@ -549,9 +549,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [ListCertificatesForCitizenInteraction_4.0_RIVTABP21.wsdl](files/wsdl/ListCertificatesForCitizenInteraction_4.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [clinicalprocess_healthcond_certificate_3.3.xsd](files/schema/clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
-| [ListCertificatesForCitizenResponder_4.0.xsd](files/schema/ListCertificatesForCitizenResponder_4.0.xsd) | Tjänstespecifikt schema |
+| [ListCertificatesForCitizenInteraction_4.0_RIVTABP21.wsdl](ListCertificatesForCitizenInteraction_4.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [clinicalprocess_healthcond_certificate_3.3.xsd](clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
+| [ListCertificatesForCitizenResponder_4.0.xsd](ListCertificatesForCitizenResponder_4.0.xsd) | Tjänstespecifikt schema |
 
 ### ListCertificatesForCitizen — FHIR-artefakter
 
@@ -564,9 +564,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [RegisterCertificateInteraction_3.1_RIVTABP21.wsdl](files/wsdl/RegisterCertificateInteraction_3.1_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [clinicalprocess_healthcond_certificate_3.3.xsd](files/schema/clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
-| [RegisterCertificateResponder_3.1.xsd](files/schema/RegisterCertificateResponder_3.1.xsd) | Tjänstespecifikt schema |
+| [RegisterCertificateInteraction_3.1_RIVTABP21.wsdl](RegisterCertificateInteraction_3.1_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [clinicalprocess_healthcond_certificate_3.3.xsd](clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
+| [RegisterCertificateResponder_3.1.xsd](RegisterCertificateResponder_3.1.xsd) | Tjänstespecifikt schema |
 
 ### RegisterCertificate — FHIR-artefakter
 
@@ -579,9 +579,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [RevokeCertificateInteraction_2.1_RIVTABP21.wsdl](files/wsdl/RevokeCertificateInteraction_2.1_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [clinicalprocess_healthcond_certificate_3.3.xsd](files/schema/clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
-| [RevokeCertificateResponder_2.1.xsd](files/schema/RevokeCertificateResponder_2.1.xsd) | Tjänstespecifikt schema |
+| [RevokeCertificateInteraction_2.1_RIVTABP21.wsdl](RevokeCertificateInteraction_2.1_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [clinicalprocess_healthcond_certificate_3.3.xsd](clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
+| [RevokeCertificateResponder_2.1.xsd](RevokeCertificateResponder_2.1.xsd) | Tjänstespecifikt schema |
 
 ### RevokeCertificate — FHIR-artefakter
 
@@ -594,9 +594,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [SendCertificateToRecipientInteraction_2.1_RIVTABP21.wsdl](files/wsdl/SendCertificateToRecipientInteraction_2.1_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [clinicalprocess_healthcond_certificate_3.3.xsd](files/schema/clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
-| [SendCertificateToRecipientResponder_2.1.xsd](files/schema/SendCertificateToRecipientResponder_2.1.xsd) | Tjänstespecifikt schema |
+| [SendCertificateToRecipientInteraction_2.1_RIVTABP21.wsdl](SendCertificateToRecipientInteraction_2.1_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [clinicalprocess_healthcond_certificate_3.3.xsd](clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
+| [SendCertificateToRecipientResponder_2.1.xsd](SendCertificateToRecipientResponder_2.1.xsd) | Tjänstespecifikt schema |
 
 ### SendCertificateToRecipient — FHIR-artefakter
 
@@ -609,9 +609,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [SendMessageToCareInteraction_2.0_RIVTABP21.wsdl](files/wsdl/SendMessageToCareInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [clinicalprocess_healthcond_certificate_3.3.xsd](files/schema/clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
-| [SendMessageToCareResponder_2.0.xsd](files/schema/SendMessageToCareResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [SendMessageToCareInteraction_2.0_RIVTABP21.wsdl](SendMessageToCareInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [clinicalprocess_healthcond_certificate_3.3.xsd](clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
+| [SendMessageToCareResponder_2.0.xsd](SendMessageToCareResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 ### SendMessageToCare — FHIR-artefakter
 
@@ -624,9 +624,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [SendMessageToRecipientInteraction_2.1_RIVTABP21.wsdl](files/wsdl/SendMessageToRecipientInteraction_2.1_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [clinicalprocess_healthcond_certificate_3.3.xsd](files/schema/clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
-| [SendMessageToRecipientResponder_2.1.xsd](files/schema/SendMessageToRecipientResponder_2.1.xsd) | Tjänstespecifikt schema |
+| [SendMessageToRecipientInteraction_2.1_RIVTABP21.wsdl](SendMessageToRecipientInteraction_2.1_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [clinicalprocess_healthcond_certificate_3.3.xsd](clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
+| [SendMessageToRecipientResponder_2.1.xsd](SendMessageToRecipientResponder_2.1.xsd) | Tjänstespecifikt schema |
 
 ### SendMessageToRecipient — FHIR-artefakter
 
@@ -639,9 +639,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [SetCertificateStatusInteraction_2.0_RIVTABP21.wsdl](files/wsdl/SetCertificateStatusInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [clinicalprocess_healthcond_certificate_3.3.xsd](files/schema/clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
-| [SetCertificateStatusResponder_2.0.xsd](files/schema/SetCertificateStatusResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [SetCertificateStatusInteraction_2.0_RIVTABP21.wsdl](SetCertificateStatusInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [clinicalprocess_healthcond_certificate_3.3.xsd](clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
+| [SetCertificateStatusResponder_2.0.xsd](SetCertificateStatusResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 ### SetCertificateStatus — FHIR-artefakter
 
@@ -656,10 +656,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [CreateDraftCertificateInteraction_3.3_RIVTABP21.wsdl](files/wsdl/CreateDraftCertificateInteraction_3.3_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [clinicalprocess_healthcond_certificate_3.3.xsd](files/schema/clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
-| [CreateDraftCertificateResponder_3.3.xsd](files/schema/CreateDraftCertificateResponder_3.3.xsd) | Tjänstespecifikt schema |
-| [SJD_TK_CreateDraftCertificate.docx](files/docs/SJD_TK_CreateDraftCertificate.docx) | Tjänstebeskrivning |
+| [CreateDraftCertificateInteraction_3.3_RIVTABP21.wsdl](CreateDraftCertificateInteraction_3.3_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [clinicalprocess_healthcond_certificate_3.3.xsd](clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
+| [CreateDraftCertificateResponder_3.3.xsd](CreateDraftCertificateResponder_3.3.xsd) | Tjänstespecifikt schema |
+| [SJD_TK_CreateDraftCertificate.docx](SJD_TK_CreateDraftCertificate.docx) | Tjänstebeskrivning |
 
 ### CreateDraftCertificate — FHIR-artefakter
 
@@ -672,11 +672,11 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [CertificateStatusUpdateForCareInteraction_3.2_RIVTABP21.wsdl](files/wsdl/CertificateStatusUpdateForCareInteraction_3.2_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [clinicalprocess_healthcond_certificate_3.3.xsd](files/schema/clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
-| [CertificateStatusUpdateForCareResponder_3.2.xsd](files/schema/CertificateStatusUpdateForCareResponder_3.2.xsd) | Tjänstespecifikt schema |
-| [CertificateStatusUpdateForCareResponder_3.2_ext.xsd](files/schema/CertificateStatusUpdateForCareResponder_3.2_ext.xsd) | Tjänstespecifikt schema (tillägg) |
-| [SJD_TP_CertificateStatusUpdateForCare.docx](files/docs/SJD_TP_CertificateStatusUpdateForCare.docx) | Tjänstebeskrivning |
+| [CertificateStatusUpdateForCareInteraction_3.2_RIVTABP21.wsdl](CertificateStatusUpdateForCareInteraction_3.2_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [clinicalprocess_healthcond_certificate_3.3.xsd](clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
+| [CertificateStatusUpdateForCareResponder_3.2.xsd](CertificateStatusUpdateForCareResponder_3.2.xsd) | Tjänstespecifikt schema |
+| [CertificateStatusUpdateForCareResponder_3.2_ext.xsd](CertificateStatusUpdateForCareResponder_3.2_ext.xsd) | Tjänstespecifikt schema (tillägg) |
+| [SJD_TP_CertificateStatusUpdateForCare.docx](SJD_TP_CertificateStatusUpdateForCare.docx) | Tjänstebeskrivning |
 
 ### CertificateStatusUpdateForCare — FHIR-artefakter
 
@@ -691,10 +691,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [ListCertificatesForCareWithQAInteraction_3.3_RIVTABP21.wsdl](files/wsdl/ListCertificatesForCareWithQAInteraction_3.3_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [clinicalprocess_healthcond_certificate_3.3.xsd](files/schema/clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
-| [ListCertificatesForCareWithQAResponder_3.3.xsd](files/schema/ListCertificatesForCareWithQAResponder_3.3.xsd) | Tjänstespecifikt schema |
-| [SJD_TK_ListCertificatesForCareWithQA.docx](files/docs/SJD_TK_ListCertificatesForCareWithQA.docx) | Tjänstebeskrivning |
+| [ListCertificatesForCareWithQAInteraction_3.3_RIVTABP21.wsdl](ListCertificatesForCareWithQAInteraction_3.3_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [clinicalprocess_healthcond_certificate_3.3.xsd](clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
+| [ListCertificatesForCareWithQAResponder_3.3.xsd](ListCertificatesForCareWithQAResponder_3.3.xsd) | Tjänstespecifikt schema |
+| [SJD_TK_ListCertificatesForCareWithQA.docx](SJD_TK_ListCertificatesForCareWithQA.docx) | Tjänstebeskrivning |
 
 ### ListCertificatesForCareWithQA — FHIR-artefakter
 
@@ -707,9 +707,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [ListSickLeavesForCareInteraction_1.0_RIVTABP21.wsdl](files/wsdl/ListSickLeavesForCareInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [clinicalprocess_healthcond_certificate_3.3.xsd](files/schema/clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
-| [ListSickLeavesForCareResponder_1.0.xsd](files/schema/ListSickLeavesForCareResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [ListSickLeavesForCareInteraction_1.0_RIVTABP21.wsdl](ListSickLeavesForCareInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [clinicalprocess_healthcond_certificate_3.3.xsd](clinicalprocess_healthcond_certificate_3.3.xsd) | Domänschema (delat) |
+| [ListSickLeavesForCareResponder_1.0.xsd](ListSickLeavesForCareResponder_1.0.xsd) | Tjänstespecifikt schema |
 
 ### ListSickLeavesForCare — FHIR-artefakter
 

@@ -3,7 +3,7 @@ Här beskrivs de meddelandemodeller som tjänstekontrakten bygger på. För varj
 
 ### V-MIM - Aktiviteter
 
-![img_003.jpeg](images/img_003.jpeg)
+![img_003.jpeg](img_003.jpeg)
 Mörkblå klasser och cyanfärgade markeringar visar skillnader från NI release 2015:1. I vissa fall är det endast en avvikande kardinalitet.
 
 | XSD Schema | Mappning mot NI 2015 release 1

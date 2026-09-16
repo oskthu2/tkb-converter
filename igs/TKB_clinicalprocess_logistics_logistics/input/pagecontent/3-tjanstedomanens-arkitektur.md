@@ -9,10 +9,10 @@ Nedanstående diagram visar hur flödet principiellt ser ut när information ur 
 
 ##### Arbetsflöde
 
-![img_004.png](images/img_004.png)
+![img_004.png](img_004.png)
 *Figur  Exempel: Adressering vid anrop till aggregerande tjänst från patienttjänst (t.ex. Journalen).*
 
-![img_007.png](images/img_007.png)
+![img_007.png](img_007.png)
 *Figur  Exempel: Adressering vid anrop till aggregerande vårdgivartjänst (t.ex. från NPÖ-tillämpningen).*
 
 ###### Roller
@@ -23,7 +23,7 @@ Nedanstående diagram visar hur flödet principiellt ser ut när information ur 
 
 ##### Sekvensdiagram
 
-![img_002.png](images/img_002.png)
+![img_002.png](img_002.png)
 *Figur  Sekvensdiagram över sökning efter information där GetCareContacts används som exempel men samma princip gäller för alla kontrakt i tjänstedomänen, diagrammet visar på två alternativa sekvenser där det första alternativet gäller när aggregerande tjänster adresseras och det andra alternativet gäller när källsystemet adresseras.*
 
 ###### Roller

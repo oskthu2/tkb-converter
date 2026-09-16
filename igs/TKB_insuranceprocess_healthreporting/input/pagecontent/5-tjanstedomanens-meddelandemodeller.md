@@ -3,7 +3,7 @@ Här beskrivs de meddelandemodeller som tjänstekontrakten bygger på. För varj
 
 ### V-MIM Läkarintyg 7263
 
-![img_002.jpeg](images/img_002.jpeg)
+![img_002.jpeg](img_002.jpeg)
 
 | Klass.attribut | Mappning mot V-TIM 2.0 |
 | :--- | :--- |
@@ -60,7 +60,7 @@ Här beskrivs de meddelandemodeller som tjänstekontrakten bygger på. För varj
 
 ### V-MIM Funktionen för elektronisk ärendekommunikation
 
-![img_003.png](images/img_003.png)
+![img_003.png](img_003.png)
 En del av klasserna i modellen har bedömts ligga utanför V-TIMs tillämpningsområde och har därför inte mappats mot V-TIM. Det gäller klasserna Avsändare, Meddelande, Mottagare samt Organisation.
 
 | Klass.attribut | Mappning mot V-TIM 2.0 |

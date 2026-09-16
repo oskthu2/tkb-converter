@@ -6,13 +6,13 @@ Detta kapitel beskriver de flöden som är relevanta för tjänstedomänen. Besk
 
 ### Hämta FMB
 
-![Hämta FMB flöde](images/img_002.png)
+![Hämta FMB flöde](img_002.png)
 
 Ett system kan hämta hem hela informationsmängden för det försäkringsmedicinska beslutsstödet, eller en delmängd genom att ange inparametrar, i ett anrop för lagring och bearbetning lokalt. Hjälpmetoden GetVersions används för att detektera om en ny version av FMB finns tillgänglig.
 
 ### Hämta diagnosinformation
 
-![Hämta diagnosinformation flöde](images/img_003.png)
+![Hämta diagnosinformation flöde](img_003.png)
 
 Ett system kan hämta hem hela informationsmängden för diagnosinformationen, eller en delmängd genom att ange inparametrar, i ett anrop för lagring och bearbetning lokalt. Hjälpmetoden GetVersions används för att detektera om en ny version av diagnosinformation finns tillgänglig.
 

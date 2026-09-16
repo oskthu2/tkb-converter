@@ -11,10 +11,10 @@ Nedanstående diagram visar hur flödet principiellt ser ut när information ur 
 
 ##### Arbetsflöde
 
-![img_002.png](images/img_002.png)
+![img_002.png](img_002.png)
 *Figur 1. Exempel: Adressering vid anrop till aggregerande tjänst från patienttjänst (t.ex. från Mina Vårdkontakters tjänst för journalåtkomst).*
 
-![img_005.png](images/img_005.png)
+![img_005.png](img_005.png)
 *Figur 2. Exempel: Adressering vid anrop till aggregerande vårdgivartjänst (t.ex. från NPÖ-tillämpningen).*
 
 ###### Roller
@@ -26,7 +26,7 @@ Nedanstående diagram visar hur flödet principiellt ser ut när information ur 
 
 ##### Sekvensdiagram för alla tjänstekontrakt inom domänen
 
-![img_009.png](images/img_009.png)
+![img_009.png](img_009.png)
 *Figur 3. Sekvensdiagram över sökning efter information där GetVaccinationHistory används som exempel men samma princip gäller för alla kontrakt i tjänstedomänen, diagrammet visar på två alternativa sekvenser där det första alternativet gäller när aggregerande tjänster adresseras och det andra alternativet gäller när källsystemet adresseras.*
 
 | Namn | Beskrivning |
@@ -40,7 +40,7 @@ Nedanstående diagram visar hur flödet principiellt ser ut när information ur 
 ##### Sekvensdiagram för GetMedicationHistory
 Följande sekvensdiagram beskriver en tjänstekonsuments interaktioner där läkemedelshistoriken har samband med aktiviteter och/eller observationer.
 
-![img_003.png](images/img_003.png)
+![img_003.png](img_003.png)
 *Figur 4. Sekvensdiagram över sökning efter information där producenten av GetMedicationHistory svarar att den även har information som kan hämtas via kontrakten GetActivities samt GetObservations, i GetMedicationHistory finns den information som behövs för att veta vilket tjänstekontrakt och vilken logisk adress som ska användas för att hämta relaterad information. Observera att det här flödet är förenklat genom att ta bort engagemangsindex och aggregerande tjänster som finns med i kap 3.1.1.2. Och det endast för att tydliggöra användnigsfallet.*
 
 | Namn | Beskrivning |

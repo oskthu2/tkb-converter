@@ -93,12 +93,12 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetRequestActivitiesInteraction_2.0_RIVTABP21.wsdl](files/wsdl/GetRequestActivitiesInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [crm_requeststatus_2.0.xsd](files/schema/crm_requeststatus_2.0.xsd) | Domänschema (delat) |
-| [GetRequestActivitiesResponder_2.0.xsd](files/schema/GetRequestActivitiesResponder_2.0.xsd) | Tjänstespecifikt schema |
-| [interoperability_headers_1.0.xsd](files/schema/interoperability_headers_1.0.xsd) | Interoperabilitetsrubriker |
-| [SjD_TK_GetRequestActivities_2.0.docx](files/docs/SjD_TK_GetRequestActivities_2.0.docx) | Tjänstebeskrivning (TK) |
-| [SjD_TP_GetRequestActivities_2.0.docx](files/docs/SjD_TP_GetRequestActivities_2.0.docx) | Tjänstebeskrivning (TP) |
+| [GetRequestActivitiesInteraction_2.0_RIVTABP21.wsdl](GetRequestActivitiesInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [crm_requeststatus_2.0.xsd](crm_requeststatus_2.0.xsd) | Domänschema (delat) |
+| [GetRequestActivitiesResponder_2.0.xsd](GetRequestActivitiesResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [interoperability_headers_1.0.xsd](interoperability_headers_1.0.xsd) | Interoperabilitetsrubriker |
+| [SjD_TK_GetRequestActivities_2.0.docx](SjD_TK_GetRequestActivities_2.0.docx) | Tjänstebeskrivning (TK) |
+| [SjD_TP_GetRequestActivities_2.0.docx](SjD_TP_GetRequestActivities_2.0.docx) | Tjänstebeskrivning (TP) |
 
 #### 7.1 FHIR-artefakter
 

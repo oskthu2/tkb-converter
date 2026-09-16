@@ -34,7 +34,7 @@ Tjänsterna syftar till att ge följande verksamhetsmässiga effekter
 Hälso- och sjukvårdpersonalen ska få stöd att på ett enkelt sätt registrera patientrelationer, dess varaktighet och för vem/vilka registreringen gäller.
 Patientrelationen ska kunna få genomslag i anslutna tillämpningar, såväl lokala som nationella, t ex både i det egna vårdsystemet och i nationell patientöversikt, så att dubbelregistreringar undviks.
 
-![img_001.png](images/img_001.png)
+![img_001.png](img_001.png)
 Figur 1: Principer för samverkande tjänster för hantering av patientrelation
 Notera att en viss instans av patientrelationstjänsten typiskt hanterar flera vårdgivares information. För att visa på principerna ges exempel utifrån två fiktiva vårdgivare A och B.
 Nationellt anpassade tjänstekontrakt gör att vårdsystem kan ansluta till ett och samma gränssnitt för patientrelation oavsett hur huvudmannen ordnar med sin hantering och lokala infrastruktur.

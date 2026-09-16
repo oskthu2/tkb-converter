@@ -22,11 +22,11 @@ Tjänstekontrakten stödjer en arkitektur där där det är möjligt att integre
 Tjänsteproducenten kan nyttja mellanlagring för att öka tillgängligheten på tjänsterna. Ett svar kan då returneras även om bakomliggande system för tillfället är otillgängligt. Det måste dock anges i SLA för en viss implemention av tjänsten vilken förväntad aktualitet som gäller.
 Ett vårdsystem som endast har behov av patientrelationer tillhörande lokala/regionala vårdgivare, blir bara beroende av den patienrelationsinstans som hanterar de aktuella vårdgivarna. Om t ex en region väljer att implementera en egen lokal tjänst för alla vårdgivare i regionen, blir deras vårdsystem enbart beroende av deras egen lokala tjänst.
 
-![img_003.png](images/img_003.png)
+![img_003.png](img_003.png)
 Figur 2: Lokalt vårdsystem kommunicerar enbart med en lokal tjänst
 Nationella tillämpningar behöver kunna hantera patientrelationen oavsett vilken vårdgivare som använder tjänsten. Här routas anropen till den tjänst som behövs beroende på vilken vårdgivare som använder tillämpningen just för tillfället.
 
-![img_002.png](images/img_002.png)
+![img_002.png](img_002.png)
 Figur 3: Nationell e-tjänst kommunicerar med en lokal tjänst via tjänsteplattform
 Ovan routas anropen till rätt tjänsteproducent genom den logiska adresseringen som bygger på vilken huvudman/vårdgivare som användaren är inloggad på via dennes medarbetaruppdrag.
 Det finns en viktig tillgänglighetsaspekt att tänka på här. Den nationella e-tjänsten blir beroende av en lokal tjänst hos den huvudman vars användare nyttjar den nationella e-tjänsten. Om den lokala tjänsten är nere, får det dock bara påverkan på användare som har uppdrag hos huvudmannen/vårdgivaren. Patientrelationen som lagras i vårdgivarens tjänst berör endast personal hos vårdgivare, eller mer korrekt: har uppdrag hos vårdgivaren, och det är endast för dem som anropet routas till den lokala tjänsten.

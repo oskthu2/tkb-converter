@@ -1126,7 +1126,7 @@ _Inga blockerare identifierade._
 
 ## itintegration.monitoring v1.0 — `igs/TKB_itintegration_monitoring/`
 
-**Status:** in-progress
+**Status:** done
 **Senast uppdaterad:** 2026-09-14T12:40:00Z
 
 ### Blockerare (kräver svar innan IG kan anses komplett)

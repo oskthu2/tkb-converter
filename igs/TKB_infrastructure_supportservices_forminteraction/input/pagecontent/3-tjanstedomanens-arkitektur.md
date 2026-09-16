@@ -1,8 +1,8 @@
 ## Tjänstedomänens arkitektur
 
-![img_012.png](images/img_012.png)
+![img_012.png](img_012.png)
 
-![img_010.png](images/img_010.png)
+![img_010.png](img_010.png)
 
 ### Flöde AF-1 Skapa formulärmall
 [Flödet saknar sekvensdiagram. Aktiviteten sker internt i formulärmotorn.]
@@ -11,7 +11,7 @@
 ### Flöde AF-2 Begär formulärinsamling av patient
 Användningsfallet kan även benämnas ”Skapa formulärbegäran”.
 
-![img_008.png](images/img_008.png)
+![img_008.png](img_008.png)
 *Figur 1: Flöde AF-2*
 I flödet begär medarbetaren att en patient skall fylla i ett formulär (t.ex. Hälsodeklaration). Begäran kan göras i formulärmotorn eller via det vårdsystem som används. Önskas begäran via vårdsystemet används en tjänst (CreateFormRequest) för ”Begär hälsodeklaration”. I detta fall krävs ingen manuell aktivitet från medarbetaren.
 Vid en formulärbegäran skapas ett formulär där patient, verksamhet och formulärmall kopplas ihop.
@@ -31,7 +31,7 @@ E.-tjänsten kan avisera användaren/patienten om händelsen.
 
 ### Flöde AF-3A Patient fyller i formulär (redan skapat)
 
-![img_004.png](images/img_004.png)
+![img_004.png](img_004.png)
 *Figur 2: Flöde AF-3A*
 I flödet använder användaren en e-tjänst i Mina vårdkontakter för att fylla i ett formulär. E-tjänsten (klient) kommunicerar med formulärmotorn med hjälp av tjänstekontraktet. E-tjänsten presenterar dess frågor för användaren/patienten som besvarar dessa.
 Användningsfallet förutsätter att ett formulär är skapat.
@@ -55,7 +55,7 @@ Användaren kan avbryta ett formulär genom att e-tjänsten anropar formulärmot
 ### Flöde AF-3B Patient fyller i formulär
 Flödet illustrerar fallet då patienten skapar ett formulär utan att en ”formulärbegäran” är skapad. Patienten kan välja formulär mall.
 
-![img_001.png](images/img_001.png)
+![img_001.png](img_001.png)
 *Figur 3: Flöde AF-3B*
 I flödet använder användaren en e-tjänst i Mina vårdkontakter för att välja och fylla i ett formulär. E-tjänsten (klient) kommunicerar med formulärmotorn med hjälp av tjänstekontraktet. E-tjänsten presenterar dess frågor för användaren/patienten som besvarar dessa.
 Flöde:
@@ -73,7 +73,7 @@ Användaren kan avbryta ett formulär genom att e-tjänsten anropar formulärmot
 
 ### Flöde AF-4 Återuppta formulär.
 
-![img_013.png](images/img_013.png)
+![img_013.png](img_013.png)
 *Figur 4: Flöde AF-4*
 I flödet använder användaren en e-tjänst i Mina vårdkontakter för att återuppta i ett formulär. E-tjänsten (klient) kommunicerar med formulärmotorn med hjälp av tjänstekontraktet. E-tjänsten presenterar dess frågor för användaren/patienten som besvarar dessa.
 Flöde:
@@ -91,7 +91,7 @@ Se ”Tjanstekontrakt ItIntegration EngagementIndex - Beskrivning.doc” för be
 
 ### Flöde AF-6 Vårdsystem hämtar användarens/patientens formulär.
 
-![img_009.png](images/img_009.png)
+![img_009.png](img_009.png)
 *Figur 5: Flöde AF-6*
 I flödet beskriv hur ett vårdsystem med hjälp av engagemangsindex på ett systematiskt sätt kan hämta en användarens/patients formulär (T.ex. Hälsodeklaration).
 Genom att tillämpa detta flöde hämtas användarens/patientens formulär och kan lagras som en del av vårdsystemet. Medarbetaren behöver inte ha kunskap kring hur formulärmotorn utan kan arbeta som vanligt i sitt vårdsystem.
@@ -104,7 +104,7 @@ Analyserar notifiering och hämtar användarens formulär genom att anropa formu
 
 ### Flöde AF7 - Fylla i och avsluta ett formulär
 
-![img_006.png](images/img_006.png)
+![img_006.png](img_006.png)
 Formulär skapas genom att tjänsten createForm anropas med hsa-id på vårdcentral, personnummer för den som ska fylla i formuläret (om det inte är anonymt) och id på formulärmallen. Formulär skapas utifrån det mall-id som skickats med. Det nya formuläret sparas i databasen och returneras med första formulärsidan till användaren. Formuläret har nu statusen ONGOING.
 
 ### Flöde AF-8 Fyll i formulär
@@ -116,19 +116,19 @@ Om formuläret är korrekt ifyllt kan nu användaren avsluta formuläret genom a
 
 ### Flöde AF-10 Hämta formulär
 
-![img_005.png](images/img_005.png)
+![img_005.png](img_005.png)
 
 ### Flöde AF-11 Avbryta formulär
 
-![img_002.png](images/img_002.png)
+![img_002.png](img_002.png)
 
 ### Flöde AF-12 Hämta formulärlista
 
-![img_011.png](images/img_011.png)
+![img_011.png](img_011.png)
 
 ### Flöde AF-13 Hämta mallar
 
-![img_007.png](images/img_007.png)
+![img_007.png](img_007.png)
 
 ### Obligatoriska kontrakt
 Följande tabell specificerar vilka kontrakt som är obligatoriska att realisera för respektive flöde.
@@ -222,7 +222,7 @@ Se tjänstekontraktsbeskrivning(Engagemangsindex) för övriga attribut och besk
 
 ##### Flöde engagemangsindex
 
-![img_003.png](images/img_003.png)
+![img_003.png](img_003.png)
 Flödet illustrerar hur vårdsystem, formulärmotor, engagemangsindex och e-tjänst samverkar för att hantera en process. Exemplet visar hur en begäran om hälsodeklaration kan realiseras.
 Flöde:
 Vårdsystemet skapar en formulärbegäran genom att använda Formulärmotorn ”CreateFormRequest”.

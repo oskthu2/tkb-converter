@@ -151,6 +151,23 @@ parse_args=(--domain "$SLUG" --log "$BUILD_LOG" --output "$QA_JSON")
 [ -f "$QA_HTML" ]     && parse_args+=(--qa-html "$QA_HTML")
 python3 "$(dirname "$0")/parse_qa.py" "${parse_args[@]}"
 
+# ── Länk-/bildkontroll ───────────────────────────────────────────────────────
+# IG Publishers egen qa.json validerar FHIR-resurser, inte om <img src>/<a href>
+# i den renderade HTML:n pekar på filer som faktiskt finns (se CLAUDE.md Steg
+# 4.7). Körs mot IG_DIR/output/ (innan kopiering till sajtstagingen) och
+# uppdaterar qa-errors.json in-place — trasiga bilder/länkar räknas som errors.
+if [ -d "$IG_DIR/output" ]; then
+    python3 "$(dirname "$0")/check_links.py" --site-dir "$IG_DIR/output" --domain "$SLUG" --qa-json "$QA_JSON"
+    # check_links.py kan ha satt passed=false även om IG Publisher-processen
+    # i övrigt lyckades — synka status/summary så resten av pipelinen (särskilt
+    # check_quality_gate.sh) ser detta.
+    link_check_passed=$(python3 -c "import json;print(json.load(open('$QA_JSON')).get('passed', True))")
+    if [ "$link_check_passed" != "True" ] && [ "$status" = "success" ]; then
+        status="failed-link-check"
+        log "Länkkontroll hittade trasiga bilder/länkar — status nedgraderad till $status"
+    fi
+fi
+
 cp "$QA_JSON" "$QA_RESULTS_DIR/$SLUG/qa-errors.json"
 write_status "$status" "$sushi_exit" "$publisher_exit" "exit=$publisher_exit fatal=$fatal errors=$errors warnings=$warnings"
 

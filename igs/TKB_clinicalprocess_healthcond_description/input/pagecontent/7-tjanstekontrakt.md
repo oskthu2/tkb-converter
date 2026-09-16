@@ -208,19 +208,16 @@ Till detta tjänstekontrakt finns regler som ej uttrycks i schemafilerna och tab
 | ID | Element | Beskrivning |
 | :--- | :--- | :--- |
 | Begäran | Begäran | Begäran |
-| hasMoreReference | <hasMoreReference> | Anropet skall göras direktadresserat till den logiska adressen som tjänsteproducenten levererat i <hasMore/logicalAddress>.
-hasMoreReference ska vara identiskt med den referens som tjänsteproducenten levererat i <hasMore/reference>. / Övriga anropsparametrar ska vara identiska med anropet som föranledde hasMore-svar. |
-| sourceSystemId | <sourceSystemId> | Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header). / Det innebär i praktiken att aggregerande tjänster inte används när detta fält anges. / Ska anges vid begäran på reservnummer. |
+| hasMoreReference | `<hasMoreReference>` | Anropet skall göras direktadresserat till den logiska adressen som tjänsteproducenten levererat i `<hasMore/logicalAddress>`. hasMoreReference ska vara identiskt med den referens som tjänsteproducenten levererat i `<hasMore/reference>`. / Övriga anropsparametrar ska vara identiska med anropet som föranledde hasMore-svar. |
+| sourceSystemId | `<sourceSystemId>` | Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header). / Det innebär i praktiken att aggregerande tjänster inte används när detta fält anges. / Ska anges vid begäran på reservnummer. |
 | Svar | Svar | Svar |
-| Spärrhantering | <header/accessControlHeader/ accountableHealthcareProvider> / <header/accessControlHeader/ accountableCareUnit> | Uppgifterna krävs för spärrhantering, åtkomstkontroll samt loggning enligt PDL. Om HSA-id för vårdenhet inte kan lämnas kommer elementet inte visas upp av konsumenter inom sammanhållen journalföring. |
-| Verify unique recordId [sch] | <header/record/id> | Identifieraren ska vara unik. Samma id får inte förekomma flera gånger. |
-| careDocumentationBody [sch] | <clinicalDocumentNoteText>
-
-<multimediaEntry> | Endast ett av attributen clinicalDocumentNoteText och multimediaEntry ska anges. |
-| Binära bilagor | <multimediaEntry> | Producenter av GetCareDocumentation måste följa de generella riktlinjer för binära bilagor, se referens [R16]. |
-| multimediaEntry [sch] | <multimediaEntry/value> / <multimediaEntry/reference> | Endast ett av attributen value och reference ska anges. |
-| Partiell datahämtning | <hasMore> | Får enbart användas när antalet poster är så många att tjänsteproducenten riskerar att inte kunna svara inom 27 sekunder eller när storleken på svaret inte ryms inom gällande regelverk [R2]. / De poster som levereras måste vara de senaste posterna. / Vid svar från tjänsteproducent är kardinaliteten 0..1. |
-| Referensens giltighetstid | <hasMore/reference> | Referensen ska vara giltig i minst en timme. |
+| Spärrhantering | `<header/accessControlHeader/accountableHealthcareProvider>` / `<header/accessControlHeader/accountableCareUnit>` | Uppgifterna krävs för spärrhantering, åtkomstkontroll samt loggning enligt PDL. Om HSA-id för vårdenhet inte kan lämnas kommer elementet inte visas upp av konsumenter inom sammanhållen journalföring. |
+| Verify unique recordId [sch] | `<header/record/id>` | Identifieraren ska vara unik. Samma id får inte förekomma flera gånger. |
+| careDocumentationBody [sch] | `<clinicalDocumentNoteText>` / `<multimediaEntry>` | Endast ett av attributen clinicalDocumentNoteText och multimediaEntry ska anges. |
+| Binära bilagor | `<multimediaEntry>` | Producenter av GetCareDocumentation måste följa de generella riktlinjer för binära bilagor, se referens [R16]. |
+| multimediaEntry [sch] | `<multimediaEntry/value>` / `<multimediaEntry/reference>` | Endast ett av attributen value och reference ska anges. |
+| Partiell datahämtning | `<hasMore>` | Får enbart användas när antalet poster är så många att tjänsteproducenten riskerar att inte kunna svara inom 27 sekunder eller när storleken på svaret inte ryms inom gällande regelverk [R2]. / De poster som levereras måste vara de senaste posterna. / Vid svar från tjänsteproducent är kardinaliteten 0..1. |
+| Referensens giltighetstid | `<hasMore/reference>` | Referensen ska vara giltig i minst en timme. |
 | Allmänna regler | Allmänna regler | Allmänna regler |
 | Verify non-empty elements [sch] | Alla element i svaret. | Tomma värden får inte anges. |
 | pattern.CvType [sch] | Alla element som använder datatypen CVType. | code och/eller originalText ska anges / Om code anges ska även codeSystem anges / Om codeSystem anges ska även code anges / codeSystem ska vara en OID / Om codeSystemName anges ska även code samt codeSystem anges / Om codeSystemVersion anges ska även code samt codeSystem anges / Om displayName anges ska även code samt codeSystem anges |
@@ -239,7 +236,7 @@ För återrapportering av logiska fel ska svaret innehålla ett element “resul
 ResultText skall loggas och kan visas upp för användaren i de fall då det är tillämpbart.
 Exempel:
 
-| <MakeBookingResponse> / <resultCode>ERROR</resultCode> / <resultText>Referensen som skickats i hasMoreReference är ogiltig</resultText> / </MakeBookingResponse> |
+| `<MakeBookingResponse>` / `<resultCode>ERROR</resultCode>` / `<resultText>Referensen som skickats i hasMoreReference är ogiltig</resultText>` / `</MakeBookingResponse>` |
 | :--- |
 Inget att rapportera
 Om man inte har något speciellt att rapportera kring behandling av en tjänstebegäran sätts elementet “resultCode” till värdet OK och elementet “resultText” utelämnas.

@@ -93,12 +93,12 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [ProcessRegistrationNotificationInteraction_1.0_RIVTABP21.wsdl](files/wsdl/ProcessRegistrationNotificationInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [followup_qualityregistry_nkrr_1.0.xsd](files/schema/followup_qualityregistry_nkrr_1.0.xsd) | Domänschema (delat) |
-| [itintegration_registry_1.0.xsd](files/schema/itintegration_registry_1.0.xsd) | Domänschema (delat) |
-| [ProcessRegistrationNotificationResponder_1.0.xsd](files/schema/ProcessRegistrationNotificationResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [SjD_TK_ProcessRegistrationNotification_1.0.docx](files/docs/SjD_TK_ProcessRegistrationNotification_1.0.docx) | Tjänstebeskrivning |
-| [SjD_TP_ProcessRegistrationNotification_1.0.docx](files/docs/SjD_TP_ProcessRegistrationNotification_1.0.docx) | Tjänsteplattformsbeskrivning |
+| [ProcessRegistrationNotificationInteraction_1.0_RIVTABP21.wsdl](ProcessRegistrationNotificationInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [followup_qualityregistry_nkrr_1.0.xsd](followup_qualityregistry_nkrr_1.0.xsd) | Domänschema (delat) |
+| [itintegration_registry_1.0.xsd](itintegration_registry_1.0.xsd) | Domänschema (delat) |
+| [ProcessRegistrationNotificationResponder_1.0.xsd](ProcessRegistrationNotificationResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [SjD_TK_ProcessRegistrationNotification_1.0.docx](SjD_TK_ProcessRegistrationNotification_1.0.docx) | Tjänstebeskrivning |
+| [SjD_TP_ProcessRegistrationNotification_1.0.docx](SjD_TP_ProcessRegistrationNotification_1.0.docx) | Tjänsteplattformsbeskrivning |
 
 #### FHIR-artefakter
 
@@ -195,12 +195,12 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetFormDataInteraction_1.2_RIVTABP21.wsdl](files/wsdl/GetFormDataInteraction_1.2_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [followup_qualityregistry_nkrr_1.0.xsd](files/schema/followup_qualityregistry_nkrr_1.0.xsd) | Domänschema (delat) |
-| [itintegration_registry_1.0.xsd](files/schema/itintegration_registry_1.0.xsd) | Domänschema (delat) |
-| [GetFormDataResponder_1.2.xsd](files/schema/GetFormDataResponder_1.2.xsd) | Tjänstespecifikt schema |
-| [GetFormDataResponder_1.2_ext.xsd](files/schema/GetFormDataResponder_1.2_ext.xsd) | Tjänstespecifikt schema (ext) |
-| [GetFormDataResponder_1.1_ext.xsd](files/schema/GetFormDataResponder_1.1_ext.xsd) | Tjänstespecifikt schema (ext v1.1, bakåtkompatibilitet) |
+| [GetFormDataInteraction_1.2_RIVTABP21.wsdl](GetFormDataInteraction_1.2_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [followup_qualityregistry_nkrr_1.0.xsd](followup_qualityregistry_nkrr_1.0.xsd) | Domänschema (delat) |
+| [itintegration_registry_1.0.xsd](itintegration_registry_1.0.xsd) | Domänschema (delat) |
+| [GetFormDataResponder_1.2.xsd](GetFormDataResponder_1.2.xsd) | Tjänstespecifikt schema |
+| [GetFormDataResponder_1.2_ext.xsd](GetFormDataResponder_1.2_ext.xsd) | Tjänstespecifikt schema (ext) |
+| [GetFormDataResponder_1.1_ext.xsd](GetFormDataResponder_1.1_ext.xsd) | Tjänstespecifikt schema (ext v1.1, bakåtkompatibilitet) |
 
 #### FHIR-artefakter
 

@@ -4,7 +4,7 @@ Detta kapitel beskriver de flöden som är relevanta för tjänstedomänen. Besk
 ### Flöden – översikt
 Tjänsteinteraktionerna stödjer ett antal grundläggande användningsfall för hantering av patientens läkemedelsbehandlingar, ordination och förskrivning enligt följande översikt.
 
-![img_001.png](images/img_001.png)
+![img_001.png](img_001.png)
 Översikt användningsfall för Samlad läkemedelslista (ordinatörens perspektiv).
 Utgående från patientens läkemedelslista kan ordinatör/förskrivare göra nödvändiga justeringar i behandlingarna och även hantera att utfärda och dra tillbaka (makulera) expedieringsunderlag. Expedieringsunderlagen skickas automatiskt till (om man inte annat angivit) till Receptregistret så att det blir tillgängligt för farmaceuten på apoteket. På så vis kan en mer sammanhållen ordinationsprocess erhållas i vårdsystemet.
 Notera att i professionens perspektiv ingår alla användningsfall och interaktioner; för patienten ingår att läsa sin egen samlade läkemedelslista.
@@ -19,7 +19,7 @@ Användaren har identifierats i vårdinformationssystemet med s.k. stark autenti
 
 #### Arbetsflöde
 
-![img_002.png](images/img_002.png)
+![img_002.png](img_002.png)
 
 | Namn/beteckning | Beskrivning |
 | :--- | :--- |
@@ -46,7 +46,7 @@ Kompletterande information är möjlig genom att t.ex. koppla vidare till texter
 
 #### Sekvensdiagram
 
-![img_003.png](images/img_003.png)
+![img_003.png](img_003.png)
 
 ### Visa uthämtade läkemedel (expedieringar)
 
@@ -56,7 +56,7 @@ Användaren har identifierats i vårdinformationssystemet med s.k. stark autenti
 
 #### Arbetsflöde
 
-![img_004.png](images/img_004.png)
+![img_004.png](img_004.png)
 
 | Namn/beteckning | Beskrivning |
 | :--- | :--- |
@@ -80,7 +80,7 @@ Användaren har identifierats i vårdinformationssystemet med s.k. stark autenti
 
 #### Arbetsflöde
 
-![img_005.png](images/img_005.png)
+![img_005.png](img_005.png)
 
 | Namn/beteckning | Beskrivning |
 | :--- | :--- |
@@ -104,7 +104,7 @@ Användaren har identifierats i vårdinformationssystemet med s.k. stark autenti
 
 #### Arbetsflöde
 
-![img_006.png](images/img_006.png)
+![img_006.png](img_006.png)
 
 | Namn/beteckning | Beskrivning |
 | :--- | :--- |
@@ -128,7 +128,7 @@ Användaren har identifierats i vårdinformationssystemet med s.k. stark autenti
 
 #### Arbetsflöde
 
-![img_007.png](images/img_007.png)
+![img_007.png](img_007.png)
 
 | Namn/beteckning | Beskrivning |
 | :--- | :--- |
@@ -152,7 +152,7 @@ Användaren har identifierats i vårdinformationssystemet med s.k. stark autenti
 
 #### Arbetsflöde
 
-![img_008.png](images/img_008.png)
+![img_008.png](img_008.png)
 
 | Namn/beteckning | Beskrivning |
 | :--- | :--- |
@@ -174,7 +174,7 @@ Användaren har identifierats i vårdinformationssystemet med s.k. stark autenti
 
 #### Arbetsflöde
 
-![img_009.png](images/img_009.png)
+![img_009.png](img_009.png)
 
 | Namn/beteckning | Beskrivning |
 | :--- | :--- |
@@ -196,7 +196,7 @@ Användaren har identifierats i vårdinformationssystemet med s.k. stark autenti
 
 #### Arbetsflöde
 
-![img_010.png](images/img_010.png)
+![img_010.png](img_010.png)
 
 | Namn/beteckning | Beskrivning |
 | :--- | :--- |

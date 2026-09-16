@@ -67,9 +67,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetFormTemplatesInteraction_2.0_RIVTABP21.wsdl](files/wsdl/GetFormTemplatesInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [infrastructure_supportservices_forminteraction_2.0.xsd](files/schema/infrastructure_supportservices_forminteraction_2.0.xsd) | Domänschema (delat) |
-| [GetFormTemplatesResponder_2.0.xsd](files/schema/GetFormTemplatesResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [GetFormTemplatesInteraction_2.0_RIVTABP21.wsdl](GetFormTemplatesInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [infrastructure_supportservices_forminteraction_2.0.xsd](infrastructure_supportservices_forminteraction_2.0.xsd) | Domänschema (delat) |
+| [GetFormTemplatesResponder_2.0.xsd](GetFormTemplatesResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -140,9 +140,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [CreateFormInteraction_2.0_RIVTABP21.wsdl](files/wsdl/CreateFormInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [infrastructure_supportservices_forminteraction_2.0.xsd](files/schema/infrastructure_supportservices_forminteraction_2.0.xsd) | Domänschema (delat) |
-| [CreateFormResponder_2.0.xsd](files/schema/CreateFormResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [CreateFormInteraction_2.0_RIVTABP21.wsdl](CreateFormInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [infrastructure_supportservices_forminteraction_2.0.xsd](infrastructure_supportservices_forminteraction_2.0.xsd) | Domänschema (delat) |
+| [CreateFormResponder_2.0.xsd](CreateFormResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -224,9 +224,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetFormsInteraction_2.0_RIVTABP21.wsdl](files/wsdl/GetFormsInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [infrastructure_supportservices_forminteraction_2.0.xsd](files/schema/infrastructure_supportservices_forminteraction_2.0.xsd) | Domänschema (delat) |
-| [GetFormsResponder_2.0.xsd](files/schema/GetFormsResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [GetFormsInteraction_2.0_RIVTABP21.wsdl](GetFormsInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [infrastructure_supportservices_forminteraction_2.0.xsd](infrastructure_supportservices_forminteraction_2.0.xsd) | Domänschema (delat) |
+| [GetFormsResponder_2.0.xsd](GetFormsResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -291,9 +291,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetFormInteraction_2.0_RIVTABP21.wsdl](files/wsdl/GetFormInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [infrastructure_supportservices_forminteraction_2.0.xsd](files/schema/infrastructure_supportservices_forminteraction_2.0.xsd) | Domänschema (delat) |
-| [GetFormResponder_2.0.xsd](files/schema/GetFormResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [GetFormInteraction_2.0_RIVTABP21.wsdl](GetFormInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [infrastructure_supportservices_forminteraction_2.0.xsd](infrastructure_supportservices_forminteraction_2.0.xsd) | Domänschema (delat) |
+| [GetFormResponder_2.0.xsd](GetFormResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -357,9 +357,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetFormQuestionPageInteraction_2.0_RIVTABP21.wsdl](files/wsdl/GetFormQuestionPageInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [infrastructure_supportservices_forminteraction_2.0.xsd](files/schema/infrastructure_supportservices_forminteraction_2.0.xsd) | Domänschema (delat) |
-| [GetFormQuestionPageResponder_2.0.xsd](files/schema/GetFormQuestionPageResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [GetFormQuestionPageInteraction_2.0_RIVTABP21.wsdl](GetFormQuestionPageInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [infrastructure_supportservices_forminteraction_2.0.xsd](infrastructure_supportservices_forminteraction_2.0.xsd) | Domänschema (delat) |
+| [GetFormQuestionPageResponder_2.0.xsd](GetFormQuestionPageResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -439,9 +439,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [SaveFormPageInteraction_2.0_RIVTABP21.wsdl](files/wsdl/SaveFormPageInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [infrastructure_supportservices_forminteraction_2.0.xsd](files/schema/infrastructure_supportservices_forminteraction_2.0.xsd) | Domänschema (delat) |
-| [SaveFormPageResponder_2.0.xsd](files/schema/SaveFormPageResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [SaveFormPageInteraction_2.0_RIVTABP21.wsdl](SaveFormPageInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [infrastructure_supportservices_forminteraction_2.0.xsd](infrastructure_supportservices_forminteraction_2.0.xsd) | Domänschema (delat) |
+| [SaveFormPageResponder_2.0.xsd](SaveFormPageResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -505,9 +505,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [SaveFormInteraction_2.0_RIVTABP21.wsdl](files/wsdl/SaveFormInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [infrastructure_supportservices_forminteraction_2.0.xsd](files/schema/infrastructure_supportservices_forminteraction_2.0.xsd) | Domänschema (delat) |
-| [SaveFormResponder_2.0.xsd](files/schema/SaveFormResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [SaveFormInteraction_2.0_RIVTABP21.wsdl](SaveFormInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [infrastructure_supportservices_forminteraction_2.0.xsd](infrastructure_supportservices_forminteraction_2.0.xsd) | Domänschema (delat) |
+| [SaveFormResponder_2.0.xsd](SaveFormResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -566,9 +566,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [CancelFormInteraction_2.0_RIVTABP21.wsdl](files/wsdl/CancelFormInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [infrastructure_supportservices_forminteraction_2.0.xsd](files/schema/infrastructure_supportservices_forminteraction_2.0.xsd) | Domänschema (delat) |
-| [CancelFormResponder_2.0.xsd](files/schema/CancelFormResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [CancelFormInteraction_2.0_RIVTABP21.wsdl](CancelFormInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [infrastructure_supportservices_forminteraction_2.0.xsd](infrastructure_supportservices_forminteraction_2.0.xsd) | Domänschema (delat) |
+| [CancelFormResponder_2.0.xsd](CancelFormResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -651,9 +651,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [CreateFormRequestInteraction_2.0_RIVTABP21.wsdl](files/wsdl/CreateFormRequestInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [infrastructure_supportservices_forminteraction_2.0.xsd](files/schema/infrastructure_supportservices_forminteraction_2.0.xsd) | Domänschema (delat) |
-| [CreateFormRequestResponder_2.0.xsd](files/schema/CreateFormRequestResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [CreateFormRequestInteraction_2.0_RIVTABP21.wsdl](CreateFormRequestInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [infrastructure_supportservices_forminteraction_2.0.xsd](infrastructure_supportservices_forminteraction_2.0.xsd) | Domänschema (delat) |
+| [CreateFormRequestResponder_2.0.xsd](CreateFormRequestResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -718,9 +718,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetFormTemplateInteraction_2.0_RIVTABP21.wsdl](files/wsdl/GetFormTemplateInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [infrastructure_supportservices_forminteraction_2.0.xsd](files/schema/infrastructure_supportservices_forminteraction_2.0.xsd) | Domänschema (delat) |
-| [GetFormTemplateResponder_2.0.xsd](files/schema/GetFormTemplateResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [GetFormTemplateInteraction_2.0_RIVTABP21.wsdl](GetFormTemplateInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [infrastructure_supportservices_forminteraction_2.0.xsd](infrastructure_supportservices_forminteraction_2.0.xsd) | Domänschema (delat) |
+| [GetFormTemplateResponder_2.0.xsd](GetFormTemplateResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -774,9 +774,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [SaveFormTemplateInteraction_2.0_RIVTABP21.wsdl](files/wsdl/SaveFormTemplateInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [infrastructure_supportservices_forminteraction_2.0.xsd](files/schema/infrastructure_supportservices_forminteraction_2.0.xsd) | Domänschema (delat) |
-| [SaveFormTemplateResponder_2.0.xsd](files/schema/SaveFormTemplateResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [SaveFormTemplateInteraction_2.0_RIVTABP21.wsdl](SaveFormTemplateInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [infrastructure_supportservices_forminteraction_2.0.xsd](infrastructure_supportservices_forminteraction_2.0.xsd) | Domänschema (delat) |
+| [SaveFormTemplateResponder_2.0.xsd](SaveFormTemplateResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 

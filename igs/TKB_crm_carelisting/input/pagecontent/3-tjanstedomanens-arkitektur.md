@@ -6,15 +6,15 @@ Nationell Listningstjänst hanterar information om lokalt valbara primärvårdst
 
 #### Visa vårdval
 
-![Informationsflöde — Visa vårdval](images/img_012.jpeg)
+![Informationsflöde — Visa vårdval](img_012.jpeg)
 
 #### Visa möjliga tjänsteutövare
 
-![Informationsflöde — Visa möjliga tjänsteutövare](images/img_007.jpeg)
+![Informationsflöde — Visa möjliga tjänsteutövare](img_007.jpeg)
 
 #### Göra vårdval
 
-![Informationsflöde — Göra vårdval](images/img_004.jpeg)
+![Informationsflöde — Göra vårdval](img_004.jpeg)
 
 #### Visa listningstyp
 

@@ -46,14 +46,14 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [AssertCareEngagementInteraction_1.0_RIVTABP21.wsdl](files/wsdl/AssertCareEngagementInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt (RIVTABP21) |
-| [AssertCareEngagementInteraction_1.0_RIVTABP20.wsdl](files/wsdl/AssertCareEngagementInteraction_1.0_RIVTABP20.wsdl) | WSDL-kontrakt (RIVTABP20) |
-| [ehr_accesscontrol_1.0.xsd](files/schema/ehr_accesscontrol_1.0.xsd) | Domänschema (delat) |
-| [AssertCareEngagementResponder_1.0.xsd](files/schema/AssertCareEngagementResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [itintegration_registry_1.0.xsd](files/schema/itintegration_registry_1.0.xsd) | Engagemangsindex-schema |
-| [ws-addressing-1.0.xsd](files/schema/ws-addressing-1.0.xsd) | WS-Addressing schema |
-| [AB_ehr_accesscontrol.docx](files/docs/AB_ehr_accesscontrol.docx) | Arkitekturbeskrivning |
-| [SjD_TP_AssertCareEngagement_1.0.docx](files/docs/SjD_TP_AssertCareEngagement_1.0.docx) | Tjänstebeskrivning (tjänsteproducent) |
+| [AssertCareEngagementInteraction_1.0_RIVTABP21.wsdl](AssertCareEngagementInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt (RIVTABP21) |
+| [AssertCareEngagementInteraction_1.0_RIVTABP20.wsdl](AssertCareEngagementInteraction_1.0_RIVTABP20.wsdl) | WSDL-kontrakt (RIVTABP20) |
+| [ehr_accesscontrol_1.0.xsd](ehr_accesscontrol_1.0.xsd) | Domänschema (delat) |
+| [AssertCareEngagementResponder_1.0.xsd](AssertCareEngagementResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [itintegration_registry_1.0.xsd](itintegration_registry_1.0.xsd) | Engagemangsindex-schema |
+| [ws-addressing-1.0.xsd](ws-addressing-1.0.xsd) | WS-Addressing schema |
+| [AB_ehr_accesscontrol.docx](AB_ehr_accesscontrol.docx) | Arkitekturbeskrivning |
+| [SjD_TP_AssertCareEngagement_1.0.docx](SjD_TP_AssertCareEngagement_1.0.docx) | Tjänstebeskrivning (tjänsteproducent) |
 
 #### 7.1 FHIR-artefakter
 

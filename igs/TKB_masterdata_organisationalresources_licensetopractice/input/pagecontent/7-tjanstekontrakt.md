@@ -76,9 +76,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetHospPersonForPublicHealthCareInteraction_2.0_RIVTABP21.wsdl](files/wsdl/GetHospPersonForPublicHealthCareInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [masterdata_organisationalresources_licensetopractice_2.0.xsd](files/schema/masterdata_organisationalresources_licensetopractice_2.0.xsd) | Domänschema (delat) |
-| [GetHospPersonForPublicHealthCareResponder_2.0.xsd](files/schema/GetHospPersonForPublicHealthCareResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [GetHospPersonForPublicHealthCareInteraction_2.0_RIVTABP21.wsdl](GetHospPersonForPublicHealthCareInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [masterdata_organisationalresources_licensetopractice_2.0.xsd](masterdata_organisationalresources_licensetopractice_2.0.xsd) | Domänschema (delat) |
+| [GetHospPersonForPublicHealthCareResponder_2.0.xsd](GetHospPersonForPublicHealthCareResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -194,9 +194,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetHospPersonForIvoInteraction_2.0_RIVTABP21.wsdl](files/wsdl/GetHospPersonForIvoInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [masterdata_organisationalresources_licensetopractice_2.0.xsd](files/schema/masterdata_organisationalresources_licensetopractice_2.0.xsd) | Domänschema (delat) |
-| [GetHospPersonForIvoResponder_2.0.xsd](files/schema/GetHospPersonForIvoResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [GetHospPersonForIvoInteraction_2.0_RIVTABP21.wsdl](GetHospPersonForIvoInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [masterdata_organisationalresources_licensetopractice_2.0.xsd](masterdata_organisationalresources_licensetopractice_2.0.xsd) | Domänschema (delat) |
+| [GetHospPersonForIvoResponder_2.0.xsd](GetHospPersonForIvoResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 

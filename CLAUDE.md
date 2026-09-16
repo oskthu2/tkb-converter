@@ -269,26 +269,28 @@ IG:ns sidstruktur följer TKB:ns rubriknumrering exakt. **Målet är att IG:n sk
 **Agentens arbetsordning:**
 1. Skapa katalogstruktur
 2. Kopiera bilder: `cp -r igs/TKB_{domain_id}/docx-converted/images/ igs/TKB_{domain_id}/input/images/`
-3. **Kopiera källfiler (WSDL, XSD, övriga dokument)** från `source/` till `input/files/`:
+3. **Kopiera källfiler (WSDL, XSD, övriga dokument)** från `source/` till **`input/images/`** (se "KRITISKT — det finns bara EN publicerad static-filkatalog" nedan för varför — det finns ingen `input/files/`-motsvarighet som IG Publisher känner igen):
    ```bash
-   mkdir -p igs/TKB_{domain_id}/input/files/wsdl
-   mkdir -p igs/TKB_{domain_id}/input/files/schema
-   mkdir -p igs/TKB_{domain_id}/input/files/docs
-   # WSDL-filer
-   find igs/TKB_{domain_id}/source/ -name "*.wsdl" -exec cp {} igs/TKB_{domain_id}/input/files/wsdl/ \;
-   # XSD-filer
-   find igs/TKB_{domain_id}/source/ -name "*.xsd" -exec cp {} igs/TKB_{domain_id}/input/files/schema/ \;
-   # Övriga dokument (PDF, extra docx, etc.) utom TKB-huvuddokumentet
-   find igs/TKB_{domain_id}/source/ -name "*.pdf" -exec cp {} igs/TKB_{domain_id}/input/files/docs/ \;
-   find igs/TKB_{domain_id}/source/ -name "AB_*.docx" -exec cp {} igs/TKB_{domain_id}/input/files/docs/ \;
-   find igs/TKB_{domain_id}/source/ -name "SjD_*.docx" -exec cp {} igs/TKB_{domain_id}/input/files/docs/ \;
+   # Alla källfilstyper i EN gemensam, flat katalog tillsammans med bilderna
+   find igs/TKB_{domain_id}/source/ -name "*.wsdl" -exec cp {} igs/TKB_{domain_id}/input/images/ \;
+   find igs/TKB_{domain_id}/source/ -name "*.xsd" -exec cp {} igs/TKB_{domain_id}/input/images/ \;
+   find igs/TKB_{domain_id}/source/ -name "*.pdf" -exec cp {} igs/TKB_{domain_id}/input/images/ \;
+   find igs/TKB_{domain_id}/source/ -name "AB_*.docx" -exec cp {} igs/TKB_{domain_id}/input/images/ \;
+   find igs/TKB_{domain_id}/source/ -name "SjD_*.docx" -exec cp {} igs/TKB_{domain_id}/input/images/ \;
+   ```
+   Kontrollera innan kopiering att inget filnamn redan finns i `input/images/` (namnkollision skulle skriva över en bild eller en annan källfil eftersom katalogen är flat) — mycket osannolikt i praktiken men billigt att kontrollera:
+   ```bash
+   comm -12 <(find igs/TKB_{domain_id}/docx-converted/images -type f -printf '%f\n' | sort) \
+            <(find igs/TKB_{domain_id}/source/ \( -name "*.wsdl" -o -name "*.xsd" -o -name "*.pdf" -o -name "AB_*.docx" -o -name "SjD_*.docx" \) -printf '%f\n' | sort)
    ```
    Spara en inventarielista (`wsdl_files`, `xsd_files`, `doc_files`) för varje kontrakt i `domain-metadata.json` — Model Builder behöver dessa för länkarna i sektion 7.
 4. Skriv `sushi-config.yaml` och `ig.ini`
 5. Skriv `input/includes/menu.xml`
 6. Skriv `input/pagecontent/index.md`
-7. **Kopiera och anpassa sektionerna 1–6:** ta innehållet från `docx-converted/sections/{n}-*.md` direkt och lägg det i `input/pagecontent/{n}-*.md`. Lägg till FHIR IG-header om nödvändigt. Justera bildlänkar så att de pekar på `images/` (relativ sökväg i FHIR IG).
-8. Bygg `input/pagecontent/7-tjanstekontrakt.md` — kombinera konverterat innehåll från `docx-converted/sections/7-tjanstekontrakt.md` med FSH-länklista och källfils-index per kontrakt (se instruktion för Model Builder nedan).
+7. **Kopiera och anpassa sektionerna 1–6:** ta innehållet från `docx-converted/sections/{n}-*.md` direkt och lägg det i `input/pagecontent/{n}-*.md`. Lägg till FHIR IG-header om nödvändigt. **Ta bort `images/`-prefixet från bildlänkar** (kör `sed -i 's/\](images\//](/g' input/pagecontent/{n}-*.md` — se "KRITISKT — det finns bara EN publicerad static-filkatalog" nedan).
+8. Bygg `input/pagecontent/7-tjanstekontrakt.md` — kombinera konverterat innehåll från `docx-converted/sections/7-tjanstekontrakt.md` med FSH-länklista och källfils-index per kontrakt (se instruktion för Model Builder nedan). Källfils-länkarna ska peka direkt på filnamnet (t.ex. `[GetX.wsdl](GetX.wsdl)`) — **inte** på `files/wsdl/GetX.wsdl` eller liknande underkatalog, av samma anledning.
+
+**KRITISKT — det finns bara EN publicerad static-filkatalog (`input/images/`), ingen `input/files/`:** FHIR IG Publisher (`fhir.base.template`) känner bara igen ett fåtal fasta katalognamn under `input/` (`pagecontent`, `images`, `includes`, `fsh` m.fl.). En egenpåhittad katalog som `input/files/wsdl/` publiceras **aldrig** — filerna hamnar inte ens flata i utdata, de försvinner helt tyst utan att SUSHI eller IG Publisher klagar. Detta upptäcktes 2026-09-16 genom att inspektera `gh-pages`-branchen direkt: **noll** WSDL/XSD/PDF-filer var publicerade i någon av de 31 dåvarande domänerna, trots att `input/files/{wsdl,schema,docs}/` innehöll dem och `7-tjanstekontrakt.md` länkade till dem — se "Publicerings-QA missar detta" och "Steg 4.7 — Publicerings-verifiering". `input/images/` är däremot dokumenterat och bekräftat att fungera som en generisk "kopiera allt platt till webbplatsens rot"-katalog, oavsett filändelse (verifierat: `.svg`, `.png`, `.jpg`, `.gif` kopieras alla). Lösningen är därför att lägga **alla** statiska filer — bilder, WSDL, XSD, PDF, kompletterande docx — i samma `input/images/`-katalog (flat, inga underkataloger), och referera dem i Markdown med enbart filnamnet, utan katalogprefix.
 
 **Katalogstruktur per domän:**
 
@@ -314,16 +316,12 @@ igs/TKB_{domain_id}/
     │   ├── 6-gemensamma-informationskomponenter.md ← direkt från docx-converted/sections/
     │   └── 7-tjanstekontrakt.md                  ← docx-konverterat + FSH-artefaktlänkar
     ├── images/                                   ← kopierat från docx-converted/images/
-    ├── files/
-    │   ├── wsdl/                                 ← *.wsdl från source/
-    │   │   ├── GetCareDocumentation_3.0.5.wsdl
-    │   │   └── ...
-    │   ├── schema/                               ← *.xsd från source/
-    │   │   ├── core_components.xsd
-    │   │   ├── GetCareDocumentation.xsd
-    │   │   └── ...
-    │   └── docs/                                 ← PDF, AB_*.docx, SjD_*.docx
-    │       └── ...
+    │                                                 OCH alla källfiler (WSDL/XSD/PDF/docx) —
+    │                                                 flat, EN gemensam katalog (se "KRITISKT" ovan)
+    │   ├── img_001.png
+    │   ├── GetCareDocumentation_3.0.5.wsdl
+    │   ├── core_components.xsd
+    │   └── ...
     └── includes/
         └── menu.xml
 ```
@@ -417,7 +415,9 @@ Domänen innehåller följande tjänstekontrakt:
 | [GetDiagnosis](7-tjanstekontrakt.html#getdiagnosis) | 2.0 | ... |
 ```
 
-**KRITISKT — ankarformat:** Rubrikerna i `7-tjanstekontrakt.md` är alltid `### GetContractName` (utan nummerprefixet 7.1, 7.2). Ankaret blir då `#getcontractname` (lowercase). Skriv **aldrig** `#71-getcontractname` eller `#7.1-getcontractname` — dessa ankare existerar inte och ger brutna länkar vid validering.
+**KRITISKT — ankarformat:** Rubrikerna i `7-tjanstekontrakt.md` är alltid `### GetContractName` (utan nummerprefixet 7.1, 7.2). Ankaret blir då `#getcontractname` (lowercase). Skriv **aldrig** `#71-getcontractname` eller `#7.1-getcontractname` — dessa ankare existerar inte och ger brutna länkar vid validering. (Verkligt exempel på avvikelsen: `eservicesupply_eoffering` hade `## 7.1 GetAvailableEServices` istället för `### GetAvailableEServices`, vilket gav ett trasigt ankare — upptäckt och fixat 2026-09-16 av `check_links.py`, se Steg 4.7.)
+
+**Ytterligare ett upptäckt mönster som kan förstöra ankare längre ner på sidan:** rå `<taggliknande text>` (RIV-TA-fältsökvägar i vinkelklamrar, t.ex. `<hasMoreReference>`, `<multimediaEntry/value>`) i en Markdown-tabellcell kan tolkas som (trasig/oavslutad) rå HTML av sidgenereringsverktyget, vilket i värsta fall får **alla efterföljande rubriker på samma sida** att sluta renderas som riktiga `<h3>`-element — de blir kvar som bokstavlig `### Text`-sträng i utdatan, vilket i sin tur ger trasiga ankare för varje kontrakt efter den skadade tabellen (inträffade i `clinicalprocess_healthcond_description`, där en tabellrad dessutom bröts över flera rader utan `|` i början av fortsättningsraden — se fix 2026-09-16). Om `check_links.py` (Steg 4.7) rapporterar ett trasigt ankare **utan** motsvarande `images/`- eller `files/`-prefix i felmeddelandet: leta efter rå `<...>`-text i tabeller på samma sida före den brutna rubriken, och slå in den i backticks (`` `<hasMoreReference>` ``) samt slå ihop eventuella flerradiga tabellrader till en enda rad.
 
 ```markdown
 
@@ -433,9 +433,13 @@ Domänen innehåller följande tjänstekontrakt:
 * [Artefakter](artifacts.html)
 ```
 
-**Sidor 1–6** — kopiera **ordagrant** från `docx-converted/sections/{n}-*.md`.
+**Sidor 1–6** — kopiera **ordagrant** från `docx-converted/sections/{n}-*.md`, med ett enda mekaniskt undantag för bildlänkar (se nedan).
 - Bevara all text, alla tabeller och alla bildlänkar
-- Bildlänkar pekar redan på `images/filename` — kontrollera att sökvägarna stämmer
+- **KRITISKT — ta bort `images/`-prefixet från bildlänkar när du kopierar in i `input/pagecontent/`:** `docx_to_md.py` skriver bildlänkar som `![alt](images/img_001.png)`, vilket är korrekt för det fristående `docx-converted/`-paketet (där `images/` är en verklig undermapp bredvid `full-document.md`). Men FHIR IG Publisher **plattar ut** `input/images/*` till webbplatsens rot vid publicering — det skapas **ingen** `images/`-undermapp i den publicerade IG:n. En bildlänk som fortfarande pekar på `images/img_001.png` i `input/pagecontent/` blir därför en trasig länk (404) i den publicerade sajten, även om SUSHI och IG Publisher inte flaggar detta som fel (se nedan, "Publicerings-QA missar detta"). Kör därför alltid, för varje sida du kopierar in:
+  ```bash
+  sed -i 's/\](images\//](/g' input/pagecontent/{n}-*.md
+  ```
+  Resultat: `![img_001.png](images/img_001.png)` → `![img_001.png](img_001.png)`.
 - Ändra inte rubriknivåer eller text
 
 **7-tjanstekontrakt.md** — kombinera konverterat innehåll med FHIR-artefaktlänkar:
@@ -453,17 +457,19 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [{ContractId}_{version}.wsdl](files/wsdl/{ContractId}_{version}.wsdl) | WSDL-kontrakt |
-| [core_components.xsd](files/schema/core_components.xsd) | Domänschema (delat) |
-| [{ContractId}.xsd](files/schema/{ContractId}.xsd) | Tjänstespecifikt schema |
+| [{ContractId}_{version}.wsdl]({ContractId}_{version}.wsdl) | WSDL-kontrakt |
+| [core_components.xsd](core_components.xsd) | Domänschema (delat) |
+| [{ContractId}.xsd]({ContractId}.xsd) | Tjänstespecifikt schema |
 {för varje övrig XSD som hör till kontraktet:}
-| [{filename}.xsd](files/schema/{filename}.xsd) | {beskrivning} |
-{för dokument i files/docs/ som är kontraktsspecifika, t.ex. SjD-filer:}
-| [{filename}](files/docs/{filename}) | Tjänstebeskrivning |
+| [{filename}.xsd]({filename}.xsd) | {beskrivning} |
+{för dokument som är kontraktsspecifika, t.ex. SjD-filer:}
+| [{filename}]({filename}) | Tjänstebeskrivning |
 ```
 
+**KRITISKT — länkarna ska peka direkt på filnamnet, utan katalogprefix** (t.ex. `[GetX.wsdl](GetX.wsdl)`, **inte** `files/wsdl/GetX.wsdl` eller `files/schema/GetX.xsd`). Alla källfiler ligger flata i `input/images/` (se "KRITISKT — det finns bara EN publicerad static-filkatalog" i Steg 3) och publiceras därför flata på webbplatsens rot, precis som bilderna.
+
 Regler:
-- Inkludera bara filer som faktiskt finns i `input/files/` (kontrollera innan du skriver tabellen)
+- Inkludera bara filer som faktiskt finns i `input/images/` (kontrollera innan du skriver tabellen)
 - `core_components.xsd` (eller motsvarande delat domänschema) listas på varje kontrakt eftersom det alltid är en dependency
 - Övriga XSD-filer: inkludera de vars namn innehåller kontraktets namn (t.ex. `GetCareDocumentation`)
 - Övriga docs: inkludera `SjD_TK_{ContractId}_*.docx` och `SjD_TP_{ContractId}_*.docx` om de finns
@@ -482,7 +488,9 @@ Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning
 * **ValueSet:** [ValueSet/{kodverk-slug}-vs](ValueSet-{kodverk-slug}-vs.html)
 ```
 
-**Bildlänkar i FHIR IG context:** FHIR IG-publiceringsramverket stöder standard Markdown-bilder. Bildfilerna ska ligga i `input/images/`. Länkformat: `![Bildtext](images/img_001.png)`.
+**Bildlänkar i FHIR IG context (KRITISKT):** FHIR IG-publiceringsramverket stöder standard Markdown-bilder. Bildfilerna ska ligga i `input/images/` — men IG Publisher **plattar ut** dessa till webbplatsens rot vid publicering (bekräftat genom att inspektera den faktiskt publicerade `gh-pages`-branchen: `input/images/img_001.png` hamnar på `TKB_{domain}/img_001.png`, **inte** `TKB_{domain}/images/img_001.png`). Länkformat i `input/pagecontent/*.md` ska därför vara `![Bildtext](img_001.png)` **utan** `images/`-prefix, trots att källfilen fysiskt ligger i katalogen `input/images/`. Se sed-kommandot i "Sidor 1–6" ovan.
+
+**Publicerings-QA missar detta:** IG Publishers egen `qa.json`/`qa.html` validerar FHIR-resurser (StructureDefinitions, CodeSystems etc.), inte om `<img src>`- eller `<a href>`-referenser i den renderade HTML:n faktiskt pekar på existerande filer. En domän kan rapportera "0 errors, 0 warnings" i `qa-errors.json` samtidigt som samtliga bilder på sidan är trasiga (404) i den publicerade IG:n — detta hände faktiskt i 29 av de första 31 migrerade domänerna innan felet upptäcktes 2026-09-16 genom att direkt inspektera `gh-pages`-branchens innehåll. Lita därför **inte** enbart på `qa-errors.json` för att avgöra om en IG är komplett — se "Steg 4.7 — Publicerings-verifiering" nedan för den kompletterande kontroll som numera körs i CI.
 
 ---
 
@@ -490,13 +498,13 @@ Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning
 
 **Ge agenten:**
 - domain-metadata.json (komplett, inklusive alla kontrakt och `wsdl_files`/`xsd_files`/`doc_files`-inventarier per kontrakt)
-- Sökväg till `input/files/` (som IG Builder redan har populerat med WSDL, XSD och docs)
+- Sökväg till `input/images/` (som IG Builder redan har populerat med bilder OCH WSDL/XSD/docs — se Steg 3, "KRITISKT — det finns bara EN publicerad static-filkatalog")
 - FSH-konventioner (se nedan)
 
 **Viktigt:** All output är FSH-källkod (`.fsh`-filer). Agenten producerar aldrig JSON direkt. Logiska modeller används **uteslutande** med `Logical:` — aldrig `Profile:` eller `Resource:`.
 
 **Källfils-index i sektion 7:** Model Builder-agenten ansvarar för att ta fram de exakta filnamnen och bygga källfils-tabellen för varje kontrakt (se mall i IG Builder ovan). Agenten ska:
-1. Lista faktiska filer i `input/files/wsdl/`, `input/files/schema/` och `input/files/docs/`
+1. Lista faktiska WSDL/XSD/doc-filer i `input/images/` (de är inte visuellt urskiljbara från bilderna i katalogen, men kan filtreras på filändelse: `find input/images/ -iname "*.wsdl" -o -iname "*.xsd" -o -iname "*.pdf" -o -iname "*.docx"`)
 2. För varje kontrakt: matcha filer på kontraktnamnet (t.ex. `GetCareDocumentation`) och det delade domänschemat
 3. Skriva källfils-tabellen som ett Markdown-fragment (`{ContractId}-source-files.md`) i `input/pagecontent/fragments/` — IG Builder inkluderar dessa i `7-tjanstekontrakt.md`
 
@@ -925,13 +933,38 @@ Agenten läser detta direkt från repot efter att CI har körts klart — kontro
 | Feltyp | Åtgärd |
 |--------|--------|
 | FATAL | Alltid BLOCK — kräver manuellt beslut |
-| Matchar ett känt, dokumenterat mönster (reserverat namn, fel datatyp på subelement, `se.inera.rivta.core`, `special-url`) | Fixa alltid direkt, aldrig BLOCK |
+| Matchar ett känt, dokumenterat mönster (reserverat namn, fel datatyp på subelement, `se.inera.rivta.core`, `special-url`, `[LINK-CHECK]`-fynd) | Fixa alltid direkt, aldrig BLOCK |
 | ERROR på FSH-typ/kardinalitet (okänt mönster) | Försök fixa direkt om semantiken är klar |
-| ERROR på bildlänk / sidreferens | Fixa direkt |
+| ERROR på bildlänk / sidreferens (inkl. `[LINK-CHECK]`-prefixade fynd, se Steg 4.7) | Fixa direkt — normalt ett katalogprefix-fel (se "KRITISKT — det finns bara EN publicerad static-filkatalog" i Steg 3) eller ett felstavat ankare |
 | ERROR på terminology-binding | BLOCK om kodverk är okänt, fixa om känd URL |
 | WARN på snapshot/differential | TODO — kan ignoreras initialt |
 
 **När du hittar ett NYTT återkommande felmönster** (samma typ av fel i flera domäner, eller ett fel vars orsak inte redan finns dokumenterat i "FSH-konventioner"): lägg till det där, med exakt felsignatur och åtgärd, innan du går vidare — inte bara i QUESTIONS.md. QUESTIONS.md är per-domän och läses sällan av nästa domäns körning; "FSH-konventioner" är den enda platsen instruktionerna faktiskt konsulteras proaktivt av alla framtida domäner.
+
+---
+
+## Steg 4.7 — Publicerings-verifiering (länk- och bildkontroll)
+
+**Bakgrund:** IG Publishers egen `qa.json`/`qa.html` validerar FHIR-resurser (StructureDefinitions, CodeSystems, ValueSets etc.) — den validerar **inte** om `<img src>` eller `<a href>` i den faktiskt renderade HTML:n pekar på filer som verkligen finns i utdatan. Två systemiska buggar upptäcktes 2026-09-16 genom att direkt inspektera den publicerade `gh-pages`-branchen (möjligt just för att bygget numera går till en egen branch i repot, inte en flyktig CI-artefakt):
+1. Alla bildlänkar (`![](images/img_NNN.ext)`) i `input/pagecontent/*.md` var trasiga — IG Publisher plattar ut `input/images/*` till webbplatsens rot, så `images/`-prefixet i länken pekade på en icke-existerande underkatalog.
+2. Alla källfilslänkar (WSDL/XSD/PDF/docx) var trasiga på ett värre sätt — `input/files/` är ingen katalog IG Publisher-templaten känner igen alls, så filerna publicerades aldrig någonstans.
+
+Båda är nu fixade (källfiler flyttade in i `input/images/`, alla `input/pagecontent/*.md`-länkar korrigerade, se git-historik 2026-09-16) och dokumenterade som kända mönster i Steg 3. Men eftersom `qa-errors.json` **inte** fångar denna klass av fel, krävs ett separat, automatiserat kontrollsteg för att förhindra att samma sak händer igen utan att någon märker det.
+
+**`scripts/check_links.py`** körs av `scripts/build_ig.sh` för varje domän, direkt efter IG Publisher och innan output kopieras till sajtstagingen (`$SITE_DIR`). Den:
+1. Går igenom alla `.html`-filer i domänens `output/`-katalog
+2. Extraherar alla `<img src>` och `<a href>` som pekar på lokala (icke-externa) resurser
+3. Verifierar att målfilen faktiskt finns; om den har ett `#ankare`, verifierar även att målsidan innehåller ett element med matchande `id`/`name`
+4. Skriver fynd som `[LINK-CHECK] ...`-poster under `issues.errors` i domänens `qa-errors.json`, och räknar om `summary`/`passed`/`top_issues` — trasiga bilder/länkar räknas alltid som **errors**, aldrig warnings, eftersom de är riktiga 404:or i produktion
+
+Detta innebär att `[LINK-CHECK]`-fynd automatiskt gör en domän `passed: false` i `qa-errors.json` precis som ett vanligt SUSHI/IG Publisher-fel, och plockas upp av samma feedbackloop som resten av Steg 4.6 ("Vad agenten gör när den ser qa-errors.json") — ingen separat process behövs. De allra flesta `[LINK-CHECK]`-fynd matchar ett av de två kända mönstren ovan (fel katalogprefix) och ska **alltid fixas direkt**, aldrig loggas som BLOCK.
+
+**Komplement — manuell stickprovskontroll av en publicerad domän:** Efter en full ombyggnad (särskilt efter att ha ändrat `input/pagecontent/*.md` eller `input/images/`-innehåll i stor skala) är det värt att direkt inspektera `gh-pages`-branchen för ett urval domäner, precis som gjordes för att upptäcka buggarna ovan:
+```bash
+git fetch origin gh-pages
+git ls-tree -r origin/gh-pages --name-only | grep "^TKB_{domain}/" | grep -iE '\.(png|svg|jpg|wsdl|xsd|pdf)$'
+```
+Detta är ett bra sista-linjens sanity-check eftersom `check_links.py` bara ser vad som finns i en enskild domäns egen `output/`-katalog — om `commit-results`-jobbet eller sajtsammanslagningen (`$SITE_DIR`) av någon anledning tappar filer mellan `build`- och `deploy`-jobben skulle det inte upptäckas av `check_links.py` ensamt.
 
 ---
 

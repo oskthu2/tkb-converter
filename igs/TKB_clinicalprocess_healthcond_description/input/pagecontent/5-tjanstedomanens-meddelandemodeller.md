@@ -3,7 +3,7 @@ Här beskrivs de modeller som beskriver informationsinnehållet i tjänstekontra
 
 ### MIM Journalanteckning
 
-![img_007.png](images/img_007.png)
+![img_007.png](img_007.png)
 Modellen är en UML-representation av XSD-schemat. Någon mappning mellan XSD och MIM är därmed inte inkluderad.
 Nedan beskrivs mappning mellan MIM/ XSD och informationsmodellen i informationsspecifikationen.
 
@@ -100,7 +100,7 @@ Nedan beskrivs mappning mellan MIM/ XSD och informationsmodellen i informationss
 
 ### MIM Diagnos
 
-![img_012.png](images/img_012.png)
+![img_012.png](img_012.png)
 
 | Klass.attribut | Mappning mot XSD schema |
 | :--- | :--- |
@@ -135,7 +135,7 @@ Nedan beskrivs mappning mellan MIM/ XSD och informationsmodellen i informationss
 
 ### MIM Uppmärksamhetsinformation
 
-![img_003.png](images/img_003.png)
+![img_003.png](img_003.png)
 
 | Klass.attribut | Mappning mot XSD schema |
 | :--- | :--- |
@@ -193,7 +193,7 @@ Nedan beskrivs mappning mellan MIM/ XSD och informationsmodellen i informationss
 
 ### MIM Funktionsstatus
 
-![img_008.png](images/img_008.png)
+![img_008.png](img_008.png)
 
 | Klass.attribut | Mappning mot XSD schema |
 | :--- | :--- |

@@ -9,9 +9,9 @@ Nedanstående diagram visar hur flödet principiellt ser ut när information ur 
 
 #### Arbetsflöde
 
-![img_005.png](images/img_005.png)
+![img_005.png](img_005.png)
 
-![Figur 1 Exempel: Adressering vid anrop till aggregerande tjänst från patienttjänst (t.ex. från Mina Vårdkontakters tjänst för journalåtkomst).](images/img_010.png)
+![Figur 1 Exempel: Adressering vid anrop till aggregerande tjänst från patienttjänst (t.ex. från Mina Vårdkontakters tjänst för journalåtkomst).](img_010.png)
 *Figur 2 Exempel: Adressering vid anrop till aggregerande vårdgivartjänst (t.ex. från NPÖ-tillämpningen).*
 
 ##### Roller
@@ -23,7 +23,7 @@ Nedanstående diagram visar hur flödet principiellt ser ut när information ur 
 
 #### Sekvensdiagram
 
-![img_002.png](images/img_002.png)
+![img_002.png](img_002.png)
 **
 Figur 3 Sekvensdiagram över sökning efter information där GetAlertInformation används som exempel men samma princip gäller för alla kontrakt i tjänstedomänen, diagrammet visar på två alternativa sekvenser där det första alternativet gäller när aggregerande tjänster adresseras och det andra alternativet gäller när källsystemet adresseras.
 

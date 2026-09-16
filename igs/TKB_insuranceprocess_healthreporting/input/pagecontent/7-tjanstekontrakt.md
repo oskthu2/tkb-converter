@@ -160,13 +160,13 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [RegisterMedicalCertificateInteraction_3.1_rivtabp20.wsdl](files/wsdl/RegisterMedicalCertificateInteraction_3.1_rivtabp20.wsdl) | WSDL-kontrakt |
-| [RegisterMedicalCertificateResponder_3.1.xsd](files/schema/RegisterMedicalCertificateResponder_3.1.xsd) | Tjänstespecifikt schema |
-| [MU7263-RIV_3.1.xsd](files/schema/MU7263-RIV_3.1.xsd) | Domänschema (läkarintyg 7263) |
-| [Insuranceprocess_healthreporting_2.0.xsd](files/schema/Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
-| [ISO_dt_subset_1.0.xsd](files/schema/ISO_dt_subset_1.0.xsd) | Datatypschema |
-| [MU7263_ny_blankett.pdf](files/docs/MU7263_ny_blankett.pdf) | Blankett FK7263 |
-| [AB_insuranceprocess_healthreporting.docx](files/docs/AB_insuranceprocess_healthreporting.docx) | Arkitekturbeskrivning |
+| [RegisterMedicalCertificateInteraction_3.1_rivtabp20.wsdl](RegisterMedicalCertificateInteraction_3.1_rivtabp20.wsdl) | WSDL-kontrakt |
+| [RegisterMedicalCertificateResponder_3.1.xsd](RegisterMedicalCertificateResponder_3.1.xsd) | Tjänstespecifikt schema |
+| [MU7263-RIV_3.1.xsd](MU7263-RIV_3.1.xsd) | Domänschema (läkarintyg 7263) |
+| [Insuranceprocess_healthreporting_2.0.xsd](Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
+| [ISO_dt_subset_1.0.xsd](ISO_dt_subset_1.0.xsd) | Datatypschema |
+| [MU7263_ny_blankett.pdf](MU7263_ny_blankett.pdf) | Blankett FK7263 |
+| [AB_insuranceprocess_healthreporting.docx](AB_insuranceprocess_healthreporting.docx) | Arkitekturbeskrivning |
 
 #### FHIR-artefakter
 
@@ -250,10 +250,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [ReceiveMedicalCertificateQuestionInteraction_1.0_rivtabp20.wsdl](files/wsdl/ReceiveMedicalCertificateQuestionInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
-| [ReceiveMedicalCertificateQuestionResponder_1.0.xsd](files/schema/ReceiveMedicalCertificateQuestionResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [MedicalCertificateQuestionsAnswers_1.0.xsd](files/schema/MedicalCertificateQuestionsAnswers_1.0.xsd) | Domänschema (frågor/svar) |
-| [Insuranceprocess_healthreporting_2.0.xsd](files/schema/Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
+| [ReceiveMedicalCertificateQuestionInteraction_1.0_rivtabp20.wsdl](ReceiveMedicalCertificateQuestionInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
+| [ReceiveMedicalCertificateQuestionResponder_1.0.xsd](ReceiveMedicalCertificateQuestionResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [MedicalCertificateQuestionsAnswers_1.0.xsd](MedicalCertificateQuestionsAnswers_1.0.xsd) | Domänschema (frågor/svar) |
+| [Insuranceprocess_healthreporting_2.0.xsd](Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
 
 #### FHIR-artefakter
 
@@ -332,10 +332,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [ReceiveMedicalCertificateAnswerInteraction_1.0_rivtabp20.wsdl](files/wsdl/ReceiveMedicalCertificateAnswerInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
-| [ReceiveMedicalCertificateAnswerResponder_1.0.xsd](files/schema/ReceiveMedicalCertificateAnswerResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [MedicalCertificateQuestionsAnswers_1.0.xsd](files/schema/MedicalCertificateQuestionsAnswers_1.0.xsd) | Domänschema (frågor/svar) |
-| [Insuranceprocess_healthreporting_2.0.xsd](files/schema/Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
+| [ReceiveMedicalCertificateAnswerInteraction_1.0_rivtabp20.wsdl](ReceiveMedicalCertificateAnswerInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
+| [ReceiveMedicalCertificateAnswerResponder_1.0.xsd](ReceiveMedicalCertificateAnswerResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [MedicalCertificateQuestionsAnswers_1.0.xsd](MedicalCertificateQuestionsAnswers_1.0.xsd) | Domänschema (frågor/svar) |
+| [Insuranceprocess_healthreporting_2.0.xsd](Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
 
 #### FHIR-artefakter
 
@@ -404,9 +404,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [FindAllQuestionsInteraction_1.0_rivtabp20.wsdl](files/wsdl/FindAllQuestionsInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt (FindAllQuestions, används av SendMedicalCertificateQuestion) |
-| [MedicalCertificateQuestionsAnswers_1.0.xsd](files/schema/MedicalCertificateQuestionsAnswers_1.0.xsd) | Domänschema (frågor/svar) |
-| [Insuranceprocess_healthreporting_2.0.xsd](files/schema/Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
+| [FindAllQuestionsInteraction_1.0_rivtabp20.wsdl](FindAllQuestionsInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt (FindAllQuestions, används av SendMedicalCertificateQuestion) |
+| [MedicalCertificateQuestionsAnswers_1.0.xsd](MedicalCertificateQuestionsAnswers_1.0.xsd) | Domänschema (frågor/svar) |
+| [Insuranceprocess_healthreporting_2.0.xsd](Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
 
 #### FHIR-artefakter
 
@@ -481,9 +481,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [FindAllAnswersInteraction_1.0_rivtabp20.wsdl](files/wsdl/FindAllAnswersInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt (FindAllAnswers, används av SendMedicalCertificateAnswer) |
-| [MedicalCertificateQuestionsAnswers_1.0.xsd](files/schema/MedicalCertificateQuestionsAnswers_1.0.xsd) | Domänschema (frågor/svar) |
-| [Insuranceprocess_healthreporting_2.0.xsd](files/schema/Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
+| [FindAllAnswersInteraction_1.0_rivtabp20.wsdl](FindAllAnswersInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt (FindAllAnswers, används av SendMedicalCertificateAnswer) |
+| [MedicalCertificateQuestionsAnswers_1.0.xsd](MedicalCertificateQuestionsAnswers_1.0.xsd) | Domänschema (frågor/svar) |
+| [Insuranceprocess_healthreporting_2.0.xsd](Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
 
 #### FHIR-artefakter
 
@@ -530,10 +530,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [FindAllQuestionsInteraction_1.0_rivtabp20.wsdl](files/wsdl/FindAllQuestionsInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
-| [FindAllQuestionsResponder_1.0.xsd](files/schema/FindAllQuestionsResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [MedicalCertificateQuestionsAnswers_1.0.xsd](files/schema/MedicalCertificateQuestionsAnswers_1.0.xsd) | Domänschema (frågor/svar) |
-| [Insuranceprocess_healthreporting_2.0.xsd](files/schema/Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
+| [FindAllQuestionsInteraction_1.0_rivtabp20.wsdl](FindAllQuestionsInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
+| [FindAllQuestionsResponder_1.0.xsd](FindAllQuestionsResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [MedicalCertificateQuestionsAnswers_1.0.xsd](MedicalCertificateQuestionsAnswers_1.0.xsd) | Domänschema (frågor/svar) |
+| [Insuranceprocess_healthreporting_2.0.xsd](Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
 
 #### FHIR-artefakter
 
@@ -580,10 +580,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [FindAllAnswersInteraction_1.0_rivtabp20.wsdl](files/wsdl/FindAllAnswersInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
-| [FindAllAnswersResponder_1.0.xsd](files/schema/FindAllAnswersResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [MedicalCertificateQuestionsAnswers_1.0.xsd](files/schema/MedicalCertificateQuestionsAnswers_1.0.xsd) | Domänschema (frågor/svar) |
-| [Insuranceprocess_healthreporting_2.0.xsd](files/schema/Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
+| [FindAllAnswersInteraction_1.0_rivtabp20.wsdl](FindAllAnswersInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
+| [FindAllAnswersResponder_1.0.xsd](FindAllAnswersResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [MedicalCertificateQuestionsAnswers_1.0.xsd](MedicalCertificateQuestionsAnswers_1.0.xsd) | Domänschema (frågor/svar) |
+| [Insuranceprocess_healthreporting_2.0.xsd](Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
 
 #### FHIR-artefakter
 
@@ -622,9 +622,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [DeleteQuestionsInteraction_1.0_rivtabp20.wsdl](files/wsdl/DeleteQuestionsInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
-| [DeleteQuestionsResponder_1.0.xsd](files/schema/DeleteQuestionsResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [Insuranceprocess_healthreporting_2.0.xsd](files/schema/Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
+| [DeleteQuestionsInteraction_1.0_rivtabp20.wsdl](DeleteQuestionsInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
+| [DeleteQuestionsResponder_1.0.xsd](DeleteQuestionsResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [Insuranceprocess_healthreporting_2.0.xsd](Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
 
 #### FHIR-artefakter
 
@@ -666,9 +666,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [DeleteAnswersInteraction_1.0_rivtabp20.wsdl](files/wsdl/DeleteAnswersInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
-| [DeleteAnswersResponder_1.0.xsd](files/schema/DeleteAnswersResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [Insuranceprocess_healthreporting_2.0.xsd](files/schema/Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
+| [DeleteAnswersInteraction_1.0_rivtabp20.wsdl](DeleteAnswersInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
+| [DeleteAnswersResponder_1.0.xsd](DeleteAnswersResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [Insuranceprocess_healthreporting_2.0.xsd](Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
 
 #### FHIR-artefakter
 
@@ -730,10 +730,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [RevokeMedicalCertificateInteraction_1.0_rivtabp20.wsdl](files/wsdl/RevokeMedicalCertificateInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
-| [RevokeMedicalCertificateResponder_1.0.xsd](files/schema/RevokeMedicalCertificateResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [insuranceprocess_certificate_1.0.xsd](files/schema/insuranceprocess_certificate_1.0.xsd) | Domänschema (intyg) |
-| [Insuranceprocess_healthreporting_2.0.xsd](files/schema/Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
+| [RevokeMedicalCertificateInteraction_1.0_rivtabp20.wsdl](RevokeMedicalCertificateInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
+| [RevokeMedicalCertificateResponder_1.0.xsd](RevokeMedicalCertificateResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [insuranceprocess_certificate_1.0.xsd](insuranceprocess_certificate_1.0.xsd) | Domänschema (intyg) |
+| [Insuranceprocess_healthreporting_2.0.xsd](Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
 
 #### FHIR-artefakter
 
@@ -799,8 +799,8 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [insuranceprocess_certificate_1.0.xsd](files/schema/insuranceprocess_certificate_1.0.xsd) | Domänschema (intyg) |
-| [Insuranceprocess_healthreporting_2.0.xsd](files/schema/Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
+| [insuranceprocess_certificate_1.0.xsd](insuranceprocess_certificate_1.0.xsd) | Domänschema (intyg) |
+| [Insuranceprocess_healthreporting_2.0.xsd](Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
 
 #### FHIR-artefakter
 
@@ -857,10 +857,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [ListCertificatesInteraction_1.0_rivtabp20.wsdl](files/wsdl/ListCertificatesInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
-| [ListCertificatesResponder_1.0.xsd](files/schema/ListCertificatesResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [insuranceprocess_certificate_1.0.xsd](files/schema/insuranceprocess_certificate_1.0.xsd) | Domänschema (intyg) |
-| [Insuranceprocess_healthreporting_2.0.xsd](files/schema/Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
+| [ListCertificatesInteraction_1.0_rivtabp20.wsdl](ListCertificatesInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
+| [ListCertificatesResponder_1.0.xsd](ListCertificatesResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [insuranceprocess_certificate_1.0.xsd](insuranceprocess_certificate_1.0.xsd) | Domänschema (intyg) |
+| [Insuranceprocess_healthreporting_2.0.xsd](Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
 
 #### FHIR-artefakter
 
@@ -915,10 +915,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetCertificateInteraction_1.0_rivtabp20.wsdl](files/wsdl/GetCertificateInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
-| [GetCertificateResponder_1.0.xsd](files/schema/GetCertificateResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [insuranceprocess_certificate_1.0.xsd](files/schema/insuranceprocess_certificate_1.0.xsd) | Domänschema (intyg) |
-| [Insuranceprocess_healthreporting_2.0.xsd](files/schema/Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
+| [GetCertificateInteraction_1.0_rivtabp20.wsdl](GetCertificateInteraction_1.0_rivtabp20.wsdl) | WSDL-kontrakt |
+| [GetCertificateResponder_1.0.xsd](GetCertificateResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [insuranceprocess_certificate_1.0.xsd](insuranceprocess_certificate_1.0.xsd) | Domänschema (intyg) |
+| [Insuranceprocess_healthreporting_2.0.xsd](Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
 
 #### FHIR-artefakter
 
@@ -959,8 +959,8 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [insuranceprocess_certificate_1.0.xsd](files/schema/insuranceprocess_certificate_1.0.xsd) | Domänschema (intyg) |
-| [Insuranceprocess_healthreporting_2.0.xsd](files/schema/Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
+| [insuranceprocess_certificate_1.0.xsd](insuranceprocess_certificate_1.0.xsd) | Domänschema (intyg) |
+| [Insuranceprocess_healthreporting_2.0.xsd](Insuranceprocess_healthreporting_2.0.xsd) | Domänschema (gemensamt) |
 
 #### FHIR-artefakter
 

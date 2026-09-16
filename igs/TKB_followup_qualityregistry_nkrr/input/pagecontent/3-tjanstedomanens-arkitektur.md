@@ -8,7 +8,7 @@ En vårdgivare notifierar ett kvalitetsregister om att vårdgivaren har uppgifte
 
 ##### Arbetsflöde
 
-![img_006.png](images/img_006.png)
+![img_006.png](img_006.png)
 
 ###### Roller
 
@@ -19,7 +19,7 @@ En vårdgivare notifierar ett kvalitetsregister om att vårdgivaren har uppgifte
 
 ##### Sekvensdiagram
 
-![img_005.jpeg](images/img_005.jpeg)
+![img_005.jpeg](img_005.jpeg)
 
 ###### Roller
 
@@ -35,7 +35,7 @@ Ett andra förlopp är ett helt automatiserat sådant och kan fortlöpa utan bis
 Frågorna som finns definierade för formuläret evalueras mot inhämtat underlag utifrån givna regelskrivningar i NKRR, och resultatet med associerat beslutsunderlag sammanställs i svaret.
 Nedanstående diagram visar hur flödet ser ut när information hämtas med NKRR.
 
-![Arbetsflöde](images/img_002.jpeg)
+![Arbetsflöde](img_002.jpeg)
 Arbetsflöde
 
 ###### Roller
@@ -49,9 +49,9 @@ Arbetsflöde
 
 ##### Sekvensdiagram
 
-![img_007.png](images/img_007.png)
+![img_007.png](img_007.png)
 
-![img_003.jpeg](images/img_003.jpeg)
+![img_003.jpeg](img_003.jpeg)
 
 ###### Roller
 

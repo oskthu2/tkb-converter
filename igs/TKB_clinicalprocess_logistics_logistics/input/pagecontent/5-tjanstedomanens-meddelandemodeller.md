@@ -3,7 +3,7 @@ Här beskrivs de meddelandemodeller som tjänstekontrakten bygger på. För varj
 
 ### V-MIM GetCareContacts – Vårdkontakter
 
-![img_005.png](images/img_005.png)
+![img_005.png](img_005.png)
 
 | Klass.attribut | Mappning mot XSD schema |
 | :--- | :--- |
@@ -50,7 +50,7 @@ Här beskrivs de meddelandemodeller som tjänstekontrakten bygger på. För varj
 
 ### MIM GetCarePlans – Vård- och omsorgsplan
 
-![img_008.png](images/img_008.png)
+![img_008.png](img_008.png)
 
 | Klass.attribut | Mappning mot XSD schema |
 | :--- | :--- |

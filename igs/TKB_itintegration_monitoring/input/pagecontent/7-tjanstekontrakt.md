@@ -85,12 +85,12 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [PingForConfigurationInteraction_1.0_RIVTABP21.wsdl](files/wsdl/PingForConfigurationInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt (RIVTA Basic Profile 2.1) |
-| [PingForConfigurationInteraction_1.0_RIVTABP20.wsdl](files/wsdl/PingForConfigurationInteraction_1.0_RIVTABP20.wsdl) | WSDL-kontrakt (RIVTA Basic Profile 2.0) |
-| [PingForConfigurationResponder_1.0.xsd](files/schema/PingForConfigurationResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [itintegration_monitoring_1.0.xsd](files/schema/itintegration_monitoring_1.0.xsd) | Domänschema (delat, definierar TS-tidsformatet) |
-| [itintegration_registry_1.0.xsd](files/schema/itintegration_registry_1.0.xsd) | Delat schema (LogicalAddress i SOAP-header) |
-| [ws-addressing-1.0.xsd](files/schema/ws-addressing-1.0.xsd) | Delat schema (WS-Addressing) |
+| [PingForConfigurationInteraction_1.0_RIVTABP21.wsdl](PingForConfigurationInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt (RIVTA Basic Profile 2.1) |
+| [PingForConfigurationInteraction_1.0_RIVTABP20.wsdl](PingForConfigurationInteraction_1.0_RIVTABP20.wsdl) | WSDL-kontrakt (RIVTA Basic Profile 2.0) |
+| [PingForConfigurationResponder_1.0.xsd](PingForConfigurationResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [itintegration_monitoring_1.0.xsd](itintegration_monitoring_1.0.xsd) | Domänschema (delat, definierar TS-tidsformatet) |
+| [itintegration_registry_1.0.xsd](itintegration_registry_1.0.xsd) | Delat schema (LogicalAddress i SOAP-header) |
+| [ws-addressing-1.0.xsd](ws-addressing-1.0.xsd) | Delat schema (WS-Addressing) |
 
 #### 7.1 FHIR-artefakter
 

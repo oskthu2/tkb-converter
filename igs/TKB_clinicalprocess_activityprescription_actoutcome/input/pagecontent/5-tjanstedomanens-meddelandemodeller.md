@@ -5,7 +5,7 @@ Här beskrivs de meddelandemodeller som tjänstekontrakten bygger på. För varj
 Modellen beskriver den logiska strukturen för ett svarsmeddelande. Informationsinnehåll och -struktur baseras på en genomgång och analys av ett antal vaccinationsjournalsystem (SMI:s Svevac, TakeCare:s vaccinationsmodul med avstämning även med vissa andra) samt informationskraven som ställs av nationella vaccinationsregistret (sedan 1 januari 2013).
 Vidare ställer lagen om rapportering av nationella vaccinationsprogram vissa informationskrav, som har valts att inkluderas i nedan tjänstekontrakt i syfte att möjliggöra användning av detta tjänstekontrakt för att samla information för rapportering till SMI enligt lagkrav.
 
-![img_007.png](images/img_007.png)
+![img_007.png](img_007.png)
 *Figur 5. MIM över vaccinationsdata.*
 
 | Klass.attribut | Mappning mot XSD schema |
@@ -124,7 +124,7 @@ Vidare ställer lagen om rapportering av nationella vaccinationsprogram vissa in
 Modellen beskriver den logiska strukturen för ett svarsmeddelande. Tjänsten baseras bl.a. på en genomgång av NPÖ RIV 2.2.0 och NOD 1.1.5 [ref. R12].
 En terminologisk detalj att hålla i huvudet: termerna ordination (medicationPrescription) och förskrivning (dispensationAuthorization) används här icke-synonymt. Något förenklat är (läkemedels)ordination läkarens beslut att patienten ska läkemedelsbehandlas, och förskrivning är läkarens auktorisering till apoteket att lämna ut förskrivet läkemedel till patienten. Varje förskrivning föregås alltid av en ordination.
 
-![img_006.jpeg](images/img_006.jpeg)
+![img_006.jpeg](img_006.jpeg)
 *Figur 6. MIM över läkemedelsdata.*
 
 | Klass.attribut | Mappning mot XSD schema |

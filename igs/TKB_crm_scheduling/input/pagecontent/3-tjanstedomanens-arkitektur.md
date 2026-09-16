@@ -23,7 +23,7 @@ Bokar tid – När invånaren valt en ledig tid skickar e-tjänsten en begäran 
 
 ##### Arbetsflöde
 
-![img_022.png](images/img_022.png)
+![img_022.png](img_022.png)
 
 ###### Roller
 
@@ -35,7 +35,7 @@ Bokar tid – När invånaren valt en ledig tid skickar e-tjänsten en begäran 
 Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan beskrivna flödet.
 Notering: De grå blocken indikerar att tjänstekontrakten är frivilliga.
 
-![img_017.png](images/img_017.png)
+![img_017.png](img_017.png)
 
 #### Flöde 2 - Se bokade tider vid en vårdenhet
 Flödet beskriver hur en invånare tar del av sina bokade tider vid en vårdenhet.
@@ -44,7 +44,7 @@ Ser bokade tider – E-tjänsten skickar en begäran till tjänstekontraktet Get
 
 ##### Arbetsflöde
 
-![img_010.png](images/img_010.png)
+![img_010.png](img_010.png)
 
 ###### Roller
 
@@ -55,7 +55,7 @@ Ser bokade tider – E-tjänsten skickar en begäran till tjänstekontraktet Get
 ##### Sekvensdiagram
 Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan beskrivna flödet.
 
-![img_006.png](images/img_006.png)
+![img_006.png](img_006.png)
 
 #### Flöde 3 - Omboka tid
 Flödet beskriver hur en invånare uppdaterar en bokning med nytt datum och tid.
@@ -70,7 +70,7 @@ Ombokar tid – När invånaren valt en ledig tid skickar e-tjänsten en begära
 
 ##### Arbetsflöde
 
-![img_001.png](images/img_001.png)
+![img_001.png](img_001.png)
 
 ###### Roller
 
@@ -82,7 +82,7 @@ Ombokar tid – När invånaren valt en ledig tid skickar e-tjänsten en begära
 Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan beskrivna flödet.
 Notering: De grå blocken indikerar att tjänstekontrakten är frivilliga.
 
-![img_020.png](images/img_020.png)
+![img_020.png](img_020.png)
 
 #### Flöde 4 - Avboka tid
 Flödet beskriver hur en invånare avbokar en bokning på en vårdenhet.
@@ -94,7 +94,7 @@ Avbokar tid – När invånaren valt bokad tid att avboka skickar e-tjänsten en
 
 ##### Arbetsflöde
 
-![img_011.png](images/img_011.png)
+![img_011.png](img_011.png)
 
 ###### Roller
 
@@ -105,7 +105,7 @@ Avbokar tid – När invånaren valt bokad tid att avboka skickar e-tjänsten en
 ##### Sekvensdiagram
 Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan beskrivna flödet.
 
-![img_004.png](images/img_004.png)
+![img_004.png](img_004.png)
 
 #### Flöde 5 - Se nationell kalender
 Flödet beskriver hur en invånare tar del av sin nationella kalender.
@@ -114,7 +114,7 @@ Ser nationell kalender – E-tjänsten visar upp det sammansatta svaret för inv
 
 ##### Arbetsflöde
 
-![img_023.png](images/img_023.png)
+![img_023.png](img_023.png)
 
 ###### Roller
 
@@ -125,7 +125,7 @@ Ser nationell kalender – E-tjänsten visar upp det sammansatta svaret för inv
 ##### Sekvensdiagram
 Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan beskrivna flödet.
 
-![img_018.png](images/img_018.png)
+![img_018.png](img_018.png)
 
 #### Flöde 6 - Tidsatt kallelse
 Flödet beskriver hur en hälso- och sjukvårdspersonal skickar en tidsatt elektronisk kallelse till en invånare.
@@ -134,7 +134,7 @@ Tar del av kallelse – Invånaren loggar in i e-tjänsten och tar del av kallel
 
 ##### Arbetsflöde
 
-![img_013.png](images/img_013.png)
+![img_013.png](img_013.png)
 
 ###### Roller
 
@@ -146,7 +146,7 @@ Tar del av kallelse – Invånaren loggar in i e-tjänsten och tar del av kallel
 ##### Sekvensdiagram
 Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan beskrivna flödet.
 
-![img_007.png](images/img_007.png)
+![img_007.png](img_007.png)
 
 #### Flöde 7 - Öppen kallelse
 Flödet beskriver hur en hälso- och sjukvårdspersonal skickar en öppen (ej tidsatt) elektronisk kallelse till en invånare och hur invånaren bokar en tid utifrån kallelsen.
@@ -159,7 +159,7 @@ Bokar tid – När invånaren valt en ledig tid skickar e-tjänsten en begäran 
 
 ##### Arbetsflöde
 
-![img_002.png](images/img_002.png)
+![img_002.png](img_002.png)
 
 ###### Roller
 
@@ -171,7 +171,7 @@ Bokar tid – När invånaren valt en ledig tid skickar e-tjänsten en begäran 
 ##### Sekvensdiagram
 Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan beskrivna flödet.
 
-![img_024.png](images/img_024.png)
+![img_024.png](img_024.png)
 
 #### Obligatoriska kontrakt
 En tjänsteproducent måste minst stödja kontraktet GetSubjectOfCareSchedule. Övriga av tjänstedomänens tjänstekontrakt är frivilliga att stödja för tjänsteproducent. Tjänsteproducent ska åtminstone kunna returnera invånares bokade tider på vårdenheten/mottagningen. Som en följd av detta måste tjänsteproducent samtidigt också uppdatera engagemangsindex med indexposter som motsvarar bokningarna. Se referens [R2] - Tjänstedomän Engagemangsindex för vidare detaljer kring tjänstekontraktet Update, likaså denna tjänstedomäns specifika regler som gäller utöver tjänstedomänen för engagemangsindex (kap i detta dokument: Anvisningar för uppdatering av Engagemangsindex).

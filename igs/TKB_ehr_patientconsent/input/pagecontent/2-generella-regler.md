@@ -29,13 +29,13 @@ Tjänstekontrakten stödjer en arkitektur där det är möjligt att integrera mo
 Tjänsteproducenten kan nyttja mellanlagring för att öka tillgängligheten på tjänsterna. Ett svar kan då returneras även om bakomliggande system för tillfället är otillgängligt. Det måste dock anges i SLA för en viss implementation av tjänsten vilken förväntad aktualitet som gäller.
 Ett vårdsystem som endast har behov av samtycken tillhörande vissa lokala/regionala vårdgivare, blir bara beroende av den samtyckesinstans som hanterar de aktuella vårdgivarna. Om t ex en region väljer att implementera en egen lokal tjänst för alla vårdgivare i regionen, blir deras vårdsystem enbart beroende av deras egen lokala tjänst.
 
-![Lokalt vårdsystem kommunicerar enbart med en lokal tjänst](images/img_003.png)
+![Lokalt vårdsystem kommunicerar enbart med en lokal tjänst](img_003.png)
 
 *Figur 2: Lokalt vårdsystem kommunicerar enbart med en lokal tjänst*
 
 Nationella tillämpningar behöver kunna hantera samtycket oavsett vilken vårdgivare som använder tjänsten. Här routas anropen till den tjänst som behövs beroende på vilken vårdgivare som använder tillämpningen just för tillfället.
 
-![Nationell e-tjänst kommunicerar med en lokal tjänst via tjänsteplattform](images/img_002.png)
+![Nationell e-tjänst kommunicerar med en lokal tjänst via tjänsteplattform](img_002.png)
 
 *Figur 3: Nationell e-tjänst kommunicerar med en lokal tjänst via tjänsteplattform*
 

@@ -4,23 +4,23 @@ Här beskrivs de meddelandemodeller som tjänstekontrakten bygger på. För varj
 
 ## V-MIM GetFMB-Request
 
-![V-MIM GetFMB-Request](images/img_004.png)
+![V-MIM GetFMB-Request](img_004.png)
 
 ## V-MIM GetFMB-Response
 
-![V-MIM GetFMB-Response](images/img_005.png)
+![V-MIM GetFMB-Response](img_005.png)
 
 ## V-MIM DiagnosInformation-Request
 
-![V-MIM DiagnosInformation-Request](images/img_006.png)
+![V-MIM DiagnosInformation-Request](img_006.png)
 
 ## V-MIM DiagnosInformation-Response
 
-![V-MIM DiagnosInformation-Response](images/img_007.png)
+![V-MIM DiagnosInformation-Response](img_007.png)
 
 ## V-MIM GetVersions-response
 
-![V-MIM GetVersions-response](images/img_001.png)
+![V-MIM GetVersions-response](img_001.png)
 
 ## Mappning av MIM mot RIM
 

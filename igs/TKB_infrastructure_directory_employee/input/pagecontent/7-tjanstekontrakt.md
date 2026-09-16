@@ -102,11 +102,11 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetEmployeeIncludingProtectedPersonInteraction_4.0_RIVTABP21.wsdl](files/wsdl/GetEmployeeIncludingProtectedPersonInteraction_4.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [infrastructure_directory_employee_4.0.xsd](files/schema/infrastructure_directory_employee_4.0.xsd) | Domänschema (delat) |
-| [GetEmployeeIncludingProtectedPersonResponder_4.0.xsd](files/schema/GetEmployeeIncludingProtectedPersonResponder_4.0.xsd) | Tjänstespecifikt schema |
-| [AB_infrastructure_directory_employee.docx](files/docs/AB_infrastructure_directory_employee.docx) | Arkitekturbeslut |
-| [informationsspecifikation_for_katalogtjanst_hsa.pdf](files/docs/informationsspecifikation_for_katalogtjanst_hsa.pdf) | Informationsspecifikation |
+| [GetEmployeeIncludingProtectedPersonInteraction_4.0_RIVTABP21.wsdl](GetEmployeeIncludingProtectedPersonInteraction_4.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [infrastructure_directory_employee_4.0.xsd](infrastructure_directory_employee_4.0.xsd) | Domänschema (delat) |
+| [GetEmployeeIncludingProtectedPersonResponder_4.0.xsd](GetEmployeeIncludingProtectedPersonResponder_4.0.xsd) | Tjänstespecifikt schema |
+| [AB_infrastructure_directory_employee.docx](AB_infrastructure_directory_employee.docx) | Arkitekturbeslut |
+| [informationsspecifikation_for_katalogtjanst_hsa.pdf](informationsspecifikation_for_katalogtjanst_hsa.pdf) | Informationsspecifikation |
 
 #### FHIR-artefakter
 
@@ -136,11 +136,11 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetEmployeeInteraction_4.0_RIVTABP21.wsdl](files/wsdl/GetEmployeeInteraction_4.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [infrastructure_directory_employee_4.0.xsd](files/schema/infrastructure_directory_employee_4.0.xsd) | Domänschema (delat) |
-| [GetEmployeeResponder_4.0.xsd](files/schema/GetEmployeeResponder_4.0.xsd) | Tjänstespecifikt schema |
-| [AB_infrastructure_directory_employee.docx](files/docs/AB_infrastructure_directory_employee.docx) | Arkitekturbeslut |
-| [informationsspecifikation_for_katalogtjanst_hsa.pdf](files/docs/informationsspecifikation_for_katalogtjanst_hsa.pdf) | Informationsspecifikation |
+| [GetEmployeeInteraction_4.0_RIVTABP21.wsdl](GetEmployeeInteraction_4.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [infrastructure_directory_employee_4.0.xsd](infrastructure_directory_employee_4.0.xsd) | Domänschema (delat) |
+| [GetEmployeeResponder_4.0.xsd](GetEmployeeResponder_4.0.xsd) | Tjänstespecifikt schema |
+| [AB_infrastructure_directory_employee.docx](AB_infrastructure_directory_employee.docx) | Arkitekturbeslut |
+| [informationsspecifikation_for_katalogtjanst_hsa.pdf](informationsspecifikation_for_katalogtjanst_hsa.pdf) | Informationsspecifikation |
 
 #### FHIR-artefakter
 
@@ -237,11 +237,11 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetCommissionMembersIncludingProtectedPersonInteraction_3.0_RIVTABP21.wsdl](files/wsdl/GetCommissionMembersIncludingProtectedPersonInteraction_3.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [infrastructure_directory_employee_4.0.xsd](files/schema/infrastructure_directory_employee_4.0.xsd) | Domänschema (delat) |
-| [GetCommissionMembersIncludingProtectedPersonResponder_3.0.xsd](files/schema/GetCommissionMembersIncludingProtectedPersonResponder_3.0.xsd) | Tjänstespecifikt schema |
-| [AB_infrastructure_directory_employee.docx](files/docs/AB_infrastructure_directory_employee.docx) | Arkitekturbeslut |
-| [informationsspecifikation_for_katalogtjanst_hsa.pdf](files/docs/informationsspecifikation_for_katalogtjanst_hsa.pdf) | Informationsspecifikation |
+| [GetCommissionMembersIncludingProtectedPersonInteraction_3.0_RIVTABP21.wsdl](GetCommissionMembersIncludingProtectedPersonInteraction_3.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [infrastructure_directory_employee_4.0.xsd](infrastructure_directory_employee_4.0.xsd) | Domänschema (delat) |
+| [GetCommissionMembersIncludingProtectedPersonResponder_3.0.xsd](GetCommissionMembersIncludingProtectedPersonResponder_3.0.xsd) | Tjänstespecifikt schema |
+| [AB_infrastructure_directory_employee.docx](AB_infrastructure_directory_employee.docx) | Arkitekturbeslut |
+| [informationsspecifikation_for_katalogtjanst_hsa.pdf](informationsspecifikation_for_katalogtjanst_hsa.pdf) | Informationsspecifikation |
 
 #### FHIR-artefakter
 
@@ -271,11 +271,11 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetCommissionMembersInteraction_3.0_RIVTABP21.wsdl](files/wsdl/GetCommissionMembersInteraction_3.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [infrastructure_directory_employee_4.0.xsd](files/schema/infrastructure_directory_employee_4.0.xsd) | Domänschema (delat) |
-| [GetCommissionMembersResponder_3.0.xsd](files/schema/GetCommissionMembersResponder_3.0.xsd) | Tjänstespecifikt schema |
-| [AB_infrastructure_directory_employee.docx](files/docs/AB_infrastructure_directory_employee.docx) | Arkitekturbeslut |
-| [informationsspecifikation_for_katalogtjanst_hsa.pdf](files/docs/informationsspecifikation_for_katalogtjanst_hsa.pdf) | Informationsspecifikation |
+| [GetCommissionMembersInteraction_3.0_RIVTABP21.wsdl](GetCommissionMembersInteraction_3.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [infrastructure_directory_employee_4.0.xsd](infrastructure_directory_employee_4.0.xsd) | Domänschema (delat) |
+| [GetCommissionMembersResponder_3.0.xsd](GetCommissionMembersResponder_3.0.xsd) | Tjänstespecifikt schema |
+| [AB_infrastructure_directory_employee.docx](AB_infrastructure_directory_employee.docx) | Arkitekturbeslut |
+| [informationsspecifikation_for_katalogtjanst_hsa.pdf](informationsspecifikation_for_katalogtjanst_hsa.pdf) | Informationsspecifikation |
 
 #### FHIR-artefakter
 

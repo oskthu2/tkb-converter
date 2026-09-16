@@ -111,12 +111,12 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetCredentialsForPersonIncludingProtectedPersonInteraction_2.2_RIVTABP21.wsdl](files/wsdl/GetCredentialsForPersonIncludingProtectedPersonInteraction_2.2_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [infrastructure_directory_authorizationmanagement_2.4.xsd](files/schema/infrastructure_directory_authorizationmanagement_2.4.xsd) | Domänschema (delat) |
-| [GetCredentialsForPersonIncludingProtectedPersonResponder_2.2.xsd](files/schema/GetCredentialsForPersonIncludingProtectedPersonResponder_2.2.xsd) | Tjänstespecifikt schema |
-| [GetCredentialsForPersonIncludingProtectedPersonResponder_2.1_ext.xsd](files/schema/GetCredentialsForPersonIncludingProtectedPersonResponder_2.1_ext.xsd) | Schematillägg v2.1 |
-| [AB_infrastructure_directory_authorizationmanagement.docx](files/docs/AB_infrastructure_directory_authorizationmanagement.docx) | Arkitekturellt beslut |
-| [informationsspecifikation_for_katalogtjanst_hsa_version_3.1.pdf](files/docs/informationsspecifikation_for_katalogtjanst_hsa_version_3.1.pdf) | Informationsspecifikation HSA |
+| [GetCredentialsForPersonIncludingProtectedPersonInteraction_2.2_RIVTABP21.wsdl](GetCredentialsForPersonIncludingProtectedPersonInteraction_2.2_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [infrastructure_directory_authorizationmanagement_2.4.xsd](infrastructure_directory_authorizationmanagement_2.4.xsd) | Domänschema (delat) |
+| [GetCredentialsForPersonIncludingProtectedPersonResponder_2.2.xsd](GetCredentialsForPersonIncludingProtectedPersonResponder_2.2.xsd) | Tjänstespecifikt schema |
+| [GetCredentialsForPersonIncludingProtectedPersonResponder_2.1_ext.xsd](GetCredentialsForPersonIncludingProtectedPersonResponder_2.1_ext.xsd) | Schematillägg v2.1 |
+| [AB_infrastructure_directory_authorizationmanagement.docx](AB_infrastructure_directory_authorizationmanagement.docx) | Arkitekturellt beslut |
+| [informationsspecifikation_for_katalogtjanst_hsa_version_3.1.pdf](informationsspecifikation_for_katalogtjanst_hsa_version_3.1.pdf) | Informationsspecifikation HSA |
 
 #### FHIR-artefakter
 
@@ -144,10 +144,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetCredentialsForPersonInteraction_2.2_RIVTABP21.wsdl](files/wsdl/GetCredentialsForPersonInteraction_2.2_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [infrastructure_directory_authorizationmanagement_2.4.xsd](files/schema/infrastructure_directory_authorizationmanagement_2.4.xsd) | Domänschema (delat) |
-| [GetCredentialsForPersonResponder_2.2.xsd](files/schema/GetCredentialsForPersonResponder_2.2.xsd) | Tjänstespecifikt schema |
-| [GetCredentialsForPersonResponder_2.1_ext.xsd](files/schema/GetCredentialsForPersonResponder_2.1_ext.xsd) | Schematillägg v2.1 |
+| [GetCredentialsForPersonInteraction_2.2_RIVTABP21.wsdl](GetCredentialsForPersonInteraction_2.2_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [infrastructure_directory_authorizationmanagement_2.4.xsd](infrastructure_directory_authorizationmanagement_2.4.xsd) | Domänschema (delat) |
+| [GetCredentialsForPersonResponder_2.2.xsd](GetCredentialsForPersonResponder_2.2.xsd) | Tjänstespecifikt schema |
+| [GetCredentialsForPersonResponder_2.1_ext.xsd](GetCredentialsForPersonResponder_2.1_ext.xsd) | Schematillägg v2.1 |
 
 #### FHIR-artefakter
 
@@ -228,9 +228,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetAdminCredentialsForPersonIncludingProtectedPersonInteraction_2.0_RIVTABP21.wsdl](files/wsdl/GetAdminCredentialsForPersonIncludingProtectedPersonInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [infrastructure_directory_authorizationmanagement_2.4.xsd](files/schema/infrastructure_directory_authorizationmanagement_2.4.xsd) | Domänschema (delat) |
-| [GetAdminCredentialsForPersonIncludingProtectedPersonResponder_2.0.xsd](files/schema/GetAdminCredentialsForPersonIncludingProtectedPersonResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [GetAdminCredentialsForPersonIncludingProtectedPersonInteraction_2.0_RIVTABP21.wsdl](GetAdminCredentialsForPersonIncludingProtectedPersonInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [infrastructure_directory_authorizationmanagement_2.4.xsd](infrastructure_directory_authorizationmanagement_2.4.xsd) | Domänschema (delat) |
+| [GetAdminCredentialsForPersonIncludingProtectedPersonResponder_2.0.xsd](GetAdminCredentialsForPersonIncludingProtectedPersonResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -257,9 +257,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetAdminCredentialsForPersonInteraction_2.0_RIVTABP21.wsdl](files/wsdl/GetAdminCredentialsForPersonInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [infrastructure_directory_authorizationmanagement_2.4.xsd](files/schema/infrastructure_directory_authorizationmanagement_2.4.xsd) | Domänschema (delat) |
-| [GetAdminCredentialsForPersonResponder_2.0.xsd](files/schema/GetAdminCredentialsForPersonResponder_2.0.xsd) | Tjänstespecifikt schema |
+| [GetAdminCredentialsForPersonInteraction_2.0_RIVTABP21.wsdl](GetAdminCredentialsForPersonInteraction_2.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [infrastructure_directory_authorizationmanagement_2.4.xsd](infrastructure_directory_authorizationmanagement_2.4.xsd) | Domänschema (delat) |
+| [GetAdminCredentialsForPersonResponder_2.0.xsd](GetAdminCredentialsForPersonResponder_2.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -297,9 +297,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetHospLastUpdateInteraction_1.0_RIVTABP21.wsdl](files/wsdl/GetHospLastUpdateInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [infrastructure_directory_authorizationmanagement_2.4.xsd](files/schema/infrastructure_directory_authorizationmanagement_2.4.xsd) | Domänschema (delat) |
-| [GetHospLastUpdateResponder_1.0.xsd](files/schema/GetHospLastUpdateResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [GetHospLastUpdateInteraction_1.0_RIVTABP21.wsdl](GetHospLastUpdateInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [infrastructure_directory_authorizationmanagement_2.4.xsd](infrastructure_directory_authorizationmanagement_2.4.xsd) | Domänschema (delat) |
+| [GetHospLastUpdateResponder_1.0.xsd](GetHospLastUpdateResponder_1.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 
@@ -359,10 +359,10 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [GetHospCredentialsForPersonInteraction_1.0_RIVTABP21.wsdl](files/wsdl/GetHospCredentialsForPersonInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [infrastructure_directory_authorizationmanagement_2.4.xsd](files/schema/infrastructure_directory_authorizationmanagement_2.4.xsd) | Domänschema (delat) |
-| [GetHospCredentialsForPersonResponder_1.0.xsd](files/schema/GetHospCredentialsForPersonResponder_1.0.xsd) | Tjänstespecifikt schema |
-| [informationsspecifikation_for_katalogtjanst_hsa_version_3.1.pdf](files/docs/informationsspecifikation_for_katalogtjanst_hsa_version_3.1.pdf) | Informationsspecifikation HSA |
+| [GetHospCredentialsForPersonInteraction_1.0_RIVTABP21.wsdl](GetHospCredentialsForPersonInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [infrastructure_directory_authorizationmanagement_2.4.xsd](infrastructure_directory_authorizationmanagement_2.4.xsd) | Domänschema (delat) |
+| [GetHospCredentialsForPersonResponder_1.0.xsd](GetHospCredentialsForPersonResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [informationsspecifikation_for_katalogtjanst_hsa_version_3.1.pdf](informationsspecifikation_for_katalogtjanst_hsa_version_3.1.pdf) | Informationsspecifikation HSA |
 
 #### FHIR-artefakter
 
@@ -407,9 +407,9 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 
 | Fil | Typ |
 |-----|-----|
-| [HandleHospCertificationPersonInteraction_1.0_RIVTABP21.wsdl](files/wsdl/HandleHospCertificationPersonInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
-| [infrastructure_directory_authorizationmanagement_2.4.xsd](files/schema/infrastructure_directory_authorizationmanagement_2.4.xsd) | Domänschema (delat) |
-| [HandleHospCertificationPersonResponder_1.0.xsd](files/schema/HandleHospCertificationPersonResponder_1.0.xsd) | Tjänstespecifikt schema |
+| [HandleHospCertificationPersonInteraction_1.0_RIVTABP21.wsdl](HandleHospCertificationPersonInteraction_1.0_RIVTABP21.wsdl) | WSDL-kontrakt |
+| [infrastructure_directory_authorizationmanagement_2.4.xsd](infrastructure_directory_authorizationmanagement_2.4.xsd) | Domänschema (delat) |
+| [HandleHospCertificationPersonResponder_1.0.xsd](HandleHospCertificationPersonResponder_1.0.xsd) | Tjänstespecifikt schema |
 
 #### FHIR-artefakter
 

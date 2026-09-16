@@ -7,7 +7,7 @@ Ljusblå klasser har en direkt mappning till NI 2017.
 Orange klasser är tillägg utan mappning till NI 2017.
 Mörkblå klasser är tekniska platshållare till informationen.
 
-![img_003.png](images/img_003.png)
+![img_003.png](img_003.png)
 
 | V-MIM | XSD Schema | Mappning mot NI 2017 |
 | :--- | :--- | :--- |

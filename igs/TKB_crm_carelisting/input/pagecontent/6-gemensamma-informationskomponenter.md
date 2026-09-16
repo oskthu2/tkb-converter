@@ -6,7 +6,7 @@ Nedanstående bild visar informationsbehovet i en informationsmodell enligt UML.
 
 #### Primärvårdstjänst (domänmodell)
 
-![V-DIM — Primärvårdstjänst](images/img_016.png)
+![V-DIM — Primärvårdstjänst](img_016.png)
 
 ### V-DIM Klasser och attribut
 
