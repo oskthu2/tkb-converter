@@ -1,3 +1,5 @@
+[GetHealthCareProvider]: StructureDefinition-gethealthcareprovider.html
+[GetHealthCareProviderRequest]: StructureDefinition-gethealthcareprovider-request.html
 [GetHealthCareUnit]: StructureDefinition-gethealthcareunit.html
 [GetHealthCareUnitRequest]: StructureDefinition-gethealthcareunit-request.html
 [GetHealthCareUnitList]: StructureDefinition-gethealthcareunitlist.html

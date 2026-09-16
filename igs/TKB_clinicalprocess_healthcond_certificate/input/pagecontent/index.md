@@ -15,7 +15,7 @@ Domänen innehåller följande tjänstekontrakt:
 |----------|---------|-------------|
 | [GetCertificate](7-tjanstekontrakt.html#getcertificate) | 2.1 | Hämtar ett enskilt intyg och tillhörande metadata |
 | [ListCertificatesForCare](7-tjanstekontrakt.html#listcertificatesforcare) | 3.1 | Listar intyg för en patient på en eller flera enheter (vård) |
-| [ListCertificatesForCitizen](7-tjanstekontrakt.html#listcertificatesforcitizan) | 4.0 | Listar intyg för en patient (invånartjänst) |
+| [ListCertificatesForCitizen](7-tjanstekontrakt.html#listcertificatesforcitizen) | 4.0 | Listar intyg för en patient (invånartjänst) |
 | [RegisterCertificate](7-tjanstekontrakt.html#registercertificate) | 3.1 | Registrerar ett intyg i en intygstjänst |
 | [RevokeCertificate](7-tjanstekontrakt.html#revokecertificate) | 2.1 | Makulerar ett registrerat intyg |
 | [SendCertificateToRecipient](7-tjanstekontrakt.html#sendcertificatetorecipient) | 2.1 | Skickar ett intyg till en intygsmottagare |

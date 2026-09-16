@@ -1,5 +1,7 @@
 [BlockTypeCS]: CodeSystem-blocktype-cs.html
 [BlockTypeVS]: ValueSet-blocktype-vs.html
+[CancelTemporaryExtendedRevoke]: StructureDefinition-canceltemporaryextendedrevoke.html
+[CancelTemporaryExtendedRevokeRequest]: StructureDefinition-canceltemporaryextendedrevoke-request.html
 [CheckBlocks]: StructureDefinition-checkblocks.html
 [CheckBlocksRequest]: StructureDefinition-checkblocks-request.html
 [DeleteExtendedBlock]: StructureDefinition-deleteextendedblock.html
@@ -12,8 +14,8 @@
 [GetBlocksRequest]: StructureDefinition-getblocks-request.html
 [GetBlocksForPatient]: StructureDefinition-getblocksforpatient.html
 [GetBlocksForPatientRequest]: StructureDefinition-getblocksforpatient-request.html
-[GetExtendedBlocksForPatient]: StructureDefinition-getextendedblockforpatient.html
-[GetExtendedBlocksForPatientRequest]: StructureDefinition-getextendedblockforpatient-request.html
+[GetExtendedBlocksForPatient]: StructureDefinition-getextendedblocksforpatient.html
+[GetExtendedBlocksForPatientRequest]: StructureDefinition-getextendedblocksforpatient-request.html
 [GetPatientIds]: StructureDefinition-getpatientids.html
 [GetPatientIdsRequest]: StructureDefinition-getpatientids-request.html
 [RegisterBlock]: StructureDefinition-registerblock.html
@@ -21,6 +23,7 @@
 [RegisterExtendedBlock]: StructureDefinition-registerextendedblock.html
 [RegisterExtendedBlockRequest]: StructureDefinition-registerextendedblock-request.html
 [RegisterTemporaryExtendedRevoke]: StructureDefinition-registertemporaryextendedrevoke.html
+[RegisterTemporaryExtendedRevokeRequest]: StructureDefinition-registertemporaryextendedrevoke-request.html
 [RegisterTemporaryRevoke]: StructureDefinition-registertemporaryrevoke.html
 [RegisterTemporaryRevokeRequest]: StructureDefinition-registertemporaryrevoke-request.html
 [ResultCodeCS]: CodeSystem-resultcode-cs.html

@@ -3,7 +3,7 @@
 // Genererad: 2026-04-09
 
 Logical: GetExtendedBlocksForPatientRequest
-Id: getextendedblockforpatient-request
+Id: getextendedblocksforpatient-request
 Title: "GetExtendedBlocksForPatient — Request"
 Description: "Logisk modell för requestparametrar i GetExtendedBlocksForPatient."
 Characteristics: #can-be-target

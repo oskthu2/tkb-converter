@@ -3,7 +3,7 @@
 // Genererad: 2026-04-09
 
 Logical: GetExtendedBlocksForPatient
-Id: getextendedblockforpatient
+Id: getextendedblocksforpatient
 Title: "GetExtendedBlocksForPatient"
 Description: """
   Logisk modell för tjänstekontraktet GetExtendedBlocksForPatient

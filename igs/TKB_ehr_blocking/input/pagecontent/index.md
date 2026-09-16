@@ -42,7 +42,7 @@ Domänen innehåller följande tjänstekontrakt, organiserade i fyra underdomän
 | Kontrakt | Version | Beskrivning |
 |----------|---------|-------------|
 | [GetPatientIds](7-tjanstekontrakt.html#getpatientids) | 2.0 | Läs patient-ID för spärrade patienter |
-| [GetExtendedBlocksForPatient](7-tjanstekontrakt.html#getextendedblockforpatient) | 2.0 | Läs utökade spärrar för patient |
+| [GetExtendedBlocksForPatient](7-tjanstekontrakt.html#getextendedblocksforpatient) | 2.0 | Läs utökade spärrar för patient |
 | [RegisterExtendedBlock](7-tjanstekontrakt.html#registerextendedblock) | 2.0 | Registrera utökad spärr |
 | [RevokeExtendedBlock](7-tjanstekontrakt.html#revokeextendedblock) | 2.0 | Häv spärr permanent |
 | [DeleteExtendedBlock](7-tjanstekontrakt.html#deleteextendedblock) | 2.0 | Makulera spärr |

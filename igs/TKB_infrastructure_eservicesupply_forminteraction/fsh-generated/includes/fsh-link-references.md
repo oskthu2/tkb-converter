@@ -4,6 +4,8 @@
 [CreateFormInput]: StructureDefinition-createform-request.html
 [CreateFormRequest]: StructureDefinition-createformrequest.html
 [CreateFormRequestRequest]: StructureDefinition-createformrequest-request.html
+[DeleteFormTemplate]: StructureDefinition-deleteformtemplate.html
+[DeleteFormTemplateRequest]: StructureDefinition-deleteformtemplate-request.html
 [GetForm]: StructureDefinition-getform.html
 [GetFormRequest]: StructureDefinition-getform-request.html
 [GetFormQuestionPage]: StructureDefinition-getformquestionpage.html
@@ -28,3 +30,5 @@
 [SaveFormRequest]: StructureDefinition-saveform-request.html
 [SaveFormPage]: StructureDefinition-saveformpage.html
 [SaveFormPageRequest]: StructureDefinition-saveformpage-request.html
+[SaveFormTemplate]: StructureDefinition-saveformtemplate.html
+[SaveFormTemplateRequest]: StructureDefinition-saveformtemplate-request.html

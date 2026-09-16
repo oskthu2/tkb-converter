@@ -1,0 +1,74 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "canceltemporaryextendedrevoke",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/canceltemporaryextendedrevoke",
+  "name": "CancelTemporaryExtendedRevoke",
+  "title": "CancelTemporaryExtendedRevoke",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet CancelTemporaryExtendedRevoke\n(RIV-TA urn:riv:ehr:blocking:administration:CancelTemporaryExtendedRevokeResponder:2).\nÅterkallar en tillfällig hävning i den lokala spärrtjänsten, om den tillfälliga\nhävningen finns. Denna återkallning kan inte återtas. Tjänsten avregistrerar\näven den tillfälliga hävningen på nationell nivå.\nRepresenterar responsens informationsstruktur.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/canceltemporaryextendedrevoke",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "canceltemporaryextendedrevoke",
+        "path": "canceltemporaryextendedrevoke",
+        "short": "CancelTemporaryExtendedRevoke",
+        "definition": "Logisk modell för tjänstekontraktet CancelTemporaryExtendedRevoke\n(RIV-TA urn:riv:ehr:blocking:administration:CancelTemporaryExtendedRevokeResponder:2).\nÅterkallar en tillfällig hävning i den lokala spärrtjänsten, om den tillfälliga\nhävningen finns. Denna återkallning kan inte återtas. Tjänsten avregistrerar\näven den tillfälliga hävningen på nationell nivå.\nRepresenterar responsens informationsstruktur."
+      },
+      {
+        "id": "canceltemporaryextendedrevoke.result",
+        "path": "canceltemporaryextendedrevoke.result",
+        "short": "Resultat av återkallningen",
+        "definition": "Resultat av återkallningen",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "canceltemporaryextendedrevoke.result.resultCode",
+        "path": "canceltemporaryextendedrevoke.result.resultCode",
+        "short": "Svarskod",
+        "definition": "Svarskod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-blocking/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "canceltemporaryextendedrevoke.result.resultText",
+        "path": "canceltemporaryextendedrevoke.result.resultText",
+        "short": "Beskrivande text till svarskoden",
+        "definition": "Beskrivande text till svarskoden",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}
