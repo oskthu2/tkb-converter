@@ -1,0 +1,262 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "inera.processdevelopment-infections",
+  "url": "https://fhir.inera.se/ig/processdevelopment-infections/ImplementationGuide/inera.processdevelopment-infections",
+  "version": "1.0.2",
+  "name": "ProcessdevelopmentInfections",
+  "title": "processdevelopment: infections",
+  "status": "draft",
+  "contact": [
+    {
+      "name": "Inera Arkitektur",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.inera.se"
+        }
+      ]
+    }
+  ],
+  "copyright": "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "packageId": "inera.processdevelopment-infections",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.r4.core",
+      "version": "4.0.1",
+      "uri": "http://fhir.org/packages/hl7.fhir.r4.core/ImplementationGuide/hl7.fhir.r4.core",
+      "id": "hl7_fhir_r4_core"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "StructureDefinition/deleteactivity"
+        },
+        "name": "DeleteActivity",
+        "description": "Logisk modell för tjänstekontraktet DeleteActivity\n(RIV-TA processdevelopment:infections). Raderar information som tidigare\nregistrerats via ProcessActivity. Representerar responsens\ninformationsstruktur.\n\nRequest innehåller endast två filterfält (logicalAddress, activityId) och\ndokumenteras i sin helhet i avsnitt 7 istället för som en separat logisk\nmodell.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/deletecareencounter"
+        },
+        "name": "DeleteCareEncounter",
+        "description": "Logisk modell för tjänstekontraktet DeleteCareEncounter\n(RIV-TA processdevelopment:infections). Raderar information som tidigare\nregistrerats via ProcessCareEncounter. Representerar responsens\ninformationsstruktur.\n\nRequest innehåller endast två filterfält (logicalAddress, careEncounterId)\noch dokumenteras i sin helhet i avsnitt 7 istället för som en separat\nlogisk modell.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/deletecondition"
+        },
+        "name": "DeleteCondition",
+        "description": "Logisk modell för tjänstekontraktet DeleteCondition\n(RIV-TA processdevelopment:infections). Raderar information som tidigare\nregistrerats via ProcessCondition. Representerar responsens\ninformationsstruktur.\n\nRequest innehåller endast två filterfält (logicalAddress, conditionId)\noch dokumenteras i sin helhet i avsnitt 7 istället för som en separat\nlogisk modell.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/deletelaboratoryreport"
+        },
+        "name": "DeleteLaboratoryReport",
+        "description": "Logisk modell för tjänstekontraktet DeleteLaboratoryReport\n(RIV-TA processdevelopment:infections). Raderar information som tidigare\nregistrerats via ProcessLaboratoryReport. Representerar responsens\ninformationsstruktur.\n\nRequest innehåller endast två filterfält (logicalAddress,\nlaboratoryReportId) och dokumenteras i sin helhet i avsnitt 7 istället\nför som en separat logisk modell.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/deleteprescription"
+        },
+        "name": "DeletePrescription",
+        "description": "Logisk modell för tjänstekontraktet DeletePrescription\n(RIV-TA processdevelopment:infections). Raderar information om en\nordination som tidigare registrerats via ProcessPrescriptionReason\n(ordinationsorsaken för ordinationen tas inte bort). Representerar\nresponsens informationsstruktur.\n\nRequest innehåller endast två filterfält (logicalAddress, prescriptionId)\noch dokumenteras i sin helhet i avsnitt 7 istället för som en separat\nlogisk modell.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/deleteprescriptionreason"
+        },
+        "name": "DeletePrescriptionReason",
+        "description": "Logisk modell för tjänstekontraktet DeletePrescriptionReason\n(RIV-TA processdevelopment:infections). Raderar information som tidigare\nregistrerats via ProcessPrescriptionReason. Representerar responsens\ninformationsstruktur.\n\nRequest innehåller endast tre filterfält (logicalAddress, activityId,\nconditionId — exakt ett av activityId/conditionId ska anges) och\ndokumenteras i sin helhet i avsnitt 7 istället för som en separat\nlogisk modell.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/processactivity"
+        },
+        "name": "ProcessActivity",
+        "description": "Logisk modell för tjänstekontraktet ProcessActivity\n(RIV-TA processdevelopment:infections). Representerar responsens\ninformationsstruktur — bekräftar registrering av en aktivitet.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/processactivity-request"
+        },
+        "name": "ProcessActivity — Request",
+        "description": "Logisk modell för requestparametrar i ProcessActivity. Registrerar en eller\nflera aktiviteter som utförts på en patient på en viss enhet. En befintlig\naktivitet kan uppdateras genom att ett nytt meddelande med samma\naktivitetsid skickas in.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/processcareencounter"
+        },
+        "name": "ProcessCareEncounter",
+        "description": "Logisk modell för tjänstekontraktet ProcessCareEncounter\n(RIV-TA processdevelopment:infections). Representerar responsens\ninformationsstruktur — bekräftar registrering av en patientplacering\n(vårdkontakt).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/processcareencounter-request"
+        },
+        "name": "ProcessCareEncounter — Request",
+        "description": "Logisk modell för requestparametrar i ProcessCareEncounter. Registrerar en\nny patientplacering med information om patient, organisatorisk enhet och\nperiod för placeringen. En befintlig patientplacering kan uppdateras genom\natt ett nytt meddelande med samma vårdkontaktid skickas in.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/processcondition"
+        },
+        "name": "ProcessCondition",
+        "description": "Logisk modell för tjänstekontraktet ProcessCondition\n(RIV-TA processdevelopment:infections). Representerar responsens\ninformationsstruktur — bekräftar registrering av ett bedömt\nhälsorelaterat tillstånd.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/processcondition-request"
+        },
+        "name": "ProcessCondition — Request",
+        "description": "Logisk modell för requestparametrar i ProcessCondition. Registrerar ett\neller flera nya bedömt hälsorelaterat tillstånd med information om\npatient, organisatorisk enhet och tillstånd. Ett befintligt tillstånd kan\nuppdateras genom att ett nytt meddelande med samma tillståndsid skickas in.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/processlaboratoryreport"
+        },
+        "name": "ProcessLaboratoryReport",
+        "description": "Logisk modell för tjänstekontraktet ProcessLaboratoryReport\n(RIV-TA processdevelopment:infections). Representerar responsens\ninformationsstruktur — bekräftar registrering av ett laboratoriesvar.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/processlaboratoryreport-request"
+        },
+        "name": "ProcessLaboratoryReport — Request",
+        "description": "Logisk modell för requestparametrar i ProcessLaboratoryReport. Registrerar\nett nytt laboratoriesvar med tillhörande information om patient, beställande\nenhet, provtagningstidpunkt och agensförekomst. Ett befintligt laboratoriesvar\nkan uppdateras genom att ett nytt meddelande med samma svarsid skickas in.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/processprescriptionreason"
+        },
+        "name": "ProcessPrescriptionReason",
+        "description": "Logisk modell för tjänstekontraktet ProcessPrescriptionReason\n(RIV-TA processdevelopment:infections). Representerar responsens\ninformationsstruktur — bekräftar registrering av en ordinationsorsak.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/processprescriptionreason-request"
+        },
+        "name": "ProcessPrescriptionReason — Request",
+        "description": "Logisk modell för requestparametrar i ProcessPrescriptionReason. Registrerar\nen ordinationsorsak med information om patient, organisatorisk enhet,\neventuell aktivitet eller ordination som ordinationsorsaken kopplas till.\nEn befintlig ordinationsorsak uppdateras genom att ett nytt meddelande med\nsamma id (aktivitetsid eller tillståndsid) skickas in.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/resultcode-cs"
+        },
+        "name": "ResultCode",
+        "description": "Resultatkod för registrerings-/raderingsoperationer i Infektionsverktyget. Anger utfallet av anropet.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/resultcode-vs"
+        },
+        "name": "ResultCode — ValueSet",
+        "description": "Tillåtna värden för resultatkod (OK/ERROR/INFO) enligt ResultCodeCS.",
+        "exampleBoolean": false
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Hem",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "1-inledning.html",
+          "title": "1 Inledning",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "2-versionsinformation.html",
+          "title": "2 Versionsinformation",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "3-tjanstedomanens-arkitektur.html",
+          "title": "3 Tjänstedomänens arkitektur",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "4-tjanstedomanens-krav-och-regler.html",
+          "title": "4 Tjänstedomänens krav och regler",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "5-tjanstedomanens-meddelandemodeller.html",
+          "title": "5 Tjänstedomänens meddelandemodeller",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "6-gemensamma-informationskomponenter.html",
+          "title": "6 Gemensamma informationskomponenter",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "7-tjanstekontrakt.html",
+          "title": "7 Tjänstekontrakt",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2024+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "draft"
+      },
+      {
+        "code": "show-inherited-invariants",
+        "value": "false"
+      },
+      {
+        "code": "apply-contact",
+        "value": "true"
+      },
+      {
+        "code": "apply-publisher",
+        "value": "true"
+      },
+      {
+        "code": "apply-version",
+        "value": "true"
+      },
+      {
+        "code": "apply-copyright",
+        "value": "true"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/resultcode-cs"
+      }
+    ]
+  }
+}

@@ -1170,3 +1170,28 @@ _Inga blockerare identifierade._
   (äldre, kort RIVTA 2.1-dokument från 2011 som inte följer den senare fasta TKB-mallen).
   Sidorna är markerade "SAKNAS I KÄLLDOKUMENT" i IG:n. Om kompletterande information finns
   i något annat dokument för denna domän bör det läggas till manuellt.
+
+## processdevelopment.infections v1.0.2 — `igs/TKB_processdevelopment_infections/`
+
+**Status:** in-progress
+**Senast uppdaterad:** 2026-09-17T08:40:00Z
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-PI-001]** `igs/TKB_processdevelopment_infections/` (hela domänen)
+  Källdokumentet följer inte den fasta 7-avsnittsmallen som senare TKB:er använder — det saknar separata avsnitt för "Tjänstedomänens arkitektur" och "Gemensamma informationskomponenter", och de elva tjänstekontrakten låg direkt på toppnivå (avsnitt 4–14 i originalet) istället för samlade under ett "Tjänstekontrakt"-avsnitt. Innehållet har mappats om till IG:ns fasta sidstruktur manuellt (se `domain-metadata.json` "source_format_note"). Verifiera att ingen information tappats i denna ommappning.
+
+- [ ] **[ASSUME-PI-002]** `igs/TKB_processdevelopment_infections/input/fsh/logical-models/ProcessPrescriptionReason.fsh` · modell `ProcessPrescriptionReasonRequest`
+  Fälten `registrationOrderTime` (toppnivå, `$$registreringstidpunkt_ordinationstidpunkt`) och `orderMoment.orderTime` (nästlad, `$$ordinationstidpunkt`) tycks beskriva samma information redundant i källdokumentet. Modellerat separat enligt TKB-texten utan att försöka slå ihop dem. Verifiera med domänexpert om detta är avsiktligt eller ett kvarvarande dokumentationsfel från openEHR-arvet (se TKB avsnitt 4, ursprunglig punkt "Mallar för transaktionsfiler").
+
+- [ ] **[ASSUME-PI-003]** `igs/TKB_processdevelopment_infections/input/fsh/logical-models/*.fsh` · fält `patientGender` (samtliga fem Process*-kontrakt)
+  Kodverket för patientens kön ($$kön) specificeras inte i TKB-texten — endast en hänvisning till den externa "RIV-specifikation Infektionsverktyget.pdf" som inte analyserats i denna migrering. Fältet är modellerat som obundet `code` utan ValueSet-bindning. Verifiera rätt kodverk/ValueSet mot RIV-specifikationen.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-PI-001]** `igs/TKB_processdevelopment_infections/input/fsh/logical-models/*.fsh`
+  Överväg att extrahera den upprepade patientidentitets-fältgruppen (personIdIssuer/personIdAssigner/patientId/personIdOid/patientBirthTime/patientGender), som förekommer identiskt i alla fem Process*-kontrakts requestmodeller, till en delad återanvändbar struktur om FSH-konventionerna i projektet uppdateras för att stödja detta (för närvarande upprepas fältgruppen inline i varje modell enligt projektets etablerade mönster).

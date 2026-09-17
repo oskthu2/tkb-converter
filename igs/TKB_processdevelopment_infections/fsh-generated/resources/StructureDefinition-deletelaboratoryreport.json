@@ -1,0 +1,61 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "deletelaboratoryreport",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/processdevelopment-infections/StructureDefinition/deletelaboratoryreport",
+  "name": "DeleteLaboratoryReport",
+  "title": "DeleteLaboratoryReport",
+  "status": "draft",
+  "description": "Logisk modell för tjänstekontraktet DeleteLaboratoryReport\n(RIV-TA processdevelopment:infections). Raderar information som tidigare\nregistrerats via ProcessLaboratoryReport. Representerar responsens\ninformationsstruktur.\n\nRequest innehåller endast två filterfält (logicalAddress,\nlaboratoryReportId) och dokumenteras i sin helhet i avsnitt 7 istället\nför som en separat logisk modell.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/processdevelopment-infections/StructureDefinition/deletelaboratoryreport",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "deletelaboratoryreport",
+        "path": "deletelaboratoryreport",
+        "short": "DeleteLaboratoryReport",
+        "definition": "Logisk modell för tjänstekontraktet DeleteLaboratoryReport\n(RIV-TA processdevelopment:infections). Raderar information som tidigare\nregistrerats via ProcessLaboratoryReport. Representerar responsens\ninformationsstruktur.\n\nRequest innehåller endast två filterfält (logicalAddress,\nlaboratoryReportId) och dokumenteras i sin helhet i avsnitt 7 istället\nför som en separat logisk modell."
+      },
+      {
+        "id": "deletelaboratoryreport.resultCode",
+        "path": "deletelaboratoryreport.resultCode",
+        "short": "Resultatkod",
+        "definition": "Resultatkod",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/processdevelopment-infections/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "deletelaboratoryreport.comment",
+        "path": "deletelaboratoryreport.comment",
+        "short": "Kommentar",
+        "definition": "Beskrivning av fel som uppstått alternativt information om genomförd\nradering.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}
