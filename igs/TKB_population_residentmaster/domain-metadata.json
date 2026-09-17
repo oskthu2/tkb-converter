@@ -1,0 +1,48 @@
+{
+  "domain_id": "population.residentmaster",
+  "domain_title": "population: residentmaster",
+  "domain_version": "1.2",
+  "rivta_namespace_base": "urn:riv:population:residentmaster",
+  "docx_converted_dir": "igs/TKB_population_residentmaster/docx-converted/",
+  "source_format_note": "Källdokumentet är en legacy .doc-fil (OLE2 Compound Document). LibreOffice-konvertering misslyckades ('Error: source file could not be loaded'), samma felmönster som tidigare setts för itintegration.monitoring. Fallback: antiword + iconv (ISO-8859-1 -> UTF-8) användes för textextraktion, och docx-converted/sections/*.md samt input/pagecontent/*.md skrevs manuellt utifrån den extraherade texten kombinerat med XSD-schemat för exakta fälttyper. Dokumentet har en avvikande struktur jämfört med 7-avsnittsmallen: det saknar separata avsnitt för 'Tjänstedomänens arkitektur' och 'Gemensamma informationskomponenter' som egna kapitel — istället beskrivs datamodellen (ResidentType) och generella regler i egna kapitel före det enda tjänstekontraktet.",
+  "sections": {
+    "1_inledning": "igs/TKB_population_residentmaster/docx-converted/sections/1-inledning.md",
+    "2_versionsinformation": "igs/TKB_population_residentmaster/docx-converted/sections/2-versionsinformation.md",
+    "3_tjanstedomanens_arkitektur": "igs/TKB_population_residentmaster/docx-converted/sections/3-tjanstedomanens-arkitektur.md",
+    "4_tjanstedomanens_krav_och_regler": "igs/TKB_population_residentmaster/docx-converted/sections/4-tjanstedomanens-krav-och-regler.md",
+    "5_tjanstedomanens_meddelandemodeller": "igs/TKB_population_residentmaster/docx-converted/sections/5-tjanstedomanens-meddelandemodeller.md",
+    "6_gemensamma_informationskomponenter": "igs/TKB_population_residentmaster/docx-converted/sections/6-gemensamma-informationskomponenter.md"
+  },
+  "contracts": [
+    {
+      "section_number": "7.1",
+      "id": "LookupResidentForFullProfile",
+      "display_name": "Slå upp personuppgifter (fullständig profil)",
+      "version": "1.2",
+      "rivta_namespace": "urn:riv:population:residentmaster:LookupResidentForFullProfileResponder:1",
+      "description": "Hämtar personuppgifter (demografiska uppgifter från Skatteverkets folkbokföring, via SPAR/Navet) för en eller flera personer baserat på personnummer. Tjänsten LookupResidentFor<Profile> är egentligen en familj av tjänstekontrakt, ett per definierad 'profil' (delmängd av fält i ResidentType). Endast en profil, 'FullProfile', är för närvarande definierad och publicerad (verifierat mot faktisk WSDL/XSD i källpaketet: urn:riv:population:residentmaster:LookupResidentForFullProfileResponder:1).",
+      "shared_components_refs": ["avsnitt 2 (Datamodell — ResidentType)", "avsnitt 3 (Generella regler)"],
+      "other_rules": "Max 1000 personId per anrop. Ett anrop är atomärt (partiella svar kan inte lämnas). Inga personuppgifter returneras för personer som saknar information i tjänsten. lookUpSpecification är enligt XSD (LookupResidentForFullProfileResponder_1.2.xsd) en obligatorisk (1..1) del av anropet, trots att TKB-textens fälttabell anger kardinalitet 0..1 för fältet — se ASSUME-PRM-001.",
+      "error_codes": ["OK", "INFO", "ERROR"],
+      "contract_specific_codesystems": [],
+      "open_questions_from_parsing": [
+        "TKB-textens versionshistorik-tabell (avsnitt 1.2, 'Förändrade tjänstekontrakt') anger kontraktsnamnet som 'LoockupResidentByFullProfile' (med dubbelt 'o' och 'By' istället för 'For') medan avsnitt 4 (Anrop) och den faktiska WSDL/XSD-filen entydigt anger 'LookupResidentForFullProfile'. Detta har tolkats som ett extraherings-/OCR-artefakt i antiword-konverteringen av en tabell som troligen bröts felaktigt över kolumner (samma klass av fel som tidigare setts i clinicalprocess_healthcond_description), inte ett faktiskt alternativt kontraktsnamn. Källfilerna (facit) användes: LookupResidentForFullProfileInteraction_1.2_RIVTABP21.wsdl."
+      ]
+    }
+  ],
+  "wsdl_files": [
+    "LookupResidentForFullProfileInteraction_1.2_RIVTABP21.wsdl"
+  ],
+  "xsd_files": [
+    "population_residentmaster_1.2.xsd",
+    "population_residentmaster_1.2_ext.xsd",
+    "population_residentmaster_1.1_ext.xsd",
+    "LookupResidentForFullProfileResponder_1.2.xsd",
+    "itintegration_registry_1.0.xsd",
+    "Skatteverket_Navetavisering_V1.xsd"
+  ],
+  "doc_files": [
+    "AB_population_residentmaster.docx",
+    "Skatteverket XML-struktur Navet Avisering v1.34.pdf"
+  ]
+}

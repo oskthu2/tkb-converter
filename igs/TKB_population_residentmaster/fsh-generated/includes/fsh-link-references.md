@@ -1,0 +1,14 @@
+[AvregistreringsorsakCS]: CodeSystem-avregistreringsorsak-cs.html
+[AvregistreringsorsakKomplettCS]: CodeSystem-avregistreringsorsakkomplett-cs.html
+[AvregistreringsorsakKomplettVS]: ValueSet-avregistreringsorsakkomplett-vs.html
+[AvregistreringsorsakVS]: ValueSet-avregistreringsorsak-vs.html
+[CivilstandKodCS]: CodeSystem-civilstandkod-cs.html
+[CivilstandKodVS]: ValueSet-civilstandkod-vs.html
+[KonCS]: CodeSystem-kon-cs.html
+[KonVS]: ValueSet-kon-vs.html
+[LookupResidentForFullProfile]: StructureDefinition-lookupresidentforfullprofile.html
+[LookupResidentForFullProfileRequest]: StructureDefinition-lookupresidentforfullprofile-request.html
+[RelationStatusCS]: CodeSystem-relationstatus-cs.html
+[RelationStatusVS]: ValueSet-relationstatus-vs.html
+[RelationstypCS]: CodeSystem-relationstyp-cs.html
+[RelationstypVS]: ValueSet-relationstyp-vs.html

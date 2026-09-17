@@ -1173,8 +1173,8 @@ _Inga blockerare identifierade._
 
 ## processdevelopment.infections v1.0.2 — `igs/TKB_processdevelopment_infections/`
 
-**Status:** in-progress
-**Senast uppdaterad:** 2026-09-17T08:40:00Z
+**Status:** done
+**Senast uppdaterad:** 2026-09-17T09:00:00Z (CI-körning 35199683209 bekräftad grön: 0 fatal, 0 errors, 0 warnings, 0 hints i qa-errors.json)
 
 ### Blockerare (kräver svar innan IG kan anses komplett)
 
@@ -1195,3 +1195,35 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-PI-001]** `igs/TKB_processdevelopment_infections/input/fsh/logical-models/*.fsh`
   Överväg att extrahera den upprepade patientidentitets-fältgruppen (personIdIssuer/personIdAssigner/patientId/personIdOid/patientBirthTime/patientGender), som förekommer identiskt i alla fem Process*-kontrakts requestmodeller, till en delad återanvändbar struktur om FSH-konventionerna i projektet uppdateras för att stödja detta (för närvarande upprepas fältgruppen inline i varje modell enligt projektets etablerade mönster).
+
+## population.residentmaster v1.2 — `igs/TKB_population_residentmaster/`
+
+**Status:** in-progress
+**Senast uppdaterad:** 2026-09-17T09:15:00Z (sushi: 0 errors, 7 varningar — väntar på CI-bekräftelse)
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-PRM-001]** `igs/TKB_population_residentmaster/input/fsh/logical-models/LookupResidentForFullProfileRequest.fsh` · fält `lookUpSpecification`
+  TKB-textens fälttabell (avsnitt 7, "Anrop") anger kardinaliteten för `lookUpSpecification` som `0..1`, men den faktiska XSD:n (`LookupResidentForFullProfileResponder_1.2.xsd`, `LookupResidentForFullProfileType`) definierar elementet utan `minOccurs` (dvs. standardvärdet `1`, obligatoriskt). Modellerat som `1..1` enligt XSD (facit), med not i beskrivningen. Verifiera med domänexpert vilken källa som är korrekt — det är möjligt att TKB-texten avser att elementets *underfält* är valfria (vilket stämmer) snarare än elementet självt.
+  Källa: TKB avsnitt 5.2/7 samt `LookupResidentForFullProfileResponder_1.2.xsd` rad ~10-16.
+
+- [ ] **[ASSUME-PRM-002]** `igs/TKB_population_residentmaster/input/fsh/logical-models/LookupResidentForFullProfile.fsh` · flera fält (t.ex. `avregistreringsdatum`, `relationFromdatum`, `relationTomdatum`, `utlandsadressdatum`, `rostrattsdatum`, `civilstandsdatum`, `invandringsdatum`, `folkbokforingsdatum`)
+  Dessa fält använder XSD-typen `OfullstandigtDatumTYPE` (sträng, 4–8 tecken, kan vara ett ofullständigt datum som enbart år eller år+månad) och har därför modellerats som FHIR `string` istället för `date`, för att inte förlora giltiga ofullständiga värden som en strikt FHIR `date`-typ inte kan representera. Fält av typen `DT` (fullständigt datum, YYYYMMDD, t.ex. `senasteAndringFolkbokforing` och `personFodelsetid`) har däremot modellerats som `date`. Verifiera att denna distinktion är rätt avvägd, eller om samtliga datumfält hellre bör vara `string` för konsekvens.
+  Källa: `population_residentmaster_1.2.xsd`, simpleType `DT` (rad 325) resp. `OfullstandigtDatumTYPE` (rad 196).
+
+- [ ] **[ASSUME-PRM-003]** `igs/TKB_population_residentmaster/docx-converted/sections/6-gemensamma-informationskomponenter.md` · profiltabell, fält `HanvisningsPersonNr`
+  I källdokumentets "Aktuella profiler"-tabell saknar fältet `HanvisningsPersonNr` ett `X` i Full-profilens kolumn, vilket enligt tabellens egen logik skulle innebära att fältet aldrig populeras av någon producent som implementerar Full-profilen — vilket vore ett meningslöst fält att ens definiera i schemat. Detta har tolkats som ett sannolikt dokumentationsfel i källtabellen (möjligen en förskjuten rad vid antiword-extraktionen). Fältet är modellerat i den logiska modellen som vanligt (`0..1`, ingår i ResidentType oavsett). Verifiera med domänexpert om `HanvisningsPersonNr` faktiskt ingår i Full-profilen.
+  Källa: TKB avsnitt 6.1 ("Aktuella profiler"), källtabellrad `HanvisningsPersonNr`.
+
+- [ ] **[ASSUME-PRM-004]** `igs/TKB_population_residentmaster/` (hela domänen)
+  Källdokumentet (`docs/TKB_population_residentmaster.doc`) var i legacy `.doc`-format (OLE2 Compound Document). `docx_to_md.py` kan inte läsa formatet, och LibreOffice-konvertering misslyckades ("Error: source file could not be loaded" — samma felmönster som tidigare setts för `itintegration.monitoring`). Text extraherades istället med `antiword` + `iconv -f ISO-8859-1 -t UTF-8`, och samtliga sektioner i `docx-converted/sections/` samt `input/pagecontent/*.md` skrevs för hand utifrån den extraherade texten, kombinerat med det faktiska XML-schemat (`population_residentmaster_1.2.xsd` m.fl.) för exakta fältnamn, kardinalitet och kodvärden. Källdokumentets tabell i avsnitt 1.2 ("Förändrade tjänstekontrakt") anger kontraktsnamnet som "LoockupResidentByFullProfile" (uppenbart extraherings-/typografiskt fel), vilket normaliserats till det verifierade, korrekta namnet `LookupResidentForFullProfile` (bekräftat mot faktisk WSDL-fil: `LookupResidentForFullProfileInteraction_1.2_RIVTABP21.wsdl`). Domänen saknar även separata kapitel för "Tjänstedomänens arkitektur" och "Gemensamma informationskomponenter" i den fasta mallens mening — innehållet har mappats om manuellt (se `domain-metadata.json` "source_format_note"). Verifiera att ingen information gått förlorad i denna manuella rekonstruktion, särskilt den mycket omfattande fälttabellen för `ResidentType` (avsnitt 5.1, ~100 fält).
+  Källa: `source/.../docs/TKB_population_residentmaster.doc`.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-PRM-001]** `igs/TKB_population_residentmaster/input/fsh/logical-models/LookupResidentForFullProfile.fsh`
+  `folkbokforingsadress` och `sarskildPostadress` delar exakt samma underliggande XSD-typ (`SvenskAdressTYPE`) men är modellerade som två separata, dubblerade `BackboneElement`-block eftersom FSH `Logical:`-modeller i detta projekt inte återanvänder en delad nästlad typ mellan syskonfält. Om projektets FSH-konventioner senare uppdateras för att stödja detta (t.ex. via en delad extension eller ett gemensamt Logical-typnamn), kan dubbleringen elimineras.
