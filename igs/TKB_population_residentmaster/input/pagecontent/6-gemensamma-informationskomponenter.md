@@ -86,5 +86,5 @@ definiera) — se ASSUME-PRM-003._
 
 | Nr | Namn | Utfärdare |
 |---|---|---|
-| 1 | Beskrivning av systemgränssnitt Skatteverkets avisering (Navet) — se `Skatteverket_Navetavisering_V1.xsd` och `Skatteverket XML-struktur Navet Avisering v1.34.pdf` i avsnitt 7 | Skatteverket |
+| 1 | Beskrivning av systemgränssnitt Skatteverkets avisering (Navet) — se `Skatteverket_Navetavisering_V1.xsd` och `Skatteverket_XML-struktur_Navet_Avisering_v1.34.pdf` i avsnitt 7 | Skatteverket |
 | 2 | Beskrivning av ändringar relaterat till församling och införandet av distriktskod | Skatteverket |

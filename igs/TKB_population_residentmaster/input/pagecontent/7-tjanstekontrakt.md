@@ -55,7 +55,7 @@ Originalkällfiler för tjänstekontraktet, i RIV-TA-format:
 | [itintegration_registry_1.0.xsd](itintegration_registry_1.0.xsd) | Delat kärnschema (RIVTA core components) |
 | [Skatteverket_Navetavisering_V1.xsd](Skatteverket_Navetavisering_V1.xsd) | Externt referensschema, Skatteverkets Navet-avisering |
 | [AB_population_residentmaster.docx](AB_population_residentmaster.docx) | Anslutningsbeskrivning |
-| [Skatteverket%20XML-struktur%20Navet%20Avisering%20v1.34.pdf](Skatteverket%20XML-struktur%20Navet%20Avisering%20v1.34.pdf) | Referensdokument, Skatteverkets Navet-aviseringsformat |
+| [Skatteverket_XML-struktur_Navet_Avisering_v1.34.pdf](Skatteverket_XML-struktur_Navet_Avisering_v1.34.pdf) | Referensdokument, Skatteverkets Navet-aviseringsformat |
 
 ### 7.2 FHIR-artefakter
 
