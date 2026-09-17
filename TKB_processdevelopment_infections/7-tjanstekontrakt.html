@@ -1,0 +1,2133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>7 Tjänstekontrakt - processdevelopment: infections v1.0.2</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">processdevelopment: infections</span>
+            <br/>
+            <span style="display:inline-block;">1.0.2 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <?xml version="1.0" encoding="UTF-8"?>
+<menu xmlns="http://hl7.org/fhir">
+  <item name="Home" href="index.html"/>
+  <item name="1 Inledning" href="1-inledning.html"/>
+  <item name="2 Versionsinformation" href="2-versionsinformation.html"/>
+  <item name="3 Tjänstedomänens arkitektur" href="3-tjanstedomanens-arkitektur.html"/>
+  <item name="4 Tjänstedomänens krav och regler" href="4-tjanstedomanens-krav-och-regler.html"/>
+  <item name="5 Tjänstedomänens meddelandemodeller" href="5-tjanstedomanens-meddelandemodeller.html"/>
+  <item name="6 Gemensamma informationskomponenter" href="6-gemensamma-informationskomponenter.html"/>
+  <item name="7 Tjänstekontrakt" href="7-tjanstekontrakt.html"/>
+  <item name="Artifacts" href="artifacts.html"/>
+</menu>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">processdevelopment: infections - Local Development build (v1.0.2) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/processdevelopment-infections/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstekontrakt" id="markdown-toc-tjänstekontrakt">Tjänstekontrakt</a>    <ul>
+      <li><a href="#processprescriptionreason" id="markdown-toc-processprescriptionreason">ProcessPrescriptionReason</a></li>
+      <li><a href="#processlaboratoryreport" id="markdown-toc-processlaboratoryreport">ProcessLaboratoryReport</a></li>
+      <li><a href="#processactivity" id="markdown-toc-processactivity">ProcessActivity</a></li>
+      <li><a href="#processcondition" id="markdown-toc-processcondition">ProcessCondition</a></li>
+      <li><a href="#processcareencounter" id="markdown-toc-processcareencounter">ProcessCareEncounter</a></li>
+      <li><a href="#deleteprescriptionreason" id="markdown-toc-deleteprescriptionreason">DeletePrescriptionReason</a></li>
+      <li><a href="#deleteprescription" id="markdown-toc-deleteprescription">DeletePrescription</a></li>
+      <li><a href="#deletelaboratoryreport" id="markdown-toc-deletelaboratoryreport">DeleteLaboratoryReport</a></li>
+      <li><a href="#deleteactivity" id="markdown-toc-deleteactivity">DeleteActivity</a></li>
+      <li><a href="#deletecondition" id="markdown-toc-deletecondition">DeleteCondition</a></li>
+      <li><a href="#deletecareencounter" id="markdown-toc-deletecareencounter">DeleteCareEncounter</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstekontrakt">Tjänstekontrakt</h2>
+
+<p><em>Not: källdokumentet saknar ett eget "7 Tjänstekontrakt"-avsnitt — de elva tjänstekontrakten låg direkt på toppnivå i originaldokumentet (avsnitt 4–14). Innehållet är återgivet ordagrant nedan, samlat under denna sektion enligt IG:ns fasta sidstruktur.</em></p>
+
+<h3 id="processprescriptionreason">ProcessPrescriptionReason</h3>
+<p>Tjänsten registrerar en ordinationsorsak med information om patient, organisatorisk enhet, eventuellt aktivitet som ordinationsorsaken har kopplats till, ordination och ordinerad substans. Observera att det endast är möjligt att skicka en ordination per meddelande. En befintlig ordinationsorsak kan uppdateras genom att ett nytt meddelande med samma id (aktivitetsid eller tillståndsid) skickas in. Tjänsten svarar antingen att det har gått bra eller med ett felmeddelande.</p>
+
+<h4 id="begäran-request">Begäran (Request)</h4>
+<p>Då meddelandestrukturen består av ett flertal statiska element (se avsnitt 4, "Lokala identiteter") listas här endast de element som har ett dynamiskt innehåll. Dessa anges som variabler i tabellen nedan. Om de fördefinierade mallarna utnyttjas för att skapa transaktionsfiler så söker man upp variabelnamnet (som inleds med prefixet $$) och ersätter med värdet som ska skickas till Infektionsverktyget. För de variabler som finns beskrivna i Infektionsverktygets RIV-specifikation ges en hänvisning till den klass och det attribut som variabeln motsvarar (Klass.attribut/Klass.association.Klass.attribut).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Variabel</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">$$logical_address</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">Logisk adress till tjänsteimplementation. HSA-id för organisationspost motsvarande vårdgivare i HSA-trädet.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$registreringstidpunkt_ordinationstidpunkt</td>
+      <td style="text-align: left">Tid</td>
+      <td style="text-align: left">I de fall en ordination finns anges här Ordinationsmoment.ordinationstidpunkt. I annat fall lämnas detta fält tomt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$vårdgivare</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">HSA-id för aktuell vårdgivare.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$registrerande enhet</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">RIV-specifikation: Ordinationsorsak.registreras vid.Enhet.enhets-id</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$registreringstidpunkt</td>
+      <td style="text-align: left">Tid</td>
+      <td style="text-align: left">I de fall en ordinationsorsak registreras utan ordination anges här Ordinationsorsak.registreringstidpunkt, i annat fall lämnas detta fält tomt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">aktivitetsmoment</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Ange antingen aktivitetsmoment ELLER ordinationsmoment (se nedan)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">aktivitetsmoment: $$id_terminologi</td>
+      <td style="text-align: left">OID/Unikt id</td>
+      <td style="text-align: left">Identifierare (OID eller annan unik identifierare) som anger vilket kodverk som aktuell kod tillhör. Möjliga värden är OID för Snomed CT och id för Infektionsverktygets kodverk med annan-koder.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">aktivitetsmoment: $$aktivitetskod</td>
+      <td style="text-align: left">Kod</td>
+      <td style="text-align: left">RIV-specifikation: Aktivitetsmoment.aktivitetskod</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">aktivitet</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Aktivitet är obligatoriskt om aktivitetsmoment är angivet, annars frivilligt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">aktivitet: $$id_utgivare</td>
+      <td style="text-align: left">Text</td>
+      <td style="text-align: left">Möjliga värden: CeHis (i de fall värdet i \(enhet_aktivitetsid är ett HSA-id), Infektionsverktyget (i de fall värdet i\)enhet_aktivitetsid är en annan unik identifierare).</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">aktivitet: $$enhet_aktivitetsid</td>
+      <td style="text-align: left">HSA-id/Unikt id</td>
+      <td style="text-align: left">HSA-id alternativt annan unik identifierare för den enhet inom vilket aktuellt aktivitets-id är unikt. Annan unik identifierare används i de fall då aktiviteten är utförd hos en annan vårdgivare. Möjliga id:n: Annan vårdgivare: BC533FBB-DD4F-4F14-9E77-9E67A1E6D738; Annan vårdgivare Sverige: CFEEC579-C1FD-41C7-B940-1DD15CB6957A; Annan vårdgivare utomlands: DDCD0F15-E459-4F5C-BCD6-478D9C3040EE. När en aktivitet är utförd hos en annan vårdgivare skall inget id anges (i $$aktivitetsid).</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">aktivitet: $$aktivitetsid</td>
+      <td style="text-align: left">Lokalt id</td>
+      <td style="text-align: left">RIV-specifikation: Aktivitet.aktivitets-id. HSA-id + Lokalt id. HSA-id för den enhet inom vilket aktuellt aktivitets-id är unikt anges före det lokala id:t. Notera att detta attribut har olika betydelse beroende på om mallen för Activity (profylax) eller Condition (infektion) används. För Activity avses ett id för själva profylaxbehandlingen, för Condition avses ett id för den åtgärd som orsakat en post-operativ infektion. I Condition-fallet måste den angivna åtgärden sändas via ProcessActivity-tjänsten (innan eller efter anropet till ProcessPrescriptionReason) för att kopplingen skall bli komplett. Innan ProcessActivity anropats ligger kopplingen till åtgärden i en väntekö.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">aktivitet: $$id_typ</td>
+      <td style="text-align: left">OID</td>
+      <td style="text-align: left">OID för lokalt id då ett id anges i \(aktivitetsid. Då aktiviteten är utförd hos en annan vårdgivare och inget id finns skall elementet\)id_typ lämnas tomt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bedömtHälsorelateratTillstånd</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bedömtHälsorelateratTillstånd: $$tillståndskod</td>
+      <td style="text-align: left">Kod</td>
+      <td style="text-align: left">RIV-specifikation: Bedömt hälsorelaterat tillstånd.tillståndskod</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bedömtHälsorelateratTillstånd: $$smittväg</td>
+      <td style="text-align: left">Kod</td>
+      <td style="text-align: left">RIV-specifikation: Bedömt hälsorelaterat tillstånd.smittväg</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bedömtHälsorelateratTillstånd: $$enhet_tillståndsid</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">HSA-id för den enhet inom vilket aktuellt tillstånds-id är unikt.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bedömtHälsorelateratTillstånd: $$tillståndsid</td>
+      <td style="text-align: left">Lokalt id</td>
+      <td style="text-align: left">RIV-specifikation: Bedömt hälsorelaterat tillstånd.tillstånds-id. HSA-id + Lokalt id. HSA-id för den enhet inom vilket aktuellt tillstånds-id är unikt anges före det lokala id:t.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ordinationsmoment</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Ange antingen ordinationsmoment ELLER aktivitetsmoment (se ovan)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ordinationsmoment: $$ordinationstidpunkt</td>
+      <td style="text-align: left">Tid</td>
+      <td style="text-align: left">RIV-specifikation: Ordinationsmoment.ordinationstidpunkt</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ordinationsmoment: $$enhet_ordinationsid</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">HSA-id för den enhet inom vilket aktuellt ordinations-id är unikt.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ordinationsmoment: $$ordinationsid</td>
+      <td style="text-align: left">Lokalt id</td>
+      <td style="text-align: left">RIV-specifikation: Ordination.ordinations-id. HSA-id + Lokalt id. HSA-id för den enhet inom vilket aktuellt ordinations-id är unikt anges före det lokala id:t.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ordinationsmoment: $$ATC-kod</td>
+      <td style="text-align: left">Kod</td>
+      <td style="text-align: left">RIV-specifikation: Läkemedelssubstans.ATC-kod</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$issuer_personid</td>
+      <td style="text-align: left">Text</td>
+      <td style="text-align: left">För personnummer och samordningsnummer är \(issuer_personid = Skatteverket. För lokalt reservnummer är\)issuer_personid = CeHis</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$assigner_personid</td>
+      <td style="text-align: left">Text eller HSA-id</td>
+      <td style="text-align: left">För personnummer och samordningsnummer är \(issuer_personid = Folkbokföringen. För lokalt reservnummer är\)assigner_personid = HSA-id för den enhet inom vilket aktuellt reservnummer är unikt</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$personid</td>
+      <td style="text-align: left">Personnummer / Samordnings-nummer / Lokalt reservnummer</td>
+      <td style="text-align: left">RIV-specifikation: Patient.person-id</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$oid_personid</td>
+      <td style="text-align: left">OID</td>
+      <td style="text-align: left">OID för personnummer, samordningsnummer eller icke-nationell identifierare Org + lokalt unikt id</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$födelsetidpunkt</td>
+      <td style="text-align: left">Tid</td>
+      <td style="text-align: left">RIV-specifikation: Patient.födelsetidpunkt</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$kön</td>
+      <td style="text-align: left">Kod</td>
+      <td style="text-align: left">RIV-specifikation: Patient.kön</td>
+      <td style="text-align: left">1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="svar-response">Svar (Response)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">ProcessPrescriptionReasonResponse</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">OK = Registrering genomförd / ERROR = Fel vid registrering. Felet beskrivs i elementet comment / INFO = Information finns om registreringen. Informationen beskrivs i elementet comment</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Beskrivning av fel som uppstått alternativt information om genomförd registrering.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="felkoder-vid-logiskt-fel">Felkoder vid logiskt fel</h5>
+<p>Det är endast felmeddelandet nedan som returneras i svaret i fältet "comment".</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Felkod</th>
+      <th style="text-align: left">Felmeddelande</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">50001</td>
+      <td style="text-align: left">Kunde inte hitta angivet kodsystem (" + CodeSystemDescription + ") gällande " + CodeSystemForThisTypeOfCodes + "-koder för externt-id " + ExterntId;</td>
+      <td style="text-align: left">Angivet kodsystemid är ogiltigt</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50002</td>
+      <td style="text-align: left">Kunde inte hitta angiven " + CodeCategory + "-kod (" + Code + ") i kodsystem " + CodeSystem + " (" + CodeSystemName + ") för externt-id " + ExterntId;</td>
+      <td style="text-align: left">Angiven kod finns inte i Infektionsverktyget</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50011</td>
+      <td style="text-align: left">Okänd vårdgivare i logical address (" + VardgivareHsaId + ")"</td>
+      <td style="text-align: left">Vårdgivaren finns inte i Infektionsverktyget</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50012</td>
+      <td style="text-align: left">Externt-id " + ExterntId + " används av en annan vårdgivare;</td>
+      <td style="text-align: left">Externt id används av en annan vårdgivare</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50013</td>
+      <td style="text-align: left">Organisatorisk Enhet (" + OrganisationsHsaId + ") tillhör inte vårdgivare (" + VardgivareHsaId + ");</td>
+      <td style="text-align: left">OE tillhör inte vårdgivaren som skickar in data</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50014</td>
+      <td style="text-align: left">UtfärdatAv för patientid " + patientid + " är ogiltigt: " + kodsystem + "(" + utfardatAv + ")</td>
+      <td style="text-align: left">Utfärdare saknar behörighet i Infektionsverktyget</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50015</td>
+      <td style="text-align: left">Ogiltig kod för kön (" + gender + ") i kodsystem (" + codeSystem + ")</td>
+      <td style="text-align: left">Felaktig könskod inskickad</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50016</td>
+      <td style="text-align: left">Ordination med id " + externalId + " har redan en ordinationsorsak registrerad</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="hantering-av-felaktiga-koder">Hantering av felaktiga koder</h4>
+<p>Om en, enligt terminologiservern, ej giltig ordinationsorsakskod (tillståndskod eller aktivitetskod) skickas till Infektionsverktyget så ignoreras denna och registreras därmed inte i Infektionsverktyget. I svaret returneras ERROR.</p>
+
+<h4 id="källfiler-riv-ta">Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="ProcessPrescriptionReasonInteraction_1.0_RIVTABP20.wsdl">ProcessPrescriptionReasonInteraction_1.0_RIVTABP20.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a href="ProcessPrescriptionReasonResponder_1.0.xsd">ProcessPrescriptionReasonResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a href="PrescriptionReason-1.0.xsd">PrescriptionReason-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="BaseTypes-1.0.xsd">BaseTypes-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="Structure-1.0.xsd">Structure-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter">FHIR-artefakter</h4>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-processprescriptionreason.html">StructureDefinition/processprescriptionreason</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-processprescriptionreason-request.html">StructureDefinition/processprescriptionreason-request</a></li>
+</ul>
+
+<hr />
+
+<h3 id="processlaboratoryreport">ProcessLaboratoryReport</h3>
+<p>Tjänsten registrerar ett nytt laboratoriesvar med tillhörande information om patient, beställande enhet, provtagningstidpunkt och agensförekomst. Ett befintligt laboratoriesvar kan uppdateras genom att ett nytt meddelande med samma svarsid skickas in. Tjänsten svarar antingen att det har gått bra eller med ett felmeddelande.</p>
+
+<h4 id="begäran-request-1">Begäran (Request)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Variabel</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">$$logical_address</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">Logisk adress till tjänsteimplementation. HSA-id för organisationspost motsvarande vårdgivare i HSA-trädet.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$svarsid</td>
+      <td style="text-align: left">Lokalt id</td>
+      <td style="text-align: left">RIV-specifikation: Laboratoriesvar.svars-id. HSA-id + Lokalt id. HSA-id för den enhet inom vilket aktuellt svars-id är unikt anges före det lokala id:t.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$provtagningstidpunkt</td>
+      <td style="text-align: left">Tid</td>
+      <td style="text-align: left">RIV-specifikation: Provtagning.provtagningstidpunkt</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$vårdgivare</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">HSA-id för aktuell vårdgivare.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$registrerande enhet</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">RIV-specifikation: Laboratoriesvar.har beställande.Enhet.enhets-id</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Mikrobiologiska fynd</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Mikrobiologiska fynd: $$observationstidpunkt</td>
+      <td style="text-align: left">Tid</td>
+      <td style="text-align: left">RIV-specifikation: Mikrobiologiskt fynd.observationstidpunkt</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Mikrobiologiska fynd: $$agenskod</td>
+      <td style="text-align: left">Kod</td>
+      <td style="text-align: left">RIV-specifikation: Mikrobiologiskt fynd.agenskod</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$issuer_personid</td>
+      <td style="text-align: left">Text</td>
+      <td style="text-align: left">För personnummer och samordningsnummer är \(issuer_personid = Skatteverket. För lokalt reservnummer är\)issuer_personid = CeHis</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$assigner_personid</td>
+      <td style="text-align: left">Text eller HSA-id</td>
+      <td style="text-align: left">För personnummer och samordningsnummer är \(issuer_personid = Folkbokföringen. För lokalt reservnummer är\)assigner_personid = HSA-id för den enhet inom vilket aktuellt reservnummer är unikt</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$personid</td>
+      <td style="text-align: left">Personnummer / Samordnings-nummer / Lokalt reservnummer</td>
+      <td style="text-align: left">RIV-specifikation: Patient.person-id</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$oid_personid</td>
+      <td style="text-align: left">OID</td>
+      <td style="text-align: left">OID för personnummer, nationellt reservnummer eller samordningsnummer</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$födelsetidpunkt</td>
+      <td style="text-align: left">Tid</td>
+      <td style="text-align: left">RIV-specifikation: Patient.födelsetidpunkt</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$kön</td>
+      <td style="text-align: left">Kod</td>
+      <td style="text-align: left">RIV-specifikation: Patient.kön</td>
+      <td style="text-align: left">1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="svar-response-1">Svar (Response)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">ProcessLaboratoryReportResponse</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">OK = Registrering genomförd / ERROR = Fel vid registrering. Felet beskrivs i elementet comment / INFO = Information finns om registreringen. Informationen beskrivs i elementet comment</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Beskrivning av fel som uppstått alternativt information om genomförd registrering.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="felkoder-vid-logiskt-fel-1">Felkoder vid logiskt fel</h5>
+<p>Det är endast felmeddelandet nedan som returneras i svaret i fältet "comment".</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Felkod</th>
+      <th style="text-align: left">Felmeddelande</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">50001</td>
+      <td style="text-align: left">Kunde inte hitta angivet kodsystem (" + CodeSystemDescription + ") gällande " + CodeSystemForThisTypeOfCodes + "-koder för externt-id " + ExterntId;</td>
+      <td style="text-align: left">Angivet kodsystemid är ogiltigt</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50002</td>
+      <td style="text-align: left">Kunde inte hitta angiven " + CodeCategory + "-kod (" + Code + ") i kodsystem " + CodeSystem + " (" + CodeSystemName + ") för externt-id " + ExterntId;</td>
+      <td style="text-align: left">Angiven kod finns inte i Infektionsverktyget</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50011</td>
+      <td style="text-align: left">Okänd vårdgivare i logical address (" + VardgivareHsaId + ")"</td>
+      <td style="text-align: left">Vårdgivaren finns inte i Infektionsverktyget</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50012</td>
+      <td style="text-align: left">Externt-id " + ExterntId + " används av en annan vårdgivare;</td>
+      <td style="text-align: left">Externt id används av en annan vårdgivare</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50013</td>
+      <td style="text-align: left">Organisatorisk Enhet (" + OrganisationsHsaId + ") tillhör inte vårdgivare (" + VardgivareHsaId + ");</td>
+      <td style="text-align: left">OE tillhör inte vårdgivaren som skickar in data</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50014</td>
+      <td style="text-align: left">UtfärdatAv för patientid " + patientid + " är ogiltigt: " + kodsystem + "(" + utfardatAv + ")</td>
+      <td style="text-align: left">Utfärdare saknar behörighet i Infektionsverktyget</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50015</td>
+      <td style="text-align: left">Ogiltig kod för kön (" + gender + ") i kodsystem (" + codeSystem + ")</td>
+      <td style="text-align: left">Felaktig könskod inskickad</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="hantering-av-felaktiga-koder-1">Hantering av felaktiga koder</h4>
+<p>Om en, enligt terminologiservern, ej giltig agenskod skickas till Infektionsverktyget så ignoreras denna och registreras därmed inte i Infektionsverktyget. I de fall då ett meddelande omfattar endast ett mikrobiologiskt fynd och detta anges med en ej giltig kod returneras ERROR i svaret. I de fall då ett meddelande omfattar fler fynd där någon av koderna är felaktig returneras INFO med en varning om att den ej giltiga koden inte har registrerats. Dock registreras övriga koder i meddelandet förutsatt att dessa är giltiga.</p>
+
+<h4 id="källfiler-riv-ta-1">Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="ProcessLaboratoryReportInteraction_1.0_RIVTABP20.wsdl">ProcessLaboratoryReportInteraction_1.0_RIVTABP20.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a href="ProcessLaboratoryReportResponder_1.0.xsd">ProcessLaboratoryReportResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a href="LaboratoryReport-1.0.xsd">LaboratoryReport-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="BaseTypes-1.0.xsd">BaseTypes-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="Structure-1.0.xsd">Structure-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-1">FHIR-artefakter</h4>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-processlaboratoryreport.html">StructureDefinition/processlaboratoryreport</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-processlaboratoryreport-request.html">StructureDefinition/processlaboratoryreport-request</a></li>
+</ul>
+
+<hr />
+
+<h3 id="processactivity">ProcessActivity</h3>
+<p>Tjänsten registrerar en eller flera aktiviteter som utförts på en patient på en viss enhet. En befintlig aktivitet kan uppdateras genom att ett nytt meddelande med samma aktivitetsid skickas in. Tjänsten svarar antingen att det har gått bra eller med ett felmeddelande.</p>
+
+<h4 id="begäran-request-2">Begäran (Request)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Variabel</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">$$logical_address</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">Logisk adress till tjänsteimplementation. HSA-id för organisationspost motsvarande vårdgivare i HSA-trädet.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$aktivitetsmomenttid</td>
+      <td style="text-align: left">Tid</td>
+      <td style="text-align: left">RIV-specifikation: Aktivitetsmoment.aktivitetsmomenttid. Då $$aktivitetsmomenttid anges i elementet start_time och meddelandet omfattar flera aktiviteter ska den första (i tid mätt) aktivitetens tid anges.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$vårdgivare</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">HSA-id för aktuell vårdgivare.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$registrerande enhet</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">RIV-specifikation: Aktivitetsmoment.utförs vid.Enhet.enhets-id</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$aktivitetsid</td>
+      <td style="text-align: left">Lokalt id</td>
+      <td style="text-align: left">RIV-specifikation: Aktivitet.aktivitets-id. HSA-id + Lokalt id. HSA-id för den enhet inom vilket aktuellt aktivitets-id är unikt anges före det lokala id:t.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$id_terminologi</td>
+      <td style="text-align: left">OID</td>
+      <td style="text-align: left">Identifierare som anger vilket kodverk som aktuell kod tillhör. Möjliga värden är OID för Snomed CT och OID för KVÅ</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$aktivitetskod</td>
+      <td style="text-align: left">Kod</td>
+      <td style="text-align: left">RIV-specifikation: Aktivitetsmoment.aktivitetskod</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$enhet_aktivitetsid</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">HSA-id för den enhet inom vilket aktuellt aktivitets-id är unikt.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$issuer_personid</td>
+      <td style="text-align: left">Text</td>
+      <td style="text-align: left">För personnummer och samordningsnummer är \(issuer_personid = Skatteverket. För lokalt reservnummer är\)issuer_personid = CeHis</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$assigner_personid</td>
+      <td style="text-align: left">Text eller HSA-id</td>
+      <td style="text-align: left">För personnummer och samordningsnummer är \(issuer_personid = Folkbokföringen. För lokalt reservnummer är\)assigner_personid = HSA-id för den enhet inom vilket aktuellt reservnummer är unikt</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$personid</td>
+      <td style="text-align: left">Personnummer / Samordnings-nummer / Lokalt reservnummer</td>
+      <td style="text-align: left">RIV-specifikation: Patient.person-id</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$oid_personid</td>
+      <td style="text-align: left">OID</td>
+      <td style="text-align: left">OID för personnummer, nationellt reservnummer eller samordningsnummer</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$födelsetidpunkt</td>
+      <td style="text-align: left">Tid</td>
+      <td style="text-align: left">RIV-specifikation: Patient.födelsetidpunkt</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$kön</td>
+      <td style="text-align: left">Kod</td>
+      <td style="text-align: left">RIV-specifikation: Patient.kön</td>
+      <td style="text-align: left">1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="svar-response-2">Svar (Response)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">ProcessActivityResponse</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">OK = Registrering genomförd / ERROR = Fel vid registrering. Felet beskrivs i elementet comment / INFO = Information finns om registreringen. Informationen beskrivs i elementet comment</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Beskrivning av fel som uppstått alternativt information om genomförd registrering.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="felkoder-vid-logiskt-fel-2">Felkoder vid logiskt fel</h5>
+<p>Det är endast felmeddelandet nedan som returneras i svaret i fältet "comment".</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Felkod</th>
+      <th style="text-align: left">Felmeddelande</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">50001</td>
+      <td style="text-align: left">Kunde inte hitta angivet kodsystem (" + CodeSystemDescription + ") gällande " + CodeSystemForThisTypeOfCodes + "-koder för externt-id " + ExterntId;</td>
+      <td style="text-align: left">Angivet kodsystemid är ogiltigt</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50002</td>
+      <td style="text-align: left">Kunde inte hitta angiven " + CodeCategory + "-kod (" + Code + ") i kodsystem " + CodeSystem + " (" + CodeSystemName + ") för externt-id " + ExterntId;</td>
+      <td style="text-align: left">Angiven kod finns inte i Infektionsverktyget</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50011</td>
+      <td style="text-align: left">Okänd vårdgivare i logical address (" + VardgivareHsaId + ")"</td>
+      <td style="text-align: left">Vårdgivaren finns inte i Infektionsverktyget</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50012</td>
+      <td style="text-align: left">Externt-id " + ExterntId + " används av en annan vårdgivare;</td>
+      <td style="text-align: left">Externt id används av en annan vårdgivare</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50013</td>
+      <td style="text-align: left">Organisatorisk Enhet (" + OrganisationsHsaId + ") tillhör inte vårdgivare (" + VardgivareHsaId + ");</td>
+      <td style="text-align: left">OE tillhör inte vårdgivaren som skickar in data</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50014</td>
+      <td style="text-align: left">UtfärdatAv för patientid " + patientid + " är ogiltigt: " + kodsystem + "(" + utfardatAv + ")</td>
+      <td style="text-align: left">Utfärdare saknar behörighet i Infektionsverktyget</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50015</td>
+      <td style="text-align: left">Ogiltig kod för kön (" + gender + ") i kodsystem (" + codeSystem + ")</td>
+      <td style="text-align: left">Felaktig könskod inskickad</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="hantering-av-felaktiga-koder-2">Hantering av felaktiga koder</h4>
+<p>Om en, enligt terminologiservern, ej giltig aktivitetskod skickas till Infektionsverktyget så ignoreras denna och registreras därmed inte i Infektionsverktyget. I de fall då ett meddelande omfattar endast en aktivitet och denna anges med en ej giltig kod returneras ERROR i svaret. I de fall då ett meddelande omfattar fler aktiviteter där någon av koderna är felaktig returneras INFO med en varning om att den ej giltiga koden inte har registrerats. Dock registreras övriga koder i meddelandet förutsatt att dessa är giltiga.</p>
+
+<h4 id="källfiler-riv-ta-2">Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="ProcessActivityInteraction_1.0_RIVTABP20.wsdl">ProcessActivityInteraction_1.0_RIVTABP20.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a href="ProcessActivityResponder_1.0.xsd">ProcessActivityResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a href="Activity-1.0.xsd">Activity-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="BaseTypes-1.0.xsd">BaseTypes-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="Structure-1.0.xsd">Structure-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-2">FHIR-artefakter</h4>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-processactivity.html">StructureDefinition/processactivity</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-processactivity-request.html">StructureDefinition/processactivity-request</a></li>
+</ul>
+
+<hr />
+
+<h3 id="processcondition">ProcessCondition</h3>
+<p>Tjänsten registrerar ett eller flera nya bedömt hälsorelaterat tillstånd med information om patient, organisatorisk enhet och tillstånd. Ett befintligt tillstånd kan uppdateras genom att ett nytt meddelande med samma tillståndsid skickas in. Tjänsten svarar antingen att det har gått bra eller med ett felmeddelande.</p>
+
+<h4 id="begäran-request-3">Begäran (Request)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Variabel</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">$$logical_address</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">Logisk adress till tjänsteimplementation. HSA-id för organisationspost motsvarande vårdgivare i HSA-trädet.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$tillståndstid</td>
+      <td style="text-align: left">Tid</td>
+      <td style="text-align: left">RIV-specifikation: Bedömt hälsorelaterat tillstånd.tillståndstid. Då $$tillståndstid anges i elementet start_time och meddelandet omfattar flera tillstånd ska det första (i tid mätt) tillståndets tid anges.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$vårdgivare</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">HSA-id för aktuell vårdgivare.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$registrerande enhet</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">RIV-specifikation: Bedömt hälsorelaterat tillstånd.bedöms vid.Enhet.enhets-id</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$tillståndsid</td>
+      <td style="text-align: left">Lokalt id</td>
+      <td style="text-align: left">RIV-specifikation: Bedömt hälsorelaterat tillstånd.tillstånds-id. HSA-id + Lokalt id. HSA-id för den enhet inom vilket aktuellt tillstånds-id är unikt anges före det lokala id:t.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$id_terminologi</td>
+      <td style="text-align: left">OID</td>
+      <td style="text-align: left">Identifierare som anger vilket kodverk som aktuell kod tillhör. Möjliga värden är OID för Snomed CT och OID för ICD-10-SE</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$tillståndskod</td>
+      <td style="text-align: left">Kod</td>
+      <td style="text-align: left">RIV-specifikation: Bedömt hälsorelaterat tillstånd.tillståndskod</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$issuer_personid</td>
+      <td style="text-align: left">Text</td>
+      <td style="text-align: left">För personnummer och samordningsnummer är \(issuer_personid = Skatteverket. För lokalt reservnummer är\)issuer_personid = CeHis</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$assigner_personid</td>
+      <td style="text-align: left">Text eller HSA-id</td>
+      <td style="text-align: left">För personnummer och samordningsnummer är \(issuer_personid = Folkbokföringen. För lokalt reservnummer är\)assigner_personid = HSA-id för den enhet inom vilket aktuellt reservnummer är unikt</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$personid</td>
+      <td style="text-align: left">Personnummer / Samordnings-nummer / Lokalt reservnummer</td>
+      <td style="text-align: left">RIV-specifikation: Patient.person-id</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$oid_personid</td>
+      <td style="text-align: left">OID</td>
+      <td style="text-align: left">OID för personnummer, nationellt reservnummer eller samordningsnummer</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$födelsetidpunkt</td>
+      <td style="text-align: left">Tid</td>
+      <td style="text-align: left">RIV-specifikation: Patient.födelsetidpunkt</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$kön</td>
+      <td style="text-align: left">Kod</td>
+      <td style="text-align: left">RIV-specifikation: Patient.kön</td>
+      <td style="text-align: left">1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="svar-response-3">Svar (Response)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">ProcessConditionResponse</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">OK = Registrering genomförd / ERROR = Fel vid registrering. Felet beskrivs i elementet comment / INFO = Information finns om registreringen. Informationen beskrivs i elementet comment</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Beskrivning av fel som uppstått alternativt information om genomförd registrering.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="felkoder-vid-logiskt-fel-3">Felkoder vid logiskt fel</h5>
+<p>Det är endast felmeddelandet nedan som returneras i svaret i fältet "comment".</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Felkod</th>
+      <th style="text-align: left">Felmeddelande</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">50001</td>
+      <td style="text-align: left">Kunde inte hitta angivet kodsystem (" + CodeSystemDescription + ") gällande " + CodeSystemForThisTypeOfCodes + "-koder för externt-id " + ExterntId;</td>
+      <td style="text-align: left">Angivet kodsystemid är ogiltigt</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50002</td>
+      <td style="text-align: left">Kunde inte hitta angiven " + CodeCategory + "-kod (" + Code + ") i kodsystem " + CodeSystem + " (" + CodeSystemName + ") för externt-id " + ExterntId;</td>
+      <td style="text-align: left">Angiven kod finns inte i Infektionsverktyget</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50011</td>
+      <td style="text-align: left">Okänd vårdgivare i logical address (" + VardgivareHsaId + ")"</td>
+      <td style="text-align: left">Vårdgivaren finns inte i Infektionsverktyget</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50012</td>
+      <td style="text-align: left">Externt-id " + ExterntId + " används av en annan vårdgivare;</td>
+      <td style="text-align: left">Externt id används av en annan vårdgivare</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50013</td>
+      <td style="text-align: left">Organisatorisk Enhet (" + OrganisationsHsaId + ") tillhör inte vårdgivare (" + VardgivareHsaId + ");</td>
+      <td style="text-align: left">OE tillhör inte vårdgivaren som skickar in data</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50014</td>
+      <td style="text-align: left">UtfärdatAv för patientid " + patientid + " är ogiltigt: " + kodsystem + "(" + utfardatAv + ")</td>
+      <td style="text-align: left">Utfärdare saknar behörighet i Infektionsverktyget</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50015</td>
+      <td style="text-align: left">Ogiltig kod för kön (" + gender + ") i kodsystem (" + codeSystem + ")</td>
+      <td style="text-align: left">Felaktig könskod inskickad</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="hantering-av-felaktiga-koder-3">Hantering av felaktiga koder</h4>
+<p>Om en, enligt terminologiservern, ej giltig tillståndskod skickas till Infektionsverktyget så ignoreras denna och registreras därmed inte i Infektionsverktyget. I de fall då ett meddelande omfattar endast ett tillstånd och denna anges med en ej giltig kod returneras ERROR i svaret. I de fall då ett meddelande omfattar fler tillstånd där någon av koderna är felaktig returneras INFO med en varning om att den ej giltiga koden inte har registrerats. Dock registreras övriga koder i meddelandet förutsatt att dessa är giltiga.</p>
+
+<h4 id="källfiler-riv-ta-3">Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="ProcessConditionInteraction_1.0_RIVTABP20.wsdl">ProcessConditionInteraction_1.0_RIVTABP20.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a href="ProcessConditionResponder_1.0.xsd">ProcessConditionResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a href="Condition-1.0.xsd">Condition-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="BaseTypes-1.0.xsd">BaseTypes-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="Structure-1.0.xsd">Structure-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-3">FHIR-artefakter</h4>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-processcondition.html">StructureDefinition/processcondition</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-processcondition-request.html">StructureDefinition/processcondition-request</a></li>
+</ul>
+
+<hr />
+
+<h3 id="processcareencounter">ProcessCareEncounter</h3>
+<p>Tjänsten registrerar en ny patientplacering med information om patient, organisatorisk enhet och period för placeringen. En befintlig patientplacering kan uppdateras genom att ett nytt meddelande med samma vårdkontaktid skickas in. Tjänsten svarar antingen att det har gått bra eller med ett felmeddelande.</p>
+
+<h4 id="begäran-request-4">Begäran (Request)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Variabel</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">$$logical_address</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">Logisk adress till tjänsteimplementation. HSA-id för organisationspost motsvarande vårdgivare i HSA-trädet.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$vårdkontaktid</td>
+      <td style="text-align: left">Lokalt id</td>
+      <td style="text-align: left">RIV-specifikation: Vårdkontakt.vårdkontakt-id. HSA-id + Lokalt id. HSA-id för den enhet inom vilket aktuellt svars-id är unikt anges före det lokala id:t.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$vårdkontakttid_starttidpunkt</td>
+      <td style="text-align: left">Tid</td>
+      <td style="text-align: left">RIV-specifikation: Vårdkontakt.vårdkontakttid</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$vårdkontakttid_sluttidpunkt</td>
+      <td style="text-align: left">Tid</td>
+      <td style="text-align: left">RIV-specifikation: Vårdkontakt.vårdkontakttid</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$vårdgivare</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">HSA-id för aktuell vårdgivare.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$registrerande enhet</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">RIV-specifikation: Vårdkontakt.utförs vid.Enhet.enhets-id</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$issuer_personid</td>
+      <td style="text-align: left">Text</td>
+      <td style="text-align: left">För personnummer och samordningsnummer är \(issuer_personid = Skatteverket. För lokalt reservnummer är\)issuer_personid = CeHis</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$assigner_personid</td>
+      <td style="text-align: left">Text eller HSA-id</td>
+      <td style="text-align: left">För personnummer och samordningsnummer är \(issuer_personid = Folkbokföringen. För lokalt reservnummer är\)assigner_personid = HSA-id för den enhet inom vilket aktuellt reservnummer är unikt</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$personid</td>
+      <td style="text-align: left">Personnummer / Samordnings-nummer / Lokalt reservnummer</td>
+      <td style="text-align: left">RIV-specifikation: Patient.person-id</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$oid_personid</td>
+      <td style="text-align: left">OID</td>
+      <td style="text-align: left">OID för personnummer, nationellt reservnummer eller samordningsnummer</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$födelsetidpunkt</td>
+      <td style="text-align: left">Tid</td>
+      <td style="text-align: left">RIV-specifikation: Patient.födelsetidpunkt</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$kön</td>
+      <td style="text-align: left">Kod</td>
+      <td style="text-align: left">RIV-specifikation: Patient.kön</td>
+      <td style="text-align: left">1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="svar-response-4">Svar (Response)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">ProcessCareEncounterResponse</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">OK = Registrering genomförd / ERROR = Fel vid registrering. Felet beskrivs i elementet comment / INFO = Information finns om registreringen. Informationen beskrivs i elementet comment</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Beskrivning av fel som uppstått alternativt information om genomförd registrering.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="felkoder-vid-logiskt-fel-4">Felkoder vid logiskt fel</h5>
+<p>Det är endast felmeddelandet nedan som returneras i svaret i fältet "comment".</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Felkod</th>
+      <th style="text-align: left">Felmeddelande</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">50003</td>
+      <td style="text-align: left">Starttidpunkt (" + StartDate + ") för vårdkontakt måste vara mindre än dess sluttidpunkt (" + EndDate + ")!</td>
+      <td style="text-align: left">Sluttidpunkt kan inte vara före starttidpunkt för en vårdkontakt</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50011</td>
+      <td style="text-align: left">Okänd vårdgivare i logical address (" + VardgivareHsaId + ")"</td>
+      <td style="text-align: left">Vårdgivaren finns inte i Infektionsverktyget</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50012</td>
+      <td style="text-align: left">Externt-id " + ExterntId + " används av en annan vårdgivare;</td>
+      <td style="text-align: left">Externt id används av en annan vårdgivare</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50013</td>
+      <td style="text-align: left">Organisatorisk Enhet (" + OrganisationsHsaId + ") tillhör inte vårdgivare (" + VardgivareHsaId + ");</td>
+      <td style="text-align: left">OE tillhör inte vårdgivaren som skickar in data</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50014</td>
+      <td style="text-align: left">UtfärdatAv för patientid " + patientid + " är ogiltigt: " + kodsystem + "(" + utfardatAv + ")</td>
+      <td style="text-align: left">Utfärdare saknar behörighet i Infektionsverktyget</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50015</td>
+      <td style="text-align: left">Ogiltig kod för kön (" + gender + ") i kodsystem (" + codeSystem + ")</td>
+      <td style="text-align: left">Felaktig könskod inskickad</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="källfiler-riv-ta-4">Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="ProcessCareEncounterInteraction_1.0_RIVTABP20.wsdl">ProcessCareEncounterInteraction_1.0_RIVTABP20.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a href="ProcessCareEncounterResponder_1.0.xsd">ProcessCareEncounterResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a href="CareEncounter-1.0.xsd">CareEncounter-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="BaseTypes-1.0.xsd">BaseTypes-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="Structure-1.0.xsd">Structure-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-4">FHIR-artefakter</h4>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-processcareencounter.html">StructureDefinition/processcareencounter</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-processcareencounter-request.html">StructureDefinition/processcareencounter-request</a></li>
+</ul>
+
+<hr />
+
+<h3 id="deleteprescriptionreason">DeletePrescriptionReason</h3>
+<p>DeletePrescriptionReason raderar information som tidigare har registrerats via tjänsten ProcessPrescriptionReason. En befintlig ordinationsorsak i Infektionsverktyget raderas genom att tillstånds-id, om orsaken är en infektion, eller aktivitets-id, om orsaken är profylax, skickas via tjänsten. All information som har registrerats tillsammans med den identifierade ordinationsorsaken via tjänsten ProcessPrescriptionReason raderas helt i Infektionsverktyget.</p>
+
+<h4 id="begäran-request-5">Begäran (Request)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">$$logical_address</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">Logisk adress till tjänsteimplementation. HSA-id för organisationspost motsvarande vårdgivare i HSA-trädet.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$ActivityId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Aktivitets-id för den aktivitet med tillhörande information som ska raderas i Infektionsverktyget. RIV-specifikation: Aktivitet.aktivitets-id. HSA-id + Lokalt id (OID:$$ActivityId). HSA-id för den enhet inom vilket aktuellt aktivitets-id är unikt anges före det lokala id:t. Anges när den ordinationsorsak som ska raderas är en aktivitet (profylax). Någon av aktivitets-id och tillstånds-id ska anges.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$ConditionId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Tillstånds-id för det tillstånd med tillhörande information som ska raderas i Infektionsverktyget. RIV-specifikation: Bedömt hälsorelaterat tillstånd.tillstånds-id. HSA-id + Lokalt id (OID:$$ConditionId). HSA-id för den enhet inom vilket aktuellt tillstånds-id är unikt anges före det lokala id:t. Anges när den ordinationsorsak som ska raderas är ett tillstånd (infektion). Någon av aktivitets-id och tillstånds-id ska anges.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="svar-response-5">Svar (Response)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">DeletePrescriptionReasonResponse</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">OK = Registrering genomförd / ERROR = Fel vid registrering. Felet beskrivs i elementet comment / INFO = Information finns om registreringen. Informationen beskrivs i elementet comment</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Beskrivning av fel som uppstått alternativt information om genomförd registrering.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="felkoder-vid-logiskt-fel-5">Felkoder vid logiskt fel</h5>
+<p>Det är endast felmeddelandet nedan som returneras i svaret i fältet "comment".</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Felkod</th>
+      <th style="text-align: left">Felmeddelande</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">50005 / 50006</td>
+      <td style="text-align: left">Kunde inte hitta ordinationsorsak för angivet (" + AktivitetId + ")/Kunde inte hitta ordinationsorsak för angivet (" + TillstandsId + ")</td>
+      <td style="text-align: left">Angiven ordinationorsak finns inte i Infektionsverktyget</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50011</td>
+      <td style="text-align: left">Okänd vårdgivare i logical address (" + VardgivareHsaId + ")"</td>
+      <td style="text-align: left">Vårdgivaren finns inte i Infektionsverktyget</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="källfiler-riv-ta-5">Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="DeletePrescriptionReasonInteraction_1.0_RIVTABP20.wsdl">DeletePrescriptionReasonInteraction_1.0_RIVTABP20.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a href="DeletePrescriptionReasonResponder_1.0.xsd">DeletePrescriptionReasonResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a href="BaseTypes-1.0.xsd">BaseTypes-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="Structure-1.0.xsd">Structure-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-5">FHIR-artefakter</h4>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-deleteprescriptionreason.html">StructureDefinition/deleteprescriptionreason</a></li>
+</ul>
+
+<p><em>Request-modell: ej skapad som egen logisk modell — requesten innehåller endast tre filterfält (<code class="language-plaintext highlighter-rouge">logicalAddress</code>, <code class="language-plaintext highlighter-rouge">activityId</code>, <code class="language-plaintext highlighter-rouge">conditionId</code>) som dokumenteras i fältregeltabellen ovan.</em></p>
+
+<hr />
+
+<h3 id="deleteprescription">DeletePrescription</h3>
+<p>DeletePrescription raderar information om en ordination som tidigare har registrerats via tjänsten ProcessPrescriptionReason. Ordinationsorsaken för ordinationen tas inte bort.</p>
+
+<h4 id="begäran-request-6">Begäran (Request)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">$$logical_address</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">Logisk adress till tjänsteimplementation. HSA-id för organisationspost motsvarande vårdgivare i HSA-trädet.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$PrescriptionId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Ordinations-id för den ordination som ska raderas i Infektionsverktyget. RIV-specifikation: Ordination.ordinations-id. HSA-id + Lokalt id (OID:$$PrescriptionId). HSA-id för den enhet inom vilket aktuellt ordinations-id är unikt anges före det lokala id:t.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="svar-response-6">Svar (Response)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">DeletePrescriptionResponse</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">OK = Registrering genomförd / ERROR = Fel vid registrering. Felet beskrivs i elementet comment / INFO = Information finns om registreringen. Informationen beskrivs i elementet comment</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Beskrivning av fel som uppstått alternativt information om genomförd registrering.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="felkoder-vid-logiskt-fel-6">Felkoder vid logiskt fel</h5>
+<p>Det är endast felmeddelandet nedan som returneras i svaret i fältet "comment".</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Felkod</th>
+      <th style="text-align: left">Felmeddelande</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">50004</td>
+      <td style="text-align: left">Kunde inte hitta ordination för angivet id: " + OrdinationsId;</td>
+      <td style="text-align: left">Angiven ordination finns inte i Infektionsverktyget</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50011</td>
+      <td style="text-align: left">Okänd vårdgivare i logical address (" + VardgivareHsaId + ")"</td>
+      <td style="text-align: left">Vårdgivaren finns inte i Infektionsverktyget</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="källfiler-riv-ta-6">Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="DeletePrescriptionInteraction_1.0_RIVTABP20.wsdl">DeletePrescriptionInteraction_1.0_RIVTABP20.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a href="DeletePrescriptionResponder_1.0.xsd">DeletePrescriptionResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a href="BaseTypes-1.0.xsd">BaseTypes-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="Structure-1.0.xsd">Structure-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-6">FHIR-artefakter</h4>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-deleteprescription.html">StructureDefinition/deleteprescription</a></li>
+</ul>
+
+<p><em>Request-modell: ej skapad som egen logisk modell — requesten innehåller endast två filterfält (<code class="language-plaintext highlighter-rouge">logicalAddress</code>, <code class="language-plaintext highlighter-rouge">prescriptionId</code>) som dokumenteras i fältregeltabellen ovan.</em></p>
+
+<hr />
+
+<h3 id="deletelaboratoryreport">DeleteLaboratoryReport</h3>
+<p>DeleteLaboratoryReport raderar information som tidigare har registrerats via tjänsten ProcessLaboratoryReport. Ett befintligt labsvar i Infektionsverktyget raderas genom att svars-id skickas via tjänsten. All information som har registrerats tillsammans med det identifierade labsvaret via tjänsten ProcessLabReport raderas helt i Infektionsverktyget.</p>
+
+<h4 id="begäran-request-7">Begäran (Request)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">$$logical_address</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">Logisk adress till tjänsteimplementation. HSA-id för organisationspost motsvarande vårdgivare i HSA-trädet.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$LaboratoryReportId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Svars-id för det laboratoriesvar med tillhörande information som ska raderas i Infektionsverktyget. RIV-specifikation: Laboratoriesvar.svars-id. HSA-id + Lokalt id (OID:$$LaboratoryReportId). HSA-id för den enhet inom vilket aktuellt svars-id är unikt anges före det lokala id:t.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="svar-response-7">Svar (Response)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">DeleteLaboratoryReportResponse</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">OK = Registrering genomförd / ERROR = Fel vid registrering. Felet beskrivs i elementet comment / INFO = Information finns om registreringen. Informationen beskrivs i elementet comment</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Beskrivning av fel som uppstått alternativt information om genomförd registrering.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="felkoder-vid-logiskt-fel-7">Felkoder vid logiskt fel</h5>
+<p>Det är endast felmeddelandet nedan som returneras i svaret i fältet "comment".</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Felkod</th>
+      <th style="text-align: left">Felmeddelande</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">50007</td>
+      <td style="text-align: left">Kunde inte hitta laboratoriesvar för angivet Laboratoriesvar-id (" + LaboratoriesvarId + ")</td>
+      <td style="text-align: left">Angivet laboratoriesvar finns inte i Infektionsverktyget</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50011</td>
+      <td style="text-align: left">Okänd vårdgivare i logical address (" + VardgivareHsaId + ")"</td>
+      <td style="text-align: left">Vårdgivaren finns inte i Infektionsverktyget</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="källfiler-riv-ta-7">Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="DeleteLaboratoryReportInteraction_1.0_RIVTABP20.wsdl">DeleteLaboratoryReportInteraction_1.0_RIVTABP20.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a href="DeleteLaboratoryReportResponder_1.0.xsd">DeleteLaboratoryReportResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a href="BaseTypes-1.0.xsd">BaseTypes-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="Structure-1.0.xsd">Structure-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-7">FHIR-artefakter</h4>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-deletelaboratoryreport.html">StructureDefinition/deletelaboratoryreport</a></li>
+</ul>
+
+<p><em>Request-modell: ej skapad som egen logisk modell — requesten innehåller endast två filterfält (<code class="language-plaintext highlighter-rouge">logicalAddress</code>, <code class="language-plaintext highlighter-rouge">laboratoryReportId</code>) som dokumenteras i fältregeltabellen ovan.</em></p>
+
+<hr />
+
+<h3 id="deleteactivity">DeleteActivity</h3>
+<p>DeleteActivity raderar information som tidigare har registrerats via tjänsten ProcessActivity. En befintlig aktivitet i Infektionsverktyget raderas genom att aktivitets-id skickas via tjänsten. All information som har registrerats tillsammans med den identifierade aktiviteten via tjänsten ProcessActivity raderas helt i Infektionsverktyget.</p>
+
+<h4 id="begäran-request-8">Begäran (Request)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">$$logical_address</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">Logisk adress till tjänsteimplementation. HSA-id för organisationspost motsvarande vårdgivare i HSA-trädet.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$ActivityId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Aktivitets-id för den aktivitet med tillhörande information som ska raderas i Infektionsverktyget. RIV-specifikation: Aktivitet.aktivitets-id. HSA-id + Lokalt id (OID:$$ActivityId). HSA-id för den enhet inom vilket aktuellt aktivitets-id är unikt anges före det lokala id:t.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="svar-response-8">Svar (Response)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">DeleteActivityResponse</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">OK = Registrering genomförd / ERROR = Fel vid registrering. Felet beskrivs i elementet comment / INFO = Information finns om registreringen. Informationen beskrivs i elementet comment</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Beskrivning av fel som uppstått alternativt information om genomförd registrering.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="felkoder-vid-logiskt-fel-8">Felkoder vid logiskt fel</h5>
+<p>Det är endast felmeddelandet nedan som returneras i svaret i fältet "comment".</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Felkod</th>
+      <th style="text-align: left">Felmeddelande</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">50004</td>
+      <td style="text-align: left">Kunde inte hitta aktivitet för angivet aktivitets-id (" + AktivitetId + ")</td>
+      <td style="text-align: left">Angivet aktivitetsId finns inte i Infektionsverktyget</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50011</td>
+      <td style="text-align: left">Okänd vårdgivare i logical address (" + VardgivareHsaId + ")"</td>
+      <td style="text-align: left">Vårdgivaren finns inte i Infektionsverktyget</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="källfiler-riv-ta-8">Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="DeleteActivityInteraction_1.0_RIVTABP20.wsdl">DeleteActivityInteraction_1.0_RIVTABP20.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a href="DeleteActivityResponder_1.0.xsd">DeleteActivityResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a href="BaseTypes-1.0.xsd">BaseTypes-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="Structure-1.0.xsd">Structure-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-8">FHIR-artefakter</h4>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-deleteactivity.html">StructureDefinition/deleteactivity</a></li>
+</ul>
+
+<p><em>Request-modell: ej skapad som egen logisk modell — requesten innehåller endast två filterfält (<code class="language-plaintext highlighter-rouge">logicalAddress</code>, <code class="language-plaintext highlighter-rouge">activityId</code>) som dokumenteras i fältregeltabellen ovan.</em></p>
+
+<hr />
+
+<h3 id="deletecondition">DeleteCondition</h3>
+<p>DeleteCondition raderar information som tidigare har registrerats via tjänsten ProcessCondition. Ett befintligt tillstånd (eg. diagnos) i Infektionsverktyget raderas genom att tillstånd-id skickas via tjänsten. All information som har registrerats tillsammans med det identifierade tillståndet via tjänsten ProcessCondition raderas helt i Infektionsverktyget.</p>
+
+<h4 id="begäran-request-9">Begäran (Request)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">$$logical_address</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">Logisk adress till tjänsteimplementation. HSA-id för organisationspost motsvarande vårdgivare i HSA-trädet.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$ConditionId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Tillstånds-id för det tillstånd med tillhörande information som ska raderas i Infektionsverktyget. RIV-specifikation: Bedömt hälsorelaterat tillstånd.tillstånds-id. HSA-id + Lokalt id (OID:$$ConditionId). HSA-id för den enhet inom vilket aktuellt tillstånds-id är unikt anges före det lokala id:t.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="svar-response-9">Svar (Response)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">DeleteConditionResponse</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">OK = Registrering genomförd / ERROR = Fel vid registrering. Felet beskrivs i elementet comment / INFO = Information finns om registreringen. Informationen beskrivs i elementet comment</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Beskrivning av fel som uppstått alternativt information om genomförd registrering.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="felkoder-vid-logiskt-fel-9">Felkoder vid logiskt fel</h5>
+<p>Det är endast felmeddelandet nedan som returneras i svaret i fältet "comment".</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Felkod</th>
+      <th style="text-align: left">Felmeddelande</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">50008</td>
+      <td style="text-align: left">Kunde inte hitta vårdkontakt för angivet Tillstånds-id (" + id + ")"</td>
+      <td style="text-align: left">Angivet Tillstånd finns inte i Infektionsverktyget</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50011</td>
+      <td style="text-align: left">Okänd vårdgivare i logical address (" + VardgivareHsaId + ")"</td>
+      <td style="text-align: left">Vårdgivaren finns inte i Infektionsverktyget</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="källfiler-riv-ta-9">Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="DeleteConditionInteraction_1.0_RIVTABP20.wsdl">DeleteConditionInteraction_1.0_RIVTABP20.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a href="DeleteConditionResponder_1.0.xsd">DeleteConditionResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a href="BaseTypes-1.0.xsd">BaseTypes-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="Structure-1.0.xsd">Structure-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-9">FHIR-artefakter</h4>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-deletecondition.html">StructureDefinition/deletecondition</a></li>
+</ul>
+
+<p><em>Request-modell: ej skapad som egen logisk modell — requesten innehåller endast två filterfält (<code class="language-plaintext highlighter-rouge">logicalAddress</code>, <code class="language-plaintext highlighter-rouge">conditionId</code>) som dokumenteras i fältregeltabellen ovan.</em></p>
+
+<hr />
+
+<h3 id="deletecareencounter">DeleteCareEncounter</h3>
+<p>DeleteCareEncounter raderar information som tidigare har registrerats via tjänsten ProcessCareEncounter. En befintlig vårdkontakt i Infektionsverktyget raderas genom att vårdkontakt-id skickas via tjänsten. All information som har registrerats tillsammans med den identifierade vårdkontakten via tjänsten ProcessCareEncounter raderas helt i Infektionsverktyget.</p>
+
+<h4 id="begäran-request-10">Begäran (Request)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">$$logical_address</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">Logisk adress till tjänsteimplementation. HSA-id för organisationspost motsvarande vårdgivare i HSA-trädet.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">$$CareEncounterId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdkontakt-id för den vårdkontakt med tillhörande information som ska raderas i Infektionsverktyget. RIV-specifikation: Vårdkontakt.vårdkontakt-id. HSA-id + Lokalt id (OID:$$CareEncounterId). HSA-id för den enhet inom vilket aktuellt vårdkontakt-id är unikt anges före det lokala id:t.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="svar-response-10">Svar (Response)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">DeleteCareEncounterResponse</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">OK = Registrering genomförd / ERROR = Fel vid registrering. Felet beskrivs i elementet comment / INFO = Information finns om registreringen. Informationen beskrivs i elementet comment</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Beskrivning av fel som uppstått alternativt information om genomförd registrering.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="felkoder-vid-logiskt-fel-10">Felkoder vid logiskt fel</h5>
+<p>Det är endast felmeddelandet nedan som returneras i svaret i fältet "comment".</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Felkod</th>
+      <th style="text-align: left">Felmeddelande</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">50009</td>
+      <td style="text-align: left">Kunde inte hitta vårdkontakt för angivet vårdkontakts-id (" + id + ")"</td>
+      <td style="text-align: left">Angiven vårdkontakt finns inte i Infektionsverktyget</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">50011</td>
+      <td style="text-align: left">Okänd vårdgivare i logical address (" + VardgivareHsaId + ")"</td>
+      <td style="text-align: left">Vårdgivaren finns inte i Infektionsverktyget</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="källfiler-riv-ta-10">Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="DeleteCareEncounterInteraction_1.0_RIVTABP20.wsdl">DeleteCareEncounterInteraction_1.0_RIVTABP20.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a href="DeleteCareEncounterResponder_1.0.xsd">DeleteCareEncounterResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a href="BaseTypes-1.0.xsd">BaseTypes-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="Structure-1.0.xsd">Structure-1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-10">FHIR-artefakter</h4>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-deletecareencounter.html">StructureDefinition/deletecareencounter</a></li>
+</ul>
+
+<p><em>Request-modell: ej skapad som egen logisk modell — requesten innehåller endast två filterfält (<code class="language-plaintext highlighter-rouge">logicalAddress</code>, <code class="language-plaintext highlighter-rouge">careEncounterId</code>) som dokumenteras i fältregeltabellen ovan.</em></p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.processdevelopment-infections#1.0.2 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Sep 17, 2026 11:18+0000">2026-09-17</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

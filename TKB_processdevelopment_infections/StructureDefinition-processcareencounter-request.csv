@@ -1,0 +1,40 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"processcareencounter-request","processcareencounter-request","","","",0,*,"","","","null {[]} {[]}
+","ProcessCareEncounter — Request","Logisk modell för requestparametrar i ProcessCareEncounter. Registrerar en
+ny patientplacering med information om patient, organisatorisk enhet och
+period för placeringen. En befintlig patientplacering kan uppdateras genom
+att ett nytt meddelande med samma vårdkontaktid skickas in.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"processcareencounter-request.logicalAddress","processcareencounter-request.logicalAddress","","","",1,1,"","","","Identifier {[]} {[]}
+","Logisk adress","Logisk adress till tjänsteimplementationen. HSA-id för organisationspost
+motsvarande vårdgivare i HSA-trädet.","","","","","","","","","",,,,,"",,,,"processcareencounter-request.logicalAddress",1,1,"",""
+"processcareencounter-request.careEncounterId","processcareencounter-request.careEncounterId","","","",1,1,"","","","string {[]} {[]}
+","Vårdkontakt-id","RIV-specifikation: Vårdkontakt.vårdkontakt-id. HSA-id + Lokalt id
+(HSA-id för den enhet inom vilket aktuellt id är unikt anges före det
+lokala id:t).","","","","","","","","","",,,,,"",,,,"processcareencounter-request.careEncounterId",1,1,"",""
+"processcareencounter-request.startTime","processcareencounter-request.startTime","","","",1,1,"","","","dateTime {[]} {[]}
+","Vårdkontaktens starttidpunkt","RIV-specifikation: Vårdkontakt.vårdkontakttid.","","","","","","","","","",,,,,"",,,,"processcareencounter-request.startTime",1,1,"","processcareencounter-end-after-start:Sluttidpunkt för vårdkontakten (om angiven) måste vara efter starttidpunkten (RIV-TA felkod 50003). {endTime.exists() implies startTime <= endTime}
+"
+"processcareencounter-request.endTime","processcareencounter-request.endTime","","","",0,1,"","","","dateTime {[]} {[]}
+","Vårdkontaktens sluttidpunkt","RIV-specifikation: Vårdkontakt.vårdkontakttid.","","","","","","","","","",,,,,"",,,,"processcareencounter-request.endTime",0,1,"",""
+"processcareencounter-request.careProviderId","processcareencounter-request.careProviderId","","","",1,1,"","","","Identifier {[]} {[]}
+","Vårdgivare","HSA-id för aktuell vårdgivare.","","","","","","","","","",,,,,"",,,,"processcareencounter-request.careProviderId",1,1,"",""
+"processcareencounter-request.registeringUnitId","processcareencounter-request.registeringUnitId","","","",1,1,"","","","Identifier {[]} {[]}
+","Registrerande enhet","RIV-specifikation: Vårdkontakt.utförs vid.Enhet.enhets-id.","","","","","","","","","",,,,,"",,,,"processcareencounter-request.registeringUnitId",1,1,"",""
+"processcareencounter-request.personIdIssuer","processcareencounter-request.personIdIssuer","","","",1,1,"","","","string {[]} {[]}
+","Utfärdare av person-id","För personnummer och samordningsnummer: ""Skatteverket"". För lokalt
+reservnummer: ""CeHis"".","","","","","","","","","",,,,,"",,,,"processcareencounter-request.personIdIssuer",1,1,"",""
+"processcareencounter-request.personIdAssigner","processcareencounter-request.personIdAssigner","","","",1,1,"","","","string {[]} {[]}
+","Tilldelare av person-id","För personnummer och samordningsnummer: ""Folkbokföringen"". För lokalt
+reservnummer: HSA-id för den enhet inom vilket aktuellt reservnummer är
+unikt.","","","","","","","","","",,,,,"",,,,"processcareencounter-request.personIdAssigner",1,1,"",""
+"processcareencounter-request.patientId","processcareencounter-request.patientId","","","",1,1,"","","","Identifier {[]} {[]}
+","Patientens person-id","RIV-specifikation: Patient.person-id. system = OID för personnummer,
+nationellt reservnummer eller samordningsnummer (se personIdOid),
+value = själva numret.","","","","","","","","","",,,,,"",,,,"processcareencounter-request.patientId",1,1,"",""
+"processcareencounter-request.personIdOid","processcareencounter-request.personIdOid","","","",1,1,"","","","uri {[]} {[]}
+","OID för person-id","OID för personnummer, nationellt reservnummer eller samordningsnummer.","","","","","","","","","",,,,,"",,,,"processcareencounter-request.personIdOid",1,1,"",""
+"processcareencounter-request.patientBirthTime","processcareencounter-request.patientBirthTime","","","",1,1,"","","","dateTime {[]} {[]}
+","Patientens födelsetidpunkt","RIV-specifikation: Patient.födelsetidpunkt.","","","","","","","","","",,,,,"",,,,"processcareencounter-request.patientBirthTime",1,1,"",""
+"processcareencounter-request.patientGender","processcareencounter-request.patientGender","","","",1,1,"","","","code {[]} {[]}
+","Patientens kön","RIV-specifikation: Patient.kön. Kodverk anges externt i
+RIV-specifikation Infektionsverktyget.pdf — inte återgivet i TKB-texten.","","","","","","","","","",,,,,"",,,,"processcareencounter-request.patientGender",1,1,"",""

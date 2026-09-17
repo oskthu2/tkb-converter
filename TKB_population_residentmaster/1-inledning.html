@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>1 Inledning - population: residentmaster v1.2</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"2"}
+    h3,h4,h5,h6{--heading-prefix:"2"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">population: residentmaster</span>
+            <br/>
+            <span style="display:inline-block;">1.2 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <?xml version="1.0" encoding="UTF-8"?>
+<menu xmlns="http://hl7.org/fhir">
+  <item name="Home" href="index.html"/>
+  <item name="1 Inledning" href="1-inledning.html"/>
+  <item name="2 Versionsinformation" href="2-versionsinformation.html"/>
+  <item name="3 Tjänstedomänens arkitektur" href="3-tjanstedomanens-arkitektur.html"/>
+  <item name="4 Tjänstedomänens krav och regler" href="4-tjanstedomanens-krav-och-regler.html"/>
+  <item name="5 Tjänstedomänens meddelandemodeller" href="5-tjanstedomanens-meddelandemodeller.html"/>
+  <item name="6 Gemensamma informationskomponenter" href="6-gemensamma-informationskomponenter.html"/>
+  <item name="7 Tjänstekontrakt" href="7-tjanstekontrakt.html"/>
+  <item name="Artifacts" href="artifacts.html"/>
+</menu>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>1 Inledning</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">population: residentmaster - Local Development build (v1.2) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/population-residentmaster/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>1 Inledning</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div>
+<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
+</div>
+<h1 id="1-inledning">1 Inledning</h1>
+
+<h2 id="11-allmänt">1.1 Allmänt</h2>
+
+<p>Så gott som alla vård- och omsorgssystem i Sverige idag hanterar enkla demografiska
+uppgifter i någon form, t.ex. namn, adress och födelsedatum för de patienter
+(brukare/invånare/medborgare) som hanteras. I de flesta fall kommer denna information
+direkt eller indirekt från Skatteverkets register via SPAR som gör dem elektroniskt
+tillgängliga via avtal. Uppgifterna är visserligen klassade som offentliga men den
+tekniska tillgången är i många fall kostnadsbelagd och på annat sätt begränsad.</p>
+
+<p>Ur vårdens perspektiv finns ofta behovet att dessutom hantera ytterligare uppgifter av
+samma karaktär, t.ex. telefonnummer, tillfälliga adresser, andra tilltalsnamn eller
+geografiska koordinater. Det vanliga är därför att varje landsting (eller annan
+vårdgivare) upprättar någon form av lokal personuppgiftstjänst som baseras på
+information om de invånare som är folkbokförda inom landstinget. Informationen erhålls
+från SPAR via periodiska aviseringar. Information om patienter som är folkbokförda
+utanför landstinget erhålls vanligen genom slagning on-line mot någon av Skatteverkets
+tjänster (SPAR/Navet).</p>
+
+<p>För de företag och organisationer som tillhandahåller tillämpningar för vården innebär
+det idag att dessa måste anpassas mot varje lokal personuppgiftstjänst.</p>
+
+<p>Syftet med dessa tjänstekontrakt är att de ska kunna tillämpas såväl nationellt som
+lokalt och därmed förenkla utveckling av, och samverkan mellan, vårdtillämpningar som
+därmed blir oberoende av vilken instans av personuppgiftstjänst som används.</p>
+
+<h2 id="12-förändrade-tjänstekontrakt">1.2 Förändrade tjänstekontrakt</h2>
+
+<p>Nedan redovisas kompatibilitet mellan konsument och producent för tjänstekontrakten
+som finns i flera versioner. Kompatibilitet avser här såväl format som semantik. För
+definition av kompatibilitet mellan format, se RIV Tekniska Anvisningar, Översikt.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tjänstekontrakt</th>
+      <th>Konsument</th>
+      <th>Producent</th>
+      <th>Kompatibilitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LookupResidentForFullProfile</td>
+      <td>1.0</td>
+      <td>1.1</td>
+      <td>Ja</td>
+    </tr>
+    <tr>
+      <td>LookupResidentForFullProfile</td>
+      <td>1.1</td>
+      <td>1.0</td>
+      <td>Nej</td>
+    </tr>
+    <tr>
+      <td>LookupResidentForFullProfile</td>
+      <td>1.1</td>
+      <td>1.2</td>
+      <td>Ja</td>
+    </tr>
+    <tr>
+      <td>LookupResidentForFullProfile</td>
+      <td>1.2</td>
+      <td>1.1</td>
+      <td>Ja</td>
+    </tr>
+    <tr>
+      <td>UpdateResident (utgått)</td>
+      <td>1.1</td>
+      <td>1.0</td>
+      <td>Nej</td>
+    </tr>
+    <tr>
+      <td>UpdateResident (utgått)</td>
+      <td>1.0</td>
+      <td>1.1</td>
+      <td>Nej</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Not: källdokumentets tabell benämner kontraktet "LoockupResidentByFullProfile" — ett
+uppenbart extraherings-/typografiskt fel i källdokumentet (jämför avsnitt 7 och den
+faktiska WSDL-filen, som entydigt anger "LookupResidentForFullProfile"). Namnet har
+normaliserats här. Se QUESTIONS.md.</em></p>
+
+<h2 id="13-utgångna-tjänstekontrakt">1.3 Utgångna tjänstekontrakt</h2>
+
+<p>Utgångna sedan 1.0:</p>
+
+<ul>
+  <li><strong>UpdateResident</strong>: Domänen standardiserar inte längre hur innehållet i en
+personuppgiftstjänst administreras.</li>
+</ul>
+
+<h2 id="14-bakgrund">1.4 Bakgrund</h2>
+
+<p>Så gott som alla vård- och omsorgssystem i Sverige idag hanterar enkla demografiska
+uppgifter i någon form. Uppgifterna erhålls oftast direkt eller indirekt från
+Skatteverkets register via SPAR. Syftet med dessa tjänstekontrakt är att de ska kunna
+tillämpas såväl nationellt som lokalt och därmed förenkla utveckling av, och samverkan
+mellan, vårdtillämpningar.</p>
+
+<h2 id="15-genomförande">1.5 Genomförande</h2>
+
+<p>Som underlag för arbetet har använts de behov som kunnat identifieras av ett antal
+pågående projekt med behov av personuppgifter:</p>
+
+<ul>
+  <li>Den nationella patientöversikten (NPÖ) avser att använda en högst begränsad
+uppsättning fält, bl.a. patientens namn och uppgift om sekretessmarkering och
+avliden. Uppgifterna avser alla invånare i hela landet men användningen är
+avtalsreglerad med vissa förbehåll.</li>
+  <li>Region Skåne och Västra Götalandsregionen driver ett projekt för e-remiss i
+samarbete med Siemens (Melior).</li>
+  <li>Tillämpningen "Mina vårdkontakter" (MVK) använder redan idag uppgifter från SPAR via
+eget avtal, men skulle av ekonomiska skäl vilja använda uppgifter från deltagande
+landstings lokala personuppgiftssystem (som redan har avtal med SPAR).</li>
+</ul>
+
+<p>Tjänstekontrakten är utarbetade av en arbetsgrupp med deltagare från ovanstående
+projekt/förvaltningar och fastställda av arkitekturledningen (AL-T).</p>
+
+<h2 id="16-behov-och-principer">1.6 Behov och principer</h2>
+
+<p>För att underlätta förståelsen för tjänsterna sammanfattas här de behov och
+lösningsprinciper som varit drivande vid utformningen:</p>
+
+<ol>
+  <li>Det mest centrala behovet är uppslagning av en specifik person baserat på
+personnummer.</li>
+  <li>Behovet av rena urvalsfrågor (t.ex. alla Larsson med kommunkod kommun 098) är inte
+prioriterat.</li>
+  <li>Alla tillämpningar har inte samma behov av information från Skatteverket/SPAR. Det
+är önskvärt att tillåta olika delmängder av fält — detta kan avse både bredden,
+dvs. vilka fält som tillgängliggörs, och djupet, dvs. vilka personer som
+tillgängliggörs.</li>
+  <li>Det kan synas en omöjlig uppgift att skapa interoperabilitet om inte bredden alltid
+är densamma, men bara det att en gemensam och nationellt normerad
+informationsmodell används är ett stort steg åt rätt håll. Modellen är en
+bruttolista med alla fält som potentiellt kan ingå i nationella personuppgifter.
+Denna har datatypen <code class="language-plaintext highlighter-rouge">ResidentType</code>.</li>
+  <li>För att definiera den delmängd av fält som faktiskt tillhandahålls av en viss
+tjänsteproducent används <strong>profiler</strong>. En profil har som enda syfte att entydigt
+kunna namnge denna delmängd.</li>
+  <li>En tjänstekonsument måste följaktligen försäkra sig om att tjänsteproducenten
+klarar en viss profil för att garantera interoperabilitet. Profilen utgör därför
+en del av tjänstekontraktets namn, vilket innebär att det finns flera olika
+tjänstekontrakt för uppslagning; alla med namn på formen <code class="language-plaintext highlighter-rouge">LookupResidentFor&lt;Profile&gt;</code>.</li>
+  <li>Eftersom fälten i bruttolistan (med undantag av personnummer) är valfria i
+XML-schemat innebär det ingen prestandamässig belastning att schemat innehåller
+fler fält än vad den aktuella profilen gör.</li>
+  <li>Det är omöjligt att en gång för alla fastställa ett exakt och slutgiltigt utseende
+på <code class="language-plaintext highlighter-rouge">ResidentType</code>. Utökningar kommer att vara nödvändiga i takt med att nya behov
+identifieras. Initialt ingår (merparten av) de fält som definierats av
+Skatteverket i <code class="language-plaintext highlighter-rouge">ResidentType</code>, s.k. <strong>grundläggande fält</strong>. Det finns dock ett
+grundläggande behov att standardisera åtkomst till ytterligare typer av
+personuppgifter (t.ex. telefonnummer, sms-nummer, vald husläkare), s.k.
+<strong>utökade fält</strong>. Utökade fält ska dock inte innehålla klinisk information eller
+vara knutna till en viss vårdprocess.</li>
+  <li>Tekniskt hanteras utökningar genom att <code class="language-plaintext highlighter-rouge">ResidentType</code> versionsmärks med ny
+namnrymd enligt den metod som anvisats av AL-T. En utökning påverkar inte
+befintliga <code class="language-plaintext highlighter-rouge">LookupResidentFor</code>-kontrakt eftersom varje version av kontraktet alltid
+är knuten till en specifik version av <code class="language-plaintext highlighter-rouge">ResidentType</code>. Vid definition av XML-schema
+finns även möjlighet att utöka en datatyp med arv, vilket kan utnyttjas för att vid
+behov skapa lokala (icke nationella) profiler med s.k. lokala fält (t.ex.
+"pnr i Finland").</li>
+</ol>
+
+<h2 id="17-definitioner">1.7 Definitioner</h2>
+
+<ul>
+  <li><strong>Grundläggande fält</strong>: fält som härrör från Skatteverkets folkbokföringsregister
+(SPAR/Navet).</li>
+  <li><strong>Utökade fält</strong>: kompletterande fält utanför Skatteverkets källa (t.ex.
+telefonnummer), som inte får innehålla klinisk information eller vara knutna till
+en vårdprocess.</li>
+  <li><strong>Profil</strong>: en namngiven delmängd av fälten i <code class="language-plaintext highlighter-rouge">ResidentType</code> som en viss
+tjänsteproducent garanterar att tillhandahålla. Profilen är en del av
+tjänstekontraktets namn (<code class="language-plaintext highlighter-rouge">LookupResidentFor&lt;Profile&gt;</code>).</li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.population-residentmaster#1.2 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Sep 17, 2026 11:18+0000">2026-09-17</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

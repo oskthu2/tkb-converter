@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="urn:riv:clinicalprocess:activityprescription:prescribe:2"
+    xmlns:fhir="http://hl7.org/fhir"
+    xmlns:dosage='urn:riv:clinicalprocess:activityprescription:prescribe:2'
+    targetNamespace="urn:riv:clinicalprocess:activityprescription:prescribe:2" elementFormDefault="qualified"
+    attributeFormDefault="unqualified" version="2.0">
+    
+    
+
+    <xs:complexType name="MedicationList">
+        <xs:sequence>
+            <xs:element name="patientId" type="fhir:Identifier" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Identifiering av patienten. <br/>Patienter i NOD identifieras initialt med svenskt personnummer och samordningsnummer. På sikt kommer även andra typer av identitet att kunna användas, i första hand reservnummer och katastrofnummer. <br/>Attributet system i datatypen Identifier (från FHIR) anger vilken typ av identifiering som används, dvs. om det t.ex. är personnummer eller samordningsnummer.<br/><br/>Vid enbart förskrivning, vilket är möjligt för patienter utan personnummer, används istället klassen Patientinformation.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="version" type="fhir:Identifier" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Version på patientens samlade läkemedelslista.<br/>Ändras av NOD vid varje förändring i någon av de ingående Läkemedelsbehandlingarna dvs. då en ny Läkemedelsordination eller ett nytt Expedieringsunderlag kopplat till en Läkemedelsbehandling registreras.<br/>Däremot medför inte statusförändringar kopplade till ett Expedieringsunderlag eller expediering av läkemedel att underlagsversion ändras. Ej heller registrering av lösa Expedieringsunderlag, dvs sådana som ej är kopplade till en Läkemedelsbehandling<br/>Syftet med underlagsversion är att vårdsystemet ska kunna säkerställa att det har rätt underlag vid ordination. <br/>Vårdsystemet ska inte basera någon logik på underlagsversionens format, utan endast på kontroll av likhet.<br/>Det bör noteras att underlagsversion alltid baseras på patientens samlade läkemedelslista, oberoende av eventuella urvalskriterier.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="lastModified" type="xs:dateTime" minOccurs="1" maxOccurs="1" >
+                <xs:annotation> <xs:documentation>Tidpunkt för senaste ändring i läkemedelslistan. Ändras samtidigt med underlagsversion.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="medicationPrescriptionSequences" type="tns:MedicationPrescriptionSequence" minOccurs="0" maxOccurs="unbounded" >
+                <xs:annotation> <xs:documentation>Patientens Läkemedelsbehandlingar (i urvalet).</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="medicationStatements" type="tns:MedicationStatement" minOccurs="0" maxOccurs="unbounded" >
+                <xs:annotation> <xs:documentation>Patientens Egenmedicineringar (i urvalet)</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="fullfilledReviews" type="tns:Review" minOccurs="0" maxOccurs="unbounded" >
+                <xs:annotation> <xs:documentation>Information om genomförda genomgångar av listan som helhet, dvs. vem som genomfört och när.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:element name="requestedReviews" type="tns:Review" minOccurs="0" maxOccurs="unbounded" >
+                <xs:annotation> <xs:documentation>Information om de genomgångar som begärts av listan som helhet, dvs. vem som begärt och när.</xs:documentation> </xs:annotation>
+            </xs:element>
+            <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+
+</xs:schema>

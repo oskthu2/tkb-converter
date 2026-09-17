@@ -1,0 +1,72 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"processprescriptionreason-request","processprescriptionreason-request","","","",0,*,"","","","null {[]} {[]}
+","ProcessPrescriptionReason — Request","Logisk modell för requestparametrar i tjänstekontraktet ProcessPrescriptionReason
+(RIV-TA urn:riv:followup:processdevelopment:infections:ProcessPrescriptionReason:1).
+Registrerar en ordinationsorsak med information om patient, organisatorisk enhet,
+eventuellt aktivitet, ordination och ordinerad substans.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"processprescriptionreason-request.prescriptionTime","processprescriptionreason-request.prescriptionTime","","","",0,1,"","","","string {[]} {[]}
+","Tidpunkt då registreringen av ordinationsorsaken gjordes (YYYYMMDDhhmmss)","Tidpunkt i formatet YYYYMMDDhhmmss.
+I de fall en ordination finns anges här, i annat fall lämnas fältet tomt.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.prescriptionTime",0,1,"",""
+"processprescriptionreason-request.substanceCode","processprescriptionreason-request.substanceCode","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Läkemedelssubstans som är del av en läkemedelsordination","Hanterar information kring en läkemedelssubstans.
+Kodverk: ATC. OID: 1.2.752.129.2.2.3.1.1
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.substanceCode",1,1,"",""
+"processprescriptionreason-request.prescriptionCareUnitId","processprescriptionreason-request.prescriptionCareUnitId","","","",1,1,"","","","Identifier {[]} {[]}
+","Medicinskt ansvarig för ordinationsmoment (HSA-id)","OID för HSA-id: 1.2.752.129.2.1.4.1
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.prescriptionCareUnitId",1,1,"",""
+"processprescriptionreason-request.prescriptionLocationId","processprescriptionreason-request.prescriptionLocationId","","","",0,1,"","","","Identifier {[]} {[]}
+","Registreringsenhet för ordinationsmoment (HSA-id)","OID för HSA-id: 1.2.752.129.2.1.4.1
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.prescriptionLocationId",0,1,"",""
+"processprescriptionreason-request.prescriptionReasonCareUnitId","processprescriptionreason-request.prescriptionReasonCareUnitId","","","",1,1,"","","","Identifier {[]} {[]}
+","Medicinskt ansvarig för ordinationsorsak (HSA-id)","OID för HSA-id: 1.2.752.129.2.1.4.1
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.prescriptionReasonCareUnitId",1,1,"",""
+"processprescriptionreason-request.prescriptionReasonLocationId","processprescriptionreason-request.prescriptionReasonLocationId","","","",0,1,"","","","Identifier {[]} {[]}
+","Registreringsenhet för ordinationsorsak (HSA-id)","OID för HSA-id: 1.2.752.129.2.1.4.1
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.prescriptionReasonLocationId",0,1,"",""
+"processprescriptionreason-request.conditionId","processprescriptionreason-request.conditionId","","","",0,1,"","","","Identifier {[]} {[]}
+","Id för patientens diagnos","Nationell OID för lokala ID:n: 1.2.752.129.2.1.2.1
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.conditionId",0,1,"",""
+"processprescriptionreason-request.conditionCode","processprescriptionreason-request.conditionCode","","","",0,1,"","","","CodeableConcept {[]} {[]}
+","Kod och klartext för patientens diagnos","Kodverk: SnomedCT, IV Annan, KSH97
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.conditionCode",0,1,"",""
+"processprescriptionreason-request.source","processprescriptionreason-request.source","","","",0,1,"","","","CodeableConcept {[]} {[]}
+","Kod och klartext som anger hur infektionen uppstått","Anger om det är samhälls- eller vårdförvärvad infektion eller ej infektion (vid förebyggande profylax).
+Kodverk: IV Smittväg
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.source",0,1,"",""
+"processprescriptionreason-request.activityCode","processprescriptionreason-request.activityCode","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Information om en aktivitet som är relevant att registrera","Kodverk: KVÅ, SnomedCT, IV Annan
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.activityCode",1,1,"",""
+"processprescriptionreason-request.activityId","processprescriptionreason-request.activityId","","","",1,1,"","","","Identifier {[]} {[]}
+","Unik identifierare för aktivitet","Nationell OID för lokala ID:n: 1.2.752.129.2.1.2.1.
+OBSERVERA: attributet har olika betydelse beroende på om mallen för Activity (profylax)
+eller Condition (infektion) används.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.activityId",1,1,"",""
+"processprescriptionreason-request.patient","processprescriptionreason-request.patient","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Patientuppgifter","Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.patient",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processprescriptionreason-request.patient.id","processprescriptionreason-request.patient.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processprescriptionreason-request.patient.extension","processprescriptionreason-request.patient.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processprescriptionreason-request.patient.modifierExtension","processprescriptionreason-request.patient.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processprescriptionreason-request.patient.patientId","processprescriptionreason-request.patient.patientId","","","",1,1,"","","","Identifier {[]} {[]}
+","Patientens identifierare","Patientens identifierare","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.patient.patientId",1,1,"",""
+"processprescriptionreason-request.patient.birthTime","processprescriptionreason-request.patient.birthTime","","","",1,1,"","","","date {[]} {[]}
+","Patientens födelseår (ÅÅÅÅMMDD, ÅÅÅÅMM eller ÅÅÅÅ)","Patientens födelseår (ÅÅÅÅMMDD, ÅÅÅÅMM eller ÅÅÅÅ)","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.patient.birthTime",1,1,"",""
+"processprescriptionreason-request.patient.gender","processprescriptionreason-request.patient.gender","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Patientens kön","Kodverk KV Kön, OID: 1.2.752.129.2.2.1.1
+0 = not known, 1 = male, 2 = female, 9 = not applicable","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.patient.gender",1,1,"",""
+"processprescriptionreason-request.prescriptionId","processprescriptionreason-request.prescriptionId","","","",1,1,"","","","Identifier {[]} {[]}
+","Unik identifierare för ordinationen","Nationell OID för lokala ID:n: 1.2.752.129.2.1.2.1
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.prescriptionId",1,1,"",""
+"processprescriptionreason-request.prescriptionReasonTime","processprescriptionreason-request.prescriptionReasonTime","","","",0,1,"","","","string {[]} {[]}
+","Tidpunkt för ordinationen (YYYYMMDDhhmmss)","Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.prescriptionReasonTime",0,1,"",""

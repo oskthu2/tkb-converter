@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>7 Tjänstekontrakt - infrastructure: itintegration: registry v2</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">infrastructure: itintegration: registry</span>
+            <br/>
+            <span style="display:inline-block;">2 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <?xml version="1.0" encoding="UTF-8"?>
+<menu xmlns="http://hl7.org/fhir">
+  <item name="Home" href="index.html"/>
+  <item name="1 Inledning" href="1-inledning.html"/>
+  <item name="2 Versionsinformation" href="2-versionsinformation.html"/>
+  <item name="3 Tjänstedomänens arkitektur" href="3-tjanstedomanens-arkitektur.html"/>
+  <item name="4 Tjänstedomänens krav och regler" href="4-tjanstedomanens-krav-och-regler.html"/>
+  <item name="5 Tjänstedomänens meddelandemodeller" href="5-tjanstedomanens-meddelandemodeller.html"/>
+  <item name="6 Gemensamma informationskomponenter" href="6-gemensamma-informationskomponenter.html"/>
+  <item name="7 Tjänstekontrakt" href="7-tjanstekontrakt.html"/>
+  <item name="Artifacts" href="artifacts.html"/>
+</menu>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">infrastructure: itintegration: registry - Local Development build (v2) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/infrastructure-itintegration-registry/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstekontrakt" id="markdown-toc-tjänstekontrakt">Tjänstekontrakt</a>    <ul>
+      <li><a href="#getlogicaladdresseesbyservicecontract" id="markdown-toc-getlogicaladdresseesbyservicecontract">GetLogicalAddresseesByServiceContract</a></li>
+      <li><a href="#getsupportedservicecontracts" id="markdown-toc-getsupportedservicecontracts">GetSupportedServiceContracts</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstekontrakt">Tjänstekontrakt</h2>
+
+<h3 id="getlogicaladdresseesbyservicecontract">GetLogicalAddresseesByServiceContract</h3>
+<p>Tjänsten returnerar en lista över logiska adressater som har en tjänsteproducent för angivet tjänstekontrakt (namnrymd) och som har anropsbehörighet för angiven tjänstekonsument (hsa-id).
+Ett tänkt syfte med denna tjänst är att konsumenter med behov av att vidarebefordra anrop till alla producenter av ett specifikt tjänstekontrakt ska kunna använda tjänsten för att fastställa vilka logiska adressater som erbjuder angiven tjänst.</p>
+
+<h4 id="version">Version</h4>
+<p>2.0</p>
+
+<h4 id="fältregler">Fältregler</h4>
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Referens till ytterligare regler för enskilda element anges i kolumnen ”Namn”. Dessa regler beskrivs mer i detalj i kapitlet ”Övriga regler”.</p>
+
+<p>| Namn | Typ | Beskrivning | Kardinalitet |
+| :— | :— | :— | :— |
+| Begäran |  |  |  |
+| serviceConsumerHsaId | hsaId | Tjänstekonsument mot vars anropsbehörighet svaret filtreras. | 1..1 |
+| serviceContractNameSpace | urn | Det tjänstekontrakt som frågan gäller | 1..1 |
+| Svar |  |  |  |
+| logicalAddressRecord | LogicalAddresseeRecordType |  | 0..* |
+| logicalAddressRecord. logicalAddress | Text | Tjänstekontrakt som stöds av angiven tjänstekonsument vid tidpunkten för anropet av GetLogicalAddresseesByServiceContract. | 1..1 |
+| logicalAddressRecord.filter | FilterType |  | 0..* |
+| logicalAddressRecord.filter.
+serviceDomain | URN på formatet <regelverk>:<huvuddomän>:<underdomän>. | Namnrymd för Tjänstedomän enligt RIVTA-förvaltningens förvaltade tjänstedomäner. Anges utan versionsnummer. Ex: ”urn:riv:crm:scheduling” | 1..1 |
+| logicalAddressRecord.filter.
+categorization | Text | Kodverk enligt tjänstedomänens dokumentation. | 0..* |
+Not: Utformandet av behörighetsfiltret, FilterType, avspeglar den första intressentens (EngagemangsIndex) direkta behov av filter-information. Om man i framtiden kan identifiera fler intressenter av behörighetsfilter kan datamodellen generaliseras baserat på de behov som då identifierats och införas i en major-version av tjänstekontraktet.</underdomän></huvuddomän></regelverk></p>
+
+<h4 id="övriga-regler">Övriga regler</h4>
+<p>Till detta tjänstekontrakt finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan.
+R1: Producenten ska filtrera svaret så att det endast innehåller de logiska adresser som angiven konsument har rättighet att adressera för angivet tjänstekontrakt (vid tidpunkten för anropet av GetLogicalAddresseesByServiceContract).
+R2: Behörighetsfilter-informationen i svaret skall hanteras enligt följande vid behörighetskontroll:
+Om posten logicalAddressRecord för avsedd logicalAddress i svaret från GetLogicalAddresseesByServiceContract inte innehåller några filter-poster så skall anropet tillåtas.
+Om det finns en eller flera fitler-poster i logicalAddressRecord så måste meddelandet som skall skickas till logicalAddress innehålla en serviceDomain som ingår i en av filter-posterna, annars skall anropet inte tillåtas.
+Om den matchande filter-posten (map serviceDomain) inte anger någon categorization så skall anropet tillåtas.
+Om det finns en eller flera categorization angivna i den matchande fitler-posten så måste meddelandet som skall skickas till logicalAddress innehålla en cateorization som ingår i filter-posten, annars skall anropet inte tillåtas.
+Om meddelandet innehåller en matchande categorization så skall anropet tillåtas.
+Exempel på R2
+Varje exempel nedan avspeglar respektive del-regel i R2 ovan.
+Följande exempel-meddelande skall skickas till logicalAddress ”logisk-adress”:</p>
+<tns:Update xmlns:tns="urn:riv:itintegration:engagementindex:UpdateResponder:1" xmlns:tns1="urn:riv:itintegration:engagementindex:1">
+<tns:engagementTransaction>
+<tns1:serviceDomain>crm:scheduling</tns1:serviceDomain>
+<tns1:categorization>Booking</tns1:categorization>
+</tns:engagementTransaction>
+</tns:Update>
+<p>Filter exempel #1 ger behörighet då filter-information saknas:</p>
+<GetLogicalAddresseesByServiceContractResponse xmlns:ns2="urn:riv:infrastructure:itintegration:registry:2" xmlns="urn:riv:infrastructure:itintegration:registry:
+GetLogicalAddresseesByServiceContractResponder:2">
+<logicalAddressRecord>
+<logicalAddress>logisk-adress</logicalAddress>
+</logicalAddressRecord>
+</GetLogicalAddresseesByServiceContractResponse>
+<p>Filter exempel #2 ger inte behörighet då filter-informationen inte matchar serviceDomain i meddelandet:</p>
+<GetLogicalAddresseesByServiceContractResponse xmlns:ns2="urn:riv:infrastructure:itintegration:registry:2" xmlns="urn:riv:infrastructure:itintegration:registry:
+GetLogicalAddresseesByServiceContractResponder:2">
+<logicalAddressRecord>
+<logicalAddress>logisk-adress</logicalAddress>
+<filter>
+<serviceDomain>riv:crm:other</serviceDomain>
+</filter>
+</logicalAddressRecord>
+</GetLogicalAddresseesByServiceContractResponse>
+<p>Filter exempel #3 ger behörighet då filter-informationen matchar serviceDomain i meddelandet samt inte innehåller någon categorization:</p>
+<GetLogicalAddresseesByServiceContractResponse xmlns:ns2="urn:riv:infrastructure:itintegration:registry:2" xmlns="urn:riv:infrastructure:itintegration:registry:
+GetLogicalAddresseesByServiceContractResponder:2">
+<logicalAddressRecord>
+<logicalAddress>logisk-adress</logicalAddress>
+<filter>
+<serviceDomain>riv:crm:scheduling</serviceDomain>
+</filter>
+</logicalAddressRecord>
+</GetLogicalAddresseesByServiceContractResponse>
+<p>Filter exempel #4 ger inte behörighet då filter-informationen matchar serviceDomain men inte categorization i meddelandet:</p>
+<GetLogicalAddresseesByServiceContractResponse xmlns:ns2="urn:riv:infrastructure:itintegration:registry:2" xmlns="urn:riv:infrastructure:itintegration:registry:
+GetLogicalAddresseesByServiceContractResponder:2">
+<logicalAddressRecord>
+<logicalAddress>logisk-adress</logicalAddress>
+<filter>
+<serviceDomain>riv:crm:scheduling</serviceDomain>
+<categorization>Other1</categorization>
+<categorization>Other2</categorization>
+</filter>
+<filter>
+<serviceDomain>riv:crm:other</serviceDomain>
+<categorization>Booking</categorization>
+</filter>
+</logicalAddressRecord>
+</GetLogicalAddresseesByServiceContractResponse>
+<p>Filter exempel #5 ger behörighet då filter-informationen matchar såväl serviceDomain som categorization i meddelandet:</p>
+<GetLogicalAddresseesByServiceContractResponse xmlns:ns2="urn:riv:infrastructure:itintegration:registry:2" xmlns="urn:riv:infrastructure:itintegration:registry:
+GetLogicalAddresseesByServiceContractResponder:2">
+<logicalAddressRecord>
+<logicalAddress>logisk-adress</logicalAddress>
+<filter>
+<serviceDomain>riv:crm:scheduling</serviceDomain>
+<categorization>Booking</categorization>
+</filter>
+<filter>
+<serviceDomain>riv:crm:other</serviceDomain>
+<categorization>Other1</categorization>
+<categorization>Other2</categorization>
+</filter>
+</logicalAddressRecord>
+</GetLogicalAddresseesByServiceContractResponse>
+<p>R3: All matchning av strängar för att avgöra om serviceDomain och categorization överensstämmer mellan meddelande och behörighetsfilter skall göras utan att ta hänsyn till versaler och gemener, dvs med ”IgnoreCase” semantik. Detta för att undika problem som uppkommer om olika intressenter använder versaler och gemener på olika sätt.</p>
+
+<h5 id="icke-funktionella-krav">Icke funktionella krav</h5>
+<p>Inga specifika för denna tjänst.</p>
+
+<h6 id="sla-krav">SLA-krav</h6>
+<p>Inga avvikande krav som avviker från de generella kraven.</p>
+
+<h4 id="annan-information-om-kontraktet">Annan information om kontraktet</h4>
+<p>Ingen övrig information om kontraktet.</p>
+
+<h4 id="71-källfiler-riv-ta">7.1 Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetLogicalAddresseesByServiceContractInteraction_2.0_RIVTABP21.wsdl">GetLogicalAddresseesByServiceContractInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a href="GetLogicalAddresseesByServiceContractResponder_2.0.xsd">GetLogicalAddresseesByServiceContractResponder_2.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a href="infrastructure_itintegration_registry_2.0.xsd">infrastructure_itintegration_registry_2.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>Domänschema (delat, används fortfarande för LogicalAddress i SOAP-header enligt RIV TA Basic Profile 2.1 regel #8)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="71-fhir-artefakter">7.1 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getlogicaladdresseesbyservicecontract.html">StructureDefinition/getlogicaladdresseesbyservicecontract</a></li>
+</ul>
+
+<p><em>Request-modell: ej skapad som egen logisk modell — requesten innehåller endast två filterfält (<code class="language-plaintext highlighter-rouge">serviceConsumerHsaId</code>, <code class="language-plaintext highlighter-rouge">serviceContractNameSpace</code>) som dokumenteras i fältregeltabellen ovan.</em></p>
+
+<h3 id="getsupportedservicecontracts">GetSupportedServiceContracts</h3>
+<p>Tjänsten returnerar en lista över tjänstekontrakt (namnrymder) som stöds av en specifik logisk adressat. Varje huvudversion uppträder som ett eget tjänstekontrakt (namnrymd).
+Ett tänkt syfte med denna tjänst är att konsumenter med avancerad process-logik ska kunna använda tjänsten för att fastställa vilka tjänstkontrakt (eller huvudversioner av tjänster) som stöds av t.ex. en viss vårdenhet. Det är framför allt intressant för konsumenter av tjänstedomäner där vissa tjänstekontrakt är frivilliga att realisera. Om en logisk adressat (verksamhet så som vårdenhet) saknar stöd för ett av domänens frivilla tjänstekontrakt blir det underlag för hur den konsumerande e-tjänsten ska styra sitt flöde.
+Sedan v2.0 av tjänsten är fältet serviceConsumerHsaId frivilligt, det var obligatoriskt i v1.0.</p>
+
+<h4 id="version-1">Version</h4>
+<p>2.0</p>
+
+<h4 id="fältregler-1">Fältregler</h4>
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Referens till ytterligare regler för enskilda element anges i kolumnen ”Namn”. Dessa regler beskrivs mer i detalj i kapitlet ”Övriga regler”.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">serviceConsumerHsaId</td>
+      <td style="text-align: left">hsaId</td>
+      <td style="text-align: left">Tjänstekonsument. Svaret innehåller bara  de tjänstekontrakt som denna konsument har rättighet att använda mot angiven logisk adress.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">logicalAdress</td>
+      <td style="text-align: left">Text</td>
+      <td style="text-align: left">Typ och betydelse definieras per tjänstedomän.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">serviceContractNamespace</td>
+      <td style="text-align: left">urn</td>
+      <td style="text-align: left">Tjänstekontrakt som stöds av angiven logisk adress vid tidpunkten för anropet av GetSupportedServiceContracts.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler-1">Övriga regler</h4>
+<p>Till detta tjänstekontrakt finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan.
+R1: Om tjänstekonsument är angiven så skall producenten ska filtrera svaret så att det endast innehåller de tjänstekontrakt som angiven konsument har rättighet att använda för angiven logisk adressat.</p>
+
+<h5 id="icke-funktionella-krav-1">Icke funktionella krav</h5>
+<p>Inga specifika för denna tjänst.</p>
+
+<h6 id="sla-krav-1">SLA-krav</h6>
+<p>Inga avvikande krav som avviker från de generella kraven.</p>
+
+<h4 id="annan-information-om-kontraktet-1">Annan information om kontraktet</h4>
+<p>Ingen övrig information om kontraktet.</p>
+
+<h4 id="72-källfiler-riv-ta">7.2 Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetSupportedServiceContractsInteraction_2.0_RIVTABP21.wsdl">GetSupportedServiceContractsInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a href="GetSupportedServiceContractsResponder_2.0.xsd">GetSupportedServiceContractsResponder_2.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a href="infrastructure_itintegration_registry_2.0.xsd">infrastructure_itintegration_registry_2.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>Domänschema (delat, används fortfarande för LogicalAddress i SOAP-header enligt RIV TA Basic Profile 2.1 regel #8)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="72-fhir-artefakter">7.2 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getsupportedservicecontracts.html">StructureDefinition/getsupportedservicecontracts</a></li>
+</ul>
+
+<p><em>Request-modell: ej skapad som egen logisk modell — requesten innehåller endast två filterfält (<code class="language-plaintext highlighter-rouge">serviceConsumerHsaId</code>, <code class="language-plaintext highlighter-rouge">logicalAdress</code>) som dokumenteras i fältregeltabellen ovan.</em></p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.infrastructure-itintegration-registry#2 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Sep 17, 2026 11:15+0000">2026-09-17</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

@@ -1,0 +1,342 @@
+"Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"findcontent-request","findcontent-request","findcontent-request","","","",0,*,"","","","null {[]} {[]}
+","FindContent — Request","Logisk modell för requestparametrar i tjänstekontraktet FindContent
+(RIV-TA urn:riv:itintegration:engagementindex:FindContent:1).
+Alla angivna attribut används för exakt matchningsfiltrering av sökresultatet.
+Åtkomst till FindContent i nationell EI-instans är begränsad till aggregerande
+tjänster i den nationella aggregeringsplattformen.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"findcontent-request","findcontent-request.registeredResidentIdentification","findcontent-request.registeredResidentIdentification","","","",1,1,"","","","string {[]} {[]}
+","Personidentitet (sökkriterium)","Person- eller samordningsnummer enligt skatteverkets definition (12 tecken),
+eller nationellt reservnummer enligt Ineras definition (12 tecken).
+Format: CCYYMMDDNNNN eller [0-9]{8}[0-9A-Zptf]{4}.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"findcontent-request.registeredResidentIdentification",1,1,"",""
+"findcontent-request","findcontent-request.serviceDomain","findcontent-request.serviceDomain","","","",1,1,"","","","uri {[]} {[]}
+","Tjänstedomänens namnrymd (sökkriterium)","Namnrymd för tjänstedomän i URN-format.
+Exempel: urn:riv:clinicalprocess:activity:request
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"findcontent-request.serviceDomain",1,1,"",""
+"findcontent-request","findcontent-request.categorization","findcontent-request.categorization","","","",0,1,"","","","string {[]} {[]}
+","Kategorisering (sökkriterium)","Kodverk enligt den tillämpande tjänstedomänens dokumentation.
+Om angivet filtreras svaret till poster med exakt matchning på detta attribut.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"findcontent-request.categorization",0,1,"",""
+"findcontent-request","findcontent-request.logicalAddress","findcontent-request.logicalAddress","","","",0,1,"","","","string {[]} {[]}
+","Logisk adress (sökkriterium)","Filtrerar svaret till poster med angiven logisk adress.
+Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"findcontent-request.logicalAddress",0,1,"",""
+"findcontent-request","findcontent-request.businessObjectInstanceIdentifier","findcontent-request.businessObjectInstanceIdentifier","","","",0,1,"","","","string {[]} {[]}
+","Affärsobjektets instansidentifierare (sökkriterium)","Filtrerar svaret till poster med angiven affärsobjektidentifierare.
+Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.
+OBS: I domain-metadata angiven som engagementTransaction.engagement.businessObjectInstanceIdentifier.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"findcontent-request.businessObjectInstanceIdentifier",0,1,"",""
+"findcontent-request","findcontent-request.clinicalProcessInterestId","findcontent-request.clinicalProcessInterestId","","","",0,1,"","","","string {[]} {[]}
+","Kliniskt processintresse-ID (sökkriterium)","Filtrerar svaret till poster med angivet kliniskt processintresse-ID.
+Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.
+OBS: Möjlig kardinalitetsdiskrepans — i FindContent Request är fältet 0..1,
+men i den generella informationsmodellen (avsnitt 5) kan det vara 1..1.
+Behöver verifiering mot XSD-schema.
+Kardinalitet: Valfri (se öppen fråga om diskrepans).","","","","","","","","","",,,,,"",,,,"findcontent-request.clinicalProcessInterestId",0,1,"",""
+"findcontent-request","findcontent-request.mostRecentContent","findcontent-request.mostRecentContent","","","",0,1,"","","","dateTime {[]} {[]}
+","Senast relevant innehållstidpunkt (sökkriterium)","Filtrerar svaret till poster med mostRecentContent >= angivet värde.
+Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"findcontent-request.mostRecentContent",0,1,"",""
+"findcontent-request","findcontent-request.sourceSystem","findcontent-request.sourceSystem","","","",0,1,"","","","Identifier {[]} {[]}
+","Källsystem (sökkriterium)","HSA-id för källsystemet. Filtrerar svaret till poster med angivet källsystem.
+System: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"findcontent-request.sourceSystem",0,1,"",""
+"findcontent-request","findcontent-request.dataController","findcontent-request.dataController","","","",0,1,"","","","string {[]} {[]}
+","Personuppgiftsansvarig organisation (sökkriterium)","Identitet för PUA. Filtrerar svaret till poster med angiven dataController.
+OBS: Kan innehålla organisationsnummer, HSA-id eller källsystemsintern identitet.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"findcontent-request.dataController",0,1,"",""
+"findcontent-request","findcontent-request.owner","findcontent-request.owner","","","",0,1,"","","","Identifier {[]} {[]}
+","Ägande index (sökkriterium)","HSA-id för den organisation vars index tog emot uppdateringsbegäran.
+Filtrerar svaret till poster som registrerats i angivet index.
+System: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"findcontent-request.owner",0,1,"",""
+"findcontent","findcontent","findcontent","","","",0,*,"","","","null {[]} {[]}
+","FindContent","Logisk modell för tjänstekontraktet FindContent
+(RIV-TA urn:riv:itintegration:engagementindex:FindContent:1).
+Representerar responsens informationsstruktur — en lista av engagemangsposter
+som svarar mot sökkriterierna i begäran.
+Primärt använt av aggregerande tjänster i tjänsteplattformen.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"findcontent","findcontent.engagement","findcontent.engagement","","","",0,*,"","","","Base {[]} {[]}
+","Engagemangspost","En post i engagemangsindex som matchar sökkriterierna.
+En tjänstekonsument kan få noll eller flera poster i svaret.
+Kardinalitet: Valfri, lista.","","","","","","","","","",,,,,"",,,,"findcontent.engagement",0,*,"",""
+"findcontent","findcontent.engagement.registeredResidentIdentification","findcontent.engagement.registeredResidentIdentification","","","",1,1,"","","","string {[]} {[]}
+","Personidentitet","Person- eller samordningsnummer enligt skatteverkets definition (12 tecken),
+eller nationellt reservnummer enligt Ineras definition (12 tecken).
+Format: CCYYMMDDNNNN (personnummer/samordningsnummer) eller XXYYMMDNNGC (reservidentitet).
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"findcontent.engagement.registeredResidentIdentification",1,1,"",""
+"findcontent","findcontent.engagement.serviceDomain","findcontent.engagement.serviceDomain","","","",1,1,"","","","uri {[]} {[]}
+","Tjänstedomänens namnrymd (URN)","Namnrymd för tjänstedomän i URN-format.
+Exempel: urn:riv:clinicalprocess:activity:request
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"findcontent.engagement.serviceDomain",1,1,"",""
+"findcontent","findcontent.engagement.categorization","findcontent.engagement.categorization","","","",1,1,"","","","string {[]} {[]}
+","Kategorisering","Kategorisering enligt den tillämpande tjänstedomänens dokumentation.
+Exakt betydelse definieras av respektive tjänstedomän.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"findcontent.engagement.categorization",1,1,"",""
+"findcontent","findcontent.engagement.logicalAddress","findcontent.engagement.logicalAddress","","","",1,1,"","","","string {[]} {[]}
+","Logisk adress","Logisk adress för den tjänsteproducent som har information för posten.
+Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"findcontent.engagement.logicalAddress",1,1,"",""
+"findcontent","findcontent.engagement.businessObjectInstanceIdentifier","findcontent.engagement.businessObjectInstanceIdentifier","","","",1,1,"","","","string {[]} {[]}
+","Affärsobjektets instansidentifierare","Identifierare för det specifika affärsobjekt som posten avser.
+Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.
+Obs: I domain-metadata angiven som engagementTransaction.engagement.businessObjectInstanceIdentifier.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"findcontent.engagement.businessObjectInstanceIdentifier",1,1,"",""
+"findcontent","findcontent.engagement.clinicalProcessInterestId","findcontent.engagement.clinicalProcessInterestId","","","",0,1,"","","","string {[]} {[]}
+","Kliniskt processintresse-ID","Identifierare för kliniskt processintresse.
+Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.
+OBS: Möjlig kardinalitetsdiskrepans — i FindContent Request är fältet 0..1,
+men i den generella informationsmodellen (avsnitt 5) kan det vara 1..1.
+Använd 0..1 tills verifiering mot XSD-schema är gjord.
+Kardinalitet: Valfri (se öppen fråga om diskrepans).","","","","","","","","","",,,,,"",,,,"findcontent.engagement.clinicalProcessInterestId",0,1,"",""
+"findcontent","findcontent.engagement.mostRecentContent","findcontent.engagement.mostRecentContent","","","",0,1,"","","","dateTime {[]} {[]}
+","Senast relevant innehållstidpunkt","Tidpunkt för senast relevant innehåll. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).
+Regler för användning av detta attribut bestäms av den tillämpande tjänstedomänens
+tjänstekontraktsbeskrivning. Från version 1.0.9 tas centrala EI-regler kring
+MostRecentContent bort ur denna TKB.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"findcontent.engagement.mostRecentContent",0,1,"",""
+"findcontent","findcontent.engagement.sourceSystem","findcontent.engagement.sourceSystem","","","",1,1,"","","","Identifier {[]} {[]}
+","Källsystem (HSA-id)","HSA-id för källsystemet som innehåller den information som EI-posten pekar ut.
+I regel det vårdsystem som skapade informationen eller det system hos vårdgivaren
+som är master för informationen.
+System: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"findcontent.engagement.sourceSystem",1,1,"",""
+"findcontent","findcontent.engagement.creationTime","findcontent.engagement.creationTime","","","",1,1,"","","","dateTime {[]} {[]}
+","Tidpunkt för skapande av indexpost","Tidpunkt då EI-posten skapades i engagemangsindex. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).
+Sätts av engagemangsindex vid mottagning av Update — ska INTE sättas av konsumenten.
+OBS: Fältet saknar explicit fältregel i TKB-tabellen för FindContent Response,
+men finns i XSD-typen EngagementType. Kardinalitet hämtad från informationsmodellen.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"findcontent.engagement.creationTime",1,1,"",""
+"findcontent","findcontent.engagement.updateTime","findcontent.engagement.updateTime","","","",0,1,"","","","dateTime {[]} {[]}
+","Tidpunkt för senaste uppdatering av indexpost","Tidpunkt då EI-posten senast uppdaterades i engagemangsindex. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).
+Sätts av engagemangsindex vid mottagning av Update — ska INTE sättas av konsumenten.
+OBS: Fältet saknar explicit fältregel i TKB-tabellen för FindContent Response,
+men finns i XSD-typen EngagementType. Kardinalitet hämtad från informationsmodellen.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"findcontent.engagement.updateTime",0,1,"",""
+"findcontent","findcontent.engagement.dataController","findcontent.engagement.dataController","","","",1,1,"","","","string {[]} {[]}
+","Personuppgiftsansvarig organisation","Identitet för den personuppgiftsansvariga organisation (PUA) som ansvarar för postens innehåll.
+I första hand organisationsnummer eller HSA-id för PUA, i andra hand en källsystemsintern
+identitet för PUA. Viktigt att välja ett värde som PUA kan använda för att fullgöra sin roll
+som personuppgiftsansvarig för sin information i engagemangsindex.
+OBS: Fältet kan innehålla organisationsnummer, HSA-id eller källsystemsintern identitet —
+ingen entydig FHIR Identifier-typ. Modelleras som string; se öppen fråga om korrekt typ.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"findcontent.engagement.dataController",1,1,"",""
+"findcontent","findcontent.engagement.owner","findcontent.engagement.owner","","","",1,1,"","","","Identifier {[]} {[]}
+","Ägande index (HSA-id)","HSA-id för den organisation vars index tog emot uppdateringsbegäran.
+Används för att spåra var en indexpost ursprungligen registrerades.
+System: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).
+Sätts av engagemangsindex — ska INTE sättas av konsumenten.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"findcontent.engagement.owner",1,1,"",""
+"processnotification-request","processnotification-request","processnotification-request","","","",0,*,"","","","null {[]} {[]}
+","ProcessNotification — Request","Logisk modell för requestparametrar i tjänstekontraktet ProcessNotification
+(RIV-TA urn:riv:itintegration:engagementindex:ProcessNotification:1).
+
+Används för konsolidering av indexinformation mellan engagemangsindexinstanser.
+Innehållet i begäran ska exakt spegla begäran i ursprunglig Update,
+med tillägg av owner, creationTime och updateTime (som INTE ingår i Update-begäran
+men är obligatoriska här).
+
+OBS: Ovanlig dubbel roll — engagemangsindex kan agera BÅDA producent och konsument
+för detta kontrakt. Fr.o.m. version 1.0.9 agerar nationellt EI enbart som producent
+(tar emot notifieringar). Lokala index agerar konsument och skickar till nationellt EI.
+
+Regel pR4: Om notifiering mottas där owner är samma som den egna instansen ska
+ingen uppdatering eller notifiering ske (för att undvika rundgång).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"processnotification-request","processnotification-request.engagementTransaction","processnotification-request.engagementTransaction","","","",1,*,"","","","Base {[]} {[]}
+","Engagemangstransaktion","En eller flera engagemangstransaktioner. Varje transaktion avser en indexpost.
+Innehållet ska spegla ursprunglig Update-begäran med tillägg av owner, creationTime
+och updateTime.
+Kardinalitet: Obligatorisk, lista (minst en transaktion krävs).","","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction",1,*,"",""
+"processnotification-request","processnotification-request.engagementTransaction.deleteFlag","processnotification-request.engagementTransaction.deleteFlag","","","",1,1,"","","","boolean {[]} {[]}
+","Raderingsflagga","Anger om posten ska skapas/uppdateras (false) eller tas bort (true).
+För poster som ska tas bort sätts deleteFlag = true.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.deleteFlag",1,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement","processnotification-request.engagementTransaction.engagement","","","",1,1,"","","","Base {[]} {[]}
+","Engagemangspost","Engagemangspostens datavärden inklusive systemgenererade fält
+(owner, creationTime, updateTime) som skickas vidare från det sändande indexet.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement",1,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.registeredResidentIdentification","processnotification-request.engagementTransaction.engagement.registeredResidentIdentification","","","",1,1,"","","","string {[]} {[]}
+","Personidentitet","Person- eller samordningsnummer (12 tecken) eller nationellt reservnummer (12 tecken).
+Format: CCYYMMDDNNNN eller [0-9]{8}[0-9A-Zptf]{4}.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.registeredResidentIdentification",1,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.serviceDomain","processnotification-request.engagementTransaction.engagement.serviceDomain","","","",1,1,"","","","uri {[]} {[]}
+","Tjänstedomänens namnrymd (URN)","Namnrymd för tjänstedomän i URN-format.
+Exempel: urn:riv:clinicalprocess:activity:request
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.serviceDomain",1,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.categorization","processnotification-request.engagementTransaction.engagement.categorization","","","",1,1,"","","","string {[]} {[]}
+","Kategorisering","Kategorisering enligt den tillämpande tjänstedomänens dokumentation.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.categorization",1,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.logicalAddress","processnotification-request.engagementTransaction.engagement.logicalAddress","","","",1,1,"","","","string {[]} {[]}
+","Logisk adress","Logisk adress för den tjänsteproducent som har information för posten.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.logicalAddress",1,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.businessObjectInstanceIdentifier","processnotification-request.engagementTransaction.engagement.businessObjectInstanceIdentifier","","","",1,1,"","","","string {[]} {[]}
+","Affärsobjektets instansidentifierare","Identifierare för det specifika affärsobjekt som posten avser.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.businessObjectInstanceIdentifier",1,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.clinicalProcessInterestId","processnotification-request.engagementTransaction.engagement.clinicalProcessInterestId","","","",1,1,"","","","Identifier {[]} {[]}
+","Kliniskt processintresse-ID","Identifierare för kliniskt processintresse.
+OBS: I ProcessNotification Request anges typen som HSA-id i TKB, till skillnad från
+string i Update Request. Modelleras som Identifier med HSA OID.
+System: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.clinicalProcessInterestId",1,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.mostRecentContent","processnotification-request.engagementTransaction.engagement.mostRecentContent","","","",0,1,"","","","dateTime {[]} {[]}
+","Senast relevant innehållstidpunkt","Tidpunkt för senast relevant innehåll. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).
+Regler för användning bestäms av den tillämpande tjänstedomänens TKB.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.mostRecentContent",0,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.sourceSystem","processnotification-request.engagementTransaction.engagement.sourceSystem","","","",1,1,"","","","Identifier {[]} {[]}
+","Källsystem (HSA-id)","HSA-id för källsystemet som innehåller den information som EI-posten pekar ut.
+System: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.sourceSystem",1,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.creationTime","processnotification-request.engagementTransaction.engagement.creationTime","","","",1,1,"","","","dateTime {[]} {[]}
+","Tidpunkt för skapande av indexpost","Tidpunkt då indexposten ursprungligen skapades i det sändande indexet.
+Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).
+OBS: Detta fält ingår INTE i Update-begäran (sätts av EI), men är obligatoriskt
+i ProcessNotification-begäran och ska vidarebefordras från det sändande indexet.
+Producenten (mottagande index) ska använda värdet från begäran, inte generera ett eget.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.creationTime",1,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.updateTime","processnotification-request.engagementTransaction.engagement.updateTime","","","",1,1,"","","","dateTime {[]} {[]}
+","Tidpunkt för senaste uppdatering","Tidpunkt då indexposten senast uppdaterades i det sändande indexet.
+Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).
+OBS: Detta fält ingår INTE i Update-begäran (sätts av EI), men är obligatoriskt
+i ProcessNotification-begäran och ska vidarebefordras från det sändande indexet.
+Producenten (mottagande index) ska använda värdet från begäran, inte generera ett eget.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.updateTime",1,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.dataController","processnotification-request.engagementTransaction.engagement.dataController","","","",1,1,"","","","string {[]} {[]}
+","Personuppgiftsansvarig organisation","Identitet för den personuppgiftsansvariga organisation (PUA) som ansvarar för postens innehåll.
+I första hand organisationsnummer eller HSA-id för PUA.
+OBS: Kan innehålla organisationsnummer, HSA-id eller källsystemsintern identitet —
+ingen entydig FHIR Identifier-typ. Modelleras som string; se öppen fråga.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.dataController",1,1,"",""
+"processnotification-request","processnotification-request.engagementTransaction.engagement.owner","processnotification-request.engagementTransaction.engagement.owner","","","",1,1,"","","","Identifier {[]} {[]}
+","Ägande index (HSA-id)","HSA-id för den organisation vars index tog emot ursprunglig uppdateringsbegäran.
+OBS: Detta fält ingår INTE i Update-begäran (sätts av EI), men är obligatoriskt
+i ProcessNotification-begäran och ska vidarebefordras från det sändande indexet.
+Producenten (mottagande index) ska använda värdet från begäran, inte generera ett eget.
+pR4: Om owner är samma som den egna instansen ska ingen uppdatering ske (undvika rundgång).
+System: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processnotification-request.engagementTransaction.engagement.owner",1,1,"",""
+"processnotification","processnotification","processnotification","","","",0,*,"","","","null {[]} {[]}
+","ProcessNotification","Logisk modell för tjänstekontraktet ProcessNotification
+(RIV-TA urn:riv:itintegration:engagementindex:ProcessNotification:1).
+Representerar responsens informationsstruktur — ett statusbesked
+på att notifieringen mottagits och behandlats.
+
+OBS: ProcessNotification har en ovanlig dubbel roll i arkitekturen:
+- Engagemangsindex agerar PRODUCENT för att TA EMOT notifieringar från andra index.
+- Engagemangsindex agerar KONSUMENT för att SKICKA notifieringar till andra index.
+Fr.o.m. version 1.0.9 agerar nationellt engagemangsindex ENBART som producent
+(tar emot notifieringar från lokala index). Nationellt EI skickar inte längre
+ProcessNotification till lokala index eller verksamhetssystem.
+Undantag: Formulärtjänsten och Tidbokning/Kallelser har tidsbegränsat undantag.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"processnotification","processnotification.resultCode","processnotification.resultCode","","","",1,1,"","","","code {[]} {[]}
+","Resultatkod","Statuskod som anger utfallet av notifieringsoperationen.
+Tillåtna värden:
+  OK    — Transaktionen har utförts enligt uppdraget.
+  INFO  — Transaktionen har utförts men det finns ett informationsmeddelande.
+  ERROR — Transaktionen har INTE kunnat utföras p.g.a. logiskt fel.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processnotification.resultCode",1,1,"",""
+"processnotification","processnotification.comment","processnotification.comment","","","",0,1,"","","","string {[]} {[]}
+","Kommentar","Fritext-meddelande med ytterligare information om resultatet.
+Används framförallt vid INFO och ERROR för att ge konsumenten
+mer detaljerad information om vad som hänt.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"processnotification.comment",0,1,"",""
+"update-request","update-request","update-request","","","",0,*,"","","","null {[]} {[]}
+","Update — Request","Logisk modell för requestparametrar i tjänstekontraktet Update
+(RIV-TA urn:riv:itintegration:engagementindex:Update:1).
+Kontraktet används av källsystem för att skapa, uppdatera och radera
+indexposter i ett engagemangsindex. Flera engagemangstransaktioner
+kan paketeras i ett och samma anrop (max 1000 poster i nationell instans).
+
+Alla fält i EngagementType-typen ingår i modellen, inklusive fält som
+sätts av engagemangsindex och INTE ska populeras av konsumenten
+(creationTime, updateTime, owner). Se respektive fältbeskrivning.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"update-request","update-request.engagementTransaction","update-request.engagementTransaction","","","",1,*,"","","","Base {[]} {[]}
+","Engagemangstransaktion","En eller flera engagemangstransaktioner. Varje transaktion avser en indexpost.
+Alla poster i en begäran måste vara sinsemellan unika avseende postens unikhetsnyckel.
+Om duplikat hittas returneras ResultCode ERROR.
+Kardinalitet: Obligatorisk, lista (minst en transaktion krävs).","","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction",1,*,"",""
+"update-request","update-request.engagementTransaction.deleteFlag","update-request.engagementTransaction.deleteFlag","","","",1,1,"","","","boolean {[]} {[]}
+","Raderingsflagga","Anger om posten ska skapas/uppdateras (false) eller tas bort (true).
+true: Posten med samma unikhetsnyckel raderas.
+false: Posten skapas om den inte finns, eller uppdateras om den redan finns.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.deleteFlag",1,1,"",""
+"update-request","update-request.engagementTransaction.engagement","update-request.engagementTransaction.engagement","","","",1,1,"","","","Base {[]} {[]}
+","Engagemangspost","Engagemangspostens datavärden. Unikhet bestäms av en kombination av
+registeredResidentIdentification, serviceDomain, categorization,
+logicalAddress och businessObjectInstanceIdentifier.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement",1,1,"",""
+"update-request","update-request.engagementTransaction.engagement.registeredResidentIdentification","update-request.engagementTransaction.engagement.registeredResidentIdentification","","","",1,1,"","","","string {[]} {[]}
+","Personidentitet","Person- eller samordningsnummer (12 tecken) eller nationellt reservnummer (12 tecken).
+Format: CCYYMMDDNNNN eller [0-9]{8}[0-9A-Zptf]{4}.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.registeredResidentIdentification",1,1,"",""
+"update-request","update-request.engagementTransaction.engagement.serviceDomain","update-request.engagementTransaction.engagement.serviceDomain","","","",1,1,"","","","uri {[]} {[]}
+","Tjänstedomänens namnrymd (URN)","Namnrymd för tjänstedomän i URN-format.
+Exempel: urn:riv:clinicalprocess:activity:request
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.serviceDomain",1,1,"",""
+"update-request","update-request.engagementTransaction.engagement.categorization","update-request.engagementTransaction.engagement.categorization","","","",1,1,"","","","string {[]} {[]}
+","Kategorisering","Kategorisering enligt den tillämpande tjänstedomänens dokumentation.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.categorization",1,1,"",""
+"update-request","update-request.engagementTransaction.engagement.logicalAddress","update-request.engagementTransaction.engagement.logicalAddress","","","",1,1,"","","","string {[]} {[]}
+","Logisk adress","Logisk adress för den tjänsteproducent som har information för posten.
+Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.logicalAddress",1,1,"",""
+"update-request","update-request.engagementTransaction.engagement.businessObjectInstanceIdentifier","update-request.engagementTransaction.engagement.businessObjectInstanceIdentifier","","","",1,1,"","","","string {[]} {[]}
+","Affärsobjektets instansidentifierare","Identifierare för det specifika affärsobjekt som posten avser.
+Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.businessObjectInstanceIdentifier",1,1,"",""
+"update-request","update-request.engagementTransaction.engagement.clinicalProcessInterestId","update-request.engagementTransaction.engagement.clinicalProcessInterestId","","","",1,1,"","","","string {[]} {[]}
+","Kliniskt processintresse-ID","Identifierare för kliniskt processintresse.
+Exakt betydelse definieras av den tillämpande tjänstedomänens dokumentation.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.clinicalProcessInterestId",1,1,"",""
+"update-request","update-request.engagementTransaction.engagement.mostRecentContent","update-request.engagementTransaction.engagement.mostRecentContent","","","",0,1,"","","","dateTime {[]} {[]}
+","Senast relevant innehållstidpunkt","Tidpunkt för senast relevant innehåll. Format: YYYYMMDDhhmmss (svensk tidszon CET/CEST).
+Regler för användning bestäms av den tillämpande tjänstedomänens TKB.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.mostRecentContent",0,1,"",""
+"update-request","update-request.engagementTransaction.engagement.sourceSystem","update-request.engagementTransaction.engagement.sourceSystem","","","",1,1,"","","","Identifier {[]} {[]}
+","Källsystem (HSA-id)","HSA-id för källsystemet som innehåller den information som EI-posten pekar ut.
+I regel det vårdsystem som skapade informationen eller det system hos vårdgivaren
+som är master för informationen.
+System: urn:oid:1.2.752.129.2.1.4.1 (HSA-id OID).
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.sourceSystem",1,1,"",""
+"update-request","update-request.engagementTransaction.engagement.dataController","update-request.engagementTransaction.engagement.dataController","","","",1,1,"","","","string {[]} {[]}
+","Personuppgiftsansvarig organisation","Identitet för den personuppgiftsansvariga organisation (PUA) som ansvarar för postens innehåll.
+I första hand organisationsnummer eller HSA-id för PUA, i andra hand en källsystemsintern
+identitet för PUA som möjliggör för PUA att fullgöra sin roll som personuppgiftsansvarig.
+OBS: Kan innehålla organisationsnummer, HSA-id eller källsystemsintern identitet —
+ingen entydig FHIR Identifier-typ. Modelleras som string; se öppen fråga om korrekt typ.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.dataController",1,1,"",""
+"update-request","update-request.engagementTransaction.engagement.creationTime","update-request.engagementTransaction.engagement.creationTime","","","",0,1,"","","","dateTime {[]} {[]}
+","Skapandetidpunkt (sätts av EI)","Tidpunkt då engagemangsposten skapades i engagemangsindexet.
+KONSUMENTEN SKA INTE SÄTTA DETTA FÄLT — det sätts automatiskt av engagemangsindex
+vid mottagning av Update-anropet. Om fältet populeras av konsumenten ignoreras värdet.
+Kardinalitet: Valfri (från konsumentperspektiv; alltid populerad i lagrat engagemang).","","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.creationTime",0,1,"",""
+"update-request","update-request.engagementTransaction.engagement.updateTime","update-request.engagementTransaction.engagement.updateTime","","","",0,1,"","","","dateTime {[]} {[]}
+","Uppdateringstidpunkt (sätts av EI)","Tidpunkt då engagemangsposten senast uppdaterades i engagemangsindexet.
+KONSUMENTEN SKA INTE SÄTTA DETTA FÄLT — det sätts automatiskt av engagemangsindex
+vid mottagning av Update-anropet. Om fältet populeras av konsumenten ignoreras värdet.
+Kardinalitet: Valfri (från konsumentperspektiv; alltid populerad i lagrat engagemang).","","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.updateTime",0,1,"",""
+"update-request","update-request.engagementTransaction.engagement.owner","update-request.engagementTransaction.engagement.owner","","","",0,1,"","","","string {[]} {[]}
+","Ägare (sätts av EI)","Identitet för den engagemangsindexinstans som äger posten (logisk adress för EI-instansen).
+KONSUMENTEN SKA INTE SÄTTA DETTA FÄLT — det sätts automatiskt av engagemangsindex
+vid mottagning av Update-anropet. Om fältet populeras av konsumenten ignoreras värdet.
+Kardinalitet: Valfri (från konsumentperspektiv; alltid populerad i lagrat engagemang).","","","","","","","","","",,,,,"",,,,"update-request.engagementTransaction.engagement.owner",0,1,"",""
+"update","update","update","","","",0,*,"","","","null {[]} {[]}
+","Update","Logisk modell för tjänstekontraktet Update
+(RIV-TA urn:riv:itintegration:engagementindex:Update:1).
+Representerar responsens informationsstruktur — ett statusbesked
+som anger om uppdateringsoperationen lyckades eller misslyckades.
+
+Kontraktet används av källsystem för att skapa, uppdatera och radera
+indexposter i ett engagemangsindex.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"update","update.resultCode","update.resultCode","","","",1,1,"","","","code {[]} {[]}
+","Resultatkod","Statuskod som anger utfallet av uppdateringsoperationen.
+Tillåtna värden:
+  OK    — Transaktionen har utförts enligt uppdraget.
+  INFO  — Transaktionen har utförts men det finns ett informationsmeddelande.
+  ERROR — Transaktionen har INTE kunnat utföras p.g.a. logiskt fel.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"update.resultCode",1,1,"",""
+"update","update.comment","update.comment","","","",0,1,"","","","string {[]} {[]}
+","Kommentar","Fritext-meddelande med ytterligare information om resultatet.
+Används framförallt vid INFO och ERROR för att ge konsumenten
+mer detaljerad information om vad som hänt.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"update.comment",0,1,"",""

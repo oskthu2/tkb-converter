@@ -1,0 +1,97 @@
+# GetExtendedBlocksForPatient — Request - ehr: blocking — Spärrhantering v3.2.2
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetExtendedBlocksForPatient — Request**
+
+## Logical Model: GetExtendedBlocksForPatient — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/getextendedblocksforpatient-request | *Version*:3.2.2 |
+| Draft as of 2026-09-17 | *Computable Name*:GetExtendedBlocksForPatientRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för requestparametrar i GetExtendedBlocksForPatient. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.ehr-blocking|current/StructureDefinition/StructureDefinition-getextendedblocksforpatient-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getextendedblocksforpatient-request.csv), [Excel](StructureDefinition-getextendedblocksforpatient-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getextendedblocksforpatient-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/getextendedblocksforpatient-request",
+  "version" : "3.2.2",
+  "name" : "GetExtendedBlocksForPatientRequest",
+  "title" : "GetExtendedBlocksForPatient — Request",
+  "status" : "draft",
+  "date" : "2026-09-17T11:08:35+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för requestparametrar i GetExtendedBlocksForPatient.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/ehr-blocking/StructureDefinition/getextendedblocksforpatient-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getextendedblocksforpatient-request",
+      "path" : "getextendedblocksforpatient-request",
+      "short" : "GetExtendedBlocksForPatient — Request",
+      "definition" : "Logisk modell för requestparametrar i GetExtendedBlocksForPatient."
+    },
+    {
+      "id" : "getextendedblocksforpatient-request.careProviderId",
+      "path" : "getextendedblocksforpatient-request.careProviderId",
+      "short" : "HSA-id på den vårdgivare vars spärrar skall hämtas.",
+      "definition" : "HSA-id på den vårdgivare vars spärrar skall hämtas.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient-request.patientId",
+      "path" : "getextendedblocksforpatient-request.patientId",
+      "short" : "Personnummer på patienten vars spärrar skall hämtas.",
+      "definition" : "Personnummer på patienten vars spärrar skall hämtas.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```
