@@ -1198,8 +1198,8 @@ _Inga blockerare identifierade._
 
 ## population.residentmaster v1.2 — `igs/TKB_population_residentmaster/`
 
-**Status:** in-progress
-**Senast uppdaterad:** 2026-09-17T09:15:00Z (sushi: 0 errors, 7 varningar — väntar på CI-bekräftelse)
+**Status:** done
+**Senast uppdaterad:** 2026-09-25 (CI grön efter fix av [LINK-CHECK]-fynd, körning 35213497392; bekräftad igen vid schemalagd ombyggnad 2026-09-21)
 
 ### Blockerare (kräver svar innan IG kan anses komplett)
 
