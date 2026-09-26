@@ -1228,6 +1228,113 @@ _Inga blockerare identifierade._
 - [ ] **[TODO-PRM-001]** `igs/TKB_population_residentmaster/input/fsh/logical-models/LookupResidentForFullProfile.fsh`
   `folkbokforingsadress` och `sarskildPostadress` delar exakt samma underliggande XSD-typ (`SvenskAdressTYPE`) men är modellerade som två separata, dubblerade `BackboneElement`-block eftersom FSH `Logical:`-modeller i detta projekt inte återanvänder en delad nästlad typ mellan syskonfält. Om projektets FSH-konventioner senare uppdateras för att stödja detta (t.ex. via en delad extension eller ett gemensamt Logical-typnamn), kan dubbleringen elimineras.
 
+---
+
+## clinicalprocess.activityprescription.logistics v1.0.2 — `igs/TKB_clinicalprocess_activityprescription_logistics/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-APL-001]** `igs/TKB_clinicalprocess_activityprescription_logistics/input/pagecontent/1-inledning.md` · två figurer i avsnitt 1
+  Källdokumentet är en legacy `.doc` (Word 97–2003). Det konverterades med `wvHtml` och `wv2md.py`, eftersom LibreOffice inte fungerar i miljön. Fem av sju innehållsfigurer gick att extrahera som PNG (figur 1 och 2 i 4.1, åtkomstbilden och arbetsflödet i 4.2, informationsmodellen i 6.1). De två figurerna i avsnitt 1 är ett Word-ritobjekt och en bild utan inbäddad PNG, och de saknas i IG:n (markerat "SAKNAS I KÄLLDOKUMENT"). Överstruken text i källdokumentet har tagits bort. Verifiera mot originalet att inget giltigt stycke föll bort.
+  Källa: `docs/Tjanstekontraktsbeskrivning - clinicalprocess_activityprescription_logistics.doc`.
+
+- [ ] **[ASSUME-APL-002]** `igs/TKB_clinicalprocess_activityprescription_logistics/sushi-config.yaml` · version
+  Repot saknar taggar och downloads. Arkivet är hämtat för commit `69b4fefff3e9` på `master` (2014-11-14). IG-versionen 1.0.2 är tagen från dokumentets revisionshistorik och försättsblad, medan kapitel 2 i samma dokument säger att revisionen avser version 1.0.1. Tjänstekontrakten är version 1.0 i båda fallen.
+
+- [ ] **[ASSUME-APL-003]** `igs/TKB_clinicalprocess_activityprescription_logistics/input/fsh/logical-models/GetDispensedDrugs.fsh` · fält `lakemedelsforteckning.radid`
+  XSD-typen är `xs:long`. FHIR R4 saknar 64-bitars heltal (`integer64` finns först i R5), så fältet är modellerat som `string`. Verifiera om `integer` (32 bitar) räcker för LF:s rad-id.
+
+- [ ] **[ASSUME-APL-004]** `igs/TKB_clinicalprocess_activityprescription_logistics/input/fsh/logical-models/GetDispensedDrugsRequest.fsh`, `PrintListOfDispensedDrugsRequest.fsh` · fält `identifieradArbetsplats`
+  `ArbetsplatsIdentifikation` är en `xs:choice` där båda alternativen har kardinaliteten 1..1 i TKB-tabellen. Modellerat som två 0..1-fält med invarianten `arbetsplatskod.exists() xor arbetsplats.exists()`.
+
+- [ ] **[ASSUME-APL-005]** `igs/TKB_clinicalprocess_activityprescription_logistics/input/fsh/codesystems/ResultCodeCS.fsh`, `AtkomsttypCS.fsh` · koddefinitioner
+  Schemat och TKB:n anger bara kodvärdena. Definitionerna (t.ex. `SAM` = tillsvidaresamtycke, `NOD` = nödåtkomst, `INFO` = lyckat anrop med information i comment) är härledda ur arbetsflödet i avsnitt 4.2 och felhanteringen i 5.2.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-APL-001]** `igs/TKB_clinicalprocess_activityprescription_logistics/input/fsh/logical-models/`
+  Fältlängder (minLength/maxLength i XSD) finns bara i fältbeskrivningarna. De kan läggas till som `^maxLength` eller invarianter om IG:n ska kunna validera instanser.
+- [ ] **[TODO-APL-002]** `igs/TKB_clinicalprocess_activityprescription_logistics/input/fsh/logical-models/`
+  `Patientinformation`, `Patient`, `Vardpersonal` och `ArbetsplatsIdentifikation` är duplicerade som nästlade element i båda kontraktens modeller, eftersom projektets konvention inte återanvänder delade typer.
+
+---
+
+## clinicalprocess.activity.request v2.2 — `igs/TKB_clinicalprocess_activity_request/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-CAR-001]** `igs/TKB_clinicalprocess_activity_request/` (hela domänen) · versionsval
+  Taggen `2.2` valdes som högsta semver-tagg. Repot har även taggen `1.0.4`, som är nyare till datum (2026-06-04) men en äldre huvudversion (parallell huvudversion enligt avsnitt 3.4). IG:n beskriver bara 2.2. Verifiera om även huvudversion 1 ska ha en IG.
+
+- [ ] **[ASSUME-CAR-002]** `input/pagecontent/2-versionsinformation.md`, `7-tjanstekontrakt.md` · versionsnummer i brödtext
+  Revisionshistoriken och scheman anger version 2.2 (fastställd 2026-04-22), men avsnitt 2 och kontraktens "Version"-rubriker i källdokumentet anger fortfarande 2.1. Texten är återgiven oförändrad; IG:n och kontrakten har version 2.2 enligt schemat.
+
+- [ ] **[ASSUME-CAR-003]** `input/fsh/logical-models/Process*.fsh` · modellens inriktning
+  Alla tre kontrakten skickar information (push) och svarar enbart med `ResultType`. Varje kontrakts logiska modell beskriver därför begäran (RequestType, RequestConfirmationType, RequestOutcomeType), och svaret beskrivs av den gemensamma modellen `ProcessResult`. `ProcessRequestOutcome.originalRequest` är typad som den logiska modellen `ProcessRequest`.
+
+- [ ] **[ASSUME-CAR-004]** `input/fsh/logical-models/Process*.fsh` · datatyper och omdöpta fält
+  RequestIdType modellerad som `string`, TimeStampType (ÅÅÅÅMMDDttmmss) som `dateTime`, VersionNumberType som `positiveInt`, HsaIdType och PersonIdType som `Identifier`, CVType som `CodeableConcept`, ActivityCodeType som `Coding` och TimeIntervalType som `Period`. Reserverade namn har prefixats: `healthcareProfessionalId/Name`, `patientName`, `activityId/Text/Code`, `conditionText/Code`, `attachmentId/Value`, `awarenessText`, `questionText`, `clinicalInformationText`.
+
+- [ ] **[ASSUME-CAR-005]** `input/pagecontent/7-tjanstekontrakt.md` · ProcessRequest, fält `request.typeOfRequest`
+  Källtabellen anger kodverket `codes:codeRequestOutcomeType` för remisstyp, vilket är fel kodverk. Modellen binder fältet till `RequestTypeVS` (codeForRequestType, enda kod 4 = allmänremiss) enligt XSD:n. Källtexten är återgiven oförändrad.
+
+- [ ] **[ASSUME-CAR-006]** `input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Källdokumentet saknar eget kapitel för gemensamma informationskomponenter och har tjänstekontrakten i kapitel 6. Sidan 6 hänvisar till avsnitt 5.2, och tjänstekontrakten ligger i avsnitt 7 enligt IG-mallen. Omslagsbilder (logotyp och bakgrund) och en SVG-kopia av logotypen är inte medtagna.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-CAR-001]** `input/fsh/logical-models/Process*.fsh`
+  Patient-, organisations- och författarstrukturerna upprepas inline i de tre modellerna. De kan brytas ut till delade logiska typer om projektets FSH-konventioner uppdateras för det.
+
+---
+
+## clinicalprocess.healthcond.rheuma v1.0 — `igs/TKB_clinicalprocess_healthcond_rheuma/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-RHE-001]** `igs/TKB_clinicalprocess_healthcond_rheuma/` (hela domänen) · källval och version
+  Repot har bara RC-taggar (`1.0_RC1`–`1.0_RC3`). `master` (commit fd5d50cd8a84, 2015-10-29) har samma scheman som `1.0_RC3` men den slutliga dokumentuppsättningen (TKB utan RC i namnet, arkitekturella beslut och tjänstedomänpresentation), så `master` användes. Versionsfältet i TKB:n är inte ifyllt ("Version ..."); domänversionen sattes till 1.0 enligt schemat och revisionshistoriken.
+
+- [ ] **[ASSUME-RHE-002]** `input/fsh/logical-models/*.fsh` · skillnader mellan TKB och schema
+  Modellen följer schemat: `timePeriod` (TKB `datePeriod`), `actCode` (TKB `atcCode`, troligen stavfel i schemat men det är trådnamnet), `workability` (TKB `workAbility`), `rheumatoidArthritisDataBody` (TKB `rheumatoidArthritisBody`), samt `nullified`/`nullifiedReason` som bara finns i schemat. `orgUnitHSAId` och `orgUnitName` är 1..1 enligt schemat (TKB 0..1). `documentTitle` och `documentTime` är 0..0 enligt TKB (schemat 0..1).
+
+- [ ] **[ASSUME-RHE-003]** `input/fsh/logical-models/GetRheumatoidArthritisData.fsh` · datatyper
+  HSAIdType och PersonIdType som `Identifier`, CVType som `CodeableConcept`, PQType som `Quantity`, IIType som `Identifier`, DatePeriodType som `Period`, TimeStampType som `dateTime`. Anonyma heltals- och flyttalstyper (globalHealth, pain, eq5dIndexValue m.fl.) som `integer`/`decimal` med värdemängden i beskrivningen. `drug.name` döpt till `drugName`. `physiciansGlobal` är bunden (preferred) till DoctorsGlobalEnum, eftersom schemat typar fältet som CVType.
+
+- [ ] **[ASSUME-RHE-004]** `input/pagecontent/5-*.md`, `6-*.md` · kapitelordning
+  I källdokumentet är kapitel 5 Gemensamma informationskomponenter och kapitel 6 Meddelandemodeller. IG:n följer mallens ordning (5 = meddelandemodeller, 6 = gemensamma komponenter) och sidan 5 har en not om detta.
+
+- [ ] **[ASSUME-RHE-005]** `input/images/img_003.svg`, `img_004.svg` · figurer
+  Figur 1 och 2 är EMF i källan och har konverterats till SVG med `emf2svg-conv`. Text i figurerna kan ha något ojämna mellanrum; jämför med originalet i TKB-dokumentet vid behov.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-RHE-001]** `input/fsh/codesystems/`
+  `typeOfDrug` (DMARD, bioprep, NSAID, cortisone) har ingen enum i schemat och är obunden. Ett lokalt kodverk kan läggas till om domänen bekräftar värdena.
+
+---
+
 ## supportprocess.personalresources.interpretation v1.0 — `igs/TKB_supportprocess_personalresources_interpretation/`
 
 **Status:** done
