@@ -1393,3 +1393,31 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-AXS-001]** `input/pagecontent/4-tjanstedomanens-krav-och-regler.md`
   Felkoderna för ApplicationException och SystemException är odokumenterade. Komplettera om eHälsomyndighetens dokumentation blir tillgänglig.
+
+## se.apotekensservice.expo v2.0 — `igs/TKB_se_apotekensservice_expo/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-EXPO-001]** `igs/TKB_se_apotekensservice_expo/input/pagecontent/*.md` · ingen TKB i källan
+  Varken `master` eller taggarna innehåller någon tjänstekontraktsbeskrivning, bara scheman och dokumentet Arkitekturella beslut. IG:n är genererad ur WSDL/XSD-annoteringarna med `scripts/xsd_to_ig.py` och `scripts/xsd_ig_pages.py`, och sidorna är markerade *SAKNAS I KÄLLDOKUMENT*.
+
+- [ ] **[ASSUME-EXPO-002]** källa · version
+  Repot har bara taggarna `1.0-beta-r588` och `2.0_RC1`. `master` pekar på samma commit som `2.0_RC1` (9aabc1797ea7); arkivet är hämtat för den commiten och domänversionen anges som 2.0.
+
+- [ ] **[ASSUME-EXPO-003]** `input/fsh/logical-models/*.fsh` · modellval och datatyper
+  Varje kontrakt har en begäransmodell (inklusive SOAP-huvudena LogicalAddress och ArgosHeader) och, när svaret har innehåll, en svarsmodell. KontaktuppgifterUppdatera, TaBortDosmottagare och UppdateraDosmottagare har tomma svar och därför ingen svarsmodell. xs:long (organisationsnummer) modelleras som `string`, xs:int som `integer`. Utökningspunkter (xs:any, ExtensionType) ingår inte. Kodlistor som bara finns i fritext (t.ex. `huvudOrgTypKod`, dosmottagarens `typ` D/A) är modellerade som `string` utan kodverk.
+
+- [ ] **[ASSUME-EXPO-004]** `input/pagecontent/1-inledning.md` · förkortningar och domänbeskrivning
+  Förklaringarna av förkortningarna och domänens sammanfattning finns inte i källan; de är tolkade utifrån schemaannoteringarna och kontraktsnamnen.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-EXPO-001]** `input/fsh/logical-models/SkapaApotekRequest.fsh`, `UppdateraExpoMedApotekRequest.fsh`
+  Villkoren i annoteringarna (t.ex. att `kortNamn` och `recepturtelefon` är obligatoriska när `eRecept` eller `eReceptDjur` är satt, och `faxnummer` när huvudorganisationskod = DX) kan uttryckas som invarianter. Kodlistan för `huvudOrgTypKod` (ADM, AP, DIAP, DJUR, DX, OAP, SA, TVAP) kan bli ett kodverk.
