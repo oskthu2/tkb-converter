@@ -1,0 +1,100 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "deletemessages",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-itintegration-messagebox/StructureDefinition/deletemessages",
+  "name": "DeleteMessages",
+  "title": "DeleteMessages — Response",
+  "status": "draft",
+  "description": "Logisk modell för svaret i DeleteMessages\n(urn:riv:infrastructure:itintegration:messagebox:DeleteMessagesResponder:1, DeleteMessagesResponseType).",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-itintegration-messagebox/StructureDefinition/deletemessages",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "deletemessages",
+        "path": "deletemessages",
+        "short": "DeleteMessages — Response",
+        "definition": "Logisk modell för svaret i DeleteMessages\n(urn:riv:infrastructure:itintegration:messagebox:DeleteMessagesResponder:1, DeleteMessagesResponseType)."
+      },
+      {
+        "id": "deletemessages.result",
+        "path": "deletemessages.result",
+        "short": "result",
+        "definition": "Gemensam resultatkod. Om code är OK är övriga fält tomma. Om code är \"INFO\" eller ERROR kan information skickas i errorId och/eller errorMessage.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "deletemessages.result.resultCode",
+        "path": "deletemessages.result.resultCode",
+        "short": "resultCode",
+        "definition": "resultCode Heter code i schemat.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/infrastructure-itintegration-messagebox/ValueSet/messagebox-resultcode-vs"
+        }
+      },
+      {
+        "id": "deletemessages.result.errorId",
+        "path": "deletemessages.result.errorId",
+        "short": "errorId",
+        "definition": "errorId",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "deletemessages.result.errorMessage",
+        "path": "deletemessages.result.errorMessage",
+        "short": "errorMessage",
+        "definition": "errorMessage",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "deletemessages.deletedIds",
+        "path": "deletemessages.deletedIds",
+        "short": "deletedIds",
+        "definition": "deletedIds (xs:long i schemat.)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

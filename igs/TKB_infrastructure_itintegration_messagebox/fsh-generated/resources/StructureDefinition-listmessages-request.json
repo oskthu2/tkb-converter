@@ -1,0 +1,83 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "listmessages-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-itintegration-messagebox/StructureDefinition/listmessages-request",
+  "name": "ListMessagesRequest",
+  "title": "ListMessages — Request",
+  "status": "draft",
+  "description": "Logisk modell för begäran i ListMessages\n(urn:riv:infrastructure:itintegration:messagebox:ListMessagesResponder:1, ListMessagesType), inklusive SOAP-huvuden enligt WSDL.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-itintegration-messagebox/StructureDefinition/listmessages-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "listmessages-request",
+        "path": "listmessages-request",
+        "short": "ListMessages — Request",
+        "definition": "Logisk modell för begäran i ListMessages\n(urn:riv:infrastructure:itintegration:messagebox:ListMessagesResponder:1, ListMessagesType), inklusive SOAP-huvuden enligt WSDL."
+      },
+      {
+        "id": "listmessages-request.logicalAddress",
+        "path": "listmessages-request.logicalAddress",
+        "short": "logicalAddress",
+        "definition": "SOAP-huvud LogicalAddress. The organisation number of the National Service Platform",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "listmessages-request.targetOrganizations",
+        "path": "listmessages-request.targetOrganizations",
+        "short": "targetOrganizations",
+        "definition": "targetOrganizations",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "listmessages-request.serviceContractTypes",
+        "path": "listmessages-request.serviceContractTypes",
+        "short": "serviceContractTypes",
+        "definition": "Type which describes a service contract. Used in interaction GetSupportedServiceContracts.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listmessages-request.serviceContractTypes.ServiceContractNamespace",
+        "path": "listmessages-request.serviceContractTypes.ServiceContractNamespace",
+        "short": "ServiceContractNamespace",
+        "definition": "ServiceContractNamespace",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ]
+      }
+    ]
+  }
+}
