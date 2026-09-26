@@ -102,6 +102,9 @@ def lint_pages(ig: Path, errors: list, warnings: list):
                 if path.startswith(("images/", "files/")):
                     errors.append(f"{f}:{n}: länk med katalogprefix '{path}' — input/images/ publiceras platt, länka bara filnamnet")
                     continue
+                if re.search(r"\.(tiff?|emf|wmf)$", path, re.I) and line.lstrip().startswith("!["):
+                    errors.append(f"{f}:{n}: bild i format som webbläsare inte visar '{path}' — konvertera till PNG/SVG (se tkb-fetch-convert)")
+                    continue
                 if "%20" in path or " " in path:
                     errors.append(f"{f}:{n}: länk med mellanslag/%20 '{path}' — döp om filen utan mellanslag")
                     continue
