@@ -1,0 +1,10 @@
+[DeleteMessagesRequest]: StructureDefinition-deletemessages-request.html
+[DeleteMessages]: StructureDefinition-deletemessages.html
+[GetMessagesRequest]: StructureDefinition-getmessages-request.html
+[GetMessages]: StructureDefinition-getmessages.html
+[ListMessagesRequest]: StructureDefinition-listmessages-request.html
+[ListMessages]: StructureDefinition-listmessages.html
+[MessageStatusVS]: ValueSet-messagebox-messagestatus-vs.html
+[MessageStatusCS]: CodeSystem-messagebox-messagestatus-cs.html
+[ResultCodeVS]: ValueSet-messagebox-resultcode-vs.html
+[ResultCodeCS]: CodeSystem-messagebox-resultcode-cs.html

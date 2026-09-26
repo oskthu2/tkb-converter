@@ -1619,3 +1619,30 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-LL-001]** `igs/TKB_healthcertificate_lifeline/input/fsh/logical-models/*.fsh`
   Invarianter för schemats val (exakt ett av Fodelsedatum/PersonNummer, exakt ett av PersonNummer/Meddelande), intervallen 1–9 för OrdningsNr och AntalBarn, regeln OrdningsNr ≤ AntalBarn samt maxlängder ur TKB:n. Meddelandekoderna kan bli ett kodverk.
+
+## infrastructure.itintegration.messagebox v1.0.0 — `igs/TKB_infrastructure_itintegration_messagebox/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-MB-001]** `igs/TKB_infrastructure_itintegration_messagebox/docx-converted/full-document.md`
+  TKB:n finns bara som legacy .doc (`Tjanstekontrakt Meddelandetjanst - Beskrivning.doc`). Den konverterades med wvHtml + wv2md.py och bilderna skars ut ur .doc-filen. Rubriknumreringen (1–6) är rekonstruerad från listnivåerna i dokumentet.
+- [ ] **[ASSUME-MB-002]** `igs/TKB_infrastructure_itintegration_messagebox/input/pagecontent/1-inledning.md`
+  Två små bilder bredvid figur 1 (IMG02, IMG03) bedöms vara försättsbladsdekor och är inte med. Figurerna saknar bildtexter i källan; bildtexterna i IG:n är tillagda och numrerade 1–4 i sidordning.
+- [ ] **[ASSUME-MB-003]** `igs/TKB_infrastructure_itintegration_messagebox/input/pagecontent/7-tjanstekontrakt.md`
+  TKB:ns avsnitt 6 (Tjänstekontrakt) ligger i IG:ns avsnitt 7 (7.1 = TKB 6.1). IG:n saknar avsnitt 6 (TKB:n har inga gemensamma informationskomponenter).
+- [ ] **[ASSUME-MB-004]** `igs/TKB_infrastructure_itintegration_messagebox/input/fsh/logical-models/ListMessages.fsh` · fält `messageId`, `messageSize`
+  `xs:long` är modellerat som `string` (FHIR R4 saknar 64-bitars heltal). `integer64` i R5 vore den exakta motsvarigheten.
+- [ ] **[ASSUME-MB-005]** `igs/TKB_infrastructure_itintegration_messagebox/input/fsh/codesystems/MessageStatusCS.fsh`
+  Koderna RECEIVED, RETRIEVED och DELETED har inga beskrivningar i TKB:n eller schemat, så kodsystemet saknar display-texter.
+- [ ] **[ASSUME-MB-006]** `igs/TKB_infrastructure_itintegration_messagebox/input/pagecontent/7-tjanstekontrakt.md` · fält `result.errorId`
+  errorId är ett heltal i schemat. Koderna 1=INTERNAL och 2=UNREAD_DELETE finns bara i TKB:ns text (avsnitt 6.x Övriga regler) och är inte modellerade som kodsystem.
+- [ ] **[ASSUME-MB-007]** `igs/TKB_infrastructure_itintegration_messagebox/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `GetMessages` · fält `responses`
+  TKB:ns fälttabell (avsnitt 6.2) namnger underfälten till `responses` som `messageMetas.*`, men i schemat är de `responses.*` (ResponseType). IG:n visar TKB-tabellen ordagrant och XSD-tabellen genererad; modellen följer schemat.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-MB-001]** `igs/TKB_infrastructure_itintegration_messagebox/input/pagecontent/1-inledning.md`
+  Tjänstedomänansvarig anges som "??" i källan och referensen R1 (Arkitekturella beslut - Meddelandetjänst) saknar länk. Komplettera om uppgifterna finns.
