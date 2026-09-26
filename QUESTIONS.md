@@ -1452,3 +1452,34 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-LF-001]** `input/fsh/logical-models/LasLFVardsystemRequest.fsh`
   Villkoren i annoteringarna (t.ex. att `arbetsplatskod` eller `arbetsplatsnamn` + `arbetsplatsort` ska anges, och `anvandarnamn` när förskrivarkod saknas) kan uttryckas som invarianter, och `atkomsttyp` kan få ett kodverk.
+
+## se.apotekensservice.or v7.0 — `igs/TKB_se_apotekensservice_or/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-OR-001]** `igs/TKB_se_apotekensservice_or/input/pagecontent/*.md` · ingen TKB i källan
+  Ingen tagg innehåller någon tjänstekontraktsbeskrivning, bara scheman och dokumentet Arkitekturella beslut. IG:n är genererad ur WSDL/XSD-annoteringarna med `scripts/xsd_to_ig.py` och `scripts/xsd_ig_pages.py`, och sidorna är markerade *SAKNAS I KÄLLDOKUMENT*.
+
+- [ ] **[ASSUME-OR-002]** `xsd-generated/ab.md` · AB-2.1 saknas
+  AB-dokumentets innehållsförteckning listar *2.1 AB: Produktionssättning av domänen utan TKB*, men avsnittet finns inte i brödtexten (bara AB-2.2). Endast AB-2.2 återges, med en notering om det saknade avsnittet.
+
+- [ ] **[ASSUME-OR-003]** `input/fsh/logical-models/*.fsh` · minor-tillägg via ext-scheman
+  `Extension2Type` och `Extension3Type` ur `se.apotekensservice_or_7_ext_1.2.xsd` (eHM:s sätt att lägga till fält i minor-versioner, se AB-2.2) modelleras som vanliga nästlade fält under `extension`. `se.apotekensservice_or_7_GodkannUttag_ext_1.1.xsd` refereras inte av något kontrakt och finns bara med som källfil.
+
+- [ ] **[ASSUME-OR-004]** `input/fsh/logical-models/*.fsh` · modellval och datatyper
+  Samma principer som för `se.apotekensservice.expo` (ASSUME-EXPO-003): modell för begäran med SOAP-huvuden och för svaret. xs:long → `string`, xs:int → `integer`, xs:double → `decimal`. Kodlistor i fritext är `string` utan kodverk.
+
+- [ ] **[ASSUME-OR-005]** `input/pagecontent/1-inledning.md` · förkortningar, domänbeskrivning och versionshistorik
+  Förklaringarna av förkortningarna, domänens sammanfattning och ändringsbeskrivningarna per version finns inte i källan; de är tolkade ur schemaannoteringar och commit-meddelanden.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-OR-001]** `input/fsh/logical-models/*Request.fsh`
+  Villkoren i annoteringarna (t.ex. att grupplegitimationskod är obligatorisk för vissa yrkesroller) kan uttryckas som invarianter.
