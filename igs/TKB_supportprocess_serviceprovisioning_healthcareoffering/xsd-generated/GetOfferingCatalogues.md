@@ -1,0 +1,52 @@
+| Namn | Typ | Beskrivning | Kardinalitet |
+| :--- | :--- | :--- | :--- |
+| **Begäran** | | | |
+| providingOrganization | SearchProvidingOrganizationType |  | 0..1 |
+| ../providingOrganizationId | IIType |  | 0..* |
+| ../../root | string |  | 1..1 |
+| ../../extension | string |  | 0..1 |
+| ../management | CVType |  | 0..* |
+| ../../code | string |  | 1..1 |
+| ../../codeSystem | string |  | 1..1 |
+| ../../codeSystemName | string |  | 0..1 |
+| ../../codeSystemVersion | string |  | 0..1 |
+| ../../displayName | string |  | 0..1 |
+| ../../originalText | string |  | 0..1 |
+| ../publicProvider | boolean |  | 0..1 |
+| **Svar** | | | |
+| offeringCatalogue | OfferingCatalogueType |  | 0..* |
+| ../providingOrganization | ProvidingOrganizationType |  | 1..* |
+| ../../id | IIType |  | 1..1 |
+| ../../../root | string |  | 1..1 |
+| ../../../extension | string |  | 0..1 |
+| ../../name | string |  | 1..1 |
+| ../../management | CVType |  | 1..1 |
+| ../../../code | string |  | 1..1 |
+| ../../../codeSystem | string |  | 1..1 |
+| ../../../codeSystemName | string |  | 0..1 |
+| ../../../codeSystemVersion | string |  | 0..1 |
+| ../../../displayName | string |  | 0..1 |
+| ../../../originalText | string |  | 0..1 |
+| ../../publicProvider | boolean |  | 1..1 |
+| ../../description | DescriptionType |  | 0..* |
+| ../../../text | string |  | 1..1 |
+| ../../../language | CVType |  | 0..1 |
+| ../../../../code | string |  | 1..1 |
+| ../../../../codeSystem | string |  | 1..1 |
+| ../../../../codeSystemName | string |  | 0..1 |
+| ../../../../codeSystemVersion | string |  | 0..1 |
+| ../../../../displayName | string |  | 0..1 |
+| ../../../../originalText | string |  | 0..1 |
+| ../../../role | CVType |  | 0..* |
+| ../../../../code | string |  | 1..1 |
+| ../../../../codeSystem | string |  | 1..1 |
+| ../../../../codeSystemName | string |  | 0..1 |
+| ../../../../codeSystemVersion | string |  | 0..1 |
+| ../../../../displayName | string |  | 0..1 |
+| ../../../../originalText | string |  | 0..1 |
+| ../interaction | InteractionType |  | 1..1 |
+| ../../logicalAddress | string |  | 1..1 |
+| ../../name | anyURI |  | 1..1 |
+| ../../majorVersion | int |  | 1..1 |
+| ../../minorVersion | int |  | 0..1 |
+| ../../rivtaVersion | RIVTAVersionEnum |  | 1..1 |

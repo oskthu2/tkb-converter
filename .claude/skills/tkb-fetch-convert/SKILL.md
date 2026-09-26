@@ -144,6 +144,13 @@ Felhantering:
   ```
   Byt `.emf` mot `.svg` i bildlänkarna och kopiera bara `.svg` till `input/images/`. Kontrollera resultatet med en skärmdump (`/opt/pw-browsers/chromium-1194/chrome-linux/chrome --headless --no-sandbox --screenshot=… file://…/img.svg`). Text kan få något ojämna mellanrum, men diagrammet är läsbart (verifierat 2026-09-26 i `clinicalprocess_healthcond_rheuma`).
 
+- **TIFF-bilder (`img_NNN.tiff`)** i `docx-converted/images/` (upptäckt 2026-09-26 i `supportprocess.serviceprovisioning.healthcareoffering`): webbläsare visar inte TIFF. Konvertera till PNG med Pillow och byt ändelse i bildlänkarna; kopiera bara `.png` till `input/images/`:
+  ```bash
+  python3 -c "from PIL import Image; import glob; [Image.open(f).save(f[:-5]+'.png') for f in glob.glob('igs/TKB_x/docx-converted/images/*.tiff')]"
+  sed -i -E 's/(img_[0-9]+)\.tiff/\1.png/g' igs/TKB_x/docx-converted/full-document.md
+  ```
+  `preflight_lint.py` stoppar bildlänkar till `.tif`, `.tiff`, `.emf` och `.wmf`.
+
   **Uppdatering 2026-09-26 (`clinicalprocess.activityprescription.logistics`):** LibreOffice (24.2) i sandlådan ger `Error: source file could not be loaded` för **alla** filer, även en vanlig `.txt`. Felet beror alltså på miljön, inte på dokumentet. Lägg ingen tid på LibreOffice här. Använd i stället `wvHtml` (paketet `wv`, installeras av SessionStart-hooken) som primär väg för `.doc`:
   ```bash
   cp "{path-to-.doc}" /tmp/tkb.doc

@@ -1744,3 +1744,24 @@ _Inga blockerare identifierade._
   Källan har tomma avsnitt och tabeller: Förkortningar, Utgångna tjänstekontrakt, Logiska fel (4.3.1.1) och Krav på en tjänstekonsument (4.3.2). De är återgivna tomma.
 - [ ] **[TODO-SCH-002]** `igs/TKB_supportprocess_logistics_scheduling/source/*/docs/working_materials/`
   Arbetsmaterialet (Informationsmodell.jpg, Begreppsmodell.jpg, Processmodell.jpg och Visual Paradigm-filer) används inte i TKB:n och är inte med i IG:n. Informationsspecifikationen (IS) och AB-dokumentet är länkade som filer, inte konverterade.
+
+## supportprocess.serviceprovisioning.healthcareoffering v3.0 — `igs/TKB_supportprocess_serviceprovisioning_healthcareoffering/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-HCO-001]** `igs/TKB_supportprocess_serviceprovisioning_healthcareoffering/sushi-config.yaml`
+  IG:n bygger på taggen 3.0 (samma commit som master, 2024-02-15) och TKB version 3.0 (2023-04-25). GetCareServiceOfferings har version 3.0 och GetOfferingCatalogues version 2.0. Självdeklarationer för äldre versioner (GetOfferingCatalogues 1.0, GetCareServiceOfferings 2.1) finns i källan och är länkade som filer.
+- [ ] **[ASSUME-HCO-002]** `igs/TKB_supportprocess_serviceprovisioning_healthcareoffering/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  TKB:n har inget kapitel om gemensamma informationskomponenter; klasserna beskrivs i kapitel 5 (V-MIM). Sidan 6 är märkt *SAKNAS I KÄLLDOKUMENT* och innehåller kodverken och en XSD-genererad typlista.
+- [ ] **[ASSUME-HCO-003]** `igs/TKB_supportprocess_serviceprovisioning_healthcareoffering/input/fsh/codesystems/RIVTAVersionCS.fsh`
+  TKB:n anger RIV-TA-version 2.0 eller 2.1 för `rivtaVersion`, men schemat tillåter bara `2.1`. Kodverket följer schemat.
+- [ ] **[ASSUME-HCO-004]** `igs/TKB_supportprocess_serviceprovisioning_healthcareoffering/input/images/img_003.png`, `img_005.png`, `img_006.png`
+  Tre figurer är lagrade som TIFF i docx-filen och är konverterade till PNG, eftersom webbläsare inte visar TIFF.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-HCO-001]** `igs/TKB_supportprocess_serviceprovisioning_healthcareoffering/source/*/docs/work_material/`
+  Arbetsmaterialet (15 modellbilder, bland annat begrepps-, process- och informationsmodell) används inte i TKB:n och är inte med i IG:n. Informationsspecifikationen, kravspecifikationen och kravkatalogen är länkade som filer, inte konverterade.
