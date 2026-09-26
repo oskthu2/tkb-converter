@@ -1,0 +1,198 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "processingstatus",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/interoperability-headers/StructureDefinition/processingstatus",
+  "name": "ProcessingStatus",
+  "title": "ProcessingStatus",
+  "status": "draft",
+  "description": "Logisk modell för det gemensamma huvudelementet ProcessingStatus\n(RIV-TA urn:riv:interoperability:headers:1, element ProcessingStatus av typen ProcessingStatusType).\nAnvänds av aggregerande tjänster för att rapportera tillbaka till konsumenten hur giltiga de returnerade\nuppgifterna är, med en statuspost per logisk adress (källsystem).",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/interoperability-headers/StructureDefinition/processingstatus",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "processingstatus",
+        "path": "processingstatus",
+        "short": "ProcessingStatus",
+        "definition": "Logisk modell för det gemensamma huvudelementet ProcessingStatus\n(RIV-TA urn:riv:interoperability:headers:1, element ProcessingStatus av typen ProcessingStatusType).\nAnvänds av aggregerande tjänster för att rapportera tillbaka till konsumenten hur giltiga de returnerade\nuppgifterna är, med en statuspost per logisk adress (källsystem)."
+      },
+      {
+        "id": "processingstatus.processingStatusList",
+        "path": "processingstatus.processingStatusList",
+        "short": "Statuspost per logisk adress",
+        "definition": "XSD: ProcessingStatusList (ProcessingStatusRecordType), 0..unbounded.\nEn post per källsystem (logisk adress) som den aggregerande tjänsten har hämtat eller försökt hämta uppgifter från.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "processingstatus-statuscode-consistency",
+            "severity": "error",
+            "human": "statusCode ska stämma med isResponseFromCache och isResponseInSynch enligt tabellen i ProcessingStatus-dokumentationen",
+            "expression": "(statusCode = 'DataFromSource' implies (isResponseFromCache = false and isResponseInSynch = true)) and (statusCode = 'DataFromCache' implies (isResponseFromCache = true and isResponseInSynch = true)) and (statusCode = 'DataFromCacheSynchFailed' implies (isResponseFromCache = true and isResponseInSynch = false)) and (statusCode = 'NoDataSynchFailed' implies (isResponseFromCache = false and isResponseInSynch = false))",
+            "source": "https://fhir.inera.se/ig/interoperability-headers/StructureDefinition/processingstatus"
+          },
+          {
+            "key": "processingstatus-unsuccessful-only-when-not-in-synch",
+            "severity": "error",
+            "human": "lastUnsuccessfulSynch och lastUnsuccessfulSynchError anges bara när isResponseInSynch är false",
+            "expression": "isResponseInSynch = true implies (lastUnsuccessfulSynch.empty() and lastUnsuccessfulSynchError.empty())",
+            "source": "https://fhir.inera.se/ig/interoperability-headers/StructureDefinition/processingstatus"
+          }
+        ]
+      },
+      {
+        "id": "processingstatus.processingStatusList.logicalAddress",
+        "path": "processingstatus.processingStatusList.logicalAddress",
+        "short": "Logisk adress för källsystemet",
+        "definition": "Logisk adress till det källsystem som statusposten gäller.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processingstatus.processingStatusList.statusCode",
+        "path": "processingstatus.processingStatusList.statusCode",
+        "short": "Statuskod för de returnerade uppgifterna",
+        "definition": "XSD: statusCode (StatusCodeEnum). Anger kvaliteten på de uppgifter som returnerats från denna logiska adress.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/interoperability-headers/ValueSet/processingstatuscode-vs"
+        }
+      },
+      {
+        "id": "processingstatus.processingStatusList.isResponseFromCache",
+        "path": "processingstatus.processingStatusList.isResponseFromCache",
+        "short": "Svaret kommer från cache",
+        "definition": "true om svaret för denna logiska adress kommer från cachen, antingen direkt utan anrop till källsystemet\neller efter ett misslyckat anrop till källsystemet under denna bearbetning.\nfalse om källsystemet anropades under bearbetningen och returnerade aktuella uppgifter, eller om inga\nuppgifter kunde returneras, varken från cache eller källsystem.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "processingstatus.processingStatusList.isResponseInSynch",
+        "path": "processingstatus.processingStatusList.isResponseInSynch",
+        "short": "Svaret är aktuellt",
+        "definition": "true om svaret är aktuellt: antingen var uppgifterna i cachen redan aktuella, eller så lyckades anropet\ntill källsystemet under denna bearbetning.\nfalse om anropet till källsystemet misslyckades; se lastUnsuccessfulSynchError för felinformation.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "processingstatus.processingStatusList.lastSuccessfulSynch",
+        "path": "processingstatus.processingStatusList.lastSuccessfulSynch",
+        "short": "Senaste lyckade synkronisering",
+        "definition": "XSD: xs:string, obligatorisk (minOccurs=1). Modellerad som 0..1 eftersom statustabellen anger värdet\nsom tomt vid NoDataSynchFailed (se ASSUME-IH-002). Tidsstämpel för det senaste lyckade anropet från den\naggregerande tjänsten till källsystemet, om något.\nTypen är string i schemat trots att innehållet är en tidsstämpel (se ASSUME-IH-001).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processingstatus.processingStatusList.lastUnsuccessfulSynch",
+        "path": "processingstatus.processingStatusList.lastUnsuccessfulSynch",
+        "short": "Senaste misslyckade synkronisering",
+        "definition": "Anges bara om isResponseInSynch är false. Tidsstämpel för det senaste misslyckade anropet från den\naggregerande tjänsten till källsystemet. XSD-typ xs:string (se ASSUME-IH-001).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processingstatus.processingStatusList.lastUnsuccessfulSynchError",
+        "path": "processingstatus.processingStatusList.lastUnsuccessfulSynchError",
+        "short": "Fel vid senaste misslyckade synkronisering",
+        "definition": "XSD: LastUnsuccessfulSynchErrorType. Anges bara om isResponseInSynch är false.\nBeskriver felet som uppstod vid anropet till källsystemet under denna bearbetning.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "processingstatus.processingStatusList.lastUnsuccessfulSynchError.causingAgent",
+        "path": "processingstatus.processingStatusList.lastUnsuccessfulSynchError.causingAgent",
+        "short": "Felande komponent",
+        "definition": "Felande komponent",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/interoperability-headers/ValueSet/causingagent-vs"
+        }
+      },
+      {
+        "id": "processingstatus.processingStatusList.lastUnsuccessfulSynchError.errorCode",
+        "path": "processingstatus.processingStatusList.lastUnsuccessfulSynchError.errorCode",
+        "short": "Felkod",
+        "definition": "XSD: code. Beskriver felet med en kod som är meningsfull för causingAgent.\nOmdöpt från code enligt konventionen för reserverade namn.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "processingstatus.processingStatusList.lastUnsuccessfulSynchError.errorText",
+        "path": "processingstatus.processingStatusList.lastUnsuccessfulSynchError.errorText",
+        "short": "Felmeddelande",
+        "definition": "XSD: text. Beskriver felet i fritext. Omdöpt från text enligt konventionen för reserverade namn.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

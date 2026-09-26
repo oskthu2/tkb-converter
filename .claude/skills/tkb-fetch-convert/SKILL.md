@@ -109,6 +109,7 @@ find "igs/TKB_{domain_id}/source/" -name "TKB_*.docx" | head -1
 Felhantering:
 - `python-docx` ej installerat → `pip install python-docx` och försök igen
 - Filen hittas inte → logga BLOCK, gå vidare
+- **Domänen saknar TKB helt och innehåller bara ett delat schema** (upptäckt 2026-09-26 i `interoperability.headers`: varken `.docx` eller `.doc` i någon tagg eller på `master`, README-länken "Senaste TKB" tom, ingen WSDL). Kontrollera alla taggar och `master` via `src`-API:t innan du drar slutsatsen. Bygg sedan IG:n direkt från XSD:n: en `Logical:` per toppnivåelement, ett CodeSystem per enum, sidorna 1, 2 och 6 sammanställda från schemats `xs:documentation` och repots git-historik med notisen `SAKNAS I KÄLLDOKUMENT`, och sida 7 som anger att kontrakt saknas och listar källfilerna. Logga en BLOCK-post med förslaget "godkänn XSD-baserad IG" så att användaren avgör om domänen ska slås ihop eller markeras `blocked`.
 - **Legacy `.doc`-fil istället för `.docx`** (förekommer i äldre domäner, t.ex. RIVTA 2.1-domäner från ~2011): `find` ovan hittar bara `.docx`. Sök även efter `.doc`:
   ```bash
   find "igs/TKB_{domain_id}/source/" -iname "*.doc" | head -1
