@@ -1,0 +1,83 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "createbooking-response",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/supportprocess-personalresources-interpretation/StructureDefinition/createbooking-response",
+  "name": "CreateBookingResponse",
+  "title": "CreateBooking — Svar",
+  "status": "draft",
+  "description": "Logisk modell för svaret i CreateBooking (urn:riv:supportprocess:personalresources:interpretation:CreateBookingResponder:1, CreateBookingResponseType).",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/supportprocess-personalresources-interpretation/StructureDefinition/createbooking-response",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "createbooking-response",
+        "path": "createbooking-response",
+        "short": "CreateBooking — Svar",
+        "definition": "Logisk modell för svaret i CreateBooking (urn:riv:supportprocess:personalresources:interpretation:CreateBookingResponder:1, CreateBookingResponseType)."
+      },
+      {
+        "id": "createbooking-response.referenceNumberMap",
+        "path": "createbooking-response.referenceNumberMap",
+        "short": "Referensnummermappning",
+        "definition": "Mappning mellan Tolkportalens beställningsnummer och tolkförmedlingens referensnummer (ReferenceNumberMapping).",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "createbooking-response.referenceNumberMap.bookingNumber",
+        "path": "createbooking-response.referenceNumberMap.bookingNumber",
+        "short": "Beställningsnummer",
+        "definition": "Tolkportalens beställningsnummer (≥ 0).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "createbooking-response.referenceNumberMap.referenceNumber",
+        "path": "createbooking-response.referenceNumberMap.referenceNumber",
+        "short": "Referensnummer",
+        "definition": "Tolkförmedlingens referensnummer.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "createbooking-response.result",
+        "path": "createbooking-response.result",
+        "short": "Resultat",
+        "definition": "Information om anropets resultat (ResultType).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "https://fhir.inera.se/ig/supportprocess-personalresources-interpretation/StructureDefinition/interpretation-result"
+          }
+        ]
+      }
+    ]
+  }
+}

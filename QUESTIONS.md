@@ -1332,3 +1332,36 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-RHE-001]** `input/fsh/codesystems/`
   `typeOfDrug` (DMARD, bioprep, NSAID, cortisone) har ingen enum i schemat och är obunden. Ett lokalt kodverk kan läggas till om domänen bekräftar värdena.
+
+---
+
+## supportprocess.personalresources.interpretation v1.0 — `igs/TKB_supportprocess_personalresources_interpretation/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-INT-001]** `igs/TKB_supportprocess_personalresources_interpretation/` · källa
+  Repot saknar taggar; arkivet är hämtat för commit 010d6f367f37 på `master` (2017-07-12). TKB:n är version 1.0_RC1 (2017-07-10); ingen fastställd 1.0 finns publicerad i repot.
+
+- [ ] **[ASSUME-INT-002]** `input/images/ListLanguages*`, `GetUnitInformation*` · två odokumenterade interaktioner
+  Releasepaketet innehåller ListLanguages och GetUnitInformation, som TKB:n inte beskriver. Deras scheman refererar till `core:Language`, `core:UnitInformation` och `core:HSAIdType`, som saknas i domänschemat. De ingår som källfiler men har ingen logisk modell. Verifiera om de ska ingå i domänen.
+
+- [ ] **[ASSUME-INT-003]** `input/fsh/logical-models/*.fsh` · modellval och datatyper
+  AnswerInquiry, CreateBooking och UpdateBooking modelleras som begäran (svaret är ResultType, gemensam modell InterpretationResult; CreateBooking har även CreateBookingResponse). ListBookings och ListInquiries modelleras som svar med separat begäran. XSD:ns PascalCase-namn är skrivna i lowerCamelCase. IIType (HSA-id) → `Identifier`, CVType → `CodeableConcept`, xs:int med minInclusive 1 → `positiveInt`, övriga xs:int → `integer`, MessageSequenceNumber (unsignedLong) → `unsignedInt`, vilket inte rymmer hela värdeintervallet.
+
+- [ ] **[ASSUME-INT-004]** `input/pagecontent/2-versionsinformation.md`, kodverk · stavfel i källan
+  TKB:n skriver "ListInquiry" (avsnitt 2), "AutomaticallyAckowledged" och "CaceledByInitiator". Kodverken följer schemat (`AutomaticallyAcknowledged`, `CanceledByInitiator`), och kontraktet heter ListInquiries.
+
+- [ ] **[ASSUME-INT-005]** `input/pagecontent/6-gemensamma-informationskomponenter.md`, `7-tjanstekontrakt.md` · kapitelindelning
+  Källan har tjänstekontrakten i kapitel 6 och gemensamma klasser i 6.6. De ligger här i avsnitt 7; sidan 6 hänvisar dit. Hänvisningar "se 6.6.N" i tabellerna är oförändrade, med en not överst på sidan 7.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-INT-001]** `input/fsh/logical-models/*.fsh`
+  BookingData, ContactInformation och BookingInformationFromAssociation upprepas inline i flera modeller. De kan brytas ut till delade logiska typer om projektets FSH-konventioner uppdateras för det.
