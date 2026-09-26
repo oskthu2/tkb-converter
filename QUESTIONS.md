@@ -1483,3 +1483,34 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-OR-001]** `input/fsh/logical-models/*Request.fsh`
   Villkoren i annoteringarna (t.ex. att grupplegitimationskod är obligatorisk för vissa yrkesroller) kan uttryckas som invarianter.
+
+## se.apotekensservice.pris v2.0 — `igs/TKB_se_apotekensservice_pris/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-PRIS-001]** `igs/TKB_se_apotekensservice_pris/input/pagecontent/*.md` · ingen TKB i källan
+  Ingen tagg innehåller någon tjänstekontraktsbeskrivning, bara scheman och dokumentet Arkitekturella beslut. IG:n är genererad ur WSDL/XSD-annoteringarna med `scripts/xsd_to_ig.py` och `scripts/xsd_ig_pages.py`, och sidorna är markerade *SAKNAS I KÄLLDOKUMENT*.
+
+- [ ] **[ASSUME-PRIS-002]** källa · version
+  Källan är taggen `2.0_RC1` (= `master`, 2017-01-26) och inte den senaste fastställda taggen `1.0.0`, eftersom 2.0 är högst och ingen fastställd 2.0 finns. Domänversionen anges som 2.0.
+
+- [ ] **[ASSUME-PRIS-003]** `input/fsh/logical-models/{KontrolleraForman,Prisfraga,RegistreraHkdbTransaktion}.fsh` · minor-tillägg via ext-scheman
+  Element i `*_ext.xsd` (eHM:s sätt att lägga till fält i minor-versioner, se AB-2.2) refereras från kontraktens scheman och modelleras som vanliga fält med schemats kardinalitet.
+
+- [ ] **[ASSUME-PRIS-004]** `input/fsh/logical-models/*.fsh` · modellval och datatyper
+  Samma principer som för `se.apotekensservice.expo` (ASSUME-EXPO-003): modell för begäran med SOAP-huvuden och för svaret. xs:long → `string`, xs:int → `integer`, xs:double → `decimal`. Kodlistor i fritext (t.ex. förmånskod R/U/L/F) är `string` utan kodverk.
+
+- [ ] **[ASSUME-PRIS-005]** `input/pagecontent/1-inledning.md` · förkortningar, domänbeskrivning och versionshistorik
+  Förklaringarna av förkortningarna (bl.a. HKDB), domänens sammanfattning och ändringsbeskrivningarna per version finns inte i källan; de är tolkade ur schemaannoteringar och commit-meddelanden.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-PRIS-001]** `input/fsh/logical-models/*.fsh`
+  Fritextkodlistor (t.ex. förmånskod R/U/L/F) kan få kodverk, och villkor i annoteringarna (t.ex. vid kreditering) kan uttryckas som invarianter.
