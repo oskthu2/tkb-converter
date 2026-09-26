@@ -1365,3 +1365,31 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-INT-001]** `input/fsh/logical-models/*.fsh`
   BookingData, ContactInformation och BookingInformationFromAssociation upprepas inline i flera modeller. De kan brytas ut till delade logiska typer om projektets FSH-konventioner uppdateras för det.
+
+## se.apotekensservice.axs v7.0 — `igs/TKB_se_apotekensservice_axs/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-AXS-001]** `igs/TKB_se_apotekensservice_axs/input/pagecontent/*.md` · ingen TKB i källan
+  Ingen tagg (7.0, 6.0, 5.0, 4.0 RC1) innehåller någon tjänstekontraktsbeskrivning, bara scheman och (från 6.0) dokumentet Arkitekturella beslut. IG:n bygger därför på WSDL/XSD-annoteringarna och AB-dokumentet. Sidorna 1–7 är markerade *SAKNAS I KÄLLDOKUMENT*. Om eHälsomyndigheten har en TKB utanför Bitbucket bör den ersätta denna rekonstruktion.
+
+- [ ] **[ASSUME-AXS-002]** `input/fsh/logical-models/HamtaPatientInfo.fsh` · datatyper
+  `dosunderlagStatus` (xs:int) och `statusKod` (xs:string) modelleras som `code` med obligatorisk bindning till kodverken ur schemaannoteringarna. `aktorsorgnr` (xs:long) modelleras som `string` eftersom FHIR R4 saknar 64-bitars heltal. `personnummer` är xs:string i schemat och behålls som `string` (inte `Identifier`). Utökningspunkterna `extension` (ExtensionType, xs:any) är inte med i modellerna. Den föråldrade `traffkod` finns bara i KundinformationResponse, som inte används av HamtaPatientInfo 6.0.
+
+- [ ] **[ASSUME-AXS-003]** `input/pagecontent/1-inledning.md` · förkortningar
+  Förklaringarna av EXPO, FOLK, RDH, RR, RRD, HKDB och EES finns inte i källan; de är tolkade utifrån hur begreppen används i schemaannoteringarna.
+
+- [ ] **[ASSUME-AXS-004]** `input/fsh/logical-models/HamtaPatientInfoRequest.fsh` · SOAP-huvuden
+  WSDL:en kräver huvudena LogicalAddress och ArgosHeader. De modelleras som 1..1 i begäran. Vilka ArgosHeader-fält som är obligatoriska för HamtaPatientInfo hänvisar WSDL:en till "dokumentationen", som inte finns i källan, så alla fält är 0..1 som i schemat.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-AXS-001]** `input/pagecontent/4-tjanstedomanens-krav-och-regler.md`
+  Felkoderna för ApplicationException och SystemException är odokumenterade. Komplettera om eHälsomyndighetens dokumentation blir tillgänglig.
