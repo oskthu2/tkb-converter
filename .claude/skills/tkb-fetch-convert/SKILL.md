@@ -125,6 +125,17 @@ Felhantering:
   iconv -f ISO-8859-1 -t UTF-8 /tmp/raw.txt > /tmp/utf8.txt   # antiword outputtar Latin-1 som standard
   ```
   Logga alltid en ASSUME-post i QUESTIONS.md om denna fallback används — manuell sektionsindelning är en tolkning, inte en mekanisk konvertering, och avsnitt som saknas i det äldre dokumentets friare struktur ska markeras `// SAKNAS I KÄLLDOKUMENT` snarare än hoppas över tyst.
+- **EMF-bilder (`img_NNN.emf`)** i `docx-converted/images/`: webbläsare kan inte visa EMF, och LibreOffice kan inte konvertera dem i sandlådan. Tidigare domäner (t.ex. `crm_carelisting`, `ehr_blocking`) kopierade EMF-filerna utan att länka dem, så figurerna saknas i de IG:erna. Konvertera i stället till SVG med `emf2svg-conv` (apt-paketet `emf2svg`, installeras av SessionStart-hooken), sätt en `viewBox` så att bilden skalar, och länka `.svg`-filen i sidan:
+  ```bash
+  emf2svg-conv -p -i img_003.emf -o img_003.svg
+  python3 - img_003 <<'PY'
+  import re,sys
+  f=sys.argv[1]+'.svg'; s=open(f).read()
+  m=re.search(r'width="([\d.]+)" height="([\d.]+)"',s); w,h=m.group(1),m.group(2)
+  open(f,'w').write(s.replace(m.group(0),f'viewBox="0 0 {w} {h}" width="{float(w)/4:.0f}" height="{float(h)/4:.0f}"',1))
+  PY
+  ```
+  Byt `.emf` mot `.svg` i bildlänkarna och kopiera bara `.svg` till `input/images/`. Kontrollera resultatet med en skärmdump (`/opt/pw-browsers/chromium-1194/chrome-linux/chrome --headless --no-sandbox --screenshot=… file://…/img.svg`). Text kan få något ojämna mellanrum, men diagrammet är läsbart (verifierat 2026-09-26 i `clinicalprocess_healthcond_rheuma`).
 
 ---
 

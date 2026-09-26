@@ -25,6 +25,12 @@ if ! python3 -c "import docx" >/dev/null 2>&1; then
   pip install --quiet python-docx >/dev/null 2>&1 || missing+=("python-docx")
 fi
 
+# emf2svg (konverterar EMF-figurer i TKB:er till SVG, se tkb-fetch-convert)
+if ! command -v emf2svg-conv >/dev/null 2>&1; then
+  log "installerar emf2svg"
+  { apt-get update -qq && apt-get install -y -qq emf2svg; } >/dev/null 2>&1 || missing+=("emf2svg")
+fi
+
 # antiword (fallback för legacy .doc-TKB:er när LibreOffice inte kan läsa filen)
 if ! command -v antiword >/dev/null 2>&1; then
   log "installerar antiword"
@@ -41,6 +47,6 @@ fi
 if [ ${#missing[@]} -gt 0 ]; then
   log "VARNING: kunde inte installera: ${missing[*]}"
 else
-  log "alla verktyg på plats (sushi, python-docx, antiword, FHIR R4-baspaket)"
+  log "alla verktyg på plats (sushi, python-docx, antiword, emf2svg, FHIR R4-baspaket)"
 fi
 exit 0

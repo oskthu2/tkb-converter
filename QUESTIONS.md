@@ -1227,3 +1227,34 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-PRM-001]** `igs/TKB_population_residentmaster/input/fsh/logical-models/LookupResidentForFullProfile.fsh`
   `folkbokforingsadress` och `sarskildPostadress` delar exakt samma underliggande XSD-typ (`SvenskAdressTYPE`) men är modellerade som två separata, dubblerade `BackboneElement`-block eftersom FSH `Logical:`-modeller i detta projekt inte återanvänder en delad nästlad typ mellan syskonfält. Om projektets FSH-konventioner senare uppdateras för att stödja detta (t.ex. via en delad extension eller ett gemensamt Logical-typnamn), kan dubbleringen elimineras.
+
+## clinicalprocess.healthcond.rheuma v1.0 — `igs/TKB_clinicalprocess_healthcond_rheuma/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-RHE-001]** `igs/TKB_clinicalprocess_healthcond_rheuma/` (hela domänen) · källval och version
+  Repot har bara RC-taggar (`1.0_RC1`–`1.0_RC3`). `master` (commit fd5d50cd8a84, 2015-10-29) har samma scheman som `1.0_RC3` men den slutliga dokumentuppsättningen (TKB utan RC i namnet, arkitekturella beslut och tjänstedomänpresentation), så `master` användes. Versionsfältet i TKB:n är inte ifyllt ("Version ..."); domänversionen sattes till 1.0 enligt schemat och revisionshistoriken.
+
+- [ ] **[ASSUME-RHE-002]** `input/fsh/logical-models/*.fsh` · skillnader mellan TKB och schema
+  Modellen följer schemat: `timePeriod` (TKB `datePeriod`), `actCode` (TKB `atcCode`, troligen stavfel i schemat men det är trådnamnet), `workability` (TKB `workAbility`), `rheumatoidArthritisDataBody` (TKB `rheumatoidArthritisBody`), samt `nullified`/`nullifiedReason` som bara finns i schemat. `orgUnitHSAId` och `orgUnitName` är 1..1 enligt schemat (TKB 0..1). `documentTitle` och `documentTime` är 0..0 enligt TKB (schemat 0..1).
+
+- [ ] **[ASSUME-RHE-003]** `input/fsh/logical-models/GetRheumatoidArthritisData.fsh` · datatyper
+  HSAIdType och PersonIdType som `Identifier`, CVType som `CodeableConcept`, PQType som `Quantity`, IIType som `Identifier`, DatePeriodType som `Period`, TimeStampType som `dateTime`. Anonyma heltals- och flyttalstyper (globalHealth, pain, eq5dIndexValue m.fl.) som `integer`/`decimal` med värdemängden i beskrivningen. `drug.name` döpt till `drugName`. `physiciansGlobal` är bunden (preferred) till DoctorsGlobalEnum, eftersom schemat typar fältet som CVType.
+
+- [ ] **[ASSUME-RHE-004]** `input/pagecontent/5-*.md`, `6-*.md` · kapitelordning
+  I källdokumentet är kapitel 5 Gemensamma informationskomponenter och kapitel 6 Meddelandemodeller. IG:n följer mallens ordning (5 = meddelandemodeller, 6 = gemensamma komponenter) och sidan 5 har en not om detta.
+
+- [ ] **[ASSUME-RHE-005]** `input/images/img_003.svg`, `img_004.svg` · figurer
+  Figur 1 och 2 är EMF i källan och har konverterats till SVG med `emf2svg-conv`. Text i figurerna kan ha något ojämna mellanrum; jämför med originalet i TKB-dokumentet vid behov.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-RHE-001]** `input/fsh/codesystems/`
+  `typeOfDrug` (DMARD, bioprep, NSAID, cortisone) har ingen enum i schemat och är obunden. Ett lokalt kodverk kan läggas till om domänen bekräftar värdena.
