@@ -1669,3 +1669,28 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-TERM-001]** `igs/TKB_infrastructure_informationstructureservice_terminology/input/pagecontent/2-versionsinformation.md`
   Källan skriver "GetTerminologySubet" (stavfel) i listan över nya kontrakt och har en tom kompatibilitetstabell. Texten är återgiven ordagrant.
+
+## orgmaster.hsa v1.0.0 — `igs/TKB_orgmaster_hsa/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-HSA-001]** `igs/TKB_orgmaster_hsa/sushi-config.yaml`
+  Repot saknar taggar, så källan är senaste commit på master (f84df986cac4, 2013-04-11). Beskrivningen är RevB (2012-11-27). IG:n får versionen 1.0.0 efter kontraktens version 1.0.
+- [ ] **[ASSUME-HSA-002]** `igs/TKB_orgmaster_hsa/input/pagecontent/7-tjanstekontrakt.md`
+  TKB:n följer inte standardmallen: avsnitt 3–7 beskriver ett kontrakt vardera och avsnitt 8 är referenser. Kontrakten ligger i IG:ns avsnitt 7 (7.1 = TKB 3), referenserna på sidan 1 och sidan 8 (Datatyper) är genererad ur XSD.
+- [ ] **[ASSUME-HSA-003]** `igs/TKB_orgmaster_hsa/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `GetHsaUnitList`
+  TKB:ns rubrik (avsnitt 6) är "GetUnitList", men WSDL och schema heter GetHsaUnitList. IG:n använder schemats namn och anger TKB-rubriken.
+- [ ] **[ASSUME-HSA-004]** `igs/TKB_orgmaster_hsa/input/fsh/logical-models/GetHsaUnit.fsh` · typ `TimeSpan`
+  TKB:n (avsnitt 3, TimeSpan) listar fromDay, fromTime, toDay, toTime och Comment 0..1. Schemat har dessutom fromTime2 och toTime2 och kräver comment (1..1). Modellerna följer schemat.
+- [ ] **[ASSUME-HSA-005]** `igs/TKB_orgmaster_hsa/input/pagecontent/7-tjanstekontrakt.md`
+  TKB:ns svarstabeller har sammanslagna celler för grupperade parametrar. De visas som kolumnerna Parameter och Underparameter, och rader som var brutna över flera rader är ihopslagna.
+- [ ] **[ASSUME-HSA-006]** `igs/TKB_orgmaster_hsa/input/pagecontent/2-generella-regler.md`
+  Avsnitt 2.4 beskriver resultCode (OK, INFO, ERROR) för uppdaterande tjänster, men domänen har bara lästjänster och inget schema innehåller resultCode. Inget kodsystem är skapat.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-HSA-001]** `igs/TKB_orgmaster_hsa/input/pagecontent/1-inledning.md`
+  Inledningen har kvar mallens platshållare för huvud- och underdomän på engelska. Texten är återgiven ordagrant.
