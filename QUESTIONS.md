@@ -1715,3 +1715,32 @@ _Inga blockerare identifierade._
   Källan anger tjänsteinteraktionen GetSupportedServiceContractsInteraction under avsnitt 6.3 (troligen kopierat från avsnitt 7), och svarsfältet logicalAddress har samma kommentar som i GetSupportedServiceContracts. Rätt interaktion (GetLogicalAddresseesByServiceContractInteraction) framgår av WSDL-avsnittet. Texten är återgiven ordagrant.
 - [ ] **[TODO-ITR-002]** `igs/TKB_itintegration_registry/input/pagecontent/3-versionsinformation.md`
   Versionsavsnittet har kvar mallens platshållare och en kompatibilitetstabell för en version 1.1 som aldrig gavs ut. Texten är återgiven ordagrant.
+
+## supportprocess.logistics.scheduling v2.0 — `igs/TKB_supportprocess_logistics_scheduling/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-SCH-001]** `igs/TKB_supportprocess_logistics_scheduling/sushi-config.yaml`
+  Repot har bara taggen 2.0_RC1, och den pekar på samma commit som master (5131f0ee09b2, 2023-11-27). TKB-dokumentet anger version 2.0 RC2 (2023-11-01). Ingen slutlig 2.0-release finns publicerad. IG:n har version 2.0.0 med status draft.
+- [ ] **[ASSUME-SCH-002]** `igs/TKB_supportprocess_logistics_scheduling/input/pagecontent/{6,7}-*.md`
+  TKB:n har tjänstekontrakten i kapitel 6 och *Definition av komplexa typer* i kapitel 7, och saknar ett kapitel om gemensamma informationskomponenter. Kontrakten ligger i IG:ns avsnitt 7 (7.n = TKB 6.n) och de komplexa typerna i avsnitt 6 (6.n = TKB 7.n). Kodverken och en XSD-genererad typlista är tillagda sist i avsnitt 6.
+- [ ] **[ASSUME-SCH-003]** `igs/TKB_supportprocess_logistics_scheduling/input/pagecontent/7-tjanstekontrakt.md` · avsnitten *Övriga regler*
+  Sju kontrakt har rubriken *Övriga regler* med meningen "Dessa återfinns nedan", men källan innehåller inga regler efter den (kontrollerat i docx-filen). Texten är återgiven som den står.
+- [ ] **[ASSUME-SCH-004]** `igs/TKB_supportprocess_logistics_scheduling/input/fsh/codesystems/ResultCodeCS.fsh`
+  ResultCodeEnum i domänschemat räknar upp flera koder mer än en gång (en grupp per kontrakt). Kodverket har varje kod en gång (19 koder), med visningstexter ur TKB avsnitt 3.7. ValueSet:en gäller alla kontrakt; vilka koder som får användas per kontrakt framgår av tabellerna i avsnitt 3.7.
+- [ ] **[ASSUME-SCH-005]** `igs/TKB_supportprocess_logistics_scheduling/input/fsh/codesystems/AppointmentStatusCS.fsh` · kod `confirmed`
+  TKB:n (GetAppointment, appointment.status) skriver `confirm`, men schemat har `confirmed`. Kodverket följer schemat.
+- [ ] **[ASSUME-SCH-006]** `igs/TKB_supportprocess_logistics_scheduling/input/fsh/logical-models/*.fsh` · `SnomedCtType.codeSystem`, `PersonIdType.root`
+  Schemat begränsar dessa OID-fält med anonyma uppräkningar. De är modellerade som string med de tillåtna värdena i beskrivningen, inte som egna kodverk. Typer som begränsar en bastyp med egen sekvens (xs:restriction) får bara sina egna element.
+- [ ] **[ASSUME-SCH-007]** `igs/TKB_supportprocess_logistics_scheduling/input/pagecontent/3-tjanstedomanens-arkitektur.md` · avsnitt 3.7
+  Underrubrikerna i avsnitt 3.7 ResultCode är oformaterade i källan och felnumrerade (1.1.1–1.1.5) i innehållsförteckningen. De är återskapade som 3.7.1–3.7.5.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-SCH-001]** `igs/TKB_supportprocess_logistics_scheduling/input/pagecontent/{1,2,4}-*.md`
+  Källan har tomma avsnitt och tabeller: Förkortningar, Utgångna tjänstekontrakt, Logiska fel (4.3.1.1) och Krav på en tjänstekonsument (4.3.2). De är återgivna tomma.
+- [ ] **[TODO-SCH-002]** `igs/TKB_supportprocess_logistics_scheduling/source/*/docs/working_materials/`
+  Arbetsmaterialet (Informationsmodell.jpg, Begreppsmodell.jpg, Processmodell.jpg och Visual Paradigm-filer) används inte i TKB:n och är inte med i IG:n. Informationsspecifikationen (IS) och AB-dokumentet är länkade som filer, inte konverterade.
