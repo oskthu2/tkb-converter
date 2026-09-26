@@ -1227,3 +1227,37 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-PRM-001]** `igs/TKB_population_residentmaster/input/fsh/logical-models/LookupResidentForFullProfile.fsh`
   `folkbokforingsadress` och `sarskildPostadress` delar exakt samma underliggande XSD-typ (`SvenskAdressTYPE`) men är modellerade som två separata, dubblerade `BackboneElement`-block eftersom FSH `Logical:`-modeller i detta projekt inte återanvänder en delad nästlad typ mellan syskonfält. Om projektets FSH-konventioner senare uppdateras för att stödja detta (t.ex. via en delad extension eller ett gemensamt Logical-typnamn), kan dubbleringen elimineras.
+
+---
+
+## interoperability.headers v1.1 — `igs/TKB_interoperability_headers/`
+
+**Status:** in-progress (väntar på beslut om BLOCK-IH-001)
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [ ] **[BLOCK-IH-001]** `igs/TKB_interoperability_headers/` (hela domänen) · inget TKB-dokument
+  Domänen saknar publicerad TKB. Bitbucket-repot `rivta-domains/riv.interoperability.headers` innehåller i båda taggarna (`TD_HEADERS_1_0_R` 2011, `interoperability_headers_1.1` 2015) och på `master` enbart `schemas/core_components/interoperability_headers_{version}.xsd`, och README-länken "Senaste TKB" är tom. Domänen har heller inga tjänstekontrakt (ingen WSDL), bara två delade huvudelement (`Actor`, `ProcessingStatus`) som andra domäner använder. IG:n är byggd enbart från XSD:n: sidorna 1, 2 och 6 är sammanställda från schemat och repots historik och märkta "SAKNAS I KÄLLDOKUMENT", och sidorna 3–5 finns inte.
+  Förslag: godkänn en XSD-baserad IG för denna domän (ta bort BLOCK och slå ihop PR:en). Alternativ: markera domänen `blocked` med orsaken "inget TKB-dokument publicerat" och stäng PR:en.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-IH-001]** `igs/TKB_interoperability_headers/input/fsh/logical-models/ProcessingStatus.fsh` · fält `lastSuccessfulSynch`, `lastUnsuccessfulSynch`
+  Schemat typar båda fälten som `xs:string` trots att dokumentationen beskriver dem som tidsstämplar och inget format anges. Modellerade som `string` enligt XSD. Om ett format (t.ex. `YYYYMMDDhhmmss` som i övriga RIV-TA-domäner) är avsett kan fälten bli `dateTime`/`instant`.
+  Källa: `interoperability_headers_1.1.xsd`, `ProcessingStatusRecordType`.
+
+- [ ] **[ASSUME-IH-002]** `igs/TKB_interoperability_headers/input/fsh/logical-models/ProcessingStatus.fsh` · fält `lastSuccessfulSynch`
+  Obligatoriskt i schemat (inget `minOccurs`), men statustabellen i `xs:documentation` anger värdet som "Empty" vid `NoDataSynchFailed`. Modellerat som `0..1` (det säkrare alternativet). Verifiera om producenten ska skicka ett tomt element eller utelämna det.
+  Källa: `interoperability_headers_1.1.xsd`, `ProcessingStatus`-dokumentationen och `ProcessingStatusRecordType`.
+
+- [ ] **[ASSUME-IH-003]** `igs/TKB_interoperability_headers/input/fsh/codesystems/ActorTypeCS.fsh`, `CausingAgentCS.fsh` · kodernas display/definition
+  `ActorTypeEnum` och `CausingAgentEnum` saknar dokumentation i schemat. De svenska definitionerna (t.ex. `subject_of_care_agent` = ombud för invånaren, `virtualization_platform` = tjänsteplattformen) är tolkningar av kodvärdena. Verifiera med domänexpert.
+
+- [ ] **[ASSUME-IH-004]** `igs/TKB_interoperability_headers/input/fsh/logical-models/ProcessingStatus.fsh` · invarianter `processingstatus-statuscode-consistency`, `processingstatus-unsuccessful-only-when-not-in-synch`
+  Statustabellen i schemats dokumentation är tolkad som normativ och modellerad som två invarianter med `Severity: #error`. Tabellens krav på `lastSuccessfulSynch` ("Current timestamp" / "Last time for succ. call") är inte modellerade eftersom de inte kan uttryckas utan extern data.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-IH-001]** `igs/TKB_interoperability_headers/input/fsh/logical-models/`
+  `ActorType`, `ProcessingStatusType` och `LastUnsuccessfulSynchErrorType` har öppna utökningspunkter (`xs:any namespace="##other"`) som inte har någon motsvarighet i de logiska modellerna. Ta ställning till om de ska dokumenteras som extension-punkter.
