@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->		
+<wsdl:definitions name='GetPractitionersInteraction' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:tjsr='urn:riv:supportprocess:logistics:scheduling:GetPractitionersResponder:2' xmlns:tjsi='urn:riv:supportprocess:logistics:scheduling:GetPractitionersInitiator:2' xmlns:tns='urn:riv:supportprocess:logistics:scheduling:GetPractitioners:2:rivtabp21' targetNamespace='urn:riv:supportprocess:logistics:scheduling:GetPractitioners:2:rivtabp21' xmlns:itr='urn:riv:itintegration:registry:1' xmlns:ih='urn:riv:interoperability:headers:1'>
+  <xs:annotation>
+    <xs:documentation>
+			 Tjänsteinteraktionens namn: GetPractitionersInteraction
+			 Beskrivning: 
+			   Lista utförare (medarbetare)
+			 Revisioner: 
+			 Tjänstedomän: supportprocess:logistics:scheduling
+			 Tjänsteinteraktionstyp: Fråga-Svar
+			 WS-profil: RIVTABP21
+			 Förvaltas av: Sveriges Kommuner och Landsting
+			 </xs:documentation>
+  </xs:annotation>
+  <wsdl:types>
+    <xs:schema targetNamespace='urn:riv:supportprocess:logistics:scheduling:GetPractitioners:2:rivtabp21'>
+        <xs:import schemaLocation='GetPractitionersResponder_2.0.xsd' namespace='urn:riv:supportprocess:logistics:scheduling:GetPractitionersResponder:2' />
+        <xs:import schemaLocation='../../core_components/itintegration_registry_1.0.xsd' namespace='urn:riv:itintegration:registry:1' />
+		<xs:import schemaLocation='../../core_components/interoperability_headers_1.0.xsd' namespace='urn:riv:interoperability:headers:1' />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name='GetPractitionersRequest'>
+    <wsdl:part name='LogicalAddress' element='itr:LogicalAddress'>
+      <wsdl:documentation>Verksamhetens HSAID på enhetsnivå</wsdl:documentation>
+    </wsdl:part>
+    <wsdl:part name='parameters' element='tjsr:GetPractitioners' />
+  </wsdl:message>
+  <wsdl:message name='GetPractitionersResponse'>
+    <wsdl:part name='parameters' element='tjsr:GetPractitionersResponse' />
+  </wsdl:message>
+  <wsdl:portType name='GetPractitionersResponderInterface'>
+    <wsdl:operation name='GetPractitioners'>
+      <wsdl:input message='tns:GetPractitionersRequest' />
+      <wsdl:output message='tns:GetPractitionersResponse' />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name='GetPractitionersResponderBinding' type='tns:GetPractitionersResponderInterface'>
+    <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http' />
+    <wsdl:operation name='GetPractitioners'>
+      <soap:operation soapAction='urn:riv:supportprocess:logistics:scheduling:GetPractitionersResponder:2:GetPractitioners' style='document' />
+      <wsdl:input>
+        <soap:header use='literal' message='tns:GetPractitionersRequest' part='LogicalAddress' />
+        <soap:body use='literal' parts='parameters' />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use='literal' />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name='GetPractitionersResponderService'>
+    <wsdl:port name='GetPractitionersResponderPort' binding='tns:GetPractitionersResponderBinding'>
+      <soap:address location='http://tempuri.org' />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

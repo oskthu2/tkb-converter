@@ -197,7 +197,12 @@ def build_fields(S, ctype, f, tns, stack, used_types):
         if tel.tag == Q(XS, "simpleType"):
             base = tel.find(f"{Q(XS, 'restriction')}")
             b = S.resolve(base.get("base"), tf, ttns)[1] if base is not None else "string"
-            values = [e.get("value") for e in tel.iter(Q(XS, "enumeration"))]
+            values = list(dict.fromkeys(e.get("value") for e in tel.iter(Q(XS, "enumeration"))))
+            if values and key[1].startswith("#"):
+                # Anonym uppräkning i elementet (t.ex. fast OID för codeSystem/root): inget eget kodverk.
+                note = f" Tillåtna värden: {', '.join(values)}."
+                fields.append(Field(fhir_name, b, PRIMITIVES.get(b, "string"), card, (doc + note).strip(), renamed_from=renamed))
+                continue
             if CODESYSTEMS and values:
                 ENUMS.setdefault(local, values)
                 fields.append(Field(fhir_name, local, "code", card, doc, renamed_from=renamed, binding=local))
@@ -243,7 +248,10 @@ def content_of(S, ctype, f, tns, stack, used_types):
             if bkey in S.types and bkey not in stack:
                 bel, bf, btns = S.types[bkey]
                 bp, ba = content_of(S, bel, bf, btns, stack + [bkey], used_types)
-                particles += bp
+                # xs:restriction med egen sekvens ersätter basens element; attributen ärvs ändå.
+                own = any(ext.find(Q(XS, g)) is not None for g in ("sequence", "choice", "all"))
+                if not (ext.tag == Q(XS, "restriction") and own):
+                    particles += bp
                 attrs += ba
             body = ext
 
@@ -269,7 +277,7 @@ def content_of(S, ctype, f, tns, stack, used_types):
         doc = doc_of(a) + " (XML-attribut.)"
         fname = name if name not in RESERVED else lower_first(re.sub(r"(Type)?$", "", ctype.get("name") or "")) + name[:1].upper() + name[1:]
         if tdef is not None and tdef[0].tag == Q(XS, "simpleType"):
-            values = [e.get("value") for e in tdef[0].iter(Q(XS, "enumeration"))]
+            values = list(dict.fromkeys(e.get("value") for e in tdef[0].iter(Q(XS, "enumeration"))))
             if CODESYSTEMS and values:
                 ENUMS.setdefault(key[1], values)
                 attrs.append(Field(fname, key[1], "code", card, doc.strip(), renamed_from=name if fname != name else None, binding=key[1]))
