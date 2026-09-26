@@ -1227,3 +1227,39 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-PRM-001]** `igs/TKB_population_residentmaster/input/fsh/logical-models/LookupResidentForFullProfile.fsh`
   `folkbokforingsadress` och `sarskildPostadress` delar exakt samma underliggande XSD-typ (`SvenskAdressTYPE`) men är modellerade som två separata, dubblerade `BackboneElement`-block eftersom FSH `Logical:`-modeller i detta projekt inte återanvänder en delad nästlad typ mellan syskonfält. Om projektets FSH-konventioner senare uppdateras för att stödja detta (t.ex. via en delad extension eller ett gemensamt Logical-typnamn), kan dubbleringen elimineras.
+
+---
+
+## clinicalprocess.activityprescription.logistics v1.0.2 — `igs/TKB_clinicalprocess_activityprescription_logistics/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-APL-001]** `igs/TKB_clinicalprocess_activityprescription_logistics/input/pagecontent/1-inledning.md` · två figurer i avsnitt 1
+  Källdokumentet är en legacy `.doc` (Word 97–2003). Det konverterades med `wvHtml` och `wv2md.py`, eftersom LibreOffice inte fungerar i miljön. Fem av sju innehållsfigurer gick att extrahera som PNG (figur 1 och 2 i 4.1, åtkomstbilden och arbetsflödet i 4.2, informationsmodellen i 6.1). De två figurerna i avsnitt 1 är ett Word-ritobjekt och en bild utan inbäddad PNG, och de saknas i IG:n (markerat "SAKNAS I KÄLLDOKUMENT"). Överstruken text i källdokumentet har tagits bort. Verifiera mot originalet att inget giltigt stycke föll bort.
+  Källa: `docs/Tjanstekontraktsbeskrivning - clinicalprocess_activityprescription_logistics.doc`.
+
+- [ ] **[ASSUME-APL-002]** `igs/TKB_clinicalprocess_activityprescription_logistics/sushi-config.yaml` · version
+  Repot saknar taggar och downloads. Arkivet är hämtat för commit `69b4fefff3e9` på `master` (2014-11-14). IG-versionen 1.0.2 är tagen från dokumentets revisionshistorik och försättsblad, medan kapitel 2 i samma dokument säger att revisionen avser version 1.0.1. Tjänstekontrakten är version 1.0 i båda fallen.
+
+- [ ] **[ASSUME-APL-003]** `igs/TKB_clinicalprocess_activityprescription_logistics/input/fsh/logical-models/GetDispensedDrugs.fsh` · fält `lakemedelsforteckning.radid`
+  XSD-typen är `xs:long`. FHIR R4 saknar 64-bitars heltal (`integer64` finns först i R5), så fältet är modellerat som `string`. Verifiera om `integer` (32 bitar) räcker för LF:s rad-id.
+
+- [ ] **[ASSUME-APL-004]** `igs/TKB_clinicalprocess_activityprescription_logistics/input/fsh/logical-models/GetDispensedDrugsRequest.fsh`, `PrintListOfDispensedDrugsRequest.fsh` · fält `identifieradArbetsplats`
+  `ArbetsplatsIdentifikation` är en `xs:choice` där båda alternativen har kardinaliteten 1..1 i TKB-tabellen. Modellerat som två 0..1-fält med invarianten `arbetsplatskod.exists() xor arbetsplats.exists()`.
+
+- [ ] **[ASSUME-APL-005]** `igs/TKB_clinicalprocess_activityprescription_logistics/input/fsh/codesystems/ResultCodeCS.fsh`, `AtkomsttypCS.fsh` · koddefinitioner
+  Schemat och TKB:n anger bara kodvärdena. Definitionerna (t.ex. `SAM` = tillsvidaresamtycke, `NOD` = nödåtkomst, `INFO` = lyckat anrop med information i comment) är härledda ur arbetsflödet i avsnitt 4.2 och felhanteringen i 5.2.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-APL-001]** `igs/TKB_clinicalprocess_activityprescription_logistics/input/fsh/logical-models/`
+  Fältlängder (minLength/maxLength i XSD) finns bara i fältbeskrivningarna. De kan läggas till som `^maxLength` eller invarianter om IG:n ska kunna validera instanser.
+- [ ] **[TODO-APL-002]** `igs/TKB_clinicalprocess_activityprescription_logistics/input/fsh/logical-models/`
+  `Patientinformation`, `Patient`, `Vardpersonal` och `ArbetsplatsIdentifikation` är duplicerade som nästlade element i båda kontraktens modeller, eftersom projektets konvention inte återanvänder delade typer.
