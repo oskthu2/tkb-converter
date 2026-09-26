@@ -156,6 +156,16 @@ def build_fields(S, ctype, f, tns, stack, used_types):
             name, t = rdef[0].get("name"), rdef[0].get("type")
             ref_doc = doc_of(rdef[0]) + f" (Refererat element ur {rdef[1].name}, namnrymd {rkey[0]}.)"
             f_ref, tns_ref = rdef[1], rdef[2]
+        inline_key = None
+        if t is None and name is not None:
+            # Anonym typ direkt i elementet: registreras under elementets namn.
+            inl = el.find(Q(XS, "simpleType"))
+            if inl is None:
+                inl = el.find(Q(XS, "complexType"))
+            if inl is not None:
+                inline_key = (tns, name)
+                S.types.setdefault((tns, "#" + name), (inl, f, tns))
+                t = "#" + name
         if name is None or t is None:
             continue
         lo = "0" if optional else el.get("minOccurs", "1")
@@ -163,7 +173,9 @@ def build_fields(S, ctype, f, tns, stack, used_types):
         card = f"{lo}..{'*' if hi == 'unbounded' else hi}"
         doc = doc_of(el) or ref_doc
         key = S.resolve(t, f_ref, tns_ref) if el.get("ref") else S.resolve(t, f, tns)
-        local = key[1]
+        if inline_key:
+            key = (tns, t)
+        local = key[1].lstrip("#")
         if local == "ExtensionType":
             continue
         fhir_name, renamed = name, None

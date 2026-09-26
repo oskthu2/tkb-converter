@@ -1,0 +1,67 @@
+// Genererad från XSD för healthcertificate.lifeline v1.0 (fält ur XSD, se TKB avsnitt 3; scripts/xsd_to_ig.py)
+// Kontrakt: BirthRegistration v1.0
+// Genererad: 2026-09-26
+
+Logical: BirthRegistrationRequest
+Id: birthregistration-request
+Title: "BirthRegistration — Request"
+Description: """
+  Logisk modell för begäran i BirthRegistration
+  (urn:riv:healthcertificate:lifeline:BirthRegistrationResponder:1, BirthRegistrationTYPE), inklusive SOAP-huvuden enligt WSDL.
+"""
+Characteristics: #can-be-target
+* logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress."
+* FodelseanmalanId 1..1 string "FodelseanmalanId" "FodelseanmalanId"
+* Dokumentuppgifter 1..1 BackboneElement "Dokumentuppgifter" "Dokumentuppgifter"
+  * Ingivarnamn 1..1 string "Ingivarnamn" "Ingivarnamn"
+  * AnmalningsTyp 1..1 code "AnmalningsTyp" "AnmalningsTyp"
+  * AnmalningsTyp from AnmalningsTypVS (required)
+  * AnmalningsId 1..1 string "AnmalningsId" "AnmalningsId"
+  * Ingivartelefon 0..1 string "Ingivartelefon" "Ingivartelefon"
+* Arendeuppgifter 1..1 BackboneElement "Arendeuppgifter" "Arendeuppgifter"
+  * Moder 1..1 BackboneElement "Moder" "Moder"
+    * Namn 0..1 BackboneElement "Namn" "Namn"
+      * Fornamn 0..1 string "Fornamn" "Fornamn"
+      * Mellannamn 0..1 string "Mellannamn" "Mellannamn"
+      * Efternamn 0..1 string "Efternamn" "Efternamn"
+    * Fodelsedatum 0..1 BackboneElement "Fodelsedatum" "Fodelsedatum"
+      * FodelseAr 1..1 string "FodelseAr" "FodelseAr"
+      * FodelseManad 1..1 string "FodelseManad" "FodelseManad"
+      * FodelseDag 1..1 string "FodelseDag" "FodelseDag"
+    * PersonNummer 0..1 string "PersonNummer" "PersonNummer"
+  * ModersMake 0..1 BackboneElement "ModersMake" "ModersMake"
+    * Namn 0..1 BackboneElement "Namn" "Namn"
+      * Fornamn 0..1 string "Fornamn" "Fornamn"
+      * Mellannamn 0..1 string "Mellannamn" "Mellannamn"
+      * Efternamn 0..1 string "Efternamn" "Efternamn"
+    * Fodelsedatum 0..1 BackboneElement "Fodelsedatum" "Fodelsedatum"
+      * FodelseAr 1..1 string "FodelseAr" "FodelseAr"
+      * FodelseManad 1..1 string "FodelseManad" "FodelseManad"
+      * FodelseDag 1..1 string "FodelseDag" "FodelseDag"
+    * PersonNummer 0..1 string "PersonNummer" "PersonNummer"
+  * Barn 1..1 BackboneElement "Barn" "Barn"
+    * DatumFodelse 1..1 date "DatumFodelse" "DatumFodelse"
+    * Kon 0..1 code "Kon" "Kon"
+    * Kon from KonVS (required)
+    * OrdningsNr 1..1 integer "OrdningsNr" "OrdningsNr"
+    * AntalBarn 1..1 integer "AntalBarn" "AntalBarn"
+    * FodelseKommun 1..1 string "FodelseKommun" "FodelseKommun"
+    * Levande 1..1 code "Levande" "Levande"
+    * Levande from LevandeVS (required)
+  * Vistelseadress 0..1 BackboneElement "Vistelseadress" "Vistelseadress"
+    * AdressRad1 1..1 string "AdressRad1" "AdressRad1"
+    * AdressRad2 0..1 string "AdressRad2" "AdressRad2"
+    * AdressRad3 0..1 string "AdressRad3" "AdressRad3"
+    * AdressRad4 0..1 string "AdressRad4" "AdressRad4"
+    * AdressRad5 0..1 string "AdressRad5" "AdressRad5"
+  * Bostadsadress 0..1 BackboneElement "Bostadsadress" "Bostadsadress"
+    * AdressRad1 1..1 string "AdressRad1" "AdressRad1"
+    * AdressRad2 0..1 string "AdressRad2" "AdressRad2"
+    * AdressRad3 0..1 string "AdressRad3" "AdressRad3"
+    * AdressRad4 0..1 string "AdressRad4" "AdressRad4"
+    * AdressRad5 0..1 string "AdressRad5" "AdressRad5"
+  * KontaktTelefon 0..1 string "KontaktTelefon" "KontaktTelefon"
+  * KontaktTelefon2 0..1 string "KontaktTelefon2" "KontaktTelefon2"
+  * KontaktTelefon3 0..1 string "KontaktTelefon3" "KontaktTelefon3"
+  * KontaktTelefon4 0..1 string "KontaktTelefon4" "KontaktTelefon4"
+  * KontaktTelefon5 0..1 string "KontaktTelefon5" "KontaktTelefon5"
