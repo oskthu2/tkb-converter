@@ -1421,3 +1421,34 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-EXPO-001]** `input/fsh/logical-models/SkapaApotekRequest.fsh`, `UppdateraExpoMedApotekRequest.fsh`
   Villkoren i annoteringarna (t.ex. att `kortNamn` och `recepturtelefon` är obligatoriska när `eRecept` eller `eReceptDjur` är satt, och `faxnummer` när huvudorganisationskod = DX) kan uttryckas som invarianter. Kodlistan för `huvudOrgTypKod` (ADM, AP, DIAP, DJUR, DX, OAP, SA, TVAP) kan bli ett kodverk.
+
+## se.apotekensservice.lf v7.0 — `igs/TKB_se_apotekensservice_lf/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-LF-001]** `igs/TKB_se_apotekensservice_lf/input/pagecontent/*.md` · ingen TKB i källan
+  Ingen tagg innehåller någon tjänstekontraktsbeskrivning, bara scheman och dokumentet Arkitekturella beslut. IG:n är genererad ur WSDL/XSD-annoteringarna med `scripts/xsd_to_ig.py` och `scripts/xsd_ig_pages.py`, och sidorna är markerade *SAKNAS I KÄLLDOKUMENT*.
+
+- [ ] **[ASSUME-LF-002]** källa · version
+  Källan är taggen `7.0_RC1` (= `master`, 2020-02-11) och inte den senaste fastställda taggen `5.0`, eftersom 7.0 är högst och ingen fastställd 7.0 finns. Domänversionen anges som 7.0.
+
+- [ ] **[ASSUME-LF-003]** `input/fsh/logical-models/LasLFVardsystem.fsh` · `avPatientSparradePosterArBorttagna`
+  Elementet ligger i ett separat schema (`LasLFVardsystemResponder_4.1_ext.xsd`, namnrymd `…:LasLFVardsystemResponder:4.1`) och refereras från svaret. Det är eHM:s sätt att lägga till fält i en minor-version (se AB-2.2). Det modelleras som ett vanligt fält i svaret med schemats kardinalitet 1..1.
+
+- [ ] **[ASSUME-LF-004]** `input/fsh/logical-models/*.fsh` · modellval och datatyper
+  Samma principer som för `se.apotekensservice.expo` (ASSUME-EXPO-003): modell för begäran med SOAP-huvuden och för svaret när det har innehåll (RegistreraSamtyckeVardsystem har tomt svar). xs:long → `string`, xs:int → `integer`, xs:double → `decimal`. Kodlistor i fritext (t.ex. `atkomsttyp` ENG/SAM/NOD) är `string` utan kodverk.
+
+- [ ] **[ASSUME-LF-005]** `input/pagecontent/1-inledning.md` · förkortningar och domänbeskrivning
+  Förklaringarna av förkortningarna (bl.a. FORS, ARKO) och domänens sammanfattning finns inte i källan; de är tolkade.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-LF-001]** `input/fsh/logical-models/LasLFVardsystemRequest.fsh`
+  Villkoren i annoteringarna (t.ex. att `arbetsplatskod` eller `arbetsplatsnamn` + `arbetsplatsort` ska anges, och `anvandarnamn` när förskrivarkod saknas) kan uttryckas som invarianter, och `atkomsttyp` kan få ett kodverk.

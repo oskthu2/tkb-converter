@@ -101,13 +101,23 @@ def build_fields(S, ctype, f, tns, stack, used_types):
     type_label = re.sub(r"(Request|Response)?(Type)?$", "", ctype.get("name") or "")
     for el in seq.findall(Q(XS, "element")):
         name, t = el.get("name"), el.get("type")
+        ref_doc = ""
+        if el.get("ref"):
+            # Elementreferens, t.ex. eHM:s tillägg i en minor-version via ett separat *_ext.xsd
+            rkey = S.resolve(el.get("ref"), f, tns)
+            rdef = S.elements.get(rkey)
+            if rdef is None:
+                continue
+            name, t = rdef[0].get("name"), rdef[0].get("type")
+            ref_doc = doc_of(rdef[0]) + f" (Refererat element ur {rdef[1].name}, namnrymd {rkey[0]}.)"
+            f_ref, tns_ref = rdef[1], rdef[2]
         if name is None or t is None:
             continue
         lo = el.get("minOccurs", "1")
         hi = el.get("maxOccurs", "1")
         card = f"{lo}..{'*' if hi == 'unbounded' else hi}"
-        doc = doc_of(el)
-        key = S.resolve(t, f, tns)
+        doc = doc_of(el) or ref_doc
+        key = S.resolve(t, f_ref, tns_ref) if el.get("ref") else S.resolve(t, f, tns)
         local = key[1]
         if local == "ExtensionType":
             continue
@@ -226,7 +236,9 @@ def main():
     contracts = []
     for wsdl in sorted(Path(a.schemas).rglob("*Interaction*.wsdl")):
         w = parse_wsdl(wsdl)
-        responder = next(wsdl.parent.glob("*Responder*.xsd"))
+        cname_guess = parse_wsdl(wsdl)["name"].replace("Interaction", "")
+        responder = next(x for x in sorted(wsdl.parent.glob("*Responder*.xsd"))
+                         if f'name="{cname_guess}"' in x.read_text(encoding="utf-8"))
         rroot = ET.parse(responder).getroot()
         rtns = rroot.get("targetNamespace")
         cname = w["name"].replace("Interaction", "")

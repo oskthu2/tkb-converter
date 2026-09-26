@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="urn:riv:se.apotekensservice:lf:6"
+           targetNamespace="urn:riv:se.apotekensservice:lf:6"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           version="6.0">
+            
+    <xs:annotation>
+        <xs:documentation>
+            Beskrivning: Meddelandetyper som är gemensamma för lf.
+            Revisioner: 2017-04-27, version 6.0
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:import namespace="urn:riv:se.apotekensservice:lf:5" schemaLocation="se.apotekensservice_lf_5.0.xsd"/>
+
+
+    <xs:complexType name="AtkomstloggResponse">
+            <xs:sequence>                
+                <xs:element name="anvandarnamn" type="xs:string" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>Namn på person som läst Läkemedelsförteckningen.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                            
+                <xs:element name="arbetsplatsnamn" type="xs:string" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>Plats där person som läst Läkemedelsförteckningen arbetar. Saknas om
+Åtkomsttyp = Egen.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                            
+                <xs:element name="arbetsplatsort" type="xs:string" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>Ort där person som läst Läkemedelsförteckningen arbetar. Saknas om
+Åtkomsttyp = Egen.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                            
+                <xs:element name="atkomstdatum" type="xs:dateTime" nillable="false">
+                    <xs:annotation>
+                        <xs:documentation>Datum då Läkemedelsförteckningen blivit läst.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                            
+                <xs:element name="atkomsttyp" type="xs:string" nillable="false">
+                    <xs:annotation>
+                        <xs:documentation>Typ av åtkomst då Läkemedelsförteckningen lästes. Möjliga åtkomsttyper
+är:
+<itemizedlist>
+<listitem>Engångssamtycke</listitem>
+<listitem>Tillsvidaresamtycke</listitem>
+<listitem>Nödåtkomst</listitem>
+<listitem>Registerutdrag</listitem>
+<listitem>Borttag</listitem>
+<listitem>Egen</listitem>
+<listitem>Sökning (utgår)</listitem>
+<listitem>Utskrift</listitem>
+</itemizedlist></xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+
+</xs:schema>
