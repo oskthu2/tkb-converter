@@ -1514,3 +1514,39 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-PRIS-001]** `input/fsh/logical-models/*.fsh`
   Fritextkodlistor (t.ex. förmånskod R/U/L/F) kan få kodverk, och villkor i annoteringarna (t.ex. vid kreditering) kan uttryckas som invarianter.
+
+---
+
+## druglogistics.dosedispensing v1.1.0 — `igs/TKB_druglogistics_dosedispensing/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-DOS-001]** `igs/TKB_druglogistics_dosedispensing/input/pagecontent/*.md` · ingen TKB i källan
+  Taggen `TD_DRUGLOGISTICS_DOSEDISPENSING_1_1_0` innehåller ingen tjänstekontraktsbeskrivning. Domänen beskrivs i stället av en PDF-specifikation per tjänst (`*Interaction.pdf`), `Objekt och felhantering.pdf` och `releasenotes.txt`. IG:n är byggd ur WSDL/XSD (`scripts/xsd_to_ig.py`) plus PDF:erna, och sidor utan motsvarighet i källan är markerade *SAKNAS I KÄLLDOKUMENT*.
+
+- [ ] **[ASSUME-DOS-002]** `igs/TKB_druglogistics_dosedispensing/input/pagecontent/{4,6,7}-*.md` · mekanisk PDF-konvertering
+  PDF-texten och tabellerna är konverterade mekaniskt med `scripts/pdf_spec_to_md.py` (layoutextraktion). Tabeller vars layout är tvetydig i PDF:en (vertikalt centrerade celler, ord avstavade i smala kolumner) kan ha små fel; sidorna säger att PDF:en gäller vid tveksamhet och PDF:erna är länkade. Stickprov mot PDF:erna gav inga fel.
+
+- [ ] **[ASSUME-DOS-003]** `igs/TKB_druglogistics_dosedispensing/input/fsh/logical-models/HamtaLokaltProduktsortiment*.fsh` · två versioner
+  Källan har både version 1.0 och 1.1 av HamtaLokaltProduktsortiment. Bara 1.1 är modellerad; 1.0-filerna finns kvar som källfiler.
+
+- [ ] **[ASSUME-DOS-004]** `igs/TKB_druglogistics_dosedispensing/input/fsh/codesystems/*.fsh` · visningstexter i kodverk
+  Koderna kommer från XSD-uppräkningarna och visningstexterna från `Objekt och felhantering.pdf`. Kod `VG` i MeddelandetypEnum saknar beskrivning i källan och har ingen visningstext. Kod `5` i BestallningsStatus ("Samtliga status") finns bara i `releasenotes.txt` (1.0.4). Stavningen "Vilade" i PDF:en är normaliserad till "Vilande" (kod 2 i VardtagarStatus).
+
+- [ ] **[ASSUME-DOS-005]** `igs/TKB_druglogistics_dosedispensing/input/pagecontent/1-inledning.md` · förkortningar
+  Förkortningslistan (GLN, PAL, EXPO m.fl.) är tolkad; källan förklarar inte förkortningarna. "IOR" används om tjänsterna men förklaras inte någonstans.
+
+- [ ] **[ASSUME-DOS-006]** `igs/TKB_druglogistics_dosedispensing/input/images/SkapaVardtagare-1.png` · processdiagram
+  Processdiagrammet i SkapaVardtagareInteraction.pdf är vektorgrafik och har renderats till PNG ur PDF-sidan. Övriga figurer är inbäddade rasterbilder.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-DOS-001]** `igs/TKB_druglogistics_dosedispensing/input/fsh/logical-models/*.fsh`
+  PDF-specifikationerna anger fältlängder och villkor ("Loggas", villkorliga fält) som inte finns i XSD:n; de kan uttryckas som `maxLength` och invarianter. Fältnamnen i PDF-tabellerna skiljer sig ibland från XSD-elementen och kan mappas explicit.

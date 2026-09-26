@@ -14,6 +14,15 @@ Skriver:
   <ig>/xsd-generated/types.md                           tabeller för gemensamma typer (sida 6)
 
 xs:any och element av typen ExtensionType (utökningspunkter) tas inte med i modellerna.
+
+Med --codesystems PREFIX blir varje simpleType med xs:enumeration ett CodeSystem och ett
+ValueSet (<ig>/input/fsh/codesystems/, valuesets/, canonical
+https://fhir.inera.se/CodeSystem/{PREFIX}-{typ}-cs), och fälten får typen code med en
+required-bindning. Visningstexter kan ges med --code-displays (JSON):
+  {"YrkesKodEnum": {"title": "Yrkeskod", "source": "…", "codes": {"LK": "Läkare", …}}}
+Koder utan visningstext får koden som visningstext. URL:erna skrivs till
+xsd-generated/codesystems.json (för special-url i sushi-config.yaml och kodverkslistan
+på sida 6).
 """
 import argparse
 import json
@@ -86,10 +95,15 @@ class Schemas:
 
 
 class Field:
-    def __init__(self, name, xsd_type, fhir_type, card, doc, children=None, renamed_from=None):
+    def __init__(self, name, xsd_type, fhir_type, card, doc, children=None, renamed_from=None, binding=None):
         self.name, self.xsd_type, self.fhir_type, self.card, self.doc = name, xsd_type, fhir_type, card, doc
         self.children = children or []
         self.renamed_from = renamed_from
+        self.binding = binding
+
+
+ENUMS = {}  # (typ, fil) -> [värden], fylls av build_fields när --codesystems används
+CODESYSTEMS = False
 
 
 def build_fields(S, ctype, f, tns, stack, used_types):
@@ -136,6 +150,11 @@ def build_fields(S, ctype, f, tns, stack, used_types):
         if tel.tag == Q(XS, "simpleType"):
             base = tel.find(f"{Q(XS, 'restriction')}")
             b = S.resolve(base.get("base"), tf, ttns)[1] if base is not None else "string"
+            values = [e.get("value") for e in tel.iter(Q(XS, "enumeration"))]
+            if CODESYSTEMS and values:
+                ENUMS.setdefault(local, values)
+                fields.append(Field(fhir_name, local, "code", card, doc, renamed_from=renamed, binding=local))
+                continue
             fields.append(Field(fhir_name, local, PRIMITIVES.get(b, "string"), card, doc, renamed_from=renamed))
             continue
         used_types.setdefault((local, tf.name), (tel, tf, ttns))
@@ -167,8 +186,46 @@ def fsh_lines(fields, depth=0):
         if fl.fhir_type == "BackboneElement" and not fl.children:
             d += " Typen har inga element utöver utökningspunkter."
         out.append(f'{ind}* {fl.name} {fl.card} {fl.fhir_type} "{fsh_str(short_of(fl))}" "{fsh_str(d)}"')
+        if fl.binding:
+            out.append(f"{ind}* {fl.name} from {cs_name(fl.binding)}VS (required)")
         out += fsh_lines(fl.children, depth + 1)
     return out
+
+
+def cs_name(enum_type):
+    return re.sub(r"(Enum|Type)$", "", enum_type)
+
+
+def write_codesystems(ig, prefix, displays, domain, version, date):
+    cs_dir, vs_dir = ig / "input/fsh/codesystems", ig / "input/fsh/valuesets"
+    cs_dir.mkdir(parents=True, exist_ok=True)
+    vs_dir.mkdir(parents=True, exist_ok=True)
+    urls = []
+    for enum, values in sorted(ENUMS.items()):
+        name = cs_name(enum)
+        slug = f"{prefix}-{name.lower()}"
+        info = displays.get(enum, {})
+        title = info.get("title", name)
+        source = info.get("source", "")
+        codes = info.get("codes", {})
+        url = f"https://fhir.inera.se/CodeSystem/{slug}-cs"
+        urls.append({"enum": enum, "name": name, "title": title, "url": url,
+                     "codesystem": f"{slug}-cs", "valueset": f"{slug}-vs", "codes": values})
+        desc = f"Koder för {enum} i domänschemat" + (f". Visningstexter ur {source}" if source else "") + "."
+        cs = [f"// Genererad från XSD för {domain} v{version} (scripts/xsd_to_ig.py --codesystems)",
+              f"// Genererad: {date}", "", f"CodeSystem: {name}CS", f"Id: {slug}-cs", f'Title: "{fsh_str(title)}"',
+              f'Description: "{fsh_str(desc)}"', f'* ^url = "{url}"', "* ^status = #active",
+              "* ^content = #complete", "* ^caseSensitive = true"]
+        for v in values:
+            d = codes.get(v)
+            cs.append(f'* #{v} "{fsh_str(d[0] if isinstance(d, list) else d or v)}"'
+                      + (f' "{fsh_str(d[1])}"' if isinstance(d, list) and len(d) > 1 and d[1] else ""))
+        (cs_dir / f"{name}CS.fsh").write_text("\n".join(cs) + "\n")
+        vs = [f"// Genererad från XSD för {domain} v{version}", f"// Värdemängd för {name}CS", f"// Genererad: {date}", "",
+              f"ValueSet: {name}VS", f"Id: {slug}-vs", f'Title: "{fsh_str(title)}"',
+              f'Description: "Alla koder i {name}CS."', "* ^status = #active", f"* include codes from system {name}CS"]
+        (vs_dir / f"{name}VS.fsh").write_text("\n".join(vs) + "\n")
+    return urls
 
 
 def md_cell(s):
@@ -225,7 +282,11 @@ def main():
     ap.add_argument("--domain", required=True)
     ap.add_argument("--version", required=True)
     ap.add_argument("--date", default="2026-09-26")
+    ap.add_argument("--codesystems", metavar="PREFIX", help="gör enumerationer till CodeSystem/ValueSet")
+    ap.add_argument("--code-displays", help="JSON med titlar och visningstexter per enumerationstyp")
     a = ap.parse_args()
+    global CODESYSTEMS
+    CODESYSTEMS = bool(a.codesystems)
     S = Schemas(a.schemas)
     ig = Path(a.ig)
     lm = ig / "input/fsh/logical-models"
@@ -234,11 +295,23 @@ def main():
     gen.mkdir(parents=True, exist_ok=True)
     used_types = {}
     contracts = []
+    # Finns flera versioner av samma tjänsteinteraktion modelleras bara den högsta.
+    latest = {}
     for wsdl in sorted(Path(a.schemas).rglob("*Interaction*.wsdl")):
+        m = re.search(r"_(\d+(?:\.\d+)*)_", wsdl.name)
+        ver = tuple(int(x) for x in m.group(1).split(".")) if m else ()
+        name = parse_wsdl(wsdl)["name"]
+        if name not in latest or ver > latest[name][0]:
+            latest[name] = (ver, wsdl)
+    for wsdl in sorted(w for _, w in latest.values()):
         w = parse_wsdl(wsdl)
-        cname_guess = parse_wsdl(wsdl)["name"].replace("Interaction", "")
-        responder = next(x for x in sorted(wsdl.parent.glob("*Responder*.xsd"))
-                         if f'name="{cname_guess}"' in x.read_text(encoding="utf-8"))
+        cname_guess = w["name"].replace("Interaction", "")
+        # Tjänsteschemat som WSDL:en importerar, annars det som definierar kontraktets element.
+        imported = [wsdl.parent / i.get("schemaLocation") for i in ET.parse(wsdl).getroot().iter(Q(XS, "import"))
+                    if "Responder" in (i.get("schemaLocation") or "")]
+        responder = next((x for x in imported if x.exists()), None) or next(
+            x for x in sorted(wsdl.parent.glob("*Responder*.xsd"))
+            if re.search(rf"""name=["']{cname_guess}["']""", x.read_text(encoding="utf-8")))
         rroot = ET.parse(responder).getroot()
         rtns = rroot.get("targetNamespace")
         cname = w["name"].replace("Interaction", "")
@@ -310,6 +383,11 @@ def main():
         types_md += (type_table(fl) if fl else ["Typen har inga element utöver utökningspunkter."]) + [""]
     (gen / "types.md").write_text("\n".join(types_md))
     (gen / "contracts.json").write_text(json.dumps(contracts, ensure_ascii=False, indent=2) + "\n")
+    if CODESYSTEMS:
+        displays = json.load(open(a.code_displays)) if a.code_displays else {}
+        urls = write_codesystems(ig, a.codesystems, displays, a.domain, a.version, a.date)
+        (gen / "codesystems.json").write_text(json.dumps(urls, indent=2) + "\n")
+        print(f"[xsd_to_ig] {len(urls)} kodverk")
     print(f"[xsd_to_ig] {len(contracts)} kontrakt, {len(used_types)} gemensamma typer -> {ig}")
 
 
