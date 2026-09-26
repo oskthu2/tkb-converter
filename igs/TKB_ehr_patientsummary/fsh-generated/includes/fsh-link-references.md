@@ -1,0 +1,12 @@
+[DeleteEhrExtractRequest]: StructureDefinition-deleteehrextract-request.html
+[DeleteEhrExtract]: StructureDefinition-deleteehrextract.html
+[DeleteEhrExtractStatusRequest]: StructureDefinition-deleteehrextractstatus-request.html
+[DeleteEhrExtractStatus]: StructureDefinition-deleteehrextractstatus.html
+[GetEhrExtractRequest]: StructureDefinition-getehrextract-request.html
+[GetEhrExtract]: StructureDefinition-getehrextract.html
+[ReceiveEhrExtractRequest]: StructureDefinition-receiveehrextract-request.html
+[ReceiveEhrExtract]: StructureDefinition-receiveehrextract.html
+[ReceiveEhrExtractStatusRequest]: StructureDefinition-receiveehrextractstatus-request.html
+[ReceiveEhrExtractStatus]: StructureDefinition-receiveehrextractstatus.html
+[ResponseDetailTypeCodesVS]: ValueSet-patientsummary-responsedetailtypecodes-vs.html
+[ResponseDetailTypeCodesCS]: CodeSystem-patientsummary-responsedetailtypecodes-cs.html

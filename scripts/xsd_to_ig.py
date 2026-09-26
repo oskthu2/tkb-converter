@@ -43,6 +43,15 @@ PRIMITIVES = {
     "long": "string", "unsignedLong": "string", "decimal": "decimal", "double": "decimal", "float": "decimal",
     "dateTime": "dateTime", "date": "date", "time": "time", "anyURI": "uri", "base64Binary": "base64Binary",
 }
+# ISO 21090-datatyper (ISO_dt.xsd, t.ex. EN13606-baserade domäner), används med --iso-datatypes
+ISO_TYPES = {
+    "II": "Identifier", "CD": "CodeableConcept", "CE": "CodeableConcept", "CV": "CodeableConcept",
+    "CO": "CodeableConcept", "CS": "code", "ST": "string", "SC": "string", "TS": "dateTime",
+    "IVL_TS": "Period", "BL": "boolean", "BN": "boolean", "INT": "integer", "REAL": "decimal",
+    "PQ": "Quantity", "IVL_PQ": "Range", "RTO": "Ratio", "ED": "Attachment", "AD": "Address",
+    "TEL": "ContactPoint", "EN": "HumanName", "PN": "HumanName", "URL": "url", "ANY": "string",
+}
+ISO = False
 RESERVED = {"id", "text", "code", "status", "value", "name", "type", "version", "language", "meta",
             "extension", "modifierExtension", "contained", "implicitRules", "url"}
 
@@ -59,6 +68,12 @@ def doc_of(el):
 
 def lower_first(s):
     return s[:1].lower() + s[1:]
+
+
+def snake_to_camel(s):
+    """IDENTIFIED_ENTITY -> identifiedEntity"""
+    parts = s.lower().split("_")
+    return parts[0] + "".join(x.capitalize() for x in parts[1:])
 
 
 class Schemas:
@@ -82,6 +97,15 @@ class Schemas:
                 self.types.setdefault((tns, n), (c, f, tns))
             elif c.tag == Q(XS, "element") and n:
                 self.elements.setdefault((tns, n), (c, f, tns))
+
+    def subtypes(self, key):
+        """Typer som direkt ärver key via complexContent/extension."""
+        out = []
+        for k, (el, f, tns) in self.types.items():
+            ext = el.find(f"{Q(XS, 'complexContent')}/{Q(XS, 'extension')}")
+            if ext is not None and self.resolve(ext.get("base"), f, tns) == key:
+                out.append(k)
+        return out
 
     def resolve(self, qname, f, tns):
         if ":" in qname:
@@ -109,11 +133,18 @@ CODESYSTEMS = False
 def build_fields(S, ctype, f, tns, stack, used_types):
     """Returnera fältlistan för en complexType (sekvens)."""
     fields = []
-    seq = ctype.find(Q(XS, "sequence"))
-    if seq is None:
-        return fields
     type_label = re.sub(r"(Request|Response)?(Type)?$", "", ctype.get("name") or "")
-    for el in seq.findall(Q(XS, "element")):
+    if ISO and type_label.isupper():
+        type_label = snake_to_camel(type_label)
+    attrs = []
+    if ISO:
+        particles, attrs = content_of(S, ctype, f, tns, stack, used_types)
+    else:
+        seq = ctype.find(Q(XS, "sequence"))
+        if seq is None:
+            return fields
+        particles = [(el, False) for el in seq.findall(Q(XS, "element"))]
+    for el, optional in particles:
         name, t = el.get("name"), el.get("type")
         ref_doc = ""
         if el.get("ref"):
@@ -127,7 +158,7 @@ def build_fields(S, ctype, f, tns, stack, used_types):
             f_ref, tns_ref = rdef[1], rdef[2]
         if name is None or t is None:
             continue
-        lo = el.get("minOccurs", "1")
+        lo = "0" if optional else el.get("minOccurs", "1")
         hi = el.get("maxOccurs", "1")
         card = f"{lo}..{'*' if hi == 'unbounded' else hi}"
         doc = doc_of(el) or ref_doc
@@ -138,6 +169,10 @@ def build_fields(S, ctype, f, tns, stack, used_types):
         fhir_name, renamed = name, None
         if name in RESERVED:
             fhir_name, renamed = lower_first(type_label) + name[:1].upper() + name[1:], name
+        if ISO and key not in S.types and local in ISO_TYPES:
+            note = " (ISO 21090 ANY, polymorft värde, modellerat som string.)" if local == "ANY" else ""
+            fields.append(Field(fhir_name, local, ISO_TYPES[local], card, doc + note, renamed_from=renamed))
+            continue
         if key[0] == "xs":
             ft = PRIMITIVES.get(local, "string")
             fields.append(Field(fhir_name, local, ft, card, doc, renamed_from=renamed))
@@ -162,8 +197,74 @@ def build_fields(S, ctype, f, tns, stack, used_types):
             fields.append(Field(fhir_name, local, "string", card, doc + " (Rekursiv typ, ej utvecklad.)", renamed_from=renamed))
             continue
         kids = build_fields(S, tel, tf, ttns, stack + [key], used_types)
-        fields.append(Field(fhir_name, local, "BackboneElement", card, doc or doc_of(tel), kids, renamed_from=renamed))
-    return fields
+        tdoc = doc or doc_of(tel)
+        if ISO and tel.get("abstract") == "true":
+            # Abstrakt typ (t.ex. EN13606 CONTENT/ITEM): subtypens egna element som valfria grupper.
+            subs = S.subtypes(key)
+            have = {k.name for k in kids}
+            for skey in subs:
+                if skey in stack:
+                    continue
+                sel, sf, stns = S.types[skey]
+                used_types.setdefault((skey[1], sf.name), (sel, sf, stns))
+                own = [k for k in build_fields(S, sel, sf, stns, stack + [key, skey], used_types) if k.name not in have]
+                kids.append(Field(snake_to_camel(skey[1]), skey[1], "BackboneElement", "0..1",
+                                  f"Element som bara finns när instansen är av subtypen {skey[1]} (xsi:type).", own))
+            if subs:
+                tdoc += f" Abstrakt typ; instansen anges med xsi:type som en av {', '.join(k[1] for k in subs)}."
+        fields.append(Field(fhir_name, local, "BackboneElement", card, tdoc, kids, renamed_from=renamed))
+    return fields + attrs
+
+
+def content_of(S, ctype, f, tns, stack, used_types):
+    """Element (med flagga för valfrihet) och attribut i en complexType, inklusive ärvda via
+    complexContent/extension. Element i xs:choice blir valfria."""
+    particles, attrs = [], []
+    body = ctype
+    cc = ctype.find(Q(XS, "complexContent"))
+    if cc is not None:
+        ext = cc.find(Q(XS, "extension"))
+        if ext is None:
+            ext = cc.find(Q(XS, "restriction"))
+        if ext is not None:
+            bkey = S.resolve(ext.get("base"), f, tns)
+            if bkey in S.types and bkey not in stack:
+                bel, bf, btns = S.types[bkey]
+                bp, ba = content_of(S, bel, bf, btns, stack + [bkey], used_types)
+                particles += bp
+                attrs += ba
+            body = ext
+
+    def walk(node, optional):
+        for c in node:
+            if c.tag == Q(XS, "element"):
+                particles.append((c, optional))
+            elif c.tag == Q(XS, "choice"):
+                walk(c, True)
+            elif c.tag == Q(XS, "sequence"):
+                walk(c, optional or c.get("minOccurs") == "0")
+
+    for c in body:
+        if c.tag in (Q(XS, "sequence"), Q(XS, "choice")):
+            walk(c, c.tag == Q(XS, "choice") or c.get("minOccurs") == "0")
+    for a in body.findall(Q(XS, "attribute")):
+        name, t = a.get("name"), a.get("type") or "xs:string"
+        if not name:
+            continue
+        card = "1..1" if a.get("use") == "required" else "0..1"
+        key = S.resolve(t, f, tns)
+        tdef = S.types.get(key)
+        doc = doc_of(a) + " (XML-attribut.)"
+        fname = name if name not in RESERVED else lower_first(re.sub(r"(Type)?$", "", ctype.get("name") or "")) + name[:1].upper() + name[1:]
+        if tdef is not None and tdef[0].tag == Q(XS, "simpleType"):
+            values = [e.get("value") for e in tdef[0].iter(Q(XS, "enumeration"))]
+            if CODESYSTEMS and values:
+                ENUMS.setdefault(key[1], values)
+                attrs.append(Field(fname, key[1], "code", card, doc.strip(), renamed_from=name if fname != name else None, binding=key[1]))
+                continue
+        ft = ISO_TYPES.get(key[1]) if key not in S.types and key[1] in ISO_TYPES else PRIMITIVES.get(key[1], "string")
+        attrs.append(Field(fname, key[1], ft, card, doc.strip(), renamed_from=name if fname != name else None))
+    return particles, attrs
 
 
 def fsh_str(s):
@@ -270,9 +371,41 @@ def parse_wsdl(path):
             wd = part.find(Q(WSDL, "documentation"))
             headers.append((part.get("name"), nsmap.get(p), local, " ".join("".join(wd.itertext()).split()) if wd is not None else ""))
     action = ""
-    for op in root.iter(Q(SOAP, "operation")):
-        action = op.get("soapAction", "")
-    return {"name": root.get("name"), "tns": root.get("targetNamespace"), "doc": doc, "headers": headers, "soap_action": action}
+    actions = {}
+    for b in root.findall(Q(WSDL, "binding")):
+        for bop in b.findall(Q(WSDL, "operation")):
+            for op in bop.iter(Q(SOAP, "operation")):
+                action = op.get("soapAction", "")
+                actions[bop.get("name")] = action
+    # Operationer per portType: (namn, begäranselement, svarselement, SOAP-huvuden, soapAction).
+    # En Uppdrag-Resultat-interaktion har två portTypes (Responder och Initiator).
+    msgs = {m.get("name"): m for m in root.findall(Q(WSDL, "message"))}
+
+    def body_el(msg_ref):
+        m = msgs.get(msg_ref.split(":")[-1])
+        for part in (m.findall(Q(WSDL, "part")) if m is not None else []):
+            if part.get("name") == "parameters":
+                pr, local = part.get("element").split(":")
+                return (nsmap.get(pr), local)
+        return None
+
+    ops = []
+    for pt in root.findall(Q(WSDL, "portType")):
+        for op in pt.findall(Q(WSDL, "operation")):
+            i, o = op.find(Q(WSDL, "input")), op.find(Q(WSDL, "output"))
+            m = msgs.get(i.get("message").split(":")[-1])
+            hdrs = []
+            for part in m.findall(Q(WSDL, "part")):
+                if part.get("name") == "parameters":
+                    continue
+                pr, local = part.get("element").split(":")
+                wd = part.find(Q(WSDL, "documentation"))
+                hdrs.append((part.get("name"), nsmap.get(pr), local, " ".join("".join(wd.itertext()).split()) if wd is not None else ""))
+            ops.append({"name": op.get("name"), "portType": pt.get("name"), "request": body_el(i.get("message")),
+                        "response": body_el(o.get("message")) if o is not None else None, "headers": hdrs,
+                        "soap_action": actions.get(op.get("name"), "")})
+    return {"name": root.get("name"), "tns": root.get("targetNamespace"), "doc": doc, "headers": headers,
+            "soap_action": action, "ops": ops}
 
 
 def main():
@@ -284,9 +417,13 @@ def main():
     ap.add_argument("--date", default="2026-09-26")
     ap.add_argument("--codesystems", metavar="PREFIX", help="gör enumerationer till CodeSystem/ValueSet")
     ap.add_argument("--code-displays", help="JSON med titlar och visningstexter per enumerationstyp")
+    ap.add_argument("--iso-datatypes", action="store_true",
+                    help="mappa ISO 21090-datatyper (II, CD, TS ...) till FHIR-typer; följ complexContent-arv, xs:choice och attribut")
+    ap.add_argument("--source-note", default="ingen TKB finns i källan", help="källnotering i FSH-filernas huvud")
     a = ap.parse_args()
-    global CODESYSTEMS
+    global CODESYSTEMS, ISO
     CODESYSTEMS = bool(a.codesystems)
+    ISO = a.iso_datatypes
     S = Schemas(a.schemas)
     ig = Path(a.ig)
     lm = ig / "input/fsh/logical-models"
@@ -305,77 +442,90 @@ def main():
             latest[name] = (ver, wsdl)
     for wsdl in sorted(w for _, w in latest.values()):
         w = parse_wsdl(wsdl)
-        cname_guess = w["name"].replace("Interaction", "")
-        # Tjänsteschemat som WSDL:en importerar, annars det som definierar kontraktets element.
-        imported = [wsdl.parent / i.get("schemaLocation") for i in ET.parse(wsdl).getroot().iter(Q(XS, "import"))
-                    if "Responder" in (i.get("schemaLocation") or "")]
-        responder = next((x for x in imported if x.exists()), None) or next(
-            x for x in sorted(wsdl.parent.glob("*Responder*.xsd"))
-            if re.search(rf"""name=["']{cname_guess}["']""", x.read_text(encoding="utf-8")))
-        rroot = ET.parse(responder).getroot()
-        rtns = rroot.get("targetNamespace")
-        cname = w["name"].replace("Interaction", "")
         m = re.search(r"_(\d+(?:\.\d+)*)_", wsdl.name)
-        cver = m.group(1) if m else rroot.get("version", "")
-        req_el = S.elements[(rtns, cname)]
-        res_el = S.elements[(rtns, cname + "Response")]
-
-        def fields_for(el):
-            e, f, tns = el
-            key = S.resolve(e.get("type"), f, tns)
-            t, tf, ttns = S.types[key]
-            return build_fields(S, t, tf, ttns, [key], used_types), key[1]
-
-        req_fields, req_type = fields_for(req_el)
-        res_fields, res_type = fields_for(res_el)
-        header_fields = []
-        for hname, hns, hlocal, hdoc in w["headers"]:
-            he = S.elements.get((hns, hlocal))
-            fname = lower_first(hname)
-            if he is None:
-                header_fields.append(Field(fname, hlocal, "string", "1..1", hdoc))
-                continue
-            e, f, tns = he
-            key = S.resolve(e.get("type"), f, tns)
-            tdef = S.types.get(key)
-            if tdef is None or tdef[0].tag == Q(XS, "simpleType"):
-                header_fields.append(Field(fname, key[1], "string", "1..1", f"SOAP-huvud {hname}. {hdoc}".strip()))
-            else:
-                kids = build_fields(S, tdef[0], tdef[1], tdef[2], [key], {})
-                header_fields.append(Field(fname, key[1], "BackboneElement", "1..1", f"SOAP-huvud {hname}. {hdoc}".strip(), kids))
-        hdr = [f"// Genererad från XSD för {a.domain} v{a.version} (ingen TKB finns i källan; scripts/xsd_to_ig.py)",
-               f"// Kontrakt: {cname} v{cver}", f"// Genererad: {a.date}", ""]
-        cid = cname.lower()
-        req = hdr + [f"Logical: {cname}Request", f"Id: {cid}-request", f'Title: "{cname} — Request"',
-                     'Description: """', f"  Logisk modell för begäran i {cname}",
-                     f"  ({rtns}, {req_type}), inklusive SOAP-huvuden enligt WSDL.", '"""',
-                     "Characteristics: #can-be-target"] + fsh_lines(header_fields + req_fields)
-        (lm / f"{cname}Request.fsh").write_text("\n".join(req) + "\n")
-        has_res = bool(res_fields)
-        if has_res:
-            res = hdr + [f"Logical: {cname}", f"Id: {cid}", f'Title: "{cname} — Response"',
-                         'Description: """', f"  Logisk modell för svaret i {cname}",
-                         f"  ({rtns}, {res_type}).", '"""',
-                         "Characteristics: #can-be-target"] + fsh_lines(res_fields)
-            (lm / f"{cname}.fsh").write_text("\n".join(res) + "\n")
+        if len(w["ops"]) > 1:
+            # Uppdrag-Resultat (Responder + Initiator) eller flera operationer: ett kontrakt per operation.
+            variants = []
+            for op in w["ops"]:
+                req_el, res_el = S.elements[op["request"]], S.elements[op["response"]]
+                variants.append((op["name"], req_el, res_el, req_el[1], op["headers"], op["soap_action"],
+                                 m.group(1) if m else ET.parse(req_el[1]).getroot().get("version", "")))
         else:
-            (lm / f"{cname}.fsh").unlink(missing_ok=True)
-        table = ["| Namn | Typ | Beskrivning | Kardinalitet |", "| :--- | :--- | :--- | :--- |",
-                 "| **Begäran** | | | |"] + md_rows(req_fields) + ["| **Svar** | | | |"]
-        table += md_rows(res_fields) if has_res else ["| *(tomt)* | | Svaret innehåller inga element utöver utökningspunkter. | |"]
-        (gen / f"{cname}.md").write_text("\n".join(table) + "\n")
-        contracts.append({
-            "id": cname, "version": cver, "responder_ns": rtns, "wsdl_ns": w["tns"], "soap_action": w["soap_action"],
-            "wsdl_doc": w["doc"], "wsdl_file": wsdl.name, "responder_file": responder.name,
-            "request_type": req_type, "response_type": res_type, "has_response_model": has_res,
-            "headers": [{"name": h[0], "element": h[2], "doc": h[3]} for h in w["headers"]],
-        })
+            cname_guess = w["name"].replace("Interaction", "")
+            # Tjänsteschemat som WSDL:en importerar, annars det som definierar kontraktets element.
+            imported = [wsdl.parent / i.get("schemaLocation") for i in ET.parse(wsdl).getroot().iter(Q(XS, "import"))
+                        if "Responder" in (i.get("schemaLocation") or "")]
+            responder = next((x for x in imported if x.exists()), None) or next(
+                x for x in sorted(wsdl.parent.glob("*Responder*.xsd"))
+                if re.search(rf"""name=["']{cname_guess}["']""", x.read_text(encoding="utf-8")))
+            rroot = ET.parse(responder).getroot()
+            rtns = rroot.get("targetNamespace")
+            cname = w["name"].replace("Interaction", "")
+            variants = [(cname, S.elements[(rtns, cname)], S.elements[(rtns, cname + "Response")], responder,
+                         w["headers"], w["soap_action"], m.group(1) if m else rroot.get("version", ""))]
+        for cname, req_el, res_el, responder, w_headers, soap_action, cver in variants:
+            rtns = req_el[2]
+
+            def fields_for(el):
+                e, f, tns = el
+                key = S.resolve(e.get("type"), f, tns)
+                t, tf, ttns = S.types[key]
+                return build_fields(S, t, tf, ttns, [key], used_types), key[1]
+
+            req_fields, req_type = fields_for(req_el)
+            res_fields, res_type = fields_for(res_el)
+            header_fields = []
+            for hname, hns, hlocal, hdoc in w_headers:
+                he = S.elements.get((hns, hlocal))
+                fname = lower_first(hname)
+                if he is None:
+                    header_fields.append(Field(fname, hlocal, "string", "1..1", hdoc))
+                    continue
+                e, f, tns = he
+                key = S.resolve(e.get("type"), f, tns)
+                tdef = S.types.get(key)
+                if tdef is None or tdef[0].tag == Q(XS, "simpleType"):
+                    header_fields.append(Field(fname, key[1], "string", "1..1", f"SOAP-huvud {hname}. {hdoc}".strip()))
+                else:
+                    kids = build_fields(S, tdef[0], tdef[1], tdef[2], [key], {})
+                    header_fields.append(Field(fname, key[1], "BackboneElement", "1..1", f"SOAP-huvud {hname}. {hdoc}".strip(), kids))
+            hdr = [f"// Genererad från XSD för {a.domain} v{a.version} ({a.source_note}; scripts/xsd_to_ig.py)",
+                   f"// Kontrakt: {cname} v{cver}", f"// Genererad: {a.date}", ""]
+            cid = cname.lower()
+            req = hdr + [f"Logical: {cname}Request", f"Id: {cid}-request", f'Title: "{cname} — Request"',
+                         'Description: """', f"  Logisk modell för begäran i {cname}",
+                         f"  ({rtns}, {req_type}), inklusive SOAP-huvuden enligt WSDL.", '"""',
+                         "Characteristics: #can-be-target"] + fsh_lines(header_fields + req_fields)
+            (lm / f"{cname}Request.fsh").write_text("\n".join(req) + "\n")
+            has_res = bool(res_fields)
+            if has_res:
+                res = hdr + [f"Logical: {cname}", f"Id: {cid}", f'Title: "{cname} — Response"',
+                             'Description: """', f"  Logisk modell för svaret i {cname}",
+                             f"  ({rtns}, {res_type}).", '"""',
+                             "Characteristics: #can-be-target"] + fsh_lines(res_fields)
+                (lm / f"{cname}.fsh").write_text("\n".join(res) + "\n")
+            else:
+                (lm / f"{cname}.fsh").unlink(missing_ok=True)
+            table = ["| Namn | Typ | Beskrivning | Kardinalitet |", "| :--- | :--- | :--- | :--- |",
+                     "| **Begäran** | | | |"] + md_rows(req_fields) + ["| **Svar** | | | |"]
+            table += md_rows(res_fields) if has_res else ["| *(tomt)* | | Svaret innehåller inga element utöver utökningspunkter. | |"]
+            (gen / f"{cname}.md").write_text("\n".join(table) + "\n")
+            contracts.append({
+                "id": cname, "version": cver, "responder_ns": rtns, "wsdl_ns": w["tns"], "soap_action": soap_action,
+                "wsdl_doc": w["doc"], "wsdl_file": wsdl.name, "responder_file": responder.name,
+                "request_type": req_type, "response_type": res_type, "has_response_model": has_res,
+                "headers": [{"name": h[0], "element": h[2], "doc": h[3]} for h in w_headers],
+            })
     types_md = []
     names = [n for n, _ in used_types]
     for name, fname in sorted(used_types):
         tel, tf, ttns = used_types[(name, fname)]
         fl = build_fields(S, tel, tf, ttns, [(ttns, name)], {})
-        head = name if names.count(name) == 1 else f"{name} ({ttns.rsplit(':', 1)[-1]})"
+        same = [(n, ff) for n, ff in used_types if n == name]
+        suffixes = [used_types[k][2].rsplit(':', 1)[-1] for k in same]
+        suffix = ttns.rsplit(':', 1)[-1]
+        # Namnrymdens version räcker oftast; annars schemafilens namn (t.ex. ParameterType i flera tjänstescheman).
+        head = name if names.count(name) == 1 else f"{name} ({suffix if suffixes.count(suffix) == 1 else Path(tf.name).stem})"
         types_md += [f"### {head}", "", f"Domänschema `{tf.name}` (namnrymd `{ttns}`).", ""]
         d = doc_of(tel)
         if d:
