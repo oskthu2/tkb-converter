@@ -1,0 +1,14 @@
+[AnmalanMottagenVS]: ValueSet-lifeline-anmalanmottagen-vs.html
+[AnmalanMottagenCS]: CodeSystem-lifeline-anmalanmottagen-cs.html
+[AnmalningsTypVS]: ValueSet-lifeline-anmalningstyp-vs.html
+[AnmalningsTypCS]: CodeSystem-lifeline-anmalningstyp-cs.html
+[KonVS]: ValueSet-lifeline-kon-vs.html
+[KonCS]: CodeSystem-lifeline-kon-cs.html
+[BirthRegistrationRequest]: StructureDefinition-birthregistration-request.html
+[BirthRegistration]: StructureDefinition-birthregistration.html
+[ErrorIdEnumVS]: ValueSet-lifeline-erroridenum-vs.html
+[ErrorIdEnumCS]: CodeSystem-lifeline-erroridenum-cs.html
+[LevandeVS]: ValueSet-lifeline-levande-vs.html
+[LevandeCS]: CodeSystem-lifeline-levande-cs.html
+[ResultCodeEnumVS]: ValueSet-lifeline-resultcodeenum-vs.html
+[ResultCodeEnumCS]: CodeSystem-lifeline-resultcodeenum-cs.html

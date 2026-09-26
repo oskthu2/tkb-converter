@@ -1586,3 +1586,36 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-PS-001]** `igs/TKB_ehr_patientsummary/input/pagecontent/2-generella-regler.md` · hänvisningar i källan
   TKB:n hänvisar till "avsnitt 2.2" för statusrapportering, men statusrapporteringen är avsnitt 2.3 (2.2 är EHR-extrakt). Texten nämner också tjänsten "ReceiveEhrSystem", som troligen avser ReceiveEhrExtract. Båda är återgivna ordagrant.
+
+---
+
+## healthcertificate.lifeline v1.0 — `igs/TKB_healthcertificate_lifeline/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-LL-001]** `igs/TKB_healthcertificate_lifeline/` · källa och version
+  Repot saknar taggar. Källan är senaste commit på `master` (`6281e725997f`, 2012-04-18). TKB:n är ett utkast (utgåva PA1, 2012-04-13) och anger version 1.0, som schemafilerna. Domänversionen anges som 1.0.
+
+- [ ] **[ASSUME-LL-002]** `igs/TKB_healthcertificate_lifeline/input/pagecontent/*.md` · legacy .doc och sidstruktur
+  TKB:n är en binär .doc-fil som konverterats med `wvHtml` + `wv2md.py`. Dokumentet har 1 Inledning, 2 Generella regler och 3 BirthRegistration. Som i `ehr_patientsummary` finns sidorna 1 och 2, och tjänsten ligger i avsnitt 7 (7.1 = TKB avsnitt 3). Sidan 8 med datatyper och kodverk är genererad ur schemat.
+
+- [ ] **[ASSUME-LL-003]** `igs/TKB_healthcertificate_lifeline/input/pagecontent/{1-inledning,7-tjanstekontrakt}.md` · figurer
+  Figuren i avsnitt 1 är ett Word-ritobjekt och bilden i fältregeltabellens OrdningsNr-cell går inte heller att extrahera ur .doc-filen. Ingen av dem innehåller text som går att återskapa, så båda är markerade som saknade.
+
+- [ ] **[ASSUME-LL-004]** `igs/TKB_healthcertificate_lifeline/input/fsh/logical-models/*.fsh` · kardinalitet och val
+  Modellerna följer schemat. `Fodelsedatum`/`PersonNummer` för Moder och ModersMake, och `PersonNummer`/`Meddelande` i svaret, är `xs:choice` i schemat och modelleras som två valfria element (0..1). TKB:n anger svarets PersonNummer och Meddelande som 1..1. PersonNummer är `xs:long` i schemat och modelleras som `string`.
+
+- [ ] **[ASSUME-LL-005]** `igs/TKB_healthcertificate_lifeline/input/fsh/codesystems/*.fsh` · kodverk ur schemat
+  Uppräkningarna AnmalningsTyp, Kon, Levande, AnmalanMottagen, ResultCodeEnum och ErrorIdEnum är modellerade som kodverk med visningstexter ur TKB:n. ErrorIdEnum beskrivs inte i TKB:n och har koderna som visningstext. Meddelandekoderna 101–501 (TKB 3.5) är heltal i schemat och finns bara som tabell på sidan 7.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-LL-001]** `igs/TKB_healthcertificate_lifeline/input/fsh/logical-models/*.fsh`
+  Invarianter för schemats val (exakt ett av Fodelsedatum/PersonNummer, exakt ett av PersonNummer/Meddelande), intervallen 1–9 för OrdningsNr och AntalBarn, regeln OrdningsNr ≤ AntalBarn samt maxlängder ur TKB:n. Meddelandekoderna kan bli ett kodverk.
