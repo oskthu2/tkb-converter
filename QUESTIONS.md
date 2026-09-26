@@ -1646,3 +1646,26 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-MB-001]** `igs/TKB_infrastructure_itintegration_messagebox/input/pagecontent/1-inledning.md`
   Tjänstedomänansvarig anges som "??" i källan och referensen R1 (Arkitekturella beslut - Meddelandetjänst) saknar länk. Komplettera om uppgifterna finns.
+
+## infrastructure.informationstructureservice.terminology v1.0.0 — `igs/TKB_infrastructure_informationstructureservice_terminology/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-TERM-001]** `igs/TKB_infrastructure_informationstructureservice_terminology/sushi-config.yaml`
+  Repot saknar taggar, så källan är senaste commit på master (23f2de6a6b95, 2013-10-31). TKB:n är version PA1 (2013-10-30, "Första version för granskning") och versionsavsnittet heter "Version 1...". IG:n får versionen 1.0.0 efter kontraktens version 1.0. Bekräfta att PA1 är den gällande beskrivningen.
+- [ ] **[ASSUME-TERM-002]** `igs/TKB_infrastructure_informationstructureservice_terminology/input/pagecontent/5-tjanstedomanens-meddelandemodeller.md` · figur 6
+  I källan återanvänder figuren "Meddelandemodell sökning i terminologi" samma bild som "Meddelandemodell hämta urval". IG:n visar den bilden på båda ställena. Figurnumren saknas delvis i källan och har numrerats 1–6 i sidordning.
+- [ ] **[ASSUME-TERM-003]** `igs/TKB_infrastructure_informationstructureservice_terminology/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `GetTerminologySubsetInformation`
+  WSDL:ens SOAPAction använder namnrymden `urn:riv:informatics:terminology:…`, medan schemat och övriga kontrakt använder `urn:riv:infrastructure:informationstructureservice:terminology:…`. IG:n återger WSDL:en som den är.
+- [ ] **[ASSUME-TERM-004]** `igs/TKB_infrastructure_informationstructureservice_terminology/input/fsh/logical-models/`
+  TKB:ns fälttabeller använder typen String för alla fält. Modellerna följer schemat, där begränsade strängtyper (maxLength 32–1000) blir `string` och XML-attribut blir fält med noteringen "(XML-attribut.)".
+- [ ] **[ASSUME-TERM-005]** `igs/TKB_infrastructure_informationstructureservice_terminology/input/pagecontent/1-inledning.md`
+  AB-dokumentet (referens R1) och informationsspecifikationen finns i källan och länkas som filer, men är inte konverterade till IG-sidor. Tabellrader som var brutna över flera rader i konverteringen har slagits ihop.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-TERM-001]** `igs/TKB_infrastructure_informationstructureservice_terminology/input/pagecontent/2-versionsinformation.md`
+  Källan skriver "GetTerminologySubet" (stavfel) i listan över nya kontrakt och har en tom kompatibilitetstabell. Texten är återgiven ordagrant.
