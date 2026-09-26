@@ -3,6 +3,8 @@
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **infrastructure: itintegration: registry** version 2.0.
+
+Version 1.0 av tjänsterna (namnrymd `urn:riv:itintegration:registry:1`) finns i IG:n för itintegration: registry.
 Genererad från Ineras Tjänstekontraktsbeskrivning (TKB).
 
 Tjänsteadressering är en stödtjänst som används av en tjänsteplattform. Denna tjänstedomän omfattar
