@@ -71,6 +71,7 @@ unzip /tmp/{slug}.zip -d igs/TKB_{domain_id}/source/
 **Felhantering:**
 - 401/403 från Bitbucket API → Bitbucket kräver auth för detta repo, markera `blocked`
 - Inga taggar (Metod A) OCH inga zip-filer i downloads (Metod B) → markera `blocked` med notering "Inga publicerade zip-filer eller taggar"
+- **Taggar finns men ingen TKB i någon av dem** (t.ex. `se.apotekensservice.axs`, 2026-09-26: eHälsomyndighetens domäner har bara scheman och ett AB-dokument). Kontrollera äldre taggar också innan du drar slutsatsen. Markera inte `blocked`: bygg IG:n från WSDL/XSD-annoteringarna och eventuella övriga dokument (AB), märk sidorna 1–7 med *SAKNAS I KÄLLDOKUMENT*, sammanställ versionsinformationen ur taggar och commit-meddelanden, och logga en ASSUME (inte BLOCK, eftersom ingen kan svara på frågan) om att IG:n är en rekonstruktion. Sätt `word_document` till `null` i `domain-metadata.json`.
 - Flera zip-filer/taggar med oklart versionsläge → välj senaste datum, logga ASSUME
 
 ---
