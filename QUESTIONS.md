@@ -1550,3 +1550,39 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-DOS-001]** `igs/TKB_druglogistics_dosedispensing/input/fsh/logical-models/*.fsh`
   PDF-specifikationerna anger fältlängder och villkor ("Loggas", villkorliga fält) som inte finns i XSD:n; de kan uttryckas som `maxLength` och invarianter. Fältnamnen i PDF-tabellerna skiljer sig ibland från XSD-elementen och kan mappas explicit.
+
+---
+
+## ehr.patientsummary v1.0 — `igs/TKB_ehr_patientsummary/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-PS-001]** `igs/TKB_ehr_patientsummary/` · källa och version
+  Repot saknar taggar. Källan är senaste commit på `master` (`4714d3acbda3`, 2013-10-11). TKB:n är ett remissutkast (utgåva PA1, 2012-11-16) som säger att första publicerade version blir 1.0; schemafilerna är version 1.0. Domänversionen anges därför som 1.0.
+
+- [ ] **[ASSUME-PS-002]** `igs/TKB_ehr_patientsummary/input/pagecontent/*.md` · legacy .doc och sidstruktur
+  TKB:n är en binär .doc-fil som konverterats med `wvHtml` + `wv2md.py`. Dokumentet har en äldre struktur (1 Inledning, 2 Generella regler, 3–7 en tjänst per avsnitt). Som i `ehr_log` och `ehr_blocking` finns sidorna 1 och 2, och tjänsterna samlas i avsnitt 7 (7.1 = TKB avsnitt 3 osv.). Hänvisningar i texten ("avsnitt 2.4", "avsnitt 4.5") avser TKB:ns numrering och är återgivna ordagrant.
+
+- [ ] **[ASSUME-PS-003]** `igs/TKB_ehr_patientsummary/input/images/{ReceiveEhrExtract,DeleteEhrExtract}-flode.svg` · figurer
+  Figurerna i dokumentet är Word-ritobjekt som inte går att extrahera ur .doc-filen. Flödesfigurerna för ReceiveEhrExtract och DeleteEhrExtract är återskapade som SVG ur ritobjektens textrutor (aktörer, anrop 1 och 2, förklaring). Figuren i avsnitt 1 innehåller ingen text och är markerad som saknad. Jämför med originaldokumentet.
+
+- [ ] **[ASSUME-PS-004]** `igs/TKB_ehr_patientsummary/input/fsh/logical-models/*.fsh` · kardinalitet TKB mot XSD
+  Modellerna följer schemat där det skiljer sig från TKB:ns fälttabeller: GetEhrExtract `meanings` (TKB 1..1, XSD 0..\*), `parameters` (TKB 1..1, XSD 0..\*), `ehr_extract` i svaret (TKB 0..1, XSD 0..\*), samt `parameters` i ReceiveEhrExtract, ReceiveEhrExtractStatus, DeleteEhrExtract och DeleteEhrExtractStatus (TKB 1..1, XSD 0..\*). TKB:ns tabeller finns kvar på sidan bredvid de schemagenererade.
+
+- [ ] **[ASSUME-PS-005]** `igs/TKB_ehr_patientsummary/input/fsh/logical-models/*.fsh` · ISO 21090 och EN13606
+  ISO 21090-datatyperna är mappade till FHIR-typer (II → Identifier, CD → CodeableConcept, TS → dateTime, IVL_TS → Period, ED → Attachment m.fl., se sidan 8). ISO-formatet för TS (ÅÅÅÅMMDDttmmss) är inte FHIR:s dateTime-format. ELEMENT.value (ISO ANY, polymorft) är modellerat som `string`. Abstrakta EN13606-typer har subtypernas element i en valfri grupp per subtyp, och rekursiva strukturer är inte utvecklade ett andra varv. Elementnamnen följer schemat (snake_case), vilket ger SUSHI-varningen eld-20 som i `crm_scheduling`.
+
+- [ ] **[ASSUME-PS-006]** `igs/TKB_ehr_patientsummary/input/pagecontent/9-bilaga-utkast-version-2.md` · utkast till version 2
+  Källan innehåller också `Tjanstekontraktsbeskrivning ehr_patientsummary2 v1.2.docx` (PA1, 2012-11-30), ett arbetsutkast till ehr:patientsummary:2 med tjänsten careDocumentation. Det består till stor del av mallens instruktionstext och saknar scheman. Det återges som bilaga men modelleras inte.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-PS-001]** `igs/TKB_ehr_patientsummary/input/pagecontent/2-generella-regler.md` · hänvisningar i källan
+  TKB:n hänvisar till "avsnitt 2.2" för statusrapportering, men statusrapporteringen är avsnitt 2.3 (2.2 är EHR-extrakt). Texten nämner också tjänsten "ReceiveEhrSystem", som troligen avser ReceiveEhrExtract. Båda är återgivna ordagrant.
