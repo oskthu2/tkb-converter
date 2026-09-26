@@ -329,6 +329,8 @@ Description: "Tillåtna värden för {fält} enligt {KodverkNamn}."
 
 **Empirisk precisering av "reserverade namn" (2026-09-25):** av namnen i tabellen ovan är det bara `id` (samt `extension`, `modifierExtension`, `contained`, `implicitRules`) som faktiskt får SUSHI/IG Publisher att fallera på alla nivåer — de krockar med `Element`/`BackboneElement`s egna barn. Nästlade `name`, `code`, `type`, `value`, `text`, `status`, `version` bygger grönt i CI i ett tiotal domäner (t.ex. `activityGroup.performerRole.code`). Konventionen att prefixa gäller fortsatt för nya modeller (läsbarhet och konsekvens), men lägg ingen fix-runda på befintliga nästlade förekomster, och räkna dem inte som byggfel. `preflight_lint.py` felmarkerar därför bara de hårda namnen och varnar för de övriga på rotnivå.
 
+**`Cannot read properties of undefined (reading 'sdType')` lokalt (2026-09-26, `orgmaster.hsa`):** elementets FHIR-typ saknas i den lokala offline-stubben av `hl7.fhir.r4.core` (i det fallet `time`, från `xs:time`). CI hämtar det riktiga paketet och påverkas inte. Lägg till typen i listorna i `gen_fhir_stubs.py` och kör `python3 gen_fhir_stubs.py` igen. Ändra inte modellen.
+
 1. **Pre-flight lint (KRITISKT — kör detta FÖRE `sushi .`, oavsett om Model Builder redan sagt sig ha gjort sin egen självkontroll):** De vanligaste byggfelen i denna migrering är mekaniska mönster som är billigare att hitta med `grep` än att låta SUSHI/IG Publisher krascha på dem en och en. Kör mot **alla** filer i `input/fsh/`:
    ```bash
    # Reserverade elementnamn på valfri nästlingsnivå (id, text, code, status, value, name, type, version, language, meta)

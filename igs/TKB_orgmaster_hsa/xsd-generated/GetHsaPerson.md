@@ -1,0 +1,53 @@
+| Namn | Typ | Beskrivning | Kardinalitet |
+| :--- | :--- | :--- | :--- |
+| **Begäran** | | | |
+| hsaIdentity | HsaIdentityType |  | 0..1 |
+| personalIdentityNumber | string |  | 0..1 |
+| searchBase | SearchBaseType |  | 0..1 |
+| **Svar** | | | |
+| userInformations | userInformations |  | 0..1 |
+| ../userInformation | GetHsaPersonHsaUserType |  | 0..* |
+| ../../personalPrescriptionCode | string |  | 0..1 |
+| ../../description | string |  | 0..1 |
+| ../../paTitleCodes | PaTitleCodesType |  | 1..1 |
+| ../../../paTitleCode | string |  | 0..* |
+| ../../paTitleNames | PaTitleNamesType |  | 1..1 |
+| ../../../paTitleName | string |  | 0..* |
+| ../../mail | string |  | 0..1 |
+| ../../givenName | string |  | 1..1 |
+| ../../hsaIdentity | HsaIdentityType |  | 1..1 |
+| ../../hsaSwitchboardNumber | TelephoneNumberType |  | 0..1 |
+| ../../hsaTelephoneNumbers | hsaTelephoneNumbers |  | 1..1 |
+| ../../../hsaTelephoneNumber | TelephoneNumberType |  | 0..* |
+| ../../labeledUri | string |  | 0..1 |
+| ../../languageKnowledgeCodes | languageKnowledgeCodes |  | 0..1 |
+| ../../../languageKnowledgeCode | string |  | 0..* |
+| ../../mobileNumbers | mobileNumbers |  | 1..1 |
+| ../../../mobileNumber | TelephoneNumberType |  | 0..* |
+| ../../facsimileTelephoneNumbers | facsimileTelephoneNumbers |  | 1..1 |
+| ../../../facsimileTelephoneNumber | TelephoneNumberType |  | 0..* |
+| ../../nickName | string |  | 0..1 |
+| ../../smsTelephoneNumber | TelephoneNumberType |  | 0..1 |
+| ../../specialityCodes | specialityCodes |  | 1..1 |
+| ../../../specialityCode | string |  | 0..* |
+| ../../specialityNames | specialityNames |  | 1..1 |
+| ../../../specialityName | string |  | 0..* |
+| ../../sn | string |  | 1..1 |
+| ../../telephoneHours | TelephoneHoursType |  | 1..1 |
+| ../../../telephoneHour | TimeSpanType |  | 0..* |
+| ../../../../fromDay | integer |  | 1..1 |
+| ../../../../fromTime | time |  | 1..1 |
+| ../../../../fromTime2 | string |  | 1..1 |
+| ../../../../toDay | integer |  | 1..1 |
+| ../../../../toTime | time |  | 1..1 |
+| ../../../../toTime2 | string |  | 1..1 |
+| ../../../../comment | string |  | 1..1 |
+| ../../telephoneNumbers | telephoneNumbers |  | 1..1 |
+| ../../../telephoneNumber | TelephoneNumberType |  | 0..* |
+| ../../title | string |  | 0..1 |
+| ../../DN | string |  | 1..1 |
+| ../../middleName | string |  | 1..1 |
+| ../../postalAddress | AddressType |  | 0..1 |
+| ../../../addressLine | string |  | 1..* |
+| ../../hsaTitles | HsaTitlesType |  | 1..1 |
+| ../../../hsaTitle | string |  | 0..* |
