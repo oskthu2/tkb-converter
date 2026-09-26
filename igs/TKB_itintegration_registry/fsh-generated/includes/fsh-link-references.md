@@ -1,0 +1,4 @@
+[GetLogicalAddresseesByServiceContractRequest]: StructureDefinition-getlogicaladdresseesbyservicecontract-request.html
+[GetLogicalAddresseesByServiceContract]: StructureDefinition-getlogicaladdresseesbyservicecontract.html
+[GetSupportedServiceContractsRequest]: StructureDefinition-getsupportedservicecontracts-request.html
+[GetSupportedServiceContracts]: StructureDefinition-getsupportedservicecontracts.html

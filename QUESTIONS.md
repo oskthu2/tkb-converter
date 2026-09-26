@@ -1694,3 +1694,24 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-HSA-001]** `igs/TKB_orgmaster_hsa/input/pagecontent/1-inledning.md`
   Inledningen har kvar mallens platshållare för huvud- och underdomän på engelska. Texten är återgiven ordagrant.
+
+## itintegration.registry v1.0.0 — `igs/TKB_itintegration_registry/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-ITR-001]** `igs/TKB_itintegration_registry/sushi-config.yaml`
+  Repot riv.itintegration.registry innehåller på master både version 1.0 och 2.0 av scheman, men TKB:n beskriver bara version 1.0. Version 2.0 (namnrymd `urn:riv:infrastructure:itintegration:registry:2`) har redan en IG, `igs/TKB_infrastructure_itintegration_registry/`. Denna IG byggs därför från releasetaggen TD_REGISTRY_1_0_0_R och avser bara version 1.0 (`urn:riv:itintegration:registry:1`). Båda IG:erna hänvisar till varandra.
+- [ ] **[ASSUME-ITR-002]** `igs/TKB_itintegration_registry/docx-converted/full-document.md`
+  TKB:n finns bara som legacy .doc. Den är konverterad med wvHtml + wv2md.py och figur 1 (informationsmodellen) är utskuren ur .doc-filen. Sidhuvudets logotyp är inte med.
+- [ ] **[ASSUME-ITR-003]** `igs/TKB_itintegration_registry/input/pagecontent/7-tjanstekontrakt.md`
+  TKB:n följer inte standardmallen: kontrakten beskrivs i avsnitt 6 och 7. De ligger i IG:ns avsnitt 7 (7.1 = TKB 6, 7.2 = TKB 7). Sidan 8 (Datatyper) är genererad ur XSD.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-ITR-001]** `igs/TKB_itintegration_registry/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `GetLogicalAddresseesByServiceContract`
+  Källan anger tjänsteinteraktionen GetSupportedServiceContractsInteraction under avsnitt 6.3 (troligen kopierat från avsnitt 7), och svarsfältet logicalAddress har samma kommentar som i GetSupportedServiceContracts. Rätt interaktion (GetLogicalAddresseesByServiceContractInteraction) framgår av WSDL-avsnittet. Texten är återgiven ordagrant.
+- [ ] **[TODO-ITR-002]** `igs/TKB_itintegration_registry/input/pagecontent/3-versionsinformation.md`
+  Versionsavsnittet har kvar mallens platshållare och en kompatibilitetstabell för en version 1.1 som aldrig gavs ut. Texten är återgiven ordagrant.
