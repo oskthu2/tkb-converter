@@ -1,0 +1,218 @@
+# HamtaApoteksInfo — Response - se.apotekensservice: expo — Expeditionsställen och dosmottagare v2.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **HamtaApoteksInfo — Response**
+
+## Logical Model: HamtaApoteksInfo — Response 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/se-apotekensservice-expo/StructureDefinition/hamtaapoteksinfo | *Version*:2.0.0 |
+| Draft as of 2026-09-26 | *Computable Name*:HamtaApoteksInfo |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret i HamtaApoteksInfo (urn:riv:se.apotekensservice:expo:HamtaApoteksInfoResponder:1, HamtaApoteksInfoResponseType). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.se-apotekensservice-expo|current/StructureDefinition/StructureDefinition-hamtaapoteksinfo.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-hamtaapoteksinfo.csv), [Excel](StructureDefinition-hamtaapoteksinfo.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "hamtaapoteksinfo",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/se-apotekensservice-expo/StructureDefinition/hamtaapoteksinfo",
+  "version" : "2.0.0",
+  "name" : "HamtaApoteksInfo",
+  "title" : "HamtaApoteksInfo — Response",
+  "status" : "draft",
+  "date" : "2026-09-26T19:42:44+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret i HamtaApoteksInfo\n(urn:riv:se.apotekensservice:expo:HamtaApoteksInfoResponder:1, HamtaApoteksInfoResponseType).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/se-apotekensservice-expo/StructureDefinition/hamtaapoteksinfo",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "hamtaapoteksinfo",
+      "path" : "hamtaapoteksinfo",
+      "short" : "HamtaApoteksInfo — Response",
+      "definition" : "Logisk modell för svaret i HamtaApoteksInfo\n(urn:riv:se.apotekensservice:expo:HamtaApoteksInfoResponder:1, HamtaApoteksInfoResponseType)."
+    },
+    {
+      "id" : "hamtaapoteksinfo.apoteksinformationLista",
+      "path" : "hamtaapoteksinfo.apoteksinformationLista",
+      "short" : "apoteksinformationLista",
+      "definition" : "Lista innehållande ett eller flera Apoteksinformation.",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "hamtaapoteksinfo.apoteksinformationLista.aktorsnamn",
+      "path" : "hamtaapoteksinfo.apoteksinformationLista.aktorsnamn",
+      "short" : "aktorsnamn",
+      "definition" : "Officiellt namn för aktör",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaapoteksinfo.apoteksinformationLista.aktorsorgnr",
+      "path" : "hamtaapoteksinfo.apoteksinformationLista.aktorsorgnr",
+      "short" : "aktorsorgnr",
+      "definition" : "Aktörens organisationsnummer. (xs:long i schemat.)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaapoteksinfo.apoteksinformationLista.allmantelefon",
+      "path" : "hamtaapoteksinfo.apoteksinformationLista.allmantelefon",
+      "short" : "allmantelefon",
+      "definition" : "Telefonnummer för allmänheten",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaapoteksinfo.apoteksinformationLista.besoksadress",
+      "path" : "hamtaapoteksinfo.apoteksinformationLista.besoksadress",
+      "short" : "besoksadress",
+      "definition" : "Expeditionsställets besöksadress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaapoteksinfo.apoteksinformationLista.eReceptDjur",
+      "path" : "hamtaapoteksinfo.apoteksinformationLista.eReceptDjur",
+      "short" : "eReceptDjur",
+      "definition" : "Markering gällande om apoteket kan expediera elektroniska djurrecept.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "hamtaapoteksinfo.apoteksinformationLista.fax",
+      "path" : "hamtaapoteksinfo.apoteksinformationLista.fax",
+      "short" : "fax",
+      "definition" : "Expeditionsställets faxnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaapoteksinfo.apoteksinformationLista.glnKod",
+      "path" : "hamtaapoteksinfo.apoteksinformationLista.glnKod",
+      "short" : "glnKod",
+      "definition" : "Expeditionsställets GLN-kod",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaapoteksinfo.apoteksinformationLista.huvudtypkod",
+      "path" : "hamtaapoteksinfo.apoteksinformationLista.huvudtypkod",
+      "short" : "huvudtypkod",
+      "definition" : "Kod som beskriver huvudverksamheten för expeditionsstället",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaapoteksinfo.apoteksinformationLista.namn",
+      "path" : "hamtaapoteksinfo.apoteksinformationLista.namn",
+      "short" : "namn",
+      "definition" : "Expeditionsställets officiella namn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaapoteksinfo.apoteksinformationLista.ort",
+      "path" : "hamtaapoteksinfo.apoteksinformationLista.ort",
+      "short" : "ort",
+      "definition" : "Expeditionsställets besöksort",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaapoteksinfo.apoteksinformationLista.slutdatum",
+      "path" : "hamtaapoteksinfo.apoteksinformationLista.slutdatum",
+      "short" : "slutdatum",
+      "definition" : "Datum för stängning av verksamhet",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "hamtaapoteksinfo.apoteksinformationLista.startdatum",
+      "path" : "hamtaapoteksinfo.apoteksinformationLista.startdatum",
+      "short" : "startdatum",
+      "definition" : "Datum för start av verksamhet",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    }]
+  }
+}
+
+```

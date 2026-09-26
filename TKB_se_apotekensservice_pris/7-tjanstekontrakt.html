@@ -1,0 +1,2229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>7 Tjänstekontrakt - se.apotekensservice: pris — Pris och högkostnadsskydd v2.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">se.apotekensservice: pris — Pris och högkostnadsskydd</span>
+            <br/>
+            <span style="display:inline-block;">2.0.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+  <li><a href="3-tjanstedomanens-arkitektur.html">3 Arkitektur</a></li>
+  <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Krav och regler</a></li>
+  <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Meddelandemodeller</a></li>
+  <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma komponenter</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">se.apotekensservice: pris — Pris och högkostnadsskydd - Local Development build (v2.0.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/se-apotekensservice-pris/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstekontrakt" id="markdown-toc-tjänstekontrakt">Tjänstekontrakt</a>    <ul>
+      <li><a href="#hamtabarn" id="markdown-toc-hamtabarn">HamtaBarn</a></li>
+      <li><a href="#hamtahkdbkonto" id="markdown-toc-hamtahkdbkonto">HamtaHkdbKonto</a></li>
+      <li><a href="#hamtahkdbtransaktioner" id="markdown-toc-hamtahkdbtransaktioner">HamtaHkdbTransaktioner</a></li>
+      <li><a href="#hamtahkdbtransaktionerwebb" id="markdown-toc-hamtahkdbtransaktionerwebb">HamtaHkdbTransaktionerWebb</a></li>
+      <li><a href="#kontrolleraforman" id="markdown-toc-kontrolleraforman">KontrolleraForman</a></li>
+      <li><a href="#kopplabarnkonto" id="markdown-toc-kopplabarnkonto">KopplaBarnKonto</a></li>
+      <li><a href="#prisfraga" id="markdown-toc-prisfraga">Prisfraga</a></li>
+      <li><a href="#registrerahkdbtransaktion" id="markdown-toc-registrerahkdbtransaktion">RegistreraHkdbTransaktion</a></li>
+      <li><a href="#skapahkdbkonto" id="markdown-toc-skapahkdbkonto">SkapaHkdbKonto</a></li>
+      <li><a href="#taborthkdbkonto" id="markdown-toc-taborthkdbkonto">TaBortHkdbKonto</a></li>
+      <li><a href="#gemensamma-källfiler" id="markdown-toc-gemensamma-källfiler">Gemensamma källfiler</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstekontrakt">Tjänstekontrakt</h2>
+
+<p><em>SAKNAS I KÄLLDOKUMENT.</em> Det finns inga kontraktsbeskrivningar. Beskrivningarna nedan är hämtade ur WSDL och XSD. Alla kontrakt har SOAP-huvudena LogicalAddress och ArgosHeader och returnerar fel som <code class="language-plaintext highlighter-rouge">ApplicationException</code> eller <code class="language-plaintext highlighter-rouge">SystemException</code> (se <a href="4-tjanstedomanens-krav-och-regler.html">avsnitt 4</a>). ArgosHeaderType har följande fält, alla string och 0..1: forskrivarkod, legitimationskod, fornamn, efternamn, yrkesgrupp, befattningskod, arbetsplatskod, arbetsplatsnamn, postort, postadress, postnummer, telefonnummer, requestId, rollnamn, hsaID, katalog, organisationsnummer, systemnamn, systemversion, systemIp. Enligt WSDL-filerna anger dokumentationen vilka ArgosHeader-fält som är obligatoriska för respektive tjänsteinteraktion; den dokumentationen finns inte i källan.</p>
+
+<h3 id="hamtabarn">HamtaBarn</h3>
+
+<h4 id="version">Version</h4>
+
+<p>1.0</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Egenskap</th>
+      <th style="text-align: left">Värde</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Namnrymd (tjänsteschema)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:HamtaBarnResponder:1</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Namnrymd (WSDL)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:HamtaBarn:1:rivtabp21</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SOAP-action</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:HamtaBarnResponder:1:HamtaBarn</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Interaktionstyp</td>
+      <td style="text-align: left">Fråga-Svar.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fältregler">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">huvudPersNr</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Personnummer för huvudperson (vårdnadshavare).</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">klientinformation</td>
+      <td style="text-align: left">KlientinformationRequest</td>
+      <td style="text-align: left">Objekt innehållande information om anropande klientsystem.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../anvandare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt användarid i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../session</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Sessionens id i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../system</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GLN-kod för anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">barn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">En lista med personnr för barnen.</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter">FHIR-artefakter</h4>
+
+<ul>
+  <li><a href="StructureDefinition-hamtabarn-request.html">HamtaBarnRequest</a>: logisk modell för begäran, inklusive SOAP-huvudena</li>
+  <li><a href="StructureDefinition-hamtabarn.html">HamtaBarn</a>: logisk modell för svaret</li>
+</ul>
+
+<h4 id="källfiler">Källfiler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Fil</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="HamtaBarnInteraction_1.0_rivtabp21.wsdl">HamtaBarnInteraction_1.0_rivtabp21.wsdl</a></td>
+      <td style="text-align: left">WSDL för tjänsteinteraktionen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="HamtaBarnResponder_1.0.xsd">HamtaBarnResponder_1.0.xsd</a></td>
+      <td style="text-align: left">Tjänsteschema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="hamtahkdbkonto">HamtaHkdbKonto</h3>
+
+<h4 id="version-1">Version</h4>
+
+<p>1.0</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Egenskap</th>
+      <th style="text-align: left">Värde</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Namnrymd (tjänsteschema)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:HamtaHkdbKontoResponder:1</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Namnrymd (WSDL)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:HamtaHkdbKonto:1:rivtabp21</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SOAP-action</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:HamtaHkdbKontoResponder:1:HamtaHkdbKonto</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Interaktionstyp</td>
+      <td style="text-align: left">Fråga-Svar.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fältregler-1">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">klientinformation</td>
+      <td style="text-align: left">KlientinformationRequest</td>
+      <td style="text-align: left">Objekt innehållande information om anropande klientsystem.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../anvandare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt användarid i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../session</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Sessionens id i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../system</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GLN-kod för anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">persNr</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Personnummer för den som sökningen gäller.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ansluten</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Personens högkostnadsstatus. False - Ej ansluten True - Ansluten</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">foregPeriod</td>
+      <td style="text-align: left">PeriodResponse</td>
+      <td style="text-align: left">Föregående högkostnadsperiods startdatum. Saknar värde om personen ej är ansluten till högkostnadstrappan (status 0) eller om ingen föregående period existerar.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../balans</td>
+      <td style="text-align: left">BalansResponse</td>
+      <td style="text-align: left">Ackumulerad balans</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../brutto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Bruttobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../netto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Nettobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../start</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Periodens startdatum.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formansNiva</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Kundens aktuella förmånsnivå i procent.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">huvudPersNr</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Personnummer för eventuell huvudperson (vårdnadshavare). Saknar värde om huvudperson saknas.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">innevPeriod</td>
+      <td style="text-align: left">PeriodResponse</td>
+      <td style="text-align: left">Innevarande högkostnadsperiod. Saknar värde om personen ej är ansluten till högkostnadstrappan (status 0) eller om ingen föregående period existerar.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../balans</td>
+      <td style="text-align: left">BalansResponse</td>
+      <td style="text-align: left">Ackumulerad balans</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../brutto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Bruttobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../netto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Nettobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../start</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Periodens startdatum.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kommandePeriod</td>
+      <td style="text-align: left">PeriodResponse</td>
+      <td style="text-align: left">Kommande högkostnadsperiods startdatum. Saknar värde om personen ej är ansluten till högkostnadstrappan (status 0) eller om ingen kommande period existerar.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../balans</td>
+      <td style="text-align: left">BalansResponse</td>
+      <td style="text-align: left">Ackumulerad balans</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../brutto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Bruttobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../netto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Nettobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../start</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Periodens startdatum.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kvarTillFrikort</td>
+      <td style="text-align: left">BalansResponse</td>
+      <td style="text-align: left">Nettobelopp i kronor och ören som återstår innan kunden får frikort. Saknar värde om personen ej är ansluten.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../brutto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Bruttobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../netto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Nettobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">persNr</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Personnummer för den som sökningen gäller.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-1">FHIR-artefakter</h4>
+
+<ul>
+  <li><a href="StructureDefinition-hamtahkdbkonto-request.html">HamtaHkdbKontoRequest</a>: logisk modell för begäran, inklusive SOAP-huvudena</li>
+  <li><a href="StructureDefinition-hamtahkdbkonto.html">HamtaHkdbKonto</a>: logisk modell för svaret</li>
+</ul>
+
+<h4 id="källfiler-1">Källfiler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Fil</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="HamtaHkdbKontoInteraction_1.0_rivtabp21.wsdl">HamtaHkdbKontoInteraction_1.0_rivtabp21.wsdl</a></td>
+      <td style="text-align: left">WSDL för tjänsteinteraktionen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="HamtaHkdbKontoResponder_1.0.xsd">HamtaHkdbKontoResponder_1.0.xsd</a></td>
+      <td style="text-align: left">Tjänsteschema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="hamtahkdbtransaktioner">HamtaHkdbTransaktioner</h3>
+
+<h4 id="version-2">Version</h4>
+
+<p>1.0</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Egenskap</th>
+      <th style="text-align: left">Värde</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Namnrymd (tjänsteschema)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:HamtaHkdbTransaktionerResponder:1</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Namnrymd (WSDL)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:HamtaHkdbTransaktioner:1:rivtabp21</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SOAP-action</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:HamtaHkdbTransaktionerResponder:1:HamtaHkdbTransaktioner</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Interaktionstyp</td>
+      <td style="text-align: left">Fråga-Svar.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fältregler-2">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">klientinformation</td>
+      <td style="text-align: left">KlientinformationRequest</td>
+      <td style="text-align: left">Objekt innehållande information om anropande klientsystem.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../anvandare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt användarid i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../session</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Sessionens id i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../system</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GLN-kod för anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">maxantal</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Ställer in begränsning av maximala mängden returnerade transaktioner. T.ex innebär maxantal = 5, att endast de fem senaste transaktionerna hämtas. Om maxantal inte anges så är defaultvärde fem. Om man vill ha alla transaktioner sätts maxantal till -1.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">persNr</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Personnummer för den som sökningen gäller.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">transaktionsLista</td>
+      <td style="text-align: left">TransaktionResponse</td>
+      <td style="text-align: left">Lista med de senaste transaktionerna för personens högkostnadskonto. Antalet som returneras kan ställas in med maxantal, men default är fem. Listan är tom om inga transaktioner existerar eller om personen inte är registrerad i högkostnadstrappan.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../anvandare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Användare som registrerat transaktionen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../apoteksNamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Apotek som registrerat transaktionen. Visas ej vid sekretesskydd.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../apoteksOrt</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Ort för apotek som registrerat transaktionen. Visas ej vid sekretesskydd.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../expeditionsId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt expeditionsID.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../flags</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Ett flaggfält som anger vilken information som uppdaterats i transaktionen. Detta fält används enbart internt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../inBrutto</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left">Ingående brutto före transaktionen</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../inEgenavgift</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left">Ingående högkostnadssaldo vid transaktionen</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../kommentar</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Eventuell kommentar från korrigeringstransaktion</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../orgAktorId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GLN-kod för apotek som registrerat transaktionen. Visas ej vid sekretesskydd.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../persNr</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Personnummer för den som transaktionen gäller.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../sign</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Typ av trans: +,-,ABC, … Detta fält används enbart internt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../transId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Aktörens expeditions-ID / verifikationsnr.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../transPeriod</td>
+      <td style="text-align: left">PeriodResponse</td>
+      <td style="text-align: left">Transaktionens högkostnadsuppgifter.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../balans</td>
+      <td style="text-align: left">BalansResponse</td>
+      <td style="text-align: left">Ackumulerad balans</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../brutto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Bruttobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../netto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Nettobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../start</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Periodens startdatum.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../transTid</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Transaktionstidpunkt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../transaktionBehandlades</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Tidpunkt då transaktionen behandlades av HKDB</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-2">FHIR-artefakter</h4>
+
+<ul>
+  <li><a href="StructureDefinition-hamtahkdbtransaktioner-request.html">HamtaHkdbTransaktionerRequest</a>: logisk modell för begäran, inklusive SOAP-huvudena</li>
+  <li><a href="StructureDefinition-hamtahkdbtransaktioner.html">HamtaHkdbTransaktioner</a>: logisk modell för svaret</li>
+</ul>
+
+<h4 id="källfiler-2">Källfiler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Fil</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="HamtaHkdbTransaktionerInteraction_1.0_rivtabp21.wsdl">HamtaHkdbTransaktionerInteraction_1.0_rivtabp21.wsdl</a></td>
+      <td style="text-align: left">WSDL för tjänsteinteraktionen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="HamtaHkdbTransaktionerResponder_1.0.xsd">HamtaHkdbTransaktionerResponder_1.0.xsd</a></td>
+      <td style="text-align: left">Tjänsteschema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="hamtahkdbtransaktionerwebb">HamtaHkdbTransaktionerWebb</h3>
+
+<h4 id="version-3">Version</h4>
+
+<p>1.0</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Egenskap</th>
+      <th style="text-align: left">Värde</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Namnrymd (tjänsteschema)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:HamtaHkdbTransaktionerWebbResponder:1</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Namnrymd (WSDL)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:HamtaHkdbTransaktionerWebb:1:rivtabp21</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SOAP-action</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:HamtaHkdbTransaktionerWebbResponder:1:HamtaHkdbTransaktionerWebb</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Interaktionstyp</td>
+      <td style="text-align: left">Fråga-Svar.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fältregler-3">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">klientinformation</td>
+      <td style="text-align: left">KlientinformationRequest</td>
+      <td style="text-align: left">Objekt innehållande information om anropande klientsystem.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../anvandare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt användarid i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../session</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Sessionens id i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../system</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GLN-kod för anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">persNr</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Personnummer för den som sökningen gäller.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">periodSlut</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Datum för periodens slut. 366 dagar efter periodstart eller 367 dagar efter periodstart vid skottår.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">transaktionsLista</td>
+      <td style="text-align: left">TransaktionResponse</td>
+      <td style="text-align: left">Lista med de senaste transaktionerna för personens högkostnadskonto. Defaultvärde för antalet returnerade transaktioner är fem, men detta är valbart. Listan är tom om inga transaktioner existerar eller om personen inte är registrerad i högkostnadstrappan.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../anvandare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Användare som registrerat transaktionen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../apoteksNamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Apotek som registrerat transaktionen. Visas ej vid sekretesskydd.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../apoteksOrt</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Ort för apotek som registrerat transaktionen. Visas ej vid sekretesskydd.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../expeditionsId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt expeditionsID.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../flags</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Ett flaggfält som anger vilken information som uppdaterats i transaktionen. Detta fält används enbart internt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../inBrutto</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left">Ingående brutto före transaktionen</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../inEgenavgift</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left">Ingående högkostnadssaldo vid transaktionen</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../kommentar</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Eventuell kommentar från korrigeringstransaktion</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../orgAktorId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GLN-kod för apotek som registrerat transaktionen. Visas ej vid sekretesskydd.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../persNr</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Personnummer för den som transaktionen gäller.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../sign</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Typ av trans: +,-,ABC, … Detta fält används enbart internt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../transId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Aktörens expeditions-ID / verifikationsnr.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../transPeriod</td>
+      <td style="text-align: left">PeriodResponse</td>
+      <td style="text-align: left">Transaktionens högkostnadsuppgifter.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../balans</td>
+      <td style="text-align: left">BalansResponse</td>
+      <td style="text-align: left">Ackumulerad balans</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../brutto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Bruttobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../netto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Nettobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../start</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Periodens startdatum.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../transTid</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Transaktionstidpunkt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../transaktionBehandlades</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Tidpunkt då transaktionen behandlades av HKDB</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-3">FHIR-artefakter</h4>
+
+<ul>
+  <li><a href="StructureDefinition-hamtahkdbtransaktionerwebb-request.html">HamtaHkdbTransaktionerWebbRequest</a>: logisk modell för begäran, inklusive SOAP-huvudena</li>
+  <li><a href="StructureDefinition-hamtahkdbtransaktionerwebb.html">HamtaHkdbTransaktionerWebb</a>: logisk modell för svaret</li>
+</ul>
+
+<h4 id="källfiler-3">Källfiler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Fil</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="HamtaHkdbTransaktionerWebbInteraction_1.0_rivtabp21.wsdl">HamtaHkdbTransaktionerWebbInteraction_1.0_rivtabp21.wsdl</a></td>
+      <td style="text-align: left">WSDL för tjänsteinteraktionen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="HamtaHkdbTransaktionerWebbResponder_1.0.xsd">HamtaHkdbTransaktionerWebbResponder_1.0.xsd</a></td>
+      <td style="text-align: left">Tjänsteschema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="kontrolleraforman">KontrolleraForman</h3>
+
+<h4 id="version-4">Version</h4>
+
+<p>1.1</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Egenskap</th>
+      <th style="text-align: left">Värde</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Namnrymd (tjänsteschema)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:KontrolleraFormanResponder:1</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Namnrymd (WSDL)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:KontrolleraForman:1:rivtabp21</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SOAP-action</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:KontrolleraFormanResponder:1:KontrolleraForman</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Interaktionstyp</td>
+      <td style="text-align: left">Fråga-Svar.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fältregler-4">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">artikelIdLista</td>
+      <td style="text-align: left">ArtikelIdentiteterRequest</td>
+      <td style="text-align: left">Artikel - Endast ett id per artikel</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../gtin</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GTIN-kod</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../nplPackageId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Förpackningsid från Nationellt Produktregister för Läkemedel Unikt id för LM-artikel</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../varunr</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Nordiskt varunummer Unik för handelsvaror. För läkemedel kan dubletter förekomma vid parallellimport</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">klientinformation</td>
+      <td style="text-align: left">KlientinformationRequest</td>
+      <td style="text-align: left">Objekt innehållande information om anropande klientsystem.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../anvandare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt användarid i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../session</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Sessionens id i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../system</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GLN-kod för anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fodelsedatum</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Födelsedatum. Anges på formen yyyymmdd. Används vid framtagning av förmånskod när varan är preventivmedel med förmånskod R. Om personen är under 21 år blir förmånskoden F för dessa varor. Gäller när lagen om gratis preventivmedel för personer under 21 år trätt i kraft. (Refererat element ur KontrolleraFormanResponder_1_ext_1.0.xsd, namnrymd urn:riv:se.apotekensservice:pris:KontrolleraFormanResponder:1:ext:1.)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formansLista</td>
+      <td style="text-align: left">FormansInfoResponse</td>
+      <td style="text-align: left">Lista med förmånskoder per artikel.</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../formanskod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Förmånskod R, U, L, eller F</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Id som representerar det id som var satt i motsvarande ArtikelIdentiteterTo. Det vill säga antingen GTIN, Förpackningsid eller Varunr beroende på vad som frågats efter.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-4">FHIR-artefakter</h4>
+
+<ul>
+  <li><a href="StructureDefinition-kontrolleraforman-request.html">KontrolleraFormanRequest</a>: logisk modell för begäran, inklusive SOAP-huvudena</li>
+  <li><a href="StructureDefinition-kontrolleraforman.html">KontrolleraForman</a>: logisk modell för svaret</li>
+</ul>
+
+<h4 id="källfiler-4">Källfiler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Fil</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="KontrolleraFormanInteraction_1.1_rivtabp21.wsdl">KontrolleraFormanInteraction_1.1_rivtabp21.wsdl</a></td>
+      <td style="text-align: left">WSDL för tjänsteinteraktionen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="KontrolleraFormanResponder_1.1.xsd">KontrolleraFormanResponder_1.1.xsd</a></td>
+      <td style="text-align: left">Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="KontrolleraFormanResponder_1_ext_1.0.xsd">KontrolleraFormanResponder_1_ext_1.0.xsd</a></td>
+      <td style="text-align: left">Tjänsteschema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="kopplabarnkonto">KopplaBarnKonto</h3>
+
+<h4 id="version-5">Version</h4>
+
+<p>4.0</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Egenskap</th>
+      <th style="text-align: left">Värde</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Namnrymd (tjänsteschema)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:KopplaBarnKontoResponder:4</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Namnrymd (WSDL)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:KopplaBarnKonto:4:rivtabp21</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SOAP-action</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:KopplaBarnKontoResponder:4:KopplaBarnKonto</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Interaktionstyp</td>
+      <td style="text-align: left">Fråga-Svar.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fältregler-5">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">huvudPersNr</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Personnummer för huvudperson (Förmånsmottagare). Anges ej om barnkontot ska kopplas bort från samlingskontot.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">klientinformation</td>
+      <td style="text-align: left">KlientinformationRequest</td>
+      <td style="text-align: left">Objekt innehållande information om anropande klientsystem.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../anvandare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt användarid i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../session</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Sessionens id i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../system</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GLN-kod för anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">persNr</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Personnummer för den vars konto ska uppdateras.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">status</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Status för koppling av barnkonto Möjliga värden är: 1 - Anslutning OK. 2 - Omkoppling OK. 3 - Frikoppling OK.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-5">FHIR-artefakter</h4>
+
+<ul>
+  <li><a href="StructureDefinition-kopplabarnkonto-request.html">KopplaBarnKontoRequest</a>: logisk modell för begäran, inklusive SOAP-huvudena</li>
+  <li><a href="StructureDefinition-kopplabarnkonto.html">KopplaBarnKonto</a>: logisk modell för svaret</li>
+</ul>
+
+<h4 id="källfiler-5">Källfiler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Fil</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="KopplaBarnKontoInteraction_4.0_rivtabp21.wsdl">KopplaBarnKontoInteraction_4.0_rivtabp21.wsdl</a></td>
+      <td style="text-align: left">WSDL för tjänsteinteraktionen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="KopplaBarnKontoResponder_4.0.xsd">KopplaBarnKontoResponder_4.0.xsd</a></td>
+      <td style="text-align: left">Tjänsteschema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="prisfraga">Prisfraga</h3>
+
+<h4 id="version-6">Version</h4>
+
+<p>4.1</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Egenskap</th>
+      <th style="text-align: left">Värde</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Namnrymd (tjänsteschema)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:PrisfragaResponder:4</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Namnrymd (WSDL)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:Prisfraga:4:rivtabp21</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SOAP-action</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:PrisfragaResponder:4:Prisfraga</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Interaktionstyp</td>
+      <td style="text-align: left">Fråga-Svar.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fältregler-6">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">klientinformation</td>
+      <td style="text-align: left">KlientinformationRequest</td>
+      <td style="text-align: left">Objekt innehållande information om anropande klientsystem.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../anvandare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt användarid i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../session</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Sessionens id i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../system</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GLN-kod för anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">periodStart</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Start av period. Om periodStart anges så avses normalt annan period än innevarande period. Innehållet är en periodstart och kan avse föregående period, innevarande period eller kommande period.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Personnummer för person som prisfrågan gäller. Om personnummer saknas, använd tjänsten AnonymPrisfraga</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rader</td>
+      <td style="text-align: left">PrisfragaRadRequest</td>
+      <td style="text-align: left">Rader</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../antal</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Antal förpackningar av vara som expedieras. Vid kreditering sätts detta fält till ett negativt värde. Altenativt kan fälten pris och prisUtbyte sättas till negativa värden.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../formansVal</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Farmacevtens bedömning om vilken förmån som gäller för receptraden. Förmånstyp R, U, F, L kan förekomma.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../pris</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Apoteksaktörs utpris inkl. eventuell moms per förpackning för vara som avses att expedieras.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../prisUtbyte</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Apoteksaktörs utpris inkl. eventuell moms för billigare vara som ej expedieras vid möjligt byte inom högkostnadsskyddet. Anges om pristillägg skall gälla, dvs när kund motsätter sig byte och väljer förskriven vara.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../radNr</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Radnr.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">transaktionstid</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Transaktionsdag som priset ska beräknas för. Om värdet inte anges används dagens datum. För att garantera korrekt prisberäkning för en efterföljande transaktionsregistrering skall denna parameter ha samma värde som parametern transTid i RegistreraHkdbTransaktion. Får inte vara mer än ett år och en dag bakåt i tiden, eller två timmar framåt i tiden.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ursprungligTransaktionstid</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Ursprunglig transaktionstidpunkt. Ges vid kreditering. Avser tidpunkten när det ursprungliga köpet gjordes. Används för att avgöra om personen var över eller under 18 år vid köptillfället. Parametern blir obligatorisk i och med att lagen om kostnadsbefrielse för barn under 18 år trätt i kraft. (Refererat element ur PrisfragaResponder_4.1_ext.xsd, namnrymd urn:riv:se.apotekensservice:pris:PrisfragaResponder:4.1.)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bruttoBeloppHogkostnad</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Förmånsgrundande bruttobelopp kopplat till högkostnadsskyddet. Bruttobelopp inkl. ev. moms, att tillgodoräkna i högkostnadsskyddet. Gäller förmånskod = R. Vid kreditering blir detta värde negativt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bruttoPris</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Summa apoteksaktörs utpris inkl. ev. moms för receptexpeditionen. Vid kreditering blir detta värde negativt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">egenAvgiftHogkostnad</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Summa kundens egenavgift kopplat till högkostnadsskyddet. Egenavgift inkl. ev. moms, att tillgodoräkna i högkostnadsskyddet. Gäller förmånskod = R. Vid kreditering blir detta värde negativt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">egenAvgiftLivsmedel</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Summa kundens egenavgift inkl. moms för livsmedel till barn under 16 år. Gäller förmånskod = L. Max 120 kr. Vid kreditering blir detta värde negativt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kundKostnad</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Kostnad kunden skall betala. Egenavgift, pristillägg samt pris inkl. ev . moms för varor utan förmån. Vid kreditering blir detta värde negativt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">landstingetsFormanskostnad</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Summa förmån inkl. ev. moms för receptexpeditionen. Gäller förmånskod = R, F och L. Vid kreditering blir detta värde negativt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Personnummer för person som prisfrågan gäller. Om personnummer saknas, använd tjänsten AnonymPrisfraga</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">prisTillagg</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Summa pristillägg inom läkemdelsförmånen. Gäller förmånskod = R. Vid kreditering blir detta värde negativt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rader</td>
+      <td style="text-align: left">PrisfragaRadResponse</td>
+      <td style="text-align: left">Rader</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../bruttoPris</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Apoteksaktörs utpris för receptrad inkl. ev. moms. Vid kreditering blir detta värde negativt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../prisTillagg</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Radens ev. pristillägg inom läkemdelsförmånen. Gäller förmånskod = R. Vid kreditering blir detta värde negativt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../radNr</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Radnr.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-6">FHIR-artefakter</h4>
+
+<ul>
+  <li><a href="StructureDefinition-prisfraga-request.html">PrisfragaRequest</a>: logisk modell för begäran, inklusive SOAP-huvudena</li>
+  <li><a href="StructureDefinition-prisfraga.html">Prisfraga</a>: logisk modell för svaret</li>
+</ul>
+
+<h4 id="källfiler-6">Källfiler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Fil</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="PrisfragaInteraction_4.1_rivtabp21.wsdl">PrisfragaInteraction_4.1_rivtabp21.wsdl</a></td>
+      <td style="text-align: left">WSDL för tjänsteinteraktionen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="PrisfragaResponder_4.1.xsd">PrisfragaResponder_4.1.xsd</a></td>
+      <td style="text-align: left">Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="PrisfragaResponder_4.1_ext.xsd">PrisfragaResponder_4.1_ext.xsd</a></td>
+      <td style="text-align: left">Tjänsteschema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="registrerahkdbtransaktion">RegistreraHkdbTransaktion</h3>
+
+<h4 id="version-7">Version</h4>
+
+<p>1.1</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Egenskap</th>
+      <th style="text-align: left">Värde</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Namnrymd (tjänsteschema)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:RegistreraHkdbTransaktionResponder:1</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Namnrymd (WSDL)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:RegistreraHkdbTransaktion:1:rivtabp21</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SOAP-action</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:RegistreraHkdbTransaktionResponder:1:RegistreraHkdbTransaktion</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Interaktionstyp</td>
+      <td style="text-align: left">Fråga-Svar.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fältregler-7">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ackBrutto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Om transaktionen avser föregående period skall alltså ackBrutto innehålla FPbrutto i kronor. Om transaktionen avser kommande period skall ackBrutto innehålla motsvarande KPbrutto. I normalfallet används alltså värdet från IPbrutto användas. ackBrutto och periodStart ersätter termerna IPbrutto från version 10.3.0.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bruttobelopp</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Transaktionens högkostnadsgrundande bruttobelop i kronor och ören.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">expeditionsId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Expeditionens unika id för spårbarhet.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ipBrutto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Ackumulerat bruttobelopp i högkostnadstrappan för innevarande period i kronor och ören. Används för att verifiera att ingen ny transaktion registrerats för personen efter att högkostnadsfrågan ställts. Skall inte används som indata från och version 10.3.0. Använd periodStart och ackBrutto i stället.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">klientinformation</td>
+      <td style="text-align: left">KlientinformationRequest</td>
+      <td style="text-align: left">Objekt innehållande information om anropande klientsystem.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../anvandare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt användarid i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../session</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Sessionens id i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../system</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GLN-kod för anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kommentar</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kommentar till kreditering.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">periodStart</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Startdatum för den högkostnadsperiod som transaktionen tillhör.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">persNr</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Personnummer som transaktionen ska registreras för.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">transId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Aktörens expeditions-ID.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">transTid</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Transaktionstidpunkt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ursprungligtApoteksaktorsExpeditionsId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Apoteksaktörens ursprungliga expeditionsid, ska anges vid kreditering</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ursprungligtExpeditionsId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Expeditionens ursprungliga expeditionsid, ska anges vid kreditering</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ursprungligTransTid</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Ursprunglig transaktionstidpunkt. Ges vid kreditering. Avser tidpunkten när det ursprungliga köpet gjordes. Används för att avgöra om personen var över eller under 18 år vid köptillfället. Parametern blir obligatorisk i och med att lagen om kostnadsbefrielse för barn under 18 år trätt i kraft. (Refererat element ur RegistreraHkdbTransaktionResponder_1.1_ext.xsd, namnrymd urn:riv:se.apotekensservice:pris:RegistreraHkdbTransaktionResponder:1.1.)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fpBalans</td>
+      <td style="text-align: left">BalansResponse</td>
+      <td style="text-align: left">Nya ackumulerade brutto/netto belopp i kronor och ören för föregånde period.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../brutto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Bruttobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../netto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Nettobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ipBalans</td>
+      <td style="text-align: left">BalansResponse</td>
+      <td style="text-align: left">Nya ackumulerade brutto/netto belopp i kronor och ören för innevarande period.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../brutto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Bruttobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../netto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Nettobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kpBalans</td>
+      <td style="text-align: left">BalansResponse</td>
+      <td style="text-align: left">Nya ackumulerade brutto/netto belopp i kronor och ören för kommande period.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../brutto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Bruttobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../netto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Nettobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultat</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Resultat av högkostnadsuppdatering. 1 - Transaktionen accepterad och registrerad.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-7">FHIR-artefakter</h4>
+
+<ul>
+  <li><a href="StructureDefinition-registrerahkdbtransaktion-request.html">RegistreraHkdbTransaktionRequest</a>: logisk modell för begäran, inklusive SOAP-huvudena</li>
+  <li><a href="StructureDefinition-registrerahkdbtransaktion.html">RegistreraHkdbTransaktion</a>: logisk modell för svaret</li>
+</ul>
+
+<h4 id="källfiler-7">Källfiler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Fil</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="RegistreraHkdbTransaktionInteraction_1.1_rivtabp21.wsdl">RegistreraHkdbTransaktionInteraction_1.1_rivtabp21.wsdl</a></td>
+      <td style="text-align: left">WSDL för tjänsteinteraktionen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="RegistreraHkdbTransaktionResponder_1.1.xsd">RegistreraHkdbTransaktionResponder_1.1.xsd</a></td>
+      <td style="text-align: left">Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="RegistreraHkdbTransaktionResponder_1.1_ext.xsd">RegistreraHkdbTransaktionResponder_1.1_ext.xsd</a></td>
+      <td style="text-align: left">Tjänsteschema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="skapahkdbkonto">SkapaHkdbKonto</h3>
+
+<h4 id="version-8">Version</h4>
+
+<p>4.0</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Egenskap</th>
+      <th style="text-align: left">Värde</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Namnrymd (tjänsteschema)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:SkapaHkdbKontoResponder:4</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Namnrymd (WSDL)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:SkapaHkdbKonto:4:rivtabp21</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SOAP-action</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:SkapaHkdbKontoResponder:4:SkapaHkdbKonto</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Interaktionstyp</td>
+      <td style="text-align: left">Fråga-Svar.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fältregler-8">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">huvudPersNr</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Personnummer för eventuell huvudperson.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">klientinformation</td>
+      <td style="text-align: left">KlientinformationRequest</td>
+      <td style="text-align: left">Objekt innehållande information om anropande klientsystem.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../anvandare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt användarid i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../session</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Sessionens id i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../system</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GLN-kod för anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">periodBrutto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Ackumulerat bruttobelopp i kronor och ören. Från och med version 10.3 ersätter periodBrutto periodNetto.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">periodStart</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Eventuellt startdatum för innevarande högkostnadsperiod.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">persNr</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Personnummer för den som ska anslutas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ansluten</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Personens högkostnadsstatus. False - Konto ej skapat True - Konto skapat</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-8">FHIR-artefakter</h4>
+
+<ul>
+  <li><a href="StructureDefinition-skapahkdbkonto-request.html">SkapaHkdbKontoRequest</a>: logisk modell för begäran, inklusive SOAP-huvudena</li>
+  <li><a href="StructureDefinition-skapahkdbkonto.html">SkapaHkdbKonto</a>: logisk modell för svaret</li>
+</ul>
+
+<h4 id="källfiler-8">Källfiler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Fil</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="SkapaHkdbKontoInteraction_4.0_rivtabp21.wsdl">SkapaHkdbKontoInteraction_4.0_rivtabp21.wsdl</a></td>
+      <td style="text-align: left">WSDL för tjänsteinteraktionen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="SkapaHkdbKontoResponder_4.0.xsd">SkapaHkdbKontoResponder_4.0.xsd</a></td>
+      <td style="text-align: left">Tjänsteschema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="taborthkdbkonto">TaBortHkdbKonto</h3>
+
+<h4 id="version-9">Version</h4>
+
+<p>1.0</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Egenskap</th>
+      <th style="text-align: left">Värde</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Namnrymd (tjänsteschema)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:TaBortHkdbKontoResponder:1</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Namnrymd (WSDL)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:TaBortHkdbKonto:1:rivtabp21</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SOAP-action</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:TaBortHkdbKontoResponder:1:TaBortHkdbKonto</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Interaktionstyp</td>
+      <td style="text-align: left">Fråga-Svar.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fältregler-9">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">klientinformation</td>
+      <td style="text-align: left">KlientinformationRequest</td>
+      <td style="text-align: left">Objekt innehållande information om anropande klientsystem.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../anvandare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt användarid i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../session</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Sessionens id i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../system</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GLN-kod för anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">persNr</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Personnummer för den som ska tas bort.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">innevPeriod</td>
+      <td style="text-align: left">PeriodResponse</td>
+      <td style="text-align: left">Innevarande högkostnadsperiod.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../balans</td>
+      <td style="text-align: left">BalansResponse</td>
+      <td style="text-align: left">Ackumulerad balans</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../brutto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Bruttobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../netto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Nettobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../start</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Periodens startdatum.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kommandePeriod</td>
+      <td style="text-align: left">PeriodResponse</td>
+      <td style="text-align: left">Kommande högkostnadsperiod.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../balans</td>
+      <td style="text-align: left">BalansResponse</td>
+      <td style="text-align: left">Ackumulerad balans</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../brutto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Bruttobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../netto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Nettobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../start</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Periodens startdatum.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultat</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Resultat av kontouppdatering i HKDB. True - Konto borttaget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">samlingBort</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Anger om samlingskonto tagits bort i samband med anropet. True - Samlingskonto borttaget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-9">FHIR-artefakter</h4>
+
+<ul>
+  <li><a href="StructureDefinition-taborthkdbkonto-request.html">TaBortHkdbKontoRequest</a>: logisk modell för begäran, inklusive SOAP-huvudena</li>
+  <li><a href="StructureDefinition-taborthkdbkonto.html">TaBortHkdbKonto</a>: logisk modell för svaret</li>
+</ul>
+
+<h4 id="källfiler-9">Källfiler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Fil</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="TaBortHkdbKontoInteraction_1.0_rivtabp21.wsdl">TaBortHkdbKontoInteraction_1.0_rivtabp21.wsdl</a></td>
+      <td style="text-align: left">WSDL för tjänsteinteraktionen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="TaBortHkdbKontoResponder_1.0.xsd">TaBortHkdbKontoResponder_1.0.xsd</a></td>
+      <td style="text-align: left">Tjänsteschema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gemensamma-källfiler">Gemensamma källfiler</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Fil</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="ArgosHeader_1.0.xsd">ArgosHeader_1.0.xsd</a></td>
+      <td style="text-align: left">SOAP-huvud</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td style="text-align: left">SOAP-huvud</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="se.apotekensservice_pris_1.0.xsd">se.apotekensservice_pris_1.0.xsd</a></td>
+      <td style="text-align: left">Domänschema</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="se.apotekensservice_pris_4.0.xsd">se.apotekensservice_pris_4.0.xsd</a></td>
+      <td style="text-align: left">Domänschema</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="AB_se_apotekenservice_pris.docx">AB_se_apotekenservice_pris.docx</a></td>
+      <td style="text-align: left">Arkitekturella beslut</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.se-apotekensservice-pris#2.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Sat, Sep 26, 2026 19:46+0000">2026-09-26</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

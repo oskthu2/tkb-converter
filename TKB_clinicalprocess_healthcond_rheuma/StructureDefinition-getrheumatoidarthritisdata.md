@@ -1,0 +1,702 @@
+# GetRheumatoidArthritisData — Response - clinicalprocess: healthcond: rheuma — Reumatismdata v1.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetRheumatoidArthritisData — Response**
+
+## Logical Model: GetRheumatoidArthritisData — Response 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-healthcond-rheuma/StructureDefinition/getrheumatoidarthritisdata | *Version*:1.0.0 |
+| Draft as of 2026-09-26 | *Computable Name*:GetRheumatoidArthritisData |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret i GetRheumatoidArthritisData (RIV-TA urn:riv:clinicalprocess:healthcond:rheuma:GetRheumatoidArthritisDataResponder:1, GetRheumatoidArthritisDataResponseType). Varje förekomst av rheumatoidArthritisData är ett dokument ur Reuma beslutsstödsjournal eller motsvarande system. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-healthcond-rheuma|current/StructureDefinition/StructureDefinition-getrheumatoidarthritisdata.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getrheumatoidarthritisdata.csv), [Excel](StructureDefinition-getrheumatoidarthritisdata.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getrheumatoidarthritisdata",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-rheuma/StructureDefinition/getrheumatoidarthritisdata",
+  "version" : "1.0.0",
+  "name" : "GetRheumatoidArthritisData",
+  "title" : "GetRheumatoidArthritisData — Response",
+  "status" : "draft",
+  "date" : "2026-09-26T19:19:32+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret i GetRheumatoidArthritisData\n(RIV-TA urn:riv:clinicalprocess:healthcond:rheuma:GetRheumatoidArthritisDataResponder:1, GetRheumatoidArthritisDataResponseType).\nVarje förekomst av rheumatoidArthritisData är ett dokument ur Reuma beslutsstödsjournal eller motsvarande system.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-rheuma/StructureDefinition/getrheumatoidarthritisdata",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getrheumatoidarthritisdata",
+      "path" : "getrheumatoidarthritisdata",
+      "short" : "GetRheumatoidArthritisData — Response",
+      "definition" : "Logisk modell för svaret i GetRheumatoidArthritisData\n(RIV-TA urn:riv:clinicalprocess:healthcond:rheuma:GetRheumatoidArthritisDataResponder:1, GetRheumatoidArthritisDataResponseType).\nVarje förekomst av rheumatoidArthritisData är ett dokument ur Reuma beslutsstödsjournal eller motsvarande system."
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData",
+      "short" : "Reumatismdata",
+      "definition" : "Dokument som matchar begäran (RheumatoidArthritisDataType).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader",
+      "short" : "Dokumenthuvud",
+      "definition" : "Basinformation om dokumentet (PatientSummaryHeaderType).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "getrheumatoidarthritisdata-nullified-reason",
+        "severity" : "error",
+        "human" : "nullifiedReason får bara anges när nullified är true",
+        "expression" : "nullifiedReason.exists() implies nullified = true",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-rheuma/StructureDefinition/getrheumatoidarthritisdata"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.documentId",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.documentId",
+      "short" : "Dokument-id",
+      "definition" : "Dokumentets identitet, unik inom källsystemet.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.sourceSystemHSAId",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.sourceSystemHSAId",
+      "short" : "Källsystem",
+      "definition" : "HSA-id för det system som dokumentet är skapat i (HSA-id för Reuma).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.documentTitle",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.documentTitle",
+      "short" : "Dokumenttitel",
+      "definition" : "Används inte i detta kontrakt (TKB anger 0..0; schemat tillåter 0..1).",
+      "min" : 0,
+      "max" : "0",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.documentTime",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.documentTime",
+      "short" : "Dokumenttidpunkt",
+      "definition" : "Används inte i detta kontrakt (TKB anger 0..0; schemat tillåter 0..1).",
+      "min" : 0,
+      "max" : "0",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.patientId",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.patientId",
+      "short" : "Patient-id",
+      "definition" : "Patientens identifierare. value = id (12 tecken utan avskiljare); system = OID för typ av identifierare: 1.2.752.129.2.1.3.1 (personnummer), 1.2.752.129.2.1.3.3 (samordningsnummer) eller lokalt reservnummer, t.ex. SLL 1.2.752.97.3.1.3. RIV-TA: PersonIdType id/type.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional",
+      "short" : "Ansvarig hälso- och sjukvårdsperson",
+      "definition" : "Den person som ansvarar för informationen i dokumentet (författare), HealthcareProfessionalType.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.authorTime",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.authorTime",
+      "short" : "Tidpunkt",
+      "definition" : "Tidpunkt då dokumentet skapades eller senast uppdaterades (ÅÅÅÅMMDDttmmss).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+      "short" : "Författarens HSA-id",
+      "definition" : "Författarens HSA-id.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+      "short" : "Författarens namn",
+      "definition" : "Namn på författaren. Anges om tillgängligt.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+      "short" : "Befattning",
+      "definition" : "Personens befattning, om möjligt enligt KV Befattning (OID 1.2.752.129.2.2.1.4). Antingen kod (med codeSystem och displayName) eller originalText.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+      "short" : "Organisationsenhet",
+      "definition" : "Den organisation som författaren är uppdragstagare vid (OrgUnitType).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+      "short" : "Enhetens HSA-id",
+      "definition" : "HSA-id för organisationsenhet. TKB anger 0..1, schemat 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+      "short" : "Enhetens namn",
+      "definition" : "Namnet på organisationen. TKB anger 0..1, schemat 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+      "short" : "Telefon",
+      "definition" : "Telefon till organisationsenhet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+      "short" : "E-post",
+      "definition" : "E-post till organisationsenhet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+      "short" : "Postadress",
+      "definition" : "Postadress för organisationen.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+      "short" : "Plats",
+      "definition" : "Namnet på plats eller ort för organisationens fysiska placering.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+      "short" : "PDL-enhet",
+      "definition" : "HSA-id för PDL-enhet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+      "short" : "Vårdgivare",
+      "definition" : "HSA-id för vårdgivaren för den enhet som författaren är uppdragstagare vid.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.legalAuthenticator",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.legalAuthenticator",
+      "short" : "Signerande person",
+      "definition" : "Information om vem som signerat dokumentet (LegalAuthenticatorType).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.legalAuthenticator.signatureTime",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.legalAuthenticator.signatureTime",
+      "short" : "Signeringstidpunkt",
+      "definition" : "Tidpunkt för signering (ÅÅÅÅMMDDttmmss).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.legalAuthenticator.legalAuthenticatorHSAId",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.legalAuthenticator.legalAuthenticatorHSAId",
+      "short" : "Signerandes HSA-id",
+      "definition" : "HSA-id för person som signerat dokumentet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.legalAuthenticator.legalAuthenticatorName",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.legalAuthenticator.legalAuthenticatorName",
+      "short" : "Signerandes namn",
+      "definition" : "Namn i klartext för signerande person.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.approvedForPatient",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.approvedForPatient",
+      "short" : "Godkänd för patient",
+      "definition" : "true om informationen får delas till patienten, annars false.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.careContactId",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.careContactId",
+      "short" : "Vård- och omsorgskontakt",
+      "definition" : "Identitet för den vård- och omsorgskontakt som föranlett informationen, unik inom källsystemet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.nullified",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.nullified",
+      "short" : "Makulerad",
+      "definition" : "Finns i schemat men inte i TKB-tabellen.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.nullifiedReason",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataHeader.nullifiedReason",
+      "short" : "Makuleringsorsak",
+      "definition" : "Finns i schemat men inte i TKB-tabellen.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody",
+      "short" : "Dokumentkropp",
+      "definition" : "Reumatismdata (RheumatoidArthritisBodyType). TKB-tabellen kallar elementet rheumatoidArthritisBody.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables",
+      "short" : "Patientvariabler",
+      "definition" : "Information från patienten.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.workability",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.workability",
+      "short" : "Arbetsförmåga",
+      "definition" : "Hur många timmar patienten arbetar i förhållande till anställningens timmar. TKB-tabellen kallar fältet workAbility.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.globalHealth",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.globalHealth",
+      "short" : "Global hälsa",
+      "definition" : "Patientens globala hälsa. Värdemängd 0–100.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.pain",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.pain",
+      "short" : "Smärta",
+      "definition" : "Patientens uppfattning om sin smärta. Värdemängd 0–100.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.eq5dIndexValue",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.eq5dIndexValue",
+      "short" : "EQ-5D",
+      "definition" : "EuroQol-5 Dimension Questionnaire. Värdemängd -0,594–1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.healthAssessmentQuestionnaireScore",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.healthAssessmentQuestionnaireScore",
+      "short" : "HAQ",
+      "definition" : "Health Assessment Questionnaire. Värdemängd 0–3.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.tenderJoints28",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.tenderJoints28",
+      "short" : "Ömma leder (28)",
+      "definition" : "Antal ömma leder av 28. Värdemängd 0–28.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.swollenJoints28",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.patientVariables.swollenJoints28",
+      "short" : "Svullna leder (28)",
+      "definition" : "Antal svullna leder av 28. Värdemängd 0–28.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables",
+      "short" : "Läkarvariabler",
+      "definition" : "Information från läkaren.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables.physiciansGlobal",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables.physiciansGlobal",
+      "short" : "Läkarens globala bedömning",
+      "definition" : "Motsvarar DoctorsGlobalEnum: none, low, moderate, high, maximal.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-rheuma/ValueSet/physiciansglobal-vs"
+      }
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables.tenderJoints28",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables.tenderJoints28",
+      "short" : "Ömma leder (28)",
+      "definition" : "Antal ömma leder av 28. Värdemängd 0–28.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables.swollenJoints28",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables.swollenJoints28",
+      "short" : "Svullna leder (28)",
+      "definition" : "Antal svullna leder av 28. Värdemängd 0–28.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables.diseaseActivityScore28",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables.diseaseActivityScore28",
+      "short" : "DAS28",
+      "definition" : "Disease Activity Score 28.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables.diseaseActivityScore28CRP",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.physiciansVariables.diseaseActivityScore28CRP",
+      "short" : "DAS28CRP",
+      "definition" : "Disease Activity Score 28 CRP.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.labVariables",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.labVariables",
+      "short" : "Labbvärden",
+      "definition" : "Labbvärden.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.labVariables.sedimentationRate",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.labVariables.sedimentationRate",
+      "short" : "Sänka (SR)",
+      "definition" : "Sedimentation Rate, enhet mm/h.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.labVariables.cReactiveProtein",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.labVariables.cReactiveProtein",
+      "short" : "CRP",
+      "definition" : "C-reaktivt protein, enhet mg/L.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug",
+      "short" : "Läkemedel",
+      "definition" : "Information om patientens läkemedel (DrugType).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.nplId",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.nplId",
+      "short" : "NPL-id",
+      "definition" : "Nationellt Produktregister för Läkemedel. system = 1.2.752.129.2.1.5.1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.actCode",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.actCode",
+      "short" : "ATC-kod",
+      "definition" : "Läkemedlets ATC-kod, codeSystem 1.2.752.129.2.2.3.1.1. Schemat kallar fältet actCode, TKB-tabellen atcCode.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.drugName",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.drugName",
+      "short" : "Produktnamn",
+      "definition" : "Motsvarar kommande läkemedelskontrakts produktnamn. RIV-TA: drug.name.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.typeOfDrug",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.typeOfDrug",
+      "short" : "Typ av läkemedel",
+      "definition" : "Motsvarande enum: DMARD, bioprep, NSAID, cortisone.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.dose",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.dose",
+      "short" : "Dos",
+      "definition" : "Dos, enhet mg.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.datePeriod",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.datePeriod",
+      "short" : "Insättning och utsättning",
+      "definition" : "Insättnings- och utsättningsdatum (ÅÅÅÅMMDD).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Period"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.endCause",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.endCause",
+      "short" : "Utsättningsorsak",
+      "definition" : "Motsvarar kommande läkemedelskontrakts utsättningsorsak.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.interval",
+      "path" : "getrheumatoidarthritisdata.rheumatoidArthritisData.rheumatoidArthritisDataBody.drug.interval",
+      "short" : "Intervall",
+      "definition" : "Intervall/frekvens för dos.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

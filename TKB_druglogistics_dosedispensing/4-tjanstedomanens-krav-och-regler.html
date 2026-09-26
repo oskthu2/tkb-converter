@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>4 Tjänstedomänens krav och regler - druglogistics: dosedispensing — Dosdispensering v1.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"5"}
+    h3,h4,h5,h6{--heading-prefix:"5"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">druglogistics: dosedispensing — Dosdispensering</span>
+            <br/>
+            <span style="display:inline-block;">1.1.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+  <li><a href="3-tjanstedomanens-arkitektur.html">3 Arkitektur</a></li>
+  <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Krav och regler</a></li>
+  <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Meddelandemodeller</a></li>
+  <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma komponenter</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>4 Tjänstedomänens krav och regler</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">druglogistics: dosedispensing — Dosdispensering - Local Development build (v1.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/druglogistics-dosedispensing/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>4 Tjänstedomänens krav och regler</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstedomänens-krav-och-regler" id="markdown-toc-tjänstedomänens-krav-och-regler">Tjänstedomänens krav och regler</a>    <ul>
+      <li><a href="#dokumenthistorik" id="markdown-toc-dokumenthistorik">Dokumenthistorik</a></li>
+      <li><a href="#objekt-och-felhantering" id="markdown-toc-objekt-och-felhantering">Objekt och felhantering</a></li>
+      <li><a href="#felhantering" id="markdown-toc-felhantering">Felhantering</a></li>
+      <li><a href="#utökningar" id="markdown-toc-utökningar">Utökningar</a></li>
+      <li><a href="#soap-fel" id="markdown-toc-soap-fel">SOAP-fel</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstedomänens-krav-och-regler">Tjänstedomänens krav och regler</h2>
+
+<p><em>SAKNAS I KÄLLDOKUMENT.</em> Det finns ingen TKB. Avsnittet återger den del av dokumentet <a href="Objekt_och_felhantering.pdf">Pascal – Objekt och felhantering</a> (version 1.5, 2012-03-21) som gäller för alla tjänstekontrakt i domänen (mekanisk konvertering från PDF; vid tveksamhet gäller PDF:en). Objekten och uppräkningarna i samma dokument finns i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<h3 id="dokumenthistorik">Dokumenthistorik</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Version</th>
+      <th style="text-align: left">Datum</th>
+      <th style="text-align: left">Författare</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1.4</td>
+      <td style="text-align: left">2011-11-29</td>
+      <td style="text-align: left">Jan Rozenbeek</td>
+      <td style="text-align: left">Tidigare godkänd version</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.5</td>
+      <td style="text-align: left">2012-03-21</td>
+      <td style="text-align: left">Ronny Nordgren</td>
+      <td style="text-align: left">Ändrat fältlängd på HSAId från 20 till 64 i Objekt-Behörighetsinformation samt Infört dokumenthistorik</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="objekt-och-felhantering">Objekt och felhantering</h3>
+
+<p>Denna specifikation beskriver generella objekt och definitioner samt felhantering i gränssnittet mellan vårdsystem och dosapotek .</p>
+
+<h3 id="felhantering">Felhantering</h3>
+
+<p>Varje anrop innehåller behörighetsinformation, vilken endast behöver logggas på mottagande sida. Ingen validering behöver göras på informationen endast loggning. Detta för spåra och felsöka. Som resultat av varje anrop returneras en generell kod som indikerar om anropet lyckats eller misslyckats, alternativ innehåller varningar. Utöver detta returneras ett meddelandeidentitet och tillhörande meddelandetext. Meddelandetexterna är inte avsett för att visas för användare.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Fält längd</th>
+      <th style="text-align: left">Förekomst</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Resultatkod</td>
+      <td style="text-align: left">Resultat av anrop (1=Information, 2=varning eller 3=fel)</td>
+      <td style="text-align: left">Enum</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Meddelandetext</td>
+      <td style="text-align: left">Information</td>
+      <td style="text-align: left">80</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Meddelandeid</td>
+      <td style="text-align: left">Identitet kopplad till meddelandetext</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Om flera resultatrader returneras som t.ex. vid avbeställ originalförpackning, innehåller dessa rader information om avbeställningen lyckats eller misslyckats samt beställningsstatus (avbeställd, expedierad).</p>
+
+<h3 id="utökningar">Utökningar</h3>
+
+<p>Begärande- och svarstyperna har utökningspunkter (<code class="language-plaintext highlighter-rouge">xs:any</code>). Utökningspunkterna är inte med i de logiska modellerna.</p>
+
+<h3 id="soap-fel">SOAP-fel</h3>
+
+<p>WSDL-filerna definierar inga SOAP-fel (wsdl:fault). Resultatet av ett anrop anges i stället med fälten <code class="language-plaintext highlighter-rouge">resultatkod</code>, <code class="language-plaintext highlighter-rouge">meddelandetext</code> och <code class="language-plaintext highlighter-rouge">meddelandeid</code> i svaret, enligt ovan.</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.druglogistics-dosedispensing#1.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Sat, Sep 26, 2026 19:21+0000">2026-09-26</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>5 Tjänstedomänens meddelandemodeller - infrastructure: informationstructureservice: terminology v1.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"6"}
+    h3,h4,h5,h6{--heading-prefix:"6"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">infrastructure: informationstructureservice: terminology</span>
+            <br/>
+            <span style="display:inline-block;">1.0.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <menu xmlns="http://www.w3.org/1999/xhtml">
+  <item name="Home" url="index.html"/>
+  <item name="1 Inledning" url="1-inledning.html"/>
+  <item name="2 Versionsinformation" url="2-versionsinformation.html"/>
+  <item name="3 Tjänstedomänens arkitektur" url="3-tjanstedomanens-arkitektur.html"/>
+  <item name="4 Tjänstedomänens krav och regler" url="4-tjanstedomanens-krav-och-regler.html"/>
+  <item name="5 Tjänstedomänens meddelandemodeller" url="5-tjanstedomanens-meddelandemodeller.html"/>
+  <item name="6 Tjänstedomänens gemensamma komponenter" url="6-gemensamma-informationskomponenter.html"/>
+  <item name="7 Tjänstekontrakt" url="7-tjanstekontrakt.html"/>
+  <item name="Artifacts" url="artifacts.html"/>
+</menu>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>5 Tjänstedomänens meddelandemodeller</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">infrastructure: informationstructureservice: terminology - Local Development build (v1.0.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/infrastructure-informationstructureservice-terminology/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>5 Tjänstedomänens meddelandemodeller</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#5-tjänstedomänens-meddelandemodeller" id="markdown-toc-5-tjänstedomänens-meddelandemodeller">5 Tjänstedomänens meddelandemodeller</a>    <ul>
+      <li><a href="#51-v-mim-hämta-urval" id="markdown-toc-51-v-mim-hämta-urval">5.1 V-MIM Hämta urval</a></li>
+      <li><a href="#52-v-mim-hämta-information-om-urval" id="markdown-toc-52-v-mim-hämta-information-om-urval">5.2 V-MIM Hämta information om urval</a></li>
+      <li><a href="#53-v-mim-sökning-i-terminologi" id="markdown-toc-53-v-mim-sökning-i-terminologi">5.3 V-MIM Sökning i terminologi</a></li>
+      <li><a href="#54-formatregler" id="markdown-toc-54-formatregler">5.4 Formatregler</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="5-tjänstedomänens-meddelandemodeller">5 Tjänstedomänens meddelandemodeller</h1>
+
+<p>Källa: <em>Tjänstekontraktsbeskrivning Terminologitjänst</em>, version PA1 (2013-10-30), <a href="Tjanstekontraktsbeskrivning_Terminologitjanst.docx">Tjanstekontraktsbeskrivning_Terminologitjanst.docx</a>.</p>
+
+<p>Här beskrivs de meddelandemodeller som tjänstekontrakten bygger på. För varje modell beskrivs hur mappning ser ut mot schema (XSD) för tjänstekontrakt.</p>
+
+<h3 id="51-v-mim-hämta-urval">5.1 V-MIM Hämta urval</h3>
+<p>Meddelandet hämta urval hämtar information om de begrepp och termer som ingår i urvalet tillsammans med information om urvalet. För de begrepp som har ytterligare metadata i detta urval hämtas även denna. Notera att metadata är urvalsspecifikt, det vill säga ett begrepp som inte ingår i ett urval har inte metadata, och metadata delas inte mellan olika urval.</p>
+
+<p><img src="img_001.png" alt="img_001.png" />
+<em>Figur 4. Meddelandemodell hämta urval.</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Klass.attribut</th>
+      <th style="text-align: left">Mappning mot XSD GetTerminologySubsetResponse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Urval.id</td>
+      <td style="text-align: left">Subset/SubsetInformation/@SubsetIdentity</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Urval.namn</td>
+      <td style="text-align: left">Subset/SubsetInformation/@Name</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Urval.version</td>
+      <td style="text-align: left">Subset/SubsetInformation/@Version</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">BegreppIUrval.id för lokala utökningar</td>
+      <td style="text-align: left">Subset/Concept/@LocalOrganizationExtensionId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kodsystem.id</td>
+      <td style="text-align: left">Subset/Concept/@CodeSystem</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Begrepp.kod</td>
+      <td style="text-align: left">Subset/Concept/@Code</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Term.term</td>
+      <td style="text-align: left">Subset/Concept/@Term</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Metadata.namn</td>
+      <td style="text-align: left">Subset/Concept/Metadata/@Name</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Metadata.värde</td>
+      <td style="text-align: left">Subset/Concept/Metadata/@Value</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Metadata.id för lokala utökningar</td>
+      <td style="text-align: left">Subset/Concept/Metadata/ @LocalOrganizationExtensionId</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="52-v-mim-hämta-information-om-urval">5.2 V-MIM Hämta information om urval</h3>
+<p>Meddelande hämta information om urval hämtar ut senaste versionsidentifierare, namn och id för urval.</p>
+
+<p><img src="img_005.png" alt="img_005.png" />
+<em>Figur 5. Meddelandemodell hämta information om urval.</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Klass.attribut</th>
+      <th style="text-align: left">Mappning mot XSD GetTerminologySubsetInformationResponse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Urval.id</td>
+      <td style="text-align: left">Subset/SubsetInformation/@SubsetIdentity</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Urval.namn</td>
+      <td style="text-align: left">Subset/SubsetInformation/@Name</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Urval.version</td>
+      <td style="text-align: left">Subset/SubsetInformation/@Version</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="53-v-mim-sökning-i-terminologi">5.3 V-MIM Sökning i terminologi</h3>
+<p>Detta meddelande är resultatet av en terminologisökning. Beroende på sökparametrar returneras en delmängd av ett urval med tillhörande metadata och termer. I meddelandet hämtas även information om urvalet.</p>
+
+<p><img src="img_001.png" alt="img_001.png" />
+<em>Figur 6. Meddelandemodell sökning i terminologi.</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Klass.attribut</th>
+      <th style="text-align: left">Mappning mot XSD GetConceptsResponse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Urval.id</td>
+      <td style="text-align: left">Subset/SubsetInformation/@SubsetIdentity</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Urval.namn</td>
+      <td style="text-align: left">Subset/SubsetInformation/@Name</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Urval.version</td>
+      <td style="text-align: left">Subset/SubsetInformation/@Version</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">BegreppIUrval.id för lokala utökningar</td>
+      <td style="text-align: left">Subset/Concept/@LocalOrganizationExtensionId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kodsystem.id</td>
+      <td style="text-align: left">Subset/Concept/@CodeSystem</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Begrepp.kod</td>
+      <td style="text-align: left">Subset/Concept/@Code</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Term.term</td>
+      <td style="text-align: left">Subset/Concept/@Term</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Metadata.namn</td>
+      <td style="text-align: left">Subset/Concept/Metadata/@Name</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Metadata.värde</td>
+      <td style="text-align: left">Subset/Concept/Metadata/@Value</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Metadata.id för lokala utökningar</td>
+      <td style="text-align: left">Subset/Concept/Metadata/ @LocalOrganizationExtensionId</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="54-formatregler">5.4 Formatregler</h3>
+<p>Det finns inga formatregler utöver de datatyper som anges i respektive tjänstekontrakt.</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.infrastructure-informationstructureservice-terminology#1.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Sat, Sep 26, 2026 19:32+0000">2026-09-26</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

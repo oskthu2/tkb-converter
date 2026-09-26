@@ -1,0 +1,372 @@
+# HamtaAktuellaOrdinationer — Request - se.apotekensservice: or — Ordinationer v7.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **HamtaAktuellaOrdinationer — Request**
+
+## Logical Model: HamtaAktuellaOrdinationer — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/se-apotekensservice-or/StructureDefinition/hamtaaktuellaordinationer-request | *Version*:7.0.0 |
+| Draft as of 2026-09-26 | *Computable Name*:HamtaAktuellaOrdinationerRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i HamtaAktuellaOrdinationer (urn:riv:se.apotekensservice:or:HamtaAktuellaOrdinationerResponder:5, HamtaAktuellaOrdinationerRequestType), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.se-apotekensservice-or|current/StructureDefinition/StructureDefinition-hamtaaktuellaordinationer-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-hamtaaktuellaordinationer-request.csv), [Excel](StructureDefinition-hamtaaktuellaordinationer-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "hamtaaktuellaordinationer-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/se-apotekensservice-or/StructureDefinition/hamtaaktuellaordinationer-request",
+  "version" : "7.0.0",
+  "name" : "HamtaAktuellaOrdinationerRequest",
+  "title" : "HamtaAktuellaOrdinationer — Request",
+  "status" : "draft",
+  "date" : "2026-09-26T19:44:49+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i HamtaAktuellaOrdinationer\n(urn:riv:se.apotekensservice:or:HamtaAktuellaOrdinationerResponder:5, HamtaAktuellaOrdinationerRequestType), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/se-apotekensservice-or/StructureDefinition/hamtaaktuellaordinationer-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "hamtaaktuellaordinationer-request",
+      "path" : "hamtaaktuellaordinationer-request",
+      "short" : "HamtaAktuellaOrdinationer — Request",
+      "definition" : "Logisk modell för begäran i HamtaAktuellaOrdinationer\n(urn:riv:se.apotekensservice:or:HamtaAktuellaOrdinationerResponder:5, HamtaAktuellaOrdinationerRequestType), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.logicalAddress",
+      "path" : "hamtaaktuellaordinationer-request.logicalAddress",
+      "short" : "logicalAddress",
+      "definition" : "SOAP-huvud LogicalAddress. Orgnr of Apotekens Service AB",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.argosHeader",
+      "path" : "hamtaaktuellaordinationer-request.argosHeader",
+      "short" : "argosHeader",
+      "definition" : "SOAP-huvud ArgosHeader. Argos header of Apotekens Service AB. Check documentation regarding mandatory fields for this specific service interaction",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.argosHeader.forskrivarkod",
+      "path" : "hamtaaktuellaordinationer-request.argosHeader.forskrivarkod",
+      "short" : "forskrivarkod",
+      "definition" : "forskrivarkod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.argosHeader.legitimationskod",
+      "path" : "hamtaaktuellaordinationer-request.argosHeader.legitimationskod",
+      "short" : "legitimationskod",
+      "definition" : "legitimationskod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.argosHeader.fornamn",
+      "path" : "hamtaaktuellaordinationer-request.argosHeader.fornamn",
+      "short" : "fornamn",
+      "definition" : "fornamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.argosHeader.efternamn",
+      "path" : "hamtaaktuellaordinationer-request.argosHeader.efternamn",
+      "short" : "efternamn",
+      "definition" : "efternamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.argosHeader.yrkesgrupp",
+      "path" : "hamtaaktuellaordinationer-request.argosHeader.yrkesgrupp",
+      "short" : "yrkesgrupp",
+      "definition" : "yrkesgrupp",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.argosHeader.befattningskod",
+      "path" : "hamtaaktuellaordinationer-request.argosHeader.befattningskod",
+      "short" : "befattningskod",
+      "definition" : "befattningskod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.argosHeader.arbetsplatskod",
+      "path" : "hamtaaktuellaordinationer-request.argosHeader.arbetsplatskod",
+      "short" : "arbetsplatskod",
+      "definition" : "arbetsplatskod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.argosHeader.arbetsplatsnamn",
+      "path" : "hamtaaktuellaordinationer-request.argosHeader.arbetsplatsnamn",
+      "short" : "arbetsplatsnamn",
+      "definition" : "arbetsplatsnamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.argosHeader.postort",
+      "path" : "hamtaaktuellaordinationer-request.argosHeader.postort",
+      "short" : "postort",
+      "definition" : "postort",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.argosHeader.postadress",
+      "path" : "hamtaaktuellaordinationer-request.argosHeader.postadress",
+      "short" : "postadress",
+      "definition" : "postadress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.argosHeader.postnummer",
+      "path" : "hamtaaktuellaordinationer-request.argosHeader.postnummer",
+      "short" : "postnummer",
+      "definition" : "postnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.argosHeader.telefonnummer",
+      "path" : "hamtaaktuellaordinationer-request.argosHeader.telefonnummer",
+      "short" : "telefonnummer",
+      "definition" : "telefonnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.argosHeader.requestId",
+      "path" : "hamtaaktuellaordinationer-request.argosHeader.requestId",
+      "short" : "requestId",
+      "definition" : "requestId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.argosHeader.rollnamn",
+      "path" : "hamtaaktuellaordinationer-request.argosHeader.rollnamn",
+      "short" : "rollnamn",
+      "definition" : "rollnamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.argosHeader.directoryID",
+      "path" : "hamtaaktuellaordinationer-request.argosHeader.directoryID",
+      "short" : "directoryID",
+      "definition" : "directoryID",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.argosHeader.hsaID",
+      "path" : "hamtaaktuellaordinationer-request.argosHeader.hsaID",
+      "short" : "hsaID",
+      "definition" : "hsaID",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.argosHeader.katalog",
+      "path" : "hamtaaktuellaordinationer-request.argosHeader.katalog",
+      "short" : "katalog",
+      "definition" : "katalog",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.argosHeader.organisationsnummer",
+      "path" : "hamtaaktuellaordinationer-request.argosHeader.organisationsnummer",
+      "short" : "organisationsnummer",
+      "definition" : "organisationsnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.argosHeader.systemnamn",
+      "path" : "hamtaaktuellaordinationer-request.argosHeader.systemnamn",
+      "short" : "systemnamn",
+      "definition" : "systemnamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.argosHeader.systemversion",
+      "path" : "hamtaaktuellaordinationer-request.argosHeader.systemversion",
+      "short" : "systemversion",
+      "definition" : "systemversion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.argosHeader.systemIp",
+      "path" : "hamtaaktuellaordinationer-request.argosHeader.systemIp",
+      "short" : "systemIp",
+      "definition" : "systemIp",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.personnummer",
+      "path" : "hamtaaktuellaordinationer-request.personnummer",
+      "short" : "personnummer",
+      "definition" : "Giltigt personnummer för patient.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.ordinationsId",
+      "path" : "hamtaaktuellaordinationer-request.ordinationsId",
+      "short" : "ordinationsId",
+      "definition" : "OrdinationsId. Anges om bara en ordination ska returneras.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.grupplegitimationskod",
+      "path" : "hamtaaktuellaordinationer-request.grupplegitimationskod",
+      "short" : "grupplegitimationskod",
+      "definition" : "Användarens 6-ställiga grupplegitimationskod. Obligatorisk för Apotekselev, receptarieelev, Teknikerelev och Europeisk farmaceut.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaaktuellaordinationer-request.gruppforskrivarkod",
+      "path" : "hamtaaktuellaordinationer-request.gruppforskrivarkod",
+      "short" : "gruppforskrivarkod",
+      "definition" : "Gruppförskrivarkod används då förskrivaren saknar individuell förskrivarkod men har via sin roll erhållit förskrivningsrätt. Kan exempelvis vara en AT-läkare eller förskrivare med förordnande. Förskrivarkoden definieras av Socialstyrelsen och gruppförskrivarkoden definieras av eHälsomyndigheten.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

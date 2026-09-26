@@ -1,0 +1,416 @@
+# ProcessRequestConfirmation — Remissbekräftelse (begäran) - clinicalprocess: activity: request — Remisshantering v2.2.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **ProcessRequestConfirmation — Remissbekräftelse (begäran)**
+
+## Logical Model: ProcessRequestConfirmation — Remissbekräftelse (begäran) 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/processrequestconfirmation | *Version*:2.2.0 |
+| Draft as of 2026-09-26 | *Computable Name*:ProcessRequestConfirmation |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i ProcessRequestConfirmation (RIV-TA urn:riv:clinicalprocess:activity:request:ProcessRequestConfirmationResponder:2, element requestConfirmation av typen RequestConfirmationType). Remissmottagaren skickar bekräftelse, besked om vidareskickning, kompletteringsbegäran, avbrott eller avvisning till remittenten. Svaret är enbart ett resultat, se ProcessResult. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-activity-request|current/StructureDefinition/StructureDefinition-processrequestconfirmation.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-processrequestconfirmation.csv), [Excel](StructureDefinition-processrequestconfirmation.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "processrequestconfirmation",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/processrequestconfirmation",
+  "version" : "2.2.0",
+  "name" : "ProcessRequestConfirmation",
+  "title" : "ProcessRequestConfirmation — Remissbekräftelse (begäran)",
+  "status" : "draft",
+  "date" : "2026-09-26T19:14:57+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i ProcessRequestConfirmation (RIV-TA urn:riv:clinicalprocess:activity:request:ProcessRequestConfirmationResponder:2, element requestConfirmation av typen RequestConfirmationType). Remissmottagaren skickar bekräftelse, besked om vidareskickning, kompletteringsbegäran, avbrott eller avvisning till remittenten. Svaret är enbart ett resultat, se ProcessResult.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/processrequestconfirmation",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "processrequestconfirmation",
+      "path" : "processrequestconfirmation",
+      "short" : "ProcessRequestConfirmation — Remissbekräftelse (begäran)",
+      "definition" : "Logisk modell för begäran i ProcessRequestConfirmation (RIV-TA urn:riv:clinicalprocess:activity:request:ProcessRequestConfirmationResponder:2, element requestConfirmation av typen RequestConfirmationType). Remissmottagaren skickar bekräftelse, besked om vidareskickning, kompletteringsbegäran, avbrott eller avvisning till remittenten. Svaret är enbart ett resultat, se ProcessResult.",
+      "constraint" : [{
+        "key" : "processrequestconfirmation-forwarding-vid",
+        "severity" : "error",
+        "human" : "forwardingRecipient ska anges om och endast om typeOfRequestConfirmation = VID",
+        "expression" : "forwardingRecipient.exists() = (typeOfRequestConfirmation = 'VID')",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/processrequestconfirmation"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.requestId",
+      "path" : "processrequestconfirmation.requestId",
+      "short" : "Remiss id",
+      "definition" : "Den ursprungliga remissens remiss-id. Format Källsystem-Id(HSA-ID)#lokalt-id, mönster (.*)#(.*), maxlängd 256 tecken.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.requestConfirmationId",
+      "path" : "processrequestconfirmation.requestConfirmationId",
+      "short" : "Remissbekräftelse id",
+      "definition" : "Unik identifierare för remissbekräftelsen. Format Källsystem-Id(HSA-ID)#lokalt-id, mönster (.*)#(.*), maxlängd 256 tecken.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.typeOfRequestConfirmation",
+      "path" : "processrequestconfirmation.typeOfRequestConfirmation",
+      "short" : "Typ av remissbekräftelse",
+      "definition" : "BEK bekräftelse, VID besked om vidareskickning, KOM kompletteringsbegäran, AVB avbruten remiss, AVV avvisad remiss.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/ValueSet/requestconfirmationtype-vs"
+      }
+    },
+    {
+      "id" : "processrequestconfirmation.requestVersionNumber",
+      "path" : "processrequestconfirmation.requestVersionNumber",
+      "short" : "Remissversionsnummer",
+      "definition" : "Remissens versionsnummer. Startar på 1 och räknas upp vid ändrad remiss, vidareskickad remiss och ändrat betalningsansvar. XSD-mönster (0*[1-9]+|[1-9])\\d*.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "positiveInt"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.requestConfirmationTime",
+      "path" : "processrequestconfirmation.requestConfirmationTime",
+      "short" : "Remissbekräftelse-tidpunkt",
+      "definition" : "Tidpunkt då remissbekräftelsen skapades (ÅÅÅÅMMDDttmmss).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.patient",
+      "path" : "processrequestconfirmation.patient",
+      "short" : "Patient",
+      "definition" : "Patient (SimplePatientType).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.patient.personId",
+      "path" : "processrequestconfirmation.patient.personId",
+      "short" : "Person id",
+      "definition" : "Patientens identitet. value = personidentifierare (12 tecken utan skiljetecken för personnummer, samordningsnummer och nationellt reservId); system = OID för typ av personidentifierare: 1.2.752.129.2.1.3.1 (personnummer), 1.2.752.129.2.1.3.3 (samordningsnummer), 1.2.752.74.9.1 (nationellt reservId). RIV-TA: personId.extension/root.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.patient.patientName",
+      "path" : "processrequestconfirmation.patient.patientName",
+      "short" : "Namn",
+      "definition" : "Personnamn enligt formatet \"Mellannamn Efternamn, Förnamn\". Maxlängd 216 tecken. Främst för teknisk loggning och spårbarhet. RIV-TA: patient.name.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.confirmingOrganisation",
+      "path" : "processrequestconfirmation.confirmingOrganisation",
+      "short" : "Organisatorisk enhet",
+      "definition" : "Den faktiska enhet som skickar bekräftelsen. Kan skilja sig från ansvarig vårdenhet enligt PDL.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.confirmingOrganisation.careUnitId",
+      "path" : "processrequestconfirmation.confirmingOrganisation.careUnitId",
+      "short" : "Enhet id",
+      "definition" : "HSA-id för enheten. Maxlängd 64 tecken.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.confirmingOrganisation.careUnitName",
+      "path" : "processrequestconfirmation.confirmingOrganisation.careUnitName",
+      "short" : "Enhet namn",
+      "definition" : "Namn på enhet. Maxlängd 64 tecken.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.confirmingOrganisation.careUnitTelephone",
+      "path" : "processrequestconfirmation.confirmingOrganisation.careUnitTelephone",
+      "short" : "Enhet telefon",
+      "definition" : "Telefon till enhet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.confirmingOrganisation.careUnitEmail",
+      "path" : "processrequestconfirmation.confirmingOrganisation.careUnitEmail",
+      "short" : "Enhet epost",
+      "definition" : "E-post till enhet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.confirmingOrganisation.careUnitAddress",
+      "path" : "processrequestconfirmation.confirmingOrganisation.careUnitAddress",
+      "short" : "Enhet adress",
+      "definition" : "Adress till enhet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.confirmingOrganisation.careUnitLocation",
+      "path" : "processrequestconfirmation.confirmingOrganisation.careUnitLocation",
+      "short" : "Enhet plats",
+      "definition" : "Namnet på plats eller ort för enhetens fysiska placering.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.author",
+      "path" : "processrequestconfirmation.author",
+      "short" : "Remissbesvarare",
+      "definition" : "Remissbesvarare (person och organisation).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.author.healthcareProfessional",
+      "path" : "processrequestconfirmation.author.healthcareProfessional",
+      "short" : "Hälso- och sjukvårdspersonal",
+      "definition" : "Hälso- och sjukvårdspersonal (HealthcareProfessionalType).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.author.healthcareProfessional.healthcareProfessionalId",
+      "path" : "processrequestconfirmation.author.healthcareProfessional.healthcareProfessionalId",
+      "short" : "Personal id",
+      "definition" : "HSA-id för personen. Maxlängd 64 tecken. RIV-TA: healthcareProfessional.id.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.author.healthcareProfessional.healthcareProfessionalName",
+      "path" : "processrequestconfirmation.author.healthcareProfessional.healthcareProfessionalName",
+      "short" : "Personal namn",
+      "definition" : "Namn, valfri formatering. Maxlängd 64 tecken. RIV-TA: healthcareProfessional.name.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.author.typeOfHealthcareProfessional",
+      "path" : "processrequestconfirmation.author.typeOfHealthcareProfessional",
+      "short" : "Typ av hälso- och sjukvårdspersonal",
+      "definition" : "Yrkestitel från Snomed CT: urval_legitimerade_yrken (codeSystem 1.2.752.129.5.1.70) eller yrken_i_halso-_och_sjukvarden_ej_legitimerade (codeSystem 1.2.752.129.7.1.5). Urvalen kan kompletteras utan ny kontraktsversion.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.author.healthcareProfessionalOrganisation",
+      "path" : "processrequestconfirmation.author.healthcareProfessionalOrganisation",
+      "short" : "Organisatorisk enhet",
+      "definition" : "Enhet (jmf. PDL) som ansvarar för informationen.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.author.healthcareProfessionalOrganisation.careUnitId",
+      "path" : "processrequestconfirmation.author.healthcareProfessionalOrganisation.careUnitId",
+      "short" : "Enhet id",
+      "definition" : "HSA-id för enheten. Maxlängd 64 tecken.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.recipient",
+      "path" : "processrequestconfirmation.recipient",
+      "short" : "Mottagare",
+      "definition" : "Remitterande enhet som bekräftelsen adresseras till.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.recipient.organisation",
+      "path" : "processrequestconfirmation.recipient.organisation",
+      "short" : "Organisatorisk enhet",
+      "definition" : "Mottagande enhet; HSA-id används som logisk adress.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.recipient.organisation.careUnitId",
+      "path" : "processrequestconfirmation.recipient.organisation.careUnitId",
+      "short" : "Enhet id",
+      "definition" : "HSA-id för enheten. Maxlängd 64 tecken.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.forwardingRecipient",
+      "path" : "processrequestconfirmation.forwardingRecipient",
+      "short" : "Mottagare vidarebefordran",
+      "definition" : "Ny mottagare av den vidareskickade remissen. Obligatorisk när typeOfRequestConfirmation = VID, annars ska den inte anges.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.forwardingRecipient.organisation",
+      "path" : "processrequestconfirmation.forwardingRecipient.organisation",
+      "short" : "Organisatorisk enhet",
+      "definition" : "Mottagande enhet; HSA-id används som logisk adress.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.forwardingRecipient.organisation.careUnitId",
+      "path" : "processrequestconfirmation.forwardingRecipient.organisation.careUnitId",
+      "short" : "Enhet id",
+      "definition" : "HSA-id för enheten. Maxlängd 64 tecken.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.outcome",
+      "path" : "processrequestconfirmation.outcome",
+      "short" : "Bekräftelsemeddelande",
+      "definition" : "Bekräftelsemeddelande (RequestReceivedConfirmationOutcomeType).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequestconfirmation.outcome.outcomeText",
+      "path" : "processrequestconfirmation.outcome.outcomeText",
+      "short" : "Svarstext",
+      "definition" : "Meddelande till remissens avsändare. Maxlängd 8192 tecken.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

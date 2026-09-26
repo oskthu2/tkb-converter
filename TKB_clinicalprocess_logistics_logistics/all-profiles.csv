@@ -1,0 +1,568 @@
+"Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getcareaplans-request","getcareaplans-request","getcareaplans-request","","","",0,*,"","","","null {[]} {[]}
+","GetCarePlans — Request","Logisk modell för requestparametrar i tjänstekontraktet GetCarePlans
+(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCarePlans:2).
+Representerar GetCarePlansType i GetCarePlansResponder_2.0.xsd.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getcareaplans-request","getcareaplans-request.careUnitHSAId","getcareaplans-request.careUnitHSAId","","","",0,*,"","","","string {[]} {[]}
+","Filtrering på PDL-enhet (vårdenhetens HSA-id)","Filtrering på PDL-enhet vilket motsvarar careUnitHSAId i healthcareProfessionalType.
+Typ HSAIdType (string).
+Kardinalitet: Valfri, lista (0..*).","","","","","","","","","",,,,,"",,,,"getcareaplans-request.careUnitHSAId",0,*,"",""
+"getcareaplans-request","getcareaplans-request.patientId","getcareaplans-request.patientId","","","",1,1,"","","","Identifier {[]} {[]}
+","Patientens identifierare","Id för patienten. Anges med 12 tecken utan avskiljare.
+system = OID för typ av identifierare:
+- Personnummer: 1.2.752.129.2.1.3.1
+- Samordningsnummer: 1.2.752.129.2.1.3.3
+- Reservnummer: lokalt definierade OID (t.ex. SLL: 1.2.752.97.3.1.3)
+Typ PersonIdType. Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcareaplans-request.patientId",1,1,"",""
+"getcareaplans-request","getcareaplans-request.datePeriod","getcareaplans-request.datePeriod","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Datumintervall för sökning","Begränsar sökningen till det angivna datumintervallet. Returnerar poster där
+documentTime ligger inom sökintervallets start- och slutdatum.
+Typ DatePeriodType. Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcareaplans-request.datePeriod",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getcareaplans-request","getcareaplans-request.datePeriod.id","getcareaplans-request.datePeriod.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getcareaplans-request","getcareaplans-request.datePeriod.extension","getcareaplans-request.datePeriod.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcareaplans-request","getcareaplans-request.datePeriod.modifierExtension","getcareaplans-request.datePeriod.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcareaplans-request","getcareaplans-request.datePeriod.start","getcareaplans-request.datePeriod.start","","","",1,1,"","","","date {[]} {[]}
+","Startdatum (YYYYMMDD)","Startdatum för sökintervallet. Format ÅÅÅÅMMDD.
+Kardinalitet: Obligatorisk om datePeriod anges.","","","","","","","","","",,,,,"",,,,"getcareaplans-request.datePeriod.start",1,1,"",""
+"getcareaplans-request","getcareaplans-request.datePeriod.end","getcareaplans-request.datePeriod.end","","","",1,1,"","","","date {[]} {[]}
+","Slutdatum (YYYYMMDD)","Slutdatum för sökintervallet. Format ÅÅÅÅMMDD.
+Kardinalitet: Obligatorisk om datePeriod anges.","","","","","","","","","",,,,,"",,,,"getcareaplans-request.datePeriod.end",1,1,"",""
+"getcareaplans-request","getcareaplans-request.sourceSystemHSAId","getcareaplans-request.sourceSystemHSAId","","","",0,1,"","","","string {[]} {[]}
+","Källsystemets HSA-id","Begränsar sökningen till aktivitet som är skapad i det angivna källsystemet.
+Värdet måste överensstämma med logicalAddress i anropets SOAP-header.
+Fältet är tvingande om careContactId angivits eller vid begäran på reservnummer.
+Typ HSAIdType (string). Kardinalitet: Valfri (villkorligt obligatorisk).","","","","","","","","","",,,,,"",,,,"getcareaplans-request.sourceSystemHSAId",0,1,"",""
+"getcareaplans-request","getcareaplans-request.careContactId","getcareaplans-request.careContactId","","","",0,*,"","","","string {[]} {[]}
+","Specifika vårdkontakt-id:n att filtrera på","Begränsar sökningen till vård- och omsorgsplaner kopplade till angivna vårdkontakter.
+Matchar documentId i GetCareContacts-svaret.
+Kardinalitet: Valfri, lista (0..*).","","","","","","","","","",,,,,"",,,,"getcareaplans-request.careContactId",0,*,"",""
+"getcareaplans","getcareaplans","getcareaplans","","","",0,*,"","","","null {[]} {[]}
+","GetCarePlans","Logisk modell för tjänstekontraktet GetCarePlans
+(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCarePlans:2).
+Representerar responsens informationsstruktur (GetCarePlansResponseType).
+En lista med CarePlanType returneras, var och en med ett header och ett body.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getcareaplans","getcareaplans.carePlan","getcareaplans.carePlan","","","",0,*,"","","","BackboneElement {[]} {[]}
+","Vård- och omsorgsplaner som matchar begäran","Lista med vård- och omsorgsplaner för patienten. Varje post innehåller
+header (basinformation) och body (planspecifik information).
+Kardinalitet: Valfri lista (0..*).","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getcareaplans","getcareaplans.carePlan.id","getcareaplans.carePlan.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getcareaplans","getcareaplans.carePlan.extension","getcareaplans.carePlan.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcareaplans","getcareaplans.carePlan.modifierExtension","getcareaplans.carePlan.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcareaplans","getcareaplans.carePlan.documentId","getcareaplans.carePlan.documentId","","","",1,1,"","","","string {[]} {[]}
+","Planens identitet, unik inom källsystemet","Vård- och omsorgsplanens identitet som är unik inom källsystemet.
+Identifieraren ska vara konsistent och beständig mellan versioner och kontrakt.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.documentId",1,1,"",""
+"getcareaplans","getcareaplans.carePlan.sourceSystemHSAId","getcareaplans.carePlan.sourceSystemHSAId","","","",1,1,"","","","string {[]} {[]}
+","HSA-id för källsystemet","HSA-id för det system som dokumentet är skapat i. Typ HSAIdType (string).
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.sourceSystemHSAId",1,1,"",""
+"getcareaplans","getcareaplans.carePlan.documentTitle","getcareaplans.carePlan.documentTitle","","","",1,1,"","","","string {[]} {[]}
+","Rubrik för vård- och omsorgsplanen","Text som innehåller en rubrik som beskriver innehållet i vård- och omsorgsplanen.
+Exempel: ""Samordnad vårdplanering Rehabiliteringsplan"".
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.documentTitle",1,1,"",""
+"getcareaplans","getcareaplans.carePlan.documentTime","getcareaplans.carePlan.documentTime","","","",0,1,"","","","dateTime {[]} {[]}
+","Tidpunkt då planen upprättades","Tidpunkt då vård- och omsorgsplanen upprättats. Format YYYYMMDDhhmmss.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.documentTime",0,1,"",""
+"getcareaplans","getcareaplans.carePlan.patientId","getcareaplans.carePlan.patientId","","","",1,1,"","","","Identifier {[]} {[]}
+","Patientens identifierare","Personnummer eller samordningsnummer (12 tecken utan avskiljare).
+system = OID för typ: personnummer (1.2.752.129.2.1.3.1),
+samordningsnummer (1.2.752.129.2.1.3.3), reservnummer (lokalt definierade OID).
+Typ PersonIdType. Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.patientId",1,1,"",""
+"getcareaplans","getcareaplans.carePlan.accountableHealthcareProfessional","getcareaplans.carePlan.accountableHealthcareProfessional","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Ansvarig hälso- och sjukvårdspersonal","Hälso- och sjukvårdspersonal som ansvarar för vård- och omsorgsplanen.
+Typ HealthcareProfessionalType. Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.accountableHealthcareProfessional",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getcareaplans","getcareaplans.carePlan.accountableHealthcareProfessional.id","getcareaplans.carePlan.accountableHealthcareProfessional.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getcareaplans","getcareaplans.carePlan.accountableHealthcareProfessional.extension","getcareaplans.carePlan.accountableHealthcareProfessional.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcareaplans","getcareaplans.carePlan.accountableHealthcareProfessional.modifierExtension","getcareaplans.carePlan.accountableHealthcareProfessional.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcareaplans","getcareaplans.carePlan.accountableHealthcareProfessional.authorTime","getcareaplans.carePlan.accountableHealthcareProfessional.authorTime","","","",1,1,"","","","dateTime {[]} {[]}
+","Tidpunkt då informationen registrerades","Format YYYYMMDDhhmmss. Tidpunkt i lokal svensk tid (CET/CEST).
+Regel 2: Används för kontroll av tidsbegränsade spärrar i sammanhållen journalföring.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.accountableHealthcareProfessional.authorTime",1,1,"",""
+"getcareaplans","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalHSAId","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalHSAId","","","",0,1,"","","","string {[]} {[]}
+","HSA-id för ansvarig personal","HSA-id för hälso- och sjukvårdspersonal som ansvarar för vårdplanen. Typ HSAIdType.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalHSAId",0,1,"",""
+"getcareaplans","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalName","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalName","","","",0,1,"","","","string {[]} {[]}
+","Namn på ansvarig personal","Namn på hälso- och sjukvårdspersonal.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalName",0,1,"",""
+"getcareaplans","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalRoleCode","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalRoleCode","","","",0,1,"","","","CodeableConcept {[]} {[]}
+","Befattning","Information om hälso- och sjukvårdspersonalens befattning. Om möjligt ska
+KV Befattning (OID 1.2.752.129.2.2.1.4) användas. Typ CVType.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalRoleCode",0,1,"",""
+"getcareaplans","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Organisationsenhet för ansvarig personal","Den organisation som hälso- och sjukvårdspersonalen är uppdragstagare på.
+Regel 4: orgUnitHSAId och orgUnitName ska anges för kompatibilitet med NPÖ.
+Typ OrgUnitType. Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getcareaplans","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.id","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getcareaplans","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.extension","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcareaplans","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.modifierExtension","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcareaplans","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId","","","",0,1,"","","","string {[]} {[]}
+","HSA-id för org.enhet","HSA-id för organisationsenhet. Regel 4.
+Kardinalitet: Valfri (se Regel 4 — ska anges vid NPÖ-kompatibilitet).","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",0,1,"",""
+"getcareaplans","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName","","","",0,1,"","","","string {[]} {[]}
+","Namn på org.enhet","Namn på den organisation. Regel 4.
+Kardinalitet: Valfri (se Regel 4).","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",0,1,"",""
+"getcareaplans","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom","","","",0,1,"","","","string {[]} {[]}
+","Telefon till org.enhet","Telefon till organisationsenhet.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",0,1,"",""
+"getcareaplans","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail","","","",0,1,"","","","string {[]} {[]}
+","E-post till org.enhet","Epost till enhet.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",0,1,"",""
+"getcareaplans","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress","","","",0,1,"","","","string {[]} {[]}
+","Postadress för org.enhet","Postadress.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",0,1,"",""
+"getcareaplans","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation","","","",0,1,"","","","string {[]} {[]}
+","Plats för org.enhet","Namn på plats eller ort.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",0,1,"",""
+"getcareaplans","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId","","","",0,1,"","","","string {[]} {[]}
+","HSA-id för vårdenhet","HSA-id för vårdenhet. Typ HSAIdType.
+Regel 1: Krävs för spärrhantering, åtkomstkontroll och loggning enligt PDL.
+Kardinalitet: Valfri (se Regel 1).","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",0,1,"",""
+"getcareaplans","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId","getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId","","","",0,1,"","","","string {[]} {[]}
+","HSA-id för vårdgivare","HSA-id för vårdgivaren. Typ HSAIdType.
+Regel 1: Krävs för spärrhantering, åtkomstkontroll och loggning enligt PDL.
+Kardinalitet: Valfri (se Regel 1).","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",0,1,"",""
+"getcareaplans","getcareaplans.carePlan.legalAuthenticator","getcareaplans.carePlan.legalAuthenticator","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Signeringsinformation","Information om vem som signerat informationen i dokumentet.
+Typ LegalAuthenticatorType. Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.legalAuthenticator",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getcareaplans","getcareaplans.carePlan.legalAuthenticator.id","getcareaplans.carePlan.legalAuthenticator.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getcareaplans","getcareaplans.carePlan.legalAuthenticator.extension","getcareaplans.carePlan.legalAuthenticator.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcareaplans","getcareaplans.carePlan.legalAuthenticator.modifierExtension","getcareaplans.carePlan.legalAuthenticator.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcareaplans","getcareaplans.carePlan.legalAuthenticator.signatureTime","getcareaplans.carePlan.legalAuthenticator.signatureTime","","","",1,1,"","","","dateTime {[]} {[]}
+","Tidpunkt för signering","Format YYYYMMDDhhmmss.
+Kardinalitet: Obligatorisk om legalAuthenticator anges.","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.legalAuthenticator.signatureTime",1,1,"",""
+"getcareaplans","getcareaplans.carePlan.legalAuthenticator.legalAuthenticatorHSAId","getcareaplans.carePlan.legalAuthenticator.legalAuthenticatorHSAId","","","",0,1,"","","","string {[]} {[]}
+","HSA-id för signerare","HSA-id för person som signerat dokumentet. Typ HSAIdType.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.legalAuthenticator.legalAuthenticatorHSAId",0,1,"",""
+"getcareaplans","getcareaplans.carePlan.legalAuthenticator.legalAuthenticatorName","getcareaplans.carePlan.legalAuthenticator.legalAuthenticatorName","","","",0,1,"","","","string {[]} {[]}
+","Namn på signerare","Namnen i klartext för signerande person.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.legalAuthenticator.legalAuthenticatorName",0,1,"",""
+"getcareaplans","getcareaplans.carePlan.approvedForPatient","getcareaplans.carePlan.approvedForPatient","","","",1,1,"","","","boolean {[]} {[]}
+","Informationen godkänd för patient","Anger om information får delas till patient (true = godkänd, false = ej godkänd).
+Regel 3: Konsumenter ska filtrera på denna flagga vid enskilds direktåtkomst.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.approvedForPatient",1,1,"",""
+"getcareaplans","getcareaplans.carePlan.careContactId","getcareaplans.carePlan.careContactId","","","",0,1,"","","","string {[]} {[]}
+","Refererad vårdkontakt-id","Identitet för den vårdkontakt som föranlett den information som omfattas av dokumentet.
+Identiteten är unik inom källsystemet. Matchar documentId i GetCareContacts.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.careContactId",0,1,"",""
+"getcareaplans","getcareaplans.carePlan.content","getcareaplans.carePlan.content","","","",0,*,"","","","BackboneElement {[]} {[]}
+","Innehåll i vård- och omsorgsplanen","Beskrivning av innehållet i vård- och omsorgsplanen, bör innehålla status och mål.
+Producenter måste följa riktlinjerna för binära bilagor (R10).
+Inbäddade bilagor får inte överstiga 100 KB.
+Typ MultimediaType. Kardinalitet: Valfri lista (0..*).","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.content",0,*,"","getcareplans-content-xor:Antingen value eller reference ska anges i content, inte båda {(value.exists() or reference.exists()) and (value.exists().not() or reference.exists().not())}
+ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}"
+"getcareaplans","getcareaplans.carePlan.content.id","getcareaplans.carePlan.content.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getcareaplans","getcareaplans.carePlan.content.extension","getcareaplans.carePlan.content.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcareaplans","getcareaplans.carePlan.content.modifierExtension","getcareaplans.carePlan.content.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcareaplans","getcareaplans.carePlan.content.mediaType","getcareaplans.carePlan.content.mediaType","","","",1,1,"","","","code {[]} {[]}
+","Mediatyp (MIME-typ)","Typ av multimedia enligt HL7. Tillåtna format i denna version:
+text/plain, text/html, image/jpeg, image/png, application/pdf.
+Typ MediaTypeEnum. Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.content.mediaType",1,1,"",""
+"getcareaplans","getcareaplans.carePlan.content.value","getcareaplans.carePlan.content.value","","","",0,1,"","","","base64Binary {[]} {[]}
+","Binärdata (base64)","Binärdata som representerar objektet. Antingen value eller reference ska anges, ej båda.
+Kardinalitet: Valfri (villkorligt — ett av value/reference obligatoriskt).","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.content.value",0,1,"",""
+"getcareaplans","getcareaplans.carePlan.content.reference","getcareaplans.carePlan.content.reference","","","",0,1,"","","","url {[]} {[]}
+","Referens till extern fil (URL)","Referens till extern binär fil i form av en URL.
+Antingen value eller reference ska anges, ej båda.
+Kardinalitet: Valfri (villkorligt — ett av value/reference obligatoriskt).","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.content.reference",0,1,"",""
+"getcareaplans","getcareaplans.carePlan.participatingCareUnitHSAId","getcareaplans.carePlan.participatingCareUnitHSAId","","","",0,*,"","","","Identifier {[]} {[]}
+","Deltagande vårdenheters HSA-id","En vård- och omsorgsplan har noll eller flera deltagande enheter.
+Typ IIType (root = OID, extension = värde). Kardinalitet: Valfri lista (0..*).","","","","","","","","","",,,,,"",,,,"getcareaplans.carePlan.participatingCareUnitHSAId",0,*,"",""
+"getcareaplans","getcareaplans.carePlan.typeOfCarePlan","getcareaplans.carePlan.typeOfCarePlan","","","",0,1,"","","","CodeableConcept {[]} {[]}
+","Typ av vård- och omsorgsplan","Typ av vård- och omsorgsplan. Typ TypeOfCarePlanEnum.
+Möjliga värden: SIP, SPLPTLRV, SPU, VP, HP, RP, GP, SVP.
+Kardinalitet: Valfri.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/ValueSet/typeofcareplan-vs","",,,,"getcareaplans.carePlan.typeOfCarePlan",0,1,"",""
+"getcareaplans","getcareaplans.result","getcareaplans.result","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Resultatkod för anropet","Innehåller information om begäran gick bra eller ej. Typ ResultType.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcareaplans.result",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getcareaplans","getcareaplans.result.id","getcareaplans.result.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getcareaplans","getcareaplans.result.extension","getcareaplans.result.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcareaplans","getcareaplans.result.modifierExtension","getcareaplans.result.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcareaplans","getcareaplans.result.resultCode","getcareaplans.result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","Resultatkod: OK, INFO eller ERROR","Kan endast vara OK, INFO eller ERROR. Typ ResultCodeEnum.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcareaplans.result.resultCode",1,1,"",""
+"getcareaplans","getcareaplans.result.errorCode","getcareaplans.result.errorCode","","","",0,1,"","","","code {[]} {[]}
+","Felkod vid ERROR","Sätts endast om resultCode är ERROR. Möjliga värden: INVALID_REQUEST.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcareaplans.result.errorCode",0,1,"",""
+"getcareaplans","getcareaplans.result.logId","getcareaplans.result.logId","","","",1,1,"","","","string {[]} {[]}
+","UUID för felsökning","En UUID som kan användas vid felanmälan för felsökning av producent.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcareaplans.result.logId",1,1,"",""
+"getcareaplans","getcareaplans.result.subCode","getcareaplans.result.subCode","","","",0,1,"","","","string {[]} {[]}
+","Subkod","Inga subkoder är specificerade i denna version.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcareaplans.result.subCode",0,1,"",""
+"getcareaplans","getcareaplans.result.message","getcareaplans.result.message","","","",0,1,"","","","string {[]} {[]}
+","Beskrivande meddelande","En beskrivande text som kan visas för användaren. På svenska.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcareaplans.result.message",0,1,"",""
+"getcarecontacts-request","getcarecontacts-request","getcarecontacts-request","","","",0,*,"","","","null {[]} {[]}
+","GetCareContacts — Request","Logisk modell för requestparametrar i tjänstekontraktet GetCareContacts
+(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCareContacts:3).
+Representerar GetCareContactsType i GetCareContactsResponder_3.0.xsd.","","","","","","","","","",,,,,"",,,,"Base",0,*,"","getcarecontacts-sourcesystemhsaid-required:sourceSystemHSAId ska anges när careContactId är angivet {careContactId.exists() implies sourceSystemHSAId.exists()}
+"
+"getcarecontacts-request","getcarecontacts-request.careUnitHSAId","getcarecontacts-request.careUnitHSAId","","","",0,*,"","","","string {[]} {[]}
+","Filtrering på PDL-enhet (vårdenhetens HSA-id)","Filtrering på PDL-enhet vilket motsvarar careUnitHSAId i healthcareProfessionalType.
+Typ HSAIdType (string).
+Kardinalitet: Valfri, lista (0..*).","","","","","","","","","",,,,,"",,,,"getcarecontacts-request.careUnitHSAId",0,*,"",""
+"getcarecontacts-request","getcarecontacts-request.careGiverHSAId","getcarecontacts-request.careGiverHSAId","","","",0,*,"","","","string {[]} {[]}
+","Filtrering på informationsägande vårdgivare","Filtrering på informationsägande vårdgivare, vilket motsvarar careGiverHSAId
+i healthcareProfessionalType. Typ HSAIdType (string).
+Kardinalitet: Valfri, lista (0..*).","","","","","","","","","",,,,,"",,,,"getcarecontacts-request.careGiverHSAId",0,*,"",""
+"getcarecontacts-request","getcarecontacts-request.patientId","getcarecontacts-request.patientId","","","",1,1,"","","","Identifier {[]} {[]}
+","Patientens identifierare","Id för patienten. Anges med 12 tecken utan avskiljare.
+system = OID för typ av identifierare:
+- Personnummer: 1.2.752.129.2.1.3.1
+- Samordningsnummer: 1.2.752.129.2.1.3.3
+- Reservnummer: lokalt definierade OID (t.ex. SLL: 1.2.752.97.3.1.3)
+Typ PersonIdType. Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcarecontacts-request.patientId",1,1,"",""
+"getcarecontacts-request","getcarecontacts-request.datePeriod","getcarecontacts-request.datePeriod","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Datumintervall för sökning","Begränsar sökningen till det angivna datumintervallet. Returnerar poster där
+datumintervallet (authorTime/careContactTimePeriod.start/end) helt eller delvis
+överlappar med sökintervallet. Typ DatePeriodType.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts-request.datePeriod",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getcarecontacts-request","getcarecontacts-request.datePeriod.id","getcarecontacts-request.datePeriod.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getcarecontacts-request","getcarecontacts-request.datePeriod.extension","getcarecontacts-request.datePeriod.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcarecontacts-request","getcarecontacts-request.datePeriod.modifierExtension","getcarecontacts-request.datePeriod.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcarecontacts-request","getcarecontacts-request.datePeriod.start","getcarecontacts-request.datePeriod.start","","","",1,1,"","","","date {[]} {[]}
+","Startdatum (YYYYMMDD)","Startdatum för sökintervallet. Format ÅÅÅÅMMDD.
+Kardinalitet: Obligatorisk om datePeriod anges.","","","","","","","","","",,,,,"",,,,"getcarecontacts-request.datePeriod.start",1,1,"",""
+"getcarecontacts-request","getcarecontacts-request.datePeriod.end","getcarecontacts-request.datePeriod.end","","","",1,1,"","","","date {[]} {[]}
+","Slutdatum (YYYYMMDD)","Slutdatum för sökintervallet. Format ÅÅÅÅMMDD.
+Kardinalitet: Obligatorisk om datePeriod anges.","","","","","","","","","",,,,,"",,,,"getcarecontacts-request.datePeriod.end",1,1,"",""
+"getcarecontacts-request","getcarecontacts-request.sourceSystemHSAId","getcarecontacts-request.sourceSystemHSAId","","","",0,1,"","","","string {[]} {[]}
+","Källsystemets HSA-id","Begränsar sökningen till aktivitet som är skapad i det angivna källsystemet.
+Värdet måste överensstämma med logicalAddress i anropets SOAP-header.
+Fältet är tvingande om careContactId angivits eller vid begäran på reservnummer.
+Typ HSAIdType (string). Kardinalitet: Valfri (villkorligt obligatorisk).","","","","","","","","","",,,,,"",,,,"getcarecontacts-request.sourceSystemHSAId",0,1,"",""
+"getcarecontacts-request","getcarecontacts-request.careContactId","getcarecontacts-request.careContactId","","","",0,*,"","","","string {[]} {[]}
+","Specifika vårdkontakt-id:n att söka på","Begränsar sökningen till den/de vårdkontakter vars id anges.
+Motsvarar documentId i careContactHeader i svaret.
+Kardinalitet: Valfri, lista (0..*).","","","","","","","","","",,,,,"",,,,"getcarecontacts-request.careContactId",0,*,"",""
+"getcarecontacts","getcarecontacts","getcarecontacts","","","",0,*,"","","","null {[]} {[]}
+","GetCareContacts","Logisk modell för tjänstekontraktet GetCareContacts
+(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCareContacts:3).
+Representerar responsens informationsstruktur (GetCareContactsResponseType).
+En lista med CareContactType returneras, var och en med ett header och ett body.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getcarecontacts","getcarecontacts.careContact","getcarecontacts.careContact","","","",0,*,"","","","BackboneElement {[]} {[]}
+","Vårdkontakter som matchar begäran","Lista med vårdkontakter för patienten. Varje post innehåller header (basinformation)
+och body (kontaktspecifik information).
+Kardinalitet: Valfri lista (0..*).","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getcarecontacts","getcarecontacts.careContact.id","getcarecontacts.careContact.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.extension","getcarecontacts.careContact.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcarecontacts","getcarecontacts.careContact.modifierExtension","getcarecontacts.careContact.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcarecontacts","getcarecontacts.careContact.documentId","getcarecontacts.careContact.documentId","","","",1,1,"","","","string {[]} {[]}
+","Vårdkontaktens identitet, unik inom källsystemet","Identifieraren ska vara konsistent och beständig mellan olika majorversioner av ett kontrakt
+och mellan olika kontrakt som refererar samma post.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.documentId",1,1,"",""
+"getcarecontacts","getcarecontacts.careContact.sourceSystemHSAId","getcarecontacts.careContact.sourceSystemHSAId","","","",1,1,"","","","string {[]} {[]}
+","HSA-id för källsystemet","HSA-id för det system som dokumentet är skapat i. Typ HSAIdType (string).
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.sourceSystemHSAId",1,1,"",""
+"getcarecontacts","getcarecontacts.careContact.patientId","getcarecontacts.careContact.patientId","","","",1,1,"","","","Identifier {[]} {[]}
+","Patientens identifierare","Personnummer eller samordningsnummer (12 tecken utan avskiljare).
+system = OID för typ: personnummer (1.2.752.129.2.1.3.1),
+samordningsnummer (1.2.752.129.2.1.3.3), reservnummer (lokalt definierade OID).
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.patientId",1,1,"",""
+"getcarecontacts","getcarecontacts.careContact.accountableHealthcareProfessional","getcarecontacts.careContact.accountableHealthcareProfessional","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Ansvarig hälso- och sjukvårdspersonal","Hälso- och sjukvårdspersonalen som ansvarar för vårdkontakten.
+Typ HealthcareProfessionalType.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.accountableHealthcareProfessional",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getcarecontacts","getcarecontacts.careContact.accountableHealthcareProfessional.id","getcarecontacts.careContact.accountableHealthcareProfessional.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.accountableHealthcareProfessional.extension","getcarecontacts.careContact.accountableHealthcareProfessional.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcarecontacts","getcarecontacts.careContact.accountableHealthcareProfessional.modifierExtension","getcarecontacts.careContact.accountableHealthcareProfessional.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcarecontacts","getcarecontacts.careContact.accountableHealthcareProfessional.authorTime","getcarecontacts.careContact.accountableHealthcareProfessional.authorTime","","","",1,1,"","","","dateTime {[]} {[]}
+","Tidpunkt då informationen registrerades","Format YYYYMMDDhhmmss. Tidpunkt i lokal svensk tid (CET/CEST).
+Regel 2: Används för kontroll av tidsbegränsade spärrar i sammanhållen journalföring.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.accountableHealthcareProfessional.authorTime",1,1,"",""
+"getcarecontacts","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalHSAId","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalHSAId","","","",0,1,"","","","string {[]} {[]}
+","HSA-id för ansvarig personal","HSA-id för hälso- och sjukvårdspersonal som ansvarar för vårdkontakten. Typ HSAIdType.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalHSAId",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalName","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalName","","","",0,1,"","","","string {[]} {[]}
+","Namn på ansvarig personal","Namn på hälso- och sjukvårdspersonal.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalName",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalRoleCode","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalRoleCode","","","",0,1,"","","","CodeableConcept {[]} {[]}
+","Befattning","Information om hälso- och sjukvårdspersonalens befattning. Om möjligt ska
+KV Befattning (OID 1.2.752.129.2.2.1.4) användas. Typ CVType.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalRoleCode",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Organisationsenhet för ansvarig personal","Den organisation som hälso- och sjukvårdspersonen är uppdragstagare på.
+Regel 4: orgUnitHSAId och orgUnitName ska anges för kompatibilitet med NPÖ.
+Typ OrgUnitType. Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getcarecontacts","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.id","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.extension","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcarecontacts","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.modifierExtension","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcarecontacts","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId","","","",0,1,"","","","string {[]} {[]}
+","HSA-id för org.enhet","HSA-id för organisationsenhet. Regel 4.
+Kardinalitet: Valfri (se Regel 4 — ska anges vid NPÖ-kompatibilitet).","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName","","","",0,1,"","","","string {[]} {[]}
+","Namn på org.enhet","Namn på den organisation som den ansvariga personalen är uppdragstagare på. Regel 4.
+Kardinalitet: Valfri (se Regel 4).","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom","","","",0,1,"","","","string {[]} {[]}
+","Telefon till org.enhet","Telefon till organisationsenheten.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail","","","",0,1,"","","","string {[]} {[]}
+","E-post till org.enhet","Epost till enhet.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress","","","",0,1,"","","","string {[]} {[]}
+","Postadress för org.enhet","Postadress för organisationsenheten.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation","","","",0,1,"","","","string {[]} {[]}
+","Plats för org.enhet","Namn på plats eller ort för organisationens fysiska placering.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId","","","",0,1,"","","","string {[]} {[]}
+","HSA-id för vårdenhet","HSA-id för vårdenhet. Typ HSAIdType.
+Regel 1: Krävs för spärrhantering, åtkomstkontroll och loggning enligt PDL.
+Kardinalitet: Valfri (se Regel 1).","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId","getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId","","","",0,1,"","","","string {[]} {[]}
+","HSA-id för vårdgivare","HSA-id för vårdgivaren. Typ HSAIdType.
+Regel 1: Krävs för spärrhantering, åtkomstkontroll och loggning enligt PDL.
+Kardinalitet: Valfri (se Regel 1).","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.approvedForPatient","getcarecontacts.careContact.approvedForPatient","","","",1,1,"","","","boolean {[]} {[]}
+","Informationen godkänd för patient","Anger om information får delas till patient (true = godkänd, false = ej godkänd).
+Regel 3: Konsumenter ska filtrera på denna flagga vid enskilds direktåtkomst.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.approvedForPatient",1,1,"",""
+"getcarecontacts","getcarecontacts.careContact.careContactCode","getcarecontacts.careContact.careContactCode","","","",0,1,"","","","CodeableConcept {[]} {[]}
+","Typ av vårdkontakt","Kod som anger på vilket sätt vårdkontakten är planerad att ske, alternativt skedde.
+KV Vårdkontakttyp (OID 1.2.752.129.2.2.2.x). Typ CVType.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactCode",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.careContactReason","getcarecontacts.careContact.careContactReason","","","",0,1,"","","","string {[]} {[]}
+","Orsak till vårdkontakt","Text som beskriver orsaken till vårdkontakt som patienten själv eller dess företrädare anger.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactReason",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.careContactOrgUnit","getcarecontacts.careContact.careContactOrgUnit","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Enhet för vårdkontakten","Den enhet som vårdkontakten utfördes vid eller planeras utföras vid.
+Regel 5: orgUnitHSAId och orgUnitName ska anges för kompatibilitet med NPÖ.
+Typ OrgUnitType. Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactOrgUnit",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getcarecontacts","getcarecontacts.careContact.careContactOrgUnit.id","getcarecontacts.careContact.careContactOrgUnit.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.careContactOrgUnit.extension","getcarecontacts.careContact.careContactOrgUnit.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcarecontacts","getcarecontacts.careContact.careContactOrgUnit.modifierExtension","getcarecontacts.careContact.careContactOrgUnit.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcarecontacts","getcarecontacts.careContact.careContactOrgUnit.orgUnitHSAId","getcarecontacts.careContact.careContactOrgUnit.orgUnitHSAId","","","",0,1,"","","","string {[]} {[]}
+","HSA-id för kontaktenhet","HSA-id för organisationsenheten för kontakten. Regel 5.
+Kardinalitet: Valfri (se Regel 5).","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactOrgUnit.orgUnitHSAId",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.careContactOrgUnit.orgUnitName","getcarecontacts.careContact.careContactOrgUnit.orgUnitName","","","",0,1,"","","","string {[]} {[]}
+","Namn på kontaktenhet","Namn på organisationsenheten. Regel 5.
+Kardinalitet: Valfri (se Regel 5).","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactOrgUnit.orgUnitName",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.careContactOrgUnit.orgUnitTelecom","getcarecontacts.careContact.careContactOrgUnit.orgUnitTelecom","","","",0,1,"","","","string {[]} {[]}
+","Telefon till kontaktenhet","Telefon till organisationsenheten.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactOrgUnit.orgUnitTelecom",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.careContactOrgUnit.orgUnitEmail","getcarecontacts.careContact.careContactOrgUnit.orgUnitEmail","","","",0,1,"","","","string {[]} {[]}
+","E-post till kontaktenhet","Epost till organisationsenheten.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactOrgUnit.orgUnitEmail",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.careContactOrgUnit.orgUnitAddress","getcarecontacts.careContact.careContactOrgUnit.orgUnitAddress","","","",0,1,"","","","string {[]} {[]}
+","Adress till kontaktenhet","Postadress till organisationsenheten.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactOrgUnit.orgUnitAddress",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.careContactOrgUnit.orgUnitLocation","getcarecontacts.careContact.careContactOrgUnit.orgUnitLocation","","","",0,1,"","","","string {[]} {[]}
+","Plats för kontaktenhet","Plats/ort för organisationsenheten.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactOrgUnit.orgUnitLocation",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.careContactTimePeriod","getcarecontacts.careContact.careContactTimePeriod","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Tidsintervall för vårdkontakten","Tidsintervall för vårdkontakt. Minst ett av fälten start och end måste anges.
+Vid besök i öppenvård sätts start och end till tidpunkt för besöket.
+Typ TimePeriodType. Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactTimePeriod",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getcarecontacts","getcarecontacts.careContact.careContactTimePeriod.id","getcarecontacts.careContact.careContactTimePeriod.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.careContactTimePeriod.extension","getcarecontacts.careContact.careContactTimePeriod.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcarecontacts","getcarecontacts.careContact.careContactTimePeriod.modifierExtension","getcarecontacts.careContact.careContactTimePeriod.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcarecontacts","getcarecontacts.careContact.careContactTimePeriod.start","getcarecontacts.careContact.careContactTimePeriod.start","","","",0,1,"","","","dateTime {[]} {[]}
+","Starttidpunkt för vårdkontakten","Vårdkontaktens starttidpunkt. Format YYYYMMDDhhmmss.
+Minst ett av fälten start och end måste anges.
+Kardinalitet: Valfri (minst ett av start/end obligatoriskt).","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactTimePeriod.start",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.careContactTimePeriod.end","getcarecontacts.careContact.careContactTimePeriod.end","","","",0,1,"","","","dateTime {[]} {[]}
+","Sluttidpunkt för vårdkontakten","Vårdkontaktens sluttidpunkt. Format YYYYMMDDhhmmss.
+Minst ett av fälten start och end måste anges.
+Kardinalitet: Valfri (minst ett av start/end obligatoriskt).","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactTimePeriod.end",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.careContactStatus","getcarecontacts.careContact.careContactStatus","","","",0,1,"","","","CodeableConcept {[]} {[]}
+","Status för vårdkontakten","Kod som anger aktuell status för vårdkontakten.
+Kodverket är definierat i SNOMED CT-SE, SCTID: 53761000052103.
+OID för SNOMED CT SE: 1.2.752.116.2.1.1.
+Typ CVType. Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.careContactStatus",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.additionalPatientInformation","getcarecontacts.careContact.additionalPatientInformation","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Ytterligare patientinformation","Ytterligare information om patienten som inte går att få tag på via en gemensam PU-slagning.
+Typ AdditionalPatientInformationType. Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.additionalPatientInformation",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getcarecontacts","getcarecontacts.careContact.additionalPatientInformation.id","getcarecontacts.careContact.additionalPatientInformation.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.additionalPatientInformation.extension","getcarecontacts.careContact.additionalPatientInformation.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcarecontacts","getcarecontacts.careContact.additionalPatientInformation.modifierExtension","getcarecontacts.careContact.additionalPatientInformation.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcarecontacts","getcarecontacts.careContact.additionalPatientInformation.dateOfBirth","getcarecontacts.careContact.additionalPatientInformation.dateOfBirth","","","",0,1,"","","","date {[]} {[]}
+","Patientens födelsedatum","Patientens födelsedatum. Partiellt datum (år, år+månad, eller fullständigt).
+Format: YYYY, YYYYMM eller YYYYMMDD.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.additionalPatientInformation.dateOfBirth",0,1,"",""
+"getcarecontacts","getcarecontacts.careContact.additionalPatientInformation.gender","getcarecontacts.careContact.additionalPatientInformation.gender","","","",0,1,"","","","CodeableConcept {[]} {[]}
+","Patientens kön","Patientens kön. KV Kön (OID 1.2.752.129.2.2.1.1) bör användas. Typ CVType.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.careContact.additionalPatientInformation.gender",0,1,"",""
+"getcarecontacts","getcarecontacts.result","getcarecontacts.result","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Resultatkod för anropet","Innehåller information om begäran gick bra eller ej. Typ ResultType.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcarecontacts.result",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getcarecontacts","getcarecontacts.result.id","getcarecontacts.result.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getcarecontacts","getcarecontacts.result.extension","getcarecontacts.result.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcarecontacts","getcarecontacts.result.modifierExtension","getcarecontacts.result.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getcarecontacts","getcarecontacts.result.resultCode","getcarecontacts.result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","Resultatkod: OK, INFO eller ERROR","Kan endast vara OK, INFO eller ERROR. Typ ResultCodeEnum.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcarecontacts.result.resultCode",1,1,"",""
+"getcarecontacts","getcarecontacts.result.errorCode","getcarecontacts.result.errorCode","","","",0,1,"","","","code {[]} {[]}
+","Felkod vid ERROR","Sätts endast om resultCode är ERROR. Möjliga värden: INVALID_REQUEST.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.result.errorCode",0,1,"",""
+"getcarecontacts","getcarecontacts.result.logId","getcarecontacts.result.logId","","","",1,1,"","","","string {[]} {[]}
+","UUID för felsökning","En UUID som kan användas vid felanmälan för felsökning av producent.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getcarecontacts.result.logId",1,1,"",""
+"getcarecontacts","getcarecontacts.result.subCode","getcarecontacts.result.subCode","","","",0,1,"","","","string {[]} {[]}
+","Subkod","Inga subkoder är specificerade i denna version.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.result.subCode",0,1,"",""
+"getcarecontacts","getcarecontacts.result.message","getcarecontacts.result.message","","","",0,1,"","","","string {[]} {[]}
+","Beskrivande meddelande","En beskrivande text som kan visas för användaren. På svenska.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getcarecontacts.result.message",0,1,"",""

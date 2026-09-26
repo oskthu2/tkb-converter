@@ -1,0 +1,427 @@
+# UppdateraDosmottagare — Request - se.apotekensservice: expo — Expeditionsställen och dosmottagare v2.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **UppdateraDosmottagare — Request**
+
+## Logical Model: UppdateraDosmottagare — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/se-apotekensservice-expo/StructureDefinition/uppdateradosmottagare-request | *Version*:2.0.0 |
+| Draft as of 2026-09-26 | *Computable Name*:UppdateraDosmottagareRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i UppdateraDosmottagare (urn:riv:se.apotekensservice:expo:UppdateraDosmottagareResponder:4, UppdateraDosmottagareRequestType), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.se-apotekensservice-expo|current/StructureDefinition/StructureDefinition-uppdateradosmottagare-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-uppdateradosmottagare-request.csv), [Excel](StructureDefinition-uppdateradosmottagare-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "uppdateradosmottagare-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/se-apotekensservice-expo/StructureDefinition/uppdateradosmottagare-request",
+  "version" : "2.0.0",
+  "name" : "UppdateraDosmottagareRequest",
+  "title" : "UppdateraDosmottagare — Request",
+  "status" : "draft",
+  "date" : "2026-09-26T19:42:44+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i UppdateraDosmottagare\n(urn:riv:se.apotekensservice:expo:UppdateraDosmottagareResponder:4, UppdateraDosmottagareRequestType), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/se-apotekensservice-expo/StructureDefinition/uppdateradosmottagare-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "uppdateradosmottagare-request",
+      "path" : "uppdateradosmottagare-request",
+      "short" : "UppdateraDosmottagare — Request",
+      "definition" : "Logisk modell för begäran i UppdateraDosmottagare\n(urn:riv:se.apotekensservice:expo:UppdateraDosmottagareResponder:4, UppdateraDosmottagareRequestType), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "uppdateradosmottagare-request.logicalAddress",
+      "path" : "uppdateradosmottagare-request.logicalAddress",
+      "short" : "logicalAddress",
+      "definition" : "SOAP-huvud LogicalAddress. Orgnr of Apotekens Service AB",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.argosHeader",
+      "path" : "uppdateradosmottagare-request.argosHeader",
+      "short" : "argosHeader",
+      "definition" : "SOAP-huvud ArgosHeader. Argos header of Apotekens Service AB. Check documentation regarding mandatory fields for this specific service interaction",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.argosHeader.forskrivarkod",
+      "path" : "uppdateradosmottagare-request.argosHeader.forskrivarkod",
+      "short" : "forskrivarkod",
+      "definition" : "forskrivarkod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.argosHeader.legitimationskod",
+      "path" : "uppdateradosmottagare-request.argosHeader.legitimationskod",
+      "short" : "legitimationskod",
+      "definition" : "legitimationskod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.argosHeader.fornamn",
+      "path" : "uppdateradosmottagare-request.argosHeader.fornamn",
+      "short" : "fornamn",
+      "definition" : "fornamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.argosHeader.efternamn",
+      "path" : "uppdateradosmottagare-request.argosHeader.efternamn",
+      "short" : "efternamn",
+      "definition" : "efternamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.argosHeader.yrkesgrupp",
+      "path" : "uppdateradosmottagare-request.argosHeader.yrkesgrupp",
+      "short" : "yrkesgrupp",
+      "definition" : "yrkesgrupp",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.argosHeader.befattningskod",
+      "path" : "uppdateradosmottagare-request.argosHeader.befattningskod",
+      "short" : "befattningskod",
+      "definition" : "befattningskod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.argosHeader.arbetsplatskod",
+      "path" : "uppdateradosmottagare-request.argosHeader.arbetsplatskod",
+      "short" : "arbetsplatskod",
+      "definition" : "arbetsplatskod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.argosHeader.arbetsplatsnamn",
+      "path" : "uppdateradosmottagare-request.argosHeader.arbetsplatsnamn",
+      "short" : "arbetsplatsnamn",
+      "definition" : "arbetsplatsnamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.argosHeader.postort",
+      "path" : "uppdateradosmottagare-request.argosHeader.postort",
+      "short" : "postort",
+      "definition" : "postort",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.argosHeader.postadress",
+      "path" : "uppdateradosmottagare-request.argosHeader.postadress",
+      "short" : "postadress",
+      "definition" : "postadress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.argosHeader.postnummer",
+      "path" : "uppdateradosmottagare-request.argosHeader.postnummer",
+      "short" : "postnummer",
+      "definition" : "postnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.argosHeader.telefonnummer",
+      "path" : "uppdateradosmottagare-request.argosHeader.telefonnummer",
+      "short" : "telefonnummer",
+      "definition" : "telefonnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.argosHeader.requestId",
+      "path" : "uppdateradosmottagare-request.argosHeader.requestId",
+      "short" : "requestId",
+      "definition" : "requestId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.argosHeader.rollnamn",
+      "path" : "uppdateradosmottagare-request.argosHeader.rollnamn",
+      "short" : "rollnamn",
+      "definition" : "rollnamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.argosHeader.hsaID",
+      "path" : "uppdateradosmottagare-request.argosHeader.hsaID",
+      "short" : "hsaID",
+      "definition" : "hsaID",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.argosHeader.katalog",
+      "path" : "uppdateradosmottagare-request.argosHeader.katalog",
+      "short" : "katalog",
+      "definition" : "katalog",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.argosHeader.organisationsnummer",
+      "path" : "uppdateradosmottagare-request.argosHeader.organisationsnummer",
+      "short" : "organisationsnummer",
+      "definition" : "organisationsnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.argosHeader.systemnamn",
+      "path" : "uppdateradosmottagare-request.argosHeader.systemnamn",
+      "short" : "systemnamn",
+      "definition" : "systemnamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.argosHeader.systemversion",
+      "path" : "uppdateradosmottagare-request.argosHeader.systemversion",
+      "short" : "systemversion",
+      "definition" : "systemversion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.argosHeader.systemIp",
+      "path" : "uppdateradosmottagare-request.argosHeader.systemIp",
+      "short" : "systemIp",
+      "definition" : "systemIp",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.adress",
+      "path" : "uppdateradosmottagare-request.adress",
+      "short" : "adress",
+      "definition" : "Adress till dosmottagare. Obligatorisk om typ = 'D'.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.apoteksIdDosproducent",
+      "path" : "uppdateradosmottagare-request.apoteksIdDosproducent",
+      "short" : "apoteksIdDosproducent",
+      "definition" : "Apoteks-id för dosproducent som dosmottagaren ska registreras på.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.arbetsplatskod",
+      "path" : "uppdateradosmottagare-request.arbetsplatskod",
+      "short" : "arbetsplatskod",
+      "definition" : "Arbetsplatskod till dosmottagare. Är aktuellt om dosmottagare t ex är en distriktsläkarmottagning.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.avdelning",
+      "path" : "uppdateradosmottagare-request.avdelning",
+      "short" : "avdelning",
+      "definition" : "Avdelning inom dosmottagare.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.dosmottagarId",
+      "path" : "uppdateradosmottagare-request.dosmottagarId",
+      "short" : "dosmottagarId",
+      "definition" : "Dosmottagarens identitet, dosproducentens identitet för dosmottagaren t ex kundnummer, GLN-kod. Unikt inom dosapoteket.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.kommunkod",
+      "path" : "uppdateradosmottagare-request.kommunkod",
+      "short" : "kommunkod",
+      "definition" : "Kommunkod till vilken dosmottagarens tillhör. Kod enligt SCB.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.lanskod",
+      "path" : "uppdateradosmottagare-request.lanskod",
+      "short" : "lanskod",
+      "definition" : "Länskod till vilken dosmottagaren tillhör. Kod enligt SCB.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.mottagarnamn",
+      "path" : "uppdateradosmottagare-request.mottagarnamn",
+      "short" : "mottagarnamn",
+      "definition" : "Namn på dosmottagare.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.postnummer",
+      "path" : "uppdateradosmottagare-request.postnummer",
+      "short" : "postnummer",
+      "definition" : "Postnummer till dosmottagare.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "uppdateradosmottagare-request.postort",
+      "path" : "uppdateradosmottagare-request.postort",
+      "short" : "postort",
+      "definition" : "Arbetsplatsort till dosmottagare. Obligatorisk om typ = 'D'.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

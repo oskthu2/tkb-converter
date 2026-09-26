@@ -1,0 +1,1208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>5 Tjänstedomänens meddelandemodeller - clinicalprocess: activity: request — Remisshantering v2.2.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"6"}
+    h3,h4,h5,h6{--heading-prefix:"6"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">clinicalprocess: activity: request — Remisshantering</span>
+            <br/>
+            <span style="display:inline-block;">2.2.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+  <li><a href="3-tjanstedomanens-arkitektur.html">3 Arkitektur</a></li>
+  <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Krav och regler</a></li>
+  <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Meddelandemodeller</a></li>
+  <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma komponenter</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>5 Tjänstedomänens meddelandemodeller</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">clinicalprocess: activity: request — Remisshantering - Local Development build (v2.2.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/clinicalprocess-activity-request/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>5 Tjänstedomänens meddelandemodeller</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstedomänens-meddelandemodeller" id="markdown-toc-tjänstedomänens-meddelandemodeller">Tjänstedomänens meddelandemodeller</a>    <ul>
+      <li><a href="#v-mim" id="markdown-toc-v-mim">V-MIM</a></li>
+      <li><a href="#formatregler--gemensamma-informationskomponenter" id="markdown-toc-formatregler--gemensamma-informationskomponenter">Formatregler – gemensamma informationskomponenter</a></li>
+      <li><a href="#verksamhetsregler" id="markdown-toc-verksamhetsregler">Verksamhetsregler</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstedomänens-meddelandemodeller">Tjänstedomänens meddelandemodeller</h2>
+<p>Här beskrivs de modeller som beskriver informationsinnehållet i tjänstekontrakten inom tjänstedomänen. Varje tjänstekontrakt har en egen meddelandemodell som uttömmande beskriver informationen som tjänstekontraktet bär. För varje meddelandemodell beskrivs hur mappning ser ut mot tjänstekontraktets schema (XSD).</p>
+
+<h3 id="v-mim">V-MIM</h3>
+
+<h4 id="processrequest">ProcessRequest</h4>
+
+<p><img src="img_006.jpeg" alt="img_006.jpeg" />
+<em>Figur 9 V-MIM ProcessRequest, klassdiagram enligt UML</em>
+Mappning mot tjänstekontraktets schema</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">VMIM</th>
+      <th style="text-align: left">XSD</th>
+      <th style="text-align: left">XSD Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Remiss</td>
+      <td style="text-align: left">request</td>
+      <td style="text-align: left">RequestType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">remiss-id</td>
+      <td style="text-align: left">requestId</td>
+      <td style="text-align: left">requestIdType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">remisstyp</td>
+      <td style="text-align: left">typeOfRequest</td>
+      <td style="text-align: left">codeForRequestType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">versionstidpunkt</td>
+      <td style="text-align: left">versionTimeStamp</td>
+      <td style="text-align: left">TimeStampType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">versionsnummer</td>
+      <td style="text-align: left">versionNumber</td>
+      <td style="text-align: left">VersionNumberType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">versionsorsak</td>
+      <td style="text-align: left">reasonForVersion</td>
+      <td style="text-align: left">ReasonForVersionType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">vårdansvar kvarstår</td>
+      <td style="text-align: left">careResponsibilityRemains</td>
+      <td style="text-align: left">Boolean</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">vårdprocess-id</td>
+      <td style="text-align: left">careProcessId</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patient</td>
+      <td style="text-align: left">patient</td>
+      <td style="text-align: left">PatientType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">person-id</td>
+      <td style="text-align: left">personId</td>
+      <td style="text-align: left">personIdType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">tillfällig adress</td>
+      <td style="text-align: left">address</td>
+      <td style="text-align: left">AddressType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telefonnummer</td>
+      <td style="text-align: left">telecom</td>
+      <td style="text-align: left">TelecomType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mobiltelefonnummer</td>
+      <td style="text-align: left">telecom</td>
+      <td style="text-align: left">TelecomType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">födelsetidpunkt</td>
+      <td style="text-align: left">dateOfBirth</td>
+      <td style="text-align: left">dateType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kön</td>
+      <td style="text-align: left">gender</td>
+      <td style="text-align: left">codeForGenderType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisatorisk enhet</td>
+      <td style="text-align: left">requestOrganisation</td>
+      <td style="text-align: left">FullOrganisationType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">enhet-id</td>
+      <td style="text-align: left">careUnitId</td>
+      <td style="text-align: left">HSAIdType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">enhet-namn</td>
+      <td style="text-align: left">careUnitName</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">enhet-telefon</td>
+      <td style="text-align: left">careUnitTelephone</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">enhet-epost</td>
+      <td style="text-align: left">careUnitEmail</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">enhet-adress</td>
+      <td style="text-align: left">careUnitAddress</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">enhet-plats</td>
+      <td style="text-align: left">careUnitLocation</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Remittent</td>
+      <td style="text-align: left">requestAuthor</td>
+      <td style="text-align: left">RequestAuthorType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">remissdatum</td>
+      <td style="text-align: left">date</td>
+      <td style="text-align: left">DateType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">typ av hälso- och sjukvårdspersonal</td>
+      <td style="text-align: left">typeOfHealthcareProfessional</td>
+      <td style="text-align: left">CVType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hälso och sjukvårdspersonal</td>
+      <td style="text-align: left">healthcareProfessional</td>
+      <td style="text-align: left">HealthcareProfessionalType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personal-id</td>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">HSAIdType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personalnamn</td>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Mottagare</td>
+      <td style="text-align: left">recipient</td>
+      <td style="text-align: left">RecipientType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Vidareskickare</td>
+      <td style="text-align: left">intermediaryParticipant</td>
+      <td style="text-align: left">IntermediaryType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">versionstidpunkt</td>
+      <td style="text-align: left">time</td>
+      <td style="text-align: left">TimpStampType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tilläggsinformation</td>
+      <td style="text-align: left">additionalInformation</td>
+      <td style="text-align: left">AdditionalInformationType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">önskemål om remissmottagare</td>
+      <td style="text-align: left">desiredRequestRecipient</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kompletterande administrativ information</td>
+      <td style="text-align: left">administrativeInformation</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kommentar tolkbehov</td>
+      <td style="text-align: left">interpreterRequirement</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Uppmärksamhetsinformation</td>
+      <td style="text-align: left">awarenessInformation</td>
+      <td style="text-align: left">AwarenessInformationType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">uppmärksamhetstext</td>
+      <td style="text-align: left">Text</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Frågeställning</td>
+      <td style="text-align: left">questionFormulation</td>
+      <td style="text-align: left">QuestionFormulationType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">frågeställning-text</td>
+      <td style="text-align: left">text</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Anamnes</td>
+      <td style="text-align: left">clinicalInformation</td>
+      <td style="text-align: left">ClinicalInformationType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">beskrivning</td>
+      <td style="text-align: left">text</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kliniskt tillstånd</td>
+      <td style="text-align: left">condition</td>
+      <td style="text-align: left">ConditionType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kliniskt tillstånd beskrivning</td>
+      <td style="text-align: left">text</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kliniskt tillståndskod</td>
+      <td style="text-align: left">code</td>
+      <td style="text-align: left">CVType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Åtgärd</td>
+      <td style="text-align: left">desiredActivity</td>
+      <td style="text-align: left">ActivityType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">åtgärd-id</td>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">ActivityIdType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">åtgärd beskrivning</td>
+      <td style="text-align: left">text</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">åtgärdtyp</td>
+      <td style="text-align: left">code</td>
+      <td style="text-align: left">ActivityCodeType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Betalningsförbindelse</td>
+      <td style="text-align: left">paymentCommitment</td>
+      <td style="text-align: left">PaymentCommitmentType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">betalningsförbindelse-id</td>
+      <td style="text-align: left">paymentCommitmentId</td>
+      <td style="text-align: left">PaymentCommitmentIdType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">förbindelsetyp avtal</td>
+      <td style="text-align: left">commitmentType</td>
+      <td style="text-align: left">CVType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">förbindelsetyp kapitel</td>
+      <td style="text-align: left">commitmentTypeChapter</td>
+      <td style="text-align: left">CVType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">giltighetstid</td>
+      <td style="text-align: left">validity</td>
+      <td style="text-align: left">TimeIntervalType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">klinisk ansvarsbeskrivning</td>
+      <td style="text-align: left">clinicalResponsibilityDescription</td>
+      <td style="text-align: left">ResponsibilityDescriptionType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">administrativ ansvarsbeskrivning</td>
+      <td style="text-align: left">administrativeResponsibilityDescription</td>
+      <td style="text-align: left">ResponsibilityDescriptionType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">gäller endast öppenvård</td>
+      <td style="text-align: left">validOnlyForOutpatientCare</td>
+      <td style="text-align: left">boolean</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">betalningsansvarig region</td>
+      <td style="text-align: left">liableCountyCouncil</td>
+      <td style="text-align: left">CVType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">datum för godkännande</td>
+      <td style="text-align: left">dateOfApproval</td>
+      <td style="text-align: left">TimeStampType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">utfärdad i samråd med</td>
+      <td style="text-align: left">issuedInConsultationWith</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kostnadsställe</td>
+      <td style="text-align: left">costcenter</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Ersättningsinformation</td>
+      <td style="text-align: left">reimbursementInformation</td>
+      <td style="text-align: left">ReimbursementInformationType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ersättningstyp</td>
+      <td style="text-align: left">reimbursementType</td>
+      <td style="text-align: left">codeForReimbursementType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ägare av åberopat kontrakt</td>
+      <td style="text-align: left">ownerOfInvokedContract</td>
+      <td style="text-align: left">codeForCountyCouncil</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Bilaga</td>
+      <td style="text-align: left">attachment</td>
+      <td style="text-align: left">MultimediaType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bilaga id</td>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">multimediaTyp</td>
+      <td style="text-align: left">mediaType</td>
+      <td style="text-align: left">CVType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">binärdata</td>
+      <td style="text-align: left">value</td>
+      <td style="text-align: left">Base64Binary</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">referens</td>
+      <td style="text-align: left">reference</td>
+      <td style="text-align: left">AnyURI</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">beskrivning</td>
+      <td style="text-align: left">description</td>
+      <td style="text-align: left">String</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Klass.attribut</th>
+      <th style="text-align: left">Mappning mot Nationell Informationsstruktur 2023:2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Åtgärd.åtgärdstyp</td>
+      <td style="text-align: left">Aktivitet.kod</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Åtgärd.Åtgärd beskrivning</td>
+      <td style="text-align: left">Aktivitet.beskrivning</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Remiss.versionstidpunkt</td>
+      <td style="text-align: left">Vårdbegäran.tidpunkt samt Remiss.tidpunkt</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patient.personId</td>
+      <td style="text-align: left">Patient.id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patient.namn</td>
+      <td style="text-align: left">Person.förnamn, Person.mellannamn, Person.Efternamn</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patient.födelsetidpunkt</td>
+      <td style="text-align: left">Person.födelsedatum</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patient.kön</td>
+      <td style="text-align: left">Person.kön</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patient.telefonnummer</td>
+      <td style="text-align: left">Person.elektroniskAdress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patient.mobilnummer</td>
+      <td style="text-align: left">Person.elektroniskAdress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patient.tillfällig adress</td>
+      <td style="text-align: left">Person.adress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisatorisk enhet.enhetId</td>
+      <td style="text-align: left">Organisation.id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisatorisk enhet.enhetNamn</td>
+      <td style="text-align: left">Organisation.namn</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisatorisk enhet.enhetTelefon</td>
+      <td style="text-align: left">Organisation.elektroniskAdress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisatorisk enhet.enhetEpost</td>
+      <td style="text-align: left">Organisation.elektroniskAdress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisatorisk enhet.enhetAdress</td>
+      <td style="text-align: left">Organisation.adress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal.personalId</td>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal.id</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="processrequestconfirmation">ProcessRequestConfirmation</h4>
+
+<p><img src="img_014.jpeg" alt="img_014.jpeg" />
+<em>Figur 10 V-MIM ProcessRequestConfirmation, klassdiagram enligt UML</em>
+Mappning mot tjänstekontraktets schema</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">VMIM</th>
+      <th style="text-align: left">XSD</th>
+      <th style="text-align: left">XSD Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Remissbekräftelse</td>
+      <td style="text-align: left">requestConfirmation</td>
+      <td style="text-align: left">RequestConfirmationType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">remiss-id</td>
+      <td style="text-align: left">requestId</td>
+      <td style="text-align: left">RequestIdType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">remissbekräftelse-id</td>
+      <td style="text-align: left">requestConfirmationId</td>
+      <td style="text-align: left">RequestIdType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">typ av remissbekräftelse</td>
+      <td style="text-align: left">typeOfRequestConfirmation</td>
+      <td style="text-align: left">codes:codeRequestConfirmationType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">remissversionsnummer</td>
+      <td style="text-align: left">requestVersionNumber</td>
+      <td style="text-align: left">VersionNumberType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">remissbekräftelsettidpunkt</td>
+      <td style="text-align: left">requestConfirmationtime</td>
+      <td style="text-align: left">TimeStampType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patient</td>
+      <td style="text-align: left">patient</td>
+      <td style="text-align: left">SimplePatientType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">person-id</td>
+      <td style="text-align: left">personId</td>
+      <td style="text-align: left">PersonIdType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisatorisk enhet</td>
+      <td style="text-align: left">confirmingOrganisation</td>
+      <td style="text-align: left">FullOrganisationType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">enhet-id</td>
+      <td style="text-align: left">careUnitId</td>
+      <td style="text-align: left">HSAIdType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">enhet-namn</td>
+      <td style="text-align: left">careUnitName</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">enhet-telefon</td>
+      <td style="text-align: left">careUnitTelephone</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">enhet-epost</td>
+      <td style="text-align: left">careUnitEmail</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">enhet-adress</td>
+      <td style="text-align: left">careUnitAddress</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">enhet-plats</td>
+      <td style="text-align: left">careUnitLocation</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Remissbesvarare</td>
+      <td style="text-align: left">author</td>
+      <td style="text-align: left">AuthorType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">typ av hälso- och sjukvårdspersonal</td>
+      <td style="text-align: left">typeOfHealthcareProfessional</td>
+      <td style="text-align: left">CVType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Mottagare</td>
+      <td style="text-align: left">recipient</td>
+      <td style="text-align: left">RecipientType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal</td>
+      <td style="text-align: left">healthcareProfessional</td>
+      <td style="text-align: left">HealthCareProfessionalType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personal-id</td>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">HsaIdType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personalnamn</td>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Bekräftelsemeddelande</td>
+      <td style="text-align: left">outcome</td>
+      <td style="text-align: left">RequestReceivedConfirmationOutcomeType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">svarstext</td>
+      <td style="text-align: left">outcometext</td>
+      <td style="text-align: left">String</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Klass.attribut</th>
+      <th style="text-align: left">Mappning mot Nationell Informationsstruktur 2023:2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Patient.personId</td>
+      <td style="text-align: left">Patient.id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patient.namn</td>
+      <td style="text-align: left">Person.förnamn, Person.mellannamn, Person.Efternamn</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisatorisk enhet.enhetId</td>
+      <td style="text-align: left">Organisation.id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisatorisk enhet.enhetNamn</td>
+      <td style="text-align: left">Organisation.namn</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisatorisk enhet.enhetTelefon</td>
+      <td style="text-align: left">Organisation.elektroniskAdress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisatorisk enhet.enhetEpost</td>
+      <td style="text-align: left">Organisation.elektroniskAdress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisatorisk enhet.enhetAdress</td>
+      <td style="text-align: left">Organisation.adress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal.personalId</td>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal.id</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="processrequestoutcome">ProcessRequestOutcome</h4>
+
+<p><img src="img_011.jpeg" alt="img_011.jpeg" />
+<em>Figur 11 V-MIM ProcessRequestOutcome, klassdiagram enligt UML</em>
+Mappning mot tjänstekontraktets schema</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">VMIM</th>
+      <th style="text-align: left">XSD</th>
+      <th style="text-align: left">XSD Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">requestOutcome</td>
+      <td style="text-align: left">RequestOutcomeType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">remiss-id</td>
+      <td style="text-align: left">requestId</td>
+      <td style="text-align: left">RequestIdType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">svars-id</td>
+      <td style="text-align: left">requestOutcomeId</td>
+      <td style="text-align: left">RequestIdType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">svarstyp</td>
+      <td style="text-align: left">typeOfRequestOutcome</td>
+      <td style="text-align: left">codes:codeRequestOutcomeType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">remissversionsnummer</td>
+      <td style="text-align: left">requestVersionNumber</td>
+      <td style="text-align: left">VersionNumberType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">svarstidpunkt</td>
+      <td style="text-align: left">requestOutcomeTime</td>
+      <td style="text-align: left">TimeStampType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patient</td>
+      <td style="text-align: left">patient</td>
+      <td style="text-align: left">SimplePatientType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">person-id</td>
+      <td style="text-align: left">personId</td>
+      <td style="text-align: left">personIdType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisatorisk enhet</td>
+      <td style="text-align: left">respondingOrganisation</td>
+      <td style="text-align: left">FullOrganisationType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">enhet-id</td>
+      <td style="text-align: left">careUnitId</td>
+      <td style="text-align: left">HSAIdType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">enhet-namn</td>
+      <td style="text-align: left">careUnitName</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">enhet-telefon</td>
+      <td style="text-align: left">careUnitTelephone</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">enhet-epost</td>
+      <td style="text-align: left">careUnitEmail</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">enhet-adress</td>
+      <td style="text-align: left">careUnitAddress</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">enhet-plats</td>
+      <td style="text-align: left">careUnitLocation</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Remissbesvarare</td>
+      <td style="text-align: left">author</td>
+      <td style="text-align: left">AuthorType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">typ av hälso- och sjukvårdspersonal</td>
+      <td style="text-align: left">typeOfHealthcareProfessional</td>
+      <td style="text-align: left">CVType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal</td>
+      <td style="text-align: left">HealthCareProfessional</td>
+      <td style="text-align: left">HealthCareProfessionalType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personal-id</td>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">HSAIdType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personalnamn</td>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Mottagare</td>
+      <td style="text-align: left">recipient</td>
+      <td style="text-align: left">RecipientType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kliniskt innehåll</td>
+      <td style="text-align: left">outcome</td>
+      <td style="text-align: left">OutcomeType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">klinisk svarstext</td>
+      <td style="text-align: left">outcomeText</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kliniskt tillstånd</td>
+      <td style="text-align: left">condition</td>
+      <td style="text-align: left">ConditionType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kliniskt tillståndsbeskrivning</td>
+      <td style="text-align: left">text</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kliniskt tillståndskod</td>
+      <td style="text-align: left">code</td>
+      <td style="text-align: left">CVType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Åtgärd</td>
+      <td style="text-align: left">accomplishedActivity</td>
+      <td style="text-align: left">ActivityType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">åtgärd-id</td>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">ActivityIdType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">åtgärd beskrivning</td>
+      <td style="text-align: left">text</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">åtgärdtyp</td>
+      <td style="text-align: left">code</td>
+      <td style="text-align: left">ActivityCodeType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Bilaga</td>
+      <td style="text-align: left">attachment</td>
+      <td style="text-align: left">MultimediaType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bilaga id</td>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">String</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">multimediaTyp</td>
+      <td style="text-align: left">mediaType</td>
+      <td style="text-align: left">CVType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">binärdata</td>
+      <td style="text-align: left">value</td>
+      <td style="text-align: left">Base64Binary</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">referens</td>
+      <td style="text-align: left">reference</td>
+      <td style="text-align: left">AnyURI</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">beskrivning</td>
+      <td style="text-align: left">description</td>
+      <td style="text-align: left">String</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Klass.attribut</th>
+      <th style="text-align: left">Mappning mot Nationell Informationsstruktur 2023:2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Åtgärd.åtgärdstyp</td>
+      <td style="text-align: left">Aktivitet.kod</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Åtgärd.Åtgärd beskrivning</td>
+      <td style="text-align: left">Aktivitet.beskrivning</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patient.personId</td>
+      <td style="text-align: left">Patient.id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patient.namn</td>
+      <td style="text-align: left">Person.förnamn, Person.mellannamn, Person.Efternamn</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisatorisk enhet.enhetId</td>
+      <td style="text-align: left">Organisation.id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisatorisk enhet.enhetNamn</td>
+      <td style="text-align: left">Organisation.namn</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisatorisk enhet.enhetTelefon</td>
+      <td style="text-align: left">Organisation.elektroniskAdress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisatorisk enhet.enhetEpost</td>
+      <td style="text-align: left">Organisation.elektroniskAdress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisatorisk enhet.enhetAdress</td>
+      <td style="text-align: left">Organisation.adress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal.personalId</td>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal.id</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="formatregler--gemensamma-informationskomponenter">Formatregler – gemensamma informationskomponenter</h3>
+<p>Gemensamma informationskomponenter är typer gemensamma för användning i tjänstekontrakt i flera domäner. Nedan listas de gemensamma typer som används i denna domäns tjänstekontrakt.
+Användning av datatyperna sker i enlighet med hur de är definierade, dvs. regler som anges för respektive datatyp och kardinalitet för de olika attributen ska följas. I de fall det finns restriktioner på en eller flera datatyper anges det i fältregeltabellerna.</p>
+
+<h4 id="cvtype">CVType</h4>
+<p>En CVType är en referens till ett begrepp som definieras i ett externt kodverk (kodsystem, terminologi eller ontologi). Se vanligt förekommande kodverk. En CVType kan innehålla en enkel kod, det vill säga en hänvisning till ett begrepp som definieras direkt av det refererade kodverket, eller den kan innehålla ett uttryck i någon syntax definierad av det refererade kodverket som kan utvärderas, exempelvis begreppet "vänster fot" som är ett postkoordinerat uttryck byggt från den primära koden "FOT" och bestämningen "VÄNSTER".</p>
+
+<p>| Namn | Datatyp | Beskrivning | Kardinalitet |
+| :— | :— | :— | :— |
+| code | string | Kod eller uttryck definierad enligt kodverket. | 1..1 |
+| codeSystem | string | Kodverket som definierar koden. | 1..1 |
+| codeSystemName | string | Kodverkets namn i klartext. | 0..1 |
+| codeSystemVersion | string | Versionsangivelse som har definierats specifikt för det givna kodverket. | 0..1 |
+| displayName | string | Den läsbara representationen (klartext) av koden eller uttrycket som definierat av kodverket. | 1..1 |
+| originalText | string | Texten så som sedd och/eller vald av användaren som har matat in den, och som representerar användarens avsedda betydelse. | 0..1 |
+Regler
+code
+code ska vara en exakt match till en kod eller ett uttryck definierat av kodverket, som refereras till i codeSystem. Om kodverket definierar en kod eller ett uttryck som inkluderar mellanslag, ska koden inkludera mellanslaget. Ett uttryck kan endast användas där kodverket antingen definierar en uttryckssyntax, eller där det finns en allmänt accepterad syntax för kodverket.
+Det åligger det mottagande systemet att bedöma om man kontrollerar huruvida det är ett uttryck som har skickats istället för en enkel kod, och utvärdera uttrycket istället för att behandla uttrycket som en kod. I vissa fall kan det vara oklart eller tvetydigt om koden representerar en enda symbol eller ett uttryck. Detta uppstår vanligtvis där kodverket definierar ett uttrycksspråk och sedan definierar prekoordinerade begrepp med symboler som matchar deras uttryck, t.ex. UCUM. I andra fall är det säkert att behandla uttrycket som en symbol. Det finns ingen garanti för att detta alltid är säkert: definitionerna i kodverket bör alltid konsulteras för att avgöra hur man ska hantera potentiella uttryck.
+codeSystem
+Kodverk ska refereras till genom en globalt unik identifierare, som möjliggör entydig hänvisning till standardkodverk eller andra lokala kodverk. Identifieraren ska vara en Universally Unique Identifier (UUID), Object Identifier (OID), eller Uniform Resource Identifier (URI). En CVType som har ett kodattribut ska ha ett kodverk som specificerar begreppsystemet som definierar koden.
+codeSystemName
+Syftet med ett kodverksnamn är att hjälpa en mänsklig tolkare av en kod att tolka codeSystem. Tjänstekonsumenter och tjänsteproducenter som använder codeSystemName ska INTE funktionellt förlita sig på kodverkets namn. Dessutom KAN de välja att inte implementera kodverkets namn men ska INTE avvisa instanser då namnet finns.
+codeSystemVersion
+Olika versioner av ett kodverk måste vara kompatibla. Per definition ska en kod ha samma betydelse i alla versioner av ett kodverk. Mellan versioner kan koder inaktiveras men inte tas bort eller återanvändas. Om klartexten av en kod ändras måste den fortfarande vara kompatibel (lika) mellan olika kodverksversioner.
+displayName
+För displayName ska klartexten vara den läsbara representationen av koden eller uttrycket som definierat av kodverket vid tiden av datainmatningen. Om kodverket inte definierar en klartext för koden eller uttrycket, ska samma värde som i code anges.
+Huvudsyfte med klartexten är att stödja implementationsfelsökning, men kan även användas till andra tillämpningsspecifika ändamål som till exempel visning för användaren i gränssnittet. En CVType som har ett kodattribut ska ha en klartext som specificerar koden.
+originalText
+Det finns två godkända tillämpningar av elementet originalText:
+OriginalText kan användas för att beskriva det en användare angav och som representeras av koden. I en situation där användaren dikterar eller skriver text är originalText den text som matats in eller yttrats av användaren.
+OriginalText kan användas i de fall producenten avser ange ett värde som saknar kod. I dessa fall motsvarar originalText benämningen för värdet som saknar kod. Behov att tillföra nya koder till kodverket förmedlas till den som ansvarar för kodverkets innehåll.
+OriginalText ska vara den exakta text så som den presenteras i originalkällan utan att på något sätt bearbetas eller omvandlas. Således ska originalText representeras i vanlig textform.</p>
+
+<h4 id="datetype">DateType</h4>
+<p>Datum anges som en sträng med formatet ”ÅÅÅÅMMDD”. Detta motsvarar den ISO 8601 och ISO 8824-kompatibla formatbeskrivningen ”YYYYMMDD”. Tidszon anges inte. Datum ska anges i tidszonerna CET (svensk normaltid) respektive CEST (svensk normaltid med justering för sommartid).</p>
+
+<h4 id="hsaidtype">HSAIdType</h4>
+<p>HSA-id anges som en sträng enligt definition från Inera AB.</p>
+
+<h4 id="multimediatype">MultimediaType</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Identitet på bilagan. Används för inbäddade bilagor vid referenser inom en tjänsteinteraktion. Obligatoriskt för inbäddade bilagor</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mediaType</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Typ av multimedia.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">value</td>
+      <td style="text-align: left">base64Binary</td>
+      <td style="text-align: left">Value är binärdata som representerar objektet. Ett och endast ett av value och reference ska anges. Obligatoriskt när referens inte används.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">reference</td>
+      <td style="text-align: left">anyURI</td>
+      <td style="text-align: left">Referens till extern bild i form av en URL. Ett och endast ett av value och reference ska anges. Används inte i denna version av tjänstedomänen.</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">description</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Beskrivning av bilaga, t ex av innehåll i bilaga.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="timestamptype">TimeStampType</h4>
+<p>Tidpunkt anges som en sträng med formatet ”ÅÅÅÅMMDDttmmss”. Detta motsvarar den ISO 8601 och ISO 8824-kompatibla formatbeskrivningen ”YYYYMMDDhhmmss”. Tidszon anges inte. Tidpunkt ska anges i tidszonerna CET (svensk normaltid) respektive CEST (svensk normaltid med justering för sommartid).</p>
+
+<h3 id="verksamhetsregler">Verksamhetsregler</h3>
+
+<h4 id="regel-1-remisskomplettering-versionsnumrering">Regel 1 Remisskomplettering versionsnumrering</h4>
+<p>Ett ProcessRequestConfirmation med typeOfRequestConfirmation satt till KOM (Komplettering begärd) från system 2 till system 1 skall följas upp med ett ProcessRequest med samma requestId men med ett nytt versionNumber samt med reasonForVersion satt till AR (Ändrad remiss) från system 1 till system 2.</p>
+
+<h4 id="regel-2-remisskomplettering-utan-kompletteringsbegäran">Regel 2 Remisskomplettering utan kompletteringsbegäran</h4>
+<p>En remisskomplettering som inte är begärd av remissmottagare får bara skickas så länge remissen inte är bedömd av remissmottagaren.</p>
+
+<h4 id="regel-3-ändrat-betalningsansvar">Regel 3 Ändrat betalningsansvar</h4>
+<p>Vid ett ProcessRequest med reasonForVersion satt till AB (Ändrat betalningsansvar) räknas versionNumber (versionsnummer på remissen) upp med ett. Ett ändrat betalningsansvar kan skickas även när remissen är bekräftad av mottagaren.</p>
+
+<h4 id="regel-4-funktionen-vidareskickning-frivillig">Regel 4 Funktionen vidareskickning frivillig</h4>
+<p>Funktionen att kunna vidareskicka en remiss är frivillig. Systemet bör kunna ta emot en vidareskickad remiss (reasonForVersion satt till VR), eller besked om att en remiss har blivit vidareskickad (typeOfRequestConfirmation satt till VID). Om systemet inte kan ta emot en vidareskickad remiss eller besked om vidareskickning ska ett felmeddelande skickas tillbaka till sändaren. Se tabell felkoder i kapitel 4.3.1.1 Logiska fel.</p>
+
+<h4 id="regel-5-besked-om-vidareskickning">Regel 5 Besked om vidareskickning</h4>
+<p>Ett ProcessRequest med reasonForVersion satt till VR (Vidareskickad remiss) från ursprunglig remissmottagare till ny remissmottagare skall följas upp med ett ProcessRequestConfirmation med typeOfRequestConfirmation satt till VID (Besked om vidareskickning) från ursprunglig remissmottagare till remittent.</p>
+
+<h4 id="regel-6-vidareskickning-och-samtycke">Regel 6 Vidareskickning och samtycke</h4>
+<p>Vid vidareskickning av remiss till en annan vårdgivare behövs patientens samtycke.</p>
+
+<h4 id="regel-7-ändrad-remissremissvar-med-inbäddad-bilaga">Regel 7 Ändrad remiss/remissvar med inbäddad bilaga</h4>
+<p>När text i en remiss eller ett remissvar som innehåller inbäddad bilaga ändras och skickas igen gäller följande:
+Vid ändrad remiss: Bilaga skickas med igen om den fortfarande är aktuell.
+Vid nytt svar (delsvar, preliminärsvar, slutsvar): Bilaga skickas med igen om den fortfarande är aktuell. Nytt delsvar, preliminärsvar och slutsvar ersätter tidigare svar.</p>
+
+<h4 id="regel-8-bilageformat-kan-inte-hanteras">Regel 8 Bilageformat kan inte hanteras</h4>
+<p>Om remiss eller remissvar med bilaga inte kan tas emot på grund av bilagans filformat, skickas ett felmeddelande tillbaka till sändare att remiss eller remissvar behöver skickas om och bilagorna hanteras manuellt.</p>
+
+<h4 id="regel-9-avbruten-eller-avvisad-remiss">Regel 9 Avbruten eller avvisad remiss</h4>
+<p>Det ska inte gå att skicka ett svar för en avbruten eller avvisad remiss. Det ska heller inte gå att skicka en ändrad/kompletterad remiss för en remiss som avvisats eller avbrutits.</p>
+
+<h4 id="regel-10-slutbesvarad-remiss">Regel 10 Slutbesvarad remiss</h4>
+<p>Det ska inte gå att skicka ett delsvar eller preliminärt svar på en remiss som slutbesvarats, däremot ska det gå att skicka ytterligare slutsvar.</p>
+
+<h4 id="regel-11-hantering-format-för-personidentifierare">Regel 11 Hantering format för personidentifierare</h4>
+<p>Om en mottagare inte kan hantera det reservnummerformat som patient har som personidentifierare i en remiss, skickas ett felmeddelande tillbaka till sändaren att remiss inte kan tas emot. Mottagare ska däremot kunna hantera personnummer och samordningsnummer.</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.clinicalprocess-activity-request#2.2.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Sat, Sep 26, 2026 19:14+0000">2026-09-26</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

@@ -1,0 +1,344 @@
+# HamtaOrginalforpackning — Request - druglogistics: dosedispensing — Dosdispensering v1.1.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **HamtaOrginalforpackning — Request**
+
+## Logical Model: HamtaOrginalforpackning — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/druglogistics-dosedispensing/StructureDefinition/hamtaorginalforpackning-request | *Version*:1.1.0 |
+| Draft as of 2026-09-26 | *Computable Name*:HamtaOrginalforpackningRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i HamtaOrginalforpackning (urn:riv:druglogistics:dosedispensing:HamtaOrginalforpackningResponder:1, HamtaOrginalforpackningType), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.druglogistics-dosedispensing|current/StructureDefinition/StructureDefinition-hamtaorginalforpackning-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-hamtaorginalforpackning-request.csv), [Excel](StructureDefinition-hamtaorginalforpackning-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "hamtaorginalforpackning-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/StructureDefinition/hamtaorginalforpackning-request",
+  "version" : "1.1.0",
+  "name" : "HamtaOrginalforpackningRequest",
+  "title" : "HamtaOrginalforpackning — Request",
+  "status" : "draft",
+  "date" : "2026-09-26T19:21:50+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i HamtaOrginalforpackning\n(urn:riv:druglogistics:dosedispensing:HamtaOrginalforpackningResponder:1, HamtaOrginalforpackningType), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/StructureDefinition/hamtaorginalforpackning-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "hamtaorginalforpackning-request",
+      "path" : "hamtaorginalforpackning-request",
+      "short" : "HamtaOrginalforpackning — Request",
+      "definition" : "Logisk modell för begäran i HamtaOrginalforpackning\n(urn:riv:druglogistics:dosedispensing:HamtaOrginalforpackningResponder:1, HamtaOrginalforpackningType), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.logicalAddress",
+      "path" : "hamtaorginalforpackning-request.logicalAddress",
+      "short" : "logicalAddress",
+      "definition" : "SOAP-huvud LogicalAddress. Typen har inga element utöver utökningspunkter.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.glnkod",
+      "path" : "hamtaorginalforpackning-request.glnkod",
+      "short" : "glnkod",
+      "definition" : "glnkod",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.Behorighetsinformation",
+      "path" : "hamtaorginalforpackning-request.Behorighetsinformation",
+      "short" : "Behorighetsinformation",
+      "definition" : "Behorighetsinformation",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.Behorighetsinformation.fornamn",
+      "path" : "hamtaorginalforpackning-request.Behorighetsinformation.fornamn",
+      "short" : "fornamn",
+      "definition" : "fornamn",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.Behorighetsinformation.efternamn",
+      "path" : "hamtaorginalforpackning-request.Behorighetsinformation.efternamn",
+      "short" : "efternamn",
+      "definition" : "efternamn",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.Behorighetsinformation.forskrivarkod",
+      "path" : "hamtaorginalforpackning-request.Behorighetsinformation.forskrivarkod",
+      "short" : "forskrivarkod",
+      "definition" : "forskrivarkod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.Behorighetsinformation.yrkeskod",
+      "path" : "hamtaorginalforpackning-request.Behorighetsinformation.yrkeskod",
+      "short" : "yrkeskod",
+      "definition" : "yrkeskod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/ValueSet/dosedispensing-yrkeskod-vs"
+      }
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.Behorighetsinformation.arbetsplatskod",
+      "path" : "hamtaorginalforpackning-request.Behorighetsinformation.arbetsplatskod",
+      "short" : "arbetsplatskod",
+      "definition" : "arbetsplatskod",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.Behorighetsinformation.hsaid",
+      "path" : "hamtaorginalforpackning-request.Behorighetsinformation.hsaid",
+      "short" : "hsaid",
+      "definition" : "hsaid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.Behorighetsinformation.personnummer",
+      "path" : "hamtaorginalforpackning-request.Behorighetsinformation.personnummer",
+      "short" : "personnummer",
+      "definition" : "personnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.Behorighetsinformation.organisationsnummer",
+      "path" : "hamtaorginalforpackning-request.Behorighetsinformation.organisationsnummer",
+      "short" : "organisationsnummer",
+      "definition" : "organisationsnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.Bestallningsutval",
+      "path" : "hamtaorginalforpackning-request.Bestallningsutval",
+      "short" : "Bestallningsutval",
+      "definition" : "Bestallningsutval",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.Bestallningsutval.bestallningsurval",
+      "path" : "hamtaorginalforpackning-request.Bestallningsutval.bestallningsurval",
+      "short" : "bestallningsurval",
+      "definition" : "bestallningsurval",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/ValueSet/dosedispensing-bestallningsurval-vs"
+      }
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.Bestallningsutval.bestallningsid",
+      "path" : "hamtaorginalforpackning-request.Bestallningsutval.bestallningsid",
+      "short" : "bestallningsid",
+      "definition" : "bestallningsid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.Bestallningsutval.patientid",
+      "path" : "hamtaorginalforpackning-request.Bestallningsutval.patientid",
+      "short" : "patientid",
+      "definition" : "patientid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.Bestallningsutval.patientidtyp",
+      "path" : "hamtaorginalforpackning-request.Bestallningsutval.patientidtyp",
+      "short" : "patientidtyp",
+      "definition" : "patientidtyp",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/ValueSet/dosedispensing-identitetstyp-vs"
+      }
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.Bestallningsutval.patientfornamn",
+      "path" : "hamtaorginalforpackning-request.Bestallningsutval.patientfornamn",
+      "short" : "patientfornamn",
+      "definition" : "patientfornamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.Bestallningsutval.patientefternamn",
+      "path" : "hamtaorginalforpackning-request.Bestallningsutval.patientefternamn",
+      "short" : "patientefternamn",
+      "definition" : "patientefternamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.Bestallningsutval.vardgivarid",
+      "path" : "hamtaorginalforpackning-request.Bestallningsutval.vardgivarid",
+      "short" : "vardgivarid",
+      "definition" : "vardgivarid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.Bestallningsutval.dosmottagareid",
+      "path" : "hamtaorginalforpackning-request.Bestallningsutval.dosmottagareid",
+      "short" : "dosmottagareid",
+      "definition" : "dosmottagareid",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.Bestallningsutval.bestallningsstatus",
+      "path" : "hamtaorginalforpackning-request.Bestallningsutval.bestallningsstatus",
+      "short" : "bestallningsstatus",
+      "definition" : "bestallningsstatus",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/ValueSet/dosedispensing-bestallningsstatus-vs"
+      }
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.Bestallningsutval.frandatum",
+      "path" : "hamtaorginalforpackning-request.Bestallningsutval.frandatum",
+      "short" : "frandatum",
+      "definition" : "frandatum",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "hamtaorginalforpackning-request.Bestallningsutval.tilldatum",
+      "path" : "hamtaorginalforpackning-request.Bestallningsutval.tilldatum",
+      "short" : "tilldatum",
+      "definition" : "tilldatum",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    }]
+  }
+}
+
+```

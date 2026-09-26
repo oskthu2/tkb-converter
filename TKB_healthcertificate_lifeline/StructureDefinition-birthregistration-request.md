@@ -1,0 +1,659 @@
+# BirthRegistration — Request - healthcertificate: lifeline v1.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **BirthRegistration — Request**
+
+## Logical Model: BirthRegistration — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/healthcertificate-lifeline/StructureDefinition/birthregistration-request | *Version*:1.0.0 |
+| Draft as of 2026-09-26 | *Computable Name*:BirthRegistrationRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i BirthRegistration (urn:riv:healthcertificate:lifeline:BirthRegistrationResponder:1, BirthRegistrationTYPE), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.healthcertificate-lifeline|current/StructureDefinition/StructureDefinition-birthregistration-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-birthregistration-request.csv), [Excel](StructureDefinition-birthregistration-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "birthregistration-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/healthcertificate-lifeline/StructureDefinition/birthregistration-request",
+  "version" : "1.0.0",
+  "name" : "BirthRegistrationRequest",
+  "title" : "BirthRegistration — Request",
+  "status" : "draft",
+  "date" : "2026-09-26T19:27:55+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i BirthRegistration\n(urn:riv:healthcertificate:lifeline:BirthRegistrationResponder:1, BirthRegistrationTYPE), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/healthcertificate-lifeline/StructureDefinition/birthregistration-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "birthregistration-request",
+      "path" : "birthregistration-request",
+      "short" : "BirthRegistration — Request",
+      "definition" : "Logisk modell för begäran i BirthRegistration\n(urn:riv:healthcertificate:lifeline:BirthRegistrationResponder:1, BirthRegistrationTYPE), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "birthregistration-request.logicalAddress",
+      "path" : "birthregistration-request.logicalAddress",
+      "short" : "logicalAddress",
+      "definition" : "SOAP-huvud LogicalAddress.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.FodelseanmalanId",
+      "path" : "birthregistration-request.FodelseanmalanId",
+      "short" : "FodelseanmalanId",
+      "definition" : "FodelseanmalanId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Dokumentuppgifter",
+      "path" : "birthregistration-request.Dokumentuppgifter",
+      "short" : "Dokumentuppgifter",
+      "definition" : "Dokumentuppgifter",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Dokumentuppgifter.Ingivarnamn",
+      "path" : "birthregistration-request.Dokumentuppgifter.Ingivarnamn",
+      "short" : "Ingivarnamn",
+      "definition" : "Ingivarnamn",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Dokumentuppgifter.AnmalningsTyp",
+      "path" : "birthregistration-request.Dokumentuppgifter.AnmalningsTyp",
+      "short" : "AnmalningsTyp",
+      "definition" : "AnmalningsTyp",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/healthcertificate-lifeline/ValueSet/lifeline-anmalningstyp-vs"
+      }
+    },
+    {
+      "id" : "birthregistration-request.Dokumentuppgifter.AnmalningsId",
+      "path" : "birthregistration-request.Dokumentuppgifter.AnmalningsId",
+      "short" : "AnmalningsId",
+      "definition" : "AnmalningsId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Dokumentuppgifter.Ingivartelefon",
+      "path" : "birthregistration-request.Dokumentuppgifter.Ingivartelefon",
+      "short" : "Ingivartelefon",
+      "definition" : "Ingivartelefon",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter",
+      "path" : "birthregistration-request.Arendeuppgifter",
+      "short" : "Arendeuppgifter",
+      "definition" : "Arendeuppgifter",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Moder",
+      "path" : "birthregistration-request.Arendeuppgifter.Moder",
+      "short" : "Moder",
+      "definition" : "Moder",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Moder.Namn",
+      "path" : "birthregistration-request.Arendeuppgifter.Moder.Namn",
+      "short" : "Namn",
+      "definition" : "Namn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Moder.Namn.Fornamn",
+      "path" : "birthregistration-request.Arendeuppgifter.Moder.Namn.Fornamn",
+      "short" : "Fornamn",
+      "definition" : "Fornamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Moder.Namn.Mellannamn",
+      "path" : "birthregistration-request.Arendeuppgifter.Moder.Namn.Mellannamn",
+      "short" : "Mellannamn",
+      "definition" : "Mellannamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Moder.Namn.Efternamn",
+      "path" : "birthregistration-request.Arendeuppgifter.Moder.Namn.Efternamn",
+      "short" : "Efternamn",
+      "definition" : "Efternamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum",
+      "path" : "birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum",
+      "short" : "Fodelsedatum",
+      "definition" : "Fodelsedatum",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum.FodelseAr",
+      "path" : "birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum.FodelseAr",
+      "short" : "FodelseAr",
+      "definition" : "FodelseAr",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum.FodelseManad",
+      "path" : "birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum.FodelseManad",
+      "short" : "FodelseManad",
+      "definition" : "FodelseManad",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum.FodelseDag",
+      "path" : "birthregistration-request.Arendeuppgifter.Moder.Fodelsedatum.FodelseDag",
+      "short" : "FodelseDag",
+      "definition" : "FodelseDag",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Moder.PersonNummer",
+      "path" : "birthregistration-request.Arendeuppgifter.Moder.PersonNummer",
+      "short" : "PersonNummer",
+      "definition" : "PersonNummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.ModersMake",
+      "path" : "birthregistration-request.Arendeuppgifter.ModersMake",
+      "short" : "ModersMake",
+      "definition" : "ModersMake",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.ModersMake.Namn",
+      "path" : "birthregistration-request.Arendeuppgifter.ModersMake.Namn",
+      "short" : "Namn",
+      "definition" : "Namn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.ModersMake.Namn.Fornamn",
+      "path" : "birthregistration-request.Arendeuppgifter.ModersMake.Namn.Fornamn",
+      "short" : "Fornamn",
+      "definition" : "Fornamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.ModersMake.Namn.Mellannamn",
+      "path" : "birthregistration-request.Arendeuppgifter.ModersMake.Namn.Mellannamn",
+      "short" : "Mellannamn",
+      "definition" : "Mellannamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.ModersMake.Namn.Efternamn",
+      "path" : "birthregistration-request.Arendeuppgifter.ModersMake.Namn.Efternamn",
+      "short" : "Efternamn",
+      "definition" : "Efternamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum",
+      "path" : "birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum",
+      "short" : "Fodelsedatum",
+      "definition" : "Fodelsedatum",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum.FodelseAr",
+      "path" : "birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum.FodelseAr",
+      "short" : "FodelseAr",
+      "definition" : "FodelseAr",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum.FodelseManad",
+      "path" : "birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum.FodelseManad",
+      "short" : "FodelseManad",
+      "definition" : "FodelseManad",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum.FodelseDag",
+      "path" : "birthregistration-request.Arendeuppgifter.ModersMake.Fodelsedatum.FodelseDag",
+      "short" : "FodelseDag",
+      "definition" : "FodelseDag",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.ModersMake.PersonNummer",
+      "path" : "birthregistration-request.Arendeuppgifter.ModersMake.PersonNummer",
+      "short" : "PersonNummer",
+      "definition" : "PersonNummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Barn",
+      "path" : "birthregistration-request.Arendeuppgifter.Barn",
+      "short" : "Barn",
+      "definition" : "Barn",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Barn.DatumFodelse",
+      "path" : "birthregistration-request.Arendeuppgifter.Barn.DatumFodelse",
+      "short" : "DatumFodelse",
+      "definition" : "DatumFodelse",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Barn.Kon",
+      "path" : "birthregistration-request.Arendeuppgifter.Barn.Kon",
+      "short" : "Kon",
+      "definition" : "Kon",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/healthcertificate-lifeline/ValueSet/lifeline-kon-vs"
+      }
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Barn.OrdningsNr",
+      "path" : "birthregistration-request.Arendeuppgifter.Barn.OrdningsNr",
+      "short" : "OrdningsNr",
+      "definition" : "OrdningsNr",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Barn.AntalBarn",
+      "path" : "birthregistration-request.Arendeuppgifter.Barn.AntalBarn",
+      "short" : "AntalBarn",
+      "definition" : "AntalBarn",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Barn.FodelseKommun",
+      "path" : "birthregistration-request.Arendeuppgifter.Barn.FodelseKommun",
+      "short" : "FodelseKommun",
+      "definition" : "FodelseKommun",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Barn.Levande",
+      "path" : "birthregistration-request.Arendeuppgifter.Barn.Levande",
+      "short" : "Levande",
+      "definition" : "Levande",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/healthcertificate-lifeline/ValueSet/lifeline-levande-vs"
+      }
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Vistelseadress",
+      "path" : "birthregistration-request.Arendeuppgifter.Vistelseadress",
+      "short" : "Vistelseadress",
+      "definition" : "Vistelseadress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad1",
+      "path" : "birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad1",
+      "short" : "AdressRad1",
+      "definition" : "AdressRad1",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad2",
+      "path" : "birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad2",
+      "short" : "AdressRad2",
+      "definition" : "AdressRad2",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad3",
+      "path" : "birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad3",
+      "short" : "AdressRad3",
+      "definition" : "AdressRad3",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad4",
+      "path" : "birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad4",
+      "short" : "AdressRad4",
+      "definition" : "AdressRad4",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad5",
+      "path" : "birthregistration-request.Arendeuppgifter.Vistelseadress.AdressRad5",
+      "short" : "AdressRad5",
+      "definition" : "AdressRad5",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Bostadsadress",
+      "path" : "birthregistration-request.Arendeuppgifter.Bostadsadress",
+      "short" : "Bostadsadress",
+      "definition" : "Bostadsadress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad1",
+      "path" : "birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad1",
+      "short" : "AdressRad1",
+      "definition" : "AdressRad1",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad2",
+      "path" : "birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad2",
+      "short" : "AdressRad2",
+      "definition" : "AdressRad2",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad3",
+      "path" : "birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad3",
+      "short" : "AdressRad3",
+      "definition" : "AdressRad3",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad4",
+      "path" : "birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad4",
+      "short" : "AdressRad4",
+      "definition" : "AdressRad4",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad5",
+      "path" : "birthregistration-request.Arendeuppgifter.Bostadsadress.AdressRad5",
+      "short" : "AdressRad5",
+      "definition" : "AdressRad5",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.KontaktTelefon",
+      "path" : "birthregistration-request.Arendeuppgifter.KontaktTelefon",
+      "short" : "KontaktTelefon",
+      "definition" : "KontaktTelefon",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.KontaktTelefon2",
+      "path" : "birthregistration-request.Arendeuppgifter.KontaktTelefon2",
+      "short" : "KontaktTelefon2",
+      "definition" : "KontaktTelefon2",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.KontaktTelefon3",
+      "path" : "birthregistration-request.Arendeuppgifter.KontaktTelefon3",
+      "short" : "KontaktTelefon3",
+      "definition" : "KontaktTelefon3",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.KontaktTelefon4",
+      "path" : "birthregistration-request.Arendeuppgifter.KontaktTelefon4",
+      "short" : "KontaktTelefon4",
+      "definition" : "KontaktTelefon4",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "birthregistration-request.Arendeuppgifter.KontaktTelefon5",
+      "path" : "birthregistration-request.Arendeuppgifter.KontaktTelefon5",
+      "short" : "KontaktTelefon5",
+      "definition" : "KontaktTelefon5",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

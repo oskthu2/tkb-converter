@@ -1,0 +1,1065 @@
+# ProcessRequest — Remiss (begäran) - clinicalprocess: activity: request — Remisshantering v2.2.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **ProcessRequest — Remiss (begäran)**
+
+## Logical Model: ProcessRequest — Remiss (begäran) 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/processrequest | *Version*:2.2.0 |
+| Draft as of 2026-09-26 | *Computable Name*:ProcessRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i ProcessRequest (RIV-TA urn:riv:clinicalprocess:activity:request:ProcessRequestResponder:2, element request av typen RequestType). Remittenten skickar en allmänremiss till remissmottagaren. Svaret är enbart ett resultat, se ProcessResult. 
+
+**Usages:**
+
+* Use this Logical Model: [ProcessRequestOutcome — Remissvar (begäran)](StructureDefinition-processrequestoutcome.md)
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-activity-request|current/StructureDefinition/StructureDefinition-processrequest.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-processrequest.csv), [Excel](StructureDefinition-processrequest.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "processrequest",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/processrequest",
+  "version" : "2.2.0",
+  "name" : "ProcessRequest",
+  "title" : "ProcessRequest — Remiss (begäran)",
+  "status" : "draft",
+  "date" : "2026-09-26T19:14:57+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i ProcessRequest (RIV-TA urn:riv:clinicalprocess:activity:request:ProcessRequestResponder:2, element request av typen RequestType). Remittenten skickar en allmänremiss till remissmottagaren. Svaret är enbart ett resultat, se ProcessResult.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/processrequest",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "processrequest",
+      "path" : "processrequest",
+      "short" : "ProcessRequest — Remiss (begäran)",
+      "definition" : "Logisk modell för begäran i ProcessRequest (RIV-TA urn:riv:clinicalprocess:activity:request:ProcessRequestResponder:2, element request av typen RequestType). Remittenten skickar en allmänremiss till remissmottagaren. Svaret är enbart ett resultat, se ProcessResult.",
+      "constraint" : [{
+        "key" : "processrequest-vr-intermediary",
+        "severity" : "error",
+        "human" : "Om versionsorsak är VR (vidareskickad remiss) måste intermediaryParticipant anges (schematron Verify intermediaryParticipant)",
+        "expression" : "reasonForVersion.typeOfReason = 'VR' implies intermediaryParticipant.exists()",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/processrequest"
+      }]
+    },
+    {
+      "id" : "processrequest.requestId",
+      "path" : "processrequest.requestId",
+      "short" : "Remiss id",
+      "definition" : "Remissens identitet. Format Källsystem-Id(HSA-ID)#lokalt-id, mönster (.*)#(.*), maxlängd 256 tecken.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.typeOfRequest",
+      "path" : "processrequest.typeOfRequest",
+      "short" : "Remisstyp",
+      "definition" : "Typ av remiss. I denna version är enda giltiga kod 4 = allmänremiss.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/ValueSet/requesttype-vs"
+      }
+    },
+    {
+      "id" : "processrequest.versionTimeStamp",
+      "path" : "processrequest.versionTimeStamp",
+      "short" : "Versionstidpunkt",
+      "definition" : "Tidpunkt då versionen skapades (ÅÅÅÅMMDDttmmss). Kan skilja sig från tidpunkten då remissen skickas.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "processrequest.versionNumber",
+      "path" : "processrequest.versionNumber",
+      "short" : "Versionsnummer",
+      "definition" : "Remissens versionsnummer. Startar på 1 och räknas upp vid ändrad remiss, vidareskickad remiss och ändrat betalningsansvar. XSD-mönster (0*[1-9]+|[1-9])\\d*.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "positiveInt"
+      }]
+    },
+    {
+      "id" : "processrequest.reasonForVersion",
+      "path" : "processrequest.reasonForVersion",
+      "short" : "Versionsorsak",
+      "definition" : "Anger varför en ny version skapats.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequest.reasonForVersion.typeOfReason",
+      "path" : "processrequest.reasonForVersion.typeOfReason",
+      "short" : "Versionsorsak kod",
+      "definition" : "Kv e-remiss versionsorsak [R5]: NR, AR, VR, AB. RIV-TA: typeOfReason.code.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/ValueSet/versionreason-vs"
+      }
+    },
+    {
+      "id" : "processrequest.careResponsibilityRemains",
+      "path" : "processrequest.careResponsibilityRemains",
+      "short" : "Vårdansvar kvarstår",
+      "definition" : "true = vårdansvar kvarstår hos remitterande enhet; false = begäran om övertagande av vårdansvar.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "processrequest.patient",
+      "path" : "processrequest.patient",
+      "short" : "Patient",
+      "definition" : "Patient (PatientType).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequest.patient.personId",
+      "path" : "processrequest.patient.personId",
+      "short" : "Person id",
+      "definition" : "Patientens identitet. value = personidentifierare (12 tecken utan skiljetecken för personnummer, samordningsnummer och nationellt reservId); system = OID för typ av personidentifierare: 1.2.752.129.2.1.3.1 (personnummer), 1.2.752.129.2.1.3.3 (samordningsnummer), 1.2.752.74.9.1 (nationellt reservId). RIV-TA: personId.extension/root.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "processrequest.patient.address",
+      "path" : "processrequest.patient.address",
+      "short" : "Tillfällig adress",
+      "definition" : "Används endast om tillfällig adress behöver anges, ej folkbokförd adress. Avsedd för kallelse; format enligt Skatteverkets Navet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequest.patient.address.careOf",
+      "path" : "processrequest.patient.address.careOf",
+      "short" : "Care of",
+      "definition" : "Maxlängd 35 tecken.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.patient.address.streetName1",
+      "path" : "processrequest.patient.address.streetName1",
+      "short" : "Utdelningsadress1",
+      "definition" : "Maxlängd 35 tecken.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.patient.address.streetName2",
+      "path" : "processrequest.patient.address.streetName2",
+      "short" : "Utdelningsadress2",
+      "definition" : "Maxlängd 35 tecken.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.patient.address.postalCode",
+      "path" : "processrequest.patient.address.postalCode",
+      "short" : "Postnummer",
+      "definition" : "Fem siffror utan blanksteg, t.ex. 12345.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.patient.address.postalCity",
+      "path" : "processrequest.patient.address.postalCity",
+      "short" : "Postort",
+      "definition" : "Maxlängd 27 tecken.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.patient.address.postBox",
+      "path" : "processrequest.patient.address.postBox",
+      "short" : "Postbox",
+      "definition" : "Maxlängd 9 tecken.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.patient.telecom",
+      "path" : "processrequest.patient.telecom",
+      "short" : "Telefon",
+      "definition" : "Telefonnummer till patienten.",
+      "min" : 0,
+      "max" : "2",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequest.patient.telecom.typeOfTelecom",
+      "path" : "processrequest.patient.telecom.typeOfTelecom",
+      "short" : "Telefon typ",
+      "definition" : "H = hemtelefon, MC = mobil.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/ValueSet/telecomtype-vs"
+      }
+    },
+    {
+      "id" : "processrequest.patient.telecom.number",
+      "path" : "processrequest.patient.telecom.number",
+      "short" : "Telefonnummer",
+      "definition" : "Maxlängd 200 tecken.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.patient.patientName",
+      "path" : "processrequest.patient.patientName",
+      "short" : "Namn",
+      "definition" : "Personnamn enligt formatet \"Mellannamn Efternamn, Förnamn\". Maxlängd 216 tecken. RIV-TA: patient.name.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.patient.gender",
+      "path" : "processrequest.patient.gender",
+      "short" : "Kön",
+      "definition" : "Administrativt kön enligt Skatteverket (OID 1.2.752.129.2.2.1.1): 0 okänt, 1 man, 2 kvinna, 9 ej tillämpligt.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/ValueSet/gender-vs"
+      }
+    },
+    {
+      "id" : "processrequest.patient.dateOfBirth",
+      "path" : "processrequest.patient.dateOfBirth",
+      "short" : "Födelsetidpunkt",
+      "definition" : "Anges när patientens identitet är av annan typ än personnummer (ÅÅÅÅMMDD).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "processrequest.requestOrganisation",
+      "path" : "processrequest.requestOrganisation",
+      "short" : "Organisatorisk enhet",
+      "definition" : "Ursprunglig remitterande organisatorisk enhet. Svaret adresseras till denna enhet som logisk adress.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequest.requestOrganisation.careUnitId",
+      "path" : "processrequest.requestOrganisation.careUnitId",
+      "short" : "Enhet id",
+      "definition" : "HSA-id för enheten. Maxlängd 64 tecken.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "processrequest.requestOrganisation.careUnitName",
+      "path" : "processrequest.requestOrganisation.careUnitName",
+      "short" : "Enhet namn",
+      "definition" : "Namn på enhet. Maxlängd 64 tecken.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.requestOrganisation.careUnitTelephone",
+      "path" : "processrequest.requestOrganisation.careUnitTelephone",
+      "short" : "Enhet telefon",
+      "definition" : "Telefon till enhet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.requestOrganisation.careUnitEmail",
+      "path" : "processrequest.requestOrganisation.careUnitEmail",
+      "short" : "Enhet epost",
+      "definition" : "E-post till enhet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.requestOrganisation.careUnitAddress",
+      "path" : "processrequest.requestOrganisation.careUnitAddress",
+      "short" : "Enhet adress",
+      "definition" : "Adress till enhet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.requestOrganisation.careUnitLocation",
+      "path" : "processrequest.requestOrganisation.careUnitLocation",
+      "short" : "Enhet plats",
+      "definition" : "Namnet på plats eller ort för enhetens fysiska placering.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.author",
+      "path" : "processrequest.author",
+      "short" : "Remittent",
+      "definition" : "Remittent (person och organisation).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequest.author.date",
+      "path" : "processrequest.author.date",
+      "short" : "Remissdatum",
+      "definition" : "Datum då remissen skapades (ÅÅÅÅMMDD).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "processrequest.author.healthcareProfessional",
+      "path" : "processrequest.author.healthcareProfessional",
+      "short" : "Hälso- och sjukvårdspersonal",
+      "definition" : "Hälso- och sjukvårdspersonal (HealthcareProfessionalType).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequest.author.healthcareProfessional.healthcareProfessionalId",
+      "path" : "processrequest.author.healthcareProfessional.healthcareProfessionalId",
+      "short" : "Personal id",
+      "definition" : "HSA-id för personen. Maxlängd 64 tecken. RIV-TA: healthcareProfessional.id.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "processrequest.author.healthcareProfessional.healthcareProfessionalName",
+      "path" : "processrequest.author.healthcareProfessional.healthcareProfessionalName",
+      "short" : "Personal namn",
+      "definition" : "Namn, valfri formatering. Maxlängd 64 tecken. RIV-TA: healthcareProfessional.name.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.author.typeOfHealthcareProfessional",
+      "path" : "processrequest.author.typeOfHealthcareProfessional",
+      "short" : "Typ av hälso- och sjukvårdspersonal",
+      "definition" : "Yrkestitel från Snomed CT: urval_legitimerade_yrken (codeSystem 1.2.752.129.5.1.70) eller yrken_i_halso-_och_sjukvarden_ej_legitimerade (codeSystem 1.2.752.129.7.1.5). Urvalen kan kompletteras utan ny kontraktsversion.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "processrequest.author.healthcareProfessionalOrganisation",
+      "path" : "processrequest.author.healthcareProfessionalOrganisation",
+      "short" : "Organisatorisk enhet",
+      "definition" : "Enhet (jmf. PDL) som ansvarar för informationen.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequest.author.healthcareProfessionalOrganisation.careUnitId",
+      "path" : "processrequest.author.healthcareProfessionalOrganisation.careUnitId",
+      "short" : "Enhet id",
+      "definition" : "HSA-id för enheten. Maxlängd 64 tecken.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "processrequest.recipient",
+      "path" : "processrequest.recipient",
+      "short" : "Mottagare",
+      "definition" : "Remissmottagande organisation.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequest.recipient.organisation",
+      "path" : "processrequest.recipient.organisation",
+      "short" : "Organisatorisk enhet",
+      "definition" : "Mottagande enhet; HSA-id används som logisk adress.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequest.recipient.organisation.careUnitId",
+      "path" : "processrequest.recipient.organisation.careUnitId",
+      "short" : "Enhet id",
+      "definition" : "HSA-id för enheten. Maxlängd 64 tecken.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "processrequest.intermediaryParticipant",
+      "path" : "processrequest.intermediaryParticipant",
+      "short" : "Vidareskickare",
+      "definition" : "Hälso- och sjukvårdspersonalen som vidareskickar remissen.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequest.intermediaryParticipant.healthcareProfessionalOrganisation",
+      "path" : "processrequest.intermediaryParticipant.healthcareProfessionalOrganisation",
+      "short" : "Organisatorisk enhet",
+      "definition" : "Remissmottagande enhet som vidareskickat remissen.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequest.intermediaryParticipant.healthcareProfessionalOrganisation.careUnitId",
+      "path" : "processrequest.intermediaryParticipant.healthcareProfessionalOrganisation.careUnitId",
+      "short" : "Enhet id",
+      "definition" : "HSA-id för enheten. Maxlängd 64 tecken.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "processrequest.intermediaryParticipant.time",
+      "path" : "processrequest.intermediaryParticipant.time",
+      "short" : "Tidpunkt",
+      "definition" : "Tidpunkt då versionen skapades för vidareskickning (ÅÅÅÅMMDDttmmss).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "processrequest.additionalInformation",
+      "path" : "processrequest.additionalInformation",
+      "short" : "Tilläggsinformation",
+      "definition" : "Tilläggsinformation.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequest.additionalInformation.desiredRequestRecipient",
+      "path" : "processrequest.additionalInformation.desiredRequestRecipient",
+      "short" : "Önskemål om remissmottagare",
+      "definition" : "Enhet, person, yrkesroll eller fritext. Maxlängd 200 tecken.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.additionalInformation.administrativeInformation",
+      "path" : "processrequest.additionalInformation.administrativeInformation",
+      "short" : "Kompletterande administrativ information",
+      "definition" : "T.ex. akutärende, bortrest patient, SVF-patient och datum för välgrundad misstanke.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.additionalInformation.interpreterRequirement",
+      "path" : "processrequest.additionalInformation.interpreterRequirement",
+      "short" : "Kommentar tolkbehov",
+      "definition" : "Maxlängd 200 tecken.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.awarenessInformation",
+      "path" : "processrequest.awarenessInformation",
+      "short" : "Uppmärksamhetsinformation",
+      "definition" : "Uppmärksamhetsinformation om patient.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequest.awarenessInformation.awarenessText",
+      "path" : "processrequest.awarenessInformation.awarenessText",
+      "short" : "Uppmärksamhetstext",
+      "definition" : "Av betydelse för denna remiss; mottagande system bör inte automatiskt föra in den i egen uppmärksamhetshantering. Maxlängd 8192 tecken. RIV-TA: awarenessInformation.text.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.questionFormulation",
+      "path" : "processrequest.questionFormulation",
+      "short" : "Frågeställning",
+      "definition" : "Remissens frågeställning.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequest.questionFormulation.questionText",
+      "path" : "processrequest.questionFormulation.questionText",
+      "short" : "Frågeställning text",
+      "definition" : "Maxlängd 8192 tecken. RIV-TA: questionFormulation.text.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.questionFormulation.clinicalInformation",
+      "path" : "processrequest.questionFormulation.clinicalInformation",
+      "short" : "Anamnes",
+      "definition" : "Underbyggande klinisk information för frågeställningen.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequest.questionFormulation.clinicalInformation.clinicalInformationText",
+      "path" : "processrequest.questionFormulation.clinicalInformation.clinicalInformationText",
+      "short" : "Beskrivning",
+      "definition" : "Maxlängd 8192 tecken. RIV-TA: clinicalInformation.text.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.questionFormulation.condition",
+      "path" : "processrequest.questionFormulation.condition",
+      "short" : "Kliniskt tillstånd",
+      "definition" : "Kliniskt tillstånd (ConditionType). Antingen text eller kod, inte båda.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "activity-request-condition-code-or-text",
+        "severity" : "error",
+        "human" : "Kliniskt tillstånd: ange antingen text eller kod, inte båda (schematron Verify condition)",
+        "expression" : "(conditionText.exists() and conditionCode.exists()).not()",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/processrequest"
+      }]
+    },
+    {
+      "id" : "processrequest.questionFormulation.condition.conditionText",
+      "path" : "processrequest.questionFormulation.condition.conditionText",
+      "short" : "Kliniskt tillstånd beskrivning",
+      "definition" : "Diagnosbeskrivning i fritext. Maxlängd 8192 tecken. RIV-TA: condition.text.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.questionFormulation.condition.conditionCode",
+      "path" : "processrequest.questionFormulation.condition.conditionCode",
+      "short" : "Kliniskt tillståndskod",
+      "definition" : "Kod enligt ICD-10-SE (codeSystem 1.2.752.116.1.1.1). RIV-TA: condition.code.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "processrequest.questionFormulation.desiredActivity",
+      "path" : "processrequest.questionFormulation.desiredActivity",
+      "short" : "Önskad åtgärd",
+      "definition" : "Önskad åtgärd (ActivityType). Antingen text eller kod, inte båda.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "activity-request-activity-code-or-text",
+        "severity" : "error",
+        "human" : "Åtgärd: ange antingen text eller kod, inte båda (schematron Verify desiredActivity)",
+        "expression" : "(activityText.exists() and activityCode.exists()).not()",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/processrequest"
+      }]
+    },
+    {
+      "id" : "processrequest.questionFormulation.desiredActivity.activityId",
+      "path" : "processrequest.questionFormulation.desiredActivity.activityId",
+      "short" : "Åtgärd id",
+      "definition" : "Unikt id i form av löpnummer för åtgärden. RIV-TA: id.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.questionFormulation.desiredActivity.activityText",
+      "path" : "processrequest.questionFormulation.desiredActivity.activityText",
+      "short" : "Åtgärd beskrivning",
+      "definition" : "Fritext. Maxlängd 8192 tecken. RIV-TA: text.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.questionFormulation.desiredActivity.activityCode",
+      "path" : "processrequest.questionFormulation.desiredActivity.activityCode",
+      "short" : "Åtgärd typ",
+      "definition" : "Åtgärd enligt kodsystem: KVÅ (1.2.752.116.1.3.2.1.4, obligatoriskt att hantera) eller Snomed CT. Okänt kodverk ger APPLICATION_ERROR. RIV-TA: code.code/codeSystem.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Coding"
+      }]
+    },
+    {
+      "id" : "processrequest.paymentCommitment",
+      "path" : "processrequest.paymentCommitment",
+      "short" : "Betalningsförbindelse",
+      "definition" : "Hur remissmottagande vårdgivare ersätts av remitterande vårdgivare; aktuellt vid regionsöverskridande remissflöde (Riksavtalet).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "activity-request-commitmenttype-chapter",
+        "severity" : "error",
+        "human" : "commitmentTypeChapter är obligatoriskt då commitmentType = 1 (schematron Verify paymentCommitment)",
+        "expression" : "commitmentType.coding.where(code = '1').exists() implies commitmentTypeChapter.exists()",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-activity-request/StructureDefinition/processrequest"
+      }]
+    },
+    {
+      "id" : "processrequest.paymentCommitment.paymentCommitmentId",
+      "path" : "processrequest.paymentCommitment.paymentCommitmentId",
+      "short" : "Betalningsförbindelse id",
+      "definition" : "Format requestId#betfor#löpnummer.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.paymentCommitment.commitmentType",
+      "path" : "processrequest.paymentCommitment.commitmentType",
+      "short" : "Betalningsförbindelse-typ avtal",
+      "definition" : "kv_betalningsförbindelsetyp avtal, codeSystem 1.2.752.129.2.2.2.44.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "processrequest.paymentCommitment.commitmentTypeChapter",
+      "path" : "processrequest.paymentCommitment.commitmentTypeChapter",
+      "short" : "Betalningsförbindelse-typ kapitel",
+      "definition" : "Riksavtalets kapitel, codeSystem 1.2.752.129.5.1.37. Obligatoriskt då commitmentType = 1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "processrequest.paymentCommitment.validity",
+      "path" : "processrequest.paymentCommitment.validity",
+      "short" : "Giltighetstid",
+      "definition" : "ÅÅÅÅMMDD. Antingen start (low) eller slut (high) måste finnas.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Period"
+      }]
+    },
+    {
+      "id" : "processrequest.paymentCommitment.clinicalResponsibilityDescription",
+      "path" : "processrequest.paymentCommitment.clinicalResponsibilityDescription",
+      "short" : "Klinisk ansvarsbeskrivning",
+      "definition" : "Maxlängd 8192 tecken.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.paymentCommitment.administrativeResponsibilityDescription",
+      "path" : "processrequest.paymentCommitment.administrativeResponsibilityDescription",
+      "short" : "Administrativ ansvarsbeskrivning",
+      "definition" : "Maxlängd 8192 tecken.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.paymentCommitment.validOnlyForOutpatientCare",
+      "path" : "processrequest.paymentCommitment.validOnlyForOutpatientCare",
+      "short" : "Gäller endast öppenvård",
+      "definition" : "true om betalningsförbindelsen enbart gäller öppenvård.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "processrequest.paymentCommitment.liableCountyCouncil",
+      "path" : "processrequest.paymentCommitment.liableCountyCouncil",
+      "short" : "Betalningsansvarig region",
+      "definition" : "kv_län (SCB), codeSystem 1.2.752.129.2.2.1.18.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "processrequest.paymentCommitment.dateOfApproval",
+      "path" : "processrequest.paymentCommitment.dateOfApproval",
+      "short" : "Datum för godkännande",
+      "definition" : "ÅÅÅÅMMDDttmmss med minst precision ÅÅÅÅMMDD.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "processrequest.paymentCommitment.issuedInConsultationWith",
+      "path" : "processrequest.paymentCommitment.issuedInConsultationWith",
+      "short" : "Utfärdad i samråd med",
+      "definition" : "Namn på ekonomisk beslutsfattare. Maxlängd 64 tecken.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.paymentCommitment.costCenter",
+      "path" : "processrequest.paymentCommitment.costCenter",
+      "short" : "Kostnadsställe",
+      "definition" : "Remittentens kostnadsställe. Maxlängd 64 tecken.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.paymentCommitment.reimbursementInformation",
+      "path" : "processrequest.paymentCommitment.reimbursementInformation",
+      "short" : "Ersättningsinformation",
+      "definition" : "Obligatorisk vid remiss till privat vårdgivare.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequest.paymentCommitment.reimbursementInformation.reimbursementType",
+      "path" : "processrequest.paymentCommitment.reimbursementInformation.reimbursementType",
+      "short" : "Ersättningstyp",
+      "definition" : "kv_betalningsförbindelse ersättningstyp, codeSystem 1.2.752.129.5.1.36.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "processrequest.paymentCommitment.reimbursementInformation.ownerOfInvokedContract",
+      "path" : "processrequest.paymentCommitment.reimbursementInformation.ownerOfInvokedContract",
+      "short" : "Ägare av åberopat kontrakt",
+      "definition" : "Region enligt kv_län (SCB), codeSystem 1.2.752.129.2.2.1.18.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "processrequest.paymentCommitment.approvedBy",
+      "path" : "processrequest.paymentCommitment.approvedBy",
+      "short" : "Godkänns av",
+      "definition" : "Person hos remittenten som godkänt betalningsförbindelsen.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequest.paymentCommitment.approvedBy.healthcareProfessionalId",
+      "path" : "processrequest.paymentCommitment.approvedBy.healthcareProfessionalId",
+      "short" : "Personal id",
+      "definition" : "HSA-id för person. RIV-TA: approvedBy.id.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "processrequest.paymentCommitment.approvedBy.healthcareProfessionalName",
+      "path" : "processrequest.paymentCommitment.approvedBy.healthcareProfessionalName",
+      "short" : "Personal namn",
+      "definition" : "Maxlängd 64 tecken. RIV-TA: approvedBy.name.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.attachment",
+      "path" : "processrequest.attachment",
+      "short" : "Bilaga",
+      "definition" : "Bilaga (MultimediaType) i något av de tillåtna formaten. Totala meddelandestorleken får inte överstiga 10 MB.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processrequest.attachment.attachmentId",
+      "path" : "processrequest.attachment.attachmentId",
+      "short" : "Bilaga id",
+      "definition" : "Identitet på bilagan, format requestId#löpnummer. Obligatoriskt för inbäddade bilagor. Maxlängd 256 tecken. RIV-TA: attachment.id.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.attachment.mediaType",
+      "path" : "processrequest.attachment.mediaType",
+      "short" : "Multimediatyp",
+      "definition" : "Filformat enligt urval_mediatyper_elektronisk_remiss (codeSystem 1.2.752.129.5.1.59): pdf, jpeg, png, html, txt, gif, bmp.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "processrequest.attachment.attachmentValue",
+      "path" : "processrequest.attachment.attachmentValue",
+      "short" : "Binärdata",
+      "definition" : "Inbäddad bilaga kodad enligt base64. Obligatoriskt när referens inte används. RIV-TA: attachment.value.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "base64Binary"
+      }]
+    },
+    {
+      "id" : "processrequest.attachment.reference",
+      "path" : "processrequest.attachment.reference",
+      "short" : "Referens",
+      "definition" : "URL för refererad bilaga. Används inte i denna version.",
+      "min" : 0,
+      "max" : "0",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "processrequest.attachment.description",
+      "path" : "processrequest.attachment.description",
+      "short" : "Beskrivning",
+      "definition" : "Beskrivning av bilaga. Maxlängd 256 tecken.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processrequest.careProcessId",
+      "path" : "processrequest.careProcessId",
+      "short" : "Vårdprocess id",
+      "definition" : "Identifierar den individanpassade vårdprocess som remissen är en del av.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

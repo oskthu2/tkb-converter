@@ -1,0 +1,1168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>7 Tjänstekontrakt - clinicalprocess: activityprescription: logistics — Ordinationslogistik v1.0.2</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">clinicalprocess: activityprescription: logistics — Ordinationslogistik</span>
+            <br/>
+            <span style="display:inline-block;">1.0.2 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+  <li><a href="3-referenser.html">3 Referenser</a></li>
+  <li><a href="4-tjanstedomanens-arkitektur.html">4 Arkitektur</a></li>
+  <li><a href="5-tjanstedomanens-krav-och-regler.html">5 Krav och regler</a></li>
+  <li><a href="6-tjanstedomanens-meddelandemodeller.html">6 Meddelandemodeller</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">clinicalprocess: activityprescription: logistics — Ordinationslogistik - Local Development build (v1.0.2) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/clinicalprocess-activityprescription-logistics/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#7-tjänstekontrakt" id="markdown-toc-7-tjänstekontrakt">7 Tjänstekontrakt</a>    <ul>
+      <li><a href="#getdispenseddrugs" id="markdown-toc-getdispenseddrugs">GetDispensedDrugs</a></li>
+      <li><a href="#printlistofdispenseddrugs" id="markdown-toc-printlistofdispenseddrugs">PrintListOfDispensedDrugs</a></li>
+      <li><a href="#beskrivning-av-fält" id="markdown-toc-beskrivning-av-fält">Beskrivning av fält</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="7-tjänstekontrakt">7 Tjänstekontrakt</h2>
+
+<h3 id="getdispenseddrugs">GetDispensedDrugs</h3>
+
+<p>Tjänsten returnerar en patients Läkemedelsförteckning med viss ordinationsinformation för att kunna koppla ihop utlämnat läkemedel med ordinerat.</p>
+
+<h4 id="version">Version</h4>
+
+<p>1.0</p>
+
+<h4 id="fältregler">Fältregler</h4>
+
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterliggare regler för detta element och beskrivs mer i detalj i stycket Regler.</p>
+
+<h5 id="getdispenseddrugstype">GetDispensedDrugsType</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Typ</th>
+      <th>Mult.</th>
+      <th>Beskrivning</th>
+      <th>Fältlängder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>patient</td>
+      <td>Patient</td>
+      <td>1..1</td>
+      <td>Patient vars läkemedelsförteckning skall hämtas.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>anropandeVardpersonal</td>
+      <td>Vardpersonal</td>
+      <td>1..1</td>
+      <td>Anropande vårdpersonal.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>forskrivarkod</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Förskrivarens individuella förskrivarkod. Gruppförskrivarkoder får ej användas. Valideras mot FORS. Obligatorisk om atkomsttyp = SAM</td>
+      <td>7..7</td>
+    </tr>
+    <tr>
+      <td>identifieradArbetsplats</td>
+      <td>ArbetsplatsIdentifikation</td>
+      <td>1..1</td>
+      <td>Identifierad arbetsplats.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>atkomsttyp</td>
+      <td>atkomsttyp</td>
+      <td>1..1</td>
+      <td>Treställig kod för typ av åtkomst.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="getdispenseddrugsresponsetype">GetDispensedDrugsResponseType</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Typ</th>
+      <th>Mult.</th>
+      <th>Beskrivning</th>
+      <th>Fältlängder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>lakemedelsforteckning</td>
+      <td>Receptexpeditionsrad</td>
+      <td>0..*</td>
+      <td>Patientens läkemedelsförteckning kompletterad med ordinationsmappningsinformation. Om patienten saknar poster i läkemedelsförteckningen så returneras en tom lista.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>patientinformation</td>
+      <td>Patientinformation</td>
+      <td>0..1</td>
+      <td>Information om patienten vars läkemedelsförteckning man hämtat. Om patienten är markerad som 'Avliden' så returneras inga rader ur läkemedelsförteckningen.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>varningsnivaUppnadd</td>
+      <td>boolean</td>
+      <td>1..1</td>
+      <td>Flagga som anger om förskrivarens antal läsningar det senaste dygnet överskridit varningsnivå. Sant om varningsnivå har uppnåtts, annars falskt.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>resultCode</td>
+      <td>resultCodeEnum</td>
+      <td>1..1</td>
+      <td>Resultatkod för anropet.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>comment</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Kommentar till eventuella fel eller varningar.</td>
+      <td>1..1024</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="tjänstekontraktsspecifika-krav-och-regler">Tjänstekontraktsspecifika krav och regler</h4>
+
+<p>Till denna informationsmängd finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan:</p>
+
+<ul>
+  <li>Visning av mängdinformation kan ske på flera sätt men bör implementeras enligt följande prioritet:
+    <ol>
+      <li>Använd fältet <code class="language-plaintext highlighter-rouge">mangd</code> för dispenserat och icke-dispenserat läkemedel, alternativt</li>
+      <li>Använd fältet <code class="language-plaintext highlighter-rouge">antalPillerKlartext</code> för dispenserat läkemedel. Använd fälten <code class="language-plaintext highlighter-rouge">antalForpackningar</code> + <code class="language-plaintext highlighter-rouge">forpackningsstorlek</code> alternativt <code class="language-plaintext highlighter-rouge">antalForpackningar</code> + <code class="language-plaintext highlighter-rouge">antalYtterstaForpackning</code> + <code class="language-plaintext highlighter-rouge">antalYttreForpackning</code> + <code class="language-plaintext highlighter-rouge">antalIForpackning</code> + <code class="language-plaintext highlighter-rouge">antalEnhet</code> för icke-dispenserat läkemedel.</li>
+    </ol>
+  </li>
+  <li>Visning av information om styrka kan ske på flera sätt men bör implementeras enligt följande prioritet:
+    <ol>
+      <li>Använd fältet <code class="language-plaintext highlighter-rouge">styrkaKlartext</code> som även visar styrka för kombinationspreparat, alternativt</li>
+      <li>Använd fälten <code class="language-plaintext highlighter-rouge">styrka</code> + <code class="language-plaintext highlighter-rouge">styrkaEnhet</code></li>
+    </ol>
+  </li>
+  <li>Om en läkemedelspost har en markering att denna är borttagen ("borttagen"=sann) så skall posten visas i vårdsystemet överstruken och med "borttagsdatum" och "borttagsorsak".</li>
+  <li>Mappningsinformation för att koppla till ordination saknas i vissa fall, t.ex:
+    <ul>
+      <li>Samma läkemedel (nplpackid) förekommer flera gånger i samma expedition</li>
+      <li>Pappers- och telefonrecept</li>
+      <li>Uttag från äldre receptexpeditionssystem (expeditionsid saknas)</li>
+    </ul>
+  </li>
+  <li>Inga SLA-krav finns för denna tjänst</li>
+</ul>
+
+<h4 id="källfiler-riv-ta">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetDispensedDrugsInteraction_1.0_RIVTABP21.wsdl">GetDispensedDrugsInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a href="GetDispensedDrugsResponder_1.0.xsd">GetDispensedDrugsResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a href="clinicalprocess_activityprescription_logistics_1.0.xsd">clinicalprocess_activityprescription_logistics_1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>Gemensamt schema (logisk adress)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getdispenseddrugs.html">StructureDefinition/getdispenseddrugs</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getdispenseddrugs-request.html">StructureDefinition/getdispenseddrugs-request</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-resultcode-cs.html">CodeSystem/resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-resultcode-vs.html">ValueSet/resultcode-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-atkomsttyp-cs.html">CodeSystem/atkomsttyp-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-atkomsttyp-vs.html">ValueSet/atkomsttyp-vs</a></li>
+</ul>
+
+<h3 id="printlistofdispenseddrugs">PrintListOfDispensedDrugs</h3>
+
+<p>Tjänsten returnerar en PDF-rapport innehållande en patients Läkemedelsförteckning.</p>
+
+<h4 id="version-1">Version</h4>
+
+<p>1.0</p>
+
+<h4 id="fältregler-1">Fältregler</h4>
+
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterliggare regler för detta element och beskrivs mer i detalj i stycket Regler.</p>
+
+<h5 id="printlistofdispenseddrugstype">PrintListOfDispensedDrugsType</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Typ</th>
+      <th>Mult.</th>
+      <th>Beskrivning</th>
+      <th>Fältlängder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>patient</td>
+      <td>Patient</td>
+      <td>1..1</td>
+      <td>Patient vars läkemedelsförteckning skall hämtas.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>anropandeVardpersonal</td>
+      <td>Vardpersonal</td>
+      <td>1..1</td>
+      <td>Anropande vårdpersonal.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>forskrivarkod</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Förskrivarens individuella förskrivarkod. Gruppförskrivarkoder får ej användas. Valideras mot FORS.</td>
+      <td>7..7</td>
+    </tr>
+    <tr>
+      <td>identifieradArbetsplats</td>
+      <td>ArbetsplatsIdentifikation</td>
+      <td>1..1</td>
+      <td>Identifierad arbetsplats.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="printlistofdispenseddrugsresponsetype">PrintListOfDispensedDrugsResponseType</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Typ</th>
+      <th>Mult.</th>
+      <th>Beskrivning</th>
+      <th>Fältlängder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>patientinformation</td>
+      <td>Patientinformation</td>
+      <td>0..1</td>
+      <td>Information om patienten vars läkemedelsförteckning man hämtat. Om patienten är markerad som Avliden så returneras ej pdf.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>pdf</td>
+      <td>base64Binary</td>
+      <td>0..1</td>
+      <td>Utdrag från läkemedelsförteckningen som PDF.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>resultCode</td>
+      <td>resultCodeEnum</td>
+      <td>1..1</td>
+      <td>Resultatkod för anropet.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>comment</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Kommentar till eventuella fel eller varningar.</td>
+      <td>1..1024</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="tjänstekontraktsspecifika-krav-och-regler-1">Tjänstekontraktsspecifika krav och regler</h4>
+
+<p>Till denna informationsmängd finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan:</p>
+
+<ul>
+  <li>Krav ställs på anropande system att tjänsten GetDispensedDrugs har anropats innan anrop görs till denna tjänst.</li>
+  <li>Inga SLA-krav finns för denna tjänst</li>
+</ul>
+
+<h4 id="källfiler-riv-ta-1">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="PrintListOfDispensedDrugsInteraction_1.0_RIVTABP21.wsdl">PrintListOfDispensedDrugsInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a href="PrintListOfDispensedDrugsResponder_1.0.xsd">PrintListOfDispensedDrugsResponder_1.0.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a href="clinicalprocess_activityprescription_logistics_1.0.xsd">clinicalprocess_activityprescription_logistics_1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>Gemensamt schema (logisk adress)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-1">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning:</p>
+
+<ul>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-printlistofdispenseddrugs.html">StructureDefinition/printlistofdispenseddrugs</a></li>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-printlistofdispenseddrugs-request.html">StructureDefinition/printlistofdispenseddrugs-request</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-resultcode-cs.html">CodeSystem/resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-resultcode-vs.html">ValueSet/resultcode-vs</a></li>
+</ul>
+
+<h3 id="beskrivning-av-fält">Beskrivning av fält</h3>
+
+<p>Datatyper som används av båda tjänstekontrakten. I de logiska FHIR-modellerna är de modellerade som nästlade element (BackboneElement).</p>
+
+<h4 id="receptexpeditionsrad">Receptexpeditionsrad</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Typ</th>
+      <th>Mult.</th>
+      <th>Beskrivning</th>
+      <th>Fältlängder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>aktorsExpeditionsId</td>
+      <td>string</td>
+      <td>1..1</td>
+      <td>Aktörens expeditionsId.</td>
+      <td>1..35</td>
+    </tr>
+    <tr>
+      <td>antalForpackningar</td>
+      <td>int</td>
+      <td>0..1</td>
+      <td>Antal förpackningar av utlämnad vara. Returneras om posten ej är en dosdispenserad artikel.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>antalPillerKlartext</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Antal avdelade doser inklusive enhet. Returneras om posten är en dosdispenserad artikel. Exempel: "28 st".</td>
+      <td>1..10</td>
+    </tr>
+    <tr>
+      <td>artikelinformation</td>
+      <td>Artikelinformation</td>
+      <td>1..1</td>
+      <td>Information om utlämnad artikel.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>borttagen</td>
+      <td>boolean</td>
+      <td>1..1</td>
+      <td>Markering om posten är borttagen. Sant om posten är borttagen, annars falskt.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>borttagsdatum</td>
+      <td>dateTime</td>
+      <td>0..1</td>
+      <td>Tidpunkt då posten blev markerad som borttagen. Returneras endast om borttagen är sant.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>borttagsorsak</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Kommentar för borttagen post. Returneras endast om borttagen är sant.</td>
+      <td>1..50</td>
+    </tr>
+    <tr>
+      <td>doseringstext</td>
+      <td>string</td>
+      <td>1..1</td>
+      <td>Doseringsanvisning: doseringstext inklusive ändamål.</td>
+      <td>1..1016</td>
+    </tr>
+    <tr>
+      <td>expeditionsId</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Expeditionsid hämtat från eHälsomyndigheten.</td>
+      <td>1..31</td>
+    </tr>
+    <tr>
+      <td>expeditionsdatum</td>
+      <td>dateTime</td>
+      <td>1..1</td>
+      <td>Datum för utlämning från apotek.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>forskrivarensArbetsplatsnamn</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Förskrivarens arbetsplats namn.</td>
+      <td>1..35</td>
+    </tr>
+    <tr>
+      <td>forskrivarensArbetsplatsOrt</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Förskrivarens arbetsplats ort.</td>
+      <td>1..28</td>
+    </tr>
+    <tr>
+      <td>forskrivarnamn</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Förskrivarens namn.</td>
+      <td>1..71</td>
+    </tr>
+    <tr>
+      <td>forskrivarpostadress</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Förskrivarens postadress.</td>
+      <td>1..35</td>
+    </tr>
+    <tr>
+      <td>forskrivarpostnummer</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Förskrivarens postnummer.</td>
+      <td>5..6</td>
+    </tr>
+    <tr>
+      <td>forskrivarspecialiteter</td>
+      <td>string</td>
+      <td>0..*</td>
+      <td>Förskrivarens specialitet i klartext.</td>
+      <td>1..256</td>
+    </tr>
+    <tr>
+      <td>forskrivaryrke</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Förskrivarens yrke i klartext.</td>
+      <td>1..100</td>
+    </tr>
+    <tr>
+      <td>mangd</td>
+      <td>string</td>
+      <td>1..1</td>
+      <td>Totalt expedierad mängd. Kan returneras som: antalPillerKlartext eller antalForpackningar + forpackningsstorlek. Exempel: "28 st" eller "2x100 tabletter".</td>
+      <td>1..100</td>
+    </tr>
+    <tr>
+      <td>ordinationsmappning</td>
+      <td>Ordinationsmappning</td>
+      <td>0..1</td>
+      <td>Information som behövs för att mappa en post i läkemedelsförteckningen till en ordination.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>radid</td>
+      <td>long</td>
+      <td>1..1</td>
+      <td>Unikt id för posten i läkemedelsförteckningen.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>radnummer</td>
+      <td>int</td>
+      <td>0..1</td>
+      <td>Radnummer för utlämnad vara i aktuell expedition.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="artikelinformation">Artikelinformation</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Typ</th>
+      <th>Mult.</th>
+      <th>Beskrivning</th>
+      <th>Fältlängder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>antalEnhet</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Enhet för antalForpackning. Exempelvis "styck" eller "milliliter". Exempel där antalEnhet ingår: "6 x 5 x 0.72 milliliter".</td>
+      <td>1..80</td>
+    </tr>
+    <tr>
+      <td>antalIForpackning</td>
+      <td>decimal</td>
+      <td>0..1</td>
+      <td>Antal i förpackning. Numerisk angivelse, exempelvis 0,72. Exempel där antalForpackning ingår: "6 x 5 x 0.72 milliliter".</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>antalYtterstaForpackning</td>
+      <td>int</td>
+      <td>0..1</td>
+      <td>Antal multipel 2. Antal yttersta förpackningar för artikeln, exempelvis 6. Exempel där antalForpackning ingår: "6 x 5 x 0.72 milliliter".</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>antalYttreForpackning</td>
+      <td>int</td>
+      <td>0..1</td>
+      <td>Antal multipel 1. Antal yttre förpackningar som varan har, exempelvis 5. Exempel där antalYttreForpackning ingår: "6 x 5 x 0.72 milliliter".</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>atckod</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>ATC-kod. Exempel: "C07AB03”.</td>
+      <td>1..8</td>
+    </tr>
+    <tr>
+      <td>atckodKlartext</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Verksamt ämne enligt ATC-kod. Exempel: "Atenolol".</td>
+      <td>1..240</td>
+    </tr>
+    <tr>
+      <td>forpackningsstorlek</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Förpackningsstorlek. Exempel: "6 x 5 x 0.72 milliliter".</td>
+      <td>1..50</td>
+    </tr>
+    <tr>
+      <td>forpackningstyp</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Beskrivning av artikelns förpackningstyp. Exempel: "Blister".</td>
+      <td>1..40</td>
+    </tr>
+    <tr>
+      <td>intressent</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Ansvarigt företag för artikeln. Typ av företag kan variera, t.ex kan företaget vara innehavare av godkännande/registrering av försäljning eller parallellimportör. Exempel: "AstraZeneca AB".</td>
+      <td>1..160</td>
+    </tr>
+    <tr>
+      <td>lakemedelsform</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Läkemedelsform. Exempel: "Filmdragerad tablett".</td>
+      <td>1..160</td>
+    </tr>
+    <tr>
+      <td>lakemedelsformKod</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Kod för läkemedelsform (beredningsformkod). Exempel: "FICOTA".</td>
+      <td>1..6</td>
+    </tr>
+    <tr>
+      <td>nplPackid</td>
+      <td>string</td>
+      <td>1..1</td>
+      <td>Identitet på förskrivet läkemedel som har NPL Pack-id alternativt SB Pack-id.</td>
+      <td>14..14</td>
+    </tr>
+    <tr>
+      <td>produktnamn</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Läkemedelsnamn.</td>
+      <td>1..100</td>
+    </tr>
+    <tr>
+      <td>styrka</td>
+      <td>decimal</td>
+      <td>0..1</td>
+      <td>Numerisk styrka. Exempel "20.0".</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>styrkaEnhet</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Styrkans enhet. Exempel: "mg".</td>
+      <td>1..60</td>
+    </tr>
+    <tr>
+      <td>styrkaKlartext</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Styrka i klartext. Exempel: "20.0 mg".</td>
+      <td>1..80</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="ordinationsmappning">Ordinationsmappning</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Typ</th>
+      <th>Mult.</th>
+      <th>Beskrivning</th>
+      <th>Fältlängder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ordinationsId</td>
+      <td>string</td>
+      <td>1..1</td>
+      <td>Förskrivningens ordinationsid.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>produktradnummer</td>
+      <td>int</td>
+      <td>0..1</td>
+      <td>Tillhörande recepts eventuella prdradnummer NEF i receptdepån. Anges enbart om fältet är befintligt i receptdepån.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>radnummer</td>
+      <td>int</td>
+      <td>0..1</td>
+      <td>Tillhörande recepts eventuella radnummer NEF i receptdepån. Anges enbart om fältet är befintligt i receptdepån.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="patientinformation">Patientinformation</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Typ</th>
+      <th>Mult.</th>
+      <th>Beskrivning</th>
+      <th>Fältlängder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>patientidentifikation</td>
+      <td>Patientidentifikation</td>
+      <td>0..1</td>
+      <td>Patientidentifikationen kan enbart innehålla följande typ: Personnummer från kodverk med OID 1.2.752.129.2.1.3 och är enhetligt utformat unikt person-id registrerat i folkbokföringen. Tilldelas av skattekontoret.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>fornamn</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Patientens förnamn. För patient med skyddad identitet visas inte förnamn.</td>
+      <td>1..80</td>
+    </tr>
+    <tr>
+      <td>efternamn</td>
+      <td>string</td>
+      <td>0..1</td>
+      <td>Patientens efternamn. För patient med skyddad identitet visas inte efternamn.</td>
+      <td>1..60</td>
+    </tr>
+    <tr>
+      <td>redigeratNamn</td>
+      <td>string</td>
+      <td>1..1</td>
+      <td>Redigerat namn i formatet "mellannamn efternamn, förnamn". Förkortat till 36 tecken.</td>
+      <td>1..36</td>
+    </tr>
+    <tr>
+      <td>harRedigeratNamnForkortats</td>
+      <td>boolean</td>
+      <td>1..1</td>
+      <td>Anger om redigeratNamn har förkortats.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>avliden</td>
+      <td>boolean</td>
+      <td>1..1</td>
+      <td>Anger om patienten är avliden. Sant om personen är markerad som avliden, annars falskt.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="arbetsplatsidentifikation">ArbetsplatsIdentifikation</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Typ</th>
+      <th>Mult.</th>
+      <th>Beskrivning</th>
+      <th>Fältlängder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Skicka in ett av följande element:</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>arbetsplatskod</td>
+      <td>string</td>
+      <td>1..1</td>
+      <td>Del av val. Förskrivarens arbetsplatskod. Valideras. Obligatorisk om arbetsplats inte anges.</td>
+      <td>1..20</td>
+    </tr>
+    <tr>
+      <td>arbetsplats</td>
+      <td>Arbetsplats</td>
+      <td>1..1</td>
+      <td>Del av val. Förskrivarens arbetsplats. Obligatorisk om arbetsplatskod inte anges.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="patient">Patient</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Typ</th>
+      <th>Mult.</th>
+      <th>Beskrivning</th>
+      <th>Fältlängder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>patientidentifikation</td>
+      <td>Patientidentifikation</td>
+      <td>1..1</td>
+      <td>Patientidentifikationen kan innehålla följande typer: Personnummer från kodverk med OID 1.2.752.129.2.1.3 och är enhetligt utformat unikt person-id registrerat i folkbokföringen. Tilldelas av skattekontoret.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="arbetsplats">Arbetsplats</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Typ</th>
+      <th>Mult.</th>
+      <th>Beskrivning</th>
+      <th>Fältlängder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>arbetsplatsnamn</td>
+      <td>string</td>
+      <td>1..1</td>
+      <td>Namnet på användarens arbetsplats.</td>
+      <td>1..64</td>
+    </tr>
+    <tr>
+      <td>arbetsplatsort</td>
+      <td>string</td>
+      <td>1..1</td>
+      <td>Orten för användarens arbetsplats.</td>
+      <td>1..28</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="patientidentifikation">Patientidentifikation</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Typ</th>
+      <th>Mult.</th>
+      <th>Beskrivning</th>
+      <th>Fältlängder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>kod</td>
+      <td>string</td>
+      <td>1..1</td>
+      <td>Patientens personnummer.</td>
+      <td>1..12</td>
+    </tr>
+    <tr>
+      <td>kodverk</td>
+      <td>OID</td>
+      <td>1..1</td>
+      <td>Identifierng av berört kodverk/klassifikation enligt V-TIM 2.2.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="vardpersonal">Vardpersonal</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Typ</th>
+      <th>Mult.</th>
+      <th>Beskrivning</th>
+      <th>Fältlängder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>efternamn</td>
+      <td>string</td>
+      <td>1..1</td>
+      <td>Användarnamn. Används i kombination med personHsaId för att identifiera användare.</td>
+      <td>1..35</td>
+    </tr>
+    <tr>
+      <td>fornamn</td>
+      <td>string</td>
+      <td>1..1</td>
+      <td>Användarnamn. Används i kombination med personHsaId för att identifiera användare.</td>
+      <td>1..35</td>
+    </tr>
+    <tr>
+      <td>personHsaId</td>
+      <td>string</td>
+      <td>1..1</td>
+      <td>HSA-id för läsande person.</td>
+      <td>1..64</td>
+    </tr>
+    <tr>
+      <td>vardenhetHsaId</td>
+      <td>string</td>
+      <td>1..1</td>
+      <td>HSA-id för läsande vårdenhet. Används för spårbarhet.</td>
+      <td>1..64</td>
+    </tr>
+    <tr>
+      <td>vardgivareHsaId</td>
+      <td>string</td>
+      <td>1..1</td>
+      <td>HSA-id för läsande vårdgivare. Används för spårbarhet.</td>
+      <td>1..64</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="decimaltal">decimaltal</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Typ</th>
+      <th>Validering</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>decimal</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resultcodeenum">resultCodeEnum</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Typ</th>
+      <th>Validering</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>string</td>
+      <td>OK ERROR INFO</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="atkomsttyp">atkomsttyp</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Typ</th>
+      <th>Validering</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>string</td>
+      <td>ENG SAM NOD</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="oid">OID</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Typ</th>
+      <th>Validering</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>string</td>
+      <td>[0-9][0-9.]*</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.clinicalprocess-activityprescription-logistics#1.0.2 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Sat, Sep 26, 2026 19:16+0000">2026-09-26</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

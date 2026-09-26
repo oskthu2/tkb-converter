@@ -1,0 +1,1055 @@
+# HamtaVardtagareinformation — Response - druglogistics: dosedispensing — Dosdispensering v1.1.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **HamtaVardtagareinformation — Response**
+
+## Logical Model: HamtaVardtagareinformation — Response 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/druglogistics-dosedispensing/StructureDefinition/hamtavardtagareinformation | *Version*:1.1.0 |
+| Draft as of 2026-09-26 | *Computable Name*:HamtaVardtagareinformation |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret i HamtaVardtagareinformation (urn:riv:druglogistics:dosedispensing:HamtaVardtagareinformationResponder:1, HamtaVardtagareinformationResponseType). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.druglogistics-dosedispensing|current/StructureDefinition/StructureDefinition-hamtavardtagareinformation.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-hamtavardtagareinformation.csv), [Excel](StructureDefinition-hamtavardtagareinformation.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "hamtavardtagareinformation",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/StructureDefinition/hamtavardtagareinformation",
+  "version" : "1.1.0",
+  "name" : "HamtaVardtagareinformation",
+  "title" : "HamtaVardtagareinformation — Response",
+  "status" : "draft",
+  "date" : "2026-09-26T19:21:50+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret i HamtaVardtagareinformation\n(urn:riv:druglogistics:dosedispensing:HamtaVardtagareinformationResponder:1, HamtaVardtagareinformationResponseType).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/StructureDefinition/hamtavardtagareinformation",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "hamtavardtagareinformation",
+      "path" : "hamtavardtagareinformation",
+      "short" : "HamtaVardtagareinformation — Response",
+      "definition" : "Logisk modell för svaret i HamtaVardtagareinformation\n(urn:riv:druglogistics:dosedispensing:HamtaVardtagareinformationResponder:1, HamtaVardtagareinformationResponseType)."
+    },
+    {
+      "id" : "hamtavardtagareinformation.resultatkod",
+      "path" : "hamtavardtagareinformation.resultatkod",
+      "short" : "resultatkod",
+      "definition" : "resultatkod",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/ValueSet/dosedispensing-resultatkod-vs"
+      }
+    },
+    {
+      "id" : "hamtavardtagareinformation.meddelandetext",
+      "path" : "hamtavardtagareinformation.meddelandetext",
+      "short" : "meddelandetext",
+      "definition" : "meddelandetext",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.meddelandeid",
+      "path" : "hamtavardtagareinformation.meddelandeid",
+      "short" : "meddelandeid",
+      "definition" : "meddelandeid",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation",
+      "short" : "Vardtagarinformation",
+      "definition" : "Vardtagarinformation",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.hemmaboende",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.hemmaboende",
+      "short" : "hemmaboende",
+      "definition" : "hemmaboende",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.dosapoteksid",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.dosapoteksid",
+      "short" : "dosapoteksid",
+      "definition" : "dosapoteksid",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.dosapoteknamn",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.dosapoteknamn",
+      "short" : "dosapoteknamn",
+      "definition" : "dosapoteknamn",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.forstadosdag",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.forstadosdag",
+      "short" : "forstadosdag",
+      "definition" : "forstadosdag",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.avvikandedosschema",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.avvikandedosschema",
+      "short" : "avvikandedosschema",
+      "definition" : "avvikandedosschema",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Patientinformation",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Patientinformation",
+      "short" : "Patientinformation",
+      "definition" : "Patientinformation",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Patientinformation.fornamn",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Patientinformation.fornamn",
+      "short" : "fornamn",
+      "definition" : "Anvandarens fornamn.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Patientinformation.mellannamn",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Patientinformation.mellannamn",
+      "short" : "mellannamn",
+      "definition" : "Anvandarens mellanamn.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Patientinformation.efternamn",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Patientinformation.efternamn",
+      "short" : "efternamn",
+      "definition" : "Anvandarens efternamn.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Patientinformation.identitetstyp",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Patientinformation.identitetstyp",
+      "short" : "identitetstyp",
+      "definition" : "identitetstyp",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/ValueSet/dosedispensing-identitetstyp-vs"
+      }
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Patientinformation.personid",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Patientinformation.personid",
+      "short" : "personid",
+      "definition" : "Anvandarens personid",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Patientinformation.lanskod",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Patientinformation.lanskod",
+      "short" : "lanskod",
+      "definition" : "Anvandarens folkbokforda lanskod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Patientinformation.kommunkod",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Patientinformation.kommunkod",
+      "short" : "kommunkod",
+      "definition" : "Anvandarens folkbokforda kommunkod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Hemmaboendeinformation",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Hemmaboendeinformation",
+      "short" : "Hemmaboendeinformation",
+      "definition" : "Hemmaboendeinformation",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Hemmaboendeinformation.adress",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Hemmaboendeinformation.adress",
+      "short" : "adress",
+      "definition" : "adress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Hemmaboendeinformation.postnummer",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Hemmaboendeinformation.postnummer",
+      "short" : "postnummer",
+      "definition" : "postnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Hemmaboendeinformation.ort",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Hemmaboendeinformation.ort",
+      "short" : "ort",
+      "definition" : "ort",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Hemmaboendeinformation.telefon",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Hemmaboendeinformation.telefon",
+      "short" : "telefon",
+      "definition" : "telefon",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Hemmaboendeinformation.dosmottagareid",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Hemmaboendeinformation.dosmottagareid",
+      "short" : "dosmottagareid",
+      "definition" : "dosmottagareid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Hemmaboendeinformation.dosmottagarenamn",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Hemmaboendeinformation.dosmottagarenamn",
+      "short" : "dosmottagarenamn",
+      "definition" : "dosmottagarenamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Tillfalligadress",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Tillfalligadress",
+      "short" : "Tillfalligadress",
+      "definition" : "Tillfalligadress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Tillfalligadress.adress",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Tillfalligadress.adress",
+      "short" : "adress",
+      "definition" : "adress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Tillfalligadress.postnummer",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Tillfalligadress.postnummer",
+      "short" : "postnummer",
+      "definition" : "postnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Tillfalligadress.ort",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Tillfalligadress.ort",
+      "short" : "ort",
+      "definition" : "ort",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Tillfalligadress.telefon",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Tillfalligadress.telefon",
+      "short" : "telefon",
+      "definition" : "telefon",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Tillfalligadress.dosmottagareid",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Tillfalligadress.dosmottagareid",
+      "short" : "dosmottagareid",
+      "definition" : "dosmottagareid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Tillfalligadress.dosmottagarenamn",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Tillfalligadress.dosmottagarenamn",
+      "short" : "dosmottagarenamn",
+      "definition" : "dosmottagarenamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Leveransadressinformation",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Leveransadressinformation",
+      "short" : "Leveransadressinformation",
+      "definition" : "Leveransadressinformation",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Leveransadressinformation.boendeenhetnamn",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Leveransadressinformation.boendeenhetnamn",
+      "short" : "boendeenhetnamn",
+      "definition" : "boendeenhetnamn",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Leveransadressinformation.boendeenhetid",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Leveransadressinformation.boendeenhetid",
+      "short" : "boendeenhetid",
+      "definition" : "boendeenhetid",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Leveransadressinformation.boendeenhetadress",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Leveransadressinformation.boendeenhetadress",
+      "short" : "boendeenhetadress",
+      "definition" : "boendeenhetadress",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Leveransadressinformation.boendeenhetpostnummer",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Leveransadressinformation.boendeenhetpostnummer",
+      "short" : "boendeenhetpostnummer",
+      "definition" : "boendeenhetpostnummer",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Leveransadressinformation.boendeenhetpostort",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Leveransadressinformation.boendeenhetpostort",
+      "short" : "boendeenhetpostort",
+      "definition" : "boendeenhetpostort",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Leveransadressinformation.boendeenhetavdelning",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Leveransadressinformation.boendeenhetavdelning",
+      "short" : "boendeenhetavdelning",
+      "definition" : "boendeenhetavdelning",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Leveransadressinformation.arbetsplatskod",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Leveransadressinformation.arbetsplatskod",
+      "short" : "arbetsplatskod",
+      "definition" : "arbetsplatskod",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Leveransadressinformation.dosmottagareid",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Leveransadressinformation.dosmottagareid",
+      "short" : "dosmottagareid",
+      "definition" : "dosmottagareid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Leveransadressinformation.dosmottagarenamn",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Leveransadressinformation.dosmottagarenamn",
+      "short" : "dosmottagarenamn",
+      "definition" : "dosmottagarenamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation",
+      "short" : "Kontaktinformation",
+      "definition" : "Kontaktinformation",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.PALforskrivarkod",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.PALforskrivarkod",
+      "short" : "PALforskrivarkod",
+      "definition" : "PALforskrivarkod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.PALfornamn",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.PALfornamn",
+      "short" : "PALfornamn",
+      "definition" : "PALfornamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.PALefternamn",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.PALefternamn",
+      "short" : "PALefternamn",
+      "definition" : "PALefternamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.anhorigkontaktnamn",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.anhorigkontaktnamn",
+      "short" : "anhorigkontaktnamn",
+      "definition" : "anhorigkontaktnamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.anhorigkontaktemail",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.anhorigkontaktemail",
+      "short" : "anhorigkontaktemail",
+      "definition" : "anhorigkontaktemail",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.ansvarigkontaktnamn",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.ansvarigkontaktnamn",
+      "short" : "ansvarigkontaktnamn",
+      "definition" : "ansvarigkontaktnamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.ansvarigkontaktemail",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.ansvarigkontaktemail",
+      "short" : "ansvarigkontaktemail",
+      "definition" : "ansvarigkontaktemail",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.ansvarigkontaktadress",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.ansvarigkontaktadress",
+      "short" : "ansvarigkontaktadress",
+      "definition" : "ansvarigkontaktadress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.ansvarigkontaktpostnummer",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.ansvarigkontaktpostnummer",
+      "short" : "ansvarigkontaktpostnummer",
+      "definition" : "ansvarigkontaktpostnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.ansvarigkontaktpostort",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.ansvarigkontaktpostort",
+      "short" : "ansvarigkontaktpostort",
+      "definition" : "ansvarigkontaktpostort",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.ansvarigkontakttelefon1",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.ansvarigkontakttelefon1",
+      "short" : "ansvarigkontakttelefon1",
+      "definition" : "ansvarigkontakttelefon1",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.ansvarigkontakttelefon2",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.ansvarigkontakttelefon2",
+      "short" : "ansvarigkontakttelefon2",
+      "definition" : "ansvarigkontakttelefon2",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.vardandeenhetid",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.vardandeenhetid",
+      "short" : "vardandeenhetid",
+      "definition" : "vardandeenhetid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.vardandeenhetnamn",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.vardandeenhetnamn",
+      "short" : "vardandeenhetnamn",
+      "definition" : "vardandeenhetnamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.vardandeenhetpostort",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.vardandeenhetpostort",
+      "short" : "vardandeenhetpostort",
+      "definition" : "vardandeenhetpostort",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.vardandeenhetpostnummer",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Kontaktinformation.vardandeenhetpostnummer",
+      "short" : "vardandeenhetpostnummer",
+      "definition" : "vardandeenhetpostnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Betalningsinformation",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Betalningsinformation",
+      "short" : "Betalningsinformation",
+      "definition" : "Betalningsinformation",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Betalningsinformation.form",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Betalningsinformation.form",
+      "short" : "form",
+      "definition" : "form",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Betalningsinformation.information",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Betalningsinformation.information",
+      "short" : "information",
+      "definition" : "information",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Betalningsinformation.betalningsansvarigfornamn",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Betalningsinformation.betalningsansvarigfornamn",
+      "short" : "betalningsansvarigfornamn",
+      "definition" : "betalningsansvarigfornamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Betalningsinformation.betalningsansvarigefternamn",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Betalningsinformation.betalningsansvarigefternamn",
+      "short" : "betalningsansvarigefternamn",
+      "definition" : "betalningsansvarigefternamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Betalningsinformation.betalningsansvarigadress",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Betalningsinformation.betalningsansvarigadress",
+      "short" : "betalningsansvarigadress",
+      "definition" : "betalningsansvarigadress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Betalningsinformation.betalningsansvarigpostnummer",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Betalningsinformation.betalningsansvarigpostnummer",
+      "short" : "betalningsansvarigpostnummer",
+      "definition" : "betalningsansvarigpostnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Betalningsinformation.betalningsansvarigort",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Betalningsinformation.betalningsansvarigort",
+      "short" : "betalningsansvarigort",
+      "definition" : "betalningsansvarigort",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Betalningsinformation.betalningsansvarigtelefon",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Betalningsinformation.betalningsansvarigtelefon",
+      "short" : "betalningsansvarigtelefon",
+      "definition" : "betalningsansvarigtelefon",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo",
+      "short" : "Produktionsinfo",
+      "definition" : "Produktionsinfo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.dosaktor",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.dosaktor",
+      "short" : "dosaktor",
+      "definition" : "dosaktor",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.dosapotek",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.dosapotek",
+      "short" : "dosapotek",
+      "definition" : "dosapotek",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.dosapotekid",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.dosapotekid",
+      "short" : "dosapotekid",
+      "definition" : "dosapotekid",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.stopptidbestallning",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.stopptidbestallning",
+      "short" : "stopptidbestallning",
+      "definition" : "stopptidbestallning",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.stopptidordination",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.stopptidordination",
+      "short" : "stopptidordination",
+      "definition" : "stopptidordination",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.forstadosdag",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.forstadosdag",
+      "short" : "forstadosdag",
+      "definition" : "forstadosdag",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.dosvecka",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.dosvecka",
+      "short" : "dosvecka",
+      "definition" : "dosvecka",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.doseringsschema",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.doseringsschema",
+      "short" : "doseringsschema",
+      "definition" : "doseringsschema",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.doseringsschema.periodlangd",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.doseringsschema.periodlangd",
+      "short" : "periodlangd",
+      "definition" : "Antal dagar som dosering skall galla. Vid regelbunden dosering anges periodlangd = 1 Vid oregelbunden dosering anges antal dagar som intervallet omfattar. Exempelvis 2 om intag ska ske varannan dag.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.doseringsschema.intagstillfalle",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.doseringsschema.intagstillfalle",
+      "short" : "intagstillfalle",
+      "definition" : "Beskriver tid och mangd for intag av lakemedel.",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.doseringsschema.intagstillfalle.intagstillfalle",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.doseringsschema.intagstillfalle.intagstillfalle",
+      "short" : "intagstillfalle",
+      "definition" : "Klockslag nar patienten ska inta medicinering.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.doseringsschema.intagstillfalle.intagsmangd",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.doseringsschema.intagstillfalle.intagsmangd",
+      "short" : "intagsmangd",
+      "definition" : "Intagsmangd per tillfalle",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.doseringsschema.intagstillfalle.dagIPeriod",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.doseringsschema.intagstillfalle.dagIPeriod",
+      "short" : "dagIPeriod",
+      "definition" : "Dag i perioden nar intag skall goras. Exempel: Intag ska ske varje mandag och onsdag och startdatum ar pa en mandag. Mandag Insattningsdatum = 2010-01-01, Periodlangd=7, Dag i period= 1. Onsdag Insattningsdatum = 2010-01-01, Periodlangd=7, Dag i period=3.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.dosmottagareid",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.dosmottagareid",
+      "short" : "dosmottagareid",
+      "definition" : "dosmottagareid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.dosmottagarenamn",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Produktionsinfo.dosmottagarenamn",
+      "short" : "dosmottagarenamn",
+      "definition" : "dosmottagarenamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Vardtagarstatus",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Vardtagarstatus",
+      "short" : "Vardtagarstatus",
+      "definition" : "Vardtagarstatus",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Vardtagarstatus.statuskod",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Vardtagarstatus.statuskod",
+      "short" : "statuskod",
+      "definition" : "statuskod",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/ValueSet/dosedispensing-vardtagarstatus-vs"
+      }
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Vardtagarstatus.frantid",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Vardtagarstatus.frantid",
+      "short" : "frantid",
+      "definition" : "frantid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.Vardtagarstatus.tilltid",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.Vardtagarstatus.tilltid",
+      "short" : "tilltid",
+      "definition" : "tilltid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "hamtavardtagareinformation.Vardtagarinformation.vilandestatusorsak",
+      "path" : "hamtavardtagareinformation.Vardtagarinformation.vilandestatusorsak",
+      "short" : "vilandestatusorsak",
+      "definition" : "vilandestatusorsak",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

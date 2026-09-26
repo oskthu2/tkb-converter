@@ -1,0 +1,1259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>5 Tjänstedomänens meddelandemodeller - supportprocess: personalresources: interpretation — Tolkförmedling v1.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"6"}
+    h3,h4,h5,h6{--heading-prefix:"6"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">supportprocess: personalresources: interpretation — Tolkförmedling</span>
+            <br/>
+            <span style="display:inline-block;">1.0.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+  <li><a href="3-tjanstedomanens-arkitektur.html">3 Arkitektur</a></li>
+  <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Krav och regler</a></li>
+  <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Meddelandemodeller</a></li>
+  <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma komponenter</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>5 Tjänstedomänens meddelandemodeller</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">supportprocess: personalresources: interpretation — Tolkförmedling - Local Development build (v1.0.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/supportprocess-personalresources-interpretation/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>5 Tjänstedomänens meddelandemodeller</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstedomänens-meddelandemodeller" id="markdown-toc-tjänstedomänens-meddelandemodeller">Tjänstedomänens meddelandemodeller</a>    <ul>
+      <li><a href="#v-mim" id="markdown-toc-v-mim">V-MIM</a></li>
+      <li><a href="#formatregler" id="markdown-toc-formatregler">Formatregler</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstedomänens-meddelandemodeller">Tjänstedomänens meddelandemodeller</h2>
+<p>Här beskrivs de meddelandemodeller som visar vilken information som förmedlas i respektive tjänstekontrakt. För varje meddelandemodell beskrivs hur mappning ser ut mot schema (XSD) för tjänstekontrakt.
+Blå klasser kommer från informationsmodellen [R3], och för dessa finns mappning mot referensinformationsmodell i informationsspecifikationen [R3]. Rosa klasser är endast platshållare eller innehåller teknisk information som inte är en del av informationsmodellen.
+Begäran visas nedan med rosa bakgrund och svar med vit.</p>
+
+<h3 id="v-mim">V-MIM</h3>
+
+<h4 id="answerinquiry">AnswerInquiry</h4>
+
+<h5 id="begäran">Begäran</h5>
+
+<p><img src="img_011.png" alt="img_011.png" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">V-MIM / Klass / Attribut</th>
+      <th style="text-align: left">Mappning mot XSD-filer / Klass.attribut</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">AnswerInquiry</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">svar</td>
+      <td style="text-align: left">InquiryResponse.Answer</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">beskrivning</td>
+      <td style="text-align: left">InquiryResponse.ExplainingText</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Restidsersättning</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">efterfrågad</td>
+      <td style="text-align: left">BookingInformationFromAssociation.RequestTravelTimeCost</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Förfrågan</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">InquiryResponse.InquiryId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">runda</td>
+      <td style="text-align: left">InquiryResponse.Round</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beställning</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">beställningsnummer</td>
+      <td style="text-align: left">ReferenceNumberMapping.BookingNumber</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">referensnummer</td>
+      <td style="text-align: left">ReferenceNumberMapping.ReferenceNumber</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tolkuppdrag</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telefonnummer</td>
+      <td style="text-align: left">BookingInformationFromAssociation.PhoneNumberForInterpretation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tolk</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">BookingInformationFromAssociation. InterpreterName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kompetensnivå</td>
+      <td style="text-align: left">BookingInformationFromAssociation .AuthorizationLevel</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svar">Svar</h5>
+
+<p><img src="img_007.png" alt="img_007.png" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">V-MIM / Klass / Attribut</th>
+      <th style="text-align: left">Mappning mot XSD-filer / Klass.attribut</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">AnswerInquiryResponse</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Result</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultType.resultCode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">errorCode</td>
+      <td style="text-align: left">ResultType.errorCode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">subCode</td>
+      <td style="text-align: left">ResultType.subCode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">logId</td>
+      <td style="text-align: left">ResultType.logId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">message</td>
+      <td style="text-align: left">ResultType.message</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="createbooking">CreateBooking</h4>
+
+<h5 id="begäran-1">Begäran</h5>
+
+<p><img src="img_004.png" alt="img_004.png" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">V-MIM / Klass / Attribut</th>
+      <th style="text-align: left">V-MIM / Klass / Attribut</th>
+      <th style="text-align: left">Mappning mot XSD-filer / Klass.attribut</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Beställning</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">referensnummer</td>
+      <td style="text-align: left">BookingOccasionCreate.ReferenceNumber</td>
+      <td style="text-align: left">BookingOccasionCreate.ReferenceNumber</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tolkningstillfälle</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">starttid</td>
+      <td style="text-align: left">BookingOccasionCreate.StartTime</td>
+      <td style="text-align: left">BookingOccasionCreate.StartTime</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sluttid</td>
+      <td style="text-align: left">BookingOccasionCreate.EndTime</td>
+      <td style="text-align: left">BookingOccasionCreate.EndTime</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Restidersättning</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">efterfrågad</td>
+      <td style="text-align: left">BookingInformationFromAssociation.RequestTravelTimeCost</td>
+      <td style="text-align: left">BookingInformationFromAssociation.RequestTravelTimeCost</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tolk</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">BookingInformationFromAssociation.InterpreterName</td>
+      <td style="text-align: left">BookingInformationFromAssociation.InterpreterName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kompetensnivå</td>
+      <td style="text-align: left">BookingInformationFromAssociation.AuthorizationLevel</td>
+      <td style="text-align: left">BookingInformationFromAssociation.AuthorizationLevel</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tolkuppdrag</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telefonnummer</td>
+      <td style="text-align: left">BookingInformationFromAssociation.PhoneNumberForInterpretation</td>
+      <td style="text-align: left">BookingInformationFromAssociation.PhoneNumberForInterpretation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">språk</td>
+      <td style="text-align: left">BookingCreate.InterpretationLanguageId</td>
+      <td style="text-align: left">BookingCreate.InterpretationLanguageId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">typ av tolkning</td>
+      <td style="text-align: left">BookingCreate.InterpretationType</td>
+      <td style="text-align: left">BookingCreate.InterpretationType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patient</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ålder</td>
+      <td style="text-align: left">PatientInformation.Age</td>
+      <td style="text-align: left">PatientInformation.Age</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kön</td>
+      <td style="text-align: left">PatientInformation.Gender</td>
+      <td style="text-align: left">PatientInformation.Gender</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tolkställe</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">adress</td>
+      <td style="text-align: left">ContactInformation.Address</td>
+      <td style="text-align: left">ContactInformation.Address</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">portkod</td>
+      <td style="text-align: left">ContactInformation.DoorCode</td>
+      <td style="text-align: left">ContactInformation.DoorCode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">vägbeskrivning</td>
+      <td style="text-align: left">ContactInformation.LocationDetails</td>
+      <td style="text-align: left">ContactInformation.LocationDetails</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">ContactInformation.LocationName</td>
+      <td style="text-align: left">ContactInformation.LocationName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beställare</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">ContactInformation.OrderingPersonName</td>
+      <td style="text-align: left">ContactInformation.OrderingPersonName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">ContactInformation.OrderingPersonId</td>
+      <td style="text-align: left">ContactInformation.OrderingPersonId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beställande enhet</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">ContactInformation.OrderingUnitName</td>
+      <td style="text-align: left">ContactInformation.OrderingUnitName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">ContactInformation.OrderingUnitHsaId</td>
+      <td style="text-align: left">ContactInformation.OrderingUnitHsaId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Enhet över beställande enhet</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">ContactInformation.OrderingHealthcareUnitName</td>
+      <td style="text-align: left">ContactInformation.OrderingHealthcareUnitName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">ContactInformation.OrderingHealthcareUnitHsaId</td>
+      <td style="text-align: left">ContactInformation.OrderingHealthcareUnitHsaId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">ContactInformation.HealthCareProfessionalName</td>
+      <td style="text-align: left">ContactInformation.HealthCareProfessionalName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kontaktperson</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">ContactInformation.ContactPerson</td>
+      <td style="text-align: left">ContactInformation.ContactPerson</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telefonnummer</td>
+      <td style="text-align: left">ContactInformation.ContactPhone</td>
+      <td style="text-align: left">ContactInformation.ContactPhone</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svar-1">Svar</h5>
+
+<p><img src="img_003.png" alt="img_003.png" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">V-MIM / Klass / Attribut</th>
+      <th style="text-align: left">Mappning mot XSD-filer / Klass.attribut</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Beställning</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">beställningsnummer</td>
+      <td style="text-align: left">ReferenceNumberMapping.BookingNumber</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">referensnummer</td>
+      <td style="text-align: left">ReferenceNumberMapping.ReferenceNumber</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Result</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultType.resultCode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">errorCode</td>
+      <td style="text-align: left">ResultType.errorCode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">subCode</td>
+      <td style="text-align: left">ResultType.subCode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">logId</td>
+      <td style="text-align: left">ResultType.logId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">message</td>
+      <td style="text-align: left">ResultType.message</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="listbookings">ListBookings</h4>
+<p>Begäran visas nedan med rosa bakgrund och svaret med vit.</p>
+
+<h5 id="begäran-2">Begäran</h5>
+
+<p><img src="img_001.png" alt="img_001.png" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">V-MIM / Klass / Attribut</th>
+      <th style="text-align: left">Mappning mot XSD-filer / Klass.attribut</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ListBookings</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LastSequenceNumber</td>
+      <td style="text-align: left">ListBookings.LastSequenceNumber</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svar-2">Svar</h5>
+
+<p><img src="img_010.png" alt="img_010.png" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">V-MIM / Klass / Attribut</th>
+      <th style="text-align: left">Mappning mot XSD-filer / Klass.attribut</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ListBookingsResponse</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LastSequenceNumber</td>
+      <td style="text-align: left">ListBookingsResponseType.LastSequenceNumber</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HasMoreEntries</td>
+      <td style="text-align: left">ListBookingsResponseType.HasMoreEntries</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beställning</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">beställningsnummer</td>
+      <td style="text-align: left">BookingOccasion.BookingNumber</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">referensnummer</td>
+      <td style="text-align: left">BookingOccasion.ReferenceNumber/ BookingAnswerData.ReferenceNumber</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">status</td>
+      <td style="text-align: left">BookingOccasion.State</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">faktureringsnummer</td>
+      <td style="text-align: left">BookingOccasion.InvoiceEventId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tolkningstillfälle</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">starttid</td>
+      <td style="text-align: left">BookingOccasion.StartTime</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sluttid</td>
+      <td style="text-align: left">BookingOccasion.EndTime</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Restidersättning</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">efterfrågad</td>
+      <td style="text-align: left">BookingInformationFromAssociation.RequestTravelTimeCost</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">tillåten</td>
+      <td style="text-align: left">BookingData.TravelTimeCostAllowed</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beställare</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">ContactInformation.OrderingPersonName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">ContactInformation.OrderingPersonId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beställande enhet</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">ContactInformation.OrderingUnitName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">ContactInformation.OrderingUnitHsaId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Enhet över beställande enhet</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">ContactInformation.OrderingHealthcareUnitName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">ContactInformation.OrderingHealthcareUnitHsaId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tolkuppdrag</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">språk</td>
+      <td style="text-align: left">BookingData.InterpretationLanguageId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ytterligare krav</td>
+      <td style="text-align: left">BookingData.AdditionalRequirements</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">typ av tolkning</td>
+      <td style="text-align: left">BookingData.InterpretationType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientönskemål</td>
+      <td style="text-align: left">BookingData.AdditionalPatientRequest</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telefonnummer</td>
+      <td style="text-align: left">BookingInformationFromAssociation.PhoneNumberForInterpretation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Bokad tolk (Tolk)</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">BookingInformationFromAssociation.InterpreterName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kompetensnivå</td>
+      <td style="text-align: left">BookingInformationFromAssociation.AuthorizationLevel</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Behov av specifik kompetensnivå på tolk (Specifikt behov)</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kravnivå</td>
+      <td style="text-align: left">AuthorizationLevelWithRequirement.RequirementLevel</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tolk med viss kompetensnivå (Tolk)</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kompetensnivå</td>
+      <td style="text-align: left">AuthorizationLevelWithRequirement.AuthorizationLevel</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Behov av specifik tolk (Specifikt behov)</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kravnivå</td>
+      <td style="text-align: left">RequiredInterpreterNameWithRequirement.RequirementLevel</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Specifik tolk (Tolk)</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">RequiredInterpreterNameWithRequirement.RequiredInterpreterName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">vidtalad</td>
+      <td style="text-align: left">RequiredInterpreterNameWithRequirement.IsPreBooked</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Behov av kön på tolk (Specifikt behov)</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kravnivå</td>
+      <td style="text-align: left">RequiredGenderWithRequirement.RequirementLevel</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tolk med visst kön (Tolk)</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kön</td>
+      <td style="text-align: left">RequiredGenderWithRequirement.Gender</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tolkställe</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">adress</td>
+      <td style="text-align: left">ContactInformation.Address</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">portkod</td>
+      <td style="text-align: left">ContactInformation.DoorCode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">vägbeskrivning</td>
+      <td style="text-align: left">ContactInformation.LocationDetails</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">ContactInformation.LocationName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">ContactInformation.HealthCareProfessionalName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kontaktperson</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">ContactInformation.ContactPerson</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telefonnummer</td>
+      <td style="text-align: left">ContactInformation.ContactPhone</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patient</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ålder</td>
+      <td style="text-align: left">PatientInformation.Age</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kön</td>
+      <td style="text-align: left">PatientInformation.Gender</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="listinquiries">ListInquiries</h4>
+<p>Begäran visas nedan med rosa bakgrund och svaret med vit.</p>
+
+<h5 id="begäran-3">Begäran</h5>
+
+<p><img src="img_005.png" alt="img_005.png" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">V-MIM / Klass / Attribut</th>
+      <th style="text-align: left">Mappning mot XSD-filer / Klass.attribut</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ListInquiries</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LastSequenceNumber</td>
+      <td style="text-align: left">ListInqueries.LastSequenceNumber</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svar-3">Svar</h5>
+
+<p><img src="img_002.png" alt="img_002.png" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">V-MIM / Klass / Attribut</th>
+      <th style="text-align: left">Mappning mot XSD-filer / Klass.attribut</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ListInquiriesResponse</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HasMoreEntries</td>
+      <td style="text-align: left">ListInquiriesResponseType.HasMoreEntries</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LastSequenceNumber</td>
+      <td style="text-align: left">ListInquiriesResponseType.LastSequenceNumber</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Förfrågan</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">Inquiry.InquiryId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">runda</td>
+      <td style="text-align: left">Inquiry.Round</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">status</td>
+      <td style="text-align: left">Inquiry.InquiryState</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sista svarstid</td>
+      <td style="text-align: left">Inquiry.LastResponseTime</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">först i tur</td>
+      <td style="text-align: left">Inquiry.FirstInRank</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">samma tolk</td>
+      <td style="text-align: left">Inquiry. SameInterpreterRequiredForAllOccasions</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">beskrivning</td>
+      <td style="text-align: left">Inquiry.ExplainingText</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beställning</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">beställningsnummer</td>
+      <td style="text-align: left">BookingOccasion.BookingNumber</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">referensnummer</td>
+      <td style="text-align: left">BookingOccasion.ReferenceNumber</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">status</td>
+      <td style="text-align: left">BookingOccasion.State</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">faktureringsnummer</td>
+      <td style="text-align: left">BookingOccasion.InvoiceEventId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tolkningstillfälle</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">starttid</td>
+      <td style="text-align: left">BookingOccasion.StartTime</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sluttid</td>
+      <td style="text-align: left">BookingOccasion.EndTime</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Önskad tolk (Tolk)</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">Inquiry.InterpreterName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Restidsersättning</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">tillåten</td>
+      <td style="text-align: left">BookingData.TravelTimeCostAllowed</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beställare</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">ContactInformation.OrderingPersonName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">ContactInformation.OrderingPersonId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beställande enhet</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">ContactInformation.OrderingUnitName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">ContactInformation.OrderingUnitHsaId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Enhet över beställande enhet</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">ContactInformation.OrderingHealthcareUnitName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">ContactInformation.OrderingHealthcareUnitHsaId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tolkuppdrag</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">språk</td>
+      <td style="text-align: left">BookingData.InterpretationLanguageId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ytterligare krav</td>
+      <td style="text-align: left">BookingData.AdditionalRequirements</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">typ av tolkning</td>
+      <td style="text-align: left">BookingData.InterpretationType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientönskemål</td>
+      <td style="text-align: left">BookingData.AdditionalPatientRequest</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Behov av specifik kompetensnivå på tolk (Specifikt behov)</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kravnivå</td>
+      <td style="text-align: left">AuthorizationLevelWithRequirement.RequirementLevel</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tolk med viss kompetensnivå (Tolk)</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kompetensnivå</td>
+      <td style="text-align: left">AuthorizationLevelWithRequirement.AuthorizationLevel</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Behov av specifik tolk (Specifikt behov)</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kravnivå</td>
+      <td style="text-align: left">RequiredInterpreterNameWithRequirement.RequirementLevel</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Specifik tolk (Tolk)</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">RequiredInterpreterNameWithRequirement.RequiredInterpreterName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">vidtalad</td>
+      <td style="text-align: left">RequiredInterpreterNameWithRequirement.IsPreBooked</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Behov av kön på tolk (Specifikt behov)</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kravnivå</td>
+      <td style="text-align: left">RequiredGenderWithRequirement.RequirementLevel</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tolk med visst kön (Tolk)</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kön</td>
+      <td style="text-align: left">RequiredGenderWithRequirement.Gender</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patient</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ålder</td>
+      <td style="text-align: left">PatientInformation.Age</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kön</td>
+      <td style="text-align: left">PatientInformation.Gender</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tolkställe</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">adress</td>
+      <td style="text-align: left">ContactInformation.Address</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">portkod</td>
+      <td style="text-align: left">ContactInformation.DoorCode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">vägbeskrivning</td>
+      <td style="text-align: left">ContactInformation.LocationDetails</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">ContactInformation.LocationName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">ContactInformation.HealthCareProfessionalName</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kontaktperson</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">ContactInformation.ContactPerson</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telefonnummer</td>
+      <td style="text-align: left">ContactInformation.ContactPhone</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="updatebooking">UpdateBooking</h4>
+<p>Begäran visas nedan med rosa bakgrund och svar med vit.</p>
+
+<h5 id="begäran-4">Begäran</h5>
+
+<p><img src="img_012.png" alt="img_012.png" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">V-MIM / Klass / Attribut</th>
+      <th style="text-align: left">Mappning mot XSD-filer / Klass.attribut</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">UpdateBooking</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beställning</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">beställningsnummer</td>
+      <td style="text-align: left">BookingUpdate.BookingNumber</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">referensnummer</td>
+      <td style="text-align: left">BookingUpdate.ReferenceNumber</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Restidsersättning</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">efterfrågad</td>
+      <td style="text-align: left">BookingInformationFromAssociation.RequestTravelTimeCost</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tolkuppdrag</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telefonnummer</td>
+      <td style="text-align: left">BookingInformationFromAssociation.PhoneNumberForInterpretation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tolk</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">BookingInformationFromAssociation.Interpretername</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kompetensnivå</td>
+      <td style="text-align: left">BookingInformationFromAssociation.AuthorizationLevel</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svar-4">Svar</h5>
+
+<p><img src="img_008.png" alt="img_008.png" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">V-MIM / Klass / Attribut</th>
+      <th style="text-align: left">Mappning mot XSD-filer / Klass.attribut</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">UpdateBookingResponse</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Result</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultType.resultCode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">errorCode</td>
+      <td style="text-align: left">ResultType.errorCode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">subCode</td>
+      <td style="text-align: left">ResultType.subCode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">logId</td>
+      <td style="text-align: left">ResultType.logId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">message</td>
+      <td style="text-align: left">ResultType.message</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="formatregler">Formatregler</h3>
+
+<h4 id="datum-och-tid">Datum och tid</h4>
+<p>Tid och datum anges alltid på formatet ”ÅÅÅÅ-MM-DDThh:mm:ss” enligt RFC 3339 [R5]. Exempel: 2010-11-26T09:00:00. W3C-datatypen dateTime används i tjänstekontrakten för att realisera detta.</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.supportprocess-personalresources-interpretation#1.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Sat, Sep 26, 2026 19:47+0000">2026-09-26</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

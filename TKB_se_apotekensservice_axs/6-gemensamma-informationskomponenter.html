@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>6 Gemensamma informationskomponenter - se.apotekensservice: axs — Hämta patientinformation v7.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"7"}
+    h3,h4,h5,h6{--heading-prefix:"7"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">se.apotekensservice: axs — Hämta patientinformation</span>
+            <br/>
+            <span style="display:inline-block;">7.0.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+  <li><a href="3-tjanstedomanens-arkitektur.html">3 Arkitektur</a></li>
+  <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Krav och regler</a></li>
+  <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Meddelandemodeller</a></li>
+  <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma komponenter</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>6 Gemensamma informationskomponenter</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">se.apotekensservice: axs — Hämta patientinformation - Local Development build (v7.0.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/se-apotekensservice-axs/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>6 Gemensamma informationskomponenter</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#gemensamma-informationskomponenter" id="markdown-toc-gemensamma-informationskomponenter">Gemensamma informationskomponenter</a>    <ul>
+      <li><a href="#apoteksinformationresponse" id="markdown-toc-apoteksinformationresponse">ApoteksinformationResponse</a></li>
+      <li><a href="#patientinformationresponse" id="markdown-toc-patientinformationresponse">PatientInformationResponse</a></li>
+      <li><a href="#samtyckeresponse" id="markdown-toc-samtyckeresponse">SamtyckeResponse</a></li>
+      <li><a href="#övriga-typer-i-domänschemana" id="markdown-toc-övriga-typer-i-domänschemana">Övriga typer i domänschemana</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="gemensamma-informationskomponenter">Gemensamma informationskomponenter</h2>
+
+<p><em>SAKNAS I KÄLLDOKUMENT.</em> Komponenterna nedan är hämtade ur domänschemana. Beskrivningarna är schemaannoteringarna.</p>
+
+<h3 id="apoteksinformationresponse">ApoteksinformationResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_axs_4.0.xsd</code> (<a href="se.apotekensservice_axs_4.0.xsd">nedladdning</a>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">aktorsnamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Aktörsnamn</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">aktorsorgnr</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left">Aktörens organisationsnummer.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">allmantelefon</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">allmäntelefon</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">besoksadress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Expeditionsställets besöksadress</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">eReceptDjur</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Anger om apoteket finns expedierar erecept för djur</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fax</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">fax</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">glnKod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GLN-kod</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">huvudtypkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kod som beskriver huvudverksamheten för expeditionsstället</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Apotekets Namn</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ort</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Expeditionsställets besöksort</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">registrerad</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Anger om apoteket finns registrerat i EXPO. Om false så saknar alla fält utom glnKod värden.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">slutdatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Datum för stängning av verksamhet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">startdatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Datum för start av verksamhet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="patientinformationresponse">PatientInformationResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_axs_5.0.xsd</code> (<a href="se.apotekensservice_axs_5.0.xsd">nedladdning</a>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">lkKod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Län och kommun där personen är folkbokförd. Har formatet LLKK. LL - Län, 2 tecken. KK - Kommun, 2 tecken</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">omradeskod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Det område där personen är folkbokförd</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">redNamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Redigerat namn</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">samtycke</td>
+      <td style="text-align: left">SamtyckeResponse</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">statusKod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">StatusKod - status på personen i FOLK. Mappat från träffkoder i FOLK. Se <a href="#statuskod">kodverket</a>. Vissa av dessa statuskoder innebär att det inte finns någon personinformation i svaret.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">extension</td>
+      <td style="text-align: left">ExtensionType</td>
+      <td style="text-align: left">Utökningspunkt</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="statuskod">Statuskod</h4>
+
+<p>Kodverk: <a href="CodeSystem-axs-folkstatuskod-cs.html">FolkStatusKodCS</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kod</th>
+      <th style="text-align: left">Betydelse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">Person finns i FOLK.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">Person finns ej i FOLK, underliggande system är ej tillgängligt.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Person finns ej.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">Person sekretesskyddad.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">Person är avliden.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">Träffkod okänd.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">6</td>
+      <td style="text-align: left">Testperson.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="samtyckeresponse">SamtyckeResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_axs_5.0.xsd</code>. För varje samtyckesflagga gäller: false = kunden har inte lämnat samtycke (sagt nej), true = kunden har samtyckt, saknas (null) = kunden har inte tillfrågats eller tagit ställning.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">dosSamtycke</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Kunden (privatpersonen) samtycker till att spara recept på sitt personnummer för dosapotek. Null enbart vid utdata.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosSamtyckeDatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Datum för senaste ändring av dos-samtycke</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ees</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Flagga för registrerat eessamtycke: kunden har samtyckt till att vara med i EES.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">eesSamtyckeDatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Datum för senaste ändring av EES-samtycke</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hkdb</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Flagga för registrerat samtycke i HKDB. I indata är det endast möjligt att ange false och endast om inget värde finns registrerat. Samtycke uppdateras genom att skapa eller ta bort konto i HKDB.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hkdbSamtyckeDatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Datum för senaste ändring av HKDB-samtycke</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rr</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Kunden har samtyckt till att spara sina recept i RR. Null enbart vid utdata.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rrSamtyckeDatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Datum för senaste ändring av RR-samtycke</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rrd</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Kunden (privatpersonen) samtycker till att spara djurrecept på sitt personnummer i RR för djur. Null enbart vid utdata.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rrdSamtyckeDatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Datum för senaste ändring av RRD-samtycke</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">extension</td>
+      <td style="text-align: left">ExtensionType</td>
+      <td style="text-align: left">Utökningspunkt</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="övriga-typer-i-domänschemana">Övriga typer i domänschemana</h3>
+
+<p>Domänschemana <code class="language-plaintext highlighter-rouge">se.apotekensservice_axs_1.0.xsd</code>, <code class="language-plaintext highlighter-rouge">se.apotekensservice_axs_4.0.xsd</code> och <code class="language-plaintext highlighter-rouge">se.apotekensservice_axs_5.0.xsd</code> innehåller fler typer (bl.a. <code class="language-plaintext highlighter-rouge">KundinformationResponse</code>) som användes av kontrakt som togs bort i version 7.0. De används inte av HamtaPatientInfo 6.0 och återges inte här. Schemafilerna finns som källfiler i <a href="7-tjanstekontrakt.html#hamtapatientinfo">avsnitt 7</a>.</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.se-apotekensservice-axs#7.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Sat, Sep 26, 2026 19:42+0000">2026-09-26</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>9 Bilaga: utkast version 2 - ehr: patientsummary v1.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"6"}
+    h3,h4,h5,h6{--heading-prefix:"6"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">ehr: patientsummary</span>
+            <br/>
+            <span style="display:inline-block;">1.0.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <menu xmlns="http://www.w3.org/1999/xhtml">
+  <item name="Home" url="index.html"/>
+  <item name="1 Inledning" url="1-inledning.html"/>
+  <item name="2 Generella regler" url="2-generella-regler.html"/>
+  <item name="7 Tjänstekontrakt" url="7-tjanstekontrakt.html"/>
+  <item name="8 Datatyper" url="8-datatyper.html"/>
+  <item name="9 Bilaga: utkast version 2" url="9-bilaga-utkast-version-2.html"/>
+  <item name="Artifacts" url="artifacts.html"/>
+</menu>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>9 Bilaga: utkast version 2</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">ehr: patientsummary - Local Development build (v1.0.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/ehr-patientsummary/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>9 Bilaga: utkast version 2</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#9-bilaga-utkast-till-ehrpatientsummary2" id="markdown-toc-9-bilaga-utkast-till-ehrpatientsummary2">9 Bilaga: utkast till ehr:patientsummary:2</a>    <ul>
+      <li><a href="#dokumentinformation" id="markdown-toc-dokumentinformation">Dokumentinformation</a></li>
+      <li><a href="#inledning" id="markdown-toc-inledning">Inledning</a></li>
+      <li><a href="#generella-regler" id="markdown-toc-generella-regler">Generella regler</a></li>
+      <li><a href="#format-för-datum" id="markdown-toc-format-för-datum">Format för Datum</a></li>
+      <li><a href="#format-för-tidpunkter" id="markdown-toc-format-för-tidpunkter">Format för tidpunkter</a></li>
+      <li><a href="#tidszon-för-tidpunkter" id="markdown-toc-tidszon-för-tidpunkter">Tidszon för tidpunkter</a></li>
+      <li><a href="#felhantering" id="markdown-toc-felhantering">Felhantering</a></li>
+      <li><a href="#gemensamma-informationskomponenter" id="markdown-toc-gemensamma-informationskomponenter">Gemensamma informationskomponenter</a></li>
+      <li><a href="#caredocumentation-vård--och-omsorgsdokument" id="markdown-toc-caredocumentation-vård--och-omsorgsdokument">careDocumentation (Vård- och omsorgsdokument)</a></li>
+      <li><a href="#frivillighet" id="markdown-toc-frivillighet">Frivillighet</a></li>
+      <li><a href="#version" id="markdown-toc-version">Version</a></li>
+      <li><a href="#sla-krav" id="markdown-toc-sla-krav">SLA-krav</a></li>
+      <li><a href="#fältregler" id="markdown-toc-fältregler">Fältregler</a></li>
+      <li><a href="#begäran-request" id="markdown-toc-begäran-request">Begäran (Request)</a></li>
+      <li><a href="#svar-response" id="markdown-toc-svar-response">Svar (Response)</a></li>
+      <li><a href="#regler" id="markdown-toc-regler">Regler</a></li>
+      <li><a href="#tjänsteinteraktion" id="markdown-toc-tjänsteinteraktion">Tjänsteinteraktion</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="9-bilaga-utkast-till-ehrpatientsummary2">9 Bilaga: utkast till ehr:patientsummary:2</h1>
+
+<p>Källan innehåller ytterligare ett dokument,
+<a href="Tjanstekontraktsbeskrivning_ehr_patientsummary2_v1.2.docx">Tjanstekontraktsbeskrivning_ehr_patientsummary2_v1.2.docx</a>
+(utgåva PA1, 2012-11-30). Det är ett arbetsutkast till en version 2 av domänen med tjänsten <em>careDocumentation</em>
+(vård- och omsorgsdokument). Utkastet innehåller i stora delar mallens instruktionstext, och det finns inga scheman
+för det i källan. Det återges här i sin helhet men ingår inte i de logiska modellerna (se QUESTIONS.md).</p>
+
+<h3 id="dokumentinformation">Dokumentinformation</h3>
+
+<p>ehr:patientsummary:2
+Tjänstekontraktsbeskrivning
+Utgåva PA1
+2012-11-30
+Revisionshistorik</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Version</th>
+      <th style="text-align: left">Revision Datum</th>
+      <th style="text-align: left">Komplett beskrivning av ändringar</th>
+      <th style="text-align: left">Ändringarna gjorda av</th>
+      <th style="text-align: left">Definitiv revision fastställd av</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">PA1</td>
+      <td style="text-align: left">2012-12-03</td>
+      <td style="text-align: left">Arbetsdokument: Vårddokumentation tillagd</td>
+      <td style="text-align: left">FS, MA</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="inledning">Inledning</h3>
+<p>Tjänstekontraktsbeskrivningen är ett teknik-oberoende, formellt regelverk som reglerar integrationskrav för parter (tjänstekonsumenter och tjänsteproducenter) som avser ansluta system för samverkan enligt dessa tjänstekontrakt . Tjänstekontraktsbeskrivningen är också ett viktigt underlag för skapande av de tekniska kontrakten (scheman och WSDL- filer).
+I detta avsnitt redovisas tjänstedomänens syfte, namn, namnrymd samt funktionella och informatinsmässiga omfattning. Det görs enligt följande standardtext:
+Detta är beskrivningen av tjänstekontrakten i tjänstedomänen <code class="language-plaintext highlighter-rouge">&lt;tjänstedomänens beteckning enligt namnrymdsnotation&gt;</code> (huvuddomän ”<code class="language-plaintext highlighter-rouge">&lt;fullt utskriven huvuddomän på engelska&gt;</code>”, underdomän ”<code class="language-plaintext highlighter-rouge">&lt;fullt utskriven underdomän på engelska&gt;</code>”). Den svenska benämningen är ”<code class="language-plaintext highlighter-rouge">&lt;samma namn som i rubriken&gt;</code>”.
+Tjänstedomänen omfattning är <code class="language-plaintext highlighter-rouge">&lt;vilken aktivitet/process och intressent&gt;</code> mot en <code class="language-plaintext highlighter-rouge">&lt;typ av informationsägande verksamhet&gt;</code>. Den kravställande processen är <code class="language-plaintext highlighter-rouge">&lt;intressenten&gt;</code>s behov av <code class="language-plaintext highlighter-rouge">&lt;beskriv i termer av funktion och information och hänvisa till process-aktiviteter beskrivna enl. RIV-metoden&gt;</code>.
+Beskriv kortfattat stegen i den process/flöde som tjänstekontrakten sammantaget stödjer så att samspelet mellan tjänstekontrakten blir tydligt. Gärna i form av en tekniskt anpassad flödesmodell ur RIV-specifikationen (dataflödesdiagram), t.ex. på det sätt som görs i T-bokens verksamhetsvy. Genom beskrivningen ska det vara helt tydligt varför tjänstekontrakten finns, vilken process (specifik eller abstrakt) som det syftar till att betjäna. Tjänstekontrakt beskrivs i första hand ur konsument-perspektivet.
+Detta dokument kompletterar reglerna i de tekniska kontrakten. Tjänsteproducenter och tjänstekonsumenter ska m.a.o. följa såväl de maskintolkbara reglerna i de tekniska kontrakten, så väl som de regler som uttrycks verbalt i detta dokument.
+Ange också uppgifter kring projektet som utvecklat tjänstekontrakten i denna revision av tjänstedomänen enligt följande uppställning (till form och innehåll):</p>
+
+<h3 id="generella-regler">Generella regler</h3>
+<p>Beskriv format-regler och behandlingsregler som är gemensamma för tjänstekontrakten i domänen. Exempel nedan.</p>
+
+<h3 id="format-för-datum">Format för Datum</h3>
+<p>Datum anges alltid på formatet ”ÅÅÅÅMMDD”, vilket motsvara den ISO 8601 och ISO 8824-kompatibla formatbeskrivningen ”YYYYMMDD”.</p>
+
+<h3 id="format-för-tidpunkter">Format för tidpunkter</h3>
+<p>Flera av tjänsterna handlar om att utbyta information om tidpunkter.
+Tidpunkter anges alltid på formatet ”ÅÅÅÅMMDDttmmss”, vilket motsvara den ISO 8601 och ISO 8824-kompatibla formatbeskrivningen ”YYYYMMDDttmmss”.</p>
+
+<h3 id="tidszon-för-tidpunkter">Tidszon för tidpunkter</h3>
+<p>Tidszon anges inte i meddelandeformaten. Alla information om datum och tidpunkter som utbyts via tjänsterna ska ange datum och tidpunkter i den tidszon som gäller/gällde i Sverige vid den tidpunkt som respektive datum- eller tidpunktsfält bär information om. Såväl tjänstekonsumenter som tjänsteproducenter skall med andra ord förutsätta att datum och tidpunkter som utbyts är i tidszonerna CET (svensk normaltid) respektive CEST (svensk normaltid med justering för sommartid).</p>
+
+<h3 id="felhantering">Felhantering</h3>
+<p>Vid ett tekniskt fel levereras ett generellt undantag (SOAP-Exception). Exempel på detta kan vara deadlock i databasen eller följdeffekter av programmeringsfel. Denna information bör loggas av konsumenten. Informationen är inte riktad till användaren.
+Vid ett logiskt fel i de uppdaterande tjänsterna levereras resultCode, resultText. resultCode kan vara:
+OK
+transaktionen har utförts enligt uppdraget i frågemeddelandet.
+INFO
+transaktionen har utförts enligt begäran, men det finns ett meddelande som konsumenten måste visa upp för användaren (om tillämpbart). Exempel på detta kan vara ”kom fastande”.
+ERROR
+transaktionen har INTE kunnat utföras enligt p.g.a. logiskt fel. Det finns ett meddelande som konsumenten måste visa upp. Exempel på detta kan vara ”tiden har bokats av annan patient</p>
+
+<h3 id="gemensamma-informationskomponenter">Gemensamma informationskomponenter</h3>
+<p>I tjänstekontraktsbeskrivningarna används ett antal komponenter som är gemensamma för vissa meddelande, och dessa beskrivs i detta avsnitt.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">Se ovan</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left">Ej obligatoriskt felmeddelande som innehåller information om felet som uppstod. Om resultatkoden är "OK" så är detta fält tomt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">authorType</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">authorTime</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left">Tidpunkt då dokumentet skapades</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">authorID</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left">HSA-id för författare. OID för HSA används (1.2.752.129.2.2.1.4)</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">authorRoleCode</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left">Kod för författarens befattning, enligt kodverket Befattning (OID 1.2.752.129.2.2.1.4)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">authorName</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left">Namn på författaren</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">authorOrganizationID</td>
+      <td style="text-align: left">HSAIdType</td>
+      <td style="text-align: left">HSA-id för den enhet som författaren är uppdragstagare hos</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">authorOrganizationName</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left">Namn på den enhet som författaren är uppdragstagare hos</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">authorOrganizationTelecom</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left">Telefonnummer till den enhet som författaren är uppdragstag hos</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">authorOrganizationAddress</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left">Adress till den enhet som författaren är uppdragstagare hos</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderId</td>
+      <td style="text-align: left">HSAIdType</td>
+      <td style="text-align: left">HSA-id för vårdgivaren, som är vårdgivare för den enhet som författaren är uppdragstagare för</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">custodianID</td>
+      <td style="text-align: left">HSAIdType</td>
+      <td style="text-align: left">HSA-id för PDL-enhet</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">signatureTime</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left">Tidpunkt för signering, RIV: Vård- och omsorgsdokument.signeringstidpunkt</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">assignedEntity</td>
+      <td style="text-align: left">assignedEntityType</td>
+      <td style="text-align: left">Information om person som signerat dokument</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">assignedEntityID</td>
+      <td style="text-align: left">HSAIdType</td>
+      <td style="text-align: left">Information om person som signerat dokument</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">representedOrganizationID</td>
+      <td style="text-align: left">HSAIdType</td>
+      <td style="text-align: left">HSA-id för den organisation som personen har uppdrag för</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">authorizationCode</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left">Kod för typ av menprövning. Värden från kodverket KV (Detta kodverk skall definieras).</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">encounterID</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left">Unik identifierare för vård- och omsorgskontakt. OID kan sättas till 1.2.752.129.2.1.2.1  (Icke-nationell identifierare Org+lokalt unikt id)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">encounterTime</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left">Tidpunkt för vård- och omsorgskontakt</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="caredocumentation-vård--och-omsorgsdokument">careDocumentation (Vård- och omsorgsdokument)</h3>
+<p>careDocumentation returnerar en patients vårddokument, så som anteckningar av typerna utredning, åtgärd/behandling, sammanfattning, samordning, inskrivning, slutanteckning (vilket även inkluderar epikris), anteckning utan fysiskt möte, slutenvårdsanteckning samt besöksanteckning.
+Beskrivning av tjänstekontraktet. Detta avsnitt repeteras för varje tjänstekontrakt som ingår i tjänstedomänen. Detta är en instruktion till den som ska realisera tjänstekontrakt i tjänstedomänen. Denna beskrivning, nedanstående detaljer, de generella reglerna, testfallen och de maskinläsbara specifkationerna (WSDL, XSD, ..) ska sammantaget ge ett komplett underlag för  den som ska realisera en tjänsteproducent, så väl som underlag för den som ska relaisera en tjänstekonsument. Tjänstekonsumenten ska inte behöva förhålla sig till producent/system-specifika förutsättningar.</p>
+
+<h3 id="frivillighet">Frivillighet</h3>
+<p>Beskriv under vilka förutsättningar detta tjänstekontrakt är obligatoriskt för den informationsägande verksamheten. Om tjänstekontraktet alltid ska finnas när man är med i domänen anges ”Obligatoriskt”. I annat fall beskrivs när det är frivilligt och ev. beroenden till andra tjänstekontrakt ur ett process-perspektiv.</p>
+
+<h3 id="version">Version</h3>
+<p>Ange huvudversion och underversion på formen <code class="language-plaintext highlighter-rouge">&lt;huvudversion&gt;</code>.<code class="language-plaintext highlighter-rouge">&lt;underversion&gt;</code> där innebörden av huvudversion och underversion överensstämmer med definition i RIV Tekniska Anvisningar.</p>
+
+<h3 id="sla-krav">SLA-krav</h3>
+<p>SLA krav anger krav som alla producenter måste följa. Utgångspunkten är att det ska kunna finnas en nationell virtuell tjänst som ska uppvisa ett enhetligt SLA för konsumenter. På så sätt blir SLA krav en naturlig del av tjänstekontraktet.
+Redovisa kraven som måste vara uppfyllda av en tjänsteproducent i tabellen nedan. Inled med en kommentar om det finns något övergripande att tillägga utöver tabellens innehåll</p>
+
+<h3 id="fältregler">Fältregler</h3>
+<p>Ange regler i tabellen som gäller för fälten i begäran och Svar. Observera att reglerna ange vad som gäller inom ramen för just denna tjänst. Ofta används en för tjänstedomänen gemensam informationsstruktur för att specificera flera tjänstekontrakt inom domänen. I informationsstrukturen är många av fälten frivilliga, men i användningen i en specifik tjänstekontrakt blir förmodligen några av fälten obligatoriska. Samtliga fält beskrivs med de namn som används i den tekniska beskrivningen (engelska). Beskrivningen följer namn och struktur i den maskinläsbara representationen (tjänsteschema, meddelande-scheman).</p>
+
+<h3 id="begäran-request">Begäran (Request)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">logicalAddress</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left">Adresseringsparameter. Adressen till tjänsteproducent</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">authorOrganizationID</td>
+      <td style="text-align: left">HSAIdType</td>
+      <td style="text-align: left">HSA-Id för e-tjänsteproducent, motsvarar authorOrganizationID i authorType</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientID</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left">Patiententes identitet, nationellt unikt person-id.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">timePeriod</td>
+      <td style="text-align: left">IVL_TS</td>
+      <td style="text-align: left">Begränsning av sökningen i tid, baserat på kliniskt / relevanta datum. Händelser anses ligga inom intervallet, om de till någon del ligger inom intervallet. (Start- och slutpunkt inkluderas i intervallet.) Formatet för start- respektive slutdatum är ÅÅÅÅMMDD.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="svar-response">Svar (Response)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">careDocumentation</td>
+      <td style="text-align: left">careDocumentationType</td>
+      <td style="text-align: left">De vård- och omsorgsdokument som matchar begäran.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">resultType</td>
+      <td style="text-align: left">Fel-, varnings- och/eller informationsmeddelanden.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">careDocumentationHeader</td>
+      <td style="text-align: left">careDocumentationHeaderType</td>
+      <td style="text-align: left">Innehåller basinformation om dokumentet</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careDocumentationBody</td>
+      <td style="text-align: left">careDocumentationBodyType</td>
+      <td style="text-align: left">Representerar den narrativa delen av dokumentet</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">careDocumentationHeaderType / e</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">careDocumentID</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left">Vårddokumentets unika identifierare. OID kan sättas till 1.2.752.129.2.1.2.1  (Icke-nationell identifierare Org+lokalt unikt id)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careDocumentTitle</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left">Titel på dokumentet/anteckningen</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careDocumentTime</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left">Tidpunkt då dokumentet skapades</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientID</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left">Patientens ID. Root sätts till typ av patientidentifierare.  Bland tillåtna typer finns: personnummer (1.2.752.129.2.1.3.1), samordningsnummer (1.2.752.129.2.1.3.3), reservnummer SLL (1.2.752.97.3.1.3)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">author</td>
+      <td style="text-align: left">authorType</td>
+      <td style="text-align: left">Information om författare till dokumentet</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">custodian</td>
+      <td style="text-align: left">custodianType</td>
+      <td style="text-align: left">Information om PDL-enhet som har ansvar för informationen</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">legalAuthenticator</td>
+      <td style="text-align: left">legalAuthenticatorType</td>
+      <td style="text-align: left">Information om signering</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">authorization</td>
+      <td style="text-align: left">authorizationType</td>
+      <td style="text-align: left">Information om menprövning</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">encompassingEncounter</td>
+      <td style="text-align: left">encompassingEncounterType</td>
+      <td style="text-align: left">Information om Vård- och omsorgskontakt som föranlett vårddokumentation.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">careDocumentationBodyType</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">clinicalDocumentNote</td>
+      <td style="text-align: left">clinicalDocumentNoteType</td>
+      <td style="text-align: left">Dokument/anteckning</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">multimediaEntry</td>
+      <td style="text-align: left">multimediaEntryType</td>
+      <td style="text-align: left">Multimedia som finns i dokumentet, motsvaras av platshållare i careDocumentNoteText</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">clinicalDocumentNoteType</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">careDocumentNoteCode</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left">Typ av vård- och omsorgsdokument. Kod tas från KV Anteckningstyp (1.2.752.129.2.2.2.11). / Tillåtna värden från kodverk Anteckningstyp: / utr = Utredning, / atb = åtgärd/Behandling, / sam = Sammanfattning, / sao = Samordning, / ins = Inskrivning, / slu = Slutanteckning, / auf = Anteckning utan fysiskt / Epikris kodas som slutanteckning (slu)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careDocumentNoteTitle</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left">Titel på dokument</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careDocumentNoteText</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left">Själva dokumentet. Formatet i textfältet ska följa HL7 CDA "Narrative Block". Om dokumentet innehåller multimedia läggs en platshållare i texten enligt formatet <code class="language-plaintext highlighter-rouge">&lt;renderMultiMedia referencedObject="MM1"/&gt;</code>. Innehåller dokumentet fler multimedia läggs ytterligare platshållare i texten, där referencesObject får namn "MM2", "MM3" osv</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">multimediaEntryType</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Kard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">multiMediaID</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left">ID på multimedia (samma ID som anges i <code class="language-plaintext highlighter-rouge">&lt;renderMultimedia&gt;</code> i careDocumentNoteText)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">value</td>
+      <td style="text-align: left">ED</td>
+      <td style="text-align: left">Multimediainnehållet, med lämplig mime-typ och kodningstyp.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="regler">Regler</h3>
+<p>Inga speciella regler.</p>
+
+<h3 id="tjänsteinteraktion">Tjänsteinteraktion</h3>
+<p>Ange namnet på tjänsteinteraktionen enl. standard för RIV Tekniska Anvisningar. Om tjänsteinteraktionstypen är Uppdrag-resultat, kommer två tjänstekontrakt att referera samma tjänsteinteraktion (initiativ-tagarens tjänstekontrakt respektive utförarens tjänstekontrakt).</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.ehr-patientsummary#1.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Sat, Sep 26, 2026 19:25+0000">2026-09-26</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

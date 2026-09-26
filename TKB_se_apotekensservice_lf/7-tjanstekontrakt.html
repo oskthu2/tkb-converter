@@ -1,0 +1,1104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>7 Tjänstekontrakt - se.apotekensservice: lf — Läkemedelsförteckningen för vårdsystem v7.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">se.apotekensservice: lf — Läkemedelsförteckningen för vårdsystem</span>
+            <br/>
+            <span style="display:inline-block;">7.0.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+  <li><a href="3-tjanstedomanens-arkitektur.html">3 Arkitektur</a></li>
+  <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Krav och regler</a></li>
+  <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Meddelandemodeller</a></li>
+  <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma komponenter</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">se.apotekensservice: lf — Läkemedelsförteckningen för vårdsystem - Local Development build (v7.0.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/se-apotekensservice-lf/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstekontrakt" id="markdown-toc-tjänstekontrakt">Tjänstekontrakt</a>    <ul>
+      <li><a href="#aterkallasamtyckevardsystem" id="markdown-toc-aterkallasamtyckevardsystem">AterkallaSamtyckeVardsystem</a></li>
+      <li><a href="#kontrollerasamtyckevardsystem" id="markdown-toc-kontrollerasamtyckevardsystem">KontrolleraSamtyckeVardsystem</a></li>
+      <li><a href="#laslfvardsystem" id="markdown-toc-laslfvardsystem">LasLFVardsystem</a></li>
+      <li><a href="#registrerasamtyckevardsystem" id="markdown-toc-registrerasamtyckevardsystem">RegistreraSamtyckeVardsystem</a></li>
+      <li><a href="#gemensamma-källfiler" id="markdown-toc-gemensamma-källfiler">Gemensamma källfiler</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstekontrakt">Tjänstekontrakt</h2>
+
+<p><em>SAKNAS I KÄLLDOKUMENT.</em> Det finns inga kontraktsbeskrivningar. Beskrivningarna nedan är hämtade ur WSDL och XSD. Alla kontrakt har SOAP-huvudena LogicalAddress och ArgosHeader och returnerar fel som <code class="language-plaintext highlighter-rouge">ApplicationException</code> eller <code class="language-plaintext highlighter-rouge">SystemException</code> (se <a href="4-tjanstedomanens-krav-och-regler.html">avsnitt 4</a>). ArgosHeaderType har följande fält, alla string och 0..1: forskrivarkod, legitimationskod, fornamn, efternamn, yrkesgrupp, befattningskod, arbetsplatskod, arbetsplatsnamn, postort, postadress, postnummer, telefonnummer, requestId, rollnamn, hsaID, katalog, organisationsnummer, systemnamn, systemversion, systemIp. Enligt WSDL-filerna anger dokumentationen vilka ArgosHeader-fält som är obligatoriska för respektive tjänsteinteraktion; den dokumentationen finns inte i källan.</p>
+
+<h3 id="aterkallasamtyckevardsystem">AterkallaSamtyckeVardsystem</h3>
+
+<h4 id="version">Version</h4>
+
+<p>1.0</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Egenskap</th>
+      <th style="text-align: left">Värde</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Namnrymd (tjänsteschema)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:lf:AterkallaSamtyckeVardsystemResponder:1</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Namnrymd (WSDL)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:lf:AterkallaSamtyckeVardsystem:1:rivtabp21</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SOAP-action</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:lf:AterkallaSamtyckeVardsystemResponder:1:AterkallaSamtyckeVardsystem</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Interaktionstyp</td>
+      <td style="text-align: left">Fråga-Svar.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fältregler">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">klientinformation</td>
+      <td style="text-align: left">KlientinformationRequest</td>
+      <td style="text-align: left">Information om anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../anvandare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt användarid i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../session</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Sessionens id i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../system</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GLN-kod för anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">samtyckesgivare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Giltigt personnummer för patient vars samtycke ska återkallas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">samtyckestagareForskrivarkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Förskrivarkod för förskrivare som vars samtycke ska återkallas, valideras mot FORS. Skall vara samma som användare i klientinformation.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">aterkallandedatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Datum då tillsvidaresamtycke återkallades. Ej angiven om samtycke saknades.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">samtycke</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Anger status efter återkallande. Möjliga värden är: 2 = Samtycke att läsa Läkemedelsförteckningen har återkallats</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter">FHIR-artefakter</h4>
+
+<ul>
+  <li><a href="StructureDefinition-aterkallasamtyckevardsystem-request.html">AterkallaSamtyckeVardsystemRequest</a>: logisk modell för begäran, inklusive SOAP-huvudena</li>
+  <li><a href="StructureDefinition-aterkallasamtyckevardsystem.html">AterkallaSamtyckeVardsystem</a>: logisk modell för svaret</li>
+</ul>
+
+<h4 id="källfiler">Källfiler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Fil</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="AterkallaSamtyckeVardsystemInteraction_1.0_rivtabp21.wsdl">AterkallaSamtyckeVardsystemInteraction_1.0_rivtabp21.wsdl</a></td>
+      <td style="text-align: left">WSDL för tjänsteinteraktionen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="AterkallaSamtyckeVardsystemResponder_1.0.xsd">AterkallaSamtyckeVardsystemResponder_1.0.xsd</a></td>
+      <td style="text-align: left">Tjänsteschema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="kontrollerasamtyckevardsystem">KontrolleraSamtyckeVardsystem</h3>
+
+<h4 id="version-1">Version</h4>
+
+<p>1.0</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Egenskap</th>
+      <th style="text-align: left">Värde</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Namnrymd (tjänsteschema)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:lf:KontrolleraSamtyckeVardsystemResponder:1</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Namnrymd (WSDL)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:lf:KontrolleraSamtyckeVardsystem:1:rivtabp21</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SOAP-action</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:lf:KontrolleraSamtyckeVardsystemResponder:1:KontrolleraSamtyckeVardsystem</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Interaktionstyp</td>
+      <td style="text-align: left">Fråga-Svar.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fältregler-1">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">klientinformation</td>
+      <td style="text-align: left">KlientinformationRequest</td>
+      <td style="text-align: left">Information om anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../anvandare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt användarid i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../session</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Sessionens id i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../system</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GLN-kod för anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">samtyckesgivare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Giltigt personnummer för patient vars läkemedelsförteckning skall hämtas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">samtyckestagareForskrivarkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Förskrivarkod för förskrivare vars samtycke ska kontrolleras. Ska vara identisk med användare i klientinformation. Valideras mot FORS.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">avliden</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Markering om patient är avliden enligt FOLK. Sant om patient är markerad som avliden, annars falskt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">samtycke</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Anger om aktuell förskrivare har samtycke av patient. Möjliga värden är: 0 = Samtycke att läsa Läkemedelsförteckningen saknas 1= Samtycke att läsa Läkemedelsförteckningen finns 2 = Samtycke att läsa Läkemedelsförteckningen har återkallats</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">samtyckesgivare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Giltigt personnummer för patient vars läkemedelsförteckning skall hämtas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">statusdatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Datum då patient givit eller återkallat samtycke till förskrivare. Blank om uppgift om samtycke saknas.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-1">FHIR-artefakter</h4>
+
+<ul>
+  <li><a href="StructureDefinition-kontrollerasamtyckevardsystem-request.html">KontrolleraSamtyckeVardsystemRequest</a>: logisk modell för begäran, inklusive SOAP-huvudena</li>
+  <li><a href="StructureDefinition-kontrollerasamtyckevardsystem.html">KontrolleraSamtyckeVardsystem</a>: logisk modell för svaret</li>
+</ul>
+
+<h4 id="källfiler-1">Källfiler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Fil</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="KontrolleraSamtyckeVardsystemInteraction_1.0_rivtabp21.wsdl">KontrolleraSamtyckeVardsystemInteraction_1.0_rivtabp21.wsdl</a></td>
+      <td style="text-align: left">WSDL för tjänsteinteraktionen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="KontrolleraSamtyckeVardsystemResponder_1.0.xsd">KontrolleraSamtyckeVardsystemResponder_1.0.xsd</a></td>
+      <td style="text-align: left">Tjänsteschema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="laslfvardsystem">LasLFVardsystem</h3>
+
+<h4 id="version-2">Version</h4>
+
+<p>4.1</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Egenskap</th>
+      <th style="text-align: left">Värde</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Namnrymd (tjänsteschema)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:lf:LasLFVardsystemResponder:4</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Namnrymd (WSDL)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:lf:LasLFVardsystem:4:rivtabp21</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SOAP-action</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:lf:LasLFVardsystemResponder:4:LasLFVardsystem</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Interaktionstyp</td>
+      <td style="text-align: left">Fråga-Svar.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fältregler-2">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">anvandarnamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Användarnamn, används i kombination med HSA användar-id (klientinformation.anvandare) för att identifiera användare. Obligatoriskt om förskrivarkod saknas.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">arbetsplatsId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">HSA-id för arbetsplats.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">arbetsplatskod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Förskrivarens arbetsplatskod, valideras mot ARKO. Obligatorisk om arbetsplatsnamn och arbetsplatsort inte anges.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">arbetsplatsnamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namnet på användarens arbetsplats. Används istället för arbetsplatskod. Obligatorisk om arbetsplatskod inte anges.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">arbetsplatsort</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Orten för användarens arbetsplats. Används istället för arbetsplatskod. Obligatorisk om arbetsplatskod inte anges.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">atkomsttyp</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Treställig kod för typ av åtkomst. Tillåtna värden: ENG - Engångssamtycke SAM - Tillsvidaresamtycke NOD - Nödåtkomst</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">forskrivarkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Förskrivarens förskrivarkod, valideras mot FORS. Förskrivarkod skall även anges som användare i klientinformation.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">klientinformation</td>
+      <td style="text-align: left">KlientinformationRequest</td>
+      <td style="text-align: left">Information om anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../anvandare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt användarid i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../session</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Sessionens id i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../system</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Systemnamn för anropande system. GLN-kod krävs för anrop från MVK och LTj.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Giltigt personnummer för patient vars läkemedelsförteckning skall hämtas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lakemedelsforteckning</td>
+      <td style="text-align: left">ReceptexpeditionsradResponse</td>
+      <td style="text-align: left">Patientens läkemedelsförteckning. Om patienten saknar poster i läkemedelsförteckningen så returneras en tom lista.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../aktorsExpeditionsId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Aktörens expeditionsId</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../antalForpackningar</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Antal förpackningar av utlämnad vara. Obligatorisk parameter om posten ej är en dosdispenserad artikel</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../antalPillerKlartext</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Summa antal avdelade doser inklusive enhet. Angiven om posten är en dosdispenserad artikel.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../artikelinformation</td>
+      <td style="text-align: left">ArtikelinformationResponse</td>
+      <td style="text-align: left">Information om expedierad artikel.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../antalEnhet</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Antalets enhet. Exempelvis 'styck' eller 'milliliter'.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../antalIForpackning</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Antal i förpackning. Numerisk angivelse, exempelvis '0,72'.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../antalYtterstaForpackning</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Antal multipel 2. Antal yttersta förpackningar för artikeln, exempelvis '6'.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../antalYttreForpackning</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Antal multipel 1. Antal yttre förpackningar som varan har, exempelvis '5'.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../atckod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">ATC-kod vid inläsningstillfället.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../atckodKlartext</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Verksamt ämne vid inläsningstillfället.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../forpackningsstorlek</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Förpackningsstorlek vid inläsningstillfället, exempelvis '6x5x0,72 milliliter'. Ej angivet för dosdispenserade artiklar.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../forpackningstyp</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Beskrivning av artikelns förpackningstyp vid inläsningstillfället.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../intressent</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Ansvarig intressent för artikeln. Värde kan hämtas från olika fält i VARA beroende på artikel. Exempelvis parallellimportör.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../lakemedelsform</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Läkemedelsform vid inläsningstillfället.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../lakemedelsformKod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kod för läkemedelsform (beredningsformkod).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../nplPackid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Identitet på förskrivet läkemedel som har NPL Pack-id alternativt SB Pack-id.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../produktnamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Läkemedelsnamn vid inläsningstillfället.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../styrka</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Numerisk styrka, exempelvis '20.0'.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../styrkaEnhet</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Styrkans enhet, exempelvis 'mg'.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../styrkaKlartext</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Styrka i klartext vid inläsningstillfället.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../borttagen</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Markering om posten är borttagen. Sant om posten är borttagen, annars falskt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../borttagsdatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Datum då posten blev markerad som borttagen. Endast angiven om borttagen är sant.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../borttagsorsak</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kommentar för borttagen post. Endast angiven om borttagen är sant.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../borttagstyp</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Typ av borttag som gäller för posten. Endast angiven om borttagen är sant. Möjliga värden är: Synlig, Begränsad synlighet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../borttagstypHeltal</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Typ av borttag som gäller för posten. Endast angiven om borttagen är sant. Möjliga värden är: 0 - Synlig, 1 - Begränsad synlighet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../doseringstext</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Doseringsanvisning.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../expeditionsId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">ExpeditionsId</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../expeditionsdatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Datum för expedition på apotek.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../forskrivararbetsplatsnamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Förskrivarens arbetsplatsnamn</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../forskrivararbetsplatsort</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Förskrivarens arbetsplatsort</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../forskrivarnamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Förskrivarens namn</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../forskrivarpostadress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Förskrivarens postadress</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../forskrivarpostnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Förskrivarens postnummer</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../forskrivarspecialiteter</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Förskrivarens specialitet i klartext</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../forskrivaryrke</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Förskrivarens yrke i klartext</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../mangd</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Mängd</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../radid</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left">Unikt id för posten i läkemedelsförteckningen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../radnummer</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Radnummer för expedierad vara i aktuell expedition. Obligatorisk som indata dock ej som utdata.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patient</td>
+      <td style="text-align: left">PatientResponse</td>
+      <td style="text-align: left">Information om patienten vars läkemedelsförteckning man hämtat. Om patienten är markerad som Avliden så returneras ej läkemedelsförteckning.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../avliden</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Anger om patienten är markerad som avliden i FOLK. Sant om personen är markerad som avliden, annars falskt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../efternamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Patientens efternamn som registrerat i FOLK.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../fornamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Patientens förnamn som registrerat i FOLK.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../personnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Patientens personnummer.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">varningsnivaUppnadd</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Flagga som anger om förskrivarens antal läsningar det senaste dygnet överskridit varningsnivå. Sant om varningsnivå har uppnåtts, annars falskt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">avPatientSparradePosterArBorttagna</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Markering som anger om poster plockats bort ur resultatet pga att patienten spärrat dessa, dvs det finns poster som är spärrade och därför inte är med i resultatet. (Refererat element ur LasLFVardsystemResponder_4.1_ext.xsd, namnrymd urn:riv:se.apotekensservice:lf:LasLFVardsystemResponder:4.1.)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-2">FHIR-artefakter</h4>
+
+<ul>
+  <li><a href="StructureDefinition-laslfvardsystem-request.html">LasLFVardsystemRequest</a>: logisk modell för begäran, inklusive SOAP-huvudena</li>
+  <li><a href="StructureDefinition-laslfvardsystem.html">LasLFVardsystem</a>: logisk modell för svaret</li>
+</ul>
+
+<h4 id="källfiler-2">Källfiler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Fil</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="LasLFVardsystemInteraction_4.1_rivtabp21.wsdl">LasLFVardsystemInteraction_4.1_rivtabp21.wsdl</a></td>
+      <td style="text-align: left">WSDL för tjänsteinteraktionen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="LasLFVardsystemResponder_4.1.xsd">LasLFVardsystemResponder_4.1.xsd</a></td>
+      <td style="text-align: left">Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="LasLFVardsystemResponder_4.1_ext.xsd">LasLFVardsystemResponder_4.1_ext.xsd</a></td>
+      <td style="text-align: left">Tjänsteschema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="registrerasamtyckevardsystem">RegistreraSamtyckeVardsystem</h3>
+
+<h4 id="version-3">Version</h4>
+
+<p>1.0</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Egenskap</th>
+      <th style="text-align: left">Värde</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Namnrymd (tjänsteschema)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:lf:RegistreraSamtyckeVardsystemResponder:1</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Namnrymd (WSDL)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:lf:RegistreraSamtyckeVardsystem:1:rivtabp21</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SOAP-action</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:lf:RegistreraSamtyckeVardsystemResponder:1:RegistreraSamtyckeVardsystem</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Interaktionstyp</td>
+      <td style="text-align: left">Fråga-Svar.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fältregler-3">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">klientinformation</td>
+      <td style="text-align: left">KlientinformationRequest</td>
+      <td style="text-align: left">Information om anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../anvandare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt användarid i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../session</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Sessionens id i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../system</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GLN-kod för anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">samtyckesgivare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Giltigt personnummer för patient vars samtycke ska registreras. Valideras mot FOLK.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">samtyckestagareForskrivarkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Förskrivarkod för förskrivare som skall få samtycke. Förskrivarens personnummer hämtas från FORS och sparas i LF Samtyckesregister. Förskrivarkoden sparas EJ.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>(tomt)</em></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Svaret innehåller inga element utöver utökningspunkter.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter-3">FHIR-artefakter</h4>
+
+<ul>
+  <li><a href="StructureDefinition-registrerasamtyckevardsystem-request.html">RegistreraSamtyckeVardsystemRequest</a>: logisk modell för begäran, inklusive SOAP-huvudena</li>
+</ul>
+
+<h4 id="källfiler-3">Källfiler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Fil</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="RegistreraSamtyckeVardsystemInteraction_1.0_rivtabp21.wsdl">RegistreraSamtyckeVardsystemInteraction_1.0_rivtabp21.wsdl</a></td>
+      <td style="text-align: left">WSDL för tjänsteinteraktionen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="RegistreraSamtyckeVardsystemResponder_1.0.xsd">RegistreraSamtyckeVardsystemResponder_1.0.xsd</a></td>
+      <td style="text-align: left">Tjänsteschema</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gemensamma-källfiler">Gemensamma källfiler</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Fil</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="ArgosHeader_1.0.xsd">ArgosHeader_1.0.xsd</a></td>
+      <td style="text-align: left">SOAP-huvud</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="doc.xsd">doc.xsd</a></td>
+      <td style="text-align: left">Domänschema</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td style="text-align: left">SOAP-huvud</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="se.apotekensservice_lf_1.0.xsd">se.apotekensservice_lf_1.0.xsd</a></td>
+      <td style="text-align: left">Domänschema</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="se.apotekensservice_lf_4.0.xsd">se.apotekensservice_lf_4.0.xsd</a></td>
+      <td style="text-align: left">Domänschema</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="se.apotekensservice_lf_5.0.xsd">se.apotekensservice_lf_5.0.xsd</a></td>
+      <td style="text-align: left">Domänschema</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="se.apotekensservice_lf_6.0.xsd">se.apotekensservice_lf_6.0.xsd</a></td>
+      <td style="text-align: left">Domänschema</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="AB_se_apotekenservice_lf.docx">AB_se_apotekenservice_lf.docx</a></td>
+      <td style="text-align: left">Arkitekturella beslut</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.se-apotekensservice-lf#7.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Sat, Sep 26, 2026 19:43+0000">2026-09-26</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

@@ -1,0 +1,3984 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>7 Tjänstekontrakt - ehr: patientsummary v1.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"4"}
+    h3,h4,h5,h6{--heading-prefix:"4"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">ehr: patientsummary</span>
+            <br/>
+            <span style="display:inline-block;">1.0.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <menu xmlns="http://www.w3.org/1999/xhtml">
+  <item name="Home" url="index.html"/>
+  <item name="1 Inledning" url="1-inledning.html"/>
+  <item name="2 Generella regler" url="2-generella-regler.html"/>
+  <item name="7 Tjänstekontrakt" url="7-tjanstekontrakt.html"/>
+  <item name="8 Datatyper" url="8-datatyper.html"/>
+  <item name="9 Bilaga: utkast version 2" url="9-bilaga-utkast-version-2.html"/>
+  <item name="Artifacts" url="artifacts.html"/>
+</menu>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">ehr: patientsummary - Local Development build (v1.0.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/ehr-patientsummary/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#7-tjänstekontrakt" id="markdown-toc-7-tjänstekontrakt">7 Tjänstekontrakt</a>    <ul>
+      <li><a href="#getehrextract" id="markdown-toc-getehrextract">GetEhrExtract</a></li>
+      <li><a href="#receiveehrextract" id="markdown-toc-receiveehrextract">ReceiveEhrExtract</a></li>
+      <li><a href="#receiveehrextractstatus" id="markdown-toc-receiveehrextractstatus">ReceiveEhrExtractStatus</a></li>
+      <li><a href="#deleteehrextract" id="markdown-toc-deleteehrextract">DeleteEhrExtract</a></li>
+      <li><a href="#deleteehrextractstatus" id="markdown-toc-deleteehrextractstatus">DeleteEhrExtractStatus</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="7-tjänstekontrakt">7 Tjänstekontrakt</h1>
+
+<p>Källa: <em>Tjänstekontraktsbeskrivning Patientöversikt</em>, utgåva PA1 (2012-11-16), <a href="Tjanstekontrakt_EHR_Patientoversikt_Beskrivning.doc">Tjanstekontrakt_EHR_Patientoversikt_Beskrivning.doc</a>.</p>
+
+<p>Tjänstekontraktsbeskrivningen beskriver tjänsterna i avsnitt 3–7. I denna IG samlas de under avsnitt 7, i samma ordning: 7.1 motsvarar TKB avsnitt 3, 7.2 avsnitt 4 och så vidare.</p>
+
+<p>ReceiveEhrExtract/ReceiveEhrExtractStatus och DeleteEhrExtract/DeleteEhrExtractStatus är interaktioner av typen Uppdrag-Resultat. De två tjänstekontrakten i varje par beskrivs av samma WSDL (en Responder- och en Initiator-del).</p>
+
+<h3 id="getehrextract">GetEhrExtract</h3>
+
+<p><em>TKB avsnitt 3.</em></p>
+
+<p>Tjänst som används för att hämta detaljerad patientinformation.</p>
+
+<h4 id="711-frivillighet">7.1.1 Frivillighet</h4>
+
+<p>Tjänsten är obligatorisk för att dela detaljerad patientinformation på formatet EN13606 då själva informationen har indexerats i EngagemangsIndex.</p>
+
+<h4 id="712-version">7.1.2 Version</h4>
+
+<p>Detta är en endast som remissversion i nuläget, men den första versionen som kommer publiceras är 1.0.</p>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;huvudversion&gt;.&lt;underversion&gt;</code></p>
+
+<h4 id="713-sla-krav">7.1.3 SLA-krav</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Kategori</th>
+      <th>Värde</th>
+      <th>Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Svarstid</td>
+      <td>&lt; 3 s</td>
+      <td>Tjänsteproducenten bör svara inom tre sekunder. För att uppnå detta mål kan det vara aktuellt med begränsning av svarets innehåll/storlek. Tjänsteproducenten ansvarar för att väga patientsäkerhet med prestanda.</td>
+    </tr>
+    <tr>
+      <td>Tillgänglighet</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Last</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Aktualitet</td>
+      <td>Realtid</td>
+      <td>Svaren ska hämtas från underliggande datalager, vilket innebär att alla förändringar i datalagret direkt syns i svaren.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="714-fältregler">7.1.4 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Typ</th>
+      <th>Kommentar</th>
+      <th>Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Begäran</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>subject_of_care</td>
+      <td>II</td>
+      <td>Nationellt unikt person-id.</td>
+      <td>1..1</td>
+    </tr>
+    <tr>
+      <td>purpose</td>
+      <td>CD</td>
+      <td>Anger anledningen till anropet. Innehållet i detta fält kan användas/defineras per tjänstekonsument beroende på användningsområde. Vid användning av detta fält måste det finnas en överrenskommelse mellan tjästekonsumenten och tjänsteproducenten.</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>time_period</td>
+      <td>IVL_TS</td>
+      <td>Begränsning av sökningen i tid, baserat på kliniskt relevanta datum. Händelser anses ligga inom intervallet, om de till någon del ligger inom intervallet. (Start- och slutpunkt inkluderas i intervallet.) Formatet för start- respektive slutdatum är ÅÅÅÅMMDD. (Exempel på när tidsintervall används är om NPÖs frågetjänst blir anropad med tidsintervall - då propageras intervallet ner till källsystemen.)</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>meanings</td>
+      <td>CD</td>
+      <td>En av NPÖ definerad huvudinformationstyp.</td>
+      <td>1..1</td>
+    </tr>
+    <tr>
+      <td>parameters</td>
+      <td>ParameterType</td>
+      <td>Transaktions-id: globalt unik identifierare för det aktuella anropet. Används för fel- och/eller debugsökning. Värdet anges med nyckeln ”transaction_id”. Längden på detta värde får inte överstiga 256 tecken.</td>
+      <td>1..1</td>
+    </tr>
+    <tr>
+      <td>Svar</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ehr_extract</td>
+      <td>EHR_EXTRACT</td>
+      <td>Detaljerad patientinformation på formatet EN13606.</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>response_detail</td>
+      <td>ResponseDetailType</td>
+      <td>Fel-, varnings- och/eller informationsmeddelanden.</td>
+      <td>0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="715-regler">7.1.5 Regler</h4>
+
+<p>Värdet för ”ehr_system” (som återfinns i ”ehr_extract”) måste vara samma som den logiska adressen för denna tjänst. För ytterligare beskrivning på värde för ”ehr_system” (som är en del av svaret) hänvisas till avsnittet 2.4.</p>
+
+<p>Se avsnittet 2.2 för statusrapportering vid följande situationer</p>
+
+<ul>
+  <li>felaktigt anrop</li>
+  <li>internt fel</li>
+  <li>ingen patientinformation finns</li>
+  <li>tjänsten inte är tillgänglig</li>
+</ul>
+
+<h4 id="716-tjänsteinteraktion">7.1.6 Tjänsteinteraktion</h4>
+
+<p>GetEhrExtractInteraction</p>
+
+<h4 id="717-fältregler-enligt-schema-xsd">7.1.7 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat och visar hela meddelandestrukturen, inklusive EN13606-extraktet. Beskrivningarna är schemats egna annoteringar (engelska) där sådana finns. Typerna beskrivs i <a href="8-datatyper.html">8 Datatyper</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">subject_of_care_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">purpose</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rc_ids</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">time_period</td>
+      <td style="text-align: left">IVL_TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">max_sensitivity</td>
+      <td style="text-align: left">INT</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">all_versions</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">multimedia_included</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">archetype_ids</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meanings</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">max_records</td>
+      <td style="text-align: left">INT</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">parameters</td>
+      <td style="text-align: left">ParameterType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../code</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../name</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../value</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ehr_extract</td>
+      <td style="text-align: left">EHR_EXTRACT</td>
+      <td style="text-align: left">The root node of an EHR Extract.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../authorising_party</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../ehr_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../ehr_system</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../subject_of_care</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../time_created</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../all_compositions</td>
+      <td style="text-align: left">COMPOSITION</td>
+      <td style="text-align: left">Key aggregation class representing the set of Record Components authored and committed during a single clinical encounter. Note the values for territory will indicate the legal framework under which the data was committed. The session_time should be a restriction on the data types of low and high to make them TS, but this restriction is not permissible in XML Schema and thus the IVL properties are simply copied here with the appropriate types.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../archetype_id</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../meaning</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../name</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../orig_parent_ref</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../policy_ids</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../rc_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../sensitivity</td>
+      <td style="text-align: left">INT</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../synthesised</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../links</td>
+      <td style="text-align: left">LINK</td>
+      <td style="text-align: left">Creates a relationship between two Record Components that is orthogonal to the common one of containment. Note that if a recipient is not permitted to see the component linked to, even revealing the link constitutes an inappropriate disclosure. Role is of type CD so that the displayName property of that class can be used in place of any specific coding scheme.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../follow_link</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../nature</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../role</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../target_type</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../target_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../feeder_audit</td>
+      <td style="text-align: left">AUDIT_INFO</td>
+      <td style="text-align: left">The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining "attribute_version_status.coding_scheme_name" in the printed standard.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../committer</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../ehr_system</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../previous_version</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../reason_for_revision</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../time_committed</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../version_set_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../version_status</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../contribution_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../session_time</td>
+      <td style="text-align: left">IVL_TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../territory</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../attestations</td>
+      <td style="text-align: left">ATTESTATION_INFO</td>
+      <td style="text-align: left">Any attestations for a Record Component. The proof field should be a cryptographic hash of the RECORD_COMPONENT it attests, but it is recognised that in many implementations the components will change to point to new components that revise them. In that case, the proof should sign the unchanging parts of the component only.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../attested_view</td>
+      <td style="text-align: left">ED</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../proof</td>
+      <td style="text-align: left">ED</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../reason_for_attestation</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../time</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../target_rc_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../attester</td>
+      <td style="text-align: left">FUNCTIONAL_ROLE</td>
+      <td style="text-align: left">The participation of an entity in the EHR.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../function</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../healthcare_facility</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../mode</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../performer</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../service_setting</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../other_participations</td>
+      <td style="text-align: left">FUNCTIONAL_ROLE</td>
+      <td style="text-align: left">The participation of an entity in the EHR.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../function</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../healthcare_facility</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../mode</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../performer</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../service_setting</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../committal</td>
+      <td style="text-align: left">AUDIT_INFO</td>
+      <td style="text-align: left">The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining "attribute_version_status.coding_scheme_name" in the printed standard.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../committer</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../ehr_system</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../previous_version</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../reason_for_revision</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../time_committed</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../version_set_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../version_status</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../composer</td>
+      <td style="text-align: left">FUNCTIONAL_ROLE</td>
+      <td style="text-align: left">The participation of an entity in the EHR.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../function</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../healthcare_facility</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../mode</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../performer</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../service_setting</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../content</td>
+      <td style="text-align: left">CONTENT</td>
+      <td style="text-align: left">Superclass of Section and Entry that enables the former to include instances of itself. Abstrakt typ; instansen anges med xsi:type som en av SECTION, ENTRY.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../archetype_id</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../meaning</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../name</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../orig_parent_ref</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../policy_ids</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../rc_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../sensitivity</td>
+      <td style="text-align: left">INT</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../synthesised</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../links</td>
+      <td style="text-align: left">LINK</td>
+      <td style="text-align: left">Creates a relationship between two Record Components that is orthogonal to the common one of containment. Note that if a recipient is not permitted to see the component linked to, even revealing the link constitutes an inappropriate disclosure. Role is of type CD so that the displayName property of that class can be used in place of any specific coding scheme.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../follow_link</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../nature</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../role</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../target_type</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../target_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../feeder_audit</td>
+      <td style="text-align: left">AUDIT_INFO</td>
+      <td style="text-align: left">The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining "attribute_version_status.coding_scheme_name" in the printed standard.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../committer</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../ehr_system</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../previous_version</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../reason_for_revision</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../time_committed</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../version_set_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../version_status</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../section</td>
+      <td style="text-align: left">SECTION</td>
+      <td style="text-align: left">Element som bara finns när instansen är av subtypen SECTION (xsi:type).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../members</td>
+      <td style="text-align: left">CONTENT</td>
+      <td style="text-align: left">(Rekursiv typ, ej utvecklad.)</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../entry</td>
+      <td style="text-align: left">ENTRY</td>
+      <td style="text-align: left">Element som bara finns när instansen är av subtypen ENTRY (xsi:type).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../act_id</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../act_status</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../subject_of_information_category</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../uncertainty_expressed</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../items</td>
+      <td style="text-align: left">ITEM</td>
+      <td style="text-align: left">Superclass of Cluster and Element that enables the former to include instances of itself. The obs_time should be a restriction on the data types of low and high to make them TS, but this restriction is not permissible in XML Schema and thus the IVL properties are simply copied here with the appropriate types. Abstrakt typ; instansen anges med xsi:type som en av CLUSTER, ELEMENT.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../archetype_id</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../meaning</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../name</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../orig_parent_ref</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../policy_ids</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../rc_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../sensitivity</td>
+      <td style="text-align: left">INT</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../synthesised</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../links</td>
+      <td style="text-align: left">LINK</td>
+      <td style="text-align: left">Creates a relationship between two Record Components that is orthogonal to the common one of containment. Note that if a recipient is not permitted to see the component linked to, even revealing the link constitutes an inappropriate disclosure. Role is of type CD so that the displayName property of that class can be used in place of any specific coding scheme.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../follow_link</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../nature</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../role</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../target_type</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../target_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../feeder_audit</td>
+      <td style="text-align: left">AUDIT_INFO</td>
+      <td style="text-align: left">The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining "attribute_version_status.coding_scheme_name" in the printed standard.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../committer</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../ehr_system</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../previous_version</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../reason_for_revision</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../time_committed</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../version_set_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../version_status</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../emphasis</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../item_category</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../obs_time</td>
+      <td style="text-align: left">IVL_TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../cluster</td>
+      <td style="text-align: left">CLUSTER</td>
+      <td style="text-align: left">Element som bara finns när instansen är av subtypen CLUSTER (xsi:type).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../structure_type</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../parts</td>
+      <td style="text-align: left">ITEM</td>
+      <td style="text-align: left">(Rekursiv typ, ej utvecklad.)</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../element</td>
+      <td style="text-align: left">ELEMENT</td>
+      <td style="text-align: left">Element som bara finns när instansen är av subtypen ELEMENT (xsi:type).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../value</td>
+      <td style="text-align: left">ANY</td>
+      <td style="text-align: left">(ISO 21090 ANY, polymorft värde, modellerat som string.)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../info_provider</td>
+      <td style="text-align: left">FUNCTIONAL_ROLE</td>
+      <td style="text-align: left">The participation of an entity in the EHR.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../function</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../healthcare_facility</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../mode</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../performer</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../service_setting</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../other_participations</td>
+      <td style="text-align: left">FUNCTIONAL_ROLE</td>
+      <td style="text-align: left">The participation of an entity in the EHR.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../function</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../healthcare_facility</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../mode</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../performer</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../service_setting</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../subject_of_information</td>
+      <td style="text-align: left">RELATED_PARTY</td>
+      <td style="text-align: left">Identifies the relationship of a person to the subject of care. Specifically used in Entry.subject_of_information.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../party</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../relationship</td>
+      <td style="text-align: left">ED</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../criteria</td>
+      <td style="text-align: left">EXTRACT_CRITERIA</td>
+      <td style="text-align: left">Restrictions or filters on the creation of the EHR Extract. The time_period should be a restriction on the data types of low and high to make them TS, but this restriction is not permissible in XML Schema and thus the IVL properties are simply copied here with the appropriate types.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../all_versions</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../archetype_ids</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../max_sensitivity</td>
+      <td style="text-align: left">INT</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../multimedia_included</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../other_constraints</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../time_period</td>
+      <td style="text-align: left">IVL_TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../folders</td>
+      <td style="text-align: left">FOLDER</td>
+      <td style="text-align: left">Organises and groups Compositions within an EHR Extract.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../archetype_id</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../meaning</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../name</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../orig_parent_ref</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../policy_ids</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../rc_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../sensitivity</td>
+      <td style="text-align: left">INT</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../synthesised</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../links</td>
+      <td style="text-align: left">LINK</td>
+      <td style="text-align: left">Creates a relationship between two Record Components that is orthogonal to the common one of containment. Note that if a recipient is not permitted to see the component linked to, even revealing the link constitutes an inappropriate disclosure. Role is of type CD so that the displayName property of that class can be used in place of any specific coding scheme.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../follow_link</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../nature</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../role</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../target_type</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../target_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../feeder_audit</td>
+      <td style="text-align: left">AUDIT_INFO</td>
+      <td style="text-align: left">The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining "attribute_version_status.coding_scheme_name" in the printed standard.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../committer</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../ehr_system</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../previous_version</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../reason_for_revision</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../time_committed</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../version_set_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../version_status</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../sub_folders</td>
+      <td style="text-align: left">FOLDER</td>
+      <td style="text-align: left">(Rekursiv typ, ej utvecklad.)</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../attestations</td>
+      <td style="text-align: left">ATTESTATION_INFO</td>
+      <td style="text-align: left">Any attestations for a Record Component. The proof field should be a cryptographic hash of the RECORD_COMPONENT it attests, but it is recognised that in many implementations the components will change to point to new components that revise them. In that case, the proof should sign the unchanging parts of the component only.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../attested_view</td>
+      <td style="text-align: left">ED</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../proof</td>
+      <td style="text-align: left">ED</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../reason_for_attestation</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../time</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../target_rc_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../attester</td>
+      <td style="text-align: left">FUNCTIONAL_ROLE</td>
+      <td style="text-align: left">The participation of an entity in the EHR.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../function</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../healthcare_facility</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../mode</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../performer</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../service_setting</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../composition_rc_ids</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../demographic_extract</td>
+      <td style="text-align: left">IDENTIFIED_ENTITY</td>
+      <td style="text-align: left">Superclass of all identified parties to the record. Note that the type of id is not given in the printed class description but is included in the class diagram on page 47 of the standard. Abstrakt typ; instansen anges med xsi:type som en av SOFTWARE_OR_DEVICE, ORGANISATION, PERSON.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../extract_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../telecom</td>
+      <td style="text-align: left">TEL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../softwareOrDevice</td>
+      <td style="text-align: left">SOFTWARE_OR_DEVICE</td>
+      <td style="text-align: left">Element som bara finns när instansen är av subtypen SOFTWARE_OR_DEVICE (xsi:type).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../code</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../desc</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../manufacturerModelName</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../version</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../owningOrganisation_id</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../organisation</td>
+      <td style="text-align: left">ORGANISATION</td>
+      <td style="text-align: left">Element som bara finns när instansen är av subtypen ORGANISATION (xsi:type).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../code</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../desc</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../name</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../addr</td>
+      <td style="text-align: left">AD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../person</td>
+      <td style="text-align: left">PERSON</td>
+      <td style="text-align: left">Element som bara finns när instansen är av subtypen PERSON (xsi:type).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../name</td>
+      <td style="text-align: left">EN</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../addr</td>
+      <td style="text-align: left">AD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">continuation_token</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">response_detail</td>
+      <td style="text-align: left">ResponseDetailType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../code</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../text</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../type_code</td>
+      <td style="text-align: left">ResponseDetailTypeCodes</td>
+      <td style="text-align: left">(XML-attribut.)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="718-tjänsteinteraktion-enligt-wsdl">7.1.8 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>Tjänsteinteraktionens namn: GetEhrExtractInteraction<br />
+Beskrivning:<br />
+The responder delivers health records on the RIV13606 format<br />
+Revisioner:<br />
+Tjänstedomän: ehr:patientsummary<br />
+Tjänsteinteraktionstyp: Fråga-Svar<br />
+WS-profil: RIVTABP21<br />
+Förvaltas av: Sveriges Kommuner och Landsting</p>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:ehr:patientsummary:GetEhrExtractResponder:1:GetEhrExtract</code></p>
+
+<h4 id="719-källfiler-riv-ta">7.1.9 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetEhrExtractInteraction_1.0_RIVTABP21.wsdl">GetEhrExtractInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetEhrExtractResponder_1.0.xsd">GetEhrExtractResponder_1.0.xsd</a></td>
+      <td>Tjänsteschema (Responder)</td>
+    </tr>
+    <tr>
+      <td><a href="ehr_patientsummary_1.0.xsd">ehr_patientsummary_1.0.xsd</a></td>
+      <td>Domänschema (EN13606-extrakt)</td>
+    </tr>
+    <tr>
+      <td><a href="ISO_dt.xsd">ISO_dt.xsd</a></td>
+      <td>ISO 21090-datatyper</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="GetEhrExtractResponder_1.0-request-example1.xml">GetEhrExtractResponder_1.0-request-example1.xml</a></td>
+      <td>Exempelmeddelande</td>
+    </tr>
+    <tr>
+      <td><a href="GetEhrExtractResponder_1.0-response-example-CONTRACT.xml">GetEhrExtractResponder_1.0-response-example-CONTRACT.xml</a></td>
+      <td>Exempelmeddelande</td>
+    </tr>
+    <tr>
+      <td><a href="GetEhrExtractResponder_1.0-response-example-INTERNAL.xml">GetEhrExtractResponder_1.0-response-example-INTERNAL.xml</a></td>
+      <td>Exempelmeddelande</td>
+    </tr>
+    <tr>
+      <td><a href="GetEhrExtractResponder_1.0-response-example-NOINSTANCE.xml">GetEhrExtractResponder_1.0-response-example-NOINSTANCE.xml</a></td>
+      <td>Exempelmeddelande</td>
+    </tr>
+    <tr>
+      <td><a href="GetEhrExtractResponder_1.0-response-example.xml">GetEhrExtractResponder_1.0-response-example.xml</a></td>
+      <td>Exempelmeddelande</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7110-fhir-artefakter">7.1.10 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getehrextract-request.html">StructureDefinition/getehrextract-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getehrextract.html">StructureDefinition/getehrextract</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-patientsummary-responsedetailtypecodes-cs.html">CodeSystem/patientsummary-responsedetailtypecodes-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-patientsummary-responsedetailtypecodes-vs.html">ValueSet/patientsummary-responsedetailtypecodes-vs</a></li>
+</ul>
+
+<h3 id="receiveehrextract">ReceiveEhrExtract</h3>
+
+<p><em>TKB avsnitt 4.</em></p>
+
+<p>Tjänst som används för att ta emot detaljerad patientinformation. Tjänsten kan användas då den som äger patientinformation vill publicera den till annan part.</p>
+
+<p><img src="ReceiveEhrExtract-flode.svg" alt="Flöde för ReceiveEhrExtract" /></p>
+
+<p><em>Figuren är återskapad ur textrutorna i originalets Word-ritobjekt (se QUESTIONS.md).</em></p>
+
+<h4 id="721-frivillighet">7.2.1 Frivillighet</h4>
+
+<p>Tjänsten används för de som på eget initiativ vill dela detaljerad patientinformation, på formatet EN13606, till annan part.</p>
+
+<h4 id="722-version">7.2.2 Version</h4>
+
+<p>Detta är en endast som remissversion i nuläget, men den första versionen som kommer publiceras är 1.0.</p>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;huvudversion&gt;.&lt;underversion&gt;</code></p>
+
+<h4 id="723-sla-krav">7.2.3 SLA-krav</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Kategori</th>
+      <th>Värde</th>
+      <th>Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Svarstid</td>
+      <td> </td>
+      <td>Tjänsteproducenten bör ta emot anropet/patientinformationen snabbt. Behandlingen kan sedan ta tid - resultatet av anropet sker genom anrop till ReceiveEhrExtractStatus.</td>
+    </tr>
+    <tr>
+      <td>Tillgänglighet</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Last</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Aktualitet</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="724-fältregler">7.2.4 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Typ</th>
+      <th>Kommentar</th>
+      <th>Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Begäran</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ehr_extract</td>
+      <td>EHR_EXTRACT</td>
+      <td>Detaljerad patientinformation på formatet EN13606.</td>
+      <td>1..1</td>
+    </tr>
+    <tr>
+      <td>parameters</td>
+      <td>ParameterType</td>
+      <td>Transaktions-id: globalt unik identifierare för det aktuella anropet. Används för återrapportering av hur behandlingen gick (genom tjänsten ReceiveEhrExtractStatus) samt till fel- och/eller debugsökning. Värdet anges med nyckeln ”transaction_id”. Längden på detta värde får inte överstiga 256 tecken.</td>
+      <td>1..1</td>
+    </tr>
+    <tr>
+      <td>Svar</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>success</td>
+      <td>Boolean</td>
+      <td>Anger om mottagaren lyckats ta emot innehållet. (Observera att värdet ”true” inte innebär att mottagaren lyckats behandla innehållet. Resultat av behandlingen meddelas genom tjänsten ReceiveEhrExtractStatus.)</td>
+      <td>1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="725-regler">7.2.5 Regler</h4>
+
+<p>För statusrapportering vid felaktiga anrop, interna fel eller om ingen patientinformation finns hänvisas till avsnittet 2.2.</p>
+
+<p>För beskrivning på värde för ”ehr_system” (som är en del av svaret) hänvisas till avsnittet 2.4.</p>
+
+<p>”Tomma extrakt” - om inte ”ehr_extract” innehåller någon patientinformation, dvs inte innehåller några ”all_compositions”, ska all tidigare delad information för aktuell patient och aktuell ”ehr_system” tas bort.</p>
+
+<p>Resultatet av behandlingen av anropet meddelas genom anrop till tjänsten ReceiveEhrExtractStatus. Logisk adress för statusanropet är värdet för ”ehr_system” (som hittas i ”ehr_extract”).</p>
+
+<h4 id="726-tjänsteinteraktion">7.2.6 Tjänsteinteraktion</h4>
+
+<p>ReceiveEhrExtractInteraction</p>
+
+<h4 id="727-fältregler-enligt-schema-xsd">7.2.7 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat och visar hela meddelandestrukturen, inklusive EN13606-extraktet. Beskrivningarna är schemats egna annoteringar (engelska) där sådana finns. Typerna beskrivs i <a href="8-datatyper.html">8 Datatyper</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ehr_extract</td>
+      <td style="text-align: left">EHR_EXTRACT</td>
+      <td style="text-align: left">The root node of an EHR Extract.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../authorising_party</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../ehr_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../ehr_system</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../subject_of_care</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../time_created</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../all_compositions</td>
+      <td style="text-align: left">COMPOSITION</td>
+      <td style="text-align: left">Key aggregation class representing the set of Record Components authored and committed during a single clinical encounter. Note the values for territory will indicate the legal framework under which the data was committed. The session_time should be a restriction on the data types of low and high to make them TS, but this restriction is not permissible in XML Schema and thus the IVL properties are simply copied here with the appropriate types.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../archetype_id</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../meaning</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../name</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../orig_parent_ref</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../policy_ids</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../rc_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../sensitivity</td>
+      <td style="text-align: left">INT</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../synthesised</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../links</td>
+      <td style="text-align: left">LINK</td>
+      <td style="text-align: left">Creates a relationship between two Record Components that is orthogonal to the common one of containment. Note that if a recipient is not permitted to see the component linked to, even revealing the link constitutes an inappropriate disclosure. Role is of type CD so that the displayName property of that class can be used in place of any specific coding scheme.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../follow_link</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../nature</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../role</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../target_type</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../target_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../feeder_audit</td>
+      <td style="text-align: left">AUDIT_INFO</td>
+      <td style="text-align: left">The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining "attribute_version_status.coding_scheme_name" in the printed standard.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../committer</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../ehr_system</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../previous_version</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../reason_for_revision</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../time_committed</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../version_set_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../version_status</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../contribution_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../session_time</td>
+      <td style="text-align: left">IVL_TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../territory</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../attestations</td>
+      <td style="text-align: left">ATTESTATION_INFO</td>
+      <td style="text-align: left">Any attestations for a Record Component. The proof field should be a cryptographic hash of the RECORD_COMPONENT it attests, but it is recognised that in many implementations the components will change to point to new components that revise them. In that case, the proof should sign the unchanging parts of the component only.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../attested_view</td>
+      <td style="text-align: left">ED</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../proof</td>
+      <td style="text-align: left">ED</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../reason_for_attestation</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../time</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../target_rc_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../attester</td>
+      <td style="text-align: left">FUNCTIONAL_ROLE</td>
+      <td style="text-align: left">The participation of an entity in the EHR.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../function</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../healthcare_facility</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../mode</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../performer</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../service_setting</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../other_participations</td>
+      <td style="text-align: left">FUNCTIONAL_ROLE</td>
+      <td style="text-align: left">The participation of an entity in the EHR.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../function</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../healthcare_facility</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../mode</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../performer</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../service_setting</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../committal</td>
+      <td style="text-align: left">AUDIT_INFO</td>
+      <td style="text-align: left">The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining "attribute_version_status.coding_scheme_name" in the printed standard.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../committer</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../ehr_system</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../previous_version</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../reason_for_revision</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../time_committed</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../version_set_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../version_status</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../composer</td>
+      <td style="text-align: left">FUNCTIONAL_ROLE</td>
+      <td style="text-align: left">The participation of an entity in the EHR.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../function</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../healthcare_facility</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../mode</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../performer</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../service_setting</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../content</td>
+      <td style="text-align: left">CONTENT</td>
+      <td style="text-align: left">Superclass of Section and Entry that enables the former to include instances of itself. Abstrakt typ; instansen anges med xsi:type som en av SECTION, ENTRY.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../archetype_id</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../meaning</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../name</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../orig_parent_ref</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../policy_ids</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../rc_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../sensitivity</td>
+      <td style="text-align: left">INT</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../synthesised</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../links</td>
+      <td style="text-align: left">LINK</td>
+      <td style="text-align: left">Creates a relationship between two Record Components that is orthogonal to the common one of containment. Note that if a recipient is not permitted to see the component linked to, even revealing the link constitutes an inappropriate disclosure. Role is of type CD so that the displayName property of that class can be used in place of any specific coding scheme.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../follow_link</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../nature</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../role</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../target_type</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../target_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../feeder_audit</td>
+      <td style="text-align: left">AUDIT_INFO</td>
+      <td style="text-align: left">The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining "attribute_version_status.coding_scheme_name" in the printed standard.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../committer</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../ehr_system</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../previous_version</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../reason_for_revision</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../time_committed</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../version_set_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../version_status</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../section</td>
+      <td style="text-align: left">SECTION</td>
+      <td style="text-align: left">Element som bara finns när instansen är av subtypen SECTION (xsi:type).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../members</td>
+      <td style="text-align: left">CONTENT</td>
+      <td style="text-align: left">(Rekursiv typ, ej utvecklad.)</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../entry</td>
+      <td style="text-align: left">ENTRY</td>
+      <td style="text-align: left">Element som bara finns när instansen är av subtypen ENTRY (xsi:type).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../act_id</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../act_status</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../subject_of_information_category</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../uncertainty_expressed</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../items</td>
+      <td style="text-align: left">ITEM</td>
+      <td style="text-align: left">Superclass of Cluster and Element that enables the former to include instances of itself. The obs_time should be a restriction on the data types of low and high to make them TS, but this restriction is not permissible in XML Schema and thus the IVL properties are simply copied here with the appropriate types. Abstrakt typ; instansen anges med xsi:type som en av CLUSTER, ELEMENT.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../archetype_id</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../meaning</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../name</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../orig_parent_ref</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../policy_ids</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../rc_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../sensitivity</td>
+      <td style="text-align: left">INT</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../synthesised</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../links</td>
+      <td style="text-align: left">LINK</td>
+      <td style="text-align: left">Creates a relationship between two Record Components that is orthogonal to the common one of containment. Note that if a recipient is not permitted to see the component linked to, even revealing the link constitutes an inappropriate disclosure. Role is of type CD so that the displayName property of that class can be used in place of any specific coding scheme.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../follow_link</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../nature</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../role</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../target_type</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../target_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../feeder_audit</td>
+      <td style="text-align: left">AUDIT_INFO</td>
+      <td style="text-align: left">The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining "attribute_version_status.coding_scheme_name" in the printed standard.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../committer</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../ehr_system</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../previous_version</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../reason_for_revision</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../time_committed</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../version_set_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../version_status</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../emphasis</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../item_category</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../obs_time</td>
+      <td style="text-align: left">IVL_TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../cluster</td>
+      <td style="text-align: left">CLUSTER</td>
+      <td style="text-align: left">Element som bara finns när instansen är av subtypen CLUSTER (xsi:type).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../structure_type</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../parts</td>
+      <td style="text-align: left">ITEM</td>
+      <td style="text-align: left">(Rekursiv typ, ej utvecklad.)</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../element</td>
+      <td style="text-align: left">ELEMENT</td>
+      <td style="text-align: left">Element som bara finns när instansen är av subtypen ELEMENT (xsi:type).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../../value</td>
+      <td style="text-align: left">ANY</td>
+      <td style="text-align: left">(ISO 21090 ANY, polymorft värde, modellerat som string.)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../info_provider</td>
+      <td style="text-align: left">FUNCTIONAL_ROLE</td>
+      <td style="text-align: left">The participation of an entity in the EHR.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../function</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../healthcare_facility</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../mode</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../performer</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../service_setting</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../other_participations</td>
+      <td style="text-align: left">FUNCTIONAL_ROLE</td>
+      <td style="text-align: left">The participation of an entity in the EHR.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../function</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../healthcare_facility</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../mode</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../performer</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../service_setting</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../subject_of_information</td>
+      <td style="text-align: left">RELATED_PARTY</td>
+      <td style="text-align: left">Identifies the relationship of a person to the subject of care. Specifically used in Entry.subject_of_information.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../party</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../relationship</td>
+      <td style="text-align: left">ED</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../criteria</td>
+      <td style="text-align: left">EXTRACT_CRITERIA</td>
+      <td style="text-align: left">Restrictions or filters on the creation of the EHR Extract. The time_period should be a restriction on the data types of low and high to make them TS, but this restriction is not permissible in XML Schema and thus the IVL properties are simply copied here with the appropriate types.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../all_versions</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../archetype_ids</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../max_sensitivity</td>
+      <td style="text-align: left">INT</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../multimedia_included</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../other_constraints</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../time_period</td>
+      <td style="text-align: left">IVL_TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../folders</td>
+      <td style="text-align: left">FOLDER</td>
+      <td style="text-align: left">Organises and groups Compositions within an EHR Extract.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../archetype_id</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../meaning</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../name</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../orig_parent_ref</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../policy_ids</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../rc_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../sensitivity</td>
+      <td style="text-align: left">INT</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../synthesised</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../links</td>
+      <td style="text-align: left">LINK</td>
+      <td style="text-align: left">Creates a relationship between two Record Components that is orthogonal to the common one of containment. Note that if a recipient is not permitted to see the component linked to, even revealing the link constitutes an inappropriate disclosure. Role is of type CD so that the displayName property of that class can be used in place of any specific coding scheme.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../follow_link</td>
+      <td style="text-align: left">BL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../nature</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../role</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../target_type</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../target_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../feeder_audit</td>
+      <td style="text-align: left">AUDIT_INFO</td>
+      <td style="text-align: left">The committal and revision data for a Record Component. Note that the invariant is incorrectly stated as constraining "attribute_version_status.coding_scheme_name" in the printed standard.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../committer</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../ehr_system</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../previous_version</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../reason_for_revision</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../time_committed</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../version_set_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../version_status</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../sub_folders</td>
+      <td style="text-align: left">FOLDER</td>
+      <td style="text-align: left">(Rekursiv typ, ej utvecklad.)</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../attestations</td>
+      <td style="text-align: left">ATTESTATION_INFO</td>
+      <td style="text-align: left">Any attestations for a Record Component. The proof field should be a cryptographic hash of the RECORD_COMPONENT it attests, but it is recognised that in many implementations the components will change to point to new components that revise them. In that case, the proof should sign the unchanging parts of the component only.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../attested_view</td>
+      <td style="text-align: left">ED</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../proof</td>
+      <td style="text-align: left">ED</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../reason_for_attestation</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../time</td>
+      <td style="text-align: left">TS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../target_rc_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../attester</td>
+      <td style="text-align: left">FUNCTIONAL_ROLE</td>
+      <td style="text-align: left">The participation of an entity in the EHR.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../function</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../healthcare_facility</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../mode</td>
+      <td style="text-align: left">CS</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../performer</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../service_setting</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../composition_rc_ids</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../demographic_extract</td>
+      <td style="text-align: left">IDENTIFIED_ENTITY</td>
+      <td style="text-align: left">Superclass of all identified parties to the record. Note that the type of id is not given in the printed class description but is included in the class diagram on page 47 of the standard. Abstrakt typ; instansen anges med xsi:type som en av SOFTWARE_OR_DEVICE, ORGANISATION, PERSON.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../extract_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../telecom</td>
+      <td style="text-align: left">TEL</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../softwareOrDevice</td>
+      <td style="text-align: left">SOFTWARE_OR_DEVICE</td>
+      <td style="text-align: left">Element som bara finns när instansen är av subtypen SOFTWARE_OR_DEVICE (xsi:type).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../code</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../desc</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../manufacturerModelName</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../version</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../owningOrganisation_id</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../organisation</td>
+      <td style="text-align: left">ORGANISATION</td>
+      <td style="text-align: left">Element som bara finns när instansen är av subtypen ORGANISATION (xsi:type).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../code</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../desc</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../name</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../addr</td>
+      <td style="text-align: left">AD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../person</td>
+      <td style="text-align: left">PERSON</td>
+      <td style="text-align: left">Element som bara finns när instansen är av subtypen PERSON (xsi:type).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../name</td>
+      <td style="text-align: left">EN</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../addr</td>
+      <td style="text-align: left">AD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">parameters</td>
+      <td style="text-align: left">ParameterType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../code</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../name</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../value</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">success</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="728-tjänsteinteraktion-enligt-wsdl">7.2.8 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>Tjänsteinteraktionens namn: ReceiveEhrExtractInteraction<br />
+Beskrivning:<br />
+The initiator delivers health records on the RIV13606 format<br />
+Revisioner:<br />
+Tjänstedomän: ehr:patientsummary<br />
+Tjänsteinteraktionstyp: Uppdrag-Resultat<br />
+WS-profil: RIVTABP21<br />
+Förvaltas av: Sveriges Kommuner och Landsting</p>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:ehr:patientsummary:ReceiveEhrExtractResponder:1:ReceiveEhrExtract</code></p>
+
+<h4 id="729-källfiler-riv-ta">7.2.9 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="ReceiveEhrExtractInteraction_1.0_RIVTABP21.wsdl">ReceiveEhrExtractInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="ReceiveEhrExtractResponder_1.0.xsd">ReceiveEhrExtractResponder_1.0.xsd</a></td>
+      <td>Tjänsteschema (Responder)</td>
+    </tr>
+    <tr>
+      <td><a href="ehr_patientsummary_1.0.xsd">ehr_patientsummary_1.0.xsd</a></td>
+      <td>Domänschema (EN13606-extrakt)</td>
+    </tr>
+    <tr>
+      <td><a href="ISO_dt.xsd">ISO_dt.xsd</a></td>
+      <td>ISO 21090-datatyper</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7210-fhir-artefakter">7.2.10 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-receiveehrextract-request.html">StructureDefinition/receiveehrextract-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-receiveehrextract.html">StructureDefinition/receiveehrextract</a></li>
+</ul>
+
+<h3 id="receiveehrextractstatus">ReceiveEhrExtractStatus</h3>
+
+<p><em>TKB avsnitt 5.</em></p>
+
+<p>Tjänst används för att ta emot status efter ett anrop till ReceiveEhrExtract. Då EN13606 skickas till annan part, genom tjänsten ReceiveEhrExtract, kommer resultatet av behandlingen meddelas genom anrop till ReceiveEhrExtractStatus.</p>
+
+<p>Den logiska adress som används för att anropa denna tjänst är det värde som skickades för ”ehr_system” i anropet till tjänsten ReceiveEhrExtract.</p>
+
+<p>Se även bild i avsnitt 4.</p>
+
+<h4 id="731-frivillighet">7.3.1 Frivillighet</h4>
+
+<p>Tjänsten är obligatorisk för parter som delar sin information med tjänsten ReceiveEhrExtract.</p>
+
+<h4 id="732-version">7.3.2 Version</h4>
+
+<p>Detta är en endast som remissversion i nuläget, men den första versionen som kommer publiceras är 1.0.</p>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;huvudversion&gt;.&lt;underversion&gt;</code></p>
+
+<h4 id="733-sla-krav">7.3.3 SLA-krav</h4>
+
+<p>Inledande beskrivning</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Kategori</th>
+      <th>Värde</th>
+      <th>Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Svarstid</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Tillgänglighet</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Last</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Aktualitet</td>
+      <td> </td>
+      <td>Om en tjänstekonsument delat information med hjälp av tjänsten ReceiveEhrExtract är interaktionen ReceiveEhrExtractStatus kvittot/resultatet på delningen. Om kvittot uteblir ska informationen som skickades i ReceiveEhrExtract betraktas som odelad. Hur lång tid som får förflyta mellan ReceiveEhrExtract och ReceiveEhrExtractStatus är en överrenskommelse mellan respektive tjänstekonsument och tjänsteproducent.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="734-fältregler">7.3.4 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Typ</th>
+      <th>Kommentar</th>
+      <th>Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Begäran</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>parameters</td>
+      <td>ParameterType</td>
+      <td>Transaktions-id: detta är samma värde som användes i anropet till tjänsten ReceiveEhrExtract. Med hjälp av detta värde går det koppla samman statusanropet med ett tidigare anrop till tjänsten ReceiveEhrExtract.</td>
+      <td>1..1</td>
+    </tr>
+    <tr>
+      <td>response_detail</td>
+      <td>ResponseDetailType</td>
+      <td>Fel-, varnings- och/eller informationsmeddelanden.</td>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <td>Svar</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>success</td>
+      <td>Boolean</td>
+      <td>Resultatet av anropet.</td>
+      <td>1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="735-regler">7.3.5 Regler</h4>
+
+<p>För innehållet i ”response_detail” hänvisas till avsnittet 2.2.</p>
+
+<p>Svaret ska vara ”true” om anropet var korrekt samt att det går att härleda innehållet till ett tidigare anrop till ReceiveEhrExtract, annars ska ”false” returneras.</p>
+
+<h4 id="736-tjänsteinteraktion">7.3.6 Tjänsteinteraktion</h4>
+
+<p>ReceiveEhrExtractInteraction</p>
+
+<h4 id="737-fältregler-enligt-schema-xsd">7.3.7 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat och visar hela meddelandestrukturen, inklusive EN13606-extraktet. Beskrivningarna är schemats egna annoteringar (engelska) där sådana finns. Typerna beskrivs i <a href="8-datatyper.html">8 Datatyper</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">parameters</td>
+      <td style="text-align: left">ParameterType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../code</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../name</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../value</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">response_detail</td>
+      <td style="text-align: left">ResponseDetailType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../code</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../text</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../type_code</td>
+      <td style="text-align: left">ResponseDetailTypeCodes</td>
+      <td style="text-align: left">(XML-attribut.)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">success</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="738-tjänsteinteraktion-enligt-wsdl">7.3.8 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>Tjänsteinteraktionens namn: ReceiveEhrExtractInteraction<br />
+Beskrivning:<br />
+The initiator delivers health records on the RIV13606 format<br />
+Revisioner:<br />
+Tjänstedomän: ehr:patientsummary<br />
+Tjänsteinteraktionstyp: Uppdrag-Resultat<br />
+WS-profil: RIVTABP21<br />
+Förvaltas av: Sveriges Kommuner och Landsting</p>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:ehr:patientsummary:ReceiveEhrExtractStatusInitiator:1:ReceiveEhrExtractStatus</code></p>
+
+<h4 id="739-källfiler-riv-ta">7.3.9 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="ReceiveEhrExtractInteraction_1.0_RIVTABP21.wsdl">ReceiveEhrExtractInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="ReceiveEhrExtractInitiator_1.0.xsd">ReceiveEhrExtractInitiator_1.0.xsd</a></td>
+      <td>Tjänsteschema (Initiator)</td>
+    </tr>
+    <tr>
+      <td><a href="ehr_patientsummary_1.0.xsd">ehr_patientsummary_1.0.xsd</a></td>
+      <td>Domänschema (EN13606-extrakt)</td>
+    </tr>
+    <tr>
+      <td><a href="ISO_dt.xsd">ISO_dt.xsd</a></td>
+      <td>ISO 21090-datatyper</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7310-fhir-artefakter">7.3.10 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-receiveehrextractstatus-request.html">StructureDefinition/receiveehrextractstatus-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-receiveehrextractstatus.html">StructureDefinition/receiveehrextractstatus</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-patientsummary-responsedetailtypecodes-cs.html">CodeSystem/patientsummary-responsedetailtypecodes-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-patientsummary-responsedetailtypecodes-vs.html">ValueSet/patientsummary-responsedetailtypecodes-vs</a></li>
+</ul>
+
+<h3 id="deleteehrextract">DeleteEhrExtract</h3>
+
+<p><em>TKB avsnitt 6.</em></p>
+
+<p>Tjänst som används för att ta bort information som delats genom tjänsten ReceiveEhrExtract.</p>
+
+<p><img src="DeleteEhrExtract-flode.svg" alt="Flöde för DeleteEhrExtract" /></p>
+
+<p><em>Figuren är återskapad ur textrutorna i originalets Word-ritobjekt (se QUESTIONS.md).</em></p>
+
+<h4 id="741-frivillighet">7.4.1 Frivillighet</h4>
+
+<p>Tjänsten är frivillig och kan användas för att ta bort information som delats genom tjänsten ReceiveEhrExtract. (Tjänsten ReceiveEhrExtract kan också användas för ”grov” borttagning, vilket beskrivs mer i avsnitt 4.5 - se ”tomma extrakt”.)</p>
+
+<h4 id="742-version">7.4.2 Version</h4>
+
+<p>Detta är en endast som remissversion i nuläget, men den första versionen som kommer publiceras är 1.0.</p>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;huvudversion&gt;.&lt;underversion&gt;</code></p>
+
+<h4 id="743-sla-krav">7.4.3 SLA-krav</h4>
+
+<p>Inledande beskrivning</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Kategori</th>
+      <th>Värde</th>
+      <th>Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Svarstid</td>
+      <td> </td>
+      <td>Tjänsteproducenten bör ta emot anropet/patientinformationen snabbt. Behandlingen kan sedan ta tid - resultatet av anropet sker genom anrop till DeleteEhrExtractStatus.</td>
+    </tr>
+    <tr>
+      <td>Tillgänglighet</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Last</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Aktualitet</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="744-fältregler">7.4.4 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Typ</th>
+      <th>Kommentar</th>
+      <th>Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Begäran</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ehr_system</td>
+      <td>II</td>
+      <td>Det värde som skickades för patientinformationen då anrop till tjänsten ReceiveEhrExtract gjordes.</td>
+      <td>1..1</td>
+    </tr>
+    <tr>
+      <td>subject_of_care</td>
+      <td>II</td>
+      <td>Id för patienten. Det värde som skickades då anrop till tjänsten ReceiveEhrExtract gjordes.</td>
+      <td>1..1</td>
+    </tr>
+    <tr>
+      <td>deletion</td>
+      <td>DeletionType</td>
+      <td>Innehåller par av rcId och meaning. <br /> rcId: <br /> Globalt unikt id för posten som ska tas bort. Det värde som skickades då anrop till tjänsten ReceiveEhrExtract gjordes. (Värdet hittas i ”ehr_extract.all_compositions.rc_id”.) <br /> meaning: <br /> Den huvudinformationstyp som posten (som ska tas bort) gäller för.</td>
+      <td>1..*</td>
+    </tr>
+    <tr>
+      <td>parameters</td>
+      <td>ParameterType</td>
+      <td>Transaktions-id: globalt unik identifierare för det aktuella anropet. Används för återrapportering av hur behandlingen gick (genom tjänsten DeleteEhrExtractStatus) samt till fel- och/eller debugsökning. Värdet anges med nyckeln ”transaction_id”. Längden på detta värde får inte överstiga 256 tecken.</td>
+      <td>1..1</td>
+    </tr>
+    <tr>
+      <td>Svar</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>success</td>
+      <td>Boolean</td>
+      <td>Anger om mottagaren lyckats ta emot innehållet. (Observera att värdet ”true” inte innebär att mottagaren lyckats behandla innehållet. Resultat av behandlingen meddelas genom tjänsten DeleteEhrExtractStatus.)</td>
+      <td>1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="745-regler">7.4.5 Regler</h4>
+
+<p>För statusrapportering vid felaktiga anrop, interna fel eller om ingen patientinformation finns hänvisas till avsnittet 2.2.</p>
+
+<p>För ytterligare beskrivning på värde för ”ehr_system” hänvisas till avsnittet 2.4.</p>
+
+<p>Resultatet av behandlingen av anropet meddelas genom anrop till tjänsten DeleteEhrExtractStatus. Logisk adress för det efterkommande statusanropet är värdet för ”ehr_system” (i anropet till DeleteEhrExtract).</p>
+
+<h4 id="746-tjänsteinteraktion">7.4.6 Tjänsteinteraktion</h4>
+
+<p>DeleteEhrExtractInteraction</p>
+
+<h4 id="747-fältregler-enligt-schema-xsd">7.4.7 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat och visar hela meddelandestrukturen, inklusive EN13606-extraktet. Beskrivningarna är schemats egna annoteringar (engelska) där sådana finns. Typerna beskrivs i <a href="8-datatyper.html">8 Datatyper</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ehr_system</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">subject_of_care</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">deletion</td>
+      <td style="text-align: left">DeletionType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../rc_id</td>
+      <td style="text-align: left">II</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../meaning</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">parameters</td>
+      <td style="text-align: left">ParameterType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../code</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../name</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../value</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">success</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="748-tjänsteinteraktion-enligt-wsdl">7.4.8 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>Tjänsteinteraktionens namn: DeleteEhrExtractInteraction<br />
+Beskrivning:<br />
+The initiator requests a deletion of health records on the RIV13606 format<br />
+Revisioner:<br />
+Tjänstedomän: ehr:patientsummary<br />
+Tjänsteinteraktionstyp: Uppdrag-Resultat<br />
+WS-profil: RIVTABP21<br />
+Förvaltas av: Sveriges Kommuner och Landsting</p>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:ehr:patientsummary:DeleteEhrExtractResponder:1:DeleteEhrExtract</code></p>
+
+<h4 id="749-källfiler-riv-ta">7.4.9 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="DeleteEhrExtractInteraction_1.0_RIVTABP21.wsdl">DeleteEhrExtractInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="DeleteEhrExtractResponder_1.0.xsd">DeleteEhrExtractResponder_1.0.xsd</a></td>
+      <td>Tjänsteschema (Responder)</td>
+    </tr>
+    <tr>
+      <td><a href="ehr_patientsummary_1.0.xsd">ehr_patientsummary_1.0.xsd</a></td>
+      <td>Domänschema (EN13606-extrakt)</td>
+    </tr>
+    <tr>
+      <td><a href="ISO_dt.xsd">ISO_dt.xsd</a></td>
+      <td>ISO 21090-datatyper</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7410-fhir-artefakter">7.4.10 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-deleteehrextract-request.html">StructureDefinition/deleteehrextract-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-deleteehrextract.html">StructureDefinition/deleteehrextract</a></li>
+</ul>
+
+<h3 id="deleteehrextractstatus">DeleteEhrExtractStatus</h3>
+
+<p><em>TKB avsnitt 7.</em></p>
+
+<p>Tjänst används för att ta emot status efter ett anrop till DeleteEhrExtract. Då begäran om borttagning skickas till annan part, genom tjänsten DeleteEhrExtract, kommer resultatet av borttaget meddelas genom anrop till DeleteEhrExtractStatus.</p>
+
+<p>Den logiska adress som används för att anropa denna tjänst är det värde som skickades som skickades för ”ehr_system” i anropet till tjänsten DeleteEhrExtract.</p>
+
+<h4 id="751-frivillighet">7.5.1 Frivillighet</h4>
+
+<p>Tjänsten är obligatorisk för parter som använder tjänsten DeleteEhrExtract.</p>
+
+<h4 id="752-version">7.5.2 Version</h4>
+
+<p>Detta är en endast som remissversion i nuläget, men den första versionen som kommer publiceras är 1.0.</p>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;huvudversion&gt;.&lt;underversion&gt;</code></p>
+
+<h4 id="753-sla-krav">7.5.3 SLA-krav</h4>
+
+<p>Inledande beskrivning</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Kategori</th>
+      <th>Värde</th>
+      <th>Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Svarstid</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Tillgänglighet</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Last</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Aktualitet</td>
+      <td> </td>
+      <td>Om en tjänstekonsument försökt ta bort tidigare delad information med hjälp av tjänsten DeleteEhrExtract är interaktionen DeleteEhrExtractStatus kvittot/resultatet av borttaget. Om kvittot uteblir ska borttagningsbegäran som skickades i DeleteEhrExtract betraktas som ej hanterad. Hur lång tid som får förflyta mellan DeleteEhrExtract och DeleteEhrExtractStatus är en överrenskommelse mellan respektive tjänstekonsument och tjänsteproducent.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="754-fältregler">7.5.4 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Typ</th>
+      <th>Kommentar</th>
+      <th>Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Begäran</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>parameters</td>
+      <td>ParameterType</td>
+      <td>Transaktions-id: detta är samma värde som användes i anropet till tjänsten DeleteEhrExtract. Med hjälp av detta värde går det koppla samman statusanropet med ett tidigare anrop till tjänsten DeleteEhrExtract.</td>
+      <td>1..1</td>
+    </tr>
+    <tr>
+      <td>response_detail</td>
+      <td>ResponseDetailType</td>
+      <td>Fel-, varnings- och/eller informationsmeddelanden.</td>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <td>Svar</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>success</td>
+      <td>Boolean</td>
+      <td>Resultatet av anropet.</td>
+      <td>1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="755-regler">7.5.5 Regler</h4>
+
+<p>För innehållet i ”response_detail” hänvisas till avsnittet 2.2.</p>
+
+<p>Svaret ska vara ”true” om anropet var korrekt samt att det går att härleda innehållet till ett tidigare anrop till DeleteEhrExtract, annars ska ”false” returneras.</p>
+
+<h4 id="756-tjänsteinteraktion">7.5.6 Tjänsteinteraktion</h4>
+
+<p>DeleteEhrExtractInteraction.</p>
+
+<h4 id="757-fältregler-enligt-schema-xsd">7.5.7 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat och visar hela meddelandestrukturen, inklusive EN13606-extraktet. Beskrivningarna är schemats egna annoteringar (engelska) där sådana finns. Typerna beskrivs i <a href="8-datatyper.html">8 Datatyper</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">parameters</td>
+      <td style="text-align: left">ParameterType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../code</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../name</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../value</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">response_detail</td>
+      <td style="text-align: left">ResponseDetailType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../code</td>
+      <td style="text-align: left">CD</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../text</td>
+      <td style="text-align: left">ST</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../type_code</td>
+      <td style="text-align: left">ResponseDetailTypeCodes</td>
+      <td style="text-align: left">(XML-attribut.)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">success</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="758-tjänsteinteraktion-enligt-wsdl">7.5.8 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>Tjänsteinteraktionens namn: DeleteEhrExtractInteraction<br />
+Beskrivning:<br />
+The initiator requests a deletion of health records on the RIV13606 format<br />
+Revisioner:<br />
+Tjänstedomän: ehr:patientsummary<br />
+Tjänsteinteraktionstyp: Uppdrag-Resultat<br />
+WS-profil: RIVTABP21<br />
+Förvaltas av: Sveriges Kommuner och Landsting</p>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:ehr:patientsummary:DeleteEhrExtractStatusInitiator:1:DeleteEhrExtractStatus</code></p>
+
+<h4 id="759-källfiler-riv-ta">7.5.9 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="DeleteEhrExtractInteraction_1.0_RIVTABP21.wsdl">DeleteEhrExtractInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="DeleteEhrExtractInitiator_1.0.xsd">DeleteEhrExtractInitiator_1.0.xsd</a></td>
+      <td>Tjänsteschema (Initiator)</td>
+    </tr>
+    <tr>
+      <td><a href="ehr_patientsummary_1.0.xsd">ehr_patientsummary_1.0.xsd</a></td>
+      <td>Domänschema (EN13606-extrakt)</td>
+    </tr>
+    <tr>
+      <td><a href="ISO_dt.xsd">ISO_dt.xsd</a></td>
+      <td>ISO 21090-datatyper</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7510-fhir-artefakter">7.5.10 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-deleteehrextractstatus-request.html">StructureDefinition/deleteehrextractstatus-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-deleteehrextractstatus.html">StructureDefinition/deleteehrextractstatus</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-patientsummary-responsedetailtypecodes-cs.html">CodeSystem/patientsummary-responsedetailtypecodes-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-patientsummary-responsedetailtypecodes-vs.html">ValueSet/patientsummary-responsedetailtypecodes-vs</a></li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.ehr-patientsummary#1.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Sat, Sep 26, 2026 19:25+0000">2026-09-26</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

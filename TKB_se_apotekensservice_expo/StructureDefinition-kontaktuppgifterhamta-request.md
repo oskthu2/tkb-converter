@@ -1,0 +1,328 @@
+# KontaktuppgifterHamta — Request - se.apotekensservice: expo — Expeditionsställen och dosmottagare v2.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **KontaktuppgifterHamta — Request**
+
+## Logical Model: KontaktuppgifterHamta — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/se-apotekensservice-expo/StructureDefinition/kontaktuppgifterhamta-request | *Version*:2.0.0 |
+| Draft as of 2026-09-26 | *Computable Name*:KontaktuppgifterHamtaRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i KontaktuppgifterHamta (urn:riv:se.apotekensservice:expo:KontaktuppgifterHamtaResponder:4, KontaktuppgifterHamtaRequestType), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.se-apotekensservice-expo|current/StructureDefinition/StructureDefinition-kontaktuppgifterhamta-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-kontaktuppgifterhamta-request.csv), [Excel](StructureDefinition-kontaktuppgifterhamta-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "kontaktuppgifterhamta-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/se-apotekensservice-expo/StructureDefinition/kontaktuppgifterhamta-request",
+  "version" : "2.0.0",
+  "name" : "KontaktuppgifterHamtaRequest",
+  "title" : "KontaktuppgifterHamta — Request",
+  "status" : "draft",
+  "date" : "2026-09-26T19:42:44+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i KontaktuppgifterHamta\n(urn:riv:se.apotekensservice:expo:KontaktuppgifterHamtaResponder:4, KontaktuppgifterHamtaRequestType), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/se-apotekensservice-expo/StructureDefinition/kontaktuppgifterhamta-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "kontaktuppgifterhamta-request",
+      "path" : "kontaktuppgifterhamta-request",
+      "short" : "KontaktuppgifterHamta — Request",
+      "definition" : "Logisk modell för begäran i KontaktuppgifterHamta\n(urn:riv:se.apotekensservice:expo:KontaktuppgifterHamtaResponder:4, KontaktuppgifterHamtaRequestType), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.logicalAddress",
+      "path" : "kontaktuppgifterhamta-request.logicalAddress",
+      "short" : "logicalAddress",
+      "definition" : "SOAP-huvud LogicalAddress. Orgnr of Apotekens Service AB",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.argosHeader",
+      "path" : "kontaktuppgifterhamta-request.argosHeader",
+      "short" : "argosHeader",
+      "definition" : "SOAP-huvud ArgosHeader. Argos header of Apotekens Service AB. Check documentation regarding mandatory fields for this specific service interaction",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.argosHeader.forskrivarkod",
+      "path" : "kontaktuppgifterhamta-request.argosHeader.forskrivarkod",
+      "short" : "forskrivarkod",
+      "definition" : "forskrivarkod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.argosHeader.legitimationskod",
+      "path" : "kontaktuppgifterhamta-request.argosHeader.legitimationskod",
+      "short" : "legitimationskod",
+      "definition" : "legitimationskod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.argosHeader.fornamn",
+      "path" : "kontaktuppgifterhamta-request.argosHeader.fornamn",
+      "short" : "fornamn",
+      "definition" : "fornamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.argosHeader.efternamn",
+      "path" : "kontaktuppgifterhamta-request.argosHeader.efternamn",
+      "short" : "efternamn",
+      "definition" : "efternamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.argosHeader.yrkesgrupp",
+      "path" : "kontaktuppgifterhamta-request.argosHeader.yrkesgrupp",
+      "short" : "yrkesgrupp",
+      "definition" : "yrkesgrupp",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.argosHeader.befattningskod",
+      "path" : "kontaktuppgifterhamta-request.argosHeader.befattningskod",
+      "short" : "befattningskod",
+      "definition" : "befattningskod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.argosHeader.arbetsplatskod",
+      "path" : "kontaktuppgifterhamta-request.argosHeader.arbetsplatskod",
+      "short" : "arbetsplatskod",
+      "definition" : "arbetsplatskod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.argosHeader.arbetsplatsnamn",
+      "path" : "kontaktuppgifterhamta-request.argosHeader.arbetsplatsnamn",
+      "short" : "arbetsplatsnamn",
+      "definition" : "arbetsplatsnamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.argosHeader.postort",
+      "path" : "kontaktuppgifterhamta-request.argosHeader.postort",
+      "short" : "postort",
+      "definition" : "postort",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.argosHeader.postadress",
+      "path" : "kontaktuppgifterhamta-request.argosHeader.postadress",
+      "short" : "postadress",
+      "definition" : "postadress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.argosHeader.postnummer",
+      "path" : "kontaktuppgifterhamta-request.argosHeader.postnummer",
+      "short" : "postnummer",
+      "definition" : "postnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.argosHeader.telefonnummer",
+      "path" : "kontaktuppgifterhamta-request.argosHeader.telefonnummer",
+      "short" : "telefonnummer",
+      "definition" : "telefonnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.argosHeader.requestId",
+      "path" : "kontaktuppgifterhamta-request.argosHeader.requestId",
+      "short" : "requestId",
+      "definition" : "requestId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.argosHeader.rollnamn",
+      "path" : "kontaktuppgifterhamta-request.argosHeader.rollnamn",
+      "short" : "rollnamn",
+      "definition" : "rollnamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.argosHeader.hsaID",
+      "path" : "kontaktuppgifterhamta-request.argosHeader.hsaID",
+      "short" : "hsaID",
+      "definition" : "hsaID",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.argosHeader.katalog",
+      "path" : "kontaktuppgifterhamta-request.argosHeader.katalog",
+      "short" : "katalog",
+      "definition" : "katalog",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.argosHeader.organisationsnummer",
+      "path" : "kontaktuppgifterhamta-request.argosHeader.organisationsnummer",
+      "short" : "organisationsnummer",
+      "definition" : "organisationsnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.argosHeader.systemnamn",
+      "path" : "kontaktuppgifterhamta-request.argosHeader.systemnamn",
+      "short" : "systemnamn",
+      "definition" : "systemnamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.argosHeader.systemversion",
+      "path" : "kontaktuppgifterhamta-request.argosHeader.systemversion",
+      "short" : "systemversion",
+      "definition" : "systemversion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.argosHeader.systemIp",
+      "path" : "kontaktuppgifterhamta-request.argosHeader.systemIp",
+      "short" : "systemIp",
+      "definition" : "systemIp",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "kontaktuppgifterhamta-request.orgNr",
+      "path" : "kontaktuppgifterhamta-request.orgNr",
+      "short" : "orgNr",
+      "definition" : "Aktörens organisationsnummer (xs:long i schemat.)",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

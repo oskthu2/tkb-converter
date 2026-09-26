@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>6 Gemensamma informationskomponenter - se.apotekensservice: pris — Pris och högkostnadsskydd v2.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"7"}
+    h3,h4,h5,h6{--heading-prefix:"7"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">se.apotekensservice: pris — Pris och högkostnadsskydd</span>
+            <br/>
+            <span style="display:inline-block;">2.0.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+  <li><a href="3-tjanstedomanens-arkitektur.html">3 Arkitektur</a></li>
+  <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Krav och regler</a></li>
+  <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Meddelandemodeller</a></li>
+  <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma komponenter</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>6 Gemensamma informationskomponenter</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">se.apotekensservice: pris — Pris och högkostnadsskydd - Local Development build (v2.0.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/se-apotekensservice-pris/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>6 Gemensamma informationskomponenter</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#gemensamma-informationskomponenter" id="markdown-toc-gemensamma-informationskomponenter">Gemensamma informationskomponenter</a>    <ul>
+      <li><a href="#artikelidentiteterrequest" id="markdown-toc-artikelidentiteterrequest">ArtikelIdentiteterRequest</a></li>
+      <li><a href="#balansresponse" id="markdown-toc-balansresponse">BalansResponse</a></li>
+      <li><a href="#formansinforesponse" id="markdown-toc-formansinforesponse">FormansInfoResponse</a></li>
+      <li><a href="#klientinformationrequest-1" id="markdown-toc-klientinformationrequest-1">KlientinformationRequest (1)</a></li>
+      <li><a href="#klientinformationrequest-4" id="markdown-toc-klientinformationrequest-4">KlientinformationRequest (4)</a></li>
+      <li><a href="#periodresponse" id="markdown-toc-periodresponse">PeriodResponse</a></li>
+      <li><a href="#prisfragaradrequest" id="markdown-toc-prisfragaradrequest">PrisfragaRadRequest</a></li>
+      <li><a href="#prisfragaradresponse" id="markdown-toc-prisfragaradresponse">PrisfragaRadResponse</a></li>
+      <li><a href="#transaktionresponse" id="markdown-toc-transaktionresponse">TransaktionResponse</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="gemensamma-informationskomponenter">Gemensamma informationskomponenter</h2>
+
+<p><em>SAKNAS I KÄLLDOKUMENT.</em> Komponenterna nedan är de typer ur domänschemana som används av tjänstekontrakten. Beskrivningarna är schemaannoteringarna. Flera typer finns i mer än en version av domänschemat; versionen anges då inom parentes.</p>
+
+<h3 id="artikelidentiteterrequest">ArtikelIdentiteterRequest</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_pris_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">gtin</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GTIN-kod</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">nplPackageId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Förpackningsid från Nationellt Produktregister för Läkemedel Unikt id för LM-artikel</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">varunr</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Nordiskt varunummer Unik för handelsvaror. För läkemedel kan dubletter förekomma vid parallellimport</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="balansresponse">BalansResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_pris_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">brutto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Bruttobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">netto</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Nettobelopp i kronor och ören</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="formansinforesponse">FormansInfoResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_pris_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">formanskod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Förmånskod R, U, L, eller F</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Id som representerar det id som var satt i motsvarande ArtikelIdentiteterTo. Det vill säga antingen GTIN, Förpackningsid eller Varunr beroende på vad som frågats efter.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="klientinformationrequest-1">KlientinformationRequest (1)</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_pris_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">anvandare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt användarid i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">session</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Sessionens id i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">system</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GLN-kod för anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="klientinformationrequest-4">KlientinformationRequest (4)</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_pris_4.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:4</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">anvandare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt användarid i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">session</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Sessionens id i anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">system</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GLN-kod för anropande system.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="periodresponse">PeriodResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_pris_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">balans</td>
+      <td style="text-align: left">BalansResponse</td>
+      <td style="text-align: left">Ackumulerad balans</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">start</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Periodens startdatum.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="prisfragaradrequest">PrisfragaRadRequest</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_pris_4.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:4</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">antal</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Antal förpackningar av vara som expedieras. Vid kreditering sätts detta fält till ett negativt värde. Altenativt kan fälten pris och prisUtbyte sättas till negativa värden.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">formansVal</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Farmacevtens bedömning om vilken förmån som gäller för receptraden. Förmånstyp R, U, F, L kan förekomma.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">pris</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Apoteksaktörs utpris inkl. eventuell moms per förpackning för vara som avses att expedieras.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">prisUtbyte</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Apoteksaktörs utpris inkl. eventuell moms för billigare vara som ej expedieras vid möjligt byte inom högkostnadsskyddet. Anges om pristillägg skall gälla, dvs när kund motsätter sig byte och väljer förskriven vara.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">radNr</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Radnr.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="prisfragaradresponse">PrisfragaRadResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_pris_4.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:4</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">bruttoPris</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Apoteksaktörs utpris för receptrad inkl. ev. moms. Vid kreditering blir detta värde negativt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">prisTillagg</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Radens ev. pristillägg inom läkemdelsförmånen. Gäller förmånskod = R. Vid kreditering blir detta värde negativt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">radNr</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Radnr.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="transaktionresponse">TransaktionResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_pris_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:pris:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">anvandare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Användare som registrerat transaktionen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">apoteksNamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Apotek som registrerat transaktionen. Visas ej vid sekretesskydd.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">apoteksOrt</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Ort för apotek som registrerat transaktionen. Visas ej vid sekretesskydd.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">expeditionsId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt expeditionsID.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">flags</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Ett flaggfält som anger vilken information som uppdaterats i transaktionen. Detta fält används enbart internt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">inBrutto</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left">Ingående brutto före transaktionen</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">inEgenavgift</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left">Ingående högkostnadssaldo vid transaktionen</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kommentar</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Eventuell kommentar från korrigeringstransaktion</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">orgAktorId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GLN-kod för apotek som registrerat transaktionen. Visas ej vid sekretesskydd.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">persNr</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Personnummer för den som transaktionen gäller.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sign</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Typ av trans: +,-,ABC, … Detta fält används enbart internt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">transId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Aktörens expeditions-ID / verifikationsnr.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">transPeriod</td>
+      <td style="text-align: left">PeriodResponse</td>
+      <td style="text-align: left">Transaktionens högkostnadsuppgifter.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">transTid</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Transaktionstidpunkt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">transaktionBehandlades</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Tidpunkt då transaktionen behandlades av HKDB</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.se-apotekensservice-pris#2.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Sat, Sep 26, 2026 19:46+0000">2026-09-26</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

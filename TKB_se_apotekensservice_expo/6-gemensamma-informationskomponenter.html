@@ -1,0 +1,1133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>6 Gemensamma informationskomponenter - se.apotekensservice: expo — Expeditionsställen och dosmottagare v2.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"7"}
+    h3,h4,h5,h6{--heading-prefix:"7"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">se.apotekensservice: expo — Expeditionsställen och dosmottagare</span>
+            <br/>
+            <span style="display:inline-block;">2.0.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+  <li><a href="3-tjanstedomanens-arkitektur.html">3 Arkitektur</a></li>
+  <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Krav och regler</a></li>
+  <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Meddelandemodeller</a></li>
+  <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma komponenter</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>6 Gemensamma informationskomponenter</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">se.apotekensservice: expo — Expeditionsställen och dosmottagare - Local Development build (v2.0.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/se-apotekensservice-expo/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>6 Gemensamma informationskomponenter</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#gemensamma-informationskomponenter" id="markdown-toc-gemensamma-informationskomponenter">Gemensamma informationskomponenter</a>    <ul>
+      <li><a href="#apoteksinformationresponse" id="markdown-toc-apoteksinformationresponse">ApoteksinformationResponse</a></li>
+      <li><a href="#dosmottagareresponse-1" id="markdown-toc-dosmottagareresponse-1">DosmottagareResponse (1)</a></li>
+      <li><a href="#dosmottagareresponse-6" id="markdown-toc-dosmottagareresponse-6">DosmottagareResponse (6)</a></li>
+      <li><a href="#expeditionsstalleegetresponse" id="markdown-toc-expeditionsstalleegetresponse">ExpeditionsstalleEgetResponse</a></li>
+      <li><a href="#hamtaapoteksinforesponse" id="markdown-toc-hamtaapoteksinforesponse">HamtaApoteksInfoResponse</a></li>
+      <li><a href="#identitetrequest" id="markdown-toc-identitetrequest">IdentitetRequest</a></li>
+      <li><a href="#identitetresponse" id="markdown-toc-identitetresponse">IdentitetResponse</a></li>
+      <li><a href="#kontaktpersonrequest" id="markdown-toc-kontaktpersonrequest">KontaktpersonRequest</a></li>
+      <li><a href="#kontaktpersonresponse" id="markdown-toc-kontaktpersonresponse">KontaktpersonResponse</a></li>
+      <li><a href="#oppethallanderequest" id="markdown-toc-oppethallanderequest">OppethallandeRequest</a></li>
+      <li><a href="#oppethallanderesponse-4" id="markdown-toc-oppethallanderesponse-4">OppethallandeResponse (4)</a></li>
+      <li><a href="#oppethallanderesponse-6" id="markdown-toc-oppethallanderesponse-6">OppethallandeResponse (6)</a></li>
+      <li><a href="#sokdosmottagareresultatresponse" id="markdown-toc-sokdosmottagareresultatresponse">SokDosmottagareResultatResponse</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="gemensamma-informationskomponenter">Gemensamma informationskomponenter</h2>
+
+<p><em>SAKNAS I KÄLLDOKUMENT.</em> Komponenterna nedan är de typer ur domänschemana som används av tjänstekontrakten. Beskrivningarna är schemaannoteringarna. Flera typer finns i mer än en version av domänschemat; versionen anges då inom parentes.</p>
+
+<h3 id="apoteksinformationresponse">ApoteksinformationResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_expo_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:expo:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">aktorsnamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Officiellt namn för aktör</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">aktorsorgnr</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left">Aktörens organisationsnummer.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">allmantelefon</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Telefonnummer för allmänheten</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">besoksadress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Expeditionsställets besöksadress</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">eReceptDjur</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Markering gällande om apoteket kan expediera elektroniska djurrecept.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fax</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Expeditionsställets faxnummer</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">glnKod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Expeditionsställets GLN-kod</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">huvudtypkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kod som beskriver huvudverksamheten för expeditionsstället</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Expeditionsställets officiella namn</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ort</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Expeditionsställets besöksort</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">slutdatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Datum för stängning av verksamhet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">startdatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Datum för start av verksamhet</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="dosmottagareresponse-1">DosmottagareResponse (1)</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_expo_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:expo:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">adress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Adress till dosmottagare. Obligatorisk om typ = 'D'.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">apoteksIdDosmottagare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Apoteks-id för dosmottagare om dosmottagare är av typen apotek.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">arbetsplatskod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Arbetsplatskod till dosmottagare. Är aktuellt om dosmottagare t ex är en distriktsläkarmottagning.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">avdelning</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Avdelning inom dosmottagare.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosmottagarId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Dosmottagarens identitet, dosproducentens identitet för dosmottagaren t ex kundnummer, GLN-kod. Unikt inom dosapoteket.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kommunkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kommunkod till vilken dosmottagarens tillhör. Kod enligt SCB.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lanskod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Länskod till vilken dosmottagaren tillhör. Kod enligt SCB.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mottagarnamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på dosmottagare.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postnummer till dosmottagare.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postort</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Arbetsplatsort till dosmottagare. Obligatorisk om typ = 'D'.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">typ</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Typ av dosmottagare, kan antingen vara Apotek (där dospatienterna kan hämta sina dosleveranser) eller direktleverans, t ex vårdboende, distriktssköterska. Giltiga värden: D (direktleverans) eller A (apotek).</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="dosmottagareresponse-6">DosmottagareResponse (6)</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_expo_6.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:expo:6</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">adress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Adress till dosmottagare. Obligatorisk om typ = 'D'.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">apoteksIdDosmottagare</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Apoteks-id för dosmottagare om dosmottagare är av typen apotek.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">arbetsplatskod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Arbetsplatskod till dosmottagare. Är aktuellt om dosmottagare t ex är en distriktsläkarmottagning.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">avdelning</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Avdelning inom dosmottagare.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosmottagarId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Dosmottagarens identitet, dosproducentens identitet för dosmottagaren t ex kundnummer, GLN-kod. Unikt inom dosapoteket.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kommunkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kommunkod till vilken dosmottagarens tillhör. Kod enligt SCB.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lanskod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Länskod till vilken dosmottagaren tillhör. Kod enligt SCB.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mottagarnamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på dosmottagare.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postnummer till dosmottagare.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postort</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Arbetsplatsort till dosmottagare. Obligatorisk om typ = 'D'.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">typ</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Typ av dosmottagare, kan antingen vara Apotek (där dospatienterna kan hämta sina dosleveranser) eller direktleverans, t ex vårdboende, distriktssköterska. Giltiga värden: D (direktleverans) eller A (apotek).</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="expeditionsstalleegetresponse">ExpeditionsstalleEgetResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_expo_6.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:expo:6</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">aktorsnamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Aktörens namn.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">allmTelefon</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Expeditionsställets allmänna telefonnummer.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">apoteksId</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GLN-kod för unik identifiering av apotek.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">besoksAdress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Expeditionsställets besöksadress.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">besoksort</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Expeditionsställets ort (besöksort).</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosmottagareLista</td>
+      <td style="text-align: left">DosmottagareResponse</td>
+      <td style="text-align: left">Information om dosmottagare.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">eRecept</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Flagga som anger om expeditionsstället är ett apotek som kan hantera e-recept för besökande privat personer.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">eReceptDjur</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Markering gällande om apoteket kan expediera elektroniska djurrecept.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">faxnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Expeditionsställets faxnummer.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">huvudOrgTypKod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Möjliga värden: ADM, AP, DIAP, DJUR, DX, OAP, SA, TVAP ADM En organisatiorisk enhet inom ett företag som har rent administrativa uppgifter. AP Apotek för allmänheten - enhet för detaljhandel med läkemedel med farmaceutisk bemanning under öppethållandet. DIAP Distansapotek - Större apoteksenhet med ansvar att kunna distribuera apoteksvaror direkt till avtalskunder, apoteksombud eller privatpersoner DJUR Ett apotek som har utökat djursortiment. DX Dosapotek - enhet för produktion av dosdispenserade läkemedel. OAP Övriga apotek - gammal definition av apotek. Bör ej användas. SA Sjukhusapotek - apotek som ger service till slutenvårdsenheter TVAP Enhet som på beställning tillverkar specifika individanpassade läkemedel.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kommun</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Expeditionsställets kommuntillhörighet, kod enligt SCB.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kortNamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kortversion på apoteksnamn. Behövs i bla i vårdsystem.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lan</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Expeditionsställets länstillhörighet, kod enligt SCB.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">namn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Expeditionsställets officiella namn.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">oppetHallandeLista</td>
+      <td style="text-align: left">OppethallandeResponse</td>
+      <td style="text-align: left">När expeditionsstället har öppet.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">orgNr</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left">Aktörens organisationsnummer</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">orgTypADM</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Kod ADM som beskriver typ av expeditionsställe. En organisatiorisk enhet inom ett företag som har rent administrativa uppgifter.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">orgTypDIST</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Kod DIST som beskriver typ av expeditionsställe. Distansapotek - Större apoteksenhet med ansvar att kunna distribuera apoteksvaror direkt till avtalskunder, apoteksombud eller privatpersoner</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">orgTypDJAP</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Kod DJAP som beskriver typ av expeditionsställe. Ett apotek som har utökat djursortiment.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">orgTypDOS</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Kod DOS som beskriver typ av expeditionsställe. Dosapotek - enhet för produktion av dosdispenserade läkemedel.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">orgTypEA</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Kod EA som beskriver typ av expeditionsställe. Apotek för allmänheten - enhet för detaljhandel med läkemedel med farmaceutisk bemanning under öppethållandet.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">orgTypEH</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Kod EH som beskriver typ av expeditionsställe. En enhet som som kan lämna ut e-handel, dit man kan skicka e-handelspacket.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">orgTypGSL</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Kod GSL som beskriver typ av expeditionsställe. Alla expeditionställen som säljer sortimentet på 80-listan (t ex shopar) ska ha flaggan satt. "General Sales list" - även kallad för "80-listan", enbart varor som ej är receptbelagda och som ingår i 80-sortimentet. Alla expeditionställen som säljer sortimentet på 80-listan (t ex shopar) ska ha flaggan satt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">orgTypSA</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Kod SA som beskriver typ av expeditionsställe. Sjukhusapotek - apotek som ger service till slutenvårdsenheter.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">orgTypTILV</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Kod TILV som beskriver typ av expeditionsställe. Enhet som på beställning tillverkar individanpassade specifika läkemedel.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postAdress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Expeditionsställets postAdress.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postNr</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Expeditionsställets postNr.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postort</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Expeditionsställets postort.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">recepturtelefon</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Expeditionsställets receptur telefonnummer.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">slutDatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Datum för avslut av verksamhet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">startDatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Datum för start av verksamhet. Det datum som allmänheten kan använda Apoteket.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">statusDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Expeditionsställets tillståndsstatus ändringsdatum.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">tidigareGlnKod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Expeditionsställets tidigare ägares GLN.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">tillstandsstatus</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Expeditionsställets tillståndsstatus.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">webbadress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Webbadress till apotekets webbtjänster. Apotekens Service använder adressen för att skicka notifieringsmeddelanden. Används endast av dosproducenter.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="hamtaapoteksinforesponse">HamtaApoteksInfoResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_expo_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:expo:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">apoteksinformationLista</td>
+      <td style="text-align: left">ApoteksinformationResponse</td>
+      <td style="text-align: left">Lista innehållande ett eller flera Apoteksinformation.</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="identitetrequest">IdentitetRequest</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_expo_4.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:expo:4</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">exportId</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Obligatorisk för identitet med glnKod. Måste vara true om eRecept och/eller eReceptDjur är true. ExportId får ej sättas till true för en butikskod (används bara för GLN).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">glnKod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Expeditionsställets GLN-kod Måste sättas på en av identiteterna. Endast en glnkod per expeditionsställe är tillåtet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="identitetresponse">IdentitetResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_expo_4.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:expo:4</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">exportId</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Obligatorisk för identitet med glnKod. Måste vara true om eRecept och/eller eReceptDjur är true. ExportId får ej sättas till true för en butikskod (används bara för GLN).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">glnKod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Expeditionsställets GLN-kod Måste sättas på en av identiteterna. Endast en glnkod per expeditionsställe är tillåtet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="kontaktpersonrequest">KontaktpersonRequest</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_expo_4.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:expo:4</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">befattning</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kontaktpersonens befattning.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">efternamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Efternamn på kontaktperson hos aktören.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">epostadress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kontaktpersonens e-postadress</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fornamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Förnamn på kontaktperson hos aktören.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telefonnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kontaktpersonens telefonnummer.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="kontaktpersonresponse">KontaktpersonResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_expo_5.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:expo:5</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">befattning</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kontaktpersonens befattning.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">efternamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Efternamn på kontaktperson hos aktören.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">epostadress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kontaktpersonens e-postadress</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fornamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Förnamn på kontaktperson hos aktören.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telefonnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kontaktpersonens telefonnummer.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="oppethallanderequest">OppethallandeRequest</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_expo_6.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:expo:6</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">dagBenamning</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Exempelvis "Nyårsafton".</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lunchFrom</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Om lunchstängt, "stänger för lunch". Format: HHmm H=Timme (0-23) m=Minut (0-59)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lunchTom</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Om lunchstängt, "Öppnar igen efter lunch kl". Format: HHmm H=Timme (0-23) m=Minut (0-59)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">oppnar</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Öppningstid vardagar/vekodagnr. Format: HHmm H=Timme (0-23) m=Minut (0-59)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">slutDatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Sista dagen i en period vid typ N, P eller S. Obligatorisk vid typ P, S eller D. Om typ D är slutdatum = startdatum.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">stanger</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Stängningstid vardagar/vekodagnr. Format: HHmm H=Timme (0-23) m=Minut (0-59)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">startDatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Första dagen i en period vid typ N, P eller S. Vid typ D anges datum för aktuell dag exv 2010-12-23.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">tfStangtOrsak</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Orsak till tillfällig stängning.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">typ</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Typ av öppethållande. N = Normalt P = avvikande under angiven period D = avvikande under angiven dag S = tillfälligt stängt under angiven period</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">veckodagnr</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Ett nummer för veckodagen 1-7 för Måndag till Söndag, V för vardagar.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="oppethallanderesponse-4">OppethallandeResponse (4)</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_expo_4.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:expo:4</code>).</p>
+
+<p>Deprecated.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">dagBenamning</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Exempelvis "Nyårsafton".</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lunchFrom</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Om lunchstängt, "stänger för lunch". Format: HHmm H=Timme (0-24) m=Minut</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lunchTom</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Om lunchstängt, "Öppnar igen efter lunch kl". Format: HHmm H=Timme (0-24) m=Minut</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">oppnar</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Öppningstid vardagar/vekodagnr. Format: HHmm H=Timme (0-24) m=Minut</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">slutDatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Sista dagen i en period vid typ N, P eller S. Obligatorisk vid typ P, S eller D. Om typ D är slutdatum = startdatum.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">stanger</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Stängningstid vardagar/vekodagnr. Format: HHmm H=Timme (0-24) m=Minut</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">startDatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Första dagen i en period vid typ N, P eller S. Vid typ D anges datum för aktuell dag exv 2010-12-24.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">tfStangtOrsak</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Orsak till tillfällig stängning.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">typ</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Typ av öppethållande. N = Normalt P = avvikande under angiven period D = avvikande under angiven dag S = tillfälligt stängt under angiven period</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">veckodagnr</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Ett nummer för veckodagen 1-7 för Måndag till Söndag, V för vardagar.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="oppethallanderesponse-6">OppethallandeResponse (6)</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_expo_6.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:expo:6</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">dagBenamning</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Exempelvis "Nyårsafton".</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lunchFrom</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Om lunchstängt, "stänger för lunch". Format: HHmm H=Timme (0-24) m=Minut</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lunchTom</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Om lunchstängt, "Öppnar igen efter lunch kl". Format: HHmm H=Timme (0-24) m=Minut</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">oppnar</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Öppningstid vardagar/vekodagnr. Format: HHmm H=Timme (0-24) m=Minut</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">slutDatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Sista dagen i en period vid typ N, P eller S. Obligatorisk vid typ P, S eller D. Om typ D är slutdatum = startdatum.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">stanger</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Stängningstid vardagar/vekodagnr. Format: HHmm H=Timme (0-24) m=Minut</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">startDatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Första dagen i en period vid typ N, P eller S. Vid typ D anges datum för aktuell dag exv 2010-12-24.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">tfStangtOrsak</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Orsak till tillfällig stängning.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">typ</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Typ av öppethållande. N = Normalt P = avvikande under angiven period D = avvikande under angiven dag S = tillfälligt stängt under angiven period</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">veckodagnr</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Ett nummer för veckodagen 1-7 för Måndag till Söndag, V för vardagar.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="sokdosmottagareresultatresponse">SokDosmottagareResultatResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">se.apotekensservice_expo_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:expo:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">apotek</td>
+      <td style="text-align: left">HamtaApoteksInfoResponse</td>
+      <td style="text-align: left">Apoteksinformation för dosproducenten.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosmottagare</td>
+      <td style="text-align: left">DosmottagareResponse</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.se-apotekensservice-expo#2.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Sat, Sep 26, 2026 19:42+0000">2026-09-26</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

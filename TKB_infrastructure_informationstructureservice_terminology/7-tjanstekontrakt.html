@@ -1,0 +1,1024 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>7 Tjänstekontrakt - infrastructure: informationstructureservice: terminology v1.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">infrastructure: informationstructureservice: terminology</span>
+            <br/>
+            <span style="display:inline-block;">1.0.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <menu xmlns="http://www.w3.org/1999/xhtml">
+  <item name="Home" url="index.html"/>
+  <item name="1 Inledning" url="1-inledning.html"/>
+  <item name="2 Versionsinformation" url="2-versionsinformation.html"/>
+  <item name="3 Tjänstedomänens arkitektur" url="3-tjanstedomanens-arkitektur.html"/>
+  <item name="4 Tjänstedomänens krav och regler" url="4-tjanstedomanens-krav-och-regler.html"/>
+  <item name="5 Tjänstedomänens meddelandemodeller" url="5-tjanstedomanens-meddelandemodeller.html"/>
+  <item name="6 Tjänstedomänens gemensamma komponenter" url="6-gemensamma-informationskomponenter.html"/>
+  <item name="7 Tjänstekontrakt" url="7-tjanstekontrakt.html"/>
+  <item name="Artifacts" url="artifacts.html"/>
+</menu>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">infrastructure: informationstructureservice: terminology - Local Development build (v1.0.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/infrastructure-informationstructureservice-terminology/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#7-tjänstekontrakt" id="markdown-toc-7-tjänstekontrakt">7 Tjänstekontrakt</a>    <ul>
+      <li><a href="#getterminologysubset" id="markdown-toc-getterminologysubset">GetTerminologySubset</a></li>
+      <li><a href="#getterminologysubsetinformation" id="markdown-toc-getterminologysubsetinformation">GetTerminologySubsetInformation</a></li>
+      <li><a href="#getconcepts" id="markdown-toc-getconcepts">GetConcepts</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="7-tjänstekontrakt">7 Tjänstekontrakt</h1>
+
+<p>Källa: <em>Tjänstekontraktsbeskrivning Terminologitjänst</em>, version PA1 (2013-10-30), <a href="Tjanstekontraktsbeskrivning_Terminologitjanst.docx">Tjanstekontraktsbeskrivning_Terminologitjanst.docx</a>.</p>
+
+<h3 id="getterminologysubset">GetTerminologySubset</h3>
+
+<p>GetTerminologySubset hämtar ut en delmängd (subset) av en eller flera terminologier (exempelvis SNOMED CT, ICD-10, ATC-kodverket) som är användbara i ett visst sammanhang. Tjänsten returnerar en lista med de begrepp som ingår i urvalet tillsammans med information om urvalet.</p>
+
+<h4 id="711-version">7.1.1 Version</h4>
+<p>Version på detta kontrakt: 1.0</p>
+
+<h4 id="712-fältregler">7.1.2 Fältregler</h4>
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">GetTerminologySubsetRequestType</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">SubsetIdentity</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Identifierare för urvalet</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LocalOrganizationExtensionId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Id för system eller organisation som har lokala tillägg för urvalet. Om denna anges kommer det gemensamma urvalet returneras tillsammans med de koder i urvalet som är specifika för aktuella systemet/organisationen.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TermType</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Typ av term som ska användas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">GetTerminologySubsetResponseType</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Subset</td>
+      <td style="text-align: left">SubsetType</td>
+      <td style="text-align: left">Urval</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">OK = Subset hämtades utan avvikelser / ERROR = Fel vid hämtningen. Felet beskrivs i elementet comment / INFO = Information finns. Informationen beskrivs i elementet comment</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Beskrivning av fel som uppstått alternativt information om felaktiga parametrar.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="713-övriga-regler">7.1.3 Övriga regler</h4>
+<p>Till denna informationsmängd finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan.</p>
+
+<h5 id="7131-version-för-urval">7.1.3.1 Version för urval</h5>
+<p>Konsumenten bör spara version för sin befintliga uppsättning av urvalet. Versionsidentifierare kan hämtas separat via tjänsten GetTerminologySubsetInformation för att konsumenten ska kunna verifiera om ny laddning av urvalet är nödvändig.</p>
+
+<h5 id="7132-felhantering">7.1.3.2 Felhantering</h5>
+<p>Om en okänd SubsetIdentity skickas in returneras ERROR.
+I de fall då ett meddelande omfattar LocalOrganizationExtensionId som inte finns returneras INFO. Begrepp som ingår i det gemensamma urvalet hämtas.</p>
+
+<h4 id="714-fältregler-enligt-schema-xsd">7.1.4 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SubsetIdentity</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Identifierare som representerar urvalet</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LocalOrganizationExtensionId</td>
+      <td style="text-align: left">LocalOrganizationExtensionIdType</td>
+      <td style="text-align: left">Id för system eller organisation</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TermType</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Type of term</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Subset</td>
+      <td style="text-align: left">SubsetType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../SubsetInformation</td>
+      <td style="text-align: left">SubsetInformationType</td>
+      <td style="text-align: left">Information om urval</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../SubsetIdentity</td>
+      <td style="text-align: left">SubsetIdentityType</td>
+      <td style="text-align: left">Identifierare av urval (XML-attribut.)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../Name</td>
+      <td style="text-align: left">SubsetNameType</td>
+      <td style="text-align: left">Namn som representerar urval (XML-attribut.)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../Version</td>
+      <td style="text-align: left">SubsetVersionType</td>
+      <td style="text-align: left">Version för urval (XML-attribut.)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../Concept</td>
+      <td style="text-align: left">ConceptType</td>
+      <td style="text-align: left">Lista med concepts</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../Metadata</td>
+      <td style="text-align: left">MetadataType</td>
+      <td style="text-align: left">0..* Metadata</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../Name</td>
+      <td style="text-align: left">MetadataNameType</td>
+      <td style="text-align: left">Identifierar typ av metadata (XML-attribut.)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../Value</td>
+      <td style="text-align: left">MetadataValueType</td>
+      <td style="text-align: left">Metadatavärde (XML-attribut.)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../LocalOrganizationExtensionId</td>
+      <td style="text-align: left">LocalOrganizationExtensionIdType</td>
+      <td style="text-align: left">Id för system eller organisation (XML-attribut.)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../CodeSystem</td>
+      <td style="text-align: left">ConceptCodeSystemType</td>
+      <td style="text-align: left">Identifierare av kodsystem (XML-attribut.)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../Code</td>
+      <td style="text-align: left">ConceptCodeType</td>
+      <td style="text-align: left">Kod för val i listan (XML-attribut.)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../Term</td>
+      <td style="text-align: left">ConceptTermType</td>
+      <td style="text-align: left">Term som visas upp i vallistan (XML-attribut.)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../LocalOrganizationExtensionId</td>
+      <td style="text-align: left">LocalOrganizationExtensionIdType</td>
+      <td style="text-align: left">Id för system eller organisation (XML-attribut.)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">ResultCodeEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="715-tjänsteinteraktion-enligt-wsdl">7.1.5 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>Tjänsteinteraktionens namn: GetTerminologySubsetInteraction<br />
+Beskrivning:<br />
+Retrieve all concepts and terms for the selected subset<br />
+Revisioner:<br />
+Tjänstedomän: infrastructure:informationstructureservice:terminology<br />
+Tjänsteinteraktionstyp: Fråga-Svar<br />
+WS-profil: RIVTABP21<br />
+Förvaltas av: Sveriges Kommuner och Landsting</p>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:infrastructure:informationstructureservice:terminology:GetTerminologySubsetResponder:1:GetTerminologySubset</code></p>
+
+<h4 id="716-källfiler-riv-ta">7.1.6 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetTerminologySubsetInteraction_1.0_RIVTABP21.wsdl">GetTerminologySubsetInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetTerminologySubsetResponder_1.0.xsd">GetTerminologySubsetResponder_1.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="infrastructure_informationstructureservice_terminology_1.0.xsd">infrastructure_informationstructureservice_terminology_1.0.xsd</a></td>
+      <td>Domänschema</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="717-fhir-artefakter">7.1.7 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getterminologysubset-request.html">StructureDefinition/getterminologysubset-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getterminologysubset.html">StructureDefinition/getterminologysubset</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-terminology-resultcode-cs.html">CodeSystem/terminology-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-terminology-resultcode-vs.html">ValueSet/terminology-resultcode-vs</a></li>
+</ul>
+
+<h3 id="getterminologysubsetinformation">GetTerminologySubsetInformation</h3>
+
+<p>GetTerminologySubsetInformation hämtar ut namn, id och versionsidentifierare för ett eller flera subset. Versionsidentifierare används för att konsumenten ska kunna verifiera om ny information finns i GetTerminologySubset.</p>
+
+<h4 id="721-version">7.2.1 Version</h4>
+<p>Version på detta kontrakt: 1.0</p>
+
+<h4 id="722-fältregler">7.2.2 Fältregler</h4>
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">GetTerminologySubset InformationRequestType</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">SubsetIdentity</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Identifierare för urvalet</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LocalOrganizationExtensionId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Id för system eller organisation som har lokala tillägg för urvalet. Om denna anges kommer det gemensamma urvalet returneras tillsammans med de koder i urvalet som är specifika för aktuella systemet/organisationen.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TermType</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Typ av term som ska användas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">GetTerminologySubset InformationResponseType</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">SubsetInformation</td>
+      <td style="text-align: left">Subset Information Type</td>
+      <td style="text-align: left">Information om urval</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">OK = Information hämtades / ERROR = Fel vid hämtningen. Felet beskrivs i elementet comment / INFO = Information finns. Informationen beskrivs i elementet comment</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Beskrivning av fel som uppstått alternativt information om felaktiga parametrar.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="723-övriga-regler">7.2.3 Övriga regler</h4>
+<p>Till denna informationsmängd finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan.</p>
+
+<h5 id="7231-felhantering">7.2.3.1 Felhantering</h5>
+<p>Om endast okända SubsetIdentity skickas in returneras ERROR.
+I de fall då ett meddelande omfattar flera SubsetIdentity returneras INFO tillsammans med information om vilka identifierare som var felaktiga. Information hämtas för giltiga identifierare.</p>
+
+<h4 id="724-fältregler-enligt-schema-xsd">7.2.4 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SubsetIdentity</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Identifierare som representerar urvalet</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LocalOrganizationExtensionId</td>
+      <td style="text-align: left">LocalOrganizationExtensionIdType</td>
+      <td style="text-align: left">Id för system eller organisation</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TermType</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Type of term</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SubsetInformation</td>
+      <td style="text-align: left">SubsetInformationType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../SubsetIdentity</td>
+      <td style="text-align: left">SubsetIdentityType</td>
+      <td style="text-align: left">Identifierare av urval (XML-attribut.)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../Name</td>
+      <td style="text-align: left">SubsetNameType</td>
+      <td style="text-align: left">Namn som representerar urval (XML-attribut.)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../Version</td>
+      <td style="text-align: left">SubsetVersionType</td>
+      <td style="text-align: left">Version för urval (XML-attribut.)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">ResultCodeEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="725-tjänsteinteraktion-enligt-wsdl">7.2.5 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>Tjänsteinteraktionens namn: GetTerminologySubsetInformationInteraction<br />
+Beskrivning:<br />
+Retrieve information for the selected terminology subsets<br />
+Revisioner:<br />
+Tjänstedomän: infrastructure:informationstructureservice:terminology<br />
+Tjänsteinteraktionstyp: Fråga-Svar<br />
+WS-profil: RIVTABP21<br />
+Förvaltas av: Sveriges Kommuner och Landsting</p>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informatics:terminology:GetTerminologySubsetInformationResponder:1:GetTerminologySubsetInformation</code></p>
+
+<h4 id="726-källfiler-riv-ta">7.2.6 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetTerminologySubsetInformationInteraction_1.0_RIVTABP21.wsdl">GetTerminologySubsetInformationInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetTerminologySubsetInformationResponder_1.0.xsd">GetTerminologySubsetInformationResponder_1.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="infrastructure_informationstructureservice_terminology_1.0.xsd">infrastructure_informationstructureservice_terminology_1.0.xsd</a></td>
+      <td>Domänschema</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="727-fhir-artefakter">7.2.7 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getterminologysubsetinformation-request.html">StructureDefinition/getterminologysubsetinformation-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getterminologysubsetinformation.html">StructureDefinition/getterminologysubsetinformation</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-terminology-resultcode-cs.html">CodeSystem/terminology-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-terminology-resultcode-vs.html">ValueSet/terminology-resultcode-vs</a></li>
+</ul>
+
+<h3 id="getconcepts">GetConcepts</h3>
+
+<p>GetConcepts hämtar ut sökta begrepp och termer från ett urval (subset) av en eller flera terminologier (exempelvis SNOMED CT, ICD-10, ATC-kodverket). Begreppen söks ut med exempelvis kod som beskriver begreppet.</p>
+
+<h4 id="731-version">7.3.1 Version</h4>
+<p>Version på detta kontrakt: 1.0</p>
+
+<h4 id="732-fältregler">7.3.2 Fältregler</h4>
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">GetConceptsRequestType</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">SubsetIdentity</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Identifierare för urvalet</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LocalOrganizationExtensionId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Id för system eller organisation som har lokala tillägg för urvalet. Om denna anges kommer det gemensamma urvalet returneras tillsammans med de koder i urvalet som är specifika för aktuella systemet/organisationen.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CodeSystem</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Identifierare av kodsystem</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Code</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Begreppskod. Del av begreppskod kan anges.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Term</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Term som beskriver begreppet. Del av term kan anges.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ConceptsResponseThreshold*</td>
+      <td style="text-align: left">Int</td>
+      <td style="text-align: left">Antal begrepp som max ska returneras i svaret</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TermType</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Typ av term som ska användas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">GetConceptsResponseType</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Subset</td>
+      <td style="text-align: left">SubsetType</td>
+      <td style="text-align: left">Urval</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">OK = Sökningen lyckades och alla poster returnerades / ERROR = Fel vid hämtningen. Felet beskrivs i elementet comment / INFO = Information finns. Informationen beskrivs i elementet comment</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Beskrivning av fel som uppstått alternativt information om felaktiga parametrar.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="733-övriga-regler">7.3.3 Övriga regler</h4>
+<p>Till denna informationsmängd finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan.
+Fält 1 - ConceptsResponseThreshold
+Valfritt värde. Om inget värde anges kan en implementation välja att begränsa max antal returnerade termer.</p>
+
+<h5 id="7331-felhantering">7.3.3.1 Felhantering</h5>
+<p>Om en okänd SubsetIdentity skickas in returneras ERROR.
+Om fler antal begrepp finns än angivet maxantal i svaret returneras INFO.
+Om fler antal begrepp finns än den största mängd som en viss implementation har som inbyggd maxgräns returneras INFO.
+I de fall då ett meddelande omfattar LocalOrganizationExtensionId som inte finns returneras INFO. Begrepp som ingår i det gemensamma urvalet hämtas.</p>
+
+<h4 id="734-fältregler-enligt-schema-xsd">7.3.4 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SubsetIdentity</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Identifierare som representerar urvalet</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LocalOrganizationExtensionId</td>
+      <td style="text-align: left">LocalOrganizationExtensionIdType</td>
+      <td style="text-align: left">Id för system eller organisation</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CodeSystem</td>
+      <td style="text-align: left">ConceptCodeSystemType</td>
+      <td style="text-align: left">Kodsystem som sökt concept tillhör</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Code</td>
+      <td style="text-align: left">ConceptCodeType</td>
+      <td style="text-align: left">Kod för sökt concept</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Term</td>
+      <td style="text-align: left">ConceptTermType</td>
+      <td style="text-align: left">Term för sökt concept</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ConceptsResponseThreshold</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Antal concepts som maximalt returneras i svaret</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TermType</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Type of term</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Subset</td>
+      <td style="text-align: left">SubsetType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../SubsetInformation</td>
+      <td style="text-align: left">SubsetInformationType</td>
+      <td style="text-align: left">Information om urval</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../SubsetIdentity</td>
+      <td style="text-align: left">SubsetIdentityType</td>
+      <td style="text-align: left">Identifierare av urval (XML-attribut.)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../Name</td>
+      <td style="text-align: left">SubsetNameType</td>
+      <td style="text-align: left">Namn som representerar urval (XML-attribut.)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../Version</td>
+      <td style="text-align: left">SubsetVersionType</td>
+      <td style="text-align: left">Version för urval (XML-attribut.)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../Concept</td>
+      <td style="text-align: left">ConceptType</td>
+      <td style="text-align: left">Lista med concepts</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../Metadata</td>
+      <td style="text-align: left">MetadataType</td>
+      <td style="text-align: left">0..* Metadata</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../Name</td>
+      <td style="text-align: left">MetadataNameType</td>
+      <td style="text-align: left">Identifierar typ av metadata (XML-attribut.)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../Value</td>
+      <td style="text-align: left">MetadataValueType</td>
+      <td style="text-align: left">Metadatavärde (XML-attribut.)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../LocalOrganizationExtensionId</td>
+      <td style="text-align: left">LocalOrganizationExtensionIdType</td>
+      <td style="text-align: left">Id för system eller organisation (XML-attribut.)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../CodeSystem</td>
+      <td style="text-align: left">ConceptCodeSystemType</td>
+      <td style="text-align: left">Identifierare av kodsystem (XML-attribut.)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../Code</td>
+      <td style="text-align: left">ConceptCodeType</td>
+      <td style="text-align: left">Kod för val i listan (XML-attribut.)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../Term</td>
+      <td style="text-align: left">ConceptTermType</td>
+      <td style="text-align: left">Term som visas upp i vallistan (XML-attribut.)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../LocalOrganizationExtensionId</td>
+      <td style="text-align: left">LocalOrganizationExtensionIdType</td>
+      <td style="text-align: left">Id för system eller organisation (XML-attribut.)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ResultCode</td>
+      <td style="text-align: left">ResultCodeEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="735-tjänsteinteraktion-enligt-wsdl">7.3.5 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>Tjänsteinteraktionens namn: GetConceptsInteraction<br />
+Beskrivning:<br />
+Retrieve the searched concepts<br />
+Revisioner:<br />
+Tjänstedomän: infrastructure:informationstructureservice:terminology<br />
+Tjänsteinteraktionstyp: Fråga-Svar<br />
+WS-profil: RIVTABP21<br />
+Förvaltas av: Sveriges Kommuner och Landsting</p>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:infrastructure:informationstructureservice:terminology:GetConceptsResponder:1:GetConcepts</code></p>
+
+<h4 id="736-källfiler-riv-ta">7.3.6 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetConceptsInteraction_1.0_RIVTABP21.wsdl">GetConceptsInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetConceptsResponder_1.0.xsd">GetConceptsResponder_1.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="infrastructure_informationstructureservice_terminology_1.0.xsd">infrastructure_informationstructureservice_terminology_1.0.xsd</a></td>
+      <td>Domänschema</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="737-fhir-artefakter">7.3.7 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getconcepts-request.html">StructureDefinition/getconcepts-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getconcepts.html">StructureDefinition/getconcepts</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-terminology-resultcode-cs.html">CodeSystem/terminology-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-terminology-resultcode-vs.html">ValueSet/terminology-resultcode-vs</a></li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.infrastructure-informationstructureservice-terminology#1.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Sat, Sep 26, 2026 19:32+0000">2026-09-26</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

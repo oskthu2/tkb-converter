@@ -1,0 +1,1224 @@
+# SkapaVardtagare — Request - druglogistics: dosedispensing — Dosdispensering v1.1.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **SkapaVardtagare — Request**
+
+## Logical Model: SkapaVardtagare — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/druglogistics-dosedispensing/StructureDefinition/skapavardtagare-request | *Version*:1.1.0 |
+| Draft as of 2026-09-26 | *Computable Name*:SkapaVardtagareRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i SkapaVardtagare (urn:riv:druglogistics:dosedispensing:SkapaVardtagareResponder:1, SkapaVardtagareType), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.druglogistics-dosedispensing|current/StructureDefinition/StructureDefinition-skapavardtagare-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-skapavardtagare-request.csv), [Excel](StructureDefinition-skapavardtagare-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "skapavardtagare-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/StructureDefinition/skapavardtagare-request",
+  "version" : "1.1.0",
+  "name" : "SkapaVardtagareRequest",
+  "title" : "SkapaVardtagare — Request",
+  "status" : "draft",
+  "date" : "2026-09-26T19:21:50+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i SkapaVardtagare\n(urn:riv:druglogistics:dosedispensing:SkapaVardtagareResponder:1, SkapaVardtagareType), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/StructureDefinition/skapavardtagare-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "skapavardtagare-request",
+      "path" : "skapavardtagare-request",
+      "short" : "SkapaVardtagare — Request",
+      "definition" : "Logisk modell för begäran i SkapaVardtagare\n(urn:riv:druglogistics:dosedispensing:SkapaVardtagareResponder:1, SkapaVardtagareType), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "skapavardtagare-request.logicalAddress",
+      "path" : "skapavardtagare-request.logicalAddress",
+      "short" : "logicalAddress",
+      "definition" : "SOAP-huvud LogicalAddress. Typen har inga element utöver utökningspunkter.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.glnkod",
+      "path" : "skapavardtagare-request.glnkod",
+      "short" : "glnkod",
+      "definition" : "glnkod",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Behorighetsinformation",
+      "path" : "skapavardtagare-request.Behorighetsinformation",
+      "short" : "Behorighetsinformation",
+      "definition" : "Behorighetsinformation",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Behorighetsinformation.fornamn",
+      "path" : "skapavardtagare-request.Behorighetsinformation.fornamn",
+      "short" : "fornamn",
+      "definition" : "fornamn",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Behorighetsinformation.efternamn",
+      "path" : "skapavardtagare-request.Behorighetsinformation.efternamn",
+      "short" : "efternamn",
+      "definition" : "efternamn",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Behorighetsinformation.forskrivarkod",
+      "path" : "skapavardtagare-request.Behorighetsinformation.forskrivarkod",
+      "short" : "forskrivarkod",
+      "definition" : "forskrivarkod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Behorighetsinformation.yrkeskod",
+      "path" : "skapavardtagare-request.Behorighetsinformation.yrkeskod",
+      "short" : "yrkeskod",
+      "definition" : "yrkeskod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/ValueSet/dosedispensing-yrkeskod-vs"
+      }
+    },
+    {
+      "id" : "skapavardtagare-request.Behorighetsinformation.arbetsplatskod",
+      "path" : "skapavardtagare-request.Behorighetsinformation.arbetsplatskod",
+      "short" : "arbetsplatskod",
+      "definition" : "arbetsplatskod",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Behorighetsinformation.hsaid",
+      "path" : "skapavardtagare-request.Behorighetsinformation.hsaid",
+      "short" : "hsaid",
+      "definition" : "hsaid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Behorighetsinformation.personnummer",
+      "path" : "skapavardtagare-request.Behorighetsinformation.personnummer",
+      "short" : "personnummer",
+      "definition" : "personnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Behorighetsinformation.organisationsnummer",
+      "path" : "skapavardtagare-request.Behorighetsinformation.organisationsnummer",
+      "short" : "organisationsnummer",
+      "definition" : "organisationsnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.forskrivaresamtyckefornamn",
+      "path" : "skapavardtagare-request.forskrivaresamtyckefornamn",
+      "short" : "forskrivaresamtyckefornamn",
+      "definition" : "forskrivaresamtyckefornamn",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.forskrivaresamtyckeefternamn",
+      "path" : "skapavardtagare-request.forskrivaresamtyckeefternamn",
+      "short" : "forskrivaresamtyckeefternamn",
+      "definition" : "forskrivaresamtyckeefternamn",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.forskrivaresamtyckeforskrivarkod",
+      "path" : "skapavardtagare-request.forskrivaresamtyckeforskrivarkod",
+      "short" : "forskrivaresamtyckeforskrivarkod",
+      "definition" : "forskrivaresamtyckeforskrivarkod",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.forskrivaresamtyckearbetsplatskod",
+      "path" : "skapavardtagare-request.forskrivaresamtyckearbetsplatskod",
+      "short" : "forskrivaresamtyckearbetsplatskod",
+      "definition" : "forskrivaresamtyckearbetsplatskod",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.forskrivaresamtyckeyrkeskod",
+      "path" : "skapavardtagare-request.forskrivaresamtyckeyrkeskod",
+      "short" : "forskrivaresamtyckeyrkeskod",
+      "definition" : "forskrivaresamtyckeyrkeskod",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/ValueSet/dosedispensing-yrkeskod-vs"
+      }
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation",
+      "path" : "skapavardtagare-request.Vardtagarinformation",
+      "short" : "Vardtagarinformation",
+      "definition" : "Vardtagarinformation",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.hemmaboende",
+      "path" : "skapavardtagare-request.Vardtagarinformation.hemmaboende",
+      "short" : "hemmaboende",
+      "definition" : "hemmaboende",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.dosapoteksid",
+      "path" : "skapavardtagare-request.Vardtagarinformation.dosapoteksid",
+      "short" : "dosapoteksid",
+      "definition" : "dosapoteksid",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.dosapoteknamn",
+      "path" : "skapavardtagare-request.Vardtagarinformation.dosapoteknamn",
+      "short" : "dosapoteknamn",
+      "definition" : "dosapoteknamn",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.forstadosdag",
+      "path" : "skapavardtagare-request.Vardtagarinformation.forstadosdag",
+      "short" : "forstadosdag",
+      "definition" : "forstadosdag",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.avvikandedosschema",
+      "path" : "skapavardtagare-request.Vardtagarinformation.avvikandedosschema",
+      "short" : "avvikandedosschema",
+      "definition" : "avvikandedosschema",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Patientinformation",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Patientinformation",
+      "short" : "Patientinformation",
+      "definition" : "Patientinformation",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Patientinformation.fornamn",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Patientinformation.fornamn",
+      "short" : "fornamn",
+      "definition" : "Anvandarens fornamn.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Patientinformation.mellannamn",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Patientinformation.mellannamn",
+      "short" : "mellannamn",
+      "definition" : "Anvandarens mellanamn.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Patientinformation.efternamn",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Patientinformation.efternamn",
+      "short" : "efternamn",
+      "definition" : "Anvandarens efternamn.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Patientinformation.identitetstyp",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Patientinformation.identitetstyp",
+      "short" : "identitetstyp",
+      "definition" : "identitetstyp",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/ValueSet/dosedispensing-identitetstyp-vs"
+      }
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Patientinformation.personid",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Patientinformation.personid",
+      "short" : "personid",
+      "definition" : "Anvandarens personid",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Patientinformation.lanskod",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Patientinformation.lanskod",
+      "short" : "lanskod",
+      "definition" : "Anvandarens folkbokforda lanskod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Patientinformation.kommunkod",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Patientinformation.kommunkod",
+      "short" : "kommunkod",
+      "definition" : "Anvandarens folkbokforda kommunkod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Hemmaboendeinformation",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Hemmaboendeinformation",
+      "short" : "Hemmaboendeinformation",
+      "definition" : "Hemmaboendeinformation",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Hemmaboendeinformation.adress",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Hemmaboendeinformation.adress",
+      "short" : "adress",
+      "definition" : "adress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Hemmaboendeinformation.postnummer",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Hemmaboendeinformation.postnummer",
+      "short" : "postnummer",
+      "definition" : "postnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Hemmaboendeinformation.ort",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Hemmaboendeinformation.ort",
+      "short" : "ort",
+      "definition" : "ort",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Hemmaboendeinformation.telefon",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Hemmaboendeinformation.telefon",
+      "short" : "telefon",
+      "definition" : "telefon",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Hemmaboendeinformation.dosmottagareid",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Hemmaboendeinformation.dosmottagareid",
+      "short" : "dosmottagareid",
+      "definition" : "dosmottagareid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Hemmaboendeinformation.dosmottagarenamn",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Hemmaboendeinformation.dosmottagarenamn",
+      "short" : "dosmottagarenamn",
+      "definition" : "dosmottagarenamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Tillfalligadress",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Tillfalligadress",
+      "short" : "Tillfalligadress",
+      "definition" : "Tillfalligadress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Tillfalligadress.adress",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Tillfalligadress.adress",
+      "short" : "adress",
+      "definition" : "adress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Tillfalligadress.postnummer",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Tillfalligadress.postnummer",
+      "short" : "postnummer",
+      "definition" : "postnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Tillfalligadress.ort",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Tillfalligadress.ort",
+      "short" : "ort",
+      "definition" : "ort",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Tillfalligadress.telefon",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Tillfalligadress.telefon",
+      "short" : "telefon",
+      "definition" : "telefon",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Tillfalligadress.dosmottagareid",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Tillfalligadress.dosmottagareid",
+      "short" : "dosmottagareid",
+      "definition" : "dosmottagareid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Tillfalligadress.dosmottagarenamn",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Tillfalligadress.dosmottagarenamn",
+      "short" : "dosmottagarenamn",
+      "definition" : "dosmottagarenamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Leveransadressinformation",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Leveransadressinformation",
+      "short" : "Leveransadressinformation",
+      "definition" : "Leveransadressinformation",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Leveransadressinformation.boendeenhetnamn",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Leveransadressinformation.boendeenhetnamn",
+      "short" : "boendeenhetnamn",
+      "definition" : "boendeenhetnamn",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Leveransadressinformation.boendeenhetid",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Leveransadressinformation.boendeenhetid",
+      "short" : "boendeenhetid",
+      "definition" : "boendeenhetid",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Leveransadressinformation.boendeenhetadress",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Leveransadressinformation.boendeenhetadress",
+      "short" : "boendeenhetadress",
+      "definition" : "boendeenhetadress",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Leveransadressinformation.boendeenhetpostnummer",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Leveransadressinformation.boendeenhetpostnummer",
+      "short" : "boendeenhetpostnummer",
+      "definition" : "boendeenhetpostnummer",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Leveransadressinformation.boendeenhetpostort",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Leveransadressinformation.boendeenhetpostort",
+      "short" : "boendeenhetpostort",
+      "definition" : "boendeenhetpostort",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Leveransadressinformation.boendeenhetavdelning",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Leveransadressinformation.boendeenhetavdelning",
+      "short" : "boendeenhetavdelning",
+      "definition" : "boendeenhetavdelning",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Leveransadressinformation.arbetsplatskod",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Leveransadressinformation.arbetsplatskod",
+      "short" : "arbetsplatskod",
+      "definition" : "arbetsplatskod",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Leveransadressinformation.dosmottagareid",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Leveransadressinformation.dosmottagareid",
+      "short" : "dosmottagareid",
+      "definition" : "dosmottagareid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Leveransadressinformation.dosmottagarenamn",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Leveransadressinformation.dosmottagarenamn",
+      "short" : "dosmottagarenamn",
+      "definition" : "dosmottagarenamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation",
+      "short" : "Kontaktinformation",
+      "definition" : "Kontaktinformation",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.PALforskrivarkod",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.PALforskrivarkod",
+      "short" : "PALforskrivarkod",
+      "definition" : "PALforskrivarkod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.PALfornamn",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.PALfornamn",
+      "short" : "PALfornamn",
+      "definition" : "PALfornamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.PALefternamn",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.PALefternamn",
+      "short" : "PALefternamn",
+      "definition" : "PALefternamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.anhorigkontaktnamn",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.anhorigkontaktnamn",
+      "short" : "anhorigkontaktnamn",
+      "definition" : "anhorigkontaktnamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.anhorigkontaktemail",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.anhorigkontaktemail",
+      "short" : "anhorigkontaktemail",
+      "definition" : "anhorigkontaktemail",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.ansvarigkontaktnamn",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.ansvarigkontaktnamn",
+      "short" : "ansvarigkontaktnamn",
+      "definition" : "ansvarigkontaktnamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.ansvarigkontaktemail",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.ansvarigkontaktemail",
+      "short" : "ansvarigkontaktemail",
+      "definition" : "ansvarigkontaktemail",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.ansvarigkontaktadress",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.ansvarigkontaktadress",
+      "short" : "ansvarigkontaktadress",
+      "definition" : "ansvarigkontaktadress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.ansvarigkontaktpostnummer",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.ansvarigkontaktpostnummer",
+      "short" : "ansvarigkontaktpostnummer",
+      "definition" : "ansvarigkontaktpostnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.ansvarigkontaktpostort",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.ansvarigkontaktpostort",
+      "short" : "ansvarigkontaktpostort",
+      "definition" : "ansvarigkontaktpostort",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.ansvarigkontakttelefon1",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.ansvarigkontakttelefon1",
+      "short" : "ansvarigkontakttelefon1",
+      "definition" : "ansvarigkontakttelefon1",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.ansvarigkontakttelefon2",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.ansvarigkontakttelefon2",
+      "short" : "ansvarigkontakttelefon2",
+      "definition" : "ansvarigkontakttelefon2",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.vardandeenhetid",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.vardandeenhetid",
+      "short" : "vardandeenhetid",
+      "definition" : "vardandeenhetid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.vardandeenhetnamn",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.vardandeenhetnamn",
+      "short" : "vardandeenhetnamn",
+      "definition" : "vardandeenhetnamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.vardandeenhetpostort",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.vardandeenhetpostort",
+      "short" : "vardandeenhetpostort",
+      "definition" : "vardandeenhetpostort",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.vardandeenhetpostnummer",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Kontaktinformation.vardandeenhetpostnummer",
+      "short" : "vardandeenhetpostnummer",
+      "definition" : "vardandeenhetpostnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Betalningsinformation",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Betalningsinformation",
+      "short" : "Betalningsinformation",
+      "definition" : "Betalningsinformation",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Betalningsinformation.form",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Betalningsinformation.form",
+      "short" : "form",
+      "definition" : "form",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Betalningsinformation.information",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Betalningsinformation.information",
+      "short" : "information",
+      "definition" : "information",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Betalningsinformation.betalningsansvarigfornamn",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Betalningsinformation.betalningsansvarigfornamn",
+      "short" : "betalningsansvarigfornamn",
+      "definition" : "betalningsansvarigfornamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Betalningsinformation.betalningsansvarigefternamn",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Betalningsinformation.betalningsansvarigefternamn",
+      "short" : "betalningsansvarigefternamn",
+      "definition" : "betalningsansvarigefternamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Betalningsinformation.betalningsansvarigadress",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Betalningsinformation.betalningsansvarigadress",
+      "short" : "betalningsansvarigadress",
+      "definition" : "betalningsansvarigadress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Betalningsinformation.betalningsansvarigpostnummer",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Betalningsinformation.betalningsansvarigpostnummer",
+      "short" : "betalningsansvarigpostnummer",
+      "definition" : "betalningsansvarigpostnummer",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Betalningsinformation.betalningsansvarigort",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Betalningsinformation.betalningsansvarigort",
+      "short" : "betalningsansvarigort",
+      "definition" : "betalningsansvarigort",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Betalningsinformation.betalningsansvarigtelefon",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Betalningsinformation.betalningsansvarigtelefon",
+      "short" : "betalningsansvarigtelefon",
+      "definition" : "betalningsansvarigtelefon",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo",
+      "short" : "Produktionsinfo",
+      "definition" : "Produktionsinfo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.dosaktor",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.dosaktor",
+      "short" : "dosaktor",
+      "definition" : "dosaktor",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.dosapotek",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.dosapotek",
+      "short" : "dosapotek",
+      "definition" : "dosapotek",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.dosapotekid",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.dosapotekid",
+      "short" : "dosapotekid",
+      "definition" : "dosapotekid",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.stopptidbestallning",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.stopptidbestallning",
+      "short" : "stopptidbestallning",
+      "definition" : "stopptidbestallning",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.stopptidordination",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.stopptidordination",
+      "short" : "stopptidordination",
+      "definition" : "stopptidordination",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.forstadosdag",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.forstadosdag",
+      "short" : "forstadosdag",
+      "definition" : "forstadosdag",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.dosvecka",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.dosvecka",
+      "short" : "dosvecka",
+      "definition" : "dosvecka",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.doseringsschema",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.doseringsschema",
+      "short" : "doseringsschema",
+      "definition" : "doseringsschema",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.doseringsschema.periodlangd",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.doseringsschema.periodlangd",
+      "short" : "periodlangd",
+      "definition" : "Antal dagar som dosering skall galla. Vid regelbunden dosering anges periodlangd = 1 Vid oregelbunden dosering anges antal dagar som intervallet omfattar. Exempelvis 2 om intag ska ske varannan dag.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.doseringsschema.intagstillfalle",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.doseringsschema.intagstillfalle",
+      "short" : "intagstillfalle",
+      "definition" : "Beskriver tid och mangd for intag av lakemedel.",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.doseringsschema.intagstillfalle.intagstillfalle",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.doseringsschema.intagstillfalle.intagstillfalle",
+      "short" : "intagstillfalle",
+      "definition" : "Klockslag nar patienten ska inta medicinering.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.doseringsschema.intagstillfalle.intagsmangd",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.doseringsschema.intagstillfalle.intagsmangd",
+      "short" : "intagsmangd",
+      "definition" : "Intagsmangd per tillfalle",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.doseringsschema.intagstillfalle.dagIPeriod",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.doseringsschema.intagstillfalle.dagIPeriod",
+      "short" : "dagIPeriod",
+      "definition" : "Dag i perioden nar intag skall goras. Exempel: Intag ska ske varje mandag och onsdag och startdatum ar pa en mandag. Mandag Insattningsdatum = 2010-01-01, Periodlangd=7, Dag i period= 1. Onsdag Insattningsdatum = 2010-01-01, Periodlangd=7, Dag i period=3.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.dosmottagareid",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.dosmottagareid",
+      "short" : "dosmottagareid",
+      "definition" : "dosmottagareid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.dosmottagarenamn",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Produktionsinfo.dosmottagarenamn",
+      "short" : "dosmottagarenamn",
+      "definition" : "dosmottagarenamn",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Vardtagarstatus",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Vardtagarstatus",
+      "short" : "Vardtagarstatus",
+      "definition" : "Vardtagarstatus",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Vardtagarstatus.statuskod",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Vardtagarstatus.statuskod",
+      "short" : "statuskod",
+      "definition" : "statuskod",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/druglogistics-dosedispensing/ValueSet/dosedispensing-vardtagarstatus-vs"
+      }
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Vardtagarstatus.frantid",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Vardtagarstatus.frantid",
+      "short" : "frantid",
+      "definition" : "frantid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.Vardtagarstatus.tilltid",
+      "path" : "skapavardtagare-request.Vardtagarinformation.Vardtagarstatus.tilltid",
+      "short" : "tilltid",
+      "definition" : "tilltid",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.Vardtagarinformation.vilandestatusorsak",
+      "path" : "skapavardtagare-request.Vardtagarinformation.vilandestatusorsak",
+      "short" : "vilandestatusorsak",
+      "definition" : "vilandestatusorsak",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.akut",
+      "path" : "skapavardtagare-request.akut",
+      "short" : "akut",
+      "definition" : "akut",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "skapavardtagare-request.meddelandetillapotek",
+      "path" : "skapavardtagare-request.meddelandetillapotek",
+      "short" : "meddelandetillapotek",
+      "definition" : "meddelandetillapotek",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

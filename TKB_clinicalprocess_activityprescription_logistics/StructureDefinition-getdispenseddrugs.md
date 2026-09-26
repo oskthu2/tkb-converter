@@ -1,0 +1,669 @@
+# GetDispensedDrugs - clinicalprocess: activityprescription: logistics — Ordinationslogistik v1.0.2
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetDispensedDrugs**
+
+## Logical Model: GetDispensedDrugs 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-activityprescription-logistics/StructureDefinition/getdispenseddrugs | *Version*:1.0.2 |
+| Draft as of 2026-09-26 | *Computable Name*:GetDispensedDrugs |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetDispensedDrugs (RIV-TA urn:riv:clinicalprocess:activityprescription:logistics:GetDispensedDrugsResponder:1). Representerar responsens informationsstruktur: patientens läkemedelsförteckning med viss ordinationsinformation för att kunna koppla ihop utlämnat läkemedel med ordinerat. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-activityprescription-logistics|current/StructureDefinition/StructureDefinition-getdispenseddrugs.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getdispenseddrugs.csv), [Excel](StructureDefinition-getdispenseddrugs.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getdispenseddrugs",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-logistics/StructureDefinition/getdispenseddrugs",
+  "version" : "1.0.2",
+  "name" : "GetDispensedDrugs",
+  "title" : "GetDispensedDrugs",
+  "status" : "draft",
+  "date" : "2026-09-26T19:16:05+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetDispensedDrugs\n(RIV-TA urn:riv:clinicalprocess:activityprescription:logistics:GetDispensedDrugsResponder:1).\nRepresenterar responsens informationsstruktur: patientens läkemedelsförteckning med viss\nordinationsinformation för att kunna koppla ihop utlämnat läkemedel med ordinerat.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-logistics/StructureDefinition/getdispenseddrugs",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getdispenseddrugs",
+      "path" : "getdispenseddrugs",
+      "short" : "GetDispensedDrugs",
+      "definition" : "Logisk modell för tjänstekontraktet GetDispensedDrugs\n(RIV-TA urn:riv:clinicalprocess:activityprescription:logistics:GetDispensedDrugsResponder:1).\nRepresenterar responsens informationsstruktur: patientens läkemedelsförteckning med viss\nordinationsinformation för att kunna koppla ihop utlämnat läkemedel med ordinerat."
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning",
+      "path" : "getdispenseddrugs.lakemedelsforteckning",
+      "short" : "Patientens läkemedelsförteckning",
+      "definition" : "XSD: Receptexpeditionsrad. Patientens läkemedelsförteckning kompletterad med ordinationsmappningsinformation.\nOm patienten saknar poster i läkemedelsförteckningen returneras en tom lista.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "getdispenseddrugs-borttagen-fields",
+        "severity" : "error",
+        "human" : "borttagsdatum och borttagsorsak returneras endast om borttagen är sant",
+        "expression" : "borttagen = false implies (borttagsdatum.empty() and borttagsorsak.empty())",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-logistics/StructureDefinition/getdispenseddrugs"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.aktorsExpeditionsId",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.aktorsExpeditionsId",
+      "short" : "Aktörens expeditionsId",
+      "definition" : "Fältlängd 1..35.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.antalForpackningar",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.antalForpackningar",
+      "short" : "Antal förpackningar av utlämnad vara",
+      "definition" : "Returneras om posten ej är en dosdispenserad artikel.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.antalPillerKlartext",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.antalPillerKlartext",
+      "short" : "Antal avdelade doser inklusive enhet",
+      "definition" : "Returneras om posten är en dosdispenserad artikel. Exempel: \"28 st\". Fältlängd 1..10.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation",
+      "short" : "Information om utlämnad artikel",
+      "definition" : "Information om utlämnad artikel",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalEnhet",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalEnhet",
+      "short" : "Enhet för antalForpackning",
+      "definition" : "Exempelvis \"styck\" eller \"milliliter\". Exempel där antalEnhet ingår: \"6 x 5 x 0.72 milliliter\". Fältlängd 1..80.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalIForpackning",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalIForpackning",
+      "short" : "Antal i förpackning",
+      "definition" : "Numerisk angivelse, exempelvis 0,72 (XSD-typ decimaltal, högst 3 decimaler). Exempel: \"6 x 5 x 0.72 milliliter\".",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalYtterstaForpackning",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalYtterstaForpackning",
+      "short" : "Antal yttersta förpackningar (multipel 2)",
+      "definition" : "Exempelvis 6. Exempel: \"6 x 5 x 0.72 milliliter\".",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalYttreForpackning",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.antalYttreForpackning",
+      "short" : "Antal yttre förpackningar (multipel 1)",
+      "definition" : "Exempelvis 5. Exempel: \"6 x 5 x 0.72 milliliter\".",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.atckod",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.atckod",
+      "short" : "ATC-kod",
+      "definition" : "Exempel: \"C07AB03\". Fältlängd 1..8.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.atckodKlartext",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.atckodKlartext",
+      "short" : "Verksamt ämne enligt ATC-kod",
+      "definition" : "Exempel: \"Atenolol\". Fältlängd 1..240.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.forpackningsstorlek",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.forpackningsstorlek",
+      "short" : "Förpackningsstorlek",
+      "definition" : "Exempel: \"6 x 5 x 0.72 milliliter\". Fältlängd 1..50.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.forpackningstyp",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.forpackningstyp",
+      "short" : "Artikelns förpackningstyp",
+      "definition" : "Exempel: \"Blister\". Fältlängd 1..40.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.intressent",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.intressent",
+      "short" : "Ansvarigt företag för artikeln",
+      "definition" : "T.ex. innehavare av godkännande/registrering av försäljning eller parallellimportör. Exempel: \"AstraZeneca AB\". Fältlängd 1..160.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.lakemedelsform",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.lakemedelsform",
+      "short" : "Läkemedelsform",
+      "definition" : "Exempel: \"Filmdragerad tablett\". Fältlängd 1..160.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.lakemedelsformKod",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.lakemedelsformKod",
+      "short" : "Kod för läkemedelsform (beredningsformkod)",
+      "definition" : "Exempel: \"FICOTA\". Fältlängd 1..6.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.nplPackid",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.nplPackid",
+      "short" : "NPL Pack-id alternativt SB Pack-id",
+      "definition" : "Identitet på förskrivet läkemedel. Fältlängd 14..14.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.produktnamn",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.produktnamn",
+      "short" : "Läkemedelsnamn",
+      "definition" : "Fältlängd 1..100.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.styrka",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.styrka",
+      "short" : "Numerisk styrka",
+      "definition" : "Exempel \"20.0\" (XSD-typ decimaltal, högst 3 decimaler).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.styrkaEnhet",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.styrkaEnhet",
+      "short" : "Styrkans enhet",
+      "definition" : "Exempel: \"mg\". Fältlängd 1..60.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.styrkaKlartext",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.artikelinformation.styrkaKlartext",
+      "short" : "Styrka i klartext",
+      "definition" : "Exempel: \"20.0 mg\". Fältlängd 1..80.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.borttagen",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.borttagen",
+      "short" : "Markering om posten är borttagen",
+      "definition" : "Sant om posten är borttagen, annars falskt. En borttagen post ska visas överstruken med borttagsdatum och borttagsorsak.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.borttagsdatum",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.borttagsdatum",
+      "short" : "Tidpunkt då posten markerades som borttagen",
+      "definition" : "Returneras endast om borttagen är sant.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.borttagsorsak",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.borttagsorsak",
+      "short" : "Kommentar för borttagen post",
+      "definition" : "Returneras endast om borttagen är sant. Fältlängd 1..50.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.doseringstext",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.doseringstext",
+      "short" : "Doseringsanvisning",
+      "definition" : "Doseringstext inklusive ändamål. Fältlängd 1..1016.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.expeditionsId",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.expeditionsId",
+      "short" : "Expeditionsid hämtat från eHälsomyndigheten",
+      "definition" : "Fältlängd 1..31.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.expeditionsdatum",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.expeditionsdatum",
+      "short" : "Datum för utlämning från apotek",
+      "definition" : "Datum för utlämning från apotek",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.forskrivarensArbetsplatsnamn",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.forskrivarensArbetsplatsnamn",
+      "short" : "Förskrivarens arbetsplats namn",
+      "definition" : "Fältlängd 1..35.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.forskrivarensArbetsplatsOrt",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.forskrivarensArbetsplatsOrt",
+      "short" : "Förskrivarens arbetsplats ort",
+      "definition" : "Fältlängd 1..28.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.forskrivarnamn",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.forskrivarnamn",
+      "short" : "Förskrivarens namn",
+      "definition" : "Fältlängd 1..71.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.forskrivarpostadress",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.forskrivarpostadress",
+      "short" : "Förskrivarens postadress",
+      "definition" : "Fältlängd 1..35.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.forskrivarpostnummer",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.forskrivarpostnummer",
+      "short" : "Förskrivarens postnummer",
+      "definition" : "Fältlängd 5..6.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.forskrivarspecialiteter",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.forskrivarspecialiteter",
+      "short" : "Förskrivarens specialitet i klartext",
+      "definition" : "Fältlängd 1..256.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.forskrivaryrke",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.forskrivaryrke",
+      "short" : "Förskrivarens yrke i klartext",
+      "definition" : "Fältlängd 1..100.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.mangd",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.mangd",
+      "short" : "Totalt expedierad mängd",
+      "definition" : "Kan returneras som antalPillerKlartext eller antalForpackningar + forpackningsstorlek. Exempel: \"28 st\" eller \"2x100 tabletter\". Fältlängd 1..100.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.ordinationsmappning",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.ordinationsmappning",
+      "short" : "Information för att mappa posten till en ordination",
+      "definition" : "Saknas i vissa fall, t.ex. när samma läkemedel (nplpackid) förekommer flera gånger i samma expedition, vid pappers- och telefonrecept, och vid uttag från äldre receptexpeditionssystem (expeditionsid saknas).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.ordinationsmappning.ordinationsId",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.ordinationsmappning.ordinationsId",
+      "short" : "Förskrivningens ordinationsid",
+      "definition" : "Förskrivningens ordinationsid",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.ordinationsmappning.produktradnummer",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.ordinationsmappning.produktradnummer",
+      "short" : "Tillhörande recepts prdradnummer NEF i receptdepån",
+      "definition" : "Anges enbart om fältet är befintligt i receptdepån.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.ordinationsmappning.radnummer",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.ordinationsmappning.radnummer",
+      "short" : "Tillhörande recepts radnummer NEF i receptdepån",
+      "definition" : "Anges enbart om fältet är befintligt i receptdepån.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.radid",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.radid",
+      "short" : "Unikt id för posten i läkemedelsförteckningen",
+      "definition" : "XSD-typ xs:long. Modellerad som string eftersom FHIR R4 saknar 64-bitars heltal (se ASSUME-APL-003).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.lakemedelsforteckning.radnummer",
+      "path" : "getdispenseddrugs.lakemedelsforteckning.radnummer",
+      "short" : "Radnummer för utlämnad vara i aktuell expedition",
+      "definition" : "Radnummer för utlämnad vara i aktuell expedition",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.patientinformation",
+      "path" : "getdispenseddrugs.patientinformation",
+      "short" : "Information om patienten",
+      "definition" : "Information om patienten vars läkemedelsförteckning man hämtat.\nOm patienten är markerad som 'Avliden' returneras inga rader ur läkemedelsförteckningen.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.patientinformation.patientidentifikation",
+      "path" : "getdispenseddrugs.patientinformation.patientidentifikation",
+      "short" : "Patientidentifikation",
+      "definition" : "Kan enbart innehålla personnummer (kodverk OID 1.2.752.129.2.1.3), enhetligt utformat unikt person-id registrerat i folkbokföringen.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.patientinformation.patientidentifikation.kod",
+      "path" : "getdispenseddrugs.patientinformation.patientidentifikation.kod",
+      "short" : "Patientens personnummer",
+      "definition" : "Fältlängd 1..12.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.patientinformation.patientidentifikation.kodverk",
+      "path" : "getdispenseddrugs.patientinformation.patientidentifikation.kodverk",
+      "short" : "OID för kodverket",
+      "definition" : "Identifiering av berört kodverk/klassifikation enligt V-TIM 2.2 (XSD-typ OID, mönster [0-9][0-9.]*).\nFör personnummer: 1.2.752.129.2.1.3.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.patientinformation.fornamn",
+      "path" : "getdispenseddrugs.patientinformation.fornamn",
+      "short" : "Patientens förnamn",
+      "definition" : "För patient med skyddad identitet visas inte förnamn. Fältlängd 1..80.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.patientinformation.efternamn",
+      "path" : "getdispenseddrugs.patientinformation.efternamn",
+      "short" : "Patientens efternamn",
+      "definition" : "För patient med skyddad identitet visas inte efternamn. Fältlängd 1..60.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.patientinformation.redigeratNamn",
+      "path" : "getdispenseddrugs.patientinformation.redigeratNamn",
+      "short" : "Redigerat namn",
+      "definition" : "Redigerat namn i formatet \"mellannamn efternamn, förnamn\". Förkortat till 36 tecken. Fältlängd 1..36.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.patientinformation.harRedigeratNamnForkortats",
+      "path" : "getdispenseddrugs.patientinformation.harRedigeratNamnForkortats",
+      "short" : "Anger om redigeratNamn har förkortats",
+      "definition" : "Anger om redigeratNamn har förkortats",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.patientinformation.avliden",
+      "path" : "getdispenseddrugs.patientinformation.avliden",
+      "short" : "Anger om patienten är avliden",
+      "definition" : "Sant om personen är markerad som avliden, annars falskt.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.varningsnivaUppnadd",
+      "path" : "getdispenseddrugs.varningsnivaUppnadd",
+      "short" : "Varningsnivå för antal läsningar uppnådd",
+      "definition" : "Anger om förskrivarens antal läsningar det senaste dygnet överskridit varningsnivå. Sant om varningsnivå har uppnåtts, annars falskt.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getdispenseddrugs.resultCode",
+      "path" : "getdispenseddrugs.resultCode",
+      "short" : "Resultatkod för anropet",
+      "definition" : "Resultatkod för anropet",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-activityprescription-logistics/ValueSet/resultcode-vs"
+      }
+    },
+    {
+      "id" : "getdispenseddrugs.comment",
+      "path" : "getdispenseddrugs.comment",
+      "short" : "Kommentar till eventuella fel eller varningar",
+      "definition" : "Fältlängd 1..1024. Vid logiska fel returneras resultCode ERROR med beskrivande text i comment.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

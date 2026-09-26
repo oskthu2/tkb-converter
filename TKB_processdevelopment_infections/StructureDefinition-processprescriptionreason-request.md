@@ -1,0 +1,408 @@
+# ProcessPrescriptionReason — Request - processdevelopment: infections v1.0.2
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **ProcessPrescriptionReason — Request**
+
+## Logical Model: ProcessPrescriptionReason — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/processdevelopment-infections/StructureDefinition/processprescriptionreason-request | *Version*:1.0.2 |
+| Draft as of 2026-09-26 | *Computable Name*:ProcessPrescriptionReasonRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för requestparametrar i ProcessPrescriptionReason. Registrerar en ordinationsorsak med information om patient, organisatorisk enhet, eventuell aktivitet eller ordination som ordinationsorsaken kopplas till. En befintlig ordinationsorsak uppdateras genom att ett nytt meddelande med samma id (aktivitetsid eller tillståndsid) skickas in. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.processdevelopment-infections|current/StructureDefinition/StructureDefinition-processprescriptionreason-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-processprescriptionreason-request.csv), [Excel](StructureDefinition-processprescriptionreason-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "processprescriptionreason-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/processdevelopment-infections/StructureDefinition/processprescriptionreason-request",
+  "version" : "1.0.2",
+  "name" : "ProcessPrescriptionReasonRequest",
+  "title" : "ProcessPrescriptionReason — Request",
+  "status" : "draft",
+  "date" : "2026-09-26T19:40:23+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för requestparametrar i ProcessPrescriptionReason. Registrerar\nen ordinationsorsak med information om patient, organisatorisk enhet,\neventuell aktivitet eller ordination som ordinationsorsaken kopplas till.\nEn befintlig ordinationsorsak uppdateras genom att ett nytt meddelande med\nsamma id (aktivitetsid eller tillståndsid) skickas in.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/processdevelopment-infections/StructureDefinition/processprescriptionreason-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "processprescriptionreason-request",
+      "path" : "processprescriptionreason-request",
+      "short" : "ProcessPrescriptionReason — Request",
+      "definition" : "Logisk modell för requestparametrar i ProcessPrescriptionReason. Registrerar\nen ordinationsorsak med information om patient, organisatorisk enhet,\neventuell aktivitet eller ordination som ordinationsorsaken kopplas till.\nEn befintlig ordinationsorsak uppdateras genom att ett nytt meddelande med\nsamma id (aktivitetsid eller tillståndsid) skickas in."
+    },
+    {
+      "id" : "processprescriptionreason-request.logicalAddress",
+      "path" : "processprescriptionreason-request.logicalAddress",
+      "short" : "Logisk adress",
+      "definition" : "Logisk adress till tjänsteimplementationen. HSA-id för organisationspost\nmotsvarande vårdgivare i HSA-trädet.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.registrationOrderTime",
+      "path" : "processprescriptionreason-request.registrationOrderTime",
+      "short" : "Registrerings-/ordinationstidpunkt",
+      "definition" : "I de fall en ordination finns anges här ordinationsmoment.ordinationstidpunkt.\nI annat fall lämnas detta fält tomt.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.careProviderId",
+      "path" : "processprescriptionreason-request.careProviderId",
+      "short" : "Vårdgivare",
+      "definition" : "HSA-id för aktuell vårdgivare.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.registeringUnitId",
+      "path" : "processprescriptionreason-request.registeringUnitId",
+      "short" : "Registrerande enhet",
+      "definition" : "RIV-specifikation: Ordinationsorsak.registreras vid.Enhet.enhets-id.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.registrationTime",
+      "path" : "processprescriptionreason-request.registrationTime",
+      "short" : "Registreringstidpunkt",
+      "definition" : "I de fall en ordinationsorsak registreras utan ordination anges här\nOrdinationsorsak.registreringstidpunkt, i annat fall lämnas detta fält tomt.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.activityMoment",
+      "path" : "processprescriptionreason-request.activityMoment",
+      "short" : "Aktivitetsmoment",
+      "definition" : "Ange antingen aktivitetsmoment eller ordinationsmoment, se invariant\nprocessprescriptionreason-activity-or-order.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "processprescriptionreason-activity-or-order",
+        "severity" : "error",
+        "human" : "Ange antingen aktivitetsmoment eller ordinationsmoment, inte båda.",
+        "expression" : "activityMoment.exists() xor orderMoment.exists()",
+        "source" : "https://fhir.inera.se/ig/processdevelopment-infections/StructureDefinition/processprescriptionreason-request"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.activityMoment.terminologyId",
+      "path" : "processprescriptionreason-request.activityMoment.terminologyId",
+      "short" : "Kodverksidentifierare",
+      "definition" : "Identifierare (OID eller annan unik identifierare) som anger vilket\nkodverk aktuell kod tillhör. Möjliga värden: OID för Snomed CT och id\nför Infektionsverktygets kodverk med annan-koder.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.activityMoment.activityCode",
+      "path" : "processprescriptionreason-request.activityMoment.activityCode",
+      "short" : "Aktivitetskod",
+      "definition" : "RIV-specifikation: Aktivitetsmoment.aktivitetskod.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.activity",
+      "path" : "processprescriptionreason-request.activity",
+      "short" : "Aktivitet",
+      "definition" : "Obligatoriskt om aktivitetsmoment är angivet, annars frivilligt.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "processprescriptionreason-activity-requires-activity",
+        "severity" : "error",
+        "human" : "Om aktivitetsmoment anges måste även aktivitet anges.",
+        "expression" : "activityMoment.exists() implies activity.exists()",
+        "source" : "https://fhir.inera.se/ig/processdevelopment-infections/StructureDefinition/processprescriptionreason-request"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.activity.issuerId",
+      "path" : "processprescriptionreason-request.activity.issuerId",
+      "short" : "Utfärdare av aktivitets-id",
+      "definition" : "Möjliga värden: \"CeHis\" (i de fall värdet i enhetAktivitetsId är ett\nHSA-id) eller \"Infektionsverktyget\" (i de fall värdet i\nenhetAktivitetsId är en annan unik identifierare, t.ex. vid aktivitet\nutförd hos annan vårdgivare).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.activity.unitActivityId",
+      "path" : "processprescriptionreason-request.activity.unitActivityId",
+      "short" : "Enhet för aktivitets-id",
+      "definition" : "HSA-id alternativt annan unik identifierare för den enhet inom vilket\naktuellt aktivitets-id är unikt. Särskilda konstantvärden används när\naktiviteten är utförd hos en annan vårdgivare (se TKB avsnitt 4.1 för\nexakta GUID-värden för \"Annan vårdgivare\" / \"Annan vårdgivare Sverige\"\n/ \"Annan vårdgivare utomlands\").",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.activity.activityId",
+      "path" : "processprescriptionreason-request.activity.activityId",
+      "short" : "Aktivitets-id",
+      "definition" : "RIV-specifikation: Aktivitet.aktivitets-id. HSA-id + Lokalt id (HSA-id\nför den enhet inom vilket aktuellt aktivitets-id är unikt anges före\ndet lokala id:t). Notera att detta attribut har olika betydelse\nberoende på om mallen för Activity (profylax) eller Condition\n(infektion) används.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.activity.activityIdTypeOid",
+      "path" : "processprescriptionreason-request.activity.activityIdTypeOid",
+      "short" : "OID för lokalt aktivitets-id",
+      "definition" : "OID för lokalt id då ett id anges i activityId. Då aktiviteten är\nutförd hos en annan vårdgivare och inget id finns ska detta lämnas tomt.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.assessedHealthCondition",
+      "path" : "processprescriptionreason-request.assessedHealthCondition",
+      "short" : "Bedömt hälsorelaterat tillstånd",
+      "definition" : "Bedömt hälsorelaterat tillstånd",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.assessedHealthCondition.conditionCode",
+      "path" : "processprescriptionreason-request.assessedHealthCondition.conditionCode",
+      "short" : "Tillståndskod",
+      "definition" : "RIV-specifikation: Bedömt hälsorelaterat tillstånd.tillståndskod.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.assessedHealthCondition.transmissionRoute",
+      "path" : "processprescriptionreason-request.assessedHealthCondition.transmissionRoute",
+      "short" : "Smittväg",
+      "definition" : "RIV-specifikation: Bedömt hälsorelaterat tillstånd.smittväg.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.assessedHealthCondition.unitConditionId",
+      "path" : "processprescriptionreason-request.assessedHealthCondition.unitConditionId",
+      "short" : "Enhet för tillstånds-id",
+      "definition" : "HSA-id för den enhet inom vilket aktuellt tillstånds-id är unikt.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.assessedHealthCondition.conditionId",
+      "path" : "processprescriptionreason-request.assessedHealthCondition.conditionId",
+      "short" : "Tillstånds-id",
+      "definition" : "RIV-specifikation: Bedömt hälsorelaterat tillstånd.tillstånds-id.\nHSA-id + Lokalt id.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.orderMoment",
+      "path" : "processprescriptionreason-request.orderMoment",
+      "short" : "Ordinationsmoment",
+      "definition" : "Ange antingen ordinationsmoment eller aktivitetsmoment, se invariant\nprocessprescriptionreason-activity-or-order.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.orderMoment.orderTime",
+      "path" : "processprescriptionreason-request.orderMoment.orderTime",
+      "short" : "Ordinationstidpunkt",
+      "definition" : "RIV-specifikation: Ordinationsmoment.ordinationstidpunkt.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.orderMoment.unitOrderId",
+      "path" : "processprescriptionreason-request.orderMoment.unitOrderId",
+      "short" : "Enhet för ordinations-id",
+      "definition" : "HSA-id för den enhet inom vilket aktuellt ordinations-id är unikt.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.orderMoment.orderId",
+      "path" : "processprescriptionreason-request.orderMoment.orderId",
+      "short" : "Ordinations-id",
+      "definition" : "RIV-specifikation: Ordination.ordinations-id. HSA-id + Lokalt id.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.orderMoment.atcCode",
+      "path" : "processprescriptionreason-request.orderMoment.atcCode",
+      "short" : "ATC-kod",
+      "definition" : "RIV-specifikation: Läkemedelssubstans.ATC-kod.",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.personIdIssuer",
+      "path" : "processprescriptionreason-request.personIdIssuer",
+      "short" : "Utfärdare av person-id",
+      "definition" : "För personnummer och samordningsnummer: \"Skatteverket\". För lokalt\nreservnummer: \"CeHis\".",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.personIdAssigner",
+      "path" : "processprescriptionreason-request.personIdAssigner",
+      "short" : "Tilldelare av person-id",
+      "definition" : "För personnummer och samordningsnummer: \"Folkbokföringen\". För lokalt\nreservnummer: HSA-id för den enhet inom vilket aktuellt reservnummer är\nunikt.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.patientId",
+      "path" : "processprescriptionreason-request.patientId",
+      "short" : "Patientens person-id",
+      "definition" : "RIV-specifikation: Patient.person-id. system = OID för personnummer,\nsamordningsnummer eller icke-nationell identifierare (se personIdOid),\nvalue = själva numret.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.personIdOid",
+      "path" : "processprescriptionreason-request.personIdOid",
+      "short" : "OID för person-id",
+      "definition" : "OID för personnummer, samordningsnummer eller icke-nationell\nidentifierare Org+lokalt unikt id.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.patientBirthTime",
+      "path" : "processprescriptionreason-request.patientBirthTime",
+      "short" : "Patientens födelsetidpunkt",
+      "definition" : "RIV-specifikation: Patient.födelsetidpunkt.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "processprescriptionreason-request.patientGender",
+      "path" : "processprescriptionreason-request.patientGender",
+      "short" : "Patientens kön",
+      "definition" : "RIV-specifikation: Patient.kön. Kodverk anges externt i\nRIV-specifikation Infektionsverktyget.pdf — inte återgivet i TKB-texten.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    }]
+  }
+}
+
+```

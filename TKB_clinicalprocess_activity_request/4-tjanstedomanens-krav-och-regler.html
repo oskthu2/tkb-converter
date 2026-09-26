@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>4 Tjänstedomänens krav och regler - clinicalprocess: activity: request — Remisshantering v2.2.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"5"}
+    h3,h4,h5,h6{--heading-prefix:"5"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">clinicalprocess: activity: request — Remisshantering</span>
+            <br/>
+            <span style="display:inline-block;">2.2.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+  <li><a href="3-tjanstedomanens-arkitektur.html">3 Arkitektur</a></li>
+  <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Krav och regler</a></li>
+  <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Meddelandemodeller</a></li>
+  <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma komponenter</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>4 Tjänstedomänens krav och regler</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">clinicalprocess: activity: request — Remisshantering - Local Development build (v2.2.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/clinicalprocess-activity-request/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>4 Tjänstedomänens krav och regler</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstedomänens-krav-och-regler" id="markdown-toc-tjänstedomänens-krav-och-regler">Tjänstedomänens krav och regler</a>    <ul>
+      <li><a href="#informationssäkerhet-och-juridik" id="markdown-toc-informationssäkerhet-och-juridik">Informationssäkerhet och juridik</a></li>
+      <li><a href="#icke-funktionella-krav" id="markdown-toc-icke-funktionella-krav">Icke funktionella krav</a></li>
+      <li><a href="#felhantering" id="markdown-toc-felhantering">Felhantering</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstedomänens-krav-och-regler">Tjänstedomänens krav och regler</h2>
+<p>Dessa gäller alla tjänstekontrakt i hela tjänstedomänen om inte undantag görs för specifika tjänstekontrakt senare i dokumentet.</p>
+
+<h3 id="informationssäkerhet-och-juridik">Informationssäkerhet och juridik</h3>
+<p>Se Informationsspecifikation för denna domän [R5].</p>
+
+<h3 id="icke-funktionella-krav">Icke funktionella krav</h3>
+
+<h4 id="sla-krav">SLA krav</h4>
+<p>Följande generella SLA-krav gäller för alla tjänsteproducenter som tillhandahåller tjänster. Dessa krav gäller där inget annat anges för ett specifikt tjänstekontrakt.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svarstid</td>
+      <td style="text-align: left">2 sekunder</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tillgänglighet</td>
+      <td style="text-align: left">24x7, 99,5%</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Last</td>
+      <td style="text-align: left">Anpassat efter respektive verksamhets remissflöde</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">N/A</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-krav">Övriga krav</h4>
+
+<h3 id="felhantering">Felhantering</h3>
+<p>I ett response (svaret på ett anrop) anges om anropet lyckades eller inte. Ett lyckat anrop anges med koden OK eller INFO i fältet result.resultCode.
+För ett anrop som misslyckas på grund av ett logiskt fel sätts result.resultCode till ERROR. Om anropet misslyckas på grund av ett tekniskt fel returneras istället ett meddelande av typen SOAP Fault.
+Mer information finns nedan och i regel #11 RIV Tekniska Anvisningar Tjänsteschema [R6].</p>
+
+<h4 id="krav-på-en-tjänsteproducent">Krav på en tjänsteproducent</h4>
+<p>Ett anslutet system skall vara förberett på att något system kan interagera med fel aktör vid fel tidpunkt.
+Ett anslutet system skall vara förberett på att en interaktion sker vid fel tillfälle och försöka hantera det som mottagits om möjligt (exempelvis bekräftelsemeddelanden som kommer in vid fel tidpunkt i processen).</p>
+
+<h5 id="logiska-fel">Logiska fel</h5>
+<p>För logiska fel returneras koden ERROR i result.resultCode tillsammans med en förklarande text i fältet result.message. I fältet result.errorCode anges vilken typ av logiskt fel som inträffat. Det finns två olika typer av logiska fel som används i tjänstekontrakten - VALIDATION_ERROR och APPLICATION_ERROR. För vissa specifika logiska fel (av typen APPLICATION ERROR) finns felkoder framtagna för att beskriva felet på ett standardiserat sätt - då sätts fältet result.subcode med aktuell kod och result.message kan sättas till kodens klartext eller beskrivning (se tabell nedan).
+VALIDATION_ERROR
+Meddelandet som skickats är ej korrekt utifrån de regler som gäller för tjänstekontraktet. En förklarande result.message kan närmare peka på vilken regel som ej efterföljts. Detta fel kan generas när ett meddelande tekniskt inte validerar mot det underliggande XML-schemat eller då det inkommande meddelandet bryter mot en schematronregel.
+APPLICATION_ERROR 
+Denna typ av fel används då meddelandet som skickats är tekniskt korrekt i alla aspekter men den önskade tjänsten inte kan utföras på grund av att processen befinner sig i ett läge då den önskade tjänsten inte kan genomföras eller om den på grund av lokala verksamhetsregler inte kan genomföras. Mer information om felet skall skickas i fältet result.message eller i fältet result.subcode beroende på typ av fel. Exempelvis kan inte en remiss spontant kompletteras efter att den är bedömd av remissmottagande enhet, eller efter att den har vidareskickats till en annan mottagare. Denna typ av fel kan också returneras på grund av lokala verksamhetsregler eller begränsningar som inte specificerats nationellt men som hindrar den önskade tjänsten från att utföras. Från den bifogade felmeddelandetexten bör en användare kunna förstå varför felet uppkom samt vad som är lämplig åtgärd att vidta härnäst.
+Tabell felkoder
+Tabellen nedan innehåller nationellt överenskomna felkoder för Elektronisk remiss. Felkoder ska skickas vid vissa logiska fel av typen APPLICATION_ERROR för att ytterligare beskriva felet på ett standardiserat sätt. Se kolumnen Beskrivning för när felkoden ska skickas. Felkoden skickas i fältet result.subcode. Kodens klartext eller beskrivning kan skickas i result.message.
+Listan innehåller felkoder för alla tre kontrakten. Felkoder som börjar på PR skickas enbart i tjänstekontraktet ProcessRequest, de som börjar på PRC skickas enbart i tjänstekontraktet ProcessRequestConfirmation och de som börjar på PRO skickas enbart i tjänstekontraktet ProcessRequestOutcome.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Felkod</th>
+      <th style="text-align: left">Klartext</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">PR001</td>
+      <td style="text-align: left">Remitterande organisations HSA-id okänt för mottagaren</td>
+      <td style="text-align: left">Remissmottagande system kan inte slå upp HSA-id för remitterande organisation. Remissen kan inte tas emot.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PR002</td>
+      <td style="text-align: left">Remissmottagaren kan inte ta emot vidareskickade remisser</td>
+      <td style="text-align: left">Remissen kan inte tas emot av remissmottagarens system eftersom remissen är av typen vidareskickad.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PR003</td>
+      <td style="text-align: left">Remissmottagare kan inte ta emot remissen med bifogad bilaga</td>
+      <td style="text-align: left">Remiss med bilaga kan inte tas emot av mottagande system. Orsak kan vara att bilagans filformat inte stödjs. Remissen behöver skickas om utan bilaga, och bilagan behöver skickas om manuellt på annat sätt.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PR004</td>
+      <td style="text-align: left">Remissmottagaren hanterar inte angivet reservnummerformat.</td>
+      <td style="text-align: left">Remiss kan inte tas emot av mottagande system eftersom formatet för patientens reservnummer inte kan hanteras av mottagaren. Remiss behöver skickas om manuellt på annat sätt.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PRC001</td>
+      <td style="text-align: left">Remissmottagande organisations HSA-id okänt</td>
+      <td style="text-align: left">Remittentens system kan inte slå upp HSA-id för remissmottagande organisation som skickat meddelande. Meddelandet kan inte tas emot.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PRC002</td>
+      <td style="text-align: left">Remissen är okänd hos remittent, meddelandet kan inte tas emot</td>
+      <td style="text-align: left">Meddelandet kan inte tas emot hos remittent eftersom meddelandet gäller en okänd remiss. Orsak kan t ex vara att meddelande skickats till fel mottagare.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PRC003</td>
+      <td style="text-align: left">Remissen är avbruten, makulerad eller avvisad hos remittent, meddelandet kan inte tas emot</td>
+      <td style="text-align: left">Meddelandet kan inte tas emot hos remittent eftersom det gäller en avbruten, makulerad eller avvisad remiss.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PRC004</td>
+      <td style="text-align: left">Ursprunglig remittent kan inte ta emot besked om vidareskickad remiss.</td>
+      <td style="text-align: left">Meddelandet kan inte tas emot av den ursprungliga remittentens system eftersom det gäller en vidareskickad remiss.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PRO001</td>
+      <td style="text-align: left">Remissbesvarande organisations HSA-id okänt för mottagaren</td>
+      <td style="text-align: left">Remittentens system kan inte slå upp HSA-id för remissbesvarande organisation. Remissvaret kan inte tas emot.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PRO002</td>
+      <td style="text-align: left">Remissen är okänd hos remittent, remissvaret kan inte tas emot</td>
+      <td style="text-align: left">Remissvaret kan inte tas emot hos remittent eftersom svaret gäller en okänd remiss. Orsak kan t ex vara att remissvaret skickats till fel mottagare.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PRO003</td>
+      <td style="text-align: left">Remissen är avbruten eller makulerad hos remittent, remissvaret kan inte tas emot.</td>
+      <td style="text-align: left">Remissvaret kan inte tas emot hos remittent eftersom meddelandet gäller en avbruten eller makulerad remiss.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PRO004</td>
+      <td style="text-align: left">Remissvarsmottagare kan inte ta emot remissvaret med bifogad bilaga.</td>
+      <td style="text-align: left">Remissvaret med bilaga kan inte tas emot av mottagande system. Orsak kan vara att bilagans filformat inte stödjs. Remissvaret behöver skickas om utan bilaga, och bilagan behöver skickas om manuellt på annat sätt.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="tekniska-fel">Tekniska fel</h5>
+<p>Vid ett tekniskt fel levereras ett generellt undantag (SOAP Fault).
+Exempel på detta kan vara deadlock i databasen eller följdeffekter av programmeringsfel.
+Tekniska fel får inte förmedla personuppgifter, istället rekommenderas att ett log-id förmedlas, som ger möjlighet för tjänsteproducentens förvaltning att bistå tjänstekonsumentens förvaltning med felsökning.</p>
+
+<h4 id="krav-på-en-tjänstekonsument">Krav på en tjänstekonsument</h4>
+<p>Alla deltagande system skall strikt uppfylla de krav som ställs på dem i respektive aktörsroll.
+Alla deltagande system i remissprocessen skall vara förlåtande mot brister i övriga system.</p>
+
+<h5 id="logiska-fel-1">Logiska fel</h5>
+<p>VALIDATION_ERROR - Konsumenten ska inte sända om meddelandet eftersom det kommer att ge samma fel. Felsökning bör göras för att veta vilken åtgärd som behövs för att rätta till felet.
+APPLICATION_ERROR - Konsumenten ska försöka med ett begränsat antal automatiska omsändningar. En omsändning av information kan komma att ge samma fel eller lyckas. Om omsändning inte lyckas skall en felsignal ges användare och systemansvarig för att säkerställa att problem med remissmeddelandet uppmärksammas och felsökning genomförs.</p>
+
+<h5 id="tekniska-fel-1">Tekniska fel</h5>
+<p>Konsumenten bör försöka med ett begränsat antal automatiska omsändningar vid tekniska fel eftersom detta kan antas bero på temporära fel. Om omsändning inte lyckas skall en felsignal ges användare och systemansvarig för att säkerställa att problem med remissflödet uppmärksammas och felsökning genomförs.</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.clinicalprocess-activity-request#2.2.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Sat, Sep 26, 2026 19:14+0000">2026-09-26</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

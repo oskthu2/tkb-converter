@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>8 Datatyper - healthcertificate: lifeline v1.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"5"}
+    h3,h4,h5,h6{--heading-prefix:"5"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">healthcertificate: lifeline</span>
+            <br/>
+            <span style="display:inline-block;">1.0.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <menu xmlns="http://www.w3.org/1999/xhtml">
+  <item name="Home" url="index.html"/>
+  <item name="1 Inledning" url="1-inledning.html"/>
+  <item name="2 Generella regler" url="2-generella-regler.html"/>
+  <item name="7 Tjänstekontrakt" url="7-tjanstekontrakt.html"/>
+  <item name="8 Datatyper" url="8-datatyper.html"/>
+  <item name="Artifacts" url="artifacts.html"/>
+</menu>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>8 Datatyper</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">healthcertificate: lifeline - Local Development build (v1.0.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/healthcertificate-lifeline/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>8 Datatyper</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#8-datatyper" id="markdown-toc-8-datatyper">8 Datatyper</a>    <ul>
+      <li><a href="#kodverk" id="markdown-toc-kodverk">Kodverk</a></li>
+      <li><a href="#typer-i-scheman" id="markdown-toc-typer-i-scheman">Typer i scheman</a>        <ul>
+          <li><a href="#adresstype" id="markdown-toc-adresstype">AdressTYPE</a></li>
+          <li><a href="#arendeuppgiftertype" id="markdown-toc-arendeuppgiftertype">ArendeuppgifterTYPE</a></li>
+          <li><a href="#barntype" id="markdown-toc-barntype">BarnTYPE</a></li>
+          <li><a href="#datumtype" id="markdown-toc-datumtype">DatumTYPE</a></li>
+          <li><a href="#dokumentuppgiftertype" id="markdown-toc-dokumentuppgiftertype">DokumentuppgifterTYPE</a></li>
+          <li><a href="#meddelandetype" id="markdown-toc-meddelandetype">MeddelandeTYPE</a></li>
+          <li><a href="#namntype" id="markdown-toc-namntype">NamnTYPE</a></li>
+          <li><a href="#persontype" id="markdown-toc-persontype">PersonTYPE</a></li>
+          <li><a href="#resultofcalltype" id="markdown-toc-resultofcalltype">ResultOfCallType</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="8-datatyper">8 Datatyper</h1>
+
+<p>TKB:n beskriver inte typerna separat. Avsnittet är genererat ur domänschemat <a href="BirthRegistrationTypes_1.0.xsd">BirthRegistrationTypes_1.0.xsd</a>, som bygger på Skatteverkets schema Fodelse.xsd, och ur <a href="HealthCertificateLifelineCommonTypes_1.0.xsd">HealthCertificateLifelineCommonTypes_1.0.xsd</a>.</p>
+
+<h3 id="kodverk">Kodverk</h3>
+
+<p>Uppräkningarna i schemat är modellerade som kodverk:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Kodverk</th>
+      <th>Koder</th>
+      <th>CodeSystem</th>
+      <th>ValueSet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Anmälan mottagen (<code class="language-plaintext highlighter-rouge">AnmalanMottagen</code>)</td>
+      <td>JA, NEJ</td>
+      <td><a href="CodeSystem-lifeline-anmalanmottagen-cs.html">lifeline-anmalanmottagen-cs</a></td>
+      <td><a href="ValueSet-lifeline-anmalanmottagen-vs.html">lifeline-anmalanmottagen-vs</a></td>
+    </tr>
+    <tr>
+      <td>Anmälningstyp (<code class="language-plaintext highlighter-rouge">AnmalningsTyp</code>)</td>
+      <td>NYANMALD, RATTAD, MAKULERAD</td>
+      <td><a href="CodeSystem-lifeline-anmalningstyp-cs.html">lifeline-anmalningstyp-cs</a></td>
+      <td><a href="ValueSet-lifeline-anmalningstyp-vs.html">lifeline-anmalningstyp-vs</a></td>
+    </tr>
+    <tr>
+      <td>Feltyp (<code class="language-plaintext highlighter-rouge">ErrorIdEnumType</code>)</td>
+      <td>VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR</td>
+      <td><a href="CodeSystem-lifeline-erroridenum-cs.html">lifeline-erroridenum-cs</a></td>
+      <td><a href="ValueSet-lifeline-erroridenum-vs.html">lifeline-erroridenum-vs</a></td>
+    </tr>
+    <tr>
+      <td>Barnets kön (<code class="language-plaintext highlighter-rouge">Kon</code>)</td>
+      <td>FLICKA, POJKE</td>
+      <td><a href="CodeSystem-lifeline-kon-cs.html">lifeline-kon-cs</a></td>
+      <td><a href="ValueSet-lifeline-kon-vs.html">lifeline-kon-vs</a></td>
+    </tr>
+    <tr>
+      <td>Levande vid födelsen (<code class="language-plaintext highlighter-rouge">Levande</code>)</td>
+      <td>JA, NEJ</td>
+      <td><a href="CodeSystem-lifeline-levande-cs.html">lifeline-levande-cs</a></td>
+      <td><a href="ValueSet-lifeline-levande-vs.html">lifeline-levande-vs</a></td>
+    </tr>
+    <tr>
+      <td>Resultatkod (<code class="language-plaintext highlighter-rouge">ResultCodeEnumType</code>)</td>
+      <td>OK, ERROR, INFO</td>
+      <td><a href="CodeSystem-lifeline-resultcodeenum-cs.html">lifeline-resultcodeenum-cs</a></td>
+      <td><a href="ValueSet-lifeline-resultcodeenum-vs.html">lifeline-resultcodeenum-vs</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="typer-i-scheman">Typer i scheman</h2>
+
+<h3 id="adresstype">AdressTYPE</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">BirthRegistrationTypes_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:healthcertificate:lifeline:1:Birth</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">AdressRad1</td>
+      <td style="text-align: left">AdressRadTYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AdressRad2</td>
+      <td style="text-align: left">AdressRadTYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AdressRad3</td>
+      <td style="text-align: left">AdressRadTYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AdressRad4</td>
+      <td style="text-align: left">AdressRadTYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AdressRad5</td>
+      <td style="text-align: left">AdressRadTYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="arendeuppgiftertype">ArendeuppgifterTYPE</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">BirthRegistrationTypes_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:healthcertificate:lifeline:1:Birth</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Moder</td>
+      <td style="text-align: left">PersonTYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ModersMake</td>
+      <td style="text-align: left">PersonTYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Barn</td>
+      <td style="text-align: left">BarnTYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Vistelseadress</td>
+      <td style="text-align: left">AdressTYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Bostadsadress</td>
+      <td style="text-align: left">AdressTYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">KontaktTelefon</td>
+      <td style="text-align: left">string20TYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">KontaktTelefon2</td>
+      <td style="text-align: left">string20TYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">KontaktTelefon3</td>
+      <td style="text-align: left">string20TYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">KontaktTelefon4</td>
+      <td style="text-align: left">string20TYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">KontaktTelefon5</td>
+      <td style="text-align: left">string20TYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="barntype">BarnTYPE</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">BirthRegistrationTypes_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:healthcertificate:lifeline:1:Birth</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">DatumFodelse</td>
+      <td style="text-align: left">date</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kon</td>
+      <td style="text-align: left">Kon</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">OrdningsNr</td>
+      <td style="text-align: left">OrdningsNr</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AntalBarn</td>
+      <td style="text-align: left">AntalBarn</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FodelseKommun</td>
+      <td style="text-align: left">FodelseKommun</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Levande</td>
+      <td style="text-align: left">Levande</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="datumtype">DatumTYPE</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">BirthRegistrationTypes_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:healthcertificate:lifeline:1:Birth</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">FodelseAr</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FodelseManad</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FodelseDag</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="dokumentuppgiftertype">DokumentuppgifterTYPE</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">BirthRegistrationTypes_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:healthcertificate:lifeline:1:Birth</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Ingivarnamn</td>
+      <td style="text-align: left">string100TYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AnmalningsTyp</td>
+      <td style="text-align: left">AnmalningsTyp</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AnmalningsId</td>
+      <td style="text-align: left">AnmalningsIdTYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Ingivartelefon</td>
+      <td style="text-align: left">string15TYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="meddelandetype">MeddelandeTYPE</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">BirthRegistrationTypes_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:healthcertificate:lifeline:1:Birth</code>).</p>
+
+<p>Information om orsaken till att personnummer ej returneras.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">AnmalanMottagen</td>
+      <td style="text-align: left">AnmalanMottagen</td>
+      <td style="text-align: left">Anger om anmälan är mottagen av Skatteverket eller ej. En mottagen anmälan SKALL EJ sändas in igen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MeddelandeKod</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Kod som indikerar orsaken till att personnummer ej returneras. datatyp = number</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MeddelandeText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text som ger ytterligare information om ev. felorsak. Endast avsedd att nyttjas vid utveckling/felsökning</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="namntype">NamnTYPE</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">BirthRegistrationTypes_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:healthcertificate:lifeline:1:Birth</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Fornamn</td>
+      <td style="text-align: left">string100TYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Mellannamn</td>
+      <td style="text-align: left">string100TYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Efternamn</td>
+      <td style="text-align: left">string100TYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="persontype">PersonTYPE</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">BirthRegistrationTypes_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:healthcertificate:lifeline:1:Birth</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Namn</td>
+      <td style="text-align: left">NamnTYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Fodelsedatum</td>
+      <td style="text-align: left">DatumTYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PersonNummer</td>
+      <td style="text-align: left">PersonNummerTYPE</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resultofcalltype">ResultOfCallType</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">HealthCertificateLifelineCommonTypes_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:healthcertificate:lifeline:1:Common</code>).</p>
+
+<p>Holds information about the success of the call. If INFO is set the field infoText should contain more information. If ERROR is set the fields errorId and errorText will contain information about the error.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultCodeEnumType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">infoText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">errorId</td>
+      <td style="text-align: left">ErrorIdEnumType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">errorText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.healthcertificate-lifeline#1.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Sat, Sep 26, 2026 19:27+0000">2026-09-26</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>7 Tjänstekontrakt - se.apotekensservice: axs — Hämta patientinformation v7.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">se.apotekensservice: axs — Hämta patientinformation</span>
+            <br/>
+            <span style="display:inline-block;">7.0.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+  <li><a href="3-tjanstedomanens-arkitektur.html">3 Arkitektur</a></li>
+  <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Krav och regler</a></li>
+  <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Meddelandemodeller</a></li>
+  <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma komponenter</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">se.apotekensservice: axs — Hämta patientinformation - Local Development build (v7.0.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/se-apotekensservice-axs/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div>
+<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
+</div>
+<h2 id="tjänstekontrakt">Tjänstekontrakt</h2>
+
+<h3 id="hamtapatientinfo">HamtaPatientInfo</h3>
+
+<p><em>SAKNAS I KÄLLDOKUMENT.</em> Det finns ingen kontraktsbeskrivning. Beskrivningen nedan är hämtad ur WSDL och XSD.</p>
+
+<p>HamtaPatientInfo hämtar information om en patient: eventuellt dosapotek som patienten är kopplad till, eventuell dosproducent, dosunderlagets status, om det finns aktuella recept för patienten i RDH, samt patientinformation och samtycken från FOLK.</p>
+
+<h4 id="version">Version</h4>
+
+<p>6.0 (WSDL-revisioner: 2016-12-16 version 6.0, 2015-11-24 version 5.0)</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Egenskap</th>
+      <th style="text-align: left">Värde</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Tjänsteinteraktion</td>
+      <td style="text-align: left">HamtaPatientInfoInteraction</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Namnrymd (tjänsteschema)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:axs:HamtaPatientInfoResponder:6</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Namnrymd (WSDL)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:axs:HamtaPatientInfo:6</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SOAP-action</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">urn:riv:se.apotekensservice:axs:HamtaPatientInfoResponder:6:HamtaPatientInfo</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Interaktionstyp</td>
+      <td style="text-align: left">Fråga-Svar</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="soap-huvuden">SOAP-huvuden</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Huvud</th>
+      <th style="text-align: left">Schema</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">LogicalAddress</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">itintegration_registry_1.0.xsd</code></td>
+      <td style="text-align: left">Organisationsnummer för Apotekens Service AB</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ArgosHeader</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ArgosHeader_1.0.xsd</code></td>
+      <td style="text-align: left">Argos-huvud för Apotekens Service AB. Enligt WSDL: se dokumentationen för vilka fält som är obligatoriska för just denna tjänsteinteraktion.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>ArgosHeaderType har följande fält, alla string och 0..1: forskrivarkod, legitimationskod, fornamn, efternamn, yrkesgrupp, befattningskod, arbetsplatskod, arbetsplatsnamn, postort, postadress, postnummer, telefonnummer, requestId, rollnamn, hsaID, katalog, organisationsnummer, systemnamn, systemversion, systemIp.</p>
+
+<h4 id="fältregler">Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Giltigt personnummer för patient.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">extension</td>
+      <td style="text-align: left">ExtensionType</td>
+      <td style="text-align: left">Utökningspunkt</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">apotek</td>
+      <td style="text-align: left">ApoteksinformationResponse</td>
+      <td style="text-align: left">Ev. DOS-apotek som kunden är kopplad till. Om anrop mot underliggande system (FOLK, OR eller EXPO) misslyckas så lämnas fältet tomt. Se <a href="6-gemensamma-informationskomponenter.html#apoteksinformationresponse">avsnitt 6</a>.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosproducent</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">GLN-kod för eventuell dosproducent.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosunderlagStatus</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Status om underlaget är godkänt, registrerat eller avregistrerat. 500 = Ej godkänt. 510 = Godkänt. 520 = Avregistrerat.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">finnsOrdination</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Markering som anger om det finns aktuella recept för patienten i RDH.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientInformation</td>
+      <td style="text-align: left">PatientInformationResponse</td>
+      <td style="text-align: left">Patientinformation från FOLK. Se <a href="6-gemensamma-informationskomponenter.html#patientinformationresponse">avsnitt 6</a>.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">extension</td>
+      <td style="text-align: left">ExtensionType</td>
+      <td style="text-align: left">Utökningspunkt</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="felhantering">Felhantering</h4>
+
+<p>Vid fel returneras SOAP-felet <code class="language-plaintext highlighter-rouge">ApplicationException</code> eller <code class="language-plaintext highlighter-rouge">SystemException</code>, se <a href="4-tjanstedomanens-krav-och-regler.html#felhantering">avsnitt 4</a>.</p>
+
+<h4 id="fhir-artefakter">FHIR-artefakter</h4>
+
+<ul>
+  <li><a href="StructureDefinition-hamtapatientinfo-request.html">HamtaPatientInfoRequest</a>: logisk modell för begäran, inklusive SOAP-huvudena</li>
+  <li><a href="StructureDefinition-hamtapatientinfo.html">HamtaPatientInfo</a>: logisk modell för svaret</li>
+  <li><a href="CodeSystem-axs-dosunderlagstatus-cs.html">DosunderlagStatusCS</a> / <a href="ValueSet-axs-dosunderlagstatus-vs.html">DosunderlagStatusVS</a>: dosunderlagets status</li>
+  <li><a href="CodeSystem-axs-folkstatuskod-cs.html">FolkStatusKodCS</a> / <a href="ValueSet-axs-folkstatuskod-vs.html">FolkStatusKodVS</a>: statuskod för person i FOLK</li>
+</ul>
+
+<h4 id="källfiler">Källfiler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Fil</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="HamtaPatientInfoInteraction_6.0_rivtabp21.wsdl">HamtaPatientInfoInteraction_6.0_rivtabp21.wsdl</a></td>
+      <td style="text-align: left">WSDL för tjänsteinteraktionen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="HamtaPatientInfoResponder_6.0.xsd">HamtaPatientInfoResponder_6.0.xsd</a></td>
+      <td style="text-align: left">Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="se.apotekensservice_axs_5.0.xsd">se.apotekensservice_axs_5.0.xsd</a></td>
+      <td style="text-align: left">Domänschema version 5 (PatientInformationResponse, SamtyckeResponse)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="se.apotekensservice_axs_4.0.xsd">se.apotekensservice_axs_4.0.xsd</a></td>
+      <td style="text-align: left">Domänschema version 4 (ApoteksinformationResponse, ApplicationException, SystemException)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="se.apotekensservice_axs_1.0.xsd">se.apotekensservice_axs_1.0.xsd</a></td>
+      <td style="text-align: left">Domänschema version 1 (importeras av version 5)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="ArgosHeader_1.0.xsd">ArgosHeader_1.0.xsd</a></td>
+      <td style="text-align: left">Schema för SOAP-huvudet ArgosHeader</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td style="text-align: left">Schema för SOAP-huvudet LogicalAddress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="AB_se_apotekenservice_axs.docx">AB_se_apotekenservice_axs.docx</a></td>
+      <td style="text-align: left">Arkitekturella beslut</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.se-apotekensservice-axs#7.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Sat, Sep 26, 2026 19:42+0000">2026-09-26</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

@@ -1,0 +1,2657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>6 Gemensamma informationskomponenter - druglogistics: dosedispensing — Dosdispensering v1.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"7"}
+    h3,h4,h5,h6{--heading-prefix:"7"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">druglogistics: dosedispensing — Dosdispensering</span>
+            <br/>
+            <span style="display:inline-block;">1.1.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li><a href="1-inledning.html">1 Inledning</a></li>
+  <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+  <li><a href="3-tjanstedomanens-arkitektur.html">3 Arkitektur</a></li>
+  <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Krav och regler</a></li>
+  <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Meddelandemodeller</a></li>
+  <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma komponenter</a></li>
+  <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>6 Gemensamma informationskomponenter</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">druglogistics: dosedispensing — Dosdispensering - Local Development build (v1.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/druglogistics-dosedispensing/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>6 Gemensamma informationskomponenter</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#gemensamma-informationskomponenter" id="markdown-toc-gemensamma-informationskomponenter">Gemensamma informationskomponenter</a>    <ul>
+      <li><a href="#objekt-patientinformation" id="markdown-toc-objekt-patientinformation">Objekt-Patientinformation</a></li>
+      <li><a href="#objekt-behörighetsinformation" id="markdown-toc-objekt-behörighetsinformation">Objekt-Behörighetsinformation</a></li>
+      <li><a href="#objekt-boendeinforesponse" id="markdown-toc-objekt-boendeinforesponse">Objekt-BoendeinfoResponse</a></li>
+      <li><a href="#objekt-leveransadress" id="markdown-toc-objekt-leveransadress">Objekt-Leveransadress</a></li>
+      <li><a href="#objekt-kontaktinformation" id="markdown-toc-objekt-kontaktinformation">Objekt-Kontaktinformation</a></li>
+      <li><a href="#objekt-betalningsinformation" id="markdown-toc-objekt-betalningsinformation">Objekt-Betalningsinformation</a></li>
+      <li><a href="#objekt-produktionsinformation" id="markdown-toc-objekt-produktionsinformation">Objekt-Produktionsinformation</a></li>
+      <li><a href="#objekt-vårdtagarstatus" id="markdown-toc-objekt-vårdtagarstatus">Objekt-Vårdtagarstatus</a></li>
+      <li><a href="#enum-yrkeskod" id="markdown-toc-enum-yrkeskod">Enum-Yrkeskod</a></li>
+      <li><a href="#enum-vårdtagarstatus" id="markdown-toc-enum-vårdtagarstatus">Enum-Vårdtagarstatus</a></li>
+      <li><a href="#enum-meddelandestatus" id="markdown-toc-enum-meddelandestatus">Enum-Meddelandestatus</a></li>
+      <li><a href="#enum-kommunikationsriktning" id="markdown-toc-enum-kommunikationsriktning">Enum-kommunikationsriktning</a></li>
+      <li><a href="#enum-meddelandetyp" id="markdown-toc-enum-meddelandetyp">Enum-Meddelandetyp</a></li>
+      <li><a href="#enum-meddelandeprio" id="markdown-toc-enum-meddelandeprio">Enum-Meddelandeprio</a></li>
+      <li><a href="#enum-beställningsurval" id="markdown-toc-enum-beställningsurval">Enum-Beställningsurval</a></li>
+      <li><a href="#enum-beställningsstatus" id="markdown-toc-enum-beställningsstatus">Enum-Beställningsstatus</a></li>
+      <li><a href="#enum-identitetstyp" id="markdown-toc-enum-identitetstyp">Enum-Identitetstyp</a></li>
+      <li><a href="#kodverk" id="markdown-toc-kodverk">Kodverk</a></li>
+      <li><a href="#typer-i-domänschemat" id="markdown-toc-typer-i-domänschemat">Typer i domänschemat</a></li>
+      <li><a href="#avbestallningsinforequest" id="markdown-toc-avbestallningsinforequest">AvbestallningsinfoRequest</a></li>
+      <li><a href="#behorighetsinforequest" id="markdown-toc-behorighetsinforequest">BehorighetsinfoRequest</a></li>
+      <li><a href="#bestallningsinforequest" id="markdown-toc-bestallningsinforequest">BestallningsinfoRequest</a></li>
+      <li><a href="#bestallningsinforesponse" id="markdown-toc-bestallningsinforesponse">BestallningsinfoResponse</a></li>
+      <li><a href="#bestallningsutvalrequest" id="markdown-toc-bestallningsutvalrequest">BestallningsutvalRequest</a></li>
+      <li><a href="#betalningsinforesponse" id="markdown-toc-betalningsinforesponse">BetalningsinfoResponse</a></li>
+      <li><a href="#boendeinforesponse" id="markdown-toc-boendeinforesponse">BoendeinfoResponse</a></li>
+      <li><a href="#doseringsschemaresponse" id="markdown-toc-doseringsschemaresponse">DoseringsschemaResponse</a></li>
+      <li><a href="#hamtameddelandeninforesponse" id="markdown-toc-hamtameddelandeninforesponse">HamtaMeddelandeninfoResponse</a></li>
+      <li><a href="#intagstillfalleresponse" id="markdown-toc-intagstillfalleresponse">IntagstillfalleResponse</a></li>
+      <li><a href="#kontaktinforesponse" id="markdown-toc-kontaktinforesponse">KontaktinfoResponse</a></li>
+      <li><a href="#leveransadressinforesponse" id="markdown-toc-leveransadressinforesponse">LeveransadressinfoResponse</a></li>
+      <li><a href="#meddelandeninforequest" id="markdown-toc-meddelandeninforequest">MeddelandeninfoRequest</a></li>
+      <li><a href="#meddelandenutvalrequest" id="markdown-toc-meddelandenutvalrequest">MeddelandenutvalRequest</a></li>
+      <li><a href="#patientinforesponse" id="markdown-toc-patientinforesponse">PatientinfoResponse</a></li>
+      <li><a href="#produktionsinforesponse" id="markdown-toc-produktionsinforesponse">ProduktionsinfoResponse</a></li>
+      <li><a href="#produktsortimentresponse" id="markdown-toc-produktsortimentresponse">ProduktsortimentResponse</a></li>
+      <li><a href="#uppdaterameddelandestatus" id="markdown-toc-uppdaterameddelandestatus">UppdateraMeddelandestatus</a></li>
+      <li><a href="#vardandeenhetresponse" id="markdown-toc-vardandeenhetresponse">VardandeEnhetResponse</a></li>
+      <li><a href="#vardtagarinformation" id="markdown-toc-vardtagarinformation">Vardtagarinformation</a></li>
+      <li><a href="#vardtagarstatusinfo" id="markdown-toc-vardtagarstatusinfo">Vardtagarstatusinfo</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="gemensamma-informationskomponenter">Gemensamma informationskomponenter</h2>
+
+<p><em>SAKNAS I KÄLLDOKUMENT.</em> Det finns ingen TKB. Objekten och uppräkningarna nedan är återgivna ur dokumentet <a href="Objekt_och_felhantering.pdf">Pascal – Objekt och felhantering</a> (version 1.5, 2012-03-21), som gränssnittsspecifikationerna i <a href="7-tjanstekontrakt.html">avsnitt 7</a> hänvisar till som ref[1] (mekanisk konvertering från PDF; vid tveksamhet gäller PDF:en). Motsvarande typer i domänschemat följer efter kodverken.</p>
+
+<h3 id="objekt-patientinformation">Objekt-Patientinformation</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Fält längd</th>
+      <th style="text-align: left">Förekomst</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Förnamn</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">25</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Efternamn</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">25</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Identitetstyp</td>
+      <td style="text-align: left">Person, samordnings eller reservnummer</td>
+      <td style="text-align: left">Enum</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Personid</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">12</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="objekt-behörighetsinformation">Objekt-Behörighetsinformation</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Fält längd</th>
+      <th style="text-align: left">Förekomst</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Förnamn</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">25</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Efternamn</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">25</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Förskrivarkod</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">7</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Yrkeskod</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Enum</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Arbetsplatskod</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">13</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hsaid</td>
+      <td style="text-align: left">Förskrivares hsaid</td>
+      <td style="text-align: left">64</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Personnummer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">12</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisationsnummer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">20</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="objekt-boendeinforesponse">Objekt-BoendeinfoResponse</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Fält längd</th>
+      <th style="text-align: left">Förekomst</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Adress</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">40</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Postnummer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Ort</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">20</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Telefon</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">15</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Dosmottagareid</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">13</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Dosmottagarenamn</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">40</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="objekt-leveransadress">Objekt-Leveransadress</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Fält längd</th>
+      <th style="text-align: left">Förekomst</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Boendeenhetsnamn</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">40</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Boendeenhetsid</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Boendeenhetsadress</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">20</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Boendeenhetspostnr</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Boendeenhetsavdelning</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Arbetsplatskod</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">13</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Dosmottagareid</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">13</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Dosmottagarenamn</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">40</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="objekt-kontaktinformation">Objekt-Kontaktinformation</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Fält längd</th>
+      <th style="text-align: left">Förekomst</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">PAL förskrivarkod</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">7</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PAL förnamn</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">25</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PAL efternamn</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">25</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Anhörigkontaktnamn</td>
+      <td style="text-align: left">Används ej</td>
+      <td style="text-align: left">50</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Anhörigkontaktemail</td>
+      <td style="text-align: left">Används ej</td>
+      <td style="text-align: left">40</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Ansvarigkontaktnamn</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">50</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Ansvarigkontaktadress</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">50</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Ansvarigkontaktpostnummer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Ansvarigkontaktpostort</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">25</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Ansvarigkontakttelefon1</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">15</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Ansvarigkontakttelefon2</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">15</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Vårdandeenhetid</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Vårdandeenhetnamn</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">40</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Vårdandeenhetpostnummer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Vårdandeenhetpostort</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">25</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="objekt-betalningsinformation">Objekt-Betalningsinformation</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Fält längd</th>
+      <th style="text-align: left">Förekomst</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Betalningsform</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Information</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">40</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Betalningsansvarig fornamn</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">25</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Betalningsansvarig fornamn</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">25</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Betalningsansvarig adress</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">25</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Betalningsansvarig postnummer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Betalningsansvarig ort</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">15</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Betalningsansvarig telefon</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">15</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="objekt-produktionsinformation">Objekt-Produktionsinformation</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Fält längd</th>
+      <th style="text-align: left">Förekomst</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Dosaktör</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Dosapotek namn</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">25</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Betalningsansvarig fornamn</td>
+      <td style="text-align: left">GLN-kod</td>
+      <td style="text-align: left">13</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Stopptid beställning</td>
+      <td style="text-align: left">Absoluttid</td>
+      <td style="text-align: left">Kalender</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Stopptid ordination</td>
+      <td style="text-align: left">Absoluttid</td>
+      <td style="text-align: left">Kalender</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Första dosdag</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Kalender</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Dosvecka</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Doseringsschema</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Klass</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Dosmottagareid</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">13</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Dosmottagarenamn</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">40</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="objekt-vårdtagarstatus">Objekt-Vårdtagarstatus</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Fält längd</th>
+      <th style="text-align: left">Förekomst</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Vårdtagar status</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Enum</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Från tid</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Kalender</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Till tid</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Kalender</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="enum-yrkeskod">Enum-Yrkeskod</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Värdemängd</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Läkare</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">LK</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Barnmorska</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">BM</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Sjuksköterska</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">SJ</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tandläkare</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">TL</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Röntgensjuksköterska</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">RS</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tandhygenist</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">TH</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="enum-vårdtagarstatus">Enum-Vårdtagarstatus</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Värdemängd</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Aktiv</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Vilade</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tillfälligadressändring</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">3</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Avförd</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">4</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Avliden</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">5</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Ej registrerad</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">6</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="enum-meddelandestatus">Enum-Meddelandestatus</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Värdemängd</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Läst</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">L</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Oläst</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">O</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Borttagen</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">B</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Borttagen/Läst/Oläst</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">BLO</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Läst/Oläst</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">LO</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Borttagen/Läst</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">BL</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="enum-kommunikationsriktning">Enum-kommunikationsriktning</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Värdemängd</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Till dosapotek</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Från dosapotek</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">2</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="enum-meddelandetyp">Enum-Meddelandetyp</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Värdemängd</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Ordinationsbundet</td>
+      <td style="text-align: left">Används ej</td>
+      <td style="text-align: left">OB</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Personbundet</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">PB</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Fristående</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">FR</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Meddelandebundet</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">MB</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="enum-meddelandeprio">Enum-Meddelandeprio</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Värdemängd</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Låg</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">L</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Normal</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">N</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hög</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">H</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="enum-beställningsurval">Enum-Beställningsurval</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Värdemängd</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Personurval</td>
+      <td style="text-align: left">Endast en</td>
+      <td style="text-align: left">PU</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Dosmottagare</td>
+      <td style="text-align: left">En eller flera</td>
+      <td style="text-align: left">DM</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beställningsidentitet</td>
+      <td style="text-align: left">En eller flera</td>
+      <td style="text-align: left">BU</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Vårdgivare</td>
+      <td style="text-align: left">Endast en</td>
+      <td style="text-align: left">VG</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="enum-beställningsstatus">Enum-Beställningsstatus</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Värdemängd</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Mottagen</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Avvisad</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Expedierad</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">3</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Avbeställd</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">4</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="enum-identitetstyp">Enum-Identitetstyp</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Värdemängd</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Personnummer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">P</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Samordningsnummer</td>
+      <td style="text-align: left">Används ej</td>
+      <td style="text-align: left">S</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Reservnummer</td>
+      <td style="text-align: left">Används ej</td>
+      <td style="text-align: left">R</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="kodverk">Kodverk</h3>
+
+<p>Enumerationerna i domänschemat är modellerade som kodverk (CodeSystem) med tillhörande värdemängd (ValueSet), och fälten i de logiska modellerna är bundna till värdemängden (required).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Typ i schemat</th>
+      <th style="text-align: left">Kodverk</th>
+      <th style="text-align: left">Värdemängd</th>
+      <th style="text-align: left">Koder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">BestallningsStatusEnum</td>
+      <td style="text-align: left"><a href="CodeSystem-dosedispensing-bestallningsstatus-cs.html">Beställningsstatus</a></td>
+      <td style="text-align: left"><a href="ValueSet-dosedispensing-bestallningsstatus-vs.html">BestallningsStatusVS</a></td>
+      <td style="text-align: left">1, 2, 3, 4, 5</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">BestallningsurvalEnum</td>
+      <td style="text-align: left"><a href="CodeSystem-dosedispensing-bestallningsurval-cs.html">Beställningsurval</a></td>
+      <td style="text-align: left"><a href="ValueSet-dosedispensing-bestallningsurval-vs.html">BestallningsurvalVS</a></td>
+      <td style="text-align: left">PU, DM, BU, VG</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">IdentitetstypEnum</td>
+      <td style="text-align: left"><a href="CodeSystem-dosedispensing-identitetstyp-cs.html">Identitetstyp</a></td>
+      <td style="text-align: left"><a href="ValueSet-dosedispensing-identitetstyp-vs.html">IdentitetstypVS</a></td>
+      <td style="text-align: left">P, R, S</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">KommunikationsriktningEnum</td>
+      <td style="text-align: left"><a href="CodeSystem-dosedispensing-kommunikationsriktning-cs.html">Kommunikationsriktning</a></td>
+      <td style="text-align: left"><a href="ValueSet-dosedispensing-kommunikationsriktning-vs.html">KommunikationsriktningVS</a></td>
+      <td style="text-align: left">1, 2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MeddelandePrioritetEnum</td>
+      <td style="text-align: left"><a href="CodeSystem-dosedispensing-meddelandeprioritet-cs.html">Meddelandeprioritet</a></td>
+      <td style="text-align: left"><a href="ValueSet-dosedispensing-meddelandeprioritet-vs.html">MeddelandePrioritetVS</a></td>
+      <td style="text-align: left">L, N, H</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MeddelandeStatusEnum</td>
+      <td style="text-align: left"><a href="CodeSystem-dosedispensing-meddelandestatus-cs.html">Meddelandestatus</a></td>
+      <td style="text-align: left"><a href="ValueSet-dosedispensing-meddelandestatus-vs.html">MeddelandeStatusVS</a></td>
+      <td style="text-align: left">L, O, B, BLO, LO, BL</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MeddelandetypEnum</td>
+      <td style="text-align: left"><a href="CodeSystem-dosedispensing-meddelandetyp-cs.html">Meddelandetyp</a></td>
+      <td style="text-align: left"><a href="ValueSet-dosedispensing-meddelandetyp-vs.html">MeddelandetypVS</a></td>
+      <td style="text-align: left">OB, PB, FR, MB, VG</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ResultatkodEnum</td>
+      <td style="text-align: left"><a href="CodeSystem-dosedispensing-resultatkod-cs.html">Resultatkod</a></td>
+      <td style="text-align: left"><a href="ValueSet-dosedispensing-resultatkod-vs.html">ResultatkodVS</a></td>
+      <td style="text-align: left">1, 2, 3</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">VardtagarStatusEnum</td>
+      <td style="text-align: left"><a href="CodeSystem-dosedispensing-vardtagarstatus-cs.html">Vårdtagarstatus</a></td>
+      <td style="text-align: left"><a href="ValueSet-dosedispensing-vardtagarstatus-vs.html">VardtagarStatusVS</a></td>
+      <td style="text-align: left">1, 2, 3, 4, 5, 6</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">YrkesKodEnum</td>
+      <td style="text-align: left"><a href="CodeSystem-dosedispensing-yrkeskod-cs.html">Yrkeskod</a></td>
+      <td style="text-align: left"><a href="ValueSet-dosedispensing-yrkeskod-vs.html">YrkesKodVS</a></td>
+      <td style="text-align: left">LK, TL, BM, SJ, RS, TH</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="typer-i-domänschemat">Typer i domänschemat</h3>
+
+<p><em>SAKNAS I KÄLLDOKUMENT.</em> Komponenterna nedan är de typer ur domänschemana som används av tjänstekontrakten. Beskrivningarna är schemaannoteringarna. Flera typer finns i mer än en version av domänschemat; versionen anges då inom parentes.</p>
+
+<h3 id="avbestallningsinforequest">AvbestallningsinfoRequest</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">druglogistics_dosedispensing_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:druglogistics:dosedispensing:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Patientinformation</td>
+      <td style="text-align: left">PatientinfoResponse</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bestallningsid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">radid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">NPLpackid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">varunummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">receptid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ordinationsid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosunderlagsversion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meddelandetillapotek</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">onskadleveranstid</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="behorighetsinforequest">BehorighetsinfoRequest</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">druglogistics_dosedispensing_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:druglogistics:dosedispensing:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">fornamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">efternamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">forskrivarkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">yrkeskod</td>
+      <td style="text-align: left">YrkesKodEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">arbetsplatskod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">organisationsnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="bestallningsinforequest">BestallningsinfoRequest</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">druglogistics_dosedispensing_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:druglogistics:dosedispensing:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Patientinformation</td>
+      <td style="text-align: left">PatientinfoResponse</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bestallningsid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">radid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">NPLpackid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">varunummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">receptid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ordinationsid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosunderlagsversion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">antalforpackningar</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">akutbestallning</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">maxveckodos</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">maxdygnsdos</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosmottagareid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosmottagarenamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meddelandetillapotek</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">onskadleveransdatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="bestallningsinforesponse">BestallningsinfoResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">druglogistics_dosedispensing_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:druglogistics:dosedispensing:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">bestallningsid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">radid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patientinformation</td>
+      <td style="text-align: left">PatientinfoResponse</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">NPLpackid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">varunummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">receptid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ordinationsid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosunderlagsversion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bestallningsresultat</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bestallningsresultattext</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bestallningsstatus</td>
+      <td style="text-align: left">BestallningsStatusEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">statustidpunkt</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bestallningstatustext</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meddelandefranapotek</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">onskadleveranstid</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">planeradleveranstid</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosmottagareid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosmottagarenamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bestallningstid</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bestallarefornamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bestallareefternamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bestallarearbetsplats</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="bestallningsutvalrequest">BestallningsutvalRequest</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">druglogistics_dosedispensing_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:druglogistics:dosedispensing:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">bestallningsurval</td>
+      <td style="text-align: left">BestallningsurvalEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bestallningsid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientidtyp</td>
+      <td style="text-align: left">IdentitetstypEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientfornamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientefternamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">vardgivarid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosmottagareid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bestallningsstatus</td>
+      <td style="text-align: left">BestallningsStatusEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">frandatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">tilldatum</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="betalningsinforesponse">BetalningsinfoResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">druglogistics_dosedispensing_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:druglogistics:dosedispensing:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">form</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">information</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">betalningsansvarigfornamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">betalningsansvarigefternamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">betalningsansvarigadress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">betalningsansvarigpostnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">betalningsansvarigort</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">betalningsansvarigtelefon</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="boendeinforesponse">BoendeinfoResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">druglogistics_dosedispensing_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:druglogistics:dosedispensing:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">adress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ort</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telefon</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosmottagareid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosmottagarenamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="doseringsschemaresponse">DoseringsschemaResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">druglogistics_dosedispensing_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:druglogistics:dosedispensing:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">periodlangd</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Antal dagar som dosering skall galla. Vid regelbunden dosering anges periodlangd = 1 Vid oregelbunden dosering anges antal dagar som intervallet omfattar. Exempelvis 2 om intag ska ske varannan dag.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">intagstillfalle</td>
+      <td style="text-align: left">IntagstillfalleResponse</td>
+      <td style="text-align: left">Beskriver tid och mangd for intag av lakemedel.</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="hamtameddelandeninforesponse">HamtaMeddelandeninfoResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">druglogistics_dosedispensing_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:druglogistics:dosedispensing:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">meddelandeid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patientinformation</td>
+      <td style="text-align: left">PatientinfoResponse</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kommunikationsriktning</td>
+      <td style="text-align: left">KommunikationsriktningEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">tidigaremeddelandeid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ordinationsid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">glnkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosapoteknamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sandningstidpunkt</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sandarefornamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sandareefternamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sandarehsaid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sandareyrkeskod</td>
+      <td style="text-align: left">YrkesKodEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sandarearbetsplats</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rubrik</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">prioritet</td>
+      <td style="text-align: left">MeddelandePrioritetEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meddelandestatus</td>
+      <td style="text-align: left">MeddelandeStatusEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meddelandestatusfornamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meddelandestatusefternamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meddelandestatusarbetsplats</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">statustidpunkt</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meddelande</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="intagstillfalleresponse">IntagstillfalleResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">druglogistics_dosedispensing_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:druglogistics:dosedispensing:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">intagstillfalle</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Klockslag nar patienten ska inta medicinering.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">intagsmangd</td>
+      <td style="text-align: left">double</td>
+      <td style="text-align: left">Intagsmangd per tillfalle</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dagIPeriod</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Dag i perioden nar intag skall goras. Exempel: Intag ska ske varje mandag och onsdag och startdatum ar pa en mandag. Mandag Insattningsdatum = 2010-01-01, Periodlangd=7, Dag i period= 1. Onsdag Insattningsdatum = 2010-01-01, Periodlangd=7, Dag i period=3.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="kontaktinforesponse">KontaktinfoResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">druglogistics_dosedispensing_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:druglogistics:dosedispensing:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">PALforskrivarkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PALfornamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PALefternamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">anhorigkontaktnamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">anhorigkontaktemail</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ansvarigkontaktnamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ansvarigkontaktemail</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ansvarigkontaktadress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ansvarigkontaktpostnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ansvarigkontaktpostort</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ansvarigkontakttelefon1</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ansvarigkontakttelefon2</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">vardandeenhetid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">vardandeenhetnamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">vardandeenhetpostort</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">vardandeenhetpostnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="leveransadressinforesponse">LeveransadressinfoResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">druglogistics_dosedispensing_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:druglogistics:dosedispensing:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">boendeenhetnamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">boendeenhetid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">boendeenhetadress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">boendeenhetpostnummer</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">boendeenhetpostort</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">boendeenhetavdelning</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">arbetsplatskod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosmottagareid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosmottagarenamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="meddelandeninforequest">MeddelandeninfoRequest</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">druglogistics_dosedispensing_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:druglogistics:dosedispensing:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Meddelandetyp</td>
+      <td style="text-align: left">MeddelandetypEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patientinformation</td>
+      <td style="text-align: left">PatientinfoResponse</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kommunikationsriktning</td>
+      <td style="text-align: left">KommunikationsriktningEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">tidigaremeddelandeid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ordinationsid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">glnkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sandningstidpunkt</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rubrik</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">prioritet</td>
+      <td style="text-align: left">MeddelandePrioritetEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meddelande</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="meddelandenutvalrequest">MeddelandenutvalRequest</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">druglogistics_dosedispensing_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:druglogistics:dosedispensing:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Meddelandetyp</td>
+      <td style="text-align: left">MeddelandetypEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patientinformation</td>
+      <td style="text-align: left">PatientinfoResponse</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meddelandeid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meddelandestatus</td>
+      <td style="text-align: left">MeddelandeStatusEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ordinationsid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">vardgivarespersonid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">forskrivarkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">frantid</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">tilltid</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="patientinforesponse">PatientinfoResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">druglogistics_dosedispensing_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:druglogistics:dosedispensing:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">fornamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Anvandarens fornamn.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mellannamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Anvandarens mellanamn.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">efternamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Anvandarens efternamn.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">identitetstyp</td>
+      <td style="text-align: left">IdentitetstypEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Anvandarens personid</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lanskod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Anvandarens folkbokforda lanskod</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">kommunkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Anvandarens folkbokforda kommunkod</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="produktionsinforesponse">ProduktionsinfoResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">druglogistics_dosedispensing_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:druglogistics:dosedispensing:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">dosaktor</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosapotek</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosapotekid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">stopptidbestallning</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">stopptidordination</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">forstadosdag</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosvecka</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">doseringsschema</td>
+      <td style="text-align: left">DoseringsschemaResponse</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosmottagareid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosmottagarenamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="produktsortimentresponse">ProduktsortimentResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">druglogistics_dosedispensing_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:druglogistics:dosedispensing:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">nplid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">nplpackid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">glnkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="uppdaterameddelandestatus">UppdateraMeddelandestatus</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">druglogistics_dosedispensing_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:druglogistics:dosedispensing:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">meddelandeid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">meddelandestatus</td>
+      <td style="text-align: left">MeddelandeStatusEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">statustidpunkt</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="vardandeenhetresponse">VardandeEnhetResponse</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">druglogistics_dosedispensing_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:druglogistics:dosedispensing:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">vardandeenhetid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">vardandeenhetnamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">vardandeenhetpostort</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">glnkod</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="vardtagarinformation">Vardtagarinformation</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">druglogistics_dosedispensing_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:druglogistics:dosedispensing:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">hemmaboende</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosapoteksid</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dosapoteknamn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">forstadosdag</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">avvikandedosschema</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patientinformation</td>
+      <td style="text-align: left">PatientinfoResponse</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hemmaboendeinformation</td>
+      <td style="text-align: left">BoendeinfoResponse</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tillfalligadress</td>
+      <td style="text-align: left">BoendeinfoResponse</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Leveransadressinformation</td>
+      <td style="text-align: left">LeveransadressinfoResponse</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kontaktinformation</td>
+      <td style="text-align: left">KontaktinfoResponse</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Betalningsinformation</td>
+      <td style="text-align: left">BetalningsinfoResponse</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Produktionsinfo</td>
+      <td style="text-align: left">ProduktionsinfoResponse</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Vardtagarstatus</td>
+      <td style="text-align: left">Vardtagarstatusinfo</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">vilandestatusorsak</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="vardtagarstatusinfo">Vardtagarstatusinfo</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">druglogistics_dosedispensing_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:druglogistics:dosedispensing:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">statuskod</td>
+      <td style="text-align: left">VardtagarStatusEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">frantid</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">tilltid</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.druglogistics-dosedispensing#1.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Sat, Sep 26, 2026 19:21+0000">2026-09-26</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>5 Tjänstedomänens meddelandemodeller - population: residentmaster v1.2</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"6"}
+    h3,h4,h5,h6{--heading-prefix:"6"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">population: residentmaster</span>
+            <br/>
+            <span style="display:inline-block;">1.2 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <?xml version="1.0" encoding="UTF-8"?>
+<menu xmlns="http://hl7.org/fhir">
+  <item name="Home" href="index.html"/>
+  <item name="1 Inledning" href="1-inledning.html"/>
+  <item name="2 Versionsinformation" href="2-versionsinformation.html"/>
+  <item name="3 Tjänstedomänens arkitektur" href="3-tjanstedomanens-arkitektur.html"/>
+  <item name="4 Tjänstedomänens krav och regler" href="4-tjanstedomanens-krav-och-regler.html"/>
+  <item name="5 Tjänstedomänens meddelandemodeller" href="5-tjanstedomanens-meddelandemodeller.html"/>
+  <item name="6 Gemensamma informationskomponenter" href="6-gemensamma-informationskomponenter.html"/>
+  <item name="7 Tjänstekontrakt" href="7-tjanstekontrakt.html"/>
+  <item name="Artifacts" href="artifacts.html"/>
+</menu>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>5 Tjänstedomänens meddelandemodeller</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">population: residentmaster - Local Development build (v1.2) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/population-residentmaster/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>5 Tjänstedomänens meddelandemodeller</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div>
+<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
+</div>
+<h1 id="5-tjänstedomänens-meddelandemodeller">5 Tjänstedomänens meddelandemodeller</h1>
+
+<p><em>Not: motsvarar källdokumentets kapitel "Datamodell". Detta är domänens centrala
+gemensamma datatyp och används av samtliga (för närvarande: det enda) kontrakt i
+domänen. Fältbeskrivningarna nedan är rekonstruerade från den antiword-extraherade
+källtexten och verifierade mot det faktiska XML-schemat
+(<code class="language-plaintext highlighter-rouge">population_residentmaster_1.2.xsd</code> m.fl., se källfiler i avsnitt 7) för exakta
+fältnamn, kardinalitet och tillåtna kodvärden.</em></p>
+
+<h2 id="51-residenttype--bruttolista-över-nationella-personuppgifter">5.1 ResidentType — bruttolista över nationella personuppgifter</h2>
+
+<p>Det är inte möjligt att en gång för alla fastställa ett exakt och slutgiltigt
+utseende på <code class="language-plaintext highlighter-rouge">ResidentType</code>. Modellen är en bruttolista med alla fält som potentiellt
+kan ingå i nationella personuppgifter; en konkret tjänsteproducent tillhandahåller
+bara den delmängd (profil) som är relevant (se avsnitt 6, "Aktuella profiler").
+Fält som inte ingår i den aktuella profilen utelämnas i SOAP-meddelandet (motsvarar
+<code class="language-plaintext highlighter-rouge">null</code> i genererad kod).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fältnamn</th>
+      <th>Beskrivning</th>
+      <th>Format</th>
+      <th>Mult</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sekretessmarkering</td>
+      <td>Kod som anger om personen har sekretessmarkering</td>
+      <td><code class="language-plaintext highlighter-rouge">J</code> = Har sekretessmarkering, <code class="language-plaintext highlighter-rouge">N</code> = Har inte sekretessmarkering</td>
+      <td>1..1</td>
+    </tr>
+    <tr>
+      <td>SenasteAndringFolkbokforing</td>
+      <td>Datum när personen uppdaterades senast i folkbokföringen</td>
+      <td>ÅÅÅÅMMDD</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td><strong>Personpost</strong></td>
+      <td> </td>
+      <td> </td>
+      <td>1..1</td>
+    </tr>
+    <tr>
+      <td>PersonId</td>
+      <td>Personnummer eller tilldelat personnummer/samordningsnummer. Kan även vara reservnummer i det fall tjänstekonsumenten är en regional/lokal instans (format specifikt för aktuellt reservnummerkodverk)</td>
+      <td>För person- och samordningsnummer: ÅÅÅÅMMDDNNNN</td>
+      <td>1..1</td>
+    </tr>
+    <tr>
+      <td>Kon</td>
+      <td>Anger personens kön</td>
+      <td><code class="language-plaintext highlighter-rouge">K</code> = Kvinna, <code class="language-plaintext highlighter-rouge">M</code> = Man</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Fodelsetid</td>
+      <td>Datum som anger personens födelsetid. Kan saknas för personer utan fastställd födelsetid</td>
+      <td>ÅÅÅÅMMDD</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td><strong>Namn</strong></td>
+      <td> </td>
+      <td> </td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Aviseringsnamn</td>
+      <td>Mellannamn, efternamn och förnamn i den ordningen, max 36 tecken (från folkbokföringen om namnen tillsammans överskrider 36 tecken)</td>
+      <td>Max 36 tecken</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Fornamn</td>
+      <td>Förnamn, alla förnamn med mellanslag emellan</td>
+      <td>Max 80 tecken</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Tilltalsnamnsmarkering</td>
+      <td>Kod som anger vilket av förnamnen som är tilltalsnamn (positionskod, 10–99). Saknas om inget tilltalsnamn är markerat i folkbokföringen</td>
+      <td>Heltal 10–99</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Mellannamn</td>
+      <td>Bärs mellan förnamn och efternamn, t.ex. namn som ogift</td>
+      <td>Max 40 tecken</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Efternamn</td>
+      <td>Efternamn</td>
+      <td>Max 60 tecken</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td><strong>Avregistrering</strong></td>
+      <td> </td>
+      <td> </td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>AvregistreringsorsakKod</td>
+      <td>Kod som anger om personen är avregistrerad från folkbokföringen och av vilket skäl. Tomt (eller saknas) om personen ej är avregistrerad. <em>Utgår i version 2 av <code class="language-plaintext highlighter-rouge">ResidentType</code> — ersätts av <code class="language-plaintext highlighter-rouge">AvregistreringsorsakKodKomplett</code>.</em></td>
+      <td><code class="language-plaintext highlighter-rouge">AV</code> = Avliden, <code class="language-plaintext highlighter-rouge">GN</code> = Gammalt nummer, <code class="language-plaintext highlighter-rouge">OO</code> = Övrig orsak</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Avregistreringsdatum</td>
+      <td>Tomt (eller saknas) om personen ej är avregistrerad</td>
+      <td>ÅÅÅÅMMDD (ofullständigt datum tillåtet, 4–8 tecken)</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>AvregistreringsorsakKodKomplett</td>
+      <td>Kod med komplett kodverk som anger om personen är avregistrerad från folkbokföringen och av vilket skäl. Tomt (eller saknas) om personen ej är avregistrerad. I version 2 utgår <code class="language-plaintext highlighter-rouge">AvregistreringsorsakKod</code> och detta fält byter namn till <code class="language-plaintext highlighter-rouge">AvregistreringsorsakKod</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AV</code> = Avliden, <code class="language-plaintext highlighter-rouge">UV</code> = Utvandrad, <code class="language-plaintext highlighter-rouge">GN</code> = Gammalt personnummer, <code class="language-plaintext highlighter-rouge">AN</code> = Annan anledning, <code class="language-plaintext highlighter-rouge">GS</code> = Gammalt samordningsnummer, <code class="language-plaintext highlighter-rouge">OB</code> = Obefintlig, <code class="language-plaintext highlighter-rouge">TA</code>/<code class="language-plaintext highlighter-rouge">AS</code> = Tekniskt avregistrerad</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td><strong>Folkbokföringsadress</strong></td>
+      <td>(svensk adress)</td>
+      <td> </td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>LanKod</td>
+      <td>Länskod</td>
+      <td>2 tecken</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>KommunKod</td>
+      <td>Kommunkod</td>
+      <td>2 tecken</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>ForsamlingKod</td>
+      <td>Församlingskod</td>
+      <td>2 tecken</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Fastighetsbeteckning</td>
+      <td>Fastighetsbeteckning</td>
+      <td>Max 40 tecken</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>CareOf</td>
+      <td>Namn (c/o)</td>
+      <td>Max 35 tecken</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Utdelningsadress1</td>
+      <td>Fysisk adress, gata eller motsvarande</td>
+      <td>Max 35 tecken</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Utdelningsadress2</td>
+      <td>Fysisk adress, gata eller motsvarande</td>
+      <td>Max 35 tecken</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Postnr</td>
+      <td>Postnummer</td>
+      <td>5 tecken, inga mellanslag</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Postort</td>
+      <td>Postort</td>
+      <td>Max 27 tecken</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Folkbokforingsdatum</td>
+      <td>Folkbokföringsdatum</td>
+      <td>ÅÅÅÅMMDD (ofullständigt datum tillåtet)</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>SCB_Nyckelkod</td>
+      <td>SCB Nyckelkod (ej från Navet-avisering), se <a href="https://www.scb.se/">SCB-referens</a></td>
+      <td>6 tecken</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td><strong>SärskildPostadress</strong></td>
+      <td>Samma struktur som Folkbokföringsadress</td>
+      <td> </td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>HanvisningsPersonNr</td>
+      <td>Hänvisningspersonnummer. Personnummer eller tilldelat personnummer/samordningsnummer</td>
+      <td>ÅÅÅÅMMDDNNNN</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td><strong>Utlandsadress</strong></td>
+      <td> </td>
+      <td> </td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Utdelningsadress1</td>
+      <td>Utdelningsadress, rad 1</td>
+      <td>Max 35 tecken</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Utdelningsadress2</td>
+      <td>Utdelningsadress, rad 2</td>
+      <td>Max 35 tecken</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Utdelningsadress3</td>
+      <td>Utdelningsadress, rad 3</td>
+      <td>Max 35 tecken</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Land</td>
+      <td>Land</td>
+      <td>Max 35 tecken</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Utlandsadressdatum</td>
+      <td>Datum för utlandsadress</td>
+      <td>ÅÅÅÅMMDD (ofullständigt datum tillåtet)</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Rostrattsdatum</td>
+      <td>Datum för rösträtt</td>
+      <td>ÅÅÅÅMMDD (ofullständigt datum tillåtet)</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td><strong>Civilstånd</strong></td>
+      <td> </td>
+      <td> </td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>CivilstandKod</td>
+      <td>Civilståndskod</td>
+      <td><code class="language-plaintext highlighter-rouge">OG</code> = Ogift, <code class="language-plaintext highlighter-rouge">G</code> = Gift, <code class="language-plaintext highlighter-rouge">A</code> = Änka/änkling, <code class="language-plaintext highlighter-rouge">S</code> = Skild, <code class="language-plaintext highlighter-rouge">RP</code> = Registrerad partner, <code class="language-plaintext highlighter-rouge">SP</code> = Skild partner, <code class="language-plaintext highlighter-rouge">EP</code> = Efterlevande partner</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Civilstandsdatum</td>
+      <td>Civilståndsdatum</td>
+      <td>ÅÅÅÅMMDD (ofullständigt datum tillåtet)</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td><strong>Fodelse</strong></td>
+      <td> </td>
+      <td> </td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td><strong>HemortSverige</strong></td>
+      <td>Uppgifter om hemort i Sverige</td>
+      <td> </td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>FodelselanKod</td>
+      <td>Kod för födelselän</td>
+      <td>2 tecken</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Fodelseforsamling</td>
+      <td>Kod för födelseförsamling</td>
+      <td>2 tecken</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td><strong>OrtUtlandet</strong></td>
+      <td>Uppgifter om födelse i utlandet</td>
+      <td> </td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>FodelseortUtland</td>
+      <td>Födelseort vid utlandsfödsel</td>
+      <td>Max 80 tecken</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Styrkt</td>
+      <td>Anger om födelsen är styrkt</td>
+      <td><code class="language-plaintext highlighter-rouge">J</code>/<code class="language-plaintext highlighter-rouge">N</code></td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Fodelseland</td>
+      <td>Födelseland</td>
+      <td>Max 40 tecken</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td><strong>Invandring</strong></td>
+      <td> </td>
+      <td> </td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Invandringsdatum</td>
+      <td>Invandringsdatum</td>
+      <td>ÅÅÅÅMMDD (ofullständigt datum tillåtet)</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td><strong>Relationer</strong></td>
+      <td> </td>
+      <td> </td>
+      <td>1..1</td>
+    </tr>
+    <tr>
+      <td>Relation</td>
+      <td>En relation till annan person (t.ex. barn, förälder, vårdnadshavare, make/maka, partner)</td>
+      <td> </td>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <td>RelationId</td>
+      <td>Identitet för den relaterade personen — antingen personnummer eller födelsetid+nollor (se villkor nedan)</td>
+      <td> </td>
+      <td>1..1</td>
+    </tr>
+    <tr>
+      <td>…/PersonNr</td>
+      <td>Personnummer eller tilldelat personnummer/samordningsnummer för den relaterade personen</td>
+      <td>ÅÅÅÅMMDDNNNN</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>…/FodelsetidNr</td>
+      <td>Används när relationen aldrig folkbokförts eller saknar korrekt personnummer. Kan ha nollor i hela eller delar av födelsetiden</td>
+      <td>Födelsetid + nollor, ÅÅÅÅMMDD0000</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Relationstyp</td>
+      <td>Typ av relation</td>
+      <td><code class="language-plaintext highlighter-rouge">B</code> = Barn, <code class="language-plaintext highlighter-rouge">MO</code> = Moder, <code class="language-plaintext highlighter-rouge">FA</code> = Fader, <code class="language-plaintext highlighter-rouge">F</code> = Förälder, <code class="language-plaintext highlighter-rouge">V</code> = Vårdnadshavare, <code class="language-plaintext highlighter-rouge">VF</code> = Vårdnadshavare för, <code class="language-plaintext highlighter-rouge">M</code> = Make/maka, <code class="language-plaintext highlighter-rouge">P</code> = Partner</td>
+      <td>1..1</td>
+    </tr>
+    <tr>
+      <td>RelationFromdatum</td>
+      <td>Relation från-och-med-datum</td>
+      <td>ÅÅÅÅMMDD (ofullständigt datum tillåtet)</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>RelationTomdatum</td>
+      <td>Relation till-och-med-datum</td>
+      <td>ÅÅÅÅMMDD (ofullständigt datum tillåtet)</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Namn</td>
+      <td>Namnuppgifter för den relaterade personen. Samma poststruktur som Namn ovan</td>
+      <td> </td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Avregistrering</td>
+      <td>Avregistreringsuppgifter för den relaterade personen. Samma poststruktur som Avregistrering ovan</td>
+      <td> </td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td>Relationsstatus. Aviseras endast vid regelbunden ändringspost</td>
+      <td><code class="language-plaintext highlighter-rouge">NY</code> = Nyregistrerad, <code class="language-plaintext highlighter-rouge">PB</code> = Nyregistrerad pga personnummerbyte, <code class="language-plaintext highlighter-rouge">RD</code> = Rättad, <code class="language-plaintext highlighter-rouge">AS</code> = Avslutad, <code class="language-plaintext highlighter-rouge">AV</code> = Avslutad pga avliden, <code class="language-plaintext highlighter-rouge">IV</code> = Avslutad pga invandring, <code class="language-plaintext highlighter-rouge">AN</code> = Annullerad</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>Distriktskod</td>
+      <td>Distriktskod enligt Skatteverket</td>
+      <td>Heltal 0–999999</td>
+      <td>0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Villkor:</strong> för varje <code class="language-plaintext highlighter-rouge">Relation</code> måste exakt ett av <code class="language-plaintext highlighter-rouge">PersonNr</code> och <code class="language-plaintext highlighter-rouge">FodelsetidNr</code>
+anges (enligt kommentar i källschemat: "ett av värdena måste vara satta, men inte
+båda") — se invarianten <code class="language-plaintext highlighter-rouge">lookupresidentforfullprofile-relation-id-xor</code> i den logiska
+modellen.</p>
+
+<h2 id="52-lookupspecificationtype--uppslagsbegränsning">5.2 LookUpSpecificationType — uppslagsbegränsning</h2>
+
+<p>Ett specifikt <code class="language-plaintext highlighter-rouge">LookupResidentFor</code>-kontrakt kan (men behöver inte) ha ett argument
+som begränsar antalet svar. Syftet med denna uppslagsbegränsning är att förbättra
+prestanda på producent- och konsumentsidan.</p>
+
+<p>Uppslagsbegränsning handlar om att filtrera bort resultat från en av konsumenten på
+förhand känd mängd, till skillnad från en sökmall (query-by-example) som söker efter
+av konsumenten okända förekomster. Exempel på användningsområde: få reda på vilka av
+tjänstekonsumentens (t.ex. journalsystemets) alla patienter som har avlidit, har
+sekretessmarkering eller har ändrats efter ett visst datum.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fältnamn</th>
+      <th>Beskrivning</th>
+      <th>Format</th>
+      <th>Mult</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Avregistreringsorsak</td>
+      <td>Begränsar de poster som ingår i svaret. Ett eller flera värden ur <code class="language-plaintext highlighter-rouge">AvregistreringsorsakKodKomplett</code> begränsar svarsposterna till personer med någon av angivna avregistreringsorsaker (<code class="language-plaintext highlighter-rouge">AV</code>, <code class="language-plaintext highlighter-rouge">UV</code>, <code class="language-plaintext highlighter-rouge">GN</code>, <code class="language-plaintext highlighter-rouge">AN</code>, <code class="language-plaintext highlighter-rouge">AS</code>, <code class="language-plaintext highlighter-rouge">GS</code>, <code class="language-plaintext highlighter-rouge">OB</code>, <code class="language-plaintext highlighter-rouge">TA</code>). Värdet <code class="language-plaintext highlighter-rouge">"  "</code> (två blanktecken) begränsar svaret till personer utan avregistreringsorsak. Värdet <code class="language-plaintext highlighter-rouge">"OO"</code> begränsar svaret till personer med avregistreringskod som avviker från <code class="language-plaintext highlighter-rouge">AV</code> och <code class="language-plaintext highlighter-rouge">GN</code> (för bakåtkompatibilitet med 1.0). Utelämnat fält innebär ingen begränsning</td>
+      <td>2 tecken</td>
+      <td>0..*</td>
+    </tr>
+    <tr>
+      <td>Sekretessmarkering</td>
+      <td>Begränsar de poster som ingår i svaret: <code class="language-plaintext highlighter-rouge">J</code> = returnera endast poster med sekretessmarkering <code class="language-plaintext highlighter-rouge">J</code>, <code class="language-plaintext highlighter-rouge">N</code> = returnera endast poster med sekretessmarkering <code class="language-plaintext highlighter-rouge">N</code> eller utan angiven sekretessmarkering. Poster med sekretessmarkering innehåller normalt inte annan information än personnummer och fältet Sekretessmarkering</td>
+      <td>1 tecken</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>SenasteAndringFolkbokforing</td>
+      <td>Begränsar de poster som ingår i svaret så att endast poster med senare datum i fältet <code class="language-plaintext highlighter-rouge">SenasteAndringFolkbokforing</code> än angivet datum returneras. Vid jämförelse används strikt olikhet (poster med samma datum returneras inte)</td>
+      <td>ÅÅÅÅMMDD</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>historiskTidpunkt</td>
+      <td>Anger historisk tidpunkt i syfte att svaret ska spegla personuppgifternas värden vid denna tidpunkt. Kan inte kombineras med <code class="language-plaintext highlighter-rouge">SenasteAndringFolkbokforing</code></td>
+      <td>ÅÅÅÅMMDDttmmss</td>
+      <td>0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Om flera fält anges kombineras dessa med logiskt OCH (AND).</p>
+
+<p><em>Not (verifierat mot XSD <code class="language-plaintext highlighter-rouge">LookupResidentForFullProfileResponder_1.2.xsd</code>): fältet
+<code class="language-plaintext highlighter-rouge">lookUpSpecification</code> på anropets toppnivå är enligt schemat obligatoriskt (1..1),
+trots att denna tabell beskriver samtliga dess underfält som valfria
+(uppslagsbegränsningen kan alltså skickas "tom" men elementet självt måste finnas
+med). Se ASSUME-PRM-001.</em></p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.population-residentmaster#1.2 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Sat, Sep 26, 2026 19:38+0000">2026-09-26</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+
