@@ -1227,3 +1227,37 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-PRM-001]** `igs/TKB_population_residentmaster/input/fsh/logical-models/LookupResidentForFullProfile.fsh`
   `folkbokforingsadress` och `sarskildPostadress` delar exakt samma underliggande XSD-typ (`SvenskAdressTYPE`) men är modellerade som två separata, dubblerade `BackboneElement`-block eftersom FSH `Logical:`-modeller i detta projekt inte återanvänder en delad nästlad typ mellan syskonfält. Om projektets FSH-konventioner senare uppdateras för att stödja detta (t.ex. via en delad extension eller ett gemensamt Logical-typnamn), kan dubbleringen elimineras.
+
+## clinicalprocess.activity.request v2.2 — `igs/TKB_clinicalprocess_activity_request/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-CAR-001]** `igs/TKB_clinicalprocess_activity_request/` (hela domänen) · versionsval
+  Taggen `2.2` valdes som högsta semver-tagg. Repot har även taggen `1.0.4`, som är nyare till datum (2026-06-04) men en äldre huvudversion (parallell huvudversion enligt avsnitt 3.4). IG:n beskriver bara 2.2. Verifiera om även huvudversion 1 ska ha en IG.
+
+- [ ] **[ASSUME-CAR-002]** `input/pagecontent/2-versionsinformation.md`, `7-tjanstekontrakt.md` · versionsnummer i brödtext
+  Revisionshistoriken och scheman anger version 2.2 (fastställd 2026-04-22), men avsnitt 2 och kontraktens "Version"-rubriker i källdokumentet anger fortfarande 2.1. Texten är återgiven oförändrad; IG:n och kontrakten har version 2.2 enligt schemat.
+
+- [ ] **[ASSUME-CAR-003]** `input/fsh/logical-models/Process*.fsh` · modellens inriktning
+  Alla tre kontrakten skickar information (push) och svarar enbart med `ResultType`. Varje kontrakts logiska modell beskriver därför begäran (RequestType, RequestConfirmationType, RequestOutcomeType), och svaret beskrivs av den gemensamma modellen `ProcessResult`. `ProcessRequestOutcome.originalRequest` är typad som den logiska modellen `ProcessRequest`.
+
+- [ ] **[ASSUME-CAR-004]** `input/fsh/logical-models/Process*.fsh` · datatyper och omdöpta fält
+  RequestIdType modellerad som `string`, TimeStampType (ÅÅÅÅMMDDttmmss) som `dateTime`, VersionNumberType som `positiveInt`, HsaIdType och PersonIdType som `Identifier`, CVType som `CodeableConcept`, ActivityCodeType som `Coding` och TimeIntervalType som `Period`. Reserverade namn har prefixats: `healthcareProfessionalId/Name`, `patientName`, `activityId/Text/Code`, `conditionText/Code`, `attachmentId/Value`, `awarenessText`, `questionText`, `clinicalInformationText`.
+
+- [ ] **[ASSUME-CAR-005]** `input/pagecontent/7-tjanstekontrakt.md` · ProcessRequest, fält `request.typeOfRequest`
+  Källtabellen anger kodverket `codes:codeRequestOutcomeType` för remisstyp, vilket är fel kodverk. Modellen binder fältet till `RequestTypeVS` (codeForRequestType, enda kod 4 = allmänremiss) enligt XSD:n. Källtexten är återgiven oförändrad.
+
+- [ ] **[ASSUME-CAR-006]** `input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Källdokumentet saknar eget kapitel för gemensamma informationskomponenter och har tjänstekontrakten i kapitel 6. Sidan 6 hänvisar till avsnitt 5.2, och tjänstekontrakten ligger i avsnitt 7 enligt IG-mallen. Omslagsbilder (logotyp och bakgrund) och en SVG-kopia av logotypen är inte medtagna.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-CAR-001]** `input/fsh/logical-models/Process*.fsh`
+  Patient-, organisations- och författarstrukturerna upprepas inline i de tre modellerna. De kan brytas ut till delade logiska typer om projektets FSH-konventioner uppdateras för det.

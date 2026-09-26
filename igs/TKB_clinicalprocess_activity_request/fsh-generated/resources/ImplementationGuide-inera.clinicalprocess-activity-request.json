@@ -1,0 +1,306 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "inera.clinicalprocess-activity-request",
+  "url": "https://fhir.inera.se/ig/clinicalprocess-activity-request/ImplementationGuide/inera.clinicalprocess-activity-request",
+  "version": "2.2.0",
+  "name": "clinicalprocessactivityrequest",
+  "title": "clinicalprocess: activity: request — Remisshantering",
+  "status": "draft",
+  "contact": [
+    {
+      "name": "Inera Arkitektur",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.inera.se"
+        }
+      ]
+    }
+  ],
+  "copyright": "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "packageId": "inera.clinicalprocess-activity-request",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.r4.core",
+      "version": "4.0.1",
+      "uri": "http://fhir.org/packages/hl7.fhir.r4.core/ImplementationGuide/hl7.fhir.r4.core",
+      "id": "hl7_fhir_r4_core"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "ValueSet/gender-vs"
+        },
+        "name": "codeForGenderType",
+        "description": "Alla koder i GenderCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/gender-cs"
+        },
+        "name": "codeForGenderType",
+        "description": "Administrativt kön, Skatteverket OID 1.2.752.129.2.2.1.1 (codes_2.2.xsd codeForGenderType_values).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/requesttype-vs"
+        },
+        "name": "codeForRequestType",
+        "description": "Alla koder i RequestTypeCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/requesttype-cs"
+        },
+        "name": "codeForRequestType",
+        "description": "Remisstyp (codes_2.2.xsd codeForRequestType_values).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/telecomtype-vs"
+        },
+        "name": "codeForTelecomType",
+        "description": "Alla koder i TelecomTypeCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/telecomtype-cs"
+        },
+        "name": "codeForTelecomType",
+        "description": "Typ av telefonnummer (codes_2.2.xsd codeForTelecomType_values).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/requestconfirmationtype-vs"
+        },
+        "name": "codeRequestConfirmationType",
+        "description": "Alla koder i RequestConfirmationTypeCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/requestconfirmationtype-cs"
+        },
+        "name": "codeRequestConfirmationType",
+        "description": "Typ av remissbekräftelse (codes_2.2.xsd codeRequestConfirmationType_values).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/requestoutcometype-vs"
+        },
+        "name": "codeRequestOutcomeType",
+        "description": "Alla koder i RequestOutcomeTypeCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/requestoutcometype-cs"
+        },
+        "name": "codeRequestOutcomeType",
+        "description": "Typ av remissvar (codes_2.2.xsd codeRequestOutcomeType_values).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/versionreason-vs"
+        },
+        "name": "codeVersionReason",
+        "description": "Alla koder i VersionReasonCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/versionreason-cs"
+        },
+        "name": "codeVersionReason",
+        "description": "Versionsorsak enligt Kv e-remiss versionsorsak (codes_2.2.xsd codeVersionReason_values).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/errorcode-vs"
+        },
+        "name": "ErrorCodeEnum",
+        "description": "Alla koder i ErrorCodeCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/errorcode-cs"
+        },
+        "name": "ErrorCodeEnum",
+        "description": "Felkod när resultCode är ERROR (clinicalprocess_activity_request_2.2.xsd ErrorCodeEnum).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/process-result"
+        },
+        "name": "Process* — Svar (ResultType)",
+        "description": "Logisk modell för svaret i ProcessRequest, ProcessRequestConfirmation och ProcessRequestOutcome (ProcessRequest*ResponseType.result av typen ResultType). Beskriver om begäran gick bra eller ej, se avsnitt 4.3 Felhantering.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/processrequest"
+        },
+        "name": "ProcessRequest — Remiss (begäran)",
+        "description": "Logisk modell för begäran i ProcessRequest (RIV-TA urn:riv:clinicalprocess:activity:request:ProcessRequestResponder:2, element request av typen RequestType). Remittenten skickar en allmänremiss till remissmottagaren. Svaret är enbart ett resultat, se ProcessResult.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/processrequestconfirmation"
+        },
+        "name": "ProcessRequestConfirmation — Remissbekräftelse (begäran)",
+        "description": "Logisk modell för begäran i ProcessRequestConfirmation (RIV-TA urn:riv:clinicalprocess:activity:request:ProcessRequestConfirmationResponder:2, element requestConfirmation av typen RequestConfirmationType). Remissmottagaren skickar bekräftelse, besked om vidareskickning, kompletteringsbegäran, avbrott eller avvisning till remittenten. Svaret är enbart ett resultat, se ProcessResult.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/processrequestoutcome"
+        },
+        "name": "ProcessRequestOutcome — Remissvar (begäran)",
+        "description": "Logisk modell för begäran i ProcessRequestOutcome (RIV-TA urn:riv:clinicalprocess:activity:request:ProcessRequestOutcomeResponder:2, element requestOutcome av typen RequestOutcomeType samt valfri originalRequest). Remissbesvararen skickar delsvar, preliminärt svar eller slutsvar till remittenten. Svaret är enbart ett resultat, se ProcessResult.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/resultcode-vs"
+        },
+        "name": "ResultCodeEnum",
+        "description": "Alla koder i ResultCodeCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/resultcode-cs"
+        },
+        "name": "ResultCodeEnum",
+        "description": "Resultatkod för anropet (clinicalprocess_activity_request_2.2.xsd ResultCodeEnum).",
+        "exampleBoolean": false
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Hem",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "1-inledning.html",
+          "title": "1 Inledning",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "2-versionsinformation.html",
+          "title": "2 Versionsinformation",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "3-tjanstedomanens-arkitektur.html",
+          "title": "3 Tjänstedomänens arkitektur",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "4-tjanstedomanens-krav-och-regler.html",
+          "title": "4 Tjänstedomänens krav och regler",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "5-tjanstedomanens-meddelandemodeller.html",
+          "title": "5 Tjänstedomänens meddelandemodeller",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "6-gemensamma-informationskomponenter.html",
+          "title": "6 Gemensamma informationskomponenter",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "7-tjanstekontrakt.html",
+          "title": "7 Tjänstekontrakt",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2024+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "draft"
+      },
+      {
+        "code": "show-inherited-invariants",
+        "value": "false"
+      },
+      {
+        "code": "apply-contact",
+        "value": "true"
+      },
+      {
+        "code": "apply-publisher",
+        "value": "true"
+      },
+      {
+        "code": "apply-version",
+        "value": "true"
+      },
+      {
+        "code": "apply-copyright",
+        "value": "true"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/requesttype-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/versionreason-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/requestconfirmationtype-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/requestoutcometype-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/gender-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/telecomtype-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/resultcode-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/errorcode-cs"
+      }
+    ]
+  }
+}
