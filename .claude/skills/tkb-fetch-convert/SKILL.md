@@ -66,6 +66,8 @@ unzip /tmp/{slug}.zip -d igs/TKB_{domain_id}/source/
 }
 ```
 
+**Repo utan taggar och utan downloads** (t.ex. `clinicalprocess.activityprescription.logistics`, 2026-09-26): hämta arkivet för senaste commit på `master` och lås det till commit-hashen, så att `zip_url` är reproducerbar: `https://bitbucket.org/rivta-domains/{slug}/get/{kort-hash}.zip` (hashen från `.../refs/branches` eller `.../src/master/`). Logga en ASSUME om att versionen tas från dokumentets revisionshistorik.
+
 **Felhantering:**
 - 401/403 från Bitbucket API → Bitbucket kräver auth för detta repo, markera `blocked`
 - Inga taggar (Metod A) OCH inga zip-filer i downloads (Metod B) → markera `blocked` med notering "Inga publicerade zip-filer eller taggar"
@@ -136,6 +138,15 @@ Felhantering:
   PY
   ```
   Byt `.emf` mot `.svg` i bildlänkarna och kopiera bara `.svg` till `input/images/`. Kontrollera resultatet med en skärmdump (`/opt/pw-browsers/chromium-1194/chrome-linux/chrome --headless --no-sandbox --screenshot=… file://…/img.svg`). Text kan få något ojämna mellanrum, men diagrammet är läsbart (verifierat 2026-09-26 i `clinicalprocess_healthcond_rheuma`).
+
+  **Uppdatering 2026-09-26 (`clinicalprocess.activityprescription.logistics`):** LibreOffice (24.2) i sandlådan ger `Error: source file could not be loaded` för **alla** filer, även en vanlig `.txt`. Felet beror alltså på miljön, inte på dokumentet. Lägg ingen tid på LibreOffice här. Använd i stället `wvHtml` (paketet `wv`, installeras av SessionStart-hooken) som primär väg för `.doc`:
+  ```bash
+  cp "{path-to-.doc}" /tmp/tkb.doc
+  wvHtml --charset=utf-8 /tmp/tkb.doc /tmp/tkb.html
+  python3 .claude/skills/tkb-fetch-convert/wv2md.py /tmp/tkb.html /tmp/tkb.md
+  sed -i -E 's/\[Author ID[0-9]+: at [^]]*\]//g' /tmp/tkb.md   # revisionsmarkeringar
+  ```
+  `wv2md.py` ger rubriker från formatmallarna (`Rubrik 1`–`4`, numrerar nivå 1–2), riktiga Markdown-tabeller och listor, och **hoppar över överstruken text (`<s>`)**. Det är viktigt, för äldre TKB:er har ofta kvarlämnad överstruken text som `antiword` skriver ut som vanlig text (t.ex. "Apotekens ServiceeHälsomyndigheten", både "Ej applicerbart" och "Inga." under samma rubrik). Bildernas plats markeras `![Figur N](IMGnn)`. `wvHtml` kan inte själv exportera bilderna, så skär ut inbäddade PNG-strömmar ur `.doc`-filen (sök efter `\x89PNG\r\n\x1a\n` fram till `IEND`+4 byte) och para ihop dem med platsmarkeringarna genom att titta på bilderna. Sidhuvudets logotyp kommer också med och ska inte användas. Bilder som lagrats som Word-ritobjekt går inte att få ut. Markera dem med `SAKNAS I KÄLLDOKUMENT` och en ASSUME-post. Klipp bort sidhuvud- och sidfotstabellerna som hamnar sist i utdata.
 
 ---
 
