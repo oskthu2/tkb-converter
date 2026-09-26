@@ -31,6 +31,13 @@ if ! command -v antiword >/dev/null 2>&1; then
   { apt-get update -qq && apt-get install -y -qq antiword; } >/dev/null 2>&1 || missing+=("antiword")
 fi
 
+# wv (wvHtml) — primär konvertering av legacy .doc: behåller tabeller och markerar
+# överstruken text, till skillnad från antiword (se tkb-fetch-convert)
+if ! command -v wvHtml >/dev/null 2>&1; then
+  log "installerar wv"
+  { apt-get install -y -qq wv || { apt-get update -qq && apt-get install -y -qq wv; }; } >/dev/null 2>&1 || missing+=("wv")
+fi
+
 # FHIR R4-baspaketet — packages.fhir.org är inte nåbart härifrån, så SUSHI
 # behöver en lokal (stub-)kopia i ~/.fhir/packages. CI hämtar det riktiga paketet.
 if [ ! -f "$HOME/.fhir/packages/hl7.fhir.r4.core#4.0.1/package/package.json" ]; then
@@ -41,6 +48,6 @@ fi
 if [ ${#missing[@]} -gt 0 ]; then
   log "VARNING: kunde inte installera: ${missing[*]}"
 else
-  log "alla verktyg på plats (sushi, python-docx, antiword, FHIR R4-baspaket)"
+  log "alla verktyg på plats (sushi, python-docx, antiword, wv, FHIR R4-baspaket)"
 fi
 exit 0

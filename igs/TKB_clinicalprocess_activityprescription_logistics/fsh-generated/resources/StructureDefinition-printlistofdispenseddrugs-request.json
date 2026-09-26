@@ -1,0 +1,248 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "printlistofdispenseddrugs-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-logistics/StructureDefinition/printlistofdispenseddrugs-request",
+  "name": "PrintListOfDispensedDrugsRequest",
+  "title": "PrintListOfDispensedDrugs — Request",
+  "status": "draft",
+  "description": "Logisk modell för requestparametrar i PrintListOfDispensedDrugs\n(RIV-TA urn:riv:clinicalprocess:activityprescription:logistics:PrintListOfDispensedDrugsResponder:1, PrintListOfDispensedDrugsType).\nAnropande system ska ha anropat GetDispensedDrugs innan denna tjänst anropas.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-logistics/StructureDefinition/printlistofdispenseddrugs-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "printlistofdispenseddrugs-request",
+        "path": "printlistofdispenseddrugs-request",
+        "short": "PrintListOfDispensedDrugs — Request",
+        "definition": "Logisk modell för requestparametrar i PrintListOfDispensedDrugs\n(RIV-TA urn:riv:clinicalprocess:activityprescription:logistics:PrintListOfDispensedDrugsResponder:1, PrintListOfDispensedDrugsType).\nAnropande system ska ha anropat GetDispensedDrugs innan denna tjänst anropas."
+      },
+      {
+        "id": "printlistofdispenseddrugs-request.patient",
+        "path": "printlistofdispenseddrugs-request.patient",
+        "short": "Patient vars läkemedelsförteckning skall hämtas",
+        "definition": "Patient vars läkemedelsförteckning skall hämtas",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "printlistofdispenseddrugs-request.patient.patientidentifikation",
+        "path": "printlistofdispenseddrugs-request.patient.patientidentifikation",
+        "short": "Patientidentifikation",
+        "definition": "Personnummer från kodverk med OID 1.2.752.129.2.1.3, enhetligt utformat unikt person-id registrerat i folkbokföringen.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "printlistofdispenseddrugs-request.patient.patientidentifikation.kod",
+        "path": "printlistofdispenseddrugs-request.patient.patientidentifikation.kod",
+        "short": "Patientens personnummer",
+        "definition": "Fältlängd 1..12.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "printlistofdispenseddrugs-request.patient.patientidentifikation.kodverk",
+        "path": "printlistofdispenseddrugs-request.patient.patientidentifikation.kodverk",
+        "short": "OID för kodverket",
+        "definition": "Identifiering av berört kodverk/klassifikation enligt V-TIM 2.2 (XSD-typ OID, mönster [0-9][0-9.]*).\nFör personnummer: 1.2.752.129.2.1.3.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "printlistofdispenseddrugs-request.anropandeVardpersonal",
+        "path": "printlistofdispenseddrugs-request.anropandeVardpersonal",
+        "short": "Anropande vårdpersonal",
+        "definition": "Anropande vårdpersonal",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "printlistofdispenseddrugs-request.anropandeVardpersonal.efternamn",
+        "path": "printlistofdispenseddrugs-request.anropandeVardpersonal.efternamn",
+        "short": "Efternamn",
+        "definition": "Används i kombination med personHsaId för att identifiera användare. Fältlängd 1..35.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "printlistofdispenseddrugs-request.anropandeVardpersonal.fornamn",
+        "path": "printlistofdispenseddrugs-request.anropandeVardpersonal.fornamn",
+        "short": "Förnamn",
+        "definition": "Används i kombination med personHsaId för att identifiera användare. Fältlängd 1..35.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "printlistofdispenseddrugs-request.anropandeVardpersonal.personHsaId",
+        "path": "printlistofdispenseddrugs-request.anropandeVardpersonal.personHsaId",
+        "short": "HSA-id för läsande person",
+        "definition": "Fältlängd 1..64.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "printlistofdispenseddrugs-request.anropandeVardpersonal.vardenhetHsaId",
+        "path": "printlistofdispenseddrugs-request.anropandeVardpersonal.vardenhetHsaId",
+        "short": "HSA-id för läsande vårdenhet",
+        "definition": "Används för spårbarhet. Fältlängd 1..64.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "printlistofdispenseddrugs-request.anropandeVardpersonal.vardgivareHsaId",
+        "path": "printlistofdispenseddrugs-request.anropandeVardpersonal.vardgivareHsaId",
+        "short": "HSA-id för läsande vårdgivare",
+        "definition": "Används för spårbarhet. Fältlängd 1..64.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "printlistofdispenseddrugs-request.forskrivarkod",
+        "path": "printlistofdispenseddrugs-request.forskrivarkod",
+        "short": "Förskrivarens individuella förskrivarkod",
+        "definition": "Gruppförskrivarkoder får ej användas. Valideras mot FORS. Fältlängd 7..7.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "printlistofdispenseddrugs-request.identifieradArbetsplats",
+        "path": "printlistofdispenseddrugs-request.identifieradArbetsplats",
+        "short": "Identifierad arbetsplats",
+        "definition": "XSD: ArbetsplatsIdentifikation (xs:choice). Exakt ett av arbetsplatskod och arbetsplats ska anges.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "printlistofdispenseddrugs-request-arbetsplats-choice",
+            "severity": "error",
+            "human": "Exakt ett av arbetsplatskod och arbetsplats ska anges (xs:choice i ArbetsplatsIdentifikation)",
+            "expression": "arbetsplatskod.exists() xor arbetsplats.exists()",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-logistics/StructureDefinition/printlistofdispenseddrugs-request"
+          }
+        ]
+      },
+      {
+        "id": "printlistofdispenseddrugs-request.identifieradArbetsplats.arbetsplatskod",
+        "path": "printlistofdispenseddrugs-request.identifieradArbetsplats.arbetsplatskod",
+        "short": "Förskrivarens arbetsplatskod",
+        "definition": "Del av val. Valideras. Obligatorisk om arbetsplats inte anges. Fältlängd 1..20.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "printlistofdispenseddrugs-request.identifieradArbetsplats.arbetsplats",
+        "path": "printlistofdispenseddrugs-request.identifieradArbetsplats.arbetsplats",
+        "short": "Förskrivarens arbetsplats",
+        "definition": "Del av val. Obligatorisk om arbetsplatskod inte anges.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "printlistofdispenseddrugs-request.identifieradArbetsplats.arbetsplats.arbetsplatsnamn",
+        "path": "printlistofdispenseddrugs-request.identifieradArbetsplats.arbetsplats.arbetsplatsnamn",
+        "short": "Namnet på användarens arbetsplats",
+        "definition": "Fältlängd 1..64.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "printlistofdispenseddrugs-request.identifieradArbetsplats.arbetsplats.arbetsplatsort",
+        "path": "printlistofdispenseddrugs-request.identifieradArbetsplats.arbetsplats.arbetsplatsort",
+        "short": "Orten för användarens arbetsplats",
+        "definition": "Fältlängd 1..28.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}
