@@ -1,0 +1,490 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "inera.druglogistics-dosedispensing",
+  "url": "https://fhir.inera.se/ig/druglogistics-dosedispensing/ImplementationGuide/inera.druglogistics-dosedispensing",
+  "version": "1.1.0",
+  "name": "druglogisticsdosedispensing",
+  "title": "druglogistics: dosedispensing — Dosdispensering",
+  "status": "draft",
+  "contact": [
+    {
+      "name": "Inera Arkitektur",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.inera.se"
+        }
+      ]
+    }
+  ],
+  "copyright": "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "packageId": "inera.druglogistics-dosedispensing",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.r4.core",
+      "version": "4.0.1",
+      "uri": "http://fhir.org/packages/hl7.fhir.r4.core/ImplementationGuide/hl7.fhir.r4.core",
+      "id": "hl7_fhir_r4_core"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "StructureDefinition/avbestallorginalforpackning-request"
+        },
+        "name": "AvbestallOrginalforpackning — Request",
+        "description": "Logisk modell för begäran i AvbestallOrginalforpackning\n(urn:riv:druglogistics:dosedispensing:AvbestallOrginalforpackningResponder:1, AvbestallOrginalforpackningType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/avbestallorginalforpackning"
+        },
+        "name": "AvbestallOrginalforpackning — Response",
+        "description": "Logisk modell för svaret i AvbestallOrginalforpackning\n(urn:riv:druglogistics:dosedispensing:AvbestallOrginalforpackningResponder:1, AvbestallOrginalforpackningResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/bestallorginalforpackning-request"
+        },
+        "name": "BestallOrginalforpackning — Request",
+        "description": "Logisk modell för begäran i BestallOrginalforpackning\n(urn:riv:druglogistics:dosedispensing:BestallOrginalforpackningResponder:1, BestallOrginalforpackningType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/bestallorginalforpackning"
+        },
+        "name": "BestallOrginalforpackning — Response",
+        "description": "Logisk modell för svaret i BestallOrginalforpackning\n(urn:riv:druglogistics:dosedispensing:BestallOrginalforpackningResponder:1, BestallOrginalforpackningResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/dosedispensing-bestallningsstatus-vs"
+        },
+        "name": "Beställningsstatus",
+        "description": "Alla koder i BestallningsStatusCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/dosedispensing-bestallningsstatus-cs"
+        },
+        "name": "Beställningsstatus",
+        "description": "Koder för BestallningsStatusEnum i domänschemat. Visningstexter ur Pascal – Objekt och felhantering (Objekt_och_felhantering.pdf) och releasenoteringarna 1.0.4 (kod 5).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/dosedispensing-bestallningsurval-vs"
+        },
+        "name": "Beställningsurval",
+        "description": "Alla koder i BestallningsurvalCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/dosedispensing-bestallningsurval-cs"
+        },
+        "name": "Beställningsurval",
+        "description": "Koder för BestallningsurvalEnum i domänschemat. Visningstexter ur Pascal – Objekt och felhantering (Objekt_och_felhantering.pdf).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/hamtalokaltproduktsortiment-request"
+        },
+        "name": "HamtaLokaltProduktsortiment — Request",
+        "description": "Logisk modell för begäran i HamtaLokaltProduktsortiment\n(urn:riv:druglogistics:dosedispensing:HamtaLokaltProduktsortimentResponder:1, HamtaLokaltProduktsortimentType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/hamtalokaltproduktsortiment"
+        },
+        "name": "HamtaLokaltProduktsortiment — Response",
+        "description": "Logisk modell för svaret i HamtaLokaltProduktsortiment\n(urn:riv:druglogistics:dosedispensing:HamtaLokaltProduktsortimentResponder:1, HamtaLokaltProduktsortimentResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/hamtameddelanden-request"
+        },
+        "name": "HamtaMeddelanden — Request",
+        "description": "Logisk modell för begäran i HamtaMeddelanden\n(urn:riv:druglogistics:dosedispensing:HamtaMeddelandenResponder:1, HamtaMeddelandenType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/hamtameddelanden"
+        },
+        "name": "HamtaMeddelanden — Response",
+        "description": "Logisk modell för svaret i HamtaMeddelanden\n(urn:riv:druglogistics:dosedispensing:HamtaMeddelandenResponder:1, HamtaMeddelandenResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/hamtaorginalforpackning-request"
+        },
+        "name": "HamtaOrginalforpackning — Request",
+        "description": "Logisk modell för begäran i HamtaOrginalforpackning\n(urn:riv:druglogistics:dosedispensing:HamtaOrginalforpackningResponder:1, HamtaOrginalforpackningType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/hamtaorginalforpackning"
+        },
+        "name": "HamtaOrginalforpackning — Response",
+        "description": "Logisk modell för svaret i HamtaOrginalforpackning\n(urn:riv:druglogistics:dosedispensing:HamtaOrginalforpackningResponder:1, HamtaOrginalforpackningResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/hamtavardtagareinformation-request"
+        },
+        "name": "HamtaVardtagareinformation — Request",
+        "description": "Logisk modell för begäran i HamtaVardtagareinformation\n(urn:riv:druglogistics:dosedispensing:HamtaVardtagareinformationResponder:1, HamtaVardtagareinformationType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/hamtavardtagareinformation"
+        },
+        "name": "HamtaVardtagareinformation — Response",
+        "description": "Logisk modell för svaret i HamtaVardtagareinformation\n(urn:riv:druglogistics:dosedispensing:HamtaVardtagareinformationResponder:1, HamtaVardtagareinformationResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/dosedispensing-identitetstyp-vs"
+        },
+        "name": "Identitetstyp",
+        "description": "Alla koder i IdentitetstypCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/dosedispensing-identitetstyp-cs"
+        },
+        "name": "Identitetstyp",
+        "description": "Koder för IdentitetstypEnum i domänschemat. Visningstexter ur Pascal – Objekt och felhantering (Objekt_och_felhantering.pdf).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/dosedispensing-kommunikationsriktning-vs"
+        },
+        "name": "Kommunikationsriktning",
+        "description": "Alla koder i KommunikationsriktningCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/dosedispensing-kommunikationsriktning-cs"
+        },
+        "name": "Kommunikationsriktning",
+        "description": "Koder för KommunikationsriktningEnum i domänschemat. Visningstexter ur Pascal – Objekt och felhantering (Objekt_och_felhantering.pdf).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/dosedispensing-meddelandeprioritet-vs"
+        },
+        "name": "Meddelandeprioritet",
+        "description": "Alla koder i MeddelandePrioritetCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/dosedispensing-meddelandeprioritet-cs"
+        },
+        "name": "Meddelandeprioritet",
+        "description": "Koder för MeddelandePrioritetEnum i domänschemat. Visningstexter ur Pascal – Objekt och felhantering (Objekt_och_felhantering.pdf).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/dosedispensing-meddelandestatus-vs"
+        },
+        "name": "Meddelandestatus",
+        "description": "Alla koder i MeddelandeStatusCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/dosedispensing-meddelandestatus-cs"
+        },
+        "name": "Meddelandestatus",
+        "description": "Koder för MeddelandeStatusEnum i domänschemat. Visningstexter ur Pascal – Objekt och felhantering (Objekt_och_felhantering.pdf).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/dosedispensing-meddelandetyp-vs"
+        },
+        "name": "Meddelandetyp",
+        "description": "Alla koder i MeddelandetypCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/dosedispensing-meddelandetyp-cs"
+        },
+        "name": "Meddelandetyp",
+        "description": "Koder för MeddelandetypEnum i domänschemat. Visningstexter ur Pascal – Objekt och felhantering (Objekt_och_felhantering.pdf).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/dosedispensing-resultatkod-vs"
+        },
+        "name": "Resultatkod",
+        "description": "Alla koder i ResultatkodCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/dosedispensing-resultatkod-cs"
+        },
+        "name": "Resultatkod",
+        "description": "Koder för ResultatkodEnum i domänschemat. Visningstexter ur Pascal – Objekt och felhantering (Objekt_och_felhantering.pdf).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/skapavardtagare-request"
+        },
+        "name": "SkapaVardtagare — Request",
+        "description": "Logisk modell för begäran i SkapaVardtagare\n(urn:riv:druglogistics:dosedispensing:SkapaVardtagareResponder:1, SkapaVardtagareType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/skapavardtagare"
+        },
+        "name": "SkapaVardtagare — Response",
+        "description": "Logisk modell för svaret i SkapaVardtagare\n(urn:riv:druglogistics:dosedispensing:SkapaVardtagareResponder:1, SkapaVardtagareResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/skickameddelanden-request"
+        },
+        "name": "SkickaMeddelanden — Request",
+        "description": "Logisk modell för begäran i SkickaMeddelanden\n(urn:riv:druglogistics:dosedispensing:SkickaMeddelandenResponder:1, SkickaMeddelandenType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/skickameddelanden"
+        },
+        "name": "SkickaMeddelanden — Response",
+        "description": "Logisk modell för svaret i SkickaMeddelanden\n(urn:riv:druglogistics:dosedispensing:SkickaMeddelandenResponder:1, SkickaMeddelandenResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/sokvardandeenhet-request"
+        },
+        "name": "SokVardandeEnhet — Request",
+        "description": "Logisk modell för begäran i SokVardandeEnhet\n(urn:riv:druglogistics:dosedispensing:SokVardandeEnhetResponder:1, SokVardandeEnhetType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/sokvardandeenhet"
+        },
+        "name": "SokVardandeEnhet — Response",
+        "description": "Logisk modell för svaret i SokVardandeEnhet\n(urn:riv:druglogistics:dosedispensing:SokVardandeEnhetResponder:1, SokVardandeEnhetResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/uppdaterameddelandestatus-request"
+        },
+        "name": "UppdateraMeddelandeStatus — Request",
+        "description": "Logisk modell för begäran i UppdateraMeddelandeStatus\n(urn:riv:druglogistics:dosedispensing:UppdateraMeddelandeStatusResponder:1, UppdateraMeddelandeStatusType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/uppdaterameddelandestatus"
+        },
+        "name": "UppdateraMeddelandeStatus — Response",
+        "description": "Logisk modell för svaret i UppdateraMeddelandeStatus\n(urn:riv:druglogistics:dosedispensing:UppdateraMeddelandeStatusResponder:1, UppdateraMeddelandeStatusResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/uppdateravardtagareinformation-request"
+        },
+        "name": "UppdateraVardtagareinformation — Request",
+        "description": "Logisk modell för begäran i UppdateraVardtagareinformation\n(urn:riv:druglogistics:dosedispensing:UppdateraVardtagareinformationResponder:1, UppdateraVardtagareinformationType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/uppdateravardtagareinformation"
+        },
+        "name": "UppdateraVardtagareinformation — Response",
+        "description": "Logisk modell för svaret i UppdateraVardtagareinformation\n(urn:riv:druglogistics:dosedispensing:UppdateraVardtagareinformationResponder:1, UppdateraVardtagareinformationResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/dosedispensing-vardtagarstatus-vs"
+        },
+        "name": "Vårdtagarstatus",
+        "description": "Alla koder i VardtagarStatusCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/dosedispensing-vardtagarstatus-cs"
+        },
+        "name": "Vårdtagarstatus",
+        "description": "Koder för VardtagarStatusEnum i domänschemat. Visningstexter ur Pascal – Objekt och felhantering (Objekt_och_felhantering.pdf).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/dosedispensing-yrkeskod-vs"
+        },
+        "name": "Yrkeskod",
+        "description": "Alla koder i YrkesKodCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/dosedispensing-yrkeskod-cs"
+        },
+        "name": "Yrkeskod",
+        "description": "Koder för YrkesKodEnum i domänschemat. Visningstexter ur Pascal – Objekt och felhantering (Objekt_och_felhantering.pdf).",
+        "exampleBoolean": false
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Hem",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "1-inledning.html",
+          "title": "1 Inledning",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "2-versionsinformation.html",
+          "title": "2 Versionsinformation",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "3-tjanstedomanens-arkitektur.html",
+          "title": "3 Tjänstedomänens arkitektur",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "4-tjanstedomanens-krav-och-regler.html",
+          "title": "4 Tjänstedomänens krav och regler",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "5-tjanstedomanens-meddelandemodeller.html",
+          "title": "5 Tjänstedomänens meddelandemodeller",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "6-gemensamma-informationskomponenter.html",
+          "title": "6 Gemensamma informationskomponenter",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "7-tjanstekontrakt.html",
+          "title": "7 Tjänstekontrakt",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2024+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "draft"
+      },
+      {
+        "code": "show-inherited-invariants",
+        "value": "false"
+      },
+      {
+        "code": "apply-contact",
+        "value": "true"
+      },
+      {
+        "code": "apply-publisher",
+        "value": "true"
+      },
+      {
+        "code": "apply-version",
+        "value": "true"
+      },
+      {
+        "code": "apply-copyright",
+        "value": "true"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/dosedispensing-bestallningsstatus-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/dosedispensing-bestallningsurval-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/dosedispensing-identitetstyp-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/dosedispensing-kommunikationsriktning-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/dosedispensing-meddelandeprioritet-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/dosedispensing-meddelandestatus-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/dosedispensing-meddelandetyp-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/dosedispensing-resultatkod-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/dosedispensing-vardtagarstatus-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/dosedispensing-yrkeskod-cs"
+      }
+    ]
+  }
+}

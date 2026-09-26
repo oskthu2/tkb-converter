@@ -25,6 +25,12 @@ if ! python3 -c "import docx" >/dev/null 2>&1; then
   pip install --quiet python-docx >/dev/null 2>&1 || missing+=("python-docx")
 fi
 
+# pypdf, pillow, pymupdf (pdf_spec_to_md.py: domäner med PDF-specifikationer i stället för TKB)
+if ! python3 -c "import pypdf, PIL, fitz" >/dev/null 2>&1; then
+  log "installerar pypdf, pillow, pymupdf"
+  pip install --quiet pypdf pillow pymupdf >/dev/null 2>&1 || missing+=("pypdf/pillow/pymupdf")
+fi
+
 # emf2svg (konverterar EMF-figurer i TKB:er till SVG, se tkb-fetch-convert)
 if ! command -v emf2svg-conv >/dev/null 2>&1; then
   log "installerar emf2svg"
@@ -54,6 +60,6 @@ fi
 if [ ${#missing[@]} -gt 0 ]; then
   log "VARNING: kunde inte installera: ${missing[*]}"
 else
-  log "alla verktyg på plats (sushi, python-docx, emf2svg, antiword, wv, FHIR R4-baspaket)"
+  log "alla verktyg på plats (sushi, python-docx, pypdf/pillow/pymupdf, emf2svg, antiword, wv, FHIR R4-baspaket)"
 fi
 exit 0

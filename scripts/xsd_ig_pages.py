@@ -10,6 +10,18 @@ Konfigurationen (JSON) innehåller:
   ab_file: AB-dokumentets filnamn i input/images/ eller null,
   abbreviations: [[förkortning, betydelse], ...] (tolkade, se ASSUME i QUESTIONS.md)
 
+Valfria nycklar för domäner med andra källdokument än AB (t.ex. en PDF per kontrakt,
+druglogistics.dosedispensing). Utan dem blir sidorna som för eHälsomyndighetens domäner:
+  source_docs: text som beskriver övriga källdokument ("och de PDF-specifikationer …")
+  references: [[namn, dokument, kommentar], ...] (ersätter referenstabellen i avsnitt 1)
+  p3_text, p7_intro: ersätter inledningstexten i avsnitt 3 respektive 7
+  p2_markdown: sökväg till text som läggs sist i avsnitt 2 (t.ex. releasenoteringar)
+  p4_markdown: sökväg till innehållet i avsnitt 4 (ersätter standardtexten)
+  p6_markdown: sökväg till text som läggs före typerna i avsnitt 6
+  contract_docs: {kontrakt: {"markdown": sökväg, "pdf": filnamn}}; läggs in som
+                 "Specifikation" under kontraktet i avsnitt 7
+  shared_files: [[filnamn, beskrivning], ...] extra rader i "Gemensamma källfiler"
+
 Sidorna märks *SAKNAS I KÄLLDOKUMENT* där en TKB skulle ha stått som källa.
 Källfiler listas ur input/images/.
 """
@@ -18,6 +30,21 @@ import sys
 from pathlib import Path
 
 MISSING = "*SAKNAS I KÄLLDOKUMENT.*"
+
+
+def codesystem_table(ig):
+    """Kodverk som xsd_to_ig.py --codesystems har skapat ur schemats enumerationer."""
+    f = ig / "xsd-generated/codesystems.json"
+    if not f.exists():
+        return []
+    rows = ["### Kodverk", "",
+            "Enumerationerna i domänschemat är modellerade som kodverk (CodeSystem) med tillhörande värdemängd (ValueSet), "
+            "och fälten i de logiska modellerna är bundna till värdemängden (required).", "",
+            "| Typ i schemat | Kodverk | Värdemängd | Koder |", "| :--- | :--- | :--- | :--- |"]
+    for c in json.load(open(f)):
+        rows.append(f"| {c['enum']} | [{c['title']}](CodeSystem-{c['codesystem']}.html) | "
+                    f"[{c['name']}VS](ValueSet-{c['valueset']}.html) | {', '.join(c['codes'])} |")
+    return rows
 
 
 def main():
@@ -48,7 +75,7 @@ def main():
         f"# {cfg['title']}", "", "## Översikt", "",
         f"FHIR Implementation Guide för tjänstedomänen **{dom.replace('.', ': ', 1).replace('.', ': ')}** version {cfg['version']}. {cfg['summary']}", "",
         "**Observera:** källan innehåller ingen tjänstekontraktsbeskrivning (TKB). Denna IG är därför uppbyggd från domänens scheman (XSD/WSDL)"
-        + (" och dess dokument med arkitekturella beslut" if ab else "") + ". Avsnitt som i andra IG:er hämtas ur TKB:n är markerade med *SAKNAS I KÄLLDOKUMENT*. Beskrivningar av fält är hämtade ur schemaannoteringarna.", "",
+        + (" och dess dokument med arkitekturella beslut" if ab else "") + (f" {cfg['source_docs']}" if cfg.get("source_docs") else "") + ". Avsnitt som i andra IG:er hämtas ur TKB:n är markerade med *SAKNAS I KÄLLDOKUMENT*. Beskrivningar av fält är hämtade ur schemaannoteringarna.", "",
         f"RIV-TA namnrymd: `{cfg['namespace']}`", "",
         "Domänen innehåller följande tjänstekontrakt:", "",
         "| Kontrakt | Version | Typ |", "|----------|---------|-----|", *rows, "",
@@ -63,13 +90,15 @@ def main():
 
     p1 = ["## Inledning", "",
           f"{MISSING} Domänen har ingen tjänstekontraktsbeskrivning. Uppgifterna nedan är hämtade ur WSDL-filernas annoteringar"
-          + (" och domänens arkitekturella beslut." if ab else "."), "",
+          + (" och domänens arkitekturella beslut" if ab else "") + (f" {cfg['source_docs']}" if cfg.get("source_docs") else "") + ".", "",
           cfg["summary"], "", "| Egenskap | Värde |", "| :--- | :--- |"]
-    for k in ("Tjänstedomän", "Tjänsteinteraktionstyp", "RIV Teknisk Anvisning", "Förvaltning"):
+    for k in ("Tjänstedomän", "Tjänsteinteraktionstyp", "RIV Teknisk Anvisning", "WS-profil", "Förvaltning", "Förvaltas av"):
         if k in first:
             p1.append(f"| {k} | {first[k]} |")
     p1 += ["", "### Referenser", "", "| Namn | Dokument | Kommentar |", "| :--- | :--- | :--- |"]
-    if ab:
+    if cfg.get("references"):
+        p1 += [f"| {' | '.join(r)} |" for r in cfg["references"]]
+    elif ab:
         p1 += [f"| AB | [{ab}]({ab}) | Arkitekturella beslut för domänen, se [avsnitt 3](3-tjanstedomanens-arkitektur.html) |",
                "| RIV TA Domänschema 2.1 | ARK_0006 | Refereras i AB-2.2 |",
                "| RIV TA Tjänsteschema 2.1 | ARK_0005 | Refereras i AB-2.2 |"]
@@ -101,16 +130,21 @@ def main():
         p2 += ["", "### Revisionshistorik för dokumentet Arkitekturella beslut", "",
                "| Revision | Datum | Kommentar | Ändrat av |", "| :--- | :--- | :--- | :--- |",
                "| PA1 | 2017-01-19 | Första version | Arvid Thunholm, Inera |"]
+    if cfg.get("p2_markdown"):
+        p2 += ["", Path(cfg["p2_markdown"]).read_text().rstrip()]
     w("2-versionsinformation.md", p2)
 
     p3 = ["## Tjänstedomänens arkitektur", "",
-          f"{MISSING} Det finns ingen TKB som beskriver domänens arkitektur. Enligt WSDL-filerna adresseras anropen med SOAP-huvudet `LogicalAddress` "
-          "och anroparen identifieras med SOAP-huvudet `ArgosHeader` (se [avsnitt 7](7-tjanstekontrakt.html))."]
+          f"{MISSING} " + cfg.get("p3_text", "Det finns ingen TKB som beskriver domänens arkitektur. Enligt WSDL-filerna adresseras anropen med SOAP-huvudet `LogicalAddress` "
+          "och anroparen identifieras med SOAP-huvudet `ArgosHeader` (se [avsnitt 7](7-tjanstekontrakt.html)).")]
     if cfg.get("ab_markdown"):
         p3 += ["", Path(cfg["ab_markdown"]).read_text().rstrip()]
     w("3-tjanstedomanens-arkitektur.md", p3)
 
-    w("4-tjanstedomanens-krav-och-regler.md", [
+    if cfg.get("p4_markdown"):
+        w("4-tjanstedomanens-krav-och-regler.md", ["## Tjänstedomänens krav och regler", "", Path(cfg["p4_markdown"]).read_text().rstrip()])
+    else:
+      w("4-tjanstedomanens-krav-och-regler.md", [
         "## Tjänstedomänens krav och regler", "", f"{MISSING} Det finns ingen TKB som beskriver krav och regler. Det som framgår av schemana:", "",
         "### Felhantering", "",
         "Tjänsterna returnerar fel som SOAP-fel (wsdl:fault), inte som ett resultatfält i svaret. Två feltyper är definierade i domänschemana:", "",
@@ -135,11 +169,14 @@ def main():
 
     w("6-gemensamma-informationskomponenter.md", [
         "## Gemensamma informationskomponenter", "",
+        *([Path(cfg["p6_markdown"]).read_text().rstrip(), ""] if cfg.get("p6_markdown") else []),
+        *(codesystem_table(ig) + ["", "### Typer i domänschemat", ""] if (ig / "xsd-generated/codesystems.json").exists() or cfg.get("p6_markdown") else []),
         f"{MISSING} Komponenterna nedan är de typer ur domänschemana som används av tjänstekontrakten. Beskrivningarna är schemaannoteringarna. "
         "Flera typer finns i mer än en version av domänschemat; versionen anges då inom parentes.", "",
         (ig / "xsd-generated/types.md").read_text().rstrip()])
 
-    p7 = ["## Tjänstekontrakt", "",
+    p7 = ["## Tjänstekontrakt", "", cfg["p7_intro"]] if cfg.get("p7_intro") else [
+          "## Tjänstekontrakt", "",
           f"{MISSING} Det finns inga kontraktsbeskrivningar. Beskrivningarna nedan är hämtade ur WSDL och XSD. "
           "Alla kontrakt har SOAP-huvudena LogicalAddress och ArgosHeader och returnerar fel som `ApplicationException` eller `SystemException` "
           "(se [avsnitt 4](4-tjanstedomanens-krav-och-regler.html)). ArgosHeaderType har följande fält, alla string och 0..1: forskrivarkod, legitimationskod, "
@@ -153,20 +190,29 @@ def main():
                f"| Namnrymd (tjänsteschema) | `{c['responder_ns']}` |",
                f"| Namnrymd (WSDL) | `{c['wsdl_ns']}` |",
                f"| SOAP-action | `{c['soap_action']}` |",
-               f"| Interaktionstyp | {m.get('Tjänsteinteraktionstyp', '-')} |", "",
-               "#### Fältregler", "", (ig / f"xsd-generated/{c['id']}.md").read_text().rstrip(), "",
+               f"| Interaktionstyp | {m.get('Tjänsteinteraktionstyp', '-')} |", ""]
+        doc = cfg.get("contract_docs", {}).get(c["id"])
+        if doc:
+            p7 += ["#### Specifikation", "",
+                   f"Återgiven ur [{doc['pdf']}]({doc['pdf']}) (mekanisk konvertering från PDF; vid tveksamhet gäller PDF:en).", "",
+                   Path(doc["markdown"]).read_text().rstrip(), ""]
+        p7 += ["#### Fältregler (XSD)" if doc else "#### Fältregler", "", (ig / f"xsd-generated/{c['id']}.md").read_text().rstrip(), "",
                "#### FHIR-artefakter", "",
                f"* [{c['id']}Request](StructureDefinition-{cid}-request.html): logisk modell för begäran, inklusive SOAP-huvudena"]
         if c["has_response_model"]:
             p7.append(f"* [{c['id']}](StructureDefinition-{cid}.html): logisk modell för svaret")
-        src = [f for f in images if f.startswith(c["id"] + "Interaction") or f.startswith(c["id"] + "Responder")]
+        src = [f for f in images if (f.startswith(c["id"] + "Interaction") or f.startswith(c["id"] + "Responder"))
+               and f.endswith((".wsdl", ".xsd"))]
         p7 += ["", "#### Källfiler", "", "| Fil | Beskrivning |", "| :--- | :--- |"]
         p7 += [f"| [{f}]({f}) | {'WSDL för tjänsteinteraktionen' if f.endswith('.wsdl') else 'Tjänsteschema'} |" for f in src]
+        if doc:
+            p7.append(f"| [{doc['pdf']}]({doc['pdf']}) | Gränssnittsspecifikation (PDF) |")
     shared = [f for f in images if f.endswith(".xsd") and "Interaction" not in f and "Responder" not in f]
     p7 += ["", "### Gemensamma källfiler", "", "| Fil | Beskrivning |", "| :--- | :--- |"]
     p7 += [f"| [{f}]({f}) | {'SOAP-huvud' if f.startswith(('ArgosHeader', 'itintegration')) else 'Domänschema'} |" for f in shared]
     if ab:
         p7.append(f"| [{ab}]({ab}) | Arkitekturella beslut |")
+    p7 += [f"| [{f}]({f}) | {d} |" for f, d in cfg.get("shared_files", [])]
     w("7-tjanstekontrakt.md", p7)
     print(f"[xsd_ig_pages] skrev index och sidor 1–7 i {pc}")
 
