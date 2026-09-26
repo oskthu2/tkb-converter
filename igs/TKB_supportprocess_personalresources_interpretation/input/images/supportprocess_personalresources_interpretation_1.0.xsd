@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Kentor licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:riv:supportprocess:personalresources:interpretation:1" targetNamespace="urn:riv:supportprocess:personalresources:interpretation:1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:import/>
+	
+	<xs:complexType name="AuthorizationLevelWithRequirement">
+		<xs:sequence>
+			<xs:element name="MinAuthorizationLevel" type="tns:CVType"/>
+			<xs:element name="RequiredLevel" type="tns:RequirementLevelEnum"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Booking">
+		<xs:sequence>
+			<xs:element name="Occasion" type="tns:BookingOccasion"/>
+			<xs:element name="AnswerData" type="tns:BookingAnswerData"/>
+			<xs:element name="Data" type="tns:BookingData"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+  
+  	<xs:complexType name="BookingAnswerData">
+		<xs:sequence>
+			<xs:element name="ReferenceNumber" minOccurs="0" type="xs:string" />
+			<xs:element name="BookingInformationFromAssociation" type="tns:BookingInformationFromAssociation" />
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+  
+	<xs:complexType name="BookingCreate">
+		<xs:sequence>
+			<xs:element name="CreateBookingOccasion" type="tns:BookingOccasionCreate" maxOccurs="unbounded"/>
+			<xs:element name="InterpretationLanguageId" type="xs:string"/>
+			<xs:element name="InterpretationType" type="tns:CVType"/>
+			<xs:element name="Patient" type="tns:PatientInformation"/>
+			<xs:element name="ContactInformation" type="tns:ContactInformation"/>
+			<xs:element name="BookingInformationFromAssociation" type="tns:BookingInformationFromAssociation"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="BookingData">
+		<xs:sequence>
+			<xs:element name="InterpretationLanguageId" type="xs:string"/>
+			<xs:element name="Patient" type="tns:PatientInformation" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AuthorizationLevel" type="tns:AuthorizationLevelWithRequirement"/>
+			<xs:element name="AdditionalRequirements" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
+			<xs:element name="InterpretationType" type="tns:CVType"/>
+			<xs:element name="ContactInformation" type="tns:ContactInformation"/>
+			<xs:element name="TravelTimeCostAllowed" type="xs:boolean"/>
+			<xs:element name="InterpreterGender" type="tns:RequiredGenderWithRequirement" minOccurs="0"/>
+			<xs:element name="InterpreterName" type="tns:RequiredInterpreterNameWithRequirement" minOccurs="0"/>
+			<xs:element name="AdditionalPatientRequest" minOccurs="0" type="xs:string" />
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="BookingInformationFromAssociation">
+		<xs:sequence>
+			<xs:element name="AuthorizationLevel" type="tns:CVType"/>
+			<xs:element name="RequestTravelTimeCost" type="xs:boolean"/>
+			<xs:element name="InterpreterName">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PhoneNumberForInterpretation" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="BookingOccasion">
+		<xs:sequence>
+			<xs:element name="InvoiceEventId">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="BookingNumber">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minInclusive value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ReferenceNumber" type="xs:string" minOccurs="0"/>
+			<xs:element name="State" type="tns:BookingStateEnum"/>
+			<xs:element name="StartTime" type="xs:dateTime"/>
+			<xs:element name="EndTime" type="xs:dateTime"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+  
+  	<xs:complexType name="BookingOccasionCreate">
+		<xs:sequence>
+			<xs:element name="ReferenceNumber" type="xs:string"/>
+			<xs:element name="StartTime" type="xs:dateTime"/>
+			<xs:element name="EndTime" type="xs:dateTime"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="BookingUpdate">
+		<xs:sequence>
+			<xs:element name="BookingNumber" >
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minInclusive value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ReferenceNumber" type="xs:string" minOccurs="0" />
+			<xs:element name="BookingInformationFromAssociation" type="tns:BookingInformationFromAssociation" />
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+  
+	<xs:complexType name="ContactInformation">
+		<xs:sequence>
+			<xs:element name="Address">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ChangedAddress" type="xs:boolean" />
+			<xs:element name="DoorCode" minOccurs="0" type="xs:string"/>
+			<xs:element name="LocationDetails" minOccurs="0" type="xs:string"/>
+			<xs:element name="LocationName">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ContactPerson">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ContactPhone">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="HealthCareProfessionalName">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OrderingPersonName">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OrderingPersonId" type="tns:IIType" />
+			<xs:element name="OrderingUnitName">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OrderingUnitHsaId" type="tns:IIType"/>
+			<xs:element name="OrderingHealthcareUnitName">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="OrderingHealthcareUnitHsaId" type="tns:IIType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="CVType">
+		<xs:sequence>
+			<xs:element name="code" type="xs:string"/>
+			<xs:element name="codeSystem" type="xs:string"/>
+			<xs:element name="codeSystemName" type="xs:string" minOccurs="0"/>
+			<xs:element name="codeSystemVersion" type="xs:string" minOccurs="0"/>
+			<xs:element name="displayName" type="xs:string" minOccurs="0"/>
+			<xs:element name="originalText" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Inquiry">
+		<xs:sequence>
+			<xs:element name="InquiryId">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minInclusive value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Round">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minInclusive value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Occasions" type="tns:BookingOccasion" maxOccurs="unbounded"/>
+			<xs:element name="Data" type="tns:BookingData"/>
+			<xs:element name="InquiryState" type="tns:InquiryStateEnum"/>
+			<xs:element name="LastResponseTime" type="xs:dateTime"/>
+			<xs:element name="FirstInRank" type="xs:boolean"/>
+			<xs:element name="SameInterpreterRequiredForAllOccasions" type="xs:boolean"/>
+			<xs:element name="InterpreterName" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ExplainingText" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+  
+  	<xs:complexType name="IIType">
+		<xs:sequence>
+			<xs:element name="root" type="xs:string"/>
+			<xs:element name="extension" type="xs:string"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+  
+	<xs:complexType name="InquiryResponse">
+		<xs:sequence>
+			<xs:element name="InquiryId">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minInclusive value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Round">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minInclusive value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ReferenceNumberMap" type="tns:ReferenceNumberMapping" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Answer" type="tns:InquiryResponseAnswerEnum"/>
+			<xs:element name="BookingInformationFromAssociation" type="tns:BookingInformationFromAssociation" />
+			<xs:element name="ExplainingText" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+  
+  	<xs:simpleType name="MessageSequenceNumber">
+		<xs:restriction base="xs:unsignedLong"/>
+	</xs:simpleType>
+  
+	<xs:complexType name="PatientInformation">
+		<xs:sequence>
+			<xs:element name="Age">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="200"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Gender" type="tns:CVType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+  
+	<xs:complexType name="ReferenceNumberMapping">
+		<xs:sequence>
+			<xs:element name="BookingNumber">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minInclusive value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ReferenceNumber">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+  
+  	<xs:complexType name="RequiredGenderWithRequirement">
+		<xs:sequence>
+			<xs:element name="RequiredGender" type="tns:CVType" minOccurs="0"/>
+			<xs:element name="RequiredLevel" type="tns:RequirementLevelEnum"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+  
+	<xs:complexType name="RequiredInterpreterNameWithRequirement">
+		<xs:sequence>
+			<xs:element name="RequiredInterpreterName" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RequiredLevel" type="tns:RequirementLevelEnum"/>
+			<xs:element name="IsPreBooked" type="xs:boolean"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+  
+ 	<xs:complexType name="ResultType">
+		<xs:annotation>
+			<xs:documentation>
+			ResultType hanterar logiska fel.
+
+			resultCode:
+			Kan endast vara OK, INFO eller ERROR.
+			errorCode:
+			Sätts endast om resultCode är ERROR. Tillåtna värden sätts per tjänstedomän.
+			subcode:
+			Tillåtna värden sätts per tjänstedomän.
+			logId:
+			En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.
+			message:
+			En beskrivande text som kan visas för användaren.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="resultCode" type="tns:ResultCodeEnum"/>
+			<xs:element name="errorCode" type="tns:ErrorCodeEnum" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="subcode" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="logId" type="xs:string"/>
+			<xs:element name="message" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+  
+	<!--Enum types-->
+	<xs:simpleType name="BookingStateEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="New"/>
+			<xs:enumeration value="AssociationBooked"/>
+			<xs:enumeration value="Canceled"/>
+			<xs:enumeration value="Acknowledged"/>
+			<xs:enumeration value="AutomaticallyAcknowledged"/>
+			<xs:enumeration value="AllDeclined"/>
+			<xs:enumeration value="AcceptedByAtLeastOne"/>
+			<xs:enumeration value="LateCanceled"/>
+			<xs:enumeration value="Invalid"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="InquiryStateEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NotAnswered"/>
+			<xs:enumeration value="Booked"/>
+			<xs:enumeration value="Rejected"/>
+			<xs:enumeration value="Timeout"/>
+			<xs:enumeration value="CanceledByInitiator"/>
+			<xs:enumeration value="Accepted"/>
+			<xs:enumeration value="LostBeforeAnswer"/>
+			<xs:enumeration value="LostAccepted"/>
+			<xs:enumeration value="Invalid"/>
+		</xs:restriction>
+	</xs:simpleType>
+  
+	<xs:simpleType name="ResultCodeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="OK"/>
+			<xs:enumeration value="ERROR"/>
+			<xs:enumeration value="INFO"/>
+		</xs:restriction>
+	</xs:simpleType>
+  
+	<xs:simpleType name="ErrorCodeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="UNSPECIFIED"/>
+			<xs:enumeration value="INTERNAL_ERROR"/>
+			<xs:enumeration value="AUTHENTICATION_ERROR"/>
+			<xs:enumeration value="DEPRECATED_OR_UNAVAILABLE"/>
+			<xs:enumeration value="NO_ITEMS_MATCHED"/>
+			<xs:enumeration value="EXPIRED"/>
+			<xs:enumeration value="ARGUMENT_NOT_VALID"/>
+			<xs:enumeration value="ARGUMENT_NOT_VALID_IN_CONTEXT"/>
+		</xs:restriction>
+	</xs:simpleType>
+  
+	<xs:simpleType name="InquiryResponseAnswerEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Accept"/>
+			<xs:enumeration value="AcceptWithException"/>
+			<xs:enumeration value="Reject"/>
+		</xs:restriction>
+	</xs:simpleType>
+  
+	<xs:simpleType name="RequirementLevelEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Desired"/>
+			<xs:enumeration value="Only"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

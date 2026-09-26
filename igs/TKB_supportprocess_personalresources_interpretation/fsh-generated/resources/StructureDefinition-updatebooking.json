@@ -1,0 +1,135 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "updatebooking",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/supportprocess-personalresources-interpretation/StructureDefinition/updatebooking",
+  "name": "UpdateBooking",
+  "title": "UpdateBooking — Begäran",
+  "status": "draft",
+  "description": "Logisk modell för begäran i UpdateBooking (urn:riv:supportprocess:personalresources:interpretation:UpdateBookingResponder:1, UpdateBookingType). Tolkförmedlingen uppdaterar beställningsinformation i Tolkportalen. Svaret beskrivs av InterpretationResult.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/supportprocess-personalresources-interpretation/StructureDefinition/updatebooking",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "updatebooking",
+        "path": "updatebooking",
+        "short": "UpdateBooking — Begäran",
+        "definition": "Logisk modell för begäran i UpdateBooking (urn:riv:supportprocess:personalresources:interpretation:UpdateBookingResponder:1, UpdateBookingType). Tolkförmedlingen uppdaterar beställningsinformation i Tolkportalen. Svaret beskrivs av InterpretationResult."
+      },
+      {
+        "id": "updatebooking.bookingUpdate",
+        "path": "updatebooking.bookingUpdate",
+        "short": "Uppdatering av beställning",
+        "definition": "Uppdatering av beställning (BookingUpdate).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "updatebooking.bookingUpdate.bookingNumber",
+        "path": "updatebooking.bookingUpdate.bookingNumber",
+        "short": "Beställningsnummer",
+        "definition": "Tolkportalens beställningsnummer (≥ 0).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "updatebooking.bookingUpdate.referenceNumber",
+        "path": "updatebooking.bookingUpdate.referenceNumber",
+        "short": "Referensnummer",
+        "definition": "Tolkförmedlingens referensnummer.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "updatebooking.bookingUpdate.bookingInformationFromAssociation",
+        "path": "updatebooking.bookingUpdate.bookingInformationFromAssociation",
+        "short": "Information från tolkförmedlingen",
+        "definition": "Information från tolkförmedlingen om tolkningen (BookingInformationFromAssociation).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "updatebooking.bookingUpdate.bookingInformationFromAssociation.authorizationLevel",
+        "path": "updatebooking.bookingUpdate.bookingInformationFromAssociation.authorizationLevel",
+        "short": "Kompetensnivå",
+        "definition": "Tolkens kompetensnivå enligt KV Kompetensnivå tolk [R4], codeSystem eec2f9b0-03d5-450d-9797-ac0c74f6cfac.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "updatebooking.bookingUpdate.bookingInformationFromAssociation.requestTravelTimeCost",
+        "path": "updatebooking.bookingUpdate.bookingInformationFromAssociation.requestTravelTimeCost",
+        "short": "Begär restidsersättning",
+        "definition": "Anger om tolkförmedlingen efterfrågar restidsersättning för uppdraget.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "updatebooking.bookingUpdate.bookingInformationFromAssociation.interpreterName",
+        "path": "updatebooking.bookingUpdate.bookingInformationFromAssociation.interpreterName",
+        "short": "Tolkens namn",
+        "definition": "Tolkens namn (minst ett tecken).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "updatebooking.bookingUpdate.bookingInformationFromAssociation.phoneNumberForInterpretation",
+        "path": "updatebooking.bookingUpdate.bookingInformationFromAssociation.phoneNumberForInterpretation",
+        "short": "Telefonnummer för distanstolkning",
+        "definition": "Telefonnummer som distanstolkning ska utföras på.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

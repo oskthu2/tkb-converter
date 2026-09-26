@@ -1,0 +1,727 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "listinquiries",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/supportprocess-personalresources-interpretation/StructureDefinition/listinquiries",
+  "name": "ListInquiries",
+  "title": "ListInquiries — Svar",
+  "status": "draft",
+  "description": "Logisk modell för svaret i ListInquiries (urn:riv:supportprocess:personalresources:interpretation:ListInquiriesResponder:1, ListInquiriesResponseType).",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/supportprocess-personalresources-interpretation/StructureDefinition/listinquiries",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "listinquiries",
+        "path": "listinquiries",
+        "short": "ListInquiries — Svar",
+        "definition": "Logisk modell för svaret i ListInquiries (urn:riv:supportprocess:personalresources:interpretation:ListInquiriesResponder:1, ListInquiriesResponseType)."
+      },
+      {
+        "id": "listinquiries.inquiries",
+        "path": "listinquiries.inquiries",
+        "short": "Förfrågningar",
+        "definition": "Förfrågningar (Inquiry).",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.inquiryId",
+        "path": "listinquiries.inquiries.inquiryId",
+        "short": "Förfrågans id",
+        "definition": "Id för förfrågan.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "positiveInt"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.round",
+        "path": "listinquiries.inquiries.round",
+        "short": "Utskicksrunda",
+        "definition": "1 = första rundan, 2 = första påminnelserundan osv.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "positiveInt"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.occasions",
+        "path": "listinquiries.inquiries.occasions",
+        "short": "Tolkningstillfälle",
+        "definition": "Tolkningstillfälle (BookingOccasion).",
+        "min": 1,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.occasions.invoiceEventId",
+        "path": "listinquiries.inquiries.occasions.invoiceEventId",
+        "short": "Faktureringsnummer",
+        "definition": "Faktureringsnummer.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.occasions.bookingNumber",
+        "path": "listinquiries.inquiries.occasions.bookingNumber",
+        "short": "Beställningsnummer",
+        "definition": "Tolkportalens beställningsnummer (≥ 0).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.occasions.referenceNumber",
+        "path": "listinquiries.inquiries.occasions.referenceNumber",
+        "short": "Referensnummer",
+        "definition": "Tolkförmedlingens referensnummer.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.occasions.state",
+        "path": "listinquiries.inquiries.occasions.state",
+        "short": "Status",
+        "definition": "Status för beställningen (BookingStateEnum).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/supportprocess-personalresources-interpretation/ValueSet/bookingstate-vs"
+        }
+      },
+      {
+        "id": "listinquiries.inquiries.occasions.startTime",
+        "path": "listinquiries.inquiries.occasions.startTime",
+        "short": "Starttid",
+        "definition": "Besökets starttid, se 5.2.1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.occasions.endTime",
+        "path": "listinquiries.inquiries.occasions.endTime",
+        "short": "Sluttid",
+        "definition": "Besökets sluttid, se 5.2.1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data",
+        "path": "listinquiries.inquiries.data",
+        "short": "Beställningsinformation",
+        "definition": "Information om en beställning (BookingData).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.interpretationLanguageId",
+        "path": "listinquiries.inquiries.data.interpretationLanguageId",
+        "short": "Språk",
+        "definition": "Språk som ska tolkas enligt Hälso- och sjukvårdsförvaltningens (HSF) språktabell. Arbete pågår med att harmonisera med ISO 639.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.patient",
+        "path": "listinquiries.inquiries.data.patient",
+        "short": "Patient",
+        "definition": "Information om patienten (PatientInformation).",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.patient.age",
+        "path": "listinquiries.inquiries.data.patient.age",
+        "short": "Ålder",
+        "definition": "Patientens ålder i år (0–200).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.patient.gender",
+        "path": "listinquiries.inquiries.data.patient.gender",
+        "short": "Kön",
+        "definition": "Patientens kön enligt KV Kön [R4], codeSystem 1.2.752.129.2.2.1.1. Giltiga värden (urval): 1 = man, 2 = kvinna.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.authorizationLevel",
+        "path": "listinquiries.inquiries.data.authorizationLevel",
+        "short": "Krav på kompetensnivå",
+        "definition": "Krav på tolkens kompetensnivå (AuthorizationLevelWithRequirement).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.authorizationLevel.minAuthorizationLevel",
+        "path": "listinquiries.inquiries.data.authorizationLevel.minAuthorizationLevel",
+        "short": "Lägsta kompetensnivå",
+        "definition": "Tolkens kompetensnivå enligt KV Kompetensnivå tolk [R4], codeSystem eec2f9b0-03d5-450d-9797-ac0c74f6cfac.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.authorizationLevel.requiredLevel",
+        "path": "listinquiries.inquiries.data.authorizationLevel.requiredLevel",
+        "short": "Kravnivå",
+        "definition": "Desired = angiven nivå är lägsta accepterade men högre godtas; Only = endast angiven nivå godtas.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/supportprocess-personalresources-interpretation/ValueSet/requirementlevel-vs"
+        }
+      },
+      {
+        "id": "listinquiries.inquiries.data.additionalRequirements",
+        "path": "listinquiries.inquiries.data.additionalRequirements",
+        "short": "Ytterligare krav",
+        "definition": "Eventuella ytterligare krav från beställaren.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.interpretationType",
+        "path": "listinquiries.inquiries.data.interpretationType",
+        "short": "Typ av tolkning",
+        "definition": "Typ av tolkning enligt KV Typ av tolkning [R4], codeSystem 498c11f2-05c0-4d99-aef2-770a2b2a8260.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.contactInformation",
+        "path": "listinquiries.inquiries.data.contactInformation",
+        "short": "Kontaktinformation",
+        "definition": "Information om tolkstället och beställaren (ContactInformation).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.contactInformation.address",
+        "path": "listinquiries.inquiries.data.contactInformation.address",
+        "short": "Adress",
+        "definition": "Adress till tolkställe.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.contactInformation.changedAddress",
+        "path": "listinquiries.inquiries.data.contactInformation.changedAddress",
+        "short": "Ändrad adress",
+        "definition": "Anger om adressen skiljer sig från adressen i elektroniska katalogen (EK).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.contactInformation.doorCode",
+        "path": "listinquiries.inquiries.data.contactInformation.doorCode",
+        "short": "Portkod",
+        "definition": "Eventuell portkod till tolkstället.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.contactInformation.locationDetails",
+        "path": "listinquiries.inquiries.data.contactInformation.locationDetails",
+        "short": "Platsförtydligande",
+        "definition": "Platsförtydligande eller vägbeskrivning till tolkstället.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.contactInformation.locationName",
+        "path": "listinquiries.inquiries.data.contactInformation.locationName",
+        "short": "Tolkställe",
+        "definition": "Namn på tolkstället.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.contactInformation.contactPerson",
+        "path": "listinquiries.inquiries.data.contactInformation.contactPerson",
+        "short": "Kontaktperson",
+        "definition": "Kontaktpersonens namn.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.contactInformation.contactPhone",
+        "path": "listinquiries.inquiries.data.contactInformation.contactPhone",
+        "short": "Kontakttelefon",
+        "definition": "Telefonnummer till kontaktperson.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.contactInformation.healthCareProfessionalName",
+        "path": "listinquiries.inquiries.data.contactInformation.healthCareProfessionalName",
+        "short": "Vårdpersonal",
+        "definition": "Namn på hälso- och sjukvårdspersonal som ska träffa patienten.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.contactInformation.orderingPersonName",
+        "path": "listinquiries.inquiries.data.contactInformation.orderingPersonName",
+        "short": "Beställare",
+        "definition": "Namn på beställare.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.contactInformation.orderingPersonId",
+        "path": "listinquiries.inquiries.data.contactInformation.orderingPersonId",
+        "short": "Beställarens HSA-id",
+        "definition": "value = HSA-id; system = urn:oid:1.2.752.129.2.1.4.1 (RIV-TA IIType root/extension).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.contactInformation.orderingUnitName",
+        "path": "listinquiries.inquiries.data.contactInformation.orderingUnitName",
+        "short": "Beställande enhet",
+        "definition": "Beställande enhetens namn.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.contactInformation.orderingUnitHsaId",
+        "path": "listinquiries.inquiries.data.contactInformation.orderingUnitHsaId",
+        "short": "Beställande enhetens HSA-id",
+        "definition": "value = HSA-id; system = urn:oid:1.2.752.129.2.1.4.1 (RIV-TA IIType root/extension).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.contactInformation.orderingHealthcareUnitName",
+        "path": "listinquiries.inquiries.data.contactInformation.orderingHealthcareUnitName",
+        "short": "Överordnad enhet",
+        "definition": "Namn på enhet som organisatoriskt ligger över den beställande enheten.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.contactInformation.orderingHealthcareUnitHsaId",
+        "path": "listinquiries.inquiries.data.contactInformation.orderingHealthcareUnitHsaId",
+        "short": "Överordnad enhets HSA-id",
+        "definition": "value = HSA-id; system = urn:oid:1.2.752.129.2.1.4.1 (RIV-TA IIType root/extension).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.travelTimeCostAllowed",
+        "path": "listinquiries.inquiries.data.travelTimeCostAllowed",
+        "short": "Restidsersättning möjlig",
+        "definition": "Anger om restidsersättning är möjlig inom ramen för förfrågan.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.interpreterGender",
+        "path": "listinquiries.inquiries.data.interpreterGender",
+        "short": "Krav på tolkens kön",
+        "definition": "Krav på tolkens kön (RequiredGenderWithRequirement).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.interpreterGender.requiredGender",
+        "path": "listinquiries.inquiries.data.interpreterGender.requiredGender",
+        "short": "Tolkens kön",
+        "definition": "Tolkens kön enligt KV Kön [R4], codeSystem 1.2.752.129.2.2.1.1. Giltiga värden (urval): 1 = man, 2 = kvinna.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.interpreterGender.requiredLevel",
+        "path": "listinquiries.inquiries.data.interpreterGender.requiredLevel",
+        "short": "Kravnivå",
+        "definition": "Desired = angivet kön önskas; Only = endast angivet kön godtas.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/supportprocess-personalresources-interpretation/ValueSet/requirementlevel-vs"
+        }
+      },
+      {
+        "id": "listinquiries.inquiries.data.interpreterName",
+        "path": "listinquiries.inquiries.data.interpreterName",
+        "short": "Krav på namngiven tolk",
+        "definition": "Krav på en specifik namngiven tolk (RequiredInterpreterNameWithRequirement).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.interpreterName.requiredInterpreterName",
+        "path": "listinquiries.inquiries.data.interpreterName.requiredInterpreterName",
+        "short": "Tolkens namn",
+        "definition": "Tolkens namn.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.interpreterName.requiredLevel",
+        "path": "listinquiries.inquiries.data.interpreterName.requiredLevel",
+        "short": "Kravnivå",
+        "definition": "Desired = den namngivna tolken önskas; Only = endast den namngivna tolken godtas.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/supportprocess-personalresources-interpretation/ValueSet/requirementlevel-vs"
+        }
+      },
+      {
+        "id": "listinquiries.inquiries.data.interpreterName.isPreBooked",
+        "path": "listinquiries.inquiries.data.interpreterName.isPreBooked",
+        "short": "Förbokad",
+        "definition": "Anger om tolken redan är vidtalad om uppdraget.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.data.additionalPatientRequest",
+        "path": "listinquiries.inquiries.data.additionalPatientRequest",
+        "short": "Patientens önskemål",
+        "definition": "Eventuella önskemål från patienten.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.inquiryState",
+        "path": "listinquiries.inquiries.inquiryState",
+        "short": "Status för förfrågan",
+        "definition": "InquiryStateEnum.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/supportprocess-personalresources-interpretation/ValueSet/inquirystate-vs"
+        }
+      },
+      {
+        "id": "listinquiries.inquiries.lastResponseTime",
+        "path": "listinquiries.inquiries.lastResponseTime",
+        "short": "Sista svarstid",
+        "definition": "Sista möjliga svarstid, lokal tid.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.firstInRank",
+        "path": "listinquiries.inquiries.firstInRank",
+        "short": "Först i rangordningen",
+        "definition": "Anger om tolkförmedlingen för tillfället ligger först i rangordningen för förfrågan.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.sameInterpreterRequiredForAllOccasions",
+        "path": "listinquiries.inquiries.sameInterpreterRequiredForAllOccasions",
+        "short": "Samma tolk för alla tillfällen",
+        "definition": "Anger om samma tolk måste levereras till alla tillfällen i serien.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.interpreterName",
+        "path": "listinquiries.inquiries.interpreterName",
+        "short": "Tolkens namn",
+        "definition": "Namn på tolk.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.inquiries.explainingText",
+        "path": "listinquiries.inquiries.explainingText",
+        "short": "Förklarande text",
+        "definition": "Ytterligare information om förfrågan.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.lastSequenceNumber",
+        "path": "listinquiries.lastSequenceNumber",
+        "short": "Senaste meddelandenummer",
+        "definition": "Nummer på det senaste meddelandet i svaret. XSD-typen är unsignedLong; FHIR saknar motsvarande typ.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "unsignedInt"
+          }
+        ]
+      },
+      {
+        "id": "listinquiries.hasMoreEntries",
+        "path": "listinquiries.hasMoreEntries",
+        "short": "Fler poster finns",
+        "definition": "Anger om fler poster finns att hämta.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      }
+    ]
+  }
+}
