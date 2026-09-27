@@ -2004,3 +2004,26 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-IAB-001]** `igs/TKB_informationsecurity_authorization_blocking/input/fsh/logical-models/`
   CheckBlocks utvärderingsregler och övriga regler per kontrakt kan bli invarianter i de logiska modellerna.
+
+## financial.patientfees.exemption v1.0 — `igs/TKB_financial_patientfees_exemption/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-FPE-001]** `igs/TKB_financial_patientfees_exemption/sushi-config.yaml`
+  Källan är master-commit fbd046e11e50 (2024-03-27), som rättar kapitel 4.2 i TKB:n efter taggen 1.0 (2023-11-29). Scheman är oförändrade mellan taggen och commiten. Versionsavsnittet i TKB:n heter fortfarande "Version 1.0_RC4" och återges så.
+- [ ] **[ASSUME-FPE-002]** `igs/TKB_financial_patientfees_exemption/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  TKB:n har inget kapitel om datatyper. Sidan 6 innehåller därför bara kodverk och typer genererade ur domänschemana.
+- [ ] **[ASSUME-FPE-003]** `igs/TKB_financial_patientfees_exemption/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `RequestExemptionStatuses`
+  Svaret innehåller bara `xs:any` (asynkront mönster där resultatet skickas med ProcessExemptionStatuses). Ingen svarsmodell har genererats, och sidan säger det.
+- [ ] **[ASSUME-FPE-004]** `igs/TKB_financial_patientfees_exemption/input/images/`
+  Självdeklarationerna gäller begärande respektive utlämnande part och är kopplade till RequestExemptionStatuses respektive ProcessExemptionStatuses. Två källdokument har döpts om (mellanslag, å/ä/ö och ett numeriskt prefix i filnamnet). Schemat `interoperability_headers_1.0.xsd` används inte av något kontrakt och publiceras inte.
+- [ ] **[ASSUME-FPE-005]** `igs/TKB_financial_patientfees_exemption/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `ProcessExemptionStatuses`
+  Två figurer under *Övriga regler* var TIFF-bilder i TKB:n och visas som nedskalade PNG-bilder.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-FPE-001]** `igs/TKB_financial_patientfees_exemption/input/fsh/logical-models/ProcessExemptionStatuses.fsh`
+  Schematronreglerna rule001–rule018 i TKB:n kan bli invarianter i de logiska modellerna.

@@ -92,6 +92,7 @@ def lint_pages(ig: Path, errors: list, warnings: list):
         if " " in name:
             warnings.append(f"{images}/{name}: mellanslag i filnamn — döp om innan filen länkas (check_links.py URL-avkodar inte)")
     page_names = {p.stem + ".html" for p in pages.glob("*.md")} | {"artifacts.html", "index.html"}
+    resources = ig / "fsh-generated" / "resources"  # finns bara efter en lokal sushi-körning
     for f in sorted(pages.glob("*.md")):
         in_code = False
         for n, line in enumerate(f.read_text(encoding="utf-8").splitlines(), 1):
@@ -115,6 +116,9 @@ def lint_pages(ig: Path, errors: list, warnings: list):
                 if path.endswith(".html"):
                     if path not in page_names and not re.match(r"^(StructureDefinition|CodeSystem|ValueSet|Extension)-", path):
                         warnings.append(f"{f}:{n}: länk till okänd sida '{path}'")
+                    elif resources.is_dir() and re.match(r"^(StructureDefinition|CodeSystem|ValueSet)-", path) \
+                            and not (resources / (path[:-5] + ".json")).exists():
+                        errors.append(f"{f}:{n}: länk till artefakt '{path}' som SUSHI inte genererar (t.ex. en tom svarsmodell)")
                     continue
                 if unquote(path) not in static:
                     errors.append(f"{f}:{n}: länkmål '{path}' finns inte i input/images/")
