@@ -72,6 +72,10 @@ def lint_config(ig: Path, errors: list):
     text = cfg.read_text(encoding="utf-8")
     if any("se.inera.rivta.core" in l.split("#")[0] for l in text.splitlines()):
         errors.append(f"{cfg}: dependency se.inera.rivta.core — paketet finns inte publicerat, ta bort raden")
+    for n, l in enumerate(text.splitlines(), 1):
+        m = re.match(r"\s+title:\s*([^\s\"'].*)$", l)
+        if m and ": " in m.group(1):
+            errors.append(f"{cfg}:{n}: sidtitel med kolon utan citattecken ger YAML-felet 'Nested mappings are not allowed in compact mappings'")
     cs_urls = set()
     for f in (ig / "input" / "fsh").rglob("*.fsh"):
         cs_urls |= set(re.findall(r'\^url\s*=\s*"(https://fhir\.inera\.se/CodeSystem/[^"]+)"', f.read_text(encoding="utf-8")))
