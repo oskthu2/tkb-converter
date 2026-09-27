@@ -2120,3 +2120,25 @@ _Inga blockerare identifierade._
   TKB:n har inget kapitel om datatyper och domänen inget domänschema. Sidan 6 innehåller kodverket ResultCode och typerna ur tjänsteschemat.
 - [ ] **[ASSUME-IDE-006]** `igs/TKB_infrastructure_itintegration_dataexchange/input/fsh/logical-models/GetBinaryData.fsh` · fält `binaryData.contentType`
   TKB:n anger MIME-typer enligt FHIR-urvalet http://hl7.org/fhir/ValueSet/mimetypes. Fältet är modellerat som sträng enligt schemat (`xs:token`) utan bindning.
+
+## coreprocess.residentparticipation.residentparticipation v1.0_RC2 — `igs/TKB_coreprocess_residentparticipation_residentparticipation/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-CRP-001]** `igs/TKB_coreprocess_residentparticipation_residentparticipation/sushi-config.yaml`
+  Domänen har bara taggarna 1.0_RC1 och 1.0_RC2. IG:n bygger på 1.0_RC2 (commit 27438ffd1813, 2026-06-29) och har versionen 1.0.0-rc2. Grenen main har en senare commit (fb38a1871925, 2026-07-07, "GCM 1.0 - Rättat TS efter granskning") som inte är taggad och därför inte ingår. Bygg om IG:n när 1.0 taggas.
+- [ ] **[ASSUME-CRP-002]** `igs/TKB_coreprocess_residentparticipation_residentparticipation/input/pagecontent/1-inledning.md`
+  Innehållsförteckningen i TKB:n är inaktuell (den nämner CareManagerType, EpisodeOfCareType och VirtualServiceType, som saknas i dokumentets text) och har utelämnats; rubrikerna numreras efter texten. Försättsbladets bilder visas inte, och förkortningstabellen är tom i källan.
+- [ ] **[ASSUME-CRP-003]** `igs/TKB_coreprocess_residentparticipation_residentparticipation/input/pagecontent/3-tjanstedomanens-arkitektur.md`
+  "Förändrade tjänstekontrakt" ligger på rubriknivå 5 i dokumentet och har flyttats till nivå 4 (2.1.3). Styckena "Roller" och "Flödessteg" under arbetsflödena har bara rubrikstil på vissa ställen och är nu rubriker överallt. I flöde 2 har rollernas och flödesstegens tabeller varandras kolumnrubriker i TKB:n; det återges som i källan.
+- [ ] **[ASSUME-CRP-004]** `igs/TKB_coreprocess_residentparticipation_residentparticipation/input/pagecontent/5-tjanstedomanens-meddelandemodeller.md`
+  XML-exemplen under HoursOfServiceType är tabeller med en cell i TKB:n och visas som kodblock med originalets radbrytningar. Exempel 2–4 har `<start>…</end>` (felaktig sluttagg) i källan; det återges oförändrat. Mappningstabellen i 5.1.10 nämner EpisodeOfCareType, som inte finns i dokumentet eller schemat.
+- [ ] **[ASSUME-CRP-005]** `igs/TKB_coreprocess_residentparticipation_residentparticipation/input/pagecontent/7-tjanstekontrakt.md`
+  V-MIM i 6.1.2 är samma bild som i 5.1 i dokumentet och visas därför med samma fil. Tomma rader i tabellen Övriga regler är borttagna.
+- [ ] **[ASSUME-CRP-006]** `igs/TKB_coreprocess_residentparticipation_residentparticipation/input/fsh/logical-models/GetCareManagers.fsh`, `GetCareManagersRequest.fsh`
+  De logiska modellerna följer schemat där TKB:ns fälttabeller avviker: careGiverId och careUnitId är IIType (TKB: HSAIdType); careManagerType är 0..* (TKB: 0..1); patientId.extension och övriga IIType.extension är 0..1 (TKB: 1..1); accountableCareUnitId är 0..1 (TKB: 1..1); PractitionerType har fältet hsaId (TKB och revisionshistoriken för RC2: id, som får vara personnummer); careTeam är 0..1 (TKB 6.1.3: 0..*); AddressType.period är 0..* HoursOfServiceType (TKB: 0..1 HoursOfService). Kontrollera vilken källa som gäller, sannolikt rättat i den otaggade commiten på main.
+- [ ] **[ASSUME-CRP-007]** `igs/TKB_coreprocess_residentparticipation_residentparticipation/input/fsh/codesystems/`
+  Endast WeekDaysEnum och MonthsEnum i enum-schemat är modellerade som kodverk. Kodverket för typ av fast kontakt (R7, OID 1.2.752.129.5.1.69), KV_Befattning (R10) och FHIR-kodverken för adresstyp och kontaktsätt anges i TKB:n men är inte modellerade som CodeSystem, eftersom fälten är CVType i schemat.
