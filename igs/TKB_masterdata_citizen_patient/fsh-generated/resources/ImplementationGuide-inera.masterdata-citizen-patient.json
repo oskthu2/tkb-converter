@@ -1,0 +1,306 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "inera.masterdata-citizen-patient",
+  "url": "https://fhir.inera.se/ig/masterdata-citizen-patient/ImplementationGuide/inera.masterdata-citizen-patient",
+  "version": "1.0.0",
+  "name": "masterdatacitizenpatient",
+  "title": "masterdata: citizen: patient",
+  "status": "draft",
+  "contact": [
+    {
+      "name": "Inera Arkitektur",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.inera.se"
+        }
+      ]
+    }
+  ],
+  "copyright": "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "packageId": "inera.masterdata-citizen-patient",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.r4.core",
+      "version": "4.0.1",
+      "uri": "http://fhir.org/packages/hl7.fhir.r4.core/ImplementationGuide/hl7.fhir.r4.core",
+      "id": "hl7_fhir_r4_core"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "StructureDefinition/getpatientcontactinformation-request"
+        },
+        "name": "GetPatientContactInformation — Request",
+        "description": "Logisk modell för begäran i GetPatientContactInformation\n(urn:riv:masterdata:citizen:patient:GetPatientContactInformationResponder:1, GetPatientContactInformationType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getpatientcontactinformation"
+        },
+        "name": "GetPatientContactInformation — Response",
+        "description": "Logisk modell för svaret i GetPatientContactInformation\n(urn:riv:masterdata:citizen:patient:GetPatientContactInformationResponder:1, GetPatientContactInformationResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/masterdata-citizen-patient-typeofcontactrelationcodesystem-vs"
+        },
+        "name": "Kodverk för typ av kontaktrelation",
+        "description": "Alla koder i TypeOfContactRelationCodeSystemCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/masterdata-citizen-patient-typeofcontactrelationcodesystem-cs"
+        },
+        "name": "Kodverk för typ av kontaktrelation",
+        "description": "Koder för TypeOfContactRelationCodeSystemEnum i domänschemat. Visningstexter ur domänschemats annoteringar.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/masterdata-citizen-patient-resultcodeenum-vs"
+        },
+        "name": "Resultatkod",
+        "description": "Alla koder i ResultCodeEnumCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/masterdata-citizen-patient-resultcodeenum-cs"
+        },
+        "name": "Resultatkod",
+        "description": "Koder för ResultCodeEnumType i domänschemat. Visningstexter ur domänschemats annoteringar.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/masterdata-citizen-patient-typeofrepresentative-vs"
+        },
+        "name": "Typ av företrädare",
+        "description": "Alla koder i TypeOfRepresentativeCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/masterdata-citizen-patient-typeofrepresentative-cs"
+        },
+        "name": "Typ av företrädare",
+        "description": "Koder för TypeOfRepresentativeEnum i domänschemat. Visningstexter ur domänschemats annoteringar.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/masterdata-citizen-patient-typeofcontact-vs"
+        },
+        "name": "Typ av kontakt",
+        "description": "Alla koder i TypeOfContactCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/masterdata-citizen-patient-typeofcontact-cs"
+        },
+        "name": "Typ av kontakt",
+        "description": "Koder för TypeOfContactEnum i domänschemat. Visningstexter ur kodverket kv_tele_ekomkontakttyp_47_v1.1 (1.2.752.129.2.2.1.29).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/masterdata-citizen-patient-typeofcloserelation-vs"
+        },
+        "name": "Typ av närståenderelation",
+        "description": "Alla koder i TypeOfCloseRelationCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/masterdata-citizen-patient-typeofcloserelation-cs"
+        },
+        "name": "Typ av närståenderelation",
+        "description": "Koder för TypeOfCloseRelationEnum i domänschemat. Visningstexter ur domänschemats annoteringar.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/masterdata-citizen-patient-typeofrelative-vs"
+        },
+        "name": "Typ av släktrelation",
+        "description": "Alla koder i TypeOfRelativeCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/masterdata-citizen-patient-typeofrelative-cs"
+        },
+        "name": "Typ av släktrelation",
+        "description": "Koder för TypeOfRelativeEnum i domänschemat. Visningstexter ur kodverket kv_släktrelation_12_v1.0 (1.2.752.129.2.2.1.24).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/masterdata-citizen-patient-typeoftelecomcontactperson-vs"
+        },
+        "name": "Typ av telekommunikation (kontaktperson)",
+        "description": "Alla koder i TypeOfTelecomContactPersonCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/masterdata-citizen-patient-typeoftelecomcontactperson-cs"
+        },
+        "name": "Typ av telekommunikation (kontaktperson)",
+        "description": "Koder för TypeOfTelecomContactPersonEnum i domänschemat. Visningstexter ur kodverket kv_tele_ekom_typ_13_v1.1 (1.2.752.129.2.2.1.30).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/masterdata-citizen-patient-typeoftelecompatient-vs"
+        },
+        "name": "Typ av telekommunikation (patient)",
+        "description": "Alla koder i TypeOfTelecomPatientCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/masterdata-citizen-patient-typeoftelecompatient-cs"
+        },
+        "name": "Typ av telekommunikation (patient)",
+        "description": "Koder för TypeOfTelecomPatientEnum i domänschemat. Visningstexter ur kodverket kv_tele_ekom_typ_13_v1.1 (1.2.752.129.2.2.1.30).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/updatepatientcontactinformation-request"
+        },
+        "name": "UpdatePatientContactInformation — Request",
+        "description": "Logisk modell för begäran i UpdatePatientContactInformation\n(urn:riv:masterdata:citizen:patient:UpdatePatientContactInformationResponder:1, UpdatePatientContactInformationType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/updatepatientcontactinformation"
+        },
+        "name": "UpdatePatientContactInformation — Response",
+        "description": "Logisk modell för svaret i UpdatePatientContactInformation\n(urn:riv:masterdata:citizen:patient:UpdatePatientContactInformationResponder:1, UpdatePatientContactInformationResponseType).",
+        "exampleBoolean": false
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Hem",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "1-inledning.html",
+          "title": "1 Inledning",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "2-versionsinformation.html",
+          "title": "2 Versionsinformation",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "3-tjanstedomanens-arkitektur.html",
+          "title": "3 Tjänstedomänens arkitektur",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "4-tjanstedomanens-krav-och-regler.html",
+          "title": "4 Tjänstedomänens krav och regler",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "5-tjanstedomanens-meddelandemodeller.html",
+          "title": "5 Tjänstedomänens meddelandemodeller",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "6-gemensamma-informationskomponenter.html",
+          "title": "6 Gemensamma informationskomponenter",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "7-tjanstekontrakt.html",
+          "title": "7 Tjänstekontrakt",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2024+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "draft"
+      },
+      {
+        "code": "show-inherited-invariants",
+        "value": "false"
+      },
+      {
+        "code": "apply-contact",
+        "value": "true"
+      },
+      {
+        "code": "apply-publisher",
+        "value": "true"
+      },
+      {
+        "code": "apply-version",
+        "value": "true"
+      },
+      {
+        "code": "apply-copyright",
+        "value": "true"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/masterdata-citizen-patient-resultcodeenum-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/masterdata-citizen-patient-typeofcloserelation-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/masterdata-citizen-patient-typeofcontact-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/masterdata-citizen-patient-typeofcontactrelationcodesystem-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/masterdata-citizen-patient-typeofrelative-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/masterdata-citizen-patient-typeofrepresentative-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/masterdata-citizen-patient-typeoftelecomcontactperson-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/masterdata-citizen-patient-typeoftelecompatient-cs"
+      }
+    ]
+  }
+}

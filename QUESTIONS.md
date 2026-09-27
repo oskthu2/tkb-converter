@@ -1784,3 +1784,26 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-DEC-001]** `igs/TKB_ihe_pcd_dec/input/pagecontent/{5,7}-*.md`
   Källan har ofullständiga avsnitt: mappningstabellen mot V-TIM i avsnitt 5.1 innehåller bara "Aktivitet" och "…", och *Övriga regler* och *Annan information om kontraktet* (7.1.3–7.1.4) är tomma. De är återgivna som i källan.
+
+## masterdata.citizen.patient v1.0 — `igs/TKB_masterdata_citizen_patient/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-MCP-001]** `igs/TKB_masterdata_citizen_patient/sushi-config.yaml`
+  Repot har inga taggar och inga downloads. Källan är låst till senaste commit på master (`efa4099dabb2`, 2016-01-27), och versionen 1.0 är tagen ur TKB:ns revisionshistorik och schemafilernas namn.
+- [ ] **[ASSUME-MCP-002]** `igs/TKB_masterdata_citizen_patient/input/pagecontent/*.md`
+  TKB:n är till stor del en ej ifylld mall: kapitel 3–5 och kontraktens fältregler innehåller mallens platshållare ("Element | Typ | Beskrivning", "Abcde…", "Flöde X"). Texten återges ordagrant och mallens anvisningar visas som citat på sidan 1. De verkliga fältreglerna finns i avsnitten "Fältregler enligt schema (XSD)" (7.1.5 och 7.2.5), genererade ur schemana. Revisionshistoriken anger 2017-01-26, men senaste commit är från 2016-01-27; troligen ett skrivfel, återgivet som det står.
+- [ ] **[ASSUME-MCP-003]** `igs/TKB_masterdata_citizen_patient/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `UpdatePatientContactInformation`
+  TKB:n beskriver UpdatePatientContactInformation med samma mening som Get-kontraktet ("används för att hämta kontaktuppgifter"). Det ser ut som en kopieringsmiss; texten återges som den står.
+- [ ] **[ASSUME-MCP-004]** `igs/TKB_masterdata_citizen_patient/input/fsh/logical-models/*.fsh` · fält `contactPerson.relationType.contactRelationCode`
+  `code` har typen `TypeOfContactRelationEnum`, en `xs:union` av släktrelation, närståenderelation och företrädare. Fältet är modellerat som `string`, och de tre kodverken finns som egna CodeSystem/ValueSet. `codeSystem` är bundet till kodverket med de tre OID:erna. En invariant som kopplar koden till valt kodverk saknas.
+- [ ] **[ASSUME-MCP-005]** `igs/TKB_masterdata_citizen_patient/input/fsh/codesystems/ResultCodeEnumCS.fsh`
+  Resultatkoderna OK, INFO och ERROR saknar egna visningstexter i schemat; koden används som visningstext och betydelsen står i typens annotering.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-MCP-001]** `igs/TKB_masterdata_citizen_patient/input/pagecontent/5-tjanstedomanens-meddelandemodeller.md`
+  Informationsspecifikationen (`IS_masterdata_citizen_patient.docx`) och modellen `docs/work_material/riv.masterdata.citizen.patient-MIM.vpp` kan innehålla den meddelandemodell som TKB:ns kapitel 5 saknar. IS-dokumentet är länkat från sidan 1 men inte återgivet.

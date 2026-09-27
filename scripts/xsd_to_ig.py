@@ -207,6 +207,20 @@ def build_fields(S, ctype, f, tns, stack, used_types):
                 ENUMS.setdefault(local, values)
                 fields.append(Field(fhir_name, local, "code", card, doc, renamed_from=renamed, binding=local))
                 continue
+            union = tel.find(Q(XS, "union"))
+            if CODESYSTEMS and union is not None:
+                # xs:union av uppräkningar: varje medlem blir ett eget kodverk, fältet blir string.
+                members = []
+                for m in (union.get("memberTypes") or "").split():
+                    mk = S.resolve(m, tf, ttns)
+                    md = S.types.get(mk)
+                    mv = list(dict.fromkeys(e.get("value") for e in md[0].iter(Q(XS, "enumeration")))) if md else []
+                    if mv:
+                        ENUMS.setdefault(mk[1], mv)
+                        members.append(mk[1])
+                note = f" Union av kodverken {', '.join(members)}." if members else ""
+                fields.append(Field(fhir_name, local, "string", card, (doc + note).strip(), renamed_from=renamed))
+                continue
             fields.append(Field(fhir_name, local, PRIMITIVES.get(b, "string"), card, doc, renamed_from=renamed))
             continue
         used_types.setdefault((local, tf.name), (tel, tf, ttns))
