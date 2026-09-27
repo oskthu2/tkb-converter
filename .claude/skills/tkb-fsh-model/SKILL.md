@@ -423,3 +423,5 @@ Om `passed` är `false`: orchestratorn ska **inte** gå vidare till QA Tracker u
 - Alla FSH-filer ska ha header-kommentarer med kontrakts-ID, version och genereringsdatum
 
 ---
+
+**Tomt svar ger ingen svarsmodell (2026-09-27, `financial_patientfees_exemption`).** Asynkrona kontrakt kan ha en svarstyp med bara `xs:any` (t.ex. RequestExemptionStatusesResponse). `xsd_to_ig.py` genererar då ingen svarsmodell, och en länk till `StructureDefinition-{kontrakt}.html` blir trasig i CI (`[LINK-CHECK]`). Länka bara modeller vars `.fsh` finns och skriv i stället att svaret saknar fält. `preflight_lint.py` jämför nu artefaktlänkar mot `fsh-generated/resources/` efter en lokal sushi-körning.

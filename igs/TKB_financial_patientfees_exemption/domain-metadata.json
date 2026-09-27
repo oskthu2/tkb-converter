@@ -1,0 +1,110 @@
+{
+  "domain_id": "financial.patientfees.exemption",
+  "domain_title": "financial: patientfees: exemption",
+  "domain_version": "1.0",
+  "tkb_version": "1.0 (2024-03-25)",
+  "rivta_namespace_base": "urn:riv:financial:patientfees:exemption",
+  "source": "Bitbucket rivta-domains/riv.financial.patientfees.exemption, master fbd046e11e50 (2024-03-27, TKB-rättelse i kap 4.2 efter taggen 1.0 a9963f709f1c)",
+  "word_document": "source/rivta-domains-riv.financial.patientfees.exemption-fbd046e11e50/docs/TKB_financial_patientfees_exemption.docx",
+  "conversion": "docx_to_md.py; TIFF-figurer (img_002, img_007) konverterade till PNG; TKB kap 6 -> IG 7; TKB saknar kapitel Datatyper, IG 6 genereras ur XSD med scripts/xsd_to_ig.py --codesystems patientfees-exemption",
+  "docx_converted_dir": "igs/TKB_financial_patientfees_exemption/docx-converted/",
+  "source_format_note": "Kapitel 1–6; inget kapitel Datatyper. RequestExemptionStatuses har tomt svar (asynkront mönster).",
+  "other_documents": [
+    "AB_financial_patientfees_exemption.docx",
+    "IS_financial_patientfees_exemption.docx",
+    "Regelverk_for_Nationellt_Hogkostnadsskydd.docx (omdöpt)",
+    "Utkast_PM_Legala_forutsattningar_nationellt_hogkostnadsskydd.pdf (omdöpt)",
+    "riv_financial_patientfees_exemption_ei_update_constraints.xml",
+    "interoperability_headers_1.0.xsd (oanvänt; ej publicerat)",
+    "docs/work_material (vpp, exporterade PNG; ej publicerat)",
+    "test-suite/ (SoapUI; ej publicerat)"
+  ],
+  "codesystems": [
+    {
+      "enum": "ActorTypeEnum",
+      "name": "ActorType",
+      "title": "ActorType",
+      "url": "https://fhir.inera.se/CodeSystem/patientfees-exemption-actortype-cs",
+      "codesystem": "patientfees-exemption-actortype-cs",
+      "valueset": "patientfees-exemption-actortype-vs",
+      "codes": [
+        "CITIZEN",
+        "GUARDIAN",
+        "CAREGIVER"
+      ]
+    },
+    {
+      "enum": "ResultCodeEnum",
+      "name": "ResultCode",
+      "title": "ResultCode",
+      "url": "https://fhir.inera.se/CodeSystem/patientfees-exemption-resultcode-cs",
+      "codesystem": "patientfees-exemption-resultcode-cs",
+      "valueset": "patientfees-exemption-resultcode-vs",
+      "codes": [
+        "OK",
+        "ERROR",
+        "INFO"
+      ]
+    },
+    {
+      "enum": "TypeOfExemptionEnum",
+      "name": "TypeOfExemption",
+      "title": "TypeOfExemption",
+      "url": "https://fhir.inera.se/CodeSystem/patientfees-exemption-typeofexemption-cs",
+      "codesystem": "patientfees-exemption-typeofexemption-cs",
+      "valueset": "patientfees-exemption-typeofexemption-vs",
+      "codes": [
+        "CARE_VISIT",
+        "TECHNICAL_AID",
+        "TRANSPORTATION"
+      ]
+    }
+  ],
+  "contracts": [
+    {
+      "section_number": "7.1",
+      "tkb_section": "6.1",
+      "id": "RequestExemptionStatuses",
+      "version": "1.0",
+      "wsdl_files": [
+        "RequestExemptionStatusesInteraction_1.0_RIVTABP21.wsdl"
+      ],
+      "xsd_files": [
+        "RequestExemptionStatusesResponder_1.0.xsd",
+        "financial_patientfees_exemption_1.0.xsd",
+        "financial_patientfees_exemption_enum_1.0.xsd",
+        "itintegration_registry_1.0.xsd"
+      ],
+      "doc_files": [
+        "SjD_Hogkostnadsskydd_BegarandePart.docx"
+      ],
+      "example_files": [],
+      "logical_models": [
+        "requestexemptionstatuses-request"
+      ]
+    },
+    {
+      "section_number": "7.2",
+      "tkb_section": "6.2",
+      "id": "ProcessExemptionStatuses",
+      "version": "1.0",
+      "wsdl_files": [
+        "ProcessExemptionStatusesInteraction_1.0_RIVTABP21.wsdl"
+      ],
+      "xsd_files": [
+        "ProcessExemptionStatusesResponder_1.0.xsd",
+        "financial_patientfees_exemption_1.0.xsd",
+        "financial_patientfees_exemption_enum_1.0.xsd",
+        "itintegration_registry_1.0.xsd"
+      ],
+      "doc_files": [
+        "SjD_Hogkostnadsskydd_UtlamnandePart.docx"
+      ],
+      "example_files": [],
+      "logical_models": [
+        "processexemptionstatuses-request",
+        "processexemptionstatuses"
+      ]
+    }
+  ]
+}
