@@ -77,12 +77,39 @@ def snake_to_camel(s):
 
 
 class Schemas:
-    def __init__(self, root):
+    def __init__(self, root, exclude=()):
+        self.root = root
         self.types = {}      # (ns, name) -> (element, file)
         self.elements = {}   # (ns, name) -> (element, file)
         self.nsmaps = {}     # file -> {prefix: ns}
+        self._scoped = {}
         for f in sorted(Path(root).rglob("*.xsd")):
-            self._load(f)
+            if f.resolve() not in exclude:
+                self._load(f)
+
+    def scoped(self, start):
+        """Schemavy för ett tjänsteschema. Finns flera domänscheman med samma namnrymd (t.ex.
+        _2.0.xsd och _2.1.xsd i en minor-version) används bara de som start importerar, direkt
+        eller indirekt; annars skulle den först inlästa filens typer gälla för alla kontrakt."""
+        files = {f.resolve(): ET.parse(f).getroot() for f in Path(self.root).rglob("*.xsd")}
+        by_ns = {}
+        for f, r in files.items():
+            by_ns.setdefault(r.get("targetNamespace"), set()).add(f)
+        seen, todo = set(), [Path(start).resolve()]
+        while todo:
+            f = todo.pop()
+            if f in seen or f not in files:
+                continue
+            seen.add(f)
+            for i in list(files[f].iter(Q(XS, "import"))) + list(files[f].iter(Q(XS, "include"))):
+                if i.get("schemaLocation"):
+                    todo.append((f.parent / i.get("schemaLocation")).resolve())
+        exclude = frozenset(f for fs in by_ns.values() if len(fs) > 1 and fs & seen for f in fs - seen)
+        if not exclude:
+            return self
+        if exclude not in self._scoped:
+            self._scoped[exclude] = Schemas(self.root, exclude)
+        return self._scoped[exclude]
 
     def _load(self, f):
         nsmap = {}
@@ -458,7 +485,7 @@ def main():
     global CODESYSTEMS, ISO
     CODESYSTEMS = bool(a.codesystems)
     ISO = a.iso_datatypes
-    S = Schemas(a.schemas)
+    S = S0 = Schemas(a.schemas)
     ig = Path(a.ig)
     lm = ig / "input/fsh/logical-models"
     gen = ig / "xsd-generated"
@@ -476,6 +503,7 @@ def main():
             latest[name] = (ver, wsdl)
     for wsdl in sorted(w for _, w in latest.values()):
         w = parse_wsdl(wsdl)
+        S = S0
         m = re.search(r"_(\d+(?:\.\d+)*)_", wsdl.name)
         if len(w["ops"]) > 1:
             # Uppdrag-Resultat (Responder + Initiator) eller flera operationer: ett kontrakt per operation.
@@ -495,6 +523,7 @@ def main():
             rroot = ET.parse(responder).getroot()
             rtns = rroot.get("targetNamespace")
             cname = w["name"].replace("Interaction", "")
+            S = S0.scoped(responder)
             variants = [(cname, S.elements[(rtns, cname)], S.elements[(rtns, cname + "Response")], responder,
                          w["headers"], w["soap_action"], m.group(1) if m else rroot.get("version", ""))]
         for cname, req_el, res_el, responder, w_headers, soap_action, cver in variants:
@@ -554,6 +583,7 @@ def main():
     names = [n for n, _ in used_types]
     for name, fname in sorted(used_types):
         tel, tf, ttns = used_types[(name, fname)]
+        S = S0.scoped(tf)
         fl = build_fields(S, tel, tf, ttns, [(ttns, name)], {})
         same = [(n, ff) for n, ff in used_types if n == name]
         suffixes = [used_types[k][2].rsplit(':', 1)[-1] for k in same]

@@ -2073,3 +2073,30 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-LCS-001]** `igs/TKB_clinicalprocess_logistics_cervixscreening/input/fsh/logical-models/ProcessCervixScreeningInformationRequest.fsh`
   Regel R1 (bara subjectOfCare = "Kallelsegrundande information saknas") och schematron-regeln om resultText kan beskrivas i de logiska modellerna.
+
+## supportprocess.logistics.carelisting v2.1 — `igs/TKB_supportprocess_logistics_carelisting/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-SLC-001]** `igs/TKB_supportprocess_logistics_carelisting/sushi-config.yaml`
+  IG:n bygger på taggen 2.1 (2025-06-13). Master har en senare commit (2025-10-01, "Updating documentation (automatic push from Jenkins)") som inte används, eftersom den inte är en release.
+- [ ] **[ASSUME-SLC-002]** `igs/TKB_supportprocess_logistics_carelisting/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Version 2.1 lade till domänschemat `supportprocess_logistics_carelisting_2.1.xsd` med samma namnrymd som `_2.0.xsd`. Kontrakten i version 2.0 (CreateListing, GetAvailableHealthcarePersonnel, GetListingCounty, GetListingTypes, UpdateListing) modelleras från 2.0-schemat och GetAvailableHealthcareFacilities och GetListing från 2.1-schemat med utökningarna i `_2.1_ext.xsd`. Sidan 6 visar därför flera typer i två versioner. TKB:n har inget kapitel om datatyper.
+- [ ] **[ASSUME-SLC-003]** `igs/TKB_supportprocess_logistics_carelisting/input/pagecontent/1-inledning.md`
+  Försättsbladets bilder (Inera-logotyp och omslagsbild) och en varningsikon före texten om resultText i avsnitt 4.3.1.1 visas inte. Texten efter ikonen återges.
+- [ ] **[ASSUME-SLC-004]** `igs/TKB_supportprocess_logistics_carelisting/input/pagecontent/3-tjanstedomanens-arkitektur.md`
+  Tabellen över obligatoriska kontrakt hänvisar till flöde 1a–8, och kapitlet säger att varje flöde har ett arbetsflöde och ett sekvensdiagram. TKB:n innehåller varken flödesbeskrivningarna eller diagrammen; de finns i informationsspecifikationen [R3], som publiceras som docx under avsnitt 1.
+- [ ] **[ASSUME-SLC-005]** `igs/TKB_supportprocess_logistics_carelisting/input/pagecontent/4-tjanstedomanens-krav-och-regler.md`
+  Listorna (lagrum i 4.1.1 och punktlistorna i avsnitt 7) har återskapats ur dokumentets listnumrering, eftersom konverteringen skrev dem som vanliga stycken.
+- [ ] **[ASSUME-SLC-006]** `igs/TKB_supportprocess_logistics_carelisting/input/fsh/logical-models/CreateListingRequest.fsh` · fält `listingType`
+  Listningstyperna (nationell typ PV i kodverk 1.2.752.129.5.1.27 och regionala typer, referens R5) är inte modellerade som CodeSystem, eftersom bara koden PV anges i TKB:n. Fälten är CVType enligt schemat.
+- [ ] **[ASSUME-SLC-007]** `igs/TKB_supportprocess_logistics_carelisting/input/pagecontent/index.md`
+  Domänen ersätter crm:carelisting 1.0, som har en egen IG (`igs/TKB_crm_carelisting/`). IG:erna länkar inte till varandra.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-SLC-001]** `igs/TKB_druglogistics_dosedispensing/input/fsh/logical-models/HamtaLokaltProduktsortimentRequest.fsh`
+  Rättelsen i `scripts/xsd_to_ig.py` (domänscheman med samma namnrymd) ger HamtaLokaltProduktsortiment 1.1 fältet `landsting` ur `HamtaLokaltProduktsortimentResponder_1.1_ext.xsd`. Den IG:n genererades före rättelsen och bör genereras om.
