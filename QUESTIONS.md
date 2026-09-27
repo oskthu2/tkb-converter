@@ -1914,3 +1914,26 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-PIP-001]** `igs/TKB_informationsecurity_authorization_pip/input/fsh/logical-models/GetSeals.fsh`
   Lägg till FHIRPath-invarianter för ÖR1–ÖR5 och ÖR7.
+
+## strategicresourcemanagement.persons.person v5.1 — `igs/TKB_strategicresourcemanagement_persons_person/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-SPP-001]** `igs/TKB_strategicresourcemanagement_persons_person/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `GetPersonsByFile`
+  TKB-avsnitt 6.15 beskriver GetPersonsByFile, som är en REST-tjänst och inget RIV-TA-kontrakt. Texten återges, men det finns ingen WSDL eller XSD och därför ingen logisk modell. Avsnittet säger det uttryckligen.
+- [ ] **[ASSUME-SPP-002]** `igs/TKB_strategicresourcemanagement_persons_person/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `UnlinkPersonIdentity`
+  TKB:ns rubrik 6.14 lyder "UnlinkLinkPersonIdentity". Schemat, versionsinformationen och kontraktstexten använder UnlinkPersonIdentity, så rubriken är rättad till det namnet.
+- [ ] **[ASSUME-SPP-003]** `igs/TKB_strategicresourcemanagement_persons_person/input/images/SearchPersonsForProfileByOrderRequest.xml`
+  Exempelfilerna heter `SeachPersonsForProfileByOrder{Request,Response}.xml` i källan. De publiceras med det rättade namnet så att de kan kopplas till kontraktet. Även `Release notes.pdf` och informationsmodellbilden i arbetsmaterialet har döpts om (mellanslag respektive å i filnamnet).
+- [ ] **[ASSUME-SPP-004]** `igs/TKB_strategicresourcemanagement_persons_person/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Datatyprubrikerna i TKB kapitel 7 har formen `urn:riv:strategicresourcemanagement:persons:person:5:Typnamn`. Här visas bara typnamnet, och namnrymden anges i avsnittets inledning. En rubrik som var bruten över två rader (UpdatePersonContactInformationResultType) är ihopslagen.
+- [ ] **[ASSUME-SPP-005]** `igs/TKB_strategicresourcemanagement_persons_person/sushi-config.yaml`
+  Källan är taggen 5.1 (2024-11-28). master har två senare commits (versionsnummer i sidfoten och OID i ett testfall) utan ändrade scheman. Kontrakten har version 4.0 eller 5.0 enligt schemana.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-SPP-001]** `igs/TKB_strategicresourcemanagement_persons_person/input/fsh/logical-models/`
+  Övriga regler per kontrakt och testsvitens schematronregler (`test-suite/*Mock/constraints.xml`) kan bli invarianter i de logiska modellerna.
