@@ -1807,3 +1807,24 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-MCP-001]** `igs/TKB_masterdata_citizen_patient/input/pagecontent/5-tjanstedomanens-meddelandemodeller.md`
   Informationsspecifikationen (`IS_masterdata_citizen_patient.docx`) och modellen `docs/work_material/riv.masterdata.citizen.patient-MIM.vpp` kan innehålla den meddelandemodell som TKB:ns kapitel 5 saknar. IS-dokumentet är länkat från sidan 1 men inte återgivet.
+
+## masterdata.citizen.citizen v2.0 — `igs/TKB_masterdata_citizen_citizen/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-MCC-001]** `igs/TKB_masterdata_citizen_citizen/sushi-config.yaml`
+  Taggen 2.0 är vald. Repot har också taggen `2.1_RC1` (2016-10-31) och en master som är nyare, men ingen slutlig 2.1. Om 2.1 ska publiceras behöver versionen fastställas.
+- [ ] **[ASSUME-MCC-002]** `igs/TKB_masterdata_citizen_citizen/input/pagecontent/8-aktuella-profiler.md`
+  TKB:n markerar med grön cellfärg vilka fält som levereras vid sekretessmarkering. Färgen är utläst ur docx-filen och visas som kolumnen *Levereras vid sekretessmarkering* (20 rader: administrativa uppgifter, personidentitet och namn).
+- [ ] **[ASSUME-MCC-003]** `igs/TKB_masterdata_citizen_citizen/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `LookupResidentsForProfile`
+  Källan har två uppsättningar exempel: `schemas/interactions/…` (rotelement `LookupResidentsForProfile`, som i schemat) och `docs/examples/…` (äldre, rotelement `LookupResidentsForProfileRequest`). De förstnämnda är publicerade och länkade från 7.1.4.
+- [ ] **[ASSUME-MCC-004]** `igs/TKB_masterdata_citizen_citizen/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  TKB kapitel 7 *Datatyper* ligger på IG-sidan 6 och kapitel 8 *Aktuella profiler* på en egen sida 8. Texten återges ordagrant, även skrivfel som "Det finns 4s t aktuella profiler" och "Civistånd".
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-MCC-001]** `igs/TKB_masterdata_citizen_citizen/input/pagecontent/5-tjanstedomanens-meddelandemodeller.md`
+  Mappningen till Skatteverkets termer finns enligt TKB:n i informationsspecifikationen (`IS_masterdata_citizen_citizen.docx`), som är länkad men inte återgiven. IG:n för föregångaren `population.residentmaster` kan länkas härifrån när publiceringsadresserna är fastställda.
