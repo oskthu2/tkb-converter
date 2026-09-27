@@ -1849,3 +1849,26 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-FBC-001]** `igs/TKB_financial_billing_claim/input/fsh/`
   Schematronreglerna med fasta värdemängder (t.ex. ÖR4 fakturatyp, ÖR10 kön, ÖR22 yrkeskod, ÖR50 avtalspost) kan bli CodeSystem/ValueSet och invarianter i de logiska modellerna.
+
+## strategicresourcemanagement.persons.employee v2.0 — `igs/TKB_strategicresourcemanagement_persons_employee/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-SPE-001]** `igs/TKB_strategicresourcemanagement_persons_employee/input/pagecontent/index.md`
+  Domänen är utgången. Senaste commit på master (`9920a00a9525`, 2017-09-14) tar bort alla filer med meddelandet att tjänstekontrakten flyttats till `infrastructure.directory.employee`, som redan har en egen IG. IG:n byggs ändå, som historisk dokumentation av den enda taggen, och index samt sidorna 1–8 har en tydlig notis om efterföljaren. Om utgångna domäner inte ska ha någon IG kan katalogen tas bort och domänen sättas till `blocked` i registret.
+- [ ] **[ASSUME-SPE-002]** `igs/TKB_strategicresourcemanagement_persons_employee/sushi-config.yaml`
+  Den enda taggen är `2.0_RC1` (`7b7e863881a1`, 2016-11-22). Det finns ingen slutlig 2.0 att välja. Kontrakten har version 2.0 i schemana och IG-versionen är satt till `2.0.0-rc1`.
+- [ ] **[ASSUME-SPE-003]** `igs/TKB_strategicresourcemanagement_persons_employee/input/pagecontent/index.md`
+  TKB:ns dokumentegenskaper (titel, version, datum) är tomma eller inaktuella. Titelsidans uppgifter är hämtade ur revisionshistoriken (senaste revision 1.1.1RC1, 2016-04-11) och taggens datum.
+- [ ] **[ASSUME-SPE-004]** `igs/TKB_strategicresourcemanagement_persons_employee/input/pagecontent/8-bilaga-attributtabeller.md`
+  Fältreglerna för GetEmployeeIncludingProtectedPerson och GetCommissionMembersIncludingProtectedPerson (TKB 6.1.2 och 6.3.2) består av inklippta Exceldokument som bara visas som ikoner i Word. De tre inbäddade arbetsböckerna är extraherade ur `word/embeddings/`, återgivna som tabeller på sidan 8 och publicerade som `.xls`. Vilken arbetsbok som hör till vilket avsnitt är utläst ur relationsfilen; A förekommer i båda. Tomma rader är borttagna och radbrytningar i celler visas som " / ".
+- [ ] **[ASSUME-SPE-005]** `igs/TKB_strategicresourcemanagement_persons_employee/input/pagecontent/3-tjanstedomanens-arkitektur.md`
+  Flödesdiagrammen är inbäddade Visio-objekt. Deras EMF-förhandsbilder är konverterade till SVG och placerade under de tomma rubrikerna "Flödesdiagram" (3.1.1.2 och 3.1.2.2). Texten i diagrammen kan få något ojämna mellanrum.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-SPE-001]** `igs/TKB_strategicresourcemanagement_persons_employee/input/pagecontent/index.md`
+  Länka till IG:n för `infrastructure.directory.employee` med dess publicerade URL när publiceringsstrukturen för länkar mellan IG:er är bestämd.
