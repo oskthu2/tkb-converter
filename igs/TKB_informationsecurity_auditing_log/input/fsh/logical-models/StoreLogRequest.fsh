@@ -1,0 +1,52 @@
+// Genererad från XSD för informationsecurity.auditing.log v2.0.8 (Genererad ur scheman i riv.informationsecurity.auditing.log, tagg 2.0.8; scripts/xsd_to_ig.py)
+// Kontrakt: StoreLog v2.0
+// Genererad: 2026-09-26
+
+Logical: StoreLogRequest
+Id: storelog-request
+Title: "StoreLog — Request"
+Description: """
+  Logisk modell för begäran i StoreLog
+  (urn:riv:informationsecurity:auditing:log:StoreLogResponder:2, StoreLogType), inklusive SOAP-huvuden enligt WSDL.
+"""
+Characteristics: #can-be-target
+* logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Ineras nationella HSA-id SE165565594230-1000."
+* log 1..* BackboneElement "log" "Datatyp som representerar en loggpost enligt PDL. Datatypen beskriver grundformatet för en loggpost."
+  * logId 1..1 string "logId" "logId"
+  * system 1..1 BackboneElement "system" "Datatyp som representerar ett system i loggposten. Det system som skapar loggposten."
+    * systemId 1..1 string "systemId" "systemId"
+    * systemName 0..1 string "systemName" "systemName"
+  * activity 1..1 BackboneElement "activity" "Datatyp som representerar vilken typ av aktivitet som utförts, på vilken nivå, tidpunkt samt syftet med aktiviteten."
+    * activityType 1..1 string "activityType" "activityType"
+    * activityLevel 0..1 string "activityLevel" "activityLevel"
+    * activityArgs 0..1 string "activityArgs" "activityArgs"
+    * startDate 1..1 dateTime "startDate" "startDate"
+    * purpose 1..1 string "purpose" "purpose"
+  * user 1..1 BackboneElement "user" "Datatyp som representerar användaren som utfört aktivitet, tillika ägare av loggpost."
+    * userId 1..1 string "userId" "userId"
+    * userName 0..1 string "userName" "userName Heter name i schemat."
+    * personId 0..1 BackboneElement "personId" "En universellt unik identifierare."
+      * root 1..1 string "root" "root"
+      * iiExtension 0..1 string "iiExtension" "iiExtension Heter extension i schemat."
+    * assignment 0..1 string "assignment" "assignment"
+    * title 0..1 string "title" "title"
+    * careProvider 1..1 BackboneElement "careProvider" "Datatyp som representerar en vårdgivare."
+      * careProviderId 1..1 string "careProviderId" "careProviderId"
+      * careProviderName 0..1 string "careProviderName" "careProviderName"
+    * careUnit 1..1 BackboneElement "careUnit" "Datatyp som representerar en vårdenhet."
+      * careUnitId 1..1 string "careUnitId" "careUnitId"
+      * careUnitName 0..1 string "careUnitName" "careUnitName"
+  * resources 1..1 BackboneElement "resources" "Information om aktuella resurser. En loggpost kan hålla en eller flera resurser."
+    * resource 1..* BackboneElement "resource" "Datatyp som representerar en resurs i loggposten."
+      * resourceType 1..1 string "resourceType" "resourceType"
+      * patient 0..1 BackboneElement "patient" "Datatyp som representerar en patient i en resurs."
+        * patientId 1..1 BackboneElement "patientId" "En universellt unik identifierare."
+          * root 1..1 string "root" "root"
+          * iiExtension 0..1 string "iiExtension" "iiExtension Heter extension i schemat."
+        * patientName 0..1 string "patientName" "patientName"
+      * careProvider 1..1 BackboneElement "careProvider" "Datatyp som representerar en vårdgivare."
+        * careProviderId 1..1 string "careProviderId" "careProviderId"
+        * careProviderName 0..1 string "careProviderName" "careProviderName"
+      * careUnit 0..1 BackboneElement "careUnit" "Datatyp som representerar en vårdenhet."
+        * careUnitId 1..1 string "careUnitId" "careUnitId"
+        * careUnitName 0..1 string "careUnitName" "careUnitName"

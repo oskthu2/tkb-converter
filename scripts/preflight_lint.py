@@ -123,6 +123,8 @@ def lint_pages(ig: Path, errors: list, warnings: list):
                     tag = m.group(1).split("/")[0].lower()
                     if tag not in {"br", "b", "i", "em", "strong", "sub", "sup", "p", "ul", "li", "ol", "code"}:
                         warnings.append(f"{f}:{n}: rå <{m.group(1)}> i tabellcell — slå in i backticks (kan förstöra efterföljande rubriker)")
+            if re.match(r"^#{1,6}[^#\s]", line):
+                errors.append(f"{f}:{n}: rad som börjar med '#' utan mellanslag ('{line[:12]}') blir en rubrik i kramdown — skriv '\\#' (t.ex. regelnumret '#1' i TKB:ns Övriga regler)")
             if re.match(r"^##\s+7\.\d+\s", line):
                 warnings.append(f"{f}:{n}: kontraktsrubrik '{line.strip()}' — ska vara '### Kontraktsnamn' utan nummer (annars blir ankaret #71-...)")
     tk = pages / "7-tjanstekontrakt.md"
