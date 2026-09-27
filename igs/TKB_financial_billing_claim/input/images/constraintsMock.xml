@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform" schemaVersion="ISO19757-3">
+
+  <title>Validation for ProcessClaimSpecification</title>
+  <ns prefix="urn2" uri="urn:riv:financial:billing:claim:1"/>
+  <ns prefix="urn1" uri="urn:riv:financial:billing:claim:ProcessClaimSpecificationResponder:1"/>
+  <ns prefix="local" uri="localFunctions"/>
+
+  <pattern id="VARDFAKT">
+    <let name="currentDate" value="format-date(current-date(), '[Y0001][M01][D01]')"/>
+
+    <rule context="//urn1:claimSpecification">
+      <assert id="R1" test="not(count(//*[not(node()[not(self::comment())])]) > 0)" flag="fatal"
+        >Tomma element tillåts inte. Underlags-id: <value-of
+          select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule context="//urn2:issueDate">
+      <assert id="R2" test=". &lt;= $currentDate" flag="fatal">Datumet får inte vara i framtiden.
+        Underlags-id: <value-of select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule context="//urn2:supplierParty" flag="fatal">
+      <assert id="R3"
+        test="(count(./urn2:identification) = 1 and ./urn2:identification/urn2:root = '1.3.7') or (./urn2:identification/urn2:root = '1.3.7' and ./urn2:identification/urn2:root = '2.51.1.6')"
+        flag="fatal">Minst en partskod för leverantör ska vara 1.3.7, Underlags-id: <value-of
+          select="//urn1:claimSpecification/urn2:id"/>, <value-of
+          select="count(./urn2:identification)"/></assert>
+    </rule>
+
+    <rule context="//urn2:identification" flag="fatal">
+      <assert id="R48"
+        test="((string-length(urn2:extension) = 10 and (urn2:root) = '1.3.7') or string-length(urn2:extension) = 13 and (urn2:root) = '2.51.1.6')"
+        flag="fatal">Partsid ska vara 10 tecken för 1.3.7 eller 13 tecken för 2.51.1.6(GLN).
+        Underlags-id: <value-of select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule context="//urn2:customerParty" flag="fatal">
+      <assert id="R46"
+        test="(count(./urn2:identification) = 1 and ./urn2:identification/urn2:root = '1.3.7') or (./urn2:identification/urn2:root = '1.3.7' and ./urn2:identification/urn2:root = '2.51.1.6')"
+        flag="fatal">Minst en partskod för leverantör ska vara 1.3.7, Underlags-id: <value-of
+          select="//urn1:claimSpecification/urn2:id"/>, <value-of
+          select="count(./urn2:identification)"/></assert>
+    </rule>
+
+    <rule context="//urn2:typeOfInvoice" flag="fatal">
+      <assert id="R4"
+        test="((not(contains(normalize-space(.), ' ')) and contains(' 380 381 ', concat(' ', normalize-space(.), ' '))))"
+        flag="fatal">Kod enligt Svefaktura och SFTIs övriga fakturor.380=Faktura, 381=Kreditnota.
+        Underlags-id: <value-of select="//urn1:claimSpecification/urn2:id"/></assert>
+      <assert id="R52"
+        test="not(contains(., '381')) or (contains(., '381') and exists(../urn2:referenceToProcessClaimSpecificationId))"
+        flag="fatal">Vid kreditering av poster på kreditfaktura ska en referens anges till det id som finns på originalfakturans fakturaunderlag. Underlags-id: <value-of select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule context="//urn2:payableAmount/urn2:amount">
+      <assert id="R5"
+        test="not(abs(xs:decimal(.) - xs:decimal(sum(//urn2:invoicedAmountDetails/urn2:patientCareInvoiceNetAmount/urn2:amount))) > 1)"
+        flag="fatal">Total summa: <value-of select="."/> fakturerat i fakturan är fel. Underlags-id:
+          <value-of select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule context="//urn2:patientOtherInformation//urn2:gender/urn2:code" flag="fatal">
+      <assert id="R10"
+        test="((not(contains(normalize-space(.), ' ')) and contains(' 0 1 2 9 ', concat(' ', normalize-space(.), ' '))))"
+        flag="fatal">Kod för kön. Kategorisering enligt Socialstyrelsen och ISO 5218. Underlags-id:
+          <value-of select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule context="//urn2:paymentCommitment/urn2:typeOfAgreement" flag="fatal">
+      <assert id="R12"
+        test="((not(contains(normalize-space(.), ' ')) and contains(' 1 2 3 ', concat(' ', normalize-space(.), ' '))))"
+        flag="fatal">Anger den typ av avtal enligt riksavtalet som reglerar betalningen.1=Riksavtal
+        2=Regionavtal 3=Mellanlänsavtal. Underlags-id: <value-of
+          select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule context="//urn2:paymentCommitment/urn2:typeOfChapter" flag="fatal">
+      <assert id="R13"
+        test="((not(contains(normalize-space(.), ' ')) and contains(' 1 2 3 4 5 6 7 ', concat(' ', normalize-space(.), ' '))))"
+        flag="fatal">Anger kodifiering utifrån riksavtalets kapitel som reglerar betalning. Utöver
+        E- remissprojektet har parametrar 5-7 tillförts 1 = Kapitel 2 Vård efter initiativ från
+        hemlandstinget. 2 = Kapitel 2 Vårdgaranti. 3 = Kapitel 3 Akutvård. 4 = Kapitel 4 Patientens
+        val. 5 = Kapitel 5 Medicinsk service. 6 = Kapitel 6 Hjälpmedel. 7 = Kapitel 7 Transporter
+        och resor . Underlags-id: <value-of select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule context="//urn2:paymentCommitment/urn2:agreementInRiksavtalet" flag="fatal">
+      <assert id="R50"
+        test="((not(contains(normalize-space(.), ' ')) and contains(' 3.1 3.2 4.1 4.3 4.4 ', concat(' ', normalize-space(.), ' '))))"
+        flag="fatal">Kapitel och punkt som avses i Riksavtalet är fel. Underlags-id: <value-of select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+	
+    <rule context="//urn2:paymentCommitment/urn2:typeOfReimbursement" flag="fatal">
+      <assert id="R14"
+        test="((not(contains(normalize-space(.), ' ')) and contains(' 1 2 ', concat(' ', normalize-space(.), ' '))))"
+        flag="fatal">Kod för ersättningstyp är fel. </assert>
+    </rule>
+
+    <rule context="//urn2:healthcareCategory/urn2:typeOfCare/urn2:code" flag="fatal">
+      <assert id="R15"
+        test="((not(contains(normalize-space(.), ' ')) and contains(' 01 02 ', concat(' ', normalize-space(.), ' '))))"
+        flag="fatal">Kategorisering av Vård och omsorgsform enligt Socialstyrelsens termbank
+        01=Öppenvård, 02=Slutenvård. Underlags-id: <value-of
+          select="//urn1:claimSpecification/urn2:id"/></assert>
+      <assert id="R11" test="((. = '02') and (../../../urn2:careContactId)) or (. != '02')"
+        flag="fatal">Vårdkontakt id är obligatoriskt för slutenvård. Underlags-id: <value-of
+          select="//urn1:claimSpecification/urn2:id"/></assert>
+      <assert id="R23"
+        test="((. = '01') and exists(../../../urn2:healthcareUnit/urn2:professionCodeForHealthcare)) or (. != '01')"
+        flag="fatal">Yrkeskod är obligatoriskt för öppenvård. Underlags-id: <value-of
+          select="//urn1:claimSpecification/urn2:id"/></assert>
+      <assert id="R51"
+        test="((. = '02') and exists(../../../urn2:timespan/urn2:numberOfDays/urn2:inCare)) or (. != '02')"
+        flag="fatal">Om det gällar sluten vård måste även antal dagar anges. Underlags-id: <value-of
+          select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule context="//urn2:healthcarePerformed" flag="fatal">
+      <assert id="R31"
+        test="exists(urn2:activity/urn2:medicalFieldCode[starts-with(., '9')]) or ((urn2:healthcareCategory/urn2:typeOfCare/urn2:code = '02') and exists(urn2:diagnosis/urn2:inpatientCareDiagnosis/urn2:mainDiagnosis/urn2:diagnosisCode)) or (urn2:healthcareCategory/urn2:typeOfCare/urn2:code != '02') or (urn2:timespan/urn2:invoicePeriod)"
+        flag="fatal"> Huvuddiagnos är obligatoriskt för slutenvård. Underlags-id: <value-of
+          select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule context="//urn2:healthcareCategory/urn2:typeOfVisit" flag="fatal">
+      <assert id="R16"
+        test="((not(contains(normalize-space(.), ' ')) and contains(' 1 2 ', concat(' ', normalize-space(.), ' '))))"
+        flag="fatal">Med nybesök avses enligt Socialstyrelsens termbank besök som inte har
+        medicinskt samband med tidigare besök vid samma vårdcentral, klinik eller motsvarande. Vid
+        ett återbesök finns ett medicinskt samband. 1 = Nybesök 2 = Återbesök Underlags-id:
+          <value-of select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule context="//urn2:patientInformation/urn2:patientOtherInformation/urn2:county/urn2:code">
+      <assert id="R8" test="string-length(.) = 2" flag="fatal">Ogiltigt värde: '<value-of select="."
+        />' för <name/>. Länskod ska vara 2 tecken. Underlags-id: <value-of
+          select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule
+      context="//urn2:patientInformation/urn2:patientOtherInformation/urn2:municipality/urn2:code">
+      <assert id="R9" test="string-length(.) = 4" flag="fatal">Kommunkod ska vara 4 tecken.
+        Underlags-id: <value-of select="//urn1:claimSpecification/urn2:id"/>. Faktura-id: <value-of
+          select="//urn2:invoiceId"/></assert>
+    </rule>
+
+    <rule
+      context="//urn2:healthCareServicesSpecificationLine/urn2:healthcarePerformed/urn2:timespan/urn2:healthcareVisitDateTime/urn2:careVisitDate">
+      <assert id="R17" test=". &lt;= ../../../../../urn2:issueDate" flag="fatal">Besöksdatum får
+        inte vara senare än Bilagedatum. Underlags-id: <value-of
+          select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule
+      context="//urn2:healthCareServicesSpecificationLine/urn2:healthcarePerformed/urn2:timespan/urn2:healthcareDischargeDateTime/urn2:careDischargeDate">
+      <assert id="R18" test=". &gt;= ../../urn2:healthcareVisitDateTime/urn2:careVisitDate"
+        flag="fatal">Utskrivningsdatum får inte vara tidigare än Besöksdatum. Underlags-id:
+          <value-of select="//urn1:claimSpecification/urn2:id"/>, <value-of
+          select="../../urn2:healthcareVisitDateTime/urn2:careVisitDate"/>, <value-of select="."
+        /></assert>
+      <assert id="R38" test=". &lt;= ../../../../../urn2:issueDate" flag="fatal">Utskrivningsdatum
+        får inte vara senare än Bilagedatum. Underlags-id: <value-of
+          select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule
+      context="//urn2:healthCareServicesSpecificationLine/urn2:healthcarePerformed/urn2:timespan/urn2:invoicePeriod">
+      <assert id="R19" test="urn2:start and urn2:end" flag="fatal">Både start och slutdatum ska vara
+        med i Fakturaperiod. Underlags-id: <value-of select="//urn1:claimSpecification/urn2:id"
+        /></assert>
+      <assert id="R20" test="urn2:end &lt; //urn2:issueDate or urn2:start &lt; //urn2:issueDate"
+        flag="fatal">Fakturaperiod får inte vara senare än Bilagedatum. Underlags-id: <value-of
+          select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule
+      context="//urn2:healthCareServicesSpecificationLine/urn2:healthcarePerformed/urn2:timespan/urn2:invoicePeriod/urn2:end">
+      <assert id="R21" test=". &gt;= ../urn2:start" flag="fatal">Fakturaperiod slutdatum får inte
+        vara tidigare än fakturaperiod startdatum. Underlags-id: <value-of
+          select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule context="//urn2:healthcareUnit//urn2:professionCodeForHealthcare" flag="fatal">
+      <assert id="R22"
+        test="((not(contains(normalize-space(.), ' ')) and contains(' AP AT AU BM BA DT FT HK KP LG LK NA OP OT PS PT RC RS SG SF SJ TH TL US TP OV TO ', concat(' ', normalize-space(.), ' '))))"
+        flag="fatal">Kodifiering enligt förteckning över &#8221;Legitimerad yrkesgrupp&#8221; från
+        Svensk författningssamling. Underlags-id: <value-of
+          select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule context="//urn2:categorization/urn2:productCategory" flag="fatal">
+      <assert id="R24"
+        test="((not(contains(normalize-space(.), ' ')) and contains(' 01 02 03 04 99 ', concat(' ', normalize-space(.), ' '))))"
+        flag="fatal">Används för att kunna kategorisera olika typer av debiteringar 01 = DRG-kod
+        CC-kod för Nord-DRG 02 = DRG-kod för Nord DRG 03 = Patientspecifikt 04 = Kontaktersättning
+        99 = Övrigt Underlags-id: <value-of select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule context="//urn2:categorization//urn2:priceList" flag="fatal">
+      <assert id="R25"
+        test="((not(contains(normalize-space(.), ' ')) and contains(' 1 2 3 4 5 6 ', concat(' ', normalize-space(.), ' '))))"
+        flag="fatal">Kod för typ av prislista 1 = Norra Sverige 2 = Uppsala/Örebro 3 =
+        Stockholm/Gotland 4 = Sydöstra Sverige 5 = Västra Sverige 6 = Södra Sverige Underlags-id:
+          <value-of select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule
+      context="//urn2:healthCareServicesSpecificationLine/urn2:healthcarePerformed/urn2:categorization/urn2:patientSpecificCare/urn2:patientSpecificCareTotalAmount/urn2:amount">
+      <assert id="R26"
+        test="round-half-to-even(xs:decimal(.), 2) = round-half-to-even(xs:decimal(sum(../../urn2:numberOfPatientSpecificCare) * sum(../../urn2:patientSpecificCarePrice/urn2:amount)), 2)"
+        flag="fatal">Summa "Patientspecifik åtgärd, totalbelopp" är fel. Underlags-id: <value-of
+          select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule
+      context="//urn2:healthCareServicesSpecificationLine/urn2:healthcarePerformed/urn2:invoicedAmountDetails/urn2:patientCareInvoiceGrossAmount/urn2:amount">
+      <assert id="R27"
+        test="round-half-to-even(xs:decimal(.), 2) = round-half-to-even(xs:decimal(sum(../../../urn2:categorization/urn2:DRGCost/urn2:DRGPrice/urn2:amount) + sum(../../../urn2:categorization/urn2:DRGCost/urn2:extendedAllowanceCareTime/urn2:amount) + sum(../../../urn2:categorization/urn2:DRGCost/urn2:extendedAllowanceCost/urn2:amount) + sum(../../../urn2:categorization/urn2:patientSpecificCare/urn2:patientSpecificCareTotalAmount/urn2:amount) - sum(../../urn2:outPatientCareFeePaid/urn2:amount)), 2)"
+        flag="fatal">Brutto fakturerat är fel. Underlags-id: <value-of
+          select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+
+    <rule
+      context="//urn2:healthCareServicesSpecificationLine/urn2:healthcarePerformed/urn2:invoicedAmountDetails/urn2:patientCareInvoiceNetAmount/urn2:amount">
+      <assert id="R28"
+        test="round-half-to-even(xs:decimal(.), 2) = round-half-to-even(xs:decimal((((../../urn2:patientCareInvoiceGrossAmount/urn2:amount)) + sum(../../urn2:patientCareCharge/urn2:amount) - sum(../../urn2:patientCareAllowance/urn2:amount) - sum(../../urn2:patientCareDiscount/urn2:amount))), 2)"
+        flag="fatal">Netto summa: <value-of select="."/> fakturerat i fakturan är fel. Underlags-id:
+          <value-of select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule context="//urn2:invoicedAmountDetails//urn2:patientFeeReducedCategory" flag="fatal">
+      <assert id="R29"
+        test="((not(contains(normalize-space(.), ' ')) and contains(' 01 02 03 04 05 99 ', concat(' ', normalize-space(.), ' '))))"
+        flag="fatal">Kod för nedsatt patientavgift. 01 = Frikort 02 = Barn och ungdom 03 =
+        Rådgivning, födelsekontroll 04 = Antibiotikafri behandling 05 = Person över 85 år 99 =
+        Övrigt Underlags-id: <value-of select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule context="//urn2:activity/urn2:careLevel" flag="fatal">
+      <assert id="R30"
+        test="((not(contains(normalize-space(.), ' ')) and contains(' 1 2 3 4 ', concat(' ', normalize-space(.), ' '))))"
+        flag="fatal">Kod för vårdnivå. 1 = Primärvård 2 = Länsvård 3 = Regionvård 4 = Riksvård
+        Underlags-id: <value-of select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule context="//urn2:activity/urn2:medicalFieldCode" flag="fatal">
+      <assert id="R33"
+        test="((count(../../urn2:diagnosis) = 0) and (count(../../urn2:treatment) = 0)) or not(starts-with(., '9'))"
+        >Diagnoser och åtgärder får ej förekomma när medicalFieldCode börjar med 9. Underlags-id:
+          <value-of select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule context="//urn2:listingLocalAuthoritiesNumber/urn2:root" flag="fatal">
+      <assert id="R34" test=". eq '1.2.752.129.2.1.4.1'">Ogiltigt värde: '<value-of select="."/>'
+        för <name/>. Måste vara satt till oid för hsaid (1.2.752.129.2.1.4.1). Underlags-id:
+          <value-of select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule context="//urn2:currency">
+      <assert id="R35" test="urn2:code eq 'SEK' and urn2:codeSystem eq '1.0.4217'">Valuta måste vara
+        SEK och codeSystem måste vara 1.0.4217. Underlags-id: <value-of
+          select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule context="//urn2:reasonForCredit" flag="fatal">
+      <assert id="R36"
+        test="((not(contains(normalize-space(.), ' ')) and contains(' 1 2 3 4 5 6 7 8 9 ', concat(' ', normalize-space(.), ' '))))"
+        flag="fatal">Orsak till kreditering måste vara en av 1 = Kreditering då debiterad patient
+        inte tillhör det landsting som fakturerats 2 = Kreditering av en transaktion där priset är
+        fel angivit 3 = Kreditering av en transaktion där det är fel produkt. 4 = Kreditering av en
+        transaktion på grund av att det skett en delfakturering tidigare. 5 = Kreditering av en
+        transaktion där vård har skett av ett annat landsting utan att det funnits en giltig
+        remiss/betalningsförbindelse. 6 = Kreditering av en felaktig transaktion då vårdkontakten
+        har fakturerats sex månader efter vårdens tidpunkt. 7 = Kreditering av en transaktion där
+        dubbelfakturering skett. 8 = Kreditering av en felaktig transaktion då vårdkontakten har
+        fakturerats datummässigt tidigare än behandlingsdatum. 9 = Kreditering då fakturering har
+        skett av ett besök eller en åtgärd som inte är debiteringsbar. Underlags-id: <value-of
+          select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule context="//urn2:id">
+      <assert id="R37" test="string-length(.) eq 23 and starts-with(., 'ZVF')" flag="fatal">Id måste
+        börja på ZVF samt ha en längd på 23 tecken. Underlags-id: <value-of
+          select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+
+    <rule context="//urn2:county">
+      <assert id="R40"
+        test="(urn2:code eq '99' and count(urn2:codeSystem) = 0) or (count(urn2:code) + count(urn2:codeSystem) = 2 and urn2:codeSystem eq '1.2.752.129.2.2.1.18') and urn2:code != '99'"
+        > If county is given and code is 99 codeSystem should not be set, else code must be set and
+        codeSystem must be 1.2.752.129.2.2.1.18</assert>
+    </rule>
+
+    <rule context="//urn2:municipality">
+      <assert id="R41"
+        test="(urn2:code eq '9901' and count(urn2:codeSystem) = 0) or (count(urn2:code) + count(urn2:codeSystem) = 2 and urn2:codeSystem eq '1.2.752.129.2.2.1.17') and urn2:code != '9901'"
+        > If municipality is given and code is 9901 codeSystem should not be set, else code must be
+        set and codeSystem must be 1.2.752.129.2.2.1.17</assert>
+    </rule>
+
+    <rule context="//urn2:DRGCode">
+      <assert id="R42" test="count(*) eq 1 and urn2:originalText">Only originalText may exist in
+        DRGCode</assert>
+    </rule>
+
+  </pattern>
+
+  <!-- Verify LineId -->
+  <pattern id="Verify_lineId">
+    <rule context="//urn2:healthCareServicesSpecificationLine">
+      <assert id="R43"
+        test="deep-equal(//urn2:lineId, local:sort(//urn2:lineId)) and (count(//urn2:lineId) = count(distinct-values(//urn2:lineId)))"
+        >Invalid lineId (<value-of select="//urn2:lineId"/>) found for <value-of
+          select="concat(name(), '[', count(preceding-sibling::*[name() = name(current())]) + 1, ']')"
+        /></assert>
+    </rule>
+  </pattern>
+
+  <!-- Verify that at least one of DRGCost or patientSpecificCare exist -->
+  <pattern>
+    <rule context="//urn2:categorization">
+      <assert id="R44" test="urn2:DRGCost or urn2:patientSpecificCare">DRGCost eller
+        patientSpecificCare måste anges.</assert>
+    </rule>
+  </pattern>
+
+  <!-- Verify that when DRGPrice exist DRGCode must also be set -->
+  <pattern>
+    <rule context="//urn2:DRGCost">
+      <assert id="R45" test="./urn2:DRGCode and ./urn2:DRGPrice">Om DRGCost finns måste även DRGCode
+        och DRGPrice anges.</assert>
+    </rule>
+  </pattern>
+
+  <!-- Verify when patientSpecificCarePrice exist patientSpecificCarePriceCode must also be set -->
+  <pattern>
+    <rule context="//urn2:patientSpecificCare">
+      <assert id="R47"
+        test="urn2:patientSpecificCareCode and urn2:patientSpecificCareCodeName and urn2:numberOfPatientSpecificCare and urn2:patientSpecificCarePrice"
+        >patientSpecificCareCode måste anges för varje patientSpecificCare.</assert>
+    </rule>
+  </pattern>
+
+  <!-- Validate that code and codeSystem exists for CVTypes 
+    county, municipality, gender, typeOfCare, businessClassification, diagnosisCode, typeOfTreatment, ATC -->
+  <pattern abstract="true" id="pattern.CvType.strict">
+    <rule context="$path">
+      <assert id="R39" test="count(urn2:code) + count(urn2:codeSystem) = 2"> code och codeSystem
+        måste alltid finnas för <name/>. Underlags-id: <value-of
+          select="//urn1:claimSpecification/urn2:id"/></assert>
+    </rule>
+  </pattern>
+
+  <!-- Validate that medicalFieldCode only contains valid values -->
+  
+  <pattern>
+    <rule context="//urn2:medicalFieldCode">
+      <assert id="R49"
+        test="
+          string-length(.) = 3 and 
+          ((not(contains(normalize-space(.), ' ')) and contains(' 003 207 009 211 011 215 014 221 015 231 016 241 019 243 020 246 021 249 022 251 023 301 024 303 041 304 045 306 046 311 056 312 061 316 076 321 086 331 096 335 100 341 101 351 105 361 107 371 108 401 109 411 111 412 121 413 131 421 141 431 142 441 151 451 156 511 161 515 171 521 181 531 201 532 203 541 206 551 552 943 553 944 561 945 564 948 565 950 566 951 567 952 570 953 571 954 572 955 573 956 581 957 601 971 611 991 711 993 712 713 715 721 722 731 741 751 761 762 763 811 821 831 832 841 845 851 881 882 883 892 893 894 895 896 901 906 928 931 ', concat(' ', normalize-space(.), ' '))))"
+        >Felaktig mvo-kod: <value-of select="."/> (whitespace not allowed)"/></assert>
+    </rule>
+  </pattern>
+
+
+  <pattern id="Verify_gender" is-a="pattern.CvType.strict">
+    <param name="path" value="urn2:gender"/>
+  </pattern>
+  <pattern id="Verify_typeOfCare" is-a="pattern.CvType.strict">
+    <param name="path" value="urn2:typeOfCare"/>
+  </pattern>
+  <pattern id="Verify_businessClassification" is-a="pattern.CvType.strict">
+    <param name="path" value="urn2:businessClassification"/>
+  </pattern>
+  <pattern id="Verify_diagnosisCode" is-a="pattern.CvType.strict">
+    <param name="path" value="urn2:diagnosisCode"/>
+  </pattern>
+  <pattern id="Verify_typeOfTreatment" is-a="pattern.CvType.strict">
+    <param name="path" value="urn2:typeOfTreatment"/>
+  </pattern>
+  <pattern id="Verify_ATC" is-a="pattern.CvType.strict">
+    <param name="path" value="urn2:ATC"/>
+  </pattern>
+
+  <xsl:function name="local:sort">
+    <xsl:param name="nodex" as="node()*"/>
+    <xsl:perform-sort select="$nodex">
+      <xsl:sort select="urn2:lineId"/>
+    </xsl:perform-sort>
+  </xsl:function>
+
+</schema>
