@@ -2048,3 +2048,28 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-IDS-001]** `igs/TKB_infrastructure_directory_synchronization/input/fsh/logical-models/GetMasterDataChangeSet.fsh`
   Regel #1–#3 i TKB:n kan bli invarianter eller beskrivningar i den logiska modellen.
+
+## clinicalprocess.logistics.cervixscreening v1.0_RC4 — `igs/TKB_clinicalprocess_logistics_cervixscreening/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-LCS-001]** `igs/TKB_clinicalprocess_logistics_cervixscreening/sushi-config.yaml`
+  Domänen har bara release candidate-taggar, och den senaste är 1.0_RC4 (2020-12-18), som också är master. IG:n dokumenterar den och har versionen 1.0.0-rc4. TKB:n är inte helt uppdaterad: innehållsförteckningen och avsnitt 6.1.2 (Version) säger 1.0_RC3, och revisionshistoriken daterar 1.0_RC4 till 2020-10-20 medan försättsbladet säger 2020-12-09. Texten återges oförändrad. Verifiera om domänen någonsin fastställdes.
+- [ ] **[ASSUME-LCS-002]** `igs/TKB_clinicalprocess_logistics_cervixscreening/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `ProcessCervixScreeningInformation` · fält `exclusion/reason`, `followUpGroups/type`, `HPVstatusList/value`
+  TKB:n anger urval ur SNOMED CT (bl.a. svenska tilläggskoder som 59461000052109) utan klartexter, och säger att urvalet kan ändras med vårdprogrammet. Inga ValueSets har skapats; fälten är modellerade som CVType enligt schemat och urvalen står i TKB-tabellen.
+- [ ] **[ASSUME-LCS-003]** `igs/TKB_clinicalprocess_logistics_cervixscreening/input/fsh/logical-models/ProcessCervixScreeningInformationRequest.fsh` · fält `sendingRegion/careGiver`, `sendingRegion/careUnit`
+  Schemat tillåter 0..1, men TKB:n säger "Skall ej anges" (0..0). Modellen följer schemat, och TKB-tabellen på sidan 7 anger regeln.
+- [ ] **[ASSUME-LCS-004]** `igs/TKB_clinicalprocess_logistics_cervixscreening/input/pagecontent/3-tjanstedomanens-arkitektur.md`
+  Listorna under Flöden (och lagrummen i 4.1.2 och källsystemen i 7.1) har återskapats ur dokumentets listnumrering, eftersom konverteringen skrev dem som vanliga stycken.
+- [ ] **[ASSUME-LCS-005]** `igs/TKB_clinicalprocess_logistics_cervixscreening/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  TKB:n har inget kapitel om datatyper. Sidan 6 innehåller kodverket ResultCode och typerna ur schemana.
+- [ ] **[ASSUME-LCS-006]** `igs/TKB_clinicalprocess_logistics_cervixscreening/input/pagecontent/1-inledning.md`
+  Referenserna R1, R3 och R6 anges bara som "Bitbucket". De länkas till AB, IS och "Legal analys av Screeningstöd livmoderhals" i källan (den sista är omdöpt utan å/ö och mellanslag). R6 heter "Sammanfattning av legal analys" i TKB:n och kan vara ett annat dokument. R7 (Verksamhetsregelverk) finns inte i källan. Revisionshistorikens datum "2919-09-15" (version 1.0.2) är ett skrivfel i TKB:n och återges oförändrat.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-LCS-001]** `igs/TKB_clinicalprocess_logistics_cervixscreening/input/fsh/logical-models/ProcessCervixScreeningInformationRequest.fsh`
+  Regel R1 (bara subjectOfCare = "Kallelsegrundande information saknas") och schematron-regeln om resultText kan beskrivas i de logiska modellerna.
