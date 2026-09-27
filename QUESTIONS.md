@@ -1937,3 +1937,26 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-SPP-001]** `igs/TKB_strategicresourcemanagement_persons_person/input/fsh/logical-models/`
   Övriga regler per kontrakt och testsvitens schematronregler (`test-suite/*Mock/constraints.xml`) kan bli invarianter i de logiska modellerna.
+
+## informationsecurity.auditing.log v2.0.8 — `igs/TKB_informationsecurity_auditing_log/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-IAL-001]** `igs/TKB_informationsecurity_auditing_log/sushi-config.yaml`
+  Källan är taggen 2.0.8 (2024-10-31). master har två senare commits (2024-11-07 och 2026-06-30, "GALFP 2.0 - Ny mall SJD för TP") som bara rör självdeklarationerna. TKB, scheman och exempel är oförändrade, så IG:n bygger på taggen.
+- [ ] **[ASSUME-IAL-002]** `igs/TKB_informationsecurity_auditing_log/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `GetFilesForOrderId`
+  TKB:ns beskrivning av GetFilesForOrderId nämner "personposter" och tjänsten SearchPersonsForProfileByOrder, som hör till domänen strategicresourcemanagement.persons.person. Texten ser ut att vara kopierad därifrån, men återges ordagrant. Förvaltaren bör rätta TKB:n.
+- [ ] **[ASSUME-IAL-003]** `igs/TKB_informationsecurity_auditing_log/input/pagecontent/7-tjanstekontrakt.md`
+  Regelnumren `#1`, `#2` under *Övriga regler* skrivs `\#1`, `\#2` så att de inte blir rubriker. Rubriken för versionsavsnittet lyder "Version 2.0.8" i texten men "Version 2.0.6" i TKB:ns innehållsförteckning; IG:n följer texten.
+- [ ] **[ASSUME-IAL-004]** `igs/TKB_informationsecurity_auditing_log/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Datatyprubrikerna i TKB kapitel 7 har formen `urn:riv:informationsecurity:auditing:log:2:Typnamn` (två av dem med ett mellanslag efter `urn:riv:`). Här visas bara typnamnet, och namnrymden anges i avsnittets inledning.
+- [ ] **[ASSUME-IAL-005]** `igs/TKB_informationsecurity_auditing_log/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `GetLogsByOrder`, `GetFilesForOrderId`
+  Källan har inga XML-exempel för de två kontrakten från version 2.0.6, så deras källfilstabeller saknar exempelfiler.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-IAL-001]** `igs/TKB_informationsecurity_auditing_log/input/fsh/logical-models/`
+  Övriga regler per kontrakt (t.ex. unikt LogId och högst 500 loggposter per anrop i StoreLog) och testsvitens schematronregler (`test-suite/*/constraints.xml`) kan bli invarianter i de logiska modellerna.
