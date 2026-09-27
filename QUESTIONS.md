@@ -1828,3 +1828,24 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-MCC-001]** `igs/TKB_masterdata_citizen_citizen/input/pagecontent/5-tjanstedomanens-meddelandemodeller.md`
   Mappningen till Skatteverkets termer finns enligt TKB:n i informationsspecifikationen (`IS_masterdata_citizen_citizen.docx`), som är länkad men inte återgiven. IG:n för föregångaren `population.residentmaster` kan länkas härifrån när publiceringsadresserna är fastställda.
+
+## financial.billing.claim v1.1 — `igs/TKB_financial_billing_claim/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-FBC-001]** `igs/TKB_financial_billing_claim/input/pagecontent/7-tjanstekontrakt.md` · avsnitt 7.1.2
+  Fältregeltabellen skiljer med radfärger på kardinalitet (1..1 respektive 0..*/1..*). Färgerna går inte att återge; förklaringen står kvar och kardinaliteten finns i egen kolumn. Hänvisningarna till fotnot 2 ("Schematronregel finns") efter fältnamn visas som `²`, med fotnoten sist på sidan.
+- [ ] **[ASSUME-FBC-002]** `igs/TKB_financial_billing_claim/input/fsh/logical-models/*.fsh`
+  Kodade fält som `typeOfInvoice`, `gender`, `typeOfCare` och `professionCodeForHealthcare` är `string` i schemat och får sina tillåtna värden genom schematronreglerna ÖR4–ÖR50. De är modellerade som `string` utan kodverk; reglerna finns i TKB avsnitt 7.1.3 och i `constraints.xml`.
+- [ ] **[ASSUME-FBC-003]** `igs/TKB_financial_billing_claim/input/pagecontent/1-inledning.md`
+  Titelsidans bilder (Inera-logotyp och sidbakgrund) är inte med. Platshållaren "PLATS FÖR BILD MED DIAGRAM" under V-MIM står kvar i källan och återges.
+- [ ] **[ASSUME-FBC-004]** `igs/TKB_financial_billing_claim/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  TKB:n har inget kapitel om gemensamma informationskomponenter. Sidan 6 är märkt *SAKNAS I KÄLLDOKUMENT* och innehåller kodverket och XSD-typerna.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-FBC-001]** `igs/TKB_financial_billing_claim/input/fsh/`
+  Schematronreglerna med fasta värdemängder (t.ex. ÖR4 fakturatyp, ÖR10 kön, ÖR22 yrkeskod, ÖR50 avtalspost) kan bli CodeSystem/ValueSet och invarianter i de logiska modellerna.
