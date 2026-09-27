@@ -1,0 +1,355 @@
+{
+  "domain_id": "informationsecurity.authorization.blocking",
+  "domain_title": "informationsecurity: authorization: blocking",
+  "domain_version": "4.0.4",
+  "tkb_version": "4.0.4 (2024-10-18)",
+  "rivta_namespace_base": "urn:riv:informationsecurity:authorization:blocking",
+  "source": "Bitbucket rivta-domains/riv.informationsecurity.authorization.blocking, tagg 4.0.4 (3020b9095623, 2024-10-21, = master)",
+  "word_document": "source/rivta-domains-riv.informationsecurity.authorization.blocking-3020b9095623/docs/TKB_informationsecurity_authorization_blocking.docx",
+  "conversion": "docx_to_md.py; fem sekvensdiagram som inbäddade Visio-objekt: EMF-förhandsbilder konverterade till SVG med emf2svg-conv och infogade av sidgeneratorn; TKB kap 6 -> IG 7, kap 7 Datatyper -> IG 6; modeller ur XSD med scripts/xsd_to_ig.py --codesystems authorization-blocking",
+  "docx_converted_dir": "igs/TKB_informationsecurity_authorization_blocking/docx-converted/",
+  "source_format_note": "Kapitel 1–5 standard, 6 Tjänstekontrakt (-> IG 7), 7 Datatyper (-> IG 6). img_004/010/011/016/017 är SVG ur OLE-förhandsbilder.",
+  "other_documents": [
+    "AB_informationsecurity_authorization_blocking.docx",
+    "IS_informationsecurity_authorization_blocking.docx",
+    "informationsecurity_authorization_blocking_QR_1.0.xsd (oanvänt; ej publicerat)",
+    "docs/work_material/Infospec (vsdx, vpp; ej publicerat)",
+    "test-suite/ (SoapUI; ej publicerat)",
+    "code_gen/ (ej publicerat)"
+  ],
+  "codesystems": [
+    {
+      "enum": "BlockTypeType",
+      "name": "BlockType",
+      "title": "BlockType",
+      "url": "https://fhir.inera.se/CodeSystem/authorization-blocking-blocktype-cs",
+      "codesystem": "authorization-blocking-blocktype-cs",
+      "valueset": "authorization-blocking-blocktype-vs",
+      "codes": [
+        "Inner",
+        "Outer"
+      ]
+    },
+    {
+      "enum": "CheckStatusType",
+      "name": "CheckStatus",
+      "title": "CheckStatus",
+      "url": "https://fhir.inera.se/CodeSystem/authorization-blocking-checkstatus-cs",
+      "codesystem": "authorization-blocking-checkstatus-cs",
+      "valueset": "authorization-blocking-checkstatus-vs",
+      "codes": [
+        "OK",
+        "BLOCKED",
+        "VALIDATIONERROR"
+      ]
+    },
+    {
+      "enum": "ResultCodeType",
+      "name": "ResultCode",
+      "title": "ResultCode",
+      "url": "https://fhir.inera.se/CodeSystem/authorization-blocking-resultcode-cs",
+      "codesystem": "authorization-blocking-resultcode-cs",
+      "valueset": "authorization-blocking-resultcode-vs",
+      "codes": [
+        "OK",
+        "INFO",
+        "ERROR",
+        "VALIDATIONERROR",
+        "ACCESSDENIED",
+        "NOTFOUND",
+        "ALREADYEXISTS",
+        "INVALIDSTATE"
+      ]
+    },
+    {
+      "enum": "TemporaryRevokeReasonType",
+      "name": "TemporaryRevokeReason",
+      "title": "TemporaryRevokeReason",
+      "url": "https://fhir.inera.se/CodeSystem/authorization-blocking-temporaryrevokereason-cs",
+      "codesystem": "authorization-blocking-temporaryrevokereason-cs",
+      "valueset": "authorization-blocking-temporaryrevokereason-vs",
+      "codes": [
+        "PatientsConsent",
+        "Emergency"
+      ]
+    }
+  ],
+  "contracts": [
+    {
+      "section_number": "7.1",
+      "tkb_section": "6.1",
+      "id": "GetBlocks",
+      "version": "4.0",
+      "wsdl_files": [
+        "GetBlocksInteraction_4.0_RIVTABP21.wsdl"
+      ],
+      "xsd_files": [
+        "GetBlocksResponder_4.0.xsd",
+        "informationsecurity_authorization_blocking_4.0.xsd",
+        "itintegration_registry_1.0.xsd"
+      ],
+      "doc_files": [
+        "SjD_TK_GetBlocks_4.0.docx"
+      ],
+      "example_files": [],
+      "logical_models": [
+        "getblocks-request",
+        "getblocks"
+      ]
+    },
+    {
+      "section_number": "7.2",
+      "tkb_section": "6.2",
+      "id": "GetExtendedBlocksForPatient",
+      "version": "4.0",
+      "wsdl_files": [
+        "GetExtendedBlocksForPatientInteraction_4.0_RIVTABP21.wsdl"
+      ],
+      "xsd_files": [
+        "GetExtendedBlocksForPatientResponder_4.0.xsd",
+        "informationsecurity_authorization_blocking_4.0.xsd",
+        "itintegration_registry_1.0.xsd"
+      ],
+      "doc_files": [],
+      "example_files": [],
+      "logical_models": [
+        "getextendedblocksforpatient-request",
+        "getextendedblocksforpatient"
+      ]
+    },
+    {
+      "section_number": "7.3",
+      "tkb_section": "6.3",
+      "id": "GetPatientIds",
+      "version": "4.0",
+      "wsdl_files": [
+        "GetPatientIdsInteraction_4.0_RIVTABP21.wsdl"
+      ],
+      "xsd_files": [
+        "GetPatientIdsResponder_4.0.xsd",
+        "informationsecurity_authorization_blocking_4.0.xsd",
+        "itintegration_registry_1.0.xsd"
+      ],
+      "doc_files": [
+        "SjD_TK_GetPatientIds_4.0.docx"
+      ],
+      "example_files": [],
+      "logical_models": [
+        "getpatientids-request",
+        "getpatientids"
+      ]
+    },
+    {
+      "section_number": "7.4",
+      "tkb_section": "6.4",
+      "id": "CheckBlocks",
+      "version": "4.0",
+      "wsdl_files": [
+        "CheckBlocksInteraction_4.0_RIVTABP21.wsdl"
+      ],
+      "xsd_files": [
+        "CheckBlocksResponder_4.0.xsd",
+        "informationsecurity_authorization_blocking_4.0.xsd",
+        "itintegration_registry_1.0.xsd"
+      ],
+      "doc_files": [
+        "SjD_TK_CheckBlocks_4.0.docx"
+      ],
+      "example_files": [],
+      "logical_models": [
+        "checkblocks-request",
+        "checkblocks"
+      ]
+    },
+    {
+      "section_number": "7.5",
+      "tkb_section": "6.5",
+      "id": "RegisterBlock",
+      "version": "4.0",
+      "wsdl_files": [
+        "RegisterBlockInteraction_4.0_RIVTABP21.wsdl"
+      ],
+      "xsd_files": [
+        "RegisterBlockResponder_4.0.xsd",
+        "informationsecurity_authorization_blocking_4.0.xsd",
+        "itintegration_registry_1.0.xsd"
+      ],
+      "doc_files": [
+        "SjD_TK_RegisterBlock_4.0.docx"
+      ],
+      "example_files": [],
+      "logical_models": [
+        "registerblock-request",
+        "registerblock"
+      ]
+    },
+    {
+      "section_number": "7.6",
+      "tkb_section": "6.6",
+      "id": "UnregisterBlock",
+      "version": "4.0",
+      "wsdl_files": [
+        "UnregisterBlockInteraction_4.0_RIVTABP21.wsdl"
+      ],
+      "xsd_files": [
+        "UnregisterBlockResponder_4.0.xsd",
+        "informationsecurity_authorization_blocking_4.0.xsd",
+        "itintegration_registry_1.0.xsd"
+      ],
+      "doc_files": [
+        "SjD_TK_UnregisterBlock_4.0.docx"
+      ],
+      "example_files": [],
+      "logical_models": [
+        "unregisterblock-request",
+        "unregisterblock"
+      ]
+    },
+    {
+      "section_number": "7.7",
+      "tkb_section": "6.7",
+      "id": "RegisterTemporaryRevoke",
+      "version": "4.0",
+      "wsdl_files": [
+        "RegisterTemporaryRevokeInteraction_4.0_RIVTABP21.wsdl"
+      ],
+      "xsd_files": [
+        "RegisterTemporaryRevokeResponder_4.0.xsd",
+        "informationsecurity_authorization_blocking_4.0.xsd",
+        "itintegration_registry_1.0.xsd"
+      ],
+      "doc_files": [
+        "SjD_TK_RegisterTemporaryRevoke_4.0.docx"
+      ],
+      "example_files": [],
+      "logical_models": [
+        "registertemporaryrevoke-request",
+        "registertemporaryrevoke"
+      ]
+    },
+    {
+      "section_number": "7.8",
+      "tkb_section": "6.8",
+      "id": "UnregisterTemporaryRevoke",
+      "version": "4.0",
+      "wsdl_files": [
+        "UnregisterTemporaryRevokeInteraction_4.0_RIVTABP21.wsdl"
+      ],
+      "xsd_files": [
+        "UnregisterTemporaryRevokeResponder_4.0.xsd",
+        "informationsecurity_authorization_blocking_4.0.xsd",
+        "itintegration_registry_1.0.xsd"
+      ],
+      "doc_files": [
+        "SjD_TK_UnregisterTemporaryRevoke_4.0.docx"
+      ],
+      "example_files": [],
+      "logical_models": [
+        "unregistertemporaryrevoke-request",
+        "unregistertemporaryrevoke"
+      ]
+    },
+    {
+      "section_number": "7.9",
+      "tkb_section": "6.9",
+      "id": "RegisterExtendedBlock",
+      "version": "4.0",
+      "wsdl_files": [
+        "RegisterExtendedBlockInteraction_4.0_RIVTABP21.wsdl"
+      ],
+      "xsd_files": [
+        "RegisterExtendedBlockResponder_4.0.xsd",
+        "informationsecurity_authorization_blocking_4.0.xsd",
+        "itintegration_registry_1.0.xsd"
+      ],
+      "doc_files": [],
+      "example_files": [],
+      "logical_models": [
+        "registerextendedblock-request",
+        "registerextendedblock"
+      ]
+    },
+    {
+      "section_number": "7.10",
+      "tkb_section": "6.10",
+      "id": "RevokeExtendedBlock",
+      "version": "4.0",
+      "wsdl_files": [
+        "RevokeExtendedBlockInteraction_4.0_RIVTABP21.wsdl"
+      ],
+      "xsd_files": [
+        "RevokeExtendedBlockResponder_4.0.xsd",
+        "informationsecurity_authorization_blocking_4.0.xsd",
+        "itintegration_registry_1.0.xsd"
+      ],
+      "doc_files": [],
+      "example_files": [],
+      "logical_models": [
+        "revokeextendedblock-request",
+        "revokeextendedblock"
+      ]
+    },
+    {
+      "section_number": "7.11",
+      "tkb_section": "6.11",
+      "id": "DeleteExtendedBlock",
+      "version": "4.0",
+      "wsdl_files": [
+        "DeleteExtendedBlockInteraction_4.0_RIVTABP21.wsdl"
+      ],
+      "xsd_files": [
+        "DeleteExtendedBlockResponder_4.0.xsd",
+        "informationsecurity_authorization_blocking_4.0.xsd",
+        "itintegration_registry_1.0.xsd"
+      ],
+      "doc_files": [],
+      "example_files": [],
+      "logical_models": [
+        "deleteextendedblock-request",
+        "deleteextendedblock"
+      ]
+    },
+    {
+      "section_number": "7.12",
+      "tkb_section": "6.12",
+      "id": "RegisterTemporaryExtendedRevoke",
+      "version": "4.0",
+      "wsdl_files": [
+        "RegisterTemporaryExtendedRevokeInteraction_4.0_RIVTABP21.wsdl"
+      ],
+      "xsd_files": [
+        "RegisterTemporaryExtendedRevokeResponder_4.0.xsd",
+        "informationsecurity_authorization_blocking_4.0.xsd",
+        "itintegration_registry_1.0.xsd"
+      ],
+      "doc_files": [
+        "SjD_TK_RegisterTemporaryExtendedRevoke_4.0.docx"
+      ],
+      "example_files": [],
+      "logical_models": [
+        "registertemporaryextendedrevoke-request",
+        "registertemporaryextendedrevoke"
+      ]
+    },
+    {
+      "section_number": "7.13",
+      "tkb_section": "6.13",
+      "id": "CancelTemporaryExtendedRevoke",
+      "version": "4.0",
+      "wsdl_files": [
+        "CancelTemporaryExtendedRevokeInteraction_4.0_RIVTABP21.wsdl"
+      ],
+      "xsd_files": [
+        "CancelTemporaryExtendedRevokeResponder_4.0.xsd",
+        "informationsecurity_authorization_blocking_4.0.xsd",
+        "itintegration_registry_1.0.xsd"
+      ],
+      "doc_files": [],
+      "example_files": [],
+      "logical_models": [
+        "canceltemporaryextendedrevoke-request",
+        "canceltemporaryextendedrevoke"
+      ]
+    }
+  ]
+}
