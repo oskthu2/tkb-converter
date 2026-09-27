@@ -1872,3 +1872,26 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-SPE-001]** `igs/TKB_strategicresourcemanagement_persons_employee/input/pagecontent/index.md`
   Länka till IG:n för `infrastructure.directory.employee` med dess publicerade URL när publiceringsstrukturen för länkar mellan IG:er är bestämd.
+
+## strategicresourcemanagement.organizational.organization v2.0 — `igs/TKB_strategicresourcemanagement_organizational_organization/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-SOO-001]** `igs/TKB_strategicresourcemanagement_organizational_organization/input/pagecontent/index.md`
+  Domänen är utgången. Senaste commit på master (`65b99195996e`, 2017-09-14) tar bort alla filer med meddelandet att kontrakten flyttats till `infrastructure.directory.organization`, som redan har en egen IG. IG:n byggs ändå som historisk dokumentation, med en notis om efterföljaren på varje sida (samma hantering som `strategicresourcemanagement.persons.employee`).
+- [ ] **[ASSUME-SOO-002]** `igs/TKB_strategicresourcemanagement_organizational_organization/sushi-config.yaml`
+  Den enda taggen är `2.0_RC1` (`8ac8ac3c4075`, 2016-11-22). IG:n bygger på den senare commiten `b349285d18c2` (2017-02-27), den sista med innehåll, som lägger till SoapUI-testsviter och uppdaterar `wsdl:documentation`. Kontraktsversionerna (2.0) är desamma. IG-versionen är `2.0.0-rc1`.
+- [ ] **[ASSUME-SOO-003]** `igs/TKB_strategicresourcemanagement_organizational_organization/input/pagecontent/1-inledning.md`
+  TKB:ns dokumentegenskaper är tomma: inledningen lyder "tjänstedomänen ." och "Den svenska benämningen är ." och referenserna R1, R5 saknar domännamn och versionsnummer ("Version 4.,"). Texten återges som den står; titelsidans uppgifter kommer ur revisionshistoriken (1.3_RC1, 2016-04-11) och avsnittet Svenskt namn.
+- [ ] **[ASSUME-SOO-004]** `igs/TKB_strategicresourcemanagement_organizational_organization/input/pagecontent/8-bilaga-attributtabeller.md`
+  Varje kontrakts fältregler (TKB 6.1.2–6.5.2) består av två inklippta Exceldokument som bara visas som ikoner i Word. Det första är identiskt i alla fem kontrakten och återges en gång (attributtabell A); det andra är kontraktsspecifikt. De sex unika arbetsböckerna är extraherade ur `word/embeddings/`, återgivna som tabeller på sidan 8 och publicerade som `.xls`.
+- [ ] **[ASSUME-SOO-005]** `igs/TKB_strategicresourcemanagement_organizational_organization/input/pagecontent/3-tjanstedomanens-arkitektur.md`
+  Flödesdiagrammet är ett inbäddat Visio-objekt. Dess EMF-förhandsbild är konverterad till SVG och placerad under den tomma rubriken "Flödesdiagram" (3.1.1.2).
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-SOO-001]** `igs/TKB_strategicresourcemanagement_organizational_organization/input/pagecontent/7-tjanstekontrakt.md`
+  SoapUI-testsviterna i `test-suite/` innehåller `constraints.xml` med kontrollregler per kontrakt. De kan återges eller publiceras som källfiler.
