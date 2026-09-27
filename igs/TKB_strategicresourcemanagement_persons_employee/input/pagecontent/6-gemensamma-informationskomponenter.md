@@ -4,14 +4,11 @@ Källa: *Tjänstekontraktsbeskrivning strategicresourcemanagement: persons: empl
 
 > **Utgången domän.** Domänen kom aldrig längre än 2.0_RC1. I september 2017 flyttades tjänstekontrakten till infrastructure.directory.employee, som har en egen IG, och domänens repo är sedan dess tomt. IG:n dokumenterar RC-versionen.
 
-*SAKNAS I KÄLLDOKUMENT*: TKB:n har inget kapitel om gemensamma informationskomponenter. Informationsmodellen hänvisas till RIV Informationsspecifikation HSA (se avsnitt 5). Kodverken och typerna nedan är hämtade ur domänschemana.
+*SAKNAS I KÄLLDOKUMENT*: TKB:n har inget kapitel om gemensamma informationskomponenter. Informationsmodellen hänvisas till RIV Informationsspecifikation HSA (se avsnitt 5). Typerna nedan är hämtade ur domänschemana.
 
 ### 6.1 Kodverk
 
-Uppräkningarna i domänschemat är modellerade som kodverk:
-
-| Kodverk | Koder | CodeSystem | ValueSet |
-|---|---|---|---|
+Domänschemat innehåller inga uppräkningar, så inga kodverk har genererats.
 
 ### 6.2 Typer i domänschemat (XSD)
 

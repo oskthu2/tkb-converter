@@ -1895,3 +1895,22 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-SOO-001]** `igs/TKB_strategicresourcemanagement_organizational_organization/input/pagecontent/7-tjanstekontrakt.md`
   SoapUI-testsviterna i `test-suite/` innehåller `constraints.xml` med kontrollregler per kontrakt. De kan återges eller publiceras som källfiler.
+
+## informationsecurity.authorization.pip v1.0 — `igs/TKB_informationsecurity_authorization_pip/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-PIP-001]** `igs/TKB_informationsecurity_authorization_pip/sushi-config.yaml`
+  Den enda taggen heter `2.0_RC1` (2016-11-22), men domänen och schemana har version 1.0, och TKB:n reviderades fram till 2017-06-28. IG:n bygger därför på senaste commit på master (`729301865b83`, 2017-07-03), och versionen 1.0 kommer ur TKB:n och schemafilernas namn.
+- [ ] **[ASSUME-PIP-002]** `igs/TKB_informationsecurity_authorization_pip/input/pagecontent/5-tjanstedomanens-meddelandemodeller.md`
+  Tre figurer om förseglingens tidsperioder finns inte i TKB:n utan i `docs/work_material/exports/`. De är tillagda på sidan 5 som kompletterande figurer, eftersom fälten validFrom, validTo, deactivationDate och sealPeriod hänvisar till informationsspecifikationens kapitel 7.6, som de illustrerar. Bildtexterna är skrivna utifrån filnamnen och figurerna.
+- [ ] **[ASSUME-PIP-003]** `igs/TKB_informationsecurity_authorization_pip/input/fsh/logical-models/GetSeals.fsh`
+  Övriga regler ÖR1–ÖR7 (t.ex. att bara en av fullSeal, careProviderSeal och orgUnitSeal anges, och att validTo inte får vara äldre än validFrom) återges som text men är inte modellerade som invarianter. Testsvitens schematronregler är publicerade som `GetSeals_constraints.xml`.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-PIP-001]** `igs/TKB_informationsecurity_authorization_pip/input/fsh/logical-models/GetSeals.fsh`
+  Lägg till FHIRPath-invarianter för ÖR1–ÖR5 och ÖR7.
