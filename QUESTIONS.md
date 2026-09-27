@@ -2100,3 +2100,23 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-SLC-001]** `igs/TKB_druglogistics_dosedispensing/input/fsh/logical-models/HamtaLokaltProduktsortimentRequest.fsh`
   Rättelsen i `scripts/xsd_to_ig.py` (domänscheman med samma namnrymd) ger HamtaLokaltProduktsortiment 1.1 fältet `landsting` ur `HamtaLokaltProduktsortimentResponder_1.1_ext.xsd`. Den IG:n genererades före rättelsen och bör genereras om.
+
+## infrastructure.itintegration.dataexchange v1.0 — `igs/TKB_infrastructure_itintegration_dataexchange/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-IDE-001]** `igs/TKB_infrastructure_itintegration_dataexchange/sushi-config.yaml`
+  Domänen har inga taggar, och master innehåller bara en README (schemafilerna togs bort 2024-10-21). IG:n bygger på grenen develop (commit 7fdd1d090b32, 2025-09-11) och har versionen 1.0.0-draft. TKB:ns revisionshistorik har bara en preliminär version (2024-10-30). Verifiera om domänen har fastställts någon annanstans.
+- [ ] **[ASSUME-IDE-002]** `igs/TKB_infrastructure_itintegration_dataexchange/input/pagecontent/1-inledning.md`
+  Referenserna R1 (arkitekturella beslut) och R8 (informationsspecifikation) anges som bilagor men finns inte i källan. Bilagan R11 (Referens till binär data) publiceras omdöpt till `Referens_till_binar_data.docx`. Referenstabellens "Länk" är text utan adress i TKB:n och återges så.
+- [ ] **[ASSUME-IDE-003]** `igs/TKB_infrastructure_itintegration_dataexchange/input/pagecontent/1-inledning.md`
+  Revisionshistoriken ligger sist i TKB:n och har flyttats till sidan 1, som i övriga IG:er. Försättsbladets bilder visas inte.
+- [ ] **[ASSUME-IDE-004]** `igs/TKB_infrastructure_itintegration_dataexchange/input/pagecontent/5-tjanstedomanens-meddelandemodeller.md`
+  Rubriken 5.1 "Meddelandemodell - GetBinaryData" kom ut som bildtext i konverteringen och har återställts som rubrik. Styckena "Roller" efter sekvensdiagrammen i avsnitt 3 är rubriker i samma stil som under arbetsflödena. Figurerna visas med PNG-versionerna ur dokumentet; tre av dem finns också som SVG, som inte används.
+- [ ] **[ASSUME-IDE-005]** `igs/TKB_infrastructure_itintegration_dataexchange/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  TKB:n har inget kapitel om datatyper och domänen inget domänschema. Sidan 6 innehåller kodverket ResultCode och typerna ur tjänsteschemat.
+- [ ] **[ASSUME-IDE-006]** `igs/TKB_infrastructure_itintegration_dataexchange/input/fsh/logical-models/GetBinaryData.fsh` · fält `binaryData.contentType`
+  TKB:n anger MIME-typer enligt FHIR-urvalet http://hl7.org/fhir/ValueSet/mimetypes. Fältet är modellerat som sträng enligt schemat (`xs:token`) utan bindning.
