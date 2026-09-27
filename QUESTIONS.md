@@ -1983,3 +1983,24 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-IAC-001]** `igs/TKB_informationsecurity_authorization_consent/input/fsh/logical-models/`
   Övriga regler per kontrakt och testsvitens schematronregler kan bli invarianter i de logiska modellerna.
+
+## informationsecurity.authorization.blocking v4.0.4 — `igs/TKB_informationsecurity_authorization_blocking/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-IAB-001]** `igs/TKB_informationsecurity_authorization_blocking/input/pagecontent/3-tjanstedomanens-arkitektur.md`
+  Sekvensdiagrammen för flöde 4–7 ligger i TKB:n som inbäddade Visio-objekt. IG:n visar objektens förhandsbilder, konverterade från EMF till SVG. Texten kan ha något ojämna mellanrum jämfört med Visio-originalet.
+- [ ] **[ASSUME-IAB-002]** `igs/TKB_informationsecurity_authorization_blocking/input/pagecontent/7-tjanstekontrakt.md`
+  TKB:n hänvisar under *Exempel* till XML-filer (t.ex. GetBlocksRequest.xml), men taggen 4.0.4 innehåller inga exempelfiler. Hänvisningarna återges som text utan länk.
+- [ ] **[ASSUME-IAB-003]** `igs/TKB_informationsecurity_authorization_blocking/input/images/`
+  Schemat `informationsecurity_authorization_blocking_QR_1.0.xsd` används inte av något kontrakt (kvalitetsregisterkontrakten togs bort i 4.0.4) och publiceras inte.
+- [ ] **[ASSUME-IAB-004]** `igs/TKB_informationsecurity_authorization_blocking/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Datatyprubrikerna i TKB kapitel 7 har formen `urn:riv:informationsecurity:authorization:blocking:4:Typnamn`. Här visas bara typnamnet, och namnrymden anges i avsnittets inledning.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-IAB-001]** `igs/TKB_informationsecurity_authorization_blocking/input/fsh/logical-models/`
+  CheckBlocks utvärderingsregler och övriga regler per kontrakt kan bli invarianter i de logiska modellerna.

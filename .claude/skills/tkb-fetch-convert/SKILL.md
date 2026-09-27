@@ -142,6 +142,7 @@ Felhantering:
   open(f,'w').write(s.replace(m.group(0),f'viewBox="0 0 {w} {h}" width="{float(w)/4:.0f}" height="{float(h)/4:.0f}"',1))
   PY
   ```
+  **Inbäddade Visio-objekt (OLE, `word/embeddings/*.vsdx`)** har en EMF-förhandsbild (`<w:object>` med `v:imagedata r:id=…`) som `docx_to_md.py` extraherar men **inte länkar** i markdownen. Figuren saknas då tyst på sidan (upptäckt 2026-09-27 i `informationsecurity_authorization_blocking`, fem sekvensdiagram). Leta efter `.emf` i `docx-converted/images/` som inte nämns i `full-document.md`, hitta platsen via `<w:object>`-elementen i `word/document.xml` (text före och efter objektet), para ihop `word/media/imageN.emf` med `img_NNN.emf` via md5, konvertera som ovan och infoga bildlänken i sidgeneratorn. Skala hellre till `width=min(w,900)` än `w/4`, som blir för litet för sekvensdiagram.
   Byt `.emf` mot `.svg` i bildlänkarna och kopiera bara `.svg` till `input/images/`. Kontrollera resultatet med en skärmdump (`/opt/pw-browsers/chromium-1194/chrome-linux/chrome --headless --no-sandbox --screenshot=… file://…/img.svg`). Text kan få något ojämna mellanrum, men diagrammet är läsbart (verifierat 2026-09-26 i `clinicalprocess_healthcond_rheuma`).
 
 - **TIFF-bilder (`img_NNN.tiff`)** i `docx-converted/images/` (upptäckt 2026-09-26 i `supportprocess.serviceprovisioning.healthcareoffering`): webbläsare visar inte TIFF. Konvertera till PNG med Pillow och byt ändelse i bildlänkarna; kopiera bara `.png` till `input/images/`:
