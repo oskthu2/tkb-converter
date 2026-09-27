@@ -2027,3 +2027,24 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-FPE-001]** `igs/TKB_financial_patientfees_exemption/input/fsh/logical-models/ProcessExemptionStatuses.fsh`
   Schematronreglerna rule001–rule018 i TKB:n kan bli invarianter i de logiska modellerna.
+
+## infrastructure.directory.synchronization v1.0_RC3 — `igs/TKB_infrastructure_directory_synchronization/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-IDS-001]** `igs/TKB_infrastructure_directory_synchronization/sushi-config.yaml`
+  Domänen har bara release candidate-taggar, och den senaste är 1.0_RC3 (2018-09-25), som också är master. IG:n dokumenterar den och har versionen 1.0.0-rc3. Verifiera om domänen någonsin fastställdes eller om den ska märkas som utkast.
+- [ ] **[ASSUME-IDS-002]** `igs/TKB_infrastructure_directory_synchronization/input/pagecontent/3-tjanstedomanens-arkitektur.md`
+  Arbetsflödet, sekvensdiagrammet och figurerna 1–2 under kontraktets övriga regler ligger i TKB:n som inbäddade Visio-objekt. IG:n visar objektens förhandsbilder som SVG. Figurnumren saknades i den konverterade texten ("Figur .") och har satts in.
+- [ ] **[ASSUME-IDS-003]** `igs/TKB_infrastructure_directory_synchronization/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  TKB:n har inget kapitel om datatyper. Sidan 6 innehåller kodverket Category och typerna ur domänschemana.
+- [ ] **[ASSUME-IDS-004]** `igs/TKB_infrastructure_directory_synchronization/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `GetMasterDataChangeSet`
+  Källan har inga självdeklarationer, XML-exempel eller testsviter, så källfilstabellen innehåller bara WSDL och scheman.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-IDS-001]** `igs/TKB_infrastructure_directory_synchronization/input/fsh/logical-models/GetMasterDataChangeSet.fsh`
+  Regel #1–#3 i TKB:n kan bli invarianter eller beskrivningar i den logiska modellen.
