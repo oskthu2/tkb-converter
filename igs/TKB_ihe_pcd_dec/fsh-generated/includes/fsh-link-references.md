@@ -1,0 +1,2 @@
+[DeviceObservationConsumerRequest]: StructureDefinition-deviceobservationconsumer-request.html
+[DeviceObservationConsumer]: StructureDefinition-deviceobservationconsumer.html

@@ -1765,3 +1765,22 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-HCO-001]** `igs/TKB_supportprocess_serviceprovisioning_healthcareoffering/source/*/docs/work_material/`
   Arbetsmaterialet (15 modellbilder, bland annat begrepps-, process- och informationsmodell) används inte i TKB:n och är inte med i IG:n. Informationsspecifikationen, kravspecifikationen och kravkatalogen är länkade som filer, inte konverterade.
+
+## ihe.pcd.dec v1.0.1 — `igs/TKB_ihe_pcd_dec/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-DEC-001]** `igs/TKB_ihe_pcd_dec/input/fsh/logical-models/*.fsh`
+  Kontraktet följer Continuas WSDL (RIVTABP20, namnrymd `urn:ihe:pcd:dec:2010`) och bär ett HL7 v2.6-meddelande (ORU^R01, IHE PCD-01) som en enda sträng. De logiska modellerna har därför bara strängfält för meddelandet, kvittensen och SOAP-huvudet `wsa:To`, och är skrivna för hand eftersom `xsd_to_ig.py` förutsätter RIV-TA:s Responder-mönster. Segmentreglerna (MSH, PID, OBR, OBX) finns som tabeller i avsnitt 7.1.2 och är inte modellerade i FHIR.
+- [ ] **[ASSUME-DEC-002]** `igs/TKB_ihe_pcd_dec/input/pagecontent/7-tjanstekontrakt.md` · avsnitt 7.1.2.5
+  SOAP-exemplet i TKB:n har två `<soap:Body>`-starttaggar och en felaktig sluttagg (`<urn1:CommunicatePCDData>`). Exemplet är återgivet som det står; de korrekta exempelfilerna i `docs/examples/` är länkade.
+- [ ] **[ASSUME-DEC-003]** `igs/TKB_ihe_pcd_dec/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  TKB:n har inget kapitel om gemensamma informationskomponenter. Sidan 6 är märkt *SAKNAS I KÄLLDOKUMENT* och beskriver de två strängtyperna i schemat.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-DEC-001]** `igs/TKB_ihe_pcd_dec/input/pagecontent/{5,7}-*.md`
+  Källan har ofullständiga avsnitt: mappningstabellen mot V-TIM i avsnitt 5.1 innehåller bara "Aktivitet" och "…", och *Övriga regler* och *Annan information om kontraktet* (7.1.3–7.1.4) är tomma. De är återgivna som i källan.
