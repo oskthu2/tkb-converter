@@ -1,0 +1,318 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "inera.informationsecurity-authorization-consent",
+  "url": "https://fhir.inera.se/ig/informationsecurity-authorization-consent/ImplementationGuide/inera.informationsecurity-authorization-consent",
+  "version": "2.0.4",
+  "name": "informationsecurityauthorizationconsent",
+  "title": "informationsecurity: authorization: consent",
+  "status": "draft",
+  "contact": [
+    {
+      "name": "Inera Arkitektur",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.inera.se"
+        }
+      ]
+    }
+  ],
+  "copyright": "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "packageId": "inera.informationsecurity-authorization-consent",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.r4.core",
+      "version": "4.0.1",
+      "uri": "http://fhir.org/packages/hl7.fhir.r4.core/ImplementationGuide/hl7.fhir.r4.core",
+      "id": "hl7_fhir_r4_core"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "ValueSet/authorization-consent-assertiontype-vs"
+        },
+        "name": "AssertionType",
+        "description": "Alla koder i AssertionTypeCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/authorization-consent-assertiontype-cs"
+        },
+        "name": "AssertionType",
+        "description": "Koder för AssertionTypeType i domänschemat.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cancelextendedconsent-request"
+        },
+        "name": "CancelExtendedConsent — Request",
+        "description": "Logisk modell för begäran i CancelExtendedConsent\n(urn:riv:informationsecurity:authorization:consent:CancelExtendedConsentResponder:2, CancelExtendedConsentType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cancelextendedconsent"
+        },
+        "name": "CancelExtendedConsent — Response",
+        "description": "Logisk modell för svaret i CancelExtendedConsent\n(urn:riv:informationsecurity:authorization:consent:CancelExtendedConsentResponder:2, CancelExtendedConsentResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/checkconsent-request"
+        },
+        "name": "CheckConsent — Request",
+        "description": "Logisk modell för begäran i CheckConsent\n(urn:riv:informationsecurity:authorization:consent:CheckConsentResponder:2, CheckConsentType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/checkconsent"
+        },
+        "name": "CheckConsent — Response",
+        "description": "Logisk modell för svaret i CheckConsent\n(urn:riv:informationsecurity:authorization:consent:CheckConsentResponder:2, CheckConsentResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/deleteextendedconsent-request"
+        },
+        "name": "DeleteExtendedConsent — Request",
+        "description": "Logisk modell för begäran i DeleteExtendedConsent\n(urn:riv:informationsecurity:authorization:consent:DeleteExtendedConsentResponder:2, DeleteExtendedConsentType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/deleteextendedconsent"
+        },
+        "name": "DeleteExtendedConsent — Response",
+        "description": "Logisk modell för svaret i DeleteExtendedConsent\n(urn:riv:informationsecurity:authorization:consent:DeleteExtendedConsentResponder:2, DeleteExtendedConsentResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/endconsentbypatient-request"
+        },
+        "name": "EndConsentByPatient — Request",
+        "description": "Logisk modell för begäran i EndConsentByPatient\n(urn:riv:informationsecurity:authorization:consent:EndConsentByPatientResponder:1, EndConsentByPatientType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/endconsentbypatient"
+        },
+        "name": "EndConsentByPatient — Response",
+        "description": "Logisk modell för svaret i EndConsentByPatient\n(urn:riv:informationsecurity:authorization:consent:EndConsentByPatientResponder:1, EndConsentByPatientResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getallextendedconsentsforpatient-request"
+        },
+        "name": "GetAllExtendedConsentsForPatient — Request",
+        "description": "Logisk modell för begäran i GetAllExtendedConsentsForPatient\n(urn:riv:informationsecurity:authorization:consent:GetAllExtendedConsentsForPatientResponder:1, GetAllExtendedConsentsForPatientType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getallextendedconsentsforpatient"
+        },
+        "name": "GetAllExtendedConsentsForPatient — Response",
+        "description": "Logisk modell för svaret i GetAllExtendedConsentsForPatient\n(urn:riv:informationsecurity:authorization:consent:GetAllExtendedConsentsForPatientResponder:1, GetAllExtendedConsentsForPatientResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getconsentsforcareprovider-request"
+        },
+        "name": "GetConsentsForCareProvider — Request",
+        "description": "Logisk modell för begäran i GetConsentsForCareProvider\n(urn:riv:informationsecurity:authorization:consent:GetConsentsForCareProviderResponder:2, GetConsentsForCareProviderType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getconsentsforcareprovider"
+        },
+        "name": "GetConsentsForCareProvider — Response",
+        "description": "Logisk modell för svaret i GetConsentsForCareProvider\n(urn:riv:informationsecurity:authorization:consent:GetConsentsForCareProviderResponder:2, GetConsentsForCareProviderResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getconsentsforpatient-request"
+        },
+        "name": "GetConsentsForPatient — Request",
+        "description": "Logisk modell för begäran i GetConsentsForPatient\n(urn:riv:informationsecurity:authorization:consent:GetConsentsForPatientResponder:2, GetConsentsForPatientType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getconsentsforpatient"
+        },
+        "name": "GetConsentsForPatient — Response",
+        "description": "Logisk modell för svaret i GetConsentsForPatient\n(urn:riv:informationsecurity:authorization:consent:GetConsentsForPatientResponder:2, GetConsentsForPatientResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getextendedconsentsforpatient-request"
+        },
+        "name": "GetExtendedConsentsForPatient — Request",
+        "description": "Logisk modell för begäran i GetExtendedConsentsForPatient\n(urn:riv:informationsecurity:authorization:consent:GetExtendedConsentsForPatientResponder:2, GetExtendedConsentsForPatientType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getextendedconsentsforpatient"
+        },
+        "name": "GetExtendedConsentsForPatient — Response",
+        "description": "Logisk modell för svaret i GetExtendedConsentsForPatient\n(urn:riv:informationsecurity:authorization:consent:GetExtendedConsentsForPatientResponder:2, GetExtendedConsentsForPatientResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/registerextendedconsent-request"
+        },
+        "name": "RegisterExtendedConsent — Request",
+        "description": "Logisk modell för begäran i RegisterExtendedConsent\n(urn:riv:informationsecurity:authorization:consent:RegisterExtendedConsentResponder:2, RegisterExtendedConsentType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/registerextendedconsent"
+        },
+        "name": "RegisterExtendedConsent — Response",
+        "description": "Logisk modell för svaret i RegisterExtendedConsent\n(urn:riv:informationsecurity:authorization:consent:RegisterExtendedConsentResponder:2, RegisterExtendedConsentResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/authorization-consent-resultcode-vs"
+        },
+        "name": "ResultCode",
+        "description": "Alla koder i ResultCodeCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/authorization-consent-resultcode-cs"
+        },
+        "name": "ResultCode",
+        "description": "Koder för ResultCodeType i domänschemat.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/authorization-consent-scope-vs"
+        },
+        "name": "Scope",
+        "description": "Alla koder i ScopeCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/authorization-consent-scope-cs"
+        },
+        "name": "Scope",
+        "description": "Koder för ScopeType i domänschemat.",
+        "exampleBoolean": false
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Hem",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "1-inledning.html",
+          "title": "1 Inledning",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "2-versionsinformation.html",
+          "title": "2 Versionsinformation",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "3-tjanstedomanens-arkitektur.html",
+          "title": "3 Tjänstedomänens arkitektur",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "4-tjanstedomanens-krav-och-regler.html",
+          "title": "4 Tjänstedomänens krav och regler",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "5-tjanstedomanens-meddelandemodeller.html",
+          "title": "5 Tjänstedomänens meddelandemodeller",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "6-gemensamma-informationskomponenter.html",
+          "title": "6 Gemensamma informationskomponenter",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "7-tjanstekontrakt.html",
+          "title": "7 Tjänstekontrakt",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2024+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "draft"
+      },
+      {
+        "code": "show-inherited-invariants",
+        "value": "false"
+      },
+      {
+        "code": "apply-contact",
+        "value": "true"
+      },
+      {
+        "code": "apply-publisher",
+        "value": "true"
+      },
+      {
+        "code": "apply-version",
+        "value": "true"
+      },
+      {
+        "code": "apply-copyright",
+        "value": "true"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/authorization-consent-assertiontype-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/authorization-consent-resultcode-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/authorization-consent-scope-cs"
+      }
+    ]
+  }
+}

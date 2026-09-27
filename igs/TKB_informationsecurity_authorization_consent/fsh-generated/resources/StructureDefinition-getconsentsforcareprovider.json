@@ -1,0 +1,329 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getconsentsforcareprovider",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/informationsecurity-authorization-consent/StructureDefinition/getconsentsforcareprovider",
+  "name": "GetConsentsForCareProvider",
+  "title": "GetConsentsForCareProvider — Response",
+  "status": "draft",
+  "description": "Logisk modell för svaret i GetConsentsForCareProvider\n(urn:riv:informationsecurity:authorization:consent:GetConsentsForCareProviderResponder:2, GetConsentsForCareProviderResponseType).",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/informationsecurity-authorization-consent/StructureDefinition/getconsentsforcareprovider",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getconsentsforcareprovider",
+        "path": "getconsentsforcareprovider",
+        "short": "GetConsentsForCareProvider — Response",
+        "definition": "Logisk modell för svaret i GetConsentsForCareProvider\n(urn:riv:informationsecurity:authorization:consent:GetConsentsForCareProviderResponder:2, GetConsentsForCareProviderResponseType)."
+      },
+      {
+        "id": "getconsentsforcareprovider.getAllAssertionsResult",
+        "path": "getconsentsforcareprovider.getAllAssertionsResult",
+        "short": "getAllAssertionsResult",
+        "definition": "Datatyp som representerar en lista med giltiga intyg tillsammans med en lista av makulerade och återkallade intyg. Den används för att dela upp svaret från tjänsten i mindre delar baserat på tidpunkt. Datatypen innehåller information om det finns ytterligare intyg att hämta samt en ny starttidpunkt för när nästa sekvens av intyg startar. Datatypen utökar datatypen Result.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.getAllAssertionsResult.result",
+        "path": "getconsentsforcareprovider.getAllAssertionsResult.result",
+        "short": "result",
+        "definition": "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.getAllAssertionsResult.result.resultCode",
+        "path": "getconsentsforcareprovider.getAllAssertionsResult.result.resultCode",
+        "short": "resultCode",
+        "definition": "resultCode",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/informationsecurity-authorization-consent/ValueSet/authorization-consent-resultcode-vs"
+        }
+      },
+      {
+        "id": "getconsentsforcareprovider.getAllAssertionsResult.result.resultText",
+        "path": "getconsentsforcareprovider.getAllAssertionsResult.result.resultText",
+        "short": "resultText",
+        "definition": "resultText",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.getAllAssertionsResult.moreOnOrAfter",
+        "path": "getconsentsforcareprovider.getAllAssertionsResult.moreOnOrAfter",
+        "short": "moreOnOrAfter",
+        "definition": "moreOnOrAfter",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.getAllAssertionsResult.hasMore",
+        "path": "getconsentsforcareprovider.getAllAssertionsResult.hasMore",
+        "short": "hasMore",
+        "definition": "hasMore",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.getAllAssertionsResult.assertions",
+        "path": "getconsentsforcareprovider.getAllAssertionsResult.assertions",
+        "short": "assertions",
+        "definition": "Datatyp som representerar ett intyg som ger direktåtkomst till andra vårdgivares information enligt PDL. Datatypen beskriver grundformatet för ett intyg.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.getAllAssertionsResult.assertions.assertionId",
+        "path": "getconsentsforcareprovider.getAllAssertionsResult.assertions.assertionId",
+        "short": "assertionId",
+        "definition": "assertionId",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.getAllAssertionsResult.assertions.assertionType",
+        "path": "getconsentsforcareprovider.getAllAssertionsResult.assertions.assertionType",
+        "short": "assertionType",
+        "definition": "assertionType",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/informationsecurity-authorization-consent/ValueSet/authorization-consent-assertiontype-vs"
+        }
+      },
+      {
+        "id": "getconsentsforcareprovider.getAllAssertionsResult.assertions.scope",
+        "path": "getconsentsforcareprovider.getAllAssertionsResult.assertions.scope",
+        "short": "scope",
+        "definition": "scope",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/informationsecurity-authorization-consent/ValueSet/authorization-consent-scope-vs"
+        }
+      },
+      {
+        "id": "getconsentsforcareprovider.getAllAssertionsResult.assertions.careProviderId",
+        "path": "getconsentsforcareprovider.getAllAssertionsResult.assertions.careProviderId",
+        "short": "careProviderId",
+        "definition": "careProviderId",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.getAllAssertionsResult.assertions.careUnitId",
+        "path": "getconsentsforcareprovider.getAllAssertionsResult.assertions.careUnitId",
+        "short": "careUnitId",
+        "definition": "careUnitId",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.getAllAssertionsResult.assertions.employeeId",
+        "path": "getconsentsforcareprovider.getAllAssertionsResult.assertions.employeeId",
+        "short": "employeeId",
+        "definition": "employeeId",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.getAllAssertionsResult.assertions.startDate",
+        "path": "getconsentsforcareprovider.getAllAssertionsResult.assertions.startDate",
+        "short": "startDate",
+        "definition": "startDate",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.getAllAssertionsResult.assertions.endDate",
+        "path": "getconsentsforcareprovider.getAllAssertionsResult.assertions.endDate",
+        "short": "endDate",
+        "definition": "endDate",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.getAllAssertionsResult.assertions.ownerId",
+        "path": "getconsentsforcareprovider.getAllAssertionsResult.assertions.ownerId",
+        "short": "ownerId",
+        "definition": "ownerId",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.getAllAssertionsResult.assertions.patientId",
+        "path": "getconsentsforcareprovider.getAllAssertionsResult.assertions.patientId",
+        "short": "patientId",
+        "definition": "En universellt unik identifierare.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.getAllAssertionsResult.assertions.patientId.root",
+        "path": "getconsentsforcareprovider.getAllAssertionsResult.assertions.patientId.root",
+        "short": "root",
+        "definition": "root",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.getAllAssertionsResult.assertions.patientId.iiExtension",
+        "path": "getconsentsforcareprovider.getAllAssertionsResult.assertions.patientId.iiExtension",
+        "short": "iiExtension",
+        "definition": "iiExtension Heter extension i schemat.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.getAllAssertionsResult.cancelledAssertions",
+        "path": "getconsentsforcareprovider.getAllAssertionsResult.cancelledAssertions",
+        "short": "cancelledAssertions",
+        "definition": "Datatyp som representerar ett makulerat eller återkallat samtycke samt tidpunkten när makuleringen eller återkallan utfördes.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.getAllAssertionsResult.cancelledAssertions.assertionId",
+        "path": "getconsentsforcareprovider.getAllAssertionsResult.cancelledAssertions.assertionId",
+        "short": "assertionId",
+        "definition": "assertionId",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getconsentsforcareprovider.getAllAssertionsResult.cancelledAssertions.cancellationDate",
+        "path": "getconsentsforcareprovider.getAllAssertionsResult.cancelledAssertions.cancellationDate",
+        "short": "cancellationDate",
+        "definition": "cancellationDate",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

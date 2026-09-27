@@ -1960,3 +1960,26 @@ _Inga blockerare identifierade._
 
 - [ ] **[TODO-IAL-001]** `igs/TKB_informationsecurity_auditing_log/input/fsh/logical-models/`
   Övriga regler per kontrakt (t.ex. unikt LogId och högst 500 loggposter per anrop i StoreLog) och testsvitens schematronregler (`test-suite/*/constraints.xml`) kan bli invarianter i de logiska modellerna.
+
+## informationsecurity.authorization.consent v2.0.4 — `igs/TKB_informationsecurity_authorization_consent/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-IAC-001]** `igs/TKB_informationsecurity_authorization_consent/sushi-config.yaml`
+  Källan är taggen 2.0.4 (2025-12-09), som också är master. Taggen 3.0_RC1 (2026-05-12) är en release candidate för nästa major-version och används inte. Byt när 3.0 fastställs.
+- [ ] **[ASSUME-IAC-002]** `igs/TKB_informationsecurity_authorization_consent/input/pagecontent/2-versionsinformation.md` · kontrakt `RegisterConsentByPatient`
+  TKB:n listar RegisterConsentByPatient som nytt i 2.0.4, men taggen saknar schema och kontraktsavsnitt för det. Enligt commit-meddelandet för 2.0.4 är kontraktet tillbakadraget till nästa major-version. Texten återges ordagrant, och ingen modell har genererats.
+- [ ] **[ASSUME-IAC-003]** `igs/TKB_informationsecurity_authorization_consent/input/pagecontent/3-tjanstedomanens-arkitektur.md`
+  Arbetsflödesfigurerna för flöde 2, 8 och 10 och sekvensdiagrammet för flöde 10 saknas i källdokumentet. Platserna är markerade med en kursiv notering. Tabellen *Obligatoriska kontrakt* har kolumner för flöde 1–9, medan flödena heter 1–8 och 10, och den saknar rader för de senare kontrakten; den återges ordagrant.
+- [ ] **[ASSUME-IAC-004]** `igs/TKB_informationsecurity_authorization_consent/input/pagecontent/1-inledning.md`
+  Förkortningstabellen i källan har bara tomma rader och ersätts med en mening. Revisionshistoriken har tre dubblerade rader från 2012, som återges som de står.
+- [ ] **[ASSUME-IAC-005]** `igs/TKB_informationsecurity_authorization_consent/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `EndConsentByPatient`
+  Källan har ingen självdeklaration för EndConsentByPatient och inga XML-exempel för något kontrakt, så källfilstabellerna saknar sådana filer.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-IAC-001]** `igs/TKB_informationsecurity_authorization_consent/input/fsh/logical-models/`
+  Övriga regler per kontrakt och testsvitens schematronregler kan bli invarianter i de logiska modellerna.
