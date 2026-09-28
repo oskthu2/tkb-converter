@@ -2147,14 +2147,15 @@ _Inga blockerare identifierade._
 
 ## interoperability.headers v1.1 — `igs/TKB_interoperability_headers/`
 
-**Status:** in-progress (väntar på beslut om BLOCK-IH-001)
-**Senast uppdaterad:** 2026-09-26
+**Status:** done
+**Senast uppdaterad:** 2026-09-28
 
 ### Blockerare (kräver svar innan IG kan anses komplett)
 
-- [ ] **[BLOCK-IH-001]** `igs/TKB_interoperability_headers/` (hela domänen) · inget TKB-dokument
+- [x] **[BLOCK-IH-001]** `igs/TKB_interoperability_headers/` (hela domänen) · inget TKB-dokument
   Domänen saknar publicerad TKB. Bitbucket-repot `rivta-domains/riv.interoperability.headers` innehåller i båda taggarna (`TD_HEADERS_1_0_R` 2011, `interoperability_headers_1.1` 2015) och på `master` enbart `schemas/core_components/interoperability_headers_{version}.xsd`, och README-länken "Senaste TKB" är tom. Domänen har heller inga tjänstekontrakt (ingen WSDL), bara två delade huvudelement (`Actor`, `ProcessingStatus`) som andra domäner använder. IG:n är byggd enbart från XSD:n: sidorna 1, 2 och 6 är sammanställda från schemat och repots historik och märkta "SAKNAS I KÄLLDOKUMENT", och sidorna 3–5 finns inte.
   Förslag: godkänn en XSD-baserad IG för denna domän (ta bort BLOCK och slå ihop PR:en). Alternativ: markera domänen `blocked` med orsaken "inget TKB-dokument publicerat" och stäng PR:en.
+  **Löst 2026-09-28:** Oskar godkände en XSD-baserad IG för domänen. Sidorna behåller markeringen "SAKNAS I KÄLLDOKUMENT" eftersom det fortfarande saknas en TKB.
 
 ### Antaganden gjorda (verifiera med domänexpert)
 

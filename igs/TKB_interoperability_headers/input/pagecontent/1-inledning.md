@@ -1,6 +1,6 @@
 # 1 Inledning
 
-> **SAKNAS I KÄLLDOKUMENT — kontrollera manuellt.** Det finns ingen publicerad TKB för domänen `interoperability:headers`. Länken "Senaste TKB" i domänens README på Bitbucket är tom. Texten nedan är sammanställd från schemat och repots historik, inte hämtad ur ett TKB-dokument (se BLOCK-IH-001 i QUESTIONS.md).
+> **SAKNAS I KÄLLDOKUMENT — kontrollera manuellt.** Det finns ingen publicerad TKB för domänen `interoperability:headers`. Länken "Senaste TKB" i domänens README på Bitbucket är tom. Texten nedan är sammanställd från schemat och repots historik, inte hämtad ur ett TKB-dokument (en IG byggd enbart från schemat godkändes 2026-09-28, se BLOCK-IH-001 i QUESTIONS.md).
 
 Domänen `interoperability:headers` definierar gemensamma XML-element i namnrymden `urn:riv:interoperability:headers:1`. Elementen är tänkta att återanvändas av andra RIV-TA-tjänstedomäner, antingen som huvudelement i anropet eller som tillägg i svaret, och är inte knutna till något eget tjänstekontrakt.
 
