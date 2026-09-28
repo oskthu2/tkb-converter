@@ -1,0 +1,145 @@
+# Resultatkod (ResultCode) - supportprocess: logistics: scheduling v2.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **Resultatkod (ResultCode)**
+
+## CodeSystem: Resultatkod (ResultCode) 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/CodeSystem/scheduling-resultcode-cs | *Version*:2.0.0 |
+| Active as of 2026-09-28 | *Computable Name*:ResultCodeCS |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Koder för ResultCodeEnum i domänschemat. Visningstexter ur TKB avsnitt 3.7 ResultCode. 
+
+ This Code system is referenced in the content logical definition of the following value sets: 
+
+* [Resultatkod (ResultCode)](ValueSet-scheduling-resultcode-vs.md)
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "CodeSystem",
+  "id" : "scheduling-resultcode-cs",
+  "url" : "https://fhir.inera.se/CodeSystem/scheduling-resultcode-cs",
+  "version" : "2.0.0",
+  "name" : "ResultCodeCS",
+  "title" : "Resultatkod (ResultCode)",
+  "status" : "active",
+  "date" : "2026-09-28T09:26:08+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Koder för ResultCodeEnum i domänschemat. Visningstexter ur TKB avsnitt 3.7 ResultCode.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "caseSensitive" : true,
+  "content" : "complete",
+  "count" : 19,
+  "concept" : [{
+    "code" : "OK",
+    "display" : "OK",
+    "definition" : "Transaktionen har utförts enligt uppdraget i frågemeddelandet."
+  },
+  {
+    "code" : "ERROR",
+    "display" : "Fel",
+    "definition" : "Transaktionen har INTE kunnat utföras enligt uppdrag i frågemeddelandet p.g.a. logiskt fel. Det finns ett meddelande som konsumenten måste visa upp. Exempel på detta kan vara ”tiden har blivit upptagen av annan invånare”."
+  },
+  {
+    "code" : "INFO",
+    "display" : "Information",
+    "definition" : "Transaktionen har utförts enligt uppdraget i frågemeddelandet, men det finns ett meddelande som tjänstekonsumenten måste visa upp för invånaren. Exempel på detta kan vara ”kom fastande”."
+  },
+  {
+    "code" : "REQUESTED_TIME_IS_ALREADY_RESERVED",
+    "display" : "Efterfrågad tid är redan bokad",
+    "definition" : "Efterfrågad tid är redan bokad."
+  },
+  {
+    "code" : "REQUESTED_TIME_HAS_ALREADY_PASSED",
+    "display" : "Efterfrågad tid har passerat",
+    "definition" : "Efterfrågad tid har passerat."
+  },
+  {
+    "code" : "REQUESTED_TIME_IS_NO_LONGER_AVAILABLE",
+    "display" : "Efterfrågad tid är ej tillgänglig",
+    "definition" : "Efterfrågad tid är ej tillgänglig."
+  },
+  {
+    "code" : "TOO_LATE_TO_MAKE_APPOINTMENT",
+    "display" : "För sent att boka tiden",
+    "definition" : "För sent att boka tiden. Mottagningen tillåter inte bokning en viss tid innan tiden startar."
+  },
+  {
+    "code" : "USER_IS_ALREADY_OCCUPIED",
+    "display" : "Invånaren har redan bokat en annan tid vid samma tillfälle på mottagningen",
+    "definition" : "Invånaren har redan bokat en annan tid vid samma tillfälle på mottagningen."
+  },
+  {
+    "code" : "APPOINTMENT_IS_NOT_ALLOWED",
+    "display" : "Bokning är inte tillåtet",
+    "definition" : "Bokning är inte tillåtet. Kan bero på konfigurationsfel eller att möjligheten att boka just har ändrats."
+  },
+  {
+    "code" : "APPOINTMENT_IS_ALREADY_CANCELED",
+    "display" : "Tiden är redan avbokad",
+    "definition" : "Tiden är redan avbokad."
+  },
+  {
+    "code" : "APPOINTMENT_IS_ALREADY_UPDATED",
+    "display" : "Tiden är redan ombokad",
+    "definition" : "Tiden är redan ombokad."
+  },
+  {
+    "code" : "TOO_LATE_TO_UPDATE_APPOINTMENT",
+    "display" : "För sent att omboka tiden",
+    "definition" : "För sent att omboka tiden. Mottagningen tillåter inte ombokning en viss tid innan tiden startar."
+  },
+  {
+    "code" : "APPOINTMENT_DOES_NOT_EXIST",
+    "display" : "Bokningen saknas",
+    "definition" : "Bokningen saknas."
+  },
+  {
+    "code" : "UPDATE_APPOINTMENT_IS_NOT_ALLOWED",
+    "display" : "Ombokning är inte tillåtet",
+    "definition" : "Ombokning är inte tillåtet."
+  },
+  {
+    "code" : "TOO_LATE_TO_CANCEL_APPOINTMENT",
+    "display" : "För sent att avboka tiden",
+    "definition" : "För sent att avboka tiden. Mottagningen tillåter inte avbokning en viss tid innan tiden startar."
+  },
+  {
+    "code" : "CANCEL_IS_NOT_ALLOWED",
+    "display" : "Avbokning är inte tillåtet",
+    "definition" : "Avbokning är inte tillåtet."
+  },
+  {
+    "code" : "APPOINTMENT_IS_ALREADY_CONFIRMED",
+    "display" : "Tiden är redan bekräftad",
+    "definition" : "Tiden är redan bekräftad."
+  },
+  {
+    "code" : "TOO_LATE_TO_CONFIRM_APPOINTMENT",
+    "display" : "För sent att bekräfta tiden",
+    "definition" : "För sent att bekräfta tiden. Mottagningen tillåter inte bekräftelse en viss tid innan tiden startar."
+  },
+  {
+    "code" : "CONFIRM_IS_NOT_ALLOWED",
+    "display" : "Bekräftelse ej tillåtet",
+    "definition" : "Bekräftelse ej tillåtet."
+  }]
+}
+
+```

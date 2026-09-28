@@ -1,0 +1,4177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>7 Tjänstekontrakt - supportprocess: serviceprovisioning: healthcareoffering v3.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">supportprocess: serviceprovisioning: healthcareoffering</span>
+            <br/>
+            <span style="display:inline-block;">3.0.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <menu xmlns="http://www.w3.org/1999/xhtml">
+  <item name="Home" url="index.html"/>
+  <item name="1 Inledning" url="1-inledning.html"/>
+  <item name="2 Versionsinformation" url="2-versionsinformation.html"/>
+  <item name="3 Tjänstedomänens arkitektur" url="3-tjanstedomanens-arkitektur.html"/>
+  <item name="4 Tjänstedomänens krav och regler" url="4-tjanstedomanens-krav-och-regler.html"/>
+  <item name="5 Tjänstedomänens meddelandemodeller" url="5-tjanstedomanens-meddelandemodeller.html"/>
+  <item name="6 Gemensamma informationskomponenter" url="6-gemensamma-informationskomponenter.html"/>
+  <item name="7 Tjänstekontrakt" url="7-tjanstekontrakt.html"/>
+  <item name="Artifacts" url="artifacts.html"/>
+</menu>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">supportprocess: serviceprovisioning: healthcareoffering - Local Development build (v3.0.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#7-tjänstekontrakt" id="markdown-toc-7-tjänstekontrakt">7 Tjänstekontrakt</a>    <ul>
+      <li><a href="#getofferingcatalogues" id="markdown-toc-getofferingcatalogues">GetOfferingCatalogues</a></li>
+      <li><a href="#getcareserviceofferings" id="markdown-toc-getcareserviceofferings">GetCareServiceOfferings</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="7-tjänstekontrakt">7 Tjänstekontrakt</h1>
+
+<p>Källa: <em>Tjänstekontraktsbeskrivning Vård- och omsorgsutbud</em>, version 3.0 (2023-04-25), <a href="TKB_supportprocess_serviceprovisioning_healthcareoffering.docx">TKB_supportprocess_serviceprovisioning_healthcareoffering.docx</a>.</p>
+
+<p>Motsvarar TKB kapitel 6 <em>Tjänstekontrakt</em> (7.1 = TKB 6.1 osv.). Efter TKB:ns text följer för varje kontrakt fälten enligt schemat, tjänsteinteraktionen enligt WSDL, källfilerna och de genererade FHIR-artefakterna.</p>
+
+<h3 id="getofferingcatalogues">GetOfferingCatalogues</h3>
+
+<p>Hämtar information om utbudskataloger, vilken adress de tillhandahålls på och vilka katalogansvariga organisationer som tillhandahåller utbud i respektive katalog.</p>
+
+<p>Katalogansvarig organisation är huvudansvarig organisation för de vård- och omsorgstjänster som de erbjuder. Ett utbud består av en eller flera vård- och omsorgstjänster som erbjuds av en katalogansvarig organisation och som hämtas med kontraktet GetCareServiceOfferings.</p>
+
+<h4 id="711-version">7.1.1 Version</h4>
+
+<p>2.0</p>
+
+<h4 id="712-fältregler">7.1.2 Fältregler</h4>
+
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler. Text i kolumnen ’Beskrivning’ som anges på första raden och är fetmarkerad motsvarar den benämning som används i meddelandemodellen.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">providingOrganization</td>
+      <td style="text-align: left">SearchProvidingOrganizationType</td>
+      <td style="text-align: left">Katalogansvarig organisation</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">providingOrganizationId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Id på katalogansvarig organisation / Id på katalogansvarig organisation / Begränsar sökningen så att endast poster med angivet id för katalogansvarig organisation returneras. / För Region, Kommun, Aktiebolag, Handelsbolag anges organisationsnummer (id.root: 1.3.7) / För Enskild firma anges personnummer (id.root: 1.2.752.129.2.1.3.1)</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">management</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Ägarform / Begränsar sökningen så att endast poster med angiven ägarform för den katalogansvariga organisationen returneras. / Anges med kod från kodverket HSA ägarform (OID 1.2.752.129.2.2.1.14) [R14]. / Observera att kodverk kan komma att kompletteras över tid vilket medför att nyttjare av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">publicProvider*</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">Offentlig huvudman / Om satt till ’true’ filtreras sökresultatet så att endast poster returneras där katalogansvarig organisation är en offentlig huvudman.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">OfferingCatalogue</td>
+      <td style="text-align: left">OfferingCatalogueType</td>
+      <td style="text-align: left">Utbudskatalog</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../providingOrganization</td>
+      <td style="text-align: left">ProvidingOrganizationType</td>
+      <td style="text-align: left">Katalogansvarig organisation</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Organisation id / Id för den katalogansvariga organisationen. Innehållet i id styrs av vilken typ av organisation det är. / För Region, Kommun, Aktiebolag, Handelsbolag anges organisationsnummer (id.root: 1.3.7) / För Enskild firma anges personnummer (id.root: 1.2.752.129.2.1.3.1)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på katalogansvarig organisation.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../description</td>
+      <td style="text-align: left">DescriptionType</td>
+      <td style="text-align: left">Beskrivning av den katalogansvariga organisationen. Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad för invånare. / Det får endast finnas en beskrivning med samma kombination av språk och roll.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../management</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Ägarform / Anger ägarform för den katalogansvariga organisationen. / Anges med kod från kodverket HSA ägarform (OID 1.2.752.129.2.2.1.14) [R14]. / Observera att kodverk kan komma att kompletteras över tid vilket medför att nyttjare av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../publicProvider*</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">Offentlig huvudman / Anger om den katalogansvariga organisationen är en offentlig huvudman. / true = offentlig huvudman</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../interaction</td>
+      <td style="text-align: left">InteractionType</td>
+      <td style="text-align: left">Interaktion / Pekar på var utbudskatalogen finns. / En katalogansvarig organisation kan ha flera kataloger med olika systemadresser.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../logicalAddress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Logisk adress / Logisk adress som ska användas vid adressering.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../name</td>
+      <td style="text-align: left">anyURI</td>
+      <td style="text-align: left">Namn på interaktion</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../majorVersion</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Den majorversion som stöds</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../minorVersion</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Den minorversion som stöds</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../rivtaVersion</td>
+      <td style="text-align: left">RIVTAVersionEnum</td>
+      <td style="text-align: left">Rivtaversion / Version av RIVTA [2.0, 2.1]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="713-övriga-regler">7.1.3 Övriga regler</h4>
+
+<p>Regel 1:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">management</th>
+      <th style="text-align: left">publicProvider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Region</td>
+      <td style="text-align: left">true</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kommun</td>
+      <td style="text-align: left">true</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Statlig</td>
+      <td style="text-align: left">true</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Privat</td>
+      <td style="text-align: left">false</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Övrigt</td>
+      <td style="text-align: left">false</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="7131-icke-funktionella-krav">7.1.3.1 Icke funktionella krav</h5>
+
+<h6 id="71311-sla-krav">7.1.3.1.1 SLA-krav</h6>
+
+<p>Se generella SLA-krav för tjänstedomänen.</p>
+
+<h4 id="714-annan-information-om-kontraktet">7.1.4 Annan information om kontraktet</h4>
+
+<p>Ingen.</p>
+
+<h4 id="715-fältregler-enligt-schema-xsd">7.1.5 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">providingOrganization</td>
+      <td style="text-align: left">SearchProvidingOrganizationType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../providingOrganizationId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../management</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../publicProvider</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">offeringCatalogue</td>
+      <td style="text-align: left">OfferingCatalogueType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../providingOrganization</td>
+      <td style="text-align: left">ProvidingOrganizationType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../management</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../publicProvider</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../description</td>
+      <td style="text-align: left">DescriptionType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../text</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../language</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../role</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../interaction</td>
+      <td style="text-align: left">InteractionType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../logicalAddress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../name</td>
+      <td style="text-align: left">anyURI</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../majorVersion</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../minorVersion</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../rivtaVersion</td>
+      <td style="text-align: left">RIVTAVersionEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="716-tjänsteinteraktion-enligt-wsdl">7.1.6 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetOfferingCataloguesResponder:2:GetOfferingCatalogues</code></p>
+
+<h4 id="717-källfiler-riv-ta">7.1.7 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetOfferingCataloguesInteraction_2.0_RIVTABP21.wsdl">GetOfferingCataloguesInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetOfferingCataloguesResponder_2.0.xsd">GetOfferingCataloguesResponder_2.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="supportprocess_serviceprovisioning_healthcareoffering_3.0.xsd">supportprocess_serviceprovisioning_healthcareoffering_3.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="supportprocess_serviceprovisioning_healthcareoffering_3.0_enums.xsd">supportprocess_serviceprovisioning_healthcareoffering_3.0_enums.xsd</a></td>
+      <td>Domänschema, uppräkningar (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TK_GetOfferingCatalogues_1.0.docx">SjD_TK_GetOfferingCatalogues_1.0.docx</a></td>
+      <td>Självdeklaration (tjänstekonsument), version 1.0</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TK_GetOfferingCatalogues_2.0.docx">SjD_TK_GetOfferingCatalogues_2.0.docx</a></td>
+      <td>Självdeklaration (tjänstekonsument), version 2.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="718-fhir-artefakter">7.1.8 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getofferingcatalogues-request.html">StructureDefinition/getofferingcatalogues-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getofferingcatalogues.html">StructureDefinition/getofferingcatalogues</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-healthcareoffering-rivtaversion-cs.html">CodeSystem/healthcareoffering-rivtaversion-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-healthcareoffering-rivtaversion-vs.html">ValueSet/healthcareoffering-rivtaversion-vs</a></li>
+</ul>
+
+<h3 id="getcareserviceofferings">GetCareServiceOfferings</h3>
+
+<p>GetCareServiceOfferings hämtar de vård- och omsorgstjänster som ingår i det utbud som erbjuds av en katalogansvarig organisation och som är tillgängliga baserat på användarens filterparametrar.</p>
+
+<h4 id="721-version">7.2.1 Version</h4>
+
+<p>3.0</p>
+
+<h4 id="722-fältregler">7.2.2 Fältregler</h4>
+
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler. Text i kolumnen ’Beskrivning’ som anges på första raden och är fetmarkerad motsvarar den benämning som används i meddelandemodellen.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careServiceId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Vård- och omsorgstjänstens id / Begränsar sökningen så att endast poster med angivet id för vård- och omsorgstjänst returneras. / Om HSA-id används: / careServiceId.root: 1.2.752.129.2.1.4.1 / careServiceId.extension: <code class="language-plaintext highlighter-rouge">&lt;hsa-id&gt;</code> / Om ej HSA-id: / careServiceId.root: <code class="language-plaintext highlighter-rouge">&lt;UUID&gt;</code> / careServiceId.extension: Anges ej</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">typeOfCareService*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Typ av vård- och omsorgstjänst / Begränsar sökningen så att endast poster med angiven typ av vård- och omsorgstjänst returneras. / Exempel: / Allergologisk konsultation / Kognitiv beteendeterapi via internet / Då Snomed CT används: / typeOfCareService.codesystem: 1.2.752.116.2.1.1 / I första hand ska koder från det nationella utbudkodsurvalet användas men Snomed CT-koder från lokalt urval kan förekomma. / Då verksamhetskod används: typeOfCareService.codesystem: 1.2.752.129.2.2.1.3 / Kod väljs från HSA verksamhetskodverk. Då en verksamhetskod används ska konsumenten logiskt lägga till prefixet ”Vårdtjänster inom verksamhetsområdet …” till klartexten för verksamhetskoden.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">typeOfPlace</td>
+      <td style="text-align: left">TypeOfPlaceType</td>
+      <td style="text-align: left">Typ av plats / Filtrerar sökresultatet så att endast poster med angiven typ av plats som vård-och omsorgstjänsten erbjuds på returneras. / En av följande: / PHYSICAL – endast fysisk plats / VIRTUAL – endast virtuell plats / ALL - både fysisk och virtuell plats</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">typeOfBusiness*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Typ av verksamhet / Filtrerar sökresultatet så att endast poster med angiven typ av verksamhet returneras. / Om HSA verksamhetskod / typeOfBusiness.codeSystem: / 1.2.752.129.2.2.1.3</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">providingOrganization</td>
+      <td style="text-align: left">searchProvidingOrganizationType</td>
+      <td style="text-align: left">Katalogansvarig organisation</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../providingOrganizationId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Id på katalogansvarig organisation / Filtrerar sökresultatet så att endast poster med angivet id för katalogansvarig organisation returneras. / För Region, Kommun, Aktiebolag, Handelsbolag anges organisationsnummer (id.root: 1.3.7) / För Enskild firma anges personnummer (id.root: 1.2.752.129.2.1.3.1)</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../management</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Ägarform / Filtrerar sökresultatet så att endast poster med angiven ägarform för den katalogansvariga organisationen returneras. / Anges med kod från kodverket HSA ägarform (OID 1.2.752.129.2.2.1.14) [R14]. / Observera att kodverk kan komma att kompletteras över tid vilket medför att nyttjare av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../publicProvider</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">Offentlig huvudman / Filtrerar sökresultatet så att endast poster där vård- och omsorgstjänst som erbjuds av en offentlig huvudman returneras om fältet sätts till true. / Om fältet ej anges returneras vård- och omsorgstjänster som erbjuds av både offentlig och ej offentlig huvudman.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actorLanguage*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Språk för aktör / Filtrerar sökresultat så att poster med angivet språk returneras. / Språk anges enligt ISO 639-3:2007 ”Codes for the representation of names of languages – Part 3: Alpha-3 code for / comprehensive coverage of languages”. / Endast texter som finns beskrivna på det angivna språket ska returneras. Om det saknas text för angivet språk, returneras texter på svenska. / Det är endast beskrivningar som ska returneras på olika språk, ej displayName för CV-typerna. / Om språk ej anges, ska samtliga texter returneras. / Exempel på code: / swe (svenska) / eng (engelska) / deu (tyska) / actorLanguage.code: swe / actorLanguage.displayName: Swedish / actorLanguage.codeSystem: 1.0.639.3</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actorRole*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Roll för aktör / Filtrerar sökresultatet så att poster med angiven roll returneras. / Endast texter som finns beskrivna för den angivna rollen returneras. Om det saknas text för angiven roll, returneras texter anpassade för invånare (enskild person) som alltid ska finnas om beskrivningstext finns. / Om roll ej anges, ska samtliga texter returneras. / role.code: 223366009 / role.displayname: hälso- och sjukvårdspersonal / role.codesystem:  1.2.752.116.2.1.1 / role.code: 257513009 / role.displayname: enskild person / role.codesystem:  1.2.752.116.2.1.1</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">performingOrganization</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Enhets-id / Filtrerar sökresultatet så att endast poster med angivet id på utförande enhet returneras. / Exempel för HSA-id: / performingOrganization.root =1.2.752.129.2.1.4.1 / performingOrganization.extension = SE1234-1234 (fiktivt id)</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">targetGroupAge</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Ålder / Filtrerar sökresultatet så att endast poster med angiven ålder returneras. / Åldern avser den person som söker hälso- och sjukvård eller socialtjänst.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">targetGroupGender*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Kön / Filtrerar sökresultatet så att endast poster med angivet kön returneras. / Könet avser den person som söker hälso- och sjukvård eller socialtjänst. / Kodverk: / Kv_kon / 1=man / 2=kvinna / Koden ”Övrig” ej tillåten i detta attribut. / Exempel / targetGroupGender.code: 1 / targetGroupGender.codesystem: 1.2.752.129.2.2.1.1</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">,,/targetGroupAttribute</td>
+      <td style="text-align: left">TargetGroupAttributeType</td>
+      <td style="text-align: left">Egenskap / Filtrerar sökresultatet så att endast poster med angiven egenskap returneras. Egenskap avser ytterligare information om den person som söker hälso- och sjukvård eller socialtjänst.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../ typeOfPersonalAttribute*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Typ av egenskap / Filtrerar sökresultatet så att endast poster med angiven typ av egenskap returneras. / Exempel: / Graviditetsvecka / Kod från Snomed CT hierarkin 363787002 | observerbar företeelse |</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../attributeValue</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Värde / Filtrerar sökresultatet så att endast poster med angivet värde för egenskapen returneras. / Exempel relaterat till graviditetsvecka: / 18</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">location</td>
+      <td style="text-align: left">SearchLocationType</td>
+      <td style="text-align: left">Sökområde / Filtrerar sökresultatet så att endast poster med angivet sökområde för vård- och omsorgstjänsten returneras. / Sökområdet kan vara ett geografiskt område, län eller kommun. / I de fall flera sökområden anges ska samtliga vård- och omsorgstjänster med något av de angivna sökområdena returneras.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../geographicalLocation</td>
+      <td style="text-align: left">SearchGeographicalLocationType</td>
+      <td style="text-align: left">Geografiskt område / Filtrerar sökresultatet så att endast poster med angivet geografiskt område returneras. Till geografiskt område hör geografiska koordinater och radie som bildar en area. Producenter behöver inte svara baserat på polygoner i Övrigt område (otherLocation). / Svaret ska returnera vård- och omsorgstjänster med utförandeplats inom den arean.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../geographicalCoordinates</td>
+      <td style="text-align: left">GeoLocationType</td>
+      <td style="text-align: left">Geografiska koordinater / Geografisk lokalisering, dvs den punkt på en karta sökningen ska utgå ifrån.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../north</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left">Exempel / geoLocation.north = 5407869</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../east</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left">Exempel / geoLocation.east = 485784</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../radius</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">Radie / Radie utifrån den geografiska lokaliseringen angiven i positivt heltal och i antal meter. / Används för att söka inom ett område från de geografiska koordinaterna.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../county*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Länskod / Filtrerar sökresultatet så att endast poster med angivet län returneras. Länskod enligt SCB:s lista över län och ekomer, se referens R13.  Tvåställig kod. / Exempel: / county.code = 05 / county.codeSystem = 1.2.752.129.2.2.1.18 / county.displayName = Östergötlands län</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../municipality*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Kommunkod / Sökning på kommun. Kommunkod enligt SCB’s lista över län och kommuner, se referens R13. Fyrställig kod. / Exempel: / municipality.code = 0126 / municipality.codeSystem = 1.2.752.129.2.2.1.17 / municipality.displayName = Huddinge</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">searchTerm</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Fritextsökning för att filtrera på vård- och omsorgstjänst baserat på text i nedan listade fritextfält. / För de beskrivande texter nedan som förekommer i flera språk ska sökningen ske i texten som motsvarar det språk som anges i actorLanguage. / Anges inte actorLanguage ska texter för samtliga språk användas i sökningen. / Sökningen ska innehålla minst 3 tecken. Vård- och omsorgstjänst där sökbegreppet överensstämmer med del av text i nedanstående fält ska returneras. / I det fall fler sökbegrepp skickas med i begäran ska samtliga sökbegrepp återfinnas i något av nedanstående fält för att vård- och omsorgstjänsten ska returneras. / Fritextsökning ska ske i fälten: / careService.description.text / careService.typeOfCareService.displayName / careService.providingOrganization. Name / careService.providingOrganization.description / careService.performingOrganization.name / careService.performingOrganization.description.text / careService.performingOrganization.responibleOrganization.name / careService. performingOrganization.responibleOrganization.description.text / careService.location.geographicalLocation.municipality.displayName / careService.location.geographicalLocation.county.displayName</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careService</td>
+      <td style="text-align: left">CareServiceType</td>
+      <td style="text-align: left">Vård- och omsorgstjänst / Den tjänst som erbjuds av en organisatorisk enhet för att tillgodose behov av hälso- och sjukvård eller socialtjänst hos invånare.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../careServiceId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Vård- och omsorgstjänstens id / Innehåller vård- och omsorgstjänstens unika identifierare. / Om HSA-id används: / careServiceId.root: 1.2.752.129.2.1.4.1 / careServiceId.extension: <code class="language-plaintext highlighter-rouge">&lt;hsa-id&gt;</code> / Om ej HSA-id: / careServiceId.root: <code class="language-plaintext highlighter-rouge">&lt;UUID&gt;</code> / careServiceId.extension: Anges ej</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../typeOfCareService</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Typ av vård- och omsorgstjänst. / Den specifika vård- och omsorgstjänsten som erbjuds. / Exempel inom hälso- och sjukvård: / - insättning av totalprotes i höftled / - rehabiliteringsmedicinsk konsultation / Exempel inom socialtjänsten: / - hjälp med inköp / - tillredning av måltider m.m. / Då Snomed CT används: / typeOfCareService.codesystem: 1.2.752.116.2.1.1 /  / I första hand ska koder från det nationella utbudkodsurvalet användas men Snomed CT-koder från lokalt urval kan förekomma. /  / Då verksamhetskod används: typeOfCareService.codesystem: 1.2.752.129.2.2.1.3 / Kod väljs från HSA verksamhetskodverk. / Då en verksamhetskod används ska konsumenten logiskt lägga till prefixet ”Vårdtjänster inom verksamhetsområdet …” till klartexten för verksamhetskoden. / typeOfCareService.displayName returnerar endast text på svenska även om annat språk är angivet i begäran. / Framtagande av nationellt kodverk pågår.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../typeOfCareServicedescription*</td>
+      <td style="text-align: left">DescriptionType</td>
+      <td style="text-align: left">Nationellt överenskommen beskrivning av vård- och omsorgstjänsten. / Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad för invånare. / Det får endast finnas en beskrivning med samma kombination av språk och roll.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../text</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text / Den textuella beskrivningen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../language*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Språk / Anger kod för det språk beskrivningen är skriven på. / Om fältet inte används antas beskrivningen avse svenska. / Språk anges enligt ISO 639-3:2007 ”Codes for the representation of names of languages – Part 3: Alpha-3 code for comprehensive coverage of languages”. / Exempel på code: / swe (svenska) / eng (engelska) / deu (tyska) / language.code: swe / language.displayname: Swedish / language.codesystem: 1.0.639.3</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../role*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Roll / Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänsten eller hälso- och sjukvårdspersonal. / Om roll inte anges, riktas beskrivningen till samtliga roller. / Urval ur Snomed CT: / role.code: 223366009 / role.displayname: hälso- och sjukvårdspersonal / role.codesystem:  1.2.752.116.2.1.1 / role.code: 257513009 / role.displayname: enskild person / role.codesystem:  1.2.752.116.2.1.1 / role.code: 224611006 / role.displayname: personal inom socialtjänsten / role.codesystem:  1.2.752.116.2.1.1 / role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../validity*</td>
+      <td style="text-align: left">DatePeriodType</td>
+      <td style="text-align: left">Giltighet / Giltighetstiden för vård- och omsorgstjänsten. / Exempelvis höftledsoperation som utförs av den organisatoriska enheten x på platsen y erbjuds under perioden 20160101-20171231. / Minst ett av periodens start och end i DatePeriodType ska anges.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../careServiceStatus</td>
+      <td style="text-align: left">CareServiceStatusEnum</td>
+      <td style="text-align: left">Status / Status för vård- och omsorgstjänsten. / En av följande: / INACTIVE = innan vård- och omsorgstjänsten är färdig att erbjudas. / ACTIVE = vård- och omsorgstjänsten är färdigbeskriven och kan erbjudas. / DEPRECATED = vård- och omsorgstjänsten ska ej längre erbjudas</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../careOption</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Vårdval / Sätts till true om vård- och omsorgstjänsten ingår i valfrihetssystem.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../referralRequired</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Remisskrav / Anger om det finns krav på remiss för att uppsöka/ta del av vård- och omsorgstjänsten. / För hälso- och sjukvården: Observera att den information som anges här är det eventuella krav på remiss från den organisation/region som ansvarar för att tillhandahålla vård- och omsorgstjänsten. Om remisskrav INTE finns för vård- och omsorgstjänsten, kan det ändå finnas krav från patientens hemregion för denna typ av vård- och omsorgstjänst. Om så är fallet behöver patienten en remiss från hemregionen för att utförare av den erbjudna vård- och omsorgstjänsten ska få ersättning från hemregionen. / Reglerna för detta beskrivs i "Riksavtalet för utomlänsvård från och med 1 januari 2015" [R7] sidan 17 under rubriken "Hemlandstingets remissregler tillämpas också i andra landsting" och "Vårdlandstingets remissregler tillämpas också för utomlänspatienter".</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../description*</td>
+      <td style="text-align: left">DescriptionType</td>
+      <td style="text-align: left">Beskrivning av vård- och omsorgstjänsten som är ett lokalt tillägg till den nationellt överenskomna. Detta kan exempelvis i text detaljera hur en viss aktivitet utförs eller om det finns några tillägg till det nationellt överenskomna innehållet i en vård- och omsorgstjänst. / Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad för invånare. / Det får endast finnas en beskrivning med samma kombination av språk och roll.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../text</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text / Den textuella beskrivningen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../language*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Språk / Anger kod för det språk beskrivningen är skriven på. / Om fältet inte används antas beskrivningen avse svenska. / Används för att returnera ett svar baserat på aktörens språk. Språk anges enligt ISO 639-3:2007 ”Codes for the representation of names of languages – Part 3: Alpha-3 code for comprehensive coverage of languages”. / Exempel på code: / swe (svenska) / eng (engelska) / deu (tyska) / language.code: swe / language.displayname: Swedish / language.codesystem: 1.0.639.3</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../role*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Roll / Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänsten eller hälso- och sjukvårdspersonal. / Om roll inte anges, riktas beskrivningen till samtliga roller. / Urval ur Snomed CT: / role.code: 223366009 / role.displayname: hälso- och sjukvårdspersonal / role.codesystem:  1.2.752.116.2.1.1 / role.code: 257513009 / role.displayname: enskild person / role.codesystem:  1.2.752.116.2.1.1 / role.code: 224611006 / role.displayname: personal inom socialtjänsten / role.codesystem:  1.2.752.116.2.1.1 / role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../indicator</td>
+      <td style="text-align: left">IndicatorType</td>
+      <td style="text-align: left">Indikator / Indikator håller referenser till mätningar från SKRs (Sveriges kommuner och regioner) öppna jämförelser som kan kopplas till en viss vård- och omsorgstjänst. Kan exempelvis vara väntetid eller kvalitetsindikator kopplat till den specifika vård- och omsorgstjänsten.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../indicatorId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Indikator id / Identitetsbeteckning för indikator från SKRs öppna jämförelser som är kopplad till en vård- och omsorgstjänst. / indicator.root = 1.2.826.0.1.3680043.9.4672.7</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../logicalAddress</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Logisk adress / Logisk adress som ska användas för att nå den datakälla där indikatorn finns lagrad.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../requestTemplate</td>
+      <td style="text-align: left">RequestTemplateType</td>
+      <td style="text-align: left">Remissanvisning / Om vårdtjänsten har en fastställd remissanvisning som kan användas vid remittering, anges den adress som remissanvisningen kan hämtas ifrån. Remissanvisningen är ett stöd för att säkerställa att nödvändig information bifogas en remiss.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../address</td>
+      <td style="text-align: left">anyURI</td>
+      <td style="text-align: left">Adress till remissanvisning / Adress som anger var en remissanvisning finns. Kan vara en URL.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../mandatory</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Obligatorisk / Anger om det är obligatoriskt för en remittent att förstå och tillämpa remissanvisningen för att kunna nyttja vårdtjänsten. / True = obligatoriskt att tillämpa remissanvisning vid remittering / False = ej obligatoriskt att tillämpa remissmall vid remittering</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../providingOrganization</td>
+      <td style="text-align: left">ProvidingOrganizationType</td>
+      <td style="text-align: left">Katalogansvarig organisation / Den organisation som är huvudansvarig och innehållsansvarig för det utbud som svaret visar.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Organisation id / Id för den katalogansvariga organisationen. Innehållet i id styrs av vilken typ av organisation det är / För Region, Kommun, Aktiebolag, Handelsbolag anges organisationsnummer (id.root: 1.3.7) / För Enskild firma anges personnummer (id.root: 1.2.752.129.2.1.3.1)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Namn på den katalogansvariga organisationen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../management</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Ägarform / Filtrerar sökresultatet så att endast poster med angiven ägarform för den katalogansvariga organisationen returneras. / Anges med kod från kodverket HSA ägarform (OID 1.2.752.129.2.2.1.14) [R14]. / management.displayName returnerar endast text på svenska även om annat språk är angivet i begäran. / Observera att kodverk kan komma att kompletteras över tid vilket medför att nyttjare av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../publicProvider</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">Offentlig huvudman / Anger om den katalogansvariga organisationen är offentlig huvudman. / True=offentlig huvudman</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../description*</td>
+      <td style="text-align: left">DescriptionType</td>
+      <td style="text-align: left">Beskrivning av den katalogansvariga organisationen. Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad för invånare. / Det får endast finnas en beskrivning med samma kombination av språk och roll.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../text</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text / Den textuella beskrivningen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../language*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Språk / Anger kod för det språk beskrivningen är skriven på. / Om fältet inte används antas beskrivningen avse svenska. / Används för att returnera ett svar baserat på aktörens språk. Språk anges enligt ISO 639-3:2007 ”Codes for the representation of names of languages – Part 3: Alpha-3 code for / comprehensive coverage of languages”. / Exempel på code: / swe (svenska) / eng (engelska) / deu (tyska) / language.code: swe / language.displayname: Swedish / language.codesystem: 1.0.639.3</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../role*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Roll / Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänsten eller hälso- och sjukvårdspersonal. / Om roll inte anges, riktas beskrivningen till samtliga roller. / Om beskrivning anges, ska minst en beskrivning för invånare anges. / role.code: 223366009 / role.displayname: hälso- och sjukvårdspersonal / role.codesystem:  1.2.752.116.2.1.1 / role.code: 257513009 / role.displayname: enskild person / role.codesystem:  1.2.752.116.2.1.1 / role.code: 224611006 / role.displayname: personal inom socialtjänsten / role.codesystem:  1.2.752.116.2.1.1 / role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../performingOrganization</td>
+      <td style="text-align: left">PerformingOrganizationType</td>
+      <td style="text-align: left">Utförande organisatorisk enhet / Klassen motsvarar den organisatoriska enheten som utför en aktivitet som erbjudit i form av vård- och omsorgstjänst.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Enhets-id / Ett enhets-id på den utförande enheten ska returneras. / Id på organisatoriska enheten kan vara HSA-id. / Exempelvis HSA-id, organisationsnummer / eller lokala id:n. / Om HSA-id (exempel): / id.root =1.2.752.129.2.1.4.1 / id.extension = SE2321000115-094882</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Enhetsnamn / Lista med namn på den organisatoriska enhet som erbjuder en vård- och omsorgstjänst / Listan ska vara ordnad efter fallande prioritetsordning där det föredragna namnet kommer först. / Namn måste innehålla minst 3 tecken.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../responsibleOrganization</td>
+      <td style="text-align: left">OrganizationType</td>
+      <td style="text-align: left">Organisation / Den organisation som den utförande organisatoriska enheten är en del av.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Id på organisationen. / Om HSA-id (exempel): / id.root =1.2.752.129.2.1.4.1 / id.extension = SE2321000115-094882</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på organisationen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../description*</td>
+      <td style="text-align: left">DescriptionType</td>
+      <td style="text-align: left">Beskrivning av organisationen. / Beskrivning av den organisation som ansvarar för den utförande enheten. / Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad för invånare. / Det får endast finnas en beskrivning med samma kombination av språk och roll.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../availableTime</td>
+      <td style="text-align: left">CalendarType</td>
+      <td style="text-align: left">Kalendertid / Den tid som den utförande enheten är tillgänglig. / Se avsnitt 5.2.2 för beskrivning av format.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../typeOfBusiness</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Typ av verksamhet / Kod för den typ av verksamhet som bedrivs. / Om HSA verksamhetskod / typeOfBusiness.codeSystem: / 1.2.752.129.2.2.1.3 / typeOfBusiness.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../description*</td>
+      <td style="text-align: left">DescriptionType</td>
+      <td style="text-align: left">Beskrivning / Beskrivning av den enhet som erbjuder vård- och omsorgstjänsten. / Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad för invånare. / Det får endast finnas en beskrivning med samma kombination av språk och roll.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../text</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text / Den textuella beskrivningen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../language*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Språk / Anger kod för det språk beskrivningen är skriven på. Om fältet inte används antas beskrivningen avse svenska. / Språk anges enligt ISO 639-3:2007 ”Codes for the representation of names of languages – Part 3: Alpha-3 code for / comprehensive coverage of languages”. / Exempel på code: / swe (svenska) / eng (engelska) / deu (tyska) / language.code: swe / language.displayname: Swedish / language.codesystem: 1.0.639.3</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../role*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Roll / Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänsten eller hälso- och sjukvårdspersonal. / Om roll inte anges, riktas beskrivningen till samtliga roller. / role.code: 223366009 / role.displayname: hälso- och sjukvårdspersonal / role.codesystem:  1.2.752.116.2.1.1 / role.code: 257513009 / role.displayname: enskild person / role.codesystem:  1.2.752.116.2.1.1 / role.code: 224611006 / role.displayname: personal inom socialtjänsten / role.codesystem:  1.2.752.116.2.1.1 / role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../patientFee</td>
+      <td style="text-align: left">MOType</td>
+      <td style="text-align: left">Patientavgift / Den avgift som ska betalas av patienten. / Valutan anges i SEK enligt ISO 4217. / Exempel: / patientFee.value: 125 / patientFee.currency: SEK</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../targetGroup</td>
+      <td style="text-align: left">TargetGroupType</td>
+      <td style="text-align: left">Målgrupp för vård- och omsorgstjänsten</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../age</td>
+      <td style="text-align: left">PositiveIntPeriodType</td>
+      <td style="text-align: left">Intervall för den åldersgrupp som vård- och omsorgstjänsten riktas till. / Exempelvis: Vård- och omsorgstjänsten erbjuds endast till barn upp till 5 år. / Intervallet blir då ”0‒5” år. / Om vård- och omsorgstjänsten gäller alla åldersgrupper, används ej detta attribut.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../gender</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Kön / Det kön som vård- och omsorgstjänsten riktas till. / Kodverk: / Kv_kon / 1=man / 2=kvinna / Koden ”övrigt” tillåts ej i detta attribut. / Exempel code: 1 / targetGroupGender.codeSystem: 1.2.752.129.2.2.1.1 / gender.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../targetGroupAttribute</td>
+      <td style="text-align: left">TargetGroupAttributeType</td>
+      <td style="text-align: left">Egenskaper / Egenskaper för målgruppen.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../ typeOfPersonalAttribute</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Typ av egenskap / Innehåller någon specifik egenskap som identifierar den målgrupp som tjänsten riktas till. / Exempel: / Gravida i veckointervall X-Y / Kod från Snomed CT hierarkin 363787002 | observerbar företeelse | / typeOfPersonalAttribute.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../attributeValue</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Värde / Innehåller detaljer om den specifika egenskapen. / Exempel: / 0-20</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../location*</td>
+      <td style="text-align: left">LocationType</td>
+      <td style="text-align: left">Plats / Plats där vård- och omsorgstjänsten erbjuds. / Anges med geografiskt område, fysisk plats eller virtuell plats.</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../geographicalLocation*</td>
+      <td style="text-align: left">GeographicalLocationType</td>
+      <td style="text-align: left">Geografiskt område / Anger det geografiska område där vård- och omsorgstjänsten erbjuds. / Anges med län, kommun eller övrigt område.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../county</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Länskod enligt SCB:s lista över län och kommuner, se referens R13. Tvåställig kod. / Exempel: / county.code = 05 / county.codeSystem = 1.2.752.129.2.2.1.18 / county.displayName = Östergötlands län / county.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../municipality</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Kommunkod enligt SCB:s lista över län och kommuner, se referens R13. Fyrställig kod. / Exempel: / municipality.code =  0126 / municipality.codeSystem =1.2.752.129.2.2.1.17 / municipality.displayName = Huddinge / municipality.displayName returnerar endast svenska även om annat språk är angivet i begäran.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../otherLocation</td>
+      <td style="text-align: left">OtherLocationType</td>
+      <td style="text-align: left">Övrigt område är ett begränsat område som vård- och omsorgstjänsten erbjuds inom.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../polygon</td>
+      <td style="text-align: left">GeoLocationType</td>
+      <td style="text-align: left">Polygon / Det område som avgränsas med minst 3 punkter med sina respektive koordinater.</td>
+      <td style="text-align: left">3..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../north</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left">Exempel / geoLocation.north = 6407869</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../east</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left">Exempel / geoLocation.east = 485748</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Benämning på övrigt område. / Exempelvis kommundel.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../physicalLocation</td>
+      <td style="text-align: left">PhysicalLocationType</td>
+      <td style="text-align: left">Fysisk plats / Den fysiska plats där vård- och omsorgstjänsten erbjuds. Anges med besöksadress och/eller geografiska koordinater.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../locationAddress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Belägenhetsadress. / Adress för fysisk plats där vård- och omsorgstjänsten erbjuds. / Minst ett av attributen locationAddress eller geographicalCoordinates ska anges.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../ geographicalCoordinates</td>
+      <td style="text-align: left">GeoLocationType</td>
+      <td style="text-align: left">Geografiska koordinater som avgränsar Fysisk plats. / Minst ett av attributen locationAddress eller geographicalCoordinates ska anges.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../virtualLocation</td>
+      <td style="text-align: left">VirtualLocationType</td>
+      <td style="text-align: left">Virtuell plats / Adress till en viss vård- och omsorgstjänst om den bedrivs virtuellt. Kan exempelvis vara webbadress eller adress där det går att ladda ner en applikation.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../.. /id</td>
+      <td style="text-align: left">anyURI</td>
+      <td style="text-align: left">Id på virtuell plats. / Identifierare för den plats där vård- och omsorgstjänsten bedrivs virtuellt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../description*</td>
+      <td style="text-align: left">DescriptionType</td>
+      <td style="text-align: left">Beskrivning av platsen (län, kommun, fysisk eller virtuell plats). / Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad för invånare. / Det får endast finnas en beskrivning med samma kombination av språk och roll.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../text</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text / Den textuella beskrivningen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../language*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Språk / Anger kod för det språk beskrivningen är skriven på. Om fältet inte används antas beskrivningen avse svenska. / Språk anges enligt ISO 639-3:2007 ”Codes for the representation of names of languages – Part 3: Alpha-3 code for / comprehensive coverage of languages”. / Exempel på code: / swe (svenska) / eng (engelska) / deu (tyska) / language.code: swe / language.displayname: Swedish / language.codesystem: 1.0.639.3</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../role*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Roll / Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare (enskild person) eller hälso- och sjukvårdspersonal. / role.code: 223366009 / role.displayname: hälso- och sjukvårdspersonal / role.codesystem:  1.2.752.116.2.1.1 / role.code: 257513009 / role.displayname: enskild person / role.codesystem:  1.2.752.116.2.1.1 / role.code: 224611006 / role.displayname: personal inom socialtjänsten / role.codesystem:  1.2.752.116.2.1.1 / role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../contactInformation</td>
+      <td style="text-align: left">ContactInformationType</td>
+      <td style="text-align: left">Kontaktuppgift till den organisatoriska enhet som erbjuder en viss vård- och omsorgstjänst.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../ranking</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left">Rangordning för kontaktuppgifterna. Om det finns flera kontaktuppgifter används rangordning för att visa vilken som föredras framför en annan. / Anges med siffror där 1 innebär högst rangordning osv. / Exempelvis om en e-postadress ska användas i första hand och ett telefonnummer ska användas i andra hand, används rangordning 1 för e-postadressen och rangordning 2 för telefonnumret.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../forRole</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">För roll / Attributet anger om kontaktuppgiften avser en viss roll. / En roll kan vara en invånare (enskild person), personal inom socialtjänst eller hälso- och sjukvårdspersonal. / Ett telefonnummer som finns registrerat för en vård- och omsorgstjänst ska i vissa fall endast användas för invånare och ett annat telefonnummer, avseende samma vård- och omsorgstjänst, ska användas av hälso- och sjukvårdspersonal. / role.code: 223366009 / role.displayname: hälso- och sjukvårdspersonal / role.codesystem:  1.2.752.116.2.1.1 / role.code: 257513009 / role.displayname: enskild person / role.codesystem:  1.2.752.116.2.1.1 / role.code: 224611006 / role.displayname: personal inom socialtjänsten / role.codesystem:  1.2.752.116.2.1.1 / role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../purpose</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Syfte / Angivelse av syftet med kontaktuppgiften. / Exempelvis avbokning, ombokning, receptförnyelse.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../address</td>
+      <td style="text-align: left">Address</td>
+      <td style="text-align: left">Postadress / Den adress som kan användas för att kontakta en organisatorisk enhet gällande en vård- och omsorgstjänst. Kan exempelvis vara adress dit en pappersremiss ska skickas. / Observera att detta ej är besöksadress (återfinns i Fysisk plats). / Adress är obligatoriskt om det är möjligt att remittera till vård- och omsorgstjänsten.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../availableTime</td>
+      <td style="text-align: left">CalendarType</td>
+      <td style="text-align: left">Kalendertid / Den tid som kontaktuppgiften är tillgänglig. / Det kan vara möjligt att ringa mån – fre 08.00-17.00 på ett telefonnummer. / Se avsnitt 5.2.2 för beskrivning av format.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../telecom</td>
+      <td style="text-align: left">TelecomType</td>
+      <td style="text-align: left">Adress för telekommunikation / Innehåller den elektroniska adressinformation som ska användas för att kontakta en organisatorisk enhet gällande en viss vård- och omsorgstjänst.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../typeOfTelecom</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Typ av medium / Vilken typ av medium för telekommunikation som avses. / Anges med kod från kodverket Kv tele ekom typ (OID: 1.2.752.129.2.2.1.30) [R14]. / Observera att kodverk kan komma att kompletteras över tid vilket medför att nyttjare av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. / typeOfTelecom.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../contactPoint*</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Värde / Angivelse av värde i klartext för typen av medium. / Exempelvis 070-707070 som telefonnummer, epost@epost.se som e-postadress etc.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../description*</td>
+      <td style="text-align: left">DescriptionType</td>
+      <td style="text-align: left">Beskrivning / Ytterligare information om kontaktuppgiften. / Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad för invånare. / Det får endast finnas en beskrivning med samma kombination av språk och roll.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../text</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text / Den textuella beskrivningen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../language*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Språk / Anger kod för det språk beskrivningen är skriven på. Om fältet inte används antas beskrivningen avse svenska. / Språk anges enligt ISO 639-3:2007 ”Codes for the representation of names of languages – Part 3: Alpha-3 code for / comprehensive coverage of languages”. / Exempel på code: / swe (svenska) / eng (engelska) / deu (tyska) / language.code: swe / language.displayname: Swedish / language.codesystem: 1.0.639.3</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../role*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Roll / Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänst  eller hälso- och sjukvårdspersonal. / Om beskrivning anges, ska minst en beskrivning för invånare anges. / role.code: 223366009 / role.displayname: hälso- och sjukvårdspersonal / role.codesystem:  1.2.752.116.2.1.1 / role.code: 257513009 / role.displayname: enskild person / role.codesystem:  1.2.752.116.2.1.1 / role.code: 224611006 / role.displayname: personal inom socialtjänsten / role.codesystem:  1.2.752.116.2.1.1 / role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../cooperation</td>
+      <td style="text-align: left">CooperationType</td>
+      <td style="text-align: left">Samverkan / Håller information om vilken organisatorisk enhet som samverkar med annan organisatorisk enhet kring en vård- och omsorgstjänst och vad samverkan avser. / Ett exempel på samverkan är när två organisatoriska enheter samverkar kring öppettider avseende en viss typ av vård- ocn omsorgstjänst så att en patient kan hänvisas rätt utanför normala öppettider, exempelvis från vårdcentral till närakut.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../typeOfCooperation</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Typ av samverkan / Vilken typ av samverkan organisationerna har mellan varandra.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../validity*</td>
+      <td style="text-align: left">DatePeriodType</td>
+      <td style="text-align: left">Giltighet / Giltighetsperioden för samverkan mellan organisationerna. / Om samverkan exempelvis gäller vid semesterstängt, kan giltigheten exempelvis vara 20160601‒20160831.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../referenceToCareServiceId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Referens till vård- och omsorgstjänst / Unikt id som identifierar den vård och- omsorgstjänst som två organisationer samverkar kring. / Om HSA-id används: / careServiceId.root: 1.2.752.129.2.1.4.1 / careServiceId.extension: <code class="language-plaintext highlighter-rouge">&lt;hsa-id&gt;</code> / Om ej HSA-id: / careServiceId.root: <code class="language-plaintext highlighter-rouge">&lt;UUID&gt;</code> / careServiceId.extension: Anges ej</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../description*</td>
+      <td style="text-align: left">DescriptionType</td>
+      <td style="text-align: left">Beskrivning / Ytterligare information om samverkan. / Om beskrivning anges ska det åtminstone finnas på svenska och vara anpassad för invånare. / Det får endast finnas en beskrivning med samma kombination av språk och roll.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../text</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text / Den textuella beskrivningen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../language*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Språk / Anger kod för det språk beskrivningen är skriven på. Om fältet inte används antas beskrivningen avse svenska. / Språk anges enligt ISO 639-3:2007 ”Codes for the representation of names of languages – Part 3: Alpha-3 code for / comprehensive coverage of languages”. / Exempel på code: / swe (svenska) / eng (engelska) / deu (tyska) / language.code: swe / language.displayname: Swedish / language.codesystem: 1.0.639.3</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../role*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Roll / Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänsten eller hälso- och sjukvårdspersonal. / Om roll inte anges, riktas beskrivningen till samtliga roller. / Om beskrivning anges, ska minst en beskrivning för invånare anges. / role.code: 223366009 / role.displayname: hälso- och sjukvårdspersonal / role.codesystem:  1.2.752.116.2.1.1 / role.code: 257513009 / role.displayname: enskild person / role.codesystem:  1.2.752.116.2.1.1 / role.code: 224611006 / role.displayname: personal inom socialtjänsten / role.codesystem:  1.2.752.116.2.1.1 / role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resource</td>
+      <td style="text-align: left">ResourceType</td>
+      <td style="text-align: left">Resurs / Vilken resurs som kan erbjudas med en vård- och omsorgstjänst.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../typeOfResource</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Typ av resurs / Exempelvis bassäng eller vård- och omsorgspersonal med särskild kompetens. / Kod från Snomed CT hierarkin 308916002 | område eller geografisk plats |, 260787004 | fysiskt objekt | eller 106288005 | läkare, tandläkare, veterinär eller motsvarande yrke | / typeOfResource.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../resourceAttribute</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Egenskap / Värdet på resursen. Exempelvis om tolk så anges vilket språk.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../availableTime</td>
+      <td style="text-align: left">CalendarType</td>
+      <td style="text-align: left">Kalendertid / Vilken tid resursen är tillgänglig. / Se avsnitt 5.2.2 för beskrivning av format.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../description*</td>
+      <td style="text-align: left">DescriptionType</td>
+      <td style="text-align: left">Beskrivning / Ytterligare information om resursen. / Om beskrivning anges ska den åtminstone finnas på svenska och vara anpassad för invånare. / Det får endast finnas en beskrivning med samma kombination av språk och roll.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../text</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text / Den textuella beskrivningen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../language*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Språk / Anger kod för det språk beskrivningen är skriven på. Om fältet inte används antas beskrivningen avse svenska. / Språk anges enligt ISO 639-3:2007 ”Codes for the representation of names of languages – Part 3: Alpha-3 code for / comprehensive coverage of languages”. / Exempel på code: / swe (svenska) / eng (engelska) / deu (tyska) / language.code: swe / language.displayname: Swedish / language.codesystem: 1.0.639.3</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../role*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Roll / Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänsten  eller hälso- och sjukvårdspersonal. / Om beskrivning anges, ska minst en beskrivning för invånare anges. / role.code: 223366009 / role.displayname: hälso- och sjukvårdspersonal / role.codesystem:  1.2.752.116.2.1.1 / role.code: 257513009 / role.displayname: enskild person / role.codesystem:  1.2.752.116.2.1.1 / role.code: 224611006 / role.displayname: personal inom socialtjänsten / role.codesystem:  1.2.752.116.2.1.1 / role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../interferenceInformation</td>
+      <td style="text-align: left">InterferenceInformationType</td>
+      <td style="text-align: left">Störningsinformation. / Information om omständigheter som innebär en avvikelse i tillgängligheten för en viss vård- och omsorgstjänst.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../datePeriod*</td>
+      <td style="text-align: left">DatePeriodType</td>
+      <td style="text-align: left">Datumperiod / Start- och sluttid för det inträffade, där starttid är obligatorisk och sluttid valfri.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../typeOfInterference</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Typ av störning / Vilken typ av avvikelse. Exempelvis ombyggnation, semester. / Kod från Snomed CT hierarkin 272379006 | händelse | / typeOfInterference.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../description*</td>
+      <td style="text-align: left">DescriptionType</td>
+      <td style="text-align: left">Beskrivning / Ytterligare information om avvikelser. / Det ska åtminstone finnas beskrivning på svenska och vara anpassad för invånare. / Det får endast finnas en beskrivning med samma kombination av språk och roll.</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../text</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Text / Den textuella beskrivningen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../language*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Språk / Anger kod för det språk beskrivningen är skriven på. Om fältet inte används antas beskrivningen avse svenska. / Språk anges enligt ISO 639-3:2007 ”Codes for the representation of names of languages – Part 3: Alpha-3 code for / comprehensive coverage of languages”. / Exempel på code: / swe (svenska) / eng (engelska) / deu (tyska) / language.code: swe / language.displayname: Swedish / language.codesystem: 1.0.639.3</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../role*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Roll / Anger vilken målgrupp beskrivningen riktas till. Kan vara till invånare, personal inom socialtjänsten  eller hälso- och sjukvårdspersonal. / Om beskrivning anges, ska minst en beskrivning för invånare anges. / Urval ur Snomed CT: / role.code: 223366009 / role.displayname: hälso- och sjukvårdspersonal / role.codesystem:  1.2.752.116.2.1.1 / role.code: 257513009 / role.displayname: enskild person / role.codesystem:  1.2.752.116.2.1.1 / role.code: 224611006 / role.displayname: personal inom socialtjänsten / role.codesystem:  1.2.752.116.2.1.1 / role.displayName returnerar endast text på svenska även om annat språk är angivet i begäran.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="723-övriga-regler">7.2.3 Övriga regler</h4>
+
+<p>Begäran</p>
+
+<p>Regel 1: Där CVType används ska urvalet endast baseras på code och codeSystem.</p>
+
+<p>Svar</p>
+
+<p>Regel 1: Med location så är det en av följande fält som ska anges:</p>
+
+<p>geographicalLocation</p>
+
+<p>physicalLocation</p>
+
+<p>virtualLocation</p>
+
+<p>Regel 2: Med fältet geographicalLocation så är det en av följande som ska anges:</p>
+
+<p>county</p>
+
+<p>municipality</p>
+
+<p>otherLocation</p>
+
+<p>Regel 3:  contactPoint</p>
+
+<p>Om värdet är 6 på typeOfTelecom.code ska formatet följa uri</p>
+
+<p>Om värdet är 1-3 på typeOfTelecom.code ska formatet följa ITU</p>
+
+<p>Om värde är 5 på typeOfTelecom.code ska formatet följa RFC2822</p>
+
+<p>Regel 4: validity.start måste vara tidigare än eller lika med validity.end</p>
+
+<p>Regel 5: datePeriod.start måste vara tidigare än eller lika med datePeriod.end</p>
+
+<p>Regel 6: Där fältet description används, ska fältet language.code vara satt till ”swe” och fältet role.code vara satt till ”257513009” för åtminstone en av beskrivningarna.</p>
+
+<p>Regel 7: Endast beskrivningar där language.code är samma i svaret som actorLanguage.code i begäran ska returneras.</p>
+
+<p>Regel 8: Endast beskrivningar där role.code är samma i svaret som role.code i begäran ska returneras. Om svaret saknar den role.code som är angiven i begäran, ska svaret returnera role.code som är satt till ”257513009”.</p>
+
+<p>Regel 9: Om language ej anges i begäran, ska samtliga texter där language.code är satt till något värde + där language saknas returneras.</p>
+
+<p>Regel 10: Om role ej anges i begäran, ska samtliga texter returneras.</p>
+
+<p>Regel 11:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">management</th>
+      <th style="text-align: left">publicProvider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Region</td>
+      <td style="text-align: left">true</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kommun</td>
+      <td style="text-align: left">true</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Statlig</td>
+      <td style="text-align: left">true</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Privat</td>
+      <td style="text-align: left">false</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Övrigt</td>
+      <td style="text-align: left">false</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="7231-icke-funktionella-krav">7.2.3.1 Icke-funktionella krav</h5>
+
+<h6 id="72311-sla-krav">7.2.3.1.1 SLA-krav</h6>
+
+<p>Se generella SLA-krav för tjänstedomänen.</p>
+
+<h4 id="724-annan-information-om-kontraktet">7.2.4 Annan information om kontraktet</h4>
+
+<p>För att möjliggöra för konsumenter att anropa alla logiska adressater som hittas via GetOfferingCatalogues, utan att ha tidigare vetskap om dessa, ska anropsbehörighet enbart kontrolleras på tjänstekontraktet, och ej på logisk adressat.</p>
+
+<h4 id="725-fältregler-enligt-schema-xsd">7.2.5 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careServiceId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">typeOfCareService</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">typeOfPlace</td>
+      <td style="text-align: left">TypeOfPlaceType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../typeOfPlaceEnum</td>
+      <td style="text-align: left">TypeOfPlaceEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">typeOfBusiness</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">providingOrganization</td>
+      <td style="text-align: left">SearchProvidingOrganizationType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../providingOrganizationId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../management</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../publicProvider</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actorLanguage</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actorRole</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">performingOrganizationId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">targetGroupAge</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">targetGroupGender</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">targetGroupAttribute</td>
+      <td style="text-align: left">TargetGroupAttributeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../typeOfPersonalAttribute</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../attributeValue</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">location</td>
+      <td style="text-align: left">SearchLocationType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../geographicalLocation</td>
+      <td style="text-align: left">SearchGeographicalLocationType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../geographicalCoordinates</td>
+      <td style="text-align: left">GeoLocationType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../north</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../east</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../radius</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../county</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../municipality</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">searchTerm</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careService</td>
+      <td style="text-align: left">CareServiceType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../careServiceId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../typeOfCareService</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../typeOfCareServiceDescription</td>
+      <td style="text-align: left">DescriptionType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../text</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../language</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../role</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../validity</td>
+      <td style="text-align: left">DatePeriodType</td>
+      <td style="text-align: left">Används för att specificera ett datumintervall med hjälp av start- och slutdatum. start: Startdatum på formatet ÅÅÅÅMMDD end: Slutdatum på formatet ÅÅÅÅMMDD</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../start</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../end</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../careServiceStatus</td>
+      <td style="text-align: left">CareServiceStatusEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../careOption</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../referralRequired</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../description</td>
+      <td style="text-align: left">DescriptionType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../text</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../language</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../role</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../indicator</td>
+      <td style="text-align: left">IndicatorType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../indicatorId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../logicalAddress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../requestTemplate</td>
+      <td style="text-align: left">RequestTemplateType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../address</td>
+      <td style="text-align: left">anyURI</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../mandatory</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../providingOrganization</td>
+      <td style="text-align: left">ProvidingOrganizationType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../management</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../publicProvider</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../description</td>
+      <td style="text-align: left">DescriptionType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../text</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../language</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../role</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../performingOrganization</td>
+      <td style="text-align: left">PerformingOrganizationType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../responsibleOrganization</td>
+      <td style="text-align: left">ResponsibleOrganizationType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../description</td>
+      <td style="text-align: left">DescriptionType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../text</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../language</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../role</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../availableTime</td>
+      <td style="text-align: left">CalendarType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../typeOfBusiness</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../description</td>
+      <td style="text-align: left">DescriptionType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../text</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../language</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../role</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../patientFee</td>
+      <td style="text-align: left">MOType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../value</td>
+      <td style="text-align: left">decimal</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../currency</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../targetGroup</td>
+      <td style="text-align: left">TargetGroupType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../age</td>
+      <td style="text-align: left">PositiveIntPeriodType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../start</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../end</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../gender</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../targetGroupAttribute</td>
+      <td style="text-align: left">TargetGroupAttributeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../typeOfPersonalAttribute</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../attributeValue</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../location</td>
+      <td style="text-align: left">LocationType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../geographicalLocation</td>
+      <td style="text-align: left">GeographicalLocationType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../county</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../municipality</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../otherLocation</td>
+      <td style="text-align: left">OtherLocationType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../polygon</td>
+      <td style="text-align: left">GeoLocationType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">3..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../north</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../east</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../physicalLocation</td>
+      <td style="text-align: left">PhysicalLocationType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../locationAddress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../geographicalCoordinates</td>
+      <td style="text-align: left">GeoLocationType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../north</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../east</td>
+      <td style="text-align: left">long</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../virtualLocation</td>
+      <td style="text-align: left">VirtualLocationType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../id</td>
+      <td style="text-align: left">anyURI</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../description</td>
+      <td style="text-align: left">DescriptionType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../text</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../language</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../role</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../contactInformation</td>
+      <td style="text-align: left">ContactInformationType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../ranking</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../forRole</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../purpose</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../address</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../availableTime</td>
+      <td style="text-align: left">CalendarType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../telecom</td>
+      <td style="text-align: left">TelecomType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../typeOfTelecom</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../contactPoint</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../description</td>
+      <td style="text-align: left">DescriptionType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../text</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../language</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../role</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../cooperation</td>
+      <td style="text-align: left">CooperationType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../typeOfCooperation</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../validity</td>
+      <td style="text-align: left">DatePeriodType</td>
+      <td style="text-align: left">Används för att specificera ett datumintervall med hjälp av start- och slutdatum. start: Startdatum på formatet ÅÅÅÅMMDD end: Slutdatum på formatet ÅÅÅÅMMDD</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../start</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../end</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../referenceToCareServiceId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../description</td>
+      <td style="text-align: left">DescriptionType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../text</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../language</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../role</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resource</td>
+      <td style="text-align: left">ResourceType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../typeOfResource</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../resourceAttribute</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../availableTime</td>
+      <td style="text-align: left">CalendarType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../description</td>
+      <td style="text-align: left">DescriptionType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../text</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../language</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../role</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../interferenceInformation</td>
+      <td style="text-align: left">InterferenceInformationType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../datePeriod</td>
+      <td style="text-align: left">DatePeriodType</td>
+      <td style="text-align: left">Används för att specificera ett datumintervall med hjälp av start- och slutdatum. start: Startdatum på formatet ÅÅÅÅMMDD end: Slutdatum på formatet ÅÅÅÅMMDD</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../start</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../end</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../typeOfInterference</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../description</td>
+      <td style="text-align: left">DescriptionType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../text</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../language</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../role</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="726-tjänsteinteraktion-enligt-wsdl">7.2.6 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetCareServiceOfferingsResponder:3:GetCareServiceOfferings</code></p>
+
+<h4 id="727-källfiler-riv-ta">7.2.7 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetCareServiceOfferingsInteraction_3.0_RIVTABP21.wsdl">GetCareServiceOfferingsInteraction_3.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetCareServiceOfferingsResponder_3.0.xsd">GetCareServiceOfferingsResponder_3.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="supportprocess_serviceprovisioning_healthcareoffering_3.0.xsd">supportprocess_serviceprovisioning_healthcareoffering_3.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="supportprocess_serviceprovisioning_healthcareoffering_3.0_enums.xsd">supportprocess_serviceprovisioning_healthcareoffering_3.0_enums.xsd</a></td>
+      <td>Domänschema, uppräkningar (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TK_GetCareServiceOfferings_2.1.docx">SjD_TK_GetCareServiceOfferings_2.1.docx</a></td>
+      <td>Självdeklaration (tjänstekonsument), version 2.1</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TK_GetCareServiceOfferings_3.0.docx">SjD_TK_GetCareServiceOfferings_3.0.docx</a></td>
+      <td>Självdeklaration (tjänstekonsument), version 3.0</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TP_GetCareServiceOfferings_2.1.docx">SjD_TP_GetCareServiceOfferings_2.1.docx</a></td>
+      <td>Självdeklaration (tjänsteproducent), version 2.1</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TP_GetCareServiceOfferings_3.0.docx">SjD_TP_GetCareServiceOfferings_3.0.docx</a></td>
+      <td>Självdeklaration (tjänsteproducent), version 3.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="728-fhir-artefakter">7.2.8 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getcareserviceofferings-request.html">StructureDefinition/getcareserviceofferings-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getcareserviceofferings.html">StructureDefinition/getcareserviceofferings</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-healthcareoffering-careservicestatus-cs.html">CodeSystem/healthcareoffering-careservicestatus-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-healthcareoffering-careservicestatus-vs.html">ValueSet/healthcareoffering-careservicestatus-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-healthcareoffering-typeofplace-cs.html">CodeSystem/healthcareoffering-typeofplace-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-healthcareoffering-typeofplace-vs.html">ValueSet/healthcareoffering-typeofplace-vs</a></li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.supportprocess-serviceprovisioning-healthcareoffering#3.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Sep 28, 2026 09:27+0000">2026-09-28</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

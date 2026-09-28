@@ -1,0 +1,4356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>7 Tjänstekontrakt - informationsecurity: authorization: blocking v4.0.4</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">informationsecurity: authorization: blocking</span>
+            <br/>
+            <span style="display:inline-block;">4.0.4 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <menu xmlns="http://www.w3.org/1999/xhtml">
+  <item name="Home" url="index.html"/>
+  <item name="1 Inledning" url="1-inledning.html"/>
+  <item name="2 Versionsinformation" url="2-versionsinformation.html"/>
+  <item name="3 Tjänstedomänens arkitektur" url="3-tjanstedomanens-arkitektur.html"/>
+  <item name="4 Tjänstedomänens krav och regler" url="4-tjanstedomanens-krav-och-regler.html"/>
+  <item name="5 Tjänstedomänens meddelandemodeller" url="5-tjanstedomanens-meddelandemodeller.html"/>
+  <item name="6 Gemensamma informationskomponenter" url="6-gemensamma-informationskomponenter.html"/>
+  <item name="7 Tjänstekontrakt" url="7-tjanstekontrakt.html"/>
+  <item name="Artifacts" url="artifacts.html"/>
+</menu>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">informationsecurity: authorization: blocking - Local Development build (v4.0.4) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/informationsecurity-authorization-blocking/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#7-tjänstekontrakt" id="markdown-toc-7-tjänstekontrakt">7 Tjänstekontrakt</a>    <ul>
+      <li><a href="#getblocks" id="markdown-toc-getblocks">GetBlocks</a></li>
+      <li><a href="#getextendedblocksforpatient" id="markdown-toc-getextendedblocksforpatient">GetExtendedBlocksForPatient</a></li>
+      <li><a href="#getpatientids" id="markdown-toc-getpatientids">GetPatientIds</a></li>
+      <li><a href="#checkblocks" id="markdown-toc-checkblocks">CheckBlocks</a></li>
+      <li><a href="#registerblock" id="markdown-toc-registerblock">RegisterBlock</a></li>
+      <li><a href="#unregisterblock" id="markdown-toc-unregisterblock">UnregisterBlock</a></li>
+      <li><a href="#registertemporaryrevoke" id="markdown-toc-registertemporaryrevoke">RegisterTemporaryRevoke</a></li>
+      <li><a href="#unregistertemporaryrevoke" id="markdown-toc-unregistertemporaryrevoke">UnregisterTemporaryRevoke</a></li>
+      <li><a href="#registerextendedblock" id="markdown-toc-registerextendedblock">RegisterExtendedBlock</a></li>
+      <li><a href="#revokeextendedblock" id="markdown-toc-revokeextendedblock">RevokeExtendedBlock</a></li>
+      <li><a href="#deleteextendedblock" id="markdown-toc-deleteextendedblock">DeleteExtendedBlock</a></li>
+      <li><a href="#registertemporaryextendedrevoke" id="markdown-toc-registertemporaryextendedrevoke">RegisterTemporaryExtendedRevoke</a></li>
+      <li><a href="#canceltemporaryextendedrevoke" id="markdown-toc-canceltemporaryextendedrevoke">CancelTemporaryExtendedRevoke</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="7-tjänstekontrakt">7 Tjänstekontrakt</h1>
+
+<p>Källa: <em>Spärr</em>, tjänstekontraktsbeskrivning version 4.0.4 (2024-10-18), <a href="TKB_informationsecurity_authorization_blocking.docx">TKB_informationsecurity_authorization_blocking.docx</a>.</p>
+
+<p>Motsvarar TKB kapitel 6 <em>Tjänstekontrakt</em> (7.1 = TKB 6.1 osv.). Efter TKB:ns text följer för varje kontrakt fälten enligt schemat, tjänsteinteraktionen enligt WSDL, källfilerna och de genererade FHIR-artefakterna.</p>
+
+<h3 id="getblocks">GetBlocks</h3>
+
+<p>Tjänst som hämtar registrerade spärrar för en patient och/eller vårdgivare. Endast aktiva spärrar returneras (ej makulerade eller permanent hävda). Varje spärr kompletteras också med aktiva tillfälliga hävningar om sådana finns.</p>
+
+<p>Det går även att ange ett datum (CreatedOnOrAfter) från när man önskar inhämta nyare uppgifter och på så sätt undvika att inhämta data som redan hämtats vid ett tidigare tillfälle. Detta inkluderar även tillfälliga hävningar som skett efter angivet datum. Här avses datum då spärruppgiften lagrades i tjänsten.</p>
+
+<h4 id="711-version">7.1.1 Version</h4>
+
+<p>4.0</p>
+
+<h4 id="712-fältregler">7.1.2 Fältregler</h4>
+
+<p>Nedanstående tabell beskriver varje element i begäran och svar samt vilka datatyper som används.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:IIType</td>
+      <td style="text-align: left">Ej obligatorisk patientidentitet såsom personnummer, samordningsnummer eller reservnummer vars spärrar skall hämtas.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderIds</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:HsaId</td>
+      <td style="text-align: left">Ej obligatorisk lista med HSA-id på de vårdgivare vars spärrar skall hämtas.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">createdOnOrAfter</td>
+      <td style="text-align: left">xs:DateTime</td>
+      <td style="text-align: left">Ej obligatoriskt startdatum för hur gamla spärrobjekt som skall hämtas. Om angivet returneras endast spärrar och/eller tillfälliga hävningar lagrade/förändrade i tjänsten på eller efter denna tidpunkt. Användbart vid upprepande förfrågningar och undviker att data som redan inhämtats returneras.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blockHeader</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:BlockHeaderType</td>
+      <td style="text-align: left">Lista över funna spärrar som är aktiva.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="713-övriga-regler">7.1.3 Övriga regler</h4>
+
+<p>N/A</p>
+
+<h5 id="7131-icke-funktionella-krav">7.1.3.1 Icke funktionella krav</h5>
+
+<p>N/A</p>
+
+<h6 id="71311-sla-krav">7.1.3.1.1 SLA-krav</h6>
+
+<p>Följande SLA-krav gäller för producenter av detta tjänstekontrakt.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svarstid</td>
+      <td style="text-align: left">&lt; 10 sekund för 95% av alla anrop</td>
+      <td style="text-align: left">För de fall då man anropar tjänsten med varken vårdgivarId eller patientId. I övrigt enligt kap 4.4.1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="714-annan-information-om-kontraktet">7.1.4 Annan information om kontraktet</h4>
+
+<p>N/A</p>
+
+<h4 id="715-exempel">7.1.5 Exempel</h4>
+
+<h5 id="7151-exempel-på-anrop">7.1.5.1 Exempel på anrop</h5>
+
+<p>Följande XML visar strukturen på ett anrop till tjänsten.</p>
+
+<p>Se GetBlocksRequest.xml</p>
+
+<h5 id="7152-exempel-på-svar">7.1.5.2 Exempel på svar</h5>
+
+<p>Följande XML visar strukturen på svarsmeddelandet från tjänsten.</p>
+
+<p>Se GetBlocksRespons.xml</p>
+
+<h4 id="716-fältregler-enligt-schema-xsd">7.1.6 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En universellt unik identifierare.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderIds</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">createdOnOrAfter</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blockHeader</td>
+      <td style="text-align: left">BlockHeaderType</td>
+      <td style="text-align: left">Datatyp som representerar spärrdata, antingen innehållandes endast spärrdata, eller spärrdata tillsammans med avregistrerade spärrar, beroende på hur klienten efterfrågat data. Datatypen utökar datatypen Result.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../resultCode</td>
+      <td style="text-align: left">ResultCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../blocks</td>
+      <td style="text-align: left">BlockType</td>
+      <td style="text-align: left">Datatyp som representerar en existerande spärr med alla dess attribut. Datatypen beskriver grundformatet för en spärr.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../blockId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../blockType</td>
+      <td style="text-align: left">BlockTypeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../informationStartDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../informationEndDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../informationCareUnitId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../informationCareProviderId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En universellt unik identifierare.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../excludedInformationTypes</td>
+      <td style="text-align: left">InformationTypeType</td>
+      <td style="text-align: left">Datatyp som representerar de Informationstyper som kan undantas från att spärras. En spärr gäller normalt alla informationstyper. Denna lista utgör de informationstyper som kan undantas från att spärras. Om försök görs att registrera en spärr innehållandes en okänd informationstyp skall spärrtjänsten att neka detta. lak Läkemedel - Ordination/förskrivning upp Uppmärksamhetsinformation</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../infoTypeId</td>
+      <td style="text-align: left">InformationTypeIdValue</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../infoTypeDescription</td>
+      <td style="text-align: left">InformationTypeDescription</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../temporaryRevokes</td>
+      <td style="text-align: left">TemporaryRevokeType</td>
+      <td style="text-align: left">Datatyp som representerar en tillfällig hävning för en spärr med alla dess attribut. En tillfällig hävning tillhör alltid en spärr. Datatypen beskriver grundformatet för en tillfällig hävning.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../temporaryRevokeId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../endDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../revokedForCareUnitId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../revokedForEmployeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../ownerId</td>
+      <td style="text-align: left">OwnerId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../ownerId</td>
+      <td style="text-align: left">OwnerId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../nextCreatedOnOrAfter</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../latestCancellation</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="717-tjänsteinteraktion-enligt-wsdl">7.1.7 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:blocking:GetBlocksResponder:4:GetBlocks</code></p>
+
+<h4 id="718-källfiler-riv-ta">7.1.8 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetBlocksInteraction_4.0_RIVTABP21.wsdl">GetBlocksInteraction_4.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetBlocksResponder_4.0.xsd">GetBlocksResponder_4.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_blocking_4.0.xsd">informationsecurity_authorization_blocking_4.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TK_GetBlocks_4.0.docx">SjD_TK_GetBlocks_4.0.docx</a></td>
+      <td>Självdeklaration (tjänstekonsument), version 4.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="719-fhir-artefakter">7.1.9 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getblocks-request.html">StructureDefinition/getblocks-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getblocks.html">StructureDefinition/getblocks</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-blocking-blocktype-cs.html">CodeSystem/authorization-blocking-blocktype-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-blocking-blocktype-vs.html">ValueSet/authorization-blocking-blocktype-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-blocking-resultcode-cs.html">CodeSystem/authorization-blocking-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-blocking-resultcode-vs.html">ValueSet/authorization-blocking-resultcode-vs</a></li>
+</ul>
+
+<h3 id="getextendedblocksforpatient">GetExtendedBlocksForPatient</h3>
+
+<p>Tjänst som läser alla spärrar för en viss patient och organisation. Varje spärr innehåller också tillfälliga hävningar om sådana finns.</p>
+
+<p>Tjänsten returnerar även makulerade och permanent hävda spärrar, samt tidigare gjorda tillfälliga hävningar, för att ge ett historikunderlag (vad som har hänt med patientens spärrar tidigare).</p>
+
+<p>Tjänsten används för att på lokal nivå kunna söka fram och administrera patientens spärrar och dess eventuella tillfälliga hävningar för en viss vårdgivare.</p>
+
+<h4 id="721-version">7.2.1 Version</h4>
+
+<p>4.0</p>
+
+<h4 id="722-fältregler">7.2.2 Fältregler</h4>
+
+<p>Nedanstående tabell beskriver varje element i begäran och svar samt vilka datatyper som används. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i avsnittet Övriga regler.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:HsaId</td>
+      <td style="text-align: left">HSA-id på den vårdgivare vars spärrar skall hämtas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:IIType</td>
+      <td style="text-align: left">Personidentitet på patienten såsom personnummer, samordningsnummer eller reservnummer vars spärrar skall hämtas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getExtendedBlocksResult</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:GetExtendedBlocksResultType</td>
+      <td style="text-align: left">Svaret består av en spärrlista enligt det utökade, lokala spärrformatet.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="723-övriga-regler">7.2.3 Övriga regler</h4>
+
+<p>N/A</p>
+
+<h5 id="7231-icke-funktionella-krav">7.2.3.1 Icke funktionella krav</h5>
+
+<p>N/A</p>
+
+<h6 id="72311-sla-krav">7.2.3.1.1 SLA-krav</h6>
+
+<p>N/A</p>
+
+<h4 id="724-exempel">7.2.4 Exempel</h4>
+
+<h5 id="7241-exempel-på-anrop">7.2.4.1 Exempel på anrop</h5>
+
+<p>Se GetExtendedBlocksForPatientRequest.xml</p>
+
+<h5 id="7242-exempel-på-svar">7.2.4.2 Exempel på svar</h5>
+
+<p>Se GetExtendedBlocksForPatientRespons.xml</p>
+
+<h4 id="725-fältregler-enligt-schema-xsd">7.2.5 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En universellt unik identifierare.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getExtendedBlocksResult</td>
+      <td style="text-align: left">GetExtendedBlocksResultType</td>
+      <td style="text-align: left">Datatyp som innehåller resultatet från tjänsten GetExtendedBlocksForPatient. Datatypen utökar datatypen Result.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../resultCode</td>
+      <td style="text-align: left">ResultCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../blocks</td>
+      <td style="text-align: left">ExtendedBlockType</td>
+      <td style="text-align: left">Datatyp som representerar en spärr enligt det utökade formatet.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../blockId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../blockType</td>
+      <td style="text-align: left">BlockTypeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../informationStartDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../informationEndDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../informationCareUnitId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../informationCareProviderId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En universellt unik identifierare.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../excludedInformationTypes</td>
+      <td style="text-align: left">InformationTypeType</td>
+      <td style="text-align: left">Datatyp som representerar de Informationstyper som kan undantas från att spärras. En spärr gäller normalt alla informationstyper. Denna lista utgör de informationstyper som kan undantas från att spärras. Om försök görs att registrera en spärr innehållandes en okänd informationstyp skall spärrtjänsten att neka detta. lak Läkemedel - Ordination/förskrivning upp Uppmärksamhetsinformation</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../infoTypeId</td>
+      <td style="text-align: left">InformationTypeIdValue</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../infoTypeDescription</td>
+      <td style="text-align: left">InformationTypeDescription</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../registrationInfo</td>
+      <td style="text-align: left">ActionType</td>
+      <td style="text-align: left">Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../requestDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../requestedBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../registrationDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../registeredBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../reasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../permanentRevokedInfo</td>
+      <td style="text-align: left">ActionType</td>
+      <td style="text-align: left">Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../requestDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../requestedBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../registrationDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../registeredBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../reasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../deletionInfo</td>
+      <td style="text-align: left">ActionType</td>
+      <td style="text-align: left">Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../requestDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../requestedBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../registrationDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../registeredBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../reasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../temporaryRevokes</td>
+      <td style="text-align: left">ExtendedTemporaryRevokeType</td>
+      <td style="text-align: left">Datatyp som representerar en tillfällig hävning enligt det utökade formatet.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../temporaryRevokeId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../endDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../revokedForCareUnitId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../revokedForEmployeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../revocationReason</td>
+      <td style="text-align: left">TemporaryRevokeReasonType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../revocationReasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../registrationInfo</td>
+      <td style="text-align: left">ActionType</td>
+      <td style="text-align: left">Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../requestDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../requestedBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../registrationDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../registeredBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../reasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../cancellationInfo</td>
+      <td style="text-align: left">ActionType</td>
+      <td style="text-align: left">Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../requestDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../requestedBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../registrationDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../registeredBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../reasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../ownerId</td>
+      <td style="text-align: left">OwnerId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../ownerId</td>
+      <td style="text-align: left">OwnerId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../locallyCreated</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="726-tjänsteinteraktion-enligt-wsdl">7.2.6 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:blocking:GetExtendedBlocksForPatientResponder:4:GetExtendedBlocksForPatient</code></p>
+
+<h4 id="727-källfiler-riv-ta">7.2.7 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetExtendedBlocksForPatientInteraction_4.0_RIVTABP21.wsdl">GetExtendedBlocksForPatientInteraction_4.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetExtendedBlocksForPatientResponder_4.0.xsd">GetExtendedBlocksForPatientResponder_4.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_blocking_4.0.xsd">informationsecurity_authorization_blocking_4.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="728-fhir-artefakter">7.2.8 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getextendedblocksforpatient-request.html">StructureDefinition/getextendedblocksforpatient-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getextendedblocksforpatient.html">StructureDefinition/getextendedblocksforpatient</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-blocking-blocktype-cs.html">CodeSystem/authorization-blocking-blocktype-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-blocking-blocktype-vs.html">ValueSet/authorization-blocking-blocktype-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-blocking-resultcode-cs.html">CodeSystem/authorization-blocking-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-blocking-resultcode-vs.html">ValueSet/authorization-blocking-resultcode-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-blocking-temporaryrevokereason-cs.html">CodeSystem/authorization-blocking-temporaryrevokereason-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-blocking-temporaryrevokereason-vs.html">ValueSet/authorization-blocking-temporaryrevokereason-vs</a></li>
+</ul>
+
+<h3 id="getpatientids">GetPatientIds</h3>
+
+<p>Tjänst som läser alla patienter med minst en aktivt spärr för en viss organisation. Endast en distinkt lista med unika patienter returneras.</p>
+
+<p>Konsumerande system anger vilken vårdgivare som ska omfattas av sökningen.</p>
+
+<h4 id="731-version">7.3.1 Version</h4>
+
+<p>4.0</p>
+
+<h4 id="732-fältregler">7.3.2 Fältregler</h4>
+
+<p>Nedanstående tabell beskriver varje element i begäran och svar samt vilka datatyper som används.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:HsaId</td>
+      <td style="text-align: left">HSA-id på den vårdgivare vars spärrar skall hämtas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getPatientIdResult</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:GetPatientIdResultType</td>
+      <td style="text-align: left">Lista över unika patienter som har aktiva spärrar.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="733-övriga-regler">7.3.3 Övriga regler</h4>
+
+<p>N/A</p>
+
+<h5 id="7331-icke-funktionella-krav">7.3.3.1 Icke funktionella krav</h5>
+
+<p>N/A</p>
+
+<h6 id="73311-sla-krav">7.3.3.1.1 SLA-krav</h6>
+
+<p>N/A</p>
+
+<h4 id="734-exempel">7.3.4 Exempel</h4>
+
+<h5 id="7341-exempel-på-anrop">7.3.4.1 Exempel på anrop</h5>
+
+<p>Se GetPatientIdsRequest.xml</p>
+
+<h5 id="7342-exempel-på-svar">7.3.4.2 Exempel på svar</h5>
+
+<p>Se GetPatientIdsRespons.xml</p>
+
+<h4 id="735-fältregler-enligt-schema-xsd">7.3.5 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getPatientIdResult</td>
+      <td style="text-align: left">GetPatientIdResultType</td>
+      <td style="text-align: left">Datatyp som innehåller resultatet från tjänsten GetPatientIdsForCareProvider. Datatypen utökar datatypen Result.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../resultCode</td>
+      <td style="text-align: left">ResultCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../patientIds</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En universellt unik identifierare.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="736-tjänsteinteraktion-enligt-wsdl">7.3.6 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:blocking:GetPatientIdsResponder:4:GetPatientIds</code></p>
+
+<h4 id="737-källfiler-riv-ta">7.3.7 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetPatientIdsInteraction_4.0_RIVTABP21.wsdl">GetPatientIdsInteraction_4.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetPatientIdsResponder_4.0.xsd">GetPatientIdsResponder_4.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_blocking_4.0.xsd">informationsecurity_authorization_blocking_4.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TK_GetPatientIds_4.0.docx">SjD_TK_GetPatientIds_4.0.docx</a></td>
+      <td>Självdeklaration (tjänstekonsument), version 4.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="738-fhir-artefakter">7.3.8 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getpatientids-request.html">StructureDefinition/getpatientids-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getpatientids.html">StructureDefinition/getpatientids</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-blocking-resultcode-cs.html">CodeSystem/authorization-blocking-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-blocking-resultcode-vs.html">ValueSet/authorization-blocking-resultcode-vs</a></li>
+</ul>
+
+<h3 id="checkblocks">CheckBlocks</h3>
+
+<p>Tjänst som kontrollerar om given information är spärrad eller inte. Den utvärderar alla spärrar som gäller mot andra vårdgivare/vårdenheter som finns i tjänsten och om någon spärr är helt applicerbar för given information och tillfälle kommer tjänsten att markera den informationen som spärrad. Om det finns minst en tillfällig hävning för spärren som applicerar på den angivna aktören blir informationen ospärrad.</p>
+
+<p>Denna tjänst kan användas då tjänstekonsumenten inte själv kan avgöra/kontrollera om information är spärrad eller inte. Tjänsten stödjer kontroll av flertal informationsmängder i ett och samma anrop.</p>
+
+<p>Evalueringen av huruvida informationen är spärrad eller ej görs enligt följande:</p>
+
+<ul>
+  <li>Om spärr föreligger (inre eller yttre) blir informationen spärrad.</li>
+  <li>Om undantag av spärr för 'lak' och/eller 'upp' har angivets blir denna information EJ spärrad.</li>
+  <li>Om spärren inte innehåller någon giltighetstid blir informationen spärrad.</li>
+  <li>Om tidsspannet för informationen ligger inom spärrens giltighetstid blir informationen spärrad.</li>
+  <li>Om spärrens giltighetstid delvis överlappar tidsspannet (start- eller sluttid) för informationen blir informationen spärrad.</li>
+  <li>Om tidsspannet för informationen ligger helt utanför spärrens giltighetstid blir informationen EJ spärrad.</li>
+</ul>
+
+<p>e-Tjänster på nationell nivå kräver ett komplett spärrunderlag.</p>
+
+<h4 id="741-version">7.4.1 Version.</h4>
+
+<p>4.0</p>
+
+<h4 id="742-fältregler">7.4.2 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">accessingActor</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:AccessingActorType</td>
+      <td style="text-align: left">Representerar den aktör/person som önskar åtkomst till informationen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:IIType</td>
+      <td style="text-align: left">Personidentitet på patienten vars information aktören önskar åtkomst till.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">informationEntities</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:InformationEntityType</td>
+      <td style="text-align: left">Lista över de informationsentiteter som aktören önskar åtkomst till.</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">checkBlocksResult</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:CheckBlocksResultType</td>
+      <td style="text-align: left">Lista med resultat motsvarande den informationslista som angavs som inparameter.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="743-övriga-regler">7.4.3 Övriga regler</h4>
+
+<p>Parametrar till tjänsten skall valideras och resultera i resultkoden VALIDATIONERROR om dessa är felaktiga. Informationsresurser och dess fält skall valideras och hanteras separat. Ogiltiga eller felaktiga fält i informationsresursen skall resultera i VALIDATIONERROR på resursnivå, dvs felkoden ges per informationsresurs i CheckBlocksResult med CheckStatus.</p>
+
+<p>Om någon informationsresurs får valideringsfel skall tjänsten returnera felkoden INFO med meddelandet "Informationsresurs(er) innehåller valideringsfel".</p>
+
+<p>Tjänsten skall hantera valfria informationstyper samt tomma/icke existerande värden.</p>
+
+<p>Alla andra värden än de definierade i kontraktet hanteras som en uppgift av ospecificerad typ i den kontroll som tjänsten utför.</p>
+
+<h5 id="7431-icke-funktionella-krav">7.4.3.1 Icke funktionella krav</h5>
+
+<p>N/A</p>
+
+<h6 id="74311-sla-krav">7.4.3.1.1 SLA-krav</h6>
+
+<p>N/A</p>
+
+<h4 id="744-exempel">7.4.4 Exempel</h4>
+
+<h5 id="7441-exempel-på-anrop">7.4.4.1 Exempel på anrop</h5>
+
+<p>Se CheckBlocksRequest.xml</p>
+
+<h5 id="7442-exempel-på-svar">7.4.4.2 Exempel på svar</h5>
+
+<p>Se CheckBlocksRespons.xml</p>
+
+<h4 id="745-fältregler-enligt-schema-xsd">7.4.5 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">accessingActor</td>
+      <td style="text-align: left">AccessingActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person som vill ha åtkomst till specifik information.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../careProviderId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../careUnitId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En universellt unik identifierare.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">informationEntities</td>
+      <td style="text-align: left">InformationEntityType</td>
+      <td style="text-align: left">Datatyp som representerar den information som behövs vid en kontroll om spärr föreligger.</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../informationStartDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../informationEndDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../informationCareUnitId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../informationCareProviderId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../informationType</td>
+      <td style="text-align: left">InformationTypeIdValue</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../rowNumber</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">checkBlocksResult</td>
+      <td style="text-align: left">CheckBlocksResultType</td>
+      <td style="text-align: left">Datatyp som innehåller resultatet från tjänsten CheckBlocks. Datatypen utökar datatypen Result.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../resultCode</td>
+      <td style="text-align: left">ResultCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../checkResults</td>
+      <td style="text-align: left">CheckResultType</td>
+      <td style="text-align: left">Datatyp som representerar ett svar från kontrollen av åtkomst till information.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../status</td>
+      <td style="text-align: left">CheckStatusType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../rowNumber</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="746-tjänsteinteraktion-enligt-wsdl">7.4.6 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:blocking:CheckBlocksResponder:4:CheckBlocks</code></p>
+
+<h4 id="747-källfiler-riv-ta">7.4.7 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="CheckBlocksInteraction_4.0_RIVTABP21.wsdl">CheckBlocksInteraction_4.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="CheckBlocksResponder_4.0.xsd">CheckBlocksResponder_4.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_blocking_4.0.xsd">informationsecurity_authorization_blocking_4.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TK_CheckBlocks_4.0.docx">SjD_TK_CheckBlocks_4.0.docx</a></td>
+      <td>Självdeklaration (tjänstekonsument), version 4.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="748-fhir-artefakter">7.4.8 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-checkblocks-request.html">StructureDefinition/checkblocks-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-checkblocks.html">StructureDefinition/checkblocks</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-blocking-checkstatus-cs.html">CodeSystem/authorization-blocking-checkstatus-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-blocking-checkstatus-vs.html">ValueSet/authorization-blocking-checkstatus-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-blocking-resultcode-cs.html">CodeSystem/authorization-blocking-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-blocking-resultcode-vs.html">ValueSet/authorization-blocking-resultcode-vs</a></li>
+</ul>
+
+<h3 id="registerblock">RegisterBlock</h3>
+
+<p>Tjänst som registrerar en ny spärr i den nationella spärrtjänsten (den aggregerade/replikerade spärrinformationen).</p>
+
+<p>En spärr gäller i normal fallet alla informationstyper som rör patienten på en vårdenhet och således spärrar ut all obehörig tillgång till informationen. Informationstyperna lak och upp kan undantas från spärren. Om detta sker blir dessa informationstyper ej spärrade.</p>
+
+<p>Tjänsten används för att synkronisera en lokal spärr till den nationella spärrtjänsten.</p>
+
+<h4 id="751-version">7.5.1 Version</h4>
+
+<p>4.0</p>
+
+<h4 id="752-fältregler">7.5.2 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blockId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:Id</td>
+      <td style="text-align: left">Unik, global identifierare för spärren. Anropande system ansvarar för att generera id:et.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blockType</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:BlockTypeType</td>
+      <td style="text-align: left">Enumerationsvärde som anger om spärren är en inre (inom vårdenhet) eller yttre (inom vårdgivare).</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:IIType</td>
+      <td style="text-align: left">Personidentitet på patienten såsom personnummer, samordningsnummer eller reservnummer.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">informationStartDate</td>
+      <td style="text-align: left">xs:DateTime</td>
+      <td style="text-align: left">Ej obligatoriskt startdatum för vilken information i tiden som spärren avser. Om angivet spärras information som registrerats på eller efter denna tidpunkt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">informationEndDate</td>
+      <td style="text-align: left">xs:DateTime</td>
+      <td style="text-align: left">Ej obligatoriskt slutdatum för vilken information i tiden som spärren avser. Om angivet spärras information som registrerats på eller före denna tidpunkt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">informationCareUnitId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:HsaId</td>
+      <td style="text-align: left">Obligatoriskt om spärren är en inre och endast då. Anger HSA-id för den vårdenhet spärren gäller för.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">informationCareProviderId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:HsaId</td>
+      <td style="text-align: left">Obligatoriskt HSA-id för den vårdgivare spärren gäller för.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">excludedInformationTypes</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:InformationTypeIdValue</td>
+      <td style="text-align: left">Ej obligatorisk lista med de informationstyper som skall undantas från spärren. Tillåtna värden är 'lak' och 'upp'.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">temporaryRevokeRegistration</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:TemporaryRevokeRegistrationType</td>
+      <td style="text-align: left">Ej obligatorisk lista med tillfälliga hävningar. Detta möjliggör registrering/överföring av en spärr och tillhörande hävningar på en och samma gång. Denna lista lämnas tom i normalfallet.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:ResultType</td>
+      <td style="text-align: left">Status för om operationen lyckades eller inte.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="753-övriga-regler">7.5.3 Övriga regler</h4>
+
+<p>Regel # 1</p>
+
+<p>Producent som nyttjar detta kontrakt för att till den nationella spärrtjänsten synkronisera lokalt lagrade spärrar ansvarar för att hantera eventuella fel vid anropet, så att det inte uppstår diskrepans mellan lokalt lagrade spärrar och nationellt synkroniserade.</p>
+
+<h5 id="7531-icke-funktionella-krav">7.5.3.1 Icke funktionella krav</h5>
+
+<p>N/A</p>
+
+<h6 id="75311-sla-krav">7.5.3.1.1 SLA-krav</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Tjänsten garanterar att registrering av spärren skett då anropet genomförts utan fel. Registreringen speglas omedelbart i svar från frågor genom tjänsterna (t ex Getblocks).</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="754-exempel">7.5.4 Exempel</h4>
+
+<h5 id="7541-exempel-på-anrop">7.5.4.1 Exempel på anrop</h5>
+
+<p>Se RegisterBlockRequest.xml</p>
+
+<h5 id="7542-exempel-på-svar">7.5.4.2 Exempel på svar</h5>
+
+<p>Se RegisterBlockRespons.xml</p>
+
+<h4 id="755-fältregler-enligt-schema-xsd">7.5.5 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blockId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blockType</td>
+      <td style="text-align: left">BlockTypeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En universellt unik identifierare.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">informationStartDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">informationEndDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">informationCareUnitId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">informationCareProviderId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">excludedInformationTypes</td>
+      <td style="text-align: left">InformationTypeIdValue</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">temporaryRevokeRegistration</td>
+      <td style="text-align: left">TemporaryRevokeRegistrationType</td>
+      <td style="text-align: left">Datatyp som representerar en registrering av en tillfällig hävning med de attribut som behövs.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../temporaryRevokeId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../blockId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../endDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../revokedForCareUnitId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../revokedForEmployeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultCode</td>
+      <td style="text-align: left">ResultCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="756-tjänsteinteraktion-enligt-wsdl">7.5.6 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:blocking:RegisterBlockResponder:4:RegisterBlock</code></p>
+
+<h4 id="757-källfiler-riv-ta">7.5.7 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="RegisterBlockInteraction_4.0_RIVTABP21.wsdl">RegisterBlockInteraction_4.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="RegisterBlockResponder_4.0.xsd">RegisterBlockResponder_4.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_blocking_4.0.xsd">informationsecurity_authorization_blocking_4.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TK_RegisterBlock_4.0.docx">SjD_TK_RegisterBlock_4.0.docx</a></td>
+      <td>Självdeklaration (tjänstekonsument), version 4.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="758-fhir-artefakter">7.5.8 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-registerblock-request.html">StructureDefinition/registerblock-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-registerblock.html">StructureDefinition/registerblock</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-blocking-blocktype-cs.html">CodeSystem/authorization-blocking-blocktype-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-blocking-blocktype-vs.html">ValueSet/authorization-blocking-blocktype-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-blocking-resultcode-cs.html">CodeSystem/authorization-blocking-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-blocking-resultcode-vs.html">ValueSet/authorization-blocking-resultcode-vs</a></li>
+</ul>
+
+<h3 id="unregisterblock">UnregisterBlock</h3>
+
+<p>Tjänst som avregistrerar/raderar en befintlig spärr i den nationella spärrtjänsten, om spärren finns.</p>
+
+<p>Tjänsten används för att synkronisera borttag av en lokal spärr till den nationella spärrtjänsten.</p>
+
+<h4 id="761-version">7.6.1 Version</h4>
+
+<p>4.0</p>
+
+<h4 id="762-fältregler">7.6.2 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blockId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:Id</td>
+      <td style="text-align: left">Unik, global identifierare för spärren.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:ResultType</td>
+      <td style="text-align: left">Status för om operationen lyckades eller inte.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="763-övriga-regler">7.6.3 Övriga regler</h4>
+
+<p>Regel # 1</p>
+
+<p>Producent som nyttjar detta kontrakt för att till den nationella spärrtjänsten synkronisera lokalt lagrade spärrar ansvarar för att hantera eventuella fel vid anropet, så att det inte uppstår diskrepans mellan lokalt lagrade spärrar och nationellt synkroniserade.</p>
+
+<h5 id="7631-icke-funktionella-krav">7.6.3.1 Icke funktionella krav</h5>
+
+<p>N/A</p>
+
+<h6 id="76311-sla-krav">7.6.3.1.1 SLA-krav</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Tjänsten garanterar att borttag av spärren skett då anropet genomförts utan fel. Registreringen speglas omedelbart i svar från frågor genom tjänsterna (t ex Getblocks).</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="764-exempel">7.6.4 Exempel</h4>
+
+<h5 id="7641-exempel-på-anrop">7.6.4.1 Exempel på anrop</h5>
+
+<p>Se UnregisterBlockRequest.xml</p>
+
+<h5 id="7642-exempel-på-svar">7.6.4.2 Exempel på svar</h5>
+
+<p>Se UnregisterBlockRespons.xml</p>
+
+<h4 id="765-fältregler-enligt-schema-xsd">7.6.5 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blockId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultCode</td>
+      <td style="text-align: left">ResultCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="766-tjänsteinteraktion-enligt-wsdl">7.6.6 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:blocking:UnregisterBlockResponder:4:UnregisterBlock</code></p>
+
+<h4 id="767-källfiler-riv-ta">7.6.7 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="UnregisterBlockInteraction_4.0_RIVTABP21.wsdl">UnregisterBlockInteraction_4.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="UnregisterBlockResponder_4.0.xsd">UnregisterBlockResponder_4.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_blocking_4.0.xsd">informationsecurity_authorization_blocking_4.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TK_UnregisterBlock_4.0.docx">SjD_TK_UnregisterBlock_4.0.docx</a></td>
+      <td>Självdeklaration (tjänstekonsument), version 4.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="768-fhir-artefakter">7.6.8 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-unregisterblock-request.html">StructureDefinition/unregisterblock-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-unregisterblock.html">StructureDefinition/unregisterblock</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-blocking-resultcode-cs.html">CodeSystem/authorization-blocking-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-blocking-resultcode-vs.html">ValueSet/authorization-blocking-resultcode-vs</a></li>
+</ul>
+
+<h3 id="registertemporaryrevoke">RegisterTemporaryRevoke</h3>
+
+<p>Tjänst som registrerar en tillfällig hävning för en given spärr i den nationella spärrtjänsten, om spärren finns.</p>
+
+<p>Tjänsten används för att synkronisera en lokal tillfällig hävning till den nationella spärrtjänsten.</p>
+
+<h4 id="771-version">7.7.1 Version</h4>
+
+<p>4.0</p>
+
+<h4 id="772-fältregler">7.7.2 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">temporaryRevokeRegistration</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:TemporaryRevokeRegistrationType</td>
+      <td style="text-align: left">Registreringsuppgifter för tillfällig hävning.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:ResultType</td>
+      <td style="text-align: left">Status för om operationen lyckades eller inte.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="773-övriga-regler">7.7.3 Övriga regler</h4>
+
+<p>Regel # 1</p>
+
+<p>Producent som nyttjar detta kontrakt för att till den nationella spärrtjänsten synkronisera lokalt lagrade spärrar ansvarar för att hantera eventuella fel vid anropet, så att det inte uppstår diskrepans mellan lokalt lagrade spärrar och nationellt synkroniserade.</p>
+
+<h5 id="7731-icke-funktionella-krav">7.7.3.1 Icke funktionella krav</h5>
+
+<p>N/A</p>
+
+<h6 id="77311-sla-krav">7.7.3.1.1 SLA-krav</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Tjänsten garanterar att registrering av hävningen skett då anropet genomförts utan fel. Registreringen speglas omedelbart i svar från frågor genom tjänsterna (t ex Getblocks).</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="774-exempel">7.7.4 Exempel</h4>
+
+<h5 id="7741-exempel-på-anrop">7.7.4.1 Exempel på anrop</h5>
+
+<p>Se RegisterTemporaryRevokeRequest.xml</p>
+
+<h5 id="7742-exempel-på-svar">7.7.4.2 Exempel på svar</h5>
+
+<p>Se RegisterTemporaryRevokeResponder.xml</p>
+
+<h4 id="775-fältregler-enligt-schema-xsd">7.7.5 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">temporaryRevokeRegistration</td>
+      <td style="text-align: left">TemporaryRevokeRegistrationType</td>
+      <td style="text-align: left">Datatyp som representerar en registrering av en tillfällig hävning med de attribut som behövs.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../temporaryRevokeId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../blockId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../endDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../revokedForCareUnitId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../revokedForEmployeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultCode</td>
+      <td style="text-align: left">ResultCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="776-tjänsteinteraktion-enligt-wsdl">7.7.6 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:blocking:RegisterTemporaryRevokeResponder:4:RegisterTemporaryRevoke</code></p>
+
+<h4 id="777-källfiler-riv-ta">7.7.7 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="RegisterTemporaryRevokeInteraction_4.0_RIVTABP21.wsdl">RegisterTemporaryRevokeInteraction_4.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="RegisterTemporaryRevokeResponder_4.0.xsd">RegisterTemporaryRevokeResponder_4.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_blocking_4.0.xsd">informationsecurity_authorization_blocking_4.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TK_RegisterTemporaryRevoke_4.0.docx">SjD_TK_RegisterTemporaryRevoke_4.0.docx</a></td>
+      <td>Självdeklaration (tjänstekonsument), version 4.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="778-fhir-artefakter">7.7.8 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-registertemporaryrevoke-request.html">StructureDefinition/registertemporaryrevoke-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-registertemporaryrevoke.html">StructureDefinition/registertemporaryrevoke</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-blocking-resultcode-cs.html">CodeSystem/authorization-blocking-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-blocking-resultcode-vs.html">ValueSet/authorization-blocking-resultcode-vs</a></li>
+</ul>
+
+<h3 id="unregistertemporaryrevoke">UnregisterTemporaryRevoke</h3>
+
+<p>Tjänst som avregistrerar/raderar en tillfällig hävning i den nationella spärrtjänsten, om hävningen finns.</p>
+
+<p>Tjänsten används för att synkronisera borttag av en lokal tillfällig hävning till den nationella spärrtjänsten.</p>
+
+<h4 id="781-version">7.8.1 Version</h4>
+
+<p>4.0</p>
+
+<h4 id="782-fältregler">7.8.2 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">temporaryRevokeId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:Id</td>
+      <td style="text-align: left">Identifierare för den tillfälliga hävning som skall raderas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:ResultType</td>
+      <td style="text-align: left">Status för om operationen lyckades eller inte.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="783-övriga-regler">7.8.3 Övriga regler</h4>
+
+<p>Regel # 1</p>
+
+<p>Producent som nyttjar detta kontrakt för att till den nationella spärrtjänsten synkronisera lokalt lagrade spärrar ansvarar för att hantera eventuella fel vid anropet, så att det inte uppstår diskrepans mellan lokalt lagrade spärrar och nationellt synkroniserade.</p>
+
+<h5 id="7831-icke-funktionella-krav">7.8.3.1 Icke funktionella krav</h5>
+
+<p>N/A</p>
+
+<h6 id="78311-sla-krav">7.8.3.1.1 SLA-krav</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Tjänsten garanterar att borttag av hävningen skett då anropet genomförts utan fel. Registreringen speglas omedelbart i svar från frågor genom tjänsterna (t ex Getblocks).</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="784-exempel">7.8.4 Exempel</h4>
+
+<h5 id="7841-exempel-på-anrop">7.8.4.1 Exempel på anrop</h5>
+
+<p>Se UnregisterTemporaryRevokeRequest.xml</p>
+
+<h5 id="7842-exempel-på-svar">7.8.4.2 Exempel på svar</h5>
+
+<p>Se UnregisterTemporaryRevokeRequest.xml</p>
+
+<h4 id="785-fältregler-enligt-schema-xsd">7.8.5 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">temporaryRevokeId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultCode</td>
+      <td style="text-align: left">ResultCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="786-tjänsteinteraktion-enligt-wsdl">7.8.6 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:blocking:UnregisterTemporaryRevokeResponder:4:UnregisterTemporaryRevoke</code></p>
+
+<h4 id="787-källfiler-riv-ta">7.8.7 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="UnregisterTemporaryRevokeInteraction_4.0_RIVTABP21.wsdl">UnregisterTemporaryRevokeInteraction_4.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="UnregisterTemporaryRevokeResponder_4.0.xsd">UnregisterTemporaryRevokeResponder_4.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_blocking_4.0.xsd">informationsecurity_authorization_blocking_4.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TK_UnregisterTemporaryRevoke_4.0.docx">SjD_TK_UnregisterTemporaryRevoke_4.0.docx</a></td>
+      <td>Självdeklaration (tjänstekonsument), version 4.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="788-fhir-artefakter">7.8.8 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-unregistertemporaryrevoke-request.html">StructureDefinition/unregistertemporaryrevoke-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-unregistertemporaryrevoke.html">StructureDefinition/unregistertemporaryrevoke</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-blocking-resultcode-cs.html">CodeSystem/authorization-blocking-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-blocking-resultcode-vs.html">ValueSet/authorization-blocking-resultcode-vs</a></li>
+</ul>
+
+<h3 id="registerextendedblock">RegisterExtendedBlock</h3>
+
+<p>Tjänst som registrerar en ny spärr för en viss patient och inom en viss vårdgivare i den lokala spärrtjänsten.</p>
+
+<p>En spärr gäller i normal fallet alla informationstyper som rör patienten på en vårdenhet och således spärrar ut all obehörig tillgång till informationen.</p>
+
+<p>Informationstyperna lak och upp kan undantas från spärren. Om detta sker blir dessa informationstyper ej spärrade.</p>
+
+<p>Kräver utökad spärrinformation med metainformation kring skapande av spärren.</p>
+
+<p>Tjänsten registrerar även grunddata om spärren på nationell nivå.</p>
+
+<h4 id="791-version">7.9.1 Version</h4>
+
+<p>4.0</p>
+
+<h4 id="792-fältregler">7.9.2 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blockId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:Id</td>
+      <td style="text-align: left">Unik, global identifierare för spärren. Tjänstekonsumenten ansvarar för att generera id:et.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blockType</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:BlockTypeType</td>
+      <td style="text-align: left">Enumerationsvärde som anger om spärren är en inre (inom vårdenhet) eller yttre (inom vårdgivare).</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:IIType</td>
+      <td style="text-align: left">Personidentitet på patienten såsom personnummer, samordningsnummer eller reservnummer.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">informationStartDate</td>
+      <td style="text-align: left">xs:DateTime</td>
+      <td style="text-align: left">Ej obligatoriskt startdatum för vilken information i tiden som spärren avser. Om angivet spärras information som registrerats på eller efter denna tidpunkt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">informationEndDate</td>
+      <td style="text-align: left">xs:DateTime</td>
+      <td style="text-align: left">Ej obligatoriskt slutdatum för vilken information i tiden som spärren avser. Om angivet spärras information som registrerats på eller före denna tidpunkt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">informationCareUnitId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:HsaId</td>
+      <td style="text-align: left">Obligatoriskt om spärren är en inre och endast då. Anger HSA-id för den vårdenhet spärren gäller för.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">informationCareProviderId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:HsaId</td>
+      <td style="text-align: left">Obligatoriskt HSA-id för den vårdgivare spärren gäller för.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">excludedInformationTypes</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:InformationTypeIdValue</td>
+      <td style="text-align: left">Ej obligatorisk lista med de informationstyper som skall undantas från spärren. Tillåtna värden är 'lak' och 'upp'.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">registerAction</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:ActionType</td>
+      <td style="text-align: left">Identifierar de personer som begärt och registrerat spärren samt tidpunkter för dessa.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">replicationTimeout</td>
+      <td style="text-align: left">xs:Int</td>
+      <td style="text-align: left">Anger hur replikering till nationell spärrtjänst ska ske. / -   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas. / -   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt. / -   Om &gt; 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:ResultType</td>
+      <td style="text-align: left">Status för om operationen lyckades eller inte.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="793-övriga-regler">7.9.3 Övriga regler</h4>
+
+<p>Regel # 1</p>
+
+<p>Producent som nyttjar detta kontrakt har att hantera eventuellt uppkommen felsituation vad gäller transaktionsintegritet (Resultcode&lt;&gt;OK).</p>
+
+<p>Felet kan betyda att begärd uppdatering ej har skett enligt förväntan. De olika scenarierna kan vara (beroende på värdet på replicationTimeout):</p>
+
+<p>Lagrat lokalt -ej nationellt</p>
+
+<p>Ej lagrat lokalt -ej lagrat nationellt</p>
+
+<p>En producent av kontraktet ansvarar för att kunna hantera denna situation, kontraktet kan (f.n) ej garantera en transaktionsintegritet. En konsument av kontraktet kan underlätta felhantering genom att tillhandahålla en informativ feltext i ResultText.</p>
+
+<p>OBS! Om replicationTimeout = 0 och replikeringen till den nationella spärrtjänsten misslyckas så får ej konsumenten reda på detta. ResultCode blir ändå OK.</p>
+
+<h5 id="7931-icke-funktionella-krav">7.9.3.1 Icke funktionella krav</h5>
+
+<p>N/A</p>
+
+<h6 id="79311-sla-krav">7.9.3.1.1 SLA-krav</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Tjänsten garanterar att registreringen av spärren skett då anropet genomförts utan fel. Registreringen speglas omedelbart i svar från frågor genom tjänsterna (t ex Getblocks).</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="794-exempel">7.9.4 Exempel</h4>
+
+<h5 id="7941-exempel-på-anrop">7.9.4.1 Exempel på anrop</h5>
+
+<p>Se RegisterExtendedBlockRequest.xml</p>
+
+<h5 id="7942-exempel-på-svar">7.9.4.2 Exempel på svar</h5>
+
+<p>Se RegisterExtendedBlockRespons.xml</p>
+
+<h4 id="795-fältregler-enligt-schema-xsd">7.9.5 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blockId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blockType</td>
+      <td style="text-align: left">BlockTypeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En universellt unik identifierare.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">informationStartDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">informationEndDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">informationCareUnitId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">informationCareProviderId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">excludedInformationTypes</td>
+      <td style="text-align: left">InformationTypeIdValue</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">registerAction</td>
+      <td style="text-align: left">ActionType</td>
+      <td style="text-align: left">Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../requestDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../requestedBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../registrationDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../registeredBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../reasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">replicationTimeout</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultCode</td>
+      <td style="text-align: left">ResultCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="796-tjänsteinteraktion-enligt-wsdl">7.9.6 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:blocking:RegisterExtendedBlockResponder:4:RegisterExtendedBlock</code></p>
+
+<h4 id="797-källfiler-riv-ta">7.9.7 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="RegisterExtendedBlockInteraction_4.0_RIVTABP21.wsdl">RegisterExtendedBlockInteraction_4.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="RegisterExtendedBlockResponder_4.0.xsd">RegisterExtendedBlockResponder_4.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_blocking_4.0.xsd">informationsecurity_authorization_blocking_4.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="798-fhir-artefakter">7.9.8 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-registerextendedblock-request.html">StructureDefinition/registerextendedblock-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-registerextendedblock.html">StructureDefinition/registerextendedblock</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-blocking-blocktype-cs.html">CodeSystem/authorization-blocking-blocktype-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-blocking-blocktype-vs.html">ValueSet/authorization-blocking-blocktype-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-blocking-resultcode-cs.html">CodeSystem/authorization-blocking-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-blocking-resultcode-vs.html">ValueSet/authorization-blocking-resultcode-vs</a></li>
+</ul>
+
+<h3 id="revokeextendedblock">RevokeExtendedBlock</h3>
+
+<p>Tjänst som häver en spärr permanent i den lokala spärrtjänsten, om spärren finns. Denna hävning kan inte återtas.</p>
+
+<p>Tjänsten avregistrerar även spärren på nationell nivå.</p>
+
+<h4 id="7101-version">7.10.1 Version</h4>
+
+<p>4.0</p>
+
+<h4 id="7102-fältregler">7.10.2 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blockId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:Id</td>
+      <td style="text-align: left">Unik, global identifierare för spärren.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">revokeAction</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:ActionType</td>
+      <td style="text-align: left">Identifierar de personer som begärt och permanent hävt spärren samt tidpunkter för dessa.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">revokeReasonText</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:ReasonText</td>
+      <td style="text-align: left">Orsaken till den permanenta hävningen.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">replicationTimeout</td>
+      <td style="text-align: left">xs:Int</td>
+      <td style="text-align: left">Anger hur replikering till nationell spärrtjänst ska ske. / -   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas. / -   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt. / -   Om &gt; 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:ResultType</td>
+      <td style="text-align: left">Status för om operationen lyckades eller inte.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7103-övriga-regler">7.10.3 Övriga regler</h4>
+
+<p>Regel # 1</p>
+
+<p>Producent som nyttjar detta kontrakt har att hantera eventuellt uppkommen felsituation vad gäller transaktionsintegritet (Resultcode&lt;&gt;OK).</p>
+
+<p>Felet kan betyda att begärd uppdatering ej har skett enligt förväntan. De olika scenarierna kan vara (beroende på värdet på replicationTimeout):</p>
+
+<p>Lagrat lokalt -ej nationellt</p>
+
+<p>Ej lagrat lokalt -ej lagrat nationellt</p>
+
+<p>En producent av kontraktet ansvarar för att kunna hantera denna situation, kontraktet kan (f.n) ej garantera en transaktionsintegritet. En konsument av kontraktet kan underlätta felhantering genom att tillhandahålla en informativ feltext i ResultText.</p>
+
+<p>OBS! Om replicationTimeout = 0 och replikeringen till den nationella spärrtjänsten misslyckas så får ej konsumenten reda på detta. ResultCode blir ändå OK.</p>
+
+<h5 id="71031-icke-funktionella-krav">7.10.3.1 Icke funktionella krav</h5>
+
+<p>N/A</p>
+
+<h6 id="710311-sla-krav">7.10.3.1.1 SLA-krav</h6>
+
+<p>N/A</p>
+
+<h4 id="7104-exempel">7.10.4 Exempel</h4>
+
+<h5 id="71041-exempel-på-anrop">7.10.4.1 Exempel på anrop</h5>
+
+<p>Se RevokeExtendedBlockRequest.xml</p>
+
+<h5 id="71042-exempel-på-svar">7.10.4.2 Exempel på svar</h5>
+
+<p>Se RevokeExtendedBlockRequest.xml</p>
+
+<h4 id="7105-fältregler-enligt-schema-xsd">7.10.5 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blockId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">revokeAction</td>
+      <td style="text-align: left">ActionType</td>
+      <td style="text-align: left">Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../requestDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../requestedBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../registrationDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../registeredBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../reasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">revokeReasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">replicationTimeout</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultCode</td>
+      <td style="text-align: left">ResultCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7106-tjänsteinteraktion-enligt-wsdl">7.10.6 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:blocking:RevokeExtendedBlockResponder:4:RevokeExtendedBlock</code></p>
+
+<h4 id="7107-källfiler-riv-ta">7.10.7 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="RevokeExtendedBlockInteraction_4.0_RIVTABP21.wsdl">RevokeExtendedBlockInteraction_4.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="RevokeExtendedBlockResponder_4.0.xsd">RevokeExtendedBlockResponder_4.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_blocking_4.0.xsd">informationsecurity_authorization_blocking_4.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7108-fhir-artefakter">7.10.8 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-revokeextendedblock-request.html">StructureDefinition/revokeextendedblock-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-revokeextendedblock.html">StructureDefinition/revokeextendedblock</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-blocking-resultcode-cs.html">CodeSystem/authorization-blocking-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-blocking-resultcode-vs.html">ValueSet/authorization-blocking-resultcode-vs</a></li>
+</ul>
+
+<h3 id="deleteextendedblock">DeleteExtendedBlock</h3>
+
+<p>Tjänst som makulerar en befintlig spärr i den lokala spärrtjänsten, om spärren finns. Spärren raderas inte från lokal spärrtjänst utan markeras som makulerad (ej längre giltig) för historikens skull. Denna makulering kan inte återtas.</p>
+
+<p>Tjänsten avregistrerar även spärren på nationell nivå.</p>
+
+<h4 id="7111-version">7.11.1 Version</h4>
+
+<p>4.0</p>
+
+<h4 id="7112-fältregler">7.11.2 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blockId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:Id</td>
+      <td style="text-align: left">Identifierare för den spärr som skall makuleras.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">deleteAction</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:ActionType</td>
+      <td style="text-align: left">Identifierar de personer som begärt och makulerat spärren samt tidpunkter för dessa.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">deleteReasonText</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:ReasonText</td>
+      <td style="text-align: left">Kompletterande text för orsak till makuleringen.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">replicationTimeout</td>
+      <td style="text-align: left">xs:Int</td>
+      <td style="text-align: left">Anger hur replikering till nationell spärrtjänst ska ske. / -   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas. / -   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt. / -   Om &gt; 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:ResultType</td>
+      <td style="text-align: left">Status för om operationen lyckades eller inte.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7113-övriga-regler">7.11.3 Övriga regler</h4>
+
+<p>Regel # 1</p>
+
+<p>Producent som nyttjar detta kontrakt har att hantera eventuellt uppkommen felsituation vad gäller transaktionsintegritet (Resultcode&lt;&gt;OK).</p>
+
+<p>Felet kan betyda att begärd uppdatering ej har skett enligt förväntan. De olika scenarierna kan vara (beroende på värdet på replicationTimeout):</p>
+
+<p>Lagrat lokalt -ej nationellt</p>
+
+<p>Ej lagrat lokalt -ej lagrat nationellt</p>
+
+<p>En producent av kontraktet ansvarar för att kunna hantera denna situation, kontraktet kan (f.n) ej garantera en transaktionsintegritet. En konsument av kontraktet kan underlätta felhantering genom att tillhandahålla en informativ feltext i ResultText.</p>
+
+<p>OBS! Om replicationTimeout = 0 och replikeringen till den nationella spärrtjänsten misslyckas så får ej konsumenten reda på detta. ResultCode blir ändå OK.</p>
+
+<h5 id="71131-icke-funktionella-krav">7.11.3.1 Icke funktionella krav</h5>
+
+<p>N/A</p>
+
+<h6 id="711311-sla-krav">7.11.3.1.1 SLA-krav</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Tjänsten garanterar att makulering skett då anropet genomförts utan fel. / Tjänsten garanterar även att makulering skett på nationell nivå då anropet genomförts utan fel om anroparen har begärt det. I annat fall meddelas ej anroparen status på nationell registrering. / Det är tjänstens ansvar att förmedla registreringen vidare till den nationella instansen. Detta skall ske så snart som möjligt (synkront), eller med upprepade försök om eventuella problem uppstår.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7114-exempel">7.11.4 Exempel</h4>
+
+<h5 id="71141-exempel-på-anrop">7.11.4.1 Exempel på anrop</h5>
+
+<p>Se DeleteExtendedBlockRequest.xml</p>
+
+<h5 id="71142-exempel-på-svar">7.11.4.2 Exempel på svar</h5>
+
+<p>Se DeleteExtendedBlockRespons.xml</p>
+
+<h4 id="7115-fältregler-enligt-schema-xsd">7.11.5 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blockId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">deleteAction</td>
+      <td style="text-align: left">ActionType</td>
+      <td style="text-align: left">Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../requestDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../requestedBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../registrationDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../registeredBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../reasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">deleteReasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">replicationTimeout</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultCode</td>
+      <td style="text-align: left">ResultCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7116-tjänsteinteraktion-enligt-wsdl">7.11.6 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:blocking:DeleteExtendedBlockResponder:4:DeleteExtendedBlock</code></p>
+
+<h4 id="7117-källfiler-riv-ta">7.11.7 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="DeleteExtendedBlockInteraction_4.0_RIVTABP21.wsdl">DeleteExtendedBlockInteraction_4.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="DeleteExtendedBlockResponder_4.0.xsd">DeleteExtendedBlockResponder_4.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_blocking_4.0.xsd">informationsecurity_authorization_blocking_4.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7118-fhir-artefakter">7.11.8 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-deleteextendedblock-request.html">StructureDefinition/deleteextendedblock-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-deleteextendedblock.html">StructureDefinition/deleteextendedblock</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-blocking-resultcode-cs.html">CodeSystem/authorization-blocking-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-blocking-resultcode-vs.html">ValueSet/authorization-blocking-resultcode-vs</a></li>
+</ul>
+
+<h3 id="registertemporaryextendedrevoke">RegisterTemporaryExtendedRevoke</h3>
+
+<p>Tjänst som häver en spärr tillfälligt i den lokala spärrtjänsten, om spärren finns. En spärr kan ha flera tillfälliga hävningar (gällande olika personal).</p>
+
+<p>Tjänsten registrerar även den tillfälliga hävningen på nationell nivå.</p>
+
+<h4 id="7121-version">7.12.1 Version</h4>
+
+<p>4.0</p>
+
+<h4 id="7122-fältregler">7.12.2 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">temporaryRevokeId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:Id</td>
+      <td style="text-align: left">Unik, global identifierare för den tillfälliga hävningen. Tjänstekonsumenten ansvarar för att generera id:et.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blockId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:Id</td>
+      <td style="text-align: left">Identifierare för den spärr som skall tillfälligt hävas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">endDate</td>
+      <td style="text-align: left">xs:DateTime</td>
+      <td style="text-align: left">Den tillfälliga hävningens giltighetsdatum. Hävningen upphör att gälla då denna tidpunkt inträffat.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">revokedForCareUnitId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:HsaId</td>
+      <td style="text-align: left">Anger HSA-id för den vårdenhet hävningen gäller för.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">revokedForEmployeeId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:HsaId</td>
+      <td style="text-align: left">Anger HSA-id för den medarbetare/person hävningen gäller för. Anges om hävningen skall gälla för en medarbetare/person, annars gäller hävningen för all behörig personal på vårdenheten.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">registerAction</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:ActionType</td>
+      <td style="text-align: left">Identifierar de personer som begärt och registrerat den tillfälliga hävningen samt tidpunkter för dessa.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">revokeReason</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:TemporaryRevokeReasonType</td>
+      <td style="text-align: left">Enumerationsvärde för orsak till tillfällig hävning.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">revokeReasonText</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:ReasonText</td>
+      <td style="text-align: left">Kompletterande text för orsak till tillfällig hävning.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">replicationTimeout</td>
+      <td style="text-align: left">xs:Int</td>
+      <td style="text-align: left">Anger hur replikering till nationell spärrtjänst ska ske. / -   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas. / -   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt. / -   Om &gt; 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:ResultType</td>
+      <td style="text-align: left">Status för om operationen lyckades eller inte.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7123-övriga-regler">7.12.3 Övriga regler</h4>
+
+<p>Regel # 1</p>
+
+<p>Producent som nyttjar detta kontrakt har att hantera eventuellt uppkommen felsituation vad gäller transaktionsintegritet (Resultcode&lt;&gt;OK).</p>
+
+<p>Felet kan betyda att begärd uppdatering ej har skett enligt förväntan. De olika scenarierna kan vara (beroende på värdet på replicationTimeout):</p>
+
+<p>Lagrat lokalt -ej nationellt</p>
+
+<p>Ej lagrat lokalt -ej lagrat nationellt</p>
+
+<p>En producent av kontraktet ansvarar för att kunna hantera denna situation, kontraktet kan (f.n) ej garantera en transaktionsintegritet. En konsument av kontraktet kan underlätta felhantering genom att tillhandahålla en informativ feltext i ResultText.</p>
+
+<p>OBS! Om replicationTimeout = 0 och replikeringen till den nationella spärrtjänsten misslyckas så får ej konsumenten reda på detta. ResultCode blir ändå OK.</p>
+
+<h5 id="71231-icke-funktionella-krav">7.12.3.1 Icke funktionella krav</h5>
+
+<p>N/A</p>
+
+<h6 id="712311-sla-krav">7.12.3.1.1 SLA-krav</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Tjänsten garanterar att registrering av den tillfälliga hävningen skett då anropet genomförts utan fel. / Tjänsten garanterar även att registrering av den tillfälliga hävningen skett på nationell nivå då anropet genomförts utan fel om anroparen har begärt det. I annat fall meddelas ej anroparen status på nationell registrering. / Det är tjänstens ansvar att förmedla registreringen vidare till den nationella instansen. Detta skall ske så snart som möjligt (synkront), eller med upprepade försök om eventuella problem uppstår.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7124-exempel">7.12.4 Exempel</h4>
+
+<h5 id="71241-exempel-på-anrop">7.12.4.1 Exempel på anrop</h5>
+
+<p>Se RegisterTemporaryExtendedRevokeRequest.xml</p>
+
+<h5 id="71242-exempel-på-svar">7.12.4.2 Exempel på svar</h5>
+
+<p>Se RegisterTemporaryExtendedRevokeResponse.xml</p>
+
+<h4 id="7125-fältregler-enligt-schema-xsd">7.12.5 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">temporaryRevokeId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blockId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">endDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">revokedForCareUnitId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">revokedForEmployeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">registerAction</td>
+      <td style="text-align: left">ActionType</td>
+      <td style="text-align: left">Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../requestDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../requestedBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../registrationDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../registeredBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../reasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">revokeReason</td>
+      <td style="text-align: left">TemporaryRevokeReasonType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">revokeReasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">replicationTimeout</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultCode</td>
+      <td style="text-align: left">ResultCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7126-tjänsteinteraktion-enligt-wsdl">7.12.6 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:blocking:RegisterTemporaryExtendedRevokeResponder:4:RegisterTemporaryExtendedRevoke</code></p>
+
+<h4 id="7127-källfiler-riv-ta">7.12.7 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="RegisterTemporaryExtendedRevokeInteraction_4.0_RIVTABP21.wsdl">RegisterTemporaryExtendedRevokeInteraction_4.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="RegisterTemporaryExtendedRevokeResponder_4.0.xsd">RegisterTemporaryExtendedRevokeResponder_4.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_blocking_4.0.xsd">informationsecurity_authorization_blocking_4.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TK_RegisterTemporaryExtendedRevoke_4.0.docx">SjD_TK_RegisterTemporaryExtendedRevoke_4.0.docx</a></td>
+      <td>Självdeklaration (tjänstekonsument), version 4.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7128-fhir-artefakter">7.12.8 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-registertemporaryextendedrevoke-request.html">StructureDefinition/registertemporaryextendedrevoke-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-registertemporaryextendedrevoke.html">StructureDefinition/registertemporaryextendedrevoke</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-blocking-resultcode-cs.html">CodeSystem/authorization-blocking-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-blocking-resultcode-vs.html">ValueSet/authorization-blocking-resultcode-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-blocking-temporaryrevokereason-cs.html">CodeSystem/authorization-blocking-temporaryrevokereason-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-blocking-temporaryrevokereason-vs.html">ValueSet/authorization-blocking-temporaryrevokereason-vs</a></li>
+</ul>
+
+<h3 id="canceltemporaryextendedrevoke">CancelTemporaryExtendedRevoke</h3>
+
+<p>Tjänst som återkallar en tillfällig hävning i den lokala spärrtjänsten, om den tillfälliga hävningen finns. Denna återkallning kan inte återtas.</p>
+
+<p>Tjänsten avregistrerar även den tillfälliga hävningen på nationell nivå.</p>
+
+<h4 id="7131-version">7.13.1 Version</h4>
+
+<p>4.0</p>
+
+<h4 id="7132-fältregler">7.13.2 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">temporaryRevokeId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:Id</td>
+      <td style="text-align: left">Identifierare för den tillfälliga hävning som skall återkallas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cancellationInfo</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:ActionType</td>
+      <td style="text-align: left">Identifierar de personer som begärt och hävt den tillfälliga hävningen samt tidpunkter för dessa.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cancelReasonText</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:ReasonText</td>
+      <td style="text-align: left">Kompletterande text för orsak till makuleringen.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">replicationTimeout</td>
+      <td style="text-align: left">xs:Int</td>
+      <td style="text-align: left">Anger hur replikering till nationell spärrtjänst ska ske. / -   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas. / -   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt. / -   Om &gt; 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:blocking:4:ResultType</td>
+      <td style="text-align: left">Status för om operationen lyckades eller inte.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7133-övriga-regler">7.13.3 Övriga regler</h4>
+
+<p>Regel # 1</p>
+
+<p>Producent som nyttjar detta kontrakt har att hantera eventuellt uppkommen felsituation vad gäller transaktionsintegritet (Resultcode&lt;&gt;OK).</p>
+
+<p>Felet kan betyda att begärd uppdatering ej har skett enligt förväntan. De olika scenarierna kan vara (beroende på värdet på replicationTimeout):</p>
+
+<p>Lagrat lokalt -ej nationellt</p>
+
+<p>Ej lagrat lokalt -ej lagrat nationellt</p>
+
+<p>En producent av kontraktet ansvarar för att kunna hantera denna situation, kontraktet kan (f.n) ej garantera en transaktionsintegritet. En konsument av kontraktet kan underlätta felhantering genom att tillhandahålla en informativ feltext i ResultText.</p>
+
+<p>OBS! Om replicationTimeout = 0 och replikeringen till den nationella spärrtjänsten misslyckas så får ej konsumenten reda på detta. ResultCode blir ändå OK.</p>
+
+<h5 id="71331-icke-funktionella-krav">7.13.3.1 Icke funktionella krav</h5>
+
+<p>N/A</p>
+
+<h6 id="713311-sla-krav">7.13.3.1.1 SLA-krav</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Tjänsten garanterar att registrering av återkallandet skett då anropet genomförts utan fel. / Tjänsten garanterar även att registrering av återkallandet skett på nationell nivå då anropet genomförts utan fel om anroparen har begärt det. I annat fall meddelas ej anroparen status på nationell registrering. / Det är tjänstens ansvar att förmedla registreringen vidare till den nationella instansen. Detta skall ske så snart som möjligt (synkront), eller med upprepade försök om eventuella problem uppstår.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7134-exempel">7.13.4 Exempel</h4>
+
+<h5 id="71341-exempel-på-anrop">7.13.4.1 Exempel på anrop</h5>
+
+<p>Se CancelTemporaryExtendedRevokeRequest.xml</p>
+
+<h5 id="71342-exempel-på-svar">7.13.4.2 Exempel på svar</h5>
+
+<p>Se CancelTemporaryExtendedRevokeRespons.xml</p>
+
+<h4 id="7135-fältregler-enligt-schema-xsd">7.13.5 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">temporaryRevokeId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cancellationInfo</td>
+      <td style="text-align: left">ActionType</td>
+      <td style="text-align: left">Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../requestDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../requestedBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../registrationDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../registeredBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../reasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cancelReasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">replicationTimeout</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultCode</td>
+      <td style="text-align: left">ResultCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7136-tjänsteinteraktion-enligt-wsdl">7.13.6 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:blocking:CancelTemporaryExtendedRevokeResponder:4:CancelTemporaryExtendedRevoke</code></p>
+
+<h4 id="7137-källfiler-riv-ta">7.13.7 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="CancelTemporaryExtendedRevokeInteraction_4.0_RIVTABP21.wsdl">CancelTemporaryExtendedRevokeInteraction_4.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="CancelTemporaryExtendedRevokeResponder_4.0.xsd">CancelTemporaryExtendedRevokeResponder_4.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_blocking_4.0.xsd">informationsecurity_authorization_blocking_4.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7138-fhir-artefakter">7.13.8 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-canceltemporaryextendedrevoke-request.html">StructureDefinition/canceltemporaryextendedrevoke-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-canceltemporaryextendedrevoke.html">StructureDefinition/canceltemporaryextendedrevoke</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-blocking-resultcode-cs.html">CodeSystem/authorization-blocking-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-blocking-resultcode-vs.html">ValueSet/authorization-blocking-resultcode-vs</a></li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.informationsecurity-authorization-blocking#4.0.4 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Sep 28, 2026 09:02+0000">2026-09-28</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

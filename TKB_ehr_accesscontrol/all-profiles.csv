@@ -1,0 +1,40 @@
+"Profile","Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"assertcareengagement-request","assertcareengagement-request","assertcareengagement-request","","","",0,*,"","","","null {[]} {[]}
+","AssertCareEngagement — Request","Logisk modell för requestparametrar i tjänstekontraktet AssertCareEngagement
+(RIV-TA urn:riv:ehr:accesscontrol:AssertCareEngagement:1).
+
+Kontraktet används av tillämpningar som bereder professionen åtkomst till
+sammanhållen journalföring för att styrka att medarbetaren har ett
+behörighetsgrundande engagemang (TGP — Tillgänglig Patient).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"assertcareengagement-request","assertcareengagement-request.performer","assertcareengagement-request.performer","","","",1,1,"","","","Identifier {[]} {[]}
+","HSA-id för medarbetaren som begär åtkomst","HSA-id för medarbetare som begär åtkomst till sammanhållen journalföring.
+Ska vara HSA-id för den medarbetare som är autentiserad i tjänstekonsumenten
+och som begär åtkomst till sammanhållen journalföring.
+Kardinalitet: Obligatorisk.
+System: urn:oid:1.2.752.129.2.1.4.1 (HSA)","","","","","","","","","",,,,,"",,,,"assertcareengagement-request.performer",1,1,"",""
+"assertcareengagement-request","assertcareengagement-request.subjectOfCareId","assertcareengagement-request.subjectOfCareId","","","",1,1,"","","","Identifier {[]} {[]}
+","Person- eller samordningsnummer","Person- eller samordningsnummer för den patient vars sammanhållna journalföring
+söks. 12 tecken enligt Skatteverkets format (ej bindestreck).
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"assertcareengagement-request.subjectOfCareId",1,1,"",""
+"assertcareengagement-request","assertcareengagement-request.careUnitHsaIdentity","assertcareengagement-request.careUnitHsaIdentity","","","",1,1,"","","","Identifier {[]} {[]}
+","HSA-id för medarbetarens uppdragsvårdenhet","HSA-id för den vårdenhet på vars uppdrag medarbetaren agerar och begär åtkomst
+till sammanhållen journalföring.
+Kardinalitet: Obligatorisk.
+System: urn:oid:1.2.752.129.2.1.4.1 (HSA)","","","","","","","","","",,,,,"",,,,"assertcareengagement-request.careUnitHsaIdentity",1,1,"",""
+"assertcareengagement-request","assertcareengagement-request.careGiverHsaIdentity","assertcareengagement-request.careGiverHsaIdentity","","","",1,1,"","","","Identifier {[]} {[]}
+","HSA-id för vårdgivaren","HSA-id för vårdgivaren där vårdenhet med HSA-id enligt careUnitHsaIdentity ingår.
+Kardinalitet: Obligatorisk.
+System: urn:oid:1.2.752.129.2.1.4.1 (HSA)","","","","","","","","","",,,,,"",,,,"assertcareengagement-request.careGiverHsaIdentity",1,1,"",""
+"assertcareengagement","assertcareengagement","assertcareengagement","","","",0,*,"","","","null {[]} {[]}
+","AssertCareEngagement","Logisk modell för tjänstekontraktet AssertCareEngagement
+(RIV-TA urn:riv:ehr:accesscontrol:AssertCareEngagement:1).
+Representerar responsens informationsstruktur.
+
+Tjänsten ger svar på om en medarbetare med uppdrag på angiven vårdenhet ska ges
+möjlighet att begära åtkomst till sammanhållen journalföring (TGP — Tillgänglig Patient).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"assertcareengagement","assertcareengagement.hasCareEngagement","assertcareengagement.hasCareEngagement","","","",1,1,"","","","boolean {[]} {[]}
+","Åtkomstberättigande vårdrelation","'true' om åtkomstberättigande vårdrelation kan anses föreligga, annars 'false'.
+Kardinalitet: Obligatorisk.
+Notering: Fältnamnet anges som 'HasCareEngagement' (versalt H) i TKB-tabellen
+men som 'hasCareEngagement' i XSD. Normaliserat till camelCase i FHIR-modellen.
+Kardinaliteten anges som '1' (utan punktnotation) i TKB — tolkat som 1..1.","","","","","","","","","",,,,,"",,,,"assertcareengagement.hasCareEngagement",1,1,"",""

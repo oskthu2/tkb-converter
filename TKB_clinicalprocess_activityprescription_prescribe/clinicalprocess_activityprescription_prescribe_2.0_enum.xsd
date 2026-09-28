@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Inera licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->		
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' 
+  targetNamespace='urn:riv:clinicalprocess:activityprescription:prescribe:enum:2'
+  elementFormDefault='qualified' attributeFormDefault='unqualified' version='2.0'>
+
+    <!-- A better name for LF? -->
+    <xs:simpleType name="LFConsentEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ONETIME_CONSENT">
+                <xs:annotation>
+                    <xs:documentation>Engångs-samtycke.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="CONSENT">
+                <xs:annotation>
+                    <xs:documentation>Tillsvidaresamtycke registrat hos EHM.</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="EMERGENCY">
+                <xs:annotation>
+                    <xs:documentation>Nödåtgärd, emergency</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="DispensedDrugsConsentOrderEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CREATE">
+                <xs:annotation>
+                    <xs:documentation>Create consent</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="REVOKE">
+                <xs:annotation>
+                    <xs:documentation>Revoke consent</xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="ResultCodeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="OK"/>
+            <xs:enumeration value="INFO"/>
+            <xs:enumeration value="ERROR"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <!-- @TODO se över alla felmeddelanden, eventuellt skapa subkoder -->
+    <xs:simpleType name="ErrorCodeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="VALIDATION_ERROR"><xs:annotation>
+                <xs:documentation>En eller flera inparametrar innehåller felaktiga värden. Angiven tjänst utfördes ej.</xs:documentation></xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="ACCESS_DENIED"/>
+            <xs:enumeration value="NOT_FOUND"/>
+            <xs:enumeration value="ALREADY_EXISTS"/>
+            <xs:enumeration value="INVALID_STATE"/>
+            <xs:enumeration value="MAXIMUM_REQUEST_REACHED"><xs:annotation><xs:documentation>Varningsnivå uppnådd för maximalt antal anrop.</xs:documentation></xs:annotation></xs:enumeration>            
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="SubCodeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SUB_RR_ERROR">
+                <xs:annotation><xs:documentation>Felmeddelande</xs:documentation></xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="DispensedDrugsTypeOfResponseEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="TEXT">
+                <xs:annotation><xs:documentation>Structured information</xs:documentation></xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="MULTIMEDIA">
+                <xs:annotation><xs:documentation>Structured information</xs:documentation></xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="BOTH">
+                <xs:annotation><xs:documentation>Structured information</xs:documentation></xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="DispenseAuthorizationStatusEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ATTACHED">
+                <xs:annotation><xs:documentation>Be om endast kopplade(ATTACHED) expedieringsunderlag.</xs:documentation></xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="NOT_ATTACHED">
+                <xs:annotation><xs:documentation>Be om endast okopplade(NOT_ATTACHED) expedieringsunderlag.</xs:documentation></xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="ALL">
+                <xs:annotation><xs:documentation>Be om både kopplade och okopplade.</xs:documentation></xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="MediaTypeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="application/dicom"/>
+            <xs:enumeration value="application/msword"/>
+            <xs:enumeration value="application/pdf"/>
+            <xs:enumeration value="audio/basic"/>
+            <xs:enumeration value="audio/k32adpcm"/>
+            <xs:enumeration value="audio/mpeg"/>
+            <xs:enumeration value="image/g3fax"/>
+            <xs:enumeration value="image/gif"/>
+            <xs:enumeration value="image/jpeg"/>
+            <xs:enumeration value="image/png"/>
+            <xs:enumeration value="image/tiff"/>
+            <xs:enumeration value="model/vrml"/>
+            <xs:enumeration value="multipart/x-hl7-cda-level1"/>
+            <xs:enumeration value="text/html"/>
+            <xs:enumeration value="text/plain"/>
+            <xs:enumeration value="text/rtf"/>
+            <xs:enumeration value="text/sgml"/>
+            <xs:enumeration value="text/x-hl7-ft"/>
+            <xs:enumeration value="text/xml"/>
+            <xs:enumeration value="video/mpeg"/>
+            <xs:enumeration value="video/x-avi"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

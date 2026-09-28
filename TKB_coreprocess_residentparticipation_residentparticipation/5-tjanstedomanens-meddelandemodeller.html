@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>5 Tjänstedomänens meddelandemodeller - coreprocess: residentparticipation: residentparticipation v1.0.0-rc2</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"6"}
+    h3,h4,h5,h6{--heading-prefix:"6"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">coreprocess: residentparticipation: residentparticipation</span>
+            <br/>
+            <span style="display:inline-block;">1.0.0-rc2 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <menu xmlns="http://www.w3.org/1999/xhtml">
+  <item name="Home" url="index.html"/>
+  <item name="1 Inledning" url="1-inledning.html"/>
+  <item name="2 Versionsinformation" url="2-versionsinformation.html"/>
+  <item name="3 Tjänstedomänens arkitektur" url="3-tjanstedomanens-arkitektur.html"/>
+  <item name="4 Tjänstedomänens krav och regler" url="4-tjanstedomanens-krav-och-regler.html"/>
+  <item name="5 Tjänstedomänens meddelandemodeller" url="5-tjanstedomanens-meddelandemodeller.html"/>
+  <item name="6 Gemensamma informationskomponenter" url="6-gemensamma-informationskomponenter.html"/>
+  <item name="7 Tjänstekontrakt" url="7-tjanstekontrakt.html"/>
+  <item name="Artifacts" url="artifacts.html"/>
+</menu>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>5 Tjänstedomänens meddelandemodeller</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">coreprocess: residentparticipation: residentparticipation - Local Development build (v1.0.0-rc2) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/coreprocess-residentparticipation-residentparticipation/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>5 Tjänstedomänens meddelandemodeller</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#5-tjänstedomänens-meddelandemodeller" id="markdown-toc-5-tjänstedomänens-meddelandemodeller">5 Tjänstedomänens meddelandemodeller</a>    <ul>
+      <li><a href="#51-v-mim" id="markdown-toc-51-v-mim">5.1 V-MIM</a></li>
+      <li><a href="#52-formatregler" id="markdown-toc-52-formatregler">5.2 Formatregler</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="5-tjänstedomänens-meddelandemodeller">5 Tjänstedomänens meddelandemodeller</h1>
+
+<p>Källa: <em>Tjänstekontraktsbeskrivning för coreprocess: residentparticipation: residentparticipation</em>, version 1.0 RC2 (tagg 1.0_RC2, 2026-06-29), <a href="TKB_coreprocess_residentparticipation_residentparticipation.docx">TKB_coreprocess_residentparticipation_residentparticipation.docx</a>.</p>
+
+<p>Här visas de modeller som beskriver informationsinnehållet i tjänstekontrakten inom tjänstedomänen samt en detaljerad beskrivning av modellernas datatyper. Flera av datatyperna återanvänds i olika relationer, i samma meddelandemodell.</p>
+
+<p>Detaljerna för dessa datatyper beskrivs här i detta kapitel, var för sig, för att sedan refereras till under tjänstekontraktens attributbeskrivningar längre fram.</p>
+
+<h3 id="51-v-mim">5.1 V-MIM</h3>
+
+<p><img src="img_006.jpeg" alt="V-MIM" /></p>
+
+<h4 id="511-headertype">5.1.1 HeaderType</h4>
+
+<p>Datatypen HeaderType är en generell gemensam datatyp som används för tjänstekontrakt/informationsmängder som faller under Sammanhållen vård- och omsorgsdokumentation (SVOD).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">sourceSystemId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Unik identitet för källsystemet som håller information om den fasta kontakten. Den unika identiteten kan exempelvis motsvara HSAId för SITHS funktion-certifikatet som källsystemet använder i sin kommunikation.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">accessControlHeader</td>
+      <td style="text-align: left">AccessControlHeaderType</td>
+      <td style="text-align: left">Åtkomstgrundande information, se AccessControlHeader</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="512-accesscontrolheadertype">5.1.2 AccessControlHeaderType</h4>
+
+<p>Datatypen AccesControlHeaderType är del av en generell gemensam datatyp som används för tjänstekontrakt/informationsmängder som faller under Sammanhållen vård- och omsorgsdokumentation (SVOD). Headern syftar till att bl a ge underlag för konsumenters följsamhet till eventuellt spärrade journaluppgifter.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">accountableHealthcareProviderId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Unik identitet för vårdgivaren som är personuppgiftsansvarig för informationen om den fasta kontakten. Den unika identiteten ska motsvara ett HSAId som utgör en vårdgivare i den nationella HSA-katalogen. / IIType.extension = <code class="language-plaintext highlighter-rouge">&lt;HSAId för organisationen&gt;</code> / IIType.root = ”1.2.752.129.2.1.4.1”</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">accountableCareUnitId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Unik identitet för vårdenhet inom vårdgivare som är personuppgiftsansvarig och som håller informationen om den fasta kontakten. Den unika identiteten ska motsvara ett HSAId som utgör en vårdenhet i den nationella HSA-katalogen. / IIType.extension = <code class="language-plaintext highlighter-rouge">&lt;HSAId för organisationen&gt;</code> / IIType.root = ”1.2.752.129.2.1.4.1”</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Personnummer/samordningsnummer för patient som tilldelats den fasta kontakten. / Om källsystemet håller information om fasta kontakter, baserat på olika identifierare, exempelvis regionalt- eller nationellt reservnummer samt personnummer eller samordningsnummer, där identifierarna är sammanlänkade (utgör samma individ), ska källsystemet förmedla ett sammanställt svar. / IIType.extension = <code class="language-plaintext highlighter-rouge">&lt;personnummer, samordningsnummer &gt;</code> / IIType.root: / Personnummer  = ”1.2.752.129.2.1.3.1” / Samordningsnummer = ”1.2.752.129.2.1.3.3”</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProcessId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Referens till hälsoärende. / Socialstyrelsen definierar ett hälsoärende som ett ärende som håller samman vårddokumentation från en eller flera relaterade individanpassade vårdprocesser. / Attributet mappar gentemot FHIR resurs EpisodeOfCare.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blockComparisonTime</td>
+      <td style="text-align: left">TimeStampType</td>
+      <td style="text-align: left">Dokumentationstidpunkt (tidsstämpel) då journalföring skett. Tidsstämpeln utgör underlag för konsuments spärrkontroll.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="513-practitionertype">5.1.3 PractitionerType</h4>
+
+<p>Datatypen PractitionerType håller information om den personal/medarbetare som innehar rollen fast kontakt alternativt en medlem i ett team som tillsammans utgör fast kontakt.</p>
+
+<p>Datatypen mappar gentemot FHIR Practitioner.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">HSAId eller personnummer för medarbetaren som innehar rollen fast kontakt. Om HsaId för medarbetaren finns ska detta förmedlas i första hand. / IIType.extension = <code class="language-plaintext highlighter-rouge">&lt;HSAId för personal/medarbetare&gt;</code> / IIType.root = ”1.2.752.129.2.1.4.1” / För personnummer ska Skatteverkets identifierare för personnummer ”1.2.752.129.2.1.3.1” användas i IIType.extension. / Det är producentens ansvar att säkerställa huruvida en konsumerande tjänst ska delges information om medarbetare som innehar rollen fast kontakt och som har skyddade personuppgifter.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Medarbetares namn</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">qualification</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Medarbetares befattning enligt HSA-kodverk KV_Befattning. Se referens [R10]. / OID: 1.2.752.129.2.2.1.4</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="514-contacttype">5.1.4 ContactType</h4>
+
+<p>Datatypen ContactType håller information om de olika kontaktvägar som finns för att kontakta antingen en vårdande enhet eller en fast kontakt. Information om kontaktvägar kan, enligt tjänstekontraktet GetCareManagers’ meddelandeinformationsmodell, förmedlas kopplat till olika datatyper:</p>
+
+<ul>
+  <li>Kontaktväg för att nå en medarbetare i någon av sin(a) roll(er) (typ av fast kontakt)</li>
+  <li>Kontaktväg för att nå ett team</li>
+  <li>Kontaktväg för att nå den ansvariga vård- eller omsorgsgivaren (organisationen)</li>
+  <li>Kontaktväg för att nå den ansvariga vård- eller omsorgsenheten (organisationen)</li>
+  <li>Kontaktväg för att nå den vårdutförande vård- eller omsorgsenheten (organisationen)</li>
+</ul>
+
+<p>Det är frivilligt att förmedla kontaktväg(ar) kopplat till samtliga ovan nämnda datatyper, dock bör det förmedlas en kontaktväg på minst en nivå i svaret.</p>
+
+<p>Datatypen mappar gentemot FHIR ExtendedContactDetail.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">telecom</td>
+      <td style="text-align: left">ContactPointSystemType</td>
+      <td style="text-align: left">Sätt/kanal för kontakt</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">address</td>
+      <td style="text-align: left">AddressType</td>
+      <td style="text-align: left">Postadress</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="515-addresstype">5.1.5 AddressType</h4>
+
+<p>Datatypen AddressType (post- eller besöksadress) är en del av datatypen ContactType och innehåller adressinformation som kan vara kopplad till:</p>
+
+<ul>
+  <li>Vård- eller omsorgsgivaren</li>
+  <li>Vård- eller omsorgsenhet</li>
+  <li>Vårdutförande enhet</li>
+  <li>Den fasta kontakten</li>
+  <li>Team som tillsammans utgör den fasta kontakten</li>
+</ul>
+
+<p>Datatypen mappar mot FHIR Address.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Typ av adress. / Kan inneha något av värdena: / postal|physical|both / OID: 2.16.840.1.113883.4.642.3.69</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">line</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Adressrad</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">city</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Stad / kommun</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postalCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Postnummer</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">period</td>
+      <td style="text-align: left">HoursOfService</td>
+      <td style="text-align: left">Anger tidsperiod som adressen är giltig.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="516-contactpointsystemtype">5.1.6 ContactPointSystemType</h4>
+
+<p>Datatypen ContactPointSystemType håller information om de olika kontaktsätt som finns för att kontakta antingen en vårdande enhet eller en fast kontakt.</p>
+
+<p>Datatypen mappar gentemot FHIR ContactPointSystem.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">system</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Sätt/teknik för hur kontakten kan ske. / Kan vara en av följande: / [phone|fax|email|pager|url|sms|other] / OID: 2.16.840.1.113883.4.642.1.72</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">value</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Adressen som gäller enligt kontaktsättet. / Kan exempelvis vara ett telefon-, fax- eller sökare-nummer, alternativt en URL till en e-tjänst.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">period</td>
+      <td style="text-align: left">HoursOfServiceType</td>
+      <td style="text-align: left">Kalendertid då kontaktsättet är giltigt. Kan exempelvis uttrycka att kontaktsättet endast gäller specifika veckodagar, specifika månader, specifik datumperiod. Se mer detaljer under kapitel 5.2 Formatregler</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="517-practitionerroletype">5.1.7 PractitionerRoleType</h4>
+
+<p>Datatypen PractitionerRoleType förmedlar medarbetarens roll/roller, så som fast kontakt. En medarbetare kan inneha mer än en roll (typ av fast kontakt).</p>
+
+<p>Datatypen mappar gentemot FHIR PractitionerRole.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">code</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Typ av roll (typ av fast kontakt). Se kodverk enligt referens [R7]. / Observera att kodverk kan komma att kompletteras över tid vilket medför att nyttjare av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">practitioner</td>
+      <td style="text-align: left">PractitionerType</td>
+      <td style="text-align: left">Medarbetaren som tilldelats denna roll, så som fast kontakt</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">period</td>
+      <td style="text-align: left">DatePeriodType</td>
+      <td style="text-align: left">Tidsintervall då medarbetarens roll gäller.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">internalNotes</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Intern kommentar kopplat till medarbetaren i denna roll. Kommentaren kan visas internt inom professionen. Ska ej tillgängliggöras till patient eller patients eventuella vårdnadshavare/ombud.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">externalNotes</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kommentar kopplat till medarbetaren i denna roll. Kommentaren kan visas till patienten eller patients eventuella vårdnadshavare/ombud.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">managingCareGiver</td>
+      <td style="text-align: left">OrganizationType</td>
+      <td style="text-align: left">Vård- eller omsorgsgivare som medarbetaren har sitt uppdrag i, kopplat till denna roll</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">managingCareUnit</td>
+      <td style="text-align: left">OrganizationType</td>
+      <td style="text-align: left">Vård- eller omsorgsenhet som medarbetaren har sitt uppdrag i, kopplat till denna roll</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProvidingCareUnit</td>
+      <td style="text-align: left">OrganizationType</td>
+      <td style="text-align: left">Vårdutförande enhet som medarbetaren har sitt uppdrag i, kopplat till denna roll</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">contact</td>
+      <td style="text-align: left">ContactType</td>
+      <td style="text-align: left">Kontaktväg(ar) till medarbetaren, kopplat till medarbetarens roll</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careTeam</td>
+      <td style="text-align: left">CareTeamType</td>
+      <td style="text-align: left">Team av medarbetare som tillsammans utgör fast kontak. / Om exempelvis ett (1) team utgörs av två medarbetare ska två instanser av PractitionerRoleType förmedlas, en för respektive medarbetare.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="518-careteamtype">5.1.8 CareTeamType</h4>
+
+<p>Datatypen håller information om det team som utgör den fasta kontakten på den vårdande enheten. Teamet syftar till att tillgodose vårdens möjlighet att organisera sig i team kring en patient.</p>
+
+<p>Datatypen mappar gentemot FHIR datatypen CareTeam.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Unik identifierare för teamet</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Teamets namn.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">internalNotes</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Intern kommentar kopplat till teamet. Kommentaren kan visas internt inom professionen. Ska ej tillgängliggöras till patient.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">externalNotes</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kommentar kopplat till teamet. Kommentaren kan visas till patienten.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">contact</td>
+      <td style="text-align: left">ContactType</td>
+      <td style="text-align: left">Kontaktväg(ar) till teamet</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="519-organizationtype">5.1.9 OrganizationType</h4>
+
+<p>Datatypen håller information om den vårdande enheten som den fasta kontakten tillhör och kan vara den fysiska plats som patienten kan besöka. En vårdande enhet kan antingen vara en vård- och omsorgsgivare eller en vård- och omsorgsenhet (enligt SVOD).</p>
+
+<p>Datatypen mappar gentemot FHIR Organization.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">hsaId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">HSAId för organisationen. Organisationen kan antingen vara: / * vård- eller omsorgsgivare / * vård- eller omsorgsenhet / * vårdutförande enhet / IIType.extension = <code class="language-plaintext highlighter-rouge">&lt;HSAId för organisationen&gt;</code> / IIType.root = ”1.2.752.129.2.1.4.1”</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Organisationens namn.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="5110-mappning-gentemot-fhir">5.1.10 Mappning gentemot FHIR</h4>
+
+<p>Följande datatyper är mappade gentemot FHIR’s resurser eller FHIR’s datatyper.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Klass.attribut</th>
+      <th style="text-align: left">Mappning mot FHIR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">PractitionerType</td>
+      <td style="text-align: left">CareManager</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CareTeamType</td>
+      <td style="text-align: left">EpisodeOfCare.careTeam</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PractitionerRoleType</td>
+      <td style="text-align: left">PractitionerRole</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">EpisodeOfCareType</td>
+      <td style="text-align: left">EpisodeOfCare</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ContactPointSystemType</td>
+      <td style="text-align: left">ContactPointSystem</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AddressType</td>
+      <td style="text-align: left">Address</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ContactType</td>
+      <td style="text-align: left">ExtendedContactDetail</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="52-formatregler">5.2 Formatregler</h3>
+
+<h4 id="521-hoursofservicetype">5.2.1 HoursOfServiceType</h4>
+
+<p>Datatypen HoursOfServiceType har möjlighet att uttrycka kalenderperioder, så som exempelvis specifika veckodagar, specifika månader, specifika klockslag och/eller datumperiod. Datatypen används exempelvis för att visa på när en tjänst är tillgänglig eller vilka öppettider en verksamhet har. Datatypen består av fyra attribut:</p>
+
+<ul>
+  <li>datePeriod  - datumspann</li>
+  <li>weekDay - veckodag(ar)</li>
+  <li>month - månad(er)</li>
+  <li>time – tidsspann</li>
+</ul>
+
+<p>Samtliga 4 attribut är frivilliga att förmedla. Om mer än ett attribut förekommer så ska samtliga förekommande attribut gälla (AND-logik).</p>
+
+<p>Exempel 1:</p>
+
+<p>Verksamheten har öppettider på vardagar mellan 8:00 och 17:00:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;hoursOfService&gt;</span>
+  <span class="nt">&lt;weekDay&gt;</span>Monday<span class="nt">&lt;/weekDay&gt;</span>
+  <span class="nt">&lt;weekDay&gt;</span>Tuesday<span class="nt">&lt;/weekDay&gt;</span>
+  <span class="nt">&lt;weekDay&gt;</span>Wednesday<span class="nt">&lt;/weekDay&gt;</span>
+  <span class="nt">&lt;weekDay&gt;</span>Thursday<span class="nt">&lt;/weekDay&gt;</span>
+  <span class="nt">&lt;weekDay&gt;</span>Friday<span class="nt">&lt;/weekDay&gt;</span>
+  <span class="nt">&lt;time&gt;</span>
+    <span class="nt">&lt;start&gt;</span>080000<span class="nt">&lt;/start&gt;</span>
+    <span class="nt">&lt;end&gt;</span>170000<span class="nt">&lt;/end&gt;</span>
+  <span class="nt">&lt;/time&gt;</span>
+<span class="nt">&lt;/hoursOfService&gt;</span>
+</code></pre></div></div>
+
+<p>Exempel 2:</p>
+
+<p>Verksamheten har sommarstängt år under juli 2025:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;hoursOfService&gt;</span>
+  <span class="nt">&lt;datePeriod&gt;</span>
+    <span class="nt">&lt;end&gt;</span>20250630<span class="nt">&lt;/end&gt;</span>
+  <span class="nt">&lt;/datePeriod&gt;</span>
+  <span class="nt">&lt;datePeriod&gt;</span>
+    <span class="nt">&lt;start&gt;</span>20250801<span class="nt">&lt;/end&gt;</span>
+  <span class="nt">&lt;/datePeriod&gt;</span>
+<span class="nt">&lt;/hoursOfService&gt;</span>
+</code></pre></div></div>
+
+<p>Exempel 3:</p>
+
+<p>Verksamheten har sommarstängt år under juli 2025, för övrigt öppet på vardagar mellan 8:00 och 17:00:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;hoursOfService&gt;</span>
+  <span class="nt">&lt;datePeriod&gt;</span>
+    <span class="nt">&lt;end&gt;</span>20250630<span class="nt">&lt;/end&gt;</span>
+  <span class="nt">&lt;/datePeriod&gt;</span>
+  <span class="nt">&lt;datePeriod&gt;</span>
+    <span class="nt">&lt;start&gt;</span>20250801<span class="nt">&lt;/end&gt;</span>
+  <span class="nt">&lt;/datePeriod&gt;</span>
+  <span class="nt">&lt;weekDay&gt;</span>Monday<span class="nt">&lt;/weekDay&gt;</span>
+  <span class="nt">&lt;weekDay&gt;</span>Tuesday<span class="nt">&lt;/weekDay&gt;</span>
+  <span class="nt">&lt;weekDay&gt;</span>Wednesday<span class="nt">&lt;/weekDay&gt;</span>
+  <span class="nt">&lt;weekDay&gt;</span>Thursday<span class="nt">&lt;/weekDay&gt;</span>
+  <span class="nt">&lt;weekDay&gt;</span>Friday<span class="nt">&lt;/weekDay&gt;</span>
+  <span class="nt">&lt;time&gt;</span>
+    <span class="nt">&lt;start&gt;</span>080000<span class="nt">&lt;/start&gt;</span>
+    <span class="nt">&lt;end&gt;</span>170000<span class="nt">&lt;/end&gt;</span>
+  <span class="nt">&lt;/time&gt;</span>
+<span class="nt">&lt;/hoursOfService&gt;</span>
+</code></pre></div></div>
+
+<p>Exempel 4:</p>
+
+<p>Verksamheten är tillgänglig endast under mars månad och under maj månad under 2025:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;hoursOfService&gt;</span>
+  <span class="nt">&lt;datePeriod&gt;</span>
+    <span class="nt">&lt;start&gt;</span>20250301<span class="nt">&lt;/end&gt;</span>
+    <span class="nt">&lt;end&gt;</span>20250331<span class="nt">&lt;/end&gt;</span>
+  <span class="nt">&lt;/datePeriod&gt;</span>
+<span class="nt">&lt;/hoursOfService&gt;</span>
+<span class="nt">&lt;hoursOfService&gt;</span>
+  <span class="nt">&lt;datePeriod&gt;</span>
+    <span class="nt">&lt;start&gt;</span>20250501<span class="nt">&lt;/end&gt;</span>
+    <span class="nt">&lt;end&gt;</span>20250531<span class="nt">&lt;/end&gt;</span>
+  <span class="nt">&lt;/datePeriod&gt;</span>
+<span class="nt">&lt;/hoursOfService&gt;</span>
+</code></pre></div></div>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.coreprocess-residentparticipation-residentparticipation#1.0.0-rc2 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Sep 28, 2026 08:48+0000">2026-09-28</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

@@ -1,0 +1,592 @@
+# UpdatePersonContactInformationUnrestricted — Request - strategicresourcemanagement: persons: person v5.1.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **UpdatePersonContactInformationUnrestricted — Request**
+
+## Logical Model: UpdatePersonContactInformationUnrestricted — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/StructureDefinition/updatepersoncontactinformationunrestricted-request | *Version*:5.1.0 |
+| Draft as of 2026-09-28 | *Computable Name*:UpdatePersonContactInformationUnrestrictedRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i UpdatePersonContactInformationUnrestricted (urn:riv:strategicresourcemanagement:persons:person:UpdatePersonContactInformationUnrestrictedResponder:4, UpdatePersonContactInformationUnrestrictedType), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.strategicresourcemanagement-persons-person|current/StructureDefinition/StructureDefinition-updatepersoncontactinformationunrestricted-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-updatepersoncontactinformationunrestricted-request.csv), [Excel](StructureDefinition-updatepersoncontactinformationunrestricted-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "updatepersoncontactinformationunrestricted-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/StructureDefinition/updatepersoncontactinformationunrestricted-request",
+  "version" : "5.1.0",
+  "name" : "UpdatePersonContactInformationUnrestrictedRequest",
+  "title" : "UpdatePersonContactInformationUnrestricted — Request",
+  "status" : "draft",
+  "date" : "2026-09-28T09:23:04+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i UpdatePersonContactInformationUnrestricted\n(urn:riv:strategicresourcemanagement:persons:person:UpdatePersonContactInformationUnrestrictedResponder:4, UpdatePersonContactInformationUnrestrictedType), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/StructureDefinition/updatepersoncontactinformationunrestricted-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "updatepersoncontactinformationunrestricted-request",
+      "path" : "updatepersoncontactinformationunrestricted-request",
+      "short" : "UpdatePersonContactInformationUnrestricted — Request",
+      "definition" : "Logisk modell för begäran i UpdatePersonContactInformationUnrestricted\n(urn:riv:strategicresourcemanagement:persons:person:UpdatePersonContactInformationUnrestrictedResponder:4, UpdatePersonContactInformationUnrestrictedType), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.logicalAddress",
+      "path" : "updatepersoncontactinformationunrestricted-request.logicalAddress",
+      "short" : "logicalAddress",
+      "definition" : "SOAP-huvud LogicalAddress. http://tempuri.org",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.actor",
+      "path" : "updatepersoncontactinformationunrestricted-request.actor",
+      "short" : "actor",
+      "definition" : "Datatyp som identifierar en aktör.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.actor.actorId",
+      "path" : "updatepersoncontactinformationunrestricted-request.actor.actorId",
+      "short" : "actorId",
+      "definition" : "En universellt unik identifierare. Heter id i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.actor.actorId.root",
+      "path" : "updatepersoncontactinformationunrestricted-request.actor.actorId.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.actor.actorId.iiExtension",
+      "path" : "updatepersoncontactinformationunrestricted-request.actor.actorId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.actor.professional",
+      "path" : "updatepersoncontactinformationunrestricted-request.actor.professional",
+      "short" : "professional",
+      "definition" : "Datatyp som identifierar en aktör inom en profession.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.actor.professional.organizationId",
+      "path" : "updatepersoncontactinformationunrestricted-request.actor.professional.organizationId",
+      "short" : "organizationId",
+      "definition" : "En universellt unik identifierare.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.actor.professional.organizationId.root",
+      "path" : "updatepersoncontactinformationunrestricted-request.actor.professional.organizationId.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.actor.professional.organizationId.iiExtension",
+      "path" : "updatepersoncontactinformationunrestricted-request.actor.professional.organizationId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.actor.updateTime",
+      "path" : "updatepersoncontactinformationunrestricted-request.actor.updateTime",
+      "short" : "updateTime",
+      "definition" : "updateTime",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.personId",
+      "path" : "updatepersoncontactinformationunrestricted-request.personId",
+      "short" : "personId",
+      "definition" : "En universellt unik identifierare.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.personId.root",
+      "path" : "updatepersoncontactinformationunrestricted-request.personId.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.personId.iiExtension",
+      "path" : "updatepersoncontactinformationunrestricted-request.personId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.versionToUpdate",
+      "path" : "updatepersoncontactinformationunrestricted-request.versionToUpdate",
+      "short" : "versionToUpdate",
+      "definition" : "versionToUpdate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactInformation",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactInformation",
+      "short" : "contactInformation",
+      "definition" : "Klass för patientens egna angivna kontakuppgifter",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactInformation.contactType",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactInformation.contactType",
+      "short" : "contactType",
+      "definition" : "contactType",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactInformation.use",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactInformation.use",
+      "short" : "use",
+      "definition" : "use",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactInformation.contactInformationValue",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactInformation.contactInformationValue",
+      "short" : "contactInformationValue",
+      "definition" : "contactInformationValue Heter value i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactInformation.rank",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactInformation.rank",
+      "short" : "rank",
+      "definition" : "rank",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactInformation.comment",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactInformation.comment",
+      "short" : "comment",
+      "definition" : "comment",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactInformation.period",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactInformation.period",
+      "short" : "period",
+      "definition" : "period",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactInformation.period.start",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactInformation.period.start",
+      "short" : "start",
+      "definition" : "start",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactInformation.period.end",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactInformation.period.end",
+      "short" : "end",
+      "definition" : "end",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactInformation.digitalNotification",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactInformation.digitalNotification",
+      "short" : "digitalNotification",
+      "definition" : "digitalNotification",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactPerson",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactPerson",
+      "short" : "contactPerson",
+      "definition" : "contactPerson",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactRelationshipType",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactRelationshipType",
+      "short" : "contactRelationshipType",
+      "definition" : "contactRelationshipType",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactPerson.priorityOrder",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactPerson.priorityOrder",
+      "short" : "priorityOrder",
+      "definition" : "priorityOrder",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactPerson.givenName",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactPerson.givenName",
+      "short" : "givenName",
+      "definition" : "givenName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactPerson.surName",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactPerson.surName",
+      "short" : "surName",
+      "definition" : "surName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactPerson.middleName",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactPerson.middleName",
+      "short" : "middleName",
+      "definition" : "middleName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonAddress",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonAddress",
+      "short" : "contactPersonAddress",
+      "definition" : "Svensk adress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonAddress.careOf",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonAddress.careOf",
+      "short" : "careOf",
+      "definition" : "careOf",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonAddress.postalAddress1",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonAddress.postalAddress1",
+      "short" : "postalAddress1",
+      "definition" : "postalAddress1",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonAddress.postalAddress2",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonAddress.postalAddress2",
+      "short" : "postalAddress2",
+      "definition" : "postalAddress2",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonAddress.postalCode",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonAddress.postalCode",
+      "short" : "postalCode",
+      "definition" : "postalCode",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonAddress.city",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonAddress.city",
+      "short" : "city",
+      "definition" : "city",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonContactInformation",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonContactInformation",
+      "short" : "contactPersonContactInformation",
+      "definition" : "Klass för patientens egna angivna kontakuppgifter",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonContactInformation.contactType",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonContactInformation.contactType",
+      "short" : "contactType",
+      "definition" : "contactType",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonContactInformation.use",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonContactInformation.use",
+      "short" : "use",
+      "definition" : "use",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonContactInformation.contactInformationValue",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonContactInformation.contactInformationValue",
+      "short" : "contactInformationValue",
+      "definition" : "contactInformationValue Heter value i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonContactInformation.rank",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonContactInformation.rank",
+      "short" : "rank",
+      "definition" : "rank",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonContactInformation.comment",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonContactInformation.comment",
+      "short" : "comment",
+      "definition" : "comment",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonContactInformation.period",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonContactInformation.period",
+      "short" : "period",
+      "definition" : "period",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonContactInformation.period.start",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonContactInformation.period.start",
+      "short" : "start",
+      "definition" : "start",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonContactInformation.period.end",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonContactInformation.period.end",
+      "short" : "end",
+      "definition" : "end",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonContactInformation.digitalNotification",
+      "path" : "updatepersoncontactinformationunrestricted-request.contactPerson.contactPersonContactInformation.digitalNotification",
+      "short" : "digitalNotification",
+      "definition" : "digitalNotification",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "updatepersoncontactinformationunrestricted-request.optoutPaperNotification",
+      "path" : "updatepersoncontactinformationunrestricted-request.optoutPaperNotification",
+      "short" : "optoutPaperNotification",
+      "definition" : "optoutPaperNotification",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    }]
+  }
+}
+
+```

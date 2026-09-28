@@ -1,0 +1,134 @@
+# LookupResidentsForProfile — Request - masterdata: citizen: citizen v2.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **LookupResidentsForProfile — Request**
+
+## Logical Model: LookupResidentsForProfile — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/masterdata-citizen-citizen/StructureDefinition/lookupresidentsforprofile-request | *Version*:2.0.0 |
+| Draft as of 2026-09-28 | *Computable Name*:LookupResidentsForProfileRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i LookupResidentsForProfile (urn:riv:masterdata:citizen:citizen:LookupResidentsForProfileResponder:2, LookupResidentsForProfileType), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.masterdata-citizen-citizen|current/StructureDefinition/StructureDefinition-lookupresidentsforprofile-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-lookupresidentsforprofile-request.csv), [Excel](StructureDefinition-lookupresidentsforprofile-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "lookupresidentsforprofile-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/masterdata-citizen-citizen/StructureDefinition/lookupresidentsforprofile-request",
+  "version" : "2.0.0",
+  "name" : "LookupResidentsForProfileRequest",
+  "title" : "LookupResidentsForProfile — Request",
+  "status" : "draft",
+  "date" : "2026-09-28T09:13:02+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i LookupResidentsForProfile\n(urn:riv:masterdata:citizen:citizen:LookupResidentsForProfileResponder:2, LookupResidentsForProfileType), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/masterdata-citizen-citizen/StructureDefinition/lookupresidentsforprofile-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "lookupresidentsforprofile-request",
+      "path" : "lookupresidentsforprofile-request",
+      "short" : "LookupResidentsForProfile — Request",
+      "definition" : "Logisk modell för begäran i LookupResidentsForProfile\n(urn:riv:masterdata:citizen:citizen:LookupResidentsForProfileResponder:2, LookupResidentsForProfileType), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "lookupresidentsforprofile-request.logicalAddress",
+      "path" : "lookupresidentsforprofile-request.logicalAddress",
+      "short" : "logicalAddress",
+      "definition" : "SOAP-huvud LogicalAddress. http://tempuri.org",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentsforprofile-request.personId",
+      "path" : "lookupresidentsforprofile-request.personId",
+      "short" : "personId",
+      "definition" : "Personidentitet",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "lookupresidentsforprofile-request.personId.personalIdentityId",
+      "path" : "lookupresidentsforprofile-request.personId.personalIdentityId",
+      "short" : "personalIdentityId",
+      "definition" : "personalIdentityId Heter id i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentsforprofile-request.personId.personalIdentityType",
+      "path" : "lookupresidentsforprofile-request.personId.personalIdentityType",
+      "short" : "personalIdentityType",
+      "definition" : "personalIdentityType Heter type i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "lookupresidentsforprofile-request.profile",
+      "path" : "lookupresidentsforprofile-request.profile",
+      "short" : "profile",
+      "definition" : "profile",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/masterdata-citizen-citizen/ValueSet/masterdata-citizen-citizen-lookupprofile-vs"
+      }
+    }]
+  }
+}
+
+```

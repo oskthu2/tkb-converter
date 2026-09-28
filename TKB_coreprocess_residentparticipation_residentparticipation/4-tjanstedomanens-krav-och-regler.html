@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>4 Tjänstedomänens krav och regler - coreprocess: residentparticipation: residentparticipation v1.0.0-rc2</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"5"}
+    h3,h4,h5,h6{--heading-prefix:"5"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">coreprocess: residentparticipation: residentparticipation</span>
+            <br/>
+            <span style="display:inline-block;">1.0.0-rc2 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <menu xmlns="http://www.w3.org/1999/xhtml">
+  <item name="Home" url="index.html"/>
+  <item name="1 Inledning" url="1-inledning.html"/>
+  <item name="2 Versionsinformation" url="2-versionsinformation.html"/>
+  <item name="3 Tjänstedomänens arkitektur" url="3-tjanstedomanens-arkitektur.html"/>
+  <item name="4 Tjänstedomänens krav och regler" url="4-tjanstedomanens-krav-och-regler.html"/>
+  <item name="5 Tjänstedomänens meddelandemodeller" url="5-tjanstedomanens-meddelandemodeller.html"/>
+  <item name="6 Gemensamma informationskomponenter" url="6-gemensamma-informationskomponenter.html"/>
+  <item name="7 Tjänstekontrakt" url="7-tjanstekontrakt.html"/>
+  <item name="Artifacts" url="artifacts.html"/>
+</menu>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>4 Tjänstedomänens krav och regler</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">coreprocess: residentparticipation: residentparticipation - Local Development build (v1.0.0-rc2) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/coreprocess-residentparticipation-residentparticipation/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>4 Tjänstedomänens krav och regler</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#4-tjänstedomänens-krav-och-regler" id="markdown-toc-4-tjänstedomänens-krav-och-regler">4 Tjänstedomänens krav och regler</a>    <ul>
+      <li><a href="#41-uppdatering-av-engagemangsindex" id="markdown-toc-41-uppdatering-av-engagemangsindex">4.1 Uppdatering av engagemangsindex</a></li>
+      <li><a href="#42-informationssäkerhet-och-juridik" id="markdown-toc-42-informationssäkerhet-och-juridik">4.2 Informationssäkerhet och juridik</a></li>
+      <li><a href="#43-icke-funktionella-krav" id="markdown-toc-43-icke-funktionella-krav">4.3 Icke funktionella krav</a></li>
+      <li><a href="#44-felhantering" id="markdown-toc-44-felhantering">4.4 Felhantering</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="4-tjänstedomänens-krav-och-regler">4 Tjänstedomänens krav och regler</h1>
+
+<p>Källa: <em>Tjänstekontraktsbeskrivning för coreprocess: residentparticipation: residentparticipation</em>, version 1.0 RC2 (tagg 1.0_RC2, 2026-06-29), <a href="TKB_coreprocess_residentparticipation_residentparticipation.docx">TKB_coreprocess_residentparticipation_residentparticipation.docx</a>.</p>
+
+<p>Dessa gäller alla tjänstekontrakt i hela tjänstedomänen om inte undantag görs för specifika tjänstekontrakt senare i dokumentet. Denna version av tjänstedomänen innehåller endast ett (1) tjänstekontrakt.</p>
+
+<h3 id="41-uppdatering-av-engagemangsindex">4.1 Uppdatering av engagemangsindex</h3>
+
+<p>Alla källsystem ska uppdatera engagemangsindex. Engagemangsindex ska uppdateras så snart en händelse inträffar som påverkar indexposterna enligt beskrivningen nedan.</p>
+
+<p>All uppdatering av engagemangsindex sker genom att källsystemet anropar engagemangsindex genom tjänstekontraktet urn:riv:itintegration:engagementindex:UpdateResponder:1 (”index-push”).</p>
+
+<p>Ladda hem Engagemangsindex WSDL, scheman och tjänstekontraktsbeskrivning, för detaljer se referens [R2].</p>
+
+<p>Följande regler gäller för innehållet i begäran till engagemangsindex för uppdateringar som rör denna tjänstedomän:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Format</th>
+      <th style="text-align: left">Kardinalitet</th>
+      <th style="text-align: left">Kodverk/värde-mängd / /ev. begränsningar</th>
+      <th style="text-align: left">Beslutsregler och kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Registered ResidentIdent Identification</td>
+      <td style="text-align: left">Invånarens personnummer</td>
+      <td style="text-align: left">Person eller samordningsnummer enligt skatteverkets definition (12 tecken). / Lokal reservidentitet får ej anges</td>
+      <td style="text-align: left">1..1</td>
+      <td style="text-align: left">Validering med xml-regexp uttryckt enligt: / [0-9]{8}[0-9A-Zptf]{4}</td>
+      <td style="text-align: left">Del av instansens unikhet</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Service domain*</td>
+      <td style="text-align: left">Den tjänstedomän som förekomsten avser.</td>
+      <td style="text-align: left">URN på formen <code class="language-plaintext highlighter-rouge">&lt;regelverk&gt;</code>:<code class="language-plaintext highlighter-rouge">&lt;huvuddomän&gt;</code>:<code class="language-plaintext highlighter-rouge">&lt;underdomän&gt;</code>.</td>
+      <td style="text-align: left">1..1</td>
+      <td style="text-align: left">Värdet ska vara / ”riv:coreprocess:residentparticipation:residentparticipation”</td>
+      <td style="text-align: left">Del av instansens unikhet</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Categori-zation*</td>
+      <td style="text-align: left">Kategorisering enligt kodverk som är specifikt för tjänste-domänen</td>
+      <td style="text-align: left">Text bestående av bokstäver i ASCII.</td>
+      <td style="text-align: left">1..1</td>
+      <td style="text-align: left">Informationsmängd som finns i källsystemet för angiven patient och som indexposten avser. Anges med kortform enligt tabell nedan.</td>
+      <td style="text-align: left">Del av instansens unikhet</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Logical address*</td>
+      <td style="text-align: left">Referens till informationskällan enligt tjänste-domänens definition</td>
+      <td style="text-align: left">Logisk adress enligt adresseringsmodell för den tjänstedomän/tjänstekontrakt.</td>
+      <td style="text-align: left">1..1</td>
+      <td style="text-align: left">Logisk adress som källsystemet förväntas kunna adresseras genom. Observera att logisk adress inte nödvändigtvis alltid har samma värde som källsystemets HsaId (fältet sourceSystem nedan). Se T-Bokens styrande principer, ref [R9] för mer information.</td>
+      <td style="text-align: left">Del av instansens unikhet</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Business object Instance Identifier*</td>
+      <td style="text-align: left">Unik identifierare för händelse-bärande objekt</td>
+      <td style="text-align: left">Text</td>
+      <td style="text-align: left">1..1</td>
+      <td style="text-align: left">”NA” – dvs. ej tillämpat för tjänstedomänen.</td>
+      <td style="text-align: left">Del av instansens unikhet</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Clinical process interest Id</td>
+      <td style="text-align: left">Hälsoärende-id</td>
+      <td style="text-align: left">GUID</td>
+      <td style="text-align: left">1..1</td>
+      <td style="text-align: left">”NA” (ännu ej tillämpat i tjänstedomänen)</td>
+      <td style="text-align: left">Del av instansens unikhet</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Most Recent Content*</td>
+      <td style="text-align: left">Verksamhetsmässig tidpunkt för senaste informations-förekomsten i källan som indexeras av denna indexpost</td>
+      <td style="text-align: left">DT</td>
+      <td style="text-align: left">1..1</td>
+      <td style="text-align: left">Tidpunkt för senaste händelse som matchar indexposten. Kan även avse borttagning. Ex: En indexpost representerar 2 bef. dokument. Ett av dem tas bort. Det markeras genom att bef. post uppdateras med tidpunkt för borttagningshändelsen.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Creation / Time</td>
+      <td style="text-align: left">Tidpunkten då index-posten registrerades</td>
+      <td style="text-align: left">DT</td>
+      <td style="text-align: left">1..1</td>
+      <td style="text-align: left">Sätts automatiskt av EI-instansen.</td>
+      <td style="text-align: left">Genereras automatiskt av kontraktets tjänste-producent</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Update Time</td>
+      <td style="text-align: left">Tidpunkten då index-posten senast upp-daterades</td>
+      <td style="text-align: left">DT</td>
+      <td style="text-align: left">0..1</td>
+      <td style="text-align: left">Sätts automatiskt av EI-instansen.</td>
+      <td style="text-align: left">Uppdatering innebär ny post som matchar samtliga attribut som är del av en instans unikitet.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Source system</td>
+      <td style="text-align: left">Käll-systemet som genererade engagemangs-posten via Update-tjänsten</td>
+      <td style="text-align: left">Systemets HSA-id. Detta är inte anslutningspunktens HSA-id (logisk adress ) utan systemet som operativt hanterar informationen i verksamheten.</td>
+      <td style="text-align: left">1..1</td>
+      <td style="text-align: left">Motsvarar källsystemets HSAId. Det HsaId som källsystemets server-certifikat innehåller.</td>
+      <td style="text-align: left">Del av instansens unikhet</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Data Controller</td>
+      <td style="text-align: left">Personuppgiftsansvarig organisation</td>
+      <td style="text-align: left">Ett värde som i källsystemet med id SourceSystem unikt identifierar PU-ansvarig organisation.</td>
+      <td style="text-align: left">1..1</td>
+      <td style="text-align: left">”SE”<code class="language-plaintext highlighter-rouge">&lt;organisationsnummer&gt;</code>, (t ex: ”SE5565594230”), HSA-id, eller systemspecifik identitet.</td>
+      <td style="text-align: left">Del av instansens unikhet</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Attributen som är märkta som ”Del av instansens unikhet” i kolumnen ”Beslutsregler och kommentar” ovan utgör tillsammans en EI-posts primärnyckel. Detta medför att om ett källsystem håller information från flera olika personuppgiftsansvariga organisationer (oftast vård- eller omsorgsgivare) ska källsystemet uppdatera EI med en unik EI-post per personuppgiftsansvarig organisation (motsvarande fältet dataController).</p>
+</blockquote>
+
+<p>Regler för tilldelning av värde i fältet Categorization i engagemangsindexposten i denna domän:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Tjänstekontrakt</th>
+      <th style="text-align: left">Värde på Categorization</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">GetCareManagers</td>
+      <td style="text-align: left">crr-gcm</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="42-informationssäkerhet-och-juridik">4.2 Informationssäkerhet och juridik</h3>
+
+<h4 id="421-medarbetarens-direktåtkomst">4.2.1 Medarbetarens direktåtkomst</h4>
+
+<p>Vid sammanhållen vård- och omsorgsdokumentation ansvarar verksamheten som erbjuder sina medarbetare direktåtkomst till detta för att lagen om Sammanhållen vård- och omsorgsdokumentation efterlevs. Det innebär bl.a. att spärrkontroll kan behöva genomföras innan information kan visas. Det innebär också att regelverket för samtycke och åtkomstloggning måste följas. Dessutom finns krav från Integritetsskyddsmyndigheten om ytterligare teknisk åtkomstkontroll.</p>
+
+<p>HSLF-FS 2016:40 ställer också krav (via ”Handbok vid tillämpningen av Socialstyrelsens föreskrifter och allmänna råd (HSLF-FS 2016:40) om journalföring och behandling av personuppgifter i hälso- och sjukvården”, se referens R4) på att medarbetaren är starkt autentiserad om medarbetarens inloggning sker i nät som delas med flera vårdgivare och att uppdragsval görs i samband med autentisering (vårdenhet).</p>
+
+<p>Det kompletta regelverket finns i handboken samt i anvisningar för tillgänglig patient.</p>
+
+<p>Observera att tjänstekontraktet i sig inte påtvingar sammanhållen vård- och omsorgsdokumentation. Krav rörande Sammanhållen vård- och omsorgsdokumentation och/eller krav på spärrhantering uppstår först om tjänstekonsumenten (e-tjänsten) för medarbetaren tillgängliggör information som härrör från andra vård- eller omsorgsgivare (Sammanhållen vård- och omsorgsdokumentation) eller andra vård- och omsorgsenheter inom egna vård- eller omsorgsgivaren (spärrkrav).</p>
+
+<h4 id="422-generellt">4.2.2 Generellt</h4>
+
+<p>Tjänsteproducenten ansvarar för att information endast lämnas ut till de tjänstekonsumenter som informationsägaren godkänt. Det är inte ett juridiskt krav, men tydliggörs här eftersom det avviker från T-boken i det att tjänsteplattformen då inte ansvarar för den tekniska åtkomstkontrollen (ej möjligt när systembaserad adressering tillämpas). Om informationsägaren har behov av att reglera åtkomst per tjänstekonsument, ska tjänsteproducenten filtrera svaret enligt informationsägarens önskemål. Observera att det är regionala policyer snarare än lagar och förordningar som styr i vilken grad tjänsteproducenten ska begränsa åtkomst för en viss tjänstekonsument. Kunskapen om tjänstekonsumentens (tjänstens) identitet (dvs. ursprunglig tjänstekonsument i anropskedjan) får bara användas för teknisk åtkomstbegränsning på så sätt att svaret blir som om de vårdenheter vars verksamhetschef inte godkänner aktuell tjänstekonsument varit exkluderade i frågan.</p>
+
+<h3 id="43-icke-funktionella-krav">4.3 Icke funktionella krav</h3>
+
+<p>Det är den informationsproducerande vårdgivarens ansvar att endast ett källsystem tillhandahåller informationen via lästjänst och engagemangsindex där patientdata lagras i flera källsystem. Konsumenter som är anslutna till flera majorversioner av samma kontrakt måste hantera dubblettborttagning mellan dessa. Detta sker genom att jämföra identiteter på postnivå och endast behålla en av de poster som returnerats, se referens R10.</p>
+
+<h4 id="431-sla-krav">4.3.1 SLA krav</h4>
+
+<p>Följande generella SLA-krav gäller för alla tjänsteproducenter som tillhandahåller tjänster. Dessa krav gäller där inget annat anges för ett specifikt tjänstekontrakt.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svarstid</td>
+      <td style="text-align: left">&lt; 3 sekund för 95% av alla anrop</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tillgänglighet</td>
+      <td style="text-align: left">24x7, 99,5%</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Last</td>
+      <td style="text-align: left">Tjänsteproducenten ska kunna hantera minst dubbla mängden frågor per dygn i förhållande till antalet journaluppdateringar per dygn.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Ingen information får vara äldre än 24 timmar</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Återställningstid</td>
+      <td style="text-align: left">1 dygn</td>
+      <td style="text-align: left">Vid katastrof, bortfall av hel hall</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="432-övriga-krav">4.3.2 Övriga krav</h4>
+
+<h3 id="44-felhantering">4.4 Felhantering</h3>
+
+<h4 id="441-krav-på-en-tjänsteproducent">4.4.1 Krav på en tjänsteproducent</h4>
+
+<h5 id="4411-logiska-fel">4.4.1.1 Logiska fel</h5>
+
+<p>N/A</p>
+
+<h5 id="4412-tekniskt-fel">4.4.1.2 Tekniskt fel</h5>
+
+<p>Vid ett tekniskt fel levereras ett generellt undantag (SOAP Fault). Exempel på detta kan vara deadlock i databasen eller följdeffekter av programmeringsfel. Tekniska fel får inte förmedla personuppgifter. Istället rekommenderas att ett logg-id förmedlas, som ger möjlighet för tjänsteproducentens förvaltning att bistå tjänstekonsumentens förvaltning med felsökning. Ett logg-id bör vara en UUID.</p>
+
+<h4 id="442-krav-på-en-tjänstekonsument">4.4.2 Krav på en tjänstekonsument</h4>
+
+<p>R1: Tillämpa regelverk enl. SVOD.</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.coreprocess-residentparticipation-residentparticipation#1.0.0-rc2 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Sep 28, 2026 08:48+0000">2026-09-28</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

@@ -1,0 +1,2814 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>6 Gemensamma informationskomponenter - masterdata: citizen: citizen v2.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"7"}
+    h3,h4,h5,h6{--heading-prefix:"7"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">masterdata: citizen: citizen</span>
+            <br/>
+            <span style="display:inline-block;">2.0.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <menu xmlns="http://www.w3.org/1999/xhtml">
+  <item name="Home" url="index.html"/>
+  <item name="1 Inledning" url="1-inledning.html"/>
+  <item name="2 Versionsinformation" url="2-versionsinformation.html"/>
+  <item name="3 Tjänstedomänens arkitektur" url="3-tjanstedomanens-arkitektur.html"/>
+  <item name="4 Tjänstedomänens krav och regler" url="4-tjanstedomanens-krav-och-regler.html"/>
+  <item name="5 Tjänstedomänens meddelandemodeller" url="5-tjanstedomanens-meddelandemodeller.html"/>
+  <item name="6 Gemensamma informationskomponenter" url="6-gemensamma-informationskomponenter.html"/>
+  <item name="7 Tjänstekontrakt" url="7-tjanstekontrakt.html"/>
+  <item name="8 Aktuella profiler" url="8-aktuella-profiler.html"/>
+  <item name="Artifacts" url="artifacts.html"/>
+</menu>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>6 Gemensamma informationskomponenter</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">masterdata: citizen: citizen - Local Development build (v2.0.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/masterdata-citizen-citizen/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>6 Gemensamma informationskomponenter</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#6-gemensamma-informationskomponenter" id="markdown-toc-6-gemensamma-informationskomponenter">6 Gemensamma informationskomponenter</a>    <ul>
+      <li><a href="#61-datatyper-från-namnrymd-urnrivmasterdatacitizencitizen2" id="markdown-toc-61-datatyper-från-namnrymd-urnrivmasterdatacitizencitizen2">6.1 Datatyper från namnrymd urn:riv:masterdata.citizen.citizen:2</a></li>
+      <li><a href="#62-kodverk" id="markdown-toc-62-kodverk">6.2 Kodverk</a></li>
+      <li><a href="#63-typer-i-domänschemat-xsd" id="markdown-toc-63-typer-i-domänschemat-xsd">6.3 Typer i domänschemat (XSD)</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="6-gemensamma-informationskomponenter">6 Gemensamma informationskomponenter</h1>
+
+<p>Källa: <em>Personuppgifter – Tjänstekontraktsbeskrivning</em>, version 2.0 (2016-02-24, revision RC3 2016-04-22), <a href="TKB_masterdata_citizen_citizen.docx">TKB_masterdata_citizen_citizen.docx</a>.</p>
+
+<p>Motsvarar TKB kapitel 7 <em>Datatyper</em> (6.1 = TKB 7.1 osv.).</p>
+
+<p>Kapitlet beskriver alla datatyper som används av tjänsterna, version 2.0.</p>
+
+<h3 id="61-datatyper-från-namnrymd-urnrivmasterdatacitizencitizen2">6.1 Datatyper från namnrymd urn:riv:masterdata.citizen.citizen:2</h3>
+
+<p>Nedan beskrivs några komplexa datatyper som är deklarerade i aktuell namnrymd urn:riv:masterdata.citizen.citizen:2, version 2.0. Dessa datatyper är vanligt förekommande i övriga tjänster senare i kapitlet.</p>
+
+<h4 id="611-addressinformation">6.1.1 AddressInformation</h4>
+
+<p>Grupp för adressuppgifter</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">residentialAddress</td>
+      <td style="text-align: left">ResidentialAddress</td>
+      <td style="text-align: left">Folkbokföringsadress</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">nationalKeys</td>
+      <td style="text-align: left">NationalKeys</td>
+      <td style="text-align: left">Riksnycklar för fastighet, adressplats och lägenhet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">district</td>
+      <td style="text-align: left">District</td>
+      <td style="text-align: left">Distriktskod</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">specialPostalAddress</td>
+      <td style="text-align: left">ResidentialAddress</td>
+      <td style="text-align: left">Särskild postadress</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">addressAbroad</td>
+      <td style="text-align: left">AddressAbroad</td>
+      <td style="text-align: left">Utlandsadress</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="612-addressabroad">6.1.2 AddressAbroad</h4>
+
+<p>Utlandsadress</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">postalAddress1</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left">Utdelningsadress1</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postalAddress2</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left">Utdelningsadress2</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postalAddress3</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left">Utdelningsadress3</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">country</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left">Land</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">addressAbroadDate</td>
+      <td style="text-align: left">PartialDate</td>
+      <td style="text-align: left">Datum för utlandsadress</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">votingDate</td>
+      <td style="text-align: left">PartialDate</td>
+      <td style="text-align: left">Datum för rösträtt</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="613-addressplaceid">6.1.3 AddressPlaceId</h4>
+
+<p>Adressplats id</p>
+
+<h4 id="614-apartmentid">6.1.4 ApartmentId</h4>
+
+<p>Lägenhets id</p>
+
+<h4 id="615-birth">6.1.5 Birth</h4>
+
+<p>Uppgifter om födelse</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">placeOfBirthSweden</td>
+      <td style="text-align: left">PlaceOfBirthSweden</td>
+      <td style="text-align: left">Uppgifter om hemort i Sverige</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">birthAbroad</td>
+      <td style="text-align: left">BirthAbroad</td>
+      <td style="text-align: left">Uppgifter om födelse i utlandet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="616-birthabroad">6.1.6 BirthAbroad</h4>
+
+<p>Uppgifter om födelse i utlandet</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">placeOfBirthAbroad</td>
+      <td style="text-align: left">PlaceOfBirthAbroad</td>
+      <td style="text-align: left">Uppgift om födelseort i utlandet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">countryOfBirth</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left">Uppgift om födelseland</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="617-citizenship">6.1.7 Citizenship</h4>
+
+<p>Grupp för medborgarskap</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">citizenshipCountryCode</td>
+      <td style="text-align: left">CitizenshipCountryCode</td>
+      <td style="text-align: left">MedborgarskapslandKod</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">citizenshipDate</td>
+      <td style="text-align: left">PartialDate</td>
+      <td style="text-align: left">Datum för medborgarskap</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">status</td>
+      <td style="text-align: left">CitizenshipStatus</td>
+      <td style="text-align: left">Statuskoder på medborgarskap</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="618-citizenshipcountrycode">6.1.8 CitizenshipCountryCode</h4>
+
+<p>Grupp för medborgarskapslandkod</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">countryCode</td>
+      <td style="text-align: left">CountryCode</td>
+      <td style="text-align: left">Kod för medborgarskapsland</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">attested</td>
+      <td style="text-align: left">xs:boolean</td>
+      <td style="text-align: left">Kod som visar om medborgarskapsland är styrkt eller ej. / Endast aktuell för personer med gällande samordningsnummer</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="619-citizenshipstatus">6.1.9 CitizenshipStatus</h4>
+
+<p>Statuskoder på medborgarskap</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">"NY"</td>
+      <td style="text-align: left">Nyregistrerad</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"RD"</td>
+      <td style="text-align: left">Rättad</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"AS"</td>
+      <td style="text-align: left">Avslutad</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"AN"</td>
+      <td style="text-align: left">Annullerad</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6110-countrycode">6.1.10 CountryCode</h4>
+
+<p>Tvåställig landskod enligt ISO 3166-1 alpha-2 [R6]</p>
+
+<h4 id="6111-datetypeformat">6.1.11 DateTypeFormat</h4>
+
+<p>Enum som beskriver datumets noggrannhet.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">"YYYY"</td>
+      <td style="text-align: left">Noggrannhet: År</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"YYYY-MM"</td>
+      <td style="text-align: left">Noggrannhet: År och månad</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"YYYY-MM-DD"</td>
+      <td style="text-align: left">Noggrannhet: År, månad, dag</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6112-deregistration">6.1.12 Deregistration</h4>
+
+<p>Uppgifter om avregistrering</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">deregistrationReasonCode</td>
+      <td style="text-align: left">DeregistrationReasonCode</td>
+      <td style="text-align: left">Kod för avregistreringsorsak</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">deregistrationDate</td>
+      <td style="text-align: left">PartialDate</td>
+      <td style="text-align: left">Datum för avregistrering</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6113-deregistrationreasoncode">6.1.13 DeregistrationReasonCode</h4>
+
+<p>Kod för avregistreringsorsak</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">"AV"</td>
+      <td style="text-align: left">Avliden</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"UV"</td>
+      <td style="text-align: left">Utvandrad</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"GN"</td>
+      <td style="text-align: left">Gammalt personnummer</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"AN"</td>
+      <td style="text-align: left">Annan anledning</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"AS"</td>
+      <td style="text-align: left">Avslutad</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"GS"</td>
+      <td style="text-align: left">Gammalt samordningsnummer</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"OB"</td>
+      <td style="text-align: left">Försvunnen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"TA"</td>
+      <td style="text-align: left">Tekniskt avregistrerad</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6114-district">6.1.14 District</h4>
+
+<p>Grupp för Distriktskod</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">districtCode</td>
+      <td style="text-align: left">DistrictCode</td>
+      <td style="text-align: left">Distriktskod</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6115-districtcode">6.1.15 DistrictCode</h4>
+
+<p>Distriktskod</p>
+
+<h4 id="6116-fictitiouspropertynumber">6.1.16 FictitiousPropertyNumber</h4>
+
+<p>Fiktivt nummer för fastighet</p>
+
+<h4 id="6117-givennameindicator">6.1.17 GivenNameIndicator</h4>
+
+<p>Tilltalsnamnsmarkering</p>
+
+<h4 id="6118-historicaladdress">6.1.18 HistoricalAddress</h4>
+
+<p>Grupp för historik adress</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">residentialAddress</td>
+      <td style="text-align: left">ResidentialAddress</td>
+      <td style="text-align: left">Föregående folkbokföringsadress</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6119-historicalrecords">6.1.19 HistoricalRecords</h4>
+
+<p>Grupp för historik</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">populationRegistrationLocality</td>
+      <td style="text-align: left">PopulationRegistrationLocality</td>
+      <td style="text-align: left">Grupp för folkbokföring</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">historicalAddress</td>
+      <td style="text-align: left">HistoricalAddress</td>
+      <td style="text-align: left">Föregående adress</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6120-immigration">6.1.20 Immigration</h4>
+
+<p>Grupp för invandringsuppgifter</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">immigrationDate</td>
+      <td style="text-align: left">PartialDate</td>
+      <td style="text-align: left">Invandringsdatum</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rightOfResidence</td>
+      <td style="text-align: left">xs:boolean</td>
+      <td style="text-align: left">Anger om uppehållsrätt registrerades vid senaste invandringstillfället / true = personen har uppehållsrätt / false/null = personen saknar uppehållsrätt</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">immigrationIdentity</td>
+      <td style="text-align: left">ImmigrationIdentity</td>
+      <td style="text-align: left">Grupp för personnummer och vilket land det är knutet till. / Motsvarar skatteverkets NordisktPnrDa, NordisktPnrFi, NordisktPnrFo, NordisktPnrIs och NordisktPnrNo</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6121-immigrationidentity">6.1.21 ImmigrationIdentity</h4>
+
+<p>Grupp för personnummer och vilket land det är knutet till.</p>
+
+<p>Motsvarar skatteverkets NordisktPnrDa, NordisktPnrFi, NordisktPnrFo, NordisktPnrIs och NordisktPnrNo</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">personalIdentityNumber</td>
+      <td style="text-align: left">PersonalIdentityNumber</td>
+      <td style="text-align: left">Personnummer enligt format för det landet</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">country</td>
+      <td style="text-align: left">CountryCode</td>
+      <td style="text-align: left">Land för identiteten. Kan vara någon av följande: NO (Norge), DK (Danmark), FI (Finland), FO (Färöarna) eller IS (Island)</td>
+      <td style="text-align: left">1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6122-lookupprofile">6.1.22 LookupProfile</h4>
+
+<p>Profil för att ange vilket data som önskas i tjänstens response.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">"P1"</td>
+      <td style="text-align: left">Profil med enbart namn</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"P2"</td>
+      <td style="text-align: left">Profil i enlighet med kontrakt 1.1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"P3"</td>
+      <td style="text-align: left">Profil med komplett data exklusive historik</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"P4"</td>
+      <td style="text-align: left">Profil med komplett data inklusive historik</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"P5"</td>
+      <td style="text-align: left">Reserverad för framtida bruk</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"P6"</td>
+      <td style="text-align: left">Reserverad för framtida bruk</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"P7"</td>
+      <td style="text-align: left">Reserverad för framtida bruk</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"P8"</td>
+      <td style="text-align: left">Reserverad för framtida bruk</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"P9"</td>
+      <td style="text-align: left">Reserverad för framtida bruk</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"P10"</td>
+      <td style="text-align: left">Reserverad för framtida bruk</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6123-lookupresidentsresponse">6.1.23 LookupResidentsResponse</h4>
+
+<p>Returtyp för operationen LookupResidentsForProfile</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">populationRegistrationRecords</td>
+      <td style="text-align: left">PopulationRegistrationRecord</td>
+      <td style="text-align: left">Folkbokföringsposter</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6124-maritalstatus">6.1.24 MaritalStatus</h4>
+
+<p>Civistånd</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">maritalStatusCode</td>
+      <td style="text-align: left">MaritalStatusCode</td>
+      <td style="text-align: left">Civilståndskod</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">maritalStatusDate</td>
+      <td style="text-align: left">PartialDate</td>
+      <td style="text-align: left">Civilståndsdatum</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6125-maritalstatuscode">6.1.25 MaritalStatusCode</h4>
+
+<p>Civilståndskod</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">"OG"</td>
+      <td style="text-align: left">Ogift</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"G"</td>
+      <td style="text-align: left">Gift</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"A"</td>
+      <td style="text-align: left">Änka/änkling</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"S"</td>
+      <td style="text-align: left">Skild</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"RP"</td>
+      <td style="text-align: left">Registrerad partner</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"SP"</td>
+      <td style="text-align: left">Skild partner</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"EP"</td>
+      <td style="text-align: left">Efterlevande partner</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6126-name">6.1.26 Name</h4>
+
+<p>Namnuppgifter för person.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">givenNameIndicator</td>
+      <td style="text-align: left">GivenNameIndicator</td>
+      <td style="text-align: left">Kod för tilltalsnamnsmarkering</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">givenName</td>
+      <td style="text-align: left">NamePart</td>
+      <td style="text-align: left">Förnamn</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">middleName</td>
+      <td style="text-align: left">NamePart</td>
+      <td style="text-align: left">Mellannamn</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">surname</td>
+      <td style="text-align: left">NamePart</td>
+      <td style="text-align: left">Efternamn</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">notificationName</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left">Aviseringsnamn finns endast för de personer vars förnamn, mellannamn och efternamn tillsammans överstiger 36 tecken.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6127-namepart">6.1.27 NamePart</h4>
+
+<p>Grupp för del av namn där delen kan vara styrkt eller ej</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">String80</td>
+      <td style="text-align: left">Namn</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">attested</td>
+      <td style="text-align: left">xs:boolean</td>
+      <td style="text-align: left">Anger om namnet är styrket eller ej. / Endast aktuell för personer med gällande samordningsnummer</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6128-nationalkeys">6.1.28 NationalKeys</h4>
+
+<p>Riksnycklar</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">propertyId</td>
+      <td style="text-align: left">PropertyId</td>
+      <td style="text-align: left">Riksnyckel för fastighet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">addressPlaceId</td>
+      <td style="text-align: left">AddressPlaceId</td>
+      <td style="text-align: left">Riksnyckel för adressplats</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">apartmentId</td>
+      <td style="text-align: left">ApartmentId</td>
+      <td style="text-align: left">Riksnyckel för lägenhet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6129-notificationcase">6.1.29 NotificationCase</h4>
+
+<p>Ärendeuppgifter</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">recordId</td>
+      <td style="text-align: left">RecordId</td>
+      <td style="text-align: left">Unikt löpnummer för varje ändring i Navet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">notificationType</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left">Visar vilket ärende som ligger till grund för aviseringen.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">modificationTime</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Tidpunkt för senaste ändring av posten i Navet. Levereras endast för post som uppdaterats online mot Navet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">totalRecord</td>
+      <td style="text-align: left">xs:boolean</td>
+      <td style="text-align: left">Endast aktuell vid regelbunden avisering, ändrade termer. Sätts till ‘true’ när totalpost på personen aviseras. Dvs när personen anses komma som ny till mottagarens register.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">notificationDate</td>
+      <td style="text-align: left">PartialDate</td>
+      <td style="text-align: left">Visar datum när personposten uppdaterades i bakomliggande register Navet. Levereras endast för post som inkommit via avisering från Navet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6130-partialdate">6.1.30 PartialDate</h4>
+
+<p>Kan beskriva ett datum med variabel noggrannhet.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">format</td>
+      <td style="text-align: left">DateTypeFormat</td>
+      <td style="text-align: left">Enum som beskriver datumets noggrannhet. Tillåtna värden är "YYYY-MM-DD", "YYYY-MM" och "YYYY".</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">value</td>
+      <td style="text-align: left">PartialDateValue</td>
+      <td style="text-align: left">Sträng som håller själva datumet, och uttrycks på det format som anges i format.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6131-partialdatevalue">6.1.31 PartialDateValue</h4>
+
+<p>En del av ett datum med minst året angivet</p>
+
+<h4 id="6132-personalidentity">6.1.32 PersonalIdentity</h4>
+
+<p>Personidentitet.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">PersonalIdentityNumber</td>
+      <td style="text-align: left">Svenskt perssonnummer på format: / ÅÅÅÅMMDDNNNK / Eller samordningsnummer: / ÅÅÅÅMMDDNNNK där / MM = 00 - 12 / DD = 60 – 91</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">xs:string</td>
+      <td style="text-align: left">OID i enlighet med: <a href="https://bitbucket.org/rivta-domains/best-practice/wiki/De%20facto-konventioner%20f%C3%B6r%20datatyper.md">RIV-TA Best Practice</a> / Anger som vilken typ som id syftar på. / Svenskt personnummer = '1.2.752.129.2.1.3.1' / Samordningsnummer = '1.2.752.129.2.1.3.3'</td>
+      <td style="text-align: left">1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6133-personalidentitynumber">6.1.33 PersonalIdentityNumber</h4>
+
+<p>Personnummer angivet med 12-tecken. Format beroende på typ av personnummer. Svenskt, Samordningsnummer, Norskt osv.</p>
+
+<p>Förberett för personnummer med mer än 12-tecken.</p>
+
+<h4 id="6134-personalrecord">6.1.34 PersonalRecord</h4>
+
+<p>Grupp för personpost</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">personalIdentity</td>
+      <td style="text-align: left">PersonalIdentity</td>
+      <td style="text-align: left">Personidentitet på huvudperson. Denna levereras även om personen är sekretessmarkerad.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">referredPersonalIdentity</td>
+      <td style="text-align: left">PersonalIdentity</td>
+      <td style="text-align: left">Lista med hänvisningspersonnummer</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">deregistration</td>
+      <td style="text-align: left">Deregistration</td>
+      <td style="text-align: left">Uppgifter om avregistrering</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">Name</td>
+      <td style="text-align: left">Namn. Denna levereras även om personen är sekretessmarkerad.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">populationRegistrationLocality</td>
+      <td style="text-align: left">PopulationRegistrationLocality</td>
+      <td style="text-align: left">Uppgifter om folkbokföring</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">addressInformation</td>
+      <td style="text-align: left">AddressInformation</td>
+      <td style="text-align: left">Uppgifter om adress</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">maritalStatus</td>
+      <td style="text-align: left">MaritalStatus</td>
+      <td style="text-align: left">Civilstånd</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">birth</td>
+      <td style="text-align: left">Birth</td>
+      <td style="text-align: left">Uppgifter om födelse</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">immigration</td>
+      <td style="text-align: left">Immigration</td>
+      <td style="text-align: left">Uppgifter om invandring</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relationships</td>
+      <td style="text-align: left">Relationship</td>
+      <td style="text-align: left">Uppgifter om relationer</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">citizenship</td>
+      <td style="text-align: left">Citizenship</td>
+      <td style="text-align: left">Uppgifter om medborgarskap</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6135-placeofbirthabroad">6.1.35 PlaceOfBirthAbroad</h4>
+
+<p>Födelseort utland</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">placeOfBirthAbroad</td>
+      <td style="text-align: left">String80</td>
+      <td style="text-align: left">Uppgift om födelseort i utlandet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">attested</td>
+      <td style="text-align: left">xs:boolean</td>
+      <td style="text-align: left">Kod som visar om födelseort utland är styrkt eller ej. / Endast aktuell för personer med gällande samordningsnummer</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6136-placeofbirthsweden">6.1.36 PlaceOfBirthSweden</h4>
+
+<p>Uppgifter om hemort i Sverige</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">birthCountyCode</td>
+      <td style="text-align: left">String2</td>
+      <td style="text-align: left">Födelselänskod</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">birthParish</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left">Födelseförsamling</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6137-populationregistrationlocality">6.1.37 PopulationRegistrationLocality</h4>
+
+<p>Uppgifter om folkbokföring</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">populationRegistrationDate</td>
+      <td style="text-align: left">PartialDate</td>
+      <td style="text-align: left">Folkbokföringsdatum</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">countyCode</td>
+      <td style="text-align: left">String2</td>
+      <td style="text-align: left">Länskod</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">municipalityCode</td>
+      <td style="text-align: left">String2</td>
+      <td style="text-align: left">Kommunkod</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">parishCode</td>
+      <td style="text-align: left">String2</td>
+      <td style="text-align: left">Församlingskod</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">propertyDesignation</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left">Fastighetsbeteckning</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fictitiousPropertyNumber</td>
+      <td style="text-align: left">FictitiousPropertyNumber</td>
+      <td style="text-align: left">Fiktivt nummer för fastighet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">populationRegistrationType</td>
+      <td style="text-align: left">PopulationRegistrationType</td>
+      <td style="text-align: left">Kod för folkbokföringskategori</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6138-populationregistrationrecord">6.1.38 PopulationRegistrationRecord</h4>
+
+<p>Folkbokföringspost</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">protectedPersonIndicator</td>
+      <td style="text-align: left">xs:boolean</td>
+      <td style="text-align: left">Uppgift om sekretessmarkering. Om denna är ”true” kommer enbart personnummer/samordningsnummer och namn att levereras för personen, resten kommer att döljas.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">testIndicator</td>
+      <td style="text-align: left">xs:boolean</td>
+      <td style="text-align: left">Uppgift om personen är en testperson</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">syncronizationTime</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Tidsangivelse när posten senast kontrollerades i navet, kan vara onlineslagning på personen eller när aviseringsfil hämtades senast.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">notificationCase</td>
+      <td style="text-align: left">NotificationCase</td>
+      <td style="text-align: left">Ärendeuppgifter</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personalRecord</td>
+      <td style="text-align: left">PersonalRecord</td>
+      <td style="text-align: left">Personpost</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">historicalRecords</td>
+      <td style="text-align: left">HistoricalRecords</td>
+      <td style="text-align: left">Historik</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6139-populationregistrationtype">6.1.39 PopulationRegistrationType</h4>
+
+<p>Kod för folkbokföringskategori</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">"FB"</td>
+      <td style="text-align: left">Folkbokförd</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"UV"</td>
+      <td style="text-align: left">Utvandrad</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"OB"</td>
+      <td style="text-align: left">Avregistrerad som försvunnen</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6140-postalcode">6.1.40 PostalCode</h4>
+
+<p>Svenskt postnummer</p>
+
+<h4 id="6141-propertyid">6.1.41 PropertyId</h4>
+
+<p>Fastighetsid</p>
+
+<h4 id="6142-recordid">6.1.42 RecordId</h4>
+
+<p>ÅÅÅÅ.NNN.NNN.NNN</p>
+
+<p>Fyrsiffrigt årtal + 9 siffror i sekvens grupperade om tre</p>
+
+<h4 id="6143-relationship">6.1.43 Relationship</h4>
+
+<p>Grupp för relation</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">relationshipId</td>
+      <td style="text-align: left">RelationshipId</td>
+      <td style="text-align: left">Personidentitet på relationsperson</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relationshipType</td>
+      <td style="text-align: left">RelationshipType</td>
+      <td style="text-align: left">Relationstyp</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relationshipFromDate</td>
+      <td style="text-align: left">PartialDate</td>
+      <td style="text-align: left">From datum för relation</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relationshipToDate</td>
+      <td style="text-align: left">PartialDate</td>
+      <td style="text-align: left">Datum för avslutad vårdnad</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">Name</td>
+      <td style="text-align: left">Namn</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">deregistration</td>
+      <td style="text-align: left">Deregistration</td>
+      <td style="text-align: left">Uppgifter om avregistrering</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">status</td>
+      <td style="text-align: left">RelationshipStatus</td>
+      <td style="text-align: left">Statuskoder på relation</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6144-relationshipid">6.1.44 RelationshipId</h4>
+
+<p>Grupp för relationspersons identitet</p>
+
+<p>Antingen får man personnummer eller datum då personen föddes.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">personalIdentity</td>
+      <td style="text-align: left">PersonalIdentity</td>
+      <td style="text-align: left">Personnummer folkbokförd relation</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dateOfBirth</td>
+      <td style="text-align: left">PartialDate</td>
+      <td style="text-align: left">Aldrig folkbokförd relation eller korrekt personnummer enligt FB-relation.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6145-relationshipstatus">6.1.45 RelationshipStatus</h4>
+
+<p>Statuskoder på relation</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">"NY"</td>
+      <td style="text-align: left">Nyregistrerad</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"PB"</td>
+      <td style="text-align: left">Nyregistrerad pga personnummerbyte</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"RD"</td>
+      <td style="text-align: left">Rättad</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"AS"</td>
+      <td style="text-align: left">Avslutad</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"AV"</td>
+      <td style="text-align: left">Avslutad pga avliden</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"IV"</td>
+      <td style="text-align: left">Avslutad pga invandring</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"AN"</td>
+      <td style="text-align: left">Annullerad</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6146-relationshiptype">6.1.46 RelationshipType</h4>
+
+<p>Relationstyp</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">"B"</td>
+      <td style="text-align: left">Barn</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"MO"</td>
+      <td style="text-align: left">Moder</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"FA"</td>
+      <td style="text-align: left">Fader</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"F"</td>
+      <td style="text-align: left">Förälder</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"V"</td>
+      <td style="text-align: left">Vårdnadshavare</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"VF"</td>
+      <td style="text-align: left">Vårdnadshavare för</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"M"</td>
+      <td style="text-align: left">Make/maka</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">"P"</td>
+      <td style="text-align: left">Partner</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6147-residentialaddress">6.1.47 ResidentialAddress</h4>
+
+<p>Svensk adress</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">careOf</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left">Care of adress</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postalAddress1</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left">Utdelningsadress1</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postalAddress2</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left">Utdelningsadress2</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postalCode</td>
+      <td style="text-align: left">PostalCode</td>
+      <td style="text-align: left">Postnummer</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">city</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left">Postort</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="6148-string2">6.1.48 String2</h4>
+
+<p>Strängvärde med maxlängd</p>
+
+<h4 id="6149-string40">6.1.49 String40</h4>
+
+<p>Strängvärde med maxlängd</p>
+
+<h4 id="6150-string80">6.1.50 String80</h4>
+
+<p>Strängvärde med maxlängd</p>
+
+<h3 id="62-kodverk">6.2 Kodverk</h3>
+
+<p>Uppräkningarna i domänschemat är modellerade som kodverk:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Kodverk</th>
+      <th>Koder</th>
+      <th>CodeSystem</th>
+      <th>ValueSet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Statuskod för medborgarskap (<code class="language-plaintext highlighter-rouge">CitizenshipStatusType</code>)</td>
+      <td>NY, RD, AS, AN</td>
+      <td><a href="CodeSystem-masterdata-citizen-citizen-citizenshipstatus-cs.html">masterdata-citizen-citizen-citizenshipstatus-cs</a></td>
+      <td><a href="ValueSet-masterdata-citizen-citizen-citizenshipstatus-vs.html">masterdata-citizen-citizen-citizenshipstatus-vs</a></td>
+    </tr>
+    <tr>
+      <td>Datumformat (noggrannhet) (<code class="language-plaintext highlighter-rouge">DateTypeFormatType</code>)</td>
+      <td>YYYY, YYYY-MM, YYYY-MM-DD</td>
+      <td><a href="CodeSystem-masterdata-citizen-citizen-datetypeformat-cs.html">masterdata-citizen-citizen-datetypeformat-cs</a></td>
+      <td><a href="ValueSet-masterdata-citizen-citizen-datetypeformat-vs.html">masterdata-citizen-citizen-datetypeformat-vs</a></td>
+    </tr>
+    <tr>
+      <td>Kod för avregistreringsorsak (<code class="language-plaintext highlighter-rouge">DeregistrationReasonCodeType</code>)</td>
+      <td>AV, UV, GN, AN, AS, GS, OB, TA</td>
+      <td><a href="CodeSystem-masterdata-citizen-citizen-deregistrationreasoncode-cs.html">masterdata-citizen-citizen-deregistrationreasoncode-cs</a></td>
+      <td><a href="ValueSet-masterdata-citizen-citizen-deregistrationreasoncode-vs.html">masterdata-citizen-citizen-deregistrationreasoncode-vs</a></td>
+    </tr>
+    <tr>
+      <td>Profil (<code class="language-plaintext highlighter-rouge">LookupProfileType</code>)</td>
+      <td>P1, P2, P3, P4, P5, P6, P7, P8, P9, P10</td>
+      <td><a href="CodeSystem-masterdata-citizen-citizen-lookupprofile-cs.html">masterdata-citizen-citizen-lookupprofile-cs</a></td>
+      <td><a href="ValueSet-masterdata-citizen-citizen-lookupprofile-vs.html">masterdata-citizen-citizen-lookupprofile-vs</a></td>
+    </tr>
+    <tr>
+      <td>Civilståndskod (<code class="language-plaintext highlighter-rouge">MaritalStatusCodeType</code>)</td>
+      <td>OG, G, A, S, RP, SP, EP</td>
+      <td><a href="CodeSystem-masterdata-citizen-citizen-maritalstatuscode-cs.html">masterdata-citizen-citizen-maritalstatuscode-cs</a></td>
+      <td><a href="ValueSet-masterdata-citizen-citizen-maritalstatuscode-vs.html">masterdata-citizen-citizen-maritalstatuscode-vs</a></td>
+    </tr>
+    <tr>
+      <td>Kod för folkbokföringskategori (<code class="language-plaintext highlighter-rouge">PopulationRegistrationTypeType</code>)</td>
+      <td>FB, UV, OB</td>
+      <td><a href="CodeSystem-masterdata-citizen-citizen-populationregistrationtype-cs.html">masterdata-citizen-citizen-populationregistrationtype-cs</a></td>
+      <td><a href="ValueSet-masterdata-citizen-citizen-populationregistrationtype-vs.html">masterdata-citizen-citizen-populationregistrationtype-vs</a></td>
+    </tr>
+    <tr>
+      <td>Statuskod för relation (<code class="language-plaintext highlighter-rouge">RelationshipStatusType</code>)</td>
+      <td>NY, PB, RD, AS, AV, IV, AN</td>
+      <td><a href="CodeSystem-masterdata-citizen-citizen-relationshipstatus-cs.html">masterdata-citizen-citizen-relationshipstatus-cs</a></td>
+      <td><a href="ValueSet-masterdata-citizen-citizen-relationshipstatus-vs.html">masterdata-citizen-citizen-relationshipstatus-vs</a></td>
+    </tr>
+    <tr>
+      <td>Relationstyp (<code class="language-plaintext highlighter-rouge">RelationshipTypeType</code>)</td>
+      <td>B, MO, FA, F, V, VF, M, P</td>
+      <td><a href="CodeSystem-masterdata-citizen-citizen-relationshiptype-cs.html">masterdata-citizen-citizen-relationshiptype-cs</a></td>
+      <td><a href="ValueSet-masterdata-citizen-citizen-relationshiptype-vs.html">masterdata-citizen-citizen-relationshiptype-vs</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="63-typer-i-domänschemat-xsd">6.3 Typer i domänschemat (XSD)</h3>
+
+<p>Genererat ur <a href="masterdata_citizen_citizen_2.0.xsd">masterdata_citizen_citizen_2.0.xsd</a>.</p>
+
+<h4 id="addressabroadtype">AddressAbroadType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Utlandsadress</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">postalAddress1</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postalAddress2</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postalAddress3</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">country</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">addressAbroadDate</td>
+      <td style="text-align: left">PartialDateType</td>
+      <td style="text-align: left">Kan beskriva ett datum med variabel noggrannhet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">votingDate</td>
+      <td style="text-align: left">PartialDateType</td>
+      <td style="text-align: left">Kan beskriva ett datum med variabel noggrannhet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="addressinformationtype">AddressInformationType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Grupp för adressuppgifter</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">residentialAddress</td>
+      <td style="text-align: left">ResidentialAddressType</td>
+      <td style="text-align: left">Svensk adress</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">nationalKeys</td>
+      <td style="text-align: left">NationalKeysType</td>
+      <td style="text-align: left">Riksnycklar</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">district</td>
+      <td style="text-align: left">DistrictType</td>
+      <td style="text-align: left">Grupp för Distriktskod</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">specialPostalAddress</td>
+      <td style="text-align: left">ResidentialAddressType</td>
+      <td style="text-align: left">Svensk adress</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">addressAbroad</td>
+      <td style="text-align: left">AddressAbroadType</td>
+      <td style="text-align: left">Utlandsadress</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="birthabroadtype">BirthAbroadType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Uppgifter om födelse i utlandet</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">placeOfBirthAbroad</td>
+      <td style="text-align: left">PlaceOfBirthAbroadType</td>
+      <td style="text-align: left">Födelseort utland</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">countryOfBirth</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="birthtype">BirthType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Uppgifter om födelse</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">placeOfBirthSweden</td>
+      <td style="text-align: left">PlaceOfBirthSwedenType</td>
+      <td style="text-align: left">Uppgifter om hemort i Sverige</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">birthAbroad</td>
+      <td style="text-align: left">BirthAbroadType</td>
+      <td style="text-align: left">Uppgifter om födelse i utlandet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="citizenshipcountrycodetype">CitizenshipCountryCodeType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Grupp för medborgarskapslandkod</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">countryCode</td>
+      <td style="text-align: left">CountryCode</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">attested</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="citizenshiptype">CitizenshipType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Grupp för medborgarskap</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">citizenshipCountryCode</td>
+      <td style="text-align: left">CitizenshipCountryCodeType</td>
+      <td style="text-align: left">Grupp för medborgarskapslandkod</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">citizenshipDate</td>
+      <td style="text-align: left">PartialDateType</td>
+      <td style="text-align: left">Kan beskriva ett datum med variabel noggrannhet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">status</td>
+      <td style="text-align: left">CitizenshipStatusType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="deregistrationtype">DeregistrationType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Uppgifter om avregistrering</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">deregistrationReasonCode</td>
+      <td style="text-align: left">DeregistrationReasonCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">deregistrationDate</td>
+      <td style="text-align: left">PartialDateType</td>
+      <td style="text-align: left">Kan beskriva ett datum med variabel noggrannhet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="districttype">DistrictType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Grupp för Distriktskod</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">districtCode</td>
+      <td style="text-align: left">DistrictCode</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="historicaladdresstype">HistoricalAddressType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Grupp för historik adress</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">residentialAddress</td>
+      <td style="text-align: left">ResidentialAddressType</td>
+      <td style="text-align: left">Svensk adress</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="historicalrecordstype">HistoricalRecordsType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Grupp för historik</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">populationRegistrationLocality</td>
+      <td style="text-align: left">PopulationRegistrationLocalityType</td>
+      <td style="text-align: left">Uppgifter om folkbokföring</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">historicalAddress</td>
+      <td style="text-align: left">HistoricalAddressType</td>
+      <td style="text-align: left">Grupp för historik adress</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="immigrationidentitytype">ImmigrationIdentityType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Grupp för personnummer och vilket land det är knutet till. Motsvarar skatteverkets NordisktPnrDa, NordisktPnrFi, NordisktPnrFo, NordisktPnrIs och NordisktPnrNo</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">personalIdentityNumber</td>
+      <td style="text-align: left">PersonalIdentityNumber</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">country</td>
+      <td style="text-align: left">CountryCode</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="immigrationtype">ImmigrationType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Grupp för invandringsuppgifter</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">immigrationDate</td>
+      <td style="text-align: left">PartialDateType</td>
+      <td style="text-align: left">Kan beskriva ett datum med variabel noggrannhet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rightOfResidence</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">immigrationIdentity</td>
+      <td style="text-align: left">ImmigrationIdentityType</td>
+      <td style="text-align: left">Grupp för personnummer och vilket land det är knutet till. Motsvarar skatteverkets NordisktPnrDa, NordisktPnrFi, NordisktPnrFo, NordisktPnrIs och NordisktPnrNo</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="lookupresidentsresponsetype">LookupResidentsResponseType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Returtyp för operationen lookupResidentsForProfile</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">populationRegistrationRecords</td>
+      <td style="text-align: left">PopulationRegistrationRecordType</td>
+      <td style="text-align: left">Folkbokföringspost</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="maritalstatustype">MaritalStatusType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Civistånd</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">maritalStatusCode</td>
+      <td style="text-align: left">MaritalStatusCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">maritalStatusDate</td>
+      <td style="text-align: left">PartialDateType</td>
+      <td style="text-align: left">Kan beskriva ett datum med variabel noggrannhet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="nameparttype">NamePartType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Grupp för del av namn där delen kan vara styrkt eller ej</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">String80</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">attested</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="nametype">NameType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Namn</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">givenNameIndicator</td>
+      <td style="text-align: left">GivenNameIndicator</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">givenName</td>
+      <td style="text-align: left">NamePartType</td>
+      <td style="text-align: left">Grupp för del av namn där delen kan vara styrkt eller ej</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">middleName</td>
+      <td style="text-align: left">NamePartType</td>
+      <td style="text-align: left">Grupp för del av namn där delen kan vara styrkt eller ej</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">surname</td>
+      <td style="text-align: left">NamePartType</td>
+      <td style="text-align: left">Grupp för del av namn där delen kan vara styrkt eller ej</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">notificationName</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="nationalkeystype">NationalKeysType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Riksnycklar</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">propertyId</td>
+      <td style="text-align: left">PropertyId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">addressPlaceId</td>
+      <td style="text-align: left">AddressPlaceId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">apartmentId</td>
+      <td style="text-align: left">ApartmentId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="notificationcasetype">NotificationCaseType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Ärendeuppgifter</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">recordId</td>
+      <td style="text-align: left">RecordId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">notificationType</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">modificationTime</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">totalRecord</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">notificationDate</td>
+      <td style="text-align: left">PartialDateType</td>
+      <td style="text-align: left">Kan beskriva ett datum med variabel noggrannhet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="partialdatetype">PartialDateType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Kan beskriva ett datum med variabel noggrannhet.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">format</td>
+      <td style="text-align: left">DateTypeFormatType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">value</td>
+      <td style="text-align: left">PartialDateValue</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="personalidentitytype">PersonalIdentityType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Personidentitet</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">PersonalIdentityNumber</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="personalrecordtype">PersonalRecordType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Grupp för personpost</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">personalIdentity</td>
+      <td style="text-align: left">PersonalIdentityType</td>
+      <td style="text-align: left">Personidentitet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">referredPersonalIdentity</td>
+      <td style="text-align: left">PersonalIdentityType</td>
+      <td style="text-align: left">Personidentitet</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">deregistration</td>
+      <td style="text-align: left">DeregistrationType</td>
+      <td style="text-align: left">Uppgifter om avregistrering</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">NameType</td>
+      <td style="text-align: left">Namn</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">populationRegistrationLocality</td>
+      <td style="text-align: left">PopulationRegistrationLocalityType</td>
+      <td style="text-align: left">Uppgifter om folkbokföring</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">addressInformation</td>
+      <td style="text-align: left">AddressInformationType</td>
+      <td style="text-align: left">Grupp för adressuppgifter</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">maritalStatus</td>
+      <td style="text-align: left">MaritalStatusType</td>
+      <td style="text-align: left">Civistånd</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">birth</td>
+      <td style="text-align: left">BirthType</td>
+      <td style="text-align: left">Uppgifter om födelse</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">immigration</td>
+      <td style="text-align: left">ImmigrationType</td>
+      <td style="text-align: left">Grupp för invandringsuppgifter</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relationships</td>
+      <td style="text-align: left">RelationshipType</td>
+      <td style="text-align: left">Grupp för relation</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">citizenship</td>
+      <td style="text-align: left">CitizenshipType</td>
+      <td style="text-align: left">Grupp för medborgarskap</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="placeofbirthabroadtype">PlaceOfBirthAbroadType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Födelseort utland</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">placeOfBirthAbroad</td>
+      <td style="text-align: left">String80</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">attested</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="placeofbirthswedentype">PlaceOfBirthSwedenType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Uppgifter om hemort i Sverige</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">birthCountyCode</td>
+      <td style="text-align: left">String2</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">birthParish</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="populationregistrationlocalitytype">PopulationRegistrationLocalityType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Uppgifter om folkbokföring</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">populationRegistrationDate</td>
+      <td style="text-align: left">PartialDateType</td>
+      <td style="text-align: left">Kan beskriva ett datum med variabel noggrannhet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">countyCode</td>
+      <td style="text-align: left">String2</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">municipalityCode</td>
+      <td style="text-align: left">String2</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">parishCode</td>
+      <td style="text-align: left">String2</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">propertyDesignation</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fictitiousPropertyNumber</td>
+      <td style="text-align: left">FictitiousPropertyNumber</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">populationRegistrationType</td>
+      <td style="text-align: left">PopulationRegistrationTypeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="populationregistrationrecordtype">PopulationRegistrationRecordType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Folkbokföringspost</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">protectedPersonIndicator</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">testIndicator</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">syncronizationTime</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">notificationCase</td>
+      <td style="text-align: left">NotificationCaseType</td>
+      <td style="text-align: left">Ärendeuppgifter</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personalRecord</td>
+      <td style="text-align: left">PersonalRecordType</td>
+      <td style="text-align: left">Grupp för personpost</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">historicalRecords</td>
+      <td style="text-align: left">HistoricalRecordsType</td>
+      <td style="text-align: left">Grupp för historik</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="relationshipidtype">RelationshipIdType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Grupp för relationspersons identitet Antingen får man personnummer eller datum då personen föddes.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">personalIdentity</td>
+      <td style="text-align: left">PersonalIdentityType</td>
+      <td style="text-align: left">Personidentitet</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dateOfBirth</td>
+      <td style="text-align: left">PartialDateType</td>
+      <td style="text-align: left">Kan beskriva ett datum med variabel noggrannhet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="relationshiptype">RelationshipType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Grupp för relation</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">relationshipId</td>
+      <td style="text-align: left">RelationshipIdType</td>
+      <td style="text-align: left">Grupp för relationspersons identitet Antingen får man personnummer eller datum då personen föddes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relationshipType</td>
+      <td style="text-align: left">RelationshipTypeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relationshipFromDate</td>
+      <td style="text-align: left">PartialDateType</td>
+      <td style="text-align: left">Kan beskriva ett datum med variabel noggrannhet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relationshipToDate</td>
+      <td style="text-align: left">PartialDateType</td>
+      <td style="text-align: left">Kan beskriva ett datum med variabel noggrannhet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">NameType</td>
+      <td style="text-align: left">Namn</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">deregistration</td>
+      <td style="text-align: left">DeregistrationType</td>
+      <td style="text-align: left">Uppgifter om avregistrering</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">status</td>
+      <td style="text-align: left">RelationshipStatusType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="residentialaddresstype">ResidentialAddressType</h4>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">masterdata_citizen_citizen_2.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:masterdata:citizen:citizen:2</code>).</p>
+
+<p>Svensk adress</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">careOf</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postalAddress1</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postalAddress2</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postalCode</td>
+      <td style="text-align: left">PostalCode</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">city</td>
+      <td style="text-align: left">String40</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.masterdata-citizen-citizen#2.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Sep 28, 2026 09:13+0000">2026-09-28</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

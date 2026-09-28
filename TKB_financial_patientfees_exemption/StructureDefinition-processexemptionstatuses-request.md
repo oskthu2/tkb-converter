@@ -1,0 +1,512 @@
+# ProcessExemptionStatuses — Request - financial: patientfees: exemption v1.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **ProcessExemptionStatuses — Request**
+
+## Logical Model: ProcessExemptionStatuses — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/financial-patientfees-exemption/StructureDefinition/processexemptionstatuses-request | *Version*:1.0.0 |
+| Draft as of 2026-09-28 | *Computable Name*:ProcessExemptionStatusesRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i ProcessExemptionStatuses (urn:riv:financial:patientfees:exemption:ProcessExemptionStatusesResponder:1, ProcessExemptionStatusesType), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.financial-patientfees-exemption|current/StructureDefinition/StructureDefinition-processexemptionstatuses-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-processexemptionstatuses-request.csv), [Excel](StructureDefinition-processexemptionstatuses-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "processexemptionstatuses-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/financial-patientfees-exemption/StructureDefinition/processexemptionstatuses-request",
+  "version" : "1.0.0",
+  "name" : "ProcessExemptionStatusesRequest",
+  "title" : "ProcessExemptionStatuses — Request",
+  "status" : "draft",
+  "date" : "2026-09-28T08:58:18+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i ProcessExemptionStatuses\n(urn:riv:financial:patientfees:exemption:ProcessExemptionStatusesResponder:1, ProcessExemptionStatusesType), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/financial-patientfees-exemption/StructureDefinition/processexemptionstatuses-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "processexemptionstatuses-request",
+      "path" : "processexemptionstatuses-request",
+      "short" : "ProcessExemptionStatuses — Request",
+      "definition" : "Logisk modell för begäran i ProcessExemptionStatuses\n(urn:riv:financial:patientfees:exemption:ProcessExemptionStatusesResponder:1, ProcessExemptionStatusesType), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "processexemptionstatuses-request.logicalAddress",
+      "path" : "processexemptionstatuses-request.logicalAddress",
+      "short" : "logicalAddress",
+      "definition" : "SOAP-huvud LogicalAddress. The organisation number of the receiving insurance institution",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.requestId",
+      "path" : "processexemptionstatuses-request.requestId",
+      "short" : "requestId",
+      "definition" : "requestId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.requestId.root",
+      "path" : "processexemptionstatuses-request.requestId.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.requestId.iiExtension",
+      "path" : "processexemptionstatuses-request.requestId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption",
+      "path" : "processexemptionstatuses-request.feeExemption",
+      "short" : "feeExemption",
+      "definition" : "feeExemption",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.patientId",
+      "path" : "processexemptionstatuses-request.feeExemption.patientId",
+      "short" : "patientId",
+      "definition" : "patientId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.patientId.root",
+      "path" : "processexemptionstatuses-request.feeExemption.patientId.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.patientId.iiExtension",
+      "path" : "processexemptionstatuses-request.feeExemption.patientId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions",
+      "short" : "transactions",
+      "definition" : "transactions",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.fee",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.fee",
+      "short" : "fee",
+      "definition" : "fee",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.fee.amount",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.fee.amount",
+      "short" : "amount",
+      "definition" : "amount",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency",
+      "short" : "currency",
+      "definition" : "currency",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.cvCode",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.cvCode",
+      "short" : "cvCode",
+      "definition" : "cvCode Heter code i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.codeSystem",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "codeSystem",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.codeSystemName",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.codeSystemVersion",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.displayName",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.originalText",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.fee.currency.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.dateOfVisit",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.dateOfVisit",
+      "short" : "dateOfVisit",
+      "definition" : "dateOfVisit",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.timeOfRegistration",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.timeOfRegistration",
+      "short" : "timeOfRegistration",
+      "definition" : "timeOfRegistration",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.typeOfFee",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.typeOfFee",
+      "short" : "typeOfFee",
+      "definition" : "typeOfFee",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/financial-patientfees-exemption/ValueSet/patientfees-exemption-typeofexemption-vs"
+      }
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.careGiver",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.careGiver",
+      "short" : "careGiver",
+      "definition" : "careGiver",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.careGiver.root",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.careGiver.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.careGiver.iiExtension",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.careGiver.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.careUnit",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.careUnit",
+      "short" : "careUnit",
+      "definition" : "careUnit",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.careUnit.root",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.careUnit.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.transactions.careUnit.iiExtension",
+      "path" : "processexemptionstatuses-request.feeExemption.transactions.careUnit.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions",
+      "short" : "exemptions",
+      "definition" : "exemptions",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions.exemptionId",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions.exemptionId",
+      "short" : "exemptionId",
+      "definition" : "exemptionId Heter id i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod",
+      "short" : "highCostProtectionPeriod",
+      "definition" : "highCostProtectionPeriod",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod.start",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod.start",
+      "short" : "start",
+      "definition" : "start",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod.end",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions.highCostProtectionPeriod.end",
+      "short" : "end",
+      "definition" : "end",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod",
+      "short" : "exemptionPeriod",
+      "definition" : "exemptionPeriod",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod.start",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod.start",
+      "short" : "start",
+      "definition" : "start",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod.end",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions.exemptionPeriod.end",
+      "short" : "end",
+      "definition" : "end",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions.typeOfExemption",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions.typeOfExemption",
+      "short" : "typeOfExemption",
+      "definition" : "typeOfExemption",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/financial-patientfees-exemption/ValueSet/patientfees-exemption-typeofexemption-vs"
+      }
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions.region",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions.region",
+      "short" : "region",
+      "definition" : "region",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions.region.root",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions.region.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "processexemptionstatuses-request.feeExemption.exemptions.region.iiExtension",
+      "path" : "processexemptionstatuses-request.feeExemption.exemptions.region.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

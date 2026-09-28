@@ -1,0 +1,148 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"processprescriptionreason-request","processprescriptionreason-request","","","",0,*,"","","","null {[]} {[]}
+","ProcessPrescriptionReason — Request","Logisk modell för requestparametrar i ProcessPrescriptionReason. Registrerar
+en ordinationsorsak med information om patient, organisatorisk enhet,
+eventuell aktivitet eller ordination som ordinationsorsaken kopplas till.
+En befintlig ordinationsorsak uppdateras genom att ett nytt meddelande med
+samma id (aktivitetsid eller tillståndsid) skickas in.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"processprescriptionreason-request.logicalAddress","processprescriptionreason-request.logicalAddress","","","",1,1,"","","","Identifier {[]} {[]}
+","Logisk adress","Logisk adress till tjänsteimplementationen. HSA-id för organisationspost
+motsvarande vårdgivare i HSA-trädet.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.logicalAddress",1,1,"",""
+"processprescriptionreason-request.registrationOrderTime","processprescriptionreason-request.registrationOrderTime","","","",0,1,"","","","dateTime {[]} {[]}
+","Registrerings-/ordinationstidpunkt","I de fall en ordination finns anges här ordinationsmoment.ordinationstidpunkt.
+I annat fall lämnas detta fält tomt.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.registrationOrderTime",0,1,"",""
+"processprescriptionreason-request.careProviderId","processprescriptionreason-request.careProviderId","","","",1,1,"","","","Identifier {[]} {[]}
+","Vårdgivare","HSA-id för aktuell vårdgivare.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.careProviderId",1,1,"",""
+"processprescriptionreason-request.registeringUnitId","processprescriptionreason-request.registeringUnitId","","","",1,1,"","","","Identifier {[]} {[]}
+","Registrerande enhet","RIV-specifikation: Ordinationsorsak.registreras vid.Enhet.enhets-id.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.registeringUnitId",1,1,"",""
+"processprescriptionreason-request.registrationTime","processprescriptionreason-request.registrationTime","","","",0,1,"","","","dateTime {[]} {[]}
+","Registreringstidpunkt","I de fall en ordinationsorsak registreras utan ordination anges här
+Ordinationsorsak.registreringstidpunkt, i annat fall lämnas detta fält tomt.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.registrationTime",0,1,"",""
+"processprescriptionreason-request.activityMoment","processprescriptionreason-request.activityMoment","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Aktivitetsmoment","Ange antingen aktivitetsmoment eller ordinationsmoment, se invariant
+processprescriptionreason-activity-or-order.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.activityMoment",0,1,"","processprescriptionreason-activity-or-order:Ange antingen aktivitetsmoment eller ordinationsmoment, inte båda. {activityMoment.exists() xor orderMoment.exists()}
+ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}"
+"processprescriptionreason-request.activityMoment.id","processprescriptionreason-request.activityMoment.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processprescriptionreason-request.activityMoment.extension","processprescriptionreason-request.activityMoment.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processprescriptionreason-request.activityMoment.modifierExtension","processprescriptionreason-request.activityMoment.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processprescriptionreason-request.activityMoment.terminologyId","processprescriptionreason-request.activityMoment.terminologyId","","","",1,1,"","","","uri {[]} {[]}
+","Kodverksidentifierare","Identifierare (OID eller annan unik identifierare) som anger vilket
+kodverk aktuell kod tillhör. Möjliga värden: OID för Snomed CT och id
+för Infektionsverktygets kodverk med annan-koder.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.activityMoment.terminologyId",1,1,"",""
+"processprescriptionreason-request.activityMoment.activityCode","processprescriptionreason-request.activityMoment.activityCode","","","",1,1,"","","","code {[]} {[]}
+","Aktivitetskod","RIV-specifikation: Aktivitetsmoment.aktivitetskod.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.activityMoment.activityCode",1,1,"",""
+"processprescriptionreason-request.activity","processprescriptionreason-request.activity","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Aktivitet","Obligatoriskt om aktivitetsmoment är angivet, annars frivilligt.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.activity",0,1,"","processprescriptionreason-activity-requires-activity:Om aktivitetsmoment anges måste även aktivitet anges. {activityMoment.exists() implies activity.exists()}
+ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}"
+"processprescriptionreason-request.activity.id","processprescriptionreason-request.activity.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processprescriptionreason-request.activity.extension","processprescriptionreason-request.activity.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processprescriptionreason-request.activity.modifierExtension","processprescriptionreason-request.activity.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processprescriptionreason-request.activity.issuerId","processprescriptionreason-request.activity.issuerId","","","",1,1,"","","","string {[]} {[]}
+","Utfärdare av aktivitets-id","Möjliga värden: ""CeHis"" (i de fall värdet i enhetAktivitetsId är ett
+HSA-id) eller ""Infektionsverktyget"" (i de fall värdet i
+enhetAktivitetsId är en annan unik identifierare, t.ex. vid aktivitet
+utförd hos annan vårdgivare).","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.activity.issuerId",1,1,"",""
+"processprescriptionreason-request.activity.unitActivityId","processprescriptionreason-request.activity.unitActivityId","","","",1,1,"","","","string {[]} {[]}
+","Enhet för aktivitets-id","HSA-id alternativt annan unik identifierare för den enhet inom vilket
+aktuellt aktivitets-id är unikt. Särskilda konstantvärden används när
+aktiviteten är utförd hos en annan vårdgivare (se TKB avsnitt 4.1 för
+exakta GUID-värden för ""Annan vårdgivare"" / ""Annan vårdgivare Sverige""
+/ ""Annan vårdgivare utomlands"").","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.activity.unitActivityId",1,1,"",""
+"processprescriptionreason-request.activity.activityId","processprescriptionreason-request.activity.activityId","","","",1,1,"","","","string {[]} {[]}
+","Aktivitets-id","RIV-specifikation: Aktivitet.aktivitets-id. HSA-id + Lokalt id (HSA-id
+för den enhet inom vilket aktuellt aktivitets-id är unikt anges före
+det lokala id:t). Notera att detta attribut har olika betydelse
+beroende på om mallen för Activity (profylax) eller Condition
+(infektion) används.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.activity.activityId",1,1,"",""
+"processprescriptionreason-request.activity.activityIdTypeOid","processprescriptionreason-request.activity.activityIdTypeOid","","","",0,1,"","","","uri {[]} {[]}
+","OID för lokalt aktivitets-id","OID för lokalt id då ett id anges i activityId. Då aktiviteten är
+utförd hos en annan vårdgivare och inget id finns ska detta lämnas tomt.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.activity.activityIdTypeOid",0,1,"",""
+"processprescriptionreason-request.assessedHealthCondition","processprescriptionreason-request.assessedHealthCondition","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Bedömt hälsorelaterat tillstånd","Bedömt hälsorelaterat tillstånd","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.assessedHealthCondition",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processprescriptionreason-request.assessedHealthCondition.id","processprescriptionreason-request.assessedHealthCondition.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processprescriptionreason-request.assessedHealthCondition.extension","processprescriptionreason-request.assessedHealthCondition.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processprescriptionreason-request.assessedHealthCondition.modifierExtension","processprescriptionreason-request.assessedHealthCondition.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processprescriptionreason-request.assessedHealthCondition.conditionCode","processprescriptionreason-request.assessedHealthCondition.conditionCode","","","",1,1,"","","","code {[]} {[]}
+","Tillståndskod","RIV-specifikation: Bedömt hälsorelaterat tillstånd.tillståndskod.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.assessedHealthCondition.conditionCode",1,1,"",""
+"processprescriptionreason-request.assessedHealthCondition.transmissionRoute","processprescriptionreason-request.assessedHealthCondition.transmissionRoute","","","",1,1,"","","","code {[]} {[]}
+","Smittväg","RIV-specifikation: Bedömt hälsorelaterat tillstånd.smittväg.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.assessedHealthCondition.transmissionRoute",1,1,"",""
+"processprescriptionreason-request.assessedHealthCondition.unitConditionId","processprescriptionreason-request.assessedHealthCondition.unitConditionId","","","",1,1,"","","","Identifier {[]} {[]}
+","Enhet för tillstånds-id","HSA-id för den enhet inom vilket aktuellt tillstånds-id är unikt.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.assessedHealthCondition.unitConditionId",1,1,"",""
+"processprescriptionreason-request.assessedHealthCondition.conditionId","processprescriptionreason-request.assessedHealthCondition.conditionId","","","",1,1,"","","","string {[]} {[]}
+","Tillstånds-id","RIV-specifikation: Bedömt hälsorelaterat tillstånd.tillstånds-id.
+HSA-id + Lokalt id.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.assessedHealthCondition.conditionId",1,1,"",""
+"processprescriptionreason-request.orderMoment","processprescriptionreason-request.orderMoment","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Ordinationsmoment","Ange antingen ordinationsmoment eller aktivitetsmoment, se invariant
+processprescriptionreason-activity-or-order.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.orderMoment",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processprescriptionreason-request.orderMoment.id","processprescriptionreason-request.orderMoment.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processprescriptionreason-request.orderMoment.extension","processprescriptionreason-request.orderMoment.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processprescriptionreason-request.orderMoment.modifierExtension","processprescriptionreason-request.orderMoment.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processprescriptionreason-request.orderMoment.orderTime","processprescriptionreason-request.orderMoment.orderTime","","","",1,1,"","","","dateTime {[]} {[]}
+","Ordinationstidpunkt","RIV-specifikation: Ordinationsmoment.ordinationstidpunkt.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.orderMoment.orderTime",1,1,"",""
+"processprescriptionreason-request.orderMoment.unitOrderId","processprescriptionreason-request.orderMoment.unitOrderId","","","",1,1,"","","","Identifier {[]} {[]}
+","Enhet för ordinations-id","HSA-id för den enhet inom vilket aktuellt ordinations-id är unikt.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.orderMoment.unitOrderId",1,1,"",""
+"processprescriptionreason-request.orderMoment.orderId","processprescriptionreason-request.orderMoment.orderId","","","",1,1,"","","","string {[]} {[]}
+","Ordinations-id","RIV-specifikation: Ordination.ordinations-id. HSA-id + Lokalt id.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.orderMoment.orderId",1,1,"",""
+"processprescriptionreason-request.orderMoment.atcCode","processprescriptionreason-request.orderMoment.atcCode","","","",1,*,"","","","code {[]} {[]}
+","ATC-kod","RIV-specifikation: Läkemedelssubstans.ATC-kod.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.orderMoment.atcCode",1,*,"",""
+"processprescriptionreason-request.personIdIssuer","processprescriptionreason-request.personIdIssuer","","","",1,1,"","","","string {[]} {[]}
+","Utfärdare av person-id","För personnummer och samordningsnummer: ""Skatteverket"". För lokalt
+reservnummer: ""CeHis"".","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.personIdIssuer",1,1,"",""
+"processprescriptionreason-request.personIdAssigner","processprescriptionreason-request.personIdAssigner","","","",1,1,"","","","string {[]} {[]}
+","Tilldelare av person-id","För personnummer och samordningsnummer: ""Folkbokföringen"". För lokalt
+reservnummer: HSA-id för den enhet inom vilket aktuellt reservnummer är
+unikt.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.personIdAssigner",1,1,"",""
+"processprescriptionreason-request.patientId","processprescriptionreason-request.patientId","","","",1,1,"","","","Identifier {[]} {[]}
+","Patientens person-id","RIV-specifikation: Patient.person-id. system = OID för personnummer,
+samordningsnummer eller icke-nationell identifierare (se personIdOid),
+value = själva numret.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.patientId",1,1,"",""
+"processprescriptionreason-request.personIdOid","processprescriptionreason-request.personIdOid","","","",1,1,"","","","uri {[]} {[]}
+","OID för person-id","OID för personnummer, samordningsnummer eller icke-nationell
+identifierare Org+lokalt unikt id.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.personIdOid",1,1,"",""
+"processprescriptionreason-request.patientBirthTime","processprescriptionreason-request.patientBirthTime","","","",1,1,"","","","dateTime {[]} {[]}
+","Patientens födelsetidpunkt","RIV-specifikation: Patient.födelsetidpunkt.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.patientBirthTime",1,1,"",""
+"processprescriptionreason-request.patientGender","processprescriptionreason-request.patientGender","","","",1,1,"","","","code {[]} {[]}
+","Patientens kön","RIV-specifikation: Patient.kön. Kodverk anges externt i
+RIV-specifikation Infektionsverktyget.pdf — inte återgivet i TKB-texten.","","","","","","","","","",,,,,"",,,,"processprescriptionreason-request.patientGender",1,1,"",""

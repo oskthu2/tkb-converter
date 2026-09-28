@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>1 Inledning - financial: billing: claim v1.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"2"}
+    h3,h4,h5,h6{--heading-prefix:"2"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">financial: billing: claim</span>
+            <br/>
+            <span style="display:inline-block;">1.1.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <menu xmlns="http://www.w3.org/1999/xhtml">
+  <item name="Home" url="index.html"/>
+  <item name="1 Inledning" url="1-inledning.html"/>
+  <item name="2 Versionsinformation" url="2-versionsinformation.html"/>
+  <item name="3 Tjänstedomänens arkitektur" url="3-tjanstedomanens-arkitektur.html"/>
+  <item name="4 Tjänstedomänens krav och regler" url="4-tjanstedomanens-krav-och-regler.html"/>
+  <item name="5 Tjänstedomänens meddelandemodeller" url="5-tjanstedomanens-meddelandemodeller.html"/>
+  <item name="6 Gemensamma informationskomponenter" url="6-gemensamma-informationskomponenter.html"/>
+  <item name="7 Tjänstekontrakt" url="7-tjanstekontrakt.html"/>
+  <item name="Artifacts" url="artifacts.html"/>
+</menu>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>1 Inledning</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">financial: billing: claim - Local Development build (v1.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/financial-billing-claim/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>1 Inledning</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#1-inledning" id="markdown-toc-1-inledning">1 Inledning</a>    <ul>
+      <li><a href="#dokumentinformation" id="markdown-toc-dokumentinformation">Dokumentinformation</a></li>
+      <li><a href="#11-svenskt-namn" id="markdown-toc-11-svenskt-namn">1.1 Svenskt namn</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="1-inledning">1 Inledning</h1>
+
+<p>Källa: <em>Tjänstekontraktsbeskrivning Utomlänsfakturering</em>, version 1.1 (2025-10-13), <a href="TKB_financial_billing_claim.docx">TKB_financial_billing_claim.docx</a>.</p>
+
+<h3 id="dokumentinformation">Dokumentinformation</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Dokument</th>
+      <th style="text-align: left">Tjänstekontraktsbeskrivning Utomlänsfakturering (financial:billing:claim)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svenskt namn</td>
+      <td style="text-align: left">operativt processtöd: samordna resurser över verksamhetsstrukturer: utomlänsfakturering</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Version</td>
+      <td style="text-align: left">1.1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Datum</td>
+      <td style="text-align: left">2025-10-13</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="revisionshistorik">Revisionshistorik</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Version</th>
+      <th style="text-align: left">Datum</th>
+      <th style="text-align: left">Författare</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1.0_RC1</td>
+      <td style="text-align: left">2016-09-19</td>
+      <td style="text-align: left">Malin Ljunggren, / Khaled Daham</td>
+      <td style="text-align: left">Första version</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC1</td>
+      <td style="text-align: left">2016-09-21</td>
+      <td style="text-align: left">Khaled Daham</td>
+      <td style="text-align: left">Fältregeltabell</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC1</td>
+      <td style="text-align: left">2016-09-27</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Lagt till flöde för kreditering. / Fyllt på med beskrivningar i fältregeltabell.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC1</td>
+      <td style="text-align: left">2016-09-28</td>
+      <td style="text-align: left">Khaled Daham</td>
+      <td style="text-align: left">Ändrat namn på inOutPatientCare till careType och typ till CVType som bär koder ifrån HSA.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC1</td>
+      <td style="text-align: left">2016-09-28</td>
+      <td style="text-align: left">Khaled Daham</td>
+      <td style="text-align: left">Tagit bort profileId och customizationId då de var UBL-specifika och inte behövs längre.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC1</td>
+      <td style="text-align: left">2016-10-04</td>
+      <td style="text-align: left">Khaled Daham</td>
+      <td style="text-align: left">Korrigerat namn och kardinalitet på flera fält / Korrigerat datatyp på extendedAllowanceCareTime och extendedAllowanceCost / Tagit bort fälten SFTIVersionId, externalCause, DRGProductName / Lagt till formateringsregler för datum och tid =&gt; kap 5.2 / Lagt till regel för omsändning som gäller för tjänstekonsumenter =&gt; kap 4.2.1 / Alla exempelfiler under docs/work_material/examples är uppdaterade / Schematron-rapport =&gt; test-suite/ProcessClaimSpecification-schematron.xslt / Lagt till generella regler för felhantering =&gt; kap 4.3</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC1</td>
+      <td style="text-align: left">2016-10-04</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Lagt till referens till handledningsdokumentet. / Lagt till formatregler för patient id / Korrigerat språk för arbetsflöden, adressering, informationsflöde. / Lagt till information om arkivering. / Korrigerat sekvensdiagrammen (tjänsteproducent tjänstekonsument / Lagt till obligatoriskt på organisationsnummer, GLN-nummer frivilligt. / Uppdaterat MIM. / Ändrat namn på öppen slutenvård till vård och omsorsform samt ändrat kardinalitet till 0..1 (från 1..1) / Offentlig vård: string istället för boolean. Nybesök/återbesök ändrat namn till typ av besök.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC1</td>
+      <td style="text-align: left">2016-10-06</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Korrigerat felaktig ändring av kardinalitet på vård- och omsorgsform (skall vara 1..1). MIM och fältregel. / Lagt till schematronregler. / Lagt till de kompletterade koderna för yrkeskod: Undersköterska, Teampersonal inkl. läkar-medverkan, Teampersonal utan läkarmedverkan, Övrig personal. / Lagt till avvikelsehantering (flöde kreditering) enligt handledningsdokumentet.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC1</td>
+      <td style="text-align: left">2016-10-13</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Flyttat in fakturaperiod som attribut i modellen då start- och slutdatum ingår i datatypen för fakturaperiod (DT).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC1</td>
+      <td style="text-align: left">2016-10-17</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Uppdaterad modell (med gråmarkerad produktkod namn (DRG-kostnad)). / Lagt till texterna obligatoriskt, obligatoriskt under vissa förutsättningar, frivilligt, obligatoriskt senast 20xx-01, obligatoriskt under vissa förutsättningar senast 20xx-01. / Lagt till text till fältet referenceToInvocie / Referens till faktura och referenceToProcessClaimSpecificationId /Referens till fakturaunderlag vård id. / Uppdaterat avsnitt 5.2 Formatregler (samordningsnummer, GLN-nummer, organisationsnummer, fakturaunderlag vård, id) / Kort beskrivning av tjänstekontraktet i avsnitt 6.1 / Mindre rättningar i avsnitt 6.1.3 (Övriga regler)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC1</td>
+      <td style="text-align: left">2016-10-19</td>
+      <td style="text-align: left">Khaled Daham</td>
+      <td style="text-align: left">Korrigerat publicCare där det felaktigt stod att det var en string, det är en boolean i schemat och sätts till true om offentlig vård.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC1</td>
+      <td style="text-align: left">2016-10-20</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Tagit bort schematronregel för PatientId (behövs ej då patientid är ett attribut med olika identifierare). Förtydligat några Övriga regler. / Tagit bort Övrig regel R6 (dubblett) / Ändrat healthcareUnit till II (ej CV) i fältregeltabellen. / Korrigerat en skrivning i flödet (hämta fakturaunderlag). / Lagt till för läns- och kommunkod: För asylsökande och personer med skyddad identitet sätts ingen codesystem . / Uppdaterat information om formatregler för reservnummer.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC1</td>
+      <td style="text-align: left">2016-10-20</td>
+      <td style="text-align: left">Khaled Daham</td>
+      <td style="text-align: left">Taggad version</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC2</td>
+      <td style="text-align: left">2017-04-04 / (ett senare datum än flera 1.0_RC3 pga att korrigerade test-filer behövde läggas in i en tidigare RC)</td>
+      <td style="text-align: left">Khaled Daham</td>
+      <td style="text-align: left">Uppdaterat schematronvalidering test-suite /ProcessClaimSpecification/constraints.xml / Uppdaterat test-filer som innehöll fel. / Korrigerat feltexter. / Korrigerat namn i övriga regler så de stämmer överens med xml-schemat.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2016-10-21</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Uppdaterat DIM:en (fel datatyp på betalningsförbindelse ersättningstyp) / Ändrat några fält med texterna ”obligatorisk, frivillig, ..under vissa förutsättningar”. Ingen ändring av kardinalitet, endast felaktiga texter. / Lagt till en referens på de fält som har definierade schematronregler. / Tydliggjort vissa fält som är angivna som ”Obligatoriska under vissa förutsättningar”.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_Rc3</td>
+      <td style="text-align: left">2016-10-28</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Uppdaterat formatet för personnummer och samordningsnummer i avsnitt Formatregler (skall ej innehålla -). / Ändrat ”..vissa förutsättningar..” till ”..nämnda förutsättningar..”. / Kompletterat beskrivning för: Ytterfallsersättning vårdtid, Ytterfallsersättning kostnad, Typ av patient specifik åtgärd, Patientspecifik åtgärd, pris, Fakturaperiod, DRG produkt, Patientspecifik åtgärd namn, Patientspecifik åtgärd, totalbelopp, fälten huvuddiagnos och diagnoskod. / Ändrat titel på dokumentet till det svenska domännamnet (kortnamn).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2016-11-03</td>
+      <td style="text-align: left">Khaled Daham</td>
+      <td style="text-align: left">Uppdaterat första sekvensdiagrammet med beskrivning samt icke funktionella krav och felhantering. Se kap 3.1.1.2, 4.2.1 och 4.3</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2016-11-04</td>
+      <td style="text-align: left">Khaled Daham</td>
+      <td style="text-align: left">Korrigerat fel kardinaliteter i fältreglerna, uppdaterat beskrivning för DRGPrice, rättat färgkoder i fältregeltabellen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2016-11-22</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">MIM (korrigerat enligt fältregler och schema) / flyttat in identiet (II) i leverantör och köpare (ej separat identitetsklass). / ’orsak till kreditering’, datatyp ST 0..* / Fakturaunderlag vård_rad (ej 1..*) 1..1 / Utskrivningsdatum från vård (ej 0..1) / Yrkeskod: ST (ej CV) / Ändrat datatypen för alla  belopp från decimal till amount (amount består av belopp och valuta). / Rättat attributnamn i mappningstabell (kap.5)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2016-12-16</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Ändrat samtliga ”Vissa förutsättningar” till ”Nämnda förutsättning” och lagt till några beskrivningar på förutsättningar. / Ändrat så att det enhetligt står ”Skall bli” innan ”obligatoriskt fält senast..” överallt.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2017-01-16</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Ändrat förkortning på schematronregler till ÖR istället för R, då förkortningen på referenser var samma. / Ändrat OID på organisationsnummer till 1.3.7. / InvoiceId ändrat till string (ej II). / Ändrat LMA kortnummer och EU kortnummer till string i tabell (från CV). / Ospecificerat (under vårdkategori) 0..*, (ej 0..1).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2017-01-20</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Uppdaterat MIM (yrkeskod: ST, patientavgift nedsatt, kategori: ST, betalningsförbindelse ersättningstyp: ST)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2017-02-13</td>
+      <td style="text-align: left">Khaled Daham</td>
+      <td style="text-align: left">Elementet extendedAllowanceCareTime var felaktigt benämnd extendedAllowanceCost / invoiceId har bytt typ från IIType till string / LMACardNumber har bytt typ ifrån CVType till string / EUCardNumber har bytt typ ifrån CVType till string / DRGPrice har bytt typ ifrån CVType till AmountType / Uppdaterat tabell för SLA / Uppdaterat test-sviter enligt ovan.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2017-02-16</td>
+      <td style="text-align: left">Khaled Daham</td>
+      <td style="text-align: left">Rättat felaktig kardinalitet för / extendedAllowanceCost/amount och / extendedAllowanceCost / /currency ifrån 0..1 till 1..1, ingen ändring i schemat.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2017-02-17</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Tagit bort ”–” för formatet på organisationsnummer. / Uppdaterat några RIM-mappningar. / Ändrat skrivningar med ’skall’ till ’ska’. / Lagt till koder för attributet ”Orsak till kreditering”. / Bifogat lista med koder för Medicinskt verksamhetsområde. / Lagt till skrivning för fältet ”Post id vårdinsats” (gällande kreditering). / Lagt till saknade ord i attributet ”Ytterfallsersättning, vårdtid”.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2017-02-23</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Uppdaterat sekvensdiagrammen. / Ändrat felaktig skrivning i övrig regel 22 och 23 (till professionCodeForHealthcare istället för businessClassificationCode). / Uppdaterat sidhuvud (utomregional  utomläns)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2017-03-07</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Lagt till att organisationsnummer ska anges som logisk adress (avsnitt Adressering). / Tagit bort information under avsnittet Informationssäkerhet och juridik och hänvisar till informationsspecifikationen istället. / Lagt till referens R7 (informationsspecifikation).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2017-03-10</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Uppdaterat versionsnumret på första sidan.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2017-03-20</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Uppdaterat ett fåtal utomregional till utomläns (förutom hänvisning till bifogade dokument). / Lagt till 6 mån (SLA-krav-aktualitet). / Förtydligat skrivning i arbetsflöde om referens från faktura till fakturaunderlag. / Lagt till skrivning kring reservnummer. / Lagt till nationell reservnummer oid + exempel på lokal reservnummer oid. / Tagit bort skrivningar om skyddade personer (ska ej faktureras).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2017-04-20</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">(ändrat alla RC2 till RC3 i versionshistoriken) / Lagt till kod 05 – Person över 85 år till attributet Patientavgift nedsatt kategori. / Uppdaterat exempel för samordningsnummer (format): inkl. sekel. / Ändrat ”vårdtillfälle” till ”vårdkontakt” då både öppenvård och slutenvård avses. / Uppdaterat koderna för ”orsak till kreditering”. / Uppdaterat definitioner för ”Planerad vård”.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2017-04-24</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Fälten valuta: lagt till att det alltid ska vara SEK. / Uppdaterat beskrivning för fältet namn (kontaktuppgift).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2017-05-04</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Uppdaterat beskrivning för åtgärdskod: ska ej lämnas för psykiatrisk vård. / Uppdaterat SLA krav / Lagt till schematronregler (ÖR34-ÖR37) / Lagt till root för listningslandsting. / Uppdaterat övrig regel 3.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2017-05-05</td>
+      <td style="text-align: left">Khaled Daham</td>
+      <td style="text-align: left">Förtydligat beskrivningar / Lagt till regel 37 som validerar id / Delade på regel 19 så att det blev två separata regler.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2017-05-18</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Förtydligat text för attributet Offentlig vård + rättar MIM där den hade typen string. / Lagt till format för LMA kortnummer+ EU-kortets nummer m.fl attribut. / Lagt till fotnot på fälten som har nya schematronregler. / Lokala reservnummer: lagt till att organisationsnummer anges som oid om det saknas en lokal reservnummer oid.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2017-05-22</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Lagt till ett saknat värde (TO) i övriga regler 22.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2017-06-07</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Tagit bort patientens namn och adress (mim, mappning, fältregler) / Uppdaterat flöden (med ’lanes’). / Lagt till formatregel för belopp (avsnitt 5.2). Lagt till referens till riksavtalet. Lagt till ordlista.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2017-06-08</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Lagt till exempel på felmeddelanden. / Korrigerat text för diagnos.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC4</td>
+      <td style="text-align: left">2017-06-20</td>
+      <td style="text-align: left">Malin Ljunggren</td>
+      <td style="text-align: left">Uppdaterat ordlista. / Lagt till referens till RIV Tekniska anvisningar i avsnitten krav för producent och konsument.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC4</td>
+      <td style="text-align: left">2017-06-30</td>
+      <td style="text-align: left">Khaled Daham</td>
+      <td style="text-align: left">Uppdaterat datum och version.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC5</td>
+      <td style="text-align: left">2017-10-04</td>
+      <td style="text-align: left">Khaled Daham</td>
+      <td style="text-align: left">Förtydligat beskrivning för kommunkod och länskod / Förtydligat beskrivning för nyttolast SLA. / Valideringsreglerna för grossAmount och netAmount tar numera hänsyn till decimaler. / Tre nya regler för validering av CVType, R39, R40, R41</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC5</td>
+      <td style="text-align: left">2017-10-05</td>
+      <td style="text-align: left">Khaled Daham</td>
+      <td style="text-align: left">Förtydligat att icke obligatoriska element som inte finns med i nyttolasten inte utvärderas av schematron (6.1.3) / Tagit bort regel 32 då den täcks in av regel 39</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0</td>
+      <td style="text-align: left">2017-10-05</td>
+      <td style="text-align: left">Khaled Daham</td>
+      <td style="text-align: left">Förtydligat SLA-regler (tagit bort krav på aktualitet och lagt kravet på att inte skicka äldre än 6mån under övriga krav). / Rättat till stavfel på invoice i fältregeltabellen. / Uppdaterat beskrivning för datumperioder. / Uppdaterat och förtydligat felmeddelanden i constraints.xml.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0.1</td>
+      <td style="text-align: left">2017-11-07</td>
+      <td style="text-align: left">Khaled Daham</td>
+      <td style="text-align: left">Förtydligande av R39 i relation till hur DRGCode skall användas (endast originalText) och skapade en separat regel (R42) för det. / Bug-fix av regel med id R31 i constraints.xml / Bug-fix av testfall 12 i testsviten (hör ihop med R31)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0.1</td>
+      <td style="text-align: left">2018-03-09</td>
+      <td style="text-align: left">Khaled Daham</td>
+      <td style="text-align: left">Fel typ för DRGPrice i fältregeltabellen, rättad, se ärende https://bitbucket.org/rivta-domains/riv.financial.billing.claim/issues/9/fel-datatyp-p-drgprice</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0.2</td>
+      <td style="text-align: left">2018-09-03</td>
+      <td style="text-align: left">Khaled Daham</td>
+      <td style="text-align: left">Uppdaterade regler / R3, R31 / Nya regler / R43, R44, R45, R46, R47, R48, R49 / Ärenden som stängts / https://bitbucket.org/rivta-domains/riv.financial.billing.claim/issues/8/schematronvalideringen-delfakturering-utan / https://bitbucket.org/rivta-domains/riv.financial.billing.claim/issues/10/om-ej-drg-fakturering-ska-artikel-och / https://bitbucket.org/rivta-domains/riv.financial.billing.claim/issues/11/kontroll-mot-socialstyrelsens-register / https://bitbucket.org/rivta-domains/riv.financial.billing.claim/issues/14/schematron-ndring</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0.2</td>
+      <td style="text-align: left">2018-10-12</td>
+      <td style="text-align: left">Khaled Daham</td>
+      <td style="text-align: left">Bugfix av schematron-regel enligt ärende https://bitbucket.org/rivta-domains/riv.financial.billing.claim/issues/15/r23-yrkeskod-i-ppenv-rd-f-ngar-inte-fel-om / Uppdaterat några beskrivningar i fältregeltabellen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0.3</td>
+      <td style="text-align: left">2018-11-07</td>
+      <td style="text-align: left">Khaled Daham</td>
+      <td style="text-align: left">Bugrättat R49 i constraints.xml, den tillätt inte koden 003.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0.4</td>
+      <td style="text-align: left">2018-12-05</td>
+      <td style="text-align: left">Khaled Daham</td>
+      <td style="text-align: left">Ett testfall har korrigerats. / Ett negativt testfall (2.9) har lagts till som testar att man får rätt felmeddelande om man skickar in felaktig mvo-kod. / Inga andra ändringar äro gjorda.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0.5</td>
+      <td style="text-align: left">2022-02-14</td>
+      <td style="text-align: left">Jan Söderman</td>
+      <td style="text-align: left">Uppdaterat version, inget nytt.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0.6</td>
+      <td style="text-align: left">2022-11-18</td>
+      <td style="text-align: left">Bente Sjöberg-Silfverling</td>
+      <td style="text-align: left">Uppdaterat version och datum, inget nytt.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0.7</td>
+      <td style="text-align: left">2023-06-12</td>
+      <td style="text-align: left">Bente Sjöberg-Silfverling, Tom Lundholm</td>
+      <td style="text-align: left">Uppdaterat version, ändringar för ny yrkeskod HK, avtalspost i Riksavtalet ändrad beskrivning och ny schematronregel ÖR50, inCare (antal vårddagar) ändrad beskrivning och ny schematronregel ÖR51, verksamhetskod ny beskrivning, borttag av text om att inte skicka underlag äldre än 6 månader under Övriga krav. Fixat trasiga länkar under Referenser.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0.7</td>
+      <td style="text-align: left">2023-08-01</td>
+      <td style="text-align: left">Bente Sjöberg-Silfverling</td>
+      <td style="text-align: left">Flyttat till ny dokumentmall</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.1_RC1</td>
+      <td style="text-align: left">2025-07-17</td>
+      <td style="text-align: left">Bente Sjöberg-Silfverling</td>
+      <td style="text-align: left">Uppdaterat version, länkar och ändrat landsting till region i dokumentet. / Ändrat ’Referens till fakturaunderlag vård id’ till obligatorisk med ny schematronregel ÖR52. / Ändrat schematronregel ÖR5 så att 'Patient vårdkontakt, fakturerat belopp netto' och 'Fakturabelopp' kan skiljas åt med upp till en krona ifall fakturabelopp avrundats till heltal. / Ändrat kardinalitet för fältet ’unspecified’ under ’paymentCommitment’ till 0..*. / Uppdaterat tillåtna värden för fältet ’Avtalspost i Riksavtalet’ efter kapiteländring i nya Riksavtalet. / Utökat beskrivning för ’Vårdenhets id’ att även innefatta medicinskt ansvarig vårdenhet utöver vårdenhet där vård utförts. / Uppdaterat beskrivning för ’Betalningsförbindelsetyp avtal’, ’Betalningsförbindelsetyp kapitel’, ’Betalningsförbindelsetyp id’, ’DRG produktkod’, ’Offentlig vård’, ’Remiss-id’, ’Referens till faktura’ och ’Vårdnivå’.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.1</td>
+      <td style="text-align: left">2025-10-13</td>
+      <td style="text-align: left">Bente Sjöberg-Silfverling</td>
+      <td style="text-align: left">Mindre ändringar efter kvalitetsgranskning.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="referenser">Referenser</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Dokument</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Länk</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">R1</td>
+      <td style="text-align: left">Arkitekturella beslut – Underlag för Utomlänsfakturering</td>
+      <td style="text-align: left">Obligatoriskt</td>
+      <td style="text-align: left">https://rivta.se/tkview/#/domain/financial:billing:claim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R2</td>
+      <td style="text-align: left">RIVTA flera dokument / T-boken</td>
+      <td style="text-align: left">Finns på Webben</td>
+      <td style="text-align: left">http://rivta.se/ / https://inera.atlassian.net/wiki/spaces/RTA/pages/3632866/Referensarkitektur+f+r+v+rd+och+omsorg+-+T-boken+REV+D</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R3</td>
+      <td style="text-align: left">Förstudierapport kommunikationslösning utomregional fakturering</td>
+      <td style="text-align: left">Förstudie gjord av Inera</td>
+      <td style="text-align: left">Kontakta tjänsteansvarig på Inera</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R4</td>
+      <td style="text-align: left">Fakturering av utomregional vård – Informationssäkerhet</td>
+      <td style="text-align: left">Underlag för informationssäkerhet, framtagen under förstudien</td>
+      <td style="text-align: left">Kontakta tjänsteansvarig på Inera</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R5</td>
+      <td style="text-align: left">PM Uppgiftsutlämnande vid landstings fakturering utomlänsvård</td>
+      <td style="text-align: left">Juridisk utredning gjord under förstudien</td>
+      <td style="text-align: left">Kontakta tjänsteansvarig på Inera</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R6</td>
+      <td style="text-align: left">Handledning</td>
+      <td style="text-align: left">Stöddokument</td>
+      <td style="text-align: left">https://inera.atlassian.net/wiki/spaces/OIU/pages/4129784030/Handledning+f+r+utoml+nsfakturering</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R7</td>
+      <td style="text-align: left">IS_financial_billing_claim.docx</td>
+      <td style="text-align: left">Informationsspecifikation Utomläns-fakturering</td>
+      <td style="text-align: left">https://rivta.se/tkview/#/domain/financial:billing:claim</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R8</td>
+      <td style="text-align: left">IS_strategicresourcemanagement.persons.person</td>
+      <td style="text-align: left">Informations-specifikation Personuppgifter</td>
+      <td style="text-align: left">https://bitbucket.org/rivta-domains/riv.strategicresourcemanagement.persons.person</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R9</td>
+      <td style="text-align: left">Riksavtal för utomlänsvård och kommentarer</td>
+      <td style="text-align: left">Version från och med september 2025.</td>
+      <td style="text-align: left">https://skr.se/skr/halsasjukvard/ekonomiavgifter/utomlansvardriksavtal.943.html</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="förkortningar">Förkortningar</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Förkortning</th>
+      <th style="text-align: left">Betydelse</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="ordlista">Ordlista</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Ord</th>
+      <th style="text-align: left">Betydelse</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Hemregion / Synonymer: / Köpande region, köpare</td>
+      <td style="text-align: left">Den region där patienten vid vårdtillfällets inledning är folkbokförd. Ett vårdtillfälle i sluten vård avgränsas av in- och utskrivningen vid ett sjukhus.</td>
+      <td style="text-align: left">Definition enligt Riksavtal för utomlänsvård och kommentarer [R9]</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Vårdregion / Synonymer: / Säljande region, säljare, leverantör</td>
+      <td style="text-align: left">Den region där en utomlänspatient undersöks eller behandlas.</td>
+      <td style="text-align: left">Definition enligt Riksavtal för utomlänsvård och kommentarer [R9]</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Köpande region / Köpare / Synonym: / Hemregion</td>
+      <td style="text-align: left">Region som ska betala för vården då en patient från regionen har vårdats hos leverantören.</td>
+      <td style="text-align: left">I dokumentet används köpande region, köpare och hemregion synonymt.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Säljande region / Säljare / Synonymer: Vårdregion, Leverantör</td>
+      <td style="text-align: left">Region som utfört vårdinsats på en utomlänspatient och som därmed har rätt att fakturera patientens hemregion.</td>
+      <td style="text-align: left">I dokumentet används säljande region, säljare, vårdregion och leverantör synonymt.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Leverantör / Synonymer: Vårdregion, Säljande region, Säljare</td>
+      <td style="text-align: left">Se säljande region / säljare</td>
+      <td style="text-align: left">I dokumentet används termen leverantör i informationsmodellen samt i klass- och attributbeskrivningar, då detta är en term som används i beskrivningar av standardiserade meddelande för e-handel (termen kommer från SFTI - Single Face To Industry).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="kompletterande-dokument-i-källan">Kompletterande dokument i källan</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dokument</th>
+      <th>Fil</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Arkitekturella beslut – Underlag för Utomlänsfakturering (referens R1)</td>
+      <td><a href="AB_financial_billing_claim.docx">AB_financial_billing_claim.docx</a></td>
+    </tr>
+    <tr>
+      <td>Informationsspecifikation Utomlänsfakturering (referens R7)</td>
+      <td><a href="IS_financial_billing_claim.docx">IS_financial_billing_claim.docx</a></td>
+    </tr>
+    <tr>
+      <td>Verksamhetskodslista 2006</td>
+      <td><a href="Verksamhetskodslista2006.pdf">Verksamhetskodslista2006.pdf</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Detta är beskrivningen av tjänstekontrakten i tjänstedomänen</p>
+
+<p>financial: billing: claim</p>
+
+<p>Tjänstekontrakten är baserade på RIVTA 2.1 [R2] och reglerade genom arkitekturella beslut [R1].</p>
+
+<p>Tjänstekontraktsbeskrivningen är en kravspecifikation. Den skall fungera som ett teknikneutralt, formellt regelverk som reglerar integrationskrav för parter (tjänstekonsumenter och tjänsteproducenter) som avser ansluta system för samverkan enligt dessa tjänstekontrakt. Tjänstekontraktsbeskrivningen är också ett viktigt underlag för skapande av de tekniska kontrakten (scheman och WSDL-filer).</p>
+
+<p>Detta dokument kompletterar reglerna i de tekniska kontrakten. Tjänsteproducenter och tjänstekonsumenter ska m.a.o. följa såväl de maskintolkbara reglerna i de tekniska kontrakten, så väl som de regler som uttrycks verbalt i detta dokument.</p>
+
+<h3 id="11-svenskt-namn">1.1 Svenskt namn</h3>
+
+<p>operativt processtöd:samordna resurser över verksamhetsstrukturer:utomlänsfakturering</p>
+
+<p>Utomlänsfakturering</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.financial-billing-claim#1.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Sep 28, 2026 08:57+0000">2026-09-28</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

@@ -1,0 +1,2960 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>7 Tjänstekontrakt - supportprocess: logistics: carelisting v2.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">supportprocess: logistics: carelisting</span>
+            <br/>
+            <span style="display:inline-block;">2.1.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <menu xmlns="http://www.w3.org/1999/xhtml">
+  <item name="Home" url="index.html"/>
+  <item name="1 Inledning" url="1-inledning.html"/>
+  <item name="2 Versionsinformation" url="2-versionsinformation.html"/>
+  <item name="3 Tjänstedomänens arkitektur" url="3-tjanstedomanens-arkitektur.html"/>
+  <item name="4 Tjänstedomänens krav och regler" url="4-tjanstedomanens-krav-och-regler.html"/>
+  <item name="5 Tjänstedomänens meddelandemodeller" url="5-tjanstedomanens-meddelandemodeller.html"/>
+  <item name="6 Gemensamma informationskomponenter" url="6-gemensamma-informationskomponenter.html"/>
+  <item name="7 Tjänstekontrakt" url="7-tjanstekontrakt.html"/>
+  <item name="Artifacts" url="artifacts.html"/>
+</menu>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">supportprocess: logistics: carelisting - Local Development build (v2.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/supportprocess-logistics-carelisting/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#7-tjänstekontrakt" id="markdown-toc-7-tjänstekontrakt">7 Tjänstekontrakt</a>    <ul>
+      <li><a href="#createlisting" id="markdown-toc-createlisting">CreateListing</a></li>
+      <li><a href="#getavailablehealthcarefacilities" id="markdown-toc-getavailablehealthcarefacilities">GetAvailableHealthcareFacilities</a></li>
+      <li><a href="#getavailablehealthcarepersonnel" id="markdown-toc-getavailablehealthcarepersonnel">GetAvailableHealthcarePersonnel</a></li>
+      <li><a href="#getlistingcounty" id="markdown-toc-getlistingcounty">GetListingCounty</a></li>
+      <li><a href="#getlisting" id="markdown-toc-getlisting">GetListing</a></li>
+      <li><a href="#getlistingtypes" id="markdown-toc-getlistingtypes">GetListingTypes</a></li>
+      <li><a href="#updatelisting" id="markdown-toc-updatelisting">UpdateListing</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="7-tjänstekontrakt">7 Tjänstekontrakt</h1>
+
+<p>Källa: <em>Tjänstekontraktsbeskrivning, Listning</em>, version 2.1 (2025-06-13), <a href="TKB_supportprocess_logistics_carelisting.docx">TKB_supportprocess_logistics_carelisting.docx</a>.</p>
+
+<p>Motsvarar TKB kapitel 6 <em>Tjänstekontrakt</em> (7.1 = TKB 6.1 osv.). Efter TKB:ns text följer för varje kontrakt fälten enligt schemat, tjänsteinteraktionen enligt WSDL, källfilerna och de genererade FHIR-artefakterna.</p>
+
+<h3 id="createlisting">CreateListing</h3>
+
+<p>Tjänstekontraktet CreateListing anropas av tjänstekonsument för att förmedla att invånare önskar lista sig /lista om sig på vald listningsbar mottagning/vårdenhet. Aktören för tjänstekonsumenten är invånaren eller vårdnadshavare som på uppdrag av invånaren önskar utföra omlistningen. Tjänstekontraktet får inte anropas av övriga aktörer.</p>
+
+<p>En tjänsteproducent kan bli anropad på tjänstekontraktet CreateListing för en listningsbar mottagning/vårdenhet där invånaren redan är listad. Avsikt för detta kan vara:</p>
+
+<ul>
+  <li>Invånare är redan listad på mottagningen men vill nu också välja fast läkarkontakt (förutsätter att mottagningen erbjuder val av fast läkarkontakt)</li>
+  <li>Invånare är redan listad på mottagningen och har också sedan tidigare valt fast läkarkontakt men vill nu välja annan fast läkarkontakt på samma mottagning</li>
+  <li>Invånare står sedan tidigare i kö för listning på mottagningen men har ångrat sig och vill gå ur kön</li>
+</ul>
+
+<p>Observera:</p>
+
+<p>För samtliga av dessa situationer bör inte invånarens antal tillåtna omlistningar per 12-månaders period påverkas.</p>
+
+<h4 id="711-frivillighet">7.1.1 Frivillighet</h4>
+
+<p>Tjänstekontraktet är obligatoriskt för tjänsteproducent.</p>
+
+<p>Tjänstekontraktet är frivilligt för tjänstekonsument att stödja. Om tjänstekonsument stödjer kontraktet måste tjänstekonsument även obligatoriskt stödja följande tjänstekontrakt, för att kunna förmedla komplett information till begäran av CreateListing:</p>
+
+<ul>
+  <li>GetListingTypes</li>
+  <li>GetAvailableHealthcareFacilities</li>
+</ul>
+
+<h4 id="712-version">7.1.2 Version</h4>
+
+<p>Aktuell version är 2.0</p>
+
+<h4 id="713-meddelandeinformationsmodell-mim">7.1.3 Meddelandeinformationsmodell (MIM)</h4>
+
+<p><img src="img_004.jpeg" alt="Meddelandeinformationsmodell (MIM) för CreateListing" /></p>
+
+<h4 id="714-fältregler">7.1.4 Fältregler</h4>
+
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Den aktör som utför handlingen. Aktören kan exempelvis vara invånaren eller vårdnadshavare som utför åtgärden åt invånaren. Inga andra aktörer tillåts nyttja detta tjänstekontakt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor.actorId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Id för den aktören som utför handlingen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor.actorId.root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">OID som visar typ av id. / Om aktören representeras av invånare eller vårdnadshavare kan OID vara: / ”1.2.752.129.2.1.3.1” = Person-id för någon som är folkbokförd i Sverige enligt SKV704. / ” 1.2.752.129.2.1.3.3” = Samordningsnummer, SKV / Om aktören är en organisation ska ett HSAId förmedlas som pekar ut organisationen. Fältet sätts då till ” 1.2.752.129.2.1.4.1”</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor.actorId.extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Id för aktören som kan vara ett personnummer eller samordningsnummer om aktören är invånare eller vårdnadshavare, alternativt ett organisations-HSAId om aktören är en organisation.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor.actorTypeEnum</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Typ av aktör. Typ av aktör kan vara: / CITIZEN = invånaren / GUARDIAN = vårdnadshavare</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Invånares personnummer</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId.root</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">OID som visar typ av person-id som förmedlas. Kan vara: / ”1.2.752.129.2.1.3.1” = Person-id för någon som är folkbokförd i Sverige enligt SKV704. / ” 1.2.752.129.2.1.3.3” = Samordningsnummer, SKV</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId.extension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Personnummer eller samordningsnummer, uttrycks med sekel och utan bindestreck.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareFacilityHSAId</td>
+      <td style="text-align: left">HSAIdType / (string)</td>
+      <td style="text-align: left">Den valda listningsbara mottagningens HSAId. / En producent bör kunna hantera HSAId:n som uttrycks både med versaler eller gemener. / Exempelvis är: / ”se12345-xyz” = ”SE12345-XYZ”</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listingType</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Kod för listningstyp. Denna kod har tidigare hämtats från de listningstyper som vald region stödjer, exempelvis via tjänstekontraktet GetListingTypes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listingType.code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kod för listningstypen. Om listningstypen motsvarar den nationella listningstypen för primärvård (i enlighet med det fria vårdvalet) ska värdet vara PV. Regioner har möjlighet att definiera egna regionala listningstyper. Det är i sådant fall upp till regionen att upprätta och förvalta det regionala kodverket.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listingType.codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Sätts till den OID, urn eller liknande som visar på från vilket kodverk den angivna koden innefattas i. / Om listningstypen motsvarar den nationella listningstypen för primärvård (i enlighet med det fria vårdvalet) ska värdet vara 1.2.752.129.5.1.27. / https://inera.atlassian.net/wiki/download/attachments/2648506471/Kv%20nationella%20listningstyper.xlsx?api=v2</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listingType.displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Fältet kan utelämnas av konsument. Det är producentens (regionens listningssystem) ansvar att tillhandahålla listningstypens namn. En producent kan ignorera detta värde om konsument ändå skickar med ett namn på listningtyp.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcarePersonnel</td>
+      <td style="text-align: left">HSAIdType</td>
+      <td style="text-align: left">Vald vårdpersonals-/husläkares HSAId. / Det är frivilligt för mottagningen att dessutom erbjuda val av vårdpersonal. Mottagningens valbara vårdpersonal fås genom tjänstekontraktet GetAvailableHealthcarePersonnel. / Observera: / Om invånaren redan är listad på mottagningen sedan tidigare ska detta anrop ses som att invånaren endast vill förändra sitt val av fast läkarkontakt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">addToQueue</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Förmedlar om invånare vill ställa sig i kö om den tilltänkta listningsbara mottagningen inte tillåts ta emot mer än ett maximalt antal listade invånare och om mottagningen erbjuder möjlighet att ställa sig i listningskö. Huruvida en mottagning erbjuder listningskö eller inte kan hämtas via tjänstekontraktet GetAvailableHealthcareFacilities. / ”TRUE” = Invånare vill ställa sig i listningskö. / ”FALSE” eller att attributet är utelämnat = Invånare vill inte ställa sig i listningskö eller vill gå ur kön. / Observera: / Om invånaren redan står i kö på denna mottagning och addToQueue = FALSE ska detta tolkas som att invånaren vill gå ur kön.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">homeCounty</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Invånares folkbokföringsregion. / Kan utelämnas om listningen gäller i hemregionen (folkbokföringsregionen), d v s om / logicalAddress = folkbokföringsregion / och / healthcareFacilityHSAId pekar på en mottagning som har vårdavtal med regionen och är listningsbar där. / Annars är fältet obligatoriskt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">homeCounty.root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">OID för länskod. (kv/län – 1.2.752.129.2.2.1.18)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">homeCounty.extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Länskod</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">newListingCounty</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Pålistningsregion, d v s den region där vald mottagning har ett vårdavtal och är listningsbar i. / Kan utelämnas om listningen gäller i hemregionen (folkbokföringsregionen)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">newListingCounty.root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">OID för länskod. (kv/län – 1.2.752.129.2.2.1.18)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">newListingCounty.extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Länskod</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultCodeEnum</td>
+      <td style="text-align: left">Kan vara OK, INFO, ERROR alternativt något av följande specifika koder (se även resultText nedan): / ERROR_MAXIMUM_ANNUAL_UPDATES_EXCEEDED / ERROR_MAXIMUM_CITIZEN_REACHED_ON_CAREUNIT / ERROR_GUARDIAN_CONSENT_NEEDED / ERROR_AGE_LIMIT</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kan utelämnas om resultCode = OK. / Producent förväntas skicka ett tillräckligt informativt meddelande som kan presenteras för slutanvändare i ett användargränssnitt i de fall resultCode == ERROR. / OBSERVERA: / Producent ska returnera specifika felkoder för följande situationer: / Invånares maximalt antal tillåtna omlistningar under en 12-månaders-period har uppnåtts / Den valda vårdenheten som invånare vill lista sig på har uppnått det maximala antalet tillåtna invånare (<em>) / Omlistningen tillåts inte då det saknas fullvärdigt samtycke (t ex att båda vårdnadshavare har samtyckt om omlistningen) / Invånares ålder är utanför tillåtet åldersspann för listningstypen / (</em>) / Detta kan inträffa då anropet görs med addToQueue = FALSE och maxtaket för antal tillåtna listningar/invånare på mottagningen uppnåtts. I det fall addToQueue = TRUE och invånare kan placeras i kö ska resultCode=OK returneras.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="715-övriga-regler">7.1.5 Övriga regler</h4>
+
+<p>Inga övriga regler finns definierade.</p>
+
+<h5 id="7151-icke-funktionella-krav">7.1.5.1 Icke funktionella krav</h5>
+
+<p>Anropande tjänstekonsument/tjänst ska säkerställa att aktören (invånaren eller vårdnadshavare till invånare) godkänt nytt val av listning (vårdval). Om bytet sker över regiongränserna (utomlänslistning) ska anropande tjänstekonsument/tjänst inhämta samtycke från invånare om att ett utlämnande av listningsinformation mellan berörda regioner tillåts ske. Likaså ska invånare informeras om att rättigheter avseende vårdgarantin kan påverkas av nya valet då invånare listar sig i annan region än sin folkbokföringsregion.</p>
+
+<h5 id="7152-sla-krav">7.1.5.2 SLA-krav</h5>
+
+<p>Se generella SLA krav under rubrik 4.2.2 ovan.</p>
+
+<h4 id="716-fältregler-enligt-schema-xsd">7.1.6 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../actorId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../actorType</td>
+      <td style="text-align: left">ActorTypeEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareFacilityHSAId</td>
+      <td style="text-align: left">HSAIdType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listingType</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcarePersonnel</td>
+      <td style="text-align: left">HSAIdType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">addToQueue</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">homeCounty</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">newListingCounty</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultCodeEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="717-tjänsteinteraktion-enligt-wsdl">7.1.7 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:supportprocess:logistics:carelisting:CreateListingResponder:2:CreateListing</code></p>
+
+<h4 id="718-källfiler-riv-ta">7.1.8 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="CreateListingInteraction_2.0_RIVTABP21.wsdl">CreateListingInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="CreateListingResponder_2.0.xsd">CreateListingResponder_2.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="supportprocess_logistics_carelisting_2.0.xsd">supportprocess_logistics_carelisting_2.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TP_CreateListing_2.1.docx">SjD_TP_CreateListing_2.1.docx</a></td>
+      <td>Självdeklaration för tjänsteproducent</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="719-fhir-artefakter">7.1.9 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-createlisting-request.html">StructureDefinition/createlisting-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-createlisting.html">StructureDefinition/createlisting</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-carelisting-actortype-cs.html">CodeSystem/carelisting-actortype-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-carelisting-actortype-vs.html">ValueSet/carelisting-actortype-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-carelisting-resultcode-cs.html">CodeSystem/carelisting-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-carelisting-resultcode-vs.html">ValueSet/carelisting-resultcode-vs</a></li>
+</ul>
+
+<h3 id="getavailablehealthcarefacilities">GetAvailableHealthcareFacilities</h3>
+
+<p>Tjänstekontraktet GetAvailableHealthcareFacilities anropas av tjänstekonsument för att hämta lista med listningsbara mottagningar som en region erbjuder. Listan kan i anropet filtreras för att endast hämta mottagningar som stödjer ett urval av listningstyper (för region som exponerar flera olika listningstyper) eller en lista med HSAId:n för de mottagningar som ska returneras.</p>
+
+<h4 id="721-frivillighet">7.2.1 Frivillighet</h4>
+
+<p>Tjänstekontraktet är obligatoriskt för tjänsteproducent.</p>
+
+<p>Tjänstekonsument måste stödja kontraktet om tjänstekonsument också stödjer kontraktet CreateListing. Tjänstekontraktet är annars frivilligt för tjänstekonsument.</p>
+
+<h4 id="722-version">7.2.2 Version</h4>
+
+<p>Aktuell version är 2.1.</p>
+
+<p>Tillägg sedan version 2.0 är att svaret också ger hur lång kön är per mottagning samt uppskattad väntetid, om mottagningen har kö. Se attributet queueLength nedan.</p>
+
+<h4 id="723-meddelandeinformationsmodell-mim">7.2.3 Meddelandeinformationsmodell (MIM)</h4>
+
+<p><img src="img_011.jpeg" alt="Meddelandeinformationsmodell (MIM) för GetAvailableHealthcareFacilities" /></p>
+
+<h4 id="724-fältregler">7.2.4 Fältregler</h4>
+
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareFacilities</td>
+      <td style="text-align: left">HSAIdType / (string)</td>
+      <td style="text-align: left">En lista med HSAId:n som tjänstekonsument önskar hämta/filtrera på. / En tjänsteproducent ska kunna hantera HSAId:n som uttrycks både med versaler eller gemener. / Exempelvis är: / ”se12345-xyz” = ”SE12345-XYZ”</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listingTypes</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Lista med listningstyper som tjänstekonsument önskar filtrera listningsbara mottagningar på. Se listningstyper i referens [R3]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listingTypes.code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kod för listningstypen som ska filtreras på. Om listningstypen motsvarar den nationella listningstypen för primärvård (i enlighet med det fria vårdvalet) ska värdet för code vara PV. / Regioner har möjlighet att definiera egna regionala listningstyper. Det är i sådant fall upp till regionen att upprätta och förvalta det regionala kodverket. / De regionala koderna förväntas hämtas av tjänstekonsument via tjänstekontraktet GetListingTypes (adresserat till aktuell region).</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listingTypes.codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Sätts till den OID, urn eller liknande som visar på från vilket kodverk den angivna koden innefattas. / Om listningstypen motsvarar den nationella listningstypen för primärvård (i enlighet med det fria vårdvalet) ska värdet för codeSystem vara ”1.2.752.129.5.1.27”. / https://inera.atlassian.net/wiki/download/attachments/2648506471/Kv%20nationella%20listningstyper.xlsx?api=v2</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listingTypes.displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Fältet kan utelämnas av konsument. Det är producentens (regionens listningssystem) ansvar att tillhandahålla listningstypens namn. En producent kan ignorera detta värde om konsument ändå skickar med ett namn på listningtyp för filtreringen. Filtreringen ska ske baserat på kombinationen code + codeSystem.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareFacilities</td>
+      <td style="text-align: left">HealthcareFacilityType</td>
+      <td style="text-align: left">Lista med de listningsbara mottagningarna, baserat på filtervärden i begäran.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareFacilities.id</td>
+      <td style="text-align: left">HSAIdType / (string)</td>
+      <td style="text-align: left">HSAId för mottagningen / En tjänstekonsument bör kunna hantera HSAId:n som uttrycks både med versaler och gemener. / Exempelvis är: / ”se12345-xyz” = ”SE12345-XYZ”</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareFacilities.name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på vårdenheten</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareFacilities.hasQueue</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Visar huruvida mottagningen erbjuder kö när mottagningens maximala kvot av listade invånare har nåtts. / Skall endast sättas till TRUE om mottagningens maximala kvot uppnåtts och mottagningen erbjuder kö till listning, således: / TRUE = Maximala antalet invånare som mottagningen får lista är uppnått samt listningskö erbjuds / FALSE = För övrigt</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareFacilities.supportedListingTypes</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Lista med olika listningstyper som mottagningen erbjuder. / Om attributet är utelämnat innebär det att mottagningen endast erbjuder listning av typen öppenvårdsmottagning/primärvård. Se listningstyper i Informationsspecifikationen R3.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareFacilities.supportedListingTypes.code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kod för listningstypen som mottagningen stödjer.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareFacilities.supportedListingTypes.codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">OID, urn eller liknande som visar på från vilket kodverk den angivna koden/listningstypen innefattas. / Om listningstypen motsvarar den nationella listningstypen för primärvård (i enlighet med det fria vårdvalet) ska värdet för codeSystem vara ”1.2.752.129.5.1.27”.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareFacilities.supportedListingTypes.displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Benämning av listningstypen. Benämningen ska vara uttryckt på ett invånarvänligt sätt för att kunna förmedlas i invånarens användargränssnitt i e-tjänst.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareFacilities.supportsHealthcarePersonnel</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Visar huruvida mottagningen erbjuder möjlighet att i samband med listning även välja specifik vårdpersonal, d v s ”fast läkarkontakt". / Det är frivilligt för region att erbjuda denna möjlighet. Om möjligheten erbjuds behöver regionens listningssystem även stödja tjänstekontraktet GetAvailableHealthcarePersonnel som producent. / TRUE = mottagningen erbjuder fast läkarkontakt. / Utelämnas eller sätts till FALSE om mottagningen inte erbjuder fast läkarkontakt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareFacilities.queueLength</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left">Nytt attribut fr o m version 2.1. / Om mottagningens maxtak på antalet listade invånare har uppnåtts kan mottagningen meddela hur lång kön är just nu.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareFacilities.estimatedWaitInQueue</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left">Nytt attribut fr o m version 2.1. / Om mottagningens maxtak på antalet listade invånare har uppnåtts kan mottagningen meddela hur lång den uppskattade väntetiden är tills invånare kan få en listningsplats. Uppskattad väntetid anges i antal dagar och sätts frivilligt av listningssystemet endast då mpttagningens maxtak har uppnåtts och att mottagningen erbjuder kö.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultCodeEnum</td>
+      <td style="text-align: left">Kan endast vara OK, INFO eller ERROR.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kan utelämnas om resultCode = OK. / Producent förväntas skicka ett tillräckligt informativt meddelande som underlättar felsökning i de fall resultCode == ERROR</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="725-övriga-regler">7.2.5 Övriga regler</h4>
+
+<p>Inga övriga regler finns definierade.</p>
+
+<h5 id="7251-icke-funktionella-krav">7.2.5.1 Icke funktionella krav</h5>
+
+<p>Inga icke-funktionella krav är definierade.</p>
+
+<h5 id="7252-sla-krav">7.2.5.2 SLA-krav</h5>
+
+<p>Se generella SLA krav under rubrik 4.2.2 ovan.</p>
+
+<h4 id="726-fältregler-enligt-schema-xsd">7.2.6 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareFacilities</td>
+      <td style="text-align: left">HSAIdType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listingTypes</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareFacilities</td>
+      <td style="text-align: left">HealthcareFacilityType</td>
+      <td style="text-align: left">Vårdinrättning/vårdenhet som ansvarar för en person som listat sig hos dem. Det är denna inrättning som får ekonomisk ersättning för personen.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../id</td>
+      <td style="text-align: left">HSAIdType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på vårdenheten.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../hasQueue</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../supportedListingTypes</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Lista med listningstyper som vårdeneheten stödjer. Kan utelämnas om information saknas eller om informationen inte behövs i kontexten där entiteten är tänkt att användas i.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../supportsHealthcarePersonnel</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../queueLength</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">(Refererat element ur supportprocess_logistics_carelisting_2.1_ext.xsd, namnrymd urn:riv:supportprocess:logistics:carelisting:2.1.)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../estimatedWaitInQueue</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">(Refererat element ur supportprocess_logistics_carelisting_2.1_ext.xsd, namnrymd urn:riv:supportprocess:logistics:carelisting:2.1.)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultCodeEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="727-tjänsteinteraktion-enligt-wsdl">7.2.7 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:supportprocess:logistics:carelisting:GetAvailableHealthcareFacilitiesResponder:2:GetAvailableHealthcareFacilities</code></p>
+
+<h4 id="728-källfiler-riv-ta">7.2.8 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetAvailableHealthcareFacilitiesInteraction_2.1_RIVTABP21.wsdl">GetAvailableHealthcareFacilitiesInteraction_2.1_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetAvailableHealthcareFacilitiesResponder_2.1.xsd">GetAvailableHealthcareFacilitiesResponder_2.1.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="supportprocess_logistics_carelisting_2.1.xsd">supportprocess_logistics_carelisting_2.1.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="supportprocess_logistics_carelisting_2.1_ext.xsd">supportprocess_logistics_carelisting_2.1_ext.xsd</a></td>
+      <td>Domänschema (delat), utökningar i version 2.1</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TP_GetAvailableHealthcareFacilities_2.1.docx">SjD_TP_GetAvailableHealthcareFacilities_2.1.docx</a></td>
+      <td>Självdeklaration för tjänsteproducent</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="729-fhir-artefakter">7.2.9 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getavailablehealthcarefacilities-request.html">StructureDefinition/getavailablehealthcarefacilities-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getavailablehealthcarefacilities.html">StructureDefinition/getavailablehealthcarefacilities</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-carelisting-resultcode-cs.html">CodeSystem/carelisting-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-carelisting-resultcode-vs.html">ValueSet/carelisting-resultcode-vs</a></li>
+</ul>
+
+<h3 id="getavailablehealthcarepersonnel">GetAvailableHealthcarePersonnel</h3>
+
+<p>Tjänstekontraktet GetAvailableHealthcarePersonnel anropas av tjänstekonsument för att hämta lista med valbar vårdpersonal för specifik listningsbar mottagning, motsvarande den lista med ”fast läkarkontakt” som mottagningen/vårdenheten erbjuder.</p>
+
+<h4 id="731-frivillighet">7.3.1 Frivillighet</h4>
+
+<p>Tjänstekontraktet är frivilligt för tjänsteproducent. Tjänstekonsument ska kunna hantera tjänsteproducent som inte exponerar tjänstekontraktet genom att inte erbjuda valet om fast läkarkontakt i sitt användargränssnitt. Om tjänsteproducenten (regionen) exponerar tjänstekontraktet (och den specifika mottagningen också erbjuder val av fast läkarkontakt) måste tjänstekonsumenten erbjuda valet för invånaren.</p>
+
+<h4 id="732-version">7.3.2 Version</h4>
+
+<p>Aktuell version är 2.0.</p>
+
+<h4 id="733-meddelandeinformationsmodell-mim">7.3.3 Meddelandeinformationsmodell (MIM)</h4>
+
+<p><img src="img_010.jpeg" alt="Meddelandeinformationsmodell (MIM) för GetAvailableHealthcarePersonnel" /></p>
+
+<h4 id="734-fältregler">7.3.4 Fältregler</h4>
+
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Invånares personnummer</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId.root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">OID som visar typ av person-id som förmedlas. Kan vara: / ”1.2.752.129.2.1.3.1” = Person-id för någon som är folkbokförd i Sverige enligt SKV704. / ” 1.2.752.129.2.1.3.3” = Samordningsnummer, SKV</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId.extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Personnummer eller samordningsnummer, uttrycks med sekel och utan bindestreck.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareFacility</td>
+      <td style="text-align: left">HSAIdType / (string)</td>
+      <td style="text-align: left">HSAId för den listningsbara mottagningen som erbjuder val av vårdpersonal. / En producent bör kunna hantera HSAId:n som uttrycks både med versaler eller gemener. / Exempelvis är: / ”se12345-xyz” = ”SE12345-XYZ”</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listingTypes</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Lista med listningstyper som konsument önskar filtrera på. Se listningstyper i referens [R3]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcarePersonnel</td>
+      <td style="text-align: left">HealthcarePersonnelType</td>
+      <td style="text-align: left">Lista med vårdpersonal som kan väljas för listningen för den valda mottagningen i begäran.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcarePersonnel.id</td>
+      <td style="text-align: left">HSAIdType / (string)</td>
+      <td style="text-align: left">HsaId för vårdpersonal</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcarePersonnel.name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn (för- och efternamn) för vårdpersonal</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcarePersonnel.title</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Vårdpersonals titel</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultCodeEnum</td>
+      <td style="text-align: left">Kan endast vara OK, INFO eller ERROR.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kan utelämnas om resultCode = OK. / Producent förväntas skicka ett tillräckligt informativt meddelande som underlättar felsökning i de fall resultCode == ERROR</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="735-övriga-regler">7.3.5 Övriga regler</h4>
+
+<p>Inga övriga regler finns definierade.</p>
+
+<h5 id="7351-icke-funktionella-krav">7.3.5.1 Icke funktionella krav</h5>
+
+<p>Inga icke-funktionella krav är definierade.</p>
+
+<h5 id="7352-sla-krav">7.3.5.2 SLA-krav</h5>
+
+<p>Se generella SLA krav under rubrik 4.2.2 ovan.</p>
+
+<h4 id="736-fältregler-enligt-schema-xsd">7.3.6 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcareFacilityHSAId</td>
+      <td style="text-align: left">HSAIdType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listingTypes</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthcarePersonnel</td>
+      <td style="text-align: left">HealthcarePersonnelType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../id</td>
+      <td style="text-align: left">HSAIdType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../title</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultCodeEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="737-tjänsteinteraktion-enligt-wsdl">7.3.7 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:supportprocess:logistics:carelisting:GetAvailableHealthcarePersonnelResponder:2:GetAvailableHealthcarePersonnel</code></p>
+
+<h4 id="738-källfiler-riv-ta">7.3.8 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetAvailableHealthcarePersonnelInteraction_2.0_RIVTABP21.wsdl">GetAvailableHealthcarePersonnelInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetAvailableHealthcarePersonnelResponder_2.0.xsd">GetAvailableHealthcarePersonnelResponder_2.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="supportprocess_logistics_carelisting_2.0.xsd">supportprocess_logistics_carelisting_2.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TP_GetAvailableHealthcarePersonnel_2.1.docx">SjD_TP_GetAvailableHealthcarePersonnel_2.1.docx</a></td>
+      <td>Självdeklaration för tjänsteproducent</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="739-fhir-artefakter">7.3.9 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getavailablehealthcarepersonnel-request.html">StructureDefinition/getavailablehealthcarepersonnel-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getavailablehealthcarepersonnel.html">StructureDefinition/getavailablehealthcarepersonnel</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-carelisting-resultcode-cs.html">CodeSystem/carelisting-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-carelisting-resultcode-vs.html">ValueSet/carelisting-resultcode-vs</a></li>
+</ul>
+
+<h3 id="getlistingcounty">GetListingCounty</h3>
+
+<p>Tjänstekontraktet GetListingCounty anropas av tjänstekonsument för att hämta invånares nuvarande listningsregion(er). En tjänstekonsument ska adressera anropet av tjänstekontraktet till den region där invånaren är folkbokförd. Tjänstekontraktets syfte är att kunna förmedla om invånare eventuellt är utomlänslistad. Det är folkbokföringsregionens ansvar att hålla reda på i vilken annan region en invånare är listad hos, om invånaren är utomlänslistad. Om en region erbjuder mer än en listningstyp kan det inträffa att svaret innehåller mer än en region – se scenario 3 nedan.</p>
+
+<p>Exempel på scenarios som kan inträffa:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Scenario</th>
+      <th style="text-align: left">Förutsättning</th>
+      <th style="text-align: left">Utfall</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">Tjänstekontraktet adresseras till invånares folkbokföringsregion. / Invånare är listad på en mottagning i folkbokföringsregionen.</td>
+      <td style="text-align: left">I svaret returneras en region - invånarens folkbokföringsregion.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Tjänstekontraktet adresseras till invånares folkbokföringsregion. / Folkbokföringsregionen erbjuder endast en listningstyp – listning till öppenvård/primärvård. / Invånare är listad på mottagning i annan region.</td>
+      <td style="text-align: left">I svaret returneras en region - regionen som invånare är utomlänslistad hos.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">Tjänstekontraktet adresseras till invånares folkbokföringsregion. / Invånare är listad på mottagning i annan region. / Folkbokföringsregionen erbjuder dessutom flera andra regionala listningstyper (i detta exempel möjlighet att dessutom lista sig för tandvård).</td>
+      <td style="text-align: left">I svaret returneras två regioner - regionen som invånare är utomlänslistad hos samt folkbokföringsregion. Tjänstekonsumenten förväntas därmed anropa båda regionerna om detaljer om listningarna ska hämtas (GetListing)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">Tjänstekontraktet adresseras till annan region än invånares folkbokföringsregion.</td>
+      <td style="text-align: left">I svaret returneras inga regioner. / Det åligger tjänstekonsumenten att ha vetskap om invånares folkbokföringsregion innan anropet.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">Tjänstekontraktet adresseras till invånares folkbokföringsregion. / Invånare har inte aktivt valt listning. / Regionen tillämpar inte passiv listning, d v s tilldelar inte invånare en mottagning automatiskt.</td>
+      <td style="text-align: left">I svaret returneras inga regioner.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="741-frivillighet">7.4.1 Frivillighet</h4>
+
+<p>Tjänstekontraktet är obligatoriskt för tjänsteproducent.</p>
+
+<p>Tjänstekontraktet är frivilligt för tjänstekonsument. Om tjänstekonsument inte stödjer tjänstekontraktet kan inte tjänstekonsumenten erbjuda utomlänslistning eller synliggöra alla invånares aktuella listningar.</p>
+
+<h4 id="742-version">7.4.2 Version</h4>
+
+<p>Aktuell version är 2.0.</p>
+
+<p>Tjänstekontraktet är nytt fr o m version 2 av tjänstedomänen men har ändå versionerats till 2 för att tydliggöra att tjänstekontraktet är en del av tjänstedomän version 2.</p>
+
+<h4 id="743-meddelandeinformationsmodell-mim">7.4.3 Meddelandeinformationsmodell (MIM)</h4>
+
+<p><img src="img_009.png" alt="Meddelandeinformationsmodell (MIM) för GetListingCounty" /></p>
+
+<h4 id="744-fältregler">7.4.4 Fältregler</h4>
+
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Den aktör som utför handlingen. Aktören kan exempelvis vara invånaren eller vårdnadshavare som utför åtgärden åt invånaren.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor.actorId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Id för den aktören som utför handlingen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor.actorId.root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">OID som visar typ av id. / Om aktören representeras av invånare eller vårdnadshavare kan OID vara: / ”1.2.752.129.2.1.3.1” = Person-id för någon som är folkbokförd i Sverige enligt SKV704. / ” 1.2.752.129.2.1.3.3” = Samordningsnummer, SKV / Om aktören är en organisation ska ett HSAId förmedlas som pekar ut organisationen. Fältet sätts då till ” 1.2.752.129.2.1.4.1”</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor.actorId.extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Id för aktören som kan vara ett personnummer eller samordningsnummer om aktören är invånare eller vårdnadshavare, alternativt ett HSAId om aktören är en organisation.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor.actorTypeEnum</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Typ av aktör. Typ av aktör kan vara: / CITIZEN = invånaren / GUARDIAN = vårdnadshavare / REGION = Region/sjukvårdshuvudman / PRIVATE_CAREGIVER = Privat vårdgivare med vårdavtal / SELF_OWNED_CAREGIVER = Vårdgivare driven i egen regi / HEALTHCARE_ADVISER = Sjukvårdsrådgivning / Baserat på aktör kan region/listningssystem välja om listningen ska synliggöras.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Invånares personnummer</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId.root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">OID som visar typ av person-id som förmedlas. Kan vara: / ”1.2.752.129.2.1.3.1” = Person-id för någon som är folkbokförd i Sverige enligt SKV704. / ” 1.2.752.129.2.1.3.3” = Samordningsnummer, SKV</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId.extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Personnummer eller samordningsnummer, uttrycks med sekel och utan bindestreck.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listingCounties</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Lista med regioner som invånare har aktiv listning på. Det är folkbokföringsregionens ansvar att hålla reda på i vilken/vilka regioner som invånare har aktiv(a) listningar hos.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listingCounties.root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">OID för länskod. (kv/län – 1.2.752.129.2.2.1.18)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listingCounties.extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Länskod</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultCodeEnum</td>
+      <td style="text-align: left">Kan endast vara OK, INFO eller ERROR.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kan utelämnas om resultCode = OK. / Producent förväntas skicka ett tillräckligt informativt meddelande som underlättar felsökning i de fall resultCode == ERROR</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="745-övriga-regler">7.4.5 Övriga regler</h4>
+
+<p>Inga övriga regler finns definierade.</p>
+
+<h5 id="7451-icke-funktionella-krav">7.4.5.1 Icke funktionella krav</h5>
+
+<p>Inga icke-funktionella krav är definierade.</p>
+
+<h5 id="7452-sla-krav">7.4.5.2 SLA-krav</h5>
+
+<p>Se generella SLA krav under rubrik 4.2.2 ovan.</p>
+
+<h4 id="746-fältregler-enligt-schema-xsd">7.4.6 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../actorId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../actorType</td>
+      <td style="text-align: left">ActorTypeEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listingCounties</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultCodeEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="747-tjänsteinteraktion-enligt-wsdl">7.4.7 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:supportprocess:logistics:carelisting:GetListingCountyResponder:2:GetListingCounty</code></p>
+
+<h4 id="748-källfiler-riv-ta">7.4.8 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetListingCountyInteraction_2.0_RIVTABP21.wsdl">GetListingCountyInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetListingCountyResponder_2.0.xsd">GetListingCountyResponder_2.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="supportprocess_logistics_carelisting_2.0.xsd">supportprocess_logistics_carelisting_2.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TP_GetListingCounty_2.1.docx">SjD_TP_GetListingCounty_2.1.docx</a></td>
+      <td>Självdeklaration för tjänsteproducent</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="749-fhir-artefakter">7.4.9 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getlistingcounty-request.html">StructureDefinition/getlistingcounty-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getlistingcounty.html">StructureDefinition/getlistingcounty</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-carelisting-actortype-cs.html">CodeSystem/carelisting-actortype-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-carelisting-actortype-vs.html">ValueSet/carelisting-actortype-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-carelisting-resultcode-cs.html">CodeSystem/carelisting-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-carelisting-resultcode-vs.html">ValueSet/carelisting-resultcode-vs</a></li>
+</ul>
+
+<h3 id="getlisting">GetListing</h3>
+
+<p>Tjänstekontraktet GetListing anropas av tjänstekonsument för att hämta invånares nuvarande listningsdetaljer. En invånare kan vara listad hos mer än en region samtidigt, i det fall då hemregionen (folkbokföringsregionen) erbjuder mer än en listningstyp (läs mer om listningstyper i Informationsspecifikation R3). I ett sådant fall behöver tjänstekonsumenten anropa respektive region separat via tjänstekontraktet.</p>
+
+<p>En tjänstekonsument kan hämta vilka regioner en invånare har listningar på genom att anropa tjänstekontraktet GetListingCounty som adresseras till invånares folkbokföringsregion.</p>
+
+<h4 id="751-frivillighet">7.5.1 Frivillighet</h4>
+
+<p>Tjänstekontraktet är obligatoriskt för tjänsteproducent och tjänstekonsument.</p>
+
+<h4 id="752-version">7.5.2 Version</h4>
+
+<p>Aktuell version är 2.1.</p>
+
+<p>Tillägg i version 2.1 kontra version 2.0 är möjligheten att förmedla vilken köplats invånaren har då invånaren står i kö på mottagningen. Likaså att invånaren också kan få en ungefärlig tid det kan ta innan invånaren erbjuds en listning. Se fälten queuePosition och estimatedWaitInQueue.</p>
+
+<p>När tjänstekontraktsanropet adresseras till invånarens folkbokföringsregion kan regionen förmedla antal återstående omlistningar som invånaren har (remainingChanges).</p>
+
+<h4 id="753-meddelandeinformationsmodell-mim">7.5.3 Meddelandeinformationsmodell (MIM)</h4>
+
+<p><img src="img_007.jpeg" alt="Meddelandeinformationsmodell (MIM) för GetListing" /></p>
+
+<h4 id="754-fältregler">7.5.4 Fältregler</h4>
+
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Den aktör som utför handlingen. Aktören kan exempelvis vara invånaren eller vårdnadshavare som utför åtgärden åt invånaren.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor.actorId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Id för den aktören som utför handlingen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor.actorId.root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">OID som visar typ av id. / Om aktören representeras av invånare eller vårdnadshavare kan OID vara: / ”1.2.752.129.2.1.3.1” = Person-id för någon som är folkbokförd i Sverige enligt SKV704. / ” 1.2.752.129.2.1.3.3” = Samordningsnummer, SKV / Om aktören är en organisation ska ett HSAId förmedlas som pekar ut organisationen. Fältet sätts då till ” 1.2.752.129.2.1.4.1”</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor.actorId.extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Id för aktören som kan vara ett personnummer eller samordningsnummer om aktören är invånare eller vårdnadshavare, alternativt ett HSAId om aktören är en organisation.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor.actorTypeEnum</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Typ av aktör. Typ av aktör kan vara: / CITIZEN = invånaren / GUARDIAN = vårdnadshavare / REGION = Region/sjukvårdshuvudman / PRIVATE_CAREGIVER = Privat vårdgivare med vårdavtal / SELF_OWNED_CAREGIVER = Vårdgivare driven i egen regi / HEALTHCARE_ADVISER = Sjukvårdsrådgivning / Baserat på aktör kan region/listningssystem välja om listningen ska synliggöras.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Invånares personnummer</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId.root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">OID som visar typ av person-id som förmedlas. Kan vara: / ”1.2.752.129.2.1.3.1” = Person-id för någon som är folkbokförd i Sverige enligt SKV704. / ” 1.2.752.129.2.1.3.3” = Samordningsnummer, SKV</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId.extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Personnummer eller samordningsnummer, uttrycks med sekel och utan bindestreck.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings</td>
+      <td style="text-align: left">ListingHealthcareFacilityType</td>
+      <td style="text-align: left">Lista med listningsdetaljer för mottagningar som invånare är listad på. Om en region erbjuder sina invånare att kunna lista sig på mer än en listningstyp kan denna lista innehålla mer än en instans med listningsdetaljer (kopplade till en mottagning).</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.validFromDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Datum från när listningen började gälla</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.validToDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left">Datum till när listningen fortfarande gäller</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.listingType</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Listningstyp som listningen gäller. / Se listningstyper i referens [R3]</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.listingType.code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kod för listningstypen. Om listningstypen motsvarar den nationella listningstypen för primärvård (i enlighet med det fria vårdvalet) ska värdet vara PV. Regioner har möjlighet att definiera egna regionala listningstyper. Det är i sådant fall upp till regionen att upprätta och förvalta det regionala kodverket.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.listingType.codeSystem</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Sätts till den OID, urn eller liknande som visar på från vilket kodverk den angivna koden innefattas i. / Om listningstypen motsvarar den nationella listningstypen för primärvård (i enlighet med det fria vårdvalet) ska värdet vara 1.2.752.129.5.1.27. / https://inera.atlassian.net/wiki/download/attachments/2648506471/Kv%20nationella%20listningstyper.xlsx?api=v2</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.listingType.displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Benämningen på listningstypen att visa för invånare i ett användargränssnitt. / För den nationella listningstypen ”PV” ska displayName vara ”Primärvårdslistning”.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.healthcareFacility</td>
+      <td style="text-align: left">HealthcareFacilityType</td>
+      <td style="text-align: left">Den valda listningsbara mottagningen</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.healthcareFacility.id</td>
+      <td style="text-align: left">HSAIdType / (string)</td>
+      <td style="text-align: left">HSAId för mottagningen / En tjänstekonsument bör kunna hantera HSAId:n som uttrycks både med versaler och gemener. / Exempelvis är: / ”se12345-xyz” = ”SE12345-XYZ”</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.healthcareFacility.name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på vårdenheten</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.healthcareFacility.hasQueue</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Visar huruvida mottagningen erbjuder kö när mottagningens maximala kvot av listade invånare har nåtts. / Skall endast sättas till TRUE om mottagningens maximala kvot uppnåtts och mottagningen erbjuder kö till listning, således: / TRUE = Maximala antalet invånare som mottagningen får lista är uppnått samt listningskö erbjuds / FALSE = För övrigt</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.healthcareFacility.supportedListingTypes</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Lista med olika listningstyper som mottagningen erbjuder. / Om attributet är utelämnat innebär det att mottagningen endast erbjuder listning av typen öppenvårdsmottagning/primärvård. Se listningstyper i Informationsspecifikationen R3.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.healthcareFacility.supportedListingTypes.code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kod för listningstypen som mottagningen stödjer.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.healthcareFacility.supportedListingTypes.codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">OID, urn eller liknande som visar på från vilket kodverk den angivna koden/listningstypen innefattas. / Om listningstypen motsvarar den nationella listningstypen för primärvård (i enlighet med det fria vårdvalet) ska värdet för codeSystem vara ”1.2.752.129.5.1.27”.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.healthcareFacility.supportedListingTypes.displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Benämning av listningstypen. Benämningen ska vara uttryckt på ett invånarvänligt sätt för att kunna förmedlas i invånarens användargränssnitt i e-tjänst.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.healthcareFacility.supportsHealthcarePersonnel</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Visar huruvida mottagningen erbjuder möjlighet att i samband med listning även välja specifik vårdpersonal, d v s ”fast läkarkontakt". / Det är frivilligt för region att erbjuda denna möjlighet. Om möjligheten erbjuds behöver regionens listningssystem även stödja tjänstekontraktet GetAvailableHealthcarePersonnel som producent. / TRUE = mottagningen erbjuder fast läkarkontakt. / Utelämnas eller sätts till FALSE om mottagningen inte erbjuder fast läkarkontakt.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.healthcareFacility.queueLength</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left">Nytt fält fr o m v2.1. / Om mottagningen erbjuder kö kan mottagningen redovisa hur många invånare som för tillfället står i listningskö till mottagningen. Fältet är frivilligt. / Observera: / Detta fält ingår i datatypen HealthcareFacilityType som återanvänds även i tjänstekontraktet GetAvailableHealthcareFacilities. I kontextet då en konsument hämtar listningsinformation om en invånare (GetListing) är det inte lika relevant för listningssystemet att förmedla detta värde, då invånaren redan är listad på mottagningen eller står i listningskö till mottagningen.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.healthcareFacility.estimatedWaitInQueue</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left">Nytt fält fr o m v2.1. / Om mottagningen erbjuder kö kan mottagningen redovisa hur lång väntetid som invånare kan förvänta sig. Fältet är frivilligt. / Observera: / Detta fält ingår i datatypen HealthcareFacilityType som återanvänds även i tjänstekontraktet GetAvailableHealthcareFacilities. I kontextet då en konsument hämtar listningsinformation om en invånare (GetListing) är det inte lika relevant för listningssystemet att förmedla detta värde, då invånaren redan är listad på mottagningen eller står i listningskö till mottagningen.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.healthcarePersonnel</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Vårdpersonal som är kopplade till listningen. Det är frivilligt för mottagning att erbjuda invånare möjlighet att dessutom välja vårdpersonal i samband med listningen. Om regionen erbjuder denna möjlighet ska regionen även vara producent för tjänstekontraktet GetAvailableHealthcarePersonnel. Det är Regionen kan därefter välja att erbjuda denna funktionalitet per mottagning, genom flaggan supportsHealthcarePersonnel (i typen HealthCareFacilityType). / Observera att en producent tillåts förmedla fast läkarkontakt genom att populera detta fält även om producent inte erbjuder invånaren möjlighet att digitalt välja fast läkarkontakt. / En konsument ska visa den förmedlade fasta läkarkontakten till invånaren, även om producent inte stödjer det frivilliga tjänstekontraktet GetAvailableHealthcarePersonnel.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.healthcarePersonnel.id</td>
+      <td style="text-align: left">HSAIdType / (string)</td>
+      <td style="text-align: left">HsaId för vårdpersonal</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.healthcarePersonnel.name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn (för- och efternamn) för vårdpersonal</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.healthcarePersonnel.title</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Vårdpersonals titel</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.isInQueue</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Flagga för att visa om invånare står i kö för att lista sig på mottagningen eller om invånare har en aktiv listning. / TRUE = Invånare står i kö / FALSE = Invånare har en aktiv listning på mottagningen</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.queuePosition</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left">Nytt fält fr o m v2.1. / Förmedlar vilken plats i listningskön som invånaren har om invånaren tidigare har valt att ställa sig i kö på mottagningen</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.estimatedWaitInQueue</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left">Nytt fält fr o m v2.1. / Förmedlar hur lång uppskattad återstående väntetid invånaren kan förvänta sig om invånaren tidigare ställt sig i listningskön på mottagningen. Den uppskattade väntetiden ska återge ungefär hur länge till invånare uppskattas behöva vänta innan invånaren blir listad på mottagningen. / Uppskattad väntetid anges i antal dagar.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings.remainingChanges</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left">Nytt fält fr o m v2.1. / Förmedlar hur många omlistningar som invånare har kvar att kunna göra. / För listning till primärvård får invånare lista om sig maximalt 3 ggr under en 12-månaders period enligt Socialstyrelsens föreskrifter.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultCodeEnum</td>
+      <td style="text-align: left">Kan endast vara OK, INFO eller ERROR.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kan utelämnas om resultCode = OK. / Producent förväntas skicka ett tillräckligt informativt meddelande som kan presenteras för slutanvändare i ett användargränssnitt i de fall resultCode == ERROR.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="755-övriga-regler">7.5.5 Övriga regler</h4>
+
+<p>Inga övriga regler finns definierade.</p>
+
+<h5 id="7551-icke-funktionella-krav">7.5.5.1 Icke funktionella krav</h5>
+
+<p>Inga icke-funktionella krav är definierade.</p>
+
+<h5 id="7552-sla-krav">7.5.5.2 SLA-krav</h5>
+
+<p>Se generella SLA krav under rubrik 4.2.2 ovan.</p>
+
+<h4 id="756-fältregler-enligt-schema-xsd">7.5.6 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../actorId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../actorType</td>
+      <td style="text-align: left">ActorTypeEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listings</td>
+      <td style="text-align: left">ListingHealthcareFacilityType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../validFromDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../validToDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../listingType</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../healthcareFacility</td>
+      <td style="text-align: left">HealthcareFacilityType</td>
+      <td style="text-align: left">Vårdinrättning/vårdenhet som ansvarar för en person som listat sig hos dem. Det är denna inrättning som får ekonomisk ersättning för personen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../id</td>
+      <td style="text-align: left">HSAIdType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn på vårdenheten.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../hasQueue</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../supportedListingTypes</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Lista med listningstyper som vårdeneheten stödjer. Kan utelämnas om information saknas eller om informationen inte behövs i kontexten där entiteten är tänkt att användas i.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../supportsHealthcarePersonnel</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../queueLength</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">(Refererat element ur supportprocess_logistics_carelisting_2.1_ext.xsd, namnrymd urn:riv:supportprocess:logistics:carelisting:2.1.)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../estimatedWaitInQueue</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">(Refererat element ur supportprocess_logistics_carelisting_2.1_ext.xsd, namnrymd urn:riv:supportprocess:logistics:carelisting:2.1.)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../healthcarePersonnel</td>
+      <td style="text-align: left">HealthcarePersonnelType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../id</td>
+      <td style="text-align: left">HSAIdType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../title</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../isInQueue</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../queuePosition</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">(Refererat element ur supportprocess_logistics_carelisting_2.1_ext.xsd, namnrymd urn:riv:supportprocess:logistics:carelisting:2.1.)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../estimatedWaitInQueue</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">(Refererat element ur supportprocess_logistics_carelisting_2.1_ext.xsd, namnrymd urn:riv:supportprocess:logistics:carelisting:2.1.)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../remainingChanges</td>
+      <td style="text-align: left">int</td>
+      <td style="text-align: left">(Refererat element ur supportprocess_logistics_carelisting_2.1_ext.xsd, namnrymd urn:riv:supportprocess:logistics:carelisting:2.1.)</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultCodeEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="757-tjänsteinteraktion-enligt-wsdl">7.5.7 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:supportprocess:logistics:carelisting:GetListingResponder:2:GetListing</code></p>
+
+<h4 id="758-källfiler-riv-ta">7.5.8 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetListingInteraction_2.1_RIVTABP21.wsdl">GetListingInteraction_2.1_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetListingResponder_2.1.xsd">GetListingResponder_2.1.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="supportprocess_logistics_carelisting_2.1.xsd">supportprocess_logistics_carelisting_2.1.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="supportprocess_logistics_carelisting_2.1_ext.xsd">supportprocess_logistics_carelisting_2.1_ext.xsd</a></td>
+      <td>Domänschema (delat), utökningar i version 2.1</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TP_GetListing_2.1.docx">SjD_TP_GetListing_2.1.docx</a></td>
+      <td>Självdeklaration för tjänsteproducent</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="759-fhir-artefakter">7.5.9 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getlisting-request.html">StructureDefinition/getlisting-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getlisting.html">StructureDefinition/getlisting</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-carelisting-actortype-cs.html">CodeSystem/carelisting-actortype-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-carelisting-actortype-vs.html">ValueSet/carelisting-actortype-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-carelisting-resultcode-cs.html">CodeSystem/carelisting-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-carelisting-resultcode-vs.html">ValueSet/carelisting-resultcode-vs</a></li>
+</ul>
+
+<h3 id="getlistingtypes">GetListingTypes</h3>
+
+<p>Tjänstekontraktet GetListingTypes anropas av tjänstekonsument för att hämta de listningstyper som erbjuds invånare i den adresserade regionen. Tjänstekontraktet kan användas i två olika sammanhang.</p>
+
+<ul>
+  <li>Hämta alla listningstyper som en utpekad region erbjuder.</li>
+  <li>Hämta de listningstyper som är gällande för en specifik invånare, baserat på invånares folkbokföringsregion</li>
+</ul>
+
+<h4 id="761-hämta-alla-listningstyper-som-en-utpekad-region-erbjuder">7.6.1 Hämta alla listningstyper som en utpekad region erbjuder</h4>
+
+<p>I detta scenario kan tjänstekonsument hämta alla de listningstyper som en region erbjuder regionalt. Tjänstekonsument ska i detta scenario utelämna fälten personnummer och folkbokföringsregion i begäran.</p>
+
+<p>Tjänsteproducent (regions listningssystem) ska returnera samtliga erbjudna listningstyper. Svaret ska även inkludera den på nationell nivå gemensamma listningstypen som motsvarar listning till primärvård/öppenvård (PV). Om region dessutom erbjuder listningstyp som är gemensam i samverkan mellan grupp av regioner ska även denna/dessa returneras (läs mer om listningstyper i Informationsspecifikation R3).</p>
+
+<h4 id="762-hämta-de-listningstyper-som-är-gällande-för-en-specifik-invånare-baserat-på-invånares-folkbokföringsregion">7.6.2 Hämta de listningstyper som är gällande för en specifik invånare, baserat på invånares folkbokföringsregion</h4>
+
+<p>I detta scenario baseras tjänsteproducentens svar på en specifik invånare och invånarens folkbokföringsregion. Tjänstekonsument ska således ange både invånares personnummer samt folkbokföringsregion.</p>
+
+<p>Om invånare är folkbokförd i den region som adresseras ska producenten returnera de regionalt gällande listningstyper Enligt regionens regelverk. Producent kan välja att erbjuda olika mängd regionala listningstyper baserat på den specifika individen/invånaren.</p>
+
+<p>Om invånare är folkbokförd i annan region än den adresserade regionen ska producenten returnera den nationellt gemensamma listningstypen som motsvarar listning till primärvård/öppenvård (motsvarande det nationella fria vårdvalet). Tjänsteproducent kan också returnera gemensamt överenskommen listningstyp som grupp av regioner samverkar kring såvida invånare är folkbokförd i någon av de samarbetande regionerna (läs mer om listningstyper i Informationsspecifikation R3).</p>
+
+<h4 id="763-frivillighet">7.6.3 Frivillighet</h4>
+
+<p>Tjänstekontraktet är obligatoriskt för tjänsteproducent/region.</p>
+
+<p>Tjänstekontraktet är frivilligt för tjänstekonsument. Om tjänstekonsument stödjer listning/omlistning (CreateListing) och erbjuder stöd för detta utöver en enstaka isolerad region ska konsument också stödja kontraktet.</p>
+
+<h4 id="764-version">7.6.4 Version</h4>
+
+<p>Aktuell version är 2.0</p>
+
+<h4 id="765-meddelandeinformationsmodell-mim">7.6.5 Meddelandeinformationsmodell (MIM)</h4>
+
+<p><img src="img_003.png" alt="Meddelandeinformationsmodell (MIM) för GetListingTypes" /></p>
+
+<h4 id="766-fältregler">7.6.6 Fältregler</h4>
+
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Invånares personnummer. Tillåts utelämnas om konsument efterfrågar samtliga listningstyper som region (logicalAddress) erbjuder.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId.root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">OID som visar typ av person-id som förmedlas. Kan vara: / ”1.2.752.129.2.1.3.1” = Person-id för någon som är folkbokförd i Sverige enligt SKV704. / ” 1.2.752.129.2.1.3.3” = Samordningsnummer, SKV</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId.extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Personnummer eller samordningsnummer, uttrycks med sekel och utan bindestreck.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">homeCounty</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Invånares folkbokföringsregion. / Fältet ska utelämnas om konsument ej angivit invånares personnummer.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">homeCounty.root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">OID för länskod. (kv/län – 1.2.752.129.2.2.1.18)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">homeCounty.extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Länskod</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listingTypes</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Listningstyper som producent erbjuder. / Se listningstyper i referens [R3]</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listingTypes.code</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Kod för listningstypen. Om listningstypen motsvarar den nationella listningstypen för primärvård (i enlighet med det fria vårdvalet) ska värdet vara PV. Regioner har möjlighet att definiera egna regionala listningstyper. Det är i sådant fall upp till regionen att upprätta och förvalta det regionala kodverket.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listingTypes.codeSystem</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Sätt till den OID, urn eller liknande som visar på från vilket kodverk den angivna koden innefattas i. / Om listningstypen motsvarar den nationella listningstypen för primärvård (i enlighet med det fria vårdvalet) ska värdet vara 1.2.752.129.5.1.27. / https://inera.atlassian.net/wiki/download/attachments/2648506471/Kv%20nationella%20listningstyper.xlsx?api=v2</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultCodeEnum</td>
+      <td style="text-align: left">Kan endast vara OK, INFO eller ERROR.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kan utelämnas om resultCode = OK. / Producent förväntas skicka ett tillräckligt informativt meddelande som underlättar felsökning i de fall resultCode == ERROR</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="767-övriga-regler">7.6.7 Övriga regler</h4>
+
+<p>Inga övriga regler finns definierade.</p>
+
+<h5 id="7671-icke-funktionella-krav">7.6.7.1 Icke funktionella krav</h5>
+
+<p>Inga icke-funktionella krav är definierade.</p>
+
+<h5 id="7672-sla-krav">7.6.7.2 SLA-krav</h5>
+
+<p>Se generella SLA krav under rubrik 4.2.2 ovan.</p>
+
+<h4 id="768-fältregler-enligt-schema-xsd">7.6.8 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">homeCountyCode</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listingTypes</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultCodeEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="769-tjänsteinteraktion-enligt-wsdl">7.6.9 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:supportprocess:logistics:carelisting:GetListingTypesResponder:2:GetListingTypes</code></p>
+
+<h4 id="7610-källfiler-riv-ta">7.6.10 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetListingTypesInteraction_2.0_RIVTABP21.wsdl">GetListingTypesInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetListingTypesResponder_2.0.xsd">GetListingTypesResponder_2.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="supportprocess_logistics_carelisting_2.0.xsd">supportprocess_logistics_carelisting_2.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TP_GetListingTypes_2.1.docx">SjD_TP_GetListingTypes_2.1.docx</a></td>
+      <td>Självdeklaration för tjänsteproducent</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7611-fhir-artefakter">7.6.11 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getlistingtypes-request.html">StructureDefinition/getlistingtypes-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getlistingtypes.html">StructureDefinition/getlistingtypes</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-carelisting-resultcode-cs.html">CodeSystem/carelisting-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-carelisting-resultcode-vs.html">ValueSet/carelisting-resultcode-vs</a></li>
+</ul>
+
+<h3 id="updatelisting">UpdateListing</h3>
+
+<p>Tjänstekontraktet UpdateListing anropas av tjänstekonsument (region) för att meddela annan region om att en utomlänslistning har skett för berörd invånare. Tjänstekonsument är normalt alltid en regions listningssystem.</p>
+
+<p>Tjänstekontraktet anropas normalt som en följd efter en tidigare inträffad händelse. Exempel på scenarios som kan inträffa:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Förutsättning</th>
+      <th style="text-align: left">Utfall</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Invånare är listad i sin hemregion (folkbokföringsregion) innan scenariot. / Invånare väljer att lista sig på annan regions listningsbar mottagning via 1177 Vårdguidens e-tjänster.</td>
+      <td style="text-align: left">1177 Vårdguidens e-tjänster anropar CreateListing, adresserat till den nyvalda regionen - triggat av förutsättningar, punkt 2. / Nyvald regions listningssystem anropar UpdateListing, adresserat till invånares folkbokföringsregion (invånares folkbokföringsregion erhålls i begäran i CreateListing – attributet homeCounty) / Folkbokföringsregionen håller därefter reda på i vilken region som invånaren är utomlänslistad på och kan returnera denna när folkbokföringsregionen blir anropad på tjänstekontraktet GetListingCounty.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Invånare är listad i annan region (Region C) innan scenariot. / Invånare väljer att lista sig på annan regions (Region B) listningsbar mottagning via 1177 Vårdguidens e-tjänster</td>
+      <td style="text-align: left">1177 Vårdguidens e-tjänster anropar CreateListing, adresserat till den nyvalda regionen (Region B) - triggat av förutsättningar, punkt 2. / Region B’s listningssystem anropar UpdateListing, adresserat till invånares folkbokföringsregion (invånares folkbokföringsregion erhålls i begäran i CreateListing) / Folkbokföringsregions listningssystem anropar UpdateListing, adresserat till Region C (det är folkbokföringsregions skyldighet att hålla reda på var en invånare är utomlänslistad)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Invånare är listad i annan region (Region B) innan scenariot. / Invånare väljer att lista tillbaka sig på listningsbar mottagning i hemregionen (folkbokföringsregionen) via 1177 Vårdguidens e-tjänster.</td>
+      <td style="text-align: left">1177 Vårdguidens e-tjänster anropar CreateListing, adresserat till den nyvalda regionen som i detta fall är folkbokföringsregionen - triggat av förutsättningar, punkt 2. / Folkbokföringsregionens listningssystem anropar UpdateListing, adresserat till den region (Region B) där invånare var utomlänslistad innan scenariot.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="771-frivillighet">7.7.1 Frivillighet</h4>
+
+<p>Tjänstekontraktet är obligatoriskt för regioners listningssystem att implementera – både som tjänsteproducent och tjänstekonsument.</p>
+
+<h4 id="772-version">7.7.2 Version</h4>
+
+<p>Aktuell version är 2.0.</p>
+
+<p>Tjänstekontraktet är nytt fr o m version 2.0 av tjänstedomänen men har ändå versionerats till 2 för att tydliggöra att tjänstekontraktet är en del av tjänstedomän version 2.</p>
+
+<h4 id="773-meddelandeinformationsmodell-mim">7.7.3 Meddelandeinformationsmodell (MIM)</h4>
+
+<p><img src="img_012.jpeg" alt="Meddelandeinformationsmodell (MIM) för UpdateListing" /></p>
+
+<h4 id="774-fältregler">7.7.4 Fältregler</h4>
+
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Invånares personnummer</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId.root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">OID som visar typ av person-id som förmedlas. Kan vara: / ”1.2.752.129.2.1.3.1” = Person-id för någon som är folkbokförd i Sverige enligt SKV704. / ” 1.2.752.129.2.1.3.3” = Samordningsnummer, SKV</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId.extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Personnummer eller samordningsnummer, uttrycks med sekel och utan bindestreck.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">newListingCounty</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Region i vilken invånare valt att utomlänslista sig hos. / Om länskoden är densamma som för den region som tar emot anropet, då ska anropet tolkas som att en tidigare utomlänslistning har upphört och att folkbokföringsregionen åter har ansvaret för invånaren. Folkbokföringsregionen ska då makulera information om att invånaren är utomlänslistad. Detta scenario kan exempelvis inträffa om den vårdenhet som invånaren utomlänslistat sig på upphör med sin verksamhet.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">newListingCounty.root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">OID för regionskod (enligt SCB). / 1.2.752.129.2.2.1.18</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">newListingCounty.extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Regionskod</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">homeCounty</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Invånares folkbokföringsregion.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">homeCounty.root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">OID för regionskod (enligt SCB). / 1.2.752.129.2.2.1.18</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">homeCounty.extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Regionskod</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listingType</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Listningstyp som omlistningen (utomlänslistningen) gäller. Fältet ska endast förmedlas om den nya regionen har ett samverkansavtal med folkbokföringsregionen och behöver förmedla gemensamt överenskomna listningstyper som gäller i de båda regionerna. / Se listningstyper i referens [R3]</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultCodeEnum</td>
+      <td style="text-align: left">Kan vara OK, INFO, ERROR alternativt något av följande specifika koder (se även resultText nedan): / ERROR_MAXIMUM_ANNUAL_UPDATES_EXCEEDED</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kan utelämnas om resultCode = OK. / Producent förväntas skicka ett tillräckligt informativt meddelande som kan presenteras för slutanvändare i ett användargränssnitt i de fall resultCode == ERROR. / OBSERVERA: / Producent ska returnera specifika felkoder för följande situationer: / Invånares maximalt antal tillåtna omlistningar under en 12-månaders-period har uppnåtts / Den valda vårdenheten som invånare vill lista sig på har uppnått det maximala antalet tillåtna invånare (<em>) / Omlistningen tillåts inte då det saknas fullvärdigt samtycke (t ex att båda vårdnadshavare har samtyckt om omlistningen) / Invånares ålder är utanför tillåtet åldersspann för listningstypen / (</em>) / Detta kan inträffa då anropet görs med addToQueue = FALSE och maxtaket för antal tillåtna listningar/invånare på mottagningen uppnåtts. I det fall addToQueue = TRUE och invånare kan placeras i kö ska resultCode=OK returneras.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="775-övriga-regler">7.7.5 Övriga regler</h4>
+
+<p>Inga övriga regler finns definierade.</p>
+
+<h5 id="7751-icke-funktionella-krav">7.7.5.1 Icke funktionella krav</h5>
+
+<p>Inga icke-funktionella krav är definierade.</p>
+
+<h5 id="7752-sla-krav">7.7.5.2 SLA-krav</h5>
+
+<p>Se generella SLA krav under rubrik 4.2.2 ovan.</p>
+
+<h4 id="776-fältregler-enligt-schema-xsd">7.7.6 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">newListingCounty</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">homeCounty</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">listingType</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultCodeEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="777-tjänsteinteraktion-enligt-wsdl">7.7.7 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:supportprocess:logistics:carelisting:UpdateListingResponder:2:UpdateListing</code></p>
+
+<h4 id="778-källfiler-riv-ta">7.7.8 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="UpdateListingInteraction_2.0_RIVTABP21.wsdl">UpdateListingInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="UpdateListingResponder_2.0.xsd">UpdateListingResponder_2.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="supportprocess_logistics_carelisting_2.0.xsd">supportprocess_logistics_carelisting_2.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TK_UpdateListing_2.1.docx">SjD_TK_UpdateListing_2.1.docx</a></td>
+      <td>Självdeklaration för tjänstekonsument</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TP_UpdateListing_2.1.docx">SjD_TP_UpdateListing_2.1.docx</a></td>
+      <td>Självdeklaration för tjänsteproducent</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="779-fhir-artefakter">7.7.9 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-updatelisting-request.html">StructureDefinition/updatelisting-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-updatelisting.html">StructureDefinition/updatelisting</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-carelisting-resultcode-cs.html">CodeSystem/carelisting-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-carelisting-resultcode-vs.html">ValueSet/carelisting-resultcode-vs</a></li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.supportprocess-logistics-carelisting#2.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Sep 28, 2026 09:25+0000">2026-09-28</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

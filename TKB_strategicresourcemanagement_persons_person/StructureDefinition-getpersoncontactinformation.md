@@ -1,0 +1,614 @@
+# GetPersonContactInformation — Response - strategicresourcemanagement: persons: person v5.1.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetPersonContactInformation — Response**
+
+## Logical Model: GetPersonContactInformation — Response 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/StructureDefinition/getpersoncontactinformation | *Version*:5.1.0 |
+| Draft as of 2026-09-28 | *Computable Name*:GetPersonContactInformation |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret i GetPersonContactInformation (urn:riv:strategicresourcemanagement:persons:person:GetPersonContactInformationResponder:4, GetPersonContactInformationResponseType). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.strategicresourcemanagement-persons-person|current/StructureDefinition/StructureDefinition-getpersoncontactinformation.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getpersoncontactinformation.csv), [Excel](StructureDefinition-getpersoncontactinformation.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getpersoncontactinformation",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/StructureDefinition/getpersoncontactinformation",
+  "version" : "5.1.0",
+  "name" : "GetPersonContactInformation",
+  "title" : "GetPersonContactInformation — Response",
+  "status" : "draft",
+  "date" : "2026-09-28T09:23:04+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret i GetPersonContactInformation\n(urn:riv:strategicresourcemanagement:persons:person:GetPersonContactInformationResponder:4, GetPersonContactInformationResponseType).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/StructureDefinition/getpersoncontactinformation",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getpersoncontactinformation",
+      "path" : "getpersoncontactinformation",
+      "short" : "GetPersonContactInformation — Response",
+      "definition" : "Logisk modell för svaret i GetPersonContactInformation\n(urn:riv:strategicresourcemanagement:persons:person:GetPersonContactInformationResponder:4, GetPersonContactInformationResponseType)."
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord",
+      "path" : "getpersoncontactinformation.contactInformationRecord",
+      "short" : "contactInformationRecord",
+      "definition" : "Uppgifter om personens kontaktuppgifter och kontaktpersoner",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactInformationRecordVersion",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactInformationRecordVersion",
+      "short" : "contactInformationRecordVersion",
+      "definition" : "contactInformationRecordVersion Heter version i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.personId",
+      "path" : "getpersoncontactinformation.contactInformationRecord.personId",
+      "short" : "personId",
+      "definition" : "En universellt unik identifierare.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.personId.root",
+      "path" : "getpersoncontactinformation.contactInformationRecord.personId.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.personId.iiExtension",
+      "path" : "getpersoncontactinformation.contactInformationRecord.personId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactInformation",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactInformation",
+      "short" : "contactInformation",
+      "definition" : "Klass för patientens egna angivna kontakuppgifter",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactInformation.contactType",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactInformation.contactType",
+      "short" : "contactType",
+      "definition" : "contactType",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactInformation.use",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactInformation.use",
+      "short" : "use",
+      "definition" : "use",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactInformation.contactInformationValue",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactInformation.contactInformationValue",
+      "short" : "contactInformationValue",
+      "definition" : "contactInformationValue Heter value i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactInformation.rank",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactInformation.rank",
+      "short" : "rank",
+      "definition" : "rank",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactInformation.comment",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactInformation.comment",
+      "short" : "comment",
+      "definition" : "comment",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactInformation.period",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactInformation.period",
+      "short" : "period",
+      "definition" : "period",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactInformation.period.start",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactInformation.period.start",
+      "short" : "start",
+      "definition" : "start",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactInformation.period.end",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactInformation.period.end",
+      "short" : "end",
+      "definition" : "end",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactInformation.digitalNotification",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactInformation.digitalNotification",
+      "short" : "digitalNotification",
+      "definition" : "digitalNotification",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactPerson",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactPerson",
+      "short" : "contactPerson",
+      "definition" : "contactPerson",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactRelationshipType",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactRelationshipType",
+      "short" : "contactRelationshipType",
+      "definition" : "contactRelationshipType",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactPerson.priorityOrder",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactPerson.priorityOrder",
+      "short" : "priorityOrder",
+      "definition" : "priorityOrder",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactPerson.givenName",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactPerson.givenName",
+      "short" : "givenName",
+      "definition" : "givenName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactPerson.surName",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactPerson.surName",
+      "short" : "surName",
+      "definition" : "surName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactPerson.middleName",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactPerson.middleName",
+      "short" : "middleName",
+      "definition" : "middleName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonAddress",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonAddress",
+      "short" : "contactPersonAddress",
+      "definition" : "Svensk adress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonAddress.careOf",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonAddress.careOf",
+      "short" : "careOf",
+      "definition" : "careOf",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonAddress.postalAddress1",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonAddress.postalAddress1",
+      "short" : "postalAddress1",
+      "definition" : "postalAddress1",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonAddress.postalAddress2",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonAddress.postalAddress2",
+      "short" : "postalAddress2",
+      "definition" : "postalAddress2",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonAddress.postalCode",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonAddress.postalCode",
+      "short" : "postalCode",
+      "definition" : "postalCode",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonAddress.city",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonAddress.city",
+      "short" : "city",
+      "definition" : "city",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonContactInformation",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonContactInformation",
+      "short" : "contactPersonContactInformation",
+      "definition" : "Klass för patientens egna angivna kontakuppgifter",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonContactInformation.contactType",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonContactInformation.contactType",
+      "short" : "contactType",
+      "definition" : "contactType",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonContactInformation.use",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonContactInformation.use",
+      "short" : "use",
+      "definition" : "use",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonContactInformation.contactInformationValue",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonContactInformation.contactInformationValue",
+      "short" : "contactInformationValue",
+      "definition" : "contactInformationValue Heter value i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonContactInformation.rank",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonContactInformation.rank",
+      "short" : "rank",
+      "definition" : "rank",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonContactInformation.comment",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonContactInformation.comment",
+      "short" : "comment",
+      "definition" : "comment",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonContactInformation.period",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonContactInformation.period",
+      "short" : "period",
+      "definition" : "period",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonContactInformation.period.start",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonContactInformation.period.start",
+      "short" : "start",
+      "definition" : "start",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonContactInformation.period.end",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonContactInformation.period.end",
+      "short" : "end",
+      "definition" : "end",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonContactInformation.digitalNotification",
+      "path" : "getpersoncontactinformation.contactInformationRecord.contactPerson.contactPersonContactInformation.digitalNotification",
+      "short" : "digitalNotification",
+      "definition" : "digitalNotification",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.protectedPersonIndicator",
+      "path" : "getpersoncontactinformation.contactInformationRecord.protectedPersonIndicator",
+      "short" : "protectedPersonIndicator",
+      "definition" : "protectedPersonIndicator",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.protectedPopulationRecord",
+      "path" : "getpersoncontactinformation.contactInformationRecord.protectedPopulationRecord",
+      "short" : "protectedPopulationRecord",
+      "definition" : "protectedPopulationRecord",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.optoutPaperNotification",
+      "path" : "getpersoncontactinformation.contactInformationRecord.optoutPaperNotification",
+      "short" : "optoutPaperNotification",
+      "definition" : "optoutPaperNotification",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.updatePersonContactInformationActor",
+      "path" : "getpersoncontactinformation.contactInformationRecord.updatePersonContactInformationActor",
+      "short" : "updatePersonContactInformationActor",
+      "definition" : "Datatyp som identifierar en aktör.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.updatePersonContactInformationActor.actorId",
+      "path" : "getpersoncontactinformation.contactInformationRecord.updatePersonContactInformationActor.actorId",
+      "short" : "actorId",
+      "definition" : "En universellt unik identifierare. Heter id i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.updatePersonContactInformationActor.actorId.root",
+      "path" : "getpersoncontactinformation.contactInformationRecord.updatePersonContactInformationActor.actorId.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.updatePersonContactInformationActor.actorId.iiExtension",
+      "path" : "getpersoncontactinformation.contactInformationRecord.updatePersonContactInformationActor.actorId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.updatePersonContactInformationActor.professional",
+      "path" : "getpersoncontactinformation.contactInformationRecord.updatePersonContactInformationActor.professional",
+      "short" : "professional",
+      "definition" : "Datatyp som identifierar en aktör inom en profession.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.updatePersonContactInformationActor.professional.organizationId",
+      "path" : "getpersoncontactinformation.contactInformationRecord.updatePersonContactInformationActor.professional.organizationId",
+      "short" : "organizationId",
+      "definition" : "En universellt unik identifierare.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.updatePersonContactInformationActor.professional.organizationId.root",
+      "path" : "getpersoncontactinformation.contactInformationRecord.updatePersonContactInformationActor.professional.organizationId.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.updatePersonContactInformationActor.professional.organizationId.iiExtension",
+      "path" : "getpersoncontactinformation.contactInformationRecord.updatePersonContactInformationActor.professional.organizationId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getpersoncontactinformation.contactInformationRecord.updatePersonContactInformationActor.updateTime",
+      "path" : "getpersoncontactinformation.contactInformationRecord.updatePersonContactInformationActor.updateTime",
+      "short" : "updateTime",
+      "definition" : "updateTime",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

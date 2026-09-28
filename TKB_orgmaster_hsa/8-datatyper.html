@@ -1,0 +1,1568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>8 Datatyper - orgmaster: hsa v1.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"5"}
+    h3,h4,h5,h6{--heading-prefix:"5"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">orgmaster: hsa</span>
+            <br/>
+            <span style="display:inline-block;">1.0.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <menu xmlns="http://www.w3.org/1999/xhtml">
+  <item name="Home" url="index.html"/>
+  <item name="1 Inledning" url="1-inledning.html"/>
+  <item name="2 Generella regler" url="2-generella-regler.html"/>
+  <item name="7 Tjänstekontrakt" url="7-tjanstekontrakt.html"/>
+  <item name="8 Datatyper" url="8-datatyper.html"/>
+  <item name="Artifacts" url="artifacts.html"/>
+</menu>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>8 Datatyper</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">orgmaster: hsa - Local Development build (v1.0.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/orgmaster-hsa/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>8 Datatyper</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#8-datatyper" id="markdown-toc-8-datatyper">8 Datatyper</a>    <ul>
+      <li><a href="#addresstype" id="markdown-toc-addresstype">AddressType</a></li>
+      <li><a href="#agespantype" id="markdown-toc-agespantype">AgeSpanType</a></li>
+      <li><a href="#coordinatestype" id="markdown-toc-coordinatestype">CoordinatesType</a></li>
+      <li><a href="#datespantype" id="markdown-toc-datespantype">DateSpanType</a></li>
+      <li><a href="#gethsapersonhsausertype" id="markdown-toc-gethsapersonhsausertype">GetHsaPersonHsaUserType</a></li>
+      <li><a href="#hsasystemrolestype" id="markdown-toc-hsasystemrolestype">HsaSystemRolesType</a></li>
+      <li><a href="#hsatitlestype" id="markdown-toc-hsatitlestype">HsaTitlesType</a></li>
+      <li><a href="#hsaunitfunctiontype" id="markdown-toc-hsaunitfunctiontype">HsaUnitFunctionType</a></li>
+      <li><a href="#miuinformationtype" id="markdown-toc-miuinformationtype">MiuInformationType</a></li>
+      <li><a href="#miurightstype" id="markdown-toc-miurightstype">MiuRightsType</a></li>
+      <li><a href="#patitlecodestype" id="markdown-toc-patitlecodestype">PaTitleCodesType</a></li>
+      <li><a href="#patitlenamestype" id="markdown-toc-patitlenamestype">PaTitleNamesType</a></li>
+      <li><a href="#personlist" id="markdown-toc-personlist">PersonList</a></li>
+      <li><a href="#personlistperson" id="markdown-toc-personlistperson">PersonListPerson</a></li>
+      <li><a href="#telephonehourstype" id="markdown-toc-telephonehourstype">TelephoneHoursType</a></li>
+      <li><a href="#timespantype" id="markdown-toc-timespantype">TimeSpanType</a></li>
+      <li><a href="#unitlist" id="markdown-toc-unitlist">UnitList</a></li>
+      <li><a href="#unitlistunit" id="markdown-toc-unitlistunit">UnitListUnit</a></li>
+      <li><a href="#alternatenames" id="markdown-toc-alternatenames">alternateNames</a></li>
+      <li><a href="#businessclassificationcodes" id="markdown-toc-businessclassificationcodes">businessClassificationCodes</a></li>
+      <li><a href="#businessclassifications" id="markdown-toc-businessclassifications">businessClassifications</a></li>
+      <li><a href="#businesstypes" id="markdown-toc-businesstypes">businessTypes</a></li>
+      <li><a href="#caretypes" id="markdown-toc-caretypes">careTypes</a></li>
+      <li><a href="#dropinhours" id="markdown-toc-dropinhours">dropInHours</a></li>
+      <li><a href="#facsimiletelephonenumbers" id="markdown-toc-facsimiletelephonenumbers">facsimileTelephoneNumbers</a></li>
+      <li><a href="#faxnumbers" id="markdown-toc-faxnumbers">faxNumbers</a></li>
+      <li><a href="#hsadestinationindicators" id="markdown-toc-hsadestinationindicators">hsaDestinationIndicators</a></li>
+      <li><a href="#hsatelephonenumbers" id="markdown-toc-hsatelephonenumbers">hsaTelephoneNumbers</a></li>
+      <li><a href="#languageknowledgecodes" id="markdown-toc-languageknowledgecodes">languageKnowledgeCodes</a></li>
+      <li><a href="#managements" id="markdown-toc-managements">managements</a></li>
+      <li><a href="#mobilenumbers" id="markdown-toc-mobilenumbers">mobileNumbers</a></li>
+      <li><a href="#referraltypes" id="markdown-toc-referraltypes">referralTypes</a></li>
+      <li><a href="#relatedunits" id="markdown-toc-relatedunits">relatedUnits</a></li>
+      <li><a href="#specialitycodes" id="markdown-toc-specialitycodes">specialityCodes</a></li>
+      <li><a href="#specialitynames" id="markdown-toc-specialitynames">specialityNames</a></li>
+      <li><a href="#surgeryhours" id="markdown-toc-surgeryhours">surgeryHours</a></li>
+      <li><a href="#telephonenumbers-gethsapersonresponder_10" id="markdown-toc-telephonenumbers-gethsapersonresponder_10">telephoneNumbers (GetHsaPersonResponder_1.0)</a></li>
+      <li><a href="#telephonenumbers-gethsaunitresponder_10" id="markdown-toc-telephonenumbers-gethsaunitresponder_10">telephoneNumbers (GetHsaUnitResponder_1.0)</a></li>
+      <li><a href="#texttelephonenumbers" id="markdown-toc-texttelephonenumbers">textTelephoneNumbers</a></li>
+      <li><a href="#unitfunctions" id="markdown-toc-unitfunctions">unitFunctions</a></li>
+      <li><a href="#userinformations" id="markdown-toc-userinformations">userInformations</a></li>
+      <li><a href="#visitinghours" id="markdown-toc-visitinghours">visitingHours</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="8-datatyper">8 Datatyper</h1>
+
+<p>Källa: <em>Tjänstekontrakt Organisationsinformation (orgmaster:hsa)</em>, RevB (2012-11-27), <a href="Tjanstekontrakt_hsa_orgmaster_Beskrivning.docx">Tjanstekontrakt_hsa_orgmaster_Beskrivning.docx</a>.</p>
+
+<p>Denna sida finns inte i TKB:n. Den är genererad ur domänschemat <a href="orgmaster_hsa_1.0.xsd">orgmaster_hsa_1.0.xsd</a> och beskriver de typer som tjänsteschemana använder.</p>
+
+<h3 id="addresstype">AddressType</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">orgmaster_hsa_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">addressLine</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="agespantype">AgeSpanType</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">orgmaster_hsa_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">from</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">to</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="coordinatestype">CoordinatesType</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaUnitResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaUnitResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">x</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">y</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="datespantype">DateSpanType</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">orgmaster_hsa_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">fromDate</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">toDate</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="gethsapersonhsausertype">GetHsaPersonHsaUserType</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaPersonResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaPersonResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">personalPrescriptionCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">description</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paTitleCodes</td>
+      <td style="text-align: left">PaTitleCodesType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paTitleNames</td>
+      <td style="text-align: left">PaTitleNamesType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mail</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">givenName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaIdentity</td>
+      <td style="text-align: left">HsaIdentityType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaSwitchboardNumber</td>
+      <td style="text-align: left">TelephoneNumberType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaTelephoneNumbers</td>
+      <td style="text-align: left">hsaTelephoneNumbers</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">labeledUri</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">languageKnowledgeCodes</td>
+      <td style="text-align: left">languageKnowledgeCodes</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mobileNumbers</td>
+      <td style="text-align: left">mobileNumbers</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">facsimileTelephoneNumbers</td>
+      <td style="text-align: left">facsimileTelephoneNumbers</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">nickName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">smsTelephoneNumber</td>
+      <td style="text-align: left">TelephoneNumberType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">specialityCodes</td>
+      <td style="text-align: left">specialityCodes</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">specialityNames</td>
+      <td style="text-align: left">specialityNames</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telephoneHours</td>
+      <td style="text-align: left">TelephoneHoursType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telephoneNumbers</td>
+      <td style="text-align: left">telephoneNumbers</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">title</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DN</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">middleName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postalAddress</td>
+      <td style="text-align: left">AddressType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaTitles</td>
+      <td style="text-align: left">HsaTitlesType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="hsasystemrolestype">HsaSystemRolesType</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetMiuForPersonResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetMiuForPersonResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">hsaSystemRole</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="hsatitlestype">HsaTitlesType</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">orgmaster_hsa_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">hsaTitle</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="hsaunitfunctiontype">HsaUnitFunctionType</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaUnitResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaUnitResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telephoneHours</td>
+      <td style="text-align: left">TelephoneHoursType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telephoneNumbers</td>
+      <td style="text-align: left">telephoneNumbers</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="miuinformationtype">MiuInformationType</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetMiuForPersonResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetMiuForPersonResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">miuName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaIdentity</td>
+      <td style="text-align: left">HsaIdentityType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">miuPurpose</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnitHsaIdentity</td>
+      <td style="text-align: left">HsaIdentityType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnitName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careGiver</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careGiverName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careGiverOrgNo</td>
+      <td style="text-align: left">orgNo</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personalPrescriptionCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaTitles</td>
+      <td style="text-align: left">HsaTitlesType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">miuRights</td>
+      <td style="text-align: left">MiuRightsType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaSystemRoles</td>
+      <td style="text-align: left">HsaSystemRolesType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaIdentityPerson</td>
+      <td style="text-align: left">HsaIdentityType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paTitleCodes</td>
+      <td style="text-align: left">PaTitleCodesType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">givenName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">middleAndSurName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="miurightstype">MiuRightsType</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetMiuForPersonResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetMiuForPersonResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">miuRight</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="patitlecodestype">PaTitleCodesType</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">orgmaster_hsa_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">paTitleCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="patitlenamestype">PaTitleNamesType</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">orgmaster_hsa_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">paTitleName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="personlist">PersonList</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetPersonsWithCommissionAtHealthCareUnitResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetPersonsWithCommissionAtHealthCareUnitResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">personListPerson</td>
+      <td style="text-align: left">PersonListPerson</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="personlistperson">PersonListPerson</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetPersonsWithCommissionAtHealthCareUnitResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetPersonsWithCommissionAtHealthCareUnitResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">hsaIdentity</td>
+      <td style="text-align: left">HsaIdentityType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">givenName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personalPrescriptionCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paTitleCodes</td>
+      <td style="text-align: left">PaTitleCodesType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paTitleNames</td>
+      <td style="text-align: left">PaTitleNamesType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaTitles</td>
+      <td style="text-align: left">HsaTitlesType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="telephonehourstype">TelephoneHoursType</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">orgmaster_hsa_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">telephoneHour</td>
+      <td style="text-align: left">TimeSpanType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="timespantype">TimeSpanType</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">orgmaster_hsa_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">fromDay</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fromTime</td>
+      <td style="text-align: left">time</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fromTime2</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">toDay</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">toTime</td>
+      <td style="text-align: left">time</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">toTime2</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">comment</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="unitlist">UnitList</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaUnitListResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaUnitListResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">unitListUnit</td>
+      <td style="text-align: left">UnitListUnit</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="unitlistunit">UnitListUnit</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaUnitListResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaUnitListResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">hsaIdentity</td>
+      <td style="text-align: left">HsaIdentityType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">parentHsaIdentity</td>
+      <td style="text-align: left">HsaIdentityType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alternatenames">alternateNames</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaUnitResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaUnitResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">alternateName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="businessclassificationcodes">businessClassificationCodes</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaUnitResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaUnitResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">businessClassificationCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="businessclassifications">businessClassifications</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaUnitResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaUnitResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">businessClassification</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="businesstypes">businessTypes</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaUnitResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaUnitResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">businessType</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="caretypes">careTypes</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaUnitResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaUnitResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">careType</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="dropinhours">dropInHours</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaUnitResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaUnitResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">dropInHour</td>
+      <td style="text-align: left">TimeSpanType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="facsimiletelephonenumbers">facsimileTelephoneNumbers</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaPersonResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaPersonResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">facsimileTelephoneNumber</td>
+      <td style="text-align: left">TelephoneNumberType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="faxnumbers">faxNumbers</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaUnitResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaUnitResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">faxNumber</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="hsadestinationindicators">hsaDestinationIndicators</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaUnitResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaUnitResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">hsaDestinationIndicator</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="hsatelephonenumbers">hsaTelephoneNumbers</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaPersonResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaPersonResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">hsaTelephoneNumber</td>
+      <td style="text-align: left">TelephoneNumberType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="languageknowledgecodes">languageKnowledgeCodes</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaPersonResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaPersonResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">languageKnowledgeCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="managements">managements</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaUnitResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaUnitResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">management</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="mobilenumbers">mobileNumbers</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaPersonResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaPersonResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">mobileNumber</td>
+      <td style="text-align: left">TelephoneNumberType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="referraltypes">referralTypes</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaUnitResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaUnitResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">referralType</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="relatedunits">relatedUnits</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaUnitResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaUnitResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">relatedUnit</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="specialitycodes">specialityCodes</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaPersonResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaPersonResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">specialityCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="specialitynames">specialityNames</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaPersonResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaPersonResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">specialityName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="surgeryhours">surgeryHours</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaUnitResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaUnitResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">surgeryHour</td>
+      <td style="text-align: left">TimeSpanType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="telephonenumbers-gethsapersonresponder_10">telephoneNumbers (GetHsaPersonResponder_1.0)</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaPersonResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaPersonResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">telephoneNumber</td>
+      <td style="text-align: left">TelephoneNumberType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="telephonenumbers-gethsaunitresponder_10">telephoneNumbers (GetHsaUnitResponder_1.0)</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaUnitResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaUnitResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">telephoneNumber</td>
+      <td style="text-align: left">TelephoneNumberType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="texttelephonenumbers">textTelephoneNumbers</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaUnitResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaUnitResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">textTelephoneNumber</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="unitfunctions">unitFunctions</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaUnitResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaUnitResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">unitFunction</td>
+      <td style="text-align: left">HsaUnitFunctionType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="userinformations">userInformations</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaPersonResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaPersonResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">userInformation</td>
+      <td style="text-align: left">GetHsaPersonHsaUserType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="visitinghours">visitingHours</h3>
+
+<p>Domänschema <code class="language-plaintext highlighter-rouge">GetHsaUnitResponder_1.0.xsd</code> (namnrymd <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaUnitResponder:1</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">visitingHour</td>
+      <td style="text-align: left">TimeSpanType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.orgmaster-hsa#1.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Sep 28, 2026 09:15+0000">2026-09-28</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

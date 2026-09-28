@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>3 Tjänstedomänens arkitektur - supportprocess: serviceprovisioning: healthcareoffering v3.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"4"}
+    h3,h4,h5,h6{--heading-prefix:"4"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">supportprocess: serviceprovisioning: healthcareoffering</span>
+            <br/>
+            <span style="display:inline-block;">3.0.0 - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <menu xmlns="http://www.w3.org/1999/xhtml">
+  <item name="Home" url="index.html"/>
+  <item name="1 Inledning" url="1-inledning.html"/>
+  <item name="2 Versionsinformation" url="2-versionsinformation.html"/>
+  <item name="3 Tjänstedomänens arkitektur" url="3-tjanstedomanens-arkitektur.html"/>
+  <item name="4 Tjänstedomänens krav och regler" url="4-tjanstedomanens-krav-och-regler.html"/>
+  <item name="5 Tjänstedomänens meddelandemodeller" url="5-tjanstedomanens-meddelandemodeller.html"/>
+  <item name="6 Gemensamma informationskomponenter" url="6-gemensamma-informationskomponenter.html"/>
+  <item name="7 Tjänstekontrakt" url="7-tjanstekontrakt.html"/>
+  <item name="Artifacts" url="artifacts.html"/>
+</menu>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>3 Tjänstedomänens arkitektur</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">supportprocess: serviceprovisioning: healthcareoffering - Local Development build (v3.0.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>3 Tjänstedomänens arkitektur</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#3-tjänstedomänens-arkitektur" id="markdown-toc-3-tjänstedomänens-arkitektur">3 Tjänstedomänens arkitektur</a>    <ul>
+      <li><a href="#31-flöden" id="markdown-toc-31-flöden">3.1 Flöden</a></li>
+      <li><a href="#32-adressering" id="markdown-toc-32-adressering">3.2 Adressering</a></li>
+      <li><a href="#33-aggregering-och-engagemangsindex" id="markdown-toc-33-aggregering-och-engagemangsindex">3.3 Aggregering och engagemangsindex</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="3-tjänstedomänens-arkitektur">3 Tjänstedomänens arkitektur</h1>
+
+<p>Källa: <em>Tjänstekontraktsbeskrivning Vård- och omsorgsutbud</em>, version 3.0 (2023-04-25), <a href="TKB_supportprocess_serviceprovisioning_healthcareoffering.docx">TKB_supportprocess_serviceprovisioning_healthcareoffering.docx</a>.</p>
+
+<p>Detta kapitel beskriver de flöden som är relevanta för tjänstedomänen. Beskrivningarna är i form av modeller, för varje flöde finns dels ett arbetsflöde som beskriver vilka steg som ingår i flödet och dels ett sekvensdiagram som tar hänsyn till vilka tjänstekontrakt som nyttjas i de olika stegen.</p>
+
+<h3 id="31-flöden">3.1 Flöden</h3>
+
+<h4 id="311-hämta-utbudsinformation">3.1.1 Hämta utbudsinformation</h4>
+
+<p>Detta flöde beskriver behovet av att hämta en lista på tillgängliga utbud som finns som en katalogansvarig organisation tillhandahåller. Med katalogansvarig organisation menas den organisation som är ansvarig för innehållet i utbudskatalogen. Detta behöver göras innan man hämtar vård- och omsorgstjänster från en viss utbudskatalog (se flöde Hämta Vård- och omsorgstjänster).</p>
+
+<h5 id="3111-arbetsflöde">3.1.1.1 Arbetsflöde</h5>
+
+<p><img src="img_004.png" alt="Arbetsflöde" /></p>
+
+<h6 id="31111-roller">3.1.1.1.1 Roller</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. Referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">System som begär information om katalogansvariga organisationer</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">System som svarar på förfrågan</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3112-sekvensdiagram">3.1.1.2 Sekvensdiagram</h5>
+
+<p><img src="img_002.png" alt="Sekvensdiagram" /></p>
+
+<h4 id="312-sök-vård--och-omsorgstjänster">3.1.2 Sök vård- och omsorgstjänster</h4>
+
+<p>Denna flödesbeskrivning visar processen för en användare (hälso- och sjukvårdspersonal, invånare etc.) som har behov av att hitta enheter som erbjuder en viss typ av vård- och omsorgstjänst. Exempel på vård- och omsorgstjänst kan vara ”Tonsillektomi” på Sophiahemmet eller ”Psykoterapi” på Capio Citykliniken Malmö Centrum. Innan vård- och omsorgstjänster hämtas behöver flödet för att hitta utbudsinformation tillämpas (se flöde Hitta utbudsinformation).</p>
+
+<h5 id="3121-arbetsflöde">3.1.2.1 Arbetsflöde</h5>
+
+<p><img src="img_001.png" alt="Arbetsflöde" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. Referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1. Behov av att hitta vård- och omsorgstjänst</td>
+      <td style="text-align: left">Det finns behov av att hitta utförare inom hälso- och sjukvården eller inom socialtjänsten som kan erbjuda en typ av vård- och omsorgstjänst. / Det kan exempelvis vara en remittent som ska remittera en patient och som därmed har behov av att hitta en remissmottagare som erbjuder en viss typ av vård- och omsorgstjänst. / Det kan även vara en invånare som är i behov av att ta prover och behöver hitta en vårdenhet som utför denna provtagning eller att hitta närmaste akutsjukvård. / Enligt patientlagen (2014:821) ska patienten ha möjlighet att välja var i landet denne ska få vård. / 9 kap. Val av Utförare - 1 § En patient som omfattas av en regions ansvar för hälso- och sjukvård ska inom eller utom denna region få möjlighet att välja utförare av offentligt finansierad öppen vård. /  / Exempel på information som det kan finnas behov av att hitta för en hälso- och sjukvårdspersonal: / vilka tider en viss aktivitet utförs på / vilka specialistmottagningar i landet som erbjuder en specifik typ av vård- och omsorgstjänst / vilka väntetider som finns för en viss vård- och omsorgstjänst / vilka kompetenser som finns att tillgå där en vård-och omsorgstjänst erbjuds, exempelvis psykolog, arbetsterapeut / vilken (medicinteknisk) utrustning som en vård- och omsorgstjänst kan erbjuda, exempelvis bassäng / om det finns en vård- och omsorgstjänst som kan erbjudas digitalt / om det finns några störningar som gör att en vård- och omsorgstjänst inte är tillgänglig under en viss period / vilken postadress en remiss ska skickas till om det ej går att skicka elektroniskt / Exempel på information som det kan finnas behov av att hitta för en invånare: / när, var och hur det går att få kontakt med primärvård som erbjuder vaccination mot säsongsinfluensa / om ett barn kan tas emot av en specialistmottagning som utför hörselkontroll / vilka tider en aktivitet utförs på / om en tjänst kan erbjudas digitalt och i så fall hur den nås / vilka specialistmottagningar i landet som erbjuder en specifik typ av vård- och omsorgstjänst / vilka väntetider som finns för en viss vård- och omsorgstjänst / hur bra bedömningar en mottagning har fått av andra invånare</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2. Sök vård- och omsorgstjänst</td>
+      <td style="text-align: left">Personen som är i behov av att hitta en lämplig utförare av en viss typ av vård- och omsorgstjänst, gör en sökning. Information att filtrera på: / typ av vård- och omsorgstjänst / om vård- och omsorgstjänsten erbjuds virtuellt eller fysiskt / vilken organisatorisk enhet som erbjuder vård- och omsorgstjänsten / vilken verksamhet som bedrivs / vilket kön invånaren har / vilken ålder invånaren har / om invånaren har några andra egenskaper (exempelvis i graviditetsvecka 32) / önskat län och/eller kommun / geografiska koordinater + en viss radie från koordinaterna / vilken roll personen har som gör sökningen / vilket språk personen som söker önskar få svar på / om den katalogansvariga organisationen är offentlig huvudman eller ej</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3. Visa sökresultat</td>
+      <td style="text-align: left">Baserat på den gjorda sökningen, ges ett svar tillbaka som matchar sökkriterierna. / En sökning som inte motsvarar förväntningarna korrigeras och en ny sökning görs. / Mer detaljerad information läses för att vidare kunna avgöra om den valda enheten och den vård- och omsorgstjänst som erbjuds motsvarar det behov som finns. Om inte, görs en ny sökning.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5.Val av utförare och typ av vård- och omsorgstjänst</td>
+      <td style="text-align: left">Då personen som letar efter utförare av en typ av vård- och omsorgstjänst hittar någon som motsvarar det efterfrågade fortsätter den aktuella processen. /  / För en remittent kan detta innebära att skicka en remiss till den som erbjuder en vårdtjänst. / För en invånare kan det innebära att besöka akutmottagningen som bäst matchar den gjorda sökningen, eller att brukaren väljer en utförare av beviljade insatser inom socialtjänsten. / Flöde för att skicka remisser finns beskrivet i informationsspecifikationen till remissdomänen [R8]: clinicalprocess:activity:request</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="31211-roller">3.1.2.1.1 Roller</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Användare</td>
+      <td style="text-align: left">Användare som önskar hitta en enhet som erbjuder efterfrågad vård- och omsorgstjänst.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3122-sekvensdiagram">3.1.2.2 Sekvensdiagram</h5>
+
+<p>Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan beskrivna flödet. Tjänstekonsumenten skickar en fråga med tjänstekontraktet GetCareServiceOfferings till tjänsteproducenter av utbudsinformation. Vid behov görs ytterligare frågor med tjänstekontraktet GetCareServiceOfferings för att möjliggöra urval av vård- och omsorgstjänster med olika filtreringar. Information om väntetider och kvalitetsindikatorer [R12] kan vid behov inhämtas från tjänsteproducent av indikatorer (domän: followup:groupoutcomes:qualityreporting).</p>
+
+<p><img src="img_006.png" alt="Sekvensdiagram" /></p>
+
+<h3 id="32-adressering">3.2 Adressering</h3>
+
+<p>Domänen är systemadresserad där varje adress motsvarar ett system som tillhandahåller utbudsinformation för en eller flera katalogansvariga organisationer. Anledningen till att systemadressering används istället för verksamhetsbaserad adressering är att det medger att en katalogansvarig organisation kan ha utbud i flera system. Tjänsten GetOfferingCatalogues ger information om vilka system som hanterar utbudsinformation för vilka katalogansvariga organisationer.</p>
+
+<h4 id="321-sammanfattning-adressering">3.2.1 Sammanfattning adressering</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Åtkomst till utbud av vårdtjänster</th>
+      <th style="text-align: left">Logisk adress</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">GetOfferingCatalogues</td>
+      <td style="text-align: left">Ineras HSA-id: SE165565594230-1000</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">För en specifik katalogansvarig organisation</td>
+      <td style="text-align: left">Den logiska adress som ges vid slagning mot GetOfferingCatalogues</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="33-aggregering-och-engagemangsindex">3.3 Aggregering och engagemangsindex</h3>
+
+<p>Ej tillämpbart för denna tjänstedomän.</p>
+
+<p>I de fall tjänstekonsument söker aggregerad information av utbud som erbjuds från olika katalogansvariga organisationer, används tjänsten GetOfferingCatalogues enligt ovan. Tjänstekonsumenten använder sedan tjänsten GetCareServiceOfferings för att hämta utbudsinformation hos de katalogansvariga organisationerna och svaren aggregeras av konsumenten själv på ett för ändamålet meningsfullt sätt.</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.supportprocess-serviceprovisioning-healthcareoffering#3.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Sep 28, 2026 09:27+0000">2026-09-28</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

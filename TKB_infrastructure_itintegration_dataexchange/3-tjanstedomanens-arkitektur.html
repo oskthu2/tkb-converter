@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>3 Tjänstedomänens arkitektur - infrastructure: itintegration: dataexchange v1.0.0-draft</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"4"}
+    h3,h4,h5,h6{--heading-prefix:"4"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">infrastructure: itintegration: dataexchange</span>
+            <br/>
+            <span style="display:inline-block;">1.0.0-draft - draft
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <menu xmlns="http://www.w3.org/1999/xhtml">
+  <item name="Home" url="index.html"/>
+  <item name="1 Inledning" url="1-inledning.html"/>
+  <item name="2 Versionsinformation" url="2-versionsinformation.html"/>
+  <item name="3 Tjänstedomänens arkitektur" url="3-tjanstedomanens-arkitektur.html"/>
+  <item name="4 Tjänstedomänens krav och regler" url="4-tjanstedomanens-krav-och-regler.html"/>
+  <item name="5 Tjänstedomänens meddelandemodeller" url="5-tjanstedomanens-meddelandemodeller.html"/>
+  <item name="6 Gemensamma informationskomponenter" url="6-gemensamma-informationskomponenter.html"/>
+  <item name="7 Tjänstekontrakt" url="7-tjanstekontrakt.html"/>
+  <item name="Artifacts" url="artifacts.html"/>
+</menu>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>3 Tjänstedomänens arkitektur</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">infrastructure: itintegration: dataexchange - Local Development build (v1.0.0-draft) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/infrastructure-itintegration-dataexchange/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>3 Tjänstedomänens arkitektur</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#3-tjänstedomänens-arkitektur" id="markdown-toc-3-tjänstedomänens-arkitektur">3 Tjänstedomänens arkitektur</a>    <ul>
+      <li><a href="#31-flöden" id="markdown-toc-31-flöden">3.1 Flöden</a></li>
+      <li><a href="#32-adressering" id="markdown-toc-32-adressering">3.2 Adressering</a></li>
+      <li><a href="#33-aggregering-och-engagemangsindex" id="markdown-toc-33-aggregering-och-engagemangsindex">3.3 Aggregering och engagemangsindex</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="3-tjänstedomänens-arkitektur">3 Tjänstedomänens arkitektur</h1>
+
+<p>Källa: <em>Tjänstekontraktsbeskrivning för infrastructure: itintegration: dataexchange</em>, version 1.0 (preliminär, gren develop 2025-09-11), <a href="TKB_itinfrastructure_itintegration_dataexchange.docx">TKB_itinfrastructure_itintegration_dataexchange.docx</a>.</p>
+
+<p>Utgångspunkten för tjänsterna i denna tjänstedomän är att kunna hämta binära filer som refererats till i svar på andra tjänsteförfrågningar. Exempel på tillämpningar där detta kan vara aktuellt är för patientens och professionens åtkomst till vård- och omsorgshistorik via Journalen, Nationell patientöversikt, och Elektronisk remiss.</p>
+
+<p>Nedan beskrivs de flöden som är relevanta för tjänstedomänen. Beskrivningarna är i form av modeller, för varje flöde finns dels ett arbetsflöde som beskriver dels vilka steg som ingår i flödet och dels ett sekvensdiagram som tar hänsyn till vilka tjänstekontrakt som nyttjas i de olika stegen.</p>
+
+<h3 id="31-flöden">3.1 Flöden</h3>
+
+<p>Nedanstående diagram visar hur flödet principiellt ser ut när information ur kontrakt i tjänstedomänen efterfrågas och hanteras.</p>
+
+<h4 id="311-fråga-svar">3.1.1 Fråga-svar</h4>
+
+<h5 id="3111-arbetsflöde">3.1.1.1 Arbetsflöde</h5>
+
+<p><img src="img_005.png" alt="Arbetsflöde" /></p>
+
+<p><em>Figur 1. Exempel: Hämta binära filer vid behov i tjänsten Nationell patientöversikt - NPÖ.</em></p>
+
+<p><img src="img_002.png" alt="Arbetsflöde" /></p>
+
+<p><em>Figur 2. Exempel: Hämta binära filer vid behov i tjänsten 1177 journal.</em></p>
+
+<h6 id="31111-roller">3.1.1.1.1 Roller</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Patienten</td>
+      <td style="text-align: left">Den patient som vill få tillgång till information som tjänsterna tillhandahåller.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Professionen</td>
+      <td style="text-align: left">Den hälso- och sjukvårdspersonal som vill få tillgång till patientens data.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3112-sekvensdiagram">3.1.1.2 Sekvensdiagram</h5>
+
+<p>Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan beskrivna flödet. Tjänstekontrakt som används i exemplet nedan är: GetImagingOutcome för bilddiagnostiska resultat och GetBinaryData för bilagor. Tjänstekontraktet GetImagingOutcome adresseras genom Nationella tjänsteplattformen (NTjP) medan tjänstekontraktet GetBinaryData adresseras direkt till en regional tjänsteplattform (RTP). En referens till bilagor inkluderas i responsen för GetImagingOutcome som innehåller uppgifter för åtkomst till bilagorna med kontraktet GetBinaryData.</p>
+
+<p>I exemplet adresseras en regional tjänsteplattform vid anrop med GetBinaryData men GetBinaryData kan också adresseras direkt till tjänsteproducenten utan att en tjänsteplattform används.</p>
+
+<p><img src="img_007.png" alt="Sekvensdiagram" /></p>
+
+<p><em>Figur 3. Sekvensdiagram över sökning efter information där GetImagingOutcome används som exempel, men samma princip gäller för alla tjänstekontrakt som refererar till GetBinaryData.</em></p>
+
+<h6 id="31121-roller">3.1.1.2.1 Roller</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">Det system som används för att konsumera information. Dvs det system som använder tjänster enligt ett tjänstekontrakt.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">NTjP</td>
+      <td style="text-align: left">Nationell tjänsteplattform hanterar virtuella tjänster, aggregerande tjänster samt anpassningstjänster nationellt.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RTP</td>
+      <td style="text-align: left">Regional tjänsteplattform hanterar virtuella tjänster, aggregerande tjänster samt anpassningstjänster regionalt.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent_GIO</td>
+      <td style="text-align: left">Det system som i detta fall är källsystem för tjänstekontraktet GetImagingOutcome.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent_GBD</td>
+      <td style="text-align: left">Det system som i detta fall är källsystem för tjänstekontraktet GetBinaryData.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="312-uppdrag-resultat">3.1.2 Uppdrag-resultat</h4>
+
+<h5 id="3121-arbetsflöde">3.1.2.1 Arbetsflöde</h5>
+
+<p><img src="img_003.png" alt="Arbetsflöde" /></p>
+
+<p><em>Figur 4. Exempel: Arbetsflöde Skicka och ta emot remiss med refererade bilagor i tjänsten Elektronisk remiss.</em></p>
+
+<h6 id="31211-roller">3.1.2.1.1 Roller</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal 1</td>
+      <td style="text-align: left">Den hälso- och sjukvårdspersonal som skapar och skickar remiss</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal 2</td>
+      <td style="text-align: left">Den hälso- och sjukvårdspersonal som tar emot remiss</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3122-sekvensdiagram">3.1.2.2 Sekvensdiagram</h5>
+
+<p>Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan beskrivna flödet. Tjänstekontrakt som används är: ProcessRequest för remisshantering och GetBinaryData för bilagor. Tjänstekontraktet ProcessRequest adresseras genom Nationella tjänsteplattformen (NTjP) medan tjänstekontraktet GetBinaryData adresseras utanför Nationella tjänsteplattformen. En referens till bilagor inkluderas i request-meddelandet för ProcessRequest som innehåller uppgifter för åtkomst till bilagorna med kontraktet GetBinaryData.</p>
+
+<p><img src="img_008.png" alt="Sekvensdiagram" /></p>
+
+<p><em>Figur 5: Sekvensdiagram för arbetsflödet Skicka och ta emot remiss där tjänstekontraktet ProcessRequest används som exempel, men samma princip gäller för alla tjänstekontrakt som refererar till GetBinaryData.</em></p>
+
+<h6 id="31221-roller">3.1.2.2.1 Roller</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal 1</td>
+      <td style="text-align: left">Den hälso- och sjukvårdspersonal som skapar och skickar remiss.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Informationssystem 1</td>
+      <td style="text-align: left">Det system som i exemplet är tjänstekonsument för tjänstekontraktet ProcessRequest och tjänsteproducent för tjänstekontraktet GetBinaryData.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">NTjP</td>
+      <td style="text-align: left">Nationell tjänsteplattform som hanterar virtuella tjänster, aggregerande tjänster samt anpassningstjänster nationellt.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Informationssystem 2</td>
+      <td style="text-align: left">Det system som i exemplet är tjänsteproducent för tjänstekontraktet ProcessRequest och tjänstekonsument för tjänstekontraktet GetBinaryData.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hälso- och sjukvårdspersonal 2</td>
+      <td style="text-align: left">Den hälso- och sjukvårdspersonal som tar emot remiss.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="313-obligatoriska-kontrakt">3.1.3 Obligatoriska kontrakt</h4>
+
+<p>Följande tabell specificerar vilka kontrakt som är obligatoriska att realisera för respektive flöde.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Tjänstekontrakt</th>
+      <th style="text-align: left">Fråga-svar</th>
+      <th style="text-align: left">Uppdrag-resultat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">GetBinaryData</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänstekontrakt som refererar till GetBinaryData</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="32-adressering">3.2 Adressering</h3>
+
+<p>Tjänstekontraktet GetBinaryData ska enbart anropas utanför Nationella tjänsteplattformen (NTjP).</p>
+
+<p>Tjänstekonsumenten behöver känna till källsystemets HSA-id (logisk adress) och den URL (teknisk adress) tjänstekonsumenten ska anropa. Såväl logisk som teknisk anslutningsadress hämtas från en referens, se bilaga [R11]. Referensen kan antingen förmedlas till tjänstekonsumenten via svaret på ett anrop till ett annat tjänstekontrakt som tjänstekonsumenten anropat eller som del av ett meddelande som skickats till tjänstekonsumenten på annat sätt.</p>
+
+<h3 id="33-aggregering-och-engagemangsindex">3.3 Aggregering och engagemangsindex</h3>
+
+<p>Aggregering är inte tillämpbart för tjänstekontrakt i domänen.</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.infrastructure-itintegration-dataexchange#1.0.0-draft based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Sep 28, 2026 09:08+0000">2026-09-28</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

@@ -1,0 +1,1044 @@
+# GetExtendedBlocksForPatient — Response - informationsecurity: authorization: blocking v4.0.4
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetExtendedBlocksForPatient — Response**
+
+## Logical Model: GetExtendedBlocksForPatient — Response 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/informationsecurity-authorization-blocking/StructureDefinition/getextendedblocksforpatient | *Version*:4.0.4 |
+| Draft as of 2026-09-28 | *Computable Name*:GetExtendedBlocksForPatient |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret i GetExtendedBlocksForPatient (urn:riv:informationsecurity:authorization:blocking:GetExtendedBlocksForPatientResponder:4, GetExtendedBlocksForPatientResponseType). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.informationsecurity-authorization-blocking|current/StructureDefinition/StructureDefinition-getextendedblocksforpatient.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getextendedblocksforpatient.csv), [Excel](StructureDefinition-getextendedblocksforpatient.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getextendedblocksforpatient",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/informationsecurity-authorization-blocking/StructureDefinition/getextendedblocksforpatient",
+  "version" : "4.0.4",
+  "name" : "GetExtendedBlocksForPatient",
+  "title" : "GetExtendedBlocksForPatient — Response",
+  "status" : "draft",
+  "date" : "2026-09-28T09:02:10+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret i GetExtendedBlocksForPatient\n(urn:riv:informationsecurity:authorization:blocking:GetExtendedBlocksForPatientResponder:4, GetExtendedBlocksForPatientResponseType).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/informationsecurity-authorization-blocking/StructureDefinition/getextendedblocksforpatient",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getextendedblocksforpatient",
+      "path" : "getextendedblocksforpatient",
+      "short" : "GetExtendedBlocksForPatient — Response",
+      "definition" : "Logisk modell för svaret i GetExtendedBlocksForPatient\n(urn:riv:informationsecurity:authorization:blocking:GetExtendedBlocksForPatientResponder:4, GetExtendedBlocksForPatientResponseType)."
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult",
+      "short" : "getExtendedBlocksResult",
+      "definition" : "Datatyp som innehåller resultatet från tjänsten GetExtendedBlocksForPatient. Datatypen utökar datatypen Result.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.result",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.result",
+      "short" : "result",
+      "definition" : "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.result.resultCode",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.result.resultCode",
+      "short" : "resultCode",
+      "definition" : "resultCode",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/informationsecurity-authorization-blocking/ValueSet/authorization-blocking-resultcode-vs"
+      }
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.result.resultText",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.result.resultText",
+      "short" : "resultText",
+      "definition" : "resultText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks",
+      "short" : "blocks",
+      "definition" : "Datatyp som representerar en spärr enligt det utökade formatet.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.blockId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.blockId",
+      "short" : "blockId",
+      "definition" : "blockId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.blockType",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.blockType",
+      "short" : "blockType",
+      "definition" : "blockType",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/informationsecurity-authorization-blocking/ValueSet/authorization-blocking-blocktype-vs"
+      }
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.informationStartDate",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.informationStartDate",
+      "short" : "informationStartDate",
+      "definition" : "informationStartDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.informationEndDate",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.informationEndDate",
+      "short" : "informationEndDate",
+      "definition" : "informationEndDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.informationCareUnitId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.informationCareUnitId",
+      "short" : "informationCareUnitId",
+      "definition" : "informationCareUnitId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.informationCareProviderId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.informationCareProviderId",
+      "short" : "informationCareProviderId",
+      "definition" : "informationCareProviderId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.patientId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.patientId",
+      "short" : "patientId",
+      "definition" : "En universellt unik identifierare.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.patientId.root",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.patientId.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.patientId.iiExtension",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.patientId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.excludedInformationTypes",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.excludedInformationTypes",
+      "short" : "excludedInformationTypes",
+      "definition" : "Datatyp som representerar de Informationstyper som kan undantas från att spärras. En spärr gäller normalt alla informationstyper. Denna lista utgör de informationstyper som kan undantas från att spärras. Om försök görs att registrera en spärr innehållandes en okänd informationstyp skall spärrtjänsten att neka detta. lak Läkemedel - Ordination/förskrivning upp Uppmärksamhetsinformation",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.excludedInformationTypes.infoTypeId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.excludedInformationTypes.infoTypeId",
+      "short" : "infoTypeId",
+      "definition" : "infoTypeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.excludedInformationTypes.infoTypeDescription",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.excludedInformationTypes.infoTypeDescription",
+      "short" : "infoTypeDescription",
+      "definition" : "infoTypeDescription",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo",
+      "short" : "registrationInfo",
+      "definition" : "Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.requestDate",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.requestDate",
+      "short" : "requestDate",
+      "definition" : "requestDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.requestedBy",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.requestedBy",
+      "short" : "requestedBy",
+      "definition" : "Datatyp som identifierar en medarbetare/person.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.requestedBy.employeeId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.requestedBy.employeeId",
+      "short" : "employeeId",
+      "definition" : "employeeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.requestedBy.assignmentId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.requestedBy.assignmentId",
+      "short" : "assignmentId",
+      "definition" : "assignmentId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.requestedBy.assignmentName",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.requestedBy.assignmentName",
+      "short" : "assignmentName",
+      "definition" : "assignmentName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.registrationDate",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.registrationDate",
+      "short" : "registrationDate",
+      "definition" : "registrationDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.registeredBy",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.registeredBy",
+      "short" : "registeredBy",
+      "definition" : "Datatyp som identifierar en medarbetare/person.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.registeredBy.employeeId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.registeredBy.employeeId",
+      "short" : "employeeId",
+      "definition" : "employeeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.registeredBy.assignmentId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.registeredBy.assignmentId",
+      "short" : "assignmentId",
+      "definition" : "assignmentId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.registeredBy.assignmentName",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.registeredBy.assignmentName",
+      "short" : "assignmentName",
+      "definition" : "assignmentName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.reasonText",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.registrationInfo.reasonText",
+      "short" : "reasonText",
+      "definition" : "reasonText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo",
+      "short" : "permanentRevokedInfo",
+      "definition" : "Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.requestDate",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.requestDate",
+      "short" : "requestDate",
+      "definition" : "requestDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.requestedBy",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.requestedBy",
+      "short" : "requestedBy",
+      "definition" : "Datatyp som identifierar en medarbetare/person.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.requestedBy.employeeId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.requestedBy.employeeId",
+      "short" : "employeeId",
+      "definition" : "employeeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.requestedBy.assignmentId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.requestedBy.assignmentId",
+      "short" : "assignmentId",
+      "definition" : "assignmentId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.requestedBy.assignmentName",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.requestedBy.assignmentName",
+      "short" : "assignmentName",
+      "definition" : "assignmentName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.registrationDate",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.registrationDate",
+      "short" : "registrationDate",
+      "definition" : "registrationDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.registeredBy",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.registeredBy",
+      "short" : "registeredBy",
+      "definition" : "Datatyp som identifierar en medarbetare/person.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.registeredBy.employeeId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.registeredBy.employeeId",
+      "short" : "employeeId",
+      "definition" : "employeeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.registeredBy.assignmentId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.registeredBy.assignmentId",
+      "short" : "assignmentId",
+      "definition" : "assignmentId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.registeredBy.assignmentName",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.registeredBy.assignmentName",
+      "short" : "assignmentName",
+      "definition" : "assignmentName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.reasonText",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.permanentRevokedInfo.reasonText",
+      "short" : "reasonText",
+      "definition" : "reasonText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo",
+      "short" : "deletionInfo",
+      "definition" : "Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.requestDate",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.requestDate",
+      "short" : "requestDate",
+      "definition" : "requestDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.requestedBy",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.requestedBy",
+      "short" : "requestedBy",
+      "definition" : "Datatyp som identifierar en medarbetare/person.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.requestedBy.employeeId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.requestedBy.employeeId",
+      "short" : "employeeId",
+      "definition" : "employeeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.requestedBy.assignmentId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.requestedBy.assignmentId",
+      "short" : "assignmentId",
+      "definition" : "assignmentId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.requestedBy.assignmentName",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.requestedBy.assignmentName",
+      "short" : "assignmentName",
+      "definition" : "assignmentName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.registrationDate",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.registrationDate",
+      "short" : "registrationDate",
+      "definition" : "registrationDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.registeredBy",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.registeredBy",
+      "short" : "registeredBy",
+      "definition" : "Datatyp som identifierar en medarbetare/person.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.registeredBy.employeeId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.registeredBy.employeeId",
+      "short" : "employeeId",
+      "definition" : "employeeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.registeredBy.assignmentId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.registeredBy.assignmentId",
+      "short" : "assignmentId",
+      "definition" : "assignmentId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.registeredBy.assignmentName",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.registeredBy.assignmentName",
+      "short" : "assignmentName",
+      "definition" : "assignmentName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.reasonText",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.deletionInfo.reasonText",
+      "short" : "reasonText",
+      "definition" : "reasonText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes",
+      "short" : "temporaryRevokes",
+      "definition" : "Datatyp som representerar en tillfällig hävning enligt det utökade formatet.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.temporaryRevokeId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.temporaryRevokeId",
+      "short" : "temporaryRevokeId",
+      "definition" : "temporaryRevokeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.endDate",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.endDate",
+      "short" : "endDate",
+      "definition" : "endDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.revokedForCareUnitId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.revokedForCareUnitId",
+      "short" : "revokedForCareUnitId",
+      "definition" : "revokedForCareUnitId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.revokedForEmployeeId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.revokedForEmployeeId",
+      "short" : "revokedForEmployeeId",
+      "definition" : "revokedForEmployeeId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.revocationReason",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.revocationReason",
+      "short" : "revocationReason",
+      "definition" : "revocationReason",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/informationsecurity-authorization-blocking/ValueSet/authorization-blocking-temporaryrevokereason-vs"
+      }
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.revocationReasonText",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.revocationReasonText",
+      "short" : "revocationReasonText",
+      "definition" : "revocationReasonText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo",
+      "short" : "registrationInfo",
+      "definition" : "Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.requestDate",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.requestDate",
+      "short" : "requestDate",
+      "definition" : "requestDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.requestedBy",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.requestedBy",
+      "short" : "requestedBy",
+      "definition" : "Datatyp som identifierar en medarbetare/person.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.requestedBy.employeeId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.requestedBy.employeeId",
+      "short" : "employeeId",
+      "definition" : "employeeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.requestedBy.assignmentId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.requestedBy.assignmentId",
+      "short" : "assignmentId",
+      "definition" : "assignmentId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.requestedBy.assignmentName",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.requestedBy.assignmentName",
+      "short" : "assignmentName",
+      "definition" : "assignmentName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.registrationDate",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.registrationDate",
+      "short" : "registrationDate",
+      "definition" : "registrationDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.registeredBy",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.registeredBy",
+      "short" : "registeredBy",
+      "definition" : "Datatyp som identifierar en medarbetare/person.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.registeredBy.employeeId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.registeredBy.employeeId",
+      "short" : "employeeId",
+      "definition" : "employeeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.registeredBy.assignmentId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.registeredBy.assignmentId",
+      "short" : "assignmentId",
+      "definition" : "assignmentId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.registeredBy.assignmentName",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.registeredBy.assignmentName",
+      "short" : "assignmentName",
+      "definition" : "assignmentName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.reasonText",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.registrationInfo.reasonText",
+      "short" : "reasonText",
+      "definition" : "reasonText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo",
+      "short" : "cancellationInfo",
+      "definition" : "Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.requestDate",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.requestDate",
+      "short" : "requestDate",
+      "definition" : "requestDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.requestedBy",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.requestedBy",
+      "short" : "requestedBy",
+      "definition" : "Datatyp som identifierar en medarbetare/person.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.requestedBy.employeeId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.requestedBy.employeeId",
+      "short" : "employeeId",
+      "definition" : "employeeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.requestedBy.assignmentId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.requestedBy.assignmentId",
+      "short" : "assignmentId",
+      "definition" : "assignmentId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.requestedBy.assignmentName",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.requestedBy.assignmentName",
+      "short" : "assignmentName",
+      "definition" : "assignmentName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.registrationDate",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.registrationDate",
+      "short" : "registrationDate",
+      "definition" : "registrationDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.registeredBy",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.registeredBy",
+      "short" : "registeredBy",
+      "definition" : "Datatyp som identifierar en medarbetare/person.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.registeredBy.employeeId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.registeredBy.employeeId",
+      "short" : "employeeId",
+      "definition" : "employeeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.registeredBy.assignmentId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.registeredBy.assignmentId",
+      "short" : "assignmentId",
+      "definition" : "assignmentId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.registeredBy.assignmentName",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.registeredBy.assignmentName",
+      "short" : "assignmentName",
+      "definition" : "assignmentName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.reasonText",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.cancellationInfo.reasonText",
+      "short" : "reasonText",
+      "definition" : "reasonText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.ownerId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.temporaryRevokes.ownerId",
+      "short" : "ownerId",
+      "definition" : "ownerId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.ownerId",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.ownerId",
+      "short" : "ownerId",
+      "definition" : "ownerId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.locallyCreated",
+      "path" : "getextendedblocksforpatient.getExtendedBlocksResult.blocks.locallyCreated",
+      "short" : "locallyCreated",
+      "definition" : "locallyCreated",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    }]
+  }
+}
+
+```
