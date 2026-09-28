@@ -1,0 +1,204 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "answerinquiry",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/supportprocess-personalresources-interpretation/StructureDefinition/answerinquiry",
+  "name": "AnswerInquiry",
+  "title": "AnswerInquiry — Begäran",
+  "status": "draft",
+  "description": "Logisk modell för begäran i AnswerInquiry (urn:riv:supportprocess:personalresources:interpretation:AnswerInquiryResponder:1, AnswerInquiryType). Tolkförmedlingen besvarar en förfrågan om tolkuppdrag. Svaret beskrivs av InterpretationResult.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/supportprocess-personalresources-interpretation/StructureDefinition/answerinquiry",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "answerinquiry",
+        "path": "answerinquiry",
+        "short": "AnswerInquiry — Begäran",
+        "definition": "Logisk modell för begäran i AnswerInquiry (urn:riv:supportprocess:personalresources:interpretation:AnswerInquiryResponder:1, AnswerInquiryType). Tolkförmedlingen besvarar en förfrågan om tolkuppdrag. Svaret beskrivs av InterpretationResult."
+      },
+      {
+        "id": "answerinquiry.inquiryResponse",
+        "path": "answerinquiry.inquiryResponse",
+        "short": "Svar på förfrågan",
+        "definition": "Svar på förfrågan (InquiryResponse).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "answerinquiry.inquiryResponse.inquiryId",
+        "path": "answerinquiry.inquiryResponse.inquiryId",
+        "short": "Förfrågans id",
+        "definition": "Id för förfrågan.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "positiveInt"
+          }
+        ]
+      },
+      {
+        "id": "answerinquiry.inquiryResponse.round",
+        "path": "answerinquiry.inquiryResponse.round",
+        "short": "Utskicksrunda",
+        "definition": "1 = första rundan, 2 = första påminnelserundan osv.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "positiveInt"
+          }
+        ]
+      },
+      {
+        "id": "answerinquiry.inquiryResponse.referenceNumberMap",
+        "path": "answerinquiry.inquiryResponse.referenceNumberMap",
+        "short": "Referensnummermappning",
+        "definition": "Mappning mellan Tolkportalens beställningsnummer och tolkförmedlingens referensnummer (ReferenceNumberMapping).",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "answerinquiry.inquiryResponse.referenceNumberMap.bookingNumber",
+        "path": "answerinquiry.inquiryResponse.referenceNumberMap.bookingNumber",
+        "short": "Beställningsnummer",
+        "definition": "Tolkportalens beställningsnummer (≥ 0).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "answerinquiry.inquiryResponse.referenceNumberMap.referenceNumber",
+        "path": "answerinquiry.inquiryResponse.referenceNumberMap.referenceNumber",
+        "short": "Referensnummer",
+        "definition": "Tolkförmedlingens referensnummer.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "answerinquiry.inquiryResponse.answer",
+        "path": "answerinquiry.inquiryResponse.answer",
+        "short": "Svar",
+        "definition": "Accept, AcceptWithException eller Reject (InquiryResponseAnswerEnum).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/supportprocess-personalresources-interpretation/ValueSet/inquiryresponseanswer-vs"
+        }
+      },
+      {
+        "id": "answerinquiry.inquiryResponse.bookingInformationFromAssociation",
+        "path": "answerinquiry.inquiryResponse.bookingInformationFromAssociation",
+        "short": "Information från tolkförmedlingen",
+        "definition": "Information från tolkförmedlingen om tolkningen (BookingInformationFromAssociation).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "answerinquiry.inquiryResponse.bookingInformationFromAssociation.authorizationLevel",
+        "path": "answerinquiry.inquiryResponse.bookingInformationFromAssociation.authorizationLevel",
+        "short": "Kompetensnivå",
+        "definition": "Tolkens kompetensnivå enligt KV Kompetensnivå tolk [R4], codeSystem eec2f9b0-03d5-450d-9797-ac0c74f6cfac.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "answerinquiry.inquiryResponse.bookingInformationFromAssociation.requestTravelTimeCost",
+        "path": "answerinquiry.inquiryResponse.bookingInformationFromAssociation.requestTravelTimeCost",
+        "short": "Begär restidsersättning",
+        "definition": "Anger om tolkförmedlingen efterfrågar restidsersättning för uppdraget.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "answerinquiry.inquiryResponse.bookingInformationFromAssociation.interpreterName",
+        "path": "answerinquiry.inquiryResponse.bookingInformationFromAssociation.interpreterName",
+        "short": "Tolkens namn",
+        "definition": "Tolkens namn (minst ett tecken).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "answerinquiry.inquiryResponse.bookingInformationFromAssociation.phoneNumberForInterpretation",
+        "path": "answerinquiry.inquiryResponse.bookingInformationFromAssociation.phoneNumberForInterpretation",
+        "short": "Telefonnummer för distanstolkning",
+        "definition": "Telefonnummer som distanstolkning ska utföras på.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "answerinquiry.inquiryResponse.explainingText",
+        "path": "answerinquiry.inquiryResponse.explainingText",
+        "short": "Förklarande text",
+        "definition": "Ytterligare information om svaret, t.ex. undantag och anledning till avslag.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

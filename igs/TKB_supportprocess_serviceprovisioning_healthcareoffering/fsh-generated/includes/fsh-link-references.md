@@ -1,0 +1,10 @@
+[GetCareServiceOfferingsRequest]: StructureDefinition-getcareserviceofferings-request.html
+[GetCareServiceOfferings]: StructureDefinition-getcareserviceofferings.html
+[GetOfferingCataloguesRequest]: StructureDefinition-getofferingcatalogues-request.html
+[GetOfferingCatalogues]: StructureDefinition-getofferingcatalogues.html
+[RIVTAVersionVS]: ValueSet-healthcareoffering-rivtaversion-vs.html
+[RIVTAVersionCS]: CodeSystem-healthcareoffering-rivtaversion-cs.html
+[CareServiceStatusVS]: ValueSet-healthcareoffering-careservicestatus-vs.html
+[CareServiceStatusCS]: CodeSystem-healthcareoffering-careservicestatus-cs.html
+[TypeOfPlaceVS]: ValueSet-healthcareoffering-typeofplace-vs.html
+[TypeOfPlaceCS]: CodeSystem-healthcareoffering-typeofplace-cs.html

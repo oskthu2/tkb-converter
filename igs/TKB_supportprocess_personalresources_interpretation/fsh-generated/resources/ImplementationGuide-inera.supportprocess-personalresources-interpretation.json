@@ -1,0 +1,306 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "inera.supportprocess-personalresources-interpretation",
+  "url": "https://fhir.inera.se/ig/supportprocess-personalresources-interpretation/ImplementationGuide/inera.supportprocess-personalresources-interpretation",
+  "version": "1.0.0",
+  "name": "supportprocesspersonalresourcesinterpretation",
+  "title": "supportprocess: personalresources: interpretation — Tolkförmedling",
+  "status": "draft",
+  "contact": [
+    {
+      "name": "Inera Arkitektur",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.inera.se"
+        }
+      ]
+    }
+  ],
+  "copyright": "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "packageId": "inera.supportprocess-personalresources-interpretation",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.r4.core",
+      "version": "4.0.1",
+      "uri": "http://fhir.org/packages/hl7.fhir.r4.core/ImplementationGuide/hl7.fhir.r4.core",
+      "id": "hl7_fhir_r4_core"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "StructureDefinition/answerinquiry"
+        },
+        "name": "AnswerInquiry — Begäran",
+        "description": "Logisk modell för begäran i AnswerInquiry (urn:riv:supportprocess:personalresources:interpretation:AnswerInquiryResponder:1, AnswerInquiryType). Tolkförmedlingen besvarar en förfrågan om tolkuppdrag. Svaret beskrivs av InterpretationResult.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/bookingstate-vs"
+        },
+        "name": "BookingStateEnum",
+        "description": "Alla koder i BookingStateCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/bookingstate-cs"
+        },
+        "name": "BookingStateEnum",
+        "description": "Status för beställning. Enligt supportprocess_personalresources_interpretation_1.0.xsd.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/createbooking"
+        },
+        "name": "CreateBooking — Begäran",
+        "description": "Logisk modell för begäran i CreateBooking (urn:riv:supportprocess:personalresources:interpretation:CreateBookingResponder:1, CreateBookingType). Tolkförmedlingen registrerar en inringd beställning i Tolkportalen.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/createbooking-response"
+        },
+        "name": "CreateBooking — Svar",
+        "description": "Logisk modell för svaret i CreateBooking (urn:riv:supportprocess:personalresources:interpretation:CreateBookingResponder:1, CreateBookingResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/errorcode-vs"
+        },
+        "name": "ErrorCodeEnum",
+        "description": "Alla koder i ErrorCodeCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/errorcode-cs"
+        },
+        "name": "ErrorCodeEnum",
+        "description": "Felkod när resultCode är ERROR. Enligt supportprocess_personalresources_interpretation_1.0.xsd.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/inquiryresponseanswer-vs"
+        },
+        "name": "InquiryResponseAnswerEnum",
+        "description": "Alla koder i InquiryResponseAnswerCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/inquiryresponseanswer-cs"
+        },
+        "name": "InquiryResponseAnswerEnum",
+        "description": "Svar på förfrågan. Enligt supportprocess_personalresources_interpretation_1.0.xsd.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/inquirystate-vs"
+        },
+        "name": "InquiryStateEnum",
+        "description": "Alla koder i InquiryStateCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/inquirystate-cs"
+        },
+        "name": "InquiryStateEnum",
+        "description": "Status för förfrågan. Enligt supportprocess_personalresources_interpretation_1.0.xsd.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/listbookings-request"
+        },
+        "name": "ListBookings — Begäran",
+        "description": "Logisk modell för begäran i ListBookings (urn:riv:supportprocess:personalresources:interpretation:ListBookingsResponder:1, ListBookingsType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/listbookings"
+        },
+        "name": "ListBookings — Svar",
+        "description": "Logisk modell för svaret i ListBookings (urn:riv:supportprocess:personalresources:interpretation:ListBookingsResponder:1, ListBookingsResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/listinquiries-request"
+        },
+        "name": "ListInquiries — Begäran",
+        "description": "Logisk modell för begäran i ListInquiries (urn:riv:supportprocess:personalresources:interpretation:ListInquiriesResponder:1, ListInquiriesType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/listinquiries"
+        },
+        "name": "ListInquiries — Svar",
+        "description": "Logisk modell för svaret i ListInquiries (urn:riv:supportprocess:personalresources:interpretation:ListInquiriesResponder:1, ListInquiriesResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/requirementlevel-vs"
+        },
+        "name": "RequirementLevelEnum",
+        "description": "Alla koder i RequirementLevelCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/requirementlevel-cs"
+        },
+        "name": "RequirementLevelEnum",
+        "description": "Kravnivå: Desired = önskemål, Only = krav. Enligt supportprocess_personalresources_interpretation_1.0.xsd.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/interpretation-result"
+        },
+        "name": "Resultat (ResultType)",
+        "description": "Logisk modell för ResultType, som returneras av AnswerInquiry, CreateBooking och UpdateBooking. Se avsnitt 4.3 Felhantering.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/resultcode-vs"
+        },
+        "name": "ResultCodeEnum",
+        "description": "Alla koder i ResultCodeCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/resultcode-cs"
+        },
+        "name": "ResultCodeEnum",
+        "description": "Resultatkod för anropet. Enligt supportprocess_personalresources_interpretation_1.0.xsd.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/updatebooking"
+        },
+        "name": "UpdateBooking — Begäran",
+        "description": "Logisk modell för begäran i UpdateBooking (urn:riv:supportprocess:personalresources:interpretation:UpdateBookingResponder:1, UpdateBookingType). Tolkförmedlingen uppdaterar beställningsinformation i Tolkportalen. Svaret beskrivs av InterpretationResult.",
+        "exampleBoolean": false
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Hem",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "1-inledning.html",
+          "title": "1 Inledning",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "2-versionsinformation.html",
+          "title": "2 Versionsinformation",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "3-tjanstedomanens-arkitektur.html",
+          "title": "3 Tjänstedomänens arkitektur",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "4-tjanstedomanens-krav-och-regler.html",
+          "title": "4 Tjänstedomänens krav och regler",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "5-tjanstedomanens-meddelandemodeller.html",
+          "title": "5 Tjänstedomänens meddelandemodeller",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "6-gemensamma-informationskomponenter.html",
+          "title": "6 Gemensamma informationskomponenter",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "7-tjanstekontrakt.html",
+          "title": "7 Tjänstekontrakt",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2024+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "draft"
+      },
+      {
+        "code": "show-inherited-invariants",
+        "value": "false"
+      },
+      {
+        "code": "apply-contact",
+        "value": "true"
+      },
+      {
+        "code": "apply-publisher",
+        "value": "true"
+      },
+      {
+        "code": "apply-version",
+        "value": "true"
+      },
+      {
+        "code": "apply-copyright",
+        "value": "true"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/bookingstate-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/inquirystate-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/inquiryresponseanswer-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/requirementlevel-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/resultcode-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/errorcode-cs"
+      }
+    ]
+  }
+}

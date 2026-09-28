@@ -115,7 +115,7 @@ def generate(pkg_dir: str):
     for p in ["string", "boolean", "integer", "decimal", "date", "dateTime",
               "instant", "code", "uri", "url", "base64Binary", "oid", "id",
               "markdown", "positiveInt", "unsignedInt", "xhtml", "uuid",
-              "canonical"]:
+              "canonical", "time"]:
         write(p, base_primitive(p))
 
     # ── Element ─────────────────────────────────────────────────────────────────
@@ -200,7 +200,7 @@ def generate(pkg_dir: str):
              "min": 0, "max": "1", "base": {"path": "Extension.value[x]", "min": 0, "max": "1"},
              "type": [{"code": t} for t in [
                  "base64Binary", "boolean", "canonical", "code", "date", "dateTime",
-                 "decimal", "id", "instant", "integer", "markdown", "oid", "positiveInt",
+                 "decimal", "id", "instant", "integer", "markdown", "oid", "positiveInt", "time",
                  "string", "unsignedInt", "uri", "url", "uuid", "Address", "Age",
                  "Annotation", "Attachment", "CodeableConcept", "Coding", "ContactPoint",
                  "Count", "Distance", "Duration", "HumanName", "Identifier", "Money",

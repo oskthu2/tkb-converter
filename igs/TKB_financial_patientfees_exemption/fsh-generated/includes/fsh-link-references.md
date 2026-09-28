@@ -1,0 +1,9 @@
+[ActorTypeVS]: ValueSet-patientfees-exemption-actortype-vs.html
+[ActorTypeCS]: CodeSystem-patientfees-exemption-actortype-cs.html
+[ProcessExemptionStatusesRequest]: StructureDefinition-processexemptionstatuses-request.html
+[ProcessExemptionStatuses]: StructureDefinition-processexemptionstatuses.html
+[RequestExemptionStatusesRequest]: StructureDefinition-requestexemptionstatuses-request.html
+[ResultCodeVS]: ValueSet-patientfees-exemption-resultcode-vs.html
+[ResultCodeCS]: CodeSystem-patientfees-exemption-resultcode-cs.html
+[TypeOfExemptionVS]: ValueSet-patientfees-exemption-typeofexemption-vs.html
+[TypeOfExemptionCS]: CodeSystem-patientfees-exemption-typeofexemption-cs.html

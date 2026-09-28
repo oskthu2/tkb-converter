@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->		
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="urn:riv:informationsecurity:authorization:pip:1"
+	targetNamespace="urn:riv:informationsecurity:authorization:pip:1" elementFormDefault="qualified"
+	attributeFormDefault="unqualified" version="1.0">
+
+	<xs:complexType name="SealType">
+		<xs:annotation>
+			<xs:documentation>En försegling beskriver vårdgivarens beslut om att begränsa den
+				enskildes åtkomst till sin egen information. Försegling handlar inte om att
+				informationen kan vara till men i medicinskt hänseende för den enskilde, utan om att
+				informationen inte ska vara tillgänglig via självbetjäning på grund av att den
+				enskilde befinner sig i vanmaktssituation. Vårdgivaren kan även använda försegling
+				för att stänga ute vårdnadshavares digitala åtkomst till barns (under 13 år)
+				journaluppgifter. I praktiken förseglas barnets konto, vilket resulterar i att
+				vårdnadshavarna inte kan se barnets information i tjänster som erbjuder
+				vårdnadshavare åtkomst till vårdnadstagarens journaluppgifter. En försegling kan ha
+				olika verksamhetsmässig omfattning, vilket representeras av respektive komposit
+				element. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="patientId" type="tns:IIType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="timeCreated" type="tns:TimeStampType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="timeLastUpdated" type="tns:TimeStampType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="validFrom" type="tns:DateType" minOccurs="0"/>
+			<xs:element name="validTo" type="tns:DateType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="deactivationDate" type="tns:DateType" minOccurs="0" maxOccurs="1"/>
+			<!--   Full Seal = Skip both orgUnitSeal and careProviderSeal. 
+				orgUnitSeal = include orgUnitSeal but not careProviderSeal. 
+				careProviderSeal = include careProviderSeal but skip orgUnitSeal. 
+				It is not valid to include orgUnitSeal and careProviderSeal -->
+			<xs:element name="orgUnitSeal" type="tns:OrgUnitSealType" minOccurs="0"/>
+			<xs:element name="careProviderSeal" type="tns:CareProviderSealType" minOccurs="0"/>
+			<xs:element minOccurs="0" name="fullSeal" type="tns:FullSealType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="OrgUnitSealType">
+		<xs:annotation>
+			<xs:documentation>En enhetsförsegling ställer krav på att tjänstekonsumenten (enskilds
+				direktåtkomst eller enskilds utlämnande) filtrerar bort vårdinformation som matchar
+				enheten som anges i en enhetsförsegling. Enhet kan vara på godtycklig nivå i
+				vårdgivarens organisationsstruktur. För att få avsedd effekt behöver vårdgivaren som
+				registrerar en enhetsförsegling säkerställa att enheten som anges för försegling
+				motsvarar värden som används i JoL-kontrakten i något av dessa fält:
+				accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId
+				accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId Det gäller
+				oavsett om vårdsystemet genererar HSAid:n eller använder systeminterna
+				enhetsidentiteter. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="orgUnit" type="tns:IIType" minOccurs="1" maxOccurs="1"/>
+			<xs:element minOccurs="0" name="sealPeriod" type="tns:DatePeriodType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="FullSealType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CareProviderSealType">
+		<xs:annotation>
+			<xs:documentation>En vårdgivarfiltrering ställer krav på att tjänstekonsumenten
+				(enskilds direktåtkomst eller enskilds utlämnande) filtrerar bort vårdinformation
+				som matchar vårdgivaren som anges i en vårdgivarförsegling. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="careProviderId" type="tns:IIType" minOccurs="1" maxOccurs="1"/>
+			<xs:element minOccurs="0" name="sealPeriod" type="tns:DatePeriodType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="IIType">
+		<xs:sequence>
+			<xs:element name="root" type="xs:string"/>
+			<xs:element name="extension" type="xs:string"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="TimeStampType">
+		<xs:annotation>
+			<xs:documentation> A quantity specifying a point on the axis of natural time. A point in
+				time is most often represented as a calendar expression. The time has the format
+				YYYYMMDDhhmmss </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern
+				value="(19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])(0[0-9]|1[0-9]|2[0123])([0-5])([0-9])([0-5])([0-9])"
+			/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="DateType">
+		<xs:annotation>
+			<xs:documentation> The date has the format YYYYMMDD </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ResultCodeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="OK"/>
+			<xs:enumeration value="ERROR"/>
+			<xs:enumeration value="INFO"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="DatePeriodType">
+		<xs:sequence>
+			<xs:element name="start" type="tns:DateType"/>
+			<xs:element name="end" type="tns:DateType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

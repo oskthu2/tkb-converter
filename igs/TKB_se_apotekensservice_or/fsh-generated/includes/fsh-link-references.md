@@ -1,0 +1,4 @@
+[HamtaAktuellaOrdinationerRequest]: StructureDefinition-hamtaaktuellaordinationer-request.html
+[HamtaAktuellaOrdinationer]: StructureDefinition-hamtaaktuellaordinationer.html
+[HamtaIckeAktuellaOrdinationerRequest]: StructureDefinition-hamtaickeaktuellaordinationer-request.html
+[HamtaIckeAktuellaOrdinationer]: StructureDefinition-hamtaickeaktuellaordinationer.html

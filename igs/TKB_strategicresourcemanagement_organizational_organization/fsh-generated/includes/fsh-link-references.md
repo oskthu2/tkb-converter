@@ -1,0 +1,10 @@
+[GetHealthCareUnitRequest]: StructureDefinition-gethealthcareunit-request.html
+[GetHealthCareUnit]: StructureDefinition-gethealthcareunit.html
+[GetHealthCareUnitIncludingManagerRequest]: StructureDefinition-gethealthcareunitincludingmanager-request.html
+[GetHealthCareUnitIncludingManager]: StructureDefinition-gethealthcareunitincludingmanager.html
+[GetHealthCareUnitListRequest]: StructureDefinition-gethealthcareunitlist-request.html
+[GetHealthCareUnitList]: StructureDefinition-gethealthcareunitlist.html
+[GetHealthCareUnitMembersRequest]: StructureDefinition-gethealthcareunitmembers-request.html
+[GetHealthCareUnitMembers]: StructureDefinition-gethealthcareunitmembers.html
+[GetUnitRequest]: StructureDefinition-getunit-request.html
+[GetUnit]: StructureDefinition-getunit.html

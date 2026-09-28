@@ -1,0 +1,83 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "kontrollerasamtyckevardsystem",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/se-apotekensservice-lf/StructureDefinition/kontrollerasamtyckevardsystem",
+  "name": "KontrolleraSamtyckeVardsystem",
+  "title": "KontrolleraSamtyckeVardsystem — Response",
+  "status": "draft",
+  "description": "Logisk modell för svaret i KontrolleraSamtyckeVardsystem\n(urn:riv:se.apotekensservice:lf:KontrolleraSamtyckeVardsystemResponder:1, KontrolleraSamtyckeVardsystemResponseType).",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/se-apotekensservice-lf/StructureDefinition/kontrollerasamtyckevardsystem",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "kontrollerasamtyckevardsystem",
+        "path": "kontrollerasamtyckevardsystem",
+        "short": "KontrolleraSamtyckeVardsystem — Response",
+        "definition": "Logisk modell för svaret i KontrolleraSamtyckeVardsystem\n(urn:riv:se.apotekensservice:lf:KontrolleraSamtyckeVardsystemResponder:1, KontrolleraSamtyckeVardsystemResponseType)."
+      },
+      {
+        "id": "kontrollerasamtyckevardsystem.avliden",
+        "path": "kontrollerasamtyckevardsystem.avliden",
+        "short": "avliden",
+        "definition": "Markering om patient är avliden enligt FOLK. Sant om patient är markerad som avliden, annars falskt.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "kontrollerasamtyckevardsystem.samtycke",
+        "path": "kontrollerasamtyckevardsystem.samtycke",
+        "short": "samtycke",
+        "definition": "Anger om aktuell förskrivare har samtycke av patient. Möjliga värden är: 0 = Samtycke att läsa Läkemedelsförteckningen saknas 1= Samtycke att läsa Läkemedelsförteckningen finns 2 = Samtycke att läsa Läkemedelsförteckningen har återkallats",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "kontrollerasamtyckevardsystem.samtyckesgivare",
+        "path": "kontrollerasamtyckevardsystem.samtyckesgivare",
+        "short": "samtyckesgivare",
+        "definition": "Giltigt personnummer för patient vars läkemedelsförteckning skall hämtas.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "kontrollerasamtyckevardsystem.statusdatum",
+        "path": "kontrollerasamtyckevardsystem.statusdatum",
+        "short": "statusdatum",
+        "definition": "Datum då patient givit eller återkallat samtycke till förskrivare. Blank om uppgift om samtycke saknas.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

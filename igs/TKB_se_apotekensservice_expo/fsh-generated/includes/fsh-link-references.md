@@ -1,0 +1,17 @@
+[HamtaApoteksInfoRequest]: StructureDefinition-hamtaapoteksinfo-request.html
+[HamtaApoteksInfo]: StructureDefinition-hamtaapoteksinfo.html
+[HamtaApoteksinfoEgetRequest]: StructureDefinition-hamtaapoteksinfoeget-request.html
+[HamtaApoteksinfoEget]: StructureDefinition-hamtaapoteksinfoeget.html
+[KontaktuppgifterHamtaRequest]: StructureDefinition-kontaktuppgifterhamta-request.html
+[KontaktuppgifterHamta]: StructureDefinition-kontaktuppgifterhamta.html
+[KontaktuppgifterUppdateraRequest]: StructureDefinition-kontaktuppgifteruppdatera-request.html
+[SkapaApotekRequest]: StructureDefinition-skapaapotek-request.html
+[SkapaApotek]: StructureDefinition-skapaapotek.html
+[SkapaDosmottagareRequest]: StructureDefinition-skapadosmottagare-request.html
+[SkapaDosmottagare]: StructureDefinition-skapadosmottagare.html
+[SokDosmottagareRequest]: StructureDefinition-sokdosmottagare-request.html
+[SokDosmottagare]: StructureDefinition-sokdosmottagare.html
+[TaBortDosmottagareRequest]: StructureDefinition-tabortdosmottagare-request.html
+[UppdateraDosmottagareRequest]: StructureDefinition-uppdateradosmottagare-request.html
+[UppdateraExpoMedApotekRequest]: StructureDefinition-uppdateraexpomedapotek-request.html
+[UppdateraExpoMedApotek]: StructureDefinition-uppdateraexpomedapotek.html

@@ -1,0 +1,14 @@
+[GetAccessLogsForPatientRequest]: StructureDefinition-getaccesslogsforpatient-request.html
+[GetAccessLogsForPatient]: StructureDefinition-getaccesslogsforpatient.html
+[GetFilesForOrderIdRequest]: StructureDefinition-getfilesfororderid-request.html
+[GetFilesForOrderId]: StructureDefinition-getfilesfororderid.html
+[GetInfoLogsRequest]: StructureDefinition-getinfologs-request.html
+[GetInfoLogs]: StructureDefinition-getinfologs.html
+[GetLogsRequest]: StructureDefinition-getlogs-request.html
+[GetLogs]: StructureDefinition-getlogs.html
+[GetLogsByOrderRequest]: StructureDefinition-getlogsbyorder-request.html
+[GetLogsByOrder]: StructureDefinition-getlogsbyorder.html
+[ResultCodeVS]: ValueSet-auditing-log-resultcode-vs.html
+[ResultCodeCS]: CodeSystem-auditing-log-resultcode-cs.html
+[StoreLogRequest]: StructureDefinition-storelog-request.html
+[StoreLog]: StructureDefinition-storelog.html

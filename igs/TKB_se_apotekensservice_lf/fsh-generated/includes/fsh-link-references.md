@@ -1,0 +1,7 @@
+[AterkallaSamtyckeVardsystemRequest]: StructureDefinition-aterkallasamtyckevardsystem-request.html
+[AterkallaSamtyckeVardsystem]: StructureDefinition-aterkallasamtyckevardsystem.html
+[KontrolleraSamtyckeVardsystemRequest]: StructureDefinition-kontrollerasamtyckevardsystem-request.html
+[KontrolleraSamtyckeVardsystem]: StructureDefinition-kontrollerasamtyckevardsystem.html
+[LasLFVardsystemRequest]: StructureDefinition-laslfvardsystem-request.html
+[LasLFVardsystem]: StructureDefinition-laslfvardsystem.html
+[RegistreraSamtyckeVardsystemRequest]: StructureDefinition-registrerasamtyckevardsystem-request.html

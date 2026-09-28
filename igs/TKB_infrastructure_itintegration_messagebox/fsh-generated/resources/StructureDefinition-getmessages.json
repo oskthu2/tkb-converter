@@ -1,0 +1,165 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getmessages",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/infrastructure-itintegration-messagebox/StructureDefinition/getmessages",
+  "name": "GetMessages",
+  "title": "GetMessages — Response",
+  "status": "draft",
+  "description": "Logisk modell för svaret i GetMessages\n(urn:riv:infrastructure:itintegration:messagebox:GetMessagesResponder:1, GetMessagesResponseType).",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/infrastructure-itintegration-messagebox/StructureDefinition/getmessages",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getmessages",
+        "path": "getmessages",
+        "short": "GetMessages — Response",
+        "definition": "Logisk modell för svaret i GetMessages\n(urn:riv:infrastructure:itintegration:messagebox:GetMessagesResponder:1, GetMessagesResponseType)."
+      },
+      {
+        "id": "getmessages.result",
+        "path": "getmessages.result",
+        "short": "result",
+        "definition": "Gemensam resultatkod. Om code är OK är övriga fält tomma. Om code är \"INFO\" eller ERROR kan information skickas i errorId och/eller errorMessage.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getmessages.result.resultCode",
+        "path": "getmessages.result.resultCode",
+        "short": "resultCode",
+        "definition": "resultCode Heter code i schemat.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/infrastructure-itintegration-messagebox/ValueSet/messagebox-resultcode-vs"
+        }
+      },
+      {
+        "id": "getmessages.result.errorId",
+        "path": "getmessages.result.errorId",
+        "short": "errorId",
+        "definition": "errorId",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getmessages.result.errorMessage",
+        "path": "getmessages.result.errorMessage",
+        "short": "errorMessage",
+        "definition": "errorMessage",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getmessages.responses",
+        "path": "getmessages.responses",
+        "short": "responses",
+        "definition": "responses",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getmessages.responses.messageId",
+        "path": "getmessages.responses.messageId",
+        "short": "messageId",
+        "definition": "messageId (xs:long i schemat.)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getmessages.responses.targetOrganization",
+        "path": "getmessages.responses.targetOrganization",
+        "short": "targetOrganization",
+        "definition": "targetOrganization",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getmessages.responses.serviceContractType",
+        "path": "getmessages.responses.serviceContractType",
+        "short": "serviceContractType",
+        "definition": "Type which describes a service contract. Used in interaction GetSupportedServiceContracts.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getmessages.responses.serviceContractType.ServiceContractNamespace",
+        "path": "getmessages.responses.serviceContractType.ServiceContractNamespace",
+        "short": "ServiceContractNamespace",
+        "definition": "ServiceContractNamespace",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ]
+      },
+      {
+        "id": "getmessages.responses.message",
+        "path": "getmessages.responses.message",
+        "short": "message",
+        "definition": "message",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

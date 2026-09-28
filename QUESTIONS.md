@@ -1230,6 +1230,921 @@ _Inga blockerare identifierade._
 
 ---
 
+## clinicalprocess.activityprescription.logistics v1.0.2 — `igs/TKB_clinicalprocess_activityprescription_logistics/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-APL-001]** `igs/TKB_clinicalprocess_activityprescription_logistics/input/pagecontent/1-inledning.md` · två figurer i avsnitt 1
+  Källdokumentet är en legacy `.doc` (Word 97–2003). Det konverterades med `wvHtml` och `wv2md.py`, eftersom LibreOffice inte fungerar i miljön. Fem av sju innehållsfigurer gick att extrahera som PNG (figur 1 och 2 i 4.1, åtkomstbilden och arbetsflödet i 4.2, informationsmodellen i 6.1). De två figurerna i avsnitt 1 är ett Word-ritobjekt och en bild utan inbäddad PNG, och de saknas i IG:n (markerat "SAKNAS I KÄLLDOKUMENT"). Överstruken text i källdokumentet har tagits bort. Verifiera mot originalet att inget giltigt stycke föll bort.
+  Källa: `docs/Tjanstekontraktsbeskrivning - clinicalprocess_activityprescription_logistics.doc`.
+
+- [ ] **[ASSUME-APL-002]** `igs/TKB_clinicalprocess_activityprescription_logistics/sushi-config.yaml` · version
+  Repot saknar taggar och downloads. Arkivet är hämtat för commit `69b4fefff3e9` på `master` (2014-11-14). IG-versionen 1.0.2 är tagen från dokumentets revisionshistorik och försättsblad, medan kapitel 2 i samma dokument säger att revisionen avser version 1.0.1. Tjänstekontrakten är version 1.0 i båda fallen.
+
+- [ ] **[ASSUME-APL-003]** `igs/TKB_clinicalprocess_activityprescription_logistics/input/fsh/logical-models/GetDispensedDrugs.fsh` · fält `lakemedelsforteckning.radid`
+  XSD-typen är `xs:long`. FHIR R4 saknar 64-bitars heltal (`integer64` finns först i R5), så fältet är modellerat som `string`. Verifiera om `integer` (32 bitar) räcker för LF:s rad-id.
+
+- [ ] **[ASSUME-APL-004]** `igs/TKB_clinicalprocess_activityprescription_logistics/input/fsh/logical-models/GetDispensedDrugsRequest.fsh`, `PrintListOfDispensedDrugsRequest.fsh` · fält `identifieradArbetsplats`
+  `ArbetsplatsIdentifikation` är en `xs:choice` där båda alternativen har kardinaliteten 1..1 i TKB-tabellen. Modellerat som två 0..1-fält med invarianten `arbetsplatskod.exists() xor arbetsplats.exists()`.
+
+- [ ] **[ASSUME-APL-005]** `igs/TKB_clinicalprocess_activityprescription_logistics/input/fsh/codesystems/ResultCodeCS.fsh`, `AtkomsttypCS.fsh` · koddefinitioner
+  Schemat och TKB:n anger bara kodvärdena. Definitionerna (t.ex. `SAM` = tillsvidaresamtycke, `NOD` = nödåtkomst, `INFO` = lyckat anrop med information i comment) är härledda ur arbetsflödet i avsnitt 4.2 och felhanteringen i 5.2.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-APL-001]** `igs/TKB_clinicalprocess_activityprescription_logistics/input/fsh/logical-models/`
+  Fältlängder (minLength/maxLength i XSD) finns bara i fältbeskrivningarna. De kan läggas till som `^maxLength` eller invarianter om IG:n ska kunna validera instanser.
+- [ ] **[TODO-APL-002]** `igs/TKB_clinicalprocess_activityprescription_logistics/input/fsh/logical-models/`
+  `Patientinformation`, `Patient`, `Vardpersonal` och `ArbetsplatsIdentifikation` är duplicerade som nästlade element i båda kontraktens modeller, eftersom projektets konvention inte återanvänder delade typer.
+
+---
+
+## clinicalprocess.activity.request v2.2 — `igs/TKB_clinicalprocess_activity_request/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-CAR-001]** `igs/TKB_clinicalprocess_activity_request/` (hela domänen) · versionsval
+  Taggen `2.2` valdes som högsta semver-tagg. Repot har även taggen `1.0.4`, som är nyare till datum (2026-06-04) men en äldre huvudversion (parallell huvudversion enligt avsnitt 3.4). IG:n beskriver bara 2.2. Verifiera om även huvudversion 1 ska ha en IG.
+
+- [ ] **[ASSUME-CAR-002]** `input/pagecontent/2-versionsinformation.md`, `7-tjanstekontrakt.md` · versionsnummer i brödtext
+  Revisionshistoriken och scheman anger version 2.2 (fastställd 2026-04-22), men avsnitt 2 och kontraktens "Version"-rubriker i källdokumentet anger fortfarande 2.1. Texten är återgiven oförändrad; IG:n och kontrakten har version 2.2 enligt schemat.
+
+- [ ] **[ASSUME-CAR-003]** `input/fsh/logical-models/Process*.fsh` · modellens inriktning
+  Alla tre kontrakten skickar information (push) och svarar enbart med `ResultType`. Varje kontrakts logiska modell beskriver därför begäran (RequestType, RequestConfirmationType, RequestOutcomeType), och svaret beskrivs av den gemensamma modellen `ProcessResult`. `ProcessRequestOutcome.originalRequest` är typad som den logiska modellen `ProcessRequest`.
+
+- [ ] **[ASSUME-CAR-004]** `input/fsh/logical-models/Process*.fsh` · datatyper och omdöpta fält
+  RequestIdType modellerad som `string`, TimeStampType (ÅÅÅÅMMDDttmmss) som `dateTime`, VersionNumberType som `positiveInt`, HsaIdType och PersonIdType som `Identifier`, CVType som `CodeableConcept`, ActivityCodeType som `Coding` och TimeIntervalType som `Period`. Reserverade namn har prefixats: `healthcareProfessionalId/Name`, `patientName`, `activityId/Text/Code`, `conditionText/Code`, `attachmentId/Value`, `awarenessText`, `questionText`, `clinicalInformationText`.
+
+- [ ] **[ASSUME-CAR-005]** `input/pagecontent/7-tjanstekontrakt.md` · ProcessRequest, fält `request.typeOfRequest`
+  Källtabellen anger kodverket `codes:codeRequestOutcomeType` för remisstyp, vilket är fel kodverk. Modellen binder fältet till `RequestTypeVS` (codeForRequestType, enda kod 4 = allmänremiss) enligt XSD:n. Källtexten är återgiven oförändrad.
+
+- [ ] **[ASSUME-CAR-006]** `input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Källdokumentet saknar eget kapitel för gemensamma informationskomponenter och har tjänstekontrakten i kapitel 6. Sidan 6 hänvisar till avsnitt 5.2, och tjänstekontrakten ligger i avsnitt 7 enligt IG-mallen. Omslagsbilder (logotyp och bakgrund) och en SVG-kopia av logotypen är inte medtagna.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-CAR-001]** `input/fsh/logical-models/Process*.fsh`
+  Patient-, organisations- och författarstrukturerna upprepas inline i de tre modellerna. De kan brytas ut till delade logiska typer om projektets FSH-konventioner uppdateras för det.
+
+---
+
+## clinicalprocess.healthcond.rheuma v1.0 — `igs/TKB_clinicalprocess_healthcond_rheuma/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-RHE-001]** `igs/TKB_clinicalprocess_healthcond_rheuma/` (hela domänen) · källval och version
+  Repot har bara RC-taggar (`1.0_RC1`–`1.0_RC3`). `master` (commit fd5d50cd8a84, 2015-10-29) har samma scheman som `1.0_RC3` men den slutliga dokumentuppsättningen (TKB utan RC i namnet, arkitekturella beslut och tjänstedomänpresentation), så `master` användes. Versionsfältet i TKB:n är inte ifyllt ("Version ..."); domänversionen sattes till 1.0 enligt schemat och revisionshistoriken.
+
+- [ ] **[ASSUME-RHE-002]** `input/fsh/logical-models/*.fsh` · skillnader mellan TKB och schema
+  Modellen följer schemat: `timePeriod` (TKB `datePeriod`), `actCode` (TKB `atcCode`, troligen stavfel i schemat men det är trådnamnet), `workability` (TKB `workAbility`), `rheumatoidArthritisDataBody` (TKB `rheumatoidArthritisBody`), samt `nullified`/`nullifiedReason` som bara finns i schemat. `orgUnitHSAId` och `orgUnitName` är 1..1 enligt schemat (TKB 0..1). `documentTitle` och `documentTime` är 0..0 enligt TKB (schemat 0..1).
+
+- [ ] **[ASSUME-RHE-003]** `input/fsh/logical-models/GetRheumatoidArthritisData.fsh` · datatyper
+  HSAIdType och PersonIdType som `Identifier`, CVType som `CodeableConcept`, PQType som `Quantity`, IIType som `Identifier`, DatePeriodType som `Period`, TimeStampType som `dateTime`. Anonyma heltals- och flyttalstyper (globalHealth, pain, eq5dIndexValue m.fl.) som `integer`/`decimal` med värdemängden i beskrivningen. `drug.name` döpt till `drugName`. `physiciansGlobal` är bunden (preferred) till DoctorsGlobalEnum, eftersom schemat typar fältet som CVType.
+
+- [ ] **[ASSUME-RHE-004]** `input/pagecontent/5-*.md`, `6-*.md` · kapitelordning
+  I källdokumentet är kapitel 5 Gemensamma informationskomponenter och kapitel 6 Meddelandemodeller. IG:n följer mallens ordning (5 = meddelandemodeller, 6 = gemensamma komponenter) och sidan 5 har en not om detta.
+
+- [ ] **[ASSUME-RHE-005]** `input/images/img_003.svg`, `img_004.svg` · figurer
+  Figur 1 och 2 är EMF i källan och har konverterats till SVG med `emf2svg-conv`. Text i figurerna kan ha något ojämna mellanrum; jämför med originalet i TKB-dokumentet vid behov.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-RHE-001]** `input/fsh/codesystems/`
+  `typeOfDrug` (DMARD, bioprep, NSAID, cortisone) har ingen enum i schemat och är obunden. Ett lokalt kodverk kan läggas till om domänen bekräftar värdena.
+
+---
+
+## supportprocess.personalresources.interpretation v1.0 — `igs/TKB_supportprocess_personalresources_interpretation/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-INT-001]** `igs/TKB_supportprocess_personalresources_interpretation/` · källa
+  Repot saknar taggar; arkivet är hämtat för commit 010d6f367f37 på `master` (2017-07-12). TKB:n är version 1.0_RC1 (2017-07-10); ingen fastställd 1.0 finns publicerad i repot.
+
+- [ ] **[ASSUME-INT-002]** `input/images/ListLanguages*`, `GetUnitInformation*` · två odokumenterade interaktioner
+  Releasepaketet innehåller ListLanguages och GetUnitInformation, som TKB:n inte beskriver. Deras scheman refererar till `core:Language`, `core:UnitInformation` och `core:HSAIdType`, som saknas i domänschemat. De ingår som källfiler men har ingen logisk modell. Verifiera om de ska ingå i domänen.
+
+- [ ] **[ASSUME-INT-003]** `input/fsh/logical-models/*.fsh` · modellval och datatyper
+  AnswerInquiry, CreateBooking och UpdateBooking modelleras som begäran (svaret är ResultType, gemensam modell InterpretationResult; CreateBooking har även CreateBookingResponse). ListBookings och ListInquiries modelleras som svar med separat begäran. XSD:ns PascalCase-namn är skrivna i lowerCamelCase. IIType (HSA-id) → `Identifier`, CVType → `CodeableConcept`, xs:int med minInclusive 1 → `positiveInt`, övriga xs:int → `integer`, MessageSequenceNumber (unsignedLong) → `unsignedInt`, vilket inte rymmer hela värdeintervallet.
+
+- [ ] **[ASSUME-INT-004]** `input/pagecontent/2-versionsinformation.md`, kodverk · stavfel i källan
+  TKB:n skriver "ListInquiry" (avsnitt 2), "AutomaticallyAckowledged" och "CaceledByInitiator". Kodverken följer schemat (`AutomaticallyAcknowledged`, `CanceledByInitiator`), och kontraktet heter ListInquiries.
+
+- [ ] **[ASSUME-INT-005]** `input/pagecontent/6-gemensamma-informationskomponenter.md`, `7-tjanstekontrakt.md` · kapitelindelning
+  Källan har tjänstekontrakten i kapitel 6 och gemensamma klasser i 6.6. De ligger här i avsnitt 7; sidan 6 hänvisar dit. Hänvisningar "se 6.6.N" i tabellerna är oförändrade, med en not överst på sidan 7.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-INT-001]** `input/fsh/logical-models/*.fsh`
+  BookingData, ContactInformation och BookingInformationFromAssociation upprepas inline i flera modeller. De kan brytas ut till delade logiska typer om projektets FSH-konventioner uppdateras för det.
+
+## se.apotekensservice.axs v7.0 — `igs/TKB_se_apotekensservice_axs/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-AXS-001]** `igs/TKB_se_apotekensservice_axs/input/pagecontent/*.md` · ingen TKB i källan
+  Ingen tagg (7.0, 6.0, 5.0, 4.0 RC1) innehåller någon tjänstekontraktsbeskrivning, bara scheman och (från 6.0) dokumentet Arkitekturella beslut. IG:n bygger därför på WSDL/XSD-annoteringarna och AB-dokumentet. Sidorna 1–7 är markerade *SAKNAS I KÄLLDOKUMENT*. Om eHälsomyndigheten har en TKB utanför Bitbucket bör den ersätta denna rekonstruktion.
+
+- [ ] **[ASSUME-AXS-002]** `input/fsh/logical-models/HamtaPatientInfo.fsh` · datatyper
+  `dosunderlagStatus` (xs:int) och `statusKod` (xs:string) modelleras som `code` med obligatorisk bindning till kodverken ur schemaannoteringarna. `aktorsorgnr` (xs:long) modelleras som `string` eftersom FHIR R4 saknar 64-bitars heltal. `personnummer` är xs:string i schemat och behålls som `string` (inte `Identifier`). Utökningspunkterna `extension` (ExtensionType, xs:any) är inte med i modellerna. Den föråldrade `traffkod` finns bara i KundinformationResponse, som inte används av HamtaPatientInfo 6.0.
+
+- [ ] **[ASSUME-AXS-003]** `input/pagecontent/1-inledning.md` · förkortningar
+  Förklaringarna av EXPO, FOLK, RDH, RR, RRD, HKDB och EES finns inte i källan; de är tolkade utifrån hur begreppen används i schemaannoteringarna.
+
+- [ ] **[ASSUME-AXS-004]** `input/fsh/logical-models/HamtaPatientInfoRequest.fsh` · SOAP-huvuden
+  WSDL:en kräver huvudena LogicalAddress och ArgosHeader. De modelleras som 1..1 i begäran. Vilka ArgosHeader-fält som är obligatoriska för HamtaPatientInfo hänvisar WSDL:en till "dokumentationen", som inte finns i källan, så alla fält är 0..1 som i schemat.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-AXS-001]** `input/pagecontent/4-tjanstedomanens-krav-och-regler.md`
+  Felkoderna för ApplicationException och SystemException är odokumenterade. Komplettera om eHälsomyndighetens dokumentation blir tillgänglig.
+
+## se.apotekensservice.expo v2.0 — `igs/TKB_se_apotekensservice_expo/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-EXPO-001]** `igs/TKB_se_apotekensservice_expo/input/pagecontent/*.md` · ingen TKB i källan
+  Varken `master` eller taggarna innehåller någon tjänstekontraktsbeskrivning, bara scheman och dokumentet Arkitekturella beslut. IG:n är genererad ur WSDL/XSD-annoteringarna med `scripts/xsd_to_ig.py` och `scripts/xsd_ig_pages.py`, och sidorna är markerade *SAKNAS I KÄLLDOKUMENT*.
+
+- [ ] **[ASSUME-EXPO-002]** källa · version
+  Repot har bara taggarna `1.0-beta-r588` och `2.0_RC1`. `master` pekar på samma commit som `2.0_RC1` (9aabc1797ea7); arkivet är hämtat för den commiten och domänversionen anges som 2.0.
+
+- [ ] **[ASSUME-EXPO-003]** `input/fsh/logical-models/*.fsh` · modellval och datatyper
+  Varje kontrakt har en begäransmodell (inklusive SOAP-huvudena LogicalAddress och ArgosHeader) och, när svaret har innehåll, en svarsmodell. KontaktuppgifterUppdatera, TaBortDosmottagare och UppdateraDosmottagare har tomma svar och därför ingen svarsmodell. xs:long (organisationsnummer) modelleras som `string`, xs:int som `integer`. Utökningspunkter (xs:any, ExtensionType) ingår inte. Kodlistor som bara finns i fritext (t.ex. `huvudOrgTypKod`, dosmottagarens `typ` D/A) är modellerade som `string` utan kodverk.
+
+- [ ] **[ASSUME-EXPO-004]** `input/pagecontent/1-inledning.md` · förkortningar och domänbeskrivning
+  Förklaringarna av förkortningarna och domänens sammanfattning finns inte i källan; de är tolkade utifrån schemaannoteringarna och kontraktsnamnen.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-EXPO-001]** `input/fsh/logical-models/SkapaApotekRequest.fsh`, `UppdateraExpoMedApotekRequest.fsh`
+  Villkoren i annoteringarna (t.ex. att `kortNamn` och `recepturtelefon` är obligatoriska när `eRecept` eller `eReceptDjur` är satt, och `faxnummer` när huvudorganisationskod = DX) kan uttryckas som invarianter. Kodlistan för `huvudOrgTypKod` (ADM, AP, DIAP, DJUR, DX, OAP, SA, TVAP) kan bli ett kodverk.
+
+## se.apotekensservice.lf v7.0 — `igs/TKB_se_apotekensservice_lf/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-LF-001]** `igs/TKB_se_apotekensservice_lf/input/pagecontent/*.md` · ingen TKB i källan
+  Ingen tagg innehåller någon tjänstekontraktsbeskrivning, bara scheman och dokumentet Arkitekturella beslut. IG:n är genererad ur WSDL/XSD-annoteringarna med `scripts/xsd_to_ig.py` och `scripts/xsd_ig_pages.py`, och sidorna är markerade *SAKNAS I KÄLLDOKUMENT*.
+
+- [ ] **[ASSUME-LF-002]** källa · version
+  Källan är taggen `7.0_RC1` (= `master`, 2020-02-11) och inte den senaste fastställda taggen `5.0`, eftersom 7.0 är högst och ingen fastställd 7.0 finns. Domänversionen anges som 7.0.
+
+- [ ] **[ASSUME-LF-003]** `input/fsh/logical-models/LasLFVardsystem.fsh` · `avPatientSparradePosterArBorttagna`
+  Elementet ligger i ett separat schema (`LasLFVardsystemResponder_4.1_ext.xsd`, namnrymd `…:LasLFVardsystemResponder:4.1`) och refereras från svaret. Det är eHM:s sätt att lägga till fält i en minor-version (se AB-2.2). Det modelleras som ett vanligt fält i svaret med schemats kardinalitet 1..1.
+
+- [ ] **[ASSUME-LF-004]** `input/fsh/logical-models/*.fsh` · modellval och datatyper
+  Samma principer som för `se.apotekensservice.expo` (ASSUME-EXPO-003): modell för begäran med SOAP-huvuden och för svaret när det har innehåll (RegistreraSamtyckeVardsystem har tomt svar). xs:long → `string`, xs:int → `integer`, xs:double → `decimal`. Kodlistor i fritext (t.ex. `atkomsttyp` ENG/SAM/NOD) är `string` utan kodverk.
+
+- [ ] **[ASSUME-LF-005]** `input/pagecontent/1-inledning.md` · förkortningar och domänbeskrivning
+  Förklaringarna av förkortningarna (bl.a. FORS, ARKO) och domänens sammanfattning finns inte i källan; de är tolkade.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-LF-001]** `input/fsh/logical-models/LasLFVardsystemRequest.fsh`
+  Villkoren i annoteringarna (t.ex. att `arbetsplatskod` eller `arbetsplatsnamn` + `arbetsplatsort` ska anges, och `anvandarnamn` när förskrivarkod saknas) kan uttryckas som invarianter, och `atkomsttyp` kan få ett kodverk.
+
+## se.apotekensservice.or v7.0 — `igs/TKB_se_apotekensservice_or/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-OR-001]** `igs/TKB_se_apotekensservice_or/input/pagecontent/*.md` · ingen TKB i källan
+  Ingen tagg innehåller någon tjänstekontraktsbeskrivning, bara scheman och dokumentet Arkitekturella beslut. IG:n är genererad ur WSDL/XSD-annoteringarna med `scripts/xsd_to_ig.py` och `scripts/xsd_ig_pages.py`, och sidorna är markerade *SAKNAS I KÄLLDOKUMENT*.
+
+- [ ] **[ASSUME-OR-002]** `xsd-generated/ab.md` · AB-2.1 saknas
+  AB-dokumentets innehållsförteckning listar *2.1 AB: Produktionssättning av domänen utan TKB*, men avsnittet finns inte i brödtexten (bara AB-2.2). Endast AB-2.2 återges, med en notering om det saknade avsnittet.
+
+- [ ] **[ASSUME-OR-003]** `input/fsh/logical-models/*.fsh` · minor-tillägg via ext-scheman
+  `Extension2Type` och `Extension3Type` ur `se.apotekensservice_or_7_ext_1.2.xsd` (eHM:s sätt att lägga till fält i minor-versioner, se AB-2.2) modelleras som vanliga nästlade fält under `extension`. `se.apotekensservice_or_7_GodkannUttag_ext_1.1.xsd` refereras inte av något kontrakt och finns bara med som källfil.
+
+- [ ] **[ASSUME-OR-004]** `input/fsh/logical-models/*.fsh` · modellval och datatyper
+  Samma principer som för `se.apotekensservice.expo` (ASSUME-EXPO-003): modell för begäran med SOAP-huvuden och för svaret. xs:long → `string`, xs:int → `integer`, xs:double → `decimal`. Kodlistor i fritext är `string` utan kodverk.
+
+- [ ] **[ASSUME-OR-005]** `input/pagecontent/1-inledning.md` · förkortningar, domänbeskrivning och versionshistorik
+  Förklaringarna av förkortningarna, domänens sammanfattning och ändringsbeskrivningarna per version finns inte i källan; de är tolkade ur schemaannoteringar och commit-meddelanden.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-OR-001]** `input/fsh/logical-models/*Request.fsh`
+  Villkoren i annoteringarna (t.ex. att grupplegitimationskod är obligatorisk för vissa yrkesroller) kan uttryckas som invarianter.
+
+## se.apotekensservice.pris v2.0 — `igs/TKB_se_apotekensservice_pris/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-PRIS-001]** `igs/TKB_se_apotekensservice_pris/input/pagecontent/*.md` · ingen TKB i källan
+  Ingen tagg innehåller någon tjänstekontraktsbeskrivning, bara scheman och dokumentet Arkitekturella beslut. IG:n är genererad ur WSDL/XSD-annoteringarna med `scripts/xsd_to_ig.py` och `scripts/xsd_ig_pages.py`, och sidorna är markerade *SAKNAS I KÄLLDOKUMENT*.
+
+- [ ] **[ASSUME-PRIS-002]** källa · version
+  Källan är taggen `2.0_RC1` (= `master`, 2017-01-26) och inte den senaste fastställda taggen `1.0.0`, eftersom 2.0 är högst och ingen fastställd 2.0 finns. Domänversionen anges som 2.0.
+
+- [ ] **[ASSUME-PRIS-003]** `input/fsh/logical-models/{KontrolleraForman,Prisfraga,RegistreraHkdbTransaktion}.fsh` · minor-tillägg via ext-scheman
+  Element i `*_ext.xsd` (eHM:s sätt att lägga till fält i minor-versioner, se AB-2.2) refereras från kontraktens scheman och modelleras som vanliga fält med schemats kardinalitet.
+
+- [ ] **[ASSUME-PRIS-004]** `input/fsh/logical-models/*.fsh` · modellval och datatyper
+  Samma principer som för `se.apotekensservice.expo` (ASSUME-EXPO-003): modell för begäran med SOAP-huvuden och för svaret. xs:long → `string`, xs:int → `integer`, xs:double → `decimal`. Kodlistor i fritext (t.ex. förmånskod R/U/L/F) är `string` utan kodverk.
+
+- [ ] **[ASSUME-PRIS-005]** `input/pagecontent/1-inledning.md` · förkortningar, domänbeskrivning och versionshistorik
+  Förklaringarna av förkortningarna (bl.a. HKDB), domänens sammanfattning och ändringsbeskrivningarna per version finns inte i källan; de är tolkade ur schemaannoteringar och commit-meddelanden.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-PRIS-001]** `input/fsh/logical-models/*.fsh`
+  Fritextkodlistor (t.ex. förmånskod R/U/L/F) kan få kodverk, och villkor i annoteringarna (t.ex. vid kreditering) kan uttryckas som invarianter.
+
+---
+
+## druglogistics.dosedispensing v1.1.0 — `igs/TKB_druglogistics_dosedispensing/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-DOS-001]** `igs/TKB_druglogistics_dosedispensing/input/pagecontent/*.md` · ingen TKB i källan
+  Taggen `TD_DRUGLOGISTICS_DOSEDISPENSING_1_1_0` innehåller ingen tjänstekontraktsbeskrivning. Domänen beskrivs i stället av en PDF-specifikation per tjänst (`*Interaction.pdf`), `Objekt och felhantering.pdf` och `releasenotes.txt`. IG:n är byggd ur WSDL/XSD (`scripts/xsd_to_ig.py`) plus PDF:erna, och sidor utan motsvarighet i källan är markerade *SAKNAS I KÄLLDOKUMENT*.
+
+- [ ] **[ASSUME-DOS-002]** `igs/TKB_druglogistics_dosedispensing/input/pagecontent/{4,6,7}-*.md` · mekanisk PDF-konvertering
+  PDF-texten och tabellerna är konverterade mekaniskt med `scripts/pdf_spec_to_md.py` (layoutextraktion). Tabeller vars layout är tvetydig i PDF:en (vertikalt centrerade celler, ord avstavade i smala kolumner) kan ha små fel; sidorna säger att PDF:en gäller vid tveksamhet och PDF:erna är länkade. Stickprov mot PDF:erna gav inga fel.
+
+- [ ] **[ASSUME-DOS-003]** `igs/TKB_druglogistics_dosedispensing/input/fsh/logical-models/HamtaLokaltProduktsortiment*.fsh` · två versioner
+  Källan har både version 1.0 och 1.1 av HamtaLokaltProduktsortiment. Bara 1.1 är modellerad; 1.0-filerna finns kvar som källfiler.
+
+- [ ] **[ASSUME-DOS-004]** `igs/TKB_druglogistics_dosedispensing/input/fsh/codesystems/*.fsh` · visningstexter i kodverk
+  Koderna kommer från XSD-uppräkningarna och visningstexterna från `Objekt och felhantering.pdf`. Kod `VG` i MeddelandetypEnum saknar beskrivning i källan och har ingen visningstext. Kod `5` i BestallningsStatus ("Samtliga status") finns bara i `releasenotes.txt` (1.0.4). Stavningen "Vilade" i PDF:en är normaliserad till "Vilande" (kod 2 i VardtagarStatus).
+
+- [ ] **[ASSUME-DOS-005]** `igs/TKB_druglogistics_dosedispensing/input/pagecontent/1-inledning.md` · förkortningar
+  Förkortningslistan (GLN, PAL, EXPO m.fl.) är tolkad; källan förklarar inte förkortningarna. "IOR" används om tjänsterna men förklaras inte någonstans.
+
+- [ ] **[ASSUME-DOS-006]** `igs/TKB_druglogistics_dosedispensing/input/images/SkapaVardtagare-1.png` · processdiagram
+  Processdiagrammet i SkapaVardtagareInteraction.pdf är vektorgrafik och har renderats till PNG ur PDF-sidan. Övriga figurer är inbäddade rasterbilder.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-DOS-001]** `igs/TKB_druglogistics_dosedispensing/input/fsh/logical-models/*.fsh`
+  PDF-specifikationerna anger fältlängder och villkor ("Loggas", villkorliga fält) som inte finns i XSD:n; de kan uttryckas som `maxLength` och invarianter. Fältnamnen i PDF-tabellerna skiljer sig ibland från XSD-elementen och kan mappas explicit.
+
+---
+
+## ehr.patientsummary v1.0 — `igs/TKB_ehr_patientsummary/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-PS-001]** `igs/TKB_ehr_patientsummary/` · källa och version
+  Repot saknar taggar. Källan är senaste commit på `master` (`4714d3acbda3`, 2013-10-11). TKB:n är ett remissutkast (utgåva PA1, 2012-11-16) som säger att första publicerade version blir 1.0; schemafilerna är version 1.0. Domänversionen anges därför som 1.0.
+
+- [ ] **[ASSUME-PS-002]** `igs/TKB_ehr_patientsummary/input/pagecontent/*.md` · legacy .doc och sidstruktur
+  TKB:n är en binär .doc-fil som konverterats med `wvHtml` + `wv2md.py`. Dokumentet har en äldre struktur (1 Inledning, 2 Generella regler, 3–7 en tjänst per avsnitt). Som i `ehr_log` och `ehr_blocking` finns sidorna 1 och 2, och tjänsterna samlas i avsnitt 7 (7.1 = TKB avsnitt 3 osv.). Hänvisningar i texten ("avsnitt 2.4", "avsnitt 4.5") avser TKB:ns numrering och är återgivna ordagrant.
+
+- [ ] **[ASSUME-PS-003]** `igs/TKB_ehr_patientsummary/input/images/{ReceiveEhrExtract,DeleteEhrExtract}-flode.svg` · figurer
+  Figurerna i dokumentet är Word-ritobjekt som inte går att extrahera ur .doc-filen. Flödesfigurerna för ReceiveEhrExtract och DeleteEhrExtract är återskapade som SVG ur ritobjektens textrutor (aktörer, anrop 1 och 2, förklaring). Figuren i avsnitt 1 innehåller ingen text och är markerad som saknad. Jämför med originaldokumentet.
+
+- [ ] **[ASSUME-PS-004]** `igs/TKB_ehr_patientsummary/input/fsh/logical-models/*.fsh` · kardinalitet TKB mot XSD
+  Modellerna följer schemat där det skiljer sig från TKB:ns fälttabeller: GetEhrExtract `meanings` (TKB 1..1, XSD 0..\*), `parameters` (TKB 1..1, XSD 0..\*), `ehr_extract` i svaret (TKB 0..1, XSD 0..\*), samt `parameters` i ReceiveEhrExtract, ReceiveEhrExtractStatus, DeleteEhrExtract och DeleteEhrExtractStatus (TKB 1..1, XSD 0..\*). TKB:ns tabeller finns kvar på sidan bredvid de schemagenererade.
+
+- [ ] **[ASSUME-PS-005]** `igs/TKB_ehr_patientsummary/input/fsh/logical-models/*.fsh` · ISO 21090 och EN13606
+  ISO 21090-datatyperna är mappade till FHIR-typer (II → Identifier, CD → CodeableConcept, TS → dateTime, IVL_TS → Period, ED → Attachment m.fl., se sidan 8). ISO-formatet för TS (ÅÅÅÅMMDDttmmss) är inte FHIR:s dateTime-format. ELEMENT.value (ISO ANY, polymorft) är modellerat som `string`. Abstrakta EN13606-typer har subtypernas element i en valfri grupp per subtyp, och rekursiva strukturer är inte utvecklade ett andra varv. Elementnamnen följer schemat (snake_case), vilket ger SUSHI-varningen eld-20 som i `crm_scheduling`.
+
+- [ ] **[ASSUME-PS-006]** `igs/TKB_ehr_patientsummary/input/pagecontent/9-bilaga-utkast-version-2.md` · utkast till version 2
+  Källan innehåller också `Tjanstekontraktsbeskrivning ehr_patientsummary2 v1.2.docx` (PA1, 2012-11-30), ett arbetsutkast till ehr:patientsummary:2 med tjänsten careDocumentation. Det består till stor del av mallens instruktionstext och saknar scheman. Det återges som bilaga men modelleras inte.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-PS-001]** `igs/TKB_ehr_patientsummary/input/pagecontent/2-generella-regler.md` · hänvisningar i källan
+  TKB:n hänvisar till "avsnitt 2.2" för statusrapportering, men statusrapporteringen är avsnitt 2.3 (2.2 är EHR-extrakt). Texten nämner också tjänsten "ReceiveEhrSystem", som troligen avser ReceiveEhrExtract. Båda är återgivna ordagrant.
+
+---
+
+## healthcertificate.lifeline v1.0 — `igs/TKB_healthcertificate_lifeline/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+_Inga blockerare identifierade._
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-LL-001]** `igs/TKB_healthcertificate_lifeline/` · källa och version
+  Repot saknar taggar. Källan är senaste commit på `master` (`6281e725997f`, 2012-04-18). TKB:n är ett utkast (utgåva PA1, 2012-04-13) och anger version 1.0, som schemafilerna. Domänversionen anges som 1.0.
+
+- [ ] **[ASSUME-LL-002]** `igs/TKB_healthcertificate_lifeline/input/pagecontent/*.md` · legacy .doc och sidstruktur
+  TKB:n är en binär .doc-fil som konverterats med `wvHtml` + `wv2md.py`. Dokumentet har 1 Inledning, 2 Generella regler och 3 BirthRegistration. Som i `ehr_patientsummary` finns sidorna 1 och 2, och tjänsten ligger i avsnitt 7 (7.1 = TKB avsnitt 3). Sidan 8 med datatyper och kodverk är genererad ur schemat.
+
+- [ ] **[ASSUME-LL-003]** `igs/TKB_healthcertificate_lifeline/input/pagecontent/{1-inledning,7-tjanstekontrakt}.md` · figurer
+  Figuren i avsnitt 1 är ett Word-ritobjekt och bilden i fältregeltabellens OrdningsNr-cell går inte heller att extrahera ur .doc-filen. Ingen av dem innehåller text som går att återskapa, så båda är markerade som saknade.
+
+- [ ] **[ASSUME-LL-004]** `igs/TKB_healthcertificate_lifeline/input/fsh/logical-models/*.fsh` · kardinalitet och val
+  Modellerna följer schemat. `Fodelsedatum`/`PersonNummer` för Moder och ModersMake, och `PersonNummer`/`Meddelande` i svaret, är `xs:choice` i schemat och modelleras som två valfria element (0..1). TKB:n anger svarets PersonNummer och Meddelande som 1..1. PersonNummer är `xs:long` i schemat och modelleras som `string`.
+
+- [ ] **[ASSUME-LL-005]** `igs/TKB_healthcertificate_lifeline/input/fsh/codesystems/*.fsh` · kodverk ur schemat
+  Uppräkningarna AnmalningsTyp, Kon, Levande, AnmalanMottagen, ResultCodeEnum och ErrorIdEnum är modellerade som kodverk med visningstexter ur TKB:n. ErrorIdEnum beskrivs inte i TKB:n och har koderna som visningstext. Meddelandekoderna 101–501 (TKB 3.5) är heltal i schemat och finns bara som tabell på sidan 7.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-LL-001]** `igs/TKB_healthcertificate_lifeline/input/fsh/logical-models/*.fsh`
+  Invarianter för schemats val (exakt ett av Fodelsedatum/PersonNummer, exakt ett av PersonNummer/Meddelande), intervallen 1–9 för OrdningsNr och AntalBarn, regeln OrdningsNr ≤ AntalBarn samt maxlängder ur TKB:n. Meddelandekoderna kan bli ett kodverk.
+
+## infrastructure.itintegration.messagebox v1.0.0 — `igs/TKB_infrastructure_itintegration_messagebox/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-MB-001]** `igs/TKB_infrastructure_itintegration_messagebox/docx-converted/full-document.md`
+  TKB:n finns bara som legacy .doc (`Tjanstekontrakt Meddelandetjanst - Beskrivning.doc`). Den konverterades med wvHtml + wv2md.py och bilderna skars ut ur .doc-filen. Rubriknumreringen (1–6) är rekonstruerad från listnivåerna i dokumentet.
+- [ ] **[ASSUME-MB-002]** `igs/TKB_infrastructure_itintegration_messagebox/input/pagecontent/1-inledning.md`
+  Två små bilder bredvid figur 1 (IMG02, IMG03) bedöms vara försättsbladsdekor och är inte med. Figurerna saknar bildtexter i källan; bildtexterna i IG:n är tillagda och numrerade 1–4 i sidordning.
+- [ ] **[ASSUME-MB-003]** `igs/TKB_infrastructure_itintegration_messagebox/input/pagecontent/7-tjanstekontrakt.md`
+  TKB:ns avsnitt 6 (Tjänstekontrakt) ligger i IG:ns avsnitt 7 (7.1 = TKB 6.1). IG:n saknar avsnitt 6 (TKB:n har inga gemensamma informationskomponenter).
+- [ ] **[ASSUME-MB-004]** `igs/TKB_infrastructure_itintegration_messagebox/input/fsh/logical-models/ListMessages.fsh` · fält `messageId`, `messageSize`
+  `xs:long` är modellerat som `string` (FHIR R4 saknar 64-bitars heltal). `integer64` i R5 vore den exakta motsvarigheten.
+- [ ] **[ASSUME-MB-005]** `igs/TKB_infrastructure_itintegration_messagebox/input/fsh/codesystems/MessageStatusCS.fsh`
+  Koderna RECEIVED, RETRIEVED och DELETED har inga beskrivningar i TKB:n eller schemat, så kodsystemet saknar display-texter.
+- [ ] **[ASSUME-MB-006]** `igs/TKB_infrastructure_itintegration_messagebox/input/pagecontent/7-tjanstekontrakt.md` · fält `result.errorId`
+  errorId är ett heltal i schemat. Koderna 1=INTERNAL och 2=UNREAD_DELETE finns bara i TKB:ns text (avsnitt 6.x Övriga regler) och är inte modellerade som kodsystem.
+- [ ] **[ASSUME-MB-007]** `igs/TKB_infrastructure_itintegration_messagebox/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `GetMessages` · fält `responses`
+  TKB:ns fälttabell (avsnitt 6.2) namnger underfälten till `responses` som `messageMetas.*`, men i schemat är de `responses.*` (ResponseType). IG:n visar TKB-tabellen ordagrant och XSD-tabellen genererad; modellen följer schemat.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-MB-001]** `igs/TKB_infrastructure_itintegration_messagebox/input/pagecontent/1-inledning.md`
+  Tjänstedomänansvarig anges som "??" i källan och referensen R1 (Arkitekturella beslut - Meddelandetjänst) saknar länk. Komplettera om uppgifterna finns.
+
+## infrastructure.informationstructureservice.terminology v1.0.0 — `igs/TKB_infrastructure_informationstructureservice_terminology/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-TERM-001]** `igs/TKB_infrastructure_informationstructureservice_terminology/sushi-config.yaml`
+  Repot saknar taggar, så källan är senaste commit på master (23f2de6a6b95, 2013-10-31). TKB:n är version PA1 (2013-10-30, "Första version för granskning") och versionsavsnittet heter "Version 1...". IG:n får versionen 1.0.0 efter kontraktens version 1.0. Bekräfta att PA1 är den gällande beskrivningen.
+- [ ] **[ASSUME-TERM-002]** `igs/TKB_infrastructure_informationstructureservice_terminology/input/pagecontent/5-tjanstedomanens-meddelandemodeller.md` · figur 6
+  I källan återanvänder figuren "Meddelandemodell sökning i terminologi" samma bild som "Meddelandemodell hämta urval". IG:n visar den bilden på båda ställena. Figurnumren saknas delvis i källan och har numrerats 1–6 i sidordning.
+- [ ] **[ASSUME-TERM-003]** `igs/TKB_infrastructure_informationstructureservice_terminology/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `GetTerminologySubsetInformation`
+  WSDL:ens SOAPAction använder namnrymden `urn:riv:informatics:terminology:…`, medan schemat och övriga kontrakt använder `urn:riv:infrastructure:informationstructureservice:terminology:…`. IG:n återger WSDL:en som den är.
+- [ ] **[ASSUME-TERM-004]** `igs/TKB_infrastructure_informationstructureservice_terminology/input/fsh/logical-models/`
+  TKB:ns fälttabeller använder typen String för alla fält. Modellerna följer schemat, där begränsade strängtyper (maxLength 32–1000) blir `string` och XML-attribut blir fält med noteringen "(XML-attribut.)".
+- [ ] **[ASSUME-TERM-005]** `igs/TKB_infrastructure_informationstructureservice_terminology/input/pagecontent/1-inledning.md`
+  AB-dokumentet (referens R1) och informationsspecifikationen finns i källan och länkas som filer, men är inte konverterade till IG-sidor. Tabellrader som var brutna över flera rader i konverteringen har slagits ihop.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-TERM-001]** `igs/TKB_infrastructure_informationstructureservice_terminology/input/pagecontent/2-versionsinformation.md`
+  Källan skriver "GetTerminologySubet" (stavfel) i listan över nya kontrakt och har en tom kompatibilitetstabell. Texten är återgiven ordagrant.
+
+## orgmaster.hsa v1.0.0 — `igs/TKB_orgmaster_hsa/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-HSA-001]** `igs/TKB_orgmaster_hsa/sushi-config.yaml`
+  Repot saknar taggar, så källan är senaste commit på master (f84df986cac4, 2013-04-11). Beskrivningen är RevB (2012-11-27). IG:n får versionen 1.0.0 efter kontraktens version 1.0.
+- [ ] **[ASSUME-HSA-002]** `igs/TKB_orgmaster_hsa/input/pagecontent/7-tjanstekontrakt.md`
+  TKB:n följer inte standardmallen: avsnitt 3–7 beskriver ett kontrakt vardera och avsnitt 8 är referenser. Kontrakten ligger i IG:ns avsnitt 7 (7.1 = TKB 3), referenserna på sidan 1 och sidan 8 (Datatyper) är genererad ur XSD.
+- [ ] **[ASSUME-HSA-003]** `igs/TKB_orgmaster_hsa/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `GetHsaUnitList`
+  TKB:ns rubrik (avsnitt 6) är "GetUnitList", men WSDL och schema heter GetHsaUnitList. IG:n använder schemats namn och anger TKB-rubriken.
+- [ ] **[ASSUME-HSA-004]** `igs/TKB_orgmaster_hsa/input/fsh/logical-models/GetHsaUnit.fsh` · typ `TimeSpan`
+  TKB:n (avsnitt 3, TimeSpan) listar fromDay, fromTime, toDay, toTime och Comment 0..1. Schemat har dessutom fromTime2 och toTime2 och kräver comment (1..1). Modellerna följer schemat.
+- [ ] **[ASSUME-HSA-005]** `igs/TKB_orgmaster_hsa/input/pagecontent/7-tjanstekontrakt.md`
+  TKB:ns svarstabeller har sammanslagna celler för grupperade parametrar. De visas som kolumnerna Parameter och Underparameter, och rader som var brutna över flera rader är ihopslagna.
+- [ ] **[ASSUME-HSA-006]** `igs/TKB_orgmaster_hsa/input/pagecontent/2-generella-regler.md`
+  Avsnitt 2.4 beskriver resultCode (OK, INFO, ERROR) för uppdaterande tjänster, men domänen har bara lästjänster och inget schema innehåller resultCode. Inget kodsystem är skapat.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-HSA-001]** `igs/TKB_orgmaster_hsa/input/pagecontent/1-inledning.md`
+  Inledningen har kvar mallens platshållare för huvud- och underdomän på engelska. Texten är återgiven ordagrant.
+
+## itintegration.registry v1.0.0 — `igs/TKB_itintegration_registry/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-ITR-001]** `igs/TKB_itintegration_registry/sushi-config.yaml`
+  Repot riv.itintegration.registry innehåller på master både version 1.0 och 2.0 av scheman, men TKB:n beskriver bara version 1.0. Version 2.0 (namnrymd `urn:riv:infrastructure:itintegration:registry:2`) har redan en IG, `igs/TKB_infrastructure_itintegration_registry/`. Denna IG byggs därför från releasetaggen TD_REGISTRY_1_0_0_R och avser bara version 1.0 (`urn:riv:itintegration:registry:1`). Båda IG:erna hänvisar till varandra.
+- [ ] **[ASSUME-ITR-002]** `igs/TKB_itintegration_registry/docx-converted/full-document.md`
+  TKB:n finns bara som legacy .doc. Den är konverterad med wvHtml + wv2md.py och figur 1 (informationsmodellen) är utskuren ur .doc-filen. Sidhuvudets logotyp är inte med.
+- [ ] **[ASSUME-ITR-003]** `igs/TKB_itintegration_registry/input/pagecontent/7-tjanstekontrakt.md`
+  TKB:n följer inte standardmallen: kontrakten beskrivs i avsnitt 6 och 7. De ligger i IG:ns avsnitt 7 (7.1 = TKB 6, 7.2 = TKB 7). Sidan 8 (Datatyper) är genererad ur XSD.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-ITR-001]** `igs/TKB_itintegration_registry/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `GetLogicalAddresseesByServiceContract`
+  Källan anger tjänsteinteraktionen GetSupportedServiceContractsInteraction under avsnitt 6.3 (troligen kopierat från avsnitt 7), och svarsfältet logicalAddress har samma kommentar som i GetSupportedServiceContracts. Rätt interaktion (GetLogicalAddresseesByServiceContractInteraction) framgår av WSDL-avsnittet. Texten är återgiven ordagrant.
+- [ ] **[TODO-ITR-002]** `igs/TKB_itintegration_registry/input/pagecontent/3-versionsinformation.md`
+  Versionsavsnittet har kvar mallens platshållare och en kompatibilitetstabell för en version 1.1 som aldrig gavs ut. Texten är återgiven ordagrant.
+
+## supportprocess.logistics.scheduling v2.0 — `igs/TKB_supportprocess_logistics_scheduling/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-SCH-001]** `igs/TKB_supportprocess_logistics_scheduling/sushi-config.yaml`
+  Repot har bara taggen 2.0_RC1, och den pekar på samma commit som master (5131f0ee09b2, 2023-11-27). TKB-dokumentet anger version 2.0 RC2 (2023-11-01). Ingen slutlig 2.0-release finns publicerad. IG:n har version 2.0.0 med status draft.
+- [ ] **[ASSUME-SCH-002]** `igs/TKB_supportprocess_logistics_scheduling/input/pagecontent/{6,7}-*.md`
+  TKB:n har tjänstekontrakten i kapitel 6 och *Definition av komplexa typer* i kapitel 7, och saknar ett kapitel om gemensamma informationskomponenter. Kontrakten ligger i IG:ns avsnitt 7 (7.n = TKB 6.n) och de komplexa typerna i avsnitt 6 (6.n = TKB 7.n). Kodverken och en XSD-genererad typlista är tillagda sist i avsnitt 6.
+- [ ] **[ASSUME-SCH-003]** `igs/TKB_supportprocess_logistics_scheduling/input/pagecontent/7-tjanstekontrakt.md` · avsnitten *Övriga regler*
+  Sju kontrakt har rubriken *Övriga regler* med meningen "Dessa återfinns nedan", men källan innehåller inga regler efter den (kontrollerat i docx-filen). Texten är återgiven som den står.
+- [ ] **[ASSUME-SCH-004]** `igs/TKB_supportprocess_logistics_scheduling/input/fsh/codesystems/ResultCodeCS.fsh`
+  ResultCodeEnum i domänschemat räknar upp flera koder mer än en gång (en grupp per kontrakt). Kodverket har varje kod en gång (19 koder), med visningstexter ur TKB avsnitt 3.7. ValueSet:en gäller alla kontrakt; vilka koder som får användas per kontrakt framgår av tabellerna i avsnitt 3.7.
+- [ ] **[ASSUME-SCH-005]** `igs/TKB_supportprocess_logistics_scheduling/input/fsh/codesystems/AppointmentStatusCS.fsh` · kod `confirmed`
+  TKB:n (GetAppointment, appointment.status) skriver `confirm`, men schemat har `confirmed`. Kodverket följer schemat.
+- [ ] **[ASSUME-SCH-006]** `igs/TKB_supportprocess_logistics_scheduling/input/fsh/logical-models/*.fsh` · `SnomedCtType.codeSystem`, `PersonIdType.root`
+  Schemat begränsar dessa OID-fält med anonyma uppräkningar. De är modellerade som string med de tillåtna värdena i beskrivningen, inte som egna kodverk. Typer som begränsar en bastyp med egen sekvens (xs:restriction) får bara sina egna element.
+- [ ] **[ASSUME-SCH-007]** `igs/TKB_supportprocess_logistics_scheduling/input/pagecontent/3-tjanstedomanens-arkitektur.md` · avsnitt 3.7
+  Underrubrikerna i avsnitt 3.7 ResultCode är oformaterade i källan och felnumrerade (1.1.1–1.1.5) i innehållsförteckningen. De är återskapade som 3.7.1–3.7.5.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-SCH-001]** `igs/TKB_supportprocess_logistics_scheduling/input/pagecontent/{1,2,4}-*.md`
+  Källan har tomma avsnitt och tabeller: Förkortningar, Utgångna tjänstekontrakt, Logiska fel (4.3.1.1) och Krav på en tjänstekonsument (4.3.2). De är återgivna tomma.
+- [ ] **[TODO-SCH-002]** `igs/TKB_supportprocess_logistics_scheduling/source/*/docs/working_materials/`
+  Arbetsmaterialet (Informationsmodell.jpg, Begreppsmodell.jpg, Processmodell.jpg och Visual Paradigm-filer) används inte i TKB:n och är inte med i IG:n. Informationsspecifikationen (IS) och AB-dokumentet är länkade som filer, inte konverterade.
+
+## supportprocess.serviceprovisioning.healthcareoffering v3.0 — `igs/TKB_supportprocess_serviceprovisioning_healthcareoffering/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-26
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-HCO-001]** `igs/TKB_supportprocess_serviceprovisioning_healthcareoffering/sushi-config.yaml`
+  IG:n bygger på taggen 3.0 (samma commit som master, 2024-02-15) och TKB version 3.0 (2023-04-25). GetCareServiceOfferings har version 3.0 och GetOfferingCatalogues version 2.0. Självdeklarationer för äldre versioner (GetOfferingCatalogues 1.0, GetCareServiceOfferings 2.1) finns i källan och är länkade som filer.
+- [ ] **[ASSUME-HCO-002]** `igs/TKB_supportprocess_serviceprovisioning_healthcareoffering/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  TKB:n har inget kapitel om gemensamma informationskomponenter; klasserna beskrivs i kapitel 5 (V-MIM). Sidan 6 är märkt *SAKNAS I KÄLLDOKUMENT* och innehåller kodverken och en XSD-genererad typlista.
+- [ ] **[ASSUME-HCO-003]** `igs/TKB_supportprocess_serviceprovisioning_healthcareoffering/input/fsh/codesystems/RIVTAVersionCS.fsh`
+  TKB:n anger RIV-TA-version 2.0 eller 2.1 för `rivtaVersion`, men schemat tillåter bara `2.1`. Kodverket följer schemat.
+- [ ] **[ASSUME-HCO-004]** `igs/TKB_supportprocess_serviceprovisioning_healthcareoffering/input/images/img_003.png`, `img_005.png`, `img_006.png`
+  Tre figurer är lagrade som TIFF i docx-filen och är konverterade till PNG, eftersom webbläsare inte visar TIFF.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-HCO-001]** `igs/TKB_supportprocess_serviceprovisioning_healthcareoffering/source/*/docs/work_material/`
+  Arbetsmaterialet (15 modellbilder, bland annat begrepps-, process- och informationsmodell) används inte i TKB:n och är inte med i IG:n. Informationsspecifikationen, kravspecifikationen och kravkatalogen är länkade som filer, inte konverterade.
+
+## ihe.pcd.dec v1.0.1 — `igs/TKB_ihe_pcd_dec/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-DEC-001]** `igs/TKB_ihe_pcd_dec/input/fsh/logical-models/*.fsh`
+  Kontraktet följer Continuas WSDL (RIVTABP20, namnrymd `urn:ihe:pcd:dec:2010`) och bär ett HL7 v2.6-meddelande (ORU^R01, IHE PCD-01) som en enda sträng. De logiska modellerna har därför bara strängfält för meddelandet, kvittensen och SOAP-huvudet `wsa:To`, och är skrivna för hand eftersom `xsd_to_ig.py` förutsätter RIV-TA:s Responder-mönster. Segmentreglerna (MSH, PID, OBR, OBX) finns som tabeller i avsnitt 7.1.2 och är inte modellerade i FHIR.
+- [ ] **[ASSUME-DEC-002]** `igs/TKB_ihe_pcd_dec/input/pagecontent/7-tjanstekontrakt.md` · avsnitt 7.1.2.5
+  SOAP-exemplet i TKB:n har två `<soap:Body>`-starttaggar och en felaktig sluttagg (`<urn1:CommunicatePCDData>`). Exemplet är återgivet som det står; de korrekta exempelfilerna i `docs/examples/` är länkade.
+- [ ] **[ASSUME-DEC-003]** `igs/TKB_ihe_pcd_dec/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  TKB:n har inget kapitel om gemensamma informationskomponenter. Sidan 6 är märkt *SAKNAS I KÄLLDOKUMENT* och beskriver de två strängtyperna i schemat.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-DEC-001]** `igs/TKB_ihe_pcd_dec/input/pagecontent/{5,7}-*.md`
+  Källan har ofullständiga avsnitt: mappningstabellen mot V-TIM i avsnitt 5.1 innehåller bara "Aktivitet" och "…", och *Övriga regler* och *Annan information om kontraktet* (7.1.3–7.1.4) är tomma. De är återgivna som i källan.
+
+## masterdata.citizen.patient v1.0 — `igs/TKB_masterdata_citizen_patient/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-MCP-001]** `igs/TKB_masterdata_citizen_patient/sushi-config.yaml`
+  Repot har inga taggar och inga downloads. Källan är låst till senaste commit på master (`efa4099dabb2`, 2016-01-27), och versionen 1.0 är tagen ur TKB:ns revisionshistorik och schemafilernas namn.
+- [ ] **[ASSUME-MCP-002]** `igs/TKB_masterdata_citizen_patient/input/pagecontent/*.md`
+  TKB:n är till stor del en ej ifylld mall: kapitel 3–5 och kontraktens fältregler innehåller mallens platshållare ("Element | Typ | Beskrivning", "Abcde…", "Flöde X"). Texten återges ordagrant och mallens anvisningar visas som citat på sidan 1. De verkliga fältreglerna finns i avsnitten "Fältregler enligt schema (XSD)" (7.1.5 och 7.2.5), genererade ur schemana. Revisionshistoriken anger 2017-01-26, men senaste commit är från 2016-01-27; troligen ett skrivfel, återgivet som det står.
+- [ ] **[ASSUME-MCP-003]** `igs/TKB_masterdata_citizen_patient/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `UpdatePatientContactInformation`
+  TKB:n beskriver UpdatePatientContactInformation med samma mening som Get-kontraktet ("används för att hämta kontaktuppgifter"). Det ser ut som en kopieringsmiss; texten återges som den står.
+- [ ] **[ASSUME-MCP-004]** `igs/TKB_masterdata_citizen_patient/input/fsh/logical-models/*.fsh` · fält `contactPerson.relationType.contactRelationCode`
+  `code` har typen `TypeOfContactRelationEnum`, en `xs:union` av släktrelation, närståenderelation och företrädare. Fältet är modellerat som `string`, och de tre kodverken finns som egna CodeSystem/ValueSet. `codeSystem` är bundet till kodverket med de tre OID:erna. En invariant som kopplar koden till valt kodverk saknas.
+- [ ] **[ASSUME-MCP-005]** `igs/TKB_masterdata_citizen_patient/input/fsh/codesystems/ResultCodeEnumCS.fsh`
+  Resultatkoderna OK, INFO och ERROR saknar egna visningstexter i schemat; koden används som visningstext och betydelsen står i typens annotering.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-MCP-001]** `igs/TKB_masterdata_citizen_patient/input/pagecontent/5-tjanstedomanens-meddelandemodeller.md`
+  Informationsspecifikationen (`IS_masterdata_citizen_patient.docx`) och modellen `docs/work_material/riv.masterdata.citizen.patient-MIM.vpp` kan innehålla den meddelandemodell som TKB:ns kapitel 5 saknar. IS-dokumentet är länkat från sidan 1 men inte återgivet.
+
+## masterdata.citizen.citizen v2.0 — `igs/TKB_masterdata_citizen_citizen/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-MCC-001]** `igs/TKB_masterdata_citizen_citizen/sushi-config.yaml`
+  Taggen 2.0 är vald. Repot har också taggen `2.1_RC1` (2016-10-31) och en master som är nyare, men ingen slutlig 2.1. Om 2.1 ska publiceras behöver versionen fastställas.
+- [ ] **[ASSUME-MCC-002]** `igs/TKB_masterdata_citizen_citizen/input/pagecontent/8-aktuella-profiler.md`
+  TKB:n markerar med grön cellfärg vilka fält som levereras vid sekretessmarkering. Färgen är utläst ur docx-filen och visas som kolumnen *Levereras vid sekretessmarkering* (20 rader: administrativa uppgifter, personidentitet och namn).
+- [ ] **[ASSUME-MCC-003]** `igs/TKB_masterdata_citizen_citizen/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `LookupResidentsForProfile`
+  Källan har två uppsättningar exempel: `schemas/interactions/…` (rotelement `LookupResidentsForProfile`, som i schemat) och `docs/examples/…` (äldre, rotelement `LookupResidentsForProfileRequest`). De förstnämnda är publicerade och länkade från 7.1.4.
+- [ ] **[ASSUME-MCC-004]** `igs/TKB_masterdata_citizen_citizen/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  TKB kapitel 7 *Datatyper* ligger på IG-sidan 6 och kapitel 8 *Aktuella profiler* på en egen sida 8. Texten återges ordagrant, även skrivfel som "Det finns 4s t aktuella profiler" och "Civistånd".
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-MCC-001]** `igs/TKB_masterdata_citizen_citizen/input/pagecontent/5-tjanstedomanens-meddelandemodeller.md`
+  Mappningen till Skatteverkets termer finns enligt TKB:n i informationsspecifikationen (`IS_masterdata_citizen_citizen.docx`), som är länkad men inte återgiven. IG:n för föregångaren `population.residentmaster` kan länkas härifrån när publiceringsadresserna är fastställda.
+
+## financial.billing.claim v1.1 — `igs/TKB_financial_billing_claim/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-FBC-001]** `igs/TKB_financial_billing_claim/input/pagecontent/7-tjanstekontrakt.md` · avsnitt 7.1.2
+  Fältregeltabellen skiljer med radfärger på kardinalitet (1..1 respektive 0..*/1..*). Färgerna går inte att återge; förklaringen står kvar och kardinaliteten finns i egen kolumn. Hänvisningarna till fotnot 2 ("Schematronregel finns") efter fältnamn visas som `²`, med fotnoten sist på sidan.
+- [ ] **[ASSUME-FBC-002]** `igs/TKB_financial_billing_claim/input/fsh/logical-models/*.fsh`
+  Kodade fält som `typeOfInvoice`, `gender`, `typeOfCare` och `professionCodeForHealthcare` är `string` i schemat och får sina tillåtna värden genom schematronreglerna ÖR4–ÖR50. De är modellerade som `string` utan kodverk; reglerna finns i TKB avsnitt 7.1.3 och i `constraints.xml`.
+- [ ] **[ASSUME-FBC-003]** `igs/TKB_financial_billing_claim/input/pagecontent/1-inledning.md`
+  Titelsidans bilder (Inera-logotyp och sidbakgrund) är inte med. Platshållaren "PLATS FÖR BILD MED DIAGRAM" under V-MIM står kvar i källan och återges.
+- [ ] **[ASSUME-FBC-004]** `igs/TKB_financial_billing_claim/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  TKB:n har inget kapitel om gemensamma informationskomponenter. Sidan 6 är märkt *SAKNAS I KÄLLDOKUMENT* och innehåller kodverket och XSD-typerna.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-FBC-001]** `igs/TKB_financial_billing_claim/input/fsh/`
+  Schematronreglerna med fasta värdemängder (t.ex. ÖR4 fakturatyp, ÖR10 kön, ÖR22 yrkeskod, ÖR50 avtalspost) kan bli CodeSystem/ValueSet och invarianter i de logiska modellerna.
+
+## strategicresourcemanagement.persons.employee v2.0 — `igs/TKB_strategicresourcemanagement_persons_employee/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-SPE-001]** `igs/TKB_strategicresourcemanagement_persons_employee/input/pagecontent/index.md`
+  Domänen är utgången. Senaste commit på master (`9920a00a9525`, 2017-09-14) tar bort alla filer med meddelandet att tjänstekontrakten flyttats till `infrastructure.directory.employee`, som redan har en egen IG. IG:n byggs ändå, som historisk dokumentation av den enda taggen, och index samt sidorna 1–8 har en tydlig notis om efterföljaren. Om utgångna domäner inte ska ha någon IG kan katalogen tas bort och domänen sättas till `blocked` i registret.
+- [ ] **[ASSUME-SPE-002]** `igs/TKB_strategicresourcemanagement_persons_employee/sushi-config.yaml`
+  Den enda taggen är `2.0_RC1` (`7b7e863881a1`, 2016-11-22). Det finns ingen slutlig 2.0 att välja. Kontrakten har version 2.0 i schemana och IG-versionen är satt till `2.0.0-rc1`.
+- [ ] **[ASSUME-SPE-003]** `igs/TKB_strategicresourcemanagement_persons_employee/input/pagecontent/index.md`
+  TKB:ns dokumentegenskaper (titel, version, datum) är tomma eller inaktuella. Titelsidans uppgifter är hämtade ur revisionshistoriken (senaste revision 1.1.1RC1, 2016-04-11) och taggens datum.
+- [ ] **[ASSUME-SPE-004]** `igs/TKB_strategicresourcemanagement_persons_employee/input/pagecontent/8-bilaga-attributtabeller.md`
+  Fältreglerna för GetEmployeeIncludingProtectedPerson och GetCommissionMembersIncludingProtectedPerson (TKB 6.1.2 och 6.3.2) består av inklippta Exceldokument som bara visas som ikoner i Word. De tre inbäddade arbetsböckerna är extraherade ur `word/embeddings/`, återgivna som tabeller på sidan 8 och publicerade som `.xls`. Vilken arbetsbok som hör till vilket avsnitt är utläst ur relationsfilen; A förekommer i båda. Tomma rader är borttagna och radbrytningar i celler visas som " / ".
+- [ ] **[ASSUME-SPE-005]** `igs/TKB_strategicresourcemanagement_persons_employee/input/pagecontent/3-tjanstedomanens-arkitektur.md`
+  Flödesdiagrammen är inbäddade Visio-objekt. Deras EMF-förhandsbilder är konverterade till SVG och placerade under de tomma rubrikerna "Flödesdiagram" (3.1.1.2 och 3.1.2.2). Texten i diagrammen kan få något ojämna mellanrum.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-SPE-001]** `igs/TKB_strategicresourcemanagement_persons_employee/input/pagecontent/index.md`
+  Länka till IG:n för `infrastructure.directory.employee` med dess publicerade URL när publiceringsstrukturen för länkar mellan IG:er är bestämd.
+
+## strategicresourcemanagement.organizational.organization v2.0 — `igs/TKB_strategicresourcemanagement_organizational_organization/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-SOO-001]** `igs/TKB_strategicresourcemanagement_organizational_organization/input/pagecontent/index.md`
+  Domänen är utgången. Senaste commit på master (`65b99195996e`, 2017-09-14) tar bort alla filer med meddelandet att kontrakten flyttats till `infrastructure.directory.organization`, som redan har en egen IG. IG:n byggs ändå som historisk dokumentation, med en notis om efterföljaren på varje sida (samma hantering som `strategicresourcemanagement.persons.employee`).
+- [ ] **[ASSUME-SOO-002]** `igs/TKB_strategicresourcemanagement_organizational_organization/sushi-config.yaml`
+  Den enda taggen är `2.0_RC1` (`8ac8ac3c4075`, 2016-11-22). IG:n bygger på den senare commiten `b349285d18c2` (2017-02-27), den sista med innehåll, som lägger till SoapUI-testsviter och uppdaterar `wsdl:documentation`. Kontraktsversionerna (2.0) är desamma. IG-versionen är `2.0.0-rc1`.
+- [ ] **[ASSUME-SOO-003]** `igs/TKB_strategicresourcemanagement_organizational_organization/input/pagecontent/1-inledning.md`
+  TKB:ns dokumentegenskaper är tomma: inledningen lyder "tjänstedomänen ." och "Den svenska benämningen är ." och referenserna R1, R5 saknar domännamn och versionsnummer ("Version 4.,"). Texten återges som den står; titelsidans uppgifter kommer ur revisionshistoriken (1.3_RC1, 2016-04-11) och avsnittet Svenskt namn.
+- [ ] **[ASSUME-SOO-004]** `igs/TKB_strategicresourcemanagement_organizational_organization/input/pagecontent/8-bilaga-attributtabeller.md`
+  Varje kontrakts fältregler (TKB 6.1.2–6.5.2) består av två inklippta Exceldokument som bara visas som ikoner i Word. Det första är identiskt i alla fem kontrakten och återges en gång (attributtabell A); det andra är kontraktsspecifikt. De sex unika arbetsböckerna är extraherade ur `word/embeddings/`, återgivna som tabeller på sidan 8 och publicerade som `.xls`.
+- [ ] **[ASSUME-SOO-005]** `igs/TKB_strategicresourcemanagement_organizational_organization/input/pagecontent/3-tjanstedomanens-arkitektur.md`
+  Flödesdiagrammet är ett inbäddat Visio-objekt. Dess EMF-förhandsbild är konverterad till SVG och placerad under den tomma rubriken "Flödesdiagram" (3.1.1.2).
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-SOO-001]** `igs/TKB_strategicresourcemanagement_organizational_organization/input/pagecontent/7-tjanstekontrakt.md`
+  SoapUI-testsviterna i `test-suite/` innehåller `constraints.xml` med kontrollregler per kontrakt. De kan återges eller publiceras som källfiler.
+
+## informationsecurity.authorization.pip v1.0 — `igs/TKB_informationsecurity_authorization_pip/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-PIP-001]** `igs/TKB_informationsecurity_authorization_pip/sushi-config.yaml`
+  Den enda taggen heter `2.0_RC1` (2016-11-22), men domänen och schemana har version 1.0, och TKB:n reviderades fram till 2017-06-28. IG:n bygger därför på senaste commit på master (`729301865b83`, 2017-07-03), och versionen 1.0 kommer ur TKB:n och schemafilernas namn.
+- [ ] **[ASSUME-PIP-002]** `igs/TKB_informationsecurity_authorization_pip/input/pagecontent/5-tjanstedomanens-meddelandemodeller.md`
+  Tre figurer om förseglingens tidsperioder finns inte i TKB:n utan i `docs/work_material/exports/`. De är tillagda på sidan 5 som kompletterande figurer, eftersom fälten validFrom, validTo, deactivationDate och sealPeriod hänvisar till informationsspecifikationens kapitel 7.6, som de illustrerar. Bildtexterna är skrivna utifrån filnamnen och figurerna.
+- [ ] **[ASSUME-PIP-003]** `igs/TKB_informationsecurity_authorization_pip/input/fsh/logical-models/GetSeals.fsh`
+  Övriga regler ÖR1–ÖR7 (t.ex. att bara en av fullSeal, careProviderSeal och orgUnitSeal anges, och att validTo inte får vara äldre än validFrom) återges som text men är inte modellerade som invarianter. Testsvitens schematronregler är publicerade som `GetSeals_constraints.xml`.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-PIP-001]** `igs/TKB_informationsecurity_authorization_pip/input/fsh/logical-models/GetSeals.fsh`
+  Lägg till FHIRPath-invarianter för ÖR1–ÖR5 och ÖR7.
+
+## strategicresourcemanagement.persons.person v5.1 — `igs/TKB_strategicresourcemanagement_persons_person/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-SPP-001]** `igs/TKB_strategicresourcemanagement_persons_person/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `GetPersonsByFile`
+  TKB-avsnitt 6.15 beskriver GetPersonsByFile, som är en REST-tjänst och inget RIV-TA-kontrakt. Texten återges, men det finns ingen WSDL eller XSD och därför ingen logisk modell. Avsnittet säger det uttryckligen.
+- [ ] **[ASSUME-SPP-002]** `igs/TKB_strategicresourcemanagement_persons_person/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `UnlinkPersonIdentity`
+  TKB:ns rubrik 6.14 lyder "UnlinkLinkPersonIdentity". Schemat, versionsinformationen och kontraktstexten använder UnlinkPersonIdentity, så rubriken är rättad till det namnet.
+- [ ] **[ASSUME-SPP-003]** `igs/TKB_strategicresourcemanagement_persons_person/input/images/SearchPersonsForProfileByOrderRequest.xml`
+  Exempelfilerna heter `SeachPersonsForProfileByOrder{Request,Response}.xml` i källan. De publiceras med det rättade namnet så att de kan kopplas till kontraktet. Även `Release notes.pdf` och informationsmodellbilden i arbetsmaterialet har döpts om (mellanslag respektive å i filnamnet).
+- [ ] **[ASSUME-SPP-004]** `igs/TKB_strategicresourcemanagement_persons_person/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Datatyprubrikerna i TKB kapitel 7 har formen `urn:riv:strategicresourcemanagement:persons:person:5:Typnamn`. Här visas bara typnamnet, och namnrymden anges i avsnittets inledning. En rubrik som var bruten över två rader (UpdatePersonContactInformationResultType) är ihopslagen.
+- [ ] **[ASSUME-SPP-005]** `igs/TKB_strategicresourcemanagement_persons_person/sushi-config.yaml`
+  Källan är taggen 5.1 (2024-11-28). master har två senare commits (versionsnummer i sidfoten och OID i ett testfall) utan ändrade scheman. Kontrakten har version 4.0 eller 5.0 enligt schemana.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-SPP-001]** `igs/TKB_strategicresourcemanagement_persons_person/input/fsh/logical-models/`
+  Övriga regler per kontrakt och testsvitens schematronregler (`test-suite/*Mock/constraints.xml`) kan bli invarianter i de logiska modellerna.
+
+## informationsecurity.auditing.log v2.0.8 — `igs/TKB_informationsecurity_auditing_log/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-IAL-001]** `igs/TKB_informationsecurity_auditing_log/sushi-config.yaml`
+  Källan är taggen 2.0.8 (2024-10-31). master har två senare commits (2024-11-07 och 2026-06-30, "GALFP 2.0 - Ny mall SJD för TP") som bara rör självdeklarationerna. TKB, scheman och exempel är oförändrade, så IG:n bygger på taggen.
+- [ ] **[ASSUME-IAL-002]** `igs/TKB_informationsecurity_auditing_log/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `GetFilesForOrderId`
+  TKB:ns beskrivning av GetFilesForOrderId nämner "personposter" och tjänsten SearchPersonsForProfileByOrder, som hör till domänen strategicresourcemanagement.persons.person. Texten ser ut att vara kopierad därifrån, men återges ordagrant. Förvaltaren bör rätta TKB:n.
+- [ ] **[ASSUME-IAL-003]** `igs/TKB_informationsecurity_auditing_log/input/pagecontent/7-tjanstekontrakt.md`
+  Regelnumren `#1`, `#2` under *Övriga regler* skrivs `\#1`, `\#2` så att de inte blir rubriker. Rubriken för versionsavsnittet lyder "Version 2.0.8" i texten men "Version 2.0.6" i TKB:ns innehållsförteckning; IG:n följer texten.
+- [ ] **[ASSUME-IAL-004]** `igs/TKB_informationsecurity_auditing_log/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Datatyprubrikerna i TKB kapitel 7 har formen `urn:riv:informationsecurity:auditing:log:2:Typnamn` (två av dem med ett mellanslag efter `urn:riv:`). Här visas bara typnamnet, och namnrymden anges i avsnittets inledning.
+- [ ] **[ASSUME-IAL-005]** `igs/TKB_informationsecurity_auditing_log/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `GetLogsByOrder`, `GetFilesForOrderId`
+  Källan har inga XML-exempel för de två kontrakten från version 2.0.6, så deras källfilstabeller saknar exempelfiler.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-IAL-001]** `igs/TKB_informationsecurity_auditing_log/input/fsh/logical-models/`
+  Övriga regler per kontrakt (t.ex. unikt LogId och högst 500 loggposter per anrop i StoreLog) och testsvitens schematronregler (`test-suite/*/constraints.xml`) kan bli invarianter i de logiska modellerna.
+
+## informationsecurity.authorization.consent v2.0.4 — `igs/TKB_informationsecurity_authorization_consent/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-IAC-001]** `igs/TKB_informationsecurity_authorization_consent/sushi-config.yaml`
+  Källan är taggen 2.0.4 (2025-12-09), som också är master. Taggen 3.0_RC1 (2026-05-12) är en release candidate för nästa major-version och används inte. Byt när 3.0 fastställs.
+- [ ] **[ASSUME-IAC-002]** `igs/TKB_informationsecurity_authorization_consent/input/pagecontent/2-versionsinformation.md` · kontrakt `RegisterConsentByPatient`
+  TKB:n listar RegisterConsentByPatient som nytt i 2.0.4, men taggen saknar schema och kontraktsavsnitt för det. Enligt commit-meddelandet för 2.0.4 är kontraktet tillbakadraget till nästa major-version. Texten återges ordagrant, och ingen modell har genererats.
+- [ ] **[ASSUME-IAC-003]** `igs/TKB_informationsecurity_authorization_consent/input/pagecontent/3-tjanstedomanens-arkitektur.md`
+  Arbetsflödesfigurerna för flöde 2, 8 och 10 och sekvensdiagrammet för flöde 10 saknas i källdokumentet. Platserna är markerade med en kursiv notering. Tabellen *Obligatoriska kontrakt* har kolumner för flöde 1–9, medan flödena heter 1–8 och 10, och den saknar rader för de senare kontrakten; den återges ordagrant.
+- [ ] **[ASSUME-IAC-004]** `igs/TKB_informationsecurity_authorization_consent/input/pagecontent/1-inledning.md`
+  Förkortningstabellen i källan har bara tomma rader och ersätts med en mening. Revisionshistoriken har tre dubblerade rader från 2012, som återges som de står.
+- [ ] **[ASSUME-IAC-005]** `igs/TKB_informationsecurity_authorization_consent/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `EndConsentByPatient`
+  Källan har ingen självdeklaration för EndConsentByPatient och inga XML-exempel för något kontrakt, så källfilstabellerna saknar sådana filer.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-IAC-001]** `igs/TKB_informationsecurity_authorization_consent/input/fsh/logical-models/`
+  Övriga regler per kontrakt och testsvitens schematronregler kan bli invarianter i de logiska modellerna.
+
+## informationsecurity.authorization.blocking v4.0.4 — `igs/TKB_informationsecurity_authorization_blocking/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-IAB-001]** `igs/TKB_informationsecurity_authorization_blocking/input/pagecontent/3-tjanstedomanens-arkitektur.md`
+  Sekvensdiagrammen för flöde 4–7 ligger i TKB:n som inbäddade Visio-objekt. IG:n visar objektens förhandsbilder, konverterade från EMF till SVG. Texten kan ha något ojämna mellanrum jämfört med Visio-originalet.
+- [ ] **[ASSUME-IAB-002]** `igs/TKB_informationsecurity_authorization_blocking/input/pagecontent/7-tjanstekontrakt.md`
+  TKB:n hänvisar under *Exempel* till XML-filer (t.ex. GetBlocksRequest.xml), men taggen 4.0.4 innehåller inga exempelfiler. Hänvisningarna återges som text utan länk.
+- [ ] **[ASSUME-IAB-003]** `igs/TKB_informationsecurity_authorization_blocking/input/images/`
+  Schemat `informationsecurity_authorization_blocking_QR_1.0.xsd` används inte av något kontrakt (kvalitetsregisterkontrakten togs bort i 4.0.4) och publiceras inte.
+- [ ] **[ASSUME-IAB-004]** `igs/TKB_informationsecurity_authorization_blocking/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Datatyprubrikerna i TKB kapitel 7 har formen `urn:riv:informationsecurity:authorization:blocking:4:Typnamn`. Här visas bara typnamnet, och namnrymden anges i avsnittets inledning.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-IAB-001]** `igs/TKB_informationsecurity_authorization_blocking/input/fsh/logical-models/`
+  CheckBlocks utvärderingsregler och övriga regler per kontrakt kan bli invarianter i de logiska modellerna.
+
+## financial.patientfees.exemption v1.0 — `igs/TKB_financial_patientfees_exemption/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-FPE-001]** `igs/TKB_financial_patientfees_exemption/sushi-config.yaml`
+  Källan är master-commit fbd046e11e50 (2024-03-27), som rättar kapitel 4.2 i TKB:n efter taggen 1.0 (2023-11-29). Scheman är oförändrade mellan taggen och commiten. Versionsavsnittet i TKB:n heter fortfarande "Version 1.0_RC4" och återges så.
+- [ ] **[ASSUME-FPE-002]** `igs/TKB_financial_patientfees_exemption/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  TKB:n har inget kapitel om datatyper. Sidan 6 innehåller därför bara kodverk och typer genererade ur domänschemana.
+- [ ] **[ASSUME-FPE-003]** `igs/TKB_financial_patientfees_exemption/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `RequestExemptionStatuses`
+  Svaret innehåller bara `xs:any` (asynkront mönster där resultatet skickas med ProcessExemptionStatuses). Ingen svarsmodell har genererats, och sidan säger det.
+- [ ] **[ASSUME-FPE-004]** `igs/TKB_financial_patientfees_exemption/input/images/`
+  Självdeklarationerna gäller begärande respektive utlämnande part och är kopplade till RequestExemptionStatuses respektive ProcessExemptionStatuses. Två källdokument har döpts om (mellanslag, å/ä/ö och ett numeriskt prefix i filnamnet). Schemat `interoperability_headers_1.0.xsd` används inte av något kontrakt och publiceras inte.
+- [ ] **[ASSUME-FPE-005]** `igs/TKB_financial_patientfees_exemption/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `ProcessExemptionStatuses`
+  Två figurer under *Övriga regler* var TIFF-bilder i TKB:n och visas som nedskalade PNG-bilder.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-FPE-001]** `igs/TKB_financial_patientfees_exemption/input/fsh/logical-models/ProcessExemptionStatuses.fsh`
+  Schematronreglerna rule001–rule018 i TKB:n kan bli invarianter i de logiska modellerna.
+
+## infrastructure.directory.synchronization v1.0_RC3 — `igs/TKB_infrastructure_directory_synchronization/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-IDS-001]** `igs/TKB_infrastructure_directory_synchronization/sushi-config.yaml`
+  Domänen har bara release candidate-taggar, och den senaste är 1.0_RC3 (2018-09-25), som också är master. IG:n dokumenterar den och har versionen 1.0.0-rc3. Verifiera om domänen någonsin fastställdes eller om den ska märkas som utkast.
+- [ ] **[ASSUME-IDS-002]** `igs/TKB_infrastructure_directory_synchronization/input/pagecontent/3-tjanstedomanens-arkitektur.md`
+  Arbetsflödet, sekvensdiagrammet och figurerna 1–2 under kontraktets övriga regler ligger i TKB:n som inbäddade Visio-objekt. IG:n visar objektens förhandsbilder som SVG. Figurnumren saknades i den konverterade texten ("Figur .") och har satts in.
+- [ ] **[ASSUME-IDS-003]** `igs/TKB_infrastructure_directory_synchronization/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  TKB:n har inget kapitel om datatyper. Sidan 6 innehåller kodverket Category och typerna ur domänschemana.
+- [ ] **[ASSUME-IDS-004]** `igs/TKB_infrastructure_directory_synchronization/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `GetMasterDataChangeSet`
+  Källan har inga självdeklarationer, XML-exempel eller testsviter, så källfilstabellen innehåller bara WSDL och scheman.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-IDS-001]** `igs/TKB_infrastructure_directory_synchronization/input/fsh/logical-models/GetMasterDataChangeSet.fsh`
+  Regel #1–#3 i TKB:n kan bli invarianter eller beskrivningar i den logiska modellen.
+
+## clinicalprocess.logistics.cervixscreening v1.0_RC4 — `igs/TKB_clinicalprocess_logistics_cervixscreening/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-LCS-001]** `igs/TKB_clinicalprocess_logistics_cervixscreening/sushi-config.yaml`
+  Domänen har bara release candidate-taggar, och den senaste är 1.0_RC4 (2020-12-18), som också är master. IG:n dokumenterar den och har versionen 1.0.0-rc4. TKB:n är inte helt uppdaterad: innehållsförteckningen och avsnitt 6.1.2 (Version) säger 1.0_RC3, och revisionshistoriken daterar 1.0_RC4 till 2020-10-20 medan försättsbladet säger 2020-12-09. Texten återges oförändrad. Verifiera om domänen någonsin fastställdes.
+- [ ] **[ASSUME-LCS-002]** `igs/TKB_clinicalprocess_logistics_cervixscreening/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `ProcessCervixScreeningInformation` · fält `exclusion/reason`, `followUpGroups/type`, `HPVstatusList/value`
+  TKB:n anger urval ur SNOMED CT (bl.a. svenska tilläggskoder som 59461000052109) utan klartexter, och säger att urvalet kan ändras med vårdprogrammet. Inga ValueSets har skapats; fälten är modellerade som CVType enligt schemat och urvalen står i TKB-tabellen.
+- [ ] **[ASSUME-LCS-003]** `igs/TKB_clinicalprocess_logistics_cervixscreening/input/fsh/logical-models/ProcessCervixScreeningInformationRequest.fsh` · fält `sendingRegion/careGiver`, `sendingRegion/careUnit`
+  Schemat tillåter 0..1, men TKB:n säger "Skall ej anges" (0..0). Modellen följer schemat, och TKB-tabellen på sidan 7 anger regeln.
+- [ ] **[ASSUME-LCS-004]** `igs/TKB_clinicalprocess_logistics_cervixscreening/input/pagecontent/3-tjanstedomanens-arkitektur.md`
+  Listorna under Flöden (och lagrummen i 4.1.2 och källsystemen i 7.1) har återskapats ur dokumentets listnumrering, eftersom konverteringen skrev dem som vanliga stycken.
+- [ ] **[ASSUME-LCS-005]** `igs/TKB_clinicalprocess_logistics_cervixscreening/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  TKB:n har inget kapitel om datatyper. Sidan 6 innehåller kodverket ResultCode och typerna ur schemana.
+- [ ] **[ASSUME-LCS-006]** `igs/TKB_clinicalprocess_logistics_cervixscreening/input/pagecontent/1-inledning.md`
+  Referenserna R1, R3 och R6 anges bara som "Bitbucket". De länkas till AB, IS och "Legal analys av Screeningstöd livmoderhals" i källan (den sista är omdöpt utan å/ö och mellanslag). R6 heter "Sammanfattning av legal analys" i TKB:n och kan vara ett annat dokument. R7 (Verksamhetsregelverk) finns inte i källan. Revisionshistorikens datum "2919-09-15" (version 1.0.2) är ett skrivfel i TKB:n och återges oförändrat.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-LCS-001]** `igs/TKB_clinicalprocess_logistics_cervixscreening/input/fsh/logical-models/ProcessCervixScreeningInformationRequest.fsh`
+  Regel R1 (bara subjectOfCare = "Kallelsegrundande information saknas") och schematron-regeln om resultText kan beskrivas i de logiska modellerna.
+
+## supportprocess.logistics.carelisting v2.1 — `igs/TKB_supportprocess_logistics_carelisting/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-SLC-001]** `igs/TKB_supportprocess_logistics_carelisting/sushi-config.yaml`
+  IG:n bygger på taggen 2.1 (2025-06-13). Master har en senare commit (2025-10-01, "Updating documentation (automatic push from Jenkins)") som inte används, eftersom den inte är en release.
+- [ ] **[ASSUME-SLC-002]** `igs/TKB_supportprocess_logistics_carelisting/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  Version 2.1 lade till domänschemat `supportprocess_logistics_carelisting_2.1.xsd` med samma namnrymd som `_2.0.xsd`. Kontrakten i version 2.0 (CreateListing, GetAvailableHealthcarePersonnel, GetListingCounty, GetListingTypes, UpdateListing) modelleras från 2.0-schemat och GetAvailableHealthcareFacilities och GetListing från 2.1-schemat med utökningarna i `_2.1_ext.xsd`. Sidan 6 visar därför flera typer i två versioner. TKB:n har inget kapitel om datatyper.
+- [ ] **[ASSUME-SLC-003]** `igs/TKB_supportprocess_logistics_carelisting/input/pagecontent/1-inledning.md`
+  Försättsbladets bilder (Inera-logotyp och omslagsbild) och en varningsikon före texten om resultText i avsnitt 4.3.1.1 visas inte. Texten efter ikonen återges.
+- [ ] **[ASSUME-SLC-004]** `igs/TKB_supportprocess_logistics_carelisting/input/pagecontent/3-tjanstedomanens-arkitektur.md`
+  Tabellen över obligatoriska kontrakt hänvisar till flöde 1a–8, och kapitlet säger att varje flöde har ett arbetsflöde och ett sekvensdiagram. TKB:n innehåller varken flödesbeskrivningarna eller diagrammen; de finns i informationsspecifikationen [R3], som publiceras som docx under avsnitt 1.
+- [ ] **[ASSUME-SLC-005]** `igs/TKB_supportprocess_logistics_carelisting/input/pagecontent/4-tjanstedomanens-krav-och-regler.md`
+  Listorna (lagrum i 4.1.1 och punktlistorna i avsnitt 7) har återskapats ur dokumentets listnumrering, eftersom konverteringen skrev dem som vanliga stycken.
+- [ ] **[ASSUME-SLC-006]** `igs/TKB_supportprocess_logistics_carelisting/input/fsh/logical-models/CreateListingRequest.fsh` · fält `listingType`
+  Listningstyperna (nationell typ PV i kodverk 1.2.752.129.5.1.27 och regionala typer, referens R5) är inte modellerade som CodeSystem, eftersom bara koden PV anges i TKB:n. Fälten är CVType enligt schemat.
+- [ ] **[ASSUME-SLC-007]** `igs/TKB_supportprocess_logistics_carelisting/input/pagecontent/index.md`
+  Domänen ersätter crm:carelisting 1.0, som har en egen IG (`igs/TKB_crm_carelisting/`). IG:erna länkar inte till varandra.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-SLC-001]** `igs/TKB_druglogistics_dosedispensing/input/fsh/logical-models/HamtaLokaltProduktsortimentRequest.fsh`
+  Rättelsen i `scripts/xsd_to_ig.py` (domänscheman med samma namnrymd) ger HamtaLokaltProduktsortiment 1.1 fältet `landsting` ur `HamtaLokaltProduktsortimentResponder_1.1_ext.xsd`. Den IG:n genererades före rättelsen och bör genereras om.
+
+## infrastructure.itintegration.dataexchange v1.0 — `igs/TKB_infrastructure_itintegration_dataexchange/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-IDE-001]** `igs/TKB_infrastructure_itintegration_dataexchange/sushi-config.yaml`
+  Domänen har inga taggar, och master innehåller bara en README (schemafilerna togs bort 2024-10-21). IG:n bygger på grenen develop (commit 7fdd1d090b32, 2025-09-11) och har versionen 1.0.0-draft. TKB:ns revisionshistorik har bara en preliminär version (2024-10-30). Verifiera om domänen har fastställts någon annanstans.
+- [ ] **[ASSUME-IDE-002]** `igs/TKB_infrastructure_itintegration_dataexchange/input/pagecontent/1-inledning.md`
+  Referenserna R1 (arkitekturella beslut) och R8 (informationsspecifikation) anges som bilagor men finns inte i källan. Bilagan R11 (Referens till binär data) publiceras omdöpt till `Referens_till_binar_data.docx`. Referenstabellens "Länk" är text utan adress i TKB:n och återges så.
+- [ ] **[ASSUME-IDE-003]** `igs/TKB_infrastructure_itintegration_dataexchange/input/pagecontent/1-inledning.md`
+  Revisionshistoriken ligger sist i TKB:n och har flyttats till sidan 1, som i övriga IG:er. Försättsbladets bilder visas inte.
+- [ ] **[ASSUME-IDE-004]** `igs/TKB_infrastructure_itintegration_dataexchange/input/pagecontent/5-tjanstedomanens-meddelandemodeller.md`
+  Rubriken 5.1 "Meddelandemodell - GetBinaryData" kom ut som bildtext i konverteringen och har återställts som rubrik. Styckena "Roller" efter sekvensdiagrammen i avsnitt 3 är rubriker i samma stil som under arbetsflödena. Figurerna visas med PNG-versionerna ur dokumentet; tre av dem finns också som SVG, som inte används.
+- [ ] **[ASSUME-IDE-005]** `igs/TKB_infrastructure_itintegration_dataexchange/input/pagecontent/6-gemensamma-informationskomponenter.md`
+  TKB:n har inget kapitel om datatyper och domänen inget domänschema. Sidan 6 innehåller kodverket ResultCode och typerna ur tjänsteschemat.
+- [ ] **[ASSUME-IDE-006]** `igs/TKB_infrastructure_itintegration_dataexchange/input/fsh/logical-models/GetBinaryData.fsh` · fält `binaryData.contentType`
+  TKB:n anger MIME-typer enligt FHIR-urvalet http://hl7.org/fhir/ValueSet/mimetypes. Fältet är modellerat som sträng enligt schemat (`xs:token`) utan bindning.
+
+## coreprocess.residentparticipation.residentparticipation v1.0_RC2 — `igs/TKB_coreprocess_residentparticipation_residentparticipation/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-27
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-CRP-001]** `igs/TKB_coreprocess_residentparticipation_residentparticipation/sushi-config.yaml`
+  Domänen har bara taggarna 1.0_RC1 och 1.0_RC2. IG:n bygger på 1.0_RC2 (commit 27438ffd1813, 2026-06-29) och har versionen 1.0.0-rc2. Grenen main har en senare commit (fb38a1871925, 2026-07-07, "GCM 1.0 - Rättat TS efter granskning") som inte är taggad och därför inte ingår. Bygg om IG:n när 1.0 taggas.
+- [ ] **[ASSUME-CRP-002]** `igs/TKB_coreprocess_residentparticipation_residentparticipation/input/pagecontent/1-inledning.md`
+  Innehållsförteckningen i TKB:n är inaktuell (den nämner CareManagerType, EpisodeOfCareType och VirtualServiceType, som saknas i dokumentets text) och har utelämnats; rubrikerna numreras efter texten. Försättsbladets bilder visas inte, och förkortningstabellen är tom i källan.
+- [ ] **[ASSUME-CRP-003]** `igs/TKB_coreprocess_residentparticipation_residentparticipation/input/pagecontent/3-tjanstedomanens-arkitektur.md`
+  "Förändrade tjänstekontrakt" ligger på rubriknivå 5 i dokumentet och har flyttats till nivå 4 (2.1.3). Styckena "Roller" och "Flödessteg" under arbetsflödena har bara rubrikstil på vissa ställen och är nu rubriker överallt. I flöde 2 har rollernas och flödesstegens tabeller varandras kolumnrubriker i TKB:n; det återges som i källan.
+- [ ] **[ASSUME-CRP-004]** `igs/TKB_coreprocess_residentparticipation_residentparticipation/input/pagecontent/5-tjanstedomanens-meddelandemodeller.md`
+  XML-exemplen under HoursOfServiceType är tabeller med en cell i TKB:n och visas som kodblock med originalets radbrytningar. Exempel 2–4 har `<start>…</end>` (felaktig sluttagg) i källan; det återges oförändrat. Mappningstabellen i 5.1.10 nämner EpisodeOfCareType, som inte finns i dokumentet eller schemat.
+- [ ] **[ASSUME-CRP-005]** `igs/TKB_coreprocess_residentparticipation_residentparticipation/input/pagecontent/7-tjanstekontrakt.md`
+  V-MIM i 6.1.2 är samma bild som i 5.1 i dokumentet och visas därför med samma fil. Tomma rader i tabellen Övriga regler är borttagna.
+- [ ] **[ASSUME-CRP-006]** `igs/TKB_coreprocess_residentparticipation_residentparticipation/input/fsh/logical-models/GetCareManagers.fsh`, `GetCareManagersRequest.fsh`
+  De logiska modellerna följer schemat där TKB:ns fälttabeller avviker: careGiverId och careUnitId är IIType (TKB: HSAIdType); careManagerType är 0..* (TKB: 0..1); patientId.extension och övriga IIType.extension är 0..1 (TKB: 1..1); accountableCareUnitId är 0..1 (TKB: 1..1); PractitionerType har fältet hsaId (TKB och revisionshistoriken för RC2: id, som får vara personnummer); careTeam är 0..1 (TKB 6.1.3: 0..*); AddressType.period är 0..* HoursOfServiceType (TKB: 0..1 HoursOfService). Kontrollera vilken källa som gäller, sannolikt rättat i den otaggade commiten på main.
+- [ ] **[ASSUME-CRP-007]** `igs/TKB_coreprocess_residentparticipation_residentparticipation/input/fsh/codesystems/`
+  Endast WeekDaysEnum och MonthsEnum i enum-schemat är modellerade som kodverk. Kodverket för typ av fast kontakt (R7, OID 1.2.752.129.5.1.69), KV_Befattning (R10) och FHIR-kodverken för adresstyp och kontaktsätt anges i TKB:n men är inte modellerade som CodeSystem, eftersom fälten är CVType i schemat.
+
+---
+
 ## interoperability.headers v1.1 — `igs/TKB_interoperability_headers/`
 
 **Status:** in-progress (väntar på beslut om BLOCK-IH-001)

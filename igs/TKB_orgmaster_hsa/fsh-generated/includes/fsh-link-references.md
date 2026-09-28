@@ -1,0 +1,10 @@
+[GetHsaPersonRequest]: StructureDefinition-gethsaperson-request.html
+[GetHsaPerson]: StructureDefinition-gethsaperson.html
+[GetHsaUnitRequest]: StructureDefinition-gethsaunit-request.html
+[GetHsaUnit]: StructureDefinition-gethsaunit.html
+[GetHsaUnitListRequest]: StructureDefinition-gethsaunitlist-request.html
+[GetHsaUnitList]: StructureDefinition-gethsaunitlist.html
+[GetMiuForPersonRequest]: StructureDefinition-getmiuforperson-request.html
+[GetMiuForPerson]: StructureDefinition-getmiuforperson.html
+[GetPersonsWithCommissionAtHealthCareUnitRequest]: StructureDefinition-getpersonswithcommissionathealthcareunit-request.html
+[GetPersonsWithCommissionAtHealthCareUnit]: StructureDefinition-getpersonswithcommissionathealthcareunit.html

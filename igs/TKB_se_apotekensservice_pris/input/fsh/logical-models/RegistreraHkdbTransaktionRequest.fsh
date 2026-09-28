@@ -1,0 +1,50 @@
+// Genererad från XSD för se.apotekensservice.pris v2.0 (ingen TKB finns i källan; scripts/xsd_to_ig.py)
+// Kontrakt: RegistreraHkdbTransaktion v1.1
+// Genererad: 2026-09-26
+
+Logical: RegistreraHkdbTransaktionRequest
+Id: registrerahkdbtransaktion-request
+Title: "RegistreraHkdbTransaktion — Request"
+Description: """
+  Logisk modell för begäran i RegistreraHkdbTransaktion
+  (urn:riv:se.apotekensservice:pris:RegistreraHkdbTransaktionResponder:1, RegistreraHkdbTransaktionRequestType), inklusive SOAP-huvuden enligt WSDL.
+"""
+Characteristics: #can-be-target
+* logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Orgnr of Apotekens Service AB"
+* argosHeader 1..1 BackboneElement "argosHeader" "SOAP-huvud ArgosHeader. Argos header of Apotekens Service AB. Check documentation regarding mandatory fields for this specific service interaction"
+  * forskrivarkod 0..1 string "forskrivarkod" "forskrivarkod"
+  * legitimationskod 0..1 string "legitimationskod" "legitimationskod"
+  * fornamn 0..1 string "fornamn" "fornamn"
+  * efternamn 0..1 string "efternamn" "efternamn"
+  * yrkesgrupp 0..1 string "yrkesgrupp" "yrkesgrupp"
+  * befattningskod 0..1 string "befattningskod" "befattningskod"
+  * arbetsplatskod 0..1 string "arbetsplatskod" "arbetsplatskod"
+  * arbetsplatsnamn 0..1 string "arbetsplatsnamn" "arbetsplatsnamn"
+  * postort 0..1 string "postort" "postort"
+  * postadress 0..1 string "postadress" "postadress"
+  * postnummer 0..1 string "postnummer" "postnummer"
+  * telefonnummer 0..1 string "telefonnummer" "telefonnummer"
+  * requestId 0..1 string "requestId" "requestId"
+  * rollnamn 0..1 string "rollnamn" "rollnamn"
+  * hsaID 0..1 string "hsaID" "hsaID"
+  * katalog 0..1 string "katalog" "katalog"
+  * organisationsnummer 0..1 string "organisationsnummer" "organisationsnummer"
+  * systemnamn 0..1 string "systemnamn" "systemnamn"
+  * systemversion 0..1 string "systemversion" "systemversion"
+  * systemIp 0..1 string "systemIp" "systemIp"
+* ackBrutto 0..1 decimal "ackBrutto" "Om transaktionen avser föregående period skall alltså ackBrutto innehålla FPbrutto i kronor. Om transaktionen avser kommande period skall ackBrutto innehålla motsvarande KPbrutto. I normalfallet används alltså värdet från IPbrutto användas. ackBrutto och periodStart ersätter termerna IPbrutto från version 10.3.0."
+* bruttobelopp 1..1 decimal "bruttobelopp" "Transaktionens högkostnadsgrundande bruttobelop i kronor och ören."
+* expeditionsId 1..1 string "expeditionsId" "Expeditionens unika id för spårbarhet."
+* ipBrutto 0..1 decimal "ipBrutto" "Ackumulerat bruttobelopp i högkostnadstrappan för innevarande period i kronor och ören. Används för att verifiera att ingen ny transaktion registrerats för personen efter att högkostnadsfrågan ställts. Skall inte används som indata från och version 10.3.0. Använd periodStart och ackBrutto i stället."
+* klientinformation 1..1 BackboneElement "klientinformation" "Objekt innehållande information om anropande klientsystem."
+  * anvandare 1..1 string "anvandare" "Unikt användarid i anropande system."
+  * session 1..1 string "session" "Sessionens id i anropande system."
+  * system 1..1 string "system" "GLN-kod för anropande system."
+* kommentar 0..1 string "kommentar" "Kommentar till kreditering."
+* periodStart 0..1 dateTime "periodStart" "Startdatum för den högkostnadsperiod som transaktionen tillhör."
+* persNr 1..1 string "persNr" "Personnummer som transaktionen ska registreras för."
+* transId 1..1 string "transId" "Aktörens expeditions-ID."
+* transTid 1..1 dateTime "transTid" "Transaktionstidpunkt."
+* ursprungligtApoteksaktorsExpeditionsId 0..1 string "ursprungligtApoteksaktorsExpeditionsId" "Apoteksaktörens ursprungliga expeditionsid, ska anges vid kreditering"
+* ursprungligtExpeditionsId 0..1 string "ursprungligtExpeditionsId" "Expeditionens ursprungliga expeditionsid, ska anges vid kreditering"
+* ursprungligTransTid 0..1 dateTime "ursprungligTransTid" "Ursprunglig transaktionstidpunkt. Ges vid kreditering. Avser tidpunkten när det ursprungliga köpet gjordes. Används för att avgöra om personen var över eller under 18 år vid köptillfället. Parametern blir obligatorisk i och med att lagen om kostnadsbefrielse för barn under 18 år trätt i kraft. (Refererat element ur RegistreraHkdbTransaktionResponder_1.1_ext.xsd, namnrymd urn:riv:se.apotekensservice:pris:RegistreraHkdbTransaktionResponder:1.1.)"

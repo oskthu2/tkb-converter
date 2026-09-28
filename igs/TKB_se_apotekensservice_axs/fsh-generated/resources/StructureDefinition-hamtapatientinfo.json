@@ -1,0 +1,477 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "hamtapatientinfo",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/se-apotekensservice-axs/StructureDefinition/hamtapatientinfo",
+  "name": "HamtaPatientInfo",
+  "title": "HamtaPatientInfo — Response",
+  "status": "draft",
+  "description": "Logisk modell för svaret i HamtaPatientInfo\n(urn:riv:se.apotekensservice:axs:HamtaPatientInfoResponder:6, HamtaPatientInfoResponseType).\nSvaret samlar information om patienten från eHälsomyndighetens system: eventuellt dosapotek (EXPO),\ndosproducent, dosunderlagets status, om det finns aktuella recept i RDH, samt folkbokförings- och samtyckesinformation (FOLK).",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/se-apotekensservice-axs/StructureDefinition/hamtapatientinfo",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "hamtapatientinfo",
+        "path": "hamtapatientinfo",
+        "short": "HamtaPatientInfo — Response",
+        "definition": "Logisk modell för svaret i HamtaPatientInfo\n(urn:riv:se.apotekensservice:axs:HamtaPatientInfoResponder:6, HamtaPatientInfoResponseType).\nSvaret samlar information om patienten från eHälsomyndighetens system: eventuellt dosapotek (EXPO),\ndosproducent, dosunderlagets status, om det finns aktuella recept i RDH, samt folkbokförings- och samtyckesinformation (FOLK)."
+      },
+      {
+        "id": "hamtapatientinfo.apotek",
+        "path": "hamtapatientinfo.apotek",
+        "short": "Dosapotek",
+        "definition": "Ev. DOS-apotek som kunden är kopplad till. Om anrop mot underliggande system (FOLK, OR eller EXPO) misslyckas så lämnas fältet tomt. (se.apotekensservice:axs:4 ApoteksinformationResponse)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "hamtapatientinfo-apotek-oregistrerat",
+            "severity": "warning",
+            "human": "Om apoteket inte finns registrerat i EXPO (registrerad = false) saknar alla fält utom glnKod värden",
+            "expression": "registrerad = false implies (aktorsnamn.empty() and aktorsorgnr.empty() and allmantelefon.empty() and besoksadress.empty() and fax.empty() and huvudtypkod.empty() and namn.empty() and ort.empty() and slutdatum.empty() and startdatum.empty())",
+            "source": "https://fhir.inera.se/ig/se-apotekensservice-axs/StructureDefinition/hamtapatientinfo"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.apotek.aktorsnamn",
+        "path": "hamtapatientinfo.apotek.aktorsnamn",
+        "short": "Aktörsnamn",
+        "definition": "Aktörsnamn.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.apotek.aktorsorgnr",
+        "path": "hamtapatientinfo.apotek.aktorsorgnr",
+        "short": "Aktörens organisationsnummer",
+        "definition": "Aktörens organisationsnummer. xs:long i schemat.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.apotek.allmantelefon",
+        "path": "hamtapatientinfo.apotek.allmantelefon",
+        "short": "Allmäntelefon",
+        "definition": "Allmäntelefon.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.apotek.besoksadress",
+        "path": "hamtapatientinfo.apotek.besoksadress",
+        "short": "Besöksadress",
+        "definition": "Expeditionsställets besöksadress.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.apotek.eReceptDjur",
+        "path": "hamtapatientinfo.apotek.eReceptDjur",
+        "short": "E-recept för djur",
+        "definition": "Anger om apoteket expedierar e-recept för djur.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.apotek.fax",
+        "path": "hamtapatientinfo.apotek.fax",
+        "short": "Fax",
+        "definition": "Fax.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.apotek.glnKod",
+        "path": "hamtapatientinfo.apotek.glnKod",
+        "short": "GLN-kod",
+        "definition": "Apotekets GLN-kod.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.apotek.huvudtypkod",
+        "path": "hamtapatientinfo.apotek.huvudtypkod",
+        "short": "Huvudtypkod",
+        "definition": "Kod som beskriver huvudverksamheten för expeditionsstället.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.apotek.namn",
+        "path": "hamtapatientinfo.apotek.namn",
+        "short": "Apotekets namn",
+        "definition": "Apotekets namn.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.apotek.ort",
+        "path": "hamtapatientinfo.apotek.ort",
+        "short": "Ort",
+        "definition": "Expeditionsställets besöksort.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.apotek.registrerad",
+        "path": "hamtapatientinfo.apotek.registrerad",
+        "short": "Registrerad i EXPO",
+        "definition": "Anger om apoteket finns registrerat i EXPO. Om false så saknar alla fält utom glnKod värden.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.apotek.slutdatum",
+        "path": "hamtapatientinfo.apotek.slutdatum",
+        "short": "Slutdatum",
+        "definition": "Datum för stängning av verksamhet.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.apotek.startdatum",
+        "path": "hamtapatientinfo.apotek.startdatum",
+        "short": "Startdatum",
+        "definition": "Datum för start av verksamhet.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.dosproducent",
+        "path": "hamtapatientinfo.dosproducent",
+        "short": "Dosproducent",
+        "definition": "GLN-kod för eventuell dosproducent.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.dosunderlagStatus",
+        "path": "hamtapatientinfo.dosunderlagStatus",
+        "short": "Dosunderlagets status",
+        "definition": "Status om underlaget är godkänt, registrerat eller avregistrerat: 500 = Ej godkänt, 510 = Godkänt, 520 = Avregistrerat. xs:int i schemat.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/se-apotekensservice-axs/ValueSet/axs-dosunderlagstatus-vs"
+        }
+      },
+      {
+        "id": "hamtapatientinfo.finnsOrdination",
+        "path": "hamtapatientinfo.finnsOrdination",
+        "short": "Finns ordination",
+        "definition": "Markering som anger om det finns aktuella recept för patienten i RDH.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.patientInformation",
+        "path": "hamtapatientinfo.patientInformation",
+        "short": "Patientinformation",
+        "definition": "Patientinformation från FOLK. (se.apotekensservice:axs:5 PatientInformationResponse)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.patientInformation.lkKod",
+        "path": "hamtapatientinfo.patientInformation.lkKod",
+        "short": "Län- och kommunkod",
+        "definition": "Län och kommun där personen är folkbokförd, formatet LLKK (LL = län, 2 tecken; KK = kommun, 2 tecken).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.patientInformation.omradeskod",
+        "path": "hamtapatientinfo.patientInformation.omradeskod",
+        "short": "Områdeskod",
+        "definition": "Det område där personen är folkbokförd.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.patientInformation.redNamn",
+        "path": "hamtapatientinfo.patientInformation.redNamn",
+        "short": "Redigerat namn",
+        "definition": "Redigerat namn.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.patientInformation.samtycke",
+        "path": "hamtapatientinfo.patientInformation.samtycke",
+        "short": "Samtycke",
+        "definition": "Patientens registrerade samtycken (SamtyckeResponse). För varje flagga: true = samtycke lämnat, false = samtycke nekat, saknas = kunden har inte tillfrågats eller tagit ställning.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.patientInformation.samtycke.dosSamtycke",
+        "path": "hamtapatientinfo.patientInformation.samtycke.dosSamtycke",
+        "short": "Dos-samtycke",
+        "definition": "Om kunden samtycker till att spara recept på sitt personnummer för dosapotek.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.patientInformation.samtycke.dosSamtyckeDatum",
+        "path": "hamtapatientinfo.patientInformation.samtycke.dosSamtyckeDatum",
+        "short": "Datum dos-samtycke",
+        "definition": "Datum för senaste ändring av dos-samtycke.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.patientInformation.samtycke.ees",
+        "path": "hamtapatientinfo.patientInformation.samtycke.ees",
+        "short": "EES-samtycke",
+        "definition": "Om kunden samtyckt till att vara med i EES.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.patientInformation.samtycke.eesSamtyckeDatum",
+        "path": "hamtapatientinfo.patientInformation.samtycke.eesSamtyckeDatum",
+        "short": "Datum EES-samtycke",
+        "definition": "Datum för senaste ändring av EES-samtycke.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.patientInformation.samtycke.hkdb",
+        "path": "hamtapatientinfo.patientInformation.samtycke.hkdb",
+        "short": "HKDB-samtycke",
+        "definition": "Om kunden samtyckt till att vara med i HKDB. Samtycket uppdateras genom att skapa eller ta bort konto i HKDB.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.patientInformation.samtycke.hkdbSamtyckeDatum",
+        "path": "hamtapatientinfo.patientInformation.samtycke.hkdbSamtyckeDatum",
+        "short": "Datum HKDB-samtycke",
+        "definition": "Datum för senaste ändring av HKDB-samtycke.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.patientInformation.samtycke.rr",
+        "path": "hamtapatientinfo.patientInformation.samtycke.rr",
+        "short": "RR-samtycke",
+        "definition": "Om kunden samtyckt till att spara sina recept i RR.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.patientInformation.samtycke.rrSamtyckeDatum",
+        "path": "hamtapatientinfo.patientInformation.samtycke.rrSamtyckeDatum",
+        "short": "Datum RR-samtycke",
+        "definition": "Datum för senaste ändring av RR-samtycke.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.patientInformation.samtycke.rrd",
+        "path": "hamtapatientinfo.patientInformation.samtycke.rrd",
+        "short": "RRD-samtycke",
+        "definition": "Om kunden samtycker till att spara djurrecept på sitt personnummer i RR för djur.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.patientInformation.samtycke.rrdSamtyckeDatum",
+        "path": "hamtapatientinfo.patientInformation.samtycke.rrdSamtyckeDatum",
+        "short": "Datum RRD-samtycke",
+        "definition": "Datum för senaste ändring av RRD-samtycke.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "hamtapatientinfo.patientInformation.statusKod",
+        "path": "hamtapatientinfo.patientInformation.statusKod",
+        "short": "Statuskod",
+        "definition": "Status på personen i FOLK, mappad från träffkoder i FOLK. Vissa statuskoder innebär att det inte finns någon personinformation i svaret.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/se-apotekensservice-axs/ValueSet/axs-folkstatuskod-vs"
+        }
+      }
+    ]
+  }
+}

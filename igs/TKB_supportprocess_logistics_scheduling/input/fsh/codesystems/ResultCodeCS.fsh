@@ -1,0 +1,30 @@
+// Genererad från XSD för supportprocess.logistics.scheduling v2.0.0 (scripts/xsd_to_ig.py --codesystems)
+// Genererad: 2026-09-26
+
+CodeSystem: ResultCodeCS
+Id: scheduling-resultcode-cs
+Title: "Resultatkod (ResultCode)"
+Description: "Koder för ResultCodeEnum i domänschemat. Visningstexter ur TKB avsnitt 3.7 ResultCode."
+* ^url = "https://fhir.inera.se/CodeSystem/scheduling-resultcode-cs"
+* ^status = #active
+* ^content = #complete
+* ^caseSensitive = true
+* #OK "OK" "Transaktionen har utförts enligt uppdraget i frågemeddelandet."
+* #ERROR "Fel" "Transaktionen har INTE kunnat utföras enligt uppdrag i frågemeddelandet p.g.a. logiskt fel. Det finns ett meddelande som konsumenten måste visa upp. Exempel på detta kan vara ”tiden har blivit upptagen av annan invånare”."
+* #INFO "Information" "Transaktionen har utförts enligt uppdraget i frågemeddelandet, men det finns ett meddelande som tjänstekonsumenten måste visa upp för invånaren. Exempel på detta kan vara ”kom fastande”."
+* #REQUESTED_TIME_IS_ALREADY_RESERVED "Efterfrågad tid är redan bokad" "Efterfrågad tid är redan bokad."
+* #REQUESTED_TIME_HAS_ALREADY_PASSED "Efterfrågad tid har passerat" "Efterfrågad tid har passerat."
+* #REQUESTED_TIME_IS_NO_LONGER_AVAILABLE "Efterfrågad tid är ej tillgänglig" "Efterfrågad tid är ej tillgänglig."
+* #TOO_LATE_TO_MAKE_APPOINTMENT "För sent att boka tiden" "För sent att boka tiden. Mottagningen tillåter inte bokning en viss tid innan tiden startar."
+* #USER_IS_ALREADY_OCCUPIED "Invånaren har redan bokat en annan tid vid samma tillfälle på mottagningen" "Invånaren har redan bokat en annan tid vid samma tillfälle på mottagningen."
+* #APPOINTMENT_IS_NOT_ALLOWED "Bokning är inte tillåtet" "Bokning är inte tillåtet. Kan bero på konfigurationsfel eller att möjligheten att boka just har ändrats."
+* #APPOINTMENT_IS_ALREADY_CANCELED "Tiden är redan avbokad" "Tiden är redan avbokad."
+* #APPOINTMENT_IS_ALREADY_UPDATED "Tiden är redan ombokad" "Tiden är redan ombokad."
+* #TOO_LATE_TO_UPDATE_APPOINTMENT "För sent att omboka tiden" "För sent att omboka tiden. Mottagningen tillåter inte ombokning en viss tid innan tiden startar."
+* #APPOINTMENT_DOES_NOT_EXIST "Bokningen saknas" "Bokningen saknas."
+* #UPDATE_APPOINTMENT_IS_NOT_ALLOWED "Ombokning är inte tillåtet" "Ombokning är inte tillåtet."
+* #TOO_LATE_TO_CANCEL_APPOINTMENT "För sent att avboka tiden" "För sent att avboka tiden. Mottagningen tillåter inte avbokning en viss tid innan tiden startar."
+* #CANCEL_IS_NOT_ALLOWED "Avbokning är inte tillåtet" "Avbokning är inte tillåtet."
+* #APPOINTMENT_IS_ALREADY_CONFIRMED "Tiden är redan bekräftad" "Tiden är redan bekräftad."
+* #TOO_LATE_TO_CONFIRM_APPOINTMENT "För sent att bekräfta tiden" "För sent att bekräfta tiden. Mottagningen tillåter inte bekräftelse en viss tid innan tiden startar."
+* #CONFIRM_IS_NOT_ALLOWED "Bekräftelse ej tillåtet" "Bekräftelse ej tillåtet."

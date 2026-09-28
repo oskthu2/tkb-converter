@@ -72,6 +72,10 @@ def lint_config(ig: Path, errors: list):
     text = cfg.read_text(encoding="utf-8")
     if any("se.inera.rivta.core" in l.split("#")[0] for l in text.splitlines()):
         errors.append(f"{cfg}: dependency se.inera.rivta.core — paketet finns inte publicerat, ta bort raden")
+    for n, l in enumerate(text.splitlines(), 1):
+        m = re.match(r"\s+title:\s*([^\s\"'].*)$", l)
+        if m and ": " in m.group(1):
+            errors.append(f"{cfg}:{n}: sidtitel med kolon utan citattecken ger YAML-felet 'Nested mappings are not allowed in compact mappings'")
     cs_urls = set()
     for f in (ig / "input" / "fsh").rglob("*.fsh"):
         cs_urls |= set(re.findall(r'\^url\s*=\s*"(https://fhir\.inera\.se/CodeSystem/[^"]+)"', f.read_text(encoding="utf-8")))
@@ -88,6 +92,7 @@ def lint_pages(ig: Path, errors: list, warnings: list):
         if " " in name:
             warnings.append(f"{images}/{name}: mellanslag i filnamn — döp om innan filen länkas (check_links.py URL-avkodar inte)")
     page_names = {p.stem + ".html" for p in pages.glob("*.md")} | {"artifacts.html", "index.html"}
+    resources = ig / "fsh-generated" / "resources"  # finns bara efter en lokal sushi-körning
     for f in sorted(pages.glob("*.md")):
         in_code = False
         for n, line in enumerate(f.read_text(encoding="utf-8").splitlines(), 1):
@@ -102,12 +107,18 @@ def lint_pages(ig: Path, errors: list, warnings: list):
                 if path.startswith(("images/", "files/")):
                     errors.append(f"{f}:{n}: länk med katalogprefix '{path}' — input/images/ publiceras platt, länka bara filnamnet")
                     continue
+                if re.search(r"\.(tiff?|emf|wmf)$", path, re.I) and line.lstrip().startswith("!["):
+                    errors.append(f"{f}:{n}: bild i format som webbläsare inte visar '{path}' — konvertera till PNG/SVG (se tkb-fetch-convert)")
+                    continue
                 if "%20" in path or " " in path:
                     errors.append(f"{f}:{n}: länk med mellanslag/%20 '{path}' — döp om filen utan mellanslag")
                     continue
                 if path.endswith(".html"):
                     if path not in page_names and not re.match(r"^(StructureDefinition|CodeSystem|ValueSet|Extension)-", path):
                         warnings.append(f"{f}:{n}: länk till okänd sida '{path}'")
+                    elif resources.is_dir() and re.match(r"^(StructureDefinition|CodeSystem|ValueSet)-", path) \
+                            and not (resources / (path[:-5] + ".json")).exists():
+                        errors.append(f"{f}:{n}: länk till artefakt '{path}' som SUSHI inte genererar (t.ex. en tom svarsmodell)")
                     continue
                 if unquote(path) not in static:
                     errors.append(f"{f}:{n}: länkmål '{path}' finns inte i input/images/")
@@ -116,6 +127,8 @@ def lint_pages(ig: Path, errors: list, warnings: list):
                     tag = m.group(1).split("/")[0].lower()
                     if tag not in {"br", "b", "i", "em", "strong", "sub", "sup", "p", "ul", "li", "ol", "code"}:
                         warnings.append(f"{f}:{n}: rå <{m.group(1)}> i tabellcell — slå in i backticks (kan förstöra efterföljande rubriker)")
+            if re.match(r"^#{1,6}[^#\s]", line):
+                errors.append(f"{f}:{n}: rad som börjar med '#' utan mellanslag ('{line[:12]}') blir en rubrik i kramdown — skriv '\\#' (t.ex. regelnumret '#1' i TKB:ns Övriga regler)")
             if re.match(r"^##\s+7\.\d+\s", line):
                 warnings.append(f"{f}:{n}: kontraktsrubrik '{line.strip()}' — ska vara '### Kontraktsnamn' utan nummer (annars blir ankaret #71-...)")
     tk = pages / "7-tjanstekontrakt.md"

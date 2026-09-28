@@ -1,0 +1,386 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "inera.supportprocess-logistics-scheduling",
+  "url": "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/ImplementationGuide/inera.supportprocess-logistics-scheduling",
+  "version": "2.0.0",
+  "name": "supportprocesslogisticsscheduling",
+  "title": "supportprocess: logistics: scheduling",
+  "status": "draft",
+  "contact": [
+    {
+      "name": "Inera Arkitektur",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.inera.se"
+        }
+      ]
+    }
+  ],
+  "copyright": "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "packageId": "inera.supportprocess-logistics-scheduling",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.r4.core",
+      "version": "4.0.1",
+      "uri": "http://fhir.org/packages/hl7.fhir.r4.core/ImplementationGuide/hl7.fhir.r4.core",
+      "id": "hl7_fhir_r4_core"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "ValueSet/scheduling-appointmentstatus-vs"
+        },
+        "name": "Bokningens tillstånd (AppointmentStatus)",
+        "description": "Alla koder i AppointmentStatusCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/scheduling-appointmentstatus-cs"
+        },
+        "name": "Bokningens tillstånd (AppointmentStatus)",
+        "description": "Koder för AppointmentStatusEnum i domänschemat. Visningstexter ur TKB avsnitt 6.3.4 (GetAppointment, appointment.status).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cancelappointment-request"
+        },
+        "name": "CancelAppointment — Request",
+        "description": "Logisk modell för begäran i CancelAppointment\n(urn:riv:supportprocess:logistics:scheduling:CancelAppointmentResponder:2, CancelAppointmentType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/cancelappointment"
+        },
+        "name": "CancelAppointment — Response",
+        "description": "Logisk modell för svaret i CancelAppointment\n(urn:riv:supportprocess:logistics:scheduling:CancelAppointmentResponder:2, CancelAppointmentResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/confirmappointment-request"
+        },
+        "name": "ConfirmAppointment — Request",
+        "description": "Logisk modell för begäran i ConfirmAppointment\n(urn:riv:supportprocess:logistics:scheduling:ConfirmAppointmentResponder:1, ConfirmAppointmentType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/confirmappointment"
+        },
+        "name": "ConfirmAppointment — Response",
+        "description": "Logisk modell för svaret i ConfirmAppointment\n(urn:riv:supportprocess:logistics:scheduling:ConfirmAppointmentResponder:1, ConfirmAppointmentResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getappointment-request"
+        },
+        "name": "GetAppointment — Request",
+        "description": "Logisk modell för begäran i GetAppointment\n(urn:riv:supportprocess:logistics:scheduling:GetAppointmentResponder:2, GetAppointmentType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getappointment"
+        },
+        "name": "GetAppointment — Response",
+        "description": "Logisk modell för svaret i GetAppointment\n(urn:riv:supportprocess:logistics:scheduling:GetAppointmentResponder:2, GetAppointmentResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getappointments-request"
+        },
+        "name": "GetAppointments — Request",
+        "description": "Logisk modell för begäran i GetAppointments\n(urn:riv:supportprocess:logistics:scheduling:GetAppointmentsResponder:2, GetAppointmentsType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getappointments"
+        },
+        "name": "GetAppointments — Response",
+        "description": "Logisk modell för svaret i GetAppointments\n(urn:riv:supportprocess:logistics:scheduling:GetAppointmentsResponder:2, GetAppointmentsResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getavailabledates-request"
+        },
+        "name": "GetAvailableDates — Request",
+        "description": "Logisk modell för begäran i GetAvailableDates\n(urn:riv:supportprocess:logistics:scheduling:GetAvailableDatesResponder:2, GetAvailableDatesType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getavailabledates"
+        },
+        "name": "GetAvailableDates — Response",
+        "description": "Logisk modell för svaret i GetAvailableDates\n(urn:riv:supportprocess:logistics:scheduling:GetAvailableDatesResponder:2, GetAvailableDatesResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getavailabletimeslots-request"
+        },
+        "name": "GetAvailableTimeslots — Request",
+        "description": "Logisk modell för begäran i GetAvailableTimeslots\n(urn:riv:supportprocess:logistics:scheduling:GetAvailableTimeslotsResponder:2, GetAvailableTimeslotsType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getavailabletimeslots"
+        },
+        "name": "GetAvailableTimeslots — Response",
+        "description": "Logisk modell för svaret i GetAvailableTimeslots\n(urn:riv:supportprocess:logistics:scheduling:GetAvailableTimeslotsResponder:2, GetAvailableTimeslotsResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/gethealthcarefacilities-request"
+        },
+        "name": "GetHealthcareFacilities — Request",
+        "description": "Logisk modell för begäran i GetHealthcareFacilities\n(urn:riv:supportprocess:logistics:scheduling:GetHealthcareFacilitiesResponder:2, GetHealthcareFacilitiesType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/gethealthcarefacilities"
+        },
+        "name": "GetHealthcareFacilities — Response",
+        "description": "Logisk modell för svaret i GetHealthcareFacilities\n(urn:riv:supportprocess:logistics:scheduling:GetHealthcareFacilitiesResponder:2, GetHealthcareFacilitiesResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/gethealthcarefacility-request"
+        },
+        "name": "GetHealthcareFacility — Request",
+        "description": "Logisk modell för begäran i GetHealthcareFacility\n(urn:riv:supportprocess:logistics:scheduling:GetHealthcareFacilityResponder:2, GetHealthcareFacilityType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/gethealthcarefacility"
+        },
+        "name": "GetHealthcareFacility — Response",
+        "description": "Logisk modell för svaret i GetHealthcareFacility\n(urn:riv:supportprocess:logistics:scheduling:GetHealthcareFacilityResponder:2, GetHealthcareFacilityResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getpractitioners-request"
+        },
+        "name": "GetPractitioners — Request",
+        "description": "Logisk modell för begäran i GetPractitioners\n(urn:riv:supportprocess:logistics:scheduling:GetPractitionersResponder:2, GetPractitionersType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getpractitioners"
+        },
+        "name": "GetPractitioners — Response",
+        "description": "Logisk modell för svaret i GetPractitioners\n(urn:riv:supportprocess:logistics:scheduling:GetPractitionersResponder:2, GetPractitionersResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/gettimetypes-request"
+        },
+        "name": "GetTimeTypes — Request",
+        "description": "Logisk modell för begäran i GetTimeTypes\n(urn:riv:supportprocess:logistics:scheduling:GetTimeTypesResponder:2, GetTimeTypesType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/gettimetypes"
+        },
+        "name": "GetTimeTypes — Response",
+        "description": "Logisk modell för svaret i GetTimeTypes\n(urn:riv:supportprocess:logistics:scheduling:GetTimeTypesResponder:2, GetTimeTypesResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/scheduling-reasonrequired-vs"
+        },
+        "name": "Krav på anledning (ReasonRequired)",
+        "description": "Alla koder i ReasonRequiredCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/scheduling-reasonrequired-cs"
+        },
+        "name": "Krav på anledning (ReasonRequired)",
+        "description": "Koder för ReasonRequiredEnum i domänschemat. Visningstexter ur TKB avsnitt 7.8 TimeTypeRulesType.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/makeappointment-request"
+        },
+        "name": "MakeAppointment — Request",
+        "description": "Logisk modell för begäran i MakeAppointment\n(urn:riv:supportprocess:logistics:scheduling:MakeAppointmentResponder:2, MakeAppointmentType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/makeappointment"
+        },
+        "name": "MakeAppointment — Response",
+        "description": "Logisk modell för svaret i MakeAppointment\n(urn:riv:supportprocess:logistics:scheduling:MakeAppointmentResponder:2, MakeAppointmentResponseType).",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/scheduling-resultcode-vs"
+        },
+        "name": "Resultatkod (ResultCode)",
+        "description": "Alla koder i ResultCodeCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/scheduling-resultcode-cs"
+        },
+        "name": "Resultatkod (ResultCode)",
+        "description": "Koder för ResultCodeEnum i domänschemat. Visningstexter ur TKB avsnitt 3.7 ResultCode.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/scheduling-process-vs"
+        },
+        "name": "Tidbokningsflöde (Process)",
+        "description": "Alla koder i ProcessCS.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/scheduling-process-cs"
+        },
+        "name": "Tidbokningsflöde (Process)",
+        "description": "Koder för ProcessEnum i domänschemat. Visningstexter ur TKB avsnitt 7.8 TimeTypeRulesType.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/updateappointment-request"
+        },
+        "name": "UpdateAppointment — Request",
+        "description": "Logisk modell för begäran i UpdateAppointment\n(urn:riv:supportprocess:logistics:scheduling:UpdateAppointmentResponder:2, UpdateAppointmentType), inklusive SOAP-huvuden enligt WSDL.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/updateappointment"
+        },
+        "name": "UpdateAppointment — Response",
+        "description": "Logisk modell för svaret i UpdateAppointment\n(urn:riv:supportprocess:logistics:scheduling:UpdateAppointmentResponder:2, UpdateAppointmentResponseType).",
+        "exampleBoolean": false
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Hem",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "1-inledning.html",
+          "title": "1 Inledning",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "2-versionsinformation.html",
+          "title": "2 Versionsinformation",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "3-tjanstedomanens-arkitektur.html",
+          "title": "3 Tjänstedomänens arkitektur",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "4-tjanstedomanens-krav-och-regler.html",
+          "title": "4 Tjänstedomänens krav och regler",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "5-tjanstedomanens-meddelandemodeller.html",
+          "title": "5 Tjänstedomänens meddelandemodeller",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "6-gemensamma-informationskomponenter.html",
+          "title": "6 Gemensamma informationskomponenter",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "7-tjanstekontrakt.html",
+          "title": "7 Tjänstekontrakt",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2024+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "draft"
+      },
+      {
+        "code": "show-inherited-invariants",
+        "value": "false"
+      },
+      {
+        "code": "apply-contact",
+        "value": "true"
+      },
+      {
+        "code": "apply-publisher",
+        "value": "true"
+      },
+      {
+        "code": "apply-version",
+        "value": "true"
+      },
+      {
+        "code": "apply-copyright",
+        "value": "true"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/scheduling-appointmentstatus-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/scheduling-process-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/scheduling-reasonrequired-cs"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/scheduling-resultcode-cs"
+      }
+    ]
+  }
+}

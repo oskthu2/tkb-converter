@@ -1,0 +1,152 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "deleteehrextractstatus-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/ehr-patientsummary/StructureDefinition/deleteehrextractstatus-request",
+  "name": "DeleteEhrExtractStatusRequest",
+  "title": "DeleteEhrExtractStatus — Request",
+  "status": "draft",
+  "description": "Logisk modell för begäran i DeleteEhrExtractStatus\n(urn:riv:ehr:patientsummary:DeleteEhrExtractInitiator:1, DeleteEhrExtractStatusType), inklusive SOAP-huvuden enligt WSDL.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/ehr-patientsummary/StructureDefinition/deleteehrextractstatus-request",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "deleteehrextractstatus-request",
+        "path": "deleteehrextractstatus-request",
+        "short": "DeleteEhrExtractStatus — Request",
+        "definition": "Logisk modell för begäran i DeleteEhrExtractStatus\n(urn:riv:ehr:patientsummary:DeleteEhrExtractInitiator:1, DeleteEhrExtractStatusType), inklusive SOAP-huvuden enligt WSDL."
+      },
+      {
+        "id": "deleteehrextractstatus-request.logicalAddress",
+        "path": "deleteehrextractstatus-request.logicalAddress",
+        "short": "logicalAddress",
+        "definition": "SOAP-huvud LogicalAddress. the HSA-id of the service producer",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "deleteehrextractstatus-request.parameters",
+        "path": "deleteehrextractstatus-request.parameters",
+        "short": "parameters",
+        "definition": "parameters",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "deleteehrextractstatus-request.parameters.parameterCode",
+        "path": "deleteehrextractstatus-request.parameters.parameterCode",
+        "short": "parameterCode",
+        "definition": "parameterCode Heter code i schemat.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "deleteehrextractstatus-request.parameters.parameterName",
+        "path": "deleteehrextractstatus-request.parameters.parameterName",
+        "short": "parameterName",
+        "definition": "parameterName Heter name i schemat.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "deleteehrextractstatus-request.parameters.parameterValue",
+        "path": "deleteehrextractstatus-request.parameters.parameterValue",
+        "short": "parameterValue",
+        "definition": "parameterValue Heter value i schemat.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "deleteehrextractstatus-request.response_detail",
+        "path": "deleteehrextractstatus-request.response_detail",
+        "short": "response_detail",
+        "definition": "response_detail",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "deleteehrextractstatus-request.response_detail.responseDetailCode",
+        "path": "deleteehrextractstatus-request.response_detail.responseDetailCode",
+        "short": "responseDetailCode",
+        "definition": "responseDetailCode Heter code i schemat.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "deleteehrextractstatus-request.response_detail.responseDetailText",
+        "path": "deleteehrextractstatus-request.response_detail.responseDetailText",
+        "short": "responseDetailText",
+        "definition": "responseDetailText Heter text i schemat.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "deleteehrextractstatus-request.response_detail.type_code",
+        "path": "deleteehrextractstatus-request.response_detail.type_code",
+        "short": "type_code",
+        "definition": "(XML-attribut.)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/ehr-patientsummary/ValueSet/patientsummary-responsedetailtypecodes-vs"
+        }
+      }
+    ]
+  }
+}

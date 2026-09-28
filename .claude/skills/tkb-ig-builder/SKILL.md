@@ -176,6 +176,8 @@ Domänen innehåller följande tjänstekontrakt:
 
 **Ytterligare ett upptäckt mönster som kan förstöra ankare längre ner på sidan:** rå `<taggliknande text>` (RIV-TA-fältsökvägar i vinkelklamrar, t.ex. `<hasMoreReference>`, `<multimediaEntry/value>`) i en Markdown-tabellcell kan tolkas som (trasig/oavslutad) rå HTML av sidgenereringsverktyget, vilket i värsta fall får **alla efterföljande rubriker på samma sida** att sluta renderas som riktiga `<h3>`-element — de blir kvar som bokstavlig `### Text`-sträng i utdatan, vilket i sin tur ger trasiga ankare för varje kontrakt efter den skadade tabellen (inträffade i `clinicalprocess_healthcond_description`, där en tabellrad dessutom bröts över flera rader utan `|` i början av fortsättningsraden — se fix 2026-09-16). Om `check_links.py` (Steg 4.7) rapporterar ett trasigt ankare **utan** motsvarande `images/`- eller `files/`-prefix i felmeddelandet: leta efter rå `<...>`-text i tabeller på samma sida före den brutna rubriken, och slå in den i backticks (`` `<hasMoreReference>` ``) samt slå ihop eventuella flerradiga tabellrader till en enda rad.
 
+**Rader som börjar med `#` utan mellanslag** (t.ex. regelnumren `#1`, `#2` under *Övriga regler* i äldre TKB:er) blir rubriker i kramdown, som inte kräver mellanslag efter `#`. Resultatet är en falsk h1 mitt i kontraktet. Skriv `\#1` i stället. `preflight_lint.py` flaggar mönstret (upptäckt 2026-09-27 i `informationsecurity_auditing_log`).
+
 ```markdown
 
 ## Innehåll
