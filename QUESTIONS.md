@@ -2142,3 +2142,38 @@ _Inga blockerare identifierade._
   De logiska modellerna följer schemat där TKB:ns fälttabeller avviker: careGiverId och careUnitId är IIType (TKB: HSAIdType); careManagerType är 0..* (TKB: 0..1); patientId.extension och övriga IIType.extension är 0..1 (TKB: 1..1); accountableCareUnitId är 0..1 (TKB: 1..1); PractitionerType har fältet hsaId (TKB och revisionshistoriken för RC2: id, som får vara personnummer); careTeam är 0..1 (TKB 6.1.3: 0..*); AddressType.period är 0..* HoursOfServiceType (TKB: 0..1 HoursOfService). Kontrollera vilken källa som gäller, sannolikt rättat i den otaggade commiten på main.
 - [ ] **[ASSUME-CRP-007]** `igs/TKB_coreprocess_residentparticipation_residentparticipation/input/fsh/codesystems/`
   Endast WeekDaysEnum och MonthsEnum i enum-schemat är modellerade som kodverk. Kodverket för typ av fast kontakt (R7, OID 1.2.752.129.5.1.69), KV_Befattning (R10) och FHIR-kodverken för adresstyp och kontaktsätt anges i TKB:n men är inte modellerade som CodeSystem, eftersom fälten är CVType i schemat.
+
+---
+
+## interoperability.headers v1.1 — `igs/TKB_interoperability_headers/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-09-28
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+- [x] **[BLOCK-IH-001]** `igs/TKB_interoperability_headers/` (hela domänen) · inget TKB-dokument
+  Domänen saknar publicerad TKB. Bitbucket-repot `rivta-domains/riv.interoperability.headers` innehåller i båda taggarna (`TD_HEADERS_1_0_R` 2011, `interoperability_headers_1.1` 2015) och på `master` enbart `schemas/core_components/interoperability_headers_{version}.xsd`, och README-länken "Senaste TKB" är tom. Domänen har heller inga tjänstekontrakt (ingen WSDL), bara två delade huvudelement (`Actor`, `ProcessingStatus`) som andra domäner använder. IG:n är byggd enbart från XSD:n: sidorna 1, 2 och 6 är sammanställda från schemat och repots historik och märkta "SAKNAS I KÄLLDOKUMENT", och sidorna 3–5 finns inte.
+  Förslag: godkänn en XSD-baserad IG för denna domän (ta bort BLOCK och slå ihop PR:en). Alternativ: markera domänen `blocked` med orsaken "inget TKB-dokument publicerat" och stäng PR:en.
+  **Löst 2026-09-28:** Oskar godkände en XSD-baserad IG för domänen. Sidorna behåller markeringen "SAKNAS I KÄLLDOKUMENT" eftersom det fortfarande saknas en TKB.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-IH-001]** `igs/TKB_interoperability_headers/input/fsh/logical-models/ProcessingStatus.fsh` · fält `lastSuccessfulSynch`, `lastUnsuccessfulSynch`
+  Schemat typar båda fälten som `xs:string` trots att dokumentationen beskriver dem som tidsstämplar och inget format anges. Modellerade som `string` enligt XSD. Om ett format (t.ex. `YYYYMMDDhhmmss` som i övriga RIV-TA-domäner) är avsett kan fälten bli `dateTime`/`instant`.
+  Källa: `interoperability_headers_1.1.xsd`, `ProcessingStatusRecordType`.
+
+- [ ] **[ASSUME-IH-002]** `igs/TKB_interoperability_headers/input/fsh/logical-models/ProcessingStatus.fsh` · fält `lastSuccessfulSynch`
+  Obligatoriskt i schemat (inget `minOccurs`), men statustabellen i `xs:documentation` anger värdet som "Empty" vid `NoDataSynchFailed`. Modellerat som `0..1` (det säkrare alternativet). Verifiera om producenten ska skicka ett tomt element eller utelämna det.
+  Källa: `interoperability_headers_1.1.xsd`, `ProcessingStatus`-dokumentationen och `ProcessingStatusRecordType`.
+
+- [ ] **[ASSUME-IH-003]** `igs/TKB_interoperability_headers/input/fsh/codesystems/ActorTypeCS.fsh`, `CausingAgentCS.fsh` · kodernas display/definition
+  `ActorTypeEnum` och `CausingAgentEnum` saknar dokumentation i schemat. De svenska definitionerna (t.ex. `subject_of_care_agent` = ombud för invånaren, `virtualization_platform` = tjänsteplattformen) är tolkningar av kodvärdena. Verifiera med domänexpert.
+
+- [ ] **[ASSUME-IH-004]** `igs/TKB_interoperability_headers/input/fsh/logical-models/ProcessingStatus.fsh` · invarianter `processingstatus-statuscode-consistency`, `processingstatus-unsuccessful-only-when-not-in-synch`
+  Statustabellen i schemats dokumentation är tolkad som normativ och modellerad som två invarianter med `Severity: #error`. Tabellens krav på `lastSuccessfulSynch` ("Current timestamp" / "Last time for succ. call") är inte modellerade eftersom de inte kan uttryckas utan extern data.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-IH-001]** `igs/TKB_interoperability_headers/input/fsh/logical-models/`
+  `ActorType`, `ProcessingStatusType` och `LastUnsuccessfulSynchErrorType` har öppna utökningspunkter (`xs:any namespace="##other"`) som inte har någon motsvarighet i de logiska modellerna. Ta ställning till om de ska dokumenteras som extension-punkter.

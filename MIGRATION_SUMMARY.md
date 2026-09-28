@@ -7,11 +7,11 @@ Status 2026-09-27, när `scripts/registry_update.py --next-pending` inte längre
 | | Antal |
 |---|---|
 | Domäner i registret | 70 |
-| Klara (`done`), med publicerad IG | 69 |
+| Klara (`done`), med publicerad IG | 70 |
 | Blockerade (`blocked`) | 0 |
-| Väntar på beslut | 1 (`interoperability.headers`, PR #7, BLOCK-IH-001: IG enbart ur XSD eller blockerad) |
+| Väntar på beslut | 0 |
 | Tjänstekontrakt i de klara domänerna | 335 |
-| Öppna frågor i QUESTIONS.md | 37 BLOCK, 292 ASSUME, 135 TODO |
+| Öppna frågor i QUESTIONS.md | 37 BLOCK, 296 ASSUME, 136 TODO |
 
 Inga domäner har markerats `blocked`. Varje domän har en IG under `igs/TKB_*/` som byggs och publiceras av `build-and-publish.yml`.
 
@@ -74,7 +74,7 @@ Dessa IG:er bygger inte på en fastställd version och bör byggas om när domä
 
 - `druglogistics.dosedispensing`: XSD-generatorn rättades i PR #41 (domänscheman med samma namnrymd). IG:n bör genereras om så att HamtaLokaltProduktsortiment 1.1 får fältet `landsting` (TODO-SLC-001).
 - `coreprocess.residentparticipation.residentparticipation`: main har en otaggad commit efter 1.0_RC2 som troligen rättar avvikelserna mellan TKB och schema (ASSUME-CRP-001, ASSUME-CRP-006).
-- `interoperability.headers`: beslut i PR #7.
+- `interoperability.headers`: domänen saknar publicerad TKB. IG:n är byggd enbart från `interoperability_headers_1.1.xsd`, vilket godkändes 2026-09-28 (BLOCK-IH-001, PR #7).
 
 ## Återkommande felmönster
 
@@ -165,3 +165,4 @@ Mönstren är dokumenterade i skills under `.claude/skills/` och kontrolleras, d
 | `supportprocess.logistics.carelisting` | 2.1 | 0 | 7 | 1 |
 | `infrastructure.itintegration.dataexchange` | 1.0 | 0 | 6 | 0 |
 | `coreprocess.residentparticipation.residentparticipation` | 1.0_RC2 | 0 | 7 | 0 |
+| `interoperability.headers` | 1.1 | 0 | 4 | 1 |
