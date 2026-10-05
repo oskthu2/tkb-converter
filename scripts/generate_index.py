@@ -15,6 +15,9 @@ import re
 from pathlib import Path
 
 
+PORTAL_SLUG = "rivta-portal"
+
+
 def read_title(ig_dir: Path) -> str:
     cfg = ig_dir / "sushi-config.yaml"
     if not cfg.exists():
@@ -53,6 +56,10 @@ def main():
             "ran_at": status.get("ran_at", ""),
         })
 
+    # Portal-IG:n (igs/rivta-portal) är ingen tjänstedomän: den visas som en
+    # länk överst i stället för som en rad i domäntabellen.
+    portal = next((e for e in entries if e["slug"] == PORTAL_SLUG), None)
+    entries = [e for e in entries if e["slug"] != PORTAL_SLUG]
     entries.sort(key=lambda e: e["title"].lower())
 
     n_pass = sum(1 for e in entries if e["passed"])
@@ -72,6 +79,12 @@ def main():
     </tr>'''
         for e in entries
     )
+
+    portal_html = ""
+    if portal:
+        portal_html = (f'<p class="portal"><a href="{PORTAL_SLUG}/index.html"><b>RIV-TA-portalen</b></a> — '
+                       f'tjänstedomäner, tjänstekontrakt, dokument, nyheter och FAQ i samma form som rivta.se, '
+                       f'med länkar till varje domäns FHIR IG. {badge(portal)}</p>\n')
 
     page = f"""<!doctype html>
 <html lang="sv">
@@ -96,7 +109,7 @@ def main():
 </head>
 <body>
 <h1>Inera TKB → FHIR Implementation Guides</h1>
-<p class="summary">{len(entries)} tjänstedomäner byggda — {n_pass} OK, {n_fail} med fel. Genererad av GitHub Actions.</p>
+{portal_html}<p class="summary">{len(entries)} tjänstedomäner byggda — {n_pass} OK, {n_fail} med fel. Genererad av GitHub Actions.</p>
 <table>
   <thead><tr><th>Tjänstedomän</th><th>Status</th><th>Varningar</th><th>QA-rapport</th></tr></thead>
   <tbody>
