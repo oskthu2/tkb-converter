@@ -20,6 +20,15 @@ if [ ! -s "$DOMAINS_FILE" ]; then
     exit 0
 fi
 
+# Den wrappande portal-IG:n (igs/rivta-portal) genereras från portal-data/ och
+# DOMDB innan den byggs. --live hämtar aktuell domänlista från api.ntjp.se och
+# faller tillbaka på ögonblicksbilden; skulle själva genereringen fallera på
+# oväntad live-data körs den om mot ögonblicksbilden.
+if grep -qx "igs/rivta-portal" "$DOMAINS_FILE"; then
+    echo "[build_all] Genererar portal-IG:n (scripts/build_portal.py)..."
+    python3 "$SCRIPT_DIR/build_portal.py" --live || python3 "$SCRIPT_DIR/build_portal.py"
+fi
+
 while IFS= read -r dir; do
     [ -z "$dir" ] && continue
     "$SCRIPT_DIR/build_ig.sh" "$dir"

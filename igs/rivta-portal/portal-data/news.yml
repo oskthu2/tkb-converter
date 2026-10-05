@@ -1,0 +1,359 @@
+# Nyheter för sidan Aktuellt och RSS-flödet (scripts/build_portal.py).
+#
+# Källa: rivta.se/news.html (inklistrad 2026-10-05). Nya nyheter läggs
+# överst. Varje post har:
+#   date:  ÅÅÅÅ-MM-DD
+#   title: rubrik
+#   body:  HTML (stycken, listor, länkar). Länka dokument med {doc:ARK_xxxx}
+#          så används titeln och den beständiga adressen från documents.yml.
+
+news:
+  - date: 2026-06-08
+    title: RIV-TA Refererade bilagor
+    body: |
+      <p>{doc:ARK_0078|Ny anvisning RIV-TA Refererade bilagor} har publicerats. Denna anvisning ersätter tidigare RIV-TA Binära bilagor, vilken således har avpublicerats.</p>
+
+  - date: 2026-06-08
+    title: RIV-TA Basic Profile 2.1, version 3.1, samt RIV-TA Tjänsteplattform, version 2.1 har publicerats
+    body: |
+      <p>Anvisningarna har förtydligats bland annat kring att certifikat inte alltid måste användas vid anslutning till anpassningstjänster och liknande moduler inom en tjänsteplattform.</p>
+
+  - date: 2026-05-11
+    title: RIV-TA Konfigurationsstyrning tjänstedomäner
+    body: |
+      <p>{doc:ARK_0007|Anvisningen för konfigurationsstyrning av tjänstedomäner} har uppdaterats till version 2.2.10. Uppdateringen förtydligar hur tjänstedomäner ska paketeras, särskilt vid parallella majorversioner av tjänstekontrakt, och innehåller nya figurer som stöd för detta. Avsnitten om versionshantering av domängemensamma scheman och kvalitetssäkring har också justerats och förtydligats.</p>
+
+  - date: 2026-01-30
+    title: Behörighetsmodell för vård och omsorg
+    body: |
+      <p>{doc:ARK_0062|Behörighetsmodellen} har reviderats avseende administrativa medarbetaruppdrags organisationsomfång.</p>
+
+  - date: 2025-08-11
+    title: RIV Tekniska Anvisningar - Översikt
+    body: |
+      <p>{doc:ARK_0001|RIV-TA Översikt} har reviderats för att inkludera referenser till anvisningar för REST och FHIR.</p>
+
+  - date: 2025-03-14
+    title: RIV Tekniska Anvisningar - REST
+    body: |
+      <p>{doc:ARK_0071|RIV-TA REST} har publicerats i en första revision.</p>
+
+  - date: 2025-02-03
+    title: Målarkitektur för samverkan enligt T2 inom svensk välfärd
+    body: |
+      <p>En {doc:ARK_0076|målarkitektur} för samverkan enligt T2-arkitekturerna har tagits fram i en första revision.</p>
+
+  - date: 2025-01-17
+    title: Ny vägledning Skapa federation för informationsutbyte i enlighet med T2
+    body: |
+      <p>En {doc:ARK_0077|vägledning} för skapandet av en informationsfederation har tagits fram i en första revision.</p>
+
+  - date: 2024-12-10
+    title: Ny vägledning Skapa interoperabilitetsspecifikation
+    body: |
+      <p>En {doc:ARK_0075|vägledning} för utformning av en interoperabilitetsspecifikation har tagits fram i en första revision.</p>
+
+  - date: 2024-11-01
+    title: Ny vägledning Introduktion till samverkansarkitektur
+    body: |
+      <p>Vi har i {doc:ARK_0074|Introduktion till samverkansarkitektur} övergripande förklarat hur olika arkitekturella dokument relaterar till varandra och hur de kan användas när man tar fram en interoperabel lösning.</p>
+
+  - date: 2024-09-18
+    title: Revidering av RIV tekniska anvisningar
+    body: |
+      <p>Vi har i denna revidering förtydligat många anvisningar, ändrat strukturen för anvisningar, samt hur vi presenterar anvisningar på denna site. {doc:ARK_0001|Översikten} har uppdaterats till att bli teknikoberoende. Vi har infört en ny anvisning för {doc:ARK_0069|SOAP Web Services} och reviderat {doc:ARK_0002|Basic Profile 2.1}, {doc:ARK_0005|Tjänsteschema}, {doc:ARK_0006|Domänschema}, {doc:ARK_0034|Tjänsteplattform}, samt gjort en mindre uppdatering av {doc:ARK_0057|Livscykelhantering för tjänstekontrakt}.</p>
+      <p>I respektive dokument kan du läsa mer i detalj vad som uppdaterats, men här följer en listning av de mest signifikanta förändringarna:</p>
+      <ol>
+        <li><b>Identitetsheadrar:</b> Vid samverkan baserad på Basic Profile 2.1 över tjänsteplattformar ska identitetsinformation om bakomliggande uppdragsgivare bifogas anrop vid samverkan via agent- och leverantörssystem. HTTP-headern x-rivta-acting-on-behalf-of-hsaid används för detta och beskrivs i RIV-TA Basic Profile 2.1.</li>
+        <li><b>Åtkomstbeslut av tjänsteproducenter:</b> Det har länge förekommit att åtkomst nekats av tjänsteproducenter trots att alla tjänsteplattformar har tagit positiva åtkomstbeslut. Vi har förtydligat hur nekad åtkomst ska återrapporteras till konsumenten som fel och hur de ska hanteras av tjänsteplattformar.</li>
+        <li><b>Direkt kommunikation:</b> För samverkan baserad på tjänstekontrakt enligt Basic Profile 2.1 stipulerades det tidigare att sådan samverkan alltid skulle etableras via Nationell tjänsteplattform, även för annan samverkan än via nationella tjänster. Denna begränsning har tagits bort.</li>
+        <li><b>Aggregerande tjänster:</b> Det fanns en regel som begränsade tjänsteplattformar att erbjuda fler än en aggregerande tjänst per tjänstekontrakt. Denna begränsning har tagits bort.</li>
+        <li><b>Förändrad skrivning kring hur parallella huvudversioner ska kunna stödjas:</b> Kravet på att tjänsteproducenter ska exponeras via URL:er med specifikt format har tagits bort. Det har ersatts med instruktion om att man ur SOAP-headerns namespace kan särskilja mellan tjänstekontrakt.</li>
+      </ol>
+
+  - date: 2024-06-12
+    title: Ny presentation av samverkansarkitekturen publicerad
+    body: |
+      <p><a href="dokument.html#presentationer">Presentationen "Introduktion samverkansarkitekturen"</a> och en inspelad dragning av den har publicerats.</p>
+
+  - date: 2023-11-16
+    title: Version 3.1 av informationsspecifikationsmallen är publicerad
+    body: |
+      <p><a href="https://rivta.se/documents/ARK_0026/informationsspecifikation_mall_inera_3_1.docx">Mallen</a> har uppdaterats med datatyper för att följa iso-standarden.</p>
+
+  - date: 2023-08-24
+    title: Version 3.0 av informationsspecifikationsmallen är publicerad
+    body: |
+      <p><a href="https://rivta.se/documents/ARK_0026/informationsspecifikation_mall_inera_3_0.docx">Mallen</a> har uppdaterats som del av löpande förvaltning.</p>
+
+  - date: 2023-08-10
+    title: Anvisning autentisering, version 3.3 publicerad
+    body: |
+      <p>{doc:ARK_0045|Anvisningen} har reviderats som del av löpande förvaltning.</p>
+
+  - date: 2023-06-26
+    title: '"T2-arkitekturerna" fastställda i revision A'
+    body: |
+      <p>Följande leverabler har fastställts i revision A:</p>
+      <ol>
+        <li>{doc:ARK_0064|T2 – referensarkitektur för interoperabilitet inom svensk välfärd}</li>
+        <li>{doc:ARK_0065|T2 – referensarkitektur för interoperabilitet inom svensk vård och omsorg}</li>
+        <li>{doc:ARK_0066|FHIR-baserad interoperabilitetsarkitektur}</li>
+      </ol>
+
+  - date: 2023-05-02
+    title: Anvisning kryptering, version 3.3 publicerad
+    body: |
+      <p>{doc:ARK_0036|Anvisningen} har reviderats som del av löpande förvaltning.</p>
+
+  - date: 2023-03-28
+    title: Referensarkitektur identitet och åtkomst, revision B publicerad
+    body: |
+      <p>{doc:ARK_0046|Revision B} har fokus på system-till-system-kommunikation men innehåller även andra uppdateringar.</p>
+
+  - date: 2022-12-16
+    title: RIV Tekniska Anvisningar Öppen källkod avpublicerad
+    body: |
+      <p>Anvisningen har avpublicerats då den inte längre förvaltas i sin nuvarande form.</p>
+
+  - date: 2022-12-07
+    title: RIV Tekniska Anvisningar Konfigurationsstyrning tjänstedomän, version 2.2.9 publicerad
+    body: |
+      <p>I denna uppdatering har man tagit bort information gällande byggskript så dessa ej kommer publiceras i domänpaketeringarna. Även bildtexter har tillförts i dokumentet.</p>
+
+  - date: 2022-11-29
+    title: Tillämpningsanvisning PDL-loggning, version 1.1 publicerad
+    body: |
+      <p>Lagt till en del förtydligande i texten och kompletteringar för att öka läsbarheten och underlätta förståelsen.</p>
+
+  - date: 2022-11-01
+    title: RIV Tekniska Anvisningar Basic Profile 2.1, version 2.1.8 publicerad
+    body: |
+      <p>Rättat stavfel på headern x-rivta-acting-on-behalf-of-hsaid i regel #24.</p>
+
+  - date: 2022-09-15
+    title: RIV Tekniska Anvisningar Livscykelhantering för tjänstekontrakt, version 1.2 publicerad
+    body: |
+      <p>I denna uppdatering har man utökat beskrivningar och genomfört förtydliganden. Man har även lagt till en bilaga med förslag till tillämpningar kring hantering av uppgradering till ny majorversion.</p>
+
+  - date: 2022-06-14
+    title: RIV Tekniska Anvisningar Konfigurationsstyrning tjänstedomän, version 2.2.8 publicerad
+    body: |
+      <p>I denna uppdatering har man gjort ett antal förtydliganden och kompletterat med exempel. Dessutom har man uppdaterat versioneringsvägledningen att linjera med de uppdaterade processer som gäller idag.</p>
+
+  - date: 2022-05-09
+    title: PDL i praktiken avpublicerad
+    body: |
+      <p>Då ARK_0031, PDL i praktiken, inte avspeglar nuvarande juridiska tolkningar av patientdatalagen, har dokumentet avpublicerats.</p>
+
+  - date: 2022-05-02
+    title: Uppdaterad säkerhetsgranskningsmall
+    body: |
+      <p>Enligt beslut från Ineras Arkitektursektion sker framöver Verksamhets-/Informatikgranskningar av tjänstekontraktsbeskrivningar (TKB), informationsspecifikationer (IS) och arkitekturella beslut (AB) i form av en självgranskning som tjänster och projekt själva är ansvariga för. I samband med detta har verksamhet- och informatikdelarna tagits bort ur ARK_0050. Detta dokument innehåller nu endast protokoll för säkerhetsgranskning.</p>
+
+  - date: 2022-04-30
+    title: Behörighetsmodell för vård och omsorg, version 3.2.1 publicerad
+    body: |
+      <p>Förtydligande gjort av organisationsomfång för administrativa medarbetaruppdrag.</p>
+
+  - date: 2022-03-02
+    title: Sårbarhet föranleder uppdatering av testsviter
+    body: |
+      <p>I slutet av 2021 upptäcktes en sårbarhet i komponenten Log4J. Log4J ingår som en komponent i SoapUI och ReadyAPI som använts för att ta fram de testsviter som ingår i de tjänstedomäner som Inera förvaltar. Ineras testsviter håller successivt på att uppdateras och publiceras på rivta.se. De testsviter som ännu inte uppdaterats fungerar endast med äldre versioner av SoapUI och ReadyAPI. Log4J har uppdaterats och inkluderats i version 5.6.1 av SoapUI och version 3.10.2 av ReadyAPI. I samband med detta har vissa funktioner tagits bort, vilket gör att de tidigare testsviterna inte längre är kompatibla med senaste versionerna av SoapUI och ReadyAPI.</p>
+      <p>Information om vilka releasepaket som är uppdaterade med nya testsviter finns på <a href="https://inera.atlassian.net/wiki/spaces/OITOF/pages/2741764700/Log4J+-+Status+uppdaterade+testsviter">Log4J - Status uppdaterade testsviter</a>.</p>
+
+  - date: 2022-01-25
+    title: RIV Tekniska Anvisningar Tjänsteplattform, version 1.8 publicerad
+    body: |
+      <p>Ny VP-felkod VP015 definierad i {doc:ARK_0034|RIV Tekniska Anvisningar Tjänsteplattform}.</p>
+
+  - date: 2021-09-28
+    title: Behörighetsmodell för vård och omsorg publicerad på rivta.se
+    body: |
+      <p>Den behörighetsmodell för vård och omsorg som tidigare hittats endast via HSA-förvaltningens informationssidor publiceras nu på rivta.se.</p>
+
+  - date: 2021-06-28
+    title: RIV Tekniska Anvisningar Tjänsteplattform rättad
+    body: |
+      <p>I publiceringen 2021-03-12 av anvisningen angav regel #12 felaktigt att VP013 skulle returneras vid rundgång. Detta var fel. Korrekt felkod är VP014.</p>
+
+  - date: 2021-03-12
+    title: RIV Tekniska Anvisningar Basic Profile Valfria tillägg 2.1 avpublicerad
+    body: |
+      <p>Då denna anvisning innehåller tvingande anvisningar och namngivningen då varit otydlig avvecklas denna anvisning i syfte att göra det tydligare för läsare. Vi har flyttat generella delar till RIV Tekniska Anvisningar Basic Profile 2.1, version 2.1.6, och det som är specifikt för tjänsteplattformar till RIV Tekniska Anvisningar Tjänsteplattform, version 1.6.</p>
+
+  - date: 2021-03-12
+    title: RIV Tekniska Anvisningar Basic Profile 2.1, version 2.1.6 publicerad
+    body: |
+      <p>Headern x-rivta-acting-on-behalf-of-hsaid introduceras. Den kan användas för att informera producenter om att ursprunglig konsument anropar på begäran av en bakomliggande part.</p>
+
+  - date: 2021-03-12
+    title: RIV Tekniska Anvisningar Tjänsteplattform, version 1.6 publicerad
+    body: |
+      <p>Förtydligande av hur VP-fel ska representeras avseende faultcode, faultstring och detail. Ny felkod VP013 införs när anrop förmedlats via icke betrodd tjänsteplattform. Alla headrar som inleds med ”x-rivta-” ska vidarebefordras till tjänsteproducenten. Headern x-rivta-routing-history introduceras i syfte att underlätta felsökning. Ny anvisning om ett stabilitetshöjande rundgångsskydd och en ny felkod VP014 för när rundgång inträffat.</p>
+
+  - date: 2020-12-08
+    title: Förändrade riktlinjer för lokalt driven e-tjänsteförsörjning
+    body: |
+      <p>T-boken är en arkitekturell beskrivning av hur man ska lösa interoperabilitetsbehov för informationsdelning inom svensk hälso- och sjukvård. Då hantering av källkod och val av licensmodell inte i huvudsak är en arkitekturell fråga utan ett lokalt beslut i de organisationer som realiserar tjänster enligt T-boken och dess anvisningsdokument har vi valt att förändra skrivningarna i kapitel 4.5 i T-boken.</p>
+      <p>{doc:ARK_0019}</p>
+
+  - date: 2020-12-08
+    title: Förtydligande av parallella huvudversioner av ett tjänstekontrakt
+    body: |
+      <p>Anvisningen har förtydligats då det i tidigare anvisning inte var tydliggjort vems ansvar det var att identifiera och ta bort dubbletter då man som konsument anropar flera huvudversioner av ett kontrakt.</p>
+      <p>{doc:ARK_0040}</p>
+
+  - date: 2020-12-08
+    title: Förtydligande av hur man ska hantera multipla minorversioner
+    body: |
+      <p>I tidigare versioner av anvisningar för tjänsteschema, domänschema och konfigurationsstyrning har det varit otydligt exakt hur man ska hantera multipla minorversioner av tjänstekontrakt. Dessa anvisningar har nu förtydligats och kompletterats med exempel.</p>
+      <ul>
+        <li>{doc:ARK_0005}</li>
+        <li>{doc:ARK_0006}</li>
+        <li>{doc:ARK_0007}</li>
+      </ul>
+
+  - date: 2020-12-08
+    title: Förtydligande av felhantering
+    body: |
+      <p>Tidigare version av anvisning för tjänsteschema beskrev best practice kring felhantering på ett sätt som lätt feltolkades. Vi har nu förtydligat hur felhantering ska ske.</p>
+      <p>{doc:ARK_0005}</p>
+
+  - date: 2020-08-19
+    title: Referensarkitektur för elektronisk underskrift och stämpel
+    body: |
+      <p>Inera publicerar referensarkitektur för elektronisk underskrift och stämpel som syftar till att ge stöd till utformning av IT-stöd för att skapa och validera e-underskrifter och e-stämplar. Referensarkitekturen kan i tillämpliga delar appliceras både inom en organisation, och vid samverkan mellan organisationer, till exempel vid delning av tjänster för elektronisk underskrift och hantering av interna och externa undertecknare. Referensarkitekturen är tänkt att användas som referensunderlag vid anskaffning och vidareutveckling av lösningar för elektronisk underskrift och stämpel samt tillhörande stödtjänster, vilket kan omfatta såväl upphandling av leverantörsprodukter, anpassning av befintlig IT-infrastruktur och kravställning på e-tjänster/IT-system för följsamhet till arkitekturen. Referensarkitekturen är tänkt att tillämpas av Inera, regioner och kommuner, men den kan även tillämpas av andra aktörer så som myndigheter och privata utförare.</p>
+      <p>Läs mer: {doc:ARK_0060}</p>
+
+  - date: 2020-08-19
+    title: Referensarkitektur för grunddata och katalog
+    body: |
+      <p>Inera publicerar referensarkitektur för grunddata och kataloger. Grunddata, eller masterdata som det också kallas, är information om organisationer, personer, platser och tjänsteutbud, exempelvis roller, adress och kontaktuppgifter. Referensarkitekturen ska ge stöd till bland annat verksamhetsexperter och it-arkitekter när lösningar och tjänster som hanterar och använder grunddata och kataloger ska utvecklas. Referensarkitekturen bygger på både internationella och svenska ramverk, och tillämpning av standarder och etablerade metoder. Den ska stödja de som arbetar med hantering av grunddata om organisation, person, tjänst och kontaktuppgifter av olika slag. Den ska även vara ett stöd vid kravställning, utveckling och upphandling av it-system som används för att utbyta sådan information, samt vid förvaltning och framtagande av kataloglösningar. Referensarkitekturen är inte specifik för en viss domän, som exempelvis hälso- och sjukvård, utan ska kunna användas av Ineras alla intressenter som utgångspunkt för utveckling av verksamhets- och domänspecifika lösningar.</p>
+      <p>Läs mer: {doc:ARK_0059}</p>
+
+  - date: 2020-05-14
+    title: Interoperabilitet - med andra ord
+    body: |
+      <p>Det är inte lätt att komma in som ny och börja jobba med nationella tjänster och integrationer. Det är många nya termer att sätta sig in i ("TAK-ning", "aggregerande tjänster"...), och annat betyder inte det man tror (ex att "en tjänstekonsument kan producera information"). För att underlätta introduktionen till området har vi tagit fram en liten text där de grundläggande begreppen sätts i ett sammanhang. Ni hittar den här: <a href="https://rivta.se/documents/ARK_0058/">ARK_0058</a>.</p>
+
+  - date: 2018-08-27
+    title: Uppdatering av RIV Tekniska anvisningar
+    body: |
+      <p>{doc:ARK_0001|RIV-Tekniska anvisningar - Översikt 2.0} och {doc:ARK_0034|RIV-Tekniska anvisningar - Tjänsteplattform} har uppdaterats avseende vägval och anropsbehörighet. Beskrivningar av sk HSA-adressering (trädklättring) samt användning av standardval har lagts till.</p>
+
+  - date: 2018-06-28
+    title: Begränsad hantering av ärenden under sommaren
+    body: |
+      <p>Under perioden 15 juni till 13 augusti har Arkitektur och regelverk begränsade möjligheter att hantera inkomna ärenden. Det gäller framförallt ärenden som avser begäran om kvalitetssäkring, beslut om domännamn, begäran om paketering och publicering av release av tjänstedomän samt ansökan om behörighet i Bitbucket. Detta innebär att vi kommer att ta emot inkomna ärenden, men med utökade svarstider på grund av att bemanningen av personal är lägre än normalt.</p>
+
+  - date: 2018-02-22
+    title: Nya tjänstedomäntyper
+    body: |
+      <p>Nya tjänstedomäntyper visas nu under respektive tjänstedomän på rivta.se för att tydliggöra ansvar och förvaltning av tjänstedomäner. Nedan beskrivs tjänstedomäntyper:</p>
+      <p><b>Nationell tjänstedomän</b></p>
+      <p>Tjänstedomänen utvecklas och/eller förvaltas av Inera. Inera A&amp;R ansvarar för kvalité inom teknik, informatik, arkitektur och testsviter/tjänsteproducenter, samt att domänen passar in i och har en tydlig roll i den sammantagna portföljen av nationella tjänstekontrakt. A&amp;Rs kvalitetssäkringsprocess följs under utvecklings- och förvaltningsfasen.</p>
+      <p><b>Applikationsspecifik tjänstedomän</b></p>
+      <p>Tjänstedomänen definierar ett applikations/lösningsspecifikt API till en applikation/tjänst som ägs av Inera. Applikationsförvaltningen vill återanvända Ineras anslutningsorganisation och infrastruktur (Tjänsteplattformen), men ha kvar full kontroll över alla beslut som rör kontraktsdesign, versioner och releaser. Förvaltningen har ett eget, lokalt ansvar för tjänstekontraktens arkitektur, informatik och teknik inom ramen för det ansvar som projektet/förvaltningen har för applikationen/tjänsten i sig. Tjänstekontrakten får bara användas när den specifika applikationen/tjänsten är en av parterna i informationsutbytet.</p>
+      <p><b>Extern tjänstedomän</b></p>
+      <p>Annan part än Inera A&amp;R utvecklar/förvaltar tjänstedomänen. Annan part ansvarar för kvalité inom teknik, informatik och arkitektur. Tjänstekontrakten i tjänstedomänen följer giltig RIV TA-profil (tjänstekontraktens tekniska utformning och paketering) och kan därmed driftsättas och anslutningshanteras i NTJP om ICC:s infrastrukturkrav är uppfyllda. Tjänstekontrakten tillämpas inte inom Ineras uppdrag. Inera A&amp;R ansvarar inte för namnsättning utöver vad som anges, men kan konsulteras om extern part önskar.</p>
+
+  - date: 2017-11-13
+    title: Avveckling av stöd för tjänstekontraktet PingForConfiguration
+    body: |
+      <p><b>Tjänstekontraktet PingForConfiguration avvecklas</b></p>
+      <p>I dag finns det krav enligt regelverket i RIV-TA att tjänsteproducenter, som tillhandahåller tjänster baserade på nationella tjänstekontrakt, också ska tillhandahålla en tjänst för att kontrollera status för den informationsförsörjning de hanterar. Av den anledningen tog vi en gång i tiden fram tjänstekontraktet PingForConfiguration, som skulle användas för detta.</p>
+      <p>Det har dock visat sig att nästan ingen använder detta tjänstekontrakt. Antagligen beror detta på att det varit otydligt hur funktionen i tjänstekontraktet skulle användas, och vem som skulle använda funktionen. Vi har också fått en del kritik kring själva strukturen.</p>
+      <p>Med anledning av detta föreslår vi på Inera att kravet om att använda tjänstekontraktet PingForConfiguration, tas bort från RIV-TA. Det innebär också att vi slutar supportera tjänstekontraktet, samt att vi avinstallerar tjänster från Nationella tjänsteplattformen som är baserade på detta kontrakt.</p>
+      <p><b>TKB:n uppdateras</b></p>
+      <p>Vi kommer att uppdatera tjänstekontraktbeskrivningen (TKB:n), för att tydliggöra att kontraktet inte längre behöver användas. I TKB:n kommer vi också att skriva att vi inte kommer att ha någon nationell support kring kontraktets användning, samt att det heller inte sker några tillägg eller rättningar av kontraktet.</p>
+      <p><b>Bör inte innebära några negativa konsekvenser</b></p>
+      <p>Förslaget om att avveckla tjänstekontraktet för nationellt bruk bör inte ha några negativa konsekvenser för dem som använder nationella tjänstekontrakt, eller innebära några extra kostnader. Visst arbete kan dock behöva göras av Inera med att uppdatera domänens dokumentation samt dokumentationen i regelverket för RIV-TA.</p>
+      <p><b>Kan fortfarande användas för lokalt bruk</b></p>
+      <p>Om någon organisation vill fortsätta att använda tjänstekontraktet för lokalt bruk, så finns det inget som hindrar detta. Men det kommer inte finnas någon nationell support eller uppdatering av kontraktet.</p>
+      <p><b>Hör av dig om du har synpunkter</b></p>
+      <p>Om du inte tycker att vi ska avveckla tjänstekontraktet utan har synpunkter på detta, vill vi att du hör av dig till oss senast den 8 januari 2018. Om vi inte får in någon negativ respons på vårt förslag att avveckla kontraktet, så kommer detta att ske första halvan av 2018. Du hör av dig till oss genom att skicka ett e-postmeddelande till Kundservice, märk ditt meddelande med ”Avveckling PingForConfiguration”.</p>
+
+  - date: 2016-11-09
+    title: Kontakta Nationell kundservice för att skicka ärenden
+    body: |
+      <p>Vi har nu ändrat så att ärenden till Inera Arkitektur och regelverk går via Nationell kundservice. <a href="https://rivta.se/begaran/">Läs mer om de olika ärendena</a>.</p>
+
+  - date: 2016-06-17
+    title: Ny hantering av webbtext
+    body: |
+      <p>Tjänstekontraktsbeskrivningar har hittills haft ett avsnitt kallat "webbtext", där den beskrivningstext som visas under respektive tjänstedomän på inera.se/rivta.se visas. Vi har nu ändrat denna hantering och sköter istället hanteringen vid sidan om TKB:er och domängranskningar, genom direkt kommunikation mellan Inera och Tjänstedomänansvarig. Detta gör att webbtextavsnittet nu bör tas bort ur TKB:er, vilket Inera kommer att upplysa om vid kommande domängranskningar.</p>
+      <p>Inera kommer att initiera en översyn av respektive domäners webbtext i samband med nya major-versioner. I övrigt hänvisas Tjänstedomänansvariga att ta kontakt med arkitektur@inera.se för uppdateringar av webbtexten.</p>
+
+  - date: 2016-06-06
+    title: Versionshantering på Bitbucket
+    body: |
+      <p>Tillämpningsanvisningar, RIV Tekniska anvisningar samt mallar och anvisningar versionshanteras på Bitbucket. Ärenden och wiki-sidor är uppdelade efter vilken anvisning de tillhör.</p>
+      <ul>
+        <li>Tillämpningsanvisningar finns under <a href="https://bitbucket.org/rivta-applications/">https://bitbucket.org/rivta-applications/</a>.</li>
+        <li>RIV Tekniska anvisningar samt mallar och anvisningar finns på <a href="https://bitbucket.org/rivta-documents/">https://bitbucket.org/rivta-documents/</a>.</li>
+      </ul>
+
+  - date: 2015-08-24
+    title: Flytten från Google Code är klar
+    body: |
+      <p>Innehållet från Google Code är nu flyttat. Källkod, ärenden och wiki-sidor är numera uppdelade efter vilken tjänstedomän, anvisning eller mjukvara de tillhör.</p>
+      <ul>
+        <li>Tjänstedomäner finns under <a href="https://bitbucket.org/rivta-domains">https://bitbucket.org/rivta-domains</a>.</li>
+        <li>RIV TA-profilerna, med tillhörande referensapplikationer, finns på <a href="https://bitbucket.org/rivta-profiles">https://bitbucket.org/rivta-profiles</a>.</li>
+        <li>Övriga script och verktyg finns på <a href="https://bitbucket.org/rivta-tools">https://bitbucket.org/rivta-tools</a>.</li>
+      </ul>
+
+  - date: 2015-06-05
+    title: RIVTA flyttar till Bitbucket
+    body: |
+      <p>På grund av Google Codes avveckling har vi beslutat att migrera RIV TA Tjänstedomänsutveckling till Bitbucket. Ny adress blir <a href="https://bitbucket.org/rivta-domains">https://bitbucket.org/rivta-domains</a> och migreringen kommer till största delen att ske innan midsommar. För mer information om flytten, se <a href="https://rivta.se/bitbucket">här</a>.</p>
+
+  - date: 2015-05-18
+    title: Arbete med att lämna Google Code
+    body: |
+      <p>Som många vet så avvecklas Google Code under hösten. Vi är just nu i slutfasen av att utvärdera lämpliga kandidater till ersättare. Vi hoppas kunna informera om utgången under maj månad. Därefter är vårt mål att dokument och instruktioner är uppdaterade samt att en migreringsplan finns framtagen innan midsommar.</p>
+
+  - date: 2015-01-13
+    title: Två nya RIVTA-anvisningar upplagda
+    body: |
+      <p>ARK_0034 anvisning Kryptografi och ARK_0036 Tjänsteplattform är upplagda på RIVTA-siten.</p>
+
+  - date: 2014-12-29
+    title: Omlagt hur länkar sker till downloads
+    body: |
+      <p>Efter policyändring på Google Code så finns zip-filer numera att nå via RIVTA.SE.</p>
+
+  - date: 2014-08-04
+    title: Uppdatering av script för hantering av domäner
+    body: |
+      <p>Scriptet för att verifiera innehåll i en tjänstedomän har uppdaterats till version 1.2.</p>
+      <ul>
+        <li>Motsvarar nu den aktuella version 2.0.5 av RIVTA Konfigurationsstyrning.</li>
+        <li>Ändrad regel för förenkling av namnsättning av TKB och AB.</li>
+        <li>Bättre kontroll av versionsnumrering.</li>
+        <li>Visar om ändringar skett i en tag efter det att den skapas.</li>
+        <li>Tydligare meddelanden.</li>
+      </ul>
+      <p>Se <a href="https://code.google.com/p/rivta/wiki/ToolsDomainManagement">här</a> för mer information och länk till programmet (Google Code är avvecklat sedan 2015).</p>
+
+  - date: 2014-06-30
+    title: Uppdatering 2.0.5 av Konfigurationsstyrningen publicerad
+    body: |
+      <p>En uppdatering av konfigurationsstyrningen har publicerats. De viktigaste förändringarna framgår av revisionshistoriken, och är:</p>
+      <ul>
+        <li>Ersatte alla referenser till ”CeHis” med ”Inera”.</li>
+        <li>Tog bort alla referenser till självdeklaration av följsamhet.</li>
+        <li>Fixade enstaka typos.</li>
+        <li>Ändrade namnsättningsregeln för TKB och AB. Dessa skall inte längre ha versionsbeteckning i filnamnet.</li>
+        <li>Förtydliga mappstrukturen och kravet på en undermapp per interaktion (WSDL-fil).</li>
+        <li>Förtydliga versionsreglerna. Tredje versionstalet uppstår endast efter den första dokumentationsuppdateringen och kan därför aldrig vara 0.</li>
+        <li>Förtydliga att Inera Arkitektur och regelverk skapar zip-filerna vid release.</li>
+        <li>Förtydliga att en tag alltid skapas mha kommandot ”svn copy”. Adderade Bilaga 5 som beskriver hur en tjänstedomän byter namn (namnrymd).</li>
+      </ul>
+      <p>Ni hittar, som alltid, dokumentet här: {doc:ARK_0007|ARK_0007}.</p>
+
+  - date: 2014-04-08
+    title: Ny revision av RIVTA Översikt publicerad
+    body: |
+      <p>En ny revision med fokus på källsystemsadressering och ändrade krav på hantering av anropsbehörighet har publicerats. Dokumentet återfinns via {doc:ARK_0001|ARK_0001}.</p>
