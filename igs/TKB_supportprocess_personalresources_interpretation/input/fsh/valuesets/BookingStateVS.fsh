@@ -6,5 +6,6 @@ ValueSet: BookingStateVS
 Id: bookingstate-vs
 Title: "BookingStateEnum"
 Description: "Alla koder i BookingStateCS."
+* ^version = "1.0.0-snapshot"
 * ^status = #active
 * include codes from system BookingStateCS

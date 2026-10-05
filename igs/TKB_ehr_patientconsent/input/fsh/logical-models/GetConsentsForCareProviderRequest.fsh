@@ -9,6 +9,7 @@ Title: "GetConsentsForCareProvider — Request"
 Description: "Logisk modell för requestparametrar i GetConsentsForCareProvider."
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * careProviderId 1..1 Identifier "HSA-id på den vårdgivare vars samtycken skall hämtas"
   """
   Identifierare för vårdgivare. system = urn:oid:1.2.752.129.2.1.4.1. Max 32 tecken.

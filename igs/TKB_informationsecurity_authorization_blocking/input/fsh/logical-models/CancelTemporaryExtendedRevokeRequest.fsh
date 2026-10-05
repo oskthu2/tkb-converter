@@ -10,6 +10,7 @@ Description: """
   (urn:riv:informationsecurity:authorization:blocking:CancelTemporaryExtendedRevokeResponder:4, CancelTemporaryExtendedRevokeType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "4.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Som logisk adress anges HSA-id för vårdgivaren som spärren gäller för."
 * temporaryRevokeId 1..1 string "temporaryRevokeId" "temporaryRevokeId"
 * cancellationInfo 1..1 BackboneElement "cancellationInfo" "Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext."

@@ -10,4 +10,5 @@ Description: """
   (urn:riv:strategicresourcemanagement:persons:person:SearchPersonsForProfileByOrderResponder:5, SearchPersonsForProfileByOrderResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "5.0"
 * orderId 0..1 string "orderId" "orderId"

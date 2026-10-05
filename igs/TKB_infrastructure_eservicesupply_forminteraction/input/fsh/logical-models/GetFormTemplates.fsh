@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * formTemplate 0..* BackboneElement "Formulärmall (FormTemplateType)" "Lista med formulärmallar som matchar sökkriterierna."
   * templateId 1..1 string "Mall-id" "Typ av formulär. Kodverk för standardiserade id för formulärtyper."
   * templateVersion 1..1 integer "Mallens version" "Versionsnummer för formulärmallen."
@@ -34,6 +35,7 @@ Title: "GetFormTemplates — Request"
 Description: "Logisk modell för requestparametrar i GetFormTemplates."
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * healthcare_Facility_CareUnit 1..1 Identifier "Vårdenhetens HSA-id" "Hsa-Id (Vårdenhet/enhets-id). T.ex. se2321000016-1hz3."
 * publishedStatus 0..* CodeableConcept "Publiceringsstatus" "Indikerar vilken status en mall skall ha."
 * publishedStatus from PublishStatusVS (required)

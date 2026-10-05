@@ -6,6 +6,7 @@ CodeSystem: RelationStatusCS
 Id: relationstatus-cs
 Title: "Relationsstatus"
 Description: "Kodverk för relationsstatus enligt RIV-TA population:residentmaster (RelationStatusTYPE). Aviseras endast vid regelbunden ändringspost."
+* ^version = "1.2.0"
 * ^url = "https://fhir.inera.se/CodeSystem/relationstatus-cs"
 * ^status = #active
 * ^content = #complete

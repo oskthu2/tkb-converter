@@ -10,6 +10,7 @@ Description: """
   (urn:riv:orgmaster:hsa:GetHsaUnitResponder:1, GetHsaUnitResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * careGiver 0..1 string "careGiver" "careGiver"
 * parentHsaIdentity 0..1 string "parentHsaIdentity" "parentHsaIdentity"
 * unitPrescriptionCodes 1..1 string "unitPrescriptionCodes" "unitPrescriptionCodes"

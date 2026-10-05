@@ -8,6 +8,7 @@ Title: "GetLogsForUser — Request"
 Description: "Logisk modell för requestparametrar i GetLogsForUser."
 Characteristics: #can-be-target
 
+* ^version = "1.1"
 * careProviderId 1..1 Identifier "Vårdgivare som är ägare till loggposter"
 * userId 1..1 Identifier "Medarbetare vars åtkomster ska hämtas (HSA-id)"
 * fromDate 1..1 dateTime "Obligatoriskt startdatum för rapportuttaget"

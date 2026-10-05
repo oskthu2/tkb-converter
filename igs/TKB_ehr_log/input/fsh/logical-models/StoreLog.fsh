@@ -15,6 +15,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * resultCode 1..1 code "Resultatkod för lagringen"
     """
     Statuskod som anger om loggposter sparats korrekt eller om fel uppstått.

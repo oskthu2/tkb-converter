@@ -6,5 +6,6 @@ ValueSet: LevandeVS
 Id: lifeline-levande-vs
 Title: "Levande vid födelsen"
 Description: "Alla koder i LevandeCS."
+* ^version = "1.0.0-snapshot"
 * ^status = #active
 * include codes from system LevandeCS

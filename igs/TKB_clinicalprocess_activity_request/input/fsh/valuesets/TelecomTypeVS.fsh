@@ -6,5 +6,6 @@ ValueSet: TelecomTypeVS
 Id: telecomtype-vs
 Title: "codeForTelecomType"
 Description: "Alla koder i TelecomTypeCS."
+* ^version = "2.2.0"
 * ^status = #active
 * include codes from system TelecomTypeCS

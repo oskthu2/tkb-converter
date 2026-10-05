@@ -5,6 +5,7 @@ CodeSystem: ErrorIdEnumCS
 Id: lifeline-erroridenum-cs
 Title: "Feltyp"
 Description: "Koder för ErrorIdEnumType i domänschemat."
+* ^version = "1.0.0-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/lifeline-erroridenum-cs"
 * ^status = #active
 * ^content = #complete

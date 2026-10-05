@@ -14,6 +14,7 @@ Description: """
 Characteristics: #can-be-target
 
 // ---- careContact (0..*) - CareContactType ----
+* ^version = "3.0"
 * careContact 0..* BackboneElement "Vårdkontakter som matchar begäran"
     """
     Lista med vårdkontakter för patienten. Varje post innehåller header (basinformation)

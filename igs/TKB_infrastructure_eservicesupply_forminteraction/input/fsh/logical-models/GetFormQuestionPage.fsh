@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * form 0..1 BackboneElement "Formulär (FormType)" "Formuläret med den begärda sidan."
   * formID 1..1 Identifier "Formulär-id" "Formulärets unika ID (GUID)."
   * formStatus 1..1 CodeableConcept "Formulärstatus" "Formulärets status."
@@ -26,6 +27,7 @@ Title: "GetFormQuestionPage — Request"
 Description: "Logisk modell för requestparametrar i GetFormQuestionPage."
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * formID 1..1 Identifier "Formulär-id" "Ett unikt id (GUID) för ett formulär."
 * pageNumber 1..1 integer "Sidnummer" "Nummer på sidan som navigering utgår ifrån. Ange 0 för att navigera till första/sista sidan."
 * direction 1..1 CodeableConcept "Riktning" "Kodverk: FORWARD = framåt, BACK = bakåt."

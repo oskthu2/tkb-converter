@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * formId 1..1 string "Formulärets unika ID (GUID)"
 * subjectOfCare 0..1 string "Invånarens personnummer (yyyymmddnnnn)"
 * pageAnswer 0..1 BackboneElement "Sida med sista besvarade frågor (om ej redan sparade)"
@@ -35,6 +36,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * resultCode 1..1 string "Svarskod (OK = formuläret har avslutats)"
 * comment 0..1 string "Kommentar"
 * formId 0..1 string "Formulärets unika ID (bekräftelse)"

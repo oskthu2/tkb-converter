@@ -15,6 +15,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * queueStatus 1..1 code "Köstatus: inQueue eller notInQueue"
     """
     Köstatus för personen i fråga.

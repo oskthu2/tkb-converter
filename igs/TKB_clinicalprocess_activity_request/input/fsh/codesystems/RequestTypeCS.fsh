@@ -6,6 +6,7 @@ CodeSystem: RequestTypeCS
 Id: requesttype-cs
 Title: "codeForRequestType"
 Description: "Remisstyp (codes_2.2.xsd codeForRequestType_values)."
+* ^version = "2.2.0"
 * ^url = "https://fhir.inera.se/CodeSystem/requesttype-cs"
 * ^status = #active
 * ^content = #complete

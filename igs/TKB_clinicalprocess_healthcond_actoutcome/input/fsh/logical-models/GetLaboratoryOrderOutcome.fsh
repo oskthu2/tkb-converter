@@ -14,6 +14,7 @@ Description: """
 Characteristics: #can-be-target
 
 // ─── Toppnivå: en lista av laboratoryOrderOutcome ───
+* ^version = "4.2"
 * laboratoryOrderOutcome 0..* BackboneElement "Laboratoriesvar (ett per beställning)"
   """
   En labbeställning med tillhörande svar. Kardinalitet: Valfri, lista.

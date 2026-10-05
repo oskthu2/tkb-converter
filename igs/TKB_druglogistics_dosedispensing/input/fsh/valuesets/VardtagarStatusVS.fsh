@@ -6,5 +6,6 @@ ValueSet: VardtagarStatusVS
 Id: dosedispensing-vardtagarstatus-vs
 Title: "Vårdtagarstatus"
 Description: "Alla koder i VardtagarStatusCS."
+* ^version = "1.1.0"
 * ^status = #active
 * include codes from system VardtagarStatusCS

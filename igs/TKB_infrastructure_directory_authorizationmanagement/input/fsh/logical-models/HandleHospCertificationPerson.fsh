@@ -13,5 +13,6 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * resultCode 1..1 string "Resultat av add eller remove-anrop (OK eller ERROR)"
 * resultText 0..1 string "Beskrivning av fel vid resultCode=ERROR"

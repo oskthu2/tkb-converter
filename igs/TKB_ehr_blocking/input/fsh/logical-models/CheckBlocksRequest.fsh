@@ -8,6 +8,7 @@ Title: "CheckBlocks — Request"
 Description: "Logisk modell för requestparametrar i CheckBlocks v3.0."
 Characteristics: #can-be-target
 
+* ^version = "3.0"
 * accessingActor 1..1 BackboneElement "Aktören (personal/vårdenhet) som begär åtkomst"
   * employeeId 1..1 string "HSA-id för den anställde som begär åtkomst"
   * careProviderId 1..1 string "HSA-id för aktörens vårdgivare"

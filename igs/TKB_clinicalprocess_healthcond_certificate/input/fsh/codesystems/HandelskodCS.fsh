@@ -5,6 +5,7 @@ CodeSystem: HandelskodCS
 Id: handelskod-cs
 Title: "Händelsekod"
 Description: "Kodsystem för händelsetyper i CertificateStatusUpdateForCare enligt clinicalprocess:healthcond:certificate."
+* ^version = "4.1.0-rc1"
 * ^url = "https://fhir.inera.se/CodeSystem/handelskod-cs"
 * ^status = #active
 * ^content = #complete

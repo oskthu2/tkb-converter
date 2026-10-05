@@ -6,5 +6,6 @@ ValueSet: ResultCodeVS
 Id: carelisting-resultcode-vs
 Title: "ResultCode"
 Description: "Alla koder i ResultCodeCS."
+* ^version = "2.1.0"
 * ^status = #active
 * include codes from system ResultCodeCS

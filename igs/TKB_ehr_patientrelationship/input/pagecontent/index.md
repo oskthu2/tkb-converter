@@ -1,5 +1,9 @@
 # ehr: patientrelationship
 
+<!-- tkb-version -->
+**TKB-version:** 1.0.1 · **IG-version:** 1.0.1-snapshot · **Källa:** Bitbucket-commit `75d0292db437` (ingen tagg)
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **ehr: patientrelationship** version 1.0.1.

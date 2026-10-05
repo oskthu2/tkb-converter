@@ -6,5 +6,6 @@ ValueSet: MeddelandeStatusVS
 Id: dosedispensing-meddelandestatus-vs
 Title: "Meddelandestatus"
 Description: "Alla koder i MeddelandeStatusCS."
+* ^version = "1.1.0"
 * ^status = #active
 * include codes from system MeddelandeStatusCS

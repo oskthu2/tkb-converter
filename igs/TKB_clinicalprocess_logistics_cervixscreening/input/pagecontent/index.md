@@ -1,5 +1,9 @@
 # clinicalprocess: logistics: cervixscreening
 
+<!-- tkb-version -->
+**TKB-version:** 1.0_RC4 · **IG-version:** 1.0.0-rc4 · **Källa:** Bitbucket-tagg `1.0_RC4`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **clinicalprocess: logistics: cervixscreening** (Screeningstöd livmoderhals) version 1.0_RC4.

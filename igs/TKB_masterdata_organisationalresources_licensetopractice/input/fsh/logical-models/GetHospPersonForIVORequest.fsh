@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * personnummer 0..1 string "Personnummer"
   """
   Söker en person efter personnummer. Format: ÅÅÅÅMMDDXXXX (12 siffror).

@@ -5,6 +5,7 @@ CodeSystem: DateTypeFormatCS
 Id: masterdata-citizen-citizen-datetypeformat-cs
 Title: "Datumformat (noggrannhet)"
 Description: "Koder för DateTypeFormatType i domänschemat. Visningstexter ur TKB kapitel 7 och domänschemats annoteringar."
+* ^version = "2.0.0"
 * ^url = "https://fhir.inera.se/CodeSystem/masterdata-citizen-citizen-datetypeformat-cs"
 * ^status = #active
 * ^content = #complete

@@ -14,6 +14,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.1"
 * careTypes 0..* BackboneElement "Lista med vårdtyper"
     """
     Lista med tillgängliga vårdtyper (CareTypeType).

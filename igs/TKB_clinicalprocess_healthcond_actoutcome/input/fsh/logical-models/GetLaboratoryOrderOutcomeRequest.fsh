@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "4.2"
 * careUnitHSAId 0..* Identifier "HSA-id för vårdenhet (filter)"
   """
   Filtrering på vårdenhet vilket motsvarar accountableCareUnit i svaret.

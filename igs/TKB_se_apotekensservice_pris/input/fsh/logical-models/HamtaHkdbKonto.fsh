@@ -10,6 +10,7 @@ Description: """
   (urn:riv:se.apotekensservice:pris:HamtaHkdbKontoResponder:1, HamtaHkdbKontoResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * ansluten 1..1 boolean "ansluten" "Personens högkostnadsstatus. False - Ej ansluten True - Ansluten"
 * foregPeriod 0..1 BackboneElement "foregPeriod" "Föregående högkostnadsperiods startdatum. Saknar värde om personen ej är ansluten till högkostnadstrappan (status 0) eller om ingen föregående period existerar."
   * balans 1..1 BackboneElement "balans" "Ackumulerad balans"

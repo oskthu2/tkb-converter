@@ -5,6 +5,7 @@ CodeSystem: LevandeCS
 Id: lifeline-levande-cs
 Title: "Levande vid födelsen"
 Description: "Koder för Levande i domänschemat. Visningstexter ur TKB avsnitt 3.4."
+* ^version = "1.0.0-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/lifeline-levande-cs"
 * ^status = #active
 * ^content = #complete

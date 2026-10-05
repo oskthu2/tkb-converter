@@ -10,6 +10,7 @@ Description: """
   (urn:riv:supportprocess:logistics:scheduling:GetPractitionersResponder:2, GetPractitionersType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Verksamhetens HSAID på enhetsnivå"
 * actor 0..1 BackboneElement "actor" "actor"
   * actorId 1..1 BackboneElement "actorId" "actorId"

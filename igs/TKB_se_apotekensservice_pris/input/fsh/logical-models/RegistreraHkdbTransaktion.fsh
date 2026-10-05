@@ -10,6 +10,7 @@ Description: """
   (urn:riv:se.apotekensservice:pris:RegistreraHkdbTransaktionResponder:1, RegistreraHkdbTransaktionResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.1"
 * fpBalans 0..1 BackboneElement "fpBalans" "Nya ackumulerade brutto/netto belopp i kronor och ören för föregånde period."
   * brutto 1..1 decimal "brutto" "Bruttobelopp i kronor och ören"
   * netto 1..1 decimal "netto" "Nettobelopp i kronor och ören"

@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.1"
 * listOfTimeTypes 0..* BackboneElement "Lista med tillgängliga tidstyper"
     """
     Lista med tillgängliga tidstyper (TimeTypeType).

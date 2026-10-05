@@ -14,6 +14,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "3.2"
 * referralOutcome 0..* BackboneElement "Remissvar (ett per remiss)"
 
 // ── Header ───────────────────────────────────────────

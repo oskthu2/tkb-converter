@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.2"
 * credentialInformation 0..* BackboneElement "Behörighetsegenskaper för sökt person"
   * givenName 0..1 string "Tilltalsnamn"
     """

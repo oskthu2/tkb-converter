@@ -1,5 +1,9 @@
 # coreprocess: residentparticipation: residentparticipation
 
+<!-- tkb-version -->
+**TKB-version:** 1.0_RC2 · **IG-version:** 1.0.0-rc2 · **Källa:** Bitbucket-tagg `1.0_RC2`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **coreprocess: residentparticipation: residentparticipation** (Fasta kontakter) version 1.0 RC2.

@@ -16,6 +16,7 @@ Description: """
   Representerar GetCareContactsType i GetCareContactsResponder_3.0.xsd.
 """
 Characteristics: #can-be-target
+* ^version = "3.0"
 * obeys getcarecontacts-sourcesystemhsaid-required
 
 * careUnitHSAId 0..* string "Filtrering på PDL-enhet (vårdenhetens HSA-id)"

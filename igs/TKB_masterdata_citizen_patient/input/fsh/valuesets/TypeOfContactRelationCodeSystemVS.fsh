@@ -6,5 +6,6 @@ ValueSet: TypeOfContactRelationCodeSystemVS
 Id: masterdata-citizen-patient-typeofcontactrelationcodesystem-vs
 Title: "Kodverk för typ av kontaktrelation"
 Description: "Alla koder i TypeOfContactRelationCodeSystemCS."
+* ^version = "1.0.0-rc1.snapshot"
 * ^status = #active
 * include codes from system TypeOfContactRelationCodeSystemCS

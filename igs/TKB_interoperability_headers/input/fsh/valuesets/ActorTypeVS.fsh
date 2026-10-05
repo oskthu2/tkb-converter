@@ -6,5 +6,6 @@ ValueSet: ActorTypeVS
 Id: actortype-vs
 Title: "ActorType — ValueSet"
 Description: "Tillåtna värden för Actor.actorType enligt ActorTypeCS."
+* ^version = "1.1.0"
 * ^status = #active
 * include codes from system ActorTypeCS

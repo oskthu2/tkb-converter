@@ -6,6 +6,7 @@ CodeSystem: KonCS
 Id: kon-cs
 Title: "Kön"
 Description: "Kodverk för personens kön enligt RIV-TA population:residentmaster (KonTYPE). OID: ej angivet i källdokument."
+* ^version = "1.2.0"
 * ^url = "https://fhir.inera.se/CodeSystem/kon-cs"
 * ^status = #active
 * ^content = #complete

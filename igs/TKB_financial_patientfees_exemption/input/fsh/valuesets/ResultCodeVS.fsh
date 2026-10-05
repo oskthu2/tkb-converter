@@ -6,5 +6,6 @@ ValueSet: ResultCodeVS
 Id: patientfees-exemption-resultcode-vs
 Title: "ResultCode"
 Description: "Alla koder i ResultCodeCS."
+* ^version = "1.0.0"
 * ^status = #active
 * include codes from system ResultCodeCS

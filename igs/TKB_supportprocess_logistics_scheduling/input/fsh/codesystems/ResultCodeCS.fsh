@@ -5,6 +5,7 @@ CodeSystem: ResultCodeCS
 Id: scheduling-resultcode-cs
 Title: "Resultatkod (ResultCode)"
 Description: "Koder för ResultCodeEnum i domänschemat. Visningstexter ur TKB avsnitt 3.7 ResultCode."
+* ^version = "2.0.0-rc1"
 * ^url = "https://fhir.inera.se/CodeSystem/scheduling-resultcode-cs"
 * ^status = #active
 * ^content = #complete

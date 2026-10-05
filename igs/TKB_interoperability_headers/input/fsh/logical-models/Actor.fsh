@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.1.0"
 * actorId 1..1 string "Aktörens identitet"
     """
     XSD: actorId (ActorIdType, restriktion av xs:string). Obligatorisk.

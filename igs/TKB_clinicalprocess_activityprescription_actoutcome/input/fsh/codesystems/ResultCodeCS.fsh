@@ -7,6 +7,7 @@ CodeSystem: ResultCodeCS
 Id: resultcode-cs
 Title: "ResultCode"
 Description: "Kodverk för resultatkod i svar från tjänstekontrakten i domänen clinicalprocess:activityprescription:actoutcome."
+* ^version = "2.2.1"
 * ^url = "https://fhir.inera.se/CodeSystem/resultcode-actoutcome"
 * ^status = #active
 * ^content = #complete

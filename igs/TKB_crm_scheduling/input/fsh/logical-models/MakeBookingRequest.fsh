@@ -8,6 +8,7 @@ Title: "MakeBooking — Request"
 Description: "Logisk modell för requestparametrar i MakeBooking."
 Characteristics: #can-be-target
 
+* ^version = "1.1"
 * healthcare_facility_med 1..1 Identifier "HSA-id för avsändar-vårdenhet"
     """
     HSA-id för mottagning (avsändar-vårdenhet i begäran).

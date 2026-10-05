@@ -6,6 +6,7 @@ CodeSystem: ResultCodeCS
 Id: resultcode-cs
 Title: "ResultCode"
 Description: "Svarskoder för spärrtjänsternas operationer enligt urn:riv:ehr:blocking:2. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes."
+* ^version = "3.2.2"
 * ^url = "https://fhir.inera.se/CodeSystem/resultcode-cs"
 * ^status = #active
 * ^content = #complete

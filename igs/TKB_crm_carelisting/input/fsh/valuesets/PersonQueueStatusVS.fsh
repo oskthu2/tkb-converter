@@ -9,5 +9,6 @@ Description: """
   Tillåtna värden för köstatus (queueStatus) i tjänstekontraktet GetPersonQueueStatus.
   Definierade som xs:enumeration i crm_carelisting_1_0.xsd.
 """
+* ^version = "1.0.0"
 * ^status = #active
 * include codes from system PersonQueueStatusCS

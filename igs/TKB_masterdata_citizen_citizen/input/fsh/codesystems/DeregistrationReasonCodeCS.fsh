@@ -5,6 +5,7 @@ CodeSystem: DeregistrationReasonCodeCS
 Id: masterdata-citizen-citizen-deregistrationreasoncode-cs
 Title: "Kod för avregistreringsorsak"
 Description: "Koder för DeregistrationReasonCodeType i domänschemat. Visningstexter ur TKB kapitel 7 och domänschemats annoteringar."
+* ^version = "2.0.0"
 * ^url = "https://fhir.inera.se/CodeSystem/masterdata-citizen-citizen-deregistrationreasoncode-cs"
 * ^status = #active
 * ^content = #complete

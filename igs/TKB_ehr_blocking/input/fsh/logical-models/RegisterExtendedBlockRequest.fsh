@@ -8,6 +8,7 @@ Title: "RegisterExtendedBlock — Request"
 Description: "Logisk modell för requestparametrar i RegisterExtendedBlock."
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * extendedBlock 1..1 BackboneElement "Utökat spärrobjekt med komplett metadata"
   * blockId 1..1 string "Unik identifierare för spärren (UUID)"
   * blockType 1..1 code "Typ av spärr"

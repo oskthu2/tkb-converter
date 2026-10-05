@@ -6,5 +6,6 @@ ValueSet: AssertionTypeVS
 Id: authorization-consent-assertiontype-vs
 Title: "AssertionType"
 Description: "Alla koder i AssertionTypeCS."
+* ^version = "2.0.4"
 * ^status = #active
 * include codes from system AssertionTypeCS

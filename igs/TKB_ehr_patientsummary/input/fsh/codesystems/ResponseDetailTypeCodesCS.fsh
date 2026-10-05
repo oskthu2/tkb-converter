@@ -5,6 +5,7 @@ CodeSystem: ResponseDetailTypeCodesCS
 Id: patientsummary-responsedetailtypecodes-cs
 Title: "Typ av statusmeddelande (response_detail)"
 Description: "Koder för ResponseDetailTypeCodes i domänschemat. Visningstexter ur TKB avsnitt 2.3 Statusrapportering."
+* ^version = "1.0.0-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/patientsummary-responsedetailtypecodes-cs"
 * ^status = #active
 * ^content = #complete

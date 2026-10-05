@@ -5,6 +5,7 @@ CodeSystem: BlockTypeCS
 Id: authorization-blocking-blocktype-cs
 Title: "BlockType"
 Description: "Koder för BlockTypeType i domänschemat."
+* ^version = "4.0.4"
 * ^url = "https://fhir.inera.se/CodeSystem/authorization-blocking-blocktype-cs"
 * ^status = #active
 * ^content = #complete

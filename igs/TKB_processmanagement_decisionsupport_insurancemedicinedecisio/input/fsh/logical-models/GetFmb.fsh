@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * beslutsunderlag 0..* BackboneElement "Beslutsunderlag"
   """
   Beslutsunderlag innehåller information om beslutsunderlag som kan användas vid bedömning om

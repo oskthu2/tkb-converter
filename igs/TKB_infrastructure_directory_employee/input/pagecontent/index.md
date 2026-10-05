@@ -1,5 +1,9 @@
 # infrastructure: directory: employee
 
+<!-- tkb-version -->
+**TKB-version:** 4.0 · **IG-version:** 4.0.0-snapshot · **Källa:** Bitbucket-commit `35b5c769b2bc` (ingen tagg)
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **infrastructure: directory: employee** version 4.0.

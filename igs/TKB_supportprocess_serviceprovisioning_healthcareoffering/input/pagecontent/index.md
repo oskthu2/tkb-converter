@@ -1,5 +1,9 @@
 # supportprocess: serviceprovisioning: healthcareoffering
 
+<!-- tkb-version -->
+**TKB-version:** 3.0 · **IG-version:** 3.0.0 · **Källa:** Bitbucket-tagg `3.0`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **supportprocess: serviceprovisioning: healthcareoffering** (Vård- och omsorgsutbud) version 3.0.

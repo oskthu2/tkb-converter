@@ -6,5 +6,6 @@ ValueSet: ResultCodeVS
 Id: authorization-blocking-resultcode-vs
 Title: "ResultCode"
 Description: "Alla koder i ResultCodeCS."
+* ^version = "4.0.4"
 * ^status = #active
 * include codes from system ResultCodeCS

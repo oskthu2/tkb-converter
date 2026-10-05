@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.3"
 * patientId 1..1 Identifier "Personidentifierare för patient"
     """
     Begränsar sökningen till angiven personidentifierare för en patient (IIType).

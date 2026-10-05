@@ -17,6 +17,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * result 1..1 BackboneElement "Statusinformation för anropet"
   * resultCode 1..1 CodeableConcept "Svarskod"
   * resultCode from ResultCodeVS (required)

@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * isCurrentVersion 1..1 boolean "Sant om angiven version är den senaste versionen av läkemedelslistan"
 * result 1..1 BackboneElement "Resultat av begäran"
   * resultCode 1..1 code "Svarskod"

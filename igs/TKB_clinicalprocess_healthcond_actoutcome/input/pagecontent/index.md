@@ -1,5 +1,9 @@
 # clinicalprocess: healthcond: actoutcome
 
+<!-- tkb-version -->
+**TKB-version:** 4.2.2 · **IG-version:** 4.2.2 · **Källa:** Bitbucket-tagg `4.2.2`
+<!-- /tkb-version -->
+
 ## Översikt
 
 Detta är en FHIR Implementation Guide genererad från TKB-dokumentation

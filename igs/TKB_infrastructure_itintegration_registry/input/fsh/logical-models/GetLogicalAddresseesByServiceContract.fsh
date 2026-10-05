@@ -28,6 +28,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * logicalAddressRecord 0..* BackboneElement "Logisk adressat som matchar frågan"
     """
     Post för en logisk adressat med tjänsteproducent för angivet

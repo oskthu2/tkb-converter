@@ -6,6 +6,7 @@ CodeSystem: QuestionTypeCS
 Id: questiontype-cs
 Title: "QuestionType"
 Description: "Kodverk för typ av fråga (KV Frågetype) i ett formulär enligt infrastructure:supportservices:forminteraction v2.0."
+* ^version = "2.0.0-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/questiontype-cs"
 * ^status = #active
 * ^content = #fragment

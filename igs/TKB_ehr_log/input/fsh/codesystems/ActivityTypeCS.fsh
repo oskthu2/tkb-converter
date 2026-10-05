@@ -6,6 +6,7 @@ CodeSystem: ActivityTypeCS
 Id: activitytype-cs
 Title: "ActivityType"
 Description: "Kodverk för typ av aktivitet som utförts. Definieras i TKB ehr:log avsnitt Datatyper (log:ActivityType)."
+* ^version = "1.2.4"
 * ^url = "https://fhir.inera.se/CodeSystem/activitytype-cs"
 * ^status = #active
 * ^content = #complete

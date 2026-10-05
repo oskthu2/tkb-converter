@@ -10,6 +10,7 @@ Description: """
   (urn:riv:druglogistics:dosedispensing:HamtaLokaltProduktsortimentResponder:1, HamtaLokaltProduktsortimentType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.1"
 * logicalAddress 1..1 BackboneElement "logicalAddress" "SOAP-huvud LogicalAddress. Typen har inga element utöver utökningspunkter."
 * glnkod 1..1 string "glnkod" "glnkod"
 * dosaktor 1..1 string "dosaktor" "dosaktor"

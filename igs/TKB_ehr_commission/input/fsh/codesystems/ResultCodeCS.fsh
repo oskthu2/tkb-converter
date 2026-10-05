@@ -11,6 +11,7 @@ Description: """
   Källa: TKB ehr:commission v1.0, avsnitt Datatyper — commissionservice:ResultCode.
   XSD: urn:riv:ehr:commission:1, typ ResultCodeType.
 """
+* ^version = "1.0.0-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/resultcode-cs"
 * ^status = #active
 * ^content = #complete

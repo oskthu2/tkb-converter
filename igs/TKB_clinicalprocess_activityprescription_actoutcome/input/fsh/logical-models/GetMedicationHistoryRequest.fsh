@@ -8,6 +8,7 @@ Title: "GetMedicationHistory — Request"
 Description: "Logisk modell för requestparametrar i GetMedicationHistory."
 Characteristics: #can-be-target
 
+* ^version = "2.2"
 * careUnitHSAId 0..* Identifier "Begränsar sökningen till angivna informationsägande vårdenheter"
 * careGiverHSAId 0..* Identifier "Begränsar sökningen till angivna informationsägande vårdgivare"
   """

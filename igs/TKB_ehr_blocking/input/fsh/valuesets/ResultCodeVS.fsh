@@ -5,5 +5,6 @@ ValueSet: ResultCodeVS
 Id: resultcode-vs
 Title: "ResultCode — ValueSet"
 Description: "Tillåtna svarskoder för spärrtjänsternas operationer."
+* ^version = "3.2.2"
 * ^status = #active
 * include codes from system ResultCodeCS

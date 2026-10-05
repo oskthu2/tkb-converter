@@ -1,5 +1,9 @@
 # crm: carelisting
 
+<!-- tkb-version -->
+**TKB-version:** 1.0 · **IG-version:** 1.0.0 · **Källa:** Bitbucket-tagg `TD_CARELISTING_1_0_R`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **crm: carelisting** version 1.0.

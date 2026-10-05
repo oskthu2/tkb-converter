@@ -1,5 +1,9 @@
 # clinicalprocess: activityprescription: actoutcome
 
+<!-- tkb-version -->
+**TKB-version:** 2.2.1 · **IG-version:** 2.2.1 · **Källa:** Bitbucket-tagg `2.2.1`
+<!-- /tkb-version -->
+
 ## Översikt
 
 Detta är en FHIR Implementation Guide genererad från TKB-dokumentation

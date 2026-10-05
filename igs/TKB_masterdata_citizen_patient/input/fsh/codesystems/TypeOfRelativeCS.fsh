@@ -5,6 +5,7 @@ CodeSystem: TypeOfRelativeCS
 Id: masterdata-citizen-patient-typeofrelative-cs
 Title: "Typ av släktrelation"
 Description: "Koder för TypeOfRelativeEnum i domänschemat. Visningstexter ur kodverket kv_släktrelation_12_v1.0 (1.2.752.129.2.2.1.24)."
+* ^version = "1.0.0-rc1.snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/masterdata-citizen-patient-typeofrelative-cs"
 * ^status = #active
 * ^content = #complete

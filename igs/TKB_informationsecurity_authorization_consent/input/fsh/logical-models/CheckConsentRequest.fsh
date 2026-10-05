@@ -10,6 +10,7 @@ Description: """
   (urn:riv:informationsecurity:authorization:consent:CheckConsentResponder:2, CheckConsentType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Som logisk adress anges HSA-id för aktörens vårdgivare."
 * accessingActor 1..1 BackboneElement "accessingActor" "Datatyp som identifierar en medarbetare/person som vill ha åtkomst till specifik information."
   * employeeId 1..1 string "employeeId" "employeeId"

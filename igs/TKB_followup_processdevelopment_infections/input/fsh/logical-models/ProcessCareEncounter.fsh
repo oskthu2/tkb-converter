@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * careEncounter 1..1 BackboneElement "Vårdkontaktsuppgifter"
   """
   Kardinalitet: Obligatorisk.
@@ -127,6 +128,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * resultCode 1..1 string "Resultatkod: OK, ERROR eller INFO"
   """
   OK = operationen genomförd utan fel

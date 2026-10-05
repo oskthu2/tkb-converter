@@ -17,6 +17,7 @@ Description: """
   dosproducent, dosunderlagets status, om det finns aktuella recept i RDH, samt folkbokförings- och samtyckesinformation (FOLK).
 """
 Characteristics: #can-be-target
+* ^version = "6.0"
 * apotek 0..1 BackboneElement "Dosapotek" "Ev. DOS-apotek som kunden är kopplad till. Om anrop mot underliggande system (FOLK, OR eller EXPO) misslyckas så lämnas fältet tomt. (se.apotekensservice:axs:4 ApoteksinformationResponse)"
   * obeys hamtapatientinfo-apotek-oregistrerat
   * aktorsnamn 0..1 string "Aktörsnamn" "Aktörsnamn."

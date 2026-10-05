@@ -6,5 +6,6 @@ ValueSet: CareServiceStatusVS
 Id: healthcareoffering-careservicestatus-vs
 Title: "Status för vård- och omsorgstjänst (CareServiceStatus)"
 Description: "Alla koder i CareServiceStatusCS."
+* ^version = "3.0.0"
 * ^status = #active
 * include codes from system CareServiceStatusCS

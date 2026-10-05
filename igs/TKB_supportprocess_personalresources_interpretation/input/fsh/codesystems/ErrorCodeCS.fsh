@@ -6,6 +6,7 @@ CodeSystem: ErrorCodeCS
 Id: errorcode-cs
 Title: "ErrorCodeEnum"
 Description: "Felkod när resultCode är ERROR. Enligt supportprocess_personalresources_interpretation_1.0.xsd."
+* ^version = "1.0.0-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/errorcode-cs"
 * ^status = #active
 * ^content = #complete

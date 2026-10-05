@@ -23,6 +23,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.1.0"
 * processingStatusList 0..* BackboneElement "Statuspost per logisk adress"
     """
     XSD: ProcessingStatusList (ProcessingStatusRecordType), 0..unbounded.

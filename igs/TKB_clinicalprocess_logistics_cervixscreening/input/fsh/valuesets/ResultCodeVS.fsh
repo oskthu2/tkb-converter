@@ -6,5 +6,6 @@ ValueSet: ResultCodeVS
 Id: CervixScreening-resultcode-vs
 Title: "ResultCode"
 Description: "Alla koder i ResultCodeCS."
+* ^version = "1.0.0-rc4"
 * ^status = #active
 * include codes from system ResultCodeCS

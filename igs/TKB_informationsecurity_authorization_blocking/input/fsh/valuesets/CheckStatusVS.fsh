@@ -6,5 +6,6 @@ ValueSet: CheckStatusVS
 Id: authorization-blocking-checkstatus-vs
 Title: "CheckStatus"
 Description: "Alla koder i CheckStatusCS."
+* ^version = "4.0.4"
 * ^status = #active
 * include codes from system CheckStatusCS

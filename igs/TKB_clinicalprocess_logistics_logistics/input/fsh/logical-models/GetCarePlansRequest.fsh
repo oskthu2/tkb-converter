@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * careUnitHSAId 0..* string "Filtrering på PDL-enhet (vårdenhetens HSA-id)"
     """
     Filtrering på PDL-enhet vilket motsvarar careUnitHSAId i healthcareProfessionalType.

@@ -58,6 +58,7 @@ Håll kryssrutorna och `Registerkommandon` aktuella under arbetets gång. Komman
 Följ `tkb-fetch-convert`, sedan `tkb-ig-builder` och sist `tkb-fsh-model`. Innan första push, och före varje push därefter:
 
 ```bash
+scripts/set_ig_version.py igs/TKB_{domain_dir}   # version, status, ^version enligt registret
 scripts/preflight_lint.py igs/TKB_{domain_dir}    # exit 0 krävs
 make sushi-one D=TKB_{domain_dir}                 # 0 Errors krävs
 ```
@@ -66,7 +67,8 @@ Skriv sedan domänens avsnitt i `QUESTIONS.md` enligt bilagan nedan, med status 
 
 ```bash
 scripts/registry_update.py {domain_id} --status done --completed \
-  --set zip_url=... --set domain_version=... --contracts '[...]' \
+  --set zip_url=... --set source_tag=... --set source_commit=... --set source_kind=tag \
+  --set domain_version=... --set ig_version=... --contracts '[...]' \
   --set questions_count=N --set 'sushi_result={"ran_at": "...", "errors": 0, "warnings": W, "artifacts_generated": A, "passed": true}'
 ```
 

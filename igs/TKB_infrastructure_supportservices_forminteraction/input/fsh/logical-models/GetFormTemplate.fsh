@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * healthcareFacilityCareUnit 1..1 string "HSA-id för vårdenhet"
 * templateId 1..1 string "Typ av formulärmall (KV Malltyp)"
 * templateVersion 0..1 string "Önskad version"
@@ -27,6 +28,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * formTemplate 0..1 BackboneElement "Formulärmall (FormTemplate — komplett med sidor)"
     """
     Komplett formulärmall. Saknas mallen returneras tomt svar.

@@ -6,6 +6,7 @@ CodeSystem: DispensedDrugsTypeOfResponseCS
 Id: dispenseddrugstypeofresponse-cs
 Title: "DispensedDrugsTypeOfResponse — Svarstyp"
 Description: "Kodverk för önskad svarstyp i GetDispensedDrugs: strukturerad text, multimedia eller båda."
+* ^version = "2.0.0-rc1"
 * ^url = "https://fhir.inera.se/CodeSystem/dispenseddrugstypeofresponse"
 * ^status = #active
 * ^content = #complete

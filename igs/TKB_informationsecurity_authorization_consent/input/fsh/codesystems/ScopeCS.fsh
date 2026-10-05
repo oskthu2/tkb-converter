@@ -5,6 +5,7 @@ CodeSystem: ScopeCS
 Id: authorization-consent-scope-cs
 Title: "Scope"
 Description: "Koder för ScopeType i domänschemat."
+* ^version = "2.0.4"
 * ^url = "https://fhir.inera.se/CodeSystem/authorization-consent-scope-cs"
 * ^status = #active
 * ^content = #complete

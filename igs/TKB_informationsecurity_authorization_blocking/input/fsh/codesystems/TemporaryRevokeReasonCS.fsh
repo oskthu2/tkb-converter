@@ -5,6 +5,7 @@ CodeSystem: TemporaryRevokeReasonCS
 Id: authorization-blocking-temporaryrevokereason-cs
 Title: "TemporaryRevokeReason"
 Description: "Koder för TemporaryRevokeReasonType i domänschemat."
+* ^version = "4.0.4"
 * ^url = "https://fhir.inera.se/CodeSystem/authorization-blocking-temporaryrevokereason-cs"
 * ^status = #active
 * ^content = #complete

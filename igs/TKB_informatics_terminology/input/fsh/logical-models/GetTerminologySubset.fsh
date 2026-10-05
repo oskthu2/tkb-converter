@@ -17,6 +17,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * concept 0..* BackboneElement "Svaret består av en lista med begrepp"
     """
     En lista med terminologibegrepp från det begärda urvalet.

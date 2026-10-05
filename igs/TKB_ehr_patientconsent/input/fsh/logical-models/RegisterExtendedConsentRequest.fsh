@@ -9,6 +9,7 @@ Title: "RegisterExtendedConsent — Request"
 Description: "Logisk modell för requestparametrar i RegisterExtendedConsent."
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * assertionId 1..1 Identifier "Unik, global identifierare för intyget (UUID-format, max 36 tecken)"
   """
   Tjänstekonsumenten ansvarar för att generera id:et.

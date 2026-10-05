@@ -8,6 +8,7 @@ Title: "CheckPatientRelation — Request"
 Description: "Logisk modell för requestparametrar i CheckPatientRelation."
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * accessingActor 1..1 BackboneElement "Representerar den aktör/person som önskar åtkomst till informationen"
   """
   Identifierar medarbetaren vars patientrelation kontrolleras.

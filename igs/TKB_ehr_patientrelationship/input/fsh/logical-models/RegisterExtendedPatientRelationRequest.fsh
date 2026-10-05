@@ -8,6 +8,7 @@ Title: "RegisterExtendedPatientRelation — Request"
 Description: "Logisk modell för requestparametrar i RegisterExtendedPatientRelation."
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * patientRelationId 1..1 string "Unik, global UUID-identifierare för intyget (max 36 tecken)"
   """
   Tjänstekonsumenten ansvarar för att generera id:et.

@@ -10,6 +10,7 @@ Description: """
   (urn:riv:se.apotekensservice:expo:SkapaDosmottagareResponder:4, SkapaDosmottagareResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "4.0"
 * adress 0..1 string "adress" "Adress till dosmottagare. Obligatorisk om typ = 'D'."
 * apoteksIdDosmottagare 0..1 string "apoteksIdDosmottagare" "Apoteks-id för dosmottagare om dosmottagare är av typen apotek."
 * arbetsplatskod 0..1 string "arbetsplatskod" "Arbetsplatskod till dosmottagare. Är aktuellt om dosmottagare t ex är en distriktsläkarmottagning."

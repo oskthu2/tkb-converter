@@ -6,6 +6,7 @@ CodeSystem: AvregistreringsorsakCS
 Id: avregistreringsorsak-cs
 Title: "Avregistreringsorsak"
 Description: "Kodverk för avregistreringsorsak enligt RIV-TA population:residentmaster (AvregistreringsorsakKodTYPE). Utgår i ResidentType version 2 till förmån för AvregistreringsorsakKomplettCS."
+* ^version = "1.2.0"
 * ^url = "https://fhir.inera.se/CodeSystem/avregistreringsorsak-cs"
 * ^status = #active
 * ^content = #complete

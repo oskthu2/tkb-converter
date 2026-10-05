@@ -10,6 +10,7 @@ Description: """
   (urn:riv:infrastructure:itintegration:messagebox:ListMessagesResponder:1, ListMessagesType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. The organisation number of the National Service Platform"
 * targetOrganizations 0..* string "targetOrganizations" "targetOrganizations"
 * serviceContractTypes 0..* BackboneElement "serviceContractTypes" "Type which describes a service contract. Used in interaction GetSupportedServiceContracts."

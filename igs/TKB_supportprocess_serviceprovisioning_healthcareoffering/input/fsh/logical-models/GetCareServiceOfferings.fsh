@@ -10,6 +10,7 @@ Description: """
   (urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetCareServiceOfferingsResponder:3, GetCareServiceOfferingsResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "3.0"
 * careService 0..* BackboneElement "careService" "careService"
   * careServiceId 0..1 BackboneElement "careServiceId" "careServiceId"
     * root 1..1 string "root" "root"

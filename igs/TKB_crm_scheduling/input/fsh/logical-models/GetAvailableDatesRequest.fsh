@@ -8,6 +8,7 @@ Title: "GetAvailableDates — Request"
 Description: "Logisk modell för requestparametrar i GetAvailableDates."
 Characteristics: #can-be-target
 
+* ^version = "1.1"
 * healthcare_facility 1..1 Identifier "Hsa-Id för mottagning/vårdenhet"
     """
     Hsa-Id för mottagning/vårdenhet.

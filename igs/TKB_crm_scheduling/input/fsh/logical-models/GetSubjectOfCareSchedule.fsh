@@ -14,6 +14,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.1"
 * timeslotDetail 0..* BackboneElement "Lista med användarens tider (TimeslotType)"
     """
     Lista med invånarens bokade tider för angiven vårdenhet. Öppna kallelser ingår inte.

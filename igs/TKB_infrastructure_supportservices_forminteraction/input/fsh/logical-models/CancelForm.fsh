@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * formId 1..1 string "Formulärets unika ID (GUID) som skall avbrytas"
 * subjectOfCare 0..1 string "Invånarens personnummer (yyyymmddnnnn)"
 * reason 0..1 string "Anledning till avbrytning (valfri kommentar)"
@@ -27,5 +28,6 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * resultCode 1..1 string "Svarskod (OK = formuläret har avbrutits)"
 * comment 0..1 string "Kommentar"

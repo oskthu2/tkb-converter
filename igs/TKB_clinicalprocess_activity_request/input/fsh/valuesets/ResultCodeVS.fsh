@@ -6,5 +6,6 @@ ValueSet: ResultCodeVS
 Id: resultcode-vs
 Title: "ResultCodeEnum"
 Description: "Alla koder i ResultCodeCS."
+* ^version = "2.2.0"
 * ^status = #active
 * include codes from system ResultCodeCS

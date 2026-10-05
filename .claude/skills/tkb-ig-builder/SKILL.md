@@ -90,11 +90,11 @@ id: inera.{domain-slug}                          # t.ex. inera.clinicalprocess-h
 canonical: https://fhir.inera.se/ig/{domain-slug}
 name: {DomainTitleCamelCase}                     # t.ex. clinicalprocesshealthconddescription
 title: "{domain_title}"                          # t.ex. "clinicalprocess: healthcond: description"
-status: draft
-version: {domain_version}
+status: active                                   # draft för RC/beta/snapshot — sätts av set_ig_version.py
+version: {ig_version}                            # SemVer ur taggen, t.ex. 2.0.0 — sätts av set_ig_version.py
 fhirVersion: 4.0.1
 copyrightYear: 2024+
-releaseLabel: draft
+releaseLabel: release                            # RC / snapshot för förhandsversioner
 
 dependencies:
   hl7.fhir.r4.core: 4.0.1
@@ -137,7 +137,7 @@ parameters:
   show-inherited-invariants: false
   apply-contact: true
   apply-publisher: true
-  apply-version: true
+  apply-version: false                             # annars skrivs kontraktens ^version över med IG:ns
   apply-copyright: true
   special-url:                                     # lägg till en rad per CodeSystem med https://fhir.inera.se/CodeSystem/...-url
     - https://fhir.inera.se/CodeSystem/{kodverk-slug-1}-cs
@@ -152,6 +152,16 @@ contact:
 copyright: >-
   Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.
 ```
+
+### Versioner (sedan 2026-10-05)
+
+IG:ns version följer Bitbucket-taggen den byggs från, och varje tjänstekontrakt har sin egen version. Skriv dem aldrig för hand:
+
+1. Registret har `source_tag`, `source_commit`, `source_kind`, `domain_version` (TKB:ns etikett, t.ex. `2.0`) och `ig_version` (SemVer, t.ex. `2.0.0`), se `tkb-fetch-convert`.
+2. `scripts/set_ig_version.py igs/TKB_x` skriver `version`, `status`, `releaseLabel` och `apply-version: false` i sushi-config, `* ^version` på varje Logical, CodeSystem och ValueSet (kontraktets major.minor på kontraktens modeller, annars IG:ns version) och en versionsrad överst i `index.md` mellan `<!-- tkb-version -->`-markörerna.
+3. `preflight_lint.py` felmarkerar en IG vars version inte stämmer med registret, som saknar `apply-version: false` eller har en resurs utan `^version`.
+
+Kör `set_ig_version.py` efter att sidorna och FSH-filerna skrivits, och igen om registrets versionsfält ändras.
 
 ### Sidmallar
 

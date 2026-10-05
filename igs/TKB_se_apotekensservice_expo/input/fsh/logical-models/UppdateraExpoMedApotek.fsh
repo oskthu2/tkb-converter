@@ -10,6 +10,7 @@ Description: """
   (urn:riv:se.apotekensservice:expo:UppdateraExpoMedApotekResponder:6, UppdateraExpoMedApotekResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "6.0"
 * allmTelefon 1..1 string "allmTelefon" "Expeditionsställets allmänna telefonnummer."
 * besoksAdress 1..1 string "besoksAdress" "Expeditionsställets besöksadress."
 * besoksort 1..1 string "besoksort" "Expeditionsställets ort (besöksort)."

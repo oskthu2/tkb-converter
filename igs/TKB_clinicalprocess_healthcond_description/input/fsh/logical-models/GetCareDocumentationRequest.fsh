@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "3.0"
 * careUnit 0..* Identifier "Filtrering på vårdenhet" """
     Filtrering på vårdenhet vilket motsvarar accountableCareUnit HSA-id i svaret.
     Kardinalitet: Valfri, lista.

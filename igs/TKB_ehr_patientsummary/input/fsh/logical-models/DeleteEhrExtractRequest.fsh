@@ -10,6 +10,7 @@ Description: """
   (urn:riv:ehr:patientsummary:DeleteEhrExtractResponder:1, DeleteEhrExtractType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. the HSA-id of the service producer"
 * ehr_system 1..1 Identifier "ehr_system" "ehr_system"
 * subject_of_care 1..1 Identifier "subject_of_care" "subject_of_care"

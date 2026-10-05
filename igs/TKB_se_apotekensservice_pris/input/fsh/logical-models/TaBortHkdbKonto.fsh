@@ -10,6 +10,7 @@ Description: """
   (urn:riv:se.apotekensservice:pris:TaBortHkdbKontoResponder:1, TaBortHkdbKontoResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * innevPeriod 0..1 BackboneElement "innevPeriod" "Innevarande högkostnadsperiod."
   * balans 1..1 BackboneElement "balans" "Ackumulerad balans"
     * brutto 1..1 decimal "brutto" "Bruttobelopp i kronor och ören"

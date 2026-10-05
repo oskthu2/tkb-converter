@@ -10,6 +10,7 @@ Description: """
   (urn:riv:informationsecurity:authorization:consent:RegisterExtendedConsentResponder:2, RegisterExtendedConsentType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Som logisk adress anges HSA-id för vårdgivaren som samtycket gäller för."
 * assertionId 1..1 string "assertionId" "assertionId"
 * assertionType 1..1 code "assertionType" "assertionType"

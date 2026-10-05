@@ -6,5 +6,6 @@ ValueSet: ErrorCodeVS
 Id: errorcode-vs
 Title: "ErrorCodeEnum"
 Description: "Alla koder i ErrorCodeCS."
+* ^version = "2.2.0"
 * ^status = #active
 * include codes from system ErrorCodeCS

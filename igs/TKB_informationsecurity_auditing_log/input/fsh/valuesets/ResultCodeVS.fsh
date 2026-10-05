@@ -6,5 +6,6 @@ ValueSet: ResultCodeVS
 Id: auditing-log-resultcode-vs
 Title: "ResultCode"
 Description: "Alla koder i ResultCodeCS."
+* ^version = "2.0.8"
 * ^status = #active
 * include codes from system ResultCodeCS

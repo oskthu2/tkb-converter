@@ -6,6 +6,7 @@ CodeSystem: DispensedDrugsConsentOrderCS
 Id: dispenseddrugsconsentorder-cs
 Title: "DispensedDrugsConsentOrder — Samtyckesorder"
 Description: "Kodverk för typ av åtgärd för samtycke till uthämtade läkemedel."
+* ^version = "2.0.0-rc1"
 * ^url = "https://fhir.inera.se/CodeSystem/dispenseddrugsconsentorder"
 * ^status = #active
 * ^content = #complete

@@ -5,5 +5,6 @@ ValueSet: KonVS
 Id: kon-vs
 Title: "Kön — ValueSet"
 Description: "Tillåtna värden för kön enligt kodverket Kön (OID: 1.2.752.129.2.2.1.1)."
+* ^version = "2.0.0"
 * ^status = #active
 * include codes from system KonCS

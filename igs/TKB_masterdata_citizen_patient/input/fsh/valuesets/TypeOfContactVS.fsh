@@ -6,5 +6,6 @@ ValueSet: TypeOfContactVS
 Id: masterdata-citizen-patient-typeofcontact-vs
 Title: "Typ av kontakt"
 Description: "Alla koder i TypeOfContactCS."
+* ^version = "1.0.0-rc1.snapshot"
 * ^status = #active
 * include codes from system TypeOfContactCS

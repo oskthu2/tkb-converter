@@ -6,5 +6,6 @@ ValueSet: TypeOfCloseRelationVS
 Id: masterdata-citizen-patient-typeofcloserelation-vs
 Title: "Typ av närståenderelation"
 Description: "Alla koder i TypeOfCloseRelationCS."
+* ^version = "1.0.0-rc1.snapshot"
 * ^status = #active
 * include codes from system TypeOfCloseRelationCS

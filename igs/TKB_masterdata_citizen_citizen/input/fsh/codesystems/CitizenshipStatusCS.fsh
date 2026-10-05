@@ -5,6 +5,7 @@ CodeSystem: CitizenshipStatusCS
 Id: masterdata-citizen-citizen-citizenshipstatus-cs
 Title: "Statuskod för medborgarskap"
 Description: "Koder för CitizenshipStatusType i domänschemat. Visningstexter ur TKB kapitel 7 och domänschemats annoteringar."
+* ^version = "2.0.0"
 * ^url = "https://fhir.inera.se/CodeSystem/masterdata-citizen-citizen-citizenshipstatus-cs"
 * ^status = #active
 * ^content = #complete

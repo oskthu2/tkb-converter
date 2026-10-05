@@ -5,6 +5,7 @@ CodeSystem: FormStatusCS
 Id: formstatus-cs
 Title: "KV Form Status"
 Description: "Kodverk för formulärets status. Definierar i vilken fas ett formulär befinner sig."
+* ^version = "2.1.1"
 * ^url = "https://fhir.inera.se/CodeSystem/formstatus-cs"
 * ^status = #active
 * ^content = #complete

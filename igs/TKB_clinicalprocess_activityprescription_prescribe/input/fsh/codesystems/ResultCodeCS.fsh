@@ -6,6 +6,7 @@ CodeSystem: ResultCodeCS
 Id: resultcode-cs
 Title: "ResultCode — Svarskod"
 Description: "Kodverk för resultatkod i svar (ResultType). Används i samtliga kontrakt."
+* ^version = "2.0.0-rc1"
 * ^url = "https://fhir.inera.se/CodeSystem/resultcode"
 * ^status = #active
 * ^content = #complete

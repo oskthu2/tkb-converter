@@ -5,6 +5,7 @@ CodeSystem: ResultCodeCS
 Id: resultcode-cs
 Title: "KV Resultatkod"
 Description: "Kodverk för resultatkod — anger status på en operation i formulärinteraktionstjänsterna."
+* ^version = "2.1.1"
 * ^url = "https://fhir.inera.se/CodeSystem/resultcode-cs"
 * ^status = #active
 * ^content = #complete

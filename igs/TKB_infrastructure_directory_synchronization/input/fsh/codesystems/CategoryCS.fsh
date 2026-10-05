@@ -5,6 +5,7 @@ CodeSystem: CategoryCS
 Id: directory-synchronization-category-cs
 Title: "Category"
 Description: "Koder för CategoryEnum i domänschemat."
+* ^version = "1.0.0-rc3"
 * ^url = "https://fhir.inera.se/CodeSystem/directory-synchronization-category-cs"
 * ^status = #active
 * ^content = #complete

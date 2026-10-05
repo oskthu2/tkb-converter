@@ -1,5 +1,9 @@
 # itintegration: registry
 
+<!-- tkb-version -->
+**TKB-version:** 1.0.0 · **IG-version:** 1.0.0 · **Källa:** Bitbucket-tagg `TD_REGISTRY_1_0_0_R`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **itintegration: registry** (tjänsteadresseringskatalog) version 1.0.0.

@@ -5,5 +5,6 @@ ValueSet: FormCategoryVS
 Id: formcategory-vs
 Title: "FormCategory — ValueSet"
 Description: "Tillåtna värden för formulärets kategori enligt KV Formulärkategori."
+* ^version = "2.0.0-snapshot"
 * ^status = #active
 * include codes from system FormCategoryCS

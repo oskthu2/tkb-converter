@@ -1,8 +1,12 @@
 # infrastructure: eservicesupply: forminteraction
 
+<!-- tkb-version -->
+**TKB-version:** 2.1.1 · **IG-version:** 2.1.1 · **Källa:** Bitbucket-tagg `2.1.1`
+<!-- /tkb-version -->
+
 ## Översikt
 
-FHIR Implementation Guide för tjänstedomänen **infrastructure: eservicesupply: forminteraction** version 2.1.
+FHIR Implementation Guide för tjänstedomänen **infrastructure: eservicesupply: forminteraction** version 2.1.1.
 Genererad från Ineras Tjänstekontraktsbeskrivning (TKB).
 
 Domänen definierar tjänstekontrakt för formulärinteraktion mellan patient/invånare och vårdverksamhet,

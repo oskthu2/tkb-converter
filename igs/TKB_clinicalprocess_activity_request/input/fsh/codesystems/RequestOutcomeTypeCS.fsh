@@ -6,6 +6,7 @@ CodeSystem: RequestOutcomeTypeCS
 Id: requestoutcometype-cs
 Title: "codeRequestOutcomeType"
 Description: "Typ av remissvar (codes_2.2.xsd codeRequestOutcomeType_values)."
+* ^version = "2.2.0"
 * ^url = "https://fhir.inera.se/CodeSystem/requestoutcometype-cs"
 * ^status = #active
 * ^content = #complete

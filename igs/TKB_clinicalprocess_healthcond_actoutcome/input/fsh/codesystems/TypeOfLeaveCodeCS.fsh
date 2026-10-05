@@ -6,6 +6,7 @@ CodeSystem: TypeOfLeaveCodeCS
 Id: typeofleavecode-cs
 Title: "TypeOfLeaveCode"
 Description: "Kodverk för typ av ledighet (TypeOfLeaveCodeEnum). Används i GetMaternityMedicalHistory."
+* ^version = "4.2.2"
 * ^url = "https://fhir.inera.se/CodeSystem/typeofleavecode"
 * ^status = #active
 * ^content = #complete

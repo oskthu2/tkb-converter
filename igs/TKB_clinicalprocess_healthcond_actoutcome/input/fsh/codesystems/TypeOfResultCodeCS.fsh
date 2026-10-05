@@ -6,6 +6,7 @@ CodeSystem: TypeOfResultCodeCS
 Id: typeofresultcode-cs
 Title: "TypeOfResultCode"
 Description: "Kodverk för typ av resultat (TypeOfResultCodeEnum). Används i GetImagingOutcome och GetReferralOutcome."
+* ^version = "4.2.2"
 * ^url = "https://fhir.inera.se/CodeSystem/typeofresultcode"
 * ^status = #active
 * ^content = #complete

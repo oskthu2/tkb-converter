@@ -6,5 +6,6 @@ ValueSet: WeekDaysVS
 Id: residentparticipation-weekdays-vs
 Title: "WeekDays"
 Description: "Alla koder i WeekDaysCS."
+* ^version = "1.0.0-rc2"
 * ^status = #active
 * include codes from system WeekDaysCS

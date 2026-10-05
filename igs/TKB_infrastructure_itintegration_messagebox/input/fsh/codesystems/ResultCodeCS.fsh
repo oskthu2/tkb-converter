@@ -5,6 +5,7 @@ CodeSystem: ResultCodeCS
 Id: messagebox-resultcode-cs
 Title: "Resultatkod"
 Description: "Koder för ResultCodeEnum i domänschemat. Visningstexter ur TKB avsnitt 4.2."
+* ^version = "1.0.0"
 * ^url = "https://fhir.inera.se/CodeSystem/messagebox-resultcode-cs"
 * ^status = #active
 * ^content = #complete

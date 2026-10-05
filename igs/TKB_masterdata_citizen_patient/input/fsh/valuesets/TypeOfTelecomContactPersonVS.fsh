@@ -6,5 +6,6 @@ ValueSet: TypeOfTelecomContactPersonVS
 Id: masterdata-citizen-patient-typeoftelecomcontactperson-vs
 Title: "Typ av telekommunikation (kontaktperson)"
 Description: "Alla koder i TypeOfTelecomContactPersonCS."
+* ^version = "1.0.0-rc1.snapshot"
 * ^status = #active
 * include codes from system TypeOfTelecomContactPersonCS

@@ -6,6 +6,7 @@ CodeSystem: ResultCodeCS
 Id: resultcode-cs
 Title: "ResultCode"
 Description: "Svarskoder för tjänstekontrakt i ehr:patientrelationship. Anger status för utförda operationer."
+* ^version = "1.0.1-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/resultcode-cs"
 * ^status = #active
 * ^content = #complete

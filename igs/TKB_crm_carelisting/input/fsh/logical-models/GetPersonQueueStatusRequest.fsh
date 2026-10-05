@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * personId 1..1 string "PersonID för den person vars köstatus önskas"
     """
     Identitetsbeteckning för vård- och omsorgstagaren vars köstatus efterfrågas.

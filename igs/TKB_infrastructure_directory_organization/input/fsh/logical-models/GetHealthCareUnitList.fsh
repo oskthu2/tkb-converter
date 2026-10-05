@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * healthCareUnitList 0..1 BackboneElement "Lista av vårdenheter för angiven vårdgivare"
     """
     Aggregerat objekt med information om vårdgivaren och dess ingående vårdenheter.

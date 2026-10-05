@@ -12,6 +12,7 @@ Description: """
   Kodverket kan komma att kompletteras utan versionsuppdatering av tjänstekontraktet.
   Konsumenter MÅSTE vara förberedda på nya koder.
 """
+* ^version = "2.0.1-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/kvstatusvardbegaran-cs"
 * ^status = #active
 * ^content = #fragment

@@ -5,6 +5,7 @@ CodeSystem: WeekDaysCS
 Id: residentparticipation-weekdays-cs
 Title: "WeekDays"
 Description: "Koder för WeekDaysEnum i domänschemat."
+* ^version = "1.0.0-rc2"
 * ^url = "https://fhir.inera.se/CodeSystem/residentparticipation-weekdays-cs"
 * ^status = #active
 * ^content = #complete

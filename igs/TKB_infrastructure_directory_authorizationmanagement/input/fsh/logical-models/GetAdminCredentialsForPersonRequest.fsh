@@ -11,6 +11,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * personHsaId 0..1 string "Unik identifierare för personen vars behörighetsegenskaper söks ut"
 * personalIdentityNumber 0..1 string "Person-id för personen vars behörighetsegenskaper söks ut"
 * authorizationScopeCode 0..1 string "Behörighetsområdeskod att filtrera på"

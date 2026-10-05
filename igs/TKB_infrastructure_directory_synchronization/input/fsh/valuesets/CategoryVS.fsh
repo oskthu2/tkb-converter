@@ -6,5 +6,6 @@ ValueSet: CategoryVS
 Id: directory-synchronization-category-vs
 Title: "Category"
 Description: "Alla koder i CategoryCS."
+* ^version = "1.0.0-rc3"
 * ^status = #active
 * include codes from system CategoryCS

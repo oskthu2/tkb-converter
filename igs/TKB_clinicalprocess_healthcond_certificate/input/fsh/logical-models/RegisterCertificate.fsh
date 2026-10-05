@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "3.1"
 * result 1..1 BackboneElement "Information om anropets resultat"
 * result.resultCode 1..1 CodeableConcept "Resultatkod (OK/INFO/ERROR)"
 * result.resultCode from ResultkodVS (required)
@@ -25,6 +26,7 @@ Title: "RegisterCertificate — Request"
 Description: "Logisk modell för requestparametrar i RegisterCertificate."
 Characteristics: #can-be-target
 
+* ^version = "3.1"
 * svarPa 0..1 BackboneElement "Referens till meddelande som detta intyg svarar på (komplettering)"
   """
   Ska anges om intyget utfärdas som svar på en kompletteringsbegäran.

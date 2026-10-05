@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * underlagsId 0..* Identifier "Identifierare för ett specifikt beslutsunderlag"
   """
   Anger om endast ett eller ett antal underlag skall hämtas och i så fall vilka.

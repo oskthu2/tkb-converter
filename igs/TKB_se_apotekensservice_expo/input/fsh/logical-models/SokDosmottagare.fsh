@@ -10,6 +10,7 @@ Description: """
   (urn:riv:se.apotekensservice:expo:SokDosmottagareResponder:1, SokDosmottagareResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * resultat 0..* BackboneElement "resultat" "Lista med apotek och kopplade dosmottagare som utdata"
   * apotek 0..1 BackboneElement "apotek" "Apoteksinformation för dosproducenten."
     * apoteksinformationLista 1..* BackboneElement "apoteksinformationLista" "Lista innehållande ett eller flera Apoteksinformation."

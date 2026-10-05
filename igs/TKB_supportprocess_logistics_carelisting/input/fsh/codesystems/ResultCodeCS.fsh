@@ -5,6 +5,7 @@ CodeSystem: ResultCodeCS
 Id: carelisting-resultcode-cs
 Title: "ResultCode"
 Description: "Koder för ResultCodeEnum i domänschemat."
+* ^version = "2.1.0"
 * ^url = "https://fhir.inera.se/CodeSystem/carelisting-resultcode-cs"
 * ^status = #active
 * ^content = #complete

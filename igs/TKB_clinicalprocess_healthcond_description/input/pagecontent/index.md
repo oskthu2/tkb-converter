@@ -1,5 +1,9 @@
 # clinicalprocess: healthcond: description
 
+<!-- tkb-version -->
+**TKB-version:** 3.0.5 · **IG-version:** 3.0.5 · **Källa:** Bitbucket-tagg `3.0.5`
+<!-- /tkb-version -->
+
 ## Översikt
 
 Detta är en FHIR Implementation Guide genererad från TKB-dokumentation

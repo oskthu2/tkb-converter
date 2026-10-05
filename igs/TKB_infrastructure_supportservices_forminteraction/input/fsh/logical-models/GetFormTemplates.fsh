@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * healthcareFacilityCareUnit 1..1 string "Hsa-Id för vårdenhet (enhets-id). T.ex. se2321000016-1hz3"
     """
     HSA-id för vårdenhet/enhets-id. Obligatoriskt.
@@ -46,6 +47,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * formTemplate 0..* BackboneElement "Formulärmall (objekt FormTemplateInfoType)"
     """
     Lista med tillgängliga formulärmallar baserat på sökparametrarna. Tom lista = inga mallar hittades.

@@ -1,9 +1,13 @@
 # itintegration: engagementindex
 
+<!-- tkb-version -->
+**TKB-version:** 1.0.10 · **IG-version:** 1.0.10 · **Källa:** Bitbucket-tagg `1.0.10`
+<!-- /tkb-version -->
+
 ## Översikt
 
 Detta är en FHIR Implementation Guide genererad från TKB-dokumentation
-för tjänstedomänen **itintegration: engagementindex** version 1.0.9.
+för tjänstedomänen **itintegration: engagementindex** version 1.0.10.
 
 ## Innehåll
 

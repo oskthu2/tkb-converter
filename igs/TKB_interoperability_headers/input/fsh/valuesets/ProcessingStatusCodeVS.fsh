@@ -6,5 +6,6 @@ ValueSet: ProcessingStatusCodeVS
 Id: processingstatuscode-vs
 Title: "ProcessingStatusCode — ValueSet"
 Description: "Tillåtna värden för ProcessingStatus.processingStatusList.statusCode enligt ProcessingStatusCodeCS."
+* ^version = "1.1.0"
 * ^status = #active
 * include codes from system ProcessingStatusCodeCS

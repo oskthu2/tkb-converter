@@ -22,6 +22,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * resultCode 1..1 code "Resultatkod"
 * resultCode from ResultCodeVS (required)
 * comment 0..1 string "Kommentar"
@@ -42,6 +43,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * logicalAddress 1..1 Identifier "Logisk adress"
     """
     Logisk adress till tjänsteimplementationen. HSA-id för organisationspost

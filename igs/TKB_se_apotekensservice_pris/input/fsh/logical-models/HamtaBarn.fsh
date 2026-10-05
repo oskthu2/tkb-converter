@@ -10,4 +10,5 @@ Description: """
   (urn:riv:se.apotekensservice:pris:HamtaBarnResponder:1, HamtaBarnResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * barn 1..* string "barn" "En lista med personnr för barnen."

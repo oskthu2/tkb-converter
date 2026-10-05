@@ -6,6 +6,7 @@ CodeSystem: AssertionTypeCS
 Id: assertiontype-cs
 Title: "AssertionType"
 Description: "Typ av intyg som ger direktåtkomst till information från andra vårdgivare enligt PDL. Kan vara patientens samtycke eller nödsituation."
+* ^version = "1.0.1-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/assertiontype-cs"
 * ^status = #active
 * ^content = #complete

@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * maternityMedicalRecord 0..* BackboneElement "Mödravårdsjournalpost"
 
 // ── Header ───────────────────────────────────────────

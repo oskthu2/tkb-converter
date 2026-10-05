@@ -10,6 +10,7 @@ Description: """
   (urn:riv:orgmaster:hsa:GetHsaPersonResponder:1, GetHsaPersonResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * userInformations 0..1 BackboneElement "userInformations" "userInformations"
   * userInformation 0..* BackboneElement "userInformation" "userInformation"
     * personalPrescriptionCode 0..1 string "personalPrescriptionCode" "personalPrescriptionCode"

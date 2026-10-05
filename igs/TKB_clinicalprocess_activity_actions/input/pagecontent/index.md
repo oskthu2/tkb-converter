@@ -1,8 +1,12 @@
 # clinicalprocess: activity: actions
 
+<!-- tkb-version -->
+**TKB-version:** 1.3.4 · **IG-version:** 1.3.4 · **Källa:** Bitbucket-commit `abc18c8b1767`, efter taggen `1.3.4`
+<!-- /tkb-version -->
+
 ## Översikt
 
-FHIR Implementation Guide för tjänstedomänen **clinicalprocess: activity: actions** version 1.3.
+FHIR Implementation Guide för tjänstedomänen **clinicalprocess: activity: actions** version 1.3.4.
 Genererad från Ineras Tjänstekontraktsbeskrivning (TKB).
 
 Domänen hanterar information gällande vårdaktiviteter kopplade till en patient, till exempel operationer och undersökningar. Syftet med domänen är att tillgängliggöra journalförd strukturerad information om aktiviteter i kärnprocessen på ett strukturerat sätt.

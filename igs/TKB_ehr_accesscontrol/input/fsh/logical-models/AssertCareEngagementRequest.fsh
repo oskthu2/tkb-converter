@@ -16,6 +16,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * performer 1..1 Identifier "HSA-id för medarbetaren som begär åtkomst"
     """
     HSA-id för medarbetare som begär åtkomst till sammanhållen journalföring.

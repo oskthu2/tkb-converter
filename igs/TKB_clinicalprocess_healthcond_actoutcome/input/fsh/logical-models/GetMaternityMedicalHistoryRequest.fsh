@@ -11,6 +11,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * careUnitHSAid 0..* Identifier "HSA-id för vårdenhet (filter)"
 
 * patientId 1..1 Identifier "Patientens personnummer eller samordningsnummer"

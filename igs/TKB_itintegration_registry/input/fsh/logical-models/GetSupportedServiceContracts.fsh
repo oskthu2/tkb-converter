@@ -10,5 +10,6 @@ Description: """
   (urn:riv:itintegration:registry:GetSupportedServiceContractsResponder:1, GetSupportedServiceContractsResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * serviceContractNamespace 0..* BackboneElement "serviceContractNamespace" "Type which describes a service contract."
   * ServiceContractNamespace 1..1 uri "ServiceContractNamespace" "ServiceContractNamespace"

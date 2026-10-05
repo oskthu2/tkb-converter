@@ -11,6 +11,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "3.2"
 * careUnitHSAid 0..* Identifier "HSA-id för vårdenhet (filter)"
   """
   Filtrering på vårdenhet. Kardinalitet: Valfri, lista.

@@ -5,6 +5,7 @@ CodeSystem: TypeOfExemptionCS
 Id: patientfees-exemption-typeofexemption-cs
 Title: "TypeOfExemption"
 Description: "Koder för TypeOfExemptionEnum i domänschemat."
+* ^version = "1.0.0"
 * ^url = "https://fhir.inera.se/CodeSystem/patientfees-exemption-typeofexemption-cs"
 * ^status = #active
 * ^content = #complete

@@ -5,6 +5,7 @@ CodeSystem: PartCS
 Id: part-cs
 Title: "Part"
 Description: "Kodsystem för parter i intygshanteringsprocessen enligt clinicalprocess:healthcond:certificate."
+* ^version = "4.1.0-rc1"
 * ^url = "https://fhir.inera.se/CodeSystem/part-cs"
 * ^status = #active
 * ^content = #complete

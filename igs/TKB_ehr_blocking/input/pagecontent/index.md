@@ -1,5 +1,9 @@
 # ehr: blocking — Spärrhantering
 
+<!-- tkb-version -->
+**TKB-version:** 3.2.2 · **IG-version:** 3.2.2 · **Källa:** Bitbucket-commit `caadc6edb904`, efter taggen `ehr_blocking_3.2.2`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **ehr: blocking** (Spärrhantering) version 3.2.2.

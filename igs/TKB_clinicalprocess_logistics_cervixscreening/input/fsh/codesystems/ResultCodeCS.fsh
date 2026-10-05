@@ -5,6 +5,7 @@ CodeSystem: ResultCodeCS
 Id: CervixScreening-resultcode-cs
 Title: "ResultCode"
 Description: "Koder för ResultCodeEnum i domänschemat."
+* ^version = "1.0.0-rc4"
 * ^url = "https://fhir.inera.se/CodeSystem/CervixScreening-resultcode-cs"
 * ^status = #active
 * ^content = #complete

@@ -5,6 +5,7 @@ CodeSystem: ResultatkodCS
 Id: dosedispensing-resultatkod-cs
 Title: "Resultatkod"
 Description: "Koder för ResultatkodEnum i domänschemat. Visningstexter ur Pascal – Objekt och felhantering (Objekt_och_felhantering.pdf)."
+* ^version = "1.1.0"
 * ^url = "https://fhir.inera.se/CodeSystem/dosedispensing-resultatkod-cs"
 * ^status = #active
 * ^content = #complete

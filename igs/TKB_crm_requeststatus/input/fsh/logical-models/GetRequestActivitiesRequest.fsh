@@ -11,6 +11,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * careUnitHSAId 0..* Identifier "Filtrering på vårdenhet"
   """
   Begränsar sökning till angiven vårdenhet (accountableCareUnit i svaret).

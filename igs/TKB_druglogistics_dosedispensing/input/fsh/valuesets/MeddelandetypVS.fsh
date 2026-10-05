@@ -6,5 +6,6 @@ ValueSet: MeddelandetypVS
 Id: dosedispensing-meddelandetyp-vs
 Title: "Meddelandetyp"
 Description: "Alla koder i MeddelandetypCS."
+* ^version = "1.1.0"
 * ^status = #active
 * include codes from system MeddelandetypCS

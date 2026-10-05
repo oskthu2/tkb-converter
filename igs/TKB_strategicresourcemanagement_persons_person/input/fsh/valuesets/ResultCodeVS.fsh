@@ -6,5 +6,6 @@ ValueSet: ResultCodeVS
 Id: SPP-resultcode-vs
 Title: "ResultCode"
 Description: "Alla koder i ResultCodeCS."
+* ^version = "5.1.0"
 * ^status = #active
 * include codes from system ResultCodeCS

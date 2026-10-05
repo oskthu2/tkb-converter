@@ -5,5 +5,6 @@ ValueSet: TypeOfPrescriptionVS
 Id: typeofprescription-vs
 Title: "TypeOfPrescription — ValueSet"
 Description: "Tillåtna värden för typeOfPrescription i GetMedicationHistory."
+* ^version = "2.2.1"
 * ^status = #active
 * include codes from system TypeOfPrescriptionCS

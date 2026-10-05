@@ -6,5 +6,6 @@ ValueSet: ResultCodeVS
 Id: resultcode-vs
 Title: "ResultCode — ValueSet"
 Description: "Tillåtna svarskoder för tjänstekontrakt i ehr:patientrelationship."
+* ^version = "1.0.1-snapshot"
 * ^status = #active
 * include codes from system ResultCodeCS

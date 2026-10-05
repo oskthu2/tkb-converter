@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "3.3"
 * intygsId 0..1 Identifier "Unikt ID för det intygsutkast som skapats"
   """
   Returneras om anropet lyckades. Utelämnas vid fel.
@@ -29,6 +30,7 @@ Title: "CreateDraftCertificate — Request"
 Description: "Logisk modell för requestparametrar i CreateDraftCertificate."
 Characteristics: #can-be-target
 
+* ^version = "3.3"
 * intyg 1..1 BackboneElement "Utkast till intyg"
 * intyg.typAvIntyg 1..1 CodeableConcept "Kodat värde som anger intygstypen"
 * intyg.patient 1..1 BackboneElement "Uppgifter om den patient som intyg skapas för"

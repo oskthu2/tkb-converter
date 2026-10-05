@@ -14,6 +14,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * subjectOfCare 1..1 BackboneElement "En persons listningar"
     """
     SubjectOfCare: root-element som beskriver tjänsteval för en person.

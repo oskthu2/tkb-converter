@@ -5,6 +5,7 @@ CodeSystem: AssertionTypeCS
 Id: authorization-consent-assertiontype-cs
 Title: "AssertionType"
 Description: "Koder för AssertionTypeType i domänschemat."
+* ^version = "2.0.4"
 * ^url = "https://fhir.inera.se/CodeSystem/authorization-consent-assertiontype-cs"
 * ^status = #active
 * ^content = #complete

@@ -10,6 +10,7 @@ Description: """
   (urn:riv:supportprocess:logistics:scheduling:GetAvailableDatesResponder:2, GetAvailableDatesResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * availableDate 0..* BackboneElement "availableDate" "availableDate"
   * date 1..1 string "date" "date"
   * noOfTimeslots 1..1 integer "noOfTimeslots" "noOfTimeslots"

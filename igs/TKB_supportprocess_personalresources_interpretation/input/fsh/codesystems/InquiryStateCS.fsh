@@ -6,6 +6,7 @@ CodeSystem: InquiryStateCS
 Id: inquirystate-cs
 Title: "InquiryStateEnum"
 Description: "Status för förfrågan. Enligt supportprocess_personalresources_interpretation_1.0.xsd."
+* ^version = "1.0.0-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/inquirystate-cs"
 * ^status = #active
 * ^content = #complete

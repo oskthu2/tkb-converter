@@ -10,6 +10,7 @@ Description: """
   (urn:riv:infrastructure:directory:synchronization:GetMasterDataChangeSetResponder:1, GetMasterDataChangeSetType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. The organisation number of the careservice provider"
 * masterDataEntity 1..1 BackboneElement "masterDataEntity" "masterDataEntity"
   * cvCode 1..1 string "cvCode" "cvCode Heter code i schemat."

@@ -6,6 +6,7 @@ CodeSystem: AnswerTypeCS
 Id: answertype-cs
 Title: "AnswerType"
 Description: "Kodverk för typ av svar i ett formulär enligt infrastructure:supportservices:forminteraction v2.0."
+* ^version = "2.0.0-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/answertype-cs"
 * ^status = #active
 * ^content = #fragment

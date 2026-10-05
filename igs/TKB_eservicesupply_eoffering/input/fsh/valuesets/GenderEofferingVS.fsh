@@ -6,5 +6,6 @@ ValueSet: GenderEofferingVS
 Id: gender-eoffering-vs
 Title: "Gender (eOffering) — ValueSet"
 Description: "Tillåtna värden för kön (gender) i GetAvailableEServices. 1 = Man, 2 = Kvinna."
+* ^version = "1.0.0-snapshot"
 * ^status = #active
 * include codes from system GenderEofferingCS

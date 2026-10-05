@@ -6,6 +6,7 @@ CodeSystem: ErrorCodeCS
 Id: errorcode-cs
 Title: "ErrorCode — Felkod"
 Description: "Kodverk för felkod i svar (ResultType.errorCode). Används i samtliga kontrakt."
+* ^version = "2.0.0-rc1"
 * ^url = "https://fhir.inera.se/CodeSystem/errorcode"
 * ^status = #active
 * ^content = #complete

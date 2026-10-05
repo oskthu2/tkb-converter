@@ -325,7 +325,15 @@ def generate(pkg_dir: str):
         "abstract": True,
     })
 
-    write("StructureDefinition", base_resource("StructureDefinition"))
+    # version behövs för `* ^version = "x.y"` på logiska modeller (kontraktsversionen).
+    write("StructureDefinition", base_resource("StructureDefinition", extra_elements=[
+        simple_el("StructureDefinition.url", "StructureDefinition.url", "uri"),
+        simple_el("StructureDefinition.version", "StructureDefinition.version", "string"),
+        simple_el("StructureDefinition.name", "StructureDefinition.name", "string"),
+        simple_el("StructureDefinition.title", "StructureDefinition.title", "string"),
+        simple_el("StructureDefinition.status", "StructureDefinition.status", "code"),
+        simple_el("StructureDefinition.description", "StructureDefinition.description", "markdown"),
+    ]))
 
     write("CodeSystem", base_resource("CodeSystem", extra_elements=[
         simple_el("CodeSystem.url", "CodeSystem.url", "uri"),

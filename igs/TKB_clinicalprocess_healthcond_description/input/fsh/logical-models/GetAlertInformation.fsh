@@ -14,6 +14,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * alertInformation 0..* BackboneElement "Uppmärksamhetsinformation" """
     Den uppmärksamhetsinformation som matchar begäran.
     Kardinalitet: Valfri, lista.

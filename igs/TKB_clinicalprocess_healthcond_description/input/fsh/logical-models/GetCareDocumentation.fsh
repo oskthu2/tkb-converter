@@ -26,6 +26,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "3.0"
 * careDocumentation 0..* BackboneElement "Journalanteckning" """
     De anteckningar som matchar begäran. En instans per anteckning.
     Kardinalitet: Valfri, lista.

@@ -10,6 +10,7 @@ Description: """
   (urn:riv:supportprocess:logistics:carelisting:CreateListingResponder:2, CreateListingType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. The region code (länskod)"
 * actor 1..1 BackboneElement "actor" "actor"
   * actorId 1..1 BackboneElement "actorId" "actorId"

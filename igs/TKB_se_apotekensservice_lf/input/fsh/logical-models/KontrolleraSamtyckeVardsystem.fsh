@@ -10,6 +10,7 @@ Description: """
   (urn:riv:se.apotekensservice:lf:KontrolleraSamtyckeVardsystemResponder:1, KontrolleraSamtyckeVardsystemResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * avliden 1..1 boolean "avliden" "Markering om patient är avliden enligt FOLK. Sant om patient är markerad som avliden, annars falskt."
 * samtycke 1..1 integer "samtycke" "Anger om aktuell förskrivare har samtycke av patient. Möjliga värden är: 0 = Samtycke att läsa Läkemedelsförteckningen saknas 1= Samtycke att läsa Läkemedelsförteckningen finns 2 = Samtycke att läsa Läkemedelsförteckningen har återkallats"
 * samtyckesgivare 1..1 string "samtyckesgivare" "Giltigt personnummer för patient vars läkemedelsförteckning skall hämtas."

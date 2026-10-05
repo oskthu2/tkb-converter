@@ -6,5 +6,6 @@ ValueSet: ErrorIdEnumVS
 Id: lifeline-erroridenum-vs
 Title: "Feltyp"
 Description: "Alla koder i ErrorIdEnumCS."
+* ^version = "1.0.0-snapshot"
 * ^status = #active
 * include codes from system ErrorIdEnumCS

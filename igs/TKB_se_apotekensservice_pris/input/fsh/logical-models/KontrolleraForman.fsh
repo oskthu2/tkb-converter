@@ -10,6 +10,7 @@ Description: """
   (urn:riv:se.apotekensservice:pris:KontrolleraFormanResponder:1, KontrolleraFormanResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.1"
 * formansLista 1..* BackboneElement "formansLista" "Lista med förmånskoder per artikel."
   * formanskod 1..1 string "formanskod" "Förmånskod R, U, L, eller F"
   * formansInfoId 1..1 string "formansInfoId" "Id som representerar det id som var satt i motsvarande ArtikelIdentiteterTo. Det vill säga antingen GTIN, Förpackningsid eller Varunr beroende på vad som frågats efter. Heter id i schemat."

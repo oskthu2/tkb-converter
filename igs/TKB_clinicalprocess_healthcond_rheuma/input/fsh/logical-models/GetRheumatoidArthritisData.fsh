@@ -16,6 +16,7 @@ Description: """
   Varje förekomst av rheumatoidArthritisData är ett dokument ur Reuma beslutsstödsjournal eller motsvarande system.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * rheumatoidArthritisData 0..* BackboneElement "Reumatismdata" "Dokument som matchar begäran (RheumatoidArthritisDataType)."
   * rheumatoidArthritisDataHeader 1..1 BackboneElement "Dokumenthuvud" "Basinformation om dokumentet (PatientSummaryHeaderType)."
     * obeys getrheumatoidarthritisdata-nullified-reason

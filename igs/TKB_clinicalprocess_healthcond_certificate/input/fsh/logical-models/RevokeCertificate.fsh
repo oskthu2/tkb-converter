@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.1"
 * result 1..1 BackboneElement "Information om anropets resultat"
 * result.resultCode 1..1 CodeableConcept "Resultatkod (OK/INFO/ERROR)"
 * result.resultCode from ResultkodVS (required)
@@ -25,6 +26,7 @@ Title: "RevokeCertificate — Request"
 Description: "Logisk modell för requestparametrar i RevokeCertificate."
 Characteristics: #can-be-target
 
+* ^version = "2.1"
 * meddelande 0..1 string "Beskrivning av orsak till makuleringen"
 * skickatTidpunkt 1..1 dateTime "Tidpunkt då makuleringen skickades från vården"
 * intygsId 1..1 Identifier "Unikt ID för det intyg som ska makuleras"

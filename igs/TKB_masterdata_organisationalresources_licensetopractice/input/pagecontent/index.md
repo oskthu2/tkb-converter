@@ -1,5 +1,9 @@
 # masterdata: organisationalresources: licensetopractice
 
+<!-- tkb-version -->
+**TKB-version:** 2.0 · **IG-version:** 2.0.0 · **Källa:** Bitbucket-commit `cc58351d9e83`, efter taggen `masterdata.organisationalresources.licensetopractice_2.0`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **masterdata: organisationalresources: licensetopractice** version 2.0.

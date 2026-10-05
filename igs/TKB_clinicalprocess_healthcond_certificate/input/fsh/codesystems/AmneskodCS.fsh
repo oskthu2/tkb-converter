@@ -5,6 +5,7 @@ CodeSystem: AmneskodCS
 Id: amneskod-cs
 Title: "Ämneskod"
 Description: "Kodsystem för ämnen i ärendekommunikation enligt clinicalprocess:healthcond:certificate."
+* ^version = "4.1.0-rc1"
 * ^url = "https://fhir.inera.se/CodeSystem/amneskod-cs"
 * ^status = #active
 * ^content = #complete

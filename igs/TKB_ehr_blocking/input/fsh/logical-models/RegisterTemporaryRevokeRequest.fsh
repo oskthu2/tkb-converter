@@ -8,6 +8,7 @@ Title: "RegisterTemporaryRevoke — Request"
 Description: "Logisk modell för requestparametrar i RegisterTemporaryRevoke."
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * temporaryRevoke 1..1 BackboneElement "Den tillfälliga hävningen som skall registreras"
   * temporaryRevokeId 1..1 string "Unik identifierare (UUID) för tillfällig hävning"
   * blockId 1..1 string "UUID för den spärr som hävs tillfälligt"

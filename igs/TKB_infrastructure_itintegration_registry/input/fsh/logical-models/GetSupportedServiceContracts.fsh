@@ -14,6 +14,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * serviceContractNamespace 0..* uri "Tjänstekontrakt (namnrymd)"
     """
     Tjänstekontrakt som stöds av angiven logisk adress vid tidpunkten för

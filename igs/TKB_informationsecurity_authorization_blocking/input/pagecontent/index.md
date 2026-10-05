@@ -1,5 +1,9 @@
 # informationsecurity: authorization: blocking
 
+<!-- tkb-version -->
+**TKB-version:** 4.0.4 · **IG-version:** 4.0.4 · **Källa:** Bitbucket-tagg `4.0.4`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **informationsecurity: authorization: blocking** (Spärrtjänst) version 4.0.4.

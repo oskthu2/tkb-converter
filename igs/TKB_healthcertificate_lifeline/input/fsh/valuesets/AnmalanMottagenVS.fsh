@@ -6,5 +6,6 @@ ValueSet: AnmalanMottagenVS
 Id: lifeline-anmalanmottagen-vs
 Title: "Anmälan mottagen"
 Description: "Alla koder i AnmalanMottagenCS."
+* ^version = "1.0.0-snapshot"
 * ^status = #active
 * include codes from system AnmalanMottagenCS

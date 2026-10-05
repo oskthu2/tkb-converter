@@ -6,5 +6,6 @@ ValueSet: ResultCodeVS
 Id: authorization-consent-resultcode-vs
 Title: "ResultCode"
 Description: "Alla koder i ResultCodeCS."
+* ^version = "2.0.4"
 * ^status = #active
 * include codes from system ResultCodeCS

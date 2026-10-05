@@ -1,5 +1,9 @@
 # informationsecurity: auditing: log
 
+<!-- tkb-version -->
+**TKB-version:** 2.0.8 · **IG-version:** 2.0.8 · **Källa:** Bitbucket-tagg `2.0.8`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **informationsecurity: auditing: log** (Loggtjänst, Informationssäkerhet: Uppföljning: Åtkomstlogg) version 2.0.8.

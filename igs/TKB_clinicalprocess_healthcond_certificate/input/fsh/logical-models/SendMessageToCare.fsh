@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * result 1..1 BackboneElement "Information om anropets resultat"
 * result.resultCode 1..1 CodeableConcept "Resultatkod (OK/INFO/ERROR)"
 * result.resultCode from ResultkodVS (required)
@@ -25,6 +26,7 @@ Title: "SendMessageToCare — Request"
 Description: "Logisk modell för requestparametrar i SendMessageToCare (meddelande från intygsmottagare till vården)."
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * meddelandeId 1..1 string "Unikt ID för meddelandet (GUID)"
 * referensId 0..1 string "Valfri referens till entitet hos sändande part"
 * skickatTidpunkt 1..1 dateTime "Tidpunkt då meddelandet skickades"

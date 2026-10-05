@@ -6,6 +6,7 @@ CodeSystem: VersionReasonCS
 Id: versionreason-cs
 Title: "codeVersionReason"
 Description: "Versionsorsak enligt Kv e-remiss versionsorsak (codes_2.2.xsd codeVersionReason_values)."
+* ^version = "2.2.0"
 * ^url = "https://fhir.inera.se/CodeSystem/versionreason-cs"
 * ^status = #active
 * ^content = #complete

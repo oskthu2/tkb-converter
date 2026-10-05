@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.1"
 * formTemplates 0..* BackboneElement "Formulärmallar (FormTemplateType)" "De hämtade formulärmallarna."
   * templateId 1..1 string "Mall-id" "Typ av formulär. Kodverk för standardiserade id."
   * templateVersion 1..1 integer "Mallens version" "Versionsnummer för formulärmallen."
@@ -33,6 +34,7 @@ Characteristics: #can-be-target
 
 // ASSUME: Både healthcare_facility_CareUnit och templateId är 0..1, men minst ett måste anges.
 // TKB anger: "Utelämnas healthcare_facility_CareUnit är templateId obligatorisk" (villkorlig kardinalitet).
+* ^version = "2.1"
 * healthcare_facility_CareUnit 0..1 Identifier "Vårdenhetens HSA-id" "Ägaren av formulärmall. Obligatorisk om templateId ej anges."
 * templateId 0..1 string "Mall-id" "Mallens id. Obligatorisk om healthcare_facility_CareUnit ej anges."
 * templateVersion 0..1 integer "Mallversion" "Mallens version. Utelämnas returneras samtliga versioner (ej arkiverade)."

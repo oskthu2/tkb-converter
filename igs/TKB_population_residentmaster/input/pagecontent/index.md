@@ -1,5 +1,9 @@
 # population: residentmaster
 
+<!-- tkb-version -->
+**TKB-version:** 1.2 · **IG-version:** 1.2.0 · **Källa:** Bitbucket-tagg `population_residentmaster_1.2`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **population: residentmaster** version

@@ -1,5 +1,9 @@
 # strategicresourcemanagement: persons: person
 
+<!-- tkb-version -->
+**TKB-version:** 5.1 · **IG-version:** 5.1.0 · **Källa:** Bitbucket-tagg `5.1`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **strategicresourcemanagement: persons: person** (Personuppgiftstjänsten, PU-tjänsten) version 5.1.

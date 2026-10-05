@@ -6,5 +6,6 @@ ValueSet: AtkomsttypVS
 Id: atkomsttyp-vs
 Title: "Atkomsttyp — ValueSet"
 Description: "Tillåtna värden för atkomsttyp enligt AtkomsttypCS."
+* ^version = "1.0.2-snapshot"
 * ^status = #active
 * include codes from system AtkomsttypCS

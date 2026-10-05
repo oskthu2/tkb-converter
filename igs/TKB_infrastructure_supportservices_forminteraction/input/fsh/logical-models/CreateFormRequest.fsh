@@ -14,6 +14,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * healthcareFacilityCareUnit 1..1 string "HSA-id för vårdenhet (ansvarig enhet)"
 * healthcareMedUnit 0..1 string "HSA-id för medicinsk ansvarig klinik/vårdcentral"
 * healthcareCareGiver 0..1 string "HSA-id för ansvarig vårdgivare (landsting/region)"
@@ -43,6 +44,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * resultCode 1..1 string "Svarskod (OK = formulärbegäran registrerad)"
 * comment 0..1 string "Kommentar"
 * formId 0..1 string "Formulär-id (bekräftelse på det ID som skickades i begäran)"

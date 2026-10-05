@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * prescriptionId 1..1 Identifier "Ordinations-id för den ordination som ska raderas"
   """
   Nationell OID för lokala ID:n: 1.2.752.129.2.1.2.1
@@ -28,6 +29,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * resultCode 1..1 string "Resultatkod: OK, ERROR eller INFO"
   """
   OK = operationen genomförd utan fel

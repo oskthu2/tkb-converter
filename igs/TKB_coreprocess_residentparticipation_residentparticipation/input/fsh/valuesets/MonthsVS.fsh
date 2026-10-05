@@ -6,5 +6,6 @@ ValueSet: MonthsVS
 Id: residentparticipation-months-vs
 Title: "Months"
 Description: "Alla koder i MonthsCS."
+* ^version = "1.0.0-rc2"
 * ^status = #active
 * include codes from system MonthsCS

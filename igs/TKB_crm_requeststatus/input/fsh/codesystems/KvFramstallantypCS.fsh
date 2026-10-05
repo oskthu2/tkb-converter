@@ -6,6 +6,7 @@ CodeSystem: KvFramstallantypCS
 Id: kvframstallantyp-cs
 Title: "Kv framställantyp"
 Description: "Kodverk Kv framställantyp — anger typ av remiss/framställan. OID: 1.2.752.129.2.2.2.24."
+* ^version = "2.0.1-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/kvframstallantyp-cs"
 * ^status = #active
 * ^content = #fragment

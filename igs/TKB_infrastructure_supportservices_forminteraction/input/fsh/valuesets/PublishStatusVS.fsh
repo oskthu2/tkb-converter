@@ -5,5 +5,6 @@ ValueSet: PublishStatusVS
 Id: publishstatus-vs
 Title: "PublishStatus — ValueSet"
 Description: "Tillåtna värden för mallens publiceringsstatus enligt KV Publicerings status."
+* ^version = "2.0.0-snapshot"
 * ^status = #active
 * include codes from system PublishStatusCS

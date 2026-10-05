@@ -6,6 +6,7 @@ CodeSystem: DeliveryCodeCS
 Id: deliverycode-cs
 Title: "DeliveryCode"
 Description: "Kodverk för förlossningssätt (DeliveryCodeEnum). Används i GetMaternityMedicalHistory."
+* ^version = "4.2.2"
 * ^url = "https://fhir.inera.se/CodeSystem/deliverycode"
 * ^status = #active
 * ^content = #complete

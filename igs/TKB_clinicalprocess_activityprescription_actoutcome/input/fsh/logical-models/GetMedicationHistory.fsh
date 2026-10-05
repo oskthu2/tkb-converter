@@ -15,6 +15,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.2"
 * medicationMedicalRecord 0..* BackboneElement "Patientens läkemedelshistorik"
   """
   En läkemedelsjournalpost per ordination. En patient kan ha många poster.

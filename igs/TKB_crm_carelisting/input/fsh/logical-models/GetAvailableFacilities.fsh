@@ -14,6 +14,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * healthcareFacilities 1..* BackboneElement "Lista med tillgängliga vårdenheter"
     """
     Facility: lista med tillgängliga vårdenheter i regionen.

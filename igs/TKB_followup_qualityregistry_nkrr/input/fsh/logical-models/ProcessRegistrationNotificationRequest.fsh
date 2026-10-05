@@ -11,6 +11,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * registrationType 0..1 string "Den typ av registrering i kvalitetsregistret som notifieringen avses ge upphov till"
     """
     Den typ av registrering i kvalitetsregistret som notifieringen avses ge upphov till.

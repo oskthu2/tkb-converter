@@ -6,5 +6,6 @@ ValueSet: BestallningsStatusVS
 Id: dosedispensing-bestallningsstatus-vs
 Title: "Beställningsstatus"
 Description: "Alla koder i BestallningsStatusCS."
+* ^version = "1.1.0"
 * ^status = #active
 * include codes from system BestallningsStatusCS

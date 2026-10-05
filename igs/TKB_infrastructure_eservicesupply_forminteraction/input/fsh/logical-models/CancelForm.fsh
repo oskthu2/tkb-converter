@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * resultCode 1..1 CodeableConcept "Resultatkod" "Objekt för att signalera status på operationen."
 * resultCode from ResultCodeVS (required)
 * comment 0..1 string "Kommentar" "Attribut för felsignalering. Skall kunna visas för slutanvändaren."
@@ -22,5 +23,6 @@ Title: "CancelForm — Request"
 Description: "Logisk modell för requestparametrar i CancelForm."
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * formID 1..1 Identifier "Formulär-id" "Formulärets unika id."
 * subjectOfCare 0..1 Identifier "Personnummer" "Starkt autentiserad användares personnummer."

@@ -10,6 +10,7 @@ Description: """
   (urn:riv:informationsecurity:authorization:consent:CheckConsentResponder:2, CheckConsentResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * checkResult 1..1 BackboneElement "checkResult" "Datatyp som anger om det finns ett giltigt samtycke, alternativt intyg om nödsituation, gällande åtkomst för viss aktör. Datatypen utökar datatypen Result."
   * result 1..1 BackboneElement "result" "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes."
     * resultCode 1..1 code "resultCode" "resultCode"

@@ -6,5 +6,6 @@ ValueSet: TypeOfRelativeVS
 Id: masterdata-citizen-patient-typeofrelative-vs
 Title: "Typ av släktrelation"
 Description: "Alla koder i TypeOfRelativeCS."
+* ^version = "1.0.0-rc1.snapshot"
 * ^status = #active
 * include codes from system TypeOfRelativeCS

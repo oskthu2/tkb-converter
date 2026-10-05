@@ -5,5 +5,6 @@ ValueSet: QuestionTypeVS
 Id: questiontype-vs
 Title: "QuestionType — ValueSet"
 Description: "Tillåtna värden för typ av fråga i formulär."
+* ^version = "2.0.0-snapshot"
 * ^status = #active
 * include codes from system QuestionTypeCS

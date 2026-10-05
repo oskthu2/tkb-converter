@@ -37,6 +37,16 @@ curl "https://api.bitbucket.org/2.0/repositories/rivta-domains/{slug}/downloads?
 
 **Val av tagg (Metod A):** Taggar följer inget helt enhetligt namnmönster mellan domäner (t.ex. `2.0`, `4.0`, men även äldre `{domännamn}_{version}_RC{n}`-format och milstolpetaggar som `-M5`/`-M6`). Filtrera bort release candidates (`RC`, `-rc`) och milstolpar (`-M\d`) om en icke-RC-tagg med samma huvudversion finns; välj annars taggen med **högst semver-liknande versionsnummer** (extrahera med regex `(\d+\.\d+(?:\.\d+)?)`), och vid oavgjort, senaste `target.date`. Logga ASSUME om valet är oklart.
 
+**Versionen kommer från taggen (sedan 2026-10-05).** Den tagg (eller commit) du hämtar är källan till IG:ns version, inte ett nummer i TKB-texten. Anteckna den direkt, innan konverteringen:
+
+```bash
+scripts/registry_update.py {domain_id} --set source_tag={tagg} --set source_commit={full commit-hash} \
+  --set source_kind=tag --set domain_version=$(scripts/tkb_version.py --label {tagg}) \
+  --set ig_version=$(scripts/tkb_version.py {tagg})
+```
+
+`tkb_version.py` gör taggen till SemVer: `2.0` → `2.0.0`, `1.0_RC3` → `1.0.0-rc3`, `TD_MONITORING_1_0_0_R` → `1.0.0`. Hämtas en commit utan egen tagg sätts `source_kind=after-tag` (närmaste tidigare tagg i `source_tag`) eller `source_kind=snapshot` (ingen tagg; `ig_version` = dokumentets version + `-snapshot`), och en QUESTIONS-post skrivs. Säger TKB-texten ett annat nummer än taggen (engagementindex: taggen `1.0.10`, texten `1.0.9`) gäller taggen; notera skillnaden i QUESTIONS. Kontraktens versioner tas ur XSD-filnamnen (`{Kontrakt}Responder_{major}.{minor}.xsd`) i samma tagg.
+
 Om Downloads-endpointen (Metod B) undantagsvis returnerar träffar: välj den zip-fil med **högst versionsnummer** i filnamnet (t.ex. `clinicalprocess_healthcond_description_4.0.zip` > `_3.1.zip`), extraherat med regex `_(\d+\.\d+[\.\d]*)\.zip$`.
 
 **Fas 3 — Ladda ner och packa upp:**

@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * healthCareProvider 0..* BackboneElement "Svarsobjekt med vårdgivarinformation"
   * healthCareProviderHsaId 1..1 string "Vårdgivarens HSA-id. Ref. HSA-id (hsaIdentity) [R5]."
   * healthCareProviderName 1..1 string "Vårdgivarens namn. Ref. organisationsnamn (o) resp. enhetsnamn (ou) [R5]."

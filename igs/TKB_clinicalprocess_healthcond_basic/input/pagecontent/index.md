@@ -1,5 +1,9 @@
 # clinicalprocess: healthcond: basic
 
+<!-- tkb-version -->
+**TKB-version:** 2.0 · **IG-version:** 2.0.0-snapshot · **Källa:** Bitbucket-commit `16f8cd696770` (ingen tagg)
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **clinicalprocess: healthcond: basic** version 2.0.

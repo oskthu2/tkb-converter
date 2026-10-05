@@ -1,5 +1,9 @@
 # supportprocess: logistics: carelisting
 
+<!-- tkb-version -->
+**TKB-version:** 2.1 · **IG-version:** 2.1.0 · **Källa:** Bitbucket-tagg `2.1`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **supportprocess: logistics: carelisting** (Listning) version 2.1.

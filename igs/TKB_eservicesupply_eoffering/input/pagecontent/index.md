@@ -1,8 +1,12 @@
 # eservicesupply: eoffering
 
+<!-- tkb-version -->
+**TKB-version:** 1.0.0 · **IG-version:** 1.0.0-snapshot · **Källa:** Bitbucket-commit `4414f8292a4e` (ingen tagg)
+<!-- /tkb-version -->
+
 ## Översikt
 
-FHIR Implementation Guide för tjänstedomänen **eservicesupply: eoffering** version 1.0.
+FHIR Implementation Guide för tjänstedomänen **eservicesupply: eoffering** version 1.0.0.
 Genererad från Ineras Tjänstekontraktsbeskrivning (TKB) v0.3 (2011-04-18).
 
 Domänen **eservicesupply:eoffering** hanterar tjänstekontrakt för att presentera och administrera information om e-tjänsteutbudet.

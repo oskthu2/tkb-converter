@@ -5,5 +5,6 @@ ValueSet: ScopeVS
 Id: scope-vs
 Title: "Scope — ValueSet"
 Description: "Tillåtna värden för scope (omfång) på intyg enligt ScopeCS."
+* ^version = "1.0.1-snapshot"
 * ^status = #active
 * include codes from system ScopeCS

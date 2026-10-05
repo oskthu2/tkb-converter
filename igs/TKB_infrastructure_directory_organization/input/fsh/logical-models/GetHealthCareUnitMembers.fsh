@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.1"
 * healthCareUnitMembers 0..1 BackboneElement "Information om vårdenheten och dess kopplade enheter"
     """
     Aggregerat objekt med vårdenhetens information, tillhörande vårdgivare och lista av kopplade enheter.

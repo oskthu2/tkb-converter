@@ -1,5 +1,9 @@
 # se.apotekensservice: expo — Expeditionsställen och dosmottagare
 
+<!-- tkb-version -->
+**TKB-version:** 2.0_RC1 · **IG-version:** 2.0.0-rc1 · **Källa:** Bitbucket-tagg `2.0_RC1`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **se: apotekensservice: expo** version 2.0. Domänen förvaltas av eHälsomyndigheten (tidigare Apotekens Service AB) och innehåller tjänster för att hämta och uppdatera information om expeditionsställen (apotek), aktörers kontaktuppgifter och dosmottagare.

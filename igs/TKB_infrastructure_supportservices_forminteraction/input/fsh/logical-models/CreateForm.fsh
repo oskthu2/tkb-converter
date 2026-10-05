@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * healthcareFacilityCareUnit 1..1 string "Hsa-Id för vårdenhet som ansvarar för formuläret"
 * subjectOfCare 0..1 string "Personnummer för invånaren (yyyymmddnnnn)"
     """
@@ -34,6 +35,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * form 1..1 BackboneElement "Formulärobjekt (FormType)"
     """
     Det skapade formuläret. Returnerar alltid ett formulär. Om fel uppstår returneras SOAP-fault.

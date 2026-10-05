@@ -5,6 +5,7 @@ CodeSystem: AnmalningsTypCS
 Id: lifeline-anmalningstyp-cs
 Title: "Anmälningstyp"
 Description: "Koder för AnmalningsTyp i domänschemat. Visningstexter ur TKB avsnitt 3.4."
+* ^version = "1.0.0-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/lifeline-anmalningstyp-cs"
 * ^status = #active
 * ^content = #complete

@@ -14,6 +14,7 @@ Description: """
   Logisk modell för begäran i ProcessRequestConfirmation (RIV-TA urn:riv:clinicalprocess:activity:request:ProcessRequestConfirmationResponder:2, element requestConfirmation av typen RequestConfirmationType). Remissmottagaren skickar bekräftelse, besked om vidareskickning, kompletteringsbegäran, avbrott eller avvisning till remittenten. Svaret är enbart ett resultat, se ProcessResult.
 """
 Characteristics: #can-be-target
+* ^version = "2.2"
 * obeys processrequestconfirmation-forwarding-vid
 * requestId 1..1 string "Remiss id" "Den ursprungliga remissens remiss-id. Format Källsystem-Id(HSA-ID)#lokalt-id, mönster (.*)#(.*), maxlängd 256 tecken."
 * requestConfirmationId 1..1 string "Remissbekräftelse id" "Unik identifierare för remissbekräftelsen. Format Källsystem-Id(HSA-ID)#lokalt-id, mönster (.*)#(.*), maxlängd 256 tecken."

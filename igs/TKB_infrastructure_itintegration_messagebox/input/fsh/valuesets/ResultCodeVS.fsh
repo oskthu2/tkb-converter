@@ -6,5 +6,6 @@ ValueSet: ResultCodeVS
 Id: messagebox-resultcode-vs
 Title: "Resultatkod"
 Description: "Alla koder i ResultCodeCS."
+* ^version = "1.0.0"
 * ^status = #active
 * include codes from system ResultCodeCS

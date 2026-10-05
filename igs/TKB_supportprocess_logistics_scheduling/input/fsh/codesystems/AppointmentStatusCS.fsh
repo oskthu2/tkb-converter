@@ -5,6 +5,7 @@ CodeSystem: AppointmentStatusCS
 Id: scheduling-appointmentstatus-cs
 Title: "Bokningens tillstånd (AppointmentStatus)"
 Description: "Koder för AppointmentStatusEnum i domänschemat. Visningstexter ur TKB avsnitt 6.3.4 (GetAppointment, appointment.status)."
+* ^version = "2.0.0-rc1"
 * ^url = "https://fhir.inera.se/CodeSystem/scheduling-appointmentstatus-cs"
 * ^status = #active
 * ^content = #complete

@@ -6,5 +6,6 @@ ValueSet: PhysiciansGlobalVS
 Id: physiciansglobal-vs
 Title: "DoctorsGlobalEnum"
 Description: "Alla koder i PhysiciansGlobalCS."
+* ^version = "1.0.0-snapshot"
 * ^status = #active
 * include codes from system PhysiciansGlobalCS

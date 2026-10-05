@@ -6,6 +6,7 @@ CodeSystem: ResultCodeCS
 Id: resultcode-cs
 Title: "ResultCodeEnum"
 Description: "Resultatkod för anropet (clinicalprocess_activity_request_2.2.xsd ResultCodeEnum)."
+* ^version = "2.2.0"
 * ^url = "https://fhir.inera.se/CodeSystem/resultcode-cs"
 * ^status = #active
 * ^content = #complete

@@ -6,5 +6,6 @@ ValueSet: ResultCodeEnumVS
 Id: masterdata-citizen-patient-resultcodeenum-vs
 Title: "Resultatkod"
 Description: "Alla koder i ResultCodeEnumCS."
+* ^version = "1.0.0-rc1.snapshot"
 * ^status = #active
 * include codes from system ResultCodeEnumCS

@@ -22,6 +22,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.2"
 * residentSekretessmarkering 1..1 boolean "Sekretessmarkering"
     """
     true = personen har sekretessmarkering (J), false = personen har inte

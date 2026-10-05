@@ -1,5 +1,9 @@
 # se.apotekensservice: or — Ordinationer
 
+<!-- tkb-version -->
+**TKB-version:** 7.0 · **IG-version:** 7.0.0 · **Källa:** Bitbucket-tagg `7.0`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **se: apotekensservice: or** version 7.0. Domänen förvaltas av eHälsomyndigheten (tidigare Apotekens Service AB) och innehåller tjänster för att hämta en patients aktuella respektive icke aktuella läkemedelsordinationer (recept och dosordinationer) med tillhörande information om artiklar, uttag, förskrivare och apotek.

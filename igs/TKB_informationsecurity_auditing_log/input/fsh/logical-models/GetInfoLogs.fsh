@@ -10,6 +10,7 @@ Description: """
   (urn:riv:informationsecurity:auditing:log:GetInfoLogsResponder:2, GetInfoLogsResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * infoLogsResult 1..1 BackboneElement "infoLogsResult" "Datatyp som returneras av tjänst. careProviders är ej satt vid eventuella fel."
   * reportResult 1..1 BackboneElement "reportResult" "reportResult"
     * result 1..1 BackboneElement "result" "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En anropande klient skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes."

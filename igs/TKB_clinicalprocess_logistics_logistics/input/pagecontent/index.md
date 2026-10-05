@@ -1,5 +1,9 @@
 # clinicalprocess: logistics: logistics
 
+<!-- tkb-version -->
+**TKB-version:** 3.0.13 · **IG-version:** 3.0.13 · **Källa:** Bitbucket-tagg `3.0.13`
+<!-- /tkb-version -->
+
 ## Översikt
 
 Detta är en FHIR Implementation Guide genererad från TKB-dokumentation

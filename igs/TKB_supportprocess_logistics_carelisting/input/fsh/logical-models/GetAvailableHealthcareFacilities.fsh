@@ -10,6 +10,7 @@ Description: """
   (urn:riv:supportprocess:logistics:carelisting:GetAvailableHealthcareFacilitiesResponder:2, GetAvailableHealthcareFacilitiesResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "2.1"
 * healthcareFacilities 0..* BackboneElement "healthcareFacilities" "Vårdinrättning/vårdenhet som ansvarar för en person som listat sig hos dem. Det är denna inrättning som får ekonomisk ersättning för personen."
   * healthcareFacilityId 1..1 string "healthcareFacilityId" "healthcareFacilityId Heter id i schemat."
   * healthcareFacilityName 1..1 string "healthcareFacilityName" "Namn på vårdenheten. Heter name i schemat."

@@ -10,6 +10,7 @@ Description: """
   (urn:riv:druglogistics:dosedispensing:SokVardandeEnhetResponder:1, SokVardandeEnhetResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * resultatkod 1..1 code "resultatkod" "resultatkod"
 * resultatkod from ResultatkodVS (required)
 * meddelandetext 1..1 string "meddelandetext" "meddelandetext"

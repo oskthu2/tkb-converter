@@ -10,6 +10,7 @@ Description: """
   (urn:riv:supportprocess:logistics:scheduling:GetAvailableTimeslotsResponder:2, GetAvailableTimeslotsResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * timeslot 0..* BackboneElement "timeslot" "timeslot"
   * timeslotId 1..1 string "timeslotId" "timeslotId"
   * timeType 1..1 BackboneElement "timeType" "timeType"

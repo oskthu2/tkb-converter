@@ -5,6 +5,7 @@ CodeSystem: ResultCodeCS
 Id: financial-billing-claim-resultcode-cs
 Title: "Resultatkod"
 Description: "Koder för ResultCodeEnum i domänschemat. Visningstexter ur TKB avsnitt 4.3.1.1."
+* ^version = "1.1.0"
 * ^url = "https://fhir.inera.se/CodeSystem/financial-billing-claim-resultcode-cs"
 * ^status = #active
 * ^content = #complete

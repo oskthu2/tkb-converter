@@ -6,5 +6,6 @@ ValueSet: MaritalStatusCodeVS
 Id: masterdata-citizen-citizen-maritalstatuscode-vs
 Title: "Civilståndskod"
 Description: "Alla koder i MaritalStatusCodeCS."
+* ^version = "2.0.0"
 * ^status = #active
 * include codes from system MaritalStatusCodeCS

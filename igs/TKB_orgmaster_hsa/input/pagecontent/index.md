@@ -1,5 +1,9 @@
 # orgmaster: hsa
 
+<!-- tkb-version -->
+**TKB-version:** 1.0.0 · **IG-version:** 1.0.0-snapshot · **Källa:** Bitbucket-commit `f84df986cac4` (ingen tagg)
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **orgmaster: hsa** (Organisationsinformation) version 1.0.0.

@@ -6,5 +6,6 @@ ValueSet: CausingAgentVS
 Id: causingagent-vs
 Title: "CausingAgent — ValueSet"
 Description: "Tillåtna värden för ProcessingStatus.processingStatusList.lastUnsuccessfulSynchError.causingAgent enligt CausingAgentCS."
+* ^version = "1.1.0"
 * ^status = #active
 * include codes from system CausingAgentCS

@@ -14,6 +14,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * diagnosis 0..* BackboneElement "Diagnos" """
     De diagnoser som matchar begäran. En instans per diagnos.
     Kardinalitet: Valfri, lista.

@@ -11,6 +11,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * subsetIdentity 1..1 string "Identifierare för urvalet"
     """
     Unik identifierare för det terminologiurval som ska hämtas.

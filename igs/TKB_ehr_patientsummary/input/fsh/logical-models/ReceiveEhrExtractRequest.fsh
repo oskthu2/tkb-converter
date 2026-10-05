@@ -10,6 +10,7 @@ Description: """
   (urn:riv:ehr:patientsummary:ReceiveEhrExtractResponder:1, ReceiveEhrExtractType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. the HSA-id of the service producer"
 * ehr_extract 0..* BackboneElement "ehr_extract" "The root node of an EHR Extract."
   * authorising_party 0..1 Identifier "authorising_party" "authorising_party"

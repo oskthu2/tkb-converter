@@ -5,5 +5,6 @@ ValueSet: DeliveryCodeVS
 Id: deliverycode-vs
 Title: "DeliveryCode — ValueSet"
 Description: "Tillåtna värden för förlossningssätt i GetMaternityMedicalHistory."
+* ^version = "4.2.2"
 * ^status = #active
 * include codes from system DeliveryCodeCS

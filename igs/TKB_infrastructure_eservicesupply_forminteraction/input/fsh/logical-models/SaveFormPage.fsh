@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.1"
 * form 0..1 BackboneElement "Formulär (FormType)" "Formuläret med nästa sida eller felindikation. Null indikerar att formuläret är färdigifyllt."
   * formID 1..1 Identifier "Formulär-id" "Formulärets unika ID (GUID)."
   * formStatus 1..1 CodeableConcept "Formulärstatus" "Formulärets status."
@@ -29,6 +30,7 @@ Title: "SaveFormPage — Request"
 Description: "Logisk modell för requestparametrar i SaveFormPage."
 Characteristics: #can-be-target
 
+* ^version = "2.1"
 * formID 1..1 Identifier "Formulär-id" "Formulärets unika id."
 * pageAnswers 1..1 BackboneElement "Svar på sida (PageAnswerType)" "Invånarens besvarade frågor för aktuell sida."
 * subjectOfCare 0..1 Identifier "Personnummer" "Starkt autentiserad användares personnummer."

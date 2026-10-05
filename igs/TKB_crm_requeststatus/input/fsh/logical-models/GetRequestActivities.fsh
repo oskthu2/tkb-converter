@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * requestActivity 0..* BackboneElement "Remisstatus som matchar begäran"
   """
   Lista med statusrader för remisser. En rad per aktivitet/status som en remiss passerat i remissprocessen.

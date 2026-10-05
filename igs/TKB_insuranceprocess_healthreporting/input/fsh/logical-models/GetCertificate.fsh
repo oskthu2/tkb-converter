@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * certificateId 0..1 string "Identitet på intyget (GUID)"
   """
   ASSUME: Tabellen anger 'O' (Obligatorisk?) men det är oklart om båda fälten eller ett av dem krävs.
@@ -29,6 +30,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * certificateMeta 0..1 BackboneElement "Metadata om intyget"
 * certificateMeta.certificateId 0..1 string "Identitet på intyget (GUID)"
 * certificateMeta.certificateType 0..1 string "Typ av intyg"

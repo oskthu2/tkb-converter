@@ -5,6 +5,7 @@ CodeSystem: IdentitetstypCS
 Id: dosedispensing-identitetstyp-cs
 Title: "Identitetstyp"
 Description: "Koder för IdentitetstypEnum i domänschemat. Visningstexter ur Pascal – Objekt och felhantering (Objekt_och_felhantering.pdf)."
+* ^version = "1.1.0"
 * ^url = "https://fhir.inera.se/CodeSystem/dosedispensing-identitetstyp-cs"
 * ^status = #active
 * ^content = #complete

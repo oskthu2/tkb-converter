@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.1"
 * bookingId 0..1 string "Id för skapad bokning"
     """
     Id för skapad bokning. Ska anges vid genomförd bokning (resultCode OK eller INFO), annars inte (ERROR).

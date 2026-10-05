@@ -5,5 +5,6 @@ ValueSet: ResultCodeVS
 Id: result-code-vs
 Title: "ResultCode — ValueSet"
 Description: "Tillåtna värden för resultatkoder i tjänstedomänen crm:scheduling."
+* ^version = "1.1.6"
 * ^status = #active
 * include codes from system ResultCodeCS

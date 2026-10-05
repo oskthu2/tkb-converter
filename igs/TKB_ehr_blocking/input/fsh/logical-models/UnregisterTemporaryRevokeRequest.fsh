@@ -8,4 +8,5 @@ Title: "UnregisterTemporaryRevoke — Request"
 Description: "Logisk modell för requestparametrar i UnregisterTemporaryRevoke."
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * temporaryRevokeId 1..1 string "Unik identifierare (UUID) för den tillfälliga hävning som skall avregistreras."

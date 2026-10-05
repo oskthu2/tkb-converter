@@ -1,5 +1,9 @@
 # supportprocess: logistics: scheduling
 
+<!-- tkb-version -->
+**TKB-version:** 2.0_RC1 · **IG-version:** 2.0.0-rc1 · **Källa:** Bitbucket-tagg `2.0_RC1`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **supportprocess: logistics: scheduling** (Tidbokning) version 2.0.

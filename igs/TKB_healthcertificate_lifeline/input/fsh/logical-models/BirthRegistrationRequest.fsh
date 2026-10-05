@@ -10,6 +10,7 @@ Description: """
   (urn:riv:healthcertificate:lifeline:BirthRegistrationResponder:1, BirthRegistrationTYPE), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress."
 * FodelseanmalanId 1..1 string "FodelseanmalanId" "FodelseanmalanId"
 * Dokumentuppgifter 1..1 BackboneElement "Dokumentuppgifter" "Dokumentuppgifter"

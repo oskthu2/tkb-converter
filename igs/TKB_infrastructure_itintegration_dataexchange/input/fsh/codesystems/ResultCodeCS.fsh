@@ -5,6 +5,7 @@ CodeSystem: ResultCodeCS
 Id: dataexchange-resultcode-cs
 Title: "ResultCode"
 Description: "Koder för ResultCodeEnum i domänschemat."
+* ^version = "1.0.0-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/dataexchange-resultcode-cs"
 * ^status = #active
 * ^content = #complete

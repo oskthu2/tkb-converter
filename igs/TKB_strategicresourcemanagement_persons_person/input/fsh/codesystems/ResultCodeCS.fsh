@@ -5,6 +5,7 @@ CodeSystem: ResultCodeCS
 Id: SPP-resultcode-cs
 Title: "ResultCode"
 Description: "Koder för ResultCodeType i domänschemat."
+* ^version = "5.1.0"
 * ^url = "https://fhir.inera.se/CodeSystem/SPP-resultcode-cs"
 * ^status = #active
 * ^content = #complete

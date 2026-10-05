@@ -17,6 +17,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * patient 1..1 BackboneElement "Patient vars läkemedelsförteckning skall hämtas"
   * patientidentifikation 1..1 BackboneElement "Patientidentifikation"
       """

@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * dispenseAuthorizationId 1..1 Identifier "Tilldelat unikt id för expedieringsunderlaget"
 * medicationDispenseCaseId 1..1 Identifier "Tilldelat unikt id för expedieringsärendet"
 * result 1..1 BackboneElement "Resultat av begäran"

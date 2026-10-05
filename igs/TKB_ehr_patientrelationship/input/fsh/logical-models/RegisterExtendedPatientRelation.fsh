@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * resultCode 1..1 code "Svarskod för åtgärden"
   """
   Anger om registreringen lyckades. Alla koder förutom OK och INFO indikerar att åtgärden ej genomfördes.

@@ -10,6 +10,7 @@ Description: """
   (urn:riv:coreprocess:residentparticipation:residentparticipation:GetCareManagersResponder:1, GetCareManagersType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. The county/region code"
 * patientId 1..1 BackboneElement "patientId" "patientId"
   * root 1..1 string "root" "root"

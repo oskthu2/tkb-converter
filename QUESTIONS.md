@@ -4,6 +4,84 @@ Samlade frågor från konverteringsarbetet TKB → FHIR IG.
 
 ---
 
+## Versionering: IG-version ur Bitbucket-taggen — alla domäner
+
+**Status:** done
+**Senast uppdaterad:** 2026-10-05
+
+IG-versionen följer nu den tagg eller commit som IG:n byggdes från (beslut 2026-10-05, se planen "semver och parallella versioner"). Källan togs ur `zip_url` och `domain-metadata.json`; där den saknades antogs `master` vid domänens `started_at`. Kontraktsversioner togs ur XSD-filnamnen i samma commit.
+
+### Antaganden gjorda (verifiera)
+
+- [ ] **[ASSUME-VER-001]** Domäner byggda från en commit utan egen tagg. `after-tag` får närmaste tidigare taggs version; `snapshot` får dokumentets version med `-snapshot`. Verifiera vid nästa omkonvertering och byt till en riktig tagg när en finns.
+
+  | Domän | Typ | IG-version | Närmaste tagg | Commit | Källa till commit |
+  |---|---|---|---|---|---|
+  | clinicalprocess.activity.actions | after-tag | 1.3.4 | 1.3.4 | abc18c8b1767 | HEAD vid 2026-05-18T11:20:06.462980Z |
+  | clinicalprocess.activityprescription.logistics | snapshot | 1.0.2-snapshot | – | 69b4fefff3e9 | zip |
+  | clinicalprocess.healthcond.basic | snapshot | 2.0.0-snapshot | 2.0_RC4 | 16f8cd696770 | meta commit |
+  | clinicalprocess.healthcond.certificate | after-tag | 4.1.0-rc1 | 4.1_RC1 | be04ee5a3fad | HEAD vid 2026-05-19T00:00:00Z |
+  | clinicalprocess.healthcond.rheuma | snapshot | 1.0.0-snapshot | – | fd5d50cd8a84 | zip |
+  | crm.requeststatus | snapshot | 2.0.1-snapshot | 2.0.1_RC1 | fe868afac3b0 | HEAD vid 2026-03-24T11:01:57Z |
+  | crm.scheduling | after-tag | 1.1.6 | 1.1.6 | d5bfa3372dce | HEAD vid 2026-03-24T10:52:00Z |
+  | ehr.accesscontrol | after-tag | 1.0.6 | 1.0.6 | ce5a101eb0df | HEAD vid 2026-03-24T10:50:00Z |
+  | ehr.blocking | after-tag | 3.2.2 | ehr_blocking_3.2.2 | caadc6edb904 | HEAD vid 2026-04-09T07:00:12Z |
+  | ehr.commission | snapshot | 1.0.0-snapshot | – | b93f022377f8 | HEAD vid 2026-04-09T06:55:00Z |
+  | ehr.patientconsent | snapshot | 1.0.1-snapshot | – | d3d8cd596c49 | HEAD vid 2026-05-19T00:00:00Z |
+  | ehr.patientrelationship | snapshot | 1.0.1-snapshot | – | 75d0292db437 | HEAD vid 2026-05-19T00:00:00Z |
+  | ehr.patientsummary | snapshot | 1.0.0-snapshot | – | 4714d3acbda3 | zip |
+  | eservicesupply.eoffering | snapshot | 1.0.0-snapshot | – | 4414f8292a4e | meta commit |
+  | financial.patientfees.exemption | after-tag | 1.0.0 | 1.0 | fbd046e11e50 | zip |
+  | followup.processdevelopment.infections | snapshot | 1.0.2-snapshot | – | b9bb3968f778 | meta source_commit |
+  | healthcertificate.lifeline | snapshot | 1.0.0-snapshot | – | 6281e725997f | zip |
+  | informationsecurity.authorization.pip | snapshot | 1.0.0-rc1.snapshot | – | 729301865b83 | zip |
+  | infrastructure.directory.authorizationmanagement | after-tag | 2.4.5 | 2.4.5 | 041301035a1a | HEAD vid 2026-05-19T00:00:00Z |
+  | infrastructure.directory.employee | snapshot | 4.0.0-snapshot | 4.0_RC1 | 35b5c769b2bc | HEAD vid 2026-05-19T00:00:00Z |
+  | infrastructure.directory.organization | after-tag | 5.0.0 | 5.0 | 6a2e36035369 | HEAD vid 2026-05-19T00:00:00Z |
+  | infrastructure.informationstructureservice.terminology | snapshot | 1.0.0-snapshot | – | 23f2de6a6b95 | zip |
+  | infrastructure.itintegration.dataexchange | snapshot | 1.0.0-snapshot | – | 7fdd1d090b32 | zip |
+  | infrastructure.supportservices.forminteraction | snapshot | 2.0.0-snapshot | – | b8c52fec96db | HEAD vid 2026-05-19T00:00:00Z |
+  | masterdata.citizen.patient | snapshot | 1.0.0-rc1.snapshot | – | efa4099dabb2 | zip |
+  | masterdata.organisationalresources.licensetopractice | after-tag | 2.0.0 | masterdata.organisationalresources.licensetopractice_2.0 | cc58351d9e83 | HEAD vid 2026-05-19T18:31:52.697559+00:00 |
+  | orgmaster.hsa | snapshot | 1.0.0-snapshot | – | f84df986cac4 | zip |
+  | processmanagement.decisionsupport.insurancemedicinedecisio | after-tag | 1.0.0 | processmanagement_decisionsupport_insurancemedicinedecisionsupport_1.0 | 538dddbc8542 | HEAD vid 2026-05-19T00:00:00Z |
+  | strategicresourcemanagement.organizational.organization | after-tag | 2.0.0-rc1 | 2.0_RC1 | b349285d18c2 | zip |
+  | supportprocess.personalresources.interpretation | snapshot | 1.0.0-snapshot | – | 010d6f367f37 | zip |
+
+- [ ] **[ASSUME-VER-002]** Domäner där källan inte fanns registrerad och `master` vid konverteringsdatumet antogs vara källan. Commit-historiken för de tidiga PR:erna är sammanslagen, så antagandet kan inte kontrolleras mot repot.
+
+  `clinicalprocess.activity.actions`, `clinicalprocess.healthcond.certificate`, `crm.requeststatus`, `crm.scheduling`, `ehr.accesscontrol`, `ehr.blocking`, `ehr.commission`, `ehr.log`, `ehr.patientconsent`, `ehr.patientrelationship`, `followup.qualityregistry.nkrr`, `informatics.terminology`, `infrastructure.directory.authorizationmanagement`, `infrastructure.directory.employee`, `infrastructure.directory.organization`, `infrastructure.eservicesupply.forminteraction`, `infrastructure.supportservices.forminteraction`, `insuranceprocess.healthreporting`, `masterdata.organisationalresources.licensetopractice`, `processmanagement.decisionsupport.insurancemedicinedecisio`
+
+- [ ] **[ASSUME-VER-003]** Taggen och TKB-texten anger olika versionsnummer. Taggen gäller enligt beslutet; TKB-sidorna (kapitel 2) är oförändrade.
+
+  | Domän | Tagg | Version i TKB-texten |
+  |---|---|---|
+  | clinicalprocess.activity.actions | 1.3.4 | 1.3 |
+  | crm.scheduling | 1.1.6 | 1.1 |
+  | ehr.log | 1.2.4 | 1.2.3 |
+  | informatics.terminology | 1.0.1 | 1.4 |
+  | infrastructure.directory.authorizationmanagement | 2.4.5 | 2.4.4 |
+  | infrastructure.eservicesupply.forminteraction | 2.1.1 | 2.1 |
+  | insuranceprocess.healthreporting | insuranceprocess_healthreporting_3.1.1 | 3.1.0 |
+  | itintegration.engagementindex | 1.0.10 | 1.0.9 |
+
+- [ ] **[ASSUME-VER-004]** Kontraktsversioner i registret som rättades eller lades till efter XSD-filnamnen:
+
+  | Domän | Kontrakt | Före | Efter |
+  |---|---|---|---|
+  | clinicalprocess.healthcond.certificate | CreateDraftCertificate | 3.2 | 3.3 |
+  | clinicalprocess.healthcond.certificate | CertificateStatusUpdateForCare | 3.1 | 3.2 |
+  | clinicalprocess.healthcond.certificate | ListCertificatesForCareWithQA | 3.2 | 3.3 |
+  | ehr.blocking | CancelTemporaryExtendedRevoke | – | 2.0 |
+  | infrastructure.directory.authorizationmanagement | GetAdminCredentialsForPerson | 2.4 | 2.0 |
+  | infrastructure.directory.authorizationmanagement | GetAdminCredentialsForPersonIncludingProtectedPerson | 2.4 | 2.0 |
+  | infrastructure.directory.authorizationmanagement | GetHospCredentialsForPerson | 2.0 | 1.0 |
+  | infrastructure.directory.organization | GetHealthCareProvider | – | 1.0 |
+  | infrastructure.eservicesupply.forminteraction | DeleteFormTemplate | – | 1.0 |
+  | infrastructure.eservicesupply.forminteraction | SaveFormTemplate | – | 2.1 |
+
+---
+
 ## followup.qualityregistry.nkrr v1.2.2 — `igs/TKB_followup_qualityregistry_nkrr/`
 
 **Status:** done

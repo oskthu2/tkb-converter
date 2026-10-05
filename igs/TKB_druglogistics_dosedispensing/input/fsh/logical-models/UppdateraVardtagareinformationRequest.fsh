@@ -10,6 +10,7 @@ Description: """
   (urn:riv:druglogistics:dosedispensing:UppdateraVardtagareinformationResponder:1, UppdateraVardtagareinformationType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 BackboneElement "logicalAddress" "SOAP-huvud LogicalAddress. Typen har inga element utöver utökningspunkter."
 * glnkod 1..1 string "glnkod" "glnkod"
 * Behorighetsinformation 1..1 BackboneElement "Behorighetsinformation" "Behorighetsinformation"

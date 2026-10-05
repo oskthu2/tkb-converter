@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * diagnosInformation 0..* BackboneElement "Diagnosinformation"
 * diagnosInformation.informationsId 1..1 Identifier "Identitet för diagnosinformationen"
 * diagnosInformation.giltighetsTidStart 1..1 date "Giltighetstid — starttid"

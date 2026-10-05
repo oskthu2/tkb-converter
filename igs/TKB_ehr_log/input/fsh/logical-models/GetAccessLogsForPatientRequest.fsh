@@ -11,6 +11,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.1"
 * patientId 1..1 Identifier "Patientens personnummer, samordningsnummer eller reservnummer"
 * fromDate 1..1 dateTime "Obligatoriskt startdatum för rapportuttaget"
 * toDate 1..1 dateTime "Obligatoriskt slutdatum för rapportuttaget"

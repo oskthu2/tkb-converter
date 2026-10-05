@@ -5,6 +5,7 @@ CodeSystem: DosunderlagStatusCS
 Id: axs-dosunderlagstatus-cs
 Title: "Dosunderlagets status"
 Description: "Status för dosunderlaget enligt dokumentationen av dosunderlagStatus i HamtaPatientInfoResponder_6.0.xsd."
+* ^version = "7.0.0"
 * ^url = "https://fhir.inera.se/CodeSystem/axs-dosunderlagstatus-cs"
 * ^status = #active
 * ^content = #complete

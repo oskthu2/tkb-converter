@@ -10,6 +10,7 @@ Description: """
   (urn:riv:supportprocess:logistics:scheduling:GetAppointmentsResponder:2, GetAppointmentsType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Verksamhetens HSAID på enhetsnivå"
 * actor 1..1 BackboneElement "actor" "actor"
   * actorId 1..1 BackboneElement "actorId" "actorId"

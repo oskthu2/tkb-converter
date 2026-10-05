@@ -8,6 +8,7 @@ Title: "RegisterBlock — Request"
 Description: "Logisk modell för requestparametrar i RegisterBlock."
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * block 1..1 BackboneElement "Spärrobjektet som skall registreras i nationell spärrtjänst"
   * blockId 1..1 string "Unik identifierare för spärren (UUID)"
   * blockType 1..1 code "Typ av spärr"

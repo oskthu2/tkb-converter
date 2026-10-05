@@ -10,6 +10,7 @@ Description: """
   (urn:riv:supportprocess:logistics:scheduling:GetHealthcareFacilitiesResponder:2, GetHealthcareFacilitiesResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * healthcareFacility 0..* BackboneElement "healthcareFacility" "healthcareFacility"
   * HSAId 1..1 BackboneElement "HSAId" "HSAId"
     * root 1..1 string "root" "root"

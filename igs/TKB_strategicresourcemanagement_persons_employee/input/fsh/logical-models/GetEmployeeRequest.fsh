@@ -10,6 +10,7 @@ Description: """
   (urn:riv:strategicresourcemanagement:persons:employee:GetEmployeeResponder:2, GetEmployeeType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. The HSA-id of the source system"
 * personHsaId 0..1 string "personHsaId" "personHsaId"
 * personalIdentityNumber 0..1 string "personalIdentityNumber" "personalIdentityNumber"

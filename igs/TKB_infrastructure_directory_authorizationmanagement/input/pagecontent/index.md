@@ -1,8 +1,12 @@
 # infrastructure: directory: authorizationmanagement
 
+<!-- tkb-version -->
+**TKB-version:** 2.4.5 · **IG-version:** 2.4.5 · **Källa:** Bitbucket-commit `041301035a1a`, efter taggen `2.4.5`
+<!-- /tkb-version -->
+
 ## Översikt
 
-FHIR Implementation Guide för tjänstedomänen **infrastructure: directory: authorizationmanagement** version 2.4.4.
+FHIR Implementation Guide för tjänstedomänen **infrastructure: directory: authorizationmanagement** version 2.4.5.
 Genererad från Ineras Tjänstekontraktsbeskrivning (TKB).
 
 Domänen innehåller följande tjänstekontrakt:

@@ -10,4 +10,5 @@ Description: """
   (urn:riv:ehr:patientsummary:ReceiveEhrExtractResponder:1, ReceiveEhrExtractResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * success 1..1 boolean "success" "success"

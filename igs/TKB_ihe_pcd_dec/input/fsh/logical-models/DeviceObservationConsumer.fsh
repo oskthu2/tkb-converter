@@ -9,4 +9,5 @@ Description: """
   (urn:ihe:pcd:dec:2010, CommunicatePCDDataResponse).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * communicatePCDDataResponse 1..1 string "CommunicatePCDDataResponse" "HL7 v2.6-kvittens (ACK) i ER7-format enligt Continua Design Guidelines (H.812)."

@@ -6,5 +6,6 @@ ValueSet: AppointmentStatusVS
 Id: scheduling-appointmentstatus-vs
 Title: "Bokningens tillstånd (AppointmentStatus)"
 Description: "Alla koder i AppointmentStatusCS."
+* ^version = "2.0.0-rc1"
 * ^status = #active
 * include codes from system AppointmentStatusCS

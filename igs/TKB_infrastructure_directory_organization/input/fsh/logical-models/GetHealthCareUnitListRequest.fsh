@@ -8,6 +8,7 @@ Title: "GetHealthCareUnitList — Request"
 Description: "Logisk modell för requestparametrar i GetHealthCareUnitList (RIV-TA urn:riv:infrastructure:directory:organization:GetHealthCareUnitList:2)."
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * healthCareProviderHsaId 1..1 string "Vårdgivarens HSA-id. Ref. hsaIdentity [R5]."
     """
     Kardinalitet: Obligatorisk.

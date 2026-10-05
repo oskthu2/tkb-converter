@@ -6,5 +6,6 @@ ValueSet: ActorTypeVS
 Id: carelisting-actortype-vs
 Title: "ActorType"
 Description: "Alla koder i ActorTypeCS."
+* ^version = "2.1.0"
 * ^status = #active
 * include codes from system ActorTypeCS

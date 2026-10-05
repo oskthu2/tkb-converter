@@ -11,6 +11,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.2"
 * personId 1..* Identifier "Personnummer att slå upp"
     """
     Personnummer på format ÅÅÅÅMMDDNNNN. Flera personnummer kan anges i samma fråga

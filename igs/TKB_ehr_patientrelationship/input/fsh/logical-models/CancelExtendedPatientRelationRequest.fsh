@@ -8,6 +8,7 @@ Title: "CancelExtendedPatientRelation — Request"
 Description: "Logisk modell för requestparametrar i CancelExtendedPatientRelation."
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * patientRelationId 1..1 string "Identifierare (UUID) för den patientrelation som skall återkallas (max 36 tecken)"
 
 * cancellationAction 1..1 BackboneElement "Information om begäran och registrering av återkallelsen"

@@ -10,6 +10,7 @@ Description: """
   (urn:riv:supportprocess:logistics:scheduling:GetPractitionersResponder:2, GetPractitionersResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * practitioner 0..* BackboneElement "practitioner" "practitioner"
   * HSAId 1..1 BackboneElement "HSAId" "HSAId"
     * root 1..1 string "root" "root"

@@ -9,6 +9,7 @@ Description: """
   Logisk modell för begäran i ProcessRequestOutcome (RIV-TA urn:riv:clinicalprocess:activity:request:ProcessRequestOutcomeResponder:2, element requestOutcome av typen RequestOutcomeType samt valfri originalRequest). Remissbesvararen skickar delsvar, preliminärt svar eller slutsvar till remittenten. Svaret är enbart ett resultat, se ProcessResult.
 """
 Characteristics: #can-be-target
+* ^version = "2.2"
 * requestId 1..1 string "Remiss id" "Den ursprungliga remissens remiss-id. Format Källsystem-Id(HSA-ID)#lokalt-id, mönster (.*)#(.*), maxlängd 256 tecken."
 * requestOutcomeId 1..1 string "Svar id" "Id för remissvaret. Format Källsystem-Id(HSA-ID)#lokalt-id, mönster (.*)#(.*), maxlängd 256 tecken."
 * typeOfRequestOutcome 1..1 code "Svarstyp" "DSV delsvar, PSV preliminärt svar, SSV slutsvar."

@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * resultCode 1..1 code "Svarskod för åtgärden"
 * resultCode from ResultCodeVS (required)
 * resultText 1..1 string "Optionellt felmeddelande (tomt om resultCode=OK)"

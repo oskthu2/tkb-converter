@@ -5,6 +5,7 @@ CodeSystem: ResultCodeCS
 Id: authorization-blocking-resultcode-cs
 Title: "ResultCode"
 Description: "Koder för ResultCodeType i domänschemat."
+* ^version = "4.0.4"
 * ^url = "https://fhir.inera.se/CodeSystem/authorization-blocking-resultcode-cs"
 * ^status = #active
 * ^content = #complete

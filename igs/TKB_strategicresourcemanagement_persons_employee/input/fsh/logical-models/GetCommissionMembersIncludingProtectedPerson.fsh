@@ -10,6 +10,7 @@ Description: """
   (urn:riv:strategicresourcemanagement:persons:employee:GetCommissionMembersIncludingProtectedPersonResponder:2, GetCommissionMembersIncludingProtectedPersonResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * personInformation 0..* BackboneElement "personInformation" "personInformation"
   * personHsaId 1..1 string "personHsaId" "personHsaId"
   * givenName 0..1 string "givenName" "givenName"

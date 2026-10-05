@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "3.0"
 * healthCareUnitHsaId 1..1 string "HSA-id för vårdenhet (PDL)"
     """
     HSA-id för vårdenhet enligt PDL.

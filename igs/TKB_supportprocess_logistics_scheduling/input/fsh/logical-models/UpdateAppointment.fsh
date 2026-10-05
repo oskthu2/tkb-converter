@@ -10,6 +10,7 @@ Description: """
   (urn:riv:supportprocess:logistics:scheduling:UpdateAppointmentResponder:2, UpdateAppointmentResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * appointmentId 0..1 string "appointmentId" "appointmentId"
 * resultCode 1..1 code "resultCode" "resultCode"
 * resultCode from ResultCodeVS (required)

@@ -10,6 +10,7 @@ Description: """
   (urn:riv:strategicresourcemanagement:organizational:organization:GetHealthCareUnitIncludingManagerResponder:2, GetHealthCareUnitIncludingManagerResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * healthCareUnit 0..1 BackboneElement "healthCareUnit" "healthCareUnit"
   * healthCareUnitMemberHsaId 0..1 string "healthCareUnitMemberHsaId" "healthCareUnitMemberHsaId"
   * healthCareUnitMemberName 0..1 string "healthCareUnitMemberName" "healthCareUnitMemberName"

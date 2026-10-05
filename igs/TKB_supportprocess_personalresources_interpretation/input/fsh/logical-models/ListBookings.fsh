@@ -9,6 +9,7 @@ Description: """
   Logisk modell för svaret i ListBookings (urn:riv:supportprocess:personalresources:interpretation:ListBookingsResponder:1, ListBookingsResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * bookings 0..* BackboneElement "Beställningar" "Beställningar (Booking)."
   * occasion 1..1 BackboneElement "Tolkningstillfälle" "Tolkningstillfälle (BookingOccasion)."
     * invoiceEventId 1..1 string "Faktureringsnummer" "Faktureringsnummer."

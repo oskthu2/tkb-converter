@@ -10,6 +10,7 @@ Description: """
   (urn:riv:se.apotekensservice:expo:HamtaApoteksInfoResponder:1, HamtaApoteksInfoResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * apoteksinformationLista 1..* BackboneElement "apoteksinformationLista" "Lista innehållande ett eller flera Apoteksinformation."
   * aktorsnamn 0..1 string "aktorsnamn" "Officiellt namn för aktör"
   * aktorsorgnr 0..1 string "aktorsorgnr" "Aktörens organisationsnummer. (xs:long i schemat.)"

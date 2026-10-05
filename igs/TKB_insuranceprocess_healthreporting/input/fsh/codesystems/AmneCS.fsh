@@ -5,6 +5,7 @@ CodeSystem: AmneCS
 Id: amne-cs
 Title: "Amne"
 Description: "Kodverk för ämne i fråge/svar-interaktionerna i tjänstedomänen insuranceprocess:healthreporting."
+* ^version = "3.1.1"
 * ^url = "https://fhir.inera.se/CodeSystem/amne-cs"
 * ^status = #active
 * ^content = #fragment

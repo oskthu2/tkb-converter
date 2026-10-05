@@ -5,6 +5,7 @@ CodeSystem: RelationshipStatusCS
 Id: masterdata-citizen-citizen-relationshipstatus-cs
 Title: "Statuskod för relation"
 Description: "Koder för RelationshipStatusType i domänschemat. Visningstexter ur TKB kapitel 7 och domänschemats annoteringar."
+* ^version = "2.0.0"
 * ^url = "https://fhir.inera.se/CodeSystem/masterdata-citizen-citizen-relationshipstatus-cs"
 * ^status = #active
 * ^content = #complete

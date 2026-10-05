@@ -8,6 +8,7 @@ Title: "UpdateBooking — Request"
 Description: "Logisk modell för requestparametrar i UpdateBooking."
 Characteristics: #can-be-target
 
+* ^version = "1.1"
 * requestedTimeslot 1..1 BackboneElement "Ny tidsinformation (TimeslotType)"
     """
     Ny tidsinformation för ombokningen.

@@ -8,6 +8,7 @@ Title: "GetLogsForPatient — Request"
 Description: "Logisk modell för requestparametrar i GetLogsForPatient."
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * careProviderId 1..1 Identifier "Vårdgivare som är ägare till loggposter"
 * patientId 1..1 Identifier "Patientens personnummer eller samordningsnummer"
 * careUnitId 0..1 Identifier "HSA-id för specifik vårdenhet (valfritt filter)"

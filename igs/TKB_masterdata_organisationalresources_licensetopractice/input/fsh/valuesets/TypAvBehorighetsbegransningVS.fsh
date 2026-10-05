@@ -5,5 +5,6 @@ ValueSet: TypAvBehorighetsbegransningVS
 Id: typ-av-behorighetsbegransning-vs
 Title: "Typ av behörighetsbegränsning — ValueSet"
 Description: "Tillåtna värden för typ av behörighetsbegränsning (OID: 1.2.752.116.3.1.5)."
+* ^version = "2.0.0"
 * ^status = #active
 * include codes from system TypAvBehorighetsbegransningCS

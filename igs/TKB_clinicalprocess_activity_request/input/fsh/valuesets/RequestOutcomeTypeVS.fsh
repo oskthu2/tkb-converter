@@ -6,5 +6,6 @@ ValueSet: RequestOutcomeTypeVS
 Id: requestoutcometype-vs
 Title: "codeRequestOutcomeType"
 Description: "Alla koder i RequestOutcomeTypeCS."
+* ^version = "2.2.0"
 * ^status = #active
 * include codes from system RequestOutcomeTypeCS

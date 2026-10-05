@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.1"
 * timeslotDetail 0..* BackboneElement "Lista med tillgängliga tider (TimeslotType)"
     """
     Lista med tillgängliga tider.

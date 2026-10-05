@@ -5,6 +5,7 @@ CodeSystem: StatuskodCS
 Id: statuskod-cs
 Title: "Statuskod"
 Description: "Kodsystem för intygsstatus i SetCertificateStatus och GetCertificate enligt clinicalprocess:healthcond:certificate."
+* ^version = "4.1.0-rc1"
 * ^url = "https://fhir.inera.se/CodeSystem/statuskod-cs"
 * ^status = #active
 * ^content = #complete

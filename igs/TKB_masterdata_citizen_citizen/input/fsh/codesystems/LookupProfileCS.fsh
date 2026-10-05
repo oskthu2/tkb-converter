@@ -5,6 +5,7 @@ CodeSystem: LookupProfileCS
 Id: masterdata-citizen-citizen-lookupprofile-cs
 Title: "Profil"
 Description: "Koder för LookupProfileType i domänschemat. Visningstexter ur TKB kapitel 7 och domänschemats annoteringar."
+* ^version = "2.0.0"
 * ^url = "https://fhir.inera.se/CodeSystem/masterdata-citizen-citizen-lookupprofile-cs"
 * ^status = #active
 * ^content = #complete

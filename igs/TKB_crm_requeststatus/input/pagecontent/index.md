@@ -1,5 +1,9 @@
 # crm: requeststatus
 
+<!-- tkb-version -->
+**TKB-version:** 2.0.1 · **IG-version:** 2.0.1-snapshot · **Källa:** Bitbucket-commit `fe868afac3b0` (ingen tagg)
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **crm: requeststatus** version 2.0.1.

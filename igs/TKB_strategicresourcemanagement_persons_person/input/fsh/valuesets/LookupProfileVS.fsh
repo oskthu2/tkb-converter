@@ -6,5 +6,6 @@ ValueSet: LookupProfileVS
 Id: SPP-lookupprofile-vs
 Title: "LookupProfile"
 Description: "Alla koder i LookupProfileCS."
+* ^version = "5.1.0"
 * ^status = #active
 * include codes from system LookupProfileCS

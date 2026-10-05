@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * medicationListVersion 1..1 Identifier "Version på patientens samlade läkemedelslista"
     """
     Unik version för patientens aktuella läkemedelslista.

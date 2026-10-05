@@ -21,6 +21,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * resultCode 1..1 code "Resultatkod"
     """
     Statuskod som anger utfallet av notifieringsoperationen.

@@ -6,6 +6,7 @@ CodeSystem: AssessmentCategoryCS
 Id: assessmentcategory-cs
 Title: "AssessmentCategory"
 Description: "Bedömningskategori för funktionsstatus. Tillåtna värden är 'pad-pad' (PADL-bedömning) och 'fun-fun' (funktionsnedsättningsbedömning). Definierat i enum XSD v2.1 för domänen."
+* ^version = "3.0.5"
 * ^url = "https://fhir.inera.se/clinicalprocess-healthcond-description/CodeSystem/assessmentcategory-cs"
 * ^status = #active
 * ^content = #complete

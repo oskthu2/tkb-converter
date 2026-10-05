@@ -5,6 +5,7 @@ CodeSystem: HospOperationCS
 Id: hosp-operation-cs
 Title: "HOSP Operation"
 Description: "Kodverk för operation i HandleHospCertificationPerson. Anger om en person ska läggas till eller tas bort från utlämningsförfrågningar av HOSP-information."
+* ^version = "2.4.5"
 * ^url = "https://fhir.inera.se/CodeSystem/hosp-operation-cs"
 * ^status = #active
 * ^content = #complete

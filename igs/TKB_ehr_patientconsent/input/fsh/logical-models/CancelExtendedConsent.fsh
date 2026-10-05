@@ -16,6 +16,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * result 1..1 BackboneElement "Status för om återkallningen utfördes"
   * resultCode 1..1 CodeableConcept "Svarskod"
   * resultCode from ResultCodeVS (required)

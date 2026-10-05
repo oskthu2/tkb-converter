@@ -6,6 +6,7 @@ CodeSystem: ResultCodeCS
 Id: resultcode-cs
 Title: "resultCodeEnum"
 Description: "Kodverk resultCodeEnum enligt clinicalprocess_activityprescription_logistics_1.0.xsd. Resultatkod för anropet."
+* ^version = "1.0.2-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/resultcode-cs"
 * ^status = #active
 * ^content = #complete

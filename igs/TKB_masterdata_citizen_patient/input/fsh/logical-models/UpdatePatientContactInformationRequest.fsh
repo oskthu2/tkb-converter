@@ -10,6 +10,7 @@ Description: """
   (urn:riv:masterdata:citizen:patient:UpdatePatientContactInformationResponder:1, UpdatePatientContactInformationType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress."
 * editor 1..1 BackboneElement "editor" "editor"
   * root 1..1 string "root" "root"

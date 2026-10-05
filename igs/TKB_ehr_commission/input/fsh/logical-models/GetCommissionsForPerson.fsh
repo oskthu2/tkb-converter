@@ -21,6 +21,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * result 1..1 BackboneElement "Resultatkod och valfritt felmeddelande"
     """
     Datatyp ResultType — returneras som generellt svar.

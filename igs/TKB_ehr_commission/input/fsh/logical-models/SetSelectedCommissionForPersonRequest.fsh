@@ -14,6 +14,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * personalHsaId 0..1 string "HSA-id för den aktör vars uppdragsval ska sättas"
     """
     HSA-id för den person vars medarbetaruppdragsval ska registreras.

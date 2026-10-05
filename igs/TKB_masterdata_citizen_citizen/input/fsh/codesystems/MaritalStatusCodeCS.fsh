@@ -5,6 +5,7 @@ CodeSystem: MaritalStatusCodeCS
 Id: masterdata-citizen-citizen-maritalstatuscode-cs
 Title: "Civilståndskod"
 Description: "Koder för MaritalStatusCodeType i domänschemat. Visningstexter ur TKB kapitel 7 och domänschemats annoteringar."
+* ^version = "2.0.0"
 * ^url = "https://fhir.inera.se/CodeSystem/masterdata-citizen-citizen-maritalstatuscode-cs"
 * ^status = #active
 * ^content = #complete

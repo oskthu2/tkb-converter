@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.1"
 * form 1..1 BackboneElement "Formulär (FormType)" "Skapat formulär med grundläggande information och egenskaper."
   * healthcare_CareGiver 0..1 Identifier "Enhets-id vårdgivare" "Ansvarig vårdgivare (huvudman). HSA-id."
   * healthcare_MedUnit 0..1 Identifier "Enhets-id medicinskt ansvarig" "Medicinsk ansvarig klinik/vårdcentral. HSA-id."
@@ -38,6 +39,7 @@ Title: "CreateForm — Request"
 Description: "Logisk modell för requestparametrar i CreateForm."
 Characteristics: #can-be-target
 
+* ^version = "2.1.1"
 * healthcare_Facility_CareUnit 1..1 Identifier "Vårdenhetens HSA-id" "Hsa-Id (Vårdenhet/enhets-id). T.ex. se2321000016-1hz3."
 * subjectOfCare 0..1 Identifier "Personnummer" "Starkt autentiserad användares personnummer. Tomt fält indikerar anonym användare."
 * templateId 1..1 string "Mall-id" "Mallid för den formulärmall som skall användas."

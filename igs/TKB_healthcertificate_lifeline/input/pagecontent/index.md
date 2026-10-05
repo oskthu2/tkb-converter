@@ -1,5 +1,9 @@
 # healthcertificate: lifeline
 
+<!-- tkb-version -->
+**TKB-version:** 1.0 · **IG-version:** 1.0.0-snapshot · **Källa:** Bitbucket-commit `6281e725997f` (ingen tagg)
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **healthcertificate: lifeline** (Elektronisk Födelseanmälan, eFA) version 1.0.

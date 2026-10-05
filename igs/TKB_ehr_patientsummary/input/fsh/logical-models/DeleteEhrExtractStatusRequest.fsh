@@ -10,6 +10,7 @@ Description: """
   (urn:riv:ehr:patientsummary:DeleteEhrExtractInitiator:1, DeleteEhrExtractStatusType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. the HSA-id of the service producer"
 * parameters 0..* BackboneElement "parameters" "parameters"
   * parameterCode 0..1 CodeableConcept "parameterCode" "parameterCode Heter code i schemat."

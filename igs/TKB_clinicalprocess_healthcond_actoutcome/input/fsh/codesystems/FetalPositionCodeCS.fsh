@@ -6,6 +6,7 @@ CodeSystem: FetalPositionCodeCS
 Id: fetalpositioncode-cs
 Title: "FetalPositionCode"
 Description: "Kodverk för fosterläge (FetalPositionCodeEnum). Används i GetMaternityMedicalHistory."
+* ^version = "4.2.2"
 * ^url = "https://fhir.inera.se/CodeSystem/fetalpositioncode"
 * ^status = #active
 * ^content = #complete

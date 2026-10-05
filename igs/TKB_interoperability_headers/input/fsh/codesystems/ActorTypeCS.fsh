@@ -6,6 +6,7 @@ CodeSystem: ActorTypeCS
 Id: actortype-cs
 Title: "ActorType"
 Description: "Kodverk ActorTypeEnum enligt interoperability_headers_1.1.xsd (urn:riv:interoperability:headers:1). Anger vilken typ av aktör som anges i Actor."
+* ^version = "1.1.0"
 * ^url = "https://fhir.inera.se/CodeSystem/actortype-cs"
 * ^status = #active
 * ^content = #complete

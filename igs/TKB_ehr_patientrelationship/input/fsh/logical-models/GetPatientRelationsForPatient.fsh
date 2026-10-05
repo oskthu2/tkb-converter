@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * result 1..1 BackboneElement "Svarskod och eventuellt resultatmeddelande"
   """
   Innehåller resultCode och resultText. Alla koder förutom OK och INFO indikerar att åtgärden ej genomfördes.

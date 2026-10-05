@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.1"
 * resultCode 1..1 CodeableConcept "Resultatkod" "Signalerar status på operationen (OK, INFO, ERROR)."
 * resultCode from ResultCodeVS (required)
 * comment 0..1 string "Kommentar" "Attribut för felsignalering. Skall kunna visas för slutanvändaren."
@@ -23,6 +24,7 @@ Title: "SaveFormTemplate — Request"
 Description: "Logisk modell för requestparametrar i SaveFormTemplate."
 Characteristics: #can-be-target
 
+* ^version = "2.1"
 * formTemplate 1..1 BackboneElement "Formulärmall"
     """
     Objektet innehåller formulärmallen som ska sparas. Källdokumentet specificerar

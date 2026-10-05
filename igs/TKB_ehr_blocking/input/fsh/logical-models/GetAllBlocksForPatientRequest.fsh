@@ -8,6 +8,7 @@ Title: "GetAllBlocksForPatient — Request"
 Description: "Logisk modell för requestparametrar i GetAllBlocksForPatient."
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * patientId 1..1 string "Patientens personnummer eller samordningsnummer vars spärrar skall hämtas."
 * careProviderIds 0..* string "HSA-id på de vårdgivare vars spärrar skall hämtas. Om utelämnat hämtas alla."
 * createdOnOrAfter 0..1 dateTime "Startdatum för inkrementell hämtning."

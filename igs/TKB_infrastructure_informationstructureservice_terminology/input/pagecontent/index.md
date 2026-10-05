@@ -1,5 +1,9 @@
 # infrastructure: informationstructureservice: terminology
 
+<!-- tkb-version -->
+**TKB-version:** PA1 · **IG-version:** 1.0.0-snapshot · **Källa:** Bitbucket-commit `23f2de6a6b95` (ingen tagg)
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **infrastructure: informationstructureservice: terminology** (Terminologitjänst) version 1.0.0.

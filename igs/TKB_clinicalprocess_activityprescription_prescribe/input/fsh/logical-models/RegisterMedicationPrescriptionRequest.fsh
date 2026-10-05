@@ -10,6 +10,7 @@ Title: "RegisterMedicationPrescription — Request"
 Description: "Logisk modell för requestparametrar i RegisterMedicationPrescription."
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * patientInformation 1..1 BackboneElement "Patientinformation (personnummer eller demografiska uppgifter)"
     """
     Antingen patientId eller kombinationen givenName+familyName+dateOfBirth måste anges.

@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.1"
 * performerInfos 0..* BackboneElement "Lista med medarbetare"
     """
     Lista med medarbetare (PerformerInfoType).

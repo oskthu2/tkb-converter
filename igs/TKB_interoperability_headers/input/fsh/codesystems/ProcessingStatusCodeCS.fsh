@@ -6,6 +6,7 @@ CodeSystem: ProcessingStatusCodeCS
 Id: processingstatuscode-cs
 Title: "ProcessingStatusCode"
 Description: "Kodverk StatusCodeEnum enligt interoperability_headers_1.1.xsd (urn:riv:interoperability:headers:1). Beskriver kvaliteten på de uppgifter som en aggregerande tjänst returnerat för en logisk adress."
+* ^version = "1.1.0"
 * ^url = "https://fhir.inera.se/CodeSystem/processingstatuscode-cs"
 * ^status = #active
 * ^content = #complete

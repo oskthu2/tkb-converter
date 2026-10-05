@@ -5,6 +5,7 @@ CodeSystem: ResultCodeEnumCS
 Id: lifeline-resultcodeenum-cs
 Title: "Resultatkod"
 Description: "Koder för ResultCodeEnumType i domänschemat. Visningstexter ur TKB avsnitt 2.2."
+* ^version = "1.0.0-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/lifeline-resultcodeenum-cs"
 * ^status = #active
 * ^content = #complete

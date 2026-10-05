@@ -1,5 +1,9 @@
 # infrastructure: itintegration: messagebox
 
+<!-- tkb-version -->
+**TKB-version:** 1.0 · **IG-version:** 1.0.0 · **Källa:** Bitbucket-tagg `infrastructure_itintegration_messagebox_1.0`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **infrastructure: itintegration: messagebox** (Meddelandetjänst) version 1.0.0.

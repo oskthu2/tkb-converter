@@ -6,5 +6,6 @@ ValueSet: TypeOfTelecomPatientVS
 Id: masterdata-citizen-patient-typeoftelecompatient-vs
 Title: "Typ av telekommunikation (patient)"
 Description: "Alla koder i TypeOfTelecomPatientCS."
+* ^version = "1.0.0-rc1.snapshot"
 * ^status = #active
 * include codes from system TypeOfTelecomPatientCS

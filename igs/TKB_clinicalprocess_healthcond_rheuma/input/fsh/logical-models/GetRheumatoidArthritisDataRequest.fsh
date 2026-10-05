@@ -10,6 +10,7 @@ Description: """
   (RIV-TA urn:riv:clinicalprocess:healthcond:rheuma:GetRheumatoidArthritisDataResponder:1, GetRheumatoidArthritisDataType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * careUnitHSAId 0..* Identifier "PDL-enhet" "Filtrering på PDL-enhet, motsvarar healthcareProfessionalCareUnitHSAId i svaret."
 * patientId 1..1 Identifier "Patient-id" "Patientens identifierare. value = id (12 tecken utan avskiljare); system = OID för typ av identifierare: 1.2.752.129.2.1.3.1 (personnummer), 1.2.752.129.2.1.3.3 (samordningsnummer) eller lokalt reservnummer, t.ex. SLL 1.2.752.97.3.1.3."
 * timePeriod 0..1 Period "Tidsintervall" "Endast svar där authorTime eller signatureTime ligger helt eller delvis inom intervallet returneras. start och end anges båda (ÅÅÅÅMMDD). TKB-tabellen kallar fältet datePeriod."

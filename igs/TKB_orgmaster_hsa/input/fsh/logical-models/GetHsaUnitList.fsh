@@ -10,6 +10,7 @@ Description: """
   (urn:riv:orgmaster:hsa:GetHsaUnitListResponder:1, GetHsaUnitListResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * UnitList 0..1 BackboneElement "UnitList" "UnitList"
   * unitListUnit 0..* BackboneElement "unitListUnit" "unitListUnit"
     * hsaIdentity 1..1 string "hsaIdentity" "hsaIdentity"

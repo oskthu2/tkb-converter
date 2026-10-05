@@ -10,6 +10,7 @@ Description: """
   (urn:riv:se.apotekensservice:or:HamtaAktuellaOrdinationerResponder:5, HamtaAktuellaOrdinationerResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "5.2"
 * apoteksInformationLista 0..* BackboneElement "apoteksInformationLista" "Lista med apotek därifrån förändringar eller skapande utförts på/av ordinationerna."
   * aktorsnamn 0..1 string "aktorsnamn" "Officiellt namn för aktör"
   * aktorsorgnr 0..1 string "aktorsorgnr" "Aktörens organisationsnummer."

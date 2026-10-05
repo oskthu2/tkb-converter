@@ -9,6 +9,7 @@ Description: """
   Logisk modell för begäran i AnswerInquiry (urn:riv:supportprocess:personalresources:interpretation:AnswerInquiryResponder:1, AnswerInquiryType). Tolkförmedlingen besvarar en förfrågan om tolkuppdrag. Svaret beskrivs av InterpretationResult.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * inquiryResponse 1..1 BackboneElement "Svar på förfrågan" "Svar på förfrågan (InquiryResponse)."
   * inquiryId 1..1 positiveInt "Förfrågans id" "Id för förfrågan."
   * round 1..1 positiveInt "Utskicksrunda" "1 = första rundan, 2 = första påminnelserundan osv."

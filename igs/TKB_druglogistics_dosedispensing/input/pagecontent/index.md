@@ -1,5 +1,9 @@
 # druglogistics: dosedispensing — Dosdispensering
 
+<!-- tkb-version -->
+**TKB-version:** 1.1.0 · **IG-version:** 1.1.0 · **Källa:** Bitbucket-tagg `TD_DRUGLOGISTICS_DOSEDISPENSING_1_1_0`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **druglogistics: dosedispensing** version 1.1.0. Domänen innehåller tjänster mellan vårdsystem och dosapotek (Pascal/IOR-tjänsterna): registrera och uppdatera vårdtagare för dos, hämta vårdtagarinformation, beställa, hämta och avbeställa originalförpackningar, hämta dosapotekets lokala produktsortiment, söka vårdande enhet samt skicka, hämta och uppdatera status på meddelanden mellan vård och dosapotek.

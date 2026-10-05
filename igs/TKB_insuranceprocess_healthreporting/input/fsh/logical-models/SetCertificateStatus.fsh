@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * certificateId 1..1 string "Identitet på intyget (GUID)"
   """
   ASSUME: Tabellrubriken är förväxlad med nationalIdentityNumber i källdokumentet.
@@ -34,6 +35,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * result 1..1 BackboneElement "Resultatinformation"
 * result.resultCode 1..1 string "Resultatkod (OK, ERROR, INFO)"
 * result.infoText 0..1 string "Extra information om anropets utgång"

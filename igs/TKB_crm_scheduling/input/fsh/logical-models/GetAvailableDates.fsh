@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.1"
 * performerAvailabilityByDate 0..* BackboneElement "Lista med tillgängliga tider per datum"
     """
     Lista med tillgängliga tider (PerformerAvailabilityByDateType).

@@ -11,6 +11,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * careUnitHSAId 0..* Identifier "HSA-id för PDL-enhet (filter)"
   """
   Filtrering på PDL-enhet. Kardinalitet: Valfri, lista.

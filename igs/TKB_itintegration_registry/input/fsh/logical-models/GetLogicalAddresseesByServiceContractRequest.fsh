@@ -10,6 +10,7 @@ Description: """
   (urn:riv:itintegration:registry:GetLogicalAddresseesByServiceContractResponder:1, GetLogicalAddresseesByServiceContractType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. The hsaid of the organisation owning the repository to be queried."
 * serviceConsumerHsaId 1..1 string "serviceConsumerHsaId" "serviceConsumerHsaId"
 * serviceContractNameSpace 1..1 BackboneElement "serviceContractNameSpace" "Type which describes a service contract."

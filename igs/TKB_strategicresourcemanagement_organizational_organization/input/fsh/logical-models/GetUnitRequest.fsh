@@ -10,6 +10,7 @@ Description: """
   (urn:riv:strategicresourcemanagement:organizational:organization:GetUnitResponder:2, GetUnitType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. The HSA-id of the source system"
 * unitHsaId 1..1 string "unitHsaId" "unitHsaId"
 * searchBase 0..1 string "searchBase" "searchBase"

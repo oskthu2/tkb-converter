@@ -5,6 +5,7 @@ CodeSystem: FolkStatusKodCS
 Id: axs-folkstatuskod-cs
 Title: "Statuskod för person i FOLK"
 Description: "Status på personen i FOLK, mappad från träffkoder i FOLK, enligt dokumentationen av statusKod i se.apotekensservice_axs_5.0.xsd."
+* ^version = "7.0.0"
 * ^url = "https://fhir.inera.se/CodeSystem/axs-folkstatuskod-cs"
 * ^status = #active
 * ^content = #complete

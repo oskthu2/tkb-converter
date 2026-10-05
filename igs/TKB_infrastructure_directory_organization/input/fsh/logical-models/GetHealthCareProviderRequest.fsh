@@ -13,6 +13,7 @@ Title: "GetHealthCareProvider — Request"
 Description: "Logisk modell för requestparametrar i GetHealthCareProvider (RIV-TA urn:riv:infrastructure:directory:organization:GetHealthCareProvider:1)."
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * healthCareProviderHsaId 0..1 string "HSA-id för en vårdgivare enligt PDL. Ref. HSA-id (hsaIdentity) [R5]."
   * obeys gethealthcareprovider-id-or-orgno
 * healthCareProviderOrgNo 0..1 string "Organisationsnummer för en vårdgivare."

@@ -6,5 +6,6 @@ ValueSet: ActorTypeVS
 Id: patientfees-exemption-actortype-vs
 Title: "ActorType"
 Description: "Alla koder i ActorTypeCS."
+* ^version = "1.0.0"
 * ^status = #active
 * include codes from system ActorTypeCS

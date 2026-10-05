@@ -10,6 +10,7 @@ Description: """
   (urn:riv:healthcertificate:lifeline:BirthRegistrationResponder:1, BirthRegistrationResponseTYPE).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * FodelsesvarId 1..1 string "FodelsesvarId" "FodelsesvarId"
 * AnmalningsId 1..1 string "AnmalningsId" "AnmalningsId"
 * PersonNummer 0..1 string "PersonNummer" "Tilldelat personnummer"

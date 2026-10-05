@@ -10,6 +10,7 @@ Description: """
   (urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetOfferingCataloguesResponder:2, GetOfferingCataloguesResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * offeringCatalogue 0..* BackboneElement "offeringCatalogue" "offeringCatalogue"
   * providingOrganization 1..* BackboneElement "providingOrganization" "providingOrganization"
     * providingOrganizationId 1..1 BackboneElement "providingOrganizationId" "providingOrganizationId Heter id i schemat."

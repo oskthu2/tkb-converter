@@ -10,6 +10,7 @@ Description: """
   (urn:riv:informationsecurity:auditing:log:GetLogsByOrderResponder:1, GetLogsByOrderType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Ineras nationella HSA-id SE165565594230-1000."
 * careProviderId 1..1 string "careProviderId" "careProviderId"
 * careUnitId 0..* string "careUnitId" "careUnitId"

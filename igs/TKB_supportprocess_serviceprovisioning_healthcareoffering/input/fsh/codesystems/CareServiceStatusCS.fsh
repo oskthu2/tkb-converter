@@ -5,6 +5,7 @@ CodeSystem: CareServiceStatusCS
 Id: healthcareoffering-careservicestatus-cs
 Title: "Status för vård- och omsorgstjänst (CareServiceStatus)"
 Description: "Koder för CareServiceStatusEnum i domänschemat. Visningstexter ur TKB avsnitt 6.2.2 (GetCareServiceOfferings, careServiceStatus)."
+* ^version = "3.0.0"
 * ^url = "https://fhir.inera.se/CodeSystem/healthcareoffering-careservicestatus-cs"
 * ^status = #active
 * ^content = #complete

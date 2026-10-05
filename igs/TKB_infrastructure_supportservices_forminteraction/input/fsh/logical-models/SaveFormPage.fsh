@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * formId 1..1 string "Formulärets unika ID (GUID)"
 * subjectOfCare 0..1 string "Invånarens personnummer (yyyymmddnnnn)"
 * pageAnswer 1..1 BackboneElement "Sida med besvarade frågor att spara"
@@ -40,6 +41,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * form 0..1 BackboneElement "Formuläret med nästa sida (eller samma sida vid temporarySave)"
   * formId 1..1 string "Formulärets unika ID"
   * formStatus 1..1 CodeableConcept "Formulärets status"

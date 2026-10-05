@@ -6,5 +6,6 @@ ValueSet: BestallningsurvalVS
 Id: dosedispensing-bestallningsurval-vs
 Title: "Beställningsurval"
 Description: "Alla koder i BestallningsurvalCS."
+* ^version = "1.1.0"
 * ^status = #active
 * include codes from system BestallningsurvalCS

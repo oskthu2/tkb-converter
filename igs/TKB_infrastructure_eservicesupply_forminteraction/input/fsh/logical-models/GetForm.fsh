@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.1"
 * form 0..1 BackboneElement "Formulär (FormType)" "Det begärda formuläret inklusive aktuell sida."
   * healthcare_CareGiver 0..1 Identifier "Enhets-id vårdgivare" "Ansvarig vårdgivare. HSA-id."
   * healthcare_MedUnit 0..1 Identifier "Enhets-id medicinskt ansvarig" "Medicinsk ansvarig klinik. HSA-id."
@@ -39,5 +40,6 @@ Title: "GetForm — Request"
 Description: "Logisk modell för requestparametrar i GetForm."
 Characteristics: #can-be-target
 
+* ^version = "2.1"
 * formID 1..1 Identifier "Formulär-id" "Ett unikt id (GUID) för ett formulär."
 * subjectOfCare 0..1 Identifier "Personnummer" "Starkt autentiserad användares personnummer."

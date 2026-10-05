@@ -5,6 +5,7 @@ CodeSystem: QuestionNavigationDirectionCS
 Id: questionnavigationdirection-cs
 Title: "KV Navigeringsriktning"
 Description: "Kodverk för navigeringsriktning vid GetFormQuestionPage — anger om användaren navigerar framåt eller bakåt i ett formulär."
+* ^version = "2.1.1"
 * ^url = "https://fhir.inera.se/CodeSystem/questionnavigationdirection-cs"
 * ^status = #active
 * ^content = #complete
