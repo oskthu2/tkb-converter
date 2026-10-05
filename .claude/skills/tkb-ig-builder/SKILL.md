@@ -40,7 +40,7 @@ IG:ns sidstruktur följer TKB:ns rubriknumrering exakt. **Målet är att IG:n sk
    ```
    Spara en inventarielista (`wsdl_files`, `xsd_files`, `doc_files`) för varje kontrakt i `domain-metadata.json` — Model Builder behöver dessa för länkarna i sektion 7.
 4. Skriv `sushi-config.yaml` och `ig.ini`
-5. Skriv `input/includes/menu.xml`
+5. Skriv menyn med `scripts/gen_menu.py igs/TKB_{domain_id}` (efter att `pages:` i sushi-config är klar) — skriv aldrig `menu.xml` för hand, se "Meny" nedan
 6. Skriv `input/pagecontent/index.md`
 7. **Kopiera och anpassa sektionerna 1–6:** ta innehållet från `docx-converted/sections/{n}-*.md` direkt och lägg det i `input/pagecontent/{n}-*.md`. Lägg till FHIR IG-header om nödvändigt. **Ta bort `images/`-prefixet från bildlänkar** (kör `sed -i 's/\](images\//](/g' input/pagecontent/{n}-*.md` — se "KRITISKT — det finns bara EN publicerad static-filkatalog" nedan).
 8. Bygg `input/pagecontent/7-tjanstekontrakt.md` — kombinera konverterat innehåll från `docx-converted/sections/7-tjanstekontrakt.md` med FSH-länklista och källfils-index per kontrakt (se instruktion för Model Builder nedan). Källfils-länkarna ska peka direkt på filnamnet (t.ex. `[GetX.wsdl](GetX.wsdl)`) — **inte** på `files/wsdl/GetX.wsdl` eller liknande underkatalog, av samma anledning.
@@ -83,6 +83,16 @@ igs/TKB_{domain_id}/
         └── menu.xml
 ```
 
+### Meny (`input/includes/menu.xml`)
+
+**Skriv aldrig menyn för hand — kör `scripts/gen_menu.py igs/TKB_{domain_id}`.** Skriptet läser `pages:` i sushi-config.yaml och skriver både `input/includes/menu.xml` (det IG Publisher använder; SUSHI ignorerar då `menu:` med en varning) och `menu:` i sushi-config.yaml, så att de aldrig glider isär. Alla TKB-IG:ar får samma meny: `Hem | Kapitel ▾ | Tjänstekontrakt | Artefakter`, där Kapitel är en dropdown med TKB:ns numrerade kapitel och fullständiga rubriker. `preflight_lint.py` ger FEL om menu.xml avviker.
+
+Varför: `fhir.base.template` klistrar in menu.xml **ordagrant** i navbaren, utan att tolka eller validera den. Upptäckt 2026-10-05 att handskrivna menyer i 37 av 70 IG:ar var trasiga på tre sätt:
+- `<menu><item name=… url=…/></menu>` (26 IG:ar): okända element utan text — menyraden blir **helt tom**.
+- `<ul class="nav-tabs">` (4 IG:ar): klassen `nav navbar-nav` saknas, så menyn ritas som en ostylad flikrad.
+- `<?xml …?>`-deklaration och `<div xsi:schemaLocation=…>` runt listan (7 IG:ar): hamnar rakt in i HTML-sidan.
+Nio toppnivåflikar med långa svenska kapitelrubriker bryter dessutom navbaren över flera rader, därför ligger kapitlen i en dropdown.
+
 ### sushi-config.yaml — mall
 
 ```yaml
@@ -122,16 +132,15 @@ pages:
   7-tjanstekontrakt.md:
     title: 7 Tjänstekontrakt
 
-menu:
-  Home: index.html
-  1 Inledning: 1-inledning.html
-  2 Versionsinformation: 2-versionsinformation.html
-  3 Tjänstedomänens arkitektur: 3-tjanstedomanens-arkitektur.html
-  4 Tjänstedomänens krav och regler: 4-tjanstedomanens-krav-och-regler.html
-  5 Tjänstedomänens meddelandemodeller: 5-tjanstedomanens-meddelandemodeller.html
-  6 Gemensamma informationskomponenter: 6-gemensamma-informationskomponenter.html
-  7 Tjänstekontrakt: 7-tjanstekontrakt.html
-  Artifacts: artifacts.html
+menu:                                            # skrivs av scripts/gen_menu.py — redigera inte för hand
+  Hem: index.html
+  Kapitel:
+    1 Inledning: 1-inledning.html
+    2 Versionsinformation: 2-versionsinformation.html
+    # ... ett rad per numrerat kapitel i pages:, i samma ordning och med samma titel
+    7 Tjänstekontrakt: 7-tjanstekontrakt.html
+  Tjänstekontrakt: 7-tjanstekontrakt.html
+  Artefakter: artifacts.html
 
 parameters:
   show-inherited-invariants: false
