@@ -6,6 +6,17 @@
 
 ## Översikt
 
+<!-- landningssida:fakta — genererad av scripts/build_portal.py, redigera inte för hand -->
+
+<table class="grid">
+<tr><th>Anmärkning</th><td>saknas i DOMDB</td></tr>
+<tr><th>Källkod</th><td><a href="https://bitbucket.org/rivta-domains/riv.masterdata.citizen.patient/src">Bitbucket</a></td></tr>
+<tr><th>Underlag för denna IG</th><td>Version 1.0_RC1 · <a href="https://bitbucket.org/rivta-domains/riv.masterdata.citizen.patient/src/efa4099dabb270fe9b7e6b7cc9f868867eca0666">commit efa4099dabb2</a> · <a href="https://bitbucket.org/rivta-domains/riv.masterdata.citizen.patient/get/efa4099dabb2.zip">zip</a></td></tr>
+<tr><th>RIV-TA-portalen</th><td><a href="https://oskthu2.github.io/tkb-converter/rivta-portal/tjanstedomaner.html">Alla tjänstedomäner</a> · <a href="https://oskthu2.github.io/tkb-converter/rivta-portal/tjanstekontrakt.html">Alla tjänstekontrakt</a></td></tr>
+</table>
+
+<!-- /landningssida:fakta -->
+
 FHIR Implementation Guide för tjänstedomänen **masterdata: citizen: patient** (underlagförprocesstöd: invånare: patientuppgifter) version 1.0.
 Genererad från Ineras Tjänstekontraktsbeskrivning (TKB), version 1.0_RC1 (2017-01-26), och domänens WSDL- och XSD-filer (senaste commit på master, efa4099dabb2; domänen har inga taggar).
 

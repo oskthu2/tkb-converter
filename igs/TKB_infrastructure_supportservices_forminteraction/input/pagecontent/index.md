@@ -6,6 +6,22 @@
 
 ## Översikt
 
+<!-- landningssida:fakta — genererad av scripts/build_portal.py, redigera inte för hand -->
+
+<table class="grid">
+<tr><th>Beskrivning</th><td>Tjänstedomänen omfattar tjänstekontrakt för att stödja formulärinteraktion mellan mellan patient (e-tjänst i form av en tjänstekonsument) och verksamhetssystem (formulärmotor i form av en tjänsteproducent). Denna tjänstedomän utvecklas inte längre och har ersatts av domänen infrastructure:eservicesupply:forminteraction</td></tr>
+<tr><th>Svenskt kortnamn</th><td>formulärhantering</td></tr>
+<tr><th>Svenskt namn</th><td>infrastruktur:stödtjänster:formulärhantering</td></tr>
+<tr><th>Typ</th><td>Nationell tjänstedomän</td></tr>
+<tr><th>Anmärkning</th><td>dold på rivta.se</td></tr>
+<tr><th>Källkod</th><td><a href="https://bitbucket.org/rivta-domains/riv.infrastructure.supportservices.forminteraction/src">Bitbucket</a></td></tr>
+<tr><th>Ärenden</th><td><a href="https://bitbucket.org/rivta-domains/riv.infrastructure.supportservices.forminteraction/issues">Bitbucket issues</a></td></tr>
+<tr><th>Underlag för denna IG</th><td>Version 2.0.0 · <a href="https://bitbucket.org/rivta-domains/riv.infrastructure.supportservices.forminteraction/src/b8c52fec96db668f36ddf647e8843dde8cd7c40c">commit b8c52fec96db</a></td></tr>
+<tr><th>RIV-TA-portalen</th><td><a href="https://oskthu2.github.io/tkb-converter/rivta-portal/tjanstedomaner.html">Alla tjänstedomäner</a> · <a href="https://oskthu2.github.io/tkb-converter/rivta-portal/tjanstekontrakt.html">Alla tjänstekontrakt</a></td></tr>
+</table>
+
+<!-- /landningssida:fakta -->
+
 FHIR Implementation Guide för tjänstedomänen **infrastructure: supportservices: forminteraction** version 2.0.0.
 Genererad från Ineras Tjänstekontraktsbeskrivning (TKB) `TKB_infrastructure_eservicesupply_forminteraction.docx`.
 
@@ -26,6 +42,21 @@ Domänen innehåller följande tjänstekontrakt:
 | [CreateFormRequest](7-tjanstekontrakt.html#createformrequest) | 2.0 | Skapa en formulärbegäran |
 | [GetFormTemplate](7-tjanstekontrakt.html#getformtemplate) | 2.0 | Hämta en specifik formulärmall |
 | [SaveFormTemplate](7-tjanstekontrakt.html#saveformtemplate) | 2.0 | Spara en formulärmall |
+
+<!-- landningssida:versioner — genererad av scripts/build_portal.py, redigera inte för hand -->
+
+### Versioner och granskningar
+
+<table class="grid">
+<thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
+<tbody>
+<tr><td>1.0</td><td>TKB</td><td>Äldre granskningsprocess: Teknik: Godkänd</td><td><a href="http://rivta.se/downloads/infrastructure_supportservices_forminteraction/1.0/infrastructure_supportservices_forminteractions_1.0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.infrastructure.supportservices.forminteraction/src/TD_FORMINTERACTIONS_1_0_R">källkod</a></td></tr>
+</tbody>
+</table>
+
+<p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
+
+<!-- /landningssida:versioner -->
 
 ## Innehåll
 

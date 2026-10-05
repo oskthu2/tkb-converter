@@ -1,7 +1,5 @@
 <!-- Genererad av scripts/build_portal.py — redigera portal-data/ i stället. -->
-<p>Tjänstedomänen gör invånarens pågående behandlingsplaner tillgängliga i Stöd- och benhandlingsplattformen. Tjänstedomänens syfte är att erbjuda möjlighet för tredjeparts-applikationsutvecklare att bygga alternativa användargränssnitt mot Stöd- och behandlingsplattformen, till exempel mot mobila enheter. 
-
-Tjänstekontrakten inom domänen stödjer endast invånarens ingång, d.v.s att invånare kan komma åt sina egna pågående behandlingsplaner. Invånare kan tack vare tjänstekontrakten få en överblick över behandlingsplanen, svara på formulärfrågor samt möjlighet att kommunicera via en meddelandefunktion med ansvarig behandlare.</p>
+<p>Tjänstedomänen gör invånarens pågående behandlingsplaner tillgängliga i Stöd- och benhandlingsplattformen. Tjänstedomänens syfte är att erbjuda möjlighet för tredjeparts-applikationsutvecklare att bygga alternativa användargränssnitt mot Stöd- och behandlingsplattformen, till exempel mot mobila enheter. Tjänstekontrakten inom domänen stödjer endast invånarens ingång, d.v.s att invånare kan komma åt sina egna pågående behandlingsplaner. Invånare kan tack vare tjänstekontrakten få en överblick över behandlingsplanen, svara på formulärfrågor samt möjlighet att kommunicera via en meddelandefunktion med ansvarig behandlare.</p>
 <table class="grid">
 <tr><th>Svenskt kortnamn</th><td>API för sob-tjänsten</td></tr>
 <tr><th>Svenskt namn</th><td>vård- och omsorg kärnprocess: hantera aktiviteter: stöd och behandling</td></tr>
@@ -36,8 +34,8 @@ Tjänstekontrakten inom domänen stödjer endast invånarens ingång, d.v.s att 
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>1.0_RC3</td><td>IS, AB, TKB</td><td><a href="http://rivta.se/downloads//sob_apps_resident/1.0_RC3/T-granskning sob_apps_resident_1.0_RC3.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a></td><td><a href="http://rivta.se/downloads//sob_apps_resident/1.0_RC3/ServiceContracts_sob_apps_resident_1.0_RC3.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv-application.sob.apps.resident/src/1.0_RC3">källkod</a></td></tr>
-<tr><td>1.0</td><td>AB, IS, TKB</td><td><a href="http://rivta.se/downloads//sob_apps_resident/1.0/T-granskning - riv-application_sob_apps_resident - 1.0.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a></td><td><a href="http://rivta.se/downloads//sob_apps_resident/1.0/ServiceContracts_sob_apps_resident_1.0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv-application.sob.apps.resident/src/1.0">källkod</a></td></tr>
+<tr><td>1.0_RC3</td><td>IS, AB, TKB</td><td><a href="http://rivta.se/downloads//sob_apps_resident/1.0_RC3/T-granskning%20sob_apps_resident_1.0_RC3.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a></td><td><a href="http://rivta.se/downloads//sob_apps_resident/1.0_RC3/ServiceContracts_sob_apps_resident_1.0_RC3.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv-application.sob.apps.resident/src/1.0_RC3">källkod</a></td></tr>
+<tr><td>1.0</td><td>AB, IS, TKB</td><td><a href="http://rivta.se/downloads//sob_apps_resident/1.0/T-granskning%20-%20riv-application_sob_apps_resident%20-%201.0.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a></td><td><a href="http://rivta.se/downloads//sob_apps_resident/1.0/ServiceContracts_sob_apps_resident_1.0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv-application.sob.apps.resident/src/1.0">källkod</a></td></tr>
 <tr><td>trunk</td><td></td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv-application.sob.apps.resident/src">källkod</a></td></tr>
 </tbody>
 </table>
