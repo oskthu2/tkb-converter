@@ -8,4 +8,5 @@ Title: "GetPatientIds — Request"
 Description: "Logisk modell för requestparametrar i GetPatientIds."
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * careProviderId 1..1 string "HSA-id på den vårdgivare vars spärrade patienter skall hämtas."

@@ -14,6 +14,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * listingType 0..* string "Lista med koder som avser listningstyper"
     """
     Lista med koder som avser listningstyper, t.ex. BVC.

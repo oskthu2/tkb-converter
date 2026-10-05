@@ -14,6 +14,7 @@ Description: """
   Logisk modell för svaret i ProcessRequest, ProcessRequestConfirmation och ProcessRequestOutcome (ProcessRequest*ResponseType.result av typen ResultType). Beskriver om begäran gick bra eller ej, se avsnitt 4.3 Felhantering.
 """
 Characteristics: #can-be-target
+* ^version = "2.2.0"
 * obeys processresult-errorcode-only-on-error
 * resultCode 1..1 code "Resultatkod" "OK, INFO eller ERROR."
 * resultCode from ResultCodeVS (required)

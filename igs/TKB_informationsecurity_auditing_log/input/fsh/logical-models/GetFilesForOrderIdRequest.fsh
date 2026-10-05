@@ -10,5 +10,6 @@ Description: """
   (urn:riv:informationsecurity:auditing:log:GetFilesForOrderIdResponder:1, GetFilesForOrderIdType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. http://tempuri.org"
 * orderId 1..1 string "orderId" "orderId"

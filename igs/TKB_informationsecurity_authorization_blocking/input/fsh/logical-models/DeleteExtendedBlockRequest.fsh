@@ -10,6 +10,7 @@ Description: """
   (urn:riv:informationsecurity:authorization:blocking:DeleteExtendedBlockResponder:4, DeleteExtendedBlockType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "4.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Som logisk adress anges HSA-id för vårdgivaren som spärren gäller för."
 * blockId 1..1 string "blockId" "blockId"
 * deleteAction 1..1 BackboneElement "deleteAction" "Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext."

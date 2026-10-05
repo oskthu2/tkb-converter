@@ -10,6 +10,7 @@ Description: """
   (urn:riv:infrastructure:informationstructureservice:terminology:GetConceptsResponder:1, GetConceptsResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * Subset 0..1 BackboneElement "Subset" "Subset"
   * SubsetInformation 1..1 BackboneElement "SubsetInformation" "Information om urval"
     * SubsetIdentity 1..1 string "SubsetIdentity" "Identifierare av urval (XML-attribut.)"

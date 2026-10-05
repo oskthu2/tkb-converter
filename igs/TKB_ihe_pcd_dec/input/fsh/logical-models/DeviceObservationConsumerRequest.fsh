@@ -10,5 +10,6 @@ Description: """
   (urn:ihe:pcd:dec:2010, CommunicatePCDData), inklusive SOAP-huvud enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud wsa:To (WS-Addressing). Tjänstekonsumentens (Device Observation Consumer) logiska adress, se TKB avsnitt 3.2."
 * communicatePCDData 1..1 string "CommunicatePCDData" "HL7 v2.6-meddelande ORU^R01^ORU_R01 i ER7-format enligt IHE PCD-01 och Continua Design Guidelines (H.812), med de förtydliganden för segmenten MSH, PID, OBR och OBX som TKB:n anger. Reserverade XML-tecken ska ersättas med entiteter."

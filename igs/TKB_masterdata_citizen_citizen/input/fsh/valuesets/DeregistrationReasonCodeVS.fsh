@@ -6,5 +6,6 @@ ValueSet: DeregistrationReasonCodeVS
 Id: masterdata-citizen-citizen-deregistrationreasoncode-vs
 Title: "Kod för avregistreringsorsak"
 Description: "Alla koder i DeregistrationReasonCodeCS."
+* ^version = "2.0.0"
 * ^status = #active
 * include codes from system DeregistrationReasonCodeCS

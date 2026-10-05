@@ -9,6 +9,7 @@ Description: """
   Logisk modell för begäran i CreateBooking (urn:riv:supportprocess:personalresources:interpretation:CreateBookingResponder:1, CreateBookingType). Tolkförmedlingen registrerar en inringd beställning i Tolkportalen.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * bookingCreate 1..1 BackboneElement "Beställning" "Beställning som ska skapas (BookingCreate)."
   * createBookingOccasion 1..* BackboneElement "Tolkningstillfälle" "Beställning för ett visst tolkningstillfälle (BookingOccasionCreate)."
     * referenceNumber 1..1 string "Referensnummer" "Tolkförmedlingens referensnummer."

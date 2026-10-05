@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * referenceId 0..1 string "Identifierare som kan lämnas som referens"
     """
     Identifierare som kan lämnas som referens.

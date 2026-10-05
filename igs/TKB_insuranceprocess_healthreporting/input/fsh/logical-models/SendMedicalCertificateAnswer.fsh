@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * vardReferensId 1..1 string "Identitet för detta svar från vården"
 * fkReferensId 1..1 string "Försäkringskassans referens-id"
 * amne 1..1 CodeableConcept "Ämne som fråga/svar gäller"
@@ -55,6 +56,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * result 1..1 BackboneElement "Resultatinformation"
 * result.resultCode 1..1 string "Resultatkod (OK, ERROR, INFO)"
 * result.infoText 0..1 string "Extra information om anropets utgång"

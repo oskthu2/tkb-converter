@@ -6,6 +6,7 @@ CodeSystem: BlockTypeCS
 Id: blocktype-cs
 Title: "BlockType"
 Description: "Typ av spärr enligt urn:riv:ehr:blocking:2. Anger om spärren gäller inom en vårdenhet (inre) eller inom hela vårdgivaren (yttre)."
+* ^version = "3.2.2"
 * ^url = "https://fhir.inera.se/CodeSystem/blocktype-cs"
 * ^status = #active
 * ^content = #complete

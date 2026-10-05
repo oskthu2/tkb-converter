@@ -5,5 +5,6 @@ ValueSet: ResultCodeVS
 Id: resultcode-vs
 Title: "ResultCode — ValueSet"
 Description: "Tillåtna värden för resultCode i svar."
+* ^version = "2.2.1"
 * ^status = #active
 * include codes from system ResultCodeCS

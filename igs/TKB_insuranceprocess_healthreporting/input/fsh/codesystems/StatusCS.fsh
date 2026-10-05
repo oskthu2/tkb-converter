@@ -5,6 +5,7 @@ CodeSystem: StatusCS
 Id: status-cs
 Title: "Status"
 Description: "Kodverk för statustyp för läkarintyg i tjänstekontrakten ListCertificates och SetCertificateStatus."
+* ^version = "3.1.1"
 * ^url = "https://fhir.inera.se/CodeSystem/status-cs"
 * ^status = #active
 * ^content = #fragment

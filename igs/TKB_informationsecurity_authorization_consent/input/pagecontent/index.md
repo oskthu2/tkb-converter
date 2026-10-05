@@ -1,5 +1,9 @@
 # informationsecurity: authorization: consent
 
+<!-- tkb-version -->
+**TKB-version:** 2.0.4 · **IG-version:** 2.0.4 · **Källa:** Bitbucket-tagg `2.0.4`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **informationsecurity: authorization: consent** (Samtyckestjänst) version 2.0.4.

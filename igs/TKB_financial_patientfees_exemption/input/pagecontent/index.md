@@ -1,5 +1,9 @@
 # financial: patientfees: exemption
 
+<!-- tkb-version -->
+**TKB-version:** 1.0 · **IG-version:** 1.0.0 · **Källa:** Bitbucket-commit `fbd046e11e50`, efter taggen `1.0`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **financial: patientfees: exemption** (Nationellt högkostnadsskydd) version 1.0.

@@ -6,6 +6,7 @@ CodeSystem: GenderCS
 Id: gender-cs
 Title: "codeForGenderType"
 Description: "Administrativt kön, Skatteverket OID 1.2.752.129.2.2.1.1 (codes_2.2.xsd codeForGenderType_values)."
+* ^version = "2.2.0"
 * ^url = "https://fhir.inera.se/CodeSystem/gender-cs"
 * ^status = #active
 * ^content = #complete

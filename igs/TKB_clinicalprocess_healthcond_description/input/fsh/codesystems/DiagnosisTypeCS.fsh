@@ -6,6 +6,7 @@ CodeSystem: DiagnosisTypeCS
 Id: diagnosistype-cs
 Title: "DiagnosisType"
 Description: "Kodverk för typ av diagnos (huvud- respektive bidiagnos). Definierat i XSD för domänen."
+* ^version = "3.0.5"
 * ^url = "https://fhir.inera.se/clinicalprocess-healthcond-description/CodeSystem/diagnosistype-cs"
 * ^status = #active
 * ^content = #complete

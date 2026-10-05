@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.1"
 * result 1..1 BackboneElement "Information om anropets resultat"
 * result.resultCode 1..1 CodeableConcept "Resultatkod (OK/INFO/ERROR)"
 * result.resultCode from ResultkodVS (required)
@@ -25,6 +26,7 @@ Title: "SendCertificateToRecipient — Request"
 Description: "Logisk modell för requestparametrar i SendCertificateToRecipient."
 Characteristics: #can-be-target
 
+* ^version = "2.1"
 * skickatTidpunkt 1..1 dateTime "Tidpunkt då begäran om att skicka intyg skickas"
 * intygsId 1..1 Identifier "Identitet på intyget"
 * patientPersonId 1..1 Identifier "Person- eller samordningsnummer för patienten"

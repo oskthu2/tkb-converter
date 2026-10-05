@@ -9,6 +9,7 @@ Description: """
   Kodverk för köstatus för en person, enligt xs:enumeration i crm_carelisting_1_0.xsd.
   Används i tjänstekontraktet GetPersonQueueStatus.
 """
+* ^version = "1.0.0"
 * ^url = "https://fhir.inera.se/CodeSystem/personqueuestatus-cs"
 * ^status = #active
 * ^content = #complete

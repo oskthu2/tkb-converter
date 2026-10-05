@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * diagnosKod 0..* CodeableConcept "Diagnoskod för filtrering av diagnosinformation"
   """
   Anger om endast diagnosinformation skall hämtas för en eller ett antal diagnoskoder.

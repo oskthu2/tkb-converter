@@ -1,5 +1,9 @@
 # clinicalprocess: healthcond: rheuma — Reumatismdata
 
+<!-- tkb-version -->
+**TKB-version:** 1.0 · **IG-version:** 1.0.0-snapshot · **Källa:** Bitbucket-commit `fd5d50cd8a84` (ingen tagg)
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **clinicalprocess: healthcond: rheuma** ("Vård- och omsorgsprocess, hantera hälsorelaterade tillstånd, reumatismdata") version 1.0.

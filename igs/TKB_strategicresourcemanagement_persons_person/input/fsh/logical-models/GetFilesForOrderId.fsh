@@ -10,6 +10,7 @@ Description: """
   (urn:riv:strategicresourcemanagement:persons:person:GetFilesForOrderIdResponder:4, GetFilesForOrderIdResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "4.0"
 * multimedia 0..* BackboneElement "multimedia" "Datatyp som beskriver en multimediatyp. Data kan förekomma som inbäddat element eller hänvisas via en referens URL."
   * multimediaId 0..1 string "multimediaId" "multimediaId Heter id i schemat."
   * mediaType 1..1 string "mediaType" "mediaType"

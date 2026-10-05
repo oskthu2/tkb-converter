@@ -1,8 +1,12 @@
 # crm: scheduling
 
+<!-- tkb-version -->
+**TKB-version:** 1.1.6 · **IG-version:** 1.1.6 · **Källa:** Bitbucket-commit `d5bfa3372dce`, efter taggen `1.1.6`
+<!-- /tkb-version -->
+
 ## Översikt
 
-FHIR Implementation Guide för tjänstedomänen **crm: scheduling** version 1.1.
+FHIR Implementation Guide för tjänstedomänen **crm: scheduling** version 1.1.6.
 Genererad från Ineras Tjänstekontraktsbeskrivning (TKB).
 
 Tjänstedomänens omfattning är invånarperspektivet på tidbokning mot en vårdenhet. Den kravställande processen är invånarens behov av e-tjänster för tidbokning — direkt som användare (ex. 1177 Vårdguidens e-tjänster), eller indirekt via vårdpersonal (ex. Rådgivningsstödet, RGS).

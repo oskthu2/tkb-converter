@@ -6,6 +6,7 @@ CodeSystem: GenderEofferingCS
 Id: gender-eoffering-cs
 Title: "Gender (eOffering)"
 Description: "Kodverk för kön i tjänstekontraktet GetAvailableEServices. Anger om en e-tjänst riktar sig till ett visst kön."
+* ^version = "1.0.0-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/gender-eoffering-cs"
 * ^status = #active
 * ^content = #complete

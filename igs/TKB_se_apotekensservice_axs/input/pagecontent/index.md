@@ -1,5 +1,9 @@
 # se.apotekensservice: axs — Hämta patientinformation
 
+<!-- tkb-version -->
+**TKB-version:** 7.0 · **IG-version:** 7.0.0 · **Källa:** Bitbucket-tagg `7.0`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **se.apotekensservice: axs** version 7.0. Domänen förvaltas av eHälsomyndigheten (tidigare Apotekens Service AB) och tjänsteväxlas i NTjP.

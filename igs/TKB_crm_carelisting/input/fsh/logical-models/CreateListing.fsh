@@ -14,6 +14,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * success 1..1 boolean "True om listningen genomfördes framgångsrikt"
     """
     True if the requested listing was successfully completed, else false.

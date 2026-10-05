@@ -10,6 +10,7 @@ Description: """
   (urn:riv:informationsecurity:authorization:pip:GetSealsResponder:1, GetSealsResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * seal 0..* BackboneElement "seal" "En försegling beskriver vårdgivarens beslut om att begränsa den enskildes åtkomst till sin egen information. Försegling handlar inte om att informationen kan vara till men i medicinskt hänseende för den enskilde, utan om att informationen inte ska vara tillgänglig via självbetjäning på grund av att den enskilde befinner sig i vanmaktssituation. Vårdgivaren kan även använda försegling för att stänga ute vårdnadshavares digitala åtkomst till barns (under 13 år) journaluppgifter. I praktiken förseglas barnets konto, vilket resulterar i att vårdnadshavarna inte kan se barnets information i tjänster som erbjuder vårdnadshavare åtkomst till vårdnadstagarens journaluppgifter. En försegling kan ha olika verksamhetsmässig omfattning, vilket representeras av respektive komposit element."
   * patientId 1..1 BackboneElement "patientId" "patientId"
     * root 1..1 string "root" "root"

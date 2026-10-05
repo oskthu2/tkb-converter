@@ -6,5 +6,6 @@ ValueSet: YrkesKodVS
 Id: dosedispensing-yrkeskod-vs
 Title: "Yrkeskod"
 Description: "Alla koder i YrkesKodCS."
+* ^version = "1.1.0"
 * ^status = #active
 * include codes from system YrkesKodCS

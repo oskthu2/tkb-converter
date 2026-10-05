@@ -5,6 +5,7 @@ CodeSystem: ResultkodCS
 Id: resultkod-cs
 Title: "Resultatkod"
 Description: "Kodsystem för resultat av tjänsteanrop (ResultType) enligt clinicalprocess:healthcond:certificate."
+* ^version = "4.1.0-rc1"
 * ^url = "https://fhir.inera.se/CodeSystem/resultkod-cs"
 * ^status = #active
 * ^content = #complete
@@ -16,6 +17,7 @@ CodeSystem: ErrorIdCS
 Id: errorid-cs
 Title: "Fel-ID"
 Description: "Kodsystem för felkoder i ResultType.errorId enligt clinicalprocess:healthcond:certificate."
+* ^version = "4.1.0-rc1"
 * ^url = "https://fhir.inera.se/CodeSystem/errorid-cs"
 * ^status = #active
 * ^content = #complete

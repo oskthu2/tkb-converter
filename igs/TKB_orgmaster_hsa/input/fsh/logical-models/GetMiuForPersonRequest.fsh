@@ -10,6 +10,7 @@ Description: """
   (urn:riv:orgmaster:hsa:GetMiuForPersonResponder:1, GetMiuForPersonType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. HSA identity"
 * hsaIdentity 0..1 string "hsaIdentity" "hsaIdentity"
 * personalIdentityNumber 0..1 string "personalIdentityNumber" "personalIdentityNumber"

@@ -10,6 +10,7 @@ Description: """
   (urn:riv:financial:billing:claim:ProcessClaimSpecificationResponder:1, ProcessClaimSpecificationType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.1"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. The organisation number of the receiving county council"
 * claimSpecification 1..1 BackboneElement "claimSpecification" "claimSpecification"
   * processClaimSpecificationId 1..1 string "processClaimSpecificationId" "processClaimSpecificationId Heter id i schemat."

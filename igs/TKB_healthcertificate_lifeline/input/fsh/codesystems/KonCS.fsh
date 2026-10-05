@@ -5,6 +5,7 @@ CodeSystem: KonCS
 Id: lifeline-kon-cs
 Title: "Barnets kön"
 Description: "Koder för Kon i domänschemat. Visningstexter ur TKB avsnitt 3.4."
+* ^version = "1.0.0-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/lifeline-kon-cs"
 * ^status = #active
 * ^content = #complete

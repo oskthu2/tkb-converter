@@ -18,6 +18,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.1"
 * timeslotDetail 1..1 BackboneElement "Information om den aktuella tiden (TimeslotType)"
     """
     Information om den aktuella bokade/kallade tiden.

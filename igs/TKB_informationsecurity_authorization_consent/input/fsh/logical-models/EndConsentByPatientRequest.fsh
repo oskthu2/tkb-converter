@@ -10,6 +10,7 @@ Description: """
   (urn:riv:informationsecurity:authorization:consent:EndConsentByPatientResponder:1, EndConsentByPatientType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Som logisk adress anges HSA-id för vårdgivaren som samtycket gäller för."
 * assertionId 1..1 string "assertionId" "assertionId"
 * patientId 1..1 BackboneElement "patientId" "En universellt unik identifierare."

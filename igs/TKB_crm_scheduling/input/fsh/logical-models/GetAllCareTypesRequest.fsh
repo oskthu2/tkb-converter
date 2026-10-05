@@ -8,6 +8,7 @@ Title: "GetAllCareTypes — Request"
 Description: "Logisk modell för requestparametrar i GetAllCareTypes."
 Characteristics: #can-be-target
 
+* ^version = "1.1"
 * healthcare_facility 1..1 Identifier "HSA-id för mottagning/vårdenhet"
     """
     HSA-id för mottagning/vårdenhet.

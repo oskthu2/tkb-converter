@@ -1,5 +1,9 @@
 # clinicalprocess: activityprescription: logistics — Ordinationslogistik
 
+<!-- tkb-version -->
+**TKB-version:** 1.0.2 · **IG-version:** 1.0.2-snapshot · **Källa:** Bitbucket-commit `69b4fefff3e9` (ingen tagg)
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **clinicalprocess: activityprescription: logistics** ("Nationella Tjänstekontrakt för Hantera aktiviteter, ordinationslogistik") version 1.0.2.

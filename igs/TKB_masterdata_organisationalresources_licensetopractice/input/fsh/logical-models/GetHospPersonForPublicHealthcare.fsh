@@ -15,6 +15,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * hospPerson 0..* BackboneElement "HoSp-person" "En post i HOSP-registret med legitimationsinformation."
   * hospId 1..1 Identifier "Unikt ID för person i HOSP"
     """

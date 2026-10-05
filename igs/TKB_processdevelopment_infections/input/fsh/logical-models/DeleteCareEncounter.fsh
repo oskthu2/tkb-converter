@@ -17,6 +17,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * resultCode 1..1 code "Resultatkod"
 * resultCode from ResultCodeVS (required)
 * comment 0..1 string "Kommentar"

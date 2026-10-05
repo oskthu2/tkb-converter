@@ -5,6 +5,7 @@ CodeSystem: TypeOfContactCS
 Id: masterdata-citizen-patient-typeofcontact-cs
 Title: "Typ av kontakt"
 Description: "Koder för TypeOfContactEnum i domänschemat. Visningstexter ur kodverket kv_tele_ekomkontakttyp_47_v1.1 (1.2.752.129.2.2.1.29)."
+* ^version = "1.0.0-rc1.snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/masterdata-citizen-patient-typeofcontact-cs"
 * ^status = #active
 * ^content = #complete

@@ -1,5 +1,9 @@
 # infrastructure: directory: organization
 
+<!-- tkb-version -->
+**TKB-version:** 5.0 · **IG-version:** 5.0.0 · **Källa:** Bitbucket-commit `6a2e36035369`, efter taggen `5.0`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **infrastructure: directory: organization** version 5.0.

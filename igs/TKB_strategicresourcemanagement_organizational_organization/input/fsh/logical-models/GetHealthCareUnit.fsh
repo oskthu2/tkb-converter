@@ -10,6 +10,7 @@ Description: """
   (urn:riv:strategicresourcemanagement:organizational:organization:GetHealthCareUnitResponder:2, GetHealthCareUnitResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * healthCareUnit 0..1 BackboneElement "healthCareUnit" "healthCareUnit"
   * unitIsHealthCareUnit 0..1 boolean "unitIsHealthCareUnit" "unitIsHealthCareUnit"
   * healthCareUnitMemberHsaId 0..1 string "healthCareUnitMemberHsaId" "healthCareUnitMemberHsaId"

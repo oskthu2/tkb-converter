@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * orgUnitId 1..1 Identifier "Beställande enhet (HSA-id)"
   """
   Informationsspecifikation: Laboratoriesvar.har beställande.Enhet.enhets-id
@@ -63,6 +64,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * resultCode 1..1 string "Resultatkod: OK, ERROR eller INFO"
   """
   OK = operationen genomförd utan fel

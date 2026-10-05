@@ -6,5 +6,6 @@ ValueSet: ResultCodeVS
 Id: scheduling-resultcode-vs
 Title: "Resultatkod (ResultCode)"
 Description: "Alla koder i ResultCodeCS."
+* ^version = "2.0.0-rc1"
 * ^status = #active
 * include codes from system ResultCodeCS

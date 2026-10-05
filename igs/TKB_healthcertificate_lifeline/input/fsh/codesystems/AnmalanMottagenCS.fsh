@@ -5,6 +5,7 @@ CodeSystem: AnmalanMottagenCS
 Id: lifeline-anmalanmottagen-cs
 Title: "Anmälan mottagen"
 Description: "Koder för AnmalanMottagen i domänschemat. Visningstexter ur TKB avsnitt 3.4."
+* ^version = "1.0.0-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/lifeline-anmalanmottagen-cs"
 * ^status = #active
 * ^content = #complete

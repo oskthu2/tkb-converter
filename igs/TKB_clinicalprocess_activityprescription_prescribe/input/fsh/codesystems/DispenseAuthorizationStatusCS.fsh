@@ -6,6 +6,7 @@ CodeSystem: DispenseAuthorizationStatusCS
 Id: dispenseauthorizationstatus-cs
 Title: "DispenseAuthorizationStatus — Status på expedieringsunderlag"
 Description: "Kodverk för filterval av expedieringsunderlag baserat på kopplat/okopplat status. Används i GetMedicationDispenseAuthorizations."
+* ^version = "2.0.0-rc1"
 * ^url = "https://fhir.inera.se/CodeSystem/dispenseauthorizationstatus"
 * ^status = #active
 * ^content = #complete

@@ -16,6 +16,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * resultCode 1..1 code "Svarskod för åtgärden"
     """
     Anger svarskod för åtgärden enligt ResultCode-kodverket.

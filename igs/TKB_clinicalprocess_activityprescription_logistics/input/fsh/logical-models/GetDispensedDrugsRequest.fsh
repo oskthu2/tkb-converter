@@ -20,6 +20,7 @@ Description: """
   (RIV-TA urn:riv:clinicalprocess:activityprescription:logistics:GetDispensedDrugsResponder:1, GetDispensedDrugsType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * obeys getdispenseddrugs-request-forskrivarkod-sam
 
 * patient 1..1 BackboneElement "Patient vars läkemedelsförteckning skall hämtas"

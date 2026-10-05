@@ -6,6 +6,7 @@ CodeSystem: LegitimeratYrkeCS
 Id: legitimerat-yrke-cs
 Title: "Legitimerat yrke"
 Description: "Kodverk för legitimerade yrken inom hälso- och sjukvård. OID: 1.2.752.116.3.1.3."
+* ^version = "2.0.0"
 * ^url = "https://fhir.inera.se/CodeSystem/legitimerat-yrke-cs"
 * ^status = #active
 * ^content = #complete

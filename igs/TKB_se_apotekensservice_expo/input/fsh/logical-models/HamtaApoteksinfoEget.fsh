@@ -10,6 +10,7 @@ Description: """
   (urn:riv:se.apotekensservice:expo:HamtaApoteksinfoEgetResponder:5, HamtaApoteksinfoEgetResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "5.0"
 * expeditionsstalleLista 1..* BackboneElement "expeditionsstalleLista" "Lista innehållande en eller flera expeditionsstallen."
   * aktorsnamn 1..1 string "aktorsnamn" "Aktörens namn."
   * allmTelefon 1..1 string "allmTelefon" "Expeditionsställets allmänna telefonnummer."

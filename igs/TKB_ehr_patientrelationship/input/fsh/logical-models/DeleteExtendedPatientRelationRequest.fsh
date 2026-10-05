@@ -8,6 +8,7 @@ Title: "DeleteExtendedPatientRelation — Request"
 Description: "Logisk modell för requestparametrar i DeleteExtendedPatientRelation."
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * patientRelationId 1..1 string "Identifierare (UUID) för den patientrelation som skall makuleras (max 36 tecken)"
 
 * deletionAction 1..1 BackboneElement "Information om begäran och utförande av makuleringen"

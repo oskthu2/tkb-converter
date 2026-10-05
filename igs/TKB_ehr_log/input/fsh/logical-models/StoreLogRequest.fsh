@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * log 1..* BackboneElement "En loggpost att lagra i loggtjänsten"
     """
     En kollektion av loggposter som ska lagras i loggtjänsten.

@@ -6,5 +6,6 @@ ValueSet: RelationshipTypeVS
 Id: masterdata-citizen-citizen-relationshiptype-vs
 Title: "Relationstyp"
 Description: "Alla koder i RelationshipTypeCS."
+* ^version = "2.0.0"
 * ^status = #active
 * include codes from system RelationshipTypeCS

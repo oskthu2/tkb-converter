@@ -8,6 +8,7 @@ Title: "DeleteExtendedBlock — Request"
 Description: "Logisk modell för requestparametrar i DeleteExtendedBlock."
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * blockId 1..1 string "Unik identifierare (UUID) för spärren som skall makuleras."
 * action 1..1 BackboneElement "Aktörsinformation för den som makulerar spärren"
   * requestDate 1..1 dateTime "Datum när makulering begärdes"

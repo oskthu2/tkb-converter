@@ -5,6 +5,7 @@ CodeSystem: TypeOfRepresentativeCS
 Id: masterdata-citizen-patient-typeofrepresentative-cs
 Title: "Typ av företrädare"
 Description: "Koder för TypeOfRepresentativeEnum i domänschemat. Visningstexter ur domänschemats annoteringar."
+* ^version = "1.0.0-rc1.snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/masterdata-citizen-patient-typeofrepresentative-cs"
 * ^status = #active
 * ^content = #complete

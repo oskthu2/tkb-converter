@@ -10,6 +10,7 @@ Description: """
   (urn:riv:clinicalprocess:logistics:cervixscreening:ProcessCervixScreeningInformationResponder:1, ProcessCervixScreeningInformationType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. The organisation number of the receiving insurance institution"
 * cervixScreeningInformation 1..1 BackboneElement "cervixScreeningInformation" "cervixScreeningInformation"
   * subjectOfCare 1..1 BackboneElement "subjectOfCare" "subjectOfCare"

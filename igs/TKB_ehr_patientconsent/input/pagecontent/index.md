@@ -1,5 +1,9 @@
 # ehr: patientconsent — Samtyckeshantering
 
+<!-- tkb-version -->
+**TKB-version:** 1.0.1 · **IG-version:** 1.0.1-snapshot · **Källa:** Bitbucket-commit `d3d8cd596c49` (ingen tagg)
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **ehr: patientconsent** version 1.0.1.

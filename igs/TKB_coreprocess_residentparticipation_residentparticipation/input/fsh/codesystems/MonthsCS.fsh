@@ -5,6 +5,7 @@ CodeSystem: MonthsCS
 Id: residentparticipation-months-cs
 Title: "Months"
 Description: "Koder för MonthsEnum i domänschemat."
+* ^version = "1.0.0-rc2"
 * ^url = "https://fhir.inera.se/CodeSystem/residentparticipation-months-cs"
 * ^status = #active
 * ^content = #complete

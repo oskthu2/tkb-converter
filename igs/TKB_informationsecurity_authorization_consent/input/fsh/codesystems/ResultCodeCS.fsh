@@ -5,6 +5,7 @@ CodeSystem: ResultCodeCS
 Id: authorization-consent-resultcode-cs
 Title: "ResultCode"
 Description: "Koder för ResultCodeType i domänschemat."
+* ^version = "2.0.4"
 * ^url = "https://fhir.inera.se/CodeSystem/authorization-consent-resultcode-cs"
 * ^status = #active
 * ^content = #complete

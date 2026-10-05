@@ -5,6 +5,7 @@ CodeSystem: ProcessCS
 Id: scheduling-process-cs
 Title: "Tidbokningsflöde (Process)"
 Description: "Koder för ProcessEnum i domänschemat. Visningstexter ur TKB avsnitt 7.8 TimeTypeRulesType."
+* ^version = "2.0.0-rc1"
 * ^url = "https://fhir.inera.se/CodeSystem/scheduling-process-cs"
 * ^status = #active
 * ^content = #complete

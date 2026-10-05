@@ -6,5 +6,6 @@ ValueSet: RIVTAVersionVS
 Id: healthcareoffering-rivtaversion-vs
 Title: "RIV-TA-version (RIVTAVersion)"
 Description: "Alla koder i RIVTAVersionCS."
+* ^version = "3.0.0"
 * ^status = #active
 * include codes from system RIVTAVersionCS

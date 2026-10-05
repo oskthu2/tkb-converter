@@ -6,6 +6,7 @@ CodeSystem: ResultCodeCS
 Id: resultcode-cs
 Title: "ResultCode"
 Description: "Statuskoder som returneras av tjänstekontrakten i ehr:log-domänen. Definieras i TKB ehr:log avsnitt Datatyper."
+* ^version = "1.2.4"
 * ^url = "https://fhir.inera.se/CodeSystem/resultcode-cs"
 * ^status = #active
 * ^content = #complete

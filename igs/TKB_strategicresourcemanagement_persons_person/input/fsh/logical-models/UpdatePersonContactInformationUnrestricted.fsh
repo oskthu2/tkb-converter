@@ -10,6 +10,7 @@ Description: """
   (urn:riv:strategicresourcemanagement:persons:person:UpdatePersonContactInformationUnrestrictedResponder:4, UpdatePersonContactInformationUnrestrictedResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "4.0"
 * UpdatePersonContactInformationUnrestrictedResult 1..1 BackboneElement "UpdatePersonContactInformationUnrestrictedResult" "UpdatePersonContactInformationUnrestrictedResult"
   * result 1..1 BackboneElement "result" "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK betyder att åtgärden inte genomfördes."
     * resultCode 1..1 code "resultCode" "resultCode"

@@ -6,5 +6,6 @@ ValueSet: RequirementLevelVS
 Id: requirementlevel-vs
 Title: "RequirementLevelEnum"
 Description: "Alla koder i RequirementLevelCS."
+* ^version = "1.0.0-snapshot"
 * ^status = #active
 * include codes from system RequirementLevelCS

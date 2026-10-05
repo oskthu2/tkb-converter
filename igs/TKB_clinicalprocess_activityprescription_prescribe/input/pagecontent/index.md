@@ -1,9 +1,13 @@
 # clinicalprocess: activityprescription: prescribe
 
+<!-- tkb-version -->
+**TKB-version:** 2.0_RC1 · **IG-version:** 2.0.0-rc1 · **Källa:** Bitbucket-tagg `clinicalprocess_activityprescription_prescribe_2.0_RC1`
+<!-- /tkb-version -->
+
 ## Översikt
 
 Detta är en FHIR Implementation Guide genererad från TKB-dokumentation
-för tjänstedomänen **clinicalprocess: activityprescription: prescribe** version 2.0.
+för tjänstedomänen **clinicalprocess: activityprescription: prescribe** version 2.0_RC1.
 
 Tjänstedomänen syftar till att hantera patientens samlade läkemedelslista (SLL), inklusive 
 ordinationer, expedieringsunderlag, uthämtade läkemedel och egenmedicinering.

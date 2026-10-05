@@ -5,6 +5,7 @@ CodeSystem: NedsattningsgradCS
 Id: nedsattningsgrad-cs
 Title: "Nedsattningsgrad"
 Description: "Kodverk för grad av arbetsförmågenedsättning i tjänstekontraktet RegisterMedicalCertificate (blankett FK7263 Fält 8b)."
+* ^version = "3.1.1"
 * ^url = "https://fhir.inera.se/CodeSystem/nedsattningsgrad-cs"
 * ^status = #active
 * ^content = #complete

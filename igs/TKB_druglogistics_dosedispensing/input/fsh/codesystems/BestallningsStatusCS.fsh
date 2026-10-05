@@ -5,6 +5,7 @@ CodeSystem: BestallningsStatusCS
 Id: dosedispensing-bestallningsstatus-cs
 Title: "Beställningsstatus"
 Description: "Koder för BestallningsStatusEnum i domänschemat. Visningstexter ur Pascal – Objekt och felhantering (Objekt_och_felhantering.pdf) och releasenoteringarna 1.0.4 (kod 5)."
+* ^version = "1.1.0"
 * ^url = "https://fhir.inera.se/CodeSystem/dosedispensing-bestallningsstatus-cs"
 * ^status = #active
 * ^content = #complete

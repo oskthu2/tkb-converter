@@ -5,6 +5,7 @@ CodeSystem: ReasonRequiredCS
 Id: scheduling-reasonrequired-cs
 Title: "Krav på anledning (ReasonRequired)"
 Description: "Koder för ReasonRequiredEnum i domänschemat. Visningstexter ur TKB avsnitt 7.8 TimeTypeRulesType."
+* ^version = "2.0.0-rc1"
 * ^url = "https://fhir.inera.se/CodeSystem/scheduling-reasonrequired-cs"
 * ^status = #active
 * ^content = #complete

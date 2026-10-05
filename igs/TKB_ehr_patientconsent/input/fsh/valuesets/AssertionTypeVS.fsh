@@ -5,5 +5,6 @@ ValueSet: AssertionTypeVS
 Id: assertiontype-vs
 Title: "AssertionType — ValueSet"
 Description: "Tillåtna värden för assertionType enligt AssertionTypeCS."
+* ^version = "1.0.1-snapshot"
 * ^status = #active
 * include codes from system AssertionTypeCS

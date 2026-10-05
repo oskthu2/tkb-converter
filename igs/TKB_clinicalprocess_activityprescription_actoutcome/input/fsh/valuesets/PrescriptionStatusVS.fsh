@@ -5,5 +5,6 @@ ValueSet: PrescriptionStatusVS
 Id: prescriptionstatus-vs
 Title: "PrescriptionStatus — ValueSet"
 Description: "Tillåtna värden för prescriptionStatus i GetMedicationHistory."
+* ^version = "2.2.1"
 * ^status = #active
 * include codes from system PrescriptionStatusCS

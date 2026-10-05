@@ -10,6 +10,7 @@ Description: """
   (urn:riv:orgmaster:hsa:GetPersonsWithCommissionAtHealthCareUnitResponder:1, GetPersonsWithCommissionAtHealthCareUnitResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * PersonList 0..1 BackboneElement "PersonList" "PersonList"
   * personListPerson 0..* BackboneElement "personListPerson" "personListPerson"
     * hsaIdentity 1..1 string "hsaIdentity" "hsaIdentity"

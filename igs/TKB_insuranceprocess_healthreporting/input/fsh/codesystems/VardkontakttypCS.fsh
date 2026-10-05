@@ -5,6 +5,7 @@ CodeSystem: VardkontakttypCS
 Id: vardkontakttyp-cs
 Title: "Vardkontakttyp"
 Description: "Kodverk för typ av vårdkontakt i tjänstekontraktet RegisterMedicalCertificate."
+* ^version = "3.1.1"
 * ^url = "https://fhir.inera.se/CodeSystem/vardkontakttyp-cs"
 * ^status = #active
 * ^content = #complete

@@ -1,5 +1,9 @@
 # ihe: pcd: dec
 
+<!-- tkb-version -->
+**TKB-version:** 1.0.1 · **IG-version:** 1.0.1 · **Källa:** Bitbucket-tagg `1.0.1`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **ihe: pcd: dec** (Mätdata från mätutrustning) version 1.0.1.

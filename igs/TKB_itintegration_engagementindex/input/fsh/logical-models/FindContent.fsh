@@ -14,6 +14,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * engagement 0..* Base "Engagemangspost"
     """
     En post i engagemangsindex som matchar sökkriterierna.

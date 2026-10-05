@@ -1,5 +1,9 @@
 # masterdata: citizen: patient
 
+<!-- tkb-version -->
+**TKB-version:** 1.0_RC1 · **IG-version:** 1.0.0-rc1.snapshot · **Källa:** Bitbucket-commit `efa4099dabb2` (ingen tagg)
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **masterdata: citizen: patient** (underlagförprocesstöd: invånare: patientuppgifter) version 1.0.

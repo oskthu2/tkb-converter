@@ -10,6 +10,7 @@ Description: """
   (urn:riv:supportprocess:logistics:carelisting:GetListingResponder:2, GetListingResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "2.1"
 * listings 0..* BackboneElement "listings" "listings"
   * validFromDate 0..1 dateTime "validFromDate" "validFromDate"
   * validToDate 0..1 dateTime "validToDate" "validToDate"

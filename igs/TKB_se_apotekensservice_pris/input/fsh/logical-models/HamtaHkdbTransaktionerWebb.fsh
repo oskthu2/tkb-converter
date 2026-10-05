@@ -10,6 +10,7 @@ Description: """
   (urn:riv:se.apotekensservice:pris:HamtaHkdbTransaktionerWebbResponder:1, HamtaHkdbTransaktionerWebbResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * periodSlut 1..1 dateTime "periodSlut" "Datum för periodens slut. 366 dagar efter periodstart eller 367 dagar efter periodstart vid skottår."
 * transaktionsLista 0..* BackboneElement "transaktionsLista" "Lista med de senaste transaktionerna för personens högkostnadskonto. Defaultvärde för antalet returnerade transaktioner är fem, men detta är valbart. Listan är tom om inga transaktioner existerar eller om personen inte är registrerad i högkostnadstrappan."
   * anvandare 1..1 string "anvandare" "Användare som registrerat transaktionen."

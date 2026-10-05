@@ -10,6 +10,7 @@ Description: """
   (urn:riv:druglogistics:dosedispensing:HamtaLokaltProduktsortimentResponder:1, HamtaLokaltProduktsortimentResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.1"
 * resultatkod 1..1 code "resultatkod" "resultatkod"
 * resultatkod from ResultatkodVS (required)
 * meddelandetext 1..1 string "meddelandetext" "meddelandetext"

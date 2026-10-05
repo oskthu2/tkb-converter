@@ -1,5 +1,9 @@
 # masterdata: citizen: citizen
 
+<!-- tkb-version -->
+**TKB-version:** 2.0 · **IG-version:** 2.0.0 · **Källa:** Bitbucket-tagg `2.0`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **masterdata: citizen: citizen** (Personuppgifter) version 2.0.

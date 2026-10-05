@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * result 1..1 BackboneElement "Information om anropets resultat"
 * result.resultCode 1..1 CodeableConcept "Resultatkod (OK/INFO/ERROR)"
 * result.resultCode from ResultkodVS (required)
@@ -25,6 +26,7 @@ Title: "SetCertificateStatus — Request"
 Description: "Logisk modell för requestparametrar i SetCertificateStatus."
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * intygsId 1..1 Identifier "Unikt ID för det intyg vars status ska sättas"
 * part 1..1 CodeableConcept "Kodat värde för den part statusen gäller för"
 * part from PartVS (required)

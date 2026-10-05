@@ -9,6 +9,7 @@ Description: """
   Logisk modell för svaret i CreateBooking (urn:riv:supportprocess:personalresources:interpretation:CreateBookingResponder:1, CreateBookingResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * referenceNumberMap 1..* BackboneElement "Referensnummermappning" "Mappning mellan Tolkportalens beställningsnummer och tolkförmedlingens referensnummer (ReferenceNumberMapping)."
   * bookingNumber 1..1 integer "Beställningsnummer" "Tolkportalens beställningsnummer (≥ 0)."
   * referenceNumber 1..1 string "Referensnummer" "Tolkförmedlingens referensnummer."

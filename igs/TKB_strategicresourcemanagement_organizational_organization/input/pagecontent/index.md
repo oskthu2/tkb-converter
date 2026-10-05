@@ -1,5 +1,9 @@
 # strategicresourcemanagement: organizational: organization
 
+<!-- tkb-version -->
+**TKB-version:** 2.0_RC1 · **IG-version:** 2.0.0-rc1 · **Källa:** Bitbucket-commit `b349285d18c2`, efter taggen `2.0_RC1`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **strategicresourcemanagement: organizational: organization** (infrastruktur: katalogtjänster: organisation), version 2.0_RC1.

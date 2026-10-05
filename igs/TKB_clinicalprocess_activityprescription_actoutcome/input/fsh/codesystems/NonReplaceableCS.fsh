@@ -7,6 +7,7 @@ CodeSystem: NonReplaceableCS
 Id: nonreplaceable-cs
 Title: "NonReplaceable"
 Description: "Kodverk för aktör som har angett att ett läkemedel inte är utbytbart i GetMedicationHistory (DispensationAuthorizationType)."
+* ^version = "2.2.1"
 * ^url = "https://fhir.inera.se/CodeSystem/nonreplaceable-actoutcome"
 * ^status = #active
 * ^content = #complete

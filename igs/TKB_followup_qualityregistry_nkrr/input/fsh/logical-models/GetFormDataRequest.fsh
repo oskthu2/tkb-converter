@@ -11,6 +11,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.2"
 * formId 1..1 string "Identifierare av mallen"
     """
     Identifierare av mallen.

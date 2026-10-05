@@ -10,6 +10,7 @@ Description: """
   (urn:riv:informationsecurity:authorization:consent:RegisterExtendedConsentResponder:2, RegisterExtendedConsentResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * result 1..1 BackboneElement "result" "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes."
   * resultCode 1..1 code "resultCode" "resultCode"
   * resultCode from ResultCodeVS (required)

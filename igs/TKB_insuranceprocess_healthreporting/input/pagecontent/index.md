@@ -1,8 +1,12 @@
 # insuranceprocess: healthreporting
 
+<!-- tkb-version -->
+**TKB-version:** 3.1.1 · **IG-version:** 3.1.1 · **Källa:** Bitbucket-tagg `insuranceprocess_healthreporting_3.1.1`
+<!-- /tkb-version -->
+
 ## Översikt
 
-FHIR Implementation Guide för tjänstedomänen **insuranceprocess: healthreporting** version 3.1.0.
+FHIR Implementation Guide för tjänstedomänen **insuranceprocess: healthreporting** version 3.1.1.
 Genererad från Ineras Tjänstekontraktsbeskrivning (TKB).
 
 Domänen innehåller följande tjänstekontrakt:

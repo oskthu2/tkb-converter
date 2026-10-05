@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * prescriptionTime 0..1 string "Tidpunkt då registreringen av ordinationsorsaken gjordes (YYYYMMDDhhmmss)"
   """
   Tidpunkt i formatet YYYYMMDDhhmmss.
@@ -103,6 +104,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * resultCode 1..1 string "Resultatkod: OK, ERROR eller INFO"
   """
   OK = operationen genomförd utan fel

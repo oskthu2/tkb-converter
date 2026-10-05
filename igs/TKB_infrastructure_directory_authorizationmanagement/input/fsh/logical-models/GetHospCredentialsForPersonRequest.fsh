@@ -8,6 +8,7 @@ Title: "GetHospCredentialsForPerson — Request"
 Description: "Logisk modell för requestparametrar i GetHospCredentialsForPerson."
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * personalIdentityNumber 1..1 string "Person-id för personen vars HOSP-uppgifter söks ut"
   """
   Ref. person-id (personalIdentityNumber) [R5].

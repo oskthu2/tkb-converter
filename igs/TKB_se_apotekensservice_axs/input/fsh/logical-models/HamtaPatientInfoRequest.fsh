@@ -11,6 +11,7 @@ Description: """
   inklusive de två SOAP-huvuden som WSDL:en kräver (LogicalAddress och ArgosHeader).
 """
 Characteristics: #can-be-target
+* ^version = "6.0"
 * logicalAddress 1..1 string "Logisk adress" "SOAP-huvud LogicalAddress (itintegration_registry_1.0.xsd). Enligt WSDL: organisationsnummer för Apotekens Service AB."
 * argosHeader 1..1 BackboneElement "Argos-huvud" "SOAP-huvud ArgosHeader (ArgosHeader_1.0.xsd). Enligt WSDL: se dokumentationen för vilka fält som är obligatoriska för just denna tjänsteinteraktion. Alla fält är 0..1 i schemat."
   * forskrivarkod 0..1 string "Förskrivarkod" "Förskrivarkod."

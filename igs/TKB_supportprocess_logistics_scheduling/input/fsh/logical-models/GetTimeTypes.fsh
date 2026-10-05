@@ -10,6 +10,7 @@ Description: """
   (urn:riv:supportprocess:logistics:scheduling:GetTimeTypesResponder:2, GetTimeTypesResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * timeType 0..* BackboneElement "timeType" "timeType"
   * timeTypeCode 1..1 string "timeTypeCode" "timeTypeCode Heter code i schemat."
   * hidden 0..1 boolean "hidden" "hidden"

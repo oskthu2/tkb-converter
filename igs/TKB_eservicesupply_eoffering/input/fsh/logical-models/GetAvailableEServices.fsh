@@ -16,6 +16,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * availableEServices 0..* BackboneElement "E-tjänster per vårdenhet"
     """
     Lista med tillgängliga e-tjänster per vårdenhet.

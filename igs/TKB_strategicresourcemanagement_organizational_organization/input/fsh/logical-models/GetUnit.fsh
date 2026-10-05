@@ -10,6 +10,7 @@ Description: """
   (urn:riv:strategicresourcemanagement:organizational:organization:GetUnitResponder:2, GetUnitResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * unit 0..1 BackboneElement "unit" "unit"
   * alternateName 0..* string "alternateName" "alternateName"
   * alternateText 0..1 string "alternateText" "alternateText"

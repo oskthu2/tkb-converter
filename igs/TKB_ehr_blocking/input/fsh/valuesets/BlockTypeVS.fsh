@@ -5,5 +5,6 @@ ValueSet: BlockTypeVS
 Id: blocktype-vs
 Title: "BlockType — ValueSet"
 Description: "Tillåtna värden för typ av spärr."
+* ^version = "3.2.2"
 * ^status = #active
 * include codes from system BlockTypeCS

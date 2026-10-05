@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * formId 1..1 string "Formulärets unika ID (GUID)"
 * subjectOfCare 0..1 string "Invånarens personnummer (yyyymmddnnnn)"
 
@@ -29,6 +30,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * form 0..1 BackboneElement "Formulärobjekt med aktuell sida (FormType)"
     """
     Det hämtade formuläret inkl. aktuell sida. Saknas formuläret returneras SOAP-fault.

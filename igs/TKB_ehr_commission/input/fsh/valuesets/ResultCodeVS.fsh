@@ -9,5 +9,6 @@ Description: """
   Tillåtna svarskoder för ResultType.ResultCode i ehr:commission-tjänsterna.
   Inkluderar alla koder från ResultCodeCS-kodverket.
 """
+* ^version = "1.0.0-snapshot"
 * ^status = #active
 * include codes from system ResultCodeCS

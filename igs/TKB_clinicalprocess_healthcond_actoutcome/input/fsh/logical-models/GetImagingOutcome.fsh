@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * imagingOutcome 0..* BackboneElement "Bilddiagnostiskt resultat (ett per undersökning)"
 
 // ── Header ───────────────────────────────────────────

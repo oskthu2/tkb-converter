@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.1"
 * intyg 1..1 BackboneElement "Intyg med tillhörande metadata"
   """
   Ett intyg komplett med statusar, relationer och ärendekommunikation.
@@ -70,6 +71,7 @@ Title: "GetCertificate — Request"
 Description: "Logisk modell för requestparametrar i GetCertificate."
 Characteristics: #can-be-target
 
+* ^version = "2.1"
 * intygsId 1..1 Identifier "Unikt ID för det intyg som ska hämtas"
   """
   Unikt identifierare för det efterfrågade intyget.

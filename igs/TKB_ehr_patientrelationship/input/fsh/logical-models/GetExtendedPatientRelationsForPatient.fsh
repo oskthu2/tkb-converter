@@ -14,6 +14,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * result 1..1 BackboneElement "Svarskod och eventuellt resultatmeddelande"
 * result.resultCode 1..1 code "Svarskod"
 * result.resultCode from ResultCodeVS (required)

@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * healthCareUnit 0..1 BackboneElement "Svarsobjekt med vårdenhetsinformation"
     """
     Aggregerat objekt med information om enheten, vårdenhet och vårdgivare.

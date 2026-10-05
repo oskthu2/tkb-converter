@@ -10,6 +10,7 @@ Description: """
   (urn:riv:ehr:patientsummary:GetEhrExtractResponder:1, GetEhrExtractType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. the HSA-id of the service producer"
 * subject_of_care_id 1..1 Identifier "subject_of_care_id" "subject_of_care_id"
 * purpose 0..1 CodeableConcept "purpose" "purpose"

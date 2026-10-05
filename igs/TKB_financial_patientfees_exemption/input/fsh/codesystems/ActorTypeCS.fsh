@@ -5,6 +5,7 @@ CodeSystem: ActorTypeCS
 Id: patientfees-exemption-actortype-cs
 Title: "ActorType"
 Description: "Koder för ActorTypeEnum i domänschemat."
+* ^version = "1.0.0"
 * ^url = "https://fhir.inera.se/CodeSystem/patientfees-exemption-actortype-cs"
 * ^status = #active
 * ^content = #complete

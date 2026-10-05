@@ -6,5 +6,6 @@ ValueSet: RequestTypeVS
 Id: requesttype-vs
 Title: "codeForRequestType"
 Description: "Alla koder i RequestTypeCS."
+* ^version = "2.2.0"
 * ^status = #active
 * include codes from system RequestTypeCS

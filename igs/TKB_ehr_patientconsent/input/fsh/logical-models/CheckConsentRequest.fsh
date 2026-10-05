@@ -9,6 +9,7 @@ Title: "CheckConsent — Request"
 Description: "Logisk modell för requestparametrar i CheckConsent."
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * accessingActor 1..1 BackboneElement "Den aktör/person som önskar åtkomst till informationen (AccessingActorType)"
   * employeeId 1..1 Identifier "HSA-id för medarbetaren (max 32 tecken)"
   * careProviderId 1..1 Identifier "HSA-id för vårdgivaren som medarbetaren tillhör (max 32 tecken)"

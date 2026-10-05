@@ -5,6 +5,7 @@ CodeSystem: AktivitetskodCS
 Id: aktivitetskod-cs
 Title: "Aktivitetskod"
 Description: "Kodverk för aktivitetskoder i tjänstekontraktet RegisterMedicalCertificate (blankett FK7263)."
+* ^version = "3.1.1"
 * ^url = "https://fhir.inera.se/CodeSystem/aktivitetskod-cs"
 * ^status = #active
 * ^content = #complete

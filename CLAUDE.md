@@ -41,6 +41,8 @@ Detaljinstruktionerna ligger i skills under `.claude/skills/`. De laddas när st
 - `scripts/preflight_lint.py igs/TKB_x` — alla kända, mekaniskt upptäckbara felmönster. Kör före varje push (exit 0 krävs).
 - `make sushi-one D=TKB_x` — lokal SUSHI-kompilering (0 errors krävs).
 - `scripts/registry_update.py` — alla ändringar i `contracts-registry.json`.
+- `scripts/tkb_version.py` — Bitbucket-tagg till IG-version (`2.0` → `2.0.0`, `1.0_RC3` → `1.0.0-rc3`). IG-versionen följer alltid taggen IG:n byggs från.
+- `scripts/set_ig_version.py igs/TKB_x` — för in registrets version i sushi-config, `* ^version` på FSH-resurserna (kontraktens egen major.minor) och index.md.
 - `.claude/hooks/session-start.sh` — installerar sushi, python-docx, antiword och FHIR-baspaketet (offline-stub) i nya sessioner.
 
 **När du hittar ett nytt återkommande felmönster:** dokumentera det i rätt skill med felsignatur och åtgärd, och lägg till en kontroll i `preflight_lint.py` om det går att upptäcka mekaniskt. QUESTIONS.md läses inte av nästa domäns session. Skills och linten gör det.
@@ -62,6 +64,10 @@ Registret trackar **domäner** (= TKBer = en IG var), inte enskilda kontrakt.
       "bitbucket_slug": "riv.clinicalprocess.healthcond.description",
       "zip_url": "https://bitbucket.org/rivta-domains/riv.clinicalprocess.healthcond.description/downloads/clinicalprocess_healthcond_description_4.0.zip",
       "domain_version": "4.0",
+      "source_tag": "4.0",
+      "source_commit": "<full commit-hash>",
+      "source_kind": "tag | after-tag | snapshot",
+      "ig_version": "4.0.0",
       "status": "pending | in-progress | done | blocked",
       "blocked_reason": null,
       "output_dir": "igs/TKB_clinicalprocess_healthcond_description/",

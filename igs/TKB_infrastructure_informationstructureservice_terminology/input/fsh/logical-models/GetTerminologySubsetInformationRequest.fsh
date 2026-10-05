@@ -10,6 +10,7 @@ Description: """
   (urn:riv:infrastructure:informationstructureservice:terminology:GetTerminologySubsetInformationResponder:1, GetTerminologySubsetInformationRequestType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. HSA-id for the entity responsible for the subset"
 * SubsetIdentity 1..* string "SubsetIdentity" "Identifierare som representerar urvalet"
 * LocalOrganizationExtensionId 0..1 string "LocalOrganizationExtensionId" "Id för system eller organisation"

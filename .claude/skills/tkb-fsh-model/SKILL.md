@@ -290,7 +290,7 @@ parameters:
   show-inherited-invariants: false
   apply-contact: true
   apply-publisher: true
-  apply-version: true
+  apply-version: false
   apply-copyright: true
   special-url:
     - https://fhir.inera.se/CodeSystem/{kodverk-slug-1}-cs
@@ -421,6 +421,7 @@ Om `passed` är `false`: orchestratorn ska **inte** gå vidare till QA Tracker u
 - Det finns **inget** publicerat `se.inera.rivta.core`-paket (varken på build.fhir.org eller packages.fhir.org) — deklarera det **aldrig** som dependency i sushi-config.yaml, det får IG Publisher att krascha vid dependency-upplösning (bekräftat i CI, se GitHub Actions-körning 34356588086). Ineras gemensamma bastyper hanteras istället lokalt: skapa en Extension eller en lokal `Logical:`-typ i domänens egen `input/fsh/` och lägg till en QUESTIONS-notering
 - Använd alltid `^url` explicit i CodeSystem för att ange OID-baserad canonical
 - Alla FSH-filer ska ha header-kommentarer med kontrakts-ID, version och genereringsdatum
+- Varje Logical, CodeSystem och ValueSet har `* ^version` som första regel: kontraktets major.minor (ur XSD-filnamnet, t.ex. `"3.0"`) på kontraktets begärans- och svarsmodell, annars IG:ns version. Skriv dem inte för hand, kör `scripts/set_ig_version.py` (se `tkb-ig-builder`, Versioner). Lokalt kräver regeln att FHIR-stubben har `StructureDefinition.version`; kör `make fhir-stubs` om SUSHI säger "The element or path you referenced does not exist: version"
 
 ---
 

@@ -6,6 +6,7 @@ CodeSystem: ResultCodeCS
 Id: resultcode-cs
 Title: "ResultCode"
 Description: "Resultatkod för registrerings-/raderingsoperationer i Infektionsverktyget. Anger utfallet av anropet."
+* ^version = "1.0.2"
 * ^url = "https://fhir.inera.se/CodeSystem/resultcode-cs"
 * ^status = #active
 * ^content = #complete

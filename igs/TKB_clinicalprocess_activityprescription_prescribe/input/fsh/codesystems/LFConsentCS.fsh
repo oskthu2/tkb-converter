@@ -6,6 +6,7 @@ CodeSystem: LFConsentCS
 Id: lfconsent-cs
 Title: "LFConsent — Samtyckestyp"
 Description: "Kodverk för typ av samtycke för åtkomst till läkemedelsförteckning (LF). Används i GetDispensedDrugsConsent/RegisterDispensedDrugsConsent."
+* ^version = "2.0.0-rc1"
 * ^url = "https://fhir.inera.se/CodeSystem/lfconsent"
 * ^status = #active
 * ^content = #complete

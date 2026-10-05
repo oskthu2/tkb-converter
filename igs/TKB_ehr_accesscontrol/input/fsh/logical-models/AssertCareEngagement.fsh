@@ -16,6 +16,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * hasCareEngagement 1..1 boolean "Åtkomstberättigande vårdrelation"
     """
     'true' om åtkomstberättigande vårdrelation kan anses föreligga, annars 'false'.

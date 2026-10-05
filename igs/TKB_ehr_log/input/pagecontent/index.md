@@ -1,8 +1,12 @@
 # ehr: log
 
+<!-- tkb-version -->
+**TKB-version:** 1.2.4 · **IG-version:** 1.2.4 · **Källa:** Bitbucket-tagg `1.2.4`
+<!-- /tkb-version -->
+
 ## Översikt
 
-FHIR Implementation Guide för tjänstedomänen **ehr: log** version 1.2.3.
+FHIR Implementation Guide för tjänstedomänen **ehr: log** version 1.2.4.
 Genererad från Ineras Tjänstekontraktsbeskrivning (TKB).
 
 Domänen **urn:riv:ehr:log** hanterar loggning och uppföljning av åtkomst till patientjournal enligt Patientdatalagen (PDL) och Socialstyrelsens föreskrifter (SOSFS 2008:14). Den är indelad i två underdomäner:

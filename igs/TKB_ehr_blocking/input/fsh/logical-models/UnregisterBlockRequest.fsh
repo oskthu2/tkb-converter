@@ -8,4 +8,5 @@ Title: "UnregisterBlock — Request"
 Description: "Logisk modell för requestparametrar i UnregisterBlock."
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * blockId 1..1 string "Unik identifierare (UUID) för den spärr som skall avregistreras."

@@ -10,6 +10,7 @@ Description: """
   (urn:riv:supportprocess:logistics:carelisting:GetAvailableHealthcareFacilitiesResponder:2, GetAvailableHealthcareFacilitiesType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "2.1"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. The county/region code"
 * healthcareFacilities 0..* string "healthcareFacilities" "healthcareFacilities"
 * listingTypes 0..* BackboneElement "listingTypes" "listingTypes"

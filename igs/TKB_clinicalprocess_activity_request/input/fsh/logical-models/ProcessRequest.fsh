@@ -14,6 +14,7 @@ Description: """
   Logisk modell för begäran i ProcessRequest (RIV-TA urn:riv:clinicalprocess:activity:request:ProcessRequestResponder:2, element request av typen RequestType). Remittenten skickar en allmänremiss till remissmottagaren. Svaret är enbart ett resultat, se ProcessResult.
 """
 Characteristics: #can-be-target
+* ^version = "2.2"
 * obeys processrequest-vr-intermediary
 * requestId 1..1 string "Remiss id" "Remissens identitet. Format Källsystem-Id(HSA-ID)#lokalt-id, mönster (.*)#(.*), maxlängd 256 tecken."
 * typeOfRequest 1..1 code "Remisstyp" "Typ av remiss. I denna version är enda giltiga kod 4 = allmänremiss."

@@ -10,6 +10,7 @@ Description: """
   (urn:riv:infrastructure:itintegration:messagebox:GetMessagesResponder:1, GetMessagesResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * result 1..1 BackboneElement "result" "Gemensam resultatkod. Om code är OK är övriga fält tomma. Om code är \"INFO\" eller ERROR kan information skickas i errorId och/eller errorMessage."
   * resultCode 1..1 code "resultCode" "resultCode Heter code i schemat."
   * resultCode from ResultCodeVS (required)

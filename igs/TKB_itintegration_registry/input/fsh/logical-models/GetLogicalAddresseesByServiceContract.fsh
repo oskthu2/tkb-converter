@@ -10,4 +10,5 @@ Description: """
   (urn:riv:itintegration:registry:GetLogicalAddresseesByServiceContractResponder:1, GetLogicalAddresseesByServiceContractResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 0..* string "logicalAddress" "logicalAddress"

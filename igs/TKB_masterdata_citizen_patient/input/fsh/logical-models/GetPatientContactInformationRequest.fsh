@@ -10,6 +10,7 @@ Description: """
   (urn:riv:masterdata:citizen:patient:GetPatientContactInformationResponder:1, GetPatientContactInformationType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. National: The HSA-id of Inera AB (\"national\" aggregation service) Regional: The HSA-id of Inera AB (regional aggregation service) Specific Source system: The HSA-id of the source system"
 * patientId 1..1 BackboneElement "patientId" "patientId"
   * root 1..1 string "root" "root"

@@ -5,6 +5,7 @@ CodeSystem: ResultCodeCS
 Id: patientfees-exemption-resultcode-cs
 Title: "ResultCode"
 Description: "Koder för ResultCodeEnum i domänschemat."
+* ^version = "1.0.0"
 * ^url = "https://fhir.inera.se/CodeSystem/patientfees-exemption-resultcode-cs"
 * ^status = #active
 * ^content = #complete

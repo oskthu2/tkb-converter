@@ -5,6 +5,7 @@ CodeSystem: FormCategoryCS
 Id: formcategory-cs
 Title: "KV Formulärkategori"
 Description: "Kodverk för formulärkategori. Definierar formulärets typ."
+* ^version = "2.1.1"
 * ^url = "https://fhir.inera.se/CodeSystem/formcategory-cs"
 * ^status = #active
 * ^content = #fragment

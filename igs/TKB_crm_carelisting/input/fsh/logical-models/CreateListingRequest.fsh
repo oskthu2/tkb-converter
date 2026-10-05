@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * personId 1..1 string "Personnummer för den person som önskar göra ett tjänsteval"
     """
     Identitetsbeteckning för vård- och omsorgstagaren.

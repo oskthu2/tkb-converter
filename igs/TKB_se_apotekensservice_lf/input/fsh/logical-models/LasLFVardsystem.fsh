@@ -10,6 +10,7 @@ Description: """
   (urn:riv:se.apotekensservice:lf:LasLFVardsystemResponder:4, LasLFVardsystemResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "4.1"
 * lakemedelsforteckning 0..* BackboneElement "lakemedelsforteckning" "Patientens läkemedelsförteckning. Om patienten saknar poster i läkemedelsförteckningen så returneras en tom lista."
   * aktorsExpeditionsId 1..1 string "aktorsExpeditionsId" "Aktörens expeditionsId"
   * antalForpackningar 0..1 integer "antalForpackningar" "Antal förpackningar av utlämnad vara. Obligatorisk parameter om posten ej är en dosdispenserad artikel"

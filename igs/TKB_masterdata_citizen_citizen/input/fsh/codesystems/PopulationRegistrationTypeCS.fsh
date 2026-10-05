@@ -5,6 +5,7 @@ CodeSystem: PopulationRegistrationTypeCS
 Id: masterdata-citizen-citizen-populationregistrationtype-cs
 Title: "Kod för folkbokföringskategori"
 Description: "Koder för PopulationRegistrationTypeType i domänschemat. Visningstexter ur TKB kapitel 7 och domänschemats annoteringar."
+* ^version = "2.0.0"
 * ^url = "https://fhir.inera.se/CodeSystem/masterdata-citizen-citizen-populationregistrationtype-cs"
 * ^status = #active
 * ^content = #complete

@@ -8,6 +8,7 @@ Title: "GetLogsForCareProvider — Request"
 Description: "Logisk modell för requestparametrar i GetLogsForCareProvider."
 Characteristics: #can-be-target
 
+* ^version = "1.1"
 * careProviderId 1..1 Identifier "Vårdgivare som är ägare till loggposter"
     """
     HSA-id för vårdgivaren vars loggposter ska hämtas. Kardinalitet: Obligatorisk.

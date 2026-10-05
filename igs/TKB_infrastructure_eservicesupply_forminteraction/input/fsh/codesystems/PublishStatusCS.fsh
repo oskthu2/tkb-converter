@@ -5,6 +5,7 @@ CodeSystem: PublishStatusCS
 Id: publishstatus-cs
 Title: "KV Publiceringsstatus"
 Description: "Kodverk för publiceringsstatus för formulärmallar."
+* ^version = "2.1.1"
 * ^url = "https://fhir.inera.se/CodeSystem/publishstatus-cs"
 * ^status = #active
 * ^content = #fragment

@@ -5,5 +5,6 @@ ValueSet: ActivityTypeVS
 Id: activitytype-vs
 Title: "ActivityType — ValueSet"
 Description: "Tillåtna värden för aktivitetstyp (log:ActivityTypeValue) i loggposter."
+* ^version = "1.2.4"
 * ^status = #active
 * include codes from system ActivityTypeCS

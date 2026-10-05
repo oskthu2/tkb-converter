@@ -6,5 +6,6 @@ ValueSet: DateTypeFormatVS
 Id: SPP-datetypeformat-vs
 Title: "DateTypeFormat"
 Description: "Alla koder i DateTypeFormatCS."
+* ^version = "5.1.0"
 * ^status = #active
 * include codes from system DateTypeFormatCS

@@ -8,6 +8,7 @@ Title: "CancelTemporaryExtendedRevoke — Request"
 Description: "Logisk modell för requestparametrar i CancelTemporaryExtendedRevoke."
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * temporaryRevokeId 1..1 string "Identifierare för den tillfälliga hävning som skall återkallas."
 * cancellationInfo 1..1 BackboneElement "Aktörsinfo för begäran och registrering av återkallningen"
   * requestDate 1..1 dateTime "Datum när återkallningen begärdes"

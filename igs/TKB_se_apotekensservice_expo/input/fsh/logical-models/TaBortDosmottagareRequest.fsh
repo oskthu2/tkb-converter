@@ -10,6 +10,7 @@ Description: """
   (urn:riv:se.apotekensservice:expo:TaBortDosmottagareResponder:1, TaBortDosmottagareRequestType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Orgnr of Apotekens Service AB"
 * argosHeader 1..1 BackboneElement "argosHeader" "SOAP-huvud ArgosHeader. Argos header of Apotekens Service AB. Check documentation regarding mandatory fields for this specific service interaction"
   * forskrivarkod 0..1 string "forskrivarkod" "forskrivarkod"

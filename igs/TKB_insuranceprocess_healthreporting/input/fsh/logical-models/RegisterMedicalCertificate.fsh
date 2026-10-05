@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "3.1"
 * lakarutlatandeId 1..1 string "Identitet på läkarintyget (GUID)"
   """
   Unik identifierare för läkarintyget. Är en GUID.
@@ -144,6 +145,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "3.1"
 * result 0..1 BackboneElement "Resultatinformation"
 * result.resultCode 1..1 string "Resultatkod (OK, ERROR, INFO)"
 * result.infoText 0..1 string "Extra information om anropets utgång"

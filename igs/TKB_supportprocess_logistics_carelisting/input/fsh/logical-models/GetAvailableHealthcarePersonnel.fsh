@@ -10,6 +10,7 @@ Description: """
   (urn:riv:supportprocess:logistics:carelisting:GetAvailableHealthcarePersonnelResponder:2, GetAvailableHealthcarePersonnelResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * healthcarePersonnel 0..* BackboneElement "healthcarePersonnel" "healthcarePersonnel"
   * healthcarePersonnelId 1..1 string "healthcarePersonnelId" "healthcarePersonnelId Heter id i schemat."
   * healthcarePersonnelName 1..1 string "healthcarePersonnelName" "healthcarePersonnelName Heter name i schemat."

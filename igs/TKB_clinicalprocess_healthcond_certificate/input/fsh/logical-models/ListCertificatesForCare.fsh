@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "3.1"
 * intygsLista 1..1 BackboneElement "Lista av intyg"
 * intygsLista.intyg 0..* BackboneElement "Ett intyg i listan"
 * intygsLista.intyg.intygsId 1..1 Identifier "Unikt ID för intyget"
@@ -42,6 +43,7 @@ Title: "ListCertificatesForCare — Request"
 Description: "Logisk modell för requestparametrar i ListCertificatesForCare."
 Characteristics: #can-be-target
 
+* ^version = "3.1"
 * personId 1..1 Identifier "Person- eller samordningsnummer för patienten"
 * vardgivareId 0..1 Identifier "HSA-id för vårdgivaren (exklusivt med enhetsId)"
   """

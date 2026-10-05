@@ -11,6 +11,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * personHsaId 0..1 string "Unik identifierare för personen vars behörighetsegenskaper söks ut"
   """
   Exakt ett av fälten personHsaId och personalIdentityNumber ska anges.

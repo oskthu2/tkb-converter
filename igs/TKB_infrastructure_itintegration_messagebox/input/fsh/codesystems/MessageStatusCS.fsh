@@ -5,6 +5,7 @@ CodeSystem: MessageStatusCS
 Id: messagebox-messagestatus-cs
 Title: "Meddelandestatus"
 Description: "Koder för MessageStatusType i domänschemat."
+* ^version = "1.0.0"
 * ^url = "https://fhir.inera.se/CodeSystem/messagebox-messagestatus-cs"
 * ^status = #active
 * ^content = #complete

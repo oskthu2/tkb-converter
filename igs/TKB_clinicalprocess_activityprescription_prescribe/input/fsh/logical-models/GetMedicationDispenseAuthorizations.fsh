@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * medicationDispenseCase 0..* BackboneElement "Expedieringsärende"
     """
     En eller flera expedieringsärenden för patienten.

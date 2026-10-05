@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * vardReferensId 1..1 string "Identitet för denna fråga från vården"
   """
   Samma vardReferens-id kan förekomma i flera meddelanden (t.ex. påminnelse).
@@ -55,6 +56,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * result 1..1 BackboneElement "Resultatinformation"
 * result.resultCode 1..1 string "Resultatkod (OK, ERROR, INFO)"
 * result.infoText 0..1 string "Extra information om anropets utgång"

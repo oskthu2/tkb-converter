@@ -8,6 +8,7 @@ Title: "GetPatientRelationsForPatient — Request"
 Description: "Logisk modell för requestparametrar i GetPatientRelationsForPatient."
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * careProviderId 1..1 Identifier "HSA-id på den vårdgivare vars patientrelationer skall hämtas"
   """
   Obligatorisk. Identifierar den vårdgivare som patientrelationsinformationen gäller för.

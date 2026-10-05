@@ -5,6 +5,7 @@ CodeSystem: RIVTAVersionCS
 Id: healthcareoffering-rivtaversion-cs
 Title: "RIV-TA-version (RIVTAVersion)"
 Description: "Koder för RIVTAVersionEnum i domänschemat. Visningstexter ur TKB avsnitt 6.1.2 (GetOfferingCatalogues, rivtaVersion)."
+* ^version = "3.0.0"
 * ^url = "https://fhir.inera.se/CodeSystem/healthcareoffering-rivtaversion-cs"
 * ^status = #active
 * ^content = #complete

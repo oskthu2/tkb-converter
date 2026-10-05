@@ -5,6 +5,7 @@ CodeSystem: TypeOfCloseRelationCS
 Id: masterdata-citizen-patient-typeofcloserelation-cs
 Title: "Typ av närståenderelation"
 Description: "Koder för TypeOfCloseRelationEnum i domänschemat. Visningstexter ur domänschemats annoteringar."
+* ^version = "1.0.0-rc1.snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/masterdata-citizen-patient-typeofcloserelation-cs"
 * ^status = #active
 * ^content = #complete

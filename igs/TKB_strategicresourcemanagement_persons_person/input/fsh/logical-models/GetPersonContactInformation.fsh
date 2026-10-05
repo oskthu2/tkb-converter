@@ -10,6 +10,7 @@ Description: """
   (urn:riv:strategicresourcemanagement:persons:person:GetPersonContactInformationResponder:4, GetPersonContactInformationResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "4.0"
 * contactInformationRecord 0..1 BackboneElement "contactInformationRecord" "Uppgifter om personens kontaktuppgifter och kontaktpersoner"
   * contactInformationRecordVersion 1..1 string "contactInformationRecordVersion" "contactInformationRecordVersion Heter version i schemat."
   * personId 1..1 BackboneElement "personId" "En universellt unik identifierare."

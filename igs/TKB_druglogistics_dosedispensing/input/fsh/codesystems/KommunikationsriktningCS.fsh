@@ -5,6 +5,7 @@ CodeSystem: KommunikationsriktningCS
 Id: dosedispensing-kommunikationsriktning-cs
 Title: "Kommunikationsriktning"
 Description: "Koder för KommunikationsriktningEnum i domänschemat. Visningstexter ur Pascal – Objekt och felhantering (Objekt_och_felhantering.pdf)."
+* ^version = "1.1.0"
 * ^url = "https://fhir.inera.se/CodeSystem/dosedispensing-kommunikationsriktning-cs"
 * ^status = #active
 * ^content = #complete

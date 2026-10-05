@@ -5,6 +5,7 @@ CodeSystem: ResultCodeEnumCS
 Id: masterdata-citizen-patient-resultcodeenum-cs
 Title: "Resultatkod"
 Description: "Koder för ResultCodeEnumType i domänschemat. Visningstexter ur domänschemats annoteringar."
+* ^version = "1.0.0-rc1.snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/masterdata-citizen-patient-resultcodeenum-cs"
 * ^status = #active
 * ^content = #complete

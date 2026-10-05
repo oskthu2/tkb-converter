@@ -1,5 +1,9 @@
 # ehr: patientsummary
 
+<!-- tkb-version -->
+**TKB-version:** 1.0 · **IG-version:** 1.0.0-snapshot · **Källa:** Bitbucket-commit `4714d3acbda3` (ingen tagg)
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **ehr: patientsummary** (Patientöversikt) version 1.0.

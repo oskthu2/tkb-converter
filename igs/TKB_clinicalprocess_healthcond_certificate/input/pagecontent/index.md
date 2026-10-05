@@ -1,8 +1,12 @@
 # clinicalprocess: healthcond: certificate
 
+<!-- tkb-version -->
+**TKB-version:** 4.1_RC1 · **IG-version:** 4.1.0-rc1 · **Källa:** Bitbucket-commit `be04ee5a3fad`, efter taggen `4.1_RC1`
+<!-- /tkb-version -->
+
 ## Översikt
 
-FHIR Implementation Guide för tjänstedomänen **clinicalprocess: healthcond: certificate** version 4.1-RC1.
+FHIR Implementation Guide för tjänstedomänen **clinicalprocess: healthcond: certificate** version 4.1_RC1.
 Genererad från Ineras Tjänstekontraktsbeskrivning (TKB).
 
 Domänen hanterar digitala intyg och tillhörande kommunikation inom hälso- och sjukvården. Den

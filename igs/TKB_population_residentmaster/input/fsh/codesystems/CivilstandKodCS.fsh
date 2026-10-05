@@ -6,6 +6,7 @@ CodeSystem: CivilstandKodCS
 Id: civilstandkod-cs
 Title: "Civilståndskod"
 Description: "Kodverk för civilstånd enligt RIV-TA population:residentmaster (CivilstandKodTYPE)."
+* ^version = "1.2.0"
 * ^url = "https://fhir.inera.se/CodeSystem/civilstandkod-cs"
 * ^status = #active
 * ^content = #complete

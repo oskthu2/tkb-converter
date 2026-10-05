@@ -1,5 +1,9 @@
 # clinicalprocess: activity: request — Remisshantering
 
+<!-- tkb-version -->
+**TKB-version:** 2.2 · **IG-version:** 2.2.0 · **Källa:** Bitbucket-tagg `2.2`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **clinicalprocess: activity: request** ("Remisshantering") version 2.2.

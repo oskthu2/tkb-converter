@@ -8,6 +8,7 @@ Title: "RegisterTemporaryExtendedRevoke — Request"
 Description: "Logisk modell för requestparametrar i RegisterTemporaryExtendedRevoke."
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * temporaryRevokeId 1..1 string "Unik, global identifierare för den tillfälliga hävningen. Tjänstekonsumenten ansvarar för att generera id:et."
 * blockId 1..1 string "Identifierare för den spärr som skall tillfälligt hävas."
 * endDate 1..1 dateTime "Den tillfälliga hävningens giltighetsdatum. Hävningen upphör att gälla då denna tidpunkt inträffat."

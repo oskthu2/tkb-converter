@@ -10,6 +10,7 @@ Description: """
   (urn:riv:informationsecurity:authorization:consent:GetConsentsForCareProviderResponder:2, GetConsentsForCareProviderType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Som logisk adress anges HSA-id för aktörens vårdgivare."
 * careProviderId 1..1 string "careProviderId" "careProviderId"
 * createdOnOrAfter 0..1 dateTime "createdOnOrAfter" "createdOnOrAfter"

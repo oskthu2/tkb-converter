@@ -6,5 +6,6 @@ ValueSet: ResultatkodVS
 Id: dosedispensing-resultatkod-vs
 Title: "Resultatkod"
 Description: "Alla koder i ResultatkodCS."
+* ^version = "1.1.0"
 * ^status = #active
 * include codes from system ResultatkodCS

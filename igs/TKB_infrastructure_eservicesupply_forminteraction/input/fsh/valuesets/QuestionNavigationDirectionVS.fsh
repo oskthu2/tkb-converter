@@ -5,5 +5,6 @@ ValueSet: QuestionNavigationDirectionVS
 Id: questionnavigationdirection-vs
 Title: "KV Navigeringsriktning — ValueSet"
 Description: "Tillåtna värden för navigeringsriktning (Direction) vid GetFormQuestionPage."
+* ^version = "2.1.1"
 * ^status = #active
 * include codes from system QuestionNavigationDirectionCS

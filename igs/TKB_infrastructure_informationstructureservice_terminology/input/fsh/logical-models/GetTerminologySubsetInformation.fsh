@@ -10,6 +10,7 @@ Description: """
   (urn:riv:infrastructure:informationstructureservice:terminology:GetTerminologySubsetInformationResponder:1, GetTerminologySubsetInformationResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * SubsetInformation 0..* BackboneElement "SubsetInformation" "SubsetInformation"
   * SubsetIdentity 1..1 string "SubsetIdentity" "Identifierare av urval (XML-attribut.)"
   * Name 1..1 string "Name" "Namn som representerar urval (XML-attribut.)"

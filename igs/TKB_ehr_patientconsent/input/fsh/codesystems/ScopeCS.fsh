@@ -6,6 +6,7 @@ CodeSystem: ScopeCS
 Id: scope-cs
 Title: "Scope"
 Description: "Omfånget/tillämpningsområde på intyget."
+* ^version = "1.0.1-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/scope-cs"
 * ^status = #active
 * ^content = #complete

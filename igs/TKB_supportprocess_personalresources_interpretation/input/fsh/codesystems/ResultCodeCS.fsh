@@ -6,6 +6,7 @@ CodeSystem: ResultCodeCS
 Id: resultcode-cs
 Title: "ResultCodeEnum"
 Description: "Resultatkod för anropet. Enligt supportprocess_personalresources_interpretation_1.0.xsd."
+* ^version = "1.0.0-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/resultcode-cs"
 * ^status = #active
 * ^content = #complete

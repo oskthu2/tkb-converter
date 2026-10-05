@@ -10,5 +10,6 @@ Description: """
   (urn:riv:se.apotekensservice:lf:AterkallaSamtyckeVardsystemResponder:1, AterkallaSamtyckeVardsystemResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * aterkallandedatum 0..1 dateTime "aterkallandedatum" "Datum då tillsvidaresamtycke återkallades. Ej angiven om samtycke saknades."
 * samtycke 1..1 integer "samtycke" "Anger status efter återkallande. Möjliga värden är: 2 = Samtycke att läsa Läkemedelsförteckningen har återkallats"

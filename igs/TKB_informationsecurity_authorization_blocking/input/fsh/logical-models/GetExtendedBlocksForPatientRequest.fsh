@@ -10,6 +10,7 @@ Description: """
   (urn:riv:informationsecurity:authorization:blocking:GetExtendedBlocksForPatientResponder:4, GetExtendedBlocksForPatientType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "4.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Som logisk adress anges HSA-id för tjänstekonsumentens vårdgivare."
 * careProviderId 1..1 string "careProviderId" "careProviderId"
 * patientId 1..1 BackboneElement "patientId" "En universellt unik identifierare."

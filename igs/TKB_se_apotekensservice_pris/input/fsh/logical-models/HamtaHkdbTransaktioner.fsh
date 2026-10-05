@@ -10,6 +10,7 @@ Description: """
   (urn:riv:se.apotekensservice:pris:HamtaHkdbTransaktionerResponder:1, HamtaHkdbTransaktionerResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * transaktionsLista 0..* BackboneElement "transaktionsLista" "Lista med de senaste transaktionerna för personens högkostnadskonto. Antalet som returneras kan ställas in med maxantal, men default är fem. Listan är tom om inga transaktioner existerar eller om personen inte är registrerad i högkostnadstrappan."
   * anvandare 1..1 string "anvandare" "Användare som registrerat transaktionen."
   * apoteksNamn 0..1 string "apoteksNamn" "Apotek som registrerat transaktionen. Visas ej vid sekretesskydd."

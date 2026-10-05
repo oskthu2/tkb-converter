@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.2"
 * formElement 0..* BackboneElement "Svaret består av en lista med formulärets enskilda element"
     """
     Svaret består av en lista med formulärets enskilda element.

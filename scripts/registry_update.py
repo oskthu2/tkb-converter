@@ -10,7 +10,7 @@ samma kommando igen.
 Exempel:
     scripts/registry_update.py population.residentmaster --status done --completed
     scripts/registry_update.py x.y.z --status in-progress --started \
-        --set zip_url=https://... --set domain_version=1.2 \
+        --set zip_url=https://... --set source_tag=1.2 --set domain_version=1.2 \
         --contracts '[{"id": "GetX", "version": "1.0"}]'
     scripts/registry_update.py x.y.z --status blocked --blocked-reason "..."
     scripts/registry_update.py --next-pending       # skriv ut nästa pending-domän
@@ -29,7 +29,13 @@ def now() -> str:
     return datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-def parse_value(raw: str):
+# Versionsfält är alltid strängar: "2.0" får inte bli talet 2.0.
+STRING_KEYS = {"domain_version", "ig_version", "source_tag", "source_commit", "version"}
+
+
+def parse_value(raw: str, key: str = ""):
+    if key in STRING_KEYS:
+        return raw
     try:
         return json.loads(raw)
     except json.JSONDecodeError:
@@ -80,7 +86,7 @@ def main():
         entry["contracts"] = json.loads(args.contracts)
     for kv in args.set:
         key, _, raw = kv.partition("=")
-        entry[key] = parse_value(raw)
+        entry[key] = parse_value(raw, key)
 
     data["last_updated"] = now()
     REGISTRY.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

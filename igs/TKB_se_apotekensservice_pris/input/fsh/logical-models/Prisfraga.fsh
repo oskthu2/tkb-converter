@@ -10,6 +10,7 @@ Description: """
   (urn:riv:se.apotekensservice:pris:PrisfragaResponder:4, PrisfragaResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "4.1"
 * bruttoBeloppHogkostnad 0..1 decimal "bruttoBeloppHogkostnad" "Förmånsgrundande bruttobelopp kopplat till högkostnadsskyddet. Bruttobelopp inkl. ev. moms, att tillgodoräkna i högkostnadsskyddet. Gäller förmånskod = R. Vid kreditering blir detta värde negativt."
 * bruttoPris 1..1 decimal "bruttoPris" "Summa apoteksaktörs utpris inkl. ev. moms för receptexpeditionen. Vid kreditering blir detta värde negativt."
 * egenAvgiftHogkostnad 0..1 decimal "egenAvgiftHogkostnad" "Summa kundens egenavgift kopplat till högkostnadsskyddet. Egenavgift inkl. ev. moms, att tillgodoräkna i högkostnadsskyddet. Gäller förmånskod = R. Vid kreditering blir detta värde negativt."

@@ -5,6 +5,7 @@ CodeSystem: TypeOfPlaceCS
 Id: healthcareoffering-typeofplace-cs
 Title: "Typ av plats (TypeOfPlace)"
 Description: "Koder för TypeOfPlaceEnum i domänschemat. Visningstexter ur TKB avsnitt 6.2.2 (GetCareServiceOfferings, typeOfPlace)."
+* ^version = "3.0.0"
 * ^url = "https://fhir.inera.se/CodeSystem/healthcareoffering-typeofplace-cs"
 * ^status = #active
 * ^content = #complete

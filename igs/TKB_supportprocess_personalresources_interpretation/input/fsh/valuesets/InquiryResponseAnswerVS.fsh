@@ -6,5 +6,6 @@ ValueSet: InquiryResponseAnswerVS
 Id: inquiryresponseanswer-vs
 Title: "InquiryResponseAnswerEnum"
 Description: "Alla koder i InquiryResponseAnswerCS."
+* ^version = "1.0.0-snapshot"
 * ^status = #active
 * include codes from system InquiryResponseAnswerCS

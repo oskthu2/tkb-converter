@@ -14,6 +14,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * registeredResidentIdentification 1..1 string "Personidentitet (sökkriterium)"
     """
     Person- eller samordningsnummer enligt skatteverkets definition (12 tecken),

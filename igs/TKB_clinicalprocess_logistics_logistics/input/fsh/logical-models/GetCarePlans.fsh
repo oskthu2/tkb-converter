@@ -19,6 +19,7 @@ Description: """
 Characteristics: #can-be-target
 
 // ---- carePlan (0..*) - CarePlanType ----
+* ^version = "2.0"
 * carePlan 0..* BackboneElement "Vård- och omsorgsplaner som matchar begäran"
     """
     Lista med vård- och omsorgsplaner för patienten. Varje post innehåller

@@ -10,4 +10,5 @@ Description: """
   (urn:riv:se.apotekensservice:pris:KopplaBarnKontoResponder:4, KopplaBarnKontoResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "4.0"
 * kopplaBarnKontoStatus 1..1 integer "kopplaBarnKontoStatus" "Status för koppling av barnkonto Möjliga värden är: 1 - Anslutning OK. 2 - Omkoppling OK. 3 - Frikoppling OK. Heter status i schemat."

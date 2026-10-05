@@ -14,6 +14,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "4.0"
 * personHsaId 0..1 string "Sökt persons HSA-id"
     """
     Sökt persons HSA-id. Ref. HSA-id (hsaIdentity) [R5].

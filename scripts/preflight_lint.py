@@ -13,10 +13,14 @@ Varje kontroll motsvarar ett dokumenterat mönster i .claude/skills/
 """
 
 import argparse
+import json
 import re
 import sys
 from pathlib import Path
 from urllib.parse import unquote
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import tkb_version  # noqa: E402
 
 # Kraschar bevisligen IG Publisher/SUSHI på alla nivåer (krockar med Element.id/extension):
 RE_RESERVED_HARD = re.compile(r"(^\s*\*\s+|\.)(id|extension|modifierExtension|contained|implicitRules)\s+[0-9]+\.\.[0-9*]+")
@@ -82,6 +86,48 @@ def lint_config(ig: Path, errors: list):
     for url in sorted(cs_urls):
         if url not in text:
             errors.append(f"{cfg}: CodeSystem-URL {url} saknas under special-url (ger RESOURCE_CANONICAL_MISMATCH)")
+
+
+def registry_entry(ig: Path):
+    reg = Path("contracts-registry.json")
+    if not reg.exists():
+        return None
+    for d in json.loads(reg.read_text(encoding="utf-8"))["domains"]:
+        if (d.get("output_dir") or "").rstrip("/") == str(ig).rstrip("/"):
+            return d
+    return None
+
+
+def lint_versions(ig: Path, errors: list):
+    """Versionsregeln (se skillen tkb-ig-builder, avsnittet Versioner)."""
+    cfg = ig / "sushi-config.yaml"
+    entry = registry_entry(ig)
+    if not cfg.exists() or entry is None:
+        return
+    text = cfg.read_text(encoding="utf-8")
+    m = re.search(r"^version:\s*\"?([^\s\"]+)", text, re.M)
+    version = m.group(1) if m else None
+    expected = entry.get("ig_version")
+    if not expected:
+        errors.append(f"{ig}: registret saknar ig_version — sätt source_tag/domain_version/ig_version med "
+                      "scripts/registry_update.py och kör scripts/set_ig_version.py")
+        return
+    if entry.get("source_kind") == "tag" and entry.get("source_tag"):
+        try:
+            if tkb_version.semver(entry["source_tag"]) != expected:
+                errors.append(f"{ig}: registrets ig_version {expected} följer inte taggen "
+                              f"{entry['source_tag']} ({tkb_version.semver(entry['source_tag'])})")
+        except ValueError as e:
+            errors.append(f"{ig}: {e}")
+    if version != expected:
+        errors.append(f"{cfg}: version {version} ≠ registrets ig_version {expected} — kör scripts/set_ig_version.py {ig}")
+    if not re.search(r"^\s+apply-version:\s*false", text, re.M):
+        errors.append(f"{cfg}: apply-version måste vara false, annars skrivs kontraktens ^version över")
+    for f in sorted((ig / "input" / "fsh").rglob("*.fsh")):
+        for part in re.split(r"(?=^(?:Logical|CodeSystem|ValueSet|Invariant):\s*\S+)", f.read_text(encoding="utf-8"), flags=re.M):
+            mm = re.match(r"(Logical|CodeSystem|ValueSet):\s*(\S+)", part)
+            if mm and not re.search(r"^\* \^version\s*=", part, re.M):
+                errors.append(f"{f}: {mm.group(1)} {mm.group(2)} saknar * ^version — kör scripts/set_ig_version.py {ig}")
 
 
 def lint_pages(ig: Path, errors: list, warnings: list):
@@ -155,6 +201,7 @@ def main():
             continue
         errors, warnings = [], []
         lint_config(ig, errors)
+        lint_versions(ig, errors)
         lint_fsh(ig, errors, warnings)
         lint_pages(ig, errors, warnings)
         status = "OK" if not errors else f"{len(errors)} FEL"

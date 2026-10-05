@@ -5,5 +5,6 @@ ValueSet: PublishStatusVS
 Id: publishstatus-vs
 Title: "KV Publiceringsstatus — ValueSet"
 Description: "Tillåtna värden för publiceringsstatus (publishStatus) för formulärmallar."
+* ^version = "2.1.1"
 * ^status = #active
 * include codes from system PublishStatusCS

@@ -6,6 +6,7 @@ CodeSystem: TemporaryRevokeReasonCS
 Id: temporaryrevokereason-cs
 Title: "TemporaryRevokeReason"
 Description: "Orsak till tillfällig hävning av spärr enligt urn:riv:ehr:blocking:2."
+* ^version = "3.2.2"
 * ^url = "https://fhir.inera.se/CodeSystem/temporaryrevokereason-cs"
 * ^status = #active
 * ^content = #complete

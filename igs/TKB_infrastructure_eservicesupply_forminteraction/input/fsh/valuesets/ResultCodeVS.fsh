@@ -5,5 +5,6 @@ ValueSet: ResultCodeVS
 Id: resultcode-vs
 Title: "KV Resultatkod — ValueSet"
 Description: "Tillåtna värden för resultatkod i formulärinteraktionstjänsterna."
+* ^version = "2.1.1"
 * ^status = #active
 * include codes from system ResultCodeCS

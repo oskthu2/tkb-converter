@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * form 0..* BackboneElement "Formulär" "Lista med formulär som matchar sökkriterierna."
   * healthcare_facility_CareUnit 0..1 Identifier "Enhets-id vårdenhet" "Vårdenheten som tillhandahåller formuläret. HSA-id."
   * clinicalProcessInterestId 0..1 Identifier "Hälsoärende-id" "Globalt/nationellt hälsoärende ID."
@@ -31,6 +32,7 @@ Title: "GetForms — Request"
 Description: "Logisk modell för requestparametrar i GetForms."
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * healthcare_Facility_CareUnit 0..1 Identifier "Vårdenhetens HSA-id" "Hsa-Id. Konsument ska säkerställa att konsument har avtal (PuB-avtal)."
 * subjectOfCare 0..1 Identifier "Personnummer" "Starkt autentiserad användares personnummer."
 * templateIds 0..* string "Mall-id:n" "Filtrera på formulärtyp."

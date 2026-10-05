@@ -6,5 +6,6 @@ ValueSet: TypeOfPlaceVS
 Id: healthcareoffering-typeofplace-vs
 Title: "Typ av plats (TypeOfPlace)"
 Description: "Alla koder i TypeOfPlaceCS."
+* ^version = "3.0.0"
 * ^status = #active
 * include codes from system TypeOfPlaceCS

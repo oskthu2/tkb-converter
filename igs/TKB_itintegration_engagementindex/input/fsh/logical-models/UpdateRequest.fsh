@@ -18,6 +18,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * engagementTransaction 1..* Base "Engagemangstransaktion"
     """
     En eller flera engagemangstransaktioner. Varje transaktion avser en indexpost.

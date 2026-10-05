@@ -1,8 +1,12 @@
 # itintegration: monitoring
 
+<!-- tkb-version -->
+**TKB-version:** 1.0.0 · **IG-version:** 1.0.0 · **Källa:** Bitbucket-tagg `TD_MONITORING_1_0_0_R`
+<!-- /tkb-version -->
+
 ## Översikt
 
-FHIR Implementation Guide för tjänstedomänen **itintegration: monitoring** version 1.0
+FHIR Implementation Guide för tjänstedomänen **itintegration: monitoring** version 1.0.0
 ("Övervakning av SOA-tjänster"). Genererad från Ineras Tjänstekontraktsbeskrivning (TKB).
 
 Tjänstedomänens omfattning är övervakning av tillgänglighet hos en tjänsteproducent.

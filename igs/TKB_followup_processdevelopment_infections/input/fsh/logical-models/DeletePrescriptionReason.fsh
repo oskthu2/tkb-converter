@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * activityId 0..1 Identifier "Aktivitets-id för den aktivitet som ska raderas (profylax)"
   """
   Anges när den ordinationsorsak som ska raderas är en aktivitet (profylax).
@@ -35,6 +36,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * resultCode 1..1 string "Resultatkod: OK, ERROR eller INFO"
   """
   OK = operationen genomförd utan fel

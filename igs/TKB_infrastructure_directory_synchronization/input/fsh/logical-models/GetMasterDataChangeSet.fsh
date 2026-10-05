@@ -10,6 +10,7 @@ Description: """
   (urn:riv:infrastructure:directory:synchronization:GetMasterDataChangeSetResponder:1, GetMasterDataChangeSetResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * masterDataChangeSet 0..* BackboneElement "masterDataChangeSet" "masterDataChangeSet"
   * masterDataChangeSetId 1..1 BackboneElement "masterDataChangeSetId" "masterDataChangeSetId Heter id i schemat."
     * root 1..1 string "root" "root"

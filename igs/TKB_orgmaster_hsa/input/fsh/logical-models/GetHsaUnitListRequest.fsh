@@ -10,6 +10,7 @@ Description: """
   (urn:riv:orgmaster:hsa:GetHsaUnitListResponder:1, GetHsaUnitListType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. HSA identity"
 * hsaIdentity 0..1 string "hsaIdentity" "hsaIdentity"
 * searchBase 0..1 string "searchBase" "searchBase"

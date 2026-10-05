@@ -6,5 +6,6 @@ ValueSet: ResultCodeVS
 Id: financial-billing-claim-resultcode-vs
 Title: "Resultatkod"
 Description: "Alla koder i ResultCodeCS."
+* ^version = "1.1.0"
 * ^status = #active
 * include codes from system ResultCodeCS

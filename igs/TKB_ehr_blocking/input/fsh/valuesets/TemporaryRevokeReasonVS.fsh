@@ -5,5 +5,6 @@ ValueSet: TemporaryRevokeReasonVS
 Id: temporaryrevokereason-vs
 Title: "TemporaryRevokeReason — ValueSet"
 Description: "Tillåtna orsaker för tillfällig hävning av spärr."
+* ^version = "3.2.2"
 * ^status = #active
 * include codes from system TemporaryRevokeReasonCS

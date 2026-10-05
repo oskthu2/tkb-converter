@@ -6,6 +6,7 @@ CodeSystem: ClinicalDocumentNoteCodeCS
 Id: clinicaldocumentnotecode-cs
 Title: "KV Anteckningstyp"
 Description: "Kodverk för typ av journalanteckning enligt KV Anteckningstyp. OID: 1.2.752.129.2.2.2.11."
+* ^version = "3.0.5"
 * ^url = "urn:oid:1.2.752.129.2.2.2.11"
 * ^status = #active
 * ^content = #complete

@@ -10,6 +10,7 @@ Description: """
   (urn:riv:orgmaster:hsa:GetMiuForPersonResponder:1, GetMiuForPersonResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * MiuInformation 0..* BackboneElement "MiuInformation" "MiuInformation"
   * miuName 1..1 string "miuName" "miuName"
   * hsaIdentity 1..1 string "hsaIdentity" "hsaIdentity"

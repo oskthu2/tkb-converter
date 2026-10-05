@@ -5,6 +5,7 @@ CodeSystem: LookupProfileCS
 Id: SPP-lookupprofile-cs
 Title: "LookupProfile"
 Description: "Koder för LookupProfileType i domänschemat."
+* ^version = "5.1.0"
 * ^url = "https://fhir.inera.se/CodeSystem/SPP-lookupprofile-cs"
 * ^status = #active
 * ^content = #complete

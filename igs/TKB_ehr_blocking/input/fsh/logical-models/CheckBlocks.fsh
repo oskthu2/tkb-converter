@@ -14,6 +14,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "3.0"
 * checkBlocksResult 1..1 BackboneElement "Resultatlista — ett resultat per begärd informationsresurs"
   * result 0..* BackboneElement "Spärrkontrollresultat per informationsresurs"
     * informationCareProviderId 1..1 string "HSA-id för vårdgivaren vars information kontrollerades"

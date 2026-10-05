@@ -6,5 +6,6 @@ ValueSet: RequestConfirmationTypeVS
 Id: requestconfirmationtype-vs
 Title: "codeRequestConfirmationType"
 Description: "Alla koder i RequestConfirmationTypeCS."
+* ^version = "2.2.0"
 * ^status = #active
 * include codes from system RequestConfirmationTypeCS

@@ -10,4 +10,5 @@ Description: """
   (urn:riv:ehr:patientsummary:DeleteEhrExtractInitiator:1, DeleteEhrExtractStatusResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * success 1..1 boolean "success" "success"

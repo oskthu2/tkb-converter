@@ -10,6 +10,7 @@ Description: """
   (urn:riv:ehr:patientsummary:GetEhrExtractResponder:1, GetEhrExtractResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * ehr_extract 0..* BackboneElement "ehr_extract" "The root node of an EHR Extract."
   * authorising_party 0..1 Identifier "authorising_party" "authorising_party"
   * ehr_id 1..1 Identifier "ehr_id" "ehr_id"

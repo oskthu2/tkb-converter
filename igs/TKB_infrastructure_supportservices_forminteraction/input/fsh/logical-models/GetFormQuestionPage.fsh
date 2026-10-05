@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * formId 1..1 string "Formulärets unika ID (GUID)"
 * pageNumber 1..1 integer "Nummer på sidan navigering utgår ifrån. Ange 0 + FORWARD för första sidan, 0 + BACK för sista sidan."
 * direction 1..1 string "Riktning: FORWARD eller BACK"
@@ -31,6 +32,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * form 0..1 BackboneElement "Formulärobjekt med navigerad sida (FormType)"
     """
     Formuläret med den navigerade sidan. Vid fel (ogiltigt sidnummer/riktning) returneras SOAP-fault.

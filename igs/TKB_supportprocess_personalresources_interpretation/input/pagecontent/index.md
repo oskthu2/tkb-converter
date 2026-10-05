@@ -1,5 +1,9 @@
 # supportprocess: personalresources: interpretation — Tolkförmedling
 
+<!-- tkb-version -->
+**TKB-version:** 1.0 · **IG-version:** 1.0.0-snapshot · **Källa:** Bitbucket-commit `010d6f367f37` (ingen tagg)
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **supportprocess: personalresources: interpretation** ("Operativt processtöd: personalresurser: tolkförmedling") version 1.0.

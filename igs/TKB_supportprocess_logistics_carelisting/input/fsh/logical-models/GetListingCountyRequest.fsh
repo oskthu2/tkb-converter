@@ -10,6 +10,7 @@ Description: """
   (urn:riv:supportprocess:logistics:carelisting:GetListingCountyResponder:2, GetListingCountyType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. The organisation number of the receiving insurance institution"
 * actor 1..1 BackboneElement "actor" "actor"
   * actorId 1..1 BackboneElement "actorId" "actorId"

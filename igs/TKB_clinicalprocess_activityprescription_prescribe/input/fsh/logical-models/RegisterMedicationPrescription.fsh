@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * medicationListVersion 1..1 Identifier "Ny version på patientens samlade läkemedelslista efter registrering"
 * medicationPrescriptionList 1..1 BackboneElement "Ordinationslista"
   * medicationPrescriptionSequence 1..* BackboneElement "Registrerade behandlingssekvenser"

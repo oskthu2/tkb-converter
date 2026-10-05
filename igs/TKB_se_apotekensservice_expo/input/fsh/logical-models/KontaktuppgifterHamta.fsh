@@ -10,6 +10,7 @@ Description: """
   (urn:riv:se.apotekensservice:expo:KontaktuppgifterHamtaResponder:4, KontaktuppgifterHamtaResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "4.0"
 * epostadressServicedesk 0..1 string "epostadressServicedesk" "E-postadress till aktörens servicedesk"
 * kontaktpersonLista 0..* BackboneElement "kontaktpersonLista" "Kontaktpersoner"
   * befattning 1..1 string "befattning" "Kontaktpersonens befattning."

@@ -9,6 +9,7 @@ Description: """
   Logisk modell för begäran i UpdateBooking (urn:riv:supportprocess:personalresources:interpretation:UpdateBookingResponder:1, UpdateBookingType). Tolkförmedlingen uppdaterar beställningsinformation i Tolkportalen. Svaret beskrivs av InterpretationResult.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * bookingUpdate 1..1 BackboneElement "Uppdatering av beställning" "Uppdatering av beställning (BookingUpdate)."
   * bookingNumber 1..1 integer "Beställningsnummer" "Tolkportalens beställningsnummer (≥ 0)."
   * referenceNumber 0..1 string "Referensnummer" "Tolkförmedlingens referensnummer."

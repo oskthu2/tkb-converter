@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * healthcareFacilityCareUnit 1..1 string "HSA-id för vårdenhet"
 * subjectOfCare 0..1 string "Invånarens personnummer (yyyymmddnnnn)"
 * formStatus 0..* CodeableConcept "Filterering på formulärstatus"
@@ -29,6 +30,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * form 0..* BackboneElement "Lista med formulär (FormType — summering)"
     """
     Lista med formulär för invånaren. Tom lista = inga formulär hittades för angivna parametrar.

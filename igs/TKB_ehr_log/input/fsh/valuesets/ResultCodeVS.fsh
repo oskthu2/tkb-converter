@@ -5,5 +5,6 @@ ValueSet: ResultCodeVS
 Id: resultcode-vs
 Title: "ResultCode — ValueSet"
 Description: "Tillåtna statuskoder som kan returneras av tjänsterna i ehr:log-domänen."
+* ^version = "1.2.4"
 * ^status = #active
 * include codes from system ResultCodeCS

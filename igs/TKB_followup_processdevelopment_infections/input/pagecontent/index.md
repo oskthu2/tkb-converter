@@ -1,5 +1,9 @@
 # followup: processdevelopment: infections
 
+<!-- tkb-version -->
+**TKB-version:** 1.0.2 · **IG-version:** 1.0.2-snapshot · **Källa:** Bitbucket-commit `b9bb3968f778` (ingen tagg)
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **followup: processdevelopment: infections** version 1.0.2.

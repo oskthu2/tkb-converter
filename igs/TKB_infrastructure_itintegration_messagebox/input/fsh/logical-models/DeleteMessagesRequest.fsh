@@ -10,5 +10,6 @@ Description: """
   (urn:riv:infrastructure:itintegration:messagebox:DeleteMessagesResponder:1, DeleteMessagesType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. The organisation number of the National Service Platform"
 * messageIds 1..* string "messageIds" "messageIds (xs:long i schemat.)"

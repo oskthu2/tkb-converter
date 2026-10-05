@@ -8,6 +8,7 @@ Title: "GetInfoLogsForCareProvider — Request"
 Description: "Logisk modell för requestparametrar i GetInfoLogsForCareProvider."
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * careProviderId 1..1 Identifier "Vårdgivare som är informationsägare (HSA-id)"
 * fromDate 1..1 dateTime "Obligatoriskt startdatum för rapportuttaget"
 * toDate 1..1 dateTime "Obligatoriskt slutdatum för rapportuttaget"

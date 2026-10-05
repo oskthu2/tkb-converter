@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * careEncounterId 1..1 Identifier "careEncounterId för den vårdkontakt som ska raderas"
   """
   Root: Nationell OID för lokala id:n: 1.2.752.129.2.1.2.1
@@ -28,6 +29,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * resultCode 1..1 string "Resultatkod: OK, ERROR eller INFO"
   """
   OK = operationen genomförd utan fel

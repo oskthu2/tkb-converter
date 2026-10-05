@@ -6,5 +6,6 @@ ValueSet: TypeOfRepresentativeVS
 Id: masterdata-citizen-patient-typeofrepresentative-vs
 Title: "Typ av företrädare"
 Description: "Alla koder i TypeOfRepresentativeCS."
+* ^version = "1.0.0-rc1.snapshot"
 * ^status = #active
 * include codes from system TypeOfRepresentativeCS

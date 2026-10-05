@@ -6,5 +6,6 @@ ValueSet: ResultCodeEnumVS
 Id: lifeline-resultcodeenum-vs
 Title: "Resultatkod"
 Description: "Alla koder i ResultCodeEnumCS."
+* ^version = "1.0.0-snapshot"
 * ^status = #active
 * include codes from system ResultCodeEnumCS

@@ -8,6 +8,7 @@ Title: "HandleHospCertificationPerson — Request"
 Description: "Logisk modell för requestparametrar i HandleHospCertificationPerson."
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * personalIdentityNumber 1..1 string "Person-id för personen vars HOSP-uppgifter ska begäras utlämnade"
   """
   Ref. person-id (personalIdentityNumber) [R5].

@@ -1,5 +1,9 @@
 # infrastructure: itintegration: dataexchange
 
+<!-- tkb-version -->
+**TKB-version:** 1.0 · **IG-version:** 1.0.0-snapshot · **Källa:** Bitbucket-commit `7fdd1d090b32` (ingen tagg)
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **infrastructure: itintegration: dataexchange** (Datautbyte) version 1.0.

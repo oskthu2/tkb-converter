@@ -6,5 +6,6 @@ ValueSet: DiagnosisTypeVS
 Id: diagnosistype-vs
 Title: "DiagnosisType — ValueSet"
 Description: "Tillåtna värden för fältet typeOfDiagnosis i GetDiagnosis."
+* ^version = "3.0.5"
 * ^status = #active
 * include codes from system DiagnosisTypeCS

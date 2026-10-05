@@ -1,5 +1,9 @@
 # ehr: commission
 
+<!-- tkb-version -->
+**TKB-version:** 1.0 · **IG-version:** 1.0.0-snapshot · **Källa:** Bitbucket-commit `b93f022377f8` (ingen tagg)
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **ehr: commission** version 1.0.

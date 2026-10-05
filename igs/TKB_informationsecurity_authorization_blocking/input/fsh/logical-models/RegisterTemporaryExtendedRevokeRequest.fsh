@@ -10,6 +10,7 @@ Description: """
   (urn:riv:informationsecurity:authorization:blocking:RegisterTemporaryExtendedRevokeResponder:4, RegisterTemporaryExtendedRevokeType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "4.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Som logisk adress anges HSA-id för vårdgivaren som spärren gäller för."
 * temporaryRevokeId 1..1 string "temporaryRevokeId" "temporaryRevokeId"
 * blockId 1..1 string "blockId" "blockId"

@@ -5,5 +5,6 @@ ValueSet: ResultCodeVS
 Id: resultcode-vs
 Title: "ResultCodeEnum — ValueSet"
 Description: "Tillåtna resultatkoder (OK, INFO, ERROR) för tjänstekontrakt i domänen followup:qualityregistry:nkrr."
+* ^version = "1.2.2"
 * ^status = #active
 * include codes from system ResultCodeCS

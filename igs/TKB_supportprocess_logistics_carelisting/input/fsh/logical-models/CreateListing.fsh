@@ -10,6 +10,7 @@ Description: """
   (urn:riv:supportprocess:logistics:carelisting:CreateListingResponder:2, CreateListingResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * resultCode 1..1 code "resultCode" "resultCode"
 * resultCode from ResultCodeVS (required)
 * resultText 0..1 string "resultText" "resultText"

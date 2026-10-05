@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "4.1.0-rc1"
 * intygLista 1..1 BackboneElement "Lista av intyg"
 * intygLista.intyg 0..* BackboneElement "Ett intyg"
 * intygLista.intyg.intygsId 1..1 Identifier "Unikt ID för intyget"
@@ -44,6 +45,7 @@ Title: "ListCertificatesForCitizen — Request"
 Description: "Logisk modell för requestparametrar i ListCertificatesForCitizen."
 Characteristics: #can-be-target
 
+* ^version = "4.1.0-rc1"
 * personId 1..1 Identifier "Person- eller samordningsnummer för patienten"
 * intygTyp 0..* CodeableConcept "Typ av intyg att filtrera på (utelämnas för alla typer)"
 * arkiverade 1..1 boolean "Om arkiverade intyg ska inkluderas (true) eller ej (false)"

@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * formTemplate 1..1 BackboneElement "Formulärmallen som skall sparas (FormTemplate)"
     """
     Komplett formulärmall med sidor och frågor. Se GetFormTemplate för detaljerad struktur.
@@ -56,6 +57,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * resultCode 1..1 string "Svarskod (OK = mallen har sparats)"
 * comment 0..1 string "Kommentar"
 * formTemplates 0..* BackboneElement "Sparade mallar (bekräftelse, FormTemplateType)"

@@ -5,6 +5,7 @@ CodeSystem: ActorTypeCS
 Id: carelisting-actortype-cs
 Title: "ActorType"
 Description: "Koder för ActorTypeEnum i domänschemat."
+* ^version = "2.1.0"
 * ^url = "https://fhir.inera.se/CodeSystem/carelisting-actortype-cs"
 * ^status = #active
 * ^content = #complete

@@ -10,6 +10,7 @@ Description: """
   (urn:riv:masterdata:citizen:patient:GetPatientContactInformationResponder:1, GetPatientContactInformationResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * lastUpdatedBy 0..1 BackboneElement "lastUpdatedBy" "lastUpdatedBy"
   * root 1..1 string "root" "root"
   * iiExtension 0..1 string "iiExtension" "iiExtension Heter extension i schemat."

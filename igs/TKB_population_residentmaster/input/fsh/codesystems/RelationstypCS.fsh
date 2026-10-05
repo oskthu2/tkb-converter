@@ -6,6 +6,7 @@ CodeSystem: RelationstypCS
 Id: relationstyp-cs
 Title: "Relationstyp"
 Description: "Kodverk för typ av relation mellan personer enligt RIV-TA population:residentmaster (RelationstypTYPE)."
+* ^version = "1.2.0"
 * ^url = "https://fhir.inera.se/CodeSystem/relationstyp-cs"
 * ^status = #active
 * ^content = #complete

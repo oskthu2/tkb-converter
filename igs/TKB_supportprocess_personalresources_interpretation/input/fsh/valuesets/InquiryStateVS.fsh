@@ -6,5 +6,6 @@ ValueSet: InquiryStateVS
 Id: inquirystate-vs
 Title: "InquiryStateEnum"
 Description: "Alla koder i InquiryStateCS."
+* ^version = "1.0.0-snapshot"
 * ^status = #active
 * include codes from system InquiryStateCS

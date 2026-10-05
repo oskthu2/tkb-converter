@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * sjukfallLista 1..1 BackboneElement "Lista med sjukfall"
 * sjukfallLista.sjukfall 0..* BackboneElement "Ett pågående sjukfall"
 * sjukfallLista.sjukfall.personId 1..1 Identifier "Patientens person- eller samordningsnummer"
@@ -40,6 +41,7 @@ Title: "ListSickLeavesForCare — Request"
 Description: "Logisk modell för requestparametrar i ListSickLeavesForCare."
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * enhetsId 1..1 Identifier "HSA-id för enhet"
 * maxDagarMellanIntyg 1..1 integer "Max antal dagars uppehåll mellan intyg i ett sjukfall"
 * minstaSjukskrivningslangd 0..1 integer "Minimal sjukskrivningslängd i dagar"

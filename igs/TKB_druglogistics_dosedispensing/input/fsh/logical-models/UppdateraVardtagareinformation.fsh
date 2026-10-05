@@ -10,6 +10,7 @@ Description: """
   (urn:riv:druglogistics:dosedispensing:UppdateraVardtagareinformationResponder:1, UppdateraVardtagareinformationResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * resultatkod 1..1 code "resultatkod" "resultatkod"
 * resultatkod from ResultatkodVS (required)
 * meddelandetext 1..1 string "meddelandetext" "meddelandetext"

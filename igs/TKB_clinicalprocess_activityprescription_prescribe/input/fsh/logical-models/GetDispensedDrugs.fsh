@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * dispensedDrug 0..* BackboneElement "Uthämtat läkemedel"
     """
     En eller flera expedieringar för patienten inom angiven tidsperiod.

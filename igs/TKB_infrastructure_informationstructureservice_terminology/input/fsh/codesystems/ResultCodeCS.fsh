@@ -5,6 +5,7 @@ CodeSystem: ResultCodeCS
 Id: terminology-resultcode-cs
 Title: "Resultatkod"
 Description: "Koder för ResultCodeEnum i domänschemat. Visningstexter ur TKB avsnitt 7 (fältregler)."
+* ^version = "1.0.0-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/terminology-resultcode-cs"
 * ^status = #active
 * ^content = #complete

@@ -10,6 +10,7 @@ Description: """
   (urn:riv:supportprocess:logistics:carelisting:GetListingTypesResponder:2, GetListingTypesResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * listingTypes 0..* BackboneElement "listingTypes" "listingTypes"
   * cVCode 1..1 string "cVCode" "cVCode Heter code i schemat."
   * codeSystem 1..1 string "codeSystem" "codeSystem"

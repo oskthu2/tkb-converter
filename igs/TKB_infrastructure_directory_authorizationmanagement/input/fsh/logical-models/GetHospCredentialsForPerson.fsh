@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * personalIdentityNumber 1..1 BackboneElement "Personens person- eller samordningsnummer"
   * root 1..1 string "OID för typ av personnummer"
     """

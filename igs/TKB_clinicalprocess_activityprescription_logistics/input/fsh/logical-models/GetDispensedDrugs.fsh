@@ -18,6 +18,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * lakemedelsforteckning 0..* BackboneElement "Patientens läkemedelsförteckning"
     """
     XSD: Receptexpeditionsrad. Patientens läkemedelsförteckning kompletterad med ordinationsmappningsinformation.

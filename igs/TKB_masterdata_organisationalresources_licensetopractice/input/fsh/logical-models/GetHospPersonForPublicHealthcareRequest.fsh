@@ -11,6 +11,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * personId 0..1 Identifier "Personnummer eller samordningsnummer"
   """
   Personnummer (OID: 1.2.752.129.2.1.3.1) eller

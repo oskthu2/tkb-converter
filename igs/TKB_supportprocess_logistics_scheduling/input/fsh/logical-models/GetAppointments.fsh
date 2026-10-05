@@ -10,6 +10,7 @@ Description: """
   (urn:riv:supportprocess:logistics:scheduling:GetAppointmentsResponder:2, GetAppointmentsResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * appointment 0..* BackboneElement "appointment" "appointment"
   * appointmentId 1..1 string "appointmentId" "appointmentId"
   * healthcareFacilityId 1..1 BackboneElement "healthcareFacilityId" "healthcareFacilityId"

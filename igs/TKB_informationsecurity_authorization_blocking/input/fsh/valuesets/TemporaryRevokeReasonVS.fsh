@@ -6,5 +6,6 @@ ValueSet: TemporaryRevokeReasonVS
 Id: authorization-blocking-temporaryrevokereason-vs
 Title: "TemporaryRevokeReason"
 Description: "Alla koder i TemporaryRevokeReasonCS."
+* ^version = "4.0.4"
 * ^status = #active
 * include codes from system TemporaryRevokeReasonCS

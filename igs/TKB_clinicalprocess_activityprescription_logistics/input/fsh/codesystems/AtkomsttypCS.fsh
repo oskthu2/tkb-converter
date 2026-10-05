@@ -6,6 +6,7 @@ CodeSystem: AtkomsttypCS
 Id: atkomsttyp-cs
 Title: "atkomsttyp"
 Description: "Kodverk atkomsttyp enligt clinicalprocess_activityprescription_logistics_1.0.xsd. Treställig kod för typ av åtkomst till Läkemedelsförteckningen."
+* ^version = "1.0.2-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/atkomsttyp-cs"
 * ^status = #active
 * ^content = #complete

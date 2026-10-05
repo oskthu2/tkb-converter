@@ -10,6 +10,7 @@ Description: """
   (urn:riv:informationsecurity:authorization:blocking:RegisterTemporaryRevokeResponder:4, RegisterTemporaryRevokeType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "4.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Som logisk adress anges SE165565594230-1000."
 * temporaryRevokeRegistration 1..1 BackboneElement "temporaryRevokeRegistration" "Datatyp som representerar en registrering av en tillfällig hävning med de attribut som behövs."
   * temporaryRevokeId 1..1 string "temporaryRevokeId" "temporaryRevokeId"

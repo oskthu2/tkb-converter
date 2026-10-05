@@ -6,6 +6,7 @@ CodeSystem: SexCodeCS
 Id: sexcode-cs
 Title: "SexCode"
 Description: "Kodverk för kön (SexCodeEnum). Används i GetMaternityMedicalHistory för barnets kön. OBS: Överväg att använda HL7 AdministrativeGender istället."
+* ^version = "4.2.2"
 * ^url = "https://fhir.inera.se/CodeSystem/sexcode"
 * ^status = #active
 * ^content = #complete

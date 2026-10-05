@@ -6,5 +6,6 @@ ValueSet: MeddelandePrioritetVS
 Id: dosedispensing-meddelandeprioritet-vs
 Title: "Meddelandeprioritet"
 Description: "Alla koder i MeddelandePrioritetCS."
+* ^version = "1.1.0"
 * ^status = #active
 * include codes from system MeddelandePrioritetCS

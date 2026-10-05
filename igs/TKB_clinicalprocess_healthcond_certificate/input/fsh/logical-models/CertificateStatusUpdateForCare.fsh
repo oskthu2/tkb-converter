@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "3.2"
 * result 1..1 BackboneElement "Information om anropets resultat"
 * result.resultCode 1..1 CodeableConcept "Resultatkod (OK/INFO/ERROR)"
 * result.resultCode from ResultkodVS (required)
@@ -25,6 +26,7 @@ Title: "CertificateStatusUpdateForCare — Request"
 Description: "Logisk modell för requestparametrar i CertificateStatusUpdateForCare."
 Characteristics: #can-be-target
 
+* ^version = "3.2"
 * intyg 1..1 BackboneElement "Intygsutkast eller signerat intyg"
 * intyg.intygsId 1..1 Identifier "Unikt ID för intyget"
 * intyg.typAvIntyg 1..1 CodeableConcept "Typ av intyg"

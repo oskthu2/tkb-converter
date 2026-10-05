@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * nationalIdentityNumber 1..1 Identifier "Patientens personnummer eller samordningsnummer"
 * certificateType 0..* string "Typ av intyg att filtrera på (om tomt returneras alla typer)"
 * available 0..1 boolean "Om true returneras tillgängliga intyg, false returnerar ej tillgängliga"
@@ -31,6 +32,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * certificateMeta 0..* BackboneElement "Metadata om ett intyg"
 * certificateMeta.certificateId 1..1 string "Identitet på intyget (GUID)"
 * certificateMeta.certificateType 1..1 string "Typ av intyg"

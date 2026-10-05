@@ -7,6 +7,7 @@ CodeSystem: ErrorCodeCS
 Id: errorcode-cs
 Title: "ErrorCode"
 Description: "Kodverk för felkoder i svar från tjänstekontrakten i domänen clinicalprocess:activityprescription:actoutcome."
+* ^version = "2.2.1"
 * ^url = "https://fhir.inera.se/CodeSystem/errorcode-actoutcome"
 * ^status = #active
 * ^content = #complete

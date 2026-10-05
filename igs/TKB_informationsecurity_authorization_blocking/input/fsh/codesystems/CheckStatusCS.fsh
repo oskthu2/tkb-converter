@@ -5,6 +5,7 @@ CodeSystem: CheckStatusCS
 Id: authorization-blocking-checkstatus-cs
 Title: "CheckStatus"
 Description: "Koder för CheckStatusType i domänschemat."
+* ^version = "4.0.4"
 * ^url = "https://fhir.inera.se/CodeSystem/authorization-blocking-checkstatus-cs"
 * ^status = #active
 * ^content = #complete

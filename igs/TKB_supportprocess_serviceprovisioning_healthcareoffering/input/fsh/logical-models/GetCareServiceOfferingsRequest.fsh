@@ -10,6 +10,7 @@ Description: """
   (urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetCareServiceOfferingsResponder:3, GetCareServiceOfferingsType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "3.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. The organisation number of the careservice provider"
 * careServiceId 0..* BackboneElement "careServiceId" "careServiceId"
   * root 1..1 string "root" "root"

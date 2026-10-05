@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * medicationListVersion 1..1 Identifier "Ny version av läkemedelslistan efter markering"
 * result 1..1 BackboneElement "Resultat av begäran"
   * resultCode 1..1 code "Svarskod"

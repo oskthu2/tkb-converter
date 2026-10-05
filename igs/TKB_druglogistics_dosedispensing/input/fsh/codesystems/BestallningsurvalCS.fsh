@@ -5,6 +5,7 @@ CodeSystem: BestallningsurvalCS
 Id: dosedispensing-bestallningsurval-cs
 Title: "Beställningsurval"
 Description: "Koder för BestallningsurvalEnum i domänschemat. Visningstexter ur Pascal – Objekt och felhantering (Objekt_och_felhantering.pdf)."
+* ^version = "1.1.0"
 * ^url = "https://fhir.inera.se/CodeSystem/dosedispensing-bestallningsurval-cs"
 * ^status = #active
 * ^content = #complete

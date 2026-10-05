@@ -6,6 +6,7 @@ CodeSystem: TelecomTypeCS
 Id: telecomtype-cs
 Title: "codeForTelecomType"
 Description: "Typ av telefonnummer (codes_2.2.xsd codeForTelecomType_values)."
+* ^version = "2.2.0"
 * ^url = "https://fhir.inera.se/CodeSystem/telecomtype-cs"
 * ^status = #active
 * ^content = #complete

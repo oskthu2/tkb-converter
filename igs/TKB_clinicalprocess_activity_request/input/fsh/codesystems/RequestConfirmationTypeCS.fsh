@@ -6,6 +6,7 @@ CodeSystem: RequestConfirmationTypeCS
 Id: requestconfirmationtype-cs
 Title: "codeRequestConfirmationType"
 Description: "Typ av remissbekräftelse (codes_2.2.xsd codeRequestConfirmationType_values)."
+* ^version = "2.2.0"
 * ^url = "https://fhir.inera.se/CodeSystem/requestconfirmationtype-cs"
 * ^status = #active
 * ^content = #complete

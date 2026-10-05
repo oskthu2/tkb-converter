@@ -6,6 +6,7 @@ CodeSystem: InquiryResponseAnswerCS
 Id: inquiryresponseanswer-cs
 Title: "InquiryResponseAnswerEnum"
 Description: "Svar på förfrågan. Enligt supportprocess_personalresources_interpretation_1.0.xsd."
+* ^version = "1.0.0-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/inquiryresponseanswer-cs"
 * ^status = #active
 * ^content = #complete

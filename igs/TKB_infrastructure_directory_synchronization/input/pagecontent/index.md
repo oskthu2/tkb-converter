@@ -1,5 +1,9 @@
 # infrastructure: directory: synchronization
 
+<!-- tkb-version -->
+**TKB-version:** 1.0_RC3 · **IG-version:** 1.0.0-rc3 · **Källa:** Bitbucket-tagg `1.0_RC3`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **infrastructure: directory: synchronization** (katalogtjänstsynkronisering) version 1.0_RC3.

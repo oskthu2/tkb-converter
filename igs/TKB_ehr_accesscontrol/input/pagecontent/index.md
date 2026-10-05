@@ -1,5 +1,9 @@
 # ehr:accesscontrol
 
+<!-- tkb-version -->
+**TKB-version:** 1.0.6 · **IG-version:** 1.0.6 · **Källa:** Bitbucket-commit `ce5a101eb0df`, efter taggen `1.0.6`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **ehr:accesscontrol** version 1.0.6.

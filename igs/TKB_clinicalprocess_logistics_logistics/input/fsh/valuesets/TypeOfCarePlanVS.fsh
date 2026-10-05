@@ -6,5 +6,6 @@ ValueSet: TypeOfCarePlanVS
 Id: typeofcareplan-vs
 Title: "TypeOfCarePlan — ValueSet"
 Description: "Tillåtna värden för typeOfCarePlan i GetCarePlans enligt clinicalprocess:logistics:logistics."
+* ^version = "3.0.13"
 * ^status = #active
 * include codes from system TypeOfCarePlanCS

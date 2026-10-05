@@ -14,6 +14,7 @@ Description: """
   Logisk modell för ResultType, som returneras av AnswerInquiry, CreateBooking och UpdateBooking. Se avsnitt 4.3 Felhantering.
 """
 Characteristics: #can-be-target
+* ^version = "1.0.0-snapshot"
 * obeys interpretation-result-errorcode-on-error
 * resultCode 1..1 code "Resultatkod" "OK, INFO eller ERROR."
 * resultCode from ResultCodeVS (required)

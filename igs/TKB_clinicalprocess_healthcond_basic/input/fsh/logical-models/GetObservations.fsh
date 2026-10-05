@@ -15,6 +15,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * observations 0..* BackboneElement "De observationer som matchar sökkriterierna, inklusive header."
     """
     Kardinalitet: Valfri, lista (0..*) — tomt svar returneras om inga observationer matchar.

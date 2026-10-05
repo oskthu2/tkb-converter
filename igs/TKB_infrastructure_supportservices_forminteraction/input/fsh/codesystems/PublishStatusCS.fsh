@@ -6,6 +6,7 @@ CodeSystem: PublishStatusCS
 Id: publishstatus-cs
 Title: "PublishStatus"
 Description: "Kodverk för mallens publiceringsstatus (KV Publicerings status) enligt infrastructure:supportservices:forminteraction v2.0."
+* ^version = "2.0.0-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/publishstatus-cs"
 * ^status = #active
 * ^content = #fragment

@@ -6,6 +6,7 @@ CodeSystem: BookingStateCS
 Id: bookingstate-cs
 Title: "BookingStateEnum"
 Description: "Status för beställning. Enligt supportprocess_personalresources_interpretation_1.0.xsd."
+* ^version = "1.0.0-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/bookingstate-cs"
 * ^status = #active
 * ^content = #complete

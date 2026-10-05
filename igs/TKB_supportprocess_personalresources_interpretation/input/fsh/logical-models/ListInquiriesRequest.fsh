@@ -9,4 +9,5 @@ Description: """
   Logisk modell för begäran i ListInquiries (urn:riv:supportprocess:personalresources:interpretation:ListInquiriesResponder:1, ListInquiriesType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * lastSequenceNumber 1..1 unsignedInt "Senaste meddelandenummer" "Referens till det senaste mottagna meddelandet, så att bara nya poster hämtas. XSD-typen är unsignedLong; FHIR saknar motsvarande typ."

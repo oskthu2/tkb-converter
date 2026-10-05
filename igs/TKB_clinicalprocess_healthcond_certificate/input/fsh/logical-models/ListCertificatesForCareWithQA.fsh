@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "3.3"
 * list 0..1 BackboneElement "Lista med intyg (null om inga hittades)"
 * list.item 0..* BackboneElement "Listobjekt som håller ihop intyg, händelser och ärenden"
 * list.item.intyg 1..1 BackboneElement "Intyget"
@@ -50,6 +51,7 @@ Title: "ListCertificatesForCareWithQA — Request"
 Description: "Logisk modell för requestparametrar i ListCertificatesForCareWithQA."
 Characteristics: #can-be-target
 
+* ^version = "3.3"
 * personId 1..1 Identifier "Person- eller samordningsnummer för patienten"
 * enhetsId 0..* Identifier "HSA-id för enheten/enheterna (exklusivt med vardgivareId)"
   """

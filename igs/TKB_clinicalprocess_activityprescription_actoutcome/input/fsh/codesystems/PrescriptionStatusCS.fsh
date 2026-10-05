@@ -7,6 +7,7 @@ CodeSystem: PrescriptionStatusCS
 Id: prescriptionstatus-cs
 Title: "PrescriptionStatus"
 Description: "Kodverk för ordinationsstatus i GetMedicationHistory. Anger om en ordination är aktiv eller inaktiv."
+* ^version = "2.2.1"
 * ^url = "https://fhir.inera.se/CodeSystem/prescriptionstatus"
 * ^status = #active
 * ^content = #complete

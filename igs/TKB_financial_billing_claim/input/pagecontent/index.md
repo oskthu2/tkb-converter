@@ -1,5 +1,9 @@
 # financial: billing: claim
 
+<!-- tkb-version -->
+**TKB-version:** 1.1 · **IG-version:** 1.1.0 · **Källa:** Bitbucket-tagg `1.1`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **financial: billing: claim** (Utomlänsfakturering) version 1.1.

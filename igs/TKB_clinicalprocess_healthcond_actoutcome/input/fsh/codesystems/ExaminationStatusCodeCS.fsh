@@ -6,6 +6,7 @@ CodeSystem: ExaminationStatusCodeCS
 Id: examinationstatuscode-cs
 Title: "ExaminationStatusCode"
 Description: "Kodverk för undersökningsstatus (ExaminationStatusCodeEnum). Används i GetImagingOutcome."
+* ^version = "4.2.2"
 * ^url = "https://fhir.inera.se/CodeSystem/examinationstatuscode"
 * ^status = #active
 * ^content = #complete

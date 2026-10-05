@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * countyCode 1..1 string "Länskod (SCB-kod) för regionen"
     """
     SCB-kod för det län/den region vars tillgängliga vårdenheter söks.

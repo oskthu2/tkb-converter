@@ -10,6 +10,7 @@ Description: """
   (urn:riv:strategicresourcemanagement:persons:person:SearchPersonsForProfileUnrestrictedResponder:5, SearchPersonsForProfileUnrestrictedResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "5.0"
 * personRecord 0..* BackboneElement "personRecord" "Grupp för personpost"
   * personalIdentity 1..1 BackboneElement "personalIdentity" "En universellt unik identifierare."
     * root 1..1 string "root" "root"

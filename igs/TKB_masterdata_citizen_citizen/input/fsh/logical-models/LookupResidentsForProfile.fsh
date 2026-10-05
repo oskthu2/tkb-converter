@@ -10,6 +10,7 @@ Description: """
   (urn:riv:masterdata:citizen:citizen:LookupResidentsForProfileResponder:2, LookupResidentsForProfileResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * lookupResidentsResponseType 1..1 BackboneElement "lookupResidentsResponseType" "Returtyp för operationen lookupResidentsForProfile"
   * populationRegistrationRecords 0..* BackboneElement "populationRegistrationRecords" "Folkbokföringspost"
     * protectedPersonIndicator 1..1 boolean "protectedPersonIndicator" "protectedPersonIndicator"

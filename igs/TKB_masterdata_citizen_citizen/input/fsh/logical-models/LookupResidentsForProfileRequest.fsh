@@ -10,6 +10,7 @@ Description: """
   (urn:riv:masterdata:citizen:citizen:LookupResidentsForProfileResponder:2, LookupResidentsForProfileType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. http://tempuri.org"
 * personId 1..* BackboneElement "personId" "Personidentitet"
   * personalIdentityId 1..1 string "personalIdentityId" "personalIdentityId Heter id i schemat."

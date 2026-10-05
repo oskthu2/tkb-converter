@@ -6,5 +6,6 @@ ValueSet: MessageStatusVS
 Id: messagebox-messagestatus-vs
 Title: "Meddelandestatus"
 Description: "Alla koder i MessageStatusCS."
+* ^version = "1.0.0"
 * ^status = #active
 * include codes from system MessageStatusCS

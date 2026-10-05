@@ -6,6 +6,7 @@ CodeSystem: CausingAgentCS
 Id: causingagent-cs
 Title: "CausingAgent"
 Description: "Kodverk CausingAgentEnum enligt interoperability_headers_1.1.xsd (urn:riv:interoperability:headers:1). Identifierar den komponent som felade vid en misslyckad synkronisering."
+* ^version = "1.1.0"
 * ^url = "https://fhir.inera.se/CodeSystem/causingagent-cs"
 * ^status = #active
 * ^content = #complete

@@ -6,5 +6,6 @@ ValueSet: CitizenshipStatusVS
 Id: masterdata-citizen-citizen-citizenshipstatus-vs
 Title: "Statuskod för medborgarskap"
 Description: "Alla koder i CitizenshipStatusCS."
+* ^version = "2.0.0"
 * ^status = #active
 * include codes from system CitizenshipStatusCS

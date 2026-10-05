@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.3"
 * activityGroup 0..* BackboneElement "Grupp av aktiviteter"
     """
     Grupp av aktiviteter som delar samma patient, utförare, signerare, ytterligare deltagare,

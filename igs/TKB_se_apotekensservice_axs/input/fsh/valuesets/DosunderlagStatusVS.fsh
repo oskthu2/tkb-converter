@@ -6,5 +6,6 @@ ValueSet: DosunderlagStatusVS
 Id: axs-dosunderlagstatus-vs
 Title: "Dosunderlagets status"
 Description: "Alla koder i DosunderlagStatusCS."
+* ^version = "7.0.0"
 * ^status = #active
 * include codes from system DosunderlagStatusCS

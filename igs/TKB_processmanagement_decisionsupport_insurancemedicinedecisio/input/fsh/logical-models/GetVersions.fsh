@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * versioner 1..1 BackboneElement "Versionsinformation för FMB och diagnosinformation"
 * versioner.fmbSenasteVersionsuppdatering 1..1 dateTime "FMB — tidpunkt för senaste versionsuppdatering"
   """

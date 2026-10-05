@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * personPatientId 1..1 Identifier "Id för den person som är patient och för vilken observationer ska returneras."
     """
     Identiteten kan vara antingen person-id (person- eller samordningsnummer) eller

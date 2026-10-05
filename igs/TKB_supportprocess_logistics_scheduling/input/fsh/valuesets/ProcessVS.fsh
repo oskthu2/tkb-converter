@@ -6,5 +6,6 @@ ValueSet: ProcessVS
 Id: scheduling-process-vs
 Title: "Tidbokningsflöde (Process)"
 Description: "Alla koder i ProcessCS."
+* ^version = "2.0.0-rc1"
 * ^status = #active
 * include codes from system ProcessCS

@@ -6,6 +6,7 @@ CodeSystem: KonCS
 Id: kon-cs
 Title: "Kön"
 Description: "Kodverk för kön. OID: 1.2.752.129.2.2.1.1."
+* ^version = "2.0.0"
 * ^url = "https://fhir.inera.se/CodeSystem/kon-cs"
 * ^status = #active
 * ^content = #complete

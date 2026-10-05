@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.1"
 * healthcareFacilityInfos 0..* BackboneElement "Lista med tillgängliga mottagningar/vårdenheter"
     """
     Lista med tillgängliga mottagningar/vårdenheter (HealthcareFacilityInfoType).

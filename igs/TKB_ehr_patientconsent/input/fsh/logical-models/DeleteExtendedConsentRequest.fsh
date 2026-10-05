@@ -9,6 +9,7 @@ Title: "DeleteExtendedConsent — Request"
 Description: "Logisk modell för requestparametrar i DeleteExtendedConsent."
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * assertionId 1..1 Identifier "Identifierar det intyg som skall makuleras (UUID-format, max 36 tecken)"
 * deletionAction 1..1 BackboneElement "Identifierar de personer som begärt och utfört makulering samt tidpunkter"
   * requestDate 1..1 dateTime "Tidpunkt för begäran om makulering"

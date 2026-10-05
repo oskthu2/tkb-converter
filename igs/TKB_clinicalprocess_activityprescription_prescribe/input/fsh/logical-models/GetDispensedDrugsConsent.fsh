@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * hasConsent 1..1 boolean "Sant om patienten har aktivt samtycke"
 * consentType 0..1 code "Typ av samtycke (om hasConsent=true)"
 * consentType from LFConsentVS (required)

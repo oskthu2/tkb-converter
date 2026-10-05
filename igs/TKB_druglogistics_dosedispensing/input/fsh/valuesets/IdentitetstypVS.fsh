@@ -6,5 +6,6 @@ ValueSet: IdentitetstypVS
 Id: dosedispensing-identitetstyp-vs
 Title: "Identitetstyp"
 Description: "Alla koder i IdentitetstypCS."
+* ^version = "1.1.0"
 * ^status = #active
 * include codes from system IdentitetstypCS

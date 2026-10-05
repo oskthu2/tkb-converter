@@ -6,5 +6,6 @@ ValueSet: KommunikationsriktningVS
 Id: dosedispensing-kommunikationsriktning-vs
 Title: "Kommunikationsriktning"
 Description: "Alla koder i KommunikationsriktningCS."
+* ^version = "1.1.0"
 * ^status = #active
 * include codes from system KommunikationsriktningCS

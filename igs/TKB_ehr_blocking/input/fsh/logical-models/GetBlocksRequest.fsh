@@ -8,5 +8,6 @@ Title: "GetBlocks — Request"
 Description: "Logisk modell för requestparametrar i GetBlocks."
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * careProviderId 1..1 string "HSA-id på den vårdgivare vars spärrar skall hämtas."
 * createdOnOrAfter 0..1 dateTime "Startdatum för inkrementell hämtning."

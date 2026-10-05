@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * medicationStatement 1..* BackboneElement "Registrerade egenmediciningar"
   * registrationData 1..1 BackboneElement "Registreringsdata"
     * registrationDataId 1..1 Identifier "Systeminternt id tilldelat av producenten"

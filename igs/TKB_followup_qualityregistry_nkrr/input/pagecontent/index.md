@@ -1,5 +1,9 @@
 # followup: qualityregistry: nkrr
 
+<!-- tkb-version -->
+**TKB-version:** 1.2.2 · **IG-version:** 1.2.2 · **Källa:** Bitbucket-tagg `1.2.2`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **followup: qualityregistry: nkrr** version 1.2.2.

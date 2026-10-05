@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.1"
 * formRequestResponses 0..* BackboneElement "Formulärbegäranssvar (FormRequestResponseType)" "Lista med svar per formulärbegäran."
   * clinicalProcessInterestId 0..1 Identifier "Hälsoärende-id" "Hälsoärende id."
   * formId 1..1 Identifier "Formulär-id" "Det skapade formulärets unika id, sätts av producenten."
@@ -27,6 +28,7 @@ Title: "CreateFormRequest — Request"
 Description: "Logisk modell för requestparametrar i CreateFormRequest."
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * formRequests 1..* BackboneElement "Formulärbegäran (FormRequestType)" "Lista med formulärbegäran att skapa."
   * healthcare_CareGiver 0..1 Identifier "Vårdenhetens HSA-id (vårdgivare)" "Hsa-id vårdgivare (informationsägare)."
   * healthcare_MedUnit 0..1 Identifier "Medicinsk ansvarig enhet" "Hsa-id medicinskt ansvarig (informationsägare)."

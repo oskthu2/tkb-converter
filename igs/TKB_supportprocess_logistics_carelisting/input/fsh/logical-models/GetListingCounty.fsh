@@ -10,6 +10,7 @@ Description: """
   (urn:riv:supportprocess:logistics:carelisting:GetListingCountyResponder:2, GetListingCountyResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * listingCounties 0..* BackboneElement "listingCounties" "listingCounties"
   * root 1..1 string "root" "root"
   * iIExtension 0..1 string "iIExtension" "iIExtension Heter extension i schemat."

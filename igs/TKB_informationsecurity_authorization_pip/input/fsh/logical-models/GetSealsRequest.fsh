@@ -10,6 +10,7 @@ Description: """
   (urn:riv:informationsecurity:authorization:pip:GetSealsResponder:1, GetSealsType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. The HSA id of Inera (5565594230)"
 * patientId 1..1 BackboneElement "patientId" "patientId"
   * root 1..1 string "root" "root"

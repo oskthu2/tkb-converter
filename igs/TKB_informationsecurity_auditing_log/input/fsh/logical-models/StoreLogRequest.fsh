@@ -10,6 +10,7 @@ Description: """
   (urn:riv:informationsecurity:auditing:log:StoreLogResponder:2, StoreLogType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Ineras nationella HSA-id SE165565594230-1000."
 * log 1..* BackboneElement "log" "Datatyp som representerar en loggpost enligt PDL. Datatypen beskriver grundformatet för en loggpost."
   * logId 1..1 string "logId" "logId"

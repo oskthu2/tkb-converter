@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "5.0"
 * unit 0..1 BackboneElement "Information om den angivna organisatoriska enheten"
     """
     Fullständigt svarsobjekt med all tillgänglig information om enheten.

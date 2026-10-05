@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * medicationListVersion 1..1 Identifier "Ny version på patientens samlade läkemedelslista efter utsättning"
 * medicationPrescription 1..1 BackboneElement "Den uppdaterade ordinationen med utsättningsinformation"
   * medicationPrescriptionId 1..1 Identifier "Ordinationens unika id"

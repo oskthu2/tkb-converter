@@ -10,6 +10,7 @@ Description: """
   (urn:riv:druglogistics:dosedispensing:SokVardandeEnhetResponder:1, SokVardandeEnhetType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * logicalAddress 1..1 BackboneElement "logicalAddress" "SOAP-huvud LogicalAddress. Typen har inga element utöver utökningspunkter."
 * glnkod 1..1 string "glnkod" "glnkod"
 * dosaktor 1..1 string "dosaktor" "dosaktor"

@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "4.0"
 * personInformation 0..* BackboneElement "Information om personen"
     """
     Information om personen. Om personen har flera person-objekt returneras en instans per objekt.

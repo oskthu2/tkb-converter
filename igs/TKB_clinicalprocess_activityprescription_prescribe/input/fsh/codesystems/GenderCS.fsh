@@ -8,6 +8,7 @@ CodeSystem: GenderCS
 Id: gender-cs
 Title: "Gender — Kön"
 Description: "Kodverk för patientens kön. Används i PatientInformation-typen i GetMedicationDispenseAuthorizations och RegisterMedicationDispenseAuthorization."
+* ^version = "2.0.0-rc1"
 * ^url = "https://fhir.inera.se/CodeSystem/gender"
 * ^status = #active
 * ^content = #complete

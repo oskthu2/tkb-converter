@@ -1,5 +1,9 @@
 # processmanagement: decisionsupport: insurancemedicinedecisionsupport
 
+<!-- tkb-version -->
+**TKB-version:** 1.0 · **IG-version:** 1.0.0 · **Källa:** Bitbucket-commit `538dddbc8542`, efter taggen `processmanagement_decisionsupport_insurancemedicinedecisionsupport_1.0`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **processmanagement: decisionsupport: insurancemedicinedecisionsupport** version 1.0.

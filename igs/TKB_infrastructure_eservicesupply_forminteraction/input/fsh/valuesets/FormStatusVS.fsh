@@ -5,5 +5,6 @@ ValueSet: FormStatusVS
 Id: formstatus-vs
 Title: "KV Form Status — ValueSet"
 Description: "Tillåtna värden för formulärstatus (formStatus) enligt KV Form Status."
+* ^version = "2.1.1"
 * ^status = #active
 * include codes from system FormStatusCS

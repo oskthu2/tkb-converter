@@ -5,6 +5,7 @@ CodeSystem: ReferenstypCS
 Id: referenstyp-cs
 Title: "Referenstyp"
 Description: "Kodverk för typ av referens i tjänstekontraktet RegisterMedicalCertificate."
+* ^version = "3.1.1"
 * ^url = "https://fhir.inera.se/CodeSystem/referenstyp-cs"
 * ^status = #active
 * ^content = #complete

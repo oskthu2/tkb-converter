@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * vaccinationMedicalRecord 0..* BackboneElement "En strukturerad vaccinationsjournal"
   """
   En strukturerad vaccinationsjournal. Kan innehålla en eller flera administreringsposter.

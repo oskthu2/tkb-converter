@@ -1,5 +1,9 @@
 # se.apotekensservice: pris — Pris och högkostnadsskydd
 
+<!-- tkb-version -->
+**TKB-version:** 2.0_RC1 · **IG-version:** 2.0.0-rc1 · **Källa:** Bitbucket-tagg `2.0_RC1`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **se: apotekensservice: pris** version 2.0. Domänen förvaltas av eHälsomyndigheten (tidigare Apotekens Service AB) och innehåller tjänster för prisberäkning vid receptexpedition, kontroll av förmånskod, samt hantering av konton och transaktioner i högkostnadsdatabasen (HKDB), inklusive koppling av barns konton till vårdnadshavares.

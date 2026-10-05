@@ -16,6 +16,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.1"
 * result 1..1 BackboneElement "Resultatkontainer"
   * resultCode 1..1 code "Statuskod"
   * resultCode from ResultCodeVS (required)

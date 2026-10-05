@@ -6,6 +6,7 @@ CodeSystem: FormStatusCS
 Id: formstatus-cs
 Title: "FormStatus"
 Description: "Kodverk för formulärets status (KV Form Status) enligt infrastructure:supportservices:forminteraction v2.0."
+* ^version = "2.0.0-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/formstatus-cs"
 * ^status = #active
 * ^content = #complete

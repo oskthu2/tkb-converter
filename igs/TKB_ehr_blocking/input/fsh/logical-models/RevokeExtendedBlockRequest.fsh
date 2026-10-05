@@ -8,6 +8,7 @@ Title: "RevokeExtendedBlock — Request"
 Description: "Logisk modell för requestparametrar i RevokeExtendedBlock."
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * blockId 1..1 string "Unik identifierare (UUID) för spärren som skall hävas permanent."
 * action 1..1 BackboneElement "Aktörsinformation för den som häver spärren"
   * requestDate 1..1 dateTime "Datum när hävning begärdes"

@@ -9,6 +9,7 @@ Description: """
   Logisk modell för svaret i ListInquiries (urn:riv:supportprocess:personalresources:interpretation:ListInquiriesResponder:1, ListInquiriesResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * inquiries 0..* BackboneElement "Förfrågningar" "Förfrågningar (Inquiry)."
   * inquiryId 1..1 positiveInt "Förfrågans id" "Id för förfrågan."
   * round 1..1 positiveInt "Utskicksrunda" "1 = första rundan, 2 = första påminnelserundan osv."

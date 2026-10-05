@@ -1,5 +1,9 @@
 # interoperability: headers — Gemensamma huvudelement
 
+<!-- tkb-version -->
+**TKB-version:** 1.1 · **IG-version:** 1.1.0 · **Källa:** Bitbucket-tagg `interoperability_headers_1.1`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för RIV-TA-domänen **interoperability: headers** version 1.1.

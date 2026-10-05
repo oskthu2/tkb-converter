@@ -7,6 +7,7 @@ CodeSystem: TypeOfPrescriptionCS
 Id: typeofprescription-cs
 Title: "TypeOfPrescription"
 Description: "Kodverk för ordinationstyp i GetMedicationHistory. Anger om en ordination är en insättnings- eller utsättningsordination."
+* ^version = "2.2.1"
 * ^url = "https://fhir.inera.se/CodeSystem/typeofprescription"
 * ^status = #active
 * ^content = #complete

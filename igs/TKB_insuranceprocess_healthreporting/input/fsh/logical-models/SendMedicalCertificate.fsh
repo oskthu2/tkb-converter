@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * send 1..1 BackboneElement "Signal om att skicka ett intyg"
 * send.vardReferensId 1..1 string "Identitet för detta meddelande från vården"
 * send.avsantTidpunkt 1..1 dateTime "Tidpunkt då meddelandet skickades från vården"
@@ -48,6 +49,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * result 1..1 BackboneElement "Resultatinformation"
 * result.resultCode 1..1 string "Resultatkod (OK, ERROR, INFO)"
 * result.infoText 0..1 string "Extra information om anropets utgång"

@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.1"
 * resultCode 1..1 CodeableConcept "Resultatkod" "Signalerar status på operationen (OK, INFO, ERROR)."
 * resultCode from ResultCodeVS (required)
 * comment 0..1 string "Kommentar" "Attribut för felsignalering. Skall kunna visas för slutanvändaren."
@@ -22,6 +23,7 @@ Title: "SaveForm — Request"
 Description: "Logisk modell för requestparametrar i SaveForm."
 Characteristics: #can-be-target
 
+* ^version = "2.1"
 * formID 1..1 Identifier "Formulär-id" "Formulärets ID."
 * subjectOfCare 0..1 Identifier "Personnummer" "Starkt autentiserad användares personnummer."
 * actor 0..1 BackboneElement "Aktör" "Aktören kan vara invånaren/patienten själv, vårdnadshavare eller vårdpersonal."

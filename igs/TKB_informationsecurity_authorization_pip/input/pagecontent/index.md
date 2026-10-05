@@ -1,5 +1,9 @@
 # informationsecurity: authorization: pip
 
+<!-- tkb-version -->
+**TKB-version:** 1.0_RC1 · **IG-version:** 1.0.0-rc1.snapshot · **Källa:** Bitbucket-commit `729301865b83` (ingen tagg)
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **informationsecurity: authorization: pip** (Behörighetsinformation) version 1.0.

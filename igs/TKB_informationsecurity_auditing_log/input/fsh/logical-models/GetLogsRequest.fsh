@@ -10,6 +10,7 @@ Description: """
   (urn:riv:informationsecurity:auditing:log:GetLogsResponder:2, GetLogsType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "2.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Ineras nationella HSA-id SE165565594230-1000."
 * careProviderId 1..1 string "careProviderId" "careProviderId"
 * patientId 0..1 BackboneElement "patientId" "En universellt unik identifierare."

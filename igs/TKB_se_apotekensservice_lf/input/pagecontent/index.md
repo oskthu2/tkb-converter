@@ -1,5 +1,9 @@
 # se.apotekensservice: lf — Läkemedelsförteckningen för vårdsystem
 
+<!-- tkb-version -->
+**TKB-version:** 7.0_RC1 · **IG-version:** 7.0.0-rc1 · **Källa:** Bitbucket-tagg `7.0_RC1`
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **se: apotekensservice: lf** version 7.0. Domänen förvaltas av eHälsomyndigheten (tidigare Apotekens Service AB) och innehåller tjänster för vårdsystem att läsa en patients läkemedelsförteckning samt registrera, kontrollera och återkalla patientens samtycke till sådan åtkomst.

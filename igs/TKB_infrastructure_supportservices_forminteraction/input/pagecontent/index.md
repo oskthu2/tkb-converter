@@ -1,5 +1,9 @@
 # infrastructure: supportservices: forminteraction
 
+<!-- tkb-version -->
+**TKB-version:** 2.0.0 · **IG-version:** 2.0.0-snapshot · **Källa:** Bitbucket-commit `b8c52fec96db` (ingen tagg)
+<!-- /tkb-version -->
+
 ## Översikt
 
 FHIR Implementation Guide för tjänstedomänen **infrastructure: supportservices: forminteraction** version 2.0.0.

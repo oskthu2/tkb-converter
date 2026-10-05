@@ -6,6 +6,7 @@ CodeSystem: SecurityLevelCS
 Id: securitylevel-cs
 Title: "SecurityLevel"
 Description: "Kodverk för autentiseringsnivåer (Assurance Level, ISO/IEC 29115) i tjänstekontraktet GetAvailableEServices."
+* ^version = "1.0.0-snapshot"
 * ^url = "https://fhir.inera.se/CodeSystem/securitylevel-cs"
 * ^status = #active
 * ^content = #complete

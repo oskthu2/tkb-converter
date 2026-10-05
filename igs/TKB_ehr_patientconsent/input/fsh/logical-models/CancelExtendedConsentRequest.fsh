@@ -9,6 +9,7 @@ Title: "CancelExtendedConsent — Request"
 Description: "Logisk modell för requestparametrar i CancelExtendedConsent."
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * assertionId 1..1 Identifier "Identifierare för det intyg som skall återkallas (UUID-format, max 36 tecken)"
 * cancellationAction 1..1 BackboneElement "Identifierar de personer som begärt och registrerat återkallan samt tidpunkter"
   * requestDate 1..1 dateTime "Tidpunkt för begäran om återkallning"

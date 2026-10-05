@@ -14,6 +14,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * pingVersion 1..1 string "Version av tjänstekomponenten"
     """
     Version av den tjänstekomponent som svarar. Formatet och semantiken är

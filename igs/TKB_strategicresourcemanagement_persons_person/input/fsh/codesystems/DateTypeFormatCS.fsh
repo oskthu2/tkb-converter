@@ -5,6 +5,7 @@ CodeSystem: DateTypeFormatCS
 Id: SPP-datetypeformat-cs
 Title: "DateTypeFormat"
 Description: "Koder för DateTypeFormatType i domänschemat."
+* ^version = "5.1.0"
 * ^url = "https://fhir.inera.se/CodeSystem/SPP-datetypeformat-cs"
 * ^status = #active
 * ^content = #complete

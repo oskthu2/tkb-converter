@@ -12,6 +12,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * fkReferensId 1..1 string "Försäkringskassans referens-id"
   """
   Samma referens-id kan förekomma i flera meddelanden.
@@ -62,6 +63,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "1.0"
 * result 1..1 BackboneElement "Resultatinformation"
 * result.resultCode 1..1 string "Resultatkod (OK, ERROR, INFO)"
 * result.infoText 0..1 string "Extra information om anropets utgång"

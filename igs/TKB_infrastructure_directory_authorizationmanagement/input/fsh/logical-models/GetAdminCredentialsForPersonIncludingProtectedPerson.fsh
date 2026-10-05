@@ -13,6 +13,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * adminCredentialInformation 0..* BackboneElement "Administrativa behörighetsegenskaper för sökt person"
   * personHsaId 1..1 string "Personens HSA-id"
   * givenName 0..1 string "Personens tilltalsnamn"

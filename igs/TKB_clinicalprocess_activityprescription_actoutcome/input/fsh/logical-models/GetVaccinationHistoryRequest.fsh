@@ -8,6 +8,7 @@ Title: "GetVaccinationHistory — Request"
 Description: "Logisk modell för requestparametrar i GetVaccinationHistory."
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * careUnitHSAid 0..* Identifier "Begränsar sökningen till angivna informationsägande vårdenheter"
   """
   Anges med HSA-id. Motsvarar careUnitHSAId i svarsfältet.

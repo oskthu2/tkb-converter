@@ -6,6 +6,7 @@ CodeSystem: ReferralOutcomeTypeCodeCS
 Id: referraloutcometypecode-cs
 Title: "ReferralOutcomeTypeCode"
 Description: "Kodverk för typ av remissvar (ReferralOutcomeTypeCodeEnum). Används i GetReferralOutcome."
+* ^version = "4.2.2"
 * ^url = "https://fhir.inera.se/CodeSystem/referraloutcometypecode"
 * ^status = #active
 * ^content = #complete

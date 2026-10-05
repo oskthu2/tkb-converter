@@ -6,5 +6,6 @@ ValueSet: DateTypeFormatVS
 Id: masterdata-citizen-citizen-datetypeformat-vs
 Title: "Datumformat (noggrannhet)"
 Description: "Alla koder i DateTypeFormatCS."
+* ^version = "2.0.0"
 * ^status = #active
 * include codes from system DateTypeFormatCS

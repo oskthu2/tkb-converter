@@ -8,6 +8,7 @@ Title: "GetUnit — Request"
 Description: "Logisk modell för requestparametrar i GetUnit (RIV-TA urn:riv:infrastructure:directory:organization:GetUnit:5)."
 Characteristics: #can-be-target
 
+* ^version = "5.0"
 * unitHsaId 1..1 string "HSA-id för sökt organisatorisk enhet. Ref. hsaIdentity [R5]."
     """
     Kardinalitet: Obligatorisk.

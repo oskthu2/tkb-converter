@@ -8,6 +8,7 @@ Title: "GetHealthCareUnitMembers — Request"
 Description: "Logisk modell för requestparametrar i GetHealthCareUnitMembers (RIV-TA urn:riv:infrastructure:directory:organization:GetHealthCareUnitMembers:2)."
 Characteristics: #can-be-target
 
+* ^version = "2.1"
 * healthCareUnitHsaId 1..1 string "HSA-id för vårdenhet enligt PDL. Ref. hsaIdentity [R5]."
     """
     Kardinalitet: Obligatorisk.

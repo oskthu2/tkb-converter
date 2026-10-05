@@ -17,6 +17,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "2.0"
 * functionalStatusAssessment 0..* BackboneElement "Funktionsstatusbedömning" """
     De funktionsstatusbedömningar som matchar begäran.
     Kardinalitet: Valfri, lista.

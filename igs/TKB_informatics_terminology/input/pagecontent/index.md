@@ -1,8 +1,12 @@
 # informatics: terminology
 
+<!-- tkb-version -->
+**TKB-version:** 1.0.1 · **IG-version:** 1.0.1 · **Källa:** Bitbucket-tagg `1.0.1`
+<!-- /tkb-version -->
+
 ## Översikt
 
-FHIR Implementation Guide för tjänstedomänen **informatics: terminology** version 1.4.
+FHIR Implementation Guide för tjänstedomänen **informatics: terminology** version 1.0.1.
 Genererad från Ineras Tjänstekontraktsbeskrivning (TKB) för Terminologitjänsten.
 
 Tjänsten är en generisk terminologiurvalstjänst som tillhandahåller delmängder (subset) av terminologier (exempelvis SNOMED CT, ICD-10, ATC-kodverket) för användning i vårdinformationssystem. Den stöder bl.a. det dynamiska urvalet av orsaker till antibiotikainsättning som rapporteras till Infektionsregistret.

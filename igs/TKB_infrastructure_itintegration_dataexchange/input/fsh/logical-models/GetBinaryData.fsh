@@ -10,6 +10,7 @@ Description: """
   (urn:riv:infrastructure.itintegration:dataexchange:GetBinaryDataResponder:1, GetBinaryDataResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * binaryData 0..1 BackboneElement "binaryData" "binaryData"
   * contentType 1..1 string "contentType" "contentType"
   * data 1..1 base64Binary "data" "data"

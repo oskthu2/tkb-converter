@@ -10,6 +10,7 @@ Description: """
   (urn:riv:coreprocess:residentparticipation:residentparticipation:GetCareManagersResponder:1, GetCareManagersResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "1.0"
 * careManager 0..* BackboneElement "careManager" "careManager"
   * careManagerHeader 1..1 BackboneElement "careManagerHeader" "careManagerHeader"
     * accessControlHeader 1..1 BackboneElement "accessControlHeader" "accessControlHeader"

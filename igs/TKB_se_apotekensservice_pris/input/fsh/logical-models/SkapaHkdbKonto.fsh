@@ -10,4 +10,5 @@ Description: """
   (urn:riv:se.apotekensservice:pris:SkapaHkdbKontoResponder:4, SkapaHkdbKontoResponseType).
 """
 Characteristics: #can-be-target
+* ^version = "4.0"
 * ansluten 1..1 boolean "ansluten" "Personens högkostnadsstatus. False - Konto ej skapat True - Konto skapat"

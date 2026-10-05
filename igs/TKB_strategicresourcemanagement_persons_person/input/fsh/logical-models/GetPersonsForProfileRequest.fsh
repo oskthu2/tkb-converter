@@ -10,6 +10,7 @@ Description: """
   (urn:riv:strategicresourcemanagement:persons:person:GetPersonsForProfileResponder:5, GetPersonsForProfileType), inklusive SOAP-huvuden enligt WSDL.
 """
 Characteristics: #can-be-target
+* ^version = "5.0"
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. http://tempuri.org"
 * personId 1..* BackboneElement "personId" "En universellt unik identifierare."
   * root 1..1 string "root" "root"

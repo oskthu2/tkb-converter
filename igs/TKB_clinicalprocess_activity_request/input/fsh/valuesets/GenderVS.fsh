@@ -6,5 +6,6 @@ ValueSet: GenderVS
 Id: gender-vs
 Title: "codeForGenderType"
 Description: "Alla koder i GenderCS."
+* ^version = "2.2.0"
 * ^status = #active
 * include codes from system GenderCS

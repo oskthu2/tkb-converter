@@ -14,6 +14,7 @@ Description: """
 """
 Characteristics: #can-be-target
 
+* ^version = "3.0"
 * personInformation 0..* BackboneElement "Information om personen"
     """
     Information om personen. En person (ett HSA-id) returneras bara en gång

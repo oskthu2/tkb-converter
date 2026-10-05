@@ -5,6 +5,7 @@ CodeSystem: MeddelandeStatusCS
 Id: dosedispensing-meddelandestatus-cs
 Title: "Meddelandestatus"
 Description: "Koder för MeddelandeStatusEnum i domänschemat. Visningstexter ur Pascal – Objekt och felhantering (Objekt_och_felhantering.pdf)."
+* ^version = "1.1.0"
 * ^url = "https://fhir.inera.se/CodeSystem/dosedispensing-meddelandestatus-cs"
 * ^status = #active
 * ^content = #complete
