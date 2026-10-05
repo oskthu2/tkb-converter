@@ -8,9 +8,10 @@
     }
   ],
   "url": "https://fhir.inera.se/ig/clinicalprocess-activity-actions/StructureDefinition/getactivities",
+  "version": "1.3",
   "name": "GetActivities",
   "title": "GetActivities",
-  "status": "draft",
+  "status": "active",
   "description": "Logisk modell för tjänstekontraktet GetActivities\n(RIV-TA urn:riv:clinicalprocess:activity:actions:GetActivities:1).\nRepresenterar responsens informationsstruktur — en lista av activityGroup-element.",
   "fhirVersion": "4.0.1",
   "kind": "logical",
@@ -53,8 +54,8 @@
         ]
       },
       {
-        "id": "getactivities.activityGroup.patient.id",
-        "path": "getactivities.activityGroup.patient.id",
+        "id": "getactivities.activityGroup.patient.patientId",
+        "path": "getactivities.activityGroup.patient.patientId",
         "short": "Id för patienten",
         "definition": "Id för patienten (IIType). Ska anges med 12 tecken utan avskiljare.\nroot = OID för typ av identifierare (personnummer: 1.2.752.129.2.1.3.1,\nsamordningsnummer: 1.2.752.129.2.1.3.3, reservnummer: lokalt OID).\nKardinalitet: Obligatorisk.",
         "min": 1,
@@ -105,8 +106,8 @@
         ]
       },
       {
-        "id": "getactivities.activityGroup.performerRole.id",
-        "path": "getactivities.activityGroup.performerRole.id",
+        "id": "getactivities.activityGroup.performerRole.performerRoleId",
+        "path": "getactivities.activityGroup.performerRole.performerRoleId",
         "short": "HSA-id för utförande person",
         "definition": "Identitet för personen som utfört aktiviteten (IIType).\nAnges enbart om aktiviteten utförts av hälso- och sjukvårdspersonal. Anges med HSA-id.\nroot = OID för HSA-katalogen (1.2.752.129.2.1.4.1).\nKardinalitet: Villkorlig (se Regel 2.1).",
         "min": 0,
@@ -144,8 +145,8 @@
         ]
       },
       {
-        "id": "getactivities.activityGroup.performerRole.person.id",
-        "path": "getactivities.activityGroup.performerRole.person.id",
+        "id": "getactivities.activityGroup.performerRole.person.personId",
+        "path": "getactivities.activityGroup.performerRole.person.personId",
         "short": "Identifierare för person",
         "definition": "Identifierare för person som utfört aktiviteten. Anges endast om aktiviteten utförts av\nperson som INTE klassas som hälso- och sjukvårdspersonal.\nKardinalitet: Valfri.",
         "min": 0,
@@ -183,8 +184,8 @@
         ]
       },
       {
-        "id": "getactivities.activityGroup.performerRole.careUnit.id",
-        "path": "getactivities.activityGroup.performerRole.careUnit.id",
+        "id": "getactivities.activityGroup.performerRole.careUnit.careUnitId",
+        "path": "getactivities.activityGroup.performerRole.careUnit.careUnitId",
         "short": "HSA-id för PDL vårdenhet",
         "definition": "HSA-id för PDL vårdenhet som har ansvar för aktiviteten. Se Regel 2.6.\nroot = OID för HSA-id: 1.2.752.129.2.1.4.1.\nKardinalitet: Obligatorisk.",
         "min": 1,
@@ -222,8 +223,8 @@
         ]
       },
       {
-        "id": "getactivities.activityGroup.performerRole.careUnit.careGiver.id",
-        "path": "getactivities.activityGroup.performerRole.careUnit.careGiver.id",
+        "id": "getactivities.activityGroup.performerRole.careUnit.careGiver.careGiverId",
+        "path": "getactivities.activityGroup.performerRole.careUnit.careGiver.careGiverId",
         "short": "HSA-id för vårdgivaren",
         "definition": "Vårdgivarens identitet som enheten är anknuten till (IIType).\nroot = OID för HSA-id: 1.2.752.129.2.1.4.1. Se Regel 2.6.\nKardinalitet: Obligatorisk.",
         "min": 1,
@@ -261,10 +262,10 @@
         ]
       },
       {
-        "id": "getactivities.activityGroup.legalAuthenticator.id",
-        "path": "getactivities.activityGroup.legalAuthenticator.id",
+        "id": "getactivities.activityGroup.legalAuthenticator.legalAuthenticatorId",
+        "path": "getactivities.activityGroup.legalAuthenticator.legalAuthenticatorId",
         "short": "HSA-id för signerande person",
-        "definition": "HSA-id för personen som signerat aktiviteterna. Se Regel 2.4.\nMinst ett av attributen id eller name ska anges.\nKardinalitet: Villkorlig.",
+        "definition": "HSA-id för personen som signerat aktiviteterna. Se Regel 2.4.\nMinst ett av attributen legalAuthenticatorId eller name ska anges.\nKardinalitet: Villkorlig.",
         "min": 0,
         "max": "1",
         "type": [
@@ -290,7 +291,7 @@
         "id": "getactivities.activityGroup.legalAuthenticator.name",
         "path": "getactivities.activityGroup.legalAuthenticator.name",
         "short": "Namn på signerande person",
-        "definition": "För- och efternamn i klartext för signerande person. Se Regel 2.4.\nMinst ett av attributen id eller name ska anges.\nKardinalitet: Villkorlig.",
+        "definition": "För- och efternamn i klartext för signerande person. Se Regel 2.4.\nMinst ett av attributen legalAuthenticatorId eller name ska anges.\nKardinalitet: Villkorlig.",
         "min": 0,
         "max": "1",
         "type": [
@@ -313,8 +314,8 @@
         ]
       },
       {
-        "id": "getactivities.activityGroup.additionalParticipant.id",
-        "path": "getactivities.activityGroup.additionalParticipant.id",
+        "id": "getactivities.activityGroup.additionalParticipant.additionalParticipantId",
+        "path": "getactivities.activityGroup.additionalParticipant.additionalParticipantId",
         "short": "Identifierare för ytterligare deltagare",
         "definition": "Identifierare för ytterligare deltagare (IIType).\nAnges enbart om deltagaren klassas som hälso- och sjukvårdspersonal (HSA-id).\nKardinalitet: Villkorlig (se Regel 2.2).",
         "min": 0,
@@ -378,8 +379,8 @@
         ]
       },
       {
-        "id": "getactivities.activityGroup.additionalParticipant.person.id",
-        "path": "getactivities.activityGroup.additionalParticipant.person.id",
+        "id": "getactivities.activityGroup.additionalParticipant.person.personId",
+        "path": "getactivities.activityGroup.additionalParticipant.person.personId",
         "short": "Identifierare för person",
         "definition": "Identifierare för deltagande övrig person.\nKardinalitet: Valfri.",
         "min": 0,
@@ -417,8 +418,8 @@
         ]
       },
       {
-        "id": "getactivities.activityGroup.additionalParticipant.organisation.id",
-        "path": "getactivities.activityGroup.additionalParticipant.organisation.id",
+        "id": "getactivities.activityGroup.additionalParticipant.organisation.organisationId",
+        "path": "getactivities.activityGroup.additionalParticipant.organisation.organisationId",
         "short": "HSA-id för organisation",
         "definition": "HSA-id för den organisation som denna ytterligare deltagare har sitt uppdrag hos.\nroot = OID för HSA-id: 1.2.752.129.2.1.4.1.\nKardinalitet: Obligatorisk.",
         "min": 1,
@@ -456,8 +457,8 @@
         ]
       },
       {
-        "id": "getactivities.activityGroup.additionalParticipant.device.id",
-        "path": "getactivities.activityGroup.additionalParticipant.device.id",
+        "id": "getactivities.activityGroup.additionalParticipant.device.deviceId",
+        "path": "getactivities.activityGroup.additionalParticipant.device.deviceId",
         "short": "Identifierare för medicinskteknisk produkt",
         "definition": "Identifierare för instans av medicinskteknisk produkt.\nKardinalitet: Valfri.",
         "min": 0,
@@ -508,8 +509,8 @@
         ]
       },
       {
-        "id": "getactivities.activityGroup.additionalParticipant.location.id",
-        "path": "getactivities.activityGroup.additionalParticipant.location.id",
+        "id": "getactivities.activityGroup.additionalParticipant.location.locationId",
+        "path": "getactivities.activityGroup.additionalParticipant.location.locationId",
         "short": "HSA-id för plats/vårdenhet",
         "definition": "Identifiering för platsen. Anges om platsen är en vårdenhet (HSA-id).\nKardinalitet: Valfri.",
         "min": 0,
@@ -560,8 +561,8 @@
         ]
       },
       {
-        "id": "getactivities.activityGroup.sourceSystem.id",
-        "path": "getactivities.activityGroup.sourceSystem.id",
+        "id": "getactivities.activityGroup.sourceSystem.sourceSystemId",
+        "path": "getactivities.activityGroup.sourceSystem.sourceSystemId",
         "short": "HSA-id för källsystem",
         "definition": "HSA-id för källsystemet (IIType).\nroot = OID för HSA-id: 1.2.752.129.2.1.4.1.\nKardinalitet: Obligatorisk.",
         "min": 1,
@@ -586,8 +587,8 @@
         ]
       },
       {
-        "id": "getactivities.activityGroup.activity.id",
-        "path": "getactivities.activityGroup.activity.id",
+        "id": "getactivities.activityGroup.activity.activityId",
+        "path": "getactivities.activityGroup.activity.activityId",
         "short": "Unik identifierare för aktiviteten",
         "definition": "En unik identifierare för aktiviteten (IIType). Ska vara konsistent och beständig\nmellan majorversioner av kontrakt och mellan kontrakt.\nroot = källsystemets HSA-id.\nKardinalitet: Obligatorisk.",
         "min": 1,
@@ -742,8 +743,8 @@
         ]
       },
       {
-        "id": "getactivities.activityGroup.activity.relation.referredInformation.id",
-        "path": "getactivities.activityGroup.activity.relation.referredInformation.id",
+        "id": "getactivities.activityGroup.activity.relation.referredInformation.referredInformationId",
+        "path": "getactivities.activityGroup.activity.relation.referredInformation.referredInformationId",
         "short": "Id för refererad information",
         "definition": "Den refererade externa informationens identitet (IIType).\nroot = HSA-id för källsystem.\nKardinalitet: Obligatorisk.",
         "min": 1,
@@ -794,8 +795,8 @@
         ]
       },
       {
-        "id": "getactivities.activityGroup.activity.relation.referredInformation.informationOwner.id",
-        "path": "getactivities.activityGroup.activity.relation.referredInformation.informationOwner.id",
+        "id": "getactivities.activityGroup.activity.relation.referredInformation.informationOwner.informationOwnerId",
+        "path": "getactivities.activityGroup.activity.relation.referredInformation.informationOwner.informationOwnerId",
         "short": "Informationsägarens HSA-id",
         "definition": "Informationsägare av refererad information (IIType).\nroot = OID för HSA-id: 1.2.752.129.2.1.4.1.\nKardinalitet: Obligatorisk.",
         "min": 1,
