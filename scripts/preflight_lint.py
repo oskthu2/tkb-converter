@@ -21,6 +21,7 @@ from urllib.parse import unquote
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import tkb_version  # noqa: E402
+import gen_menu  # noqa: E402
 
 # Kraschar bevisligen IG Publisher/SUSHI på alla nivåer (krockar med Element.id/extension):
 RE_RESERVED_HARD = re.compile(r"(^\s*\*\s+|\.)(id|extension|modifierExtension|contained|implicitRules)\s+[0-9]+\.\.[0-9*]+")
@@ -212,6 +213,17 @@ def lint_overview(ig: Path, errors: list):
                           "kontraktstabell (portalen länkar kontraktet via den)")
 
 
+def lint_menu(ig: Path, errors: list):
+    """Menyn ska vara exakt den som scripts/gen_menu.py skriver (se tkb-ig-builder, avsnittet Meny)."""
+    if not (ig / "sushi-config.yaml").exists():
+        return
+    chapters, contracts = gen_menu.menu_items(ig)
+    menu = ig / "input" / "includes" / "menu.xml"
+    if not menu.exists() or menu.read_text(encoding="utf-8") != gen_menu.render_xml(chapters, contracts):
+        errors.append(f"{menu}: menyn avviker från standardmenyn (t.ex. <menu>/<item>, class=\"nav-tabs\" eller "
+                      f"<?xml?>-deklaration ger trasig navigering) — kör scripts/gen_menu.py {ig}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("dirs", nargs="*")
@@ -230,6 +242,7 @@ def main():
         lint_fsh(ig, errors, warnings)
         lint_pages(ig, errors, warnings)
         lint_overview(ig, errors)
+        lint_menu(ig, errors)
         status = "OK" if not errors else f"{len(errors)} FEL"
         print(f"[preflight] {ig.name}: {status}, {len(warnings)} varning(ar)")
         for e in errors:
