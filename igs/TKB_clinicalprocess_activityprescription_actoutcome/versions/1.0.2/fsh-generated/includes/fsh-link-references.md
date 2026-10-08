@@ -1,0 +1,2 @@
+[GetVaccinationHistory]: StructureDefinition-getvaccinationhistory.html
+[GetVaccinationHistoryRequest]: StructureDefinition-getvaccinationhistory-request.html

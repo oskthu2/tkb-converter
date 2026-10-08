@@ -19,8 +19,7 @@ IG-versionen följer nu den tagg eller commit som IG:n byggdes från (beslut 202
   |---|---|---|---|---|---|
   | clinicalprocess.activity.actions | after-tag | 1.3.4 | 1.3.4 | abc18c8b1767 | HEAD vid 2026-05-18T11:20:06.462980Z |
   | clinicalprocess.activityprescription.logistics | snapshot | 1.0.2-snapshot | – | 69b4fefff3e9 | zip |
-  | clinicalprocess.healthcond.basic | snapshot | 2.0.0-snapshot | 2.0_RC4 | 16f8cd696770 | meta commit |
-  | clinicalprocess.healthcond.certificate | after-tag | 4.1.0-rc1 | 4.1_RC1 | be04ee5a3fad | HEAD vid 2026-05-19T00:00:00Z |
+    | clinicalprocess.healthcond.certificate | after-tag | 4.1.0-rc1 | 4.1_RC1 | be04ee5a3fad | HEAD vid 2026-05-19T00:00:00Z |
   | clinicalprocess.healthcond.rheuma | snapshot | 1.0.0-snapshot | – | fd5d50cd8a84 | zip |
   | crm.requeststatus | snapshot | 2.0.1-snapshot | 2.0.1_RC1 | fe868afac3b0 | HEAD vid 2026-03-24T11:01:57Z |
   | crm.scheduling | after-tag | 1.1.6 | 1.1.6 | d5bfa3372dce | HEAD vid 2026-03-24T10:52:00Z |
@@ -144,6 +143,35 @@ IG-versionen följer nu den tagg eller commit som IG:n byggdes från (beslut 202
 
 ---
 
+## clinicalprocess.logistics.logistics 2.0.7 (äldre huvudversion) — `igs/TKB_clinicalprocess_logistics_logistics/versions/2.0.7/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-10-08
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-LL2-001]** `igs/TKB_clinicalprocess_logistics_logistics/versions/2.0.7/input/pagecontent/` · kapitelindelning
+  TKB 2.0.7 har kapitel 5 Gemensamma informationskomponenter och kapitel 6 Tjänstekontrakt, men inget kapitel om meddelandemodeller. IG:n följer mallens ordning: källans kapitel 5 och 6 ligger i kapitel 6 och 7, och kapitel 5 är markerat "SAKNAS I KÄLLDOKUMENT" med hänvisning till bilagan om MIM-mappningar. Revisionshistoriken ligger i kapitel 2, referenser och förkortningar i kapitel 1.
+
+- [ ] **[ASSUME-LL2-002]** `igs/TKB_clinicalprocess_logistics_logistics/versions/2.0.7/input/fsh/logical-models/GetCareContacts.fsh` · fält `healthcareProfessionalCareUnitHSAId`, `healthcareProfessionalCareGiverHSAId`
+  TKB-tabellen anger 1..1 (och stavar fälten med litet c: `healthcareProfessionalcareUnitHSAId`), schemat `clinicalprocess_logistics_logistics_2.0.xsd` anger `minOccurs="0"`. Modellen följer schemat (0..1). Skillnaden står i 7-tjanstekontrakt.md under "Skillnader mellan TKB och schema".
+
+- [ ] **[ASSUME-LL2-003]** `igs/TKB_clinicalprocess_logistics_logistics/versions/2.0.7/input/fsh/codesystems/` · `CareContactCodeCS`, `CareContactStatusCS`
+  TKB-tabellen anger `integer` för `careContactCode` och `careContactStatus`. Schemat har uppräkningarna `CareContactCodeEnum` och `CareContactStatusEnum` (xs:int, 1–5). De är modellerade som egna kodverk med URL:erna `https://fhir.inera.se/CodeSystem/carecontactcode-cs` och `…/carecontactstatus-cs`, och fälten som `code` med required-bindning. Statuskoderna kommer enligt schemat från NPÖ RIV-spec 2.2. Verifiera om ett nationellt kodverk med OID ska användas i stället.
+
+- [ ] **[ASSUME-LL2-004]** `igs/TKB_clinicalprocess_logistics_logistics/versions/2.0.7/input/pagecontent/8-bilaga-mim-mappningar-getcarecontacts.md` · bilaga
+  Arkivets `docs/Bilaga MIM_Mappningar_GetCareContacts.xlsx` (som TKB:n hänvisar till) har kopierats som `Bilaga_MIM_Mappningar_GetCareContacts.xlsx` och återges som kapitel 8. Arbetsbokens element står i olika kolumner beroende på nivå. Kolumnerna har slagits ihop till en elementkolumn med punkter som nivåmarkering. Fliknamnet "SendReferralAnswer CDA" och stavningen återges som i källan.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-LL2-001]** `igs/TKB_clinicalprocess_logistics_logistics/versions/2.0.7/input/pagecontent/1-inledning.md` · referens R1
+  Referenstabellen i TKB 2.0.7 anger `AB_clinicalprocess_healthcond_description.docx` som arkitekturella beslut [R1], men arkivet innehåller `AB_clinicalprocess_logistics_logistics.docx`. Texten är återgiven ordagrant. Den korrekta filen länkas under "Gemensamma dokument för domänen" i kapitel 7.
+
+- [ ] **[TODO-LL2-002]** `igs/TKB_clinicalprocess_logistics_logistics/versions/2.0.7/input/pagecontent/2-versionsinformation.md` · versionsavsnitt
+  Dokumentet är version 2.0.7 (2026-06-03), men avsnitt 2.1 heter fortfarande "Version 2.0.6", och "Version tidigare" anger 2.0.5. Återgivet ordagrant. Taggen `2.0.7` gäller som version.
+
+---
+
 ## clinicalprocess.logistics.logistics v3.0.13
 
 **Status:** blocked
@@ -172,6 +200,45 @@ IG-versionen följer nu den tagg eller commit som IG:n byggdes från (beslut 202
 - [ ] **[TODO-CLL-002]** `AdditionalPatientInformation.gender` binder till KV Kön (OID 1.2.752.129.2.2.1.1). Verifiera canonical URL för detta kodverk och lägg till en explicit `from`-bindning i FSH-modellen när canonical-URL är bekräftad.
 
 - [ ] **[TODO-CLL-003]** `MediaTypeEnum` i XSD-schemat definierar ett komplett set MIME-typer (25 värden). TKB avsnitt 7.2 begränsar tillåtna format till: text/plain, text/html, image/jpeg, image/png, application/pdf. Skapa ett begränsat ValueSet `AllowedMediaTypeVS` med de fem tillåtna värdena och bind `carePlan.content.mediaType` till detta ValueSet, alternativt lägg till en invariant.
+
+---
+
+## clinicalprocess.healthcond.actoutcome@3.1.10 (äldre huvudversion 3.1) — `igs/TKB_clinicalprocess_healthcond_actoutcome/versions/3.1.10/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-10-08
+
+### Blockerare (kräver svar innan IG kan anses komplett)
+
+Inga.
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-CHAO31-001]** `igs/TKB_clinicalprocess_healthcond_actoutcome/versions/3.1.10/input/fsh/logical-models/` (alla åtta modeller)
+  Modellerna är genererade ur fältregeltabellerna i TKB 3.1.10, avsnitt 7.1–7.4 (namn, nästling, kardinalitet och beskrivning ordagrant). RIV-TA-typer med en självklar FHIR-motsvarighet är mappade dit och deras underrader dokumenterade i fältets beskrivning: HSAIdType, PersonIdType och IIType → Identifier; CVType, ClinicalInformationCodeType och ActCodeType → CodeableConcept; DatePeriodType och TimePeriodType → Period; PQType → Quantity; TimeStampType → instant; DateType → date; uppräkningar → code med bindning. Övriga sammansatta typer är BackboneElement. Element som TKB:n anger "Ska ej anges" ligger kvar med kardinalitet 0..0 (typ `string` när TKB:n inte anger typ).
+
+- [ ] **[ASSUME-CHAO31-002]** `.../versions/3.1.10/input/fsh/logical-models/` · elementnamn
+  Där TKB:ns stavning skiljer sig från schemat används schemats namn (TKB:ns stavning står i kortbeskrivningen): `orgUnitname` → `orgUnitName`, `legalAuthenticatorHSAid` → `legalAuthenticatorHSAId`, `subcode` → `subCode`, `healthcareProfessionalHSAid` → `healthcareProfessionalHSAId` (GIO), `burnedInAnnotations` → `burnedInaAnnotations` (schemats stavfel, jfr revisionshistoriken 2016-11-24, ärende #372). Reserverade namn är prefixade med föräldern: `actResult.id`/`value` → `actResultId`/`actResultValue`, `imageData.value` → `imageDataValue`.
+
+- [ ] **[ASSUME-CHAO31-003]** `.../versions/3.1.10/input/fsh/logical-models/GetMaternityMedicalHistory.fsh` · `maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit`
+  Kardinalitet saknas i TKB:ns tabell. Modellerad som 0..1 (det säkrare alternativet). Schemat `clinicalprocess_healthcond_actoutcome_2.0.xsd` har `minOccurs="1"` för `healthcareProfessionalOrgUnit`.
+
+- [ ] **[ASSUME-CHAO31-004]** `.../versions/3.1.10/input/fsh/codesystems/FetalPresentationCodeCS.fsh`
+  Schemats dokumentation för `FetalPresentationCodeEnum` (0 huvud, 1 säte, 2 snedläge, 3 tvärläge) är kopierad från `FetalPositionCodeEnum`. TKB:n (7.2) anger 0 = rörligt, 1 = ruckbart, 2 = fix. Visningstexterna följer TKB:n. Kod 3 finns bara i schemat och har fått visningstexten "tvärläge (endast i schemat; definieras inte i TKB:n)".
+
+- [ ] **[ASSUME-CHAO31-005]** `.../versions/3.1.10/input/fsh/codesystems/`
+  Alla elva uppräkningar i `clinicalprocess_healthcond_actoutcome_enum_3.1.xsd` och `_enum_2.0.xsd` är kodverk, med samma URL som i 4.2-IG:n där kodverket finns där (`https://fhir.inera.se/CodeSystem/{namn}`). Nya jämfört med 4.2-IG:n: `mediatype`, `resultcode`, `errorcode`, `fetalpresentationcode`. Koden `Pågående` i ExaminationStatusCode skrivs som i schemat (4.2-IG:n har `Pagaende`). Versionerna skiljs åt med `^version`.
+
+- [ ] **[ASSUME-CHAO31-006]** `.../versions/3.1.10/input/images/Bilaga_MIM_Mappningar_*.xlsx`, `Bilaga_Gemensamma_typer_4.pdf`
+  Bilagorna R3, R6 och R7 är publicerade som nedladdningsbara filer (länkade från referenstabellen på sida 1, sida 5 och källfilstabellerna i kapitel 7), inte återgivna som sidor. CDA-mappningarna har upp till 41 kolumner. Mellanslag i xlsx-filnamnen är ersatta med `_`.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-CHAO31-001]** `.../versions/3.1.10/input/fsh/logical-models/`
+  Bara två villkorsregler är invarianter: "sourceSystemHSAId ska anges om careContactId angivits" (alla fyra begäransmodeller) och "ett och endast ett av value och reference" (GRO `actResult`, GIO `imageData`). Övriga villkor (t.ex. "Ett av attributen analysisCode och analysisText ska anges" i GLOO, code/codeSystem/displayName i CVType) står bara i fältbeskrivningarna.
+
+- [ ] **[TODO-CHAO31-002]** `.../versions/3.1.10/input/pagecontent/2-versionsinformation.md`
+  Källans stavfel i 2.1.1 ("GetLaboratotyOrderOutcome", "GetFeferralOutcome") är återgivna ordagrant. TKB:ns innehållsförteckning anger fortfarande "2.1 Version 3.1.9" medan rubriken och taggen är 3.1.10. Revisionshistorik, Referenser och Förkortningar ur dokumentets förspann ligger på sidorna 2 och 1.
 
 ---
 
@@ -219,6 +286,59 @@ IG-versionen följer nu den tagg eller commit som IG:n byggdes från (beslut 202
 - [ ] **[TODO-CHAO-005]** Kontrollera att `ExaminationStatusCodeCS` koden `#Pagaende` matchar vad källsystem faktiskt skickar. Om källsystem skickar det svenska `Pågående` (med å) behöver CodeSystem-koden ändras för att FHIR-valideringen ska fungera korrekt.
 
 - [ ] **[TODO-CHAO-006]** `SjD_TK_GetReferralOutcome_3.2.docx` och `SjD_TK_GetImagingOutcome_1.0.docx` är inte parsade. Dessa kan innehålla systemskiftesspecifika regler. Lägg till referenser i respektive kontraktssektion i IG:n.
+
+---
+
+## clinicalprocess.healthcond.description v3.0.6 — uppdatering från 3.0.5 (2026-10-08)
+
+Taggen `3.0.6` (commit f60fe0ee895b6d7344b36fdbc98de50e9b81f9e4) jämförd med `3.0.5`. Scheman (XSD/WSDL), README, IS-dokumentet, mappningsbilagorna och bilagan `Bilaga Gemensamma_typer_7.pdf` är oförändrade; kontraktsversionerna är desamma (GetCareDocumentation 3.0, GetDiagnosis 2.0, GetAlertInformation 2.0, GetFunctionalStatus 2.0).
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-DESC-008]** TKB 3.0.6 sänker SLA-kravet på svarstid i avsnitt 4.3.1 från 30 till 27 sekunder (enda innehållsändringen i TKB:n utöver versionsavsnittet). Kontraktsversionerna är oförändrade och avsnitt 2 anger "Inga förändrade tjänstekontrakt", trots att kravet skärps för alla producenter. Verifiera att ändringen avses gälla utan ny kontraktsversion.
+
+- [ ] **[ASSUME-DESC-009]** Revisionshistoriken (TKB:ns inledande tabell) saknades i IG:n och har nu lagts till sist på sida 2 (Versionsinformation), eftersom 3.0.6-ändringen bara beskrivs där. Avsnitten Referenser och Förkortningar ur TKB:ns inledning saknas fortfarande i IG:n.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-DESC-008]** Självdeklarationerna (SjD_TP_* för alla fyra kontrakt, SjD_TK_GetDiagnosis) och AB-dokumentet har ändrats i 3.0.6 (bl.a. förenklade EI-frågor, låsning av poster borttagen ur GetDiagnosis/GetFunctionalStatus, koder i parentes för clinicalDocumentNoteCode i GetCareDocumentation, AB: endast ny revisionsrad). De ligger som nedladdningsbara filer i `input/images/` men länkas inte från någon sida; IG:n saknar ett källfilsindex. Även testsviterna har uppdaterats (skip-funktion, SoapUI 5.9.1, testfallet "5.3 locked" borttaget) men ingår inte i IG:n.
+
+---
+
+## clinicalprocess.healthcond.description@2.1.19 (äldre huvudversion 2.1)
+
+**Status:** done (egen IG under `igs/TKB_clinicalprocess_healthcond_description/versions/2.1.19/`)
+**Senast uppdaterad:** 2026-10-08
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-DESC21-001]** Taggen `2.1.19` innehåller ett TKB-dokument som i sig är märkt **2.1.18** (ARK_0015, 2023-02-03). Diffen mellan taggarna 2.1.18 och 2.1.19 rör bara testsviter och två självdeklarationer (SjD_TP för GetAlertInformation och GetCareDocumentation); TKB-text och scheman är oförändrade. IG-versionen följer taggen (2.1.19) enligt projektets regel, och skillnaden noteras i index.md. Verifiera att taggen, inte dokumentetiketten, ska vara IG-versionen även här.
+
+- [ ] **[ASSUME-DESC21-002]** Kontraktsversionerna är tagna ur XSD-/WSDL-filnamnen i taggen: GetCareDocumentation 2.1, GetDiagnosis 2.0, GetAlertInformation 2.0, GetFunctionalStatus 2.0. Detta stämmer med avsnitt 7 i TKB:n.
+
+- [ ] **[ASSUME-DESC21-003]** Fältet `subcode` i fältregeltabellerna för samtliga fyra kontrakt heter `subCode` i `clinicalprocess_healthcond_description_2.1.xsd`. Modellerna använder TKB:ns stavning och noterar XSD-namnet i fältbeskrivningen. Samma sak gäller GetCareDocumentation, där TKB skriver `careUnitHSAId`/`sourceSystemHSAId` medan schemat (av bakåtkompatibilitetsskäl mot 2.0) har `careUnitHSAid`/`sourceSystemHSAid`, samt `dissentingOpinion`, som i schemat är felstavat `dissentintOpinion`.
+
+- [ ] **[ASSUME-DESC21-004]** `legalAuthenticatorRoleCode` finns i TKB:ns fältregler för GetFunctionalStatus men inte i `LegalAuthenticatorType` i domänschemat 2.1. Fältet är med i den logiska modellen med en notering; i praktiken kan det bara skickas via `xs:any`. Verifiera vilken av källorna som gäller.
+
+- [ ] **[ASSUME-DESC21-005]** Två kardinaliteter i TKB avviker från schemat: `healthcareProfessionalOrgUnit` i GetCareDocumentation (TKB 1..1, XSD 0..1) och `documentTime` i GetFunctionalStatus (TKB 1..1, XSD 0..1). Modellerna följer TKB:n (den strängare regeln). Verifiera vilken som gäller.
+
+- [ ] **[ASSUME-DESC21-006]** Fält som TKB anger med kardinalitet `0..0` (`nullified`, `nullifiedReason`, `documentTitle`/`documentTime` i vissa kontrakt, `clinicalDocumentTypeCode`, `multimediaEntry/id`, m.fl.) är modellerade som `0..0` med beskrivningen "Används ej", så att hela TKB-tabellen går att läsa i modellen. Typen för de rader där TKB lämnar typkolumnen tom är hämtad ur XSD:n.
+
+- [ ] **[ASSUME-DESC21-007]** RIV-TA-typerna är mappade enligt projektets standardtabell: `HSAIdType`/`PersonIdType`/`IIType` → `Identifier`, `CVType` → `CodeableConcept`, `DatePeriodType`/`TimePeriodType` → `Period`, `TimeStampType` → `dateTime`, `DateType` → `date`. Underelementen (`id`/`type`, `root`/`extension`, `code`/`codeSystem`/`displayName` …) redeklareras inte, utan beskrivs i föräldrafältets långbeskrivning — se tkb-fsh-model.
+
+- [ ] **[ASSUME-DESC21-008]** `multimediaEntry/id` (0..0) har döpts om till `multimediaId` i modellen eftersom `id` är ett reserverat elementnamn i FHIR.
+
+- [ ] **[ASSUME-DESC21-009]** `MediaTypeEnum`, `ResultCodeEnum` och `ErrorCodeEnum` har inte fått egna CodeSystem/ValueSet; fälten är `code` med de tillåtna värdena beskrivna i fältbeskrivningen. Endast de domänspecifika kodverken `ClinicalDocumentNoteCodeEnum`, `DiagnosisTypeEnum` och `AssessmentCategoryEnum` har blivit kodverk. Samma avgränsning som i IG:n för 3.0.
+
+- [ ] **[ASSUME-DESC21-010]** Bilagorna `Bilaga Mappningar_*.xlsx` ([R3]–[R5]) är återgivna som Markdown-tabeller på sidan *8 Bilaga Mappningar*. Kalkylbladens trädstruktur (indrag över flera kolumner) är återgiven med indrag i en kolumn per struktur, och sammanslagna celler kan därför se något annorlunda ut än i originalet. Originalfilerna är publicerade och länkade.
+
+### TODO (kan göras utan input)
+
+- [ ] **[TODO-DESC21-001]** `typeOfAlertInformation` i GetAlertInformation 2.0 hänvisar till KV Uppmärksamhetstyp (1.2.752.129.5.1.49) och KV Informationstyp (1.2.752.129.2.2.2.1) samt till regel 2 med en explicit kodlista. Kodverken är inte definierade i schemat; ett CodeSystem/ValueSet för regel 2:s koder skulle kunna läggas till och bindas.
+
+- [ ] **[TODO-DESC21-002]** `MediaTypeEnum` (22 MIME-typer i enum-schemat) kan bli ett ValueSet och bindas till `multimediaEntry.mediaType`.
+
+- [ ] **[TODO-DESC21-003]** Självdeklarationerna (`SjD_TK_*`, `SjD_TP_*`) och testsviterna i taggen är publicerade som källfiler men inte textbearbetade. De kan återges som egna bilagesidor om domänens testregler ska kunna läsas i IG:n.
 
 ---
 
@@ -311,6 +431,38 @@ IG-versionen följer nu den tagg eller commit som IG:n byggdes från (beslut 202
 - [ ] **[TODO-PRESC-006]** `GetDispensedDrugs` (7.9) — request innehåller fältet `typeOfResponse` av typen `DispensedDrugsTypeOfResponseEnum` (TEXT/MULTIMEDIA/BOTH). Lägg till binding i en eventuell request-modell och verifiera att `DispensedDrugsTypeOfResponseVS` är korrekt. Relevant sektion: TKB avsnitt 7.9, fältregler.
 
 - [ ] **[TODO-PRESC-007]** Parsa `VIS_clinicalprocess_activityprescription_dosage.docx` för att förstå koppling mellan ordination (prescribe-domänen) och dosering (dosage-domänen). Detta kan vara nödvändigt för att komplettera FSH-modellerna med Dosage-strukturen. Se ASSUME-PRESC-007.
+
+---
+
+## clinicalprocess.activityprescription.actoutcome 1.0 (tagg 1.0.2) — `igs/TKB_clinicalprocess_activityprescription_actoutcome/versions/1.0.2/`
+
+**Status:** done
+**Senast uppdaterad:** 2026-10-08
+
+### Antaganden gjorda (verifiera med domänexpert)
+
+- [ ] **[ASSUME-APAO10-001]** `igs/TKB_clinicalprocess_activityprescription_actoutcome/versions/1.0.2/` (hela IG:n) · kontraktsomfång
+  Taggen `1.0.2` (commit `37912f3bdf98`, 2022-02-16) innehåller bara tjänstekontraktet GetVaccinationHistory 1.0 (`GetVaccinationHistoryResponder_1.0.xsd`, `GetVaccinationHistoryInteraction_1.0_RIVTABP21.wsdl`). GetMedicationHistory ingår inte i huvudversion 1.0. Det finns bara ett arbetsdokument om det (`docs/GMH - Informationsinnehåll - arbetsdokument.docx`), och det är inte med i IG:n. TKB-dokumentet finns i taggen, så de äldre 1.0-taggarna behövde inte användas.
+
+- [ ] **[ASSUME-APAO10-002]** `igs/TKB_clinicalprocess_activityprescription_actoutcome/versions/1.0.2/input/pagecontent/` · kapitelindelning
+  TKB 1.0 har en äldre kapitelindelning: 1 Revisionshistorik, 3 Inledning, 4 Tjänstedomänens arkitektur, 5 Generella regler, 6 Gemensamma informationskomponenter och 7 GetVaccinationHistory. Den har inget kapitel om versionsinformation och inget om meddelandemodeller. Kapitlen har förts in i IG:ns sidor 1–7 enligt mallen (Revisionshistorik → sida 2, Generella regler → sida 4). Sida 5 är märkt SAKNAS I KÄLLDOKUMENT och hänvisar till MIM i kontraktsavsnittet. Varje sida anger källkapitlet. Underrubrikerna (formatmallarna Rubrik 2b/3b), komponentrubrikerna i kapitel 6, punktlistan i 4.2 och tabellrader som var brutna av radbrytningar i celler har återställts med ett skript, eftersom `docx_to_md.py` inte känner igen formatmallarna.
+
+- [ ] **[ASSUME-APAO10-003]** `igs/TKB_clinicalprocess_activityprescription_actoutcome/versions/1.0.2/input/fsh/logical-models/GetVaccinationHistory.fsh` · fält `nullified`, `nullifiedReason`
+  TKB:ns fältregler (7.6, ändrat i PA17) anger `nullified` 1..1 och `nullifiedReason` som `string`. Domänschemat `clinicalprocess_activityprescription_actoutcome_1.0.xsd` (PatientSummaryHeaderType) har `nullified` 0..1 och `nullifiedReason` som `xs:boolean`. Modellen följer schemat, eftersom det är det tekniska kontraktet och 0..1 är det säkrare alternativet. `nullifiedReason` som boolean är sannolikt ett schemafel, och 2.x-versionen har `string`. Invarianten `getvaccinationhistory-nullifiedreason` (nullifiedReason bara när nullified = true) uttrycker TKB:ns regel.
+
+- [ ] **[ASSUME-APAO10-004]** `igs/TKB_clinicalprocess_activityprescription_actoutcome/versions/1.0.2/input/fsh/logical-models/` · elementnamn
+  Elementnamnen följer schemat där TKB:ns tabeller stavar annorlunda: `careUnitHSAid` och `sourceSystemHSAid` (TKB: `…HSAId`), `accountableHealthcareProfessional` (TKB: `accountableHealthCareProfessional`), `orgUnitHSAid` (TKB: `orgUnitHSAId`), `legalAuthenticatorHSAid` (TKB: `legalAuthenticatorHSAId`) samt ActorType `hsaid`/`personName` (TKB 6.1: `hsaId`/`name`). Ordningen i registrationRecord följer också schemat, där careGiverOrg kommer först. Sidorna återger TKB:ns text oförändrad.
+
+- [ ] **[ASSUME-APAO10-005]** `igs/TKB_clinicalprocess_activityprescription_actoutcome/versions/1.0.2/input/fsh/logical-models/GetVaccinationHistory.fsh` · invariant `getvaccinationhistory-actor-hsaid-or-name`
+  TKB 6.1 (ActorType, fältet name) säger "Minst ett av dessa två fält ska anges". Det tolkas som att hsaid eller personName ska anges, och regeln läggs som en invariant (#error) på alla fyra ActorType-förekomsterna. Request-invarianterna (`sourceSystemHSAid` krävs när `careContactId` anges, och start eller end i timePeriod) kommer från fältreglerna och DatePeriodType.
+
+- [ ] **[ASSUME-APAO10-006]** `igs/TKB_clinicalprocess_activityprescription_actoutcome/versions/1.0.2/input/images/img_006.svg` · V-MIM-figur
+  V-MIM-figuren (EMF, Enterprise Architect-export med vattenstämpeln "Unregistered Trial Version") har konverterats till SVG med emf2svg-conv. Den nedre, tomma halvan har beskurits bort med viewBox. Diagrammet är läsbart men har liten text.
+
+### TODO (kan göras utan input men inte prioriterat)
+
+- [ ] **[TODO-APAO10-001]** `igs/TKB_clinicalprocess_activityprescription_actoutcome/versions/1.0.2/input/fsh/logical-models/`
+  Alla typer har öppna utökningspunkter (`xs:any namespace="##other"`) som inte har någon motsvarighet i de logiska modellerna. TimeStampType är mappad till `instant` enligt projektets konvention, trots att RIV-formatet saknar tidszon.
 
 ---
 
@@ -714,40 +866,40 @@ Inga blockerare.
 
 ---
 
-## clinicalprocess.healthcond.basic v2.0 — `igs/TKB_clinicalprocess_healthcond_basic/`
+## clinicalprocess.healthcond.basic v1.2.3 — `igs/TKB_clinicalprocess_healthcond_basic/`
 
 **Status:** done
-**Senast uppdaterad:** 2026-05-18
+**Senast uppdaterad:** 2026-10-08
+
+> Ombyggd 2026-10-08 från Bitbucket-taggen 1.2.3 (commit 55a95322) i stället för den otaggade trunk-commiten 16f8cd69 (GetObservations 2.0, aldrig släppt). Det tidigare 2.0-avsnittet är ersatt. Dess poster gällde 2.0-modellen och är stängda: BLOCK-CHB-001 (`relation/referredInformationCategorization` finns inte i 1.2; `relation.referredInformationType` är 1..1 i både TKB och schema), ASSUME-CHB-001 (ersatt av en invariant), ASSUME-CHB-002 (`participation` finns inte i 1.2), ASSUME-CHB-003 (se ASSUME-CHB-005), TODO-CHB-001 (interaktionsöverenskommelserna beskrivs nu på sidorna 3 och 7) och TODO-CHB-002 (beroendet finns inte).
 
 ### Blockerare (kräver svar innan IG kan anses komplett)
 
-- [ ] **[BLOCK-CHB-001]** `igs/TKB_clinicalprocess_healthcond_basic/input/fsh/logical-models/GetObservationsRequest.fsh` · fält `relation/referredInformationCategorization`
-  Fältet modelleras med kardinalitet 1..1 i begäran, men TKB-tabell för relation-filtret är otydlig om huruvida detta fält alltid är obligatoriskt. Källdokument (TKB avsnitt 7.1, fälttabell Begäran, rad `relation/referredInformationCategorization`) anger `1..1` men kontextuellt är det oklart om detta kan vara 0..1 när `relationType` anges utan `referredInformationId`. Verifiera korrekt kardinalitet med domänexpert.
-  Källa: TKB avsnitt 7.1, Begäranstabell, rad `relation/referredInformationCategorization`.
+Inga.
 
 ### Antaganden gjorda (verifiera med domänexpert)
 
-- [ ] **[ASSUME-CHB-001]** `igs/TKB_clinicalprocess_healthcond_basic/input/fsh/logical-models/GetObservations.fsh` · fält `observations.observationBody.value`
-  ValueANYType är en union-typ (exklusiv eller): cv, pq, ivl_pq, ts, ivl_ts, st, int. FSH:s `BackboneElement` kan inte uttrycka exklusiv-or direkt — alla alternativ modelleras som 0..1-fält med kommentaren att exakt ett måste väljas. Verifiera om FHIR-invariant ska läggas till för att tvinga exklusiviteten, eller om prosatext i beskrivningen räcker.
-  Källa: TKB avsnitt 5.1 V-MIM samt avsnitt 7.1 Svarsdel, ValueANYType.
+- [ ] **[ASSUME-CHB-004]** `igs/TKB_clinicalprocess_healthcond_basic/` · versionsnummer
+  Taggen är `1.2.3`, TKB-dokumentets försättsblad anger version 1.2.1 (2025-07-07), revisionshistoriken slutar på 1.2 (2024-04-01) och avsnittet "Version" för GetObservations anger 1.1. Schemafilerna är `GetObservationsResponder_1.2.xsd` med `version="1.2"`. Enligt projektets regel gäller taggen för IG:n (1.2.3) och XSD-filnamnet för kontraktet (1.2). TKB-texten är återgiven oförändrad.
+  Källa: `docs/TKB_clinicalprocess_healthcond_basic.docx` (försättsblad, revisionshistorik, avsnitt 6.1.1), `schemas/interactions/GetObservationsInteraction/`.
 
-- [ ] **[ASSUME-CHB-002]** `igs/TKB_clinicalprocess_healthcond_basic/input/fsh/logical-models/GetObservations.fsh` · fält `observations.observationBody.participation`
-  Deltagandetyp-fältet (type) refererar till Snomed CT urval (urvals-id: 53351000052100) och obs-statusfältet refererar till Snomed CT urval (urvals-id: 56431000052106). Dessa urval administreras av Socialstyrelsen. Inget lokalt CodeSystem har skapats — värden hämtas från Snomed CT via OID 1.2.752.116.2.1.1. Verifiera att referensen urn:oid:1.2.752.116.2.1.1 är korrekt canonical för Snomed CT-SE i FHIR-kontext.
-  Källa: TKB avsnitt 7.1 Svarsdel, fälttabeller för `participation/type`, `status`, `relation/type`.
+- [ ] **[ASSUME-CHB-005]** `igs/TKB_clinicalprocess_healthcond_basic/` · kapitelnumrering
+  TKB 1.2.1 saknar kapitlet Gemensamma informationskomponenter; tjänstekontraktet är kapitel 6 i dokumentet. IG:n har som tidigare ingen sida 6 och lägger kontraktet på sidan 7 (`7-tjanstekontrakt.md`) med en förklarande notis. TKB:ns referenser till "avsnitt 6.1.x" står kvar ordagrant.
 
-- [ ] **[ASSUME-CHB-003]** `igs/TKB_clinicalprocess_healthcond_basic/` — avsnitt 6 saknas
-  Källdokumentet `TKB_clinicalprocess_healthcond_basic.docx` saknar avsnitt 6 (Gemensamma informationskomponenter). Ingen sida `6-gemensamma-informationskomponenter.md` har skapats — sidan saknas även från sushi-config.yaml. Verifiera om avsnitt 6 avsiktligt utelämnats i källdokumentet (dokumentet anger att gemensamma komponenter beskrivs i avsnitt 5.1 V-MIM istället) eller om det ska hämtas från separat dokument.
-  Källa: docx_to_md.py-konverteringen rapporterade `sections/6-gemensamma-informationskomponenter.md: SAKNAS i källdokumentet`.
+- [ ] **[ASSUME-CHB-006]** `igs/TKB_clinicalprocess_healthcond_basic/input/fsh/logical-models/GetObservations.fsh` · TKB mot schema
+  Modellerna följer schemats struktur, typer och kardinaliteter där TKB:ns fälttabell avviker: `observation.status` 0..1 (TKB 0..0, dokumenterat med invarianten `getobservations-status-not-used`, `#warning`); `patient.dateOfBirth` `date` (DateType; TKB: DateTime); `observation.time.start/end` PartialTimeStampType (TKB: TimeStampType). Avvikelserna listas i tabellen "Skillnader mellan TKB och schema" på sidan 7.
+  Källa: `clinicalprocess_healthcond_basic_1.2.xsd` mot TKB avsnitt 6.1.2.
+
+- [ ] **[ASSUME-CHB-007]** `igs/TKB_clinicalprocess_healthcond_basic/input/fsh/logical-models/GetObservations.fsh` · invarianter
+  TKB:ns regler är modellerade som invarianter: exakt en huvudtyp i `value` (ValueANYType, error), minst en av low/high i `ivl_pq` (error), minst en av start/end i `observation.time` och `ivl_ts` (error), högst en av person/organisation/device/location i `additionalParticipant` ("Endast en av nedanstående", tolkat som 0 eller 1, error), regel 2.3 id eller name för `legalAuthenticator` (error), regel 2.1 `careUnit` endast när `performerRole.id` finns (warning) och id eller name för `person` (warning). Verifiera särskilt om "Endast en av nedanstående" kräver exakt en deltagartyp.
+
+- [ ] **[ASSUME-CHB-008]** `igs/TKB_clinicalprocess_healthcond_basic/input/fsh/` · datatyper och kodverk
+  PartialTimeStampType är modellerad som en BackboneElement med `format` (bundet till TimeStampTypeFormatVS) och `timeValue` (sträng), i stället för FHIR `dateTime`, eftersom precisionen anges explicit. TimeStampType är `instant`, HSAIdType (`sourceSystemHSAId`) är `Identifier`, UUIDType (`interactionAgreementId`) är `string`. Kodverk har skapats för enumerationerna som används av kontraktet (PostalAddressUseEnum, AddressPartTypeEnum, TelTypeEnum, TimeStampTypeFormatEnum); ResultCodeEnum och ErrorCodeEnum används inte av GetObservations och har inga kodverk. CVType-fält är `CodeableConcept`; Snomed CT-urval och KV kön är inte modellerade som egna kodverk.
 
 ### TODO (kan göras utan input men inte prioriterat)
 
-- [ ] **[TODO-CHB-001]** `igs/TKB_clinicalprocess_healthcond_basic/input/fsh/logical-models/GetObservations.fsh`
-  Kontraktet refererar till Interaktionsöverenskommelser (IO) för semantiska deklarationer om specifika observationstyper. Dessa IO är externa dokument och ingår inte i TKB. Lägg till en not i index.md och sektion 7 som förklarar att IO-dokumenten måste läsas komplementärt för att förstå vilka observationstyper en specifik producent stödjer.
-  Källa: TKB avsnitt 1 Inledning och avsnitt 3 Tjänstedomänens arkitektur.
-
-- [ ] **[TODO-CHB-002]** `igs/TKB_clinicalprocess_healthcond_basic/sushi-config.yaml`
-  Beroendet `se.inera.rivta.core#current` har tagits bort eftersom paketet inte existerar lokalt eller i kända FHIR-paketregister. Om paketet skapas i framtiden bör det läggas tillbaka. Verifiera med Inera arkitektur om detta paket ska finnas och var det publiceras.
-  Källa: contracts-registry.json BLOCK-EI-003 (samma problem identifierat för EI-domänen).
+- [ ] **[TODO-CHB-003]** `igs/TKB_clinicalprocess_healthcond_basic/input/pagecontent/7-tjanstekontrakt.md`
+  Testsviten i taggen (`test-suite/GetObservations*`, soapUI-projekt, `constraints.xml`, `releasenotes.txt`) är inte publicerad i IG:n. Ta ställning till om testsvitens dokumentation (`GetObservations-doc.html`) ska läggas till som källfil.
 
 ---
 

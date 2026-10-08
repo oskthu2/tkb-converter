@@ -1,0 +1,1442 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getvaccinationhistory",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/StructureDefinition/getvaccinationhistory",
+  "version": "1.0",
+  "name": "GetVaccinationHistory",
+  "title": "GetVaccinationHistory",
+  "status": "active",
+  "description": "Logisk modell för svaret i tjänstekontraktet GetVaccinationHistory 1.0\n(RIV-TA urn:riv:clinicalprocess:activityprescription:actoutcome:GetVaccinationHistoryResponder:1).\nTjänsten returnerar strukturerad eller ostrukturerad information om patientens vaccinationer.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/StructureDefinition/getvaccinationhistory",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getvaccinationhistory",
+        "path": "getvaccinationhistory",
+        "short": "GetVaccinationHistory",
+        "definition": "Logisk modell för svaret i tjänstekontraktet GetVaccinationHistory 1.0\n(RIV-TA urn:riv:clinicalprocess:activityprescription:actoutcome:GetVaccinationHistoryResponder:1).\nTjänsten returnerar strukturerad eller ostrukturerad information om patientens vaccinationer."
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord",
+        "short": "En strukturerad vaccinationsjournal (VaccinationMedicalRecordType)",
+        "definition": "En strukturerad vaccinationsjournal (VaccinationMedicalRecordType)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader",
+        "short": "Basinformation om dokumentet (PatientSummaryHeaderType)",
+        "definition": "Basinformation om dokumentet (PatientSummaryHeaderType)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "getvaccinationhistory-nullifiedreason",
+            "severity": "error",
+            "human": "nullifiedReason får endast anges i kombination med att nullified = true",
+            "expression": "nullifiedReason.exists() implies nullified = true",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/StructureDefinition/getvaccinationhistory"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.documentId",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.documentId",
+        "short": "Dokumentets identitet som är unik inom källsystemet",
+        "definition": "Dokumentets identitet som är unik inom källsystemet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.sourceSystemHSAId",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.sourceSystemHSAId",
+        "short": "HSA-id för det system som dokumentet är skapat i",
+        "definition": "HSA-id för det system som dokumentet är skapat i",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.documentTitle",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.documentTitle",
+        "short": "Titel som beskriver den information som sänds i dokumentet",
+        "definition": "Titel som beskriver den information som sänds i dokumentet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.documentTime",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.documentTime",
+        "short": "Händelsetidpunkt (vaccinationstidpunkt dokumentet gäller)",
+        "definition": "TimeStampType, formatet ÅÅÅÅMMDDttmmss utan tidszon (svensk tid, CET/CEST).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.patientId",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.patientId",
+        "short": "Identifierare för patient (PersonIdType)",
+        "definition": "value (id) sätts till patientens identifierare, 12 tecken utan avskiljare.\nsystem (type) sätts till OID för typ av identifierare: personnummer 1.2.752.129.2.1.3.1,\nsamordningsnummer 1.2.752.129.2.1.3.3, reservnummer lokalt definierat (t.ex. SLL 1.2.752.97.3.1.3).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional",
+        "short": "Ansvarig hälso- och sjukvårdsperson (HealthcareProfessionalType)",
+        "definition": "Ansvarig hälso- och sjukvårdsperson (HealthcareProfessionalType)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.authorTime",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.authorTime",
+        "short": "Tidpunkt då dokumentet skapades (senast uppdaterat)",
+        "definition": "Tidpunkt då dokumentet skapades (senast uppdaterat)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+        "short": "Hälso- och sjukvårdspersonens HSA-id",
+        "definition": "Enligt NPÖ riv-spec 2.2.0 avsnitt 4.1.39: om HSA-id inte finns tillgängligt kan Orgnr + lokalt id anges.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+        "short": "Namn på hälso- och sjukvårdspersonen",
+        "definition": "Namn på hälso- och sjukvårdspersonen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+        "short": "Befattning (CVType)",
+        "definition": "Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4) användas.\nCVType: code, codeSystem, codeSystemName, codeSystemVersion, displayName, originalText.\nOm originalText anges ska inget annat värde anges.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+        "short": "Organisation som personen är uppdragstagare på (OrgUnitType)",
+        "definition": "Organisation som personen är uppdragstagare på (OrgUnitType)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAid",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAid",
+        "short": "HSA-id för organisationsenhet",
+        "definition": "HSA-id för organisationsenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+        "short": "Namn på organisationsenhet",
+        "definition": "Namn på organisationsenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+        "short": "Telefon till organisationsenhet",
+        "definition": "Telefon till organisationsenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+        "short": "Epost till enhet",
+        "definition": "Epost till enhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+        "short": "Postadress till organisationsenhet",
+        "definition": "Postadress till organisationsenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+        "short": "Plats eller ort för organisationens fysiska placering",
+        "definition": "Plats eller ort för organisationens fysiska placering",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+        "short": "HSA-id för vårdenhet",
+        "definition": "HSA-id för vårdenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+        "short": "HSA-id för vårdgivaren",
+        "definition": "HSA-id för vårdgivaren",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator",
+        "short": "Information om vem som signerat dokumentet (LegalAuthenticatorType)",
+        "definition": "Information om vem som signerat dokumentet (LegalAuthenticatorType)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator.signatureTime",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator.signatureTime",
+        "short": "Tidpunkt för signering",
+        "definition": "Tidpunkt för signering",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator.legalAuthenticatorHSAid",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator.legalAuthenticatorHSAid",
+        "short": "HSA-id för person som signerat dokumentet",
+        "definition": "HSA-id för person som signerat dokumentet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator.legalAuthenticatorName",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.legalAuthenticator.legalAuthenticatorName",
+        "short": "Namnet i klartext för signerande person",
+        "definition": "Namnet i klartext för signerande person",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.approvedForPatient",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.approvedForPatient",
+        "short": "Anger om information får delas till patient",
+        "definition": "Anger om information får delas till patient",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.careContactId",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.careContactId",
+        "short": "Identitet för den vård- och omsorgskontakt som föranlett dokumentet",
+        "definition": "Identitet för den vård- och omsorgskontakt som föranlett dokumentet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.nullified",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.nullified",
+        "short": "Anger om dokumentet makulerats i källsystemet",
+        "definition": "TKB:ns fältregler anger 1..1, XML-schemat 0..1. Modellen följer schemat (se QUESTIONS).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.nullifiedReason",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordHeader.nullifiedReason",
+        "short": "Anger orsak till makulering",
+        "definition": "TKB:ns fältregler anger typen string, XML-schemat xs:boolean. Modellen följer schemat (se QUESTIONS).\nFår endast anges i kombination med att nullified = true.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody",
+        "short": "Vaccinationsjournalens innehåll (VaccinationMedicalRecordBodyType)",
+        "definition": "Vaccinationsjournalens innehåll (VaccinationMedicalRecordBodyType)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord",
+        "short": "Information som registreras vid eller relaterat till vaccinationstillfället",
+        "definition": "Information som registreras vid eller relaterat till vaccinationstillfället",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg",
+        "short": "Information om juridisk vårdgivare (OrgUnitType)",
+        "definition": "Information om juridisk vårdgivare (OrgUnitType)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg.orgUnitHSAid",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg.orgUnitHSAid",
+        "short": "HSA-id för organisationsenhet",
+        "definition": "HSA-id för organisationsenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg.orgUnitName",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg.orgUnitName",
+        "short": "Namn på organisationsenhet",
+        "definition": "Namn på organisationsenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg.orgUnitTelecom",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg.orgUnitTelecom",
+        "short": "Telefon till organisationsenhet",
+        "definition": "Telefon till organisationsenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg.orgUnitEmail",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg.orgUnitEmail",
+        "short": "Epost till organisationsenhet",
+        "definition": "Epost till organisationsenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg.orgUnitAddress",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg.orgUnitAddress",
+        "short": "Postadress till organisationsenhet",
+        "definition": "Postadress till organisationsenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg.orgUnitLocation",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverOrg.orgUnitLocation",
+        "short": "Plats eller ort för fysisk placering",
+        "definition": "Plats eller ort för fysisk placering",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact",
+        "short": "Kontaktperson hos juridiskt ansvarig vårdgivare (ActorType)",
+        "definition": "Kontaktperson hos juridiskt ansvarig vårdgivare (ActorType)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "getvaccinationhistory-actor-hsaid-or-name",
+            "severity": "error",
+            "human": "ActorType: minst ett av hsaid och personName ska anges",
+            "expression": "hsaid.exists() or personName.exists()",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/StructureDefinition/getvaccinationhistory"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.hsaid",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.hsaid",
+        "short": "HSA-id för personen",
+        "definition": "HSA-id för personen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.personName",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.personName",
+        "short": "Namn på personen",
+        "definition": "Namn på personen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.personEmail",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.personEmail",
+        "short": "Epostadress till personen",
+        "definition": "Epostadress till personen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.personTelecom",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.personTelecom",
+        "short": "Telefon till personen",
+        "definition": "Telefon till personen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.personAddress",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careGiverContact.personAddress",
+        "short": "Adress till personen",
+        "definition": "Adress till personen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemName",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemName",
+        "short": "Klartextnamn på källsystemet",
+        "definition": "Klartextnamn på källsystemet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemProductName",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemProductName",
+        "short": "Klartextnamn på källsystemets produktnamn",
+        "definition": "Klartextnamn på källsystemets produktnamn",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemProductVersion",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemProductVersion",
+        "short": "Klartextnamn på källsystemets produktversion",
+        "definition": "Klartextnamn på källsystemets produktversion",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact",
+        "short": "Kontaktuppgifter till källsystemsansvarig (ActorType)",
+        "definition": "Kontaktuppgifter till källsystemsansvarig (ActorType)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "getvaccinationhistory-actor-hsaid-or-name",
+            "severity": "error",
+            "human": "ActorType: minst ett av hsaid och personName ska anges",
+            "expression": "hsaid.exists() or personName.exists()",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/StructureDefinition/getvaccinationhistory"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.hsaid",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.hsaid",
+        "short": "HSA-id för personen",
+        "definition": "HSA-id för personen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.personName",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.personName",
+        "short": "Namn på personen",
+        "definition": "Namn på personen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.personEmail",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.personEmail",
+        "short": "Epostadress till personen",
+        "definition": "Epostadress till personen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.personTelecom",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.personTelecom",
+        "short": "Telefon till personen",
+        "definition": "Telefon till personen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.personAddress",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.sourceSystemContact.personAddress",
+        "short": "Adress till personen",
+        "definition": "Adress till personen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careUnitSmiId",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.careUnitSmiId",
+        "short": "Utförande vårdenhetens registreringsId hos SMI",
+        "definition": "Utförande vårdenhetens registreringsId hos SMI",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.date",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.date",
+        "short": "Datum då vaccination(er) gavs (DateType, ÅÅÅÅMMDD)",
+        "definition": "Datum då vaccination(er) gavs (DateType, ÅÅÅÅMMDD)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "date"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.patientPostalCode",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.patientPostalCode",
+        "short": "Postnummer för patientens senast kända bostadsadress",
+        "definition": "Postnummer för patientens senast kända bostadsadress",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.vaccinationUnstructuredNote",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.vaccinationUnstructuredNote",
+        "short": "Läsbar fritextsammanfattning",
+        "definition": "Enligt CDA:s konvention med läsbar fritextsammanfattning av den strukturerade informationen.\nKan formateras enligt HL7NarrativeBlock. Om endast ostrukturerad vaccinationsinformation finns kan kontraktet\nproduceras utan administrationRecord.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.riskCategory",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.riskCategory",
+        "short": "Patientens riskgruppstillhörighet vid vaccinationstillfället (CVType)",
+        "definition": "Patientens riskgruppstillhörighet vid vaccinationstillfället (CVType)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.patientAdverseEffect",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.registrationRecord.patientAdverseEffect",
+        "short": "Reaktioner vid vaccinationstillfället, ej specifik vaccination (CVType)",
+        "definition": "Reaktioner vid vaccinationstillfället, ej specifik vaccination (CVType)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord",
+        "short": "Utförd(a) vaccination(er) vid tillfället (AdministrationRecordType)",
+        "definition": "Ordinerad men av någon anledning ej given vaccination kan inkluderas.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccinationProgramName",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccinationProgramName",
+        "short": "Vaccinationsprogram (CVType)",
+        "definition": "Vaccinationsprogram (CVType)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg",
+        "short": "Var vaccinationen ordinerats/förskrivits (OrgUnitType)",
+        "definition": "Var vaccinationen ordinerats/förskrivits (OrgUnitType)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg.orgUnitHSAid",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg.orgUnitHSAid",
+        "short": "HSA-id för organisationsenhet",
+        "definition": "HSA-id för organisationsenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg.orgUnitName",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg.orgUnitName",
+        "short": "Namn på organisationsenhet",
+        "definition": "Namn på organisationsenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg.orgUnitTelecom",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg.orgUnitTelecom",
+        "short": "Telefon till organisationsenhet",
+        "definition": "Telefon till organisationsenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg.orgUnitEmail",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg.orgUnitEmail",
+        "short": "Epost till organisationsenhet",
+        "definition": "Epost till organisationsenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg.orgUnitAddress",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg.orgUnitAddress",
+        "short": "Postadress till organisationsenhet",
+        "definition": "Postadress till organisationsenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg.orgUnitLocation",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberOrg.orgUnitLocation",
+        "short": "Plats eller ort för fysisk placering",
+        "definition": "Plats eller ort för fysisk placering",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson",
+        "short": "Vem som ordinerat/förskrivit vaccinationen (ActorType)",
+        "definition": "Vem som ordinerat/förskrivit vaccinationen (ActorType)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "getvaccinationhistory-actor-hsaid-or-name",
+            "severity": "error",
+            "human": "ActorType: minst ett av hsaid och personName ska anges",
+            "expression": "hsaid.exists() or personName.exists()",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/StructureDefinition/getvaccinationhistory"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.hsaid",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.hsaid",
+        "short": "HSA-id för personen",
+        "definition": "HSA-id för personen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.personName",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.personName",
+        "short": "Namn på personen",
+        "definition": "Namn på personen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.personEmail",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.personEmail",
+        "short": "Epostadress till personen",
+        "definition": "Epostadress till personen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.personTelecom",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.personTelecom",
+        "short": "Telefon till personen",
+        "definition": "Telefon till personen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.personAddress",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.prescriberPerson.personAddress",
+        "short": "Adress till personen",
+        "definition": "Adress till personen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg",
+        "short": "Vårdenhet som utfört vaccinationen (OrgUnitType)",
+        "definition": "Vårdenhet som utfört vaccinationen (OrgUnitType)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg.orgUnitHSAid",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg.orgUnitHSAid",
+        "short": "HSA-id för organisationsenhet",
+        "definition": "HSA-id för organisationsenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg.orgUnitName",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg.orgUnitName",
+        "short": "Namn på organisationsenhet",
+        "definition": "Namn på organisationsenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg.orgUnitTelecom",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg.orgUnitTelecom",
+        "short": "Telefon till organisationsenhet",
+        "definition": "Telefon till organisationsenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg.orgUnitEmail",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg.orgUnitEmail",
+        "short": "Epost till organisationsenhet",
+        "definition": "Epost till organisationsenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg.orgUnitAddress",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg.orgUnitAddress",
+        "short": "Postadress till organisationsenhet",
+        "definition": "Postadress till organisationsenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg.orgUnitLocation",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performerOrg.orgUnitLocation",
+        "short": "Plats eller ort för fysisk placering",
+        "definition": "Plats eller ort för fysisk placering",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer",
+        "short": "Vem som utfört (administrerat) vaccineringen (ActorType)",
+        "definition": "Vem som utfört (administrerat) vaccineringen (ActorType)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "getvaccinationhistory-actor-hsaid-or-name",
+            "severity": "error",
+            "human": "ActorType: minst ett av hsaid och personName ska anges",
+            "expression": "hsaid.exists() or personName.exists()",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/StructureDefinition/getvaccinationhistory"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.hsaid",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.hsaid",
+        "short": "HSA-id för personen",
+        "definition": "HSA-id för personen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.personName",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.personName",
+        "short": "Namn på personen",
+        "definition": "Namn på personen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.personEmail",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.personEmail",
+        "short": "Epostadress till personen",
+        "definition": "Epostadress till personen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.personTelecom",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.personTelecom",
+        "short": "Telefon till personen",
+        "definition": "Telefon till personen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.personAddress",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.performer.personAddress",
+        "short": "Adress till personen",
+        "definition": "Adress till personen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.anatomicalSite",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.anatomicalSite",
+        "short": "Var på kroppen vaccinet givits (CVType)",
+        "definition": "Var på kroppen vaccinet givits (CVType)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.route",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.route",
+        "short": "Hur vaccinet givits, administrationsväg (CVType)",
+        "definition": "Hur vaccinet givits, administrationsväg (CVType)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.dosage",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.dosage",
+        "short": "Mängd vaccin som givits (DosageType)",
+        "definition": "Mängd vaccin som givits (DosageType)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.dosage.quantity",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.dosage.quantity",
+        "short": "Mängd preparat som givits (PQType: value + unit enligt UCUM)",
+        "definition": "Mängd preparat som givits (PQType: value + unit enligt UCUM)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.dosage.displayName",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.dosage.displayName",
+        "short": "Fritextbeskrivning av preparat och mängd, t.ex. ”Twinrix 1 ml, 1 av 3”",
+        "definition": "Fritextbeskrivning av preparat och mängd, t.ex. ”Twinrix 1 ml, 1 av 3”",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.isDoseComplete",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.isDoseComplete",
+        "short": "True om vaccineringen räknas som hel dos",
+        "definition": "True om vaccineringen räknas som hel dos",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.doseOrdinalNumber",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.doseOrdinalNumber",
+        "short": "Ordningsnummer för delvaccinationen (1, 2, 3 …)",
+        "definition": "Ordningsnummer för delvaccinationen (1, 2, 3 …)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.numberOfPrescribedDoses",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.numberOfPrescribedDoses",
+        "short": "Antal delvaccinationer för full dos",
+        "definition": "Antal delvaccinationer för full dos",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.sourceDescription",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.sourceDescription",
+        "short": "Källa för efterregistrerad vaccinering",
+        "definition": "Källa för efterregistrerad vaccinering",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.commentPrescription",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.commentPrescription",
+        "short": "Fritext, t.ex. instruktioner i ordinationen",
+        "definition": "Fritext, t.ex. instruktioner i ordinationen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.commentAdministration",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.commentAdministration",
+        "short": "Fritext, kommentarer vid vaccineringen",
+        "definition": "Fritext, kommentarer vid vaccineringen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.patientAdverseEffect",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.patientAdverseEffect",
+        "short": "Reaktioner hänförbara till den specifika administreringen (CVType)",
+        "definition": "Reaktioner hänförbara till den specifika administreringen (CVType)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineType",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineType",
+        "short": "Givet vaccin (CVType)",
+        "definition": "Givet vaccin (CVType)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineName",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineName",
+        "short": "Givet vaccins produktnamn, t.ex. NPL-id (CVType)",
+        "definition": "Givet vaccins produktnamn, t.ex. NPL-id (CVType)",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineBatchId",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineBatchId",
+        "short": "Batchnummer för vaccinets tillverkning",
+        "definition": "Batchnummer för vaccinets tillverkning",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineManufacturer",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineManufacturer",
+        "short": "Namn på tillverkaren av vaccinet",
+        "definition": "Namn på tillverkaren av vaccinet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineTargetDisease",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccineTargetDisease",
+        "short": "Sjukdom(ar) vaccinet skyddar emot (CVType)",
+        "definition": "Sjukdom(ar) vaccinet skyddar emot (CVType)",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccinationUniqueReference",
+        "path": "getvaccinationhistory.vaccinationMedicalRecord.vaccinationMedicalRecordBody.administrationRecord.vaccinationUniqueReference",
+        "short": "Unik referens till källsystemets vaccinationsinformation (IIType)",
+        "definition": "IIType: root (1..1) mappas till system, extension (0..1) till value. Om identiteten i källsystemet är globalt\nunik (t.ex. UUID) kan den anges i root; annars anges källsystemets HSA-id i root och källsystemets lokala id\nför vaccinationen i extension.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      }
+    ]
+  }
+}

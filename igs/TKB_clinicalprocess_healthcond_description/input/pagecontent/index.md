@@ -1,13 +1,13 @@
 # clinicalprocess: healthcond: description
 
 <!-- tkb-version -->
-**TKB-version:** 3.0.5 · **IG-version:** 3.0.5 · **Källa:** Bitbucket-tagg `3.0.5`
+**TKB-version:** 3.0.6 · **IG-version:** 3.0.6 · **Källa:** Bitbucket-tagg `3.0.6` · **Andra huvudversioner:** [2.1.19](https://oskthu2.github.io/tkb-converter/TKB_clinicalprocess_healthcond_description/2.1.19/index.html)
 <!-- /tkb-version -->
 
 ## Översikt
 
 Detta är en FHIR Implementation Guide genererad från TKB-dokumentation
-för tjänstedomänen **clinicalprocess: healthcond: description** version 3.0.5.
+för tjänstedomänen **clinicalprocess: healthcond: description** version 3.0.6.
 
 Tjänstekontrakten är baserade på RIVTA 2.1 och reglerade genom arkitekturella beslut.
 Tjänstekontraktsbeskrivningen är en kravspecifikation som fungerar som ett teknikneutralt,

@@ -1,4 +1,4 @@
-// Genererad från TKB clinicalprocess:healthcond:description v3.0.5
+// Genererad från TKB clinicalprocess:healthcond:description v3.0.6
 // Kontrakt: GetCareDocumentation v3.0
 // Namespace: urn:riv:clinicalprocess:healthcond:description:GetCareDocumentationResponder:3
 // Genererad: 2026-03-19

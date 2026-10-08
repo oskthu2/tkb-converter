@@ -1,7 +1,7 @@
 # clinicalprocess: healthcond: actoutcome
 
 <!-- tkb-version -->
-**TKB-version:** 4.2.2 · **IG-version:** 4.2.2 · **Källa:** Bitbucket-tagg `4.2.2`
+**TKB-version:** 4.2.2 · **IG-version:** 4.2.2 · **Källa:** Bitbucket-tagg `4.2.2` · **Andra huvudversioner:** [3.1.10](https://oskthu2.github.io/tkb-converter/TKB_clinicalprocess_healthcond_actoutcome/3.1.10/index.html)
 <!-- /tkb-version -->
 
 ## Översikt

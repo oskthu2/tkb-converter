@@ -1,0 +1,14 @@
+[AssessmentCategoryCS]: CodeSystem-assessmentcategory-cs.html
+[AssessmentCategoryVS]: ValueSet-assessmentcategory-vs.html
+[DiagnosisTypeCS]: CodeSystem-diagnosistype-cs.html
+[DiagnosisTypeVS]: ValueSet-diagnosistype-vs.html
+[GetAlertInformation]: StructureDefinition-getalertinformation.html
+[GetAlertInformationRequest]: StructureDefinition-getalertinformation-request.html
+[GetCareDocumentation]: StructureDefinition-getcaredocumentation.html
+[GetCareDocumentationRequest]: StructureDefinition-getcaredocumentation-request.html
+[GetDiagnosis]: StructureDefinition-getdiagnosis.html
+[GetDiagnosisRequest]: StructureDefinition-getdiagnosis-request.html
+[GetFunctionalStatus]: StructureDefinition-getfunctionalstatus.html
+[GetFunctionalStatusRequest]: StructureDefinition-getfunctionalstatus-request.html
+[ClinicalDocumentNoteCodeCS]: CodeSystem-clinicaldocumentnotecode-cs.html
+[ClinicalDocumentNoteCodeVS]: ValueSet-clinicaldocumentnotecode-vs.html

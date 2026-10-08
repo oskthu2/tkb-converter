@@ -56,7 +56,7 @@ Följande generella SLA-krav gäller för alla tjänsteproducenter som tillhanda
 
 | Kategori | Värde | Beskrivning |
 | :--- | :--- | :--- |
-| Svarstid | Svarstiden för ett anrop får inte överstiga 30 sekunder. |  |
+| Svarstid | Svarstiden för ett anrop får inte överstiga 27 sekunder. |  |
 | Tillgänglighet | 24x7, 99,5% |  |
 | Last | Tjänsteproducenten ska kunna hantera minst dubbla mängden frågor per dygn i förhållande till antalet journaluppdatering per dygn. |  |
 | Aktualitet | Kraven på aktualitet varierar för olika tjänstekonsumenter. Det behöver inte vara absolut aktualitet i förhållande till källsystemet, men ju mindre fördröjning desto bättre. Ett riktmärke är att försöka undvika längre fördröjning än 60 minuter. Fördröjningen avser både journaldata och uppdatering av engagemangsindex. / Uppdatering av engagemangspost måste ske så att engagemangsposten refererar data som är omedelbart tillgängligt via tjänstekontraktet. |  |
