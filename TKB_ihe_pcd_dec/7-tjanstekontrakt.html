@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>7 Tjänstekontrakt - ihe: pcd: dec v1.0.1</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">ihe: pcd: dec</span>
+            <br/>
+            <span style="display:inline-block;">1.0.1 - release
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Kapitel<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="1-inledning.html">1 Inledning</a></li>
+      <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+      <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+      <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+      <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+      <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma informationskomponenter</a></li>
+      <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+    </ul>
+  </li>
+  <li><a href="7-tjanstekontrakt.html">Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">ihe: pcd: dec - Local Development build (v1.0.1) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/ihe-pcd-dec/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div>
+<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
+</div>
+<h1 id="7-tjänstekontrakt">7 Tjänstekontrakt</h1>
+
+<p>Källa: <em>Tjänstekontraktsbeskrivning IHE PCD DEC – Mätdata från mätutrustning</em>, version 1.0.1 (2017-10-18), <a href="TKB_IHE_PCD_DEC.docx">TKB_IHE_PCD_DEC.docx</a>.</p>
+
+<p>Motsvarar TKB kapitel 6 <em>Tjänstekontrakt</em> (7.1 = TKB 6.1 osv.). Efter TKB:ns text följer för varje kontrakt fälten enligt schemat, tjänsteinteraktionen enligt WSDL, källfilerna och de genererade FHIR-artefakterna.</p>
+
+<h3 id="deviceobservationconsumer">DeviceObservationConsumer</h3>
+
+<p>Detta tjänstekontrakt avser att stödja överföring av observationer och mätdata ifrån ett producerande system eller mellanlagrande system med hjälp av profilen IHE-PCD-01 och uppträder således i segmentet Services-IF enligt Continuas e2e arkitektur.</p>
+
+<p>Tjänsten registrerar ett eller flera nya observationer/mätvärden med information om patient, mätutrustning, organisatorisk enhet och värden.</p>
+
+<p>Meddelandemodellen från kap 5.1 motsvarar begäran för detta tjänstekontrakt.</p>
+
+<h4 id="711-version">7.1.1 Version</h4>
+
+<p>1.0</p>
+
+<h4 id="712-fältregler">7.1.2 Fältregler</h4>
+
+<p>Nedanstående tabeller beskriver element i begäran och svar som behöver förtydliganden gentemot IHE-PCD-01-profilen samt det Continua guidelines definierar.</p>
+
+<p>Första tabellen beskriver det enda xml-element i SOAP:Body och sedan följer de segment i HL7 v 2.6-meddelandet som behöver beskrivas mer ingående.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CommunicatePCDData</td>
+      <td style="text-align: left">xs:string</td>
+      <td style="text-align: left">ihe-pcd-01 enligt Interoperability design guidelines for / personal health systems samt de fältregler som beskrivs nedan.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Nedan följer förtydliganden utöver de som definieras av IHE-PCD-01 samt Continua guidelines som gäller för informationsutbyte över den nationella tjänsteplattformen.</p>
+
+<h5 id="7121-segment-msh-header">7.1.2.1 Segment MSH Header</h5>
+
+<p>MSH header segmentet är det första segmentet i alla PCD-01-meddelanden.</p>
+
+<p>Segmentet är obligatorisk och innehåller information som unikt identifierar noden som skickar meddelandet.</p>
+
+<p>Nedanstående tabell skall tolkas tillsamman med de guidelines som finns i Annex E.4.1 i dokumentet H.812 – Observation Upload – DG2016.pdf se referens R2</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Element – Segment . Subsegment</th>
+      <th style="text-align: left">PCD-01 / HL7v2.6 MSH / (HL7 datatyp)</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">MSH-6</td>
+      <td style="text-align: left">HD</td>
+      <td style="text-align: left">Skall vara samma som logisk address. / Exempel: SE-ABCD1234</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MSH-9</td>
+      <td style="text-align: left">MSG</td>
+      <td style="text-align: left">Måste sättas till  ORU^R01^ORU_R01</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MSH-18</td>
+      <td style="text-align: left">ID</td>
+      <td style="text-align: left">Continua kräver att elementet skall sättas till den teckenkodning som används. / HL7 v2.x stipulerar dock att meddelanden som skickas över HTTP skall skall ange sin teckenkodning i HTTP-header “content-type” och att MSH-18 då skall ignoreras. / RIVTA kräver att UTF-8 skall användas, så både HTTP-header “content-type” samt MSH-18 skall sättas till UTF-8.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="71211-exempel-på-msh-header">7.1.2.1.1 Exempel på MSH Header</h6>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MSH|^~\&amp;|AcmeInc^ACDE48234567ABCD^EUI- 64|||SE-ABCD1234|20090713090030+0000||ORU^R01^ORU_R01|MSGID1234|P|2.6|||NE|AL||UTF-8|||IHE PCD ORU-R01 2006^HL7^2.16.840.1.113883.9.n.m^HL7
+</code></pre></div></div>
+
+<h5 id="7122-segment-pid">7.1.2.2 Segment PID</h5>
+
+<p>Nedanstående tabell skall tolkas tillsammans med de guidelines som finns i Annex E.4.1 i dokumentet H.812 – Observtion Upload – DG2016.pdf se referens R2</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Element – Segment . Subsegment</th>
+      <th style="text-align: left">PCD-01 / HL7v2.6 PID / (HL7 datatyp)</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">PID-3</td>
+      <td style="text-align: left">CX [1..1]</td>
+      <td style="text-align: left">Id för patienten, den patient som observationsgruppen avser.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PID-3.1</td>
+      <td style="text-align: left">ST [1..1]</td>
+      <td style="text-align: left">Personnummer/samordningsnummer,  Skall anges med 12 tecken utan avskiljare. / Exempel: 191212129876</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PID-3.4</td>
+      <td style="text-align: left">HD [0..1]</td>
+      <td style="text-align: left">Assigning Authority / KV OID för typ av identifierare: / För personnummer används OID: 1.2.752.129.2.1.3.1 / För samordningsnummer används OID: 1.2.752.129.2.1.3.3</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PID-5</td>
+      <td style="text-align: left">XPN</td>
+      <td style="text-align: left">Patientens namn / Exempel:  Tolvan^Tolvansson^Mellannamn^^^^L^A</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PID-5.7</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Kod för typ av namn i PID-5 dvs patientens namn. / Exempel: L / Tillåtna koder enligt HL7</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PID-5.8</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Tecken-representation i PID-5 för patientens namn. / Exempel: A / Tillåtna koder</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PID-8</td>
+      <td style="text-align: left">IS</td>
+      <td style="text-align: left">Patientens kön enligt HL7 / F : Female / M : Male / O : Other / U : Unknown / A : Ambiguous / N : Not applicable / Exempel: M</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="71221-exempel-på-pid">7.1.2.2.1 Exempel på PID</h6>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PID|||191212129876^^^1.2.752.129.2.1.3.1^PI||Tolvan^Tolvansson^Mellannamn^^^^L^A|||M
+</code></pre></div></div>
+
+<h5 id="7123-segment-obr">7.1.2.3 Segment OBR</h5>
+
+<p>Nedanstående tabell skall tolkas tillsammans med de guidelines som finns i Annex E.4.1 i dokumentet H.812 – Observation Upload – DG2016.pdf se referens R2</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Element – Segment . Subsegment</th>
+      <th style="text-align: left">PCD-01 / HL7v2.6 PID / (HL7 datatyp)</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">OBR-3.2</td>
+      <td style="text-align: left">OBR-3.2 / (IS)</td>
+      <td style="text-align: left">OBR-3.2 innehåller det unika ID som observatiosgruppen/undersökningen fått i det utförande systemet. Det varierar dock hur olika system tolkar standarden och således hur de olika efterföljande subfälten ska sättas. / Bör sättas till systemets HSA ID. / Exempel: SE-123456789</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="71231-exempel-på-obr">7.1.2.3.1 Exempel på OBR</h6>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OBR|1|AB12345^AcmePHGInc^ACDE48234567ABCD^EUI- 64|SE-123456789^^^ |182777000^monitoring of patient^SNOMED- CT|||20090813095715+0000
+</code></pre></div></div>
+
+<h5 id="7124-segment-obx-för-utrustning-och-observation">7.1.2.4 Segment OBX för utrustning och observation</h5>
+
+<p>Nedanstående tabell skall tolkas tillsammans med de guidelines som finns i Annex E.4.1 i dokumentet H.812 – Observation Upload – DG2016.pdf se referens R2</p>
+
+<p>För utrustning som följer IEEE/ISO 11073-20601 finns det generella guidelines för hur dessa skall mappas in i ett OBX-segment, se H.812 – Observation Upload – DG2016.pdf Annex D.0.4 för mer information.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Element – Segment . Subsegment</th>
+      <th style="text-align: left">PCD-01 / HL7v2.6 OBX / (HL7 datatyp)</th>
+      <th style="text-align: left">PCD-01 / HL7v2.6 OBX / (HL7 datatyp)</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">OBX-3</td>
+      <td style="text-align: left">CWE</td>
+      <td style="text-align: left">CWE</td>
+      <td style="text-align: left">Typ av observation t.ex vikt, pulsmätning. / Exempel: MDC (IEEE/ISO 11073-20601): / 150456^MDC_PULS_OXIM_SAT_O2^MDC / 188736^MDC_MASS_BODY_ACTUAL^MDC / 149530^MDC_PULS_OXIM_PULS_RATE^MDC / Se även Appendix E.3 i  H.812 – Observation Upload – DG2016.pdf</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">OBX-5</td>
+      <td style="text-align: left">Varies</td>
+      <td style="text-align: left">Varies</td>
+      <td style="text-align: left">OBX-5 innehåller observationen. / Värdet för mätningen. / Exempel (vikt): 153.6|</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">OBX-6</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Den enhet observationen är uttryckt med, t.ex centimeter för längd, eller kilogram för vikt. / Exempel med MDC: / 263875^MDC_DIM_KILO_G^MDC</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">OBR-7,OBR-8,OBX-14</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Tidstämpel (start/stop) som sätts i OBR-7 / Och OBR-8 gäller för gruppen av observationer, d v s alla efterföljande OBX segment. / Om varje observation har en egen tidsstämpel, kan OBX-14 användas. Denna position tillåter då istället endast en tidsstämpel, således inte ett intervall. / Tidsperiod för observationen. / Består av TimeStampType intervallerna startTime respektive endTime. Vardera uttrycks på formatet ÅÅÅÅMMDDttmmss. / Om observationen är en tidpunkt, inte ett intervall, sätts sluttid till samma tid som starttid. / NI 2015:1 / Angivelse av den tid då det som observerats faktiskt förekom eller förväntas förekomma. Exempelvis så kan tidsattributet ange att patienten hade huvudvärk igår kväll mellan kl. 20.00 och 21.45 även om detta berättades på morgonen efter och det dokumenterades först då. Om observationen är ett måltillstånd anger tidsattributet när detta tillstånd önskas vara uppnått. / Observationens tid skiljer sig vanligtvis från dokumentationstidpunkt i journalhandling som beskriver när tillståndet dokumenterades, vilket alltid sker i efterhand.</td>
+      <td style="text-align: left">Tidstämpel (start/stop) som sätts i OBR-7 / Och OBR-8 gäller för gruppen av observationer, d v s alla efterföljande OBX segment. / Om varje observation har en egen tidsstämpel, kan OBX-14 användas. Denna position tillåter då istället endast en tidsstämpel, således inte ett intervall. / Tidsperiod för observationen. / Består av TimeStampType intervallerna startTime respektive endTime. Vardera uttrycks på formatet ÅÅÅÅMMDDttmmss. / Om observationen är en tidpunkt, inte ett intervall, sätts sluttid till samma tid som starttid. / NI 2015:1 / Angivelse av den tid då det som observerats faktiskt förekom eller förväntas förekomma. Exempelvis så kan tidsattributet ange att patienten hade huvudvärk igår kväll mellan kl. 20.00 och 21.45 även om detta berättades på morgonen efter och det dokumenterades först då. Om observationen är ett måltillstånd anger tidsattributet när detta tillstånd önskas vara uppnått. / Observationens tid skiljer sig vanligtvis från dokumentationstidpunkt i journalhandling som beskriver när tillståndet dokumenterades, vilket alltid sker i efterhand.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">OBR-7</td>
+      <td style="text-align: left">DT</td>
+      <td style="text-align: left">Observation Date/Time / Tillåtet format: / YYYY[MM[DD[HH[MM[SS[.S[S[S[S]]]]]]]]][+/-ZZZZ]</td>
+      <td style="text-align: left">Observation Date/Time / Tillåtet format: / YYYY[MM[DD[HH[MM[SS[.S[S[S[S]]]]]]]]][+/-ZZZZ]</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">OBR-8</td>
+      <td style="text-align: left">DT</td>
+      <td style="text-align: left">Observation End Date/Time / Tillåtet format: / YYYY[MM[DD[HH[MM[SS[.S[S[S[S]]]]]]]]][+/-ZZZZ]</td>
+      <td style="text-align: left">Observation End Date/Time / Tillåtet format: / YYYY[MM[DD[HH[MM[SS[.S[S[S[S]]]]]]]]][+/-ZZZZ]</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">OBX-14</td>
+      <td style="text-align: left">DTM</td>
+      <td style="text-align: left">Tidsstämpel för observation. OBR-7/8 segmenten gäller om inte OBX-14 är satt. / OBX-14 skall inte vara &gt;= OBR-7 och / skall inte vara &lt;= OBR-8.</td>
+      <td style="text-align: left">Tidsstämpel för observation. OBR-7/8 segmenten gäller om inte OBX-14 är satt. / OBX-14 skall inte vara &gt;= OBR-7 och / skall inte vara &lt;= OBR-8.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="71241-exempel-på-obx">7.1.2.4.1 Exempel på OBX</h6>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OBX|1|NM|150456^MDC_PULS_OXIM_SAT_O2^MDC|1.0.0.15|87.5|262688^MDC_DIM_PERCENT^MDC|||||R|||20140510094931.835-0400
+OBX|2|NM|188736^MDC_MASS_BODY_ACTUAL^MDC|1.0.0.16|153.6|263875^MDC_DIM_KILO_G^MDC|||||R|||20140510094931.835-0400
+OBX|3|NM|149530^MDC_PULS_OXIM_PULS_RATE^MDC|1.0.0.17|75.8|264864^MDC_DIM_BEAT_PER_MIN^MDC|||||R|||20140510094931.835-0400
+</code></pre></div></div>
+
+<h5 id="7125-exempel-på-ett-helt-meddelande">7.1.2.5 Exempel på ett helt meddelande</h5>
+
+<p>Det här exemplet visar hela SOAP-payloaden som skickas, flera exempel finns i arkivet (under docs/examples) i den zip som publiceras på rivta.se.</p>
+
+<p>Notera att HL7 v2.6-meddelanden som innehåller reserverade xml-tecken skall konverteras enligt de regler som beskrivs på R18 och R19 samt R15 kapitel 8.7. T.ex &amp; blir &amp;</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;soap:Envelope</span> <span class="na">xmlns:soap=</span><span class="s">"http://www.w3.org/2003/05/soap-envelope"</span> <span class="na">xmlns:add=</span><span class="s">"http://www.w3.org/2005/08/addressing"</span> <span class="na">xmlns:urn=</span><span class="s">"urn:ihe:pcd:dec:2010"</span> <span class="na">xmlns:soapenv=</span><span class="s">"http://www.w3.org/2003/05/soap-envelope"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;soap:Header</span> <span class="na">xmlns:wsa=</span><span class="s">"http://www.w3.org/2005/08/addressing"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;add:To</span> <span class="na">soapenv:mustUnderstand=</span><span class="s">"true"</span><span class="nt">&gt;</span>${logicalAddress}<span class="nt">&lt;/add:To&gt;</span>
+<span class="nt">&lt;/soap:Header&gt;</span>
+<span class="nt">&lt;soap:Body&gt;</span>
+<span class="nt">&lt;soap:Body&gt;</span>
+<span class="nt">&lt;urn1:CommunicatePCDData&gt;</span>MSH|^~\<span class="ni">&amp;amp;</span>|AcmeInc^ACDE48234567ABCD^EUI- 64|||SE-ABCD1234|20090713090030+0000||ORU^R01^ORU_R01|MSGID1234|P|2.6|||NE|AL||UTF-8|||IHE PCD ORU-R01 2006^HL7^2.16.840.1.113883.9.n.m^HL7
+PID|||191212129876^^^1.2.752.129.2.1.3.1^PI||Tolvan^Tolvansson^Mellannamn^^^^L^A|||M
+OBR|1|AB12345^AcmePHGInc^ACDE48234567ABCD^EUI-64|CD12345^AcmePHGInc^ACDE48234567ABCD^EUI- 64|182777000^monitoring of patient^SNOMED-CT|||20090813095715+0000
+OBX|1|CWE|68220^MDC_TIME_SYNC_PROTOCOL^MDC|0.0.0.1|532224^MDC_TIME_SYNC_NONE^MDC||||||R
+OBX|2||528399^MDC_DEV_SPEC_PROFILE_SCALE^MDC|1|||||||X|||||||0123456789ABCDEF^EUI-64
+OBX|3|DTM|67975^MDC_ATTR_TIME_ABS^MDC|1.0.0.1|20090828123702||||||R|||20090828173702+0000
+OBX|4|NM|188736^MDC_MASS_BODY_ACTUAL^MDC|1.0.0.2|156.3|263875^MDC_DIM_KILO_G^MDC|||||R|||20090815070707+0000
+OBX|5|NM|188740^MDC_LEN_BODY_ACTUAL^MDC|1.0.0.3|180|263441^MDC_DIM_CENTI_M^MDC|||||R|||20090815070707+0000
+OBX|6|NM|188752^MDC_RATIO_MASS_BODY_LEN_SQ^MDC|1.0.0.4|24.7|264096^MDC_DIM_KG_PER_M_SQ^MDC|||||R|||20090815070707+0000
+OBR|2|AB12345^AcmePHGInc^ACDE48234567ABCD^EUI-64|CD12345^AcmePHGInc ^ACDE48234567ABCD^EUI- 64|182777000^monitoring of patient^SNOMED-CT|||20090813095715+0000
+OBX|7||528399^MDC_DEV_SPEC_PROFILE_SCALE^MDC|2|||||||X|||||||0123456789ABCDEF^EUI-64
+OBX|8|DTM|67975^MDC_ATTR_TIME_ABS^MDC|2.0.0.1|20090828123702||||||R|||20090828173702+0000
+OBX|9|NM|188736^MDC_MASS_BODY_ACTUAL^MDC|2.0.0.2|80|263875^MDC_DIM_KILO_G^MDC|||||R|||20090815070707+0000
+OBX|10|NM|188740^MDC_LEN_BODY_ACTUAL^MDC|2.0.0.3|180|263441^MDC_DIM_CENTI_M^MDC|||||R|||20090815070707+0000
+OBX|11|NM|188752^MDC_RATIO_MASS_BODY_LEN_SQ^MDC|2.0.0.4|24.7|264096^MDC_DIM_KG_PER_M_SQ^MDC|||||R|||20090815070707+0000
+<span class="nt">&lt;urn1:CommunicatePCDData&gt;</span>
+<span class="nt">&lt;/soap:Body&gt;</span>
+<span class="nt">&lt;/soap:Envelope&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Svar</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">CommunicatePCDDataResponse</td>
+      <td style="text-align: left">xs:string</td>
+      <td style="text-align: left">Svar enligt Interoperability design guidelines for personal health systems</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="7126-exempel-svar">7.1.2.6 Exempel svar</h5>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;soapenv:Envelope</span> <span class="na">xmlns:soapenv=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span> <span class="na">xmlns:urn=</span><span class="s">"urn:ihe:pcd:dec:2010"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;soapenv:Header/&gt;</span>
+<span class="nt">&lt;soapenv:Body&gt;</span> <span class="nt">&lt;urn:CommunicatePCDDataResponse&gt;</span>MSH|^~\<span class="ni">&amp;amp;</span>|Stepstone||AcmeInc^ACDE48234567ABCD^EUI64||20090726095731+0500||ACK^A01^ACK|AMSGID1234|P|2.6|<span class="ni">&amp;#xD;</span>MSA|AA|MSGID1234|Message Accepted|<span class="ni">&amp;#xD;</span>]]&gt;<span class="nt">&lt;/urn:CommunicatePCDDataResponse&gt;</span>
+<span class="nt">&lt;/soapenv:Body&gt;</span>
+<span class="nt">&lt;/soapenv:Envelope&gt;</span>
+</code></pre></div></div>
+
+<h4 id="713-övriga-regler">7.1.3 Övriga regler</h4>
+
+<h4 id="714-annan-information-om-kontraktet">7.1.4 Annan information om kontraktet</h4>
+
+<h4 id="715-fältregler-enligt-schema-xsd">7.1.5 Fältregler enligt schema (XSD)</h4>
+
+<p>Schemat definierar bara två strängelement; HL7-meddelandets innehåll regleras av tabellerna ovan. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LogicalAddress (SOAP-huvud <code class="language-plaintext highlighter-rouge">wsa:To</code>)</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Logisk adress enligt WS-Addressing (WSDL-meddelandet CommunicatePCDData_Message).</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CommunicatePCDData</td>
+      <td style="text-align: left">UnsolicitedObservationResult (string)</td>
+      <td style="text-align: left">HL7 v2.6 ORU^R01 i ER7-format.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CommunicatePCDDataResponse</td>
+      <td style="text-align: left">GeneralAcknowledgement (string)</td>
+      <td style="text-align: left">HL7 v2.6-kvittens i ER7-format.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="716-tjänsteinteraktion-enligt-wsdl">7.1.6 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>Tjänsteinteraktionens namn: DeviceObservationConsumerInteraction<br />
+Tjänstedomän: ihe.pcd.dec<br />
+Tjänsteinteraktionstyp: Fråga-Svar RIV<br />
+Teknisk Anvisning: RIVTABP20<br />
+Förvaltas av: Inera AB</p>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:ihe:pcd:2010:CommunicatePCDData</code></p>
+
+<h4 id="717-källfiler-riv-ta">7.1.7 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="DeviceObservationConsumerInteraction_1.0_RIVTABP20.wsdl">DeviceObservationConsumerInteraction_1.0_RIVTABP20.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="DeviceObservationConsumer.xsd">DeviceObservationConsumer.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="ws-addressing-1.0.xsd">ws-addressing-1.0.xsd</a></td>
+      <td>WS-Addressing (SOAP-huvudet <code class="language-plaintext highlighter-rouge">wsa:To</code>)</td>
+    </tr>
+    <tr>
+      <td><a href="soap_example_request.xml">soap_example_request.xml</a></td>
+      <td>Exempel på begäran</td>
+    </tr>
+    <tr>
+      <td><a href="soap_example_response.xml">soap_example_response.xml</a></td>
+      <td>Exempel på svar</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="718-fhir-artefakter">7.1.8 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har skrivits utifrån schemat och WSDL:en:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-deviceobservationconsumer-request.html">StructureDefinition/deviceobservationconsumer-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-deviceobservationconsumer.html">StructureDefinition/deviceobservationconsumer</a></li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.ihe-pcd-dec#1.0.1 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 18:27+0000">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

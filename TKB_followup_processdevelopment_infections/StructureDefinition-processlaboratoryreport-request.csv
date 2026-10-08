@@ -1,0 +1,48 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"processlaboratoryreport-request","processlaboratoryreport-request","","","",0,*,"","","","null {[]} {[]}
+","ProcessLaboratoryReport — Request","Logisk modell för requestparametrar i tjänstekontraktet ProcessLaboratoryReport
+(RIV-TA urn:riv:followup:processdevelopment:infections:ProcessLaboratoryReport:1).
+Registrerar ett nytt laboratoriesvar med tillhörande information om patient,
+beställande enhet, provtagningstidpunkt och agensförekomst.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"processlaboratoryreport-request.orgUnitId","processlaboratoryreport-request.orgUnitId","","","",1,1,"","","","Identifier {[]} {[]}
+","Beställande enhet (HSA-id)","Informationsspecifikation: Laboratoriesvar.har beställande.Enhet.enhets-id
+OID för HSA-id: 1.2.752.129.2.1.4.1
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processlaboratoryreport-request.orgUnitId",1,1,"",""
+"processlaboratoryreport-request.reportId","processlaboratoryreport-request.reportId","","","",1,1,"","","","Identifier {[]} {[]}
+","Laboratoriesvars-id","Informationsspecifikation: Laboratoriesvar.laboratoriesvars-id
+Nationell OID för lokala ID:n: 1.2.752.129.2.1.2.1
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processlaboratoryreport-request.reportId",1,1,"",""
+"processlaboratoryreport-request.testTime","processlaboratoryreport-request.testTime","","","",1,1,"","","","string {[]} {[]}
+","Provtagningstidpunkt (YYYYMMDDhhmmss)","Informationsspecifikation: Provtagning.provtagningstidpunkt
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processlaboratoryreport-request.testTime",1,1,"",""
+"processlaboratoryreport-request.observationTime","processlaboratoryreport-request.observationTime","","","",1,1,"","","","string {[]} {[]}
+","Observationstidpunkt (YYYYMMDDhhmmss)","Informationsspecifikation: Mikrobiologiskt fynd.observationstidpunkt
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processlaboratoryreport-request.observationTime",1,1,"",""
+"processlaboratoryreport-request.findingCode","processlaboratoryreport-request.findingCode","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Agenskod för mikrobiologiskt fynd","Informationsspecifikation: Mikrobiologiskt fynd.agenskod
+Kodverk: NPU
+Möjliga koder: ATCC09689 (Clostridium difficile)
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processlaboratoryreport-request.findingCode",1,1,"",""
+"processlaboratoryreport-request.patient","processlaboratoryreport-request.patient","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Patientuppgifter","Informationsspecifikation: Patient
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"processlaboratoryreport-request.patient",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"processlaboratoryreport-request.patient.id","processlaboratoryreport-request.patient.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"processlaboratoryreport-request.patient.extension","processlaboratoryreport-request.patient.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processlaboratoryreport-request.patient.modifierExtension","processlaboratoryreport-request.patient.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"processlaboratoryreport-request.patient.patientId","processlaboratoryreport-request.patient.patientId","","","",1,1,"","","","Identifier {[]} {[]}
+","Patientens identifierare","Patientens identifierare","","","","","","","","","",,,,,"",,,,"processlaboratoryreport-request.patient.patientId",1,1,"",""
+"processlaboratoryreport-request.patient.birthTime","processlaboratoryreport-request.patient.birthTime","","","",1,1,"","","","date {[]} {[]}
+","Patientens födelseår","Patientens födelseår","","","","","","","","","",,,,,"",,,,"processlaboratoryreport-request.patient.birthTime",1,1,"",""
+"processlaboratoryreport-request.patient.gender","processlaboratoryreport-request.patient.gender","","","",1,1,"","","","CodeableConcept {[]} {[]}
+","Patientens kön","Kodverk KV Kön, OID: 1.2.752.129.2.2.1.1","","","","","","","","","",,,,,"",,,,"processlaboratoryreport-request.patient.gender",1,1,"",""

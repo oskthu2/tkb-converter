@@ -1,0 +1,138 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://fhir.inera.se/ig/supportprocess-logistics-scheduling/CodeSystem/scheduling-resultcode-cs> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "scheduling-resultcode-cs"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem scheduling-resultcode-cs</b></p><a name=\"scheduling-resultcode-cs\"> </a><a name=\"hcscheduling-resultcode-cs\"> </a><p>This case-sensitive code system <code>https://fhir.inera.se/CodeSystem/scheduling-resultcode-cs</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">OK<a name=\"scheduling-resultcode-cs-OK\"> </a></td><td>OK</td><td>Transaktionen har utförts enligt uppdraget i frågemeddelandet.</td></tr><tr><td style=\"white-space:nowrap\">ERROR<a name=\"scheduling-resultcode-cs-ERROR\"> </a></td><td>Fel</td><td>Transaktionen har INTE kunnat utföras enligt uppdrag i frågemeddelandet p.g.a. logiskt fel. Det finns ett meddelande som konsumenten måste visa upp. Exempel på detta kan vara ”tiden har blivit upptagen av annan invånare”.</td></tr><tr><td style=\"white-space:nowrap\">INFO<a name=\"scheduling-resultcode-cs-INFO\"> </a></td><td>Information</td><td>Transaktionen har utförts enligt uppdraget i frågemeddelandet, men det finns ett meddelande som tjänstekonsumenten måste visa upp för invånaren. Exempel på detta kan vara ”kom fastande”.</td></tr><tr><td style=\"white-space:nowrap\">REQUESTED_TIME_IS_ALREADY_RESERVED<a name=\"scheduling-resultcode-cs-REQUESTED_TIME_IS_ALREADY_RESERVED\"> </a></td><td>Efterfrågad tid är redan bokad</td><td>Efterfrågad tid är redan bokad.</td></tr><tr><td style=\"white-space:nowrap\">REQUESTED_TIME_HAS_ALREADY_PASSED<a name=\"scheduling-resultcode-cs-REQUESTED_TIME_HAS_ALREADY_PASSED\"> </a></td><td>Efterfrågad tid har passerat</td><td>Efterfrågad tid har passerat.</td></tr><tr><td style=\"white-space:nowrap\">REQUESTED_TIME_IS_NO_LONGER_AVAILABLE<a name=\"scheduling-resultcode-cs-REQUESTED_TIME_IS_NO_LONGER_AVAILABLE\"> </a></td><td>Efterfrågad tid är ej tillgänglig</td><td>Efterfrågad tid är ej tillgänglig.</td></tr><tr><td style=\"white-space:nowrap\">TOO_LATE_TO_MAKE_APPOINTMENT<a name=\"scheduling-resultcode-cs-TOO_LATE_TO_MAKE_APPOINTMENT\"> </a></td><td>För sent att boka tiden</td><td>För sent att boka tiden. Mottagningen tillåter inte bokning en viss tid innan tiden startar.</td></tr><tr><td style=\"white-space:nowrap\">USER_IS_ALREADY_OCCUPIED<a name=\"scheduling-resultcode-cs-USER_IS_ALREADY_OCCUPIED\"> </a></td><td>Invånaren har redan bokat en annan tid vid samma tillfälle på mottagningen</td><td>Invånaren har redan bokat en annan tid vid samma tillfälle på mottagningen.</td></tr><tr><td style=\"white-space:nowrap\">APPOINTMENT_IS_NOT_ALLOWED<a name=\"scheduling-resultcode-cs-APPOINTMENT_IS_NOT_ALLOWED\"> </a></td><td>Bokning är inte tillåtet</td><td>Bokning är inte tillåtet. Kan bero på konfigurationsfel eller att möjligheten att boka just har ändrats.</td></tr><tr><td style=\"white-space:nowrap\">APPOINTMENT_IS_ALREADY_CANCELED<a name=\"scheduling-resultcode-cs-APPOINTMENT_IS_ALREADY_CANCELED\"> </a></td><td>Tiden är redan avbokad</td><td>Tiden är redan avbokad.</td></tr><tr><td style=\"white-space:nowrap\">APPOINTMENT_IS_ALREADY_UPDATED<a name=\"scheduling-resultcode-cs-APPOINTMENT_IS_ALREADY_UPDATED\"> </a></td><td>Tiden är redan ombokad</td><td>Tiden är redan ombokad.</td></tr><tr><td style=\"white-space:nowrap\">TOO_LATE_TO_UPDATE_APPOINTMENT<a name=\"scheduling-resultcode-cs-TOO_LATE_TO_UPDATE_APPOINTMENT\"> </a></td><td>För sent att omboka tiden</td><td>För sent att omboka tiden. Mottagningen tillåter inte ombokning en viss tid innan tiden startar.</td></tr><tr><td style=\"white-space:nowrap\">APPOINTMENT_DOES_NOT_EXIST<a name=\"scheduling-resultcode-cs-APPOINTMENT_DOES_NOT_EXIST\"> </a></td><td>Bokningen saknas</td><td>Bokningen saknas.</td></tr><tr><td style=\"white-space:nowrap\">UPDATE_APPOINTMENT_IS_NOT_ALLOWED<a name=\"scheduling-resultcode-cs-UPDATE_APPOINTMENT_IS_NOT_ALLOWED\"> </a></td><td>Ombokning är inte tillåtet</td><td>Ombokning är inte tillåtet.</td></tr><tr><td style=\"white-space:nowrap\">TOO_LATE_TO_CANCEL_APPOINTMENT<a name=\"scheduling-resultcode-cs-TOO_LATE_TO_CANCEL_APPOINTMENT\"> </a></td><td>För sent att avboka tiden</td><td>För sent att avboka tiden. Mottagningen tillåter inte avbokning en viss tid innan tiden startar.</td></tr><tr><td style=\"white-space:nowrap\">CANCEL_IS_NOT_ALLOWED<a name=\"scheduling-resultcode-cs-CANCEL_IS_NOT_ALLOWED\"> </a></td><td>Avbokning är inte tillåtet</td><td>Avbokning är inte tillåtet.</td></tr><tr><td style=\"white-space:nowrap\">APPOINTMENT_IS_ALREADY_CONFIRMED<a name=\"scheduling-resultcode-cs-APPOINTMENT_IS_ALREADY_CONFIRMED\"> </a></td><td>Tiden är redan bekräftad</td><td>Tiden är redan bekräftad.</td></tr><tr><td style=\"white-space:nowrap\">TOO_LATE_TO_CONFIRM_APPOINTMENT<a name=\"scheduling-resultcode-cs-TOO_LATE_TO_CONFIRM_APPOINTMENT\"> </a></td><td>För sent att bekräfta tiden</td><td>För sent att bekräfta tiden. Mottagningen tillåter inte bekräftelse en viss tid innan tiden startar.</td></tr><tr><td style=\"white-space:nowrap\">CONFIRM_IS_NOT_ALLOWED<a name=\"scheduling-resultcode-cs-CONFIRM_IS_NOT_ALLOWED\"> </a></td><td>Bekräftelse ej tillåtet</td><td>Bekräftelse ej tillåtet.</td></tr></table></div>"
+  ] ;
+  fhir:CodeSystem.url [ fhir:value "https://fhir.inera.se/CodeSystem/scheduling-resultcode-cs"] ;
+  fhir:CodeSystem.version [ fhir:value "2.0.0-rc1"] ;
+  fhir:CodeSystem.name [ fhir:value "ResultCodeCS"] ;
+  fhir:CodeSystem.title [ fhir:value "Resultatkod (ResultCode)"] ;
+  fhir:CodeSystem.status [ fhir:value "active"] ;
+  fhir:CodeSystem.date [ fhir:value "2026-10-08T18:56:00+00:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Inera Arkitektur" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://www.inera.se" ]
+     ]
+  ] ;
+  fhir:CodeSystem.description [ fhir:value "Koder för ResultCodeEnum i domänschemat. Visningstexter ur TKB avsnitt 3.7 ResultCode."] ;
+  fhir:CodeSystem.copyright [ fhir:value "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0."] ;
+  fhir:CodeSystem.caseSensitive [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.content [ fhir:value "complete"] ;
+  fhir:CodeSystem.count [ fhir:value "19"^^xsd:nonNegativeInteger] ;
+  fhir:CodeSystem.concept [
+     fhir:index 0 ;
+     fhir:CodeSystem.concept.code [ fhir:value "OK" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "OK" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Transaktionen har utförts enligt uppdraget i frågemeddelandet." ]
+  ], [
+     fhir:index 1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "ERROR" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Fel" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Transaktionen har INTE kunnat utföras enligt uppdrag i frågemeddelandet p.g.a. logiskt fel. Det finns ett meddelande som konsumenten måste visa upp. Exempel på detta kan vara ”tiden har blivit upptagen av annan invånare”." ]
+  ], [
+     fhir:index 2 ;
+     fhir:CodeSystem.concept.code [ fhir:value "INFO" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Information" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Transaktionen har utförts enligt uppdraget i frågemeddelandet, men det finns ett meddelande som tjänstekonsumenten måste visa upp för invånaren. Exempel på detta kan vara ”kom fastande”." ]
+  ], [
+     fhir:index 3 ;
+     fhir:CodeSystem.concept.code [ fhir:value "REQUESTED_TIME_IS_ALREADY_RESERVED" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Efterfrågad tid är redan bokad" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Efterfrågad tid är redan bokad." ]
+  ], [
+     fhir:index 4 ;
+     fhir:CodeSystem.concept.code [ fhir:value "REQUESTED_TIME_HAS_ALREADY_PASSED" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Efterfrågad tid har passerat" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Efterfrågad tid har passerat." ]
+  ], [
+     fhir:index 5 ;
+     fhir:CodeSystem.concept.code [ fhir:value "REQUESTED_TIME_IS_NO_LONGER_AVAILABLE" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Efterfrågad tid är ej tillgänglig" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Efterfrågad tid är ej tillgänglig." ]
+  ], [
+     fhir:index 6 ;
+     fhir:CodeSystem.concept.code [ fhir:value "TOO_LATE_TO_MAKE_APPOINTMENT" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "För sent att boka tiden" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "För sent att boka tiden. Mottagningen tillåter inte bokning en viss tid innan tiden startar." ]
+  ], [
+     fhir:index 7 ;
+     fhir:CodeSystem.concept.code [ fhir:value "USER_IS_ALREADY_OCCUPIED" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Invånaren har redan bokat en annan tid vid samma tillfälle på mottagningen" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Invånaren har redan bokat en annan tid vid samma tillfälle på mottagningen." ]
+  ], [
+     fhir:index 8 ;
+     fhir:CodeSystem.concept.code [ fhir:value "APPOINTMENT_IS_NOT_ALLOWED" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Bokning är inte tillåtet" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Bokning är inte tillåtet. Kan bero på konfigurationsfel eller att möjligheten att boka just har ändrats." ]
+  ], [
+     fhir:index 9 ;
+     fhir:CodeSystem.concept.code [ fhir:value "APPOINTMENT_IS_ALREADY_CANCELED" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Tiden är redan avbokad" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Tiden är redan avbokad." ]
+  ], [
+     fhir:index 10 ;
+     fhir:CodeSystem.concept.code [ fhir:value "APPOINTMENT_IS_ALREADY_UPDATED" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Tiden är redan ombokad" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Tiden är redan ombokad." ]
+  ], [
+     fhir:index 11 ;
+     fhir:CodeSystem.concept.code [ fhir:value "TOO_LATE_TO_UPDATE_APPOINTMENT" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "För sent att omboka tiden" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "För sent att omboka tiden. Mottagningen tillåter inte ombokning en viss tid innan tiden startar." ]
+  ], [
+     fhir:index 12 ;
+     fhir:CodeSystem.concept.code [ fhir:value "APPOINTMENT_DOES_NOT_EXIST" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Bokningen saknas" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Bokningen saknas." ]
+  ], [
+     fhir:index 13 ;
+     fhir:CodeSystem.concept.code [ fhir:value "UPDATE_APPOINTMENT_IS_NOT_ALLOWED" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Ombokning är inte tillåtet" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Ombokning är inte tillåtet." ]
+  ], [
+     fhir:index 14 ;
+     fhir:CodeSystem.concept.code [ fhir:value "TOO_LATE_TO_CANCEL_APPOINTMENT" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "För sent att avboka tiden" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "För sent att avboka tiden. Mottagningen tillåter inte avbokning en viss tid innan tiden startar." ]
+  ], [
+     fhir:index 15 ;
+     fhir:CodeSystem.concept.code [ fhir:value "CANCEL_IS_NOT_ALLOWED" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Avbokning är inte tillåtet" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Avbokning är inte tillåtet." ]
+  ], [
+     fhir:index 16 ;
+     fhir:CodeSystem.concept.code [ fhir:value "APPOINTMENT_IS_ALREADY_CONFIRMED" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Tiden är redan bekräftad" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Tiden är redan bekräftad." ]
+  ], [
+     fhir:index 17 ;
+     fhir:CodeSystem.concept.code [ fhir:value "TOO_LATE_TO_CONFIRM_APPOINTMENT" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "För sent att bekräfta tiden" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "För sent att bekräfta tiden. Mottagningen tillåter inte bekräftelse en viss tid innan tiden startar." ]
+  ], [
+     fhir:index 18 ;
+     fhir:CodeSystem.concept.code [ fhir:value "CONFIRM_IS_NOT_ALLOWED" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "Bekräftelse ej tillåtet" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Bekräftelse ej tillåtet." ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://fhir.inera.se/ig/supportprocess-logistics-scheduling/CodeSystem/scheduling-resultcode-cs.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

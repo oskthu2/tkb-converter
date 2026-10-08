@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>1 Inledning - strategicresourcemanagement: persons: person v5.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"2"}
+    h3,h4,h5,h6{--heading-prefix:"2"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">strategicresourcemanagement: persons: person</span>
+            <br/>
+            <span style="display:inline-block;">5.1.0 - release
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Kapitel<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="1-inledning.html">1 Inledning</a></li>
+      <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+      <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+      <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+      <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+      <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma informationskomponenter</a></li>
+      <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+      <li><a href="8-aktuella-profiler.html">8 Aktuella profiler</a></li>
+    </ul>
+  </li>
+  <li><a href="7-tjanstekontrakt.html">Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>1 Inledning</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">strategicresourcemanagement: persons: person - Local Development build (v5.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>1 Inledning</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#1-inledning" id="markdown-toc-1-inledning">1 Inledning</a>    <ul>
+      <li><a href="#dokumentinformation" id="markdown-toc-dokumentinformation">Dokumentinformation</a></li>
+      <li><a href="#11-svenskt-namn" id="markdown-toc-11-svenskt-namn">1.1 Svenskt namn</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="1-inledning">1 Inledning</h1>
+
+<p>Källa: <em>Personuppgiftstjänsten – Tjänstekontraktsbeskrivning</em>, version 5.1 (2024-11-28), <a href="TKB_strategicresourcemanagement_persons_person.docx">TKB_strategicresourcemanagement_persons_person.docx</a>.</p>
+
+<h3 id="dokumentinformation">Dokumentinformation</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Dokument</th>
+      <th style="text-align: left">Personuppgiftstjänsten – Tjänstekontraktsbeskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Domän</td>
+      <td style="text-align: left">strategicresourcemanagement: persons: person (Underlagförprocesstöd: invånare: personuppgifter)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Version</td>
+      <td style="text-align: left">5.1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Datum</td>
+      <td style="text-align: left">2024-11-28 (senaste revision)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="revisionshistorik">Revisionshistorik</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Version</th>
+      <th style="text-align: left">Revision</th>
+      <th style="text-align: left">Datum</th>
+      <th style="text-align: left">Författare</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">2.0</td>
+      <td style="text-align: left">0.1</td>
+      <td style="text-align: left">2016-01-25</td>
+      <td style="text-align: left">Daniel Fjällström, CGI</td>
+      <td style="text-align: left">Första utkast</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2.0</td>
+      <td style="text-align: left">0.2</td>
+      <td style="text-align: left">2016-01-28</td>
+      <td style="text-align: left">Daniel Fjällström, CGI</td>
+      <td style="text-align: left">Uppdateringar</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2.0</td>
+      <td style="text-align: left">0.3</td>
+      <td style="text-align: left">2016-02-01</td>
+      <td style="text-align: left">Daniel Fjällström, CGI</td>
+      <td style="text-align: left">Uppdateringar</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2.0</td>
+      <td style="text-align: left">RC1</td>
+      <td style="text-align: left">2016-02-11</td>
+      <td style="text-align: left">Daniel Fjällström, CGI</td>
+      <td style="text-align: left">Uppdateringar efter granskning från Khaled</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2.0</td>
+      <td style="text-align: left">RC2</td>
+      <td style="text-align: left">2016-02-29</td>
+      <td style="text-align: left">Per Mützell</td>
+      <td style="text-align: left">Uppdateringar efter granskning Inera A&amp;R: / Kap 4.3 Felhantering / Ändrat till enbart tekniska fel via SOAP faults för läsande tjänst. / Övriga uppdateringar: / 7.1.21 ImmigrationIdentity / förbättrad struktur, landskodning. / 7.1.3 Address namnbyte till AddressInformation / Gender borttagen (används ej)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2.0</td>
+      <td style="text-align: left">RC3</td>
+      <td style="text-align: left">2016-04-22</td>
+      <td style="text-align: left">Per Mützell</td>
+      <td style="text-align: left">protectedPersonIndicator: obligatorisk (tidigare optionell). / testIndicator: obligatorisk (tidigare optionell). / referredPersonalIdentityNumber  byter  namn till: referredPersonalIdentity. / searchDate byter  namn till notificationDate. / Dokumentationsändringar: / 2.1.3 	Förtydligande vilket äldre kontrakt som ersätts. / 3.1.1.2. 	Justering sekvensdiagram (enligt granskningsprotokoll). / 4.1 Informationssäkerhet och juridik, justerad. / 4.2.1 Justerat krav för last. / 5.1 Uppdaterad V-MIM enligt ovan. / 8. 	Förtydligande  vilka attribut som levereras vid sekretessmarkering / 7.1.29 searchDate, uppdaterad beskrivning / 7.1.29 modificationTime, uppdaterad beskrivning / 7.1.34 maritalStatus, rättad felstavning</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2.1</td>
+      <td style="text-align: left">0.1</td>
+      <td style="text-align: left">2016-10-13</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Utökad infomängd (enligt beslut i ref.grupp) vid sekretessmarkering. Län &amp; hänvisningspersonnummer ska nu visas.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2.1</td>
+      <td style="text-align: left">0.2</td>
+      <td style="text-align: left">2016-10-18</td>
+      <td style="text-align: left">David Komar</td>
+      <td style="text-align: left">Nya arbetsflöden och sekvensdiagram</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2.1</td>
+      <td style="text-align: left">0.3</td>
+      <td style="text-align: left">2016-10-21</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Nya kontrakt (SearchPersonsForProfile, GetFilesForOrderId) samt smärre textjusteringar och justeringar i fältregler</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2.1</td>
+      <td style="text-align: left">RC1</td>
+      <td style="text-align: left">2016-10-25</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Infört (temporär) regel för kontrakt / SearchPersonsForProfile samt förtydligat / fältregler för GetFilesForOrderId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3.0</td>
+      <td style="text-align: left">0.1</td>
+      <td style="text-align: left">2017-01-18</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Första arbetet mot version 3</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3.0</td>
+      <td style="text-align: left">RC1</td>
+      <td style="text-align: left">2017-01-30</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Bytt domännamn samt justerad efter synpunkter intern runda. Version för granskning</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3.0</td>
+      <td style="text-align: left">RC2</td>
+      <td style="text-align: left">2017-02-20</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Justerat efter granskning</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3.0</td>
+      <td style="text-align: left">RC3</td>
+      <td style="text-align: left">2017-03-14</td>
+      <td style="text-align: left">Daniel Petersson, Björn Skeppner</td>
+      <td style="text-align: left">Lyft ut bilagor till personRecord samt smärre textjusteringar</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3.0</td>
+      <td style="text-align: left">RC4</td>
+      <td style="text-align: left">2017-07-04</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Ändrat så att kopplade identiteter även visas för en person med sekretessmarkering</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3.1</td>
+      <td style="text-align: left">RC1</td>
+      <td style="text-align: left">2018-08-29</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Lagt till stöd för personens aviseringsvägar</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3.1</td>
+      <td style="text-align: left">RC2</td>
+      <td style="text-align: left">2018-09-17</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Justerat efter granskningskommentarer på RC1.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3.1</td>
+      <td style="text-align: left">RC3</td>
+      <td style="text-align: left">2018-11-20</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Justerat efter nya attribut från SKV (Skyddad folkbokföring (protectedPopulationRecord) &amp; Anträffad död (datum) (FoundDeadAtDate). / Har även lagt till regel #4 i GetPersonsForProfile samt ändrat tabellen 2.1.3</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3.1</td>
+      <td style="text-align: left">RC4</td>
+      <td style="text-align: left">2018-11-29</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">UpdatePerson påverkas av uppdaterad deRegistrationType. Justerat</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3.1.1</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">2019-04-08</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Lagt till nya kontrakt som möjliggör åtkomst till personuppgifter som har sekretessmarkering, genom Get/SearchUnrestrictedXxxx. Nya regler tillagda på uppdaterande kontrakt gällande attributet versionToUpdate</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3.2</td>
+      <td style="text-align: left">RC1</td>
+      <td style="text-align: left">2019-08-16</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Lagt till ny komplex typ, UUID under klass AddressInformationType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3.2.1</td>
+      <td style="text-align: left">RC1</td>
+      <td style="text-align: left">2019-10-09</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Justerat/rättat versionsnummer på några kontrakt &amp; tabellen för kompabilitet</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3.2.1</td>
+      <td style="text-align: left">RC2</td>
+      <td style="text-align: left">2019-10-10</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">P.g.a tidigare arv så har 1.0 och 1.1-versionerna ändrats till 3.2 resp 3.2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3.2.1</td>
+      <td style="text-align: left">RC3</td>
+      <td style="text-align: left">2019-10-14</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Justerat Profiltabellen (digitalNotification) saknades för kontaktperson</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3.2.1</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">2019-10-17</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Infört rättningar och rättningskommentarer i följande schemafiler: / UpdatePersonContactInformationUnrestricted_3.1 / -Bugg rättat i schemafilen. Kontraktet har aldrig byggts, så kontraktets versionsnummer kvarstår därför. / -UpdatePersonContactInformation / Har en dubbelimport av core och ext-schema som f.n anses vara onödig, men är infört tillsvidare p.g.a att applikationsförvaltaren får fel vid bygget annars. / -UpdatePersonContactInformationUnrestricted_3.1 / Se kommentar ovan. / 4.3.1.2 samt 4.3.2.2 Texten Soap Exception ändrats till Soap Fault.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3.2.2</td>
+      <td style="text-align: left">RC1</td>
+      <td style="text-align: left">2019-12-04</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Förbättrad viss text för ökad läsbarhet och förståelse, enligt inkomna kommentarer.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3.3</td>
+      <td style="text-align: left">RC1</td>
+      <td style="text-align: left">2021-03-05</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Lagt till landskod för vem som utfärdat identitetshandlingen (reservidentitet). Lagt till Utlandsadress som möjlig class för reservidentitet. Uppdaterat länkar till referenser. Några små textjusteringar.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3.3</td>
+      <td style="text-align: left">RC2</td>
+      <td style="text-align: left">2021-03-05</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Ändrat tillbaka SearchPersonsForProfileByOrder &amp; SearchPersonsForProfileByOrderUnrestricted till 3.2 då det rent tekniskt ej har skett någon förändring med dem</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3.3</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">2021-03-16</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Ändrat versionsnumret från 3.3_RC2 till 3.3</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3.3.1</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">2021-04-09</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Uppdaterat versionsnumret pga uppdaterad domänversion</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3.3.2</td>
+      <td style="text-align: left">RC1</td>
+      <td style="text-align: left">2021-04-19</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Uppdaterat kap 7.1.50 vad gäller statuskod för relationsperson med ett förtydligande.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3.3.2</td>
+      <td style="text-align: left">RC2</td>
+      <td style="text-align: left">2021-06-09</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Uppdaterat kap 4 gällande krav på konsument kring hanteringen av kopplade personidentiteter som har en sekretessmarkering/skyddad folkbokföring. / Även uppdatering på format för telefonnummer och mail (kap 7.1.13).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4.0</td>
+      <td style="text-align: left">RC1</td>
+      <td style="text-align: left">2021-11-05</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Uppdaterad majorversion till 4.0. / Uppdateringar enligt förändringar i Navet: / Klasserna Samordningsnummeruppgift, Hänvisningar, Identitetsstatus tillagda. / Avregistreringskoderna AS(Avslutad) och GS (Gammalt samordningsnummer) i klassen Avregistrering borttagna. / Övrigt: / Korrigerat dokumentet efter senaste mallen (från 2019-05-28): Kapitel 5 och 6, 8. / Klassen Historik har utökats med  attributen ”registreringstidpunkt” och ”tidpunkt då nyare historisk post finns”.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4.0</td>
+      <td style="text-align: left">RC1</td>
+      <td style="text-align: left">2021-11-08</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Ändrat datumtypen för klassen coOrdinationNumberDataType</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4.0</td>
+      <td style="text-align: left">RC1</td>
+      <td style="text-align: left">2021-12-03</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Diverse textuella förbättringar efter inkomna synpunkter</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4.0</td>
+      <td style="text-align: left">RC1</td>
+      <td style="text-align: left">2022-03-23</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Ändrat versionsnummer på SearchByOrder-kontrakten från 3.2 till 4.0. Detta eftersom det resultat man får GetFilesForOrderId då skiljer sig (xml-filen) skiljer sig från tidigare SearchByOrder-kontrakt. Även lagt till beskrivning av REST-kontraktet SearchPersonsByFile.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4.0</td>
+      <td style="text-align: left">RC2</td>
+      <td style="text-align: left">2022-04-04</td>
+      <td style="text-align: left">Jimmy Fridh</td>
+      <td style="text-align: left">Uppdateringar efter I-granskning (VITS-kontroll)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4.0</td>
+      <td style="text-align: left">RC4</td>
+      <td style="text-align: left">2022-04-12</td>
+      <td style="text-align: left">Jimmy Fridh</td>
+      <td style="text-align: left">Uppdateringar efter I-granskning (VITS-kontroll): Tomma celler</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4.0</td>
+      <td style="text-align: left">RC5</td>
+      <td style="text-align: left">2022-04-25</td>
+      <td style="text-align: left">Jimmy Fridh</td>
+      <td style="text-align: left">Versionsuppdatering för att matcha andra uppdaterade dokument.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4.0</td>
+      <td style="text-align: left">RC6</td>
+      <td style="text-align: left">2022-10-05</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Versionsuppdatering för att matcha andra uppdaterade dokument.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4.0</td>
+      <td style="text-align: left">RC7</td>
+      <td style="text-align: left">2022-10-10</td>
+      <td style="text-align: left">Jimmy Fridh</td>
+      <td style="text-align: left">Versionsuppdatering för att matcha andra ändrade dokument.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4.0</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">2022-10-31</td>
+      <td style="text-align: left">Jimmy Fridh</td>
+      <td style="text-align: left">Fastställd version.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4.0.1</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">2023-01-20</td>
+      <td style="text-align: left">Jimmy Fridh</td>
+      <td style="text-align: left">Komplettering av testsviter och självdeklarationer för att domänen ska vara kompatibel med Inera Testmodell 2. / Rättning av SKV Termkod för attribut "referredPersonalIdentity", kap 7.1.29. Från termkod 01308 till 01402. / Rättning av kap 8 listning av historicalRecordsType samt underliggande fält.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4.0.2</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">2023-03-10</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Lagt till födelsedatum (dateOfBirth) i profil 1, 2 samt 3. Dvs personens födelsedatum ska synas även om personen har skyddade folkbokföringsuppgifter. / Lagt till förtydligande gällande förekomst av information i kapitel 7.1.54</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4.10</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">2024-01-06</td>
+      <td style="text-align: left">Jimmy Fridh</td>
+      <td style="text-align: left">Lagt in regel om felmeddelande i tjänstekontrakt SearchPersonsForProfileByOrder/Unrestricted om antalet sökträffar överskrider en supporterad maxgräns.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5.0</td>
+      <td style="text-align: left">RC1</td>
+      <td style="text-align: left">2024-02-12</td>
+      <td style="text-align: left">Björn Skeppner</td>
+      <td style="text-align: left">Uppdaterat TKB efter ny mall. / Ny majorversion p.g.a nya attribut för samordningsnummer och aktör. / Borttagna attribut: / givenName.attested (Fornamn-styrkt) / middleName.attested (Mellamnamn-styrkt) / surName.attested (Efternamn-styrkt) / placeOfBirthAbroad (FodelseortUtland-styrkt) / citizenshipCountryCode.attested (MedborgarskapslandKod-styrkt) / Tillagt: / IdentityLevel (identitetsnivå) / IdentityLevelDate (identitetsnivå datum) / updateTime (uppdateringstid)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5.0</td>
+      <td style="text-align: left">RC2</td>
+      <td style="text-align: left">2024-02-22</td>
+      <td style="text-align: left">Jimmy Fridh</td>
+      <td style="text-align: left">Ny releasekandidat där korrigeringar av namespace gjorts i schemafilerna.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5.0</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">2024-03-18</td>
+      <td style="text-align: left">Jimmy Fridh</td>
+      <td style="text-align: left">Major-version av Personuppgiftstjänsten, med innehåll enligt RC1 och RC2. / Följande förändringar ingår även: / - Byte till ny dokumentmall för TKB / - Namnbyte av REST-tjänst SearchPersonsByFile / - Uppdaterad referenslista / - Rättelse av kardinalitet för attribut relationshipId / - Förtydligande av beskrivning av parameter primaryidentity i tjänst SearchPersonsByFile / - Förtydligande av användandet av attribut versionToUpdate i tjänstekontrakt UpdatePersonContactInformation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5.0.1</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">2024-06-04</td>
+      <td style="text-align: left">Jimmy Fridh</td>
+      <td style="text-align: left">Regeländring för landsangivelse av utlandsadress (attributet countryCode i gruppen AddressAbroadType) för reservidentiteter. Ingen ändring i scheman.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5.1</td>
+      <td style="text-align: left">RC1</td>
+      <td style="text-align: left">2024-10-25</td>
+      <td style="text-align: left">Jimmy Fridh</td>
+      <td style="text-align: left">Ny tjänstekontraktversion GetFilesForOrderId v4 för kompatibilitet med domänversion 5. / Korrigering av svar från PU-tjänsten i tjänstekontrakt SearchPersonsForProfileByOrder v5 (samt Unrestricted v5) för att korrekt följa givet schema.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5.1</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">2024-11-28</td>
+      <td style="text-align: left">Jimmy Fridh</td>
+      <td style="text-align: left">Ändringar enligt RC1 ovan, samt korrigering av tillåtna värden för attributen identityStatus samt identityStatusCause (avsnitt 7.1.50)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="referenser">Referenser</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Dokument</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Länk</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">R1</td>
+      <td style="text-align: left">Arkitekturella beslut – Personuppgifter</td>
+      <td style="text-align: left">Obligatoriskt</td>
+      <td style="text-align: left">Bilaga AB_ strategicresourcemanagement_persons_person.docx</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R2</td>
+      <td style="text-align: left">RIVTA flera dokument</td>
+      <td style="text-align: left">Finns på Webben</td>
+      <td style="text-align: left">http://rivta.se/</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R3</td>
+      <td style="text-align: left">Informationsspecifikation - / Personuppgifter</td>
+      <td style="text-align: left">Gällande samma domän som denna TKB</td>
+      <td style="text-align: left">IS_ strategicresourcemanagement.persons.person.docx</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R4</td>
+      <td style="text-align: left">ISO8601</td>
+      <td style="text-align: left">ISO8601-standarden för datum- och tidsformat</td>
+      <td style="text-align: left">https://sv.wikipedia.org/wiki/ISO_8601</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R5</td>
+      <td style="text-align: left">RFC3339</td>
+      <td style="text-align: left">Standard för datum- och tidsformat för internetbaserade protokoll baserat på ISO8601</td>
+      <td style="text-align: left">https://www.ietf.org/rfc/rfc3339.txt</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R6</td>
+      <td style="text-align: left">ISO 3166-1 alpha-2</td>
+      <td style="text-align: left">Standard för landskod</td>
+      <td style="text-align: left">https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R7</td>
+      <td style="text-align: left">Tillämpningsanvisning frågespråk</td>
+      <td style="text-align: left">Anvisning över syntax och sökmöjligheter för via SearchPersonsForProfile</td>
+      <td style="text-align: left">https://inera.atlassian.net/wiki/spaces/PU/pages/3353215428/SimpleQL</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R8</td>
+      <td style="text-align: left">RIV Tekniska Anvisningar – Kryptografi</td>
+      <td style="text-align: left">ARK_0036</td>
+      <td style="text-align: left">http://rivta.se/documents/ARK_0036/</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R9</td>
+      <td style="text-align: left">Regel #11, Logiska fel</td>
+      <td style="text-align: left">RIV Tekniska Anvisningar - Tjänsteschema 2.1</td>
+      <td style="text-align: left">http://rivta.se/documents/ARK_0005/</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R10</td>
+      <td style="text-align: left">Styrande dokument Personuppgiftstjänsten</td>
+      <td style="text-align: left">Översiktlig beskrivning av tjänsten.</td>
+      <td style="text-align: left">Avtal om kundens användning av Personuppgiftstjänsten</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R11</td>
+      <td style="text-align: left">Verksamhetsramverk för personens meddelanden</td>
+      <td style="text-align: left">Stödjande dokument för hantering av kontaktuppgifter</td>
+      <td style="text-align: left">Verksamhetsramverk för användning av personens kontaktuppgifter i Personuppgiftstjänsten för meddelandehantering - PU-tjänsten: Ramverk för aviseringar - Confluence (atlassian.net)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R12</td>
+      <td style="text-align: left">Ramverk för hantering av reservidentiteter</td>
+      <td style="text-align: left">Stödjande dokument för hantering av reservidentiteter samt skyddsmarkerade personuppgifter</td>
+      <td style="text-align: left">https://inera.atlassian.net/wiki/spaces/PNRFHAR/pages/282568677/Ramverk+f+r+hantering+av+reservidentiteter</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R13</td>
+      <td style="text-align: left">Formatspecifikation reservidentiteter</td>
+      <td style="text-align: left">Beskrivning format reservidentiteter</td>
+      <td style="text-align: left">https://inera.atlassian.net/wiki/spaces/PU/pages/3353216812/Nationellt+Reservid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R14</td>
+      <td style="text-align: left">Beskrivning hämta personuppgifter baserat på en infil av personidentiteter</td>
+      <td style="text-align: left">Beskrivning av funktionen</td>
+      <td style="text-align: left">https://inera.atlassian.net/wiki/spaces/PU/pages/3353215446/REST-tj+nster+f+r+filhantering</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R15</td>
+      <td style="text-align: left">Skatteverkets vägledning för hantering av sekretessmarkerade personuppgifter i offentlig förvaltning</td>
+      <td style="text-align: left">Handledning för hantering av personer med skyddade folkbokföringsuppgifter</td>
+      <td style="text-align: left">https://skatteverket.se/offentligaaktorer/folkbokforing/vagledningforoffentligaaktorershanteringavskyddadepersonuppgifter.4.18e1b10334ebe8bc80002541.html</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="förkortningar">Förkortningar</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Förkortning</th>
+      <th style="text-align: left">Betydelse</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">NAVET</td>
+      <td style="text-align: left">Tjänst för att tillgängliggöra folkbokföringsuppgifter till myndigheter</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PU-tjänst</td>
+      <td style="text-align: left">Personuppgiftstjänst</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PNR</td>
+      <td style="text-align: left">Personnummer enligt Skatteverkets definition</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SNR</td>
+      <td style="text-align: left">Samordningsnummer enligt Skatteverkets definition</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RID</td>
+      <td style="text-align: left">Förkortning för lokal reservidentitet eller nationell reservidentitet (se nedan). ) används då det inte finns en entydigt identitet på en individ (saknar PNR/SNR)</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LRID</td>
+      <td style="text-align: left">Lokal reservidentitet (ofta benämnd som reservnummer)</td>
+      <td style="text-align: left">-</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">NRID</td>
+      <td style="text-align: left">Nationell reservidentitet. En reservidentitet som kan tas ut från den nationella PU-instansen. Syftar till att användas i samverkan mellan organisationer.</td>
+      <td style="text-align: left">-</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="kompletterande-dokument-i-källan">Kompletterande dokument i källan</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dokument</th>
+      <th>Fil</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Arkitekturella beslut – Personuppgifter (referens R1)</td>
+      <td><a href="AB_strategicresourcemanagement_persons_person.docx">AB_strategicresourcemanagement_persons_person.docx</a></td>
+    </tr>
+    <tr>
+      <td>Informationsspecifikation – Personuppgifter (referens R3)</td>
+      <td><a href="IS_strategicresourcemanagement_persons_person.docx">IS_strategicresourcemanagement_persons_person.docx</a></td>
+    </tr>
+    <tr>
+      <td>Release notes</td>
+      <td><a href="Release_notes.pdf">Release_notes.pdf</a></td>
+    </tr>
+    <tr>
+      <td>Informationsmodell PU, reservnummer, kontaktuppgifter och aviseringsväg (bild i arbetsmaterialet)</td>
+      <td><a href="Informationsmodell_PU_reservnummer_kontaktuppgifter_aviseringsvag.png">Informationsmodell_PU_reservnummer_kontaktuppgifter_aviseringsvag.png</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Självdeklarationer och XML-exempel finns under respektive kontrakt i avsnitt 7. Källan innehåller även Visual Paradigm-modeller, ett Visio-sekvensdiagram, en PowerPoint-presentation om styrkt identitet (<code class="language-plaintext highlighter-rouge">docs/work_material/</code>) och SoapUI-testsviter, som inte publiceras här.</p>
+
+<p>Detta är beskrivningen av tjänstekontrakten i tjänstedomänen</p>
+
+<p>strategicresourcemanagement: persons: person</p>
+
+<p>Tjänstekontrakten är baserade på RIVTA 2.1 [R2] och reglerade genom arkitekturella beslut [R1].</p>
+
+<p>Tjänstekontraktsbeskrivningen är en kravspecifikation. Den skall fungera som ett teknikneutralt, formellt regelverk som reglerar integrationskrav för parter (tjänstekonsumenter och tjänsteproducenter) som avser ansluta system för samverkan enligt dessa tjänstekontrakt. Tjänstekontraktsbeskrivningen är också ett viktigt underlag för skapande av de tekniska kontrakten (scheman och WSDL-filer).</p>
+
+<p>Detta dokument kompletterar reglerna i de tekniska kontrakten. Tjänsteproducenter och tjänstekonsumenter ska m.a.o. följa såväl de maskintolkbara reglerna i de tekniska kontrakten, så väl som de regler som uttrycks verbalt i detta dokument.</p>
+
+<h3 id="11-svenskt-namn">1.1 Svenskt namn</h3>
+
+<p>Underlagförprocesstöd: invånare: personuppgifter</p>
+
+<p>Personuppgiftshantering</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.strategicresourcemanagement-persons-person#5.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 18:52+0000">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

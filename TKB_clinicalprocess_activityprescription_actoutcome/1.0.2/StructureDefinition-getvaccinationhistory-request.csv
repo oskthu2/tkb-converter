@@ -1,0 +1,26 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getvaccinationhistory-request","getvaccinationhistory-request","","","",0,*,"","","","null {[]} {[]}
+","GetVaccinationHistory — Request","Logisk modell för begäran i tjänstekontraktet GetVaccinationHistory 1.0
+(RIV-TA urn:riv:clinicalprocess:activityprescription:actoutcome:GetVaccinationHistoryResponder:1).
+Elementnamnen följer XML-schemat GetVaccinationHistoryResponder_1.0.xsd.","","","","","","","","","",,,,,"",,,,"Base",0,*,"","getvaccinationhistory-request-sourcesystem:sourceSystemHSAid är tvingande om careContactId angivits (TKB 1.0, fältregler för sourceSystemHSAId) {careContactId.exists() implies sourceSystemHSAid.exists()}
+"
+"getvaccinationhistory-request.careUnitHSAid","getvaccinationhistory-request.careUnitHSAid","","","",0,*,"","","","Identifier {[]} {[]}
+","Filtrering på vårdenhet (HSAIdType)","Filtrering på Vårdenhet vilket motsvarar careUnitHSAid i HealthCareProfessionalType. Journalposter som saknar
+märkning med vårdenhet ingår inte i svaret om detta fält använts i anropet.
+I TKB:ns tabell heter fältet careUnitHSAId; schemat använder careUnitHSAid.","","","","","","","","","",,,,,"",,,,"getvaccinationhistory-request.careUnitHSAid",0,*,"",""
+"getvaccinationhistory-request.patientId","getvaccinationhistory-request.patientId","","","",1,1,"","","","Identifier {[]} {[]}
+","Id för patienten (PersonIdType)","value (id) sätts till patientens identifierare, 12 tecken utan avskiljare.
+system (type) sätts till OID för typ av identifierare: personnummer 1.2.752.129.2.1.3.1,
+samordningsnummer 1.2.752.129.2.1.3.3, reservnummer lokalt definierat (t.ex. SLL 1.2.752.97.3.1.3).","","","","","","","","","",,,,,"",,,,"getvaccinationhistory-request.patientId",1,1,"",""
+"getvaccinationhistory-request.timePeriod","getvaccinationhistory-request.timePeriod","","","",0,1,"","","","Period {[]} {[]}
+","Begränsning av sökningen i tid (DatePeriodType)","Resultatet innehåller de poster som i något av tidsfälten i vaccinationMedicalRecordHeader eller
+vaccinationMedicalRecordBody.registrationRecord.date anger en tidpunkt inom det sökta intervallet
+(start- och slutpunkt inkluderas). Datum anges på formatet ÅÅÅÅMMDD.","","","","","","","","","",,,,,"",,,,"getvaccinationhistory-request.timePeriod",0,1,"","getvaccinationhistory-request-timeperiod:Minst ett av start och end ska anges (DatePeriodType) {start.exists() or end.exists()}
+"
+"getvaccinationhistory-request.sourceSystemHSAid","getvaccinationhistory-request.sourceSystemHSAid","","","",0,1,"","","","Identifier {[]} {[]}
+","Begränsar sökningen till angivet källsystem (HSAIdType)","Begränsar sökningen till dokument som är skapade i angivet system. Värdet måste överensstämma med
+logicalAddress i anropets tekniska kuvertering (SOAP-header), så aggregerande tjänster används inte när fältet anges.
+Fältet är tvingande om careContactId angivits. I TKB:ns tabell heter fältet sourceSystemHSAId.","","","","","","","","","",,,,,"",,,,"getvaccinationhistory-request.sourceSystemHSAid",0,1,"",""
+"getvaccinationhistory-request.careContactId","getvaccinationhistory-request.careContactId","","","",0,*,"","","","string {[]} {[]}
+","Begränsar sökningen till angiven vård- och omsorgskontakt","Begränsar sökningen till den vård- och omsorgskontakt som föranlett den information som omfattas av dokumentet.
+Identiteten är unik inom källsystemet.","","","","","","","","","",,,,,"",,,,"getvaccinationhistory-request.careContactId",0,*,"",""

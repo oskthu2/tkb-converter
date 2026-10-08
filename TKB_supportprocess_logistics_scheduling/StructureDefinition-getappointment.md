@@ -1,0 +1,1371 @@
+# GetAppointment — Response - supportprocess: logistics: scheduling v2.0.0-rc1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetAppointment — Response**
+
+## Logical Model: GetAppointment — Response 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/getappointment | *Version*:2.0 |
+| Draft as of 2026-10-08 | *Computable Name*:GetAppointment |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret i GetAppointment (urn:riv:supportprocess:logistics:scheduling:GetAppointmentResponder:2, GetAppointmentResponseType). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.supportprocess-logistics-scheduling|current/StructureDefinition/StructureDefinition-getappointment.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getappointment.csv), [Excel](StructureDefinition-getappointment.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getappointment",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/getappointment",
+  "version" : "2.0",
+  "name" : "GetAppointment",
+  "title" : "GetAppointment — Response",
+  "status" : "draft",
+  "date" : "2026-10-08T18:56:00+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret i GetAppointment\n(urn:riv:supportprocess:logistics:scheduling:GetAppointmentResponder:2, GetAppointmentResponseType).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/getappointment",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getappointment",
+      "path" : "getappointment",
+      "short" : "GetAppointment — Response",
+      "definition" : "Logisk modell för svaret i GetAppointment\n(urn:riv:supportprocess:logistics:scheduling:GetAppointmentResponder:2, GetAppointmentResponseType)."
+    },
+    {
+      "id" : "getappointment.appointment",
+      "path" : "getappointment.appointment",
+      "short" : "appointment",
+      "definition" : "appointment",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.appointmentId",
+      "path" : "getappointment.appointment.appointmentId",
+      "short" : "appointmentId",
+      "definition" : "appointmentId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.relatedAppointmentId",
+      "path" : "getappointment.appointment.relatedAppointmentId",
+      "short" : "relatedAppointmentId",
+      "definition" : "relatedAppointmentId",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot",
+      "path" : "getappointment.appointment.timeslot",
+      "short" : "timeslot",
+      "definition" : "timeslot",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeslotId",
+      "path" : "getappointment.appointment.timeslot.timeslotId",
+      "short" : "timeslotId",
+      "definition" : "timeslotId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType",
+      "path" : "getappointment.appointment.timeslot.timeType",
+      "short" : "timeType",
+      "definition" : "timeType",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.timeTypeCode",
+      "path" : "getappointment.appointment.timeslot.timeType.timeTypeCode",
+      "short" : "timeTypeCode",
+      "definition" : "timeTypeCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.hidden",
+      "path" : "getappointment.appointment.timeslot.timeType.hidden",
+      "short" : "hidden",
+      "definition" : "hidden",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.careContactCode",
+      "path" : "getappointment.appointment.timeslot.timeType.careContactCode",
+      "short" : "careContactCode",
+      "definition" : "careContactCode",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.careContactCode.cvCode",
+      "path" : "getappointment.appointment.timeslot.timeType.careContactCode.cvCode",
+      "short" : "cvCode",
+      "definition" : "cvCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.careContactCode.codeSystem",
+      "path" : "getappointment.appointment.timeslot.timeType.careContactCode.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "codeSystem",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.careContactCode.codeSystemName",
+      "path" : "getappointment.appointment.timeslot.timeType.careContactCode.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.careContactCode.codeSystemVersion",
+      "path" : "getappointment.appointment.timeslot.timeType.careContactCode.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.careContactCode.displayName",
+      "path" : "getappointment.appointment.timeslot.timeType.careContactCode.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.careContactCode.originalText",
+      "path" : "getappointment.appointment.timeslot.timeType.careContactCode.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService",
+      "short" : "healthcareService",
+      "definition" : "healthcareService",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.healthcareServiceCode",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.healthcareServiceCode",
+      "short" : "healthcareServiceCode",
+      "definition" : "healthcareServiceCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.healthcareServiceCode.snomedCtCode",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.healthcareServiceCode.snomedCtCode",
+      "short" : "snomedCtCode",
+      "definition" : "snomedCtCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.healthcareServiceCode.codeSystem",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.healthcareServiceCode.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "Tillåtna värden: 1.2.752.116.2.1.1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.healthcareServiceCode.codeSystemName",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.healthcareServiceCode.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.healthcareServiceCode.codeSystemVersion",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.healthcareServiceCode.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.healthcareServiceCode.displayName",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.healthcareServiceCode.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.healthcareServiceCode.originalText",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.healthcareServiceCode.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.information",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.information",
+      "short" : "information",
+      "definition" : "information",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.information.header",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.information.header",
+      "short" : "header",
+      "definition" : "header",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.information.description",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.information.description",
+      "short" : "description",
+      "definition" : "description",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.information.link",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.information.link",
+      "short" : "link",
+      "definition" : "link",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.conditionsToConfirm",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.conditionsToConfirm",
+      "short" : "conditionsToConfirm",
+      "definition" : "conditionsToConfirm",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.conditionsToConfirm.header",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.conditionsToConfirm.header",
+      "short" : "header",
+      "definition" : "header",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.conditionsToConfirm.description",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.conditionsToConfirm.description",
+      "short" : "description",
+      "definition" : "description",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareService.conditionsToConfirm.link",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareService.conditionsToConfirm.link",
+      "short" : "link",
+      "definition" : "link",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.healthcareTeam",
+      "path" : "getappointment.appointment.timeslot.timeType.healthcareTeam",
+      "short" : "healthcareTeam",
+      "definition" : "healthcareTeam",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.patientGroup",
+      "path" : "getappointment.appointment.timeslot.timeType.patientGroup",
+      "short" : "patientGroup",
+      "definition" : "patientGroup",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.cancelAppointmentAllowed",
+      "path" : "getappointment.appointment.timeslot.timeType.cancelAppointmentAllowed",
+      "short" : "cancelAppointmentAllowed",
+      "definition" : "cancelAppointmentAllowed",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.updateAppointmentAllowed",
+      "path" : "getappointment.appointment.timeslot.timeType.updateAppointmentAllowed",
+      "short" : "updateAppointmentAllowed",
+      "definition" : "updateAppointmentAllowed",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule",
+      "short" : "appointmentRule",
+      "definition" : "appointmentRule",
+      "min" : 0,
+      "max" : "3",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.timeTypeRulesType",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.timeTypeRulesType",
+      "short" : "timeTypeRulesType",
+      "definition" : "timeTypeRulesType Heter type i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/ValueSet/scheduling-process-vs"
+      }
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonTextRequired",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonTextRequired",
+      "short" : "reasonTextRequired",
+      "definition" : "reasonTextRequired",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/ValueSet/scheduling-reasonrequired-vs"
+      }
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonCodeRequired",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonCodeRequired",
+      "short" : "reasonCodeRequired",
+      "definition" : "reasonCodeRequired",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/ValueSet/scheduling-reasonrequired-vs"
+      }
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonCodes",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonCodes",
+      "short" : "reasonCodes",
+      "definition" : "reasonCodes",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonCodes.cvCode",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonCodes.cvCode",
+      "short" : "cvCode",
+      "definition" : "cvCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonCodes.codeSystem",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonCodes.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "codeSystem",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonCodes.codeSystemName",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonCodes.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonCodes.codeSystemVersion",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonCodes.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonCodes.displayName",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonCodes.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonCodes.originalText",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.reasonCodes.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.information",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.information",
+      "short" : "information",
+      "definition" : "information",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.information.header",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.information.header",
+      "short" : "header",
+      "definition" : "header",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.information.description",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.information.description",
+      "short" : "description",
+      "definition" : "description",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.information.link",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.information.link",
+      "short" : "link",
+      "definition" : "link",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.conditionToConfirm",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.conditionToConfirm",
+      "short" : "conditionToConfirm",
+      "definition" : "conditionToConfirm",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.conditionToConfirm.header",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.conditionToConfirm.header",
+      "short" : "header",
+      "definition" : "header",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.conditionToConfirm.description",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.conditionToConfirm.description",
+      "short" : "description",
+      "definition" : "description",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeType.appointmentRule.conditionToConfirm.link",
+      "path" : "getappointment.appointment.timeslot.timeType.appointmentRule.conditionToConfirm.link",
+      "short" : "link",
+      "definition" : "link",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.startTime",
+      "path" : "getappointment.appointment.timeslot.startTime",
+      "short" : "startTime",
+      "definition" : "startTime",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.endTime",
+      "path" : "getappointment.appointment.timeslot.endTime",
+      "short" : "endTime",
+      "definition" : "endTime",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.timeLength",
+      "path" : "getappointment.appointment.timeslot.timeLength",
+      "short" : "timeLength",
+      "definition" : "timeLength",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.healthcareFacilityHSAId",
+      "path" : "getappointment.appointment.timeslot.healthcareFacilityHSAId",
+      "short" : "healthcareFacilityHSAId",
+      "definition" : "healthcareFacilityHSAId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.healthcareFacilityHSAId.root",
+      "path" : "getappointment.appointment.timeslot.healthcareFacilityHSAId.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.healthcareFacilityHSAId.hSAIdExtension",
+      "path" : "getappointment.appointment.timeslot.healthcareFacilityHSAId.hSAIdExtension",
+      "short" : "hSAIdExtension",
+      "definition" : "hSAIdExtension Heter extension i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.practitioner",
+      "path" : "getappointment.appointment.timeslot.practitioner",
+      "short" : "practitioner",
+      "definition" : "practitioner",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.practitioner.HSAId",
+      "path" : "getappointment.appointment.timeslot.practitioner.HSAId",
+      "short" : "HSAId",
+      "definition" : "HSAId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.practitioner.HSAId.root",
+      "path" : "getappointment.appointment.timeslot.practitioner.HSAId.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.practitioner.HSAId.hSAIdExtension",
+      "path" : "getappointment.appointment.timeslot.practitioner.HSAId.hSAIdExtension",
+      "short" : "hSAIdExtension",
+      "definition" : "hSAIdExtension Heter extension i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.practitioner.firstName",
+      "path" : "getappointment.appointment.timeslot.practitioner.firstName",
+      "short" : "firstName",
+      "definition" : "firstName",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.practitioner.lastName",
+      "path" : "getappointment.appointment.timeslot.practitioner.lastName",
+      "short" : "lastName",
+      "definition" : "lastName",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.practitioner.title",
+      "path" : "getappointment.appointment.timeslot.practitioner.title",
+      "short" : "title",
+      "definition" : "title",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.resource",
+      "path" : "getappointment.appointment.timeslot.resource",
+      "short" : "resource",
+      "definition" : "resource",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.resource.typeOfResource",
+      "path" : "getappointment.appointment.timeslot.resource.typeOfResource",
+      "short" : "typeOfResource",
+      "definition" : "typeOfResource",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.resource.typeOfResource.cvCode",
+      "path" : "getappointment.appointment.timeslot.resource.typeOfResource.cvCode",
+      "short" : "cvCode",
+      "definition" : "cvCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.resource.typeOfResource.codeSystem",
+      "path" : "getappointment.appointment.timeslot.resource.typeOfResource.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "codeSystem",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.resource.typeOfResource.codeSystemName",
+      "path" : "getappointment.appointment.timeslot.resource.typeOfResource.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.resource.typeOfResource.codeSystemVersion",
+      "path" : "getappointment.appointment.timeslot.resource.typeOfResource.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.resource.typeOfResource.displayName",
+      "path" : "getappointment.appointment.timeslot.resource.typeOfResource.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.resource.typeOfResource.originalText",
+      "path" : "getappointment.appointment.timeslot.resource.typeOfResource.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.resource.resourceAttribute",
+      "path" : "getappointment.appointment.timeslot.resource.resourceAttribute",
+      "short" : "resourceAttribute",
+      "definition" : "resourceAttribute",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.resource.resourceAttribute.cvCode",
+      "path" : "getappointment.appointment.timeslot.resource.resourceAttribute.cvCode",
+      "short" : "cvCode",
+      "definition" : "cvCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.resource.resourceAttribute.codeSystem",
+      "path" : "getappointment.appointment.timeslot.resource.resourceAttribute.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "codeSystem",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.resource.resourceAttribute.codeSystemName",
+      "path" : "getappointment.appointment.timeslot.resource.resourceAttribute.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.resource.resourceAttribute.codeSystemVersion",
+      "path" : "getappointment.appointment.timeslot.resource.resourceAttribute.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.resource.resourceAttribute.displayName",
+      "path" : "getappointment.appointment.timeslot.resource.resourceAttribute.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.resource.resourceAttribute.originalText",
+      "path" : "getappointment.appointment.timeslot.resource.resourceAttribute.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.resource.description",
+      "path" : "getappointment.appointment.timeslot.resource.description",
+      "short" : "description",
+      "definition" : "description",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.withinCareGuarantee",
+      "path" : "getappointment.appointment.timeslot.withinCareGuarantee",
+      "short" : "withinCareGuarantee",
+      "definition" : "withinCareGuarantee",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.timeslot.alternativeLocation",
+      "path" : "getappointment.appointment.timeslot.alternativeLocation",
+      "short" : "alternativeLocation",
+      "definition" : "alternativeLocation",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.personId",
+      "path" : "getappointment.appointment.personId",
+      "short" : "personId",
+      "definition" : "personId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.personId.root",
+      "path" : "getappointment.appointment.personId.root",
+      "short" : "root",
+      "definition" : "Tillåtna värden: 1.2.752.129.2.1.3.1, 1.2.752.129.2.1.3.3.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.personId.personIdExtension",
+      "path" : "getappointment.appointment.personId.personIdExtension",
+      "short" : "personIdExtension",
+      "definition" : "personIdExtension Heter extension i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.information",
+      "path" : "getappointment.appointment.information",
+      "short" : "information",
+      "definition" : "information",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.information.header",
+      "path" : "getappointment.appointment.information.header",
+      "short" : "header",
+      "definition" : "header",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.information.description",
+      "path" : "getappointment.appointment.information.description",
+      "short" : "description",
+      "definition" : "description",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.information.link",
+      "path" : "getappointment.appointment.information.link",
+      "short" : "link",
+      "definition" : "link",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.appointmentStatus",
+      "path" : "getappointment.appointment.appointmentStatus",
+      "short" : "appointmentStatus",
+      "definition" : "appointmentStatus Heter status i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/ValueSet/scheduling-appointmentstatus-vs"
+      }
+    },
+    {
+      "id" : "getappointment.appointment.newAppointmentReasonText",
+      "path" : "getappointment.appointment.newAppointmentReasonText",
+      "short" : "newAppointmentReasonText",
+      "definition" : "newAppointmentReasonText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.newAppointmentReasonCode",
+      "path" : "getappointment.appointment.newAppointmentReasonCode",
+      "short" : "newAppointmentReasonCode",
+      "definition" : "newAppointmentReasonCode",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.newAppointmentReasonCode.cvCode",
+      "path" : "getappointment.appointment.newAppointmentReasonCode.cvCode",
+      "short" : "cvCode",
+      "definition" : "cvCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.newAppointmentReasonCode.codeSystem",
+      "path" : "getappointment.appointment.newAppointmentReasonCode.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "codeSystem",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.newAppointmentReasonCode.codeSystemName",
+      "path" : "getappointment.appointment.newAppointmentReasonCode.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.newAppointmentReasonCode.codeSystemVersion",
+      "path" : "getappointment.appointment.newAppointmentReasonCode.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.newAppointmentReasonCode.displayName",
+      "path" : "getappointment.appointment.newAppointmentReasonCode.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.newAppointmentReasonCode.originalText",
+      "path" : "getappointment.appointment.newAppointmentReasonCode.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.updateAppointmentReasonText",
+      "path" : "getappointment.appointment.updateAppointmentReasonText",
+      "short" : "updateAppointmentReasonText",
+      "definition" : "updateAppointmentReasonText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.updateAppointmentReasonCode",
+      "path" : "getappointment.appointment.updateAppointmentReasonCode",
+      "short" : "updateAppointmentReasonCode",
+      "definition" : "updateAppointmentReasonCode",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.updateAppointmentReasonCode.cvCode",
+      "path" : "getappointment.appointment.updateAppointmentReasonCode.cvCode",
+      "short" : "cvCode",
+      "definition" : "cvCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.updateAppointmentReasonCode.codeSystem",
+      "path" : "getappointment.appointment.updateAppointmentReasonCode.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "codeSystem",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.updateAppointmentReasonCode.codeSystemName",
+      "path" : "getappointment.appointment.updateAppointmentReasonCode.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.updateAppointmentReasonCode.codeSystemVersion",
+      "path" : "getappointment.appointment.updateAppointmentReasonCode.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.updateAppointmentReasonCode.displayName",
+      "path" : "getappointment.appointment.updateAppointmentReasonCode.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.updateAppointmentReasonCode.originalText",
+      "path" : "getappointment.appointment.updateAppointmentReasonCode.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.alternativeLocation",
+      "path" : "getappointment.appointment.alternativeLocation",
+      "short" : "alternativeLocation",
+      "definition" : "alternativeLocation",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.reference",
+      "path" : "getappointment.appointment.reference",
+      "short" : "reference",
+      "definition" : "reference",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.reference.referenceName",
+      "path" : "getappointment.appointment.reference.referenceName",
+      "short" : "referenceName",
+      "definition" : "referenceName Heter name i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.reference.description",
+      "path" : "getappointment.appointment.reference.description",
+      "short" : "description",
+      "definition" : "description",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment.appointment.reference.link",
+      "path" : "getappointment.appointment.reference.link",
+      "short" : "link",
+      "definition" : "link",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }]
+    },
+    {
+      "id" : "getappointment.resultCode",
+      "path" : "getappointment.resultCode",
+      "short" : "resultCode",
+      "definition" : "resultCode",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/ValueSet/scheduling-resultcode-vs"
+      }
+    },
+    {
+      "id" : "getappointment.resultText",
+      "path" : "getappointment.resultText",
+      "short" : "resultText",
+      "definition" : "resultText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

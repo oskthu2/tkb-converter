@@ -1,0 +1,1204 @@
+# UpdatePerson — Request - strategicresourcemanagement: persons: person v5.1.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **UpdatePerson — Request**
+
+## Logical Model: UpdatePerson — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/StructureDefinition/updateperson-request | *Version*:5.0 |
+| Active as of 2026-10-08 | *Computable Name*:UpdatePersonRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i UpdatePerson (urn:riv:strategicresourcemanagement:persons:person:UpdatePersonResponder:5, UpdatePersonType), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.strategicresourcemanagement-persons-person|current/StructureDefinition/StructureDefinition-updateperson-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-updateperson-request.csv), [Excel](StructureDefinition-updateperson-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "updateperson-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/StructureDefinition/updateperson-request",
+  "version" : "5.0",
+  "name" : "UpdatePersonRequest",
+  "title" : "UpdatePerson — Request",
+  "status" : "active",
+  "date" : "2026-10-08T18:52:53+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i UpdatePerson\n(urn:riv:strategicresourcemanagement:persons:person:UpdatePersonResponder:5, UpdatePersonType), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/StructureDefinition/updateperson-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "updateperson-request",
+      "path" : "updateperson-request",
+      "short" : "UpdatePerson — Request",
+      "definition" : "Logisk modell för begäran i UpdatePerson\n(urn:riv:strategicresourcemanagement:persons:person:UpdatePersonResponder:5, UpdatePersonType), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "updateperson-request.logicalAddress",
+      "path" : "updateperson-request.logicalAddress",
+      "short" : "logicalAddress",
+      "definition" : "SOAP-huvud LogicalAddress. http://tempuri.org",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.actor",
+      "path" : "updateperson-request.actor",
+      "short" : "actor",
+      "definition" : "Datatyp som identifierar en aktör.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.actor.actorId",
+      "path" : "updateperson-request.actor.actorId",
+      "short" : "actorId",
+      "definition" : "En universellt unik identifierare. Heter id i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.actor.actorId.root",
+      "path" : "updateperson-request.actor.actorId.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.actor.actorId.iiExtension",
+      "path" : "updateperson-request.actor.actorId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.actor.professional",
+      "path" : "updateperson-request.actor.professional",
+      "short" : "professional",
+      "definition" : "Datatyp som identifierar en aktör inom en profession.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.actor.professional.organizationId",
+      "path" : "updateperson-request.actor.professional.organizationId",
+      "short" : "organizationId",
+      "definition" : "En universellt unik identifierare.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.actor.professional.organizationId.root",
+      "path" : "updateperson-request.actor.professional.organizationId.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.actor.professional.organizationId.iiExtension",
+      "path" : "updateperson-request.actor.professional.organizationId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.actor.updateTime",
+      "path" : "updateperson-request.actor.updateTime",
+      "short" : "updateTime",
+      "definition" : "updateTime",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.personId",
+      "path" : "updateperson-request.personId",
+      "short" : "personId",
+      "definition" : "En universellt unik identifierare.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.personId.root",
+      "path" : "updateperson-request.personId.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.personId.iiExtension",
+      "path" : "updateperson-request.personId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.gender",
+      "path" : "updateperson-request.gender",
+      "short" : "gender",
+      "definition" : "gender",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.versionToUpdate",
+      "path" : "updateperson-request.versionToUpdate",
+      "short" : "versionToUpdate",
+      "definition" : "versionToUpdate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.updatePersonName",
+      "path" : "updateperson-request.updatePersonName",
+      "short" : "updatePersonName",
+      "definition" : "Namn Heter name i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.updatePersonName.givenNameIndicator",
+      "path" : "updateperson-request.updatePersonName.givenNameIndicator",
+      "short" : "givenNameIndicator",
+      "definition" : "givenNameIndicator",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "updateperson-request.updatePersonName.givenName",
+      "path" : "updateperson-request.updatePersonName.givenName",
+      "short" : "givenName",
+      "definition" : "givenName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.updatePersonName.middleName",
+      "path" : "updateperson-request.updatePersonName.middleName",
+      "short" : "middleName",
+      "definition" : "middleName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.updatePersonName.surname",
+      "path" : "updateperson-request.updatePersonName.surname",
+      "short" : "surname",
+      "definition" : "surname",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.updatePersonName.notificationName",
+      "path" : "updateperson-request.updatePersonName.notificationName",
+      "short" : "notificationName",
+      "definition" : "notificationName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.birth",
+      "path" : "updateperson-request.birth",
+      "short" : "birth",
+      "definition" : "Uppgifter om födelse",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.birth.dateOfBirth",
+      "path" : "updateperson-request.birth.dateOfBirth",
+      "short" : "dateOfBirth",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.birth.dateOfBirth.format",
+      "path" : "updateperson-request.birth.dateOfBirth.format",
+      "short" : "format",
+      "definition" : "format",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "updateperson-request.birth.dateOfBirth.partialDateValue",
+      "path" : "updateperson-request.birth.dateOfBirth.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.birth.placeOfBirthSweden",
+      "path" : "updateperson-request.birth.placeOfBirthSweden",
+      "short" : "placeOfBirthSweden",
+      "definition" : "Uppgifter om hemort i Sverige",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.birth.placeOfBirthSweden.birthCountyCode",
+      "path" : "updateperson-request.birth.placeOfBirthSweden.birthCountyCode",
+      "short" : "birthCountyCode",
+      "definition" : "birthCountyCode",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.birth.placeOfBirthSweden.birthParish",
+      "path" : "updateperson-request.birth.placeOfBirthSweden.birthParish",
+      "short" : "birthParish",
+      "definition" : "birthParish",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.birth.birthAbroad",
+      "path" : "updateperson-request.birth.birthAbroad",
+      "short" : "birthAbroad",
+      "definition" : "Uppgifter om födelse i utlandet",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.birth.birthAbroad.placeOfBirthAbroad",
+      "path" : "updateperson-request.birth.birthAbroad.placeOfBirthAbroad",
+      "short" : "placeOfBirthAbroad",
+      "definition" : "placeOfBirthAbroad",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.birth.birthAbroad.countryOfBirth",
+      "path" : "updateperson-request.birth.birthAbroad.countryOfBirth",
+      "short" : "countryOfBirth",
+      "definition" : "countryOfBirth",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship",
+      "path" : "updateperson-request.relationship",
+      "short" : "relationship",
+      "definition" : "Grupp för relation",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.relationshipId",
+      "path" : "updateperson-request.relationship.relationshipId",
+      "short" : "relationshipId",
+      "definition" : "Grupp för relationspersons identitet Antingen får man personnummer eller datum då personen föddes.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.relationshipId.personalIdentity",
+      "path" : "updateperson-request.relationship.relationshipId.personalIdentity",
+      "short" : "personalIdentity",
+      "definition" : "En universellt unik identifierare.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.relationshipId.personalIdentity.root",
+      "path" : "updateperson-request.relationship.relationshipId.personalIdentity.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.relationshipId.personalIdentity.iiExtension",
+      "path" : "updateperson-request.relationship.relationshipId.personalIdentity.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.relationshipId.dateOfBirth",
+      "path" : "updateperson-request.relationship.relationshipId.dateOfBirth",
+      "short" : "dateOfBirth",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.relationshipId.dateOfBirth.format",
+      "path" : "updateperson-request.relationship.relationshipId.dateOfBirth.format",
+      "short" : "format",
+      "definition" : "format",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "updateperson-request.relationship.relationshipId.dateOfBirth.partialDateValue",
+      "path" : "updateperson-request.relationship.relationshipId.dateOfBirth.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.relationshipType",
+      "path" : "updateperson-request.relationship.relationshipType",
+      "short" : "relationshipType",
+      "definition" : "relationshipType",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.relationshipFromDate",
+      "path" : "updateperson-request.relationship.relationshipFromDate",
+      "short" : "relationshipFromDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.relationshipFromDate.format",
+      "path" : "updateperson-request.relationship.relationshipFromDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "updateperson-request.relationship.relationshipFromDate.partialDateValue",
+      "path" : "updateperson-request.relationship.relationshipFromDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.relationshipToDate",
+      "path" : "updateperson-request.relationship.relationshipToDate",
+      "short" : "relationshipToDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.relationshipToDate.format",
+      "path" : "updateperson-request.relationship.relationshipToDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "updateperson-request.relationship.relationshipToDate.partialDateValue",
+      "path" : "updateperson-request.relationship.relationshipToDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.relationshipName",
+      "path" : "updateperson-request.relationship.relationshipName",
+      "short" : "relationshipName",
+      "definition" : "Namn Heter name i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.relationshipName.givenNameIndicator",
+      "path" : "updateperson-request.relationship.relationshipName.givenNameIndicator",
+      "short" : "givenNameIndicator",
+      "definition" : "givenNameIndicator",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.relationshipName.givenName",
+      "path" : "updateperson-request.relationship.relationshipName.givenName",
+      "short" : "givenName",
+      "definition" : "givenName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.relationshipName.middleName",
+      "path" : "updateperson-request.relationship.relationshipName.middleName",
+      "short" : "middleName",
+      "definition" : "middleName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.relationshipName.surname",
+      "path" : "updateperson-request.relationship.relationshipName.surname",
+      "short" : "surname",
+      "definition" : "surname",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.relationshipName.notificationName",
+      "path" : "updateperson-request.relationship.relationshipName.notificationName",
+      "short" : "notificationName",
+      "definition" : "notificationName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.deregistration",
+      "path" : "updateperson-request.relationship.deregistration",
+      "short" : "deregistration",
+      "definition" : "Uppgifter om avregistrering",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.deregistration.deregistrationReasonCode",
+      "path" : "updateperson-request.relationship.deregistration.deregistrationReasonCode",
+      "short" : "deregistrationReasonCode",
+      "definition" : "deregistrationReasonCode",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.deregistration.deregistrationDate",
+      "path" : "updateperson-request.relationship.deregistration.deregistrationDate",
+      "short" : "deregistrationDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.deregistration.deregistrationDate.format",
+      "path" : "updateperson-request.relationship.deregistration.deregistrationDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "updateperson-request.relationship.deregistration.deregistrationDate.partialDateValue",
+      "path" : "updateperson-request.relationship.deregistration.deregistrationDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.deregistration.foundDeadAtDate",
+      "path" : "updateperson-request.relationship.deregistration.foundDeadAtDate",
+      "short" : "foundDeadAtDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.deregistration.foundDeadAtDate.format",
+      "path" : "updateperson-request.relationship.deregistration.foundDeadAtDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "updateperson-request.relationship.deregistration.foundDeadAtDate.partialDateValue",
+      "path" : "updateperson-request.relationship.deregistration.foundDeadAtDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.relationship.relationshipStatus",
+      "path" : "updateperson-request.relationship.relationshipStatus",
+      "short" : "relationshipStatus",
+      "definition" : "relationshipStatus Heter status i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.givenAddress",
+      "path" : "updateperson-request.givenAddress",
+      "short" : "givenAddress",
+      "definition" : "Svensk adress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.givenAddress.careOf",
+      "path" : "updateperson-request.givenAddress.careOf",
+      "short" : "careOf",
+      "definition" : "careOf",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.givenAddress.postalAddress1",
+      "path" : "updateperson-request.givenAddress.postalAddress1",
+      "short" : "postalAddress1",
+      "definition" : "postalAddress1",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.givenAddress.postalAddress2",
+      "path" : "updateperson-request.givenAddress.postalAddress2",
+      "short" : "postalAddress2",
+      "definition" : "postalAddress2",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.givenAddress.postalCode",
+      "path" : "updateperson-request.givenAddress.postalCode",
+      "short" : "postalCode",
+      "definition" : "postalCode",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "updateperson-request.givenAddress.city",
+      "path" : "updateperson-request.givenAddress.city",
+      "short" : "city",
+      "definition" : "city",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.deregistration",
+      "path" : "updateperson-request.deregistration",
+      "short" : "deregistration",
+      "definition" : "Uppgifter om avregistrering",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.deregistration.deregistrationReasonCode",
+      "path" : "updateperson-request.deregistration.deregistrationReasonCode",
+      "short" : "deregistrationReasonCode",
+      "definition" : "deregistrationReasonCode",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.deregistration.deregistrationDate",
+      "path" : "updateperson-request.deregistration.deregistrationDate",
+      "short" : "deregistrationDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.deregistration.deregistrationDate.format",
+      "path" : "updateperson-request.deregistration.deregistrationDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "updateperson-request.deregistration.deregistrationDate.partialDateValue",
+      "path" : "updateperson-request.deregistration.deregistrationDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.deregistration.foundDeadAtDate",
+      "path" : "updateperson-request.deregistration.foundDeadAtDate",
+      "short" : "foundDeadAtDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.deregistration.foundDeadAtDate.format",
+      "path" : "updateperson-request.deregistration.foundDeadAtDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "updateperson-request.deregistration.foundDeadAtDate.partialDateValue",
+      "path" : "updateperson-request.deregistration.foundDeadAtDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.administrativeInformation",
+      "path" : "updateperson-request.administrativeInformation",
+      "short" : "administrativeInformation",
+      "definition" : "Klass för administrativa tilläggsuppgifter. Normalt tilläggsuppgifter kring en person med en reservidentitet som registreras i samband med uttag av reservidentitet (LRID/NRID).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.administrativeInformation.categoryOfPerson",
+      "path" : "updateperson-request.administrativeInformation.categoryOfPerson",
+      "short" : "categoryOfPerson",
+      "definition" : "categoryOfPerson",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.administrativeInformation.accountCode",
+      "path" : "updateperson-request.administrativeInformation.accountCode",
+      "short" : "accountCode",
+      "definition" : "accountCode",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.administrativeInformation.comment",
+      "path" : "updateperson-request.administrativeInformation.comment",
+      "short" : "comment",
+      "definition" : "comment",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.confirmedIdentity",
+      "path" : "updateperson-request.confirmedIdentity",
+      "short" : "confirmedIdentity",
+      "definition" : "Klass för hur reservidentitetsuppgifter är styrkta.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.confirmedIdentity.typeOfIdentification",
+      "path" : "updateperson-request.confirmedIdentity.typeOfIdentification",
+      "short" : "typeOfIdentification",
+      "definition" : "typeOfIdentification",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.confirmedIdentity.identificationNumber",
+      "path" : "updateperson-request.confirmedIdentity.identificationNumber",
+      "short" : "identificationNumber",
+      "definition" : "identificationNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.confirmedIdentity.issuersOfId",
+      "path" : "updateperson-request.confirmedIdentity.issuersOfId",
+      "short" : "issuersOfId",
+      "definition" : "issuersOfId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.confirmedIdentity.validDatePeriod",
+      "path" : "updateperson-request.confirmedIdentity.validDatePeriod",
+      "short" : "validDatePeriod",
+      "definition" : "validDatePeriod",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.confirmedIdentity.validDatePeriod.start",
+      "path" : "updateperson-request.confirmedIdentity.validDatePeriod.start",
+      "short" : "start",
+      "definition" : "start",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "updateperson-request.confirmedIdentity.validDatePeriod.end",
+      "path" : "updateperson-request.confirmedIdentity.validDatePeriod.end",
+      "short" : "end",
+      "definition" : "end",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "updateperson-request.confirmedIdentity.attachmentId",
+      "path" : "updateperson-request.confirmedIdentity.attachmentId",
+      "short" : "attachmentId",
+      "definition" : "attachmentId",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.confirmedIdentity.countryCode",
+      "path" : "updateperson-request.confirmedIdentity.countryCode",
+      "short" : "countryCode",
+      "definition" : "countryCode",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.addressAbroad",
+      "path" : "updateperson-request.addressAbroad",
+      "short" : "addressAbroad",
+      "definition" : "Utlandsadress",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.addressAbroad.postalAddress1",
+      "path" : "updateperson-request.addressAbroad.postalAddress1",
+      "short" : "postalAddress1",
+      "definition" : "postalAddress1",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.addressAbroad.postalAddress2",
+      "path" : "updateperson-request.addressAbroad.postalAddress2",
+      "short" : "postalAddress2",
+      "definition" : "postalAddress2",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.addressAbroad.postalAddress3",
+      "path" : "updateperson-request.addressAbroad.postalAddress3",
+      "short" : "postalAddress3",
+      "definition" : "postalAddress3",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.addressAbroad.countryCode",
+      "path" : "updateperson-request.addressAbroad.countryCode",
+      "short" : "countryCode",
+      "definition" : "countryCode",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.addressAbroad.addressAbroadDate",
+      "path" : "updateperson-request.addressAbroad.addressAbroadDate",
+      "short" : "addressAbroadDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.addressAbroad.addressAbroadDate.format",
+      "path" : "updateperson-request.addressAbroad.addressAbroadDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "updateperson-request.addressAbroad.addressAbroadDate.partialDateValue",
+      "path" : "updateperson-request.addressAbroad.addressAbroadDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updateperson-request.addressAbroad.votingDate",
+      "path" : "updateperson-request.addressAbroad.votingDate",
+      "short" : "votingDate",
+      "definition" : "Kan beskriva ett datum med variabel noggrannhet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updateperson-request.addressAbroad.votingDate.format",
+      "path" : "updateperson-request.addressAbroad.votingDate.format",
+      "short" : "format",
+      "definition" : "format",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/strategicresourcemanagement-persons-person/ValueSet/SPP-datetypeformat-vs"
+      }
+    },
+    {
+      "id" : "updateperson-request.addressAbroad.votingDate.partialDateValue",
+      "path" : "updateperson-request.addressAbroad.votingDate.partialDateValue",
+      "short" : "partialDateValue",
+      "definition" : "partialDateValue Heter value i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

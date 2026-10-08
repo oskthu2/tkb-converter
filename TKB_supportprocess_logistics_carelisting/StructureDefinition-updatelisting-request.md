@@ -1,0 +1,262 @@
+# UpdateListing — Request - supportprocess: logistics: carelisting v2.1.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **UpdateListing — Request**
+
+## Logical Model: UpdateListing — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/supportprocess-logistics-carelisting/StructureDefinition/updatelisting-request | *Version*:2.0 |
+| Active as of 2026-10-08 | *Computable Name*:UpdateListingRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i UpdateListing (urn:riv:supportprocess:logistics:carelisting:UpdateListingResponder:2, UpdateListingType), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.supportprocess-logistics-carelisting|current/StructureDefinition/StructureDefinition-updatelisting-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-updatelisting-request.csv), [Excel](StructureDefinition-updatelisting-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "updatelisting-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/supportprocess-logistics-carelisting/StructureDefinition/updatelisting-request",
+  "version" : "2.0",
+  "name" : "UpdateListingRequest",
+  "title" : "UpdateListing — Request",
+  "status" : "active",
+  "date" : "2026-10-08T18:55:13+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i UpdateListing\n(urn:riv:supportprocess:logistics:carelisting:UpdateListingResponder:2, UpdateListingType), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/supportprocess-logistics-carelisting/StructureDefinition/updatelisting-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "updatelisting-request",
+      "path" : "updatelisting-request",
+      "short" : "UpdateListing — Request",
+      "definition" : "Logisk modell för begäran i UpdateListing\n(urn:riv:supportprocess:logistics:carelisting:UpdateListingResponder:2, UpdateListingType), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "updatelisting-request.logicalAddress",
+      "path" : "updatelisting-request.logicalAddress",
+      "short" : "logicalAddress",
+      "definition" : "SOAP-huvud LogicalAddress. The county/region code",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatelisting-request.personId",
+      "path" : "updatelisting-request.personId",
+      "short" : "personId",
+      "definition" : "personId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updatelisting-request.personId.root",
+      "path" : "updatelisting-request.personId.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatelisting-request.personId.iIExtension",
+      "path" : "updatelisting-request.personId.iIExtension",
+      "short" : "iIExtension",
+      "definition" : "iIExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatelisting-request.newListingCounty",
+      "path" : "updatelisting-request.newListingCounty",
+      "short" : "newListingCounty",
+      "definition" : "newListingCounty",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updatelisting-request.newListingCounty.root",
+      "path" : "updatelisting-request.newListingCounty.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatelisting-request.newListingCounty.iIExtension",
+      "path" : "updatelisting-request.newListingCounty.iIExtension",
+      "short" : "iIExtension",
+      "definition" : "iIExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatelisting-request.homeCounty",
+      "path" : "updatelisting-request.homeCounty",
+      "short" : "homeCounty",
+      "definition" : "homeCounty",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updatelisting-request.homeCounty.root",
+      "path" : "updatelisting-request.homeCounty.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatelisting-request.homeCounty.iIExtension",
+      "path" : "updatelisting-request.homeCounty.iIExtension",
+      "short" : "iIExtension",
+      "definition" : "iIExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatelisting-request.listingType",
+      "path" : "updatelisting-request.listingType",
+      "short" : "listingType",
+      "definition" : "listingType",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "updatelisting-request.listingType.cVCode",
+      "path" : "updatelisting-request.listingType.cVCode",
+      "short" : "cVCode",
+      "definition" : "cVCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatelisting-request.listingType.codeSystem",
+      "path" : "updatelisting-request.listingType.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "codeSystem",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatelisting-request.listingType.codeSystemName",
+      "path" : "updatelisting-request.listingType.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatelisting-request.listingType.codeSystemVersion",
+      "path" : "updatelisting-request.listingType.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatelisting-request.listingType.displayName",
+      "path" : "updatelisting-request.listingType.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "updatelisting-request.listingType.originalText",
+      "path" : "updatelisting-request.listingType.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

@@ -1,0 +1,27 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getemployeeincludingprotectedperson-request","getemployeeincludingprotectedperson-request","","","",0,*,"","","","null {[]} {[]}
+","GetEmployeeIncludingProtectedPerson — Request","Logisk modell för requestparametrar i tjänstekontraktet GetEmployeeIncludingProtectedPerson
+(RIV-TA urn:riv:infrastructure:directory:employee:GetEmployeeIncludingProtectedPerson:4).
+OBS: Exakt ett av fälten personHsaId och personalIdentityNumber ska anges (*1).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getemployeeincludingprotectedperson-request.personHsaId","getemployeeincludingprotectedperson-request.personHsaId","","","",0,1,"","","","string {[]} {[]}
+","Sökt persons HSA-id","Sökt persons HSA-id. Ref. HSA-id (hsaIdentity) [R5].
+Kardinalitet: Villkorlig (*1) — exakt ett av personHsaId/personalIdentityNumber ska anges.","","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson-request.personHsaId",0,1,"",""
+"getemployeeincludingprotectedperson-request.personalIdentityNumber","getemployeeincludingprotectedperson-request.personalIdentityNumber","","","",0,1,"","","","string {[]} {[]}
+","Sökt persons Person-id (personnummer eller samordningsnummer)","Sökt persons Person-id (personnummer eller samordningsnummer).
+Ref. person-id (personalIdentityNumber) [R5].
+Kardinalitet: Villkorlig (*1) — exakt ett av personHsaId/personalIdentityNumber ska anges.","","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson-request.personalIdentityNumber",0,1,"",""
+"getemployeeincludingprotectedperson-request.searchBase","getemployeeincludingprotectedperson-request.searchBase","","","",0,1,"","","","string {[]} {[]}
+","Sökbas (DN)","Sökbas. Om ingen sökbas anges används c=SE som sökbas.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson-request.searchBase",0,1,"",""
+"getemployeeincludingprotectedperson-request.includeFeignedObject","getemployeeincludingprotectedperson-request.includeFeignedObject","","","",0,1,"","","","boolean {[]} {[]}
+","Inkludera fingerade objekt","true: om metoden ska leverera svar med fingerade objekt.
+Uteblivet värde tolkas som false. Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson-request.includeFeignedObject",0,1,"",""
+"getemployeeincludingprotectedperson-request.profile","getemployeeincludingprotectedperson-request.profile","","","",0,1,"","","","string {[]} {[]}
+","Profilval för returnerade attribut (BASIC, TITLE, CONTACT, FULL, extended1)","Anger vilka attribut som returneras i svaret.
+BASIC: personHsaId, givenName, middleAndSurName, nickname, dn, protectedPerson, feignedPerson.
+TITLE: Alla BASIC-attribut samt description, title, healthCareProfessionalLicence, m.fl.
+CONTACT: Alla BASIC-attribut samt mail, telefonnummer, adress m.fl.
+FULL: Alla BASIC-, TITLE- och CONTACT-attribut.
+extended1: Alla FULL-attribut samt age och gender.
+Om värdet utelämnas antas FULL.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getemployeeincludingprotectedperson-request.profile",0,1,"",""

@@ -1,0 +1,2124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>3 Tjänstedomänens arkitektur - supportprocess: logistics: scheduling v2.0.0-rc1</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"4"}
+    h3,h4,h5,h6{--heading-prefix:"4"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">supportprocess: logistics: scheduling</span>
+            <br/>
+            <span style="display:inline-block;">2.0.0-rc1 - RC
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Kapitel<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="1-inledning.html">1 Inledning</a></li>
+      <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+      <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+      <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+      <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+      <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma informationskomponenter</a></li>
+      <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+    </ul>
+  </li>
+  <li><a href="7-tjanstekontrakt.html">Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>3 Tjänstedomänens arkitektur</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">supportprocess: logistics: scheduling - Local Development build (v2.0.0-rc1) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/supportprocess-logistics-scheduling/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>3 Tjänstedomänens arkitektur</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#3-tjänstedomänens-arkitektur" id="markdown-toc-3-tjänstedomänens-arkitektur">3 Tjänstedomänens arkitektur</a>    <ul>
+      <li><a href="#31-obligatoriska-kontrakt" id="markdown-toc-31-obligatoriska-kontrakt">3.1 Obligatoriska kontrakt</a></li>
+      <li><a href="#32-flöden" id="markdown-toc-32-flöden">3.2 Flöden</a></li>
+      <li><a href="#33-adressering" id="markdown-toc-33-adressering">3.3 Adressering</a></li>
+      <li><a href="#34-aggregering-och-engagemangsindex" id="markdown-toc-34-aggregering-och-engagemangsindex">3.4 Aggregering och engagemangsindex</a></li>
+      <li><a href="#35-anvisningar-för-uppdatering-av-engagemangsindex" id="markdown-toc-35-anvisningar-för-uppdatering-av-engagemangsindex">3.5 Anvisningar för uppdatering av Engagemangsindex</a></li>
+      <li><a href="#36-aktör-som-utför-bokning" id="markdown-toc-36-aktör-som-utför-bokning">3.6 Aktör som utför bokning</a></li>
+      <li><a href="#37-resultcode" id="markdown-toc-37-resultcode">3.7 ResultCode</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="3-tjänstedomänens-arkitektur">3 Tjänstedomänens arkitektur</h1>
+
+<p>Källa: <em>Tjänstekontraktsbeskrivning Tidbokning</em>, version 2.0 RC2 (2023-11-01), <a href="TKB_supportprocess_logistics_scheduling.docx">TKB_supportprocess_logistics_scheduling.docx</a>.</p>
+
+<p>I detta avsnitt beskrivs hur T-boken tillämpats i tjänstedomänen. Avsnittet syftar till att ge läsaren överblick och förståelse. Avsnittet innehåller inga regler, men ger ett sammanhang för de regler som beskrivs i övriga delar av dokumentet.</p>
+
+<p>Kapitlet beskriver de flöden som är relevanta för tjänstedomänen. Beskrivningarna är i form av flödesmodeller, för varje flöde finns dels ett arbetsflöde som beskriver vilka steg som ingår i flödet, dels ett sekvensdiagram som tar hänsyn till vilka tjänstekontrakt som nyttjas i de olika stegen.</p>
+
+<h3 id="31-obligatoriska-kontrakt">3.1 Obligatoriska kontrakt</h3>
+
+<p>En tjänsteproducent måste minst stödja kontrakten GetAppointments och GetAppointment. Övriga av tjänstedomänens tjänstekontrakt är frivilliga att stödja för tjänsteproducent. Tjänsteproducent ska åtminstone kunna returnera invånares bokade tider på vårdenheten/vårdcentralen. Som en följd av detta måste tjänsteproducent samtidigt också uppdatera engagemangsindex med indexposter som motsvarar bokningarna. Se referens [R2] - Tjänstedomän Engagemangsindex för vidare detaljer kring tjänstekontraktet Update, likaså denna tjänstedomäns specifika regler som gäller utöver tjänstedomänen för engagemangsindex (kap i detta dokument: Anvisningar för uppdatering av Engagemangsindex).</p>
+
+<p>En tjänstekonsument kan välja att stödja ett eller flera av tjänstedomänens flöden enligt nedan. Då flera av tjänstekontrakten som innefattas i respektive flöde är frivilliga för tjänsteproducent behöver tjänstekonsument ta hänsyn till det faktum att en adresserad vårdenhet/vårdcentral (logisk adress) saknar stöd för tilltänkt tjänstekontrakt. Tjänstekonsumenten behöver därmed säkerställa detta genom att exempelvis kunna hantera felkod/returkod genererad av tjänsteplattform eller på förhand säkerställa att adresserad logisk adress finns i tjänsteadresseringskatalogen (TAK). Detta kan exempelvis implementeras via tjänstekontraktet GetSupportedServiceContract (se ref [R3] - Tjänstedomän Tjänsteadressering) eller genom tjänstekonsumentens egen lokala konfiguration.</p>
+
+<h3 id="32-flöden">3.2 Flöden</h3>
+
+<p>Flödena beskriver interaktionerna mellan e-tjänst för tidbokning (tjänstekonsument) och en verksamhets tidbokningssystem (tjänsteproducent).</p>
+
+<p>Följande flöden är definierade i domänen:</p>
+
+<p>Flöde 1 – Boka tid direkt på vårdcentral</p>
+
+<p>1a – Boka tid direkt på vårdcentral</p>
+
+<p>1b – Boka tid direkt på virtuell vårdcentral</p>
+
+<p>Flöde 2 – Boka tid med ett kvalificerande försteg (triagering)</p>
+
+<p>Flöde 3 – Boka tid via en digital kallelse</p>
+
+<p>Flöde 4 – Bekräfta en av verksamheten bokad tid</p>
+
+<p>Flöde 5 – Se bokade tider vid en vårdenhet</p>
+
+<p>Flöde 6 – Se bokade tider - nationell kalender</p>
+
+<p>Flöde 7 – Hitta lediga tider baserat på vald vårdtjänst</p>
+
+<p>Flöde 8 – Omboka tid</p>
+
+<p>Flöde 9 – Avboka tid</p>
+
+<p>Följande tabell specificerar vilka kontrakt som är obligatoriska att realisera i respektive flöde:</p>
+
+<p>X= Tjänstekontraktet används i flödet, (X) = Tjänstekontraktet är frivilligt i flödet, ((X)) = Tjänstekontraktet används indirekt i flödet, då flödet kan relatera till annat flöde</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Tjänstekontrakt</th>
+      <th style="text-align: left">1a</th>
+      <th style="text-align: left">1b</th>
+      <th style="text-align: left">2</th>
+      <th style="text-align: left">3</th>
+      <th style="text-align: left">4</th>
+      <th style="text-align: left">5</th>
+      <th style="text-align: left">6</th>
+      <th style="text-align: left">7</th>
+      <th style="text-align: left">8</th>
+      <th style="text-align: left">9</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">CancelAppointment</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">((X))</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">((X))</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ConfirmBooking</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetHealthcareFacility</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetHealthcareFacilities</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">((X))</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">((X))</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">(X)</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetPractitioners</td>
+      <td style="text-align: left">(X)</td>
+      <td style="text-align: left">(X)</td>
+      <td style="text-align: left">(X)</td>
+      <td style="text-align: left">(X)</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">((X))</td>
+      <td style="text-align: left">(X)</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetTimeTypes</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetAvailableDates</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">((X))</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">((X))</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetAvailableTimeslots</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">((X))</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">((X))</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetAppointment</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetAppointments</td>
+      <td style="text-align: left">(X)</td>
+      <td style="text-align: left">(X)</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">((X))</td>
+      <td style="text-align: left">((X))</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MakeAppointment</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">((X))</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UpdateAppointment</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">((X))</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">((X))</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="321-flöde-1a--boka-tid-direkt-på-vårdcentral">3.2.1 Flöde 1a – Boka tid direkt på vårdcentral</h4>
+
+<p>Flödet beskriver hur invånare bokar tid på en utvald vårdcentral. Flödet utgår från att invånaren i förväg vet vilken vårdcentral som invånaren vill boka tid på.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Förutsättningar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Vårdcentralen erbjuder invånare möjlighet att utan förkrav boka ny tid, exempelvis utan att ha kallat invånare / Vårdcentralen ingår inte som en del av en grupp vårdcentraler, eller är en virtuell vårdcentral för flera fysiska vårdcentraler (m a o exponerar inte tjänstekontraktet GetHealthcareFacilities)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3211-sekvensdiagram">3.2.1.1 Sekvensdiagram</h5>
+
+<p>Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan beskrivna flödet.</p>
+
+<p><img src="img_018.jpeg" alt="Sekvensdiagram" /></p>
+
+<h5 id="3212-aktörer">3.2.1.2 Aktörer</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Invånare</td>
+      <td style="text-align: left">Person i behov av att en boka tid.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tidbokningssystem</td>
+      <td style="text-align: left">Regionens verksamhetssystem som administrerar tidbokning, resursplanering av personal och resurser mm</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">E-tjänst/tidbokningstjänst</td>
+      <td style="text-align: left">Digital tjänst som möjliggör tidbokning för invånare</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3213-arbetssteg">3.2.1.3 Arbetssteg</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Steg</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">Invånare loggar in i e-tjänst via stark autentisering, exempelvis via mobilt bankId i 1177 e-tjänster.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Invånare söker fram önskad vårdcentral för att boka tid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">Invånare väljer tjänst som erbjuder nybokning hos vårdcentralen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">E-tjänst anropar tjänstekontraktet GetHealthcareFacility för att hämta information om vårdcentralen. Svaret innehåller bl a eventuella villkorstexter eller informationstexter som vårdcentralen vill förmedla, sådana villkorstexter och informationstexter som gäller generellt för vårdcentralen, oavsett tidstyp, vårdtjänst eller typ av flöde (nybokning, ombokning eller avbokning).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">E-tjänst presenterar villkorstexter och informationstexter till invånaren. Invånaren behöver aktivt bekräfta villkorstexterna (om sådana finns) för att kunna fortsätta i flödet.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">6</td>
+      <td style="text-align: left">E-tjänst hämtar vårdcentralens erbjudna tidstyper.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">7</td>
+      <td style="text-align: left">E-tjänst presenterar tidstyperna som vårdcentralen erbjuder. De tidstyper som vårdcentralen har märkt som gömda (skyddade) visas inte för invånaren. Vårdcentralen kan välja att mappa varje tidstyp mot den/de vårdtjänster som kan erbjudas för tidstypen. E-tjänst presenterar en lista med val. Om tidstyperna inte är mappade mot vårdtjänster erbjuds invånaren att välja bland tidstyperna. Om vårdcentralen har mappat tidstyperna mot vårdtjänster visas lista med vårdtjänster.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">8</td>
+      <td style="text-align: left">Invånare väljer en tidstyp eller vårdtjänst från listan att boka tid för.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">9</td>
+      <td style="text-align: left">Om vårdcentralen erbjuder möjlighet att också boka/välja vårdpersonal i samband med bokningen anropar e-tjänst det frivilliga tjänstekontraktet GetPractitioners. Listan med vårdpersonal visas för invånaren. E-tjänst tillåter även invånare att gå vidare utan att specifikt välja vårdpersonal.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">Invånaren väljer vårdpersonal i listan (om vårdcentralen erbjuder valmöjligheten)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">11</td>
+      <td style="text-align: left">E-tjänst hämtar lediga datum baserat på vald tidstyp, vårdtjänst och vårdpersonal.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">12</td>
+      <td style="text-align: left">Invånare väljer datum för att se lediga tider</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">13</td>
+      <td style="text-align: left">E-tjänst hämtar lediga tider för valt datum, samt för vald typ av tid (tidstyp), vårdtjänst och vårdpersonal.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">14</td>
+      <td style="text-align: left">Invånare väljer en tid att boka</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">15</td>
+      <td style="text-align: left">Baserat på tidstypens inställning (inställning som hämtats tillsammans med tidstypen) kan verksamheten kräva att invånaren anger en anledning till bokningen. Verksamheten kan välja att kräva att invånaren anger anledning eller att invånaren frivilligt anger anledning eller att invånaren inte får ange anledning (då visas inte möjlighet för invånaren att ange en anledning)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">16</td>
+      <td style="text-align: left">Invånaren anger en anledning till bokningen (baserat på tidstypens inställning enligt föregående steg)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">17</td>
+      <td style="text-align: left">Invånaren bekräftar eventuella villkor och bokar tiden</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">18</td>
+      <td style="text-align: left">E-tjänst begär att boka vald tid genom att anropa tjänstekontraktet MakeAppointment.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">19</td>
+      <td style="text-align: left">Om bokningen lyckas, anropar e-tjänsten tjänstekontraktet GetAppointment för att hämta detaljer om bokningen. Verksamheten kan ha valt att komplettera bokningen med ytterligare detaljer, t ex en unik länk till ett videobesök i fall att kontaktsättet är videobesök.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">20</td>
+      <td style="text-align: left">E-tjänst presenterar en bokningsbekräftelse med detaljerna som hämtats.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">21</td>
+      <td style="text-align: left">Verksamheten skickar en bokningsbekräftelse till invånaren, t ex till 1177 Inkorgen. Verksamheten kan i bokningsbekräftelsen också samtidigt erbjuda möjlighet till avbokning eller ombokning.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="322-flöde-1b--boka-tid-direkt-på-virtuell-vårdcentral">3.2.2 Flöde 1b – Boka tid direkt på virtuell vårdcentral</h4>
+
+<p>Flödet beskriver hur invånare bokar tid på en utvald vårdcentral. Flödet utgår från att invånaren i förväg vet vilken vårdcentral som invånaren vill boka tid på. Verksamheten har i förväg grupperat sina vårdcentraler som erbjuder samma typ av tider, där denna vårdcentral ingår i gruppen. Invånaren tillåts därmed i flödet att även välja en annan vårdcentral inom gruppen.</p>
+
+<p>Ett exempel på en sådan verksamhetsmässig uppdelning kan vara då verksamheten väljer att i e-tjänst till invånare publicera en virtuell vårdcentral som i sin tur innefattar flera olika fysiska vårdcentraler, på olika platser.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Förutsättningar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Vårdcentralen erbjuder invånare möjlighet att utan för-krav boka ny tid, exempelvis att ha kallat invånare / Vårdcentralen ingår som en del av en grupp vårdcentraler, eller är en virtuell vårdcentral för flera fysiska vårdcentraler (m a o stödjer tjänstekontraktet GetHealthcareFacilities)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3221-sekvensdiagram">3.2.2.1 Sekvensdiagram</h5>
+
+<p>Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan beskrivna flödet.</p>
+
+<p><img src="img_001.jpeg" alt="Sekvensdiagram" /></p>
+
+<h5 id="3222-roller">3.2.2.2 Roller</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Invånare</td>
+      <td style="text-align: left">Person i behov av att en boka tid.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tidbokningssystem</td>
+      <td style="text-align: left">Regionens verksamhetssystem som administrerar tidbokning, resursplanering av personal och resurser mm</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">E-tjänst/tidbokningstjänst</td>
+      <td style="text-align: left">Digital tjänst som möjliggör tidbokning för invånare</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3223-arbetssteg">3.2.2.3 Arbetssteg</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Steg</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">Invånare loggar in i e-tjänst via stark autentisering, exempelvis via mobilt bankId i 1177 e-tjänster.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Invånare söker fram önskad vårdcentral för att boka tid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">Invånare väljer tjänst som erbjuder nybokning hos vårdcentralen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">Tidbokningstjänst anropar tjänstekontraktet GetHealthcareFacility för att hämta information om vårdcentralen. Svaret innehåller bl a eventuella villkorstexter eller informationstexter som vårdcentralen vill förmedla, sådana villkorstexter och informationstexter som gäller generellt för vårdcentralen, oavsett tidstyp eller vårdtjänst.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">E-tjänst presenterar villkorstexter och informationstexter till invånaren. Invånaren behöver aktivt bekräfta villkorstexterna (om sådana finns) för att kunna fortsätta i flödet.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">6</td>
+      <td style="text-align: left">E-tjänst hämtar vårdcentralens erbjudna tidstyper.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">7</td>
+      <td style="text-align: left">E-tjänst presenterar tidstyperna som vårdcentralen erbjuder. De tidstyper som vårdcentralen har märkt som gömda visas inte för invånaren. Vårdcentralen kan välja att mappa varje tidstyp mot den/de vårdtjänster som kan erbjudas för tidstypen. E-tjänst presenterar en lista med val. Om tidstyperna inte är mappade mot vårdtjänster erbjuds invånaren att välja bland tidstyperna. Om vårdcentralen har mappat tidstyperna mot vårdtjänster visas lista med vårdtjänster.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">8</td>
+      <td style="text-align: left">Invånare väljer en tidstyp eller vårdtjänst från listan att boka tid för</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">9</td>
+      <td style="text-align: left">E-tjänst hämtar lista med andra vårdcentraler som ingår i grupp med vald vårdcentral. E-tjänst skickar med tidigare vald tidstyp, så att tidbokningssystemet kan returnera vårdcentraler i gruppen som också erbjuder samma tidstyp</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">Invånare väljer en annan vårdcentral från listan eller låter ursprungsvårdcentralen vara valet att gå vidare med</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">11</td>
+      <td style="text-align: left">Om vårdcentralen erbjuder möjlighet att boka vårdpersonal i samband med bokningen anropar e-tjänst det frivilliga tjänstekontraktet GetPractitioners. Listan med vårdpersonal visas för invånaren. E-tjänst tillåter även invånare att gå vidare utan att välja vårdpersonal.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">12</td>
+      <td style="text-align: left">Invånaren väljer vårdpersonal i listan (om vårdcentralen erbjuder valmöjligheten)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">13</td>
+      <td style="text-align: left">E-tjänst hämtar lediga datum baserat på vald tidstyp, vårdtjänst och vårdpersonal.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">14</td>
+      <td style="text-align: left">Invånare väljer datum för att se lediga tider</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">15</td>
+      <td style="text-align: left">E-tjänst hämtar lediga tider för valt datum, samt för vald tidstyp, vårdtjänst och vårdpersonal.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">16</td>
+      <td style="text-align: left">Invånare väljer en tid att boka</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">17</td>
+      <td style="text-align: left">Baserat på tidstypens inställning (inställning som hämtats tillsammans med tidstypen) kan verksamheten kräva att invånaren anger en anledning till bokningen. Verksamheten kan välja att kräva att invånaren anger något eller att invånaren frivilligt anger något eller att invånaren inte får ange något (då visas inte något till invånaren)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">18</td>
+      <td style="text-align: left">Invånaren anger en anledning till bokningen (baserat på tidstypens inställning enligt föregående steg)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">19</td>
+      <td style="text-align: left">Invånaren bekräftar eventuella villkor och bokar tiden</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">20</td>
+      <td style="text-align: left">E-tjänst begär att boka vald tid genom att anropa tjänstekontraktet MakeAppointment.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">21</td>
+      <td style="text-align: left">Om bokningen lyckas anropar e-tjänst tjänstekontraktet GetAppointment för att hämta detaljer om bokningen. Verksamheten kan ha valt att komplettera bokningen med ytterligare detaljer, t ex en unik länk till ett videobesök i fall att kontaktsättet är videobesök.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">22</td>
+      <td style="text-align: left">E-tjänst presenterar en bokningsbekräftelse med detaljerna som hämtats</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">23</td>
+      <td style="text-align: left">Verksamheten skickar en bokningsbekräftelse till invånaren, t ex till 1177 Inkorgen. Verksamheten kan i bokningsbekräftelsen också samtidigt erbjuda möjlighet till avbokning eller ombokning.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="323-flöde-2--boka-tid-med-ett-kvalificerande-försteg-triagering-som-görs-av-vårdcentralen">3.2.3 Flöde 2 – Boka tid med ett kvalificerande försteg (triagering som görs av vårdcentralen)</h4>
+
+<p>Flödet utgår från att invånaren i förväg vet vilken vårdcentral som invånaren vill boka tid på. Vårdcentralen erbjuder olika typer av tider men kräver att invånare genomgår en triagering. Baserat på utfallet hänvisas invånaren till en specifik typ av tid.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Förutsättningar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Vårdcentralen erbjuder invånare möjlighet att utan förkrav boka ny tid, exempelvis att ha kallat invånare / Vårdcentralen erbjuder tidbokning men först efter att invånaren blivit kvalificerad till specifik typ av tid. Exempel på ett sådant försteg kan vara ett frågebatteri som invånaren först måste besvara. Baserat på invånarens svar hänvisas invånaren att boka tid av framräknad typ av tid.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3231-sekvensdiagram">3.2.3.1 Sekvensdiagram</h5>
+
+<p>Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan beskrivna flödet.</p>
+
+<p><img src="img_014.jpeg" alt="Sekvensdiagram" /></p>
+
+<h5 id="3232-roller">3.2.3.2 Roller</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Invånare</td>
+      <td style="text-align: left">Person i behov av att en boka tid.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tidbokningssystem</td>
+      <td style="text-align: left">Regionens verksamhetssystem som administrerar tidbokning, resursplanering av personal och resurser mm</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">E-tjänst/tidbokningstjänst</td>
+      <td style="text-align: left">Digital tjänst som möjliggör tidbokning för invånare</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3233-arbetssteg">3.2.3.3 Arbetssteg</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Steg</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">Invånare loggar in i e-tjänst via stark autentisering, exempelvis via mobilt bankId i 1177 Vårdguidens e-tjänster. Invånare söker fram önskad vårdcentral för att boka tid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Invånare väljer vårdcentral att boka tid hos. Vårdcentralen kan exempelvis vara den vårdcentral invånaren har som sitt vårdval eller vårdcentral som invånaren på annat sätt sökt fram i 1177.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">Vårdcentralen erbjuder inte sin tidbokningstjänst direkt till invånaren utan har i stället valt att låta invånaren svara på ett par frågor, för att därigenom hänvisa invånaren till rätt typ av tid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">Hänvisningstjänst beräknar fram en typ av tid eller vårdtjänst baserat på invånarens svar</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">Hänvisningstjänst dirigerar vidare invånaren till vårdcentralens tidbokningstjänst och med typ av tid eller vårdtjänst som parameter</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">6</td>
+      <td style="text-align: left">E-tjänst hämtar lista med andra vårdcentraler som ingår i grupp med vald vårdcentral. E-tjänst skickar med tidigare vald tidstyp, så att tidbokningssystemet kan returnera vårdcentraler i gruppen som också erbjuder samma tidstyp</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">7</td>
+      <td style="text-align: left">Invånare väljer en annan vårdcentral från listan eller låter ursprungsvårdcentralen vara valet att gå vidare med</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">8</td>
+      <td style="text-align: left">Tidbokningstjänst anropar tjänstekontraktet GetHealthcareFacility för att hämta information om vårdcentralen. Svaret innehåller bl a eventuella villkorstexter eller informationstexter som vårdcentralen vill förmedla, sådana villkorstexter och informationstexter som gäller generellt för vårdcentralen, oavsett tidstyp eller vårdtjänst.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">9</td>
+      <td style="text-align: left">Tidbokningstjänst presenterar villkorstexter och informationstexter till invånaren. Invånaren behöver bekräfta villkorstexterna.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">Om vårdcentralen erbjuder möjlighet att boka vårdpersonal i samband med bokningen anropar e-tjänst det frivilliga tjänstekontraktet GetPractitioners. Listan med vårdpersonal visas för invånaren. E-tjänst tillåter även invånare att gå vidare utan att välja vårdpersonal.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">11</td>
+      <td style="text-align: left">Invånaren väljer vårdpersonal i listan (om vårdcentralen erbjuder valmöjligheten)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">12</td>
+      <td style="text-align: left">E-tjänst hämtar lediga datum baserat på aktuell tidstyp, vårdtjänst och vårdpersonal.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">13</td>
+      <td style="text-align: left">Invånare väljer datum för att se lediga tider</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">14</td>
+      <td style="text-align: left">E-tjänst hämtar lediga tider för valt datum, samt för vald tidstyp, vårdtjänst och vårdpersonal (via tjänstekontraktet GetAvailableTimeslots).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">15</td>
+      <td style="text-align: left">Invånare väljer en tid att boka</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">16</td>
+      <td style="text-align: left">Baserat på tidstypens inställning (inställning som hämtats tillsammans med tidstypen) kan verksamheten kräva att invånaren anger en anledning till bokningen. Verksamheten kan välja att kräva att invånaren anger något eller att invånaren frivilligt anger något eller att invånaren inte får ange något (då visas inte något till invånaren) / Invånaren anger en anledning till bokningen (baserat på tidstypens inställning enligt föregående steg) / Invånaren bekräftar eventuella villkor och bokar tiden</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">17</td>
+      <td style="text-align: left">E-tjänst begär att boka vald tid genom att anropa tjänstekontraktet MakeAppointment.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">18</td>
+      <td style="text-align: left">Om bokningen lyckas anropar tidbokningstjänst tjänstekontraktet GetAppointment för att hämta detaljer om bokningen. Verksamheten kan ha valt att komplettera bokningen med ytterligare detaljer, t ex en unik länk till ett videobesök i fall att kontaktsättet är videobesök.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">19</td>
+      <td style="text-align: left">E-tjänst presenterar en bokningsbekräftelse med detaljerna som hämtats</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">20</td>
+      <td style="text-align: left">Verksamheten skickar en bokningsbekräftelse till invånaren, t ex till 1177 Inkorgen. Verksamheten kan i bokningsbekräftelsen också samtidigt erbjuda möjlighet till avbokning eller ombokning.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="324-flöde-3--boka-tid-via-en-digital-kallelse">3.2.4 Flöde 3 – Boka tid via en digital kallelse</h4>
+
+<p>Flödet utgår från att vårdcentralen skickar en digital kallelse till invånaren, där invånaren erbjuds att boka en tid hos vårdcentralen. Kallelsen är öppen, d v s ger invånaren möjlighet att själv söka fram bäst passande tid för besöket. Kallelsen är definierad för en specifik typ av tid.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Förutsättningar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Vårdcentralen erbjuder invånare möjlighet att utan förkrav boka ny tid, exempelvis att ha kallat invånare / Vårdcentralen skickar en digital kallelse till invånaren med erbjudande att själv boka en tid för en specifik typ av tid</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3241-sekvensdiagram">3.2.4.1 Sekvensdiagram</h5>
+
+<p>Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan beskrivna flödet.</p>
+
+<p><img src="img_009.jpeg" alt="Sekvensdiagram" /></p>
+
+<h5 id="3242-roller">3.2.4.2 Roller</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Invånare</td>
+      <td style="text-align: left">Person i behov av att en boka tid.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tidbokningssystem</td>
+      <td style="text-align: left">Regionens verksamhetssystem som administrerar tidbokning, resursplanering av personal och resurser mm</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">E-tjänst/tidbokningstjänst</td>
+      <td style="text-align: left">Digital tjänst som möjliggör tidbokning för invånare</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3243-arbetssteg">3.2.4.3 Arbetssteg</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Steg</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">Verksamheten skickar en digital kallelse till invånaren, t ex till 1177 Inkorg, via tjänstekontrakt AddMessage (i tjänstedomänen infrastructure:eservicesupply:patientportal). Om invånaren aktiverat avisering via 1177 skickas ett SMS eller email till invånaren (beroende på invånarens inställning)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Invånare loggar in i e-tjänst via stark autentisering, exempelvis via mobilt bankId i 1177 e-tjänster.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">Invånare öppnar sitt nya meddelande som innehåller kallelsen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">Invånare klickar på valet att boka tid och dirigeras vidare till vårdcentralens tidbokningstjänst. Kallelsen är definierad för den vårdtjänst eller tidstyp som verksamheten bestämt. Vårdtjänsten/tidstypen skickas med som parameter.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">E-tjänst hämtar lista med andra vårdcentraler som ingår i grupp med vald vårdcentral. E-tjänst skickar med tidigare vald tidstyp, så att tidbokningssystemet kan returnera vårdcentraler i gruppen som också erbjuder samma tidstyp (anropar tjänstekontraktet GetHealthcareFacilities)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">6</td>
+      <td style="text-align: left">Invånare väljer en annan vårdcentral från listan eller låter ursprungsvårdcentralen vara valet att gå vidare med</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">7</td>
+      <td style="text-align: left">Tidbokningstjänst anropar tjänstekontraktet GetHealthcareFacility för att hämta information om vårdcentralen. Svaret innehåller bl a eventuella villkorstexter eller informationstexter som vårdcentralen vill förmedla, sådana villkorstexter och informationstexter som gäller generellt för vårdcentralen, oavsett tidstyp eller vårdtjänst.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">8</td>
+      <td style="text-align: left">Tidbokningstjänst presenterar villkorstexter och informationstexter till invånaren. Invånaren behöver bekräfta villkorstexterna.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">9</td>
+      <td style="text-align: left">Om vårdcentralen erbjuder möjlighet att boka vårdpersonal i samband med bokningen anropar e-tjänst det frivilliga tjänstekontraktet GetPractitioners. Listan med vårdpersonal visas för invånaren. E-tjänst tillåter även invånare att gå vidare utan att välja vårdpersonal.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">Invånaren väljer vårdpersonal i listan (om vårdcentralen erbjuder valmöjligheten)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">11</td>
+      <td style="text-align: left">E-tjänst hämtar lediga datum baserat på vald tidstyp, vårdtjänst och vårdpersonal.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">12</td>
+      <td style="text-align: left">Invånare väljer datum för att se lediga tider</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">13</td>
+      <td style="text-align: left">E-tjänst hämtar lediga tider för valt datum, samt för vald tidstyp, vårdtjänst och vårdpersonal.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">14</td>
+      <td style="text-align: left">Invånare väljer en tid att boka</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">15</td>
+      <td style="text-align: left">Baserat på tidstypens inställning (inställning som hämtats tillsammans med tidstypen) kan verksamheten kräva att invånaren anger en anledning till bokningen. Verksamheten kan välja att kräva att invånaren anger något eller att invånaren frivilligt anger något eller att invånaren inte får ange något (då visas inte något till invånaren) / Invånaren anger en anledning till bokningen (baserat på tidstypens inställning enligt föregående steg) / Invånaren bekräftar eventuella villkor och bokar tiden</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">16</td>
+      <td style="text-align: left">E-tjänst begär att boka vald tid genom att anropa tjänstekontraktet MakeAppointment.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">17</td>
+      <td style="text-align: left">Om bokningen lyckas anropar e-tjänst tjänstekontraktet GetAppointment för att hämta detaljer om bokningen. Verksamheten kan ha valt att komplettera bokningen med ytterligare detaljer, t ex en unik länk till ett videobesök i fall att kontaktsättet är videobesök.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">18</td>
+      <td style="text-align: left">E-tjänst presenterar en bokningsbekräftelse med detaljerna som hämtats</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">19</td>
+      <td style="text-align: left">Verksamheten skickar en bokningsbekräftelse till invånaren, t ex till 1177 Inkorgen. Verksamheten kan i bokningsbekräftelsen också samtidigt erbjuda möjlighet till avbokning eller ombokning.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="325-flöde-4--bekräfta-en-bokning-bokad-av-verksamheten">3.2.5 Flöde 4 – Bekräfta en bokning, bokad av verksamheten</h4>
+
+<p>Flödet utgår från att vårdcentralen bokar en tid åt patienten och därefter kräver att patienten bekräftar bokningen, genom att skicka en digital bokningsbekräftelse till patienten som patient måste bekräfta. Vårdcentralen skulle därmed exempelvis kunna applicera verksamhetsregler där de bokade tider som inte bekräftats inom en viss period innan besöket kan automatiskt avbokas.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Förutsättningar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Vårdcentralen har som krav att patient i förväg bekräftar bokad tid för att besöket ska få äga rum</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3251-sekvensdiagram">3.2.5.1 Sekvensdiagram</h5>
+
+<p>Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan beskrivna flödet.</p>
+
+<p><img src="img_005.jpeg" alt="Sekvensdiagram" /></p>
+
+<h5 id="3252-roller">3.2.5.2 Roller</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Invånare</td>
+      <td style="text-align: left">Person i behov av att en boka tid.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tidbokningssystem</td>
+      <td style="text-align: left">Regionens verksamhetssystem som administrerar tidbokning, resursplanering av personal och resurser mm</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">E-tjänst/tidbokningstjänst</td>
+      <td style="text-align: left">Digital tjänst som möjliggör tidbokning för invånare</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3253-arbetssteg">3.2.5.3 Arbetssteg</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Steg</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">Verksamheten skickar ett bokningsförslag till invånaren som verksamheten vill att invånaren ska bekräfta, för att bokningen ska genomföras</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Invånare loggar in i e-tjänst via stark autentisering, exempelvis via mobilt bankId i 1177 Vårdguidens e-tjänster. Invånare söker fram önskad vårdcentral för att boka tid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">Invånare öppnar sitt nya meddelande som innehåller bokningsförslaget.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">Invånare klickar på valet att bekräfta tiden och dirigeras vidare till vårdcentralens tidbokningstjänst. Det unika id för bokningsförslaget skickas med som parameter.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">Tidbokningstjänst anropar ConfirmAppointment för att bekräfta bokningen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">6</td>
+      <td style="text-align: left">Tidbokningstjänst presenterar ett meddelande för att visa att bekräftelsen är mottagen av verksamheten</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">7</td>
+      <td style="text-align: left">Invånare tar del av informationen om att bekräftelsen har mottagits av vårdcentralen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">8</td>
+      <td style="text-align: left">Verksamheten skickar en bokningsbekräftelse till invånaren som visar att tiden nu är bekräftad, t ex till 1177 Inkorgen. Verksamheten kan i bokningsbekräftelsen också samtidigt vidare erbjuda möjlighet till avbokning eller ombokning.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="326-flöde-5--se-bokade-tider-på-en-vårdcentral">3.2.6 Flöde 5 – Se bokade tider på en vårdcentral</h4>
+
+<p>Flödet beskriver hur patient kan se en sammanställning av sina bokade tider på en vårdcentral. Och utifrån sammanställningen se detaljer om bokningen/bokningarna. Flödet utgår från att patienten i förväg vet vilken vårdcentral som patienten kan ha bokade tider på.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Förutsättningar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Vårdcentralen erbjuder invånare möjlighet att digitalt att boka ny tid utan att ha kallat invånare / Vårdcentralen skickar en digital kallelse till invånaren med erbjudande att själv boka en tid för en specifik typ av tid</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3261-sekvensdiagram">3.2.6.1 Sekvensdiagram</h5>
+
+<p>Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan beskrivna flödet.</p>
+
+<p><img src="img_019.jpeg" alt="Sekvensdiagram" /></p>
+
+<h5 id="3262-roller">3.2.6.2 Roller</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Invånare</td>
+      <td style="text-align: left">Person i behov av att en boka tid.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tidbokningssystem</td>
+      <td style="text-align: left">Regionens verksamhetssystem som administrerar tidbokning, resursplanering av personal och resurser mm</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">E-tjänst/tidbokningstjänst</td>
+      <td style="text-align: left">Digital tjänst som möjliggör tidbokning för invånare</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3263-arbetssteg">3.2.6.3 Arbetssteg</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Steg</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">Invånare loggar in i e-tjänst via stark autentisering, exempelvis via mobilt bankId i 1177 Vårdguidens e-tjänster. Invånare söker fram önskad vårdcentral för att boka tid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Invånare har en snabblänk till sin vårdcentral via sin listning eller genom att invånare söker efter vårdcentralen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">Vårdcentralen erbjuder tjänst för invånare att se sina bokade tider på vårdcentralen. Invånare väljer att se sina bokningar.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">E-tjänst anropar vårdcentralen för att hämta invånarens bokade tider (GetAppointments). Svaret innehåller en lista med unika bokningsId’n för invånarens samtliga bokningar på vårdcentralen. Varje bokningsId som returneras är kopplad till vårdcentralens HSAId. I detta flöde förväntas listan bara innehålla vald vårdcentrals HSAId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">E-tjänst hämtar bokningsdetaljer för varje returnerat bokningsId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">6</td>
+      <td style="text-align: left">E-tjänst sammanställer listan med bokningar och presenterar svaret till invånaren</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">7</td>
+      <td style="text-align: left">Invånare tar del av information om samtliga sina bokningar på vårdcentralen. Härifrån kan sedan invånare välja exempelvis att omboka/avboka, alternativt att bekräfta bokningen om bokningen ännu inte är bekräftad. Respektive vägval finns beskrivet i annat flöde.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="327-flöde-6--se-bokade-tider--nationell-kalender">3.2.7 Flöde 6 – Se bokade tider – nationell kalender</h4>
+
+<p>Flödet beskriver interaktionerna mellan e-tjänst för tidbokning (tjänstekonsument) och en verksamhets tidbokningssystem (tjänsteproducent). Flödet utgår från att vårdcentralen skickar en kallelse till invånaren, där invånaren erbjuds boka en tid hos vårdcentralen. Kallelsen är öppen, d v s ger invånaren möjlighet att söka fram bäst passande tid för besöket. Kallelsen är för en specifik typ av tid.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Förutsättningar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Vårdcentralen erbjuder invånare möjlighet att boka ny tid utan att ha kallat invånare / Vårdcentralen skickar en digital kallelse till invånaren med erbjudande att själv boka en tid för en specifik typ av tid</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3271-sekvensdiagram">3.2.7.1 Sekvensdiagram</h5>
+
+<p>Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan beskrivna flödet.</p>
+
+<p><img src="img_002.jpeg" alt="Sekvensdiagram" /></p>
+
+<h5 id="3272-roller">3.2.7.2 Roller</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Invånare</td>
+      <td style="text-align: left">Person i behov av att en boka tid.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tidbokningssystem</td>
+      <td style="text-align: left">Regionens verksamhetssystem som administrerar tidbokning, resursplanering av personal och resurser mm</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">E-tjänst/tidbokningstjänst</td>
+      <td style="text-align: left">Digital tjänst som möjliggör tidbokning för invånare</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3273-arbetssteg">3.2.7.3 Arbetssteg</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Steg</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">Invånare loggar in i e-tjänst via stark autentisering, exempelvis via mobilt bankId i 1177 Vårdguidens e-tjänster.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Invånare har en snabblänk till sin vårdcentral via sin listning eller genom att invånare söker efter vårdcentralen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">Vårdcentralen erbjuder tjänst för invånare att se sina bokade tider på vårdcentralen. Invånare väljer att se sina bokningar.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">E-tjänst adresserar tjänstekontraktet GetAppointments med Ineras organisationsnummer, istället för en direktadressering till vårdcentral, vilket triggar aggregerande tjänst på den Nationella tjänsteplattformen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">Den aggregerande tjänsten söker vidare i engagemangsindex efter patientens samtliga bokningar och var bokningarna finns.  Svaret innehåller en lista med unika bokningsId’n för invånarens samtliga bokningar på de vårdcentralerna som bokningarna finns på. Varje bokningsId som returneras är kopplad till vårdcentralens HSAId.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">6-7</td>
+      <td style="text-align: left">Den aggregerande tjänsten anropar vidare varje vårdcentral som har bokning(ar) tillhörande patienten genom tjänstekontraktet GetAppointments.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">8</td>
+      <td style="text-align: left">Den aggregerande tjänsten inväntar alla svar från vårdcentralerna och sammanställer sedan en komplett lista med patientens bokningar.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">9-10</td>
+      <td style="text-align: left">E-tjänst hämtar detaljer om varje bokning i sammanställningen genom att direktadressera vårdcentralen/vårdcentralerna.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">11</td>
+      <td style="text-align: left">Patient tar del av en samlad bild av sina bokningar och kan se detaljerna om dem.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="328-flöde-7--hitta-lediga-tider-baserat-på-utvald-vårdtjänst">3.2.8 Flöde 7 – Hitta lediga tider baserat på utvald vårdtjänst</h4>
+
+<p>Flödet beskriver interaktionerna mellan e-tjänst för tidbokning (tjänstekonsument) och en verksamhets tidbokningssystem (tjänsteproducent). Flödet utgår från att vårdcentralen skickar en kallelse till invånaren, där invånaren erbjuds boka en tid hos vårdcentralen. Kallelsen är öppen, d v s ger invånaren möjlighet att söka fram bäst passande tid för besöket. Kallelsen är för en specifik typ av tid.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Förutsättningar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Vårdcentralen erbjuder invånare möjlighet att boka ny tid utan att ha kallat invånare / Vårdcentralen skickar en digital kallelse till invånaren med erbjudande att själv boka en tid för en specifik typ av tid</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3281-sekvensdiagram">3.2.8.1 Sekvensdiagram</h5>
+
+<p>Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan beskrivna flödet.</p>
+
+<p><img src="img_012.jpeg" alt="Sekvensdiagram" /></p>
+
+<h5 id="3282-roller">3.2.8.2 Roller</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Invånare</td>
+      <td style="text-align: left">Person i behov av att en boka tid.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tidbokningssystem</td>
+      <td style="text-align: left">Regionens verksamhetssystem som administrerar tidbokning, resursplanering av personal och resurser mm</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">E-tjänst/tidbokningstjänst</td>
+      <td style="text-align: left">Digital tjänst som möjliggör tidbokning för invånare</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3283-arbetssteg">3.2.8.3 Arbetssteg</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Steg</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">Invånare loggar in i e-tjänst via stark autentisering, exempelvis via mobilt bankId i 1177 Vårdguidens e-tjänster. Invånare söker fram önskad vårdcentral för att boka tid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Invånare söker efter vårdutbud genom att exempelvis beskriva sina symptom. Detta kan exempelvis ske genom att invånare svarar på en rad frågor och att invånare därefter triageras baserat på de angivna svaren</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">Triageringstjänst dirigerar vidare invånare till tidbokningstjänst och skickar med den vårdtjänst som triageringen resulterat i. Vårdtjänst uttrycks som en SNOMED-CT kod.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">Tidbokningstjänst söker fram vilka vårdcentraler som erbjuder utvald vårdtjänst, via exempelvis via utbudstjänst</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5 &amp; 7</td>
+      <td style="text-align: left">Tidbokningstjänst söker efter lediga datum hos de vårdcentraler som erbjuder vårdtjänsten.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">6 &amp; 8</td>
+      <td style="text-align: left">Tidbokningstjänst hämtar lediga tider för det första datum som varje vårdcentral har lediga tider</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">9</td>
+      <td style="text-align: left">Tidbokningstjänst presenterar en lista med första lediga tid per vårdcentral</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">Invånaren väljer en vårdcentral för att fortsätta bokningen. Se flöde 1 för vidare beskrivning om nybokning på vårdcental</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="329-flöde-8--omboka-tid">3.2.9 Flöde 8 – Omboka tid</h4>
+
+<p>Flödet beskriver interaktionerna mellan e-tjänst för tidbokning (tjänstekonsument) och en verksamhets tidbokningssystem (tjänsteproducent). Flödet utgår från att vårdcentralen erbjuder en e-tjänst till patienten som ger patienten möjlighet att omboka en befintlig bokning.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Förutsättningar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Vårdcentralen erbjuder invånare möjlighet att omboka en bokad tid / Patienten har en bokning på vårdcentralen / Vårdcentralen tillåter att bokningen får ombokas av patienten</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3291-sekvensdiagram">3.2.9.1 Sekvensdiagram</h5>
+
+<p>Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan beskrivna flödet.</p>
+
+<p><img src="img_022.jpeg" alt="Sekvensdiagram" /></p>
+
+<h5 id="3292-roller">3.2.9.2 Roller</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Invånare</td>
+      <td style="text-align: left">Person i behov av att en boka tid.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tidbokningssystem</td>
+      <td style="text-align: left">Regionens verksamhetssystem som administrerar tidbokning, resursplanering av personal och resurser mm</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">E-tjänst/tidbokningstjänst</td>
+      <td style="text-align: left">Digital tjänst som möjliggör tidbokning för invånare</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3293-arbetssteg">3.2.9.3 Arbetssteg</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Steg</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">Invånare loggar in i e-tjänst via stark autentisering, exempelvis via mobilt bankId i 1177 Vårdguidens e-tjänster. Invånare söker fram önskad vårdcentral för att boka tid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Patient söker efter sin vårdcentral för att se vilka bokade tider patient har</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">Patienten dirigeras till vårdcentralens tidbokningstjänst för att hämta bokade tider</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">Tidbokningstjänst anropar vårdcentralen (via tjänstekontraktet GetAppointments) för att hämta bokningar på vårdcentralen. En lista med unika bokningsId:n returneras</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">Tidbokningstjänst hämtar detaljer om varje bokning (baserat på tidigare returnerat bokningsId)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">6</td>
+      <td style="text-align: left">Tidbokningstjänst sammanställer en lista med bokningar</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">7</td>
+      <td style="text-align: left">Patient tar del av informationen om sina bokade tider på vårdcentralen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">8</td>
+      <td style="text-align: left">Patient väljer den bokning som patient önskar omboka</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">9</td>
+      <td style="text-align: left">Tidbokningstjänst hämtar detaljer om vald bokning. I bokningsdetaljerna ingår även en flagga som verksamheten returnerar och som avgör om bokningen får ombokas av patient (attributet updateAppointmentAllowed i datatypen AppointmentType)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">Tidbokningstjänst hämtar lista med andra vårdcentraler som ingår i grupp med vald vårdcentral. E-tjänst skickar med tidigare vald tidstyp, så att tidbokningssystemet kan returnera vårdcentraler i gruppen som också erbjuder samma tidstyp</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">11</td>
+      <td style="text-align: left">Invånare väljer en annan vårdcentral från listan eller låter ursprungsvårdcentralen vara valet att gå vidare med.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">12</td>
+      <td style="text-align: left">Om vårdcentralen erbjuder möjlighet att boka vårdpersonal i samband med bokningen anropar e-tjänst det frivilliga tjänstekontraktet GetPractitioners. Listan med vårdpersonal visas för invånaren. E-tjänst tillåter även invånare att gå vidare utan att välja vårdpersonal.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">13</td>
+      <td style="text-align: left">Invånaren väljer vårdpersonal i listan (om vårdcentralen erbjuder valmöjligheten).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">14</td>
+      <td style="text-align: left">E-tjänst hämtar lediga datum baserat på vald tidstyp, vårdtjänst och vårdpersonal.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">15</td>
+      <td style="text-align: left">Invånare väljer datum för att se lediga tider.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">16</td>
+      <td style="text-align: left">Tidbokningstjänst hämtar lediga tider för valt datum, samt för vald typ av tid (tidstyp), vårdtjänst och vårdpersonal.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">17</td>
+      <td style="text-align: left">Invånare väljer en tid att avboka.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">18</td>
+      <td style="text-align: left">Baserat på tidstypens inställning (inställning som hämtats tillsammans med tidstypen) kan verksamheten kräva att invånaren anger en anledning till bokningen. Verksamheten kan välja att kräva att invånaren anger något eller att invånaren frivilligt anger något eller att invånaren inte får ange något (då visas inte något till invånaren).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">19</td>
+      <td style="text-align: left">Invånaren anger en anledning till bokningen (baserat på tidstypens inställning enligt föregående steg).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">20</td>
+      <td style="text-align: left">Invånaren bekräftar eventuella villkor och bokar tiden.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">21</td>
+      <td style="text-align: left">Tidbokningstjänst begär att omboka vald tid genom att anropa tjänstekontraktet UpdateAppointment.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">22</td>
+      <td style="text-align: left">Tidbokningstjänst presenterar en bekräftelse på att ombokningen lyckats.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">23</td>
+      <td style="text-align: left">Verksamheten skickar en digital bekräftelse om ombokningen som dessutom innehåller detaljer om den nya tiden.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="3210-flöde-9--avboka-tid">3.2.10 Flöde 9 – Avboka tid</h4>
+
+<p>Flödet visar hur invånare ges möjlighet att avboka en befintlig bokning.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Förutsättningar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Vårdcentralen erbjuder invånare möjlighet att avboka en redan bokad tid</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="32101-sekvensdiagram">3.2.10.1 Sekvensdiagram</h5>
+
+<p>Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan beskrivna flödet.</p>
+
+<p><img src="img_003.jpeg" alt="Sekvensdiagram" /></p>
+
+<h5 id="32102-roller">3.2.10.2 Roller</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Invånare</td>
+      <td style="text-align: left">Person i behov av att en boka tid.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tidbokningssystem</td>
+      <td style="text-align: left">Regionens verksamhetssystem som administrerar tidbokning, resursplanering av personal och resurser mm</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">E-tjänst/tidbokningstjänst</td>
+      <td style="text-align: left">Digital tjänst som möjliggör tidbokning för invånare</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="32103-arbetssteg">3.2.10.3 Arbetssteg</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Steg</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">Patient loggar in i e-tjänst via stark autentisering, exempelvis via mobilt bankId i 1177 Vårdguidens e-tjänster. Patient söker fram önskad vårdcentral för att boka tid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Patient söker efter sin vårdcentral för att se vilka bokade tider patient har</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">Patienten dirigeras till vårdcentralens tidbokningstjänst för att hämta bokade tider</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">Tidbokningstjänst anropar vårdcentralen (via tjänstekontraktet GetAppointments) för att hämta bokningar på vårdcentralen. En lista med unika bokningsId:n returneras</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">Tidbokningstjänst hämtar detaljer om varje bokning (baserat på tidigare returnerat bokningsId)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">6</td>
+      <td style="text-align: left">Tidbokningstjänst sammanställer en lista med bokningar</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">7</td>
+      <td style="text-align: left">Patient tar del av informationen om sina bokade tider på vårdcentralen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">8</td>
+      <td style="text-align: left">Patient väljer den bokning som patient önskar avboka</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">9</td>
+      <td style="text-align: left">Tidbokningstjänst hämtar detaljer om vald bokning. I bokningsdetaljerna ingår även en flagga som verksamheten returnerar och som avgör om bokningen får avbokas av patient (attributet cancelAppointmentAllowed i datatypen AppointmentType). / Baserat på tidstypens inställning (inställning som hämtats tillsammans med tidstypen) kan verksamheten kräva att invånaren anger en anledning till avbokningen. Verksamheten kan välja att kräva att invånaren anger något eller att invånaren frivilligt anger något eller att invånaren inte får ange något (då visas inte något till invånaren) / Invånaren anger en anledning till avbokningen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">Invånaren anger en anledning till bokningen (baserat på tidstypens inställning enligt föregående steg)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">11</td>
+      <td style="text-align: left">Invånaren bekräftar eventuella villkor och bokar tiden</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">12</td>
+      <td style="text-align: left">Tidbokningstjänst begär att omboka vald tid genom att anropa tjänstekontraktet CancelAppointment.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">13</td>
+      <td style="text-align: left">Tidbokningstjänst presenterar en bekräftelse på att avbokningen lyckats</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">14</td>
+      <td style="text-align: left">Verksamheten skickar en digital bekräftelse om avbokningen som dessutom innehåller detaljer om den nya tiden</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="33-adressering">3.3 Adressering</h3>
+
+<p>Regler kring adressering styrs av T-Boken och detta avsnitt avser endast att förtydliga skrivningen för dessa regler. Själva reglerna beskrivs i T-Boken kapitel 8.3 (Översikt tekniska anvisningar utgåva C)</p>
+
+<p>Domänen tillämpar verksamhetsadressering där vårdenhetens HSA-id används för adressering och tolkningen av detta HSA-id måste vara skiftlägesokänsligt i såväl konsument som producent.</p>
+
+<h3 id="34-aggregering-och-engagemangsindex">3.4 Aggregering och engagemangsindex</h3>
+
+<p>Det finns utrymme för anrop via en aggregerande tjänst för tjänstekontraktet GetAppointments i denna domän. En aggregerande tjänst har samma tjänstekontrakt och anropsadress som en traditionell virtuell tjänst, men de nås på olika logiska adresser. Om en verksamhets HSA-id anges som logisk adress, kommer frågemeddelandet att dirigeras vidare direkt till källsystemet utan att passera en aggregerande tjänst. Om logisk adress är HSA-id för Inera eller en huvudman, kommer anropet i stället att dirigeras till en aggregerande tjänst som i sin tur, efter att ha konsulterat Engagemangsindex, vidarebefordrar frågan till de källsystem som har information om invånaren.</p>
+
+<p>För användning av en aggregerande tjänst behöver producenter uppdatera Engagemangsindex och den aggregerande tjänsten behöver vara utvecklad inom ramen för en anpassningsplattform.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Begäran om att hämta invånares/patients bokade tider (GetAppointments)</th>
+      <th style="text-align: left">Logisk adress</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Nationell sammanfattning av invånares bokade tider</td>
+      <td style="text-align: left">Ineras HSA-id: 5565594230 / Genom att adressera på detta sätt triggas aggregerad tjänst igång på den nationella tjänsteplattformen som i sin tur baserar sina vidare anrop på innehållet i engagemangsindex.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Regional sammanfattning av invånares bokade tider</td>
+      <td style="text-align: left">Huvudmannens länskod eller annan identifierare som är TAKad på den nationella tjänsteplattformen. / Genom att adressera på detta sätt dirigeras anropet till annan (regional tjänsteplattform) som i sin tur triggar regional aggregerad tjänst.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Invånares bokade tider på en vårdcentral</td>
+      <td style="text-align: left">E-tjänst adresserar specifik vårdcentral direkt. Den logiska adressen motsvarar vårdcentralens HSA-Id</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>För tjänstespecifika regler kring aggregerande tjänster, se respektive tjänsteinteraktion.</p>
+
+<h3 id="35-anvisningar-för-uppdatering-av-engagemangsindex">3.5 Anvisningar för uppdatering av Engagemangsindex</h3>
+
+<p>Anslutna tjänsteproducenter som erbjuder visning, ombokning eller avbokning genom domänens tjänstekontrakt ska uppdatera Engagemangsindex för att informera tjänstekonsumenter om bokningar som finns i tidboken.</p>
+
+<p>Engagemangsindex är en egen tjänstedomän, separat från tidbokningsdomänen, som definierar kontrakt och regler för uppdatering av indexet. För mer information, se tjänstedomänen itintegration:engagementindex på http://www.rivta.se.</p>
+
+<p>Varje tjänstedomän har ansvar att definiera anvisningar och regler för uppdatering och hantering av information inom Engagemangsindex. Detta avsnitt innehåller tjänstedomänen crm:schedulings anvisningar och regler.</p>
+
+<h4 id="351-domänspecifika-attribut-för-tjänstedomänen-tidbokning">3.5.1 Domänspecifika attribut för tjänstedomänen Tidbokning</h4>
+
+<p>Följande regler gäller för innehållet i begäran till tjänstekontraktet Update i Engagemangsindex för uppdateringar som rör denna tjänstedomän (supportprocess:logistics:scheduling). Observera att nedanstående beskrivning endast avser de attribut där tjänstedomänen supportprocess:logistics:scheduling styr reglerna. För en komplett förteckning av attribut och tjänstekontraktsbeskrivning hänvisas till beskrivningen för tjänstedomänen ”itintegration:engagementindex”.</p>
+
+<p>Observera:</p>
+
+<p>I föregående version av tjänstedomänen crm:scheduling (version 1) uttrycktes att attributet mostRecentContent i EI-posten skulle motsvara ”Starttidpunkt för den bokade tiden”. Detta krav är fr o m denna version (2.0) borttaget. Attributet mostRecentContent ska fr o m denna version populeras enligt TKB för Engagemangsindex (itintegration:engagementindex) och motsvara datum och tid för när uppdateringen skett i informationsobjektet, således till den tidpunkten då EI-posten (bokningen) skapas (eller ändras).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Format</th>
+      <th style="text-align: left">Mult</th>
+      <th style="text-align: left">Domänspecifik semantik eller värde</th>
+      <th style="text-align: left">Beslutsregler och kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">serviceDomain</td>
+      <td style="text-align: left">Text</td>
+      <td style="text-align: left">1..1</td>
+      <td style="text-align: left">Värdet ska vara ”riv:supportprocess:logistics:scheduling”</td>
+      <td style="text-align: left">Del av instansens unikhet.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">categorization</td>
+      <td style="text-align: left">Text bestående av bokstäver i ASCII.</td>
+      <td style="text-align: left">1..1</td>
+      <td style="text-align: left">Värdet ska vara ”NA”. / - Ändring fr.o.m. version 1.1.2.</td>
+      <td style="text-align: left">Del av instansens unikhet.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">logicalAddress</td>
+      <td style="text-align: left">Text, enligt hsaid standard</td>
+      <td style="text-align: left">1..1</td>
+      <td style="text-align: left">Vårdcentralens/vård-enhetens HSA-id. Värdet ska vara den logiska adress som ska användas av konsumenter som ska adressera vårdcentralens tidbok genom tjänstekontrakten i denna domän.</td>
+      <td style="text-align: left">Del av instansens unikhet.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">businessObjectInstanceIdentifier</td>
+      <td style="text-align: left">Text</td>
+      <td style="text-align: left">1..1</td>
+      <td style="text-align: left">BookingId för bokningen som denna engagemangsindexpost pekar på eller kallelse.</td>
+      <td style="text-align: left">Del av instansens unikhet.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="352-vid-ändringar-i-tidbokningssystemet-ska-tjänsteproducenten-uppdatera-engagemangsindex">3.5.2 Vid ändringar i tidbokningssystemet ska tjänsteproducenten uppdatera Engagemangsindex</h4>
+
+<p>Engagemangsindex ska uppdateras när en bokning skapas, ändras, blir inaktuell, eller av annan anledning tas bort i verksamhetens tidbokningssystem. Beroende på förutsättningar och implementation hos producenten så kan en ombokning innebära att befintlig post i Engagemangsindex tas bort och att en ny skapas.</p>
+
+<p>Uppdatering av Engagemangsindex ska göras oavsett om bokningen i verksamhetens tidbokningssystem skapats/ändrats av invånaren via tjänstekontrakt eller av vårdcentralens personal med hjälp av verksamhetens bokningsfunktion (exempelvis via verksamhetssystemets gränssnitt).</p>
+
+<h4 id="353-endast-dessa-bokningar-ska-finnas-i-engagemangsindex">3.5.3 Endast dessa bokningar ska finnas i Engagemangsindex</h4>
+
+<p>Endast bokningar som uppfyller samtliga av följande kriterier ska finnas i Engagemangsindex:</p>
+
+<p>Bokningen ligger framåt i tiden (ska äga rum).</p>
+
+<p>Bokningen är lämplig för e-tjänster att presentera för invånaren. Ett känt exempel på en typ av bokning med koppling till en specifik invånare, men som inte bör presenteras för denne, är en bokning där vårdpersonal avsatt tid för administrativt arbete inom invånarens behandling.</p>
+
+<p>Detaljer om bokningen kan hämtas genom tjänstekontrakten för Tidbokning. Tjänstekonsumenter ska kunna skicka en begäran till tjänstekontraktet GetAppointment för att hämta detaljer om en bokning som skickats till Engagemangsindex. Det leder till att en tidboksproducent behöver logik för att kunna selektera för vilka vårdcentraler som förändringar ska notifieras till Engagemangsindex.</p>
+
+<p>Historiken ska rensas från Engagemangsindex av tjänsteproducenten. Tjänsteproducenten ska rensa information som inte längre är relevant, exempelvis när en bokning är passerad (när besöket ägt rum). Regelverket för när informationen inte är relevant kan skilja sig mellan olika verksamheter och styrs från tjänsteproducenten.</p>
+
+<h4 id="354-en-bokad-tid-i-tidbokningssystemet-ska-motsvaras-av-en-post-i-engagemangsindex">3.5.4 En bokad tid i tidbokningssystemet ska motsvaras av en post i Engagemangsindex</h4>
+
+<p>Varje enskild bokning i verksamhetens tidbokningssystem som uppfyller kriterierna i dessa anvisningar ska motsvaras av en post i nationella Engagemangsindex.</p>
+
+<h4 id="355-då-anses-en-bokning-ha-ändrats">3.5.5 Då anses en bokning ha ändrats</h4>
+
+<p>En bokning anses ha ändrats när värdet för något av attributen som utgör dess engagemangspost har ändrats. Tabellen nedan redovisar för de attribut* som utgör en engagemangsindexpost.</p>
+
+<p>Observera att det endast är vid ändring av attributet mostRecentContent, d.v.s. vid ombokning, som en befintlig post kan uppdateras. Ändring av övriga attribut innebär att befintlig post i Engagemangsindex måste tas bort och ersättas med en ny eftersom dessa attribut utgör instansens unikhet (engagemangsindexpostens sammansatta nyckel).</p>
+
+<ul>
+  <li>Attributen creationTime, updateTime och owner tas inte upp i tabellen eftersom värden för dessa attribut sätts av Engagemangsindex.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Attribut</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Beslutsregler och kommentar</th>
+      <th style="text-align: left">Hantering</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">registeredResidentIdentification</td>
+      <td style="text-align: left">Invånarens personnummer.</td>
+      <td style="text-align: left">Del av instansens unikhet.</td>
+      <td style="text-align: left">En ändring av detta värde innebär att posten måste tas bort och ersättas med en ny.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">serviceDomain</td>
+      <td style="text-align: left">Värdet ska vara ”riv:supportprocess:logistics:scheduling”.</td>
+      <td style="text-align: left">Del av instansens unikhet.</td>
+      <td style="text-align: left">Detta värde kan inte ändras.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">categorization</td>
+      <td style="text-align: left">Värdet ska vara "NA”. / - Ändring fr.o.m. version 1.1.2.</td>
+      <td style="text-align: left">Del av instansens unikhet.</td>
+      <td style="text-align: left">Detta värde kan inte ändras.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">logicalAddress</td>
+      <td style="text-align: left">Vårdcentralens/vårdenhetens HSA-id.</td>
+      <td style="text-align: left">Del av instansens unikhet.</td>
+      <td style="text-align: left">En ändring av detta värde innebär att posten måste tas bort och ersättas med en ny.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">businessObjectInstanceIdentifier</td>
+      <td style="text-align: left">BookingId för bokningen.</td>
+      <td style="text-align: left">Del av instansens unikhet.</td>
+      <td style="text-align: left">En ändring av detta värde innebär att posten måste tas bort och ersättas med en ny.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">clinicalProcessInterestId</td>
+      <td style="text-align: left">Värdet ska vara "NA”.</td>
+      <td style="text-align: left">Del av instansens unikhet.</td>
+      <td style="text-align: left">Detta värde kan inte ändras.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mostRecentContent</td>
+      <td style="text-align: left">Datum och tid för när uppdateringen skett i informationsobjektet, således den tidpunkten då EI-posten (bokningen) skapas (eller ändras).</td>
+      <td style="text-align: left">Ej del av instansens unikhet.</td>
+      <td style="text-align: left">En ändring av detta värde innebär att befintlig post måste uppdateras.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sourceSystem</td>
+      <td style="text-align: left">Källsystemet som genererade engagemangsposten.</td>
+      <td style="text-align: left">Del av instansens unikhet.</td>
+      <td style="text-align: left">En ändring av detta värde innebär att posten måste tas bort och ersättas med en ny.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dataController</td>
+      <td style="text-align: left">Ett värde som kan användas för att härleda (kan kräva manuella insatser) vem som är personuppgiftsansvarig för posten.</td>
+      <td style="text-align: left">Del av instansens unikhet.</td>
+      <td style="text-align: left">En ändring av detta värde innebär att posten måste tas bort och ersättas med en ny.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="356-då-anses-en-bokning-vara-inaktuell">3.5.6 Då anses en bokning vara inaktuell</h4>
+
+<p>En bokning anses vara inaktuell när den avbokats, dess starttidpunkt passerats (besöket påbörjats). När en bokning blivit inaktuell ska dess post i nationella Engagemangsindex tas bort av tjänsteproducenten.</p>
+
+<h4 id="357-uppdatera-befintlig-post-vs-ta-bort-befintlig-post-och-skapa-en-ny">3.5.7 Uppdatera befintlig post vs. ta bort befintlig post och skapa en ny</h4>
+
+<p>En befintlig post i Engagemangsindex ska tas bort och ersättas med en ny vid ändring av något av värdena för attributen som ingår i begäran till tjänstekontraktet Update och utgör del postens unikhet. Följande attribut ingår i begäran till tjänsten Update och utgör del av en engagemangsindexposts unikhet:</p>
+
+<p>registeredResidentIdentification</p>
+
+<p>serviceDomain</p>
+
+<p>categorization</p>
+
+<p>logicalAddress</p>
+
+<p>businessObjectInstanceIdentifier</p>
+
+<p>clinicalProcessInterestId</p>
+
+<p>sourceSystem</p>
+
+<p>dataController</p>
+
+<p>Observera att attributet mostRecentContent är det enda attribut som ingår i begäran till tjänsten Update men som inte utgör del av postens unikhet. Det är följaktligen endast vid en ändring av detta värde (ombokning) som en befintlig post kan uppdateras. Vid alla andra typer av ändringar måste den befintliga posten tas bort och ersättas med en ny.</p>
+
+<h4 id="358-då-ska-en-befintlig-engagemangsindexpost-uppdateras">3.5.8 Då ska en befintlig engagemangsindexpost uppdateras</h4>
+
+<p>Vid ändring av värdet för attributet mostRecentContent.</p>
+
+<p>Exempel: En bokad tid får en ny starttidpunkt (ombokas) men behåller sitt BookingId. Denna ändring i tidbokningssystemet innebär en ändring av attributet mostRecentContent i engagemangsindexposten. Eftersom inget av de attribut som utgör engagemangsindexpostens unikhet har ändrats ska befintlig post uppdateras (snarare än att tas bort och ersättas med en ny).</p>
+
+<h4 id="359-då-ska-en-befintlig-engagemangsindexpost-tas-bort-och-ersättas-med-en-ny">3.5.9 Då ska en befintlig engagemangsindexpost tas bort och ersättas med en ny</h4>
+
+<p>Vid ändring av värdet för attributet businessObjectInstanceIdentifier. Aktuellt när en bokad tid får ett nytt BookingId.</p>
+
+<p>Exempel: Tidbokningssystemet skapar ett nytt BookingId för en bokad tid som fått en ny starttidpunkt (ombokats). Eftersom värdet för attributet businessObjectInstanceIdentifier, som är en del av postens unikhet, har ändrats.</p>
+
+<p>Vid ändring av värdet för attributet logicalAddress.</p>
+
+<p>Exempel: En bokad tid bokas om till en annan vårdenhet/vårdcentral. Engagemangsindexposten måste tas bort och ersättas med en ny eftersom värdet för attributet logicalAddress, som är en del av postens unikhet, har ändrats.</p>
+
+<p>Exempel: Vårdenheten/vårdcentralen byter HSA-id. Engagemangsindexposten måste tas bort och ersättas med en ny eftersom värdet för attributet logicalAddress, som är en del av postens unikhet, har ändrats.</p>
+
+<p>Vid ändring av värdet för attributet sourceSystem. Aktuellt om den bokade tiden flyttas till ett nytt källsystem, eller om befintligt källsystem byter HSA-id.</p>
+
+<p>Vid ändring av värdet för attributet registeredResidentIdentification. Aktuellt om invånaren får ett nytt personnummer.</p>
+
+<p>Vid ändring av värdet för attributet dataController. Aktuellt om personuppgiftsansvarig för posten ändras.</p>
+
+<h4 id="3510-så-tas-en-befintlig-post-bort-ur-engagemangsindex">3.5.10 Så tas en befintlig post bort ur Engagemangsindex</h4>
+
+<p>Exempel på en befintlig post i Engagemangsindex:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;engagement&gt;</span>
+<span class="nt">&lt;registeredResidentIdentification&gt;</span>191212121212<span class="nt">&lt;/registeredResidentIdentification&gt;</span>
+<span class="nt">&lt;serviceDomain&gt;</span>riv:crm:scheduling<span class="nt">&lt;/serviceDomain&gt;</span>
+<span class="nt">&lt;categorization&gt;</span>NA<span class="nt">&lt;/categorization&gt;</span>
+<span class="nt">&lt;logicalAddress&gt;</span>SE2321000016-A65H<span class="nt">&lt;/logicalAddress&gt;</span>
+<span class="nt">&lt;businessObjectInstanceIdentifier&gt;</span>861245<span class="nt">&lt;/businessObjectInstanceIdentifier&gt;</span>
+<span class="nt">&lt;clinicalProcessInterestId&gt;</span>NA<span class="nt">&lt;/clinicalProcessInterestId&gt;</span>
+<span class="nt">&lt;mostRecentContent&gt;</span>20160613140000<span class="nt">&lt;/mostRecentContent&gt;</span>
+<span class="nt">&lt;sourceSystem&gt;</span>SE2321000016-84GX<span class="nt">&lt;/sourceSystem&gt;</span>
+<span class="nt">&lt;dataController&gt;</span>SE232100-0016<span class="nt">&lt;/dataController&gt;</span>
+<span class="nt">&lt;/engagement&gt;</span>
+</code></pre></div></div>
+
+<p>Attributen creationTime, updateTime och owner tas inte upp för posten i exemplet ovan eftersom värden för dessa attribut sätts av Engagemangsindex-implementationen.</p>
+
+<p>Begäran till tjänsten Update för att ta bort posten ovan</p>
+
+<p>En post i Engagemangsindex tas bort via begäran till tjänsten Update med den befintliga postens sammansatta nyckel och attributet deleteFlag satt till "true".</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;urn1:Update&gt;</span>
+<span class="nt">&lt;urn1:engagementTransaction&gt;</span>
+<span class="nt">&lt;urn2:deleteFlag&gt;</span>true<span class="nt">&lt;/urn2:deleteFlag&gt;</span>
+<span class="nt">&lt;urn2:engagement&gt;</span>
+<span class="nt">&lt;urn2:registeredResidentIdentification&gt;</span>191212121212<span class="nt">&lt;/urn2:registeredResidentIdentification&gt;</span>
+<span class="nt">&lt;urn2:serviceDomain&gt;</span>riv:crm:scheduling<span class="nt">&lt;/urn2:serviceDomain&gt;</span>
+<span class="nt">&lt;urn2:categorization&gt;</span>NA<span class="nt">&lt;/urn2:categorization&gt;</span>
+<span class="nt">&lt;urn2:logicalAddress&gt;</span>SE2321000016-A65H<span class="nt">&lt;/urn2:logicalAddress&gt;</span>
+<span class="nt">&lt;urn2:businessObjectInstanceIdentifier&gt;</span>861245<span class="nt">&lt;/urn2:businessObjectInstanceIdentifier&gt;</span>
+<span class="nt">&lt;urn2:clinicalProcessInterestId&gt;</span>NA<span class="nt">&lt;/urn2:clinicalProcessInterestId&gt;</span>
+<span class="nt">&lt;urn2:sourceSystem&gt;</span>SE2321000016-84GX<span class="nt">&lt;/urn2:sourceSystem&gt;</span>
+<span class="nt">&lt;urn2:dataController&gt;</span>SE232100-0016<span class="nt">&lt;/urn2:dataController&gt;</span>
+<span class="nt">&lt;/urn2:engagement&gt;</span>
+<span class="nt">&lt;/urn1:engagementTransaction&gt;</span>
+<span class="nt">&lt;/urn1:Update&gt;</span>
+</code></pre></div></div>
+
+<p>Observera att attributet/elementet mostRecentContent inte ska uppges i begäran vid borttag av poster. D.v.s. när deleteFlag är satt till "true".</p>
+
+<h4 id="3511-grundladdning">3.5.11 Grundladdning</h4>
+
+<p>Engagemangsindex behöver inte grundladdas med engagemang inom tjänstedomänen supportprocess:logistics:scheduling.</p>
+
+<h4 id="3512-ändringar-från-tidigare-version-av-anvisningarna">3.5.12 Ändringar från tidigare version av anvisningarna</h4>
+
+<h3 id="36-aktör-som-utför-bokning">3.6 Aktör som utför bokning</h3>
+
+<p>Alla tjänsteinteraktioner i domänen har ett obligatoriskt attribut för att från tjänstekonsumenten ange aktör (Actor). En aktör kan vara invånaren själv, vårdnadshavare eller en medarbetare i professionen som handräcker invånaren med genomförandet av bokningen. Se kapitlet Definition av komplexa typer för mer detaljer.</p>
+
+<h3 id="37-resultcode">3.7 ResultCode</h3>
+
+<p>ResultCode returneras i vissa interaktioner där inte svaret på interaktionen har något direkt returvärde.</p>
+
+<p><strong>OK</strong></p>
+
+<p>Transaktionen har utförts enligt uppdraget i frågemeddelandet.</p>
+
+<p><strong>INFO</strong></p>
+
+<p>Transaktionen har utförts enligt uppdraget i frågemeddelandet, men det finns ett meddelande som tjänstekonsumenten måste visa upp för invånaren. Exempel på detta kan vara ”kom fastande”.</p>
+
+<p><strong>ERROR</strong></p>
+
+<p>Transaktionen har INTE kunnat utföras enligt uppdrag i frågemeddelandet p.g.a. logiskt fel. Det finns ett meddelande som konsumenten måste visa upp. Exempel på detta kan vara ”tiden har blivit upptagen av annan invånare”.</p>
+
+<h4 id="371-specifika-felkoder-per-tjänstekontrakt">3.7.1 Specifika felkoder per tjänstekontrakt</h4>
+
+<p>För vissa av tjänstekontrakten finns det dessutom möjlighet att från verksamhetssystemet förmedla specifika felkoder för inträffade situationer. I ett sådant fall förväntas en konsument att endast nyttja felkoden och själv välja hur exakt felfallet ska uttryckas till invånare. En konsument kan exempelvis välja att bete sig olika för olika felkoder. Ett exempel skulle kunna vara att om en tid redan hann bli bokad av annan invånare under tiden när invånare inte hann boka, då kan exempelvis invånaren ges möjlighet att välja ny tid i kalendern, i stället för att tvingas börja om hela processen från början.</p>
+
+<h4 id="372-makeappointment">3.7.2 MakeAppointment</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Felkod</th>
+      <th style="text-align: left">Betydelse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">REQUESTED_TIME_IS_ALREADY_RESERVED</td>
+      <td style="text-align: left">Efterfrågad tid är redan bokad.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">REQUESTED_TIME_HAS_ALREADY_PASSED</td>
+      <td style="text-align: left">Efterfrågad tid har passerat.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">REQUESTED_TIME_IS_NO_LONGER_AVAILABLE</td>
+      <td style="text-align: left">Efterfrågad tid är ej tillgänglig.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TOO_LATE_TO_MAKE_APPOINTMENT</td>
+      <td style="text-align: left">För sent att boka tiden. Mottagningen tillåter inte bokning en viss tid innan tiden startar.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">USER_IS_ALREADY_OCCUPIED</td>
+      <td style="text-align: left">Invånaren har redan bokat en annan tid vid samma tillfälle på mottagningen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">APPOINTMENT_IS_NOT_ALLOWED</td>
+      <td style="text-align: left">Bokning är inte tillåtet. Kan bero på konfigurationsfel eller att möjligheten att boka just har ändrats.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="373-updateappointment">3.7.3 UpdateAppointment</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Felkod</th>
+      <th style="text-align: left">Betydelse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">APPOINTMENT_IS_ALREADY_CANCELED</td>
+      <td style="text-align: left">Tiden är redan avbokad.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">APPOINTMENT_IS_ALREADY_UPDATED</td>
+      <td style="text-align: left">Tiden är redan ombokad.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">REQUESTED_TIME_IS_ALREADY_RESERVED</td>
+      <td style="text-align: left">Efterfrågad tid är redan bokad</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">REQUESTED_TIME_HAS_ALREADY_PASSED</td>
+      <td style="text-align: left">Efterfrågad tid har passerat</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">REQUESTED_TIME_IS_NO_LONGER_AVAILABLE</td>
+      <td style="text-align: left">Efterfrågad tid är ej tillgänglig</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TOO_LATE_TO_UPDATE_APPOINTMENT</td>
+      <td style="text-align: left">För sent att omboka tiden. Mottagningen tillåter inte ombokning en viss tid innan tiden startar.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">APPOINTMENT_DOES_NOT_EXIST</td>
+      <td style="text-align: left">Bokningen saknas.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">USER_IS_ALREADY_OCCUPIED</td>
+      <td style="text-align: left">Invånaren har redan bokat en annan tid vid samma tillfälle på mottagningen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UPDATE_APPOINTMENT_IS_NOT_ALLOWED</td>
+      <td style="text-align: left">Ombokning är inte tillåtet.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">APPOINTMENT_IS_ALREADY_CANCELED</td>
+      <td style="text-align: left">Tiden är redan avbokad.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">APPOINTMENT_IS_ALREADY_UPDATED</td>
+      <td style="text-align: left">Tiden är redan ombokad.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="374-cancelappointment">3.7.4 CancelAppointment</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Felkod</th>
+      <th style="text-align: left">Betydelse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">APPOINTMENT_IS_ALREADY_CANCELED</td>
+      <td style="text-align: left">Tiden är redan avbokad.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">APPOINTMENT_IS_ALREADY_UPDATED</td>
+      <td style="text-align: left">Tiden är redan ombokad.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TOO_LATE_TO_CANCEL_APPOINTMENT</td>
+      <td style="text-align: left">För sent att avboka tiden. Mottagningen tillåter inte avbokning en viss tid innan tiden startar.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">APPOINTMENT_DOES_NOT_EXIST</td>
+      <td style="text-align: left">Bokningen saknas.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CANCEL_IS_NOT_ALLOWED</td>
+      <td style="text-align: left">Avbokning är inte tillåtet.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="375-confirmappointment">3.7.5 ConfirmAppointment</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Felkod</th>
+      <th style="text-align: left">Betydelse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">APPOINTMENT_IS_ALREADY_CONFIRMED</td>
+      <td style="text-align: left">Tiden är redan bekräftad.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TOO_LATE_TO_CONFIRM_APPOINTMENT</td>
+      <td style="text-align: left">För sent att bekräfta tiden. Mottagningen tillåter inte bekräftelse en viss tid innan tiden startar.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">APPOINTMENT_DOES_NOT_EXIST</td>
+      <td style="text-align: left">Bokningen saknas.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CONFIRM_IS_NOT_ALLOWED</td>
+      <td style="text-align: left">Bekräftelse ej tillåtet.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.supportprocess-logistics-scheduling#2.0.0-rc1 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 18:56+0000">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>7 Tjänstekontrakt - informationsecurity: authorization: pip v1.0.0-rc1.snapshot</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">informationsecurity: authorization: pip</span>
+            <br/>
+            <span style="display:inline-block;">1.0.0-rc1.snapshot - RC
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Kapitel<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="1-inledning.html">1 Inledning</a></li>
+      <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+      <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+      <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+      <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+      <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma informationskomponenter</a></li>
+      <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+    </ul>
+  </li>
+  <li><a href="7-tjanstekontrakt.html">Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">informationsecurity: authorization: pip - Local Development build (v1.0.0-rc1.snapshot) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/informationsecurity-authorization-pip/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div>
+<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
+</div>
+<h1 id="7-tjänstekontrakt">7 Tjänstekontrakt</h1>
+
+<p>Källa: <em>Tjänstekontraktsbeskrivning informationsecurity: authorization: pip</em>, version 1.0_RC1 (2017-06-28), <a href="TKB_informationsecurity_authorization_pip.docx">TKB_informationsecurity_authorization_pip.docx</a>.</p>
+
+<p>Motsvarar TKB kapitel 6 <em>Tjänstekontrakt</em> (7.1 = TKB 6.1 osv.). Efter TKB:ns text följer för varje kontrakt fälten enligt schemat, tjänsteinteraktionen enligt WSDL, källfilerna och de genererade FHIR-artefakterna.</p>
+
+<h3 id="getseals">GetSeals</h3>
+
+<p>Tjänstekontraktet GetSeals används för att vårdgivare skall kunna försegla invånarens åtkomst till sin egen information. Invånarens information blir då ej tillgänglig för invånaren via självbetjäningstjänster. Används då det finns risk att invånaren befinner sig i vanmaktssituation eller då invånaren ej önskar åtkomst alls till sin journalinformation. Beslut om att försegla journalinformation ligger hos invånaren. Efter taget beslut kan försegling göras av invånaren själv (endast full försegling) eller av vårdpersonal hos vårdgivare som hjälper invånaren att försegla delar av (vårdgivarförsegling eller enhetsförsegling) alternativt all journalinformation (full försegling).</p>
+
+<h4 id="711-version">7.1.1 Version</h4>
+
+<p>1.0</p>
+
+<h4 id="712-fältregler">7.1.2 Fältregler</h4>
+
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Identitet på den patient som konsument vill hämta förseglingar för. / Patientens personnummer. / root: / personnummer: 1.2.752.129.2.1.3.1 / extension: patientens identitet / personnummer: ÅÅÅÅMMDDNNNN</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Svar</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">seal</td>
+      <td style="text-align: left">SealType</td>
+      <td style="text-align: left">Försegling av patientens åtkomst till den egna informationen. / En försegling kan göras på enhetsnivå, vårdgivarnivå eller en full försegling. / En full försegling ersätter alla andra förseglingar där tidsperioden överlappar.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../patientId*</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Identitet på den patient som förseglingen avser. Patientens personnummer. / root: / personnummer: 1.2.752.129.2.1.3.1 / extension: patientens identitet / personnummer: ÅÅÅÅMMDDNNNN</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../timeCreated*</td>
+      <td style="text-align: left">TimeStampType</td>
+      <td style="text-align: left">Tidpunkt då förseglingen skapades.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../timeLastUpdated</td>
+      <td style="text-align: left">TimeStampType</td>
+      <td style="text-align: left">Den tidpunkt som förseglingen senast uppdaterades. Är samma tidpunkt som timeCreated om ingen uppdatering har gjorts efter timeCreated.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../validFrom*</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left">Det datum som förseglingen börjar gälla från och med. / För mer information kring de olika tidsperioderna, se informationsspecifikationen kapitel 7.6 [R4].</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../validTo*</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left">Eventuellt datum för då förseglingen upphör att gälla. / För mer information kring de olika tidsperioderna, se informationsspecifikationen kapitel 7.6 [R4].</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../deactivationDate</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left">Datum för en forcerad deaktivering. / Fältet anger inget värde om förseglingen är aktiv eller om validTo-datum passerats. / För mer information kring de olika tidsperioderna, se informationsspecifikationen kapitel 7.6 [R4].</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../orgUnitSeal*</td>
+      <td style="text-align: left">OrgUnitSealType</td>
+      <td style="text-align: left">Försegling av information från en specifik organisationsenhet. / En enhetsförsegling ställer krav på att tjänstekonsumenten (invånarens direktåtkomst eller utlämnande) filtrerar bort vårdinformation som matchar enheten som anges i en enhetsförsegling. Enhet kan vara på godtycklig nivå i vårdgivarens organisationsstruktur. För att få avsedd effekt behöver vårdgivaren som registrerar en enhetsförsegling säkerställa att enheten som anges för försegling motsvarar värden som används i Journal- och läkemedels-kontrakten i något av dessa fält: / accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId / accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId / Det gäller oavsett om vårdsystemet genererar HSAid:n eller använder systeminterna enhetsidentiteter. / Det kan endast finnas en orgUnitSeal, careProviderSeal eller ingen.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../orgUnitId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">HSA-id för den enhet som förseglingen avser. / root: 1.2.752.129.2.1.4.1 / extension: id på enhet</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../sealPeriod</td>
+      <td style="text-align: left">DatePeriodType</td>
+      <td style="text-align: left">Används för att ange händelsetidpunkt för journalinformationen. / Exempel: / Invånare vill skapa en försegling som skall gälla mellan 2016 och framåt i två år och innefatta journalinformation som har händelsetidpunkt mellan 2012 och 2016. / validFrom: 20160101 / validTo: 20180101 / sealPeriod/start: 20120101 / sealPeriod/end: 20160101 / För mer information kring de olika tidsperioderna, se informationsspecifikationen kapitel 7.6 [R4].</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../start</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left">Start på den tidsperiod för journalinformation vars händelsetidpunkt skall omfattas av försegling.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../end</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left">Slut på den tidsperiod för journalinformation vars händelsetidpunkt skall omfattas av försegling.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../careProviderSeal*</td>
+      <td style="text-align: left">CareProviderSealType</td>
+      <td style="text-align: left">Försegling av all information från en vårdgivare. / Det kan endast finnas en orgUnitSeal, careProviderSeal eller ingen.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../careProviderId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">HSA-id för den vårdgivare som förseglingen avser. / root: 1.2.752.129.2.1.4.1 / extension: id på vårdgivare</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../sealPeriod</td>
+      <td style="text-align: left">DatePeriodType</td>
+      <td style="text-align: left">Används för att ange händelsetidpunkt för journalinformationen. / Exempel: / Invånare vill skapa en försegling som skall gälla mellan 2016 och framåt i två år och innefatta journalinformation som har händelsetidpunkt mellan 2012 och 2016. / validFrom: 20160101 / validTo: 20180101 / sealPeriod/start: 20120101 / sealPeriod/end: 20160101 / För mer information kring de olika tidsperioderna, se informationsspecifikationen kapitel 7.6 [R4].</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../start</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left">Start på den tidsperiod för journalinformation vars händelsetidpunkt skall omfattas av försegling.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../end</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left">Slut på den tidsperiod för journalinformation vars händelsetidpunkt skall omfattas av försegling.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../fullSeal*</td>
+      <td style="text-align: left">FullSealType</td>
+      <td style="text-align: left">När klassen är instansierad så gäller full försegling. / orgUnitSeal eller careProviderSeal får ej förekomma vid en fullständig försegling. / Om fullSeal är instansierad och det ändå finns en orgUnitSeal eller careProviderSeal så gäller fullSeal.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="713-övriga-regler">7.1.3 Övriga regler</h4>
+
+<p>Till denna informationsmängd finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan.</p>
+
+<p>Fält 1 - Svarselement</p>
+
+<p>ÖR1: Full försegling innebär att orgUnitSeal och careProviderSeal utelämnas och att fullSeal är angiven.</p>
+
+<p>ÖR2: Försegling på vårdgivarnivå anges med att careProviderSeal anges och att orgUnitSeal och fullSeal utelämnas.</p>
+
+<p>ÖR3: Försegling på enhetsnivå anges med att orgUnitSeal anges och att careProviderSeal och fullSeal utelämnas.</p>
+
+<p>ÖR4: validTo får inte vara äldre än validFrom</p>
+
+<p>ÖR5: timeLastUpdated får inte vara äldre än timeCreated</p>
+
+<p>ÖR6: patientId root får endast sättas till pnr sam samt formatet måste följa (utan bindestreck)</p>
+
+<p>ÖR7: Listan av seal (0..*) får inte innehålla tidsmässigt överlappande information om en försegling, som skulle kunna skapa tvetydighet i tolkningen av listan. Exempelvis försegling på samma vårdenhet med överlappande datum.</p>
+
+<p>För att validera ett svarsmeddelande enligt ovanstående regler finns det en schematron-fil medpaketerad under katalogen test-suite/GetSeals som heter constraints.xml.</p>
+
+<h5 id="7131-icke-funktionella-krav">7.1.3.1 Icke funktionella krav</h5>
+
+<p>Inga krav utöver de i kap 4.2</p>
+
+<h6 id="71311-sla-krav">7.1.3.1.1 SLA-krav</h6>
+
+<p>Inga krav utöver de i kap 4.2.1</p>
+
+<h4 id="714-fältregler-enligt-schema-xsd">7.1.4 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">seal</td>
+      <td style="text-align: left">SealType</td>
+      <td style="text-align: left">En försegling beskriver vårdgivarens beslut om att begränsa den enskildes åtkomst till sin egen information. Försegling handlar inte om att informationen kan vara till men i medicinskt hänseende för den enskilde, utan om att informationen inte ska vara tillgänglig via självbetjäning på grund av att den enskilde befinner sig i vanmaktssituation. Vårdgivaren kan även använda försegling för att stänga ute vårdnadshavares digitala åtkomst till barns (under 13 år) journaluppgifter. I praktiken förseglas barnets konto, vilket resulterar i att vårdnadshavarna inte kan se barnets information i tjänster som erbjuder vårdnadshavare åtkomst till vårdnadstagarens journaluppgifter. En försegling kan ha olika verksamhetsmässig omfattning, vilket representeras av respektive komposit element.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../timeCreated</td>
+      <td style="text-align: left">TimeStampType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../timeLastUpdated</td>
+      <td style="text-align: left">TimeStampType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../validFrom</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../validTo</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../deactivationDate</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../orgUnitSeal</td>
+      <td style="text-align: left">OrgUnitSealType</td>
+      <td style="text-align: left">En enhetsförsegling ställer krav på att tjänstekonsumenten (enskilds direktåtkomst eller enskilds utlämnande) filtrerar bort vårdinformation som matchar enheten som anges i en enhetsförsegling. Enhet kan vara på godtycklig nivå i vårdgivarens organisationsstruktur. För att få avsedd effekt behöver vårdgivaren som registrerar en enhetsförsegling säkerställa att enheten som anges för försegling motsvarar värden som används i JoL-kontrakten i något av dessa fält: accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId Det gäller oavsett om vårdsystemet genererar HSAid:n eller använder systeminterna enhetsidentiteter.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../orgUnit</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../sealPeriod</td>
+      <td style="text-align: left">DatePeriodType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../start</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../end</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../careProviderSeal</td>
+      <td style="text-align: left">CareProviderSealType</td>
+      <td style="text-align: left">En vårdgivarfiltrering ställer krav på att tjänstekonsumenten (enskilds direktåtkomst eller enskilds utlämnande) filtrerar bort vårdinformation som matchar vårdgivaren som anges i en vårdgivarförsegling.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../careProviderId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../sealPeriod</td>
+      <td style="text-align: left">DatePeriodType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../start</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../end</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../fullSeal</td>
+      <td style="text-align: left">FullSealType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="715-tjänsteinteraktion-enligt-wsdl">7.1.5 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:pip:GetSealsResponder:1:GetSeals</code></p>
+
+<h4 id="716-källfiler-riv-ta">7.1.6 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetSealsInteraction_1.0_RIVTABP21.wsdl">GetSealsInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetSealsResponder_1.0.xsd">GetSealsResponder_1.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_pip_1.0.xsd">informationsecurity_authorization_pip_1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="GetSeals_constraints.xml">GetSeals_constraints.xml</a></td>
+      <td>Schematronregler ur testsviten (test-suite/GetSeals/constraints.xml)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="717-fhir-artefakter">7.1.7 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getseals-request.html">StructureDefinition/getseals-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getseals.html">StructureDefinition/getseals</a></li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.informationsecurity-authorization-pip#1.0.0-rc1.snapshot based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 18:30+0000">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

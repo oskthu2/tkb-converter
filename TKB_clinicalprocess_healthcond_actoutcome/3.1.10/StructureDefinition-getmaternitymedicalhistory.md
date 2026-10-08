@@ -1,0 +1,1203 @@
+# GetMaternityMedicalHistory - clinicalprocess: healthcond: actoutcome 3.1.10 v3.1.10
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetMaternityMedicalHistory**
+
+## Logical Model: GetMaternityMedicalHistory 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getmaternitymedicalhistory | *Version*:2.0 |
+| Active as of 2026-10-08 | *Computable Name*:GetMaternityMedicalHistory |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för tjänstekontraktet GetMaternityMedicalHistory 2.0 (RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetMaternityMedicalHistoryResponder:2). Representerar svarets (response) informationsstruktur enligt fältreglerna i TKB 3.1.10, avsnitt 7.2. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-healthcond-actoutcome|current/StructureDefinition/StructureDefinition-getmaternitymedicalhistory.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getmaternitymedicalhistory.csv), [Excel](StructureDefinition-getmaternitymedicalhistory.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getmaternitymedicalhistory",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getmaternitymedicalhistory",
+  "version" : "2.0",
+  "name" : "GetMaternityMedicalHistory",
+  "title" : "GetMaternityMedicalHistory",
+  "status" : "active",
+  "date" : "2026-10-08T18:06:18+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för tjänstekontraktet GetMaternityMedicalHistory 2.0\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetMaternityMedicalHistoryResponder:2).\nRepresenterar svarets (response) informationsstruktur enligt fältreglerna i TKB 3.1.10, avsnitt 7.2.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getmaternitymedicalhistory",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getmaternitymedicalhistory",
+      "path" : "getmaternitymedicalhistory",
+      "short" : "GetMaternityMedicalHistory",
+      "definition" : "Logisk modell för tjänstekontraktet GetMaternityMedicalHistory 2.0\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetMaternityMedicalHistoryResponder:2).\nRepresenterar svarets (response) informationsstruktur enligt fältreglerna i TKB 3.1.10, avsnitt 7.2."
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord",
+      "short" : "En moders mödravårdsjournal.",
+      "definition" : "En moders mödravårdsjournal.\nRIV-TA-typ: MaternityMedicalRecordType. Kardinalitet i TKB: 0..*.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader",
+      "short" : "Innehåller basinformation om dokumentet.",
+      "definition" : "Innehåller basinformation om dokumentet.\nRIV-TA-typ: PatientSummaryHeaderType. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.documentId",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.documentId",
+      "short" : "Dokumentets identitet som är unik inom källsystemet",
+      "definition" : "Dokumentets identitet som är unik inom källsystemet. / Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter. / Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.\nRIV-TA-typ: string. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.sourceSystemHSAId",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.sourceSystemHSAId",
+      "short" : "HSAid för det system som dokumentet är skapat i.",
+      "definition" : "HSAid för det system som dokumentet är skapat i.\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.documentTitle",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.documentTitle",
+      "short" : "Titel som beskriver den information som sänds i dokumentet.",
+      "definition" : "Titel som beskriver den information som sänds i dokumentet.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.documentTime",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.documentTime",
+      "short" : "Första tidpunkten då denna journalinformation skapades hos tjänsteproducenten.",
+      "definition" : "Första tidpunkten då denna journalinformation skapades hos tjänsteproducenten.\nRIV-TA-typ: TimeStampType. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "instant"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.patientId",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.patientId",
+      "short" : "Id för modern",
+      "definition" : "Id för modern. / id sätts till patientens identifierare, anges med 12 siffror utan avskiljare. / Type sätts till OID för typ av identifierare. / För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1). / För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3). / För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3)\nRIV-TA-typ: PersonIdType. Kardinalitet i TKB: 1..1.\nDelelement enligt TKB:\n- id (string, 1..1): Sätts till moderns identifierare. Anges med 12 tecken utan avskiljare.\n- type (string, 1..1): type sätts till OID för typ av identifierare. / För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1). / För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3). / För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional",
+      "short" : "Information om den hälso- och sjukvårdsperson som skapat informationen i dokumentet, nedan kallas författare",
+      "definition" : "Information om den hälso- och sjukvårdsperson som skapat informationen i dokumentet, nedan kallas författare. Vid uppdatering av tidigare skapade dokument avses den hälso- och sjukvårdsperson som senast uppdaterade informationen.\nRIV-TA-typ: HealthcareProfessionalType. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.authorTime",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.authorTime",
+      "short" : "Tidpunkt vid vilken journalinformationen skapades eller senast uppdaterades hos tjänsteproducenten",
+      "definition" : "Tidpunkt vid vilken journalinformationen skapades eller senast uppdaterades hos tjänsteproducenten. I de fall då journalinformationen skapats i ett annat informationssystem (t.ex. laboratoriesystem eller annan remittents journalsystem) är det tidpunkten då journalinformationen ursprungligen skapades som ska anges.\nRIV-TA-typ: TimeStampType. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "instant"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+      "short" : "Författarens HSA-id.",
+      "definition" : "Författarens HSA-id.\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+      "short" : "Författarens namn.",
+      "definition" : "Författarens namn.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+      "short" : "Information om författarens befattning",
+      "definition" : "Information om författarens befattning. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4), se referens [R 5]. Om kodverk saknas anges befattning i originalText.\nRIV-TA-typ: CVType. Kardinalitet i TKB: 0..1.\nDelelement enligt TKB:\n- code (string, 0..1): Befattningskod. Om code anges ska också codeSystem samt displayName anges.\n- codeSystem (string, 0..1): Kodsystem för befattningskod. Om codeSystem anges ska också code samt displayName anges.\n- codeSystemName (string, 0..1): Namn på kodsystem för befattningskod.\n- codeSystemVersion (string, 0..1): Version på kodsystem för befattningskod.\n- displayName (string, 0..1): Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges.\n- originalText (string, 0..1): Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. / Om originalText anges ska inget annat värde i healthcareProfessionalRoleCode anges.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+      "short" : "Den organisation som författaren är uppdragstagare på.",
+      "definition" : "Den organisation som författaren är uppdragstagare på.\nRIV-TA-typ: OrgUnitType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+      "short" : "HSA-id för den organisation som författaren är uppdragstagare på.",
+      "definition" : "HSA-id för den organisation som författaren är uppdragstagare på.\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+      "short" : "Namnet på den organisation som författaren är uppdragstagare på.",
+      "definition" : "Namnet på den organisation som författaren är uppdragstagare på.\nRIV-TA-typ: string. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+      "short" : "Telefon till organisationsenhet.",
+      "definition" : "Telefon till organisationsenhet.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+      "short" : "Epost till enhet.",
+      "definition" : "Epost till enhet.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+      "short" : "Postadress för den organisation som författaren är uppdragstagare på",
+      "definition" : "Postadress för den organisation som författaren är uppdragstagare på. Skrivs på ett så naturligt sätt som möjligt, exempelvis: / ”Storgatan 12 / 468 91 Lilleby”\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+      "short" : "Text som anger namnet på plats eller ort för enhetens eller funktionens fysiska placering.",
+      "definition" : "Text som anger namnet på plats eller ort för enhetens eller funktionens fysiska placering.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+      "short" : "HSA-id för Vårdenhet",
+      "definition" : "HSA-id för Vårdenhet. [Regel 1]\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+      "short" : "HSA-id för vårdgivaren, som är vårdgivare för den enhet som författaren är uppdragstagare för",
+      "definition" : "HSA-id för vårdgivaren, som är vårdgivare för den enhet som författaren är uppdragstagare för. [Regel 1]\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.legalAuthenticator",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.legalAuthenticator",
+      "short" : "Information om vem som signerat informationen i dokumentet.",
+      "definition" : "Information om vem som signerat informationen i dokumentet.\nRIV-TA-typ: LegalAuthenticatorType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.legalAuthenticator.signatureTime",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.legalAuthenticator.signatureTime",
+      "short" : "Tidpunkt för signering.",
+      "definition" : "Tidpunkt för signering.\nRIV-TA-typ: TimeStampType. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "instant"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.legalAuthenticator.legalAuthenticatorHSAId",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.legalAuthenticator.legalAuthenticatorHSAId",
+      "short" : "HSA-id för person som signerat dokumentet.",
+      "definition" : "HSA-id för person som signerat dokumentet.\nRIV-TA-typ: HSAIDType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.legalAuthenticator.legalAuthenticatorName",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.legalAuthenticator.legalAuthenticatorName",
+      "short" : "Namnen i klartext för signerande person.",
+      "definition" : "Namnen i klartext för signerande person.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.legalAuthenticator.legalAuthenticatorRoleCode",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.legalAuthenticator.legalAuthenticatorRoleCode",
+      "short" : "Ska ej anges.",
+      "definition" : "Ska ej anges.\nRIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0.",
+      "min" : 0,
+      "max" : "0",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.approvedForPatient",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.approvedForPatient",
+      "short" : "Anger om information får delas till patient",
+      "definition" : "Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false.\nRIV-TA-typ: boolean. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.careContactId",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.careContactId",
+      "short" : "Identitetet för den hälso-och sjukvårdskontakt som föranlett den information som omfattas av dokumentet",
+      "definition" : "Identitetet för den hälso-och sjukvårdskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.nullified",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.nullified",
+      "short" : "Ska ej anges",
+      "definition" : "Ska ej anges\nRIV-TA-typ: string. Kardinalitet i TKB: 0..0.",
+      "min" : 0,
+      "max" : "0",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.nullifiedReason",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordHeader.nullifiedReason",
+      "short" : "Ska ej anges",
+      "definition" : "Ska ej anges\nRIV-TA-typ: string. Kardinalitet i TKB: 0..0.",
+      "min" : 0,
+      "max" : "0",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody",
+      "short" : "Kan bestå av antingen en registrationRecord, en pregnancyCheckupRecord eller en postDeliveryRecord.",
+      "definition" : "Kan bestå av antingen en registrationRecord, en pregnancyCheckupRecord eller en postDeliveryRecord.\nRIV-TA-typ: MaternityMedicalRecordBodyType. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord",
+      "short" : "Information som registreras vid inskrivningsbesöket.",
+      "definition" : "Information som registreras vid inskrivningsbesöket.\nRIV-TA-typ: RegistrationRecordType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.lastMenstrualPeriod",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.lastMenstrualPeriod",
+      "short" : "Datum för senaste menstruation",
+      "definition" : "Datum för senaste menstruation\nRIV-TA-typ: DateType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.indicationPregnancy",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.indicationPregnancy",
+      "short" : "Datum för graviditetsindikation",
+      "definition" : "Datum för graviditetsindikation\nRIV-TA-typ: DateType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.contraceptiveDiscontinued",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.contraceptiveDiscontinued",
+      "short" : "Datum för när moder upphört med preventivtablett",
+      "definition" : "Datum för när moder upphört med preventivtablett\nRIV-TA-typ: DateType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.expectedDayOfDeliveryFromLastMenstrualPeriod",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.expectedDayOfDeliveryFromLastMenstrualPeriod",
+      "short" : "Beräknad förlossning enligt sista menstruation",
+      "definition" : "Beräknad förlossning enligt sista menstruation\nRIV-TA-typ: DateType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.expectedDayOfDeliveryFromUltrasoundScan",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.expectedDayOfDeliveryFromUltrasoundScan",
+      "short" : "Beräknad förlossning enligt ultraljud",
+      "definition" : "Beräknad förlossning enligt ultraljud\nRIV-TA-typ: DateType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.expectedDayOfDeliveryFromEmbryonicTransfer",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.expectedDayOfDeliveryFromEmbryonicTransfer",
+      "short" : "Beräknad förlossning enligt embryonik transfer",
+      "definition" : "Beräknad förlossning enligt embryonik transfer\nRIV-TA-typ: DateType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "date"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.length",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.length",
+      "short" : "Längd vid inskrivning",
+      "definition" : "Längd vid inskrivning\nRIV-TA-typ: PQType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.weight",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.weight",
+      "short" : "Vikt vid inskrivning [massa]",
+      "definition" : "Vikt vid inskrivning [massa]\nRIV-TA-typ: PQType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.bodyMassIndex",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.bodyMassIndex",
+      "short" : "BMI vid inskrivning [massa/yta]",
+      "definition" : "BMI vid inskrivning [massa/yta]\nRIV-TA-typ: PQType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.infertility",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.infertility",
+      "short" : "Antal år med ofrivillig barnlöshet (decimaltal)",
+      "definition" : "Antal år med ofrivillig barnlöshet (decimaltal)\nRIV-TA-typ: decimal. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity",
+      "short" : "Tidigare graviditeter och förlossningar",
+      "definition" : "Tidigare graviditeter och förlossningar\nRIV-TA-typ: PreviousGravidityAndParityType. Kardinalitet i TKB: 0..*.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.year",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.year",
+      "short" : "År för tidigare graviditet eller förlossning",
+      "definition" : "År för tidigare graviditet eller förlossning\nRIV-TA-typ: int. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.month",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.month",
+      "short" : "Månad för tidigare graviditet eller förlossning",
+      "definition" : "Månad för tidigare graviditet eller förlossning\nRIV-TA-typ: int. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.delivery",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.delivery",
+      "short" : "Graviditet förlossning enligt kodverk:",
+      "definition" : "Graviditet förlossning enligt kodverk:\nRIV-TA-typ: DeliveryCodeEnum. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/ValueSet/deliverycode-vs"
+      }
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.healthcareFacility",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.healthcareFacility",
+      "short" : "Sjukhus",
+      "definition" : "Sjukhus\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.progress",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.progress",
+      "short" : "Förlopp",
+      "definition" : "Förlopp\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.sex",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.sex",
+      "short" : "Kön, giltiga värden 0,1,2 och 9 enligt kodverk med OID 1.2.752.129.2.2.1.1: / 0 = okänt, / 1 = man, / 2 = kvin",
+      "definition" : "Kön, giltiga värden 0,1,2 och 9 enligt kodverk med OID 1.2.752.129.2.2.1.1: / 0 = okänt, / 1 = man, / 2 = kvinna, / 9 = ej tillämpligt\nRIV-TA-typ: SexCodeEnum. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/ValueSet/sexcode-vs"
+      }
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.weightOfChild",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.weightOfChild",
+      "short" : "Barnets vikt [massa]",
+      "definition" : "Barnets vikt [massa]\nRIV-TA-typ: PQType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.gestation",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.previousGravidityAndParity.gestation",
+      "short" : "Graviditetsvecka.",
+      "definition" : "Graviditetsvecka.\nRIV-TA-typ: int. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.diseasesThrombosis",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.diseasesThrombosis",
+      "short" : "Trombos (true/false)",
+      "definition" : "Trombos (true/false)\nRIV-TA-typ: bool. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.diseasesEndocineDiseases",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.diseasesEndocineDiseases",
+      "short" : "Endokrina sjukdomar (true/false)",
+      "definition" : "Endokrina sjukdomar (true/false)\nRIV-TA-typ: bool. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.diseasesRecurrentUrinaryTractInfections",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.diseasesRecurrentUrinaryTractInfections",
+      "short" : "Upprepade urinvägsinfektioner (true/false)",
+      "definition" : "Upprepade urinvägsinfektioner (true/false)\nRIV-TA-typ: bool. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.diseasesDiabetesMellitus",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.diseasesDiabetesMellitus",
+      "short" : "Diabetes mellitus (true/false)",
+      "definition" : "Diabetes mellitus (true/false)\nRIV-TA-typ: bool. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.medicationDuringPregnacy",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.medicationDuringPregnacy",
+      "short" : "Före inskrivning under graviditet: medicinering",
+      "definition" : "Före inskrivning under graviditet: medicinering\nRIV-TA-typ: MedicationType. Kardinalitet i TKB: 0..*.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.medicationDuringPregnacy.medicament",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.medicationDuringPregnacy.medicament",
+      "short" : "Preparat",
+      "definition" : "Preparat\nRIV-TA-typ: string. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.medicationDuringPregnacy.dosage",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.medicationDuringPregnacy.dosage",
+      "short" : "Dosering i beskrivande text",
+      "definition" : "Dosering i beskrivande text\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.assessmentAtFirstContactStandardCare",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.registrationRecord.assessmentAtFirstContactStandardCare",
+      "short" : "Bedömning vid 1:a besök: basprogram (true/false)",
+      "definition" : "Bedömning vid 1:a besök: basprogram (true/false)\nRIV-TA-typ: bool. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord",
+      "short" : "Graviditetskontroll",
+      "definition" : "Graviditetskontroll\nRIV-TA-typ: PregnancyCheckupRecordType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.completeWeeksOfGestation",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.completeWeeksOfGestation",
+      "short" : "Fullgångna graviditetsveckor",
+      "definition" : "Fullgångna graviditetsveckor\nRIV-TA-typ: int. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.weight",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.weight",
+      "short" : "Moderns vikt [massa]",
+      "definition" : "Moderns vikt [massa]\nRIV-TA-typ: PQType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.symphysisFundalHeight",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.symphysisFundalHeight",
+      "short" : "Symfys-fundus mått [längd]",
+      "definition" : "Symfys-fundus mått [längd]\nRIV-TA-typ: PQType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.haemoglobin",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.haemoglobin",
+      "short" : "Hb (Hemoglobin) [massa / volym]",
+      "definition" : "Hb (Hemoglobin) [massa / volym]\nRIV-TA-typ: PQType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureSystolic",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureSystolic",
+      "short" : "Systoliskt blodtryck [tryck]",
+      "definition" : "Systoliskt blodtryck [tryck]\nRIV-TA-typ: PQType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureDiastolic",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.bloodPressureDiastolic",
+      "short" : "Diastoliskt blodtryck [tryck]",
+      "definition" : "Diastoliskt blodtryck [tryck]\nRIV-TA-typ: PQType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.proteinuria",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.proteinuria",
+      "short" : "Proteinuri - Protein i urinet [massa / volym] / Mängden protein ska alltså anges i g/l eller motsvarande",
+      "definition" : "Proteinuri - Protein i urinet [massa / volym] / Mängden protein ska alltså anges i g/l eller motsvarande. Använd INTE mätstickans kodning (0, 1+, 2+…)\nRIV-TA-typ: PQType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.glycosuria",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.glycosuria",
+      "short" : "Glucosuri - Glucos i urinet [antal / volym] / Förväntad enhet är mmol/l",
+      "definition" : "Glucosuri - Glucos i urinet [antal / volym] / Förväntad enhet är mmol/l. Använd INTE mätstickans kodning (0, 1+, 2+…) / OBS! U på svenska men y på engelska (ICD10).\nRIV-TA-typ: PQType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalPosition",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalPosition",
+      "short" : "Fosterläge enligt kodverk: / 0 = head (huvud ) / 1 = breech (säte) / 2 = oblique (snedläge) / 3 = transverse (",
+      "definition" : "Fosterläge enligt kodverk: / 0 = head (huvud ) / 1 = breech (säte) / 2 = oblique (snedläge) / 3 = transverse (tvärläge)\nRIV-TA-typ: FetalPositionCodeEnum. Kardinalitet i TKB: 0..*.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/ValueSet/fetalpositioncode-vs"
+      }
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalPresentation",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalPresentation",
+      "short" : "Föregående fosterdel enligt kodverk: / 0= mobile (rörligt), / 1 = movable (ruckbart), / 2 = fixed (fix)",
+      "definition" : "Föregående fosterdel enligt kodverk: / 0= mobile (rörligt), / 1 = movable (ruckbart), / 2 = fixed (fix)\nRIV-TA-typ: FetalPresentationCodeEnum. Kardinalitet i TKB: 0..*.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/ValueSet/fetalpresentationcode-vs"
+      }
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalHeartRate",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.fetalHeartRate",
+      "short" : "Fosterljud, hjärtslag, ex",
+      "definition" : "Fosterljud, hjärtslag, ex. bpm [frekvens]\nRIV-TA-typ: PQType. Kardinalitet i TKB: 0..*.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.typeOfLeave",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.typeOfLeave",
+      "short" : "Typ av ledighet enligt kodverk / 0 = Sjukskrivning, / 1 = Havandekapsledighet, / 2 = Föräldrarledighet",
+      "definition" : "Typ av ledighet enligt kodverk / 0 = Sjukskrivning, / 1 = Havandekapsledighet, / 2 = Föräldrarledighet\nRIV-TA-typ: TypeOfLeaveCodeEnum. Kardinalitet i TKB: 0..*.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/ValueSet/typeofleavecode-vs"
+      }
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.medicationSinceRegistration",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.medicationSinceRegistration",
+      "short" : "Läkemedel (även kostpreparat) som administrerats sedan registreringen / föregående ”checkup”.",
+      "definition" : "Läkemedel (även kostpreparat) som administrerats sedan registreringen / föregående ”checkup”.\nRIV-TA-typ: MedicationType. Kardinalitet i TKB: 0..*.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.medicationSinceRegistration.medicament",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.medicationSinceRegistration.medicament",
+      "short" : "Preparat",
+      "definition" : "Preparat\nRIV-TA-typ: string. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.medicationSinceRegistration.dosage",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.pregnancyCheckupRecord.medicationSinceRegistration.dosage",
+      "short" : "Dosering i beskrivande text",
+      "definition" : "Dosering i beskrivande text\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord",
+      "short" : "Efterskötning",
+      "definition" : "Efterskötning\nRIV-TA-typ: PostDeliveryRecordType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord",
+      "short" : "Efterskötningsjournal, moder",
+      "definition" : "Efterskötningsjournal, moder\nRIV-TA-typ: MotherPostDeliveryRecordType. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.breastfeeding",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.breastfeeding",
+      "short" : "Ammar (true/false)",
+      "definition" : "Ammar (true/false)\nRIV-TA-typ: boolean. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureSystolic",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureSystolic",
+      "short" : "Systoliskt blodtryck [tryck]",
+      "definition" : "Systoliskt blodtryck [tryck]\nRIV-TA-typ: PQType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureDiastolic",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bloodPressureDiastolic",
+      "short" : "Diastoliskt blodtryck [tryck]",
+      "definition" : "Diastoliskt blodtryck [tryck]\nRIV-TA-typ: PQType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.haemoglobin",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.haemoglobin",
+      "short" : "Haemoglobin, t.ex",
+      "definition" : "Haemoglobin, t.ex. g/L [massa / volym]\nRIV-TA-typ: PQType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bodyTemperature",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.bodyTemperature",
+      "short" : "Kroppstemperatur",
+      "definition" : "Kroppstemperatur\nRIV-TA-typ: decimal. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.scarsOK",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.scarsOK",
+      "short" : "Sår/bristningar/klipp utan anmärkning (true/false)",
+      "definition" : "Sår/bristningar/klipp utan anmärkning (true/false)\nRIV-TA-typ: boolean. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.sutureRemoved",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.sutureRemoved",
+      "short" : "Suturer borttagna (true/false)",
+      "definition" : "Suturer borttagna (true/false)\nRIV-TA-typ: boolean. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.perineumComfortable",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.perineumComfortable",
+      "short" : "Bäckenbotten utan anmärkning (true/false)",
+      "definition" : "Bäckenbotten utan anmärkning (true/false)\nRIV-TA-typ: boolean. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.vulvaVaginaPortioOK",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.vulvaVaginaPortioOK",
+      "short" : "vulvaVaginaPortio utan anmärkning (true/false)",
+      "definition" : "vulvaVaginaPortio utan anmärkning (true/false)\nRIV-TA-typ: boolean. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.uterusContracted",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.uterusContracted",
+      "short" : "Uterus utan anmärkning (true/false)",
+      "definition" : "Uterus utan anmärkning (true/false)\nRIV-TA-typ: boolean. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.uterusNote",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.motherPostDeliveryRecord.uterusNote",
+      "short" : "Kommentar till uterus med anmärkning",
+      "definition" : "Kommentar till uterus med anmärkning. Kan endast anges då uterusContracted = false\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord",
+      "short" : "Efterskötningsjournal, för barn ur samma graviditet",
+      "definition" : "Efterskötningsjournal, för barn ur samma graviditet\nRIV-TA-typ: ChildPostDeliveryRecordTypeType. Kardinalitet i TKB: 1..*.",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.ordinalNumber",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.ordinalNumber",
+      "short" : "Ordningstal för barnet, med start på 1",
+      "definition" : "Ordningstal för barnet, med start på 1. Ju äldre barn desto lägre siffra.\nRIV-TA-typ: integer. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.weight",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.weight",
+      "short" : "Barnets vikt [massa]",
+      "definition" : "Barnets vikt [massa]\nRIV-TA-typ: PQType. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.apgarScore1",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.apgarScore1",
+      "short" : "Apgar (0..10) efter 1 minut",
+      "definition" : "Apgar (0..10) efter 1 minut\nRIV-TA-typ: int. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.apgarScore5",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.apgarScore5",
+      "short" : "Apgar (0..10) efter 5 minuter",
+      "definition" : "Apgar (0..10) efter 5 minuter\nRIV-TA-typ: int. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.apgarScore10",
+      "path" : "getmaternitymedicalhistory.maternityMedicalRecord.maternityMedicalRecordBody.postDeliveryRecord.childPostDeliveryRecord.apgarScore10",
+      "short" : "Apgar (0..10) efter 10 minuter",
+      "definition" : "Apgar (0..10) efter 10 minuter\nRIV-TA-typ: int. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.result",
+      "path" : "getmaternitymedicalhistory.result",
+      "short" : "Innehåller information om begäran gick bra eller ej.",
+      "definition" : "Innehåller information om begäran gick bra eller ej.\nRIV-TA-typ: ResultType. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.result.resultCode",
+      "path" : "getmaternitymedicalhistory.result.resultCode",
+      "short" : "Kan endast vara OK, INFO eller ERROR",
+      "definition" : "Kan endast vara OK, INFO eller ERROR\nRIV-TA-typ: ResultCodeEnum. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/ValueSet/resultcode-vs"
+      }
+    },
+    {
+      "id" : "getmaternitymedicalhistory.result.errorCode",
+      "path" : "getmaternitymedicalhistory.result.errorCode",
+      "short" : "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.",
+      "definition" : "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.\nRIV-TA-typ: ErrorCodeEnum. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/ValueSet/errorcode-vs"
+      }
+    },
+    {
+      "id" : "getmaternitymedicalhistory.result.subCode",
+      "path" : "getmaternitymedicalhistory.result.subCode",
+      "short" : "Inga subkoder är specificerade. (TKB: subcode)",
+      "definition" : "Inga subkoder är specificerade.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.result.logId",
+      "path" : "getmaternitymedicalhistory.result.logId",
+      "short" : "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.",
+      "definition" : "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.\nRIV-TA-typ: string. Kardinalitet i TKB: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getmaternitymedicalhistory.result.message",
+      "path" : "getmaternitymedicalhistory.result.message",
+      "short" : "En beskrivande text som kan visas för användaren.",
+      "definition" : "En beskrivande text som kan visas för användaren.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

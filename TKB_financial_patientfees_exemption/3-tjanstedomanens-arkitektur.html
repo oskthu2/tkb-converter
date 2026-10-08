@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>3 Tjänstedomänens arkitektur - financial: patientfees: exemption v1.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"4"}
+    h3,h4,h5,h6{--heading-prefix:"4"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">financial: patientfees: exemption</span>
+            <br/>
+            <span style="display:inline-block;">1.0.0 - release
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Kapitel<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="1-inledning.html">1 Inledning</a></li>
+      <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+      <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+      <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+      <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+      <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma informationskomponenter</a></li>
+      <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+    </ul>
+  </li>
+  <li><a href="7-tjanstekontrakt.html">Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>3 Tjänstedomänens arkitektur</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">financial: patientfees: exemption - Local Development build (v1.0.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/financial-patientfees-exemption/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>3 Tjänstedomänens arkitektur</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#3-tjänstedomänens-arkitektur" id="markdown-toc-3-tjänstedomänens-arkitektur">3 Tjänstedomänens arkitektur</a>    <ul>
+      <li><a href="#31-flöden" id="markdown-toc-31-flöden">3.1 Flöden</a></li>
+      <li><a href="#32-adressering" id="markdown-toc-32-adressering">3.2 Adressering</a></li>
+      <li><a href="#33-aggregering-och-engagemangsindex" id="markdown-toc-33-aggregering-och-engagemangsindex">3.3 Aggregering och engagemangsindex</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="3-tjänstedomänens-arkitektur">3 Tjänstedomänens arkitektur</h1>
+
+<p>Källa: <em>Högkostnadsskydd</em>, tjänstekontraktbeskrivning version 1.0 (2024-03-25), <a href="TKB_financial_patientfees_exemption.docx">TKB_financial_patientfees_exemption.docx</a>.</p>
+
+<p>I detta avsnitt beskrivs hur T-boken tillämpats i tjänstedomänen. Avsnittet syftar till att ge läsaren överblick och förståelse. Avsnittet innehåller inga regler, men ger ett sammanhang för de regler som beskrivs i övriga delar av dokumentet.</p>
+
+<p>Tjänsten för beskrivning av högkostnadsskydd erbjuder ett utlämnande av information i vårdgivarnas system för patientadministration. Utgångspunkten för tjänsten i denna tjänstedomän är i första hand patientens och professionens behov av utlämnande till patients besökskostnader ur ett nationellt eller ett regionalt perspektiv. I båda fallen är syftet att historisk information sammanställs från det eller de verksamhetssystem där det finns historik via s.k. aggregerande tjänster, snarare än att begära information från ett specifikt system eller en specifik verksamhet.</p>
+
+<p>Tjänstekontrakten erbjuder även möjlighet att nå information från ett specifikt system eller en specifik verksamhet.</p>
+
+<p>Följande flödesmodeller beskriver översiktligt hur tjänstekontrakten är tänkta att användas. Tjänstekonsument (K) och tjänsteproducenter (P) är markerade i figurerna.</p>
+
+<h3 id="31-flöden">3.1 Flöden</h3>
+
+<h4 id="311-hämtning-av-högkostnadsskydd-samt-alla-transaktioner">3.1.1 Hämtning av högkostnadsskydd samt alla transaktioner.</h4>
+
+<p>Nedanstående diagram visar hur flödet principiellt ser ut när information ur kontrakt i tjänstedomänen efterfrågas och hanteras.</p>
+
+<h5 id="3111-sekvensdiagram">3.1.1.1 Sekvensdiagram</h5>
+
+<h6 id="31111-sekvensdiagram-1--källsystem-uppdaterar-ei">3.1.1.1.1 Sekvensdiagram 1 – Källsystem uppdaterar EI</h6>
+
+<p>Sekvensdiagrammet visar det informationsutbyte som sker mellan sjukvårdshuvudmans eller agents system och engagemangsindex innan en begäran om ett utlämnande senare kan ske. Det är varje sjukvårdshuvudmans ansvar att uppdatera engagemangsindex för att visa att sjukvårdshuvudman håller högkostnadsskyddsinformation om patient. Via engagemangsindex kan senare (se sekvensdiagram 2 nedan) en begäran om utlämnande skickas till berörda parter via aggregerad tjänst.</p>
+
+<p><img src="img_005.png" alt="Sekvensdiagram 1 – Källsystem uppdaterar EI" /></p>
+
+<h6 id="31112-sekvensdiagram-2--begäran-om-utlämnande">3.1.1.1.2 Sekvensdiagram 2 – Begäran om utlämnande</h6>
+
+<p>Sekvensdiagrammet visar begäran om ett utlämnande av högkostnadsskyddsinformation, vilket är första steget i informationsutbytet, initierat av den part som vill inhämta information. Konsument adresserar kontraktet RequestExemptionStatuses med Ineras organisationsnummer som logisk adress för att aktivera aggregerad tjänst av samma kontrakt (RequestExemptionStatuses). Aggregerad tjänst baserar vidare sina anrop om begäran på relevanta engagemangsindexposter för berörd invånare/patient. Aggregerad tjänst ska endast anropa sjukvårdshuvudman/agent vars engagemangsindexpost är 12 månader eller nyare, filtrering sker på attributet mostRecentContent. Aggregerad tjänst skickar således en begäran om utlämnande per engagemangsindexpost som matchar kriteriet ovan.</p>
+
+<p><img src="img_004.png" alt="Sekvensdiagram 2 – Begäran om utlämnande" /></p>
+
+<h6 id="31113-sekvensdiagram-3--utlämnande">3.1.1.1.3 Sekvensdiagram 3 – Utlämnande</h6>
+
+<p>Sekvensdiagrammet visar det utlämnande som initierats av begäran i föregående sekvensdiagram. I detta diagram byter parterna roll. Konsumenten som i tidigare diagram initierade begäran blir nu producent och tar emot utlämnandet. Beroende på hur många olika engagemangsindexposter som hittades av aggregerad tjänst (sekvensdiagram 2 ovan) kommer ett ProcessExemptionStatuses anrop att inkomma per begäran/engagemangsindexpost.</p>
+
+<p><img src="img_003.png" alt="Sekvensdiagram 3 – Utlämnande" /></p>
+
+<h4 id="312-obligatoriska-kontrakt">3.1.2 Obligatoriska kontrakt</h4>
+
+<h5 id="3121-requestexemptionstatus">3.1.2.1 RequestExemptionStatus</h5>
+
+<p>En konsument som stödjer kontraktet RequestExemptionStatus måste även stödja ProcessExemptionStatus som producent.</p>
+
+<p>En producent som stödjer kontraktet RequestExemptionStatus måste även stödja ProcessExemptionStatus som konsument.</p>
+
+<h5 id="3122-processexemptionstatus">3.1.2.2 ProcessExemptionStatus</h5>
+
+<p>En konsument som stödjer kontraktet ProcessExemptionStatus måste även stödja RequestExemptionStatus som producent.</p>
+
+<p>En producent som stödjer kontraktet ProcessExemptionStatus måste även stödja RequestExemptionStatus som konsument.</p>
+
+<h3 id="32-adressering">3.2 Adressering</h3>
+
+<p>Domänen innefattar två tjänstekontrakt bestående av:</p>
+
+<p>RequestExemptionStatuses som används av en konsument för att initiera informationsöverföringen. Detta kontrakt motsvarar konsumentens begäran om att få utlämnat högkostnadsskyddsgrundande information.</p>
+
+<p>ProcessExemptionStatuses som används av producentsystem för att svara på en begäran om utlämnande av högkostnadsskyddsgrundande information. Anrop av ProcessExemptionStatuses måste alltid föregås av ett inkommande anrop via RequestExemptionStatuses. Producent av RequestExemptionStatuses byter i detta läge roll och blir således konsument för ProcessExemptionStatuses.</p>
+
+<h4 id="321-sammanfattning-av-adresseringsmodell-för-tjänstekontraktet-requestexemptionstatuses">3.2.1 Sammanfattning av adresseringsmodell för tjänstekontraktet RequestExemptionStatuses</h4>
+
+<p>Tjänstekontraktet anropas i första hand verksamhetsadresserat där varje logisk adress antingen motsvarar en sjukvårdshuvudman eller Ineras organisationsnummer för att aktivera aggregeringsfunktionen (se kap 3.3 nedan).</p>
+
+<p>Tjänstekontraktet tillåts även anropas system-adresserat. I detta scenario pekas en agents källsystems-HSAId ut. En sådan agent ska i förhand ha godkänts av Inera och ingått relevant avtal.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Begäran om utlämnande av patientens högkostnadsgrundande information</th>
+      <th style="text-align: left">Logisk adress</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Nationellt</td>
+      <td style="text-align: left">Ineras HSA-id: 5565594230 / Detta adresseringssätt är normalfallet för konsument att använda. Adresseringssättet används exempelvis från vårdgivares kassasystem eller från invånares vy i 1177 Vårdguidens e-tjänster för att erhålla en nationellt sammanfattad bild över individs högkostnadsskyddsgrundande information. / Genom att adressera på detta sätt triggas aggregerad tjänst igång på den nationella tjänsteplattformen som i sin tur baserar sina vidare anrop på innehållet i engagemangsindex.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">För en huvudman/region</td>
+      <td style="text-align: left">Huvudmannenslänskod / Detta adresseringssätt används normalt av aggregerad tjänst för att begära ett utlämnande av högkostnadsskyddsgrundande information från den adresserade huvudmannen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">För en agent</td>
+      <td style="text-align: left">Agentens källsystems-HSAId. / Detta adresseringssätt används normalt av aggregerad tjänst för att begära ett utlämnande av högkostnadsskyddsgrundande information från en agent</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="322-sammanfattning-av-adresseringsmodell-för-tjänstekontraktet-processexemptionstatuses">3.2.2 Sammanfattning av adresseringsmodell för tjänstekontraktet ProcessExemptionStatuses</h4>
+
+<p>Tjänstekontraktet ska anropas som en följd av en inkommande begäran om utlämnande (anrop via RequestExemptionStatuses). ProcessExemptionStatuses adresseras till den konsument som begärt utlämnandet, d v s till den logiska adress som förmedlats i begäran för RequestExemptionStatuses (attributet responseLogicalAddress).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Utlämnande av patientens högkostnadsgrundande information</th>
+      <th style="text-align: left">Logisk adress</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Konsuments HSAId (hämtat från anropet RequesExemptionStatuses)</td>
+      <td style="text-align: left">Om konsument är e-tjänst för invånare att hämta sin högkostnadsgrundande information (exempelvis 1177 Vårdguidens e-tjänster) motsvarar logisk adress e-tjänstens upplagda logiska adress i tjänsteadresseringskatalogen (TAK). Anropande part av ProcessExemptionStatuses behöver i förhand ha givits anropsbehörighet till denna logiska adress.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="33-aggregering-och-engagemangsindex">3.3 Aggregering och engagemangsindex</h3>
+
+<p>Tjänstekontraktet RequestExemptionStatus i denna domän har en tillhörande aggregerande tjänst som kan sammanställa information från flera tjänsteproducenter. I praktiken innebär det att den aggregerade tjänsten initierar begäran om utlämnande till eventuellt flera parter, baserat på förekomsten av engagemangsindexposter (se sekvensdiagram 1).</p>
+
+<p>Aggregerande tjänster har samma tjänstekontrakt och anropsadress som en traditionell virtuell tjänst, men nås via olika logiska adresser.</p>
+
+<p>Om en huvudmans HSA-id anges som logisk adress, kommer tjänsteplattformen att dirigera frågemeddelandet vidare direkt till huvudmannens system utan att passera en aggregerande tjänst.</p>
+
+<p>Om logisk adress HSA-id för Inera anges kommer anropet att dirigeras till aggregerande tjänst som i sin tur – efter att ha konsulterat engagemangsindex – vidarebefordrar frågan till de system som har information om patienten.</p>
+
+<p>Notera att svaret från en aggregerad tjänst kommer att innehålla kompletterande information i header som visar på vilka källsystem den aggregerande tjänst i sin tur anropat för att sammanställa sitt svar. Vidare information om denna header (ProcessingStatus) kan läsas i RIV Tekniska Anvisningar Basic Profile Valfria tillägg 2.1, kap3 [R8].</p>
+
+<p>Tjänstekontraktet ProcessExemptionStatuses har ingen motsvarande aggregerande tjänst. Detta anrop måste riktas till den logiska adress som tidigare skickats genom tjänstekontraktet RequestExemptionStatuses via attributet requestLogicalAddress (se tjänstekontraktsbeskrivningen längre ner).</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.financial-patientfees-exemption#1.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 18:24+0000">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

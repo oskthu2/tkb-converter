@@ -1,0 +1,229 @@
+# GetObservations — Request - clinicalprocess: healthcond: basic v1.2.3
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetObservations — Request**
+
+## Logical Model: GetObservations — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/getobservations-request | *Version*:1.2 |
+| Active as of 2026-10-08 | *Computable Name*:GetObservationsRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i tjänstekontraktet GetObservations 1.2 (RIV-TA urn:riv:clinicalprocess:healthcond:basic:GetObservationsResponder:1, elementet GetObservations). Den enda sökparametern som explicit behöver anges är patientId (övrig regel 1.1). En begäran med patientId men utan någon av de andra sökparametrarna får nekas av producent. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-healthcond-basic|current/StructureDefinition/StructureDefinition-getobservations-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getobservations-request.csv), [Excel](StructureDefinition-getobservations-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getobservations-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/getobservations-request",
+  "version" : "1.2",
+  "name" : "GetObservationsRequest",
+  "title" : "GetObservations — Request",
+  "status" : "active",
+  "date" : "2026-10-08T18:07:24+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i tjänstekontraktet GetObservations 1.2\n(RIV-TA urn:riv:clinicalprocess:healthcond:basic:GetObservationsResponder:1, elementet GetObservations).\nDen enda sökparametern som explicit behöver anges är patientId (övrig regel 1.1).\nEn begäran med patientId men utan någon av de andra sökparametrarna får nekas av producent.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/StructureDefinition/getobservations-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getobservations-request",
+      "path" : "getobservations-request",
+      "short" : "GetObservations — Request",
+      "definition" : "Logisk modell för begäran i tjänstekontraktet GetObservations 1.2\n(RIV-TA urn:riv:clinicalprocess:healthcond:basic:GetObservationsResponder:1, elementet GetObservations).\nDen enda sökparametern som explicit behöver anges är patientId (övrig regel 1.1).\nEn begäran med patientId men utan någon av de andra sökparametrarna får nekas av producent."
+    },
+    {
+      "id" : "getobservations-request.patientId",
+      "path" : "getobservations-request.patientId",
+      "short" : "Personidentifierare för den patient sökningen avser (IIType).",
+      "definition" : "Begränsar sökningen till angiven personidentifierare för en patient. Tjänsteproducenten ska i svaret\nleverera alla uppgifter kopplade till patienten, dvs. även uppgifter som har registrerats på andra,\ntill individen, kopplade personidentifierare. Regel 1.1.\n- root: OID för typ av personidentifierare. Personnummer 1.2.752.129.2.1.3.1,\n  samordningsnummer 1.2.752.129.2.1.3.3, för andra typer av personidentifierare aktuell OID.\n- extension: patientens identifierare, 12 tecken utan avskiljare.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getobservations-request.time",
+      "path" : "getobservations-request.time",
+      "short" : "Begränsar sökningen till angivet tidsintervall (TimePeriodType).",
+      "definition" : "Om Observation.time i svaret är en tidpunkt returneras poster där tidpunkten ligger inom sökintervallet.\nOm Observation.time är ett intervall returneras poster vars intervall överlappar sökintervallet.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getobservations-request.time.start",
+      "path" : "getobservations-request.time.start",
+      "short" : "Startdatum. Format ÅÅÅÅMMDDttmmss (TimeStampType).",
+      "definition" : "Startdatum. Format ÅÅÅÅMMDDttmmss (TimeStampType).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "instant"
+      }]
+    },
+    {
+      "id" : "getobservations-request.time.end",
+      "path" : "getobservations-request.time.end",
+      "short" : "Slutdatum. Format ÅÅÅÅMMDDttmmss (TimeStampType).",
+      "definition" : "Slutdatum. Format ÅÅÅÅMMDDttmmss (TimeStampType).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "instant"
+      }]
+    },
+    {
+      "id" : "getobservations-request.observationType",
+      "path" : "getobservations-request.observationType",
+      "short" : "Begränsning till en viss typ av observation (CVType).",
+      "definition" : "Begränsning av sökning avseende observationen till en viss typ av värde, t.ex. kliniskt fynd eller diagnoser.\ncode och codeSystem anges (1..1). codeSystemName, codeSystemVersion och displayName ska ignoreras\ni begäran och ej skickas (0..0).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getobservations-request.observationId",
+      "path" : "getobservations-request.observationId",
+      "short" : "Identitet för en specifik observation (IIType).",
+      "definition" : "Motsvarar observation/id i svaret.\n- root: källsystemets HSA-id.\n- extension: den i källsystemet unika identiteten för observationen.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getobservations-request.careGiverId",
+      "path" : "getobservations-request.careGiverId",
+      "short" : "Vårdgivare att söka hos (IIType).",
+      "definition" : "- root: OID för HSA-id, 1.2.752.129.2.1.4.1.\n- extension: HSA-id för vårdgivaren från vilken observationer ska returneras.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getobservations-request.careUnitId",
+      "path" : "getobservations-request.careUnitId",
+      "short" : "PDL-vårdenhet med ansvar för dokumentationen (IIType).",
+      "definition" : "- root: OID för HSA-id, 1.2.752.129.2.1.4.1.\n- extension: HSA-id för PDL-vårdenheten.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getobservations-request.interactionAgreementId",
+      "path" : "getobservations-request.interactionAgreementId",
+      "short" : "Används inte. Ange UUID 2866a7c4-9c60-433f-9035-a4d779ffe7a1 (UUIDType).",
+      "definition" : "Attributet används inte, men är obligatoriskt i schemat. Ange UUID 2866a7c4-9c60-433f-9035-a4d779ffe7a1.\nUUIDType: 36 tecken, mönster [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[8-9a-bA-B][0-9a-fA-F]{3}-[0-9a-fA-F]{12}.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getobservations-request.sourceSystemHSAId",
+      "path" : "getobservations-request.sourceSystemHSAId",
+      "short" : "Källsystem att söka i (HSAIdType).",
+      "definition" : "Begränsar sökningen till observationer skapade i det angivna källsystemet. Motsvarar\nobservationGroup/sourceSystem i svaret. I schemat en sträng (HSAIdType) med källsystemets HSA-id.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getobservations-request.relation",
+      "path" : "getobservations-request.relation",
+      "short" : "Filter på relationer (RelationFilterType).",
+      "definition" : "Endast de poster med relationer som matchar villkoren i denna lista ska returneras.\nOm listan är tom filtreras inte observationer på deras relationer.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getobservations-request.relation.relationId",
+      "path" : "getobservations-request.relation.relationId",
+      "short" : "Identitet som anges i sambandet/relationen (relation.id, IIType).",
+      "definition" : "- root: HSA-id för den vårdgivare som är ansvarig för informationen som sambandet pekar ut.\n- extension: id som är unikt inom vårdgivaren oavsett vilket källsystem informationen lagras inom.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getobservations-request.relation.typeCode",
+      "path" : "getobservations-request.relation.typeCode",
+      "short" : "Sambandstyp att filtrera på (CVType).",
+      "definition" : "code och codeSystem för sambandstyp. codeSystemName, codeSystemVersion och displayName ska ej skickas.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getobservations-request.relation.referredInformationType",
+      "path" : "getobservations-request.relation.referredInformationType",
+      "short" : "Typ av uppgift som sambandet pekar ut (Categorization i engagemangsindex).",
+      "definition" : "I denna version av tjänstekontraktet är följande typer möjliga: chb-o (observation), caa-a (aktivitet).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

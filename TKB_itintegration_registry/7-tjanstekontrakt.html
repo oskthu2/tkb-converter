@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>7 Tjänstekontrakt - itintegration: registry v1.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"7"}
+    h3,h4,h5,h6{--heading-prefix:"7"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">itintegration: registry</span>
+            <br/>
+            <span style="display:inline-block;">1.0.0 - release
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Kapitel<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="1-inledning.html">1 Inledning</a></li>
+      <li><a href="2-informationsmodell.html">2 Informationsmodell</a></li>
+      <li><a href="3-versionsinformation.html">3 Versionsinformation</a></li>
+      <li><a href="4-generella-regler.html">4 Generella regler</a></li>
+      <li><a href="5-sla-krav.html">5 SLA-krav</a></li>
+      <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+      <li><a href="8-datatyper.html">8 Datatyper</a></li>
+    </ul>
+  </li>
+  <li><a href="7-tjanstekontrakt.html">Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">itintegration: registry - Local Development build (v1.0.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/itintegration-registry/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#7-tjänstekontrakt" id="markdown-toc-7-tjänstekontrakt">7 Tjänstekontrakt</a>    <ul>
+      <li><a href="#getlogicaladdresseesbyservicecontract" id="markdown-toc-getlogicaladdresseesbyservicecontract">GetLogicalAddresseesByServiceContract</a></li>
+      <li><a href="#getsupportedservicecontracts" id="markdown-toc-getsupportedservicecontracts">GetSupportedServiceContracts</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="7-tjänstekontrakt">7 Tjänstekontrakt</h1>
+
+<p>Källa: <em>Itintegration - registry, Tjänstekontrakt</em>, utgåva A (2012-04-14), <a href="Tjanstekontrakt_Itintegration_Registry_Beskrivning.doc">Tjanstekontrakt_Itintegration_Registry_Beskrivning.doc</a>.</p>
+
+<p>Tjänstekontraktsbeskrivningen beskriver kontrakten i avsnitt 6 och 7. I denna IG ligger de under avsnitt 7: 7.1 = TKB 6 och 7.2 = TKB 7.</p>
+
+<h3 id="getlogicaladdresseesbyservicecontract">GetLogicalAddresseesByServiceContract</h3>
+
+<p><em>TKB avsnitt 6.</em></p>
+
+<p>Tjänsten returnerar en lista över logiska adressater som har en tjänsteproducent för angivet tjänstekontrakt (namnrymd) och som har anropsbehörighet för angiven tjänstekonsument (hsa-id).</p>
+
+<p>Ett tänkt syfte med denna tjänst är att konsumenter med behov av att vidarebefordra anrop till alla producenter av ett specifikt tjänstekontrakt ska kunna använda tjänsten för att fastställa vilka logiska adressater som erbjuder angiven tjänst.</p>
+
+<h4 id="711-begäran-request-och-svar-response">7.1.1 Begäran (Request) och Svar (Response)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Typ</th>
+      <th>Kommentar</th>
+      <th>Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Begäran</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>serviceConsumerHsaId</td>
+      <td>HSAid</td>
+      <td>Tjänstekonsument mot vars anropsbehörighet svaret filtreras.</td>
+      <td>1..1</td>
+    </tr>
+    <tr>
+      <td>serviceContractNameSpace</td>
+      <td>urn</td>
+      <td>Det tjänstekontrakt som frågan gäller</td>
+      <td>1..1</td>
+    </tr>
+    <tr>
+      <td>Svar</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>logicalAddress</td>
+      <td>Text</td>
+      <td>Tjänstekontrakt som stöds av angiven tjänstekonsument vid tidpunkten för anropet av GetSupportedServiceContracts.</td>
+      <td>0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="712-regler">7.1.2 Regler</h4>
+
+<p>R1: Producenten ska filtrera svaret så att det endast innehåller de logiska adresser som angiven konsument har rättighet att adressera för angivet tjänstekontrakt (vid tidpunkten för anropet av GetLogicalAddresseesByServiceContract).</p>
+
+<h4 id="713-tjänsteinteraktion">7.1.3 Tjänsteinteraktion</h4>
+
+<p>GetSupportedServiceContractsInteraction</p>
+
+<h4 id="714-fältregler-enligt-schema-xsd">7.1.4 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="8-datatyper.html">avsnitt 8</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">serviceConsumerHsaId</td>
+      <td style="text-align: left">HsaIdType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">serviceContractNameSpace</td>
+      <td style="text-align: left">ServiceContractNamespaceType</td>
+      <td style="text-align: left">Type which describes a service contract.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../ServiceContractNamespace</td>
+      <td style="text-align: left">anyURI</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">logicalAddress</td>
+      <td style="text-align: left">LogicalAddressType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="715-tjänsteinteraktion-enligt-wsdl">7.1.5 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>Tjänsteinteraktionens namn: GetLogicalAddresseesByServiceContractInteraction<br />
+Beskrivning:<br />
+Service to query a registry for all logical addressees supporting a specific service contract authorized for a specified consumer at the time of invokation.<br />
+Revisioner:<br />
+Tjänstedomän: itintegration:registry<br />
+Tjänsteinteraktionstyp: Fråga-Svar<br />
+WS-profil: RIVTABP21<br />
+Förvaltas av: Sveriges Kommuner och Landsting</p>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:itintegration:registry:GetLogicalAddresseesByServiceContractResponder:1:GetLogicalAddresseesByServiceContract</code></p>
+
+<h4 id="716-källfiler-riv-ta">7.1.6 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetLogicalAddresseesByServiceContractInteraction_1.0_RIVTABP21.wsdl">GetLogicalAddresseesByServiceContractInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetLogicalAddresseesByServiceContractResponder_1.0.xsd">GetLogicalAddresseesByServiceContractResponder_1.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>Domänschema (LogicalAddress, ServiceContractType)</td>
+    </tr>
+    <tr>
+      <td><a href="GetLogicalAddresseesByServiceContractResponder_1.0.xml">GetLogicalAddresseesByServiceContractResponder_1.0.xml</a></td>
+      <td>Exempelmeddelande (XML)</td>
+    </tr>
+    <tr>
+      <td><a href="GetLogicalAddresseesByServiceContractResponder_Response_1.0.xml">GetLogicalAddresseesByServiceContractResponder_Response_1.0.xml</a></td>
+      <td>Exempelmeddelande (XML)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="717-fhir-artefakter">7.1.7 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getlogicaladdresseesbyservicecontract-request.html">StructureDefinition/getlogicaladdresseesbyservicecontract-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getlogicaladdresseesbyservicecontract.html">StructureDefinition/getlogicaladdresseesbyservicecontract</a></li>
+</ul>
+
+<h3 id="getsupportedservicecontracts">GetSupportedServiceContracts</h3>
+
+<p><em>TKB avsnitt 7.</em></p>
+
+<p>Tjänsten returnerar en lista över tjänstekontrakt (namnrymder) som stöds av en specifik logisk adressat. Varje huvudversion uppträder som ett eget tjänstekontrakt (namnrymd).</p>
+
+<p>Ett tänkt syfte med denna tjänst är att konsumenter med avancerad process-logik ska kunna använda tjänsten för att fastställa vilka tjänstkontrakt (eller huvudversioner av tjänster) som stöds av t.ex. en viss vårdenhet. Det är framför allt intressant för konsumenter av tjänstedomäner där vissa tjänstekontrakt är frivilliga att realisera. Om en logisk adressat (verksamhet så som vårdenhet) saknar stöd för ett av domänens frivilla tjänstekontrakt blir det underlag för hur den konsumerande e-tjänsten ska styra sitt flöde.</p>
+
+<h4 id="721-begäran-request-och-svar-response">7.2.1 Begäran (Request) och Svar (Response)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Typ</th>
+      <th>Kommentar</th>
+      <th>Kardi-nalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Begäran</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>serviceConsumerHsaId</td>
+      <td>hsaId</td>
+      <td>Tjänstekonsument. Svaret innehåller bara de tjänstekontrakt som denna konsument har rättighet att använda mot angiven logisk adress.</td>
+      <td>1..1</td>
+    </tr>
+    <tr>
+      <td>logicalAdress</td>
+      <td>Text</td>
+      <td>Typ och betydelse definieras per tjänstedomän.</td>
+      <td>1..1</td>
+    </tr>
+    <tr>
+      <td>Svar</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>serviceContractNamespace</td>
+      <td>urn</td>
+      <td>Tjänstekontrakt som stöds av angiven logisk adress vid tidpunkten för anropet av GetSupportedServiceContracts.</td>
+      <td>0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="722-regler">7.2.2 Regler</h4>
+
+<p>R1: Producenten ska filtrera svaret så att det endast innehåller de tjänstekontrakt som angiven konsument har rättighet att använda för angiven logisk adressat.</p>
+
+<h4 id="723-tjänsteinteraktion">7.2.3 Tjänsteinteraktion</h4>
+
+<p>GetSupportedServiceContractsInteraction</p>
+
+<h4 id="724-fältregler-enligt-schema-xsd">7.2.4 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="8-datatyper.html">avsnitt 8</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">serviceConsumerHsaId</td>
+      <td style="text-align: left">HsaIdType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">logicalAdress</td>
+      <td style="text-align: left">LogicalAddressType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">serviceContractNamespace</td>
+      <td style="text-align: left">ServiceContractNamespaceType</td>
+      <td style="text-align: left">Type which describes a service contract.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../ServiceContractNamespace</td>
+      <td style="text-align: left">anyURI</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="725-tjänsteinteraktion-enligt-wsdl">7.2.5 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:itintegration:registry:GetSupportedServiceContractsResponder:1:GetSupportedServiceContracts</code></p>
+
+<h4 id="726-källfiler-riv-ta">7.2.6 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetSupportedServiceContractsInteraction_1.0_RIVTABP21.wsdl">GetSupportedServiceContractsInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetSupportedServiceContractsResponder_1.0.xsd">GetSupportedServiceContractsResponder_1.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>Domänschema (LogicalAddress, ServiceContractType)</td>
+    </tr>
+    <tr>
+      <td><a href="GetSupportedServiceContractsResponder_1.0.xml">GetSupportedServiceContractsResponder_1.0.xml</a></td>
+      <td>Exempelmeddelande (XML)</td>
+    </tr>
+    <tr>
+      <td><a href="GetSupportedServiceContractsResponderResponse_1.0.xml">GetSupportedServiceContractsResponderResponse_1.0.xml</a></td>
+      <td>Exempelmeddelande (XML)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="727-fhir-artefakter">7.2.7 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getsupportedservicecontracts-request.html">StructureDefinition/getsupportedservicecontracts-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getsupportedservicecontracts.html">StructureDefinition/getsupportedservicecontracts</a></li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.itintegration-registry#1.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 18:40+0000">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

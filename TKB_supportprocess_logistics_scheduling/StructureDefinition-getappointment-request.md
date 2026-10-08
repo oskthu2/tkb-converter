@@ -1,0 +1,251 @@
+# GetAppointment — Request - supportprocess: logistics: scheduling v2.0.0-rc1
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetAppointment — Request**
+
+## Logical Model: GetAppointment — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/getappointment-request | *Version*:2.0 |
+| Draft as of 2026-10-08 | *Computable Name*:GetAppointmentRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i GetAppointment (urn:riv:supportprocess:logistics:scheduling:GetAppointmentResponder:2, GetAppointmentType), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.supportprocess-logistics-scheduling|current/StructureDefinition/StructureDefinition-getappointment-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getappointment-request.csv), [Excel](StructureDefinition-getappointment-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getappointment-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/getappointment-request",
+  "version" : "2.0",
+  "name" : "GetAppointmentRequest",
+  "title" : "GetAppointment — Request",
+  "status" : "draft",
+  "date" : "2026-10-08T18:56:00+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i GetAppointment\n(urn:riv:supportprocess:logistics:scheduling:GetAppointmentResponder:2, GetAppointmentType), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/supportprocess-logistics-scheduling/StructureDefinition/getappointment-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getappointment-request",
+      "path" : "getappointment-request",
+      "short" : "GetAppointment — Request",
+      "definition" : "Logisk modell för begäran i GetAppointment\n(urn:riv:supportprocess:logistics:scheduling:GetAppointmentResponder:2, GetAppointmentType), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "getappointment-request.logicalAddress",
+      "path" : "getappointment-request.logicalAddress",
+      "short" : "logicalAddress",
+      "definition" : "SOAP-huvud LogicalAddress. Verksamhetens HSAID på enhetsnivå",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment-request.actor",
+      "path" : "getappointment-request.actor",
+      "short" : "actor",
+      "definition" : "actor",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment-request.actor.actorId",
+      "path" : "getappointment-request.actor.actorId",
+      "short" : "actorId",
+      "definition" : "actorId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment-request.actor.actorId.root",
+      "path" : "getappointment-request.actor.actorId.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment-request.actor.actorId.iiExtension",
+      "path" : "getappointment-request.actor.actorId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment-request.actor.actorType",
+      "path" : "getappointment-request.actor.actorType",
+      "short" : "actorType",
+      "definition" : "actorType",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment-request.actor.actorType.snomedCtCode",
+      "path" : "getappointment-request.actor.actorType.snomedCtCode",
+      "short" : "snomedCtCode",
+      "definition" : "snomedCtCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment-request.actor.actorType.codeSystem",
+      "path" : "getappointment-request.actor.actorType.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "Tillåtna värden: 1.2.752.116.2.1.1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment-request.actor.actorType.codeSystemName",
+      "path" : "getappointment-request.actor.actorType.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment-request.actor.actorType.codeSystemVersion",
+      "path" : "getappointment-request.actor.actorType.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment-request.actor.actorType.displayName",
+      "path" : "getappointment-request.actor.actorType.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment-request.actor.actorType.originalText",
+      "path" : "getappointment-request.actor.actorType.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment-request.appointmentId",
+      "path" : "getappointment-request.appointmentId",
+      "short" : "appointmentId",
+      "definition" : "appointmentId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment-request.personId",
+      "path" : "getappointment-request.personId",
+      "short" : "personId",
+      "definition" : "personId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getappointment-request.personId.root",
+      "path" : "getappointment-request.personId.root",
+      "short" : "root",
+      "definition" : "Tillåtna värden: 1.2.752.129.2.1.3.1, 1.2.752.129.2.1.3.3.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getappointment-request.personId.personIdExtension",
+      "path" : "getappointment-request.personId.personIdExtension",
+      "short" : "personIdExtension",
+      "definition" : "personIdExtension Heter extension i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

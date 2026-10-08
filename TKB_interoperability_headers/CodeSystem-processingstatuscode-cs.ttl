@@ -1,0 +1,63 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://fhir.inera.se/ig/interoperability-headers/CodeSystem/processingstatuscode-cs> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "processingstatuscode-cs"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem processingstatuscode-cs</b></p><a name=\"processingstatuscode-cs\"> </a><a name=\"hcprocessingstatuscode-cs\"> </a><p>This case-sensitive code system <code>https://fhir.inera.se/CodeSystem/processingstatuscode-cs</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">DataFromSource<a name=\"processingstatuscode-cs-DataFromSource\"> </a></td><td>Inga uppgifter fanns i cache; aktuella uppgifter hämtades från källsystemet.</td></tr><tr><td style=\"white-space:nowrap\">DataFromCache<a name=\"processingstatuscode-cs-DataFromCache\"> </a></td><td>Aktuella uppgifter returnerades från cache; inget anrop gjordes till källsystemet.</td></tr><tr><td style=\"white-space:nowrap\">DataFromCacheSynchFailed<a name=\"processingstatuscode-cs-DataFromCacheSynchFailed\"> </a></td><td>Nödvändig synkronisering med källsystemet misslyckades; eventuellt inaktuella uppgifter returnerades från cache.</td></tr><tr><td style=\"white-space:nowrap\">NoDataSynchFailed<a name=\"processingstatuscode-cs-NoDataSynchFailed\"> </a></td><td>Inga uppgifter returnerades: inga uppgifter i cache och anropet till källsystemet misslyckades.</td></tr></table></div>"
+  ] ;
+  fhir:CodeSystem.url [ fhir:value "https://fhir.inera.se/CodeSystem/processingstatuscode-cs"] ;
+  fhir:CodeSystem.version [ fhir:value "1.1.0"] ;
+  fhir:CodeSystem.name [ fhir:value "ProcessingStatusCodeCS"] ;
+  fhir:CodeSystem.title [ fhir:value "ProcessingStatusCode"] ;
+  fhir:CodeSystem.status [ fhir:value "active"] ;
+  fhir:CodeSystem.date [ fhir:value "2026-10-08T18:39:09+00:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "Inera Arkitektur" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://www.inera.se" ]
+     ]
+  ] ;
+  fhir:CodeSystem.description [ fhir:value "Kodverk StatusCodeEnum enligt interoperability_headers_1.1.xsd (urn:riv:interoperability:headers:1). Beskriver kvaliteten på de uppgifter som en aggregerande tjänst returnerat för en logisk adress."] ;
+  fhir:CodeSystem.copyright [ fhir:value "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0."] ;
+  fhir:CodeSystem.caseSensitive [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.content [ fhir:value "complete"] ;
+  fhir:CodeSystem.count [ fhir:value "4"^^xsd:nonNegativeInteger] ;
+  fhir:CodeSystem.concept [
+     fhir:index 0 ;
+     fhir:CodeSystem.concept.code [ fhir:value "DataFromSource" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "DataFromSource" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Inga uppgifter fanns i cache; aktuella uppgifter hämtades från källsystemet." ]
+  ], [
+     fhir:index 1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "DataFromCache" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "DataFromCache" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Aktuella uppgifter returnerades från cache; inget anrop gjordes till källsystemet." ]
+  ], [
+     fhir:index 2 ;
+     fhir:CodeSystem.concept.code [ fhir:value "DataFromCacheSynchFailed" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "DataFromCacheSynchFailed" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Nödvändig synkronisering med källsystemet misslyckades; eventuellt inaktuella uppgifter returnerades från cache." ]
+  ], [
+     fhir:index 3 ;
+     fhir:CodeSystem.concept.code [ fhir:value "NoDataSynchFailed" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "NoDataSynchFailed" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "Inga uppgifter returnerades: inga uppgifter i cache och anropet till källsystemet misslyckades." ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://fhir.inera.se/ig/interoperability-headers/CodeSystem/processingstatuscode-cs.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

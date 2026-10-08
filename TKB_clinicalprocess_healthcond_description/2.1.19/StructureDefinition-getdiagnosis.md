@@ -1,0 +1,541 @@
+# GetDiagnosis - clinicalprocess: healthcond: description 2.1 v2.1.19
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetDiagnosis**
+
+## Logical Model: GetDiagnosis 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getdiagnosis | *Version*:2.0 |
+| Active as of 2026-10-08 | *Computable Name*:GetDiagnosis |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret i tjänstekontraktet GetDiagnosis version 2.0 (RIV-TA urn:riv:clinicalprocess:healthcond:description:GetDiagnosisResponder:2), enligt fältreglerna i TKB clinicalprocess:healthcond:description 2.1.18. Representerar svarets informationsstruktur: diagnoser för en patient samt resultat. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-healthcond-description|current/StructureDefinition/StructureDefinition-getdiagnosis.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getdiagnosis.csv), [Excel](StructureDefinition-getdiagnosis.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getdiagnosis",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getdiagnosis",
+  "version" : "2.0",
+  "name" : "GetDiagnosis",
+  "title" : "GetDiagnosis",
+  "status" : "active",
+  "date" : "2026-10-08T18:09:54+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret i tjänstekontraktet GetDiagnosis version 2.0 (RIV-TA urn:riv:clinicalprocess:healthcond:description:GetDiagnosisResponder:2), enligt fältreglerna i TKB clinicalprocess:healthcond:description 2.1.18. Representerar svarets informationsstruktur: diagnoser för en patient samt resultat.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getdiagnosis",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getdiagnosis",
+      "path" : "getdiagnosis",
+      "short" : "GetDiagnosis",
+      "definition" : "Logisk modell för svaret i tjänstekontraktet GetDiagnosis version 2.0 (RIV-TA urn:riv:clinicalprocess:healthcond:description:GetDiagnosisResponder:2), enligt fältreglerna i TKB clinicalprocess:healthcond:description 2.1.18. Representerar svarets informationsstruktur: diagnoser för en patient samt resultat."
+    },
+    {
+      "id" : "getdiagnosis.diagnosis",
+      "path" : "getdiagnosis.diagnosis",
+      "short" : "De diagnoser som matchar begäran",
+      "definition" : "De diagnoser som matchar begäran. TKB-typ: DiagnosisType. Kardinalitet: 0..*.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader",
+      "short" : "Innehåller basinformation om dokumentet",
+      "definition" : "Innehåller basinformation om dokumentet. TKB-typ: PatientSummaryHeaderType. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.documentId",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.documentId",
+      "short" : "Dokumentets identitet som är unik inom källsystemet",
+      "definition" : "Dokumentets identitet som är unik inom källsystemet. / Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter. / Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen. TKB-typ: string. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.sourceSystemHSAId",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.sourceSystemHSAId",
+      "short" : "HSA-id för det system som dokumentet är skapat i",
+      "definition" : "HSA-id för det system som dokumentet är skapat i. TKB-typ: HSAIdType. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.documentTitle",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.documentTitle",
+      "short" : "documentTitle",
+      "definition" : "Används ej. TKB-typ: -. Kardinalitet: 0..0.",
+      "min" : 0,
+      "max" : "0",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.documentTime",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.documentTime",
+      "short" : "documentTime",
+      "definition" : "Används ej. TKB-typ: -. Kardinalitet: 0..0.",
+      "min" : 0,
+      "max" : "0",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.patientId",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.patientId",
+      "short" : "Identifierare för patient",
+      "definition" : "Identifierare för patient. TKB-typ: PersonIdType. Kardinalitet: 1..1. Underelement i PersonIdType: id (string, 1..1): Sätts till patientens identifierare. Anges med 12 tecken utan avskiljare. | type (string, 1..1): Sätts till OID för typ av identifierare. / För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1), [R14]. / För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3), [R14]. / För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3), [R14].",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional",
+      "short" : "Information om den hälso- och sjukvårdsperson som ansvarar för informationen i dokumentet, nedan kallas …",
+      "definition" : "Information om den hälso- och sjukvårdsperson som ansvarar för informationen i dokumentet, nedan kallas författare. TKB-typ: HealthcareProfessionalType. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.authorTime",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.authorTime",
+      "short" : "Tidpunkt då informationen registrerades",
+      "definition" : "Tidpunkt då informationen registrerades. TKB-typ: TimeStampType. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+      "short" : "Författarens HSA-id",
+      "definition" : "Författarens HSA-id. TKB-typ: HSAIdType. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+      "short" : "Namn på författaren",
+      "definition" : "Namn på författaren. Om tillgängligt ska detta anges. TKB-typ: string. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+      "short" : "Information om personens befattning",
+      "definition" : "Information om personens befattning. Om möjligt ska kodverket Befattning (OID 1.2.752.129.2.2.1.4), [R13]. TKB-typ: CVType. Kardinalitet: 0..1. Underelement i CVType: code (string, 0..1): Befattningskod. Om code anges ska också codeSystem  samt displayName anges. | codeSystem (string, 0..1): Kodsystem för befattningskod. Om codeSystem anges ska också code samt displayName anges. | codeSystemName (string, 0..1): Namn på kodsystem för befattningskod. | codeSystemVersion (string, 0..1): Version på kodsystem för befattningskod. | displayName (string, 0..1): Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges. | originalText (string, 0..1): Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. / Om originalText anges ska inget annat värde i healthcareProfessionalRoleCode anges.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+      "short" : "Den organisation som författaren är uppdragstagare på",
+      "definition" : "Den organisation som författaren är uppdragstagare på. I de fall då HSA-id inte finns tillgängligt i systemet ska lokalt id anges (unikt inom källsystemet). TKB-typ: OrgUnitType. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+      "short" : "HSA-id för organisationsenhet",
+      "definition" : "HSA-id för organisationsenhet. I de fall då HSA-id inte finns tillgängligt i systemet ska lokalt id anges (unikt inom källsystemet). TKB-typ: HSAIdType. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+      "short" : "Namnet på den organisation som författaren är uppdragstagare på",
+      "definition" : "Namnet på den organisation som författaren är uppdragstagare på. TKB-typ: string. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+      "short" : "Telefon till organisationsenhet",
+      "definition" : "Telefon till organisationsenhet. TKB-typ: string. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+      "short" : "Epost till organisationsenhet",
+      "definition" : "Epost till organisationsenhet. TKB-typ: string. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+      "short" : "Postadress för den organisation som författaren är uppdragstagare på",
+      "definition" : "Postadress för den organisation som författaren är uppdragstagare på. TKB-typ: string. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+      "short" : "Text som anger namnet på plats eller ort för organisationens fysiska placering",
+      "definition" : "Text som anger namnet på plats eller ort för organisationens fysiska placering. TKB-typ: string. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+      "short" : "HSA-id för vårdenhet",
+      "definition" : "HSA-id för vårdenhet / (Regel: 1) TKB-typ: HSAIdType. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+      "short" : "HSA-id för vårdgivaren, som är vårdgivare för den enhet som författaren är uppdragstagare för",
+      "definition" : "HSA-id för vårdgivaren, som är vårdgivare för den enhet som författaren är uppdragstagare för. (Regel: 1) TKB-typ: HSAIdType. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator",
+      "short" : "Information om vem som signerat informationen i dokumentet",
+      "definition" : "Information om vem som signerat informationen i dokumentet. TKB-typ: LegalAuthenticatorType. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.signatureTime",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.signatureTime",
+      "short" : "Tidpunkt för signering",
+      "definition" : "Tidpunkt för signering. TKB-typ: TimeStampType. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorHSAId",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorHSAId",
+      "short" : "HSA-id för person som signerat dokumentet",
+      "definition" : "HSA-id för person som signerat dokumentet. TKB-typ: HSAIdType. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorName",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.legalAuthenticator.legalAuthenticatorName",
+      "short" : "Namnen i klartext för signerande person",
+      "definition" : "Namnen i klartext för signerande person. TKB-typ: string. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.approvedForPatient",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.approvedForPatient",
+      "short" : "Anger om information får delas till patient",
+      "definition" : "Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false. TKB-typ: boolean. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.careContactId",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.careContactId",
+      "short" : "Identitetet för den hälso- och sjukvårds skontakt som föranlett den information som omfattas av dokumentet",
+      "definition" : "Identitetet för den hälso- och sjukvårds skontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet. TKB-typ: string. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.nullified",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.nullified",
+      "short" : "nullified",
+      "definition" : "Används ej. TKB-typ: -. Kardinalitet: 0..0.",
+      "min" : 0,
+      "max" : "0",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisHeader.nullifiedReason",
+      "path" : "getdiagnosis.diagnosis.diagnosisHeader.nullifiedReason",
+      "short" : "nullifiedReason",
+      "definition" : "Används ej. TKB-typ: -. Kardinalitet: 0..0.",
+      "min" : 0,
+      "max" : "0",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisBody",
+      "path" : "getdiagnosis.diagnosis.diagnosisBody",
+      "short" : "diagnosisBody",
+      "definition" : "diagnosisBody. TKB-typ: DiagnosisBodyType. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisBody.typeOfDiagnosis",
+      "path" : "getdiagnosis.diagnosis.diagnosisBody.typeOfDiagnosis",
+      "short" : "Anges som \"Huvuddiagnos\" eller \"Bidiagnos\"",
+      "definition" : "Anges som \"Huvuddiagnos\" eller \"Bidiagnos\". TKB-typ: TypeOfDiagnosisEnum. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/ValueSet/diagnosistype-vs"
+      }
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisBody.chronicDiagnosis",
+      "path" : "getdiagnosis.diagnosis.diagnosisBody.chronicDiagnosis",
+      "short" : "Sätts till true om diagnosen är kronisk, false om diagnosen inte är kronisk, och används inte om okänt",
+      "definition" : "Sätts till true om diagnosen är kronisk, false om diagnosen inte är kronisk, och används inte om okänt. TKB-typ: boolean. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisBody.diagnosisTime",
+      "path" : "getdiagnosis.diagnosis.diagnosisBody.diagnosisTime",
+      "short" : "Tidpunkt då bedömningen gjordes",
+      "definition" : "Tidpunkt då bedömningen gjordes. TKB-typ: TimeStampType. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisBody.diagnosisCode",
+      "path" : "getdiagnosis.diagnosis.diagnosisBody.diagnosisCode",
+      "short" : "Diagnoskod",
+      "definition" : "Diagnoskod. TKB-typ: CVType. Kardinalitet: 0..1. Underelement i CVType: code (string, 0..1): Kod för den aktuella diagnosen. / Om code anges ska även codeSystem samt displayName anges. | displayName (string, 0..1): Klartext för kod som angivits i attributet diagnosisCode. / Om displayName anges ska även code samt codeSystem anges. | codeSystem (string, 0..1): OID för kodsystem. | codeSystemName (string, 0..1): Namn på kodsystem. / Om codeSystem anges ska även code samt displayName anges. | codeSystemVersion (string, 0..1): Om tillämpbart, versionsangivelse som definierats av det givna kodsystemet. | originalText (string, 0..1): originalText ska användas vid överföring av värden som kommer från lokala kodverk som ej är identifierade med OID eller när kod helt saknas. I sådana fall ska en beskrivande text anges i originalText. / Om originalText anges ska inget annat värde i diagnosisCode anges.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis",
+      "path" : "getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis",
+      "short" : "Relaterad diagnos",
+      "definition" : "Relaterad diagnos. / Associationen används för att länka samman diagnoser som relaterar till varandra. Använd om möjligt detta för att länka t.ex. bidiagnos till huvuddiagnos eller orsakskod till diagnos. TKB-typ: RelatedDiagnosisType. Kardinalitet: 0..*.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis.documentId",
+      "path" : "getdiagnosis.diagnosis.diagnosisBody.relatedDiagnosis.documentId",
+      "short" : "Unik identitet för diagnosen",
+      "definition" : "Unik identitet för diagnosen. TKB-typ: string. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.result",
+      "path" : "getdiagnosis.result",
+      "short" : "Innehåller information om begäran gick bra eller ej, en P av 2.1 måste skicka med resultType, för …",
+      "definition" : "Innehåller information om begäran gick bra eller ej, en P av 2.1 måste skicka med resultType, för kompabilitet mellan K 2.1 och P 2.0 är den satt till icke obligatorisk i wsdl. TKB-typ: ResultType. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.result.resultCode",
+      "path" : "getdiagnosis.result.resultCode",
+      "short" : "Kan endast vara OK, INFO eller ERROR",
+      "definition" : "Kan endast vara OK, INFO eller ERROR. TKB-typ: ResultCodeEnum. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.result.errorCode",
+      "path" : "getdiagnosis.result.errorCode",
+      "short" : "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information",
+      "definition" : "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information. TKB-typ: ErrorCodeEnum. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.result.subcode",
+      "path" : "getdiagnosis.result.subcode",
+      "short" : "Inga subkoder är specificerade",
+      "definition" : "Inga subkoder är specificerade. TKB-typ: string. Kardinalitet: 0..1. OBS: elementet heter subCode i XSD:n.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.result.logId",
+      "path" : "getdiagnosis.result.logId",
+      "short" : "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent",
+      "definition" : "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent. TKB-typ: string. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getdiagnosis.result.message",
+      "path" : "getdiagnosis.result.message",
+      "short" : "En beskrivande text som kan visas för användaren",
+      "definition" : "En beskrivande text som kan visas för användaren. TKB-typ: string. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

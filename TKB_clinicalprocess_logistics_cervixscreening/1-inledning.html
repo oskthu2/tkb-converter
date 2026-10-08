@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>1 Inledning - clinicalprocess: logistics: cervixscreening v1.0.0-rc4</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"2"}
+    h3,h4,h5,h6{--heading-prefix:"2"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">clinicalprocess: logistics: cervixscreening</span>
+            <br/>
+            <span style="display:inline-block;">1.0.0-rc4 - RC
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Kapitel<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="1-inledning.html">1 Inledning</a></li>
+      <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+      <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+      <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+      <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+      <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma informationskomponenter</a></li>
+      <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+    </ul>
+  </li>
+  <li><a href="7-tjanstekontrakt.html">Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>1 Inledning</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">clinicalprocess: logistics: cervixscreening - Local Development build (v1.0.0-rc4) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/clinicalprocess-logistics-cervixscreening/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>1 Inledning</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#1-inledning" id="markdown-toc-1-inledning">1 Inledning</a>    <ul>
+      <li><a href="#dokumentinformation" id="markdown-toc-dokumentinformation">Dokumentinformation</a></li>
+      <li><a href="#11-svenskt-namn" id="markdown-toc-11-svenskt-namn">1.1 Svenskt namn</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="1-inledning">1 Inledning</h1>
+
+<p>Källa: <em>Tjänstekontraktsbeskrivning, Screeningstöd livmoderhals</em>, version 1.0_RC4 (2020-12-09), <a href="TKB_clinicalprocess_logistics_cervixscreening.docx">TKB_clinicalprocess_logistics_cervixscreening.docx</a>.</p>
+
+<h3 id="dokumentinformation">Dokumentinformation</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Dokument</th>
+      <th style="text-align: left">Tjänstekontraktsbeskrivning, Screeningstöd livmoderhals</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Domän</td>
+      <td style="text-align: left">clinicalprocess: logistics: cervixscreening (vård- och omsorg kärnprocess: logistik: livmoderhalsscreening)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Version</td>
+      <td style="text-align: left">1.0_RC4</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Dokument-id</td>
+      <td style="text-align: left">ARK_0015</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Datum</td>
+      <td style="text-align: left">2020-12-09</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="revisionshistorik">Revisionshistorik</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Version</th>
+      <th style="text-align: left">Revision Datum</th>
+      <th style="text-align: left">Beskrivning av ändringar</th>
+      <th style="text-align: left">Ändringar gjorda av</th>
+      <th style="text-align: left">Granskad av</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">0.50</td>
+      <td style="text-align: left">2018-10-05</td>
+      <td style="text-align: left">Första version</td>
+      <td style="text-align: left">Michael Schneider</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">0.51</td>
+      <td style="text-align: left">2019-01-23</td>
+      <td style="text-align: left">Lagt till beskrivningar i tjänstedomänens meddelande</td>
+      <td style="text-align: left">Michael Schneider</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">0.60</td>
+      <td style="text-align: left">2019-01-29</td>
+      <td style="text-align: left">Korrigeringar efter informatik granskning / Tagit bort termer och beskrivning / Kortat ned beskrivning i avsnitt 3.1 Flöden – hänvisning till IS / Kortat ned avsnitt 4.1 Informationssäkerhet och juridik – hänvisning till IS och Legal analys / Avsnitt 4.2 Icke funktionella krav – borttagen / Lagt till fältregler / Lagt till tekniskt domännamn / Regelverk för CVType</td>
+      <td style="text-align: left">Michael Schneider</td>
+      <td style="text-align: left">Emmy Damberg / / Katrin Abdulal</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">0.61</td>
+      <td style="text-align: left">2019-01-30</td>
+      <td style="text-align: left">Ändrat svenskt namn/kortnamn / Uppdaterad MIM-schema</td>
+      <td style="text-align: left">Michael Schneider</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">0.62</td>
+      <td style="text-align: left">2019-02-01</td>
+      <td style="text-align: left">Korrigerat allmän regel R1</td>
+      <td style="text-align: left">Michael Schneider</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">0.70</td>
+      <td style="text-align: left">2019-02-08</td>
+      <td style="text-align: left">Diverse rättningar och korrigeringar i avsnittet 3.1 Flöden / Korrigerat avsnitt 3.3 Obligatoriska kontrakt – samma namn på flödesbeskrivning som i avsnitt 3.1 Flöden / Lagt till formatregel för Datum / Korrigerat beskrivning personId/IIType / Korrigerat beskrivning sendingRegion/RegionType / Rättat felaktig formatangivelse registeredAt/DateType / Korrigerat beskrivning riskGroups/RiskGroupType / Rättat felaktig formatangivelse inclusionDate/DateType / Korrigerat beskrivning specimen/SpecimenType / Korrigerat beskrivning HPVstatusList/HPVStatusType / Reviderat skrivningar om SLA</td>
+      <td style="text-align: left">Michael Schneider</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">0.75</td>
+      <td style="text-align: left">2019-02-27</td>
+      <td style="text-align: left">Modifierat sekvensdiagram – lagt till aktör (manuell sekretessprövning)</td>
+      <td style="text-align: left">Michael Schneider</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">0.76</td>
+      <td style="text-align: left">2019-03-12</td>
+      <td style="text-align: left">Bytt namn på klassen Riskgrupp till Uppföljningsgrupp och ändrat engelskt nanm</td>
+      <td style="text-align: left">Michael Schneider</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">0.77</td>
+      <td style="text-align: left">2019-03-19</td>
+      <td style="text-align: left">Förtydligat att uppföljningsgrupp innebär det som vårdprogrammet kallar kontrollfil. / Rättat beskrivning av fältet HPVstatusList/value i avsnitt 6.1.3.</td>
+      <td style="text-align: left">Emmy Damberg</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">0.80</td>
+      <td style="text-align: left">2019-03-20</td>
+      <td style="text-align: left">Korrigeringar införda efter granskning av NMT</td>
+      <td style="text-align: left">Michael Schneider</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">0.81</td>
+      <td style="text-align: left">2019-04-11</td>
+      <td style="text-align: left">Lagt till SNOMED CT koder / Lagt till OID SNOMED CT kod (1.2.752.116.2.1.1) / Uppdaterat Flöde – Kvinna flyttar mellan regioner</td>
+      <td style="text-align: left">Michael Schneider</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC1</td>
+      <td style="text-align: left">2019-04-25</td>
+      <td style="text-align: left">Version för (I, S och T) kvalitetssäkring</td>
+      <td style="text-align: left">Michael Schneider</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0</td>
+      <td style="text-align: left">2019-05-22</td>
+      <td style="text-align: left">Granskad och godkänd version</td>
+      <td style="text-align: left">Michael Schneider</td>
+      <td style="text-align: left">A&amp;R</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0.1</td>
+      <td style="text-align: left">2019-06-19</td>
+      <td style="text-align: left">Lagt till referens till kodverket kv/län 1.2.752.129.2.2.1.18 (verksamhetsadressering)</td>
+      <td style="text-align: left">Michael Schneider</td>
+      <td style="text-align: left">Thomas Siltberg / (TK-förvaltningen)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0.2</td>
+      <td style="text-align: left">2919-09-15</td>
+      <td style="text-align: left">Ny klass för att förmedla nästa planerade kallelsetillfälle - PlannedInvitationType</td>
+      <td style="text-align: left">Thomas Fafoutis</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC2</td>
+      <td style="text-align: left">2019-09-25</td>
+      <td style="text-align: left">Version för (I, S och T) kvalitetssäkring</td>
+      <td style="text-align: left">Michael Schneider</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC3</td>
+      <td style="text-align: left">2019-10-21</td>
+      <td style="text-align: left">Version för I&amp;S granskning. T granskning godkänd sedan tidigare för version 1.0_RC2</td>
+      <td style="text-align: left">Michael Schneider</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.0_RC4</td>
+      <td style="text-align: left">2020-10-20</td>
+      <td style="text-align: left">Lagt till ett förtydligande om att urvalet av SNOMED CT koder kan komma att förändras vid förändringar i vårdprogrammet / I avsnitt 4.3.1.1. användes fältnamnet comment istället för resultText / Lag till ny orsak till exkludering: patient ej lämplig för åtgärd på grund av medicinskt tillstånd</td>
+      <td style="text-align: left">Oscar Möller</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="referenser">Referenser</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Dokument</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Länk</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">R1</td>
+      <td style="text-align: left">Arkitekturella beslut – Screeningstöd livmoderhals</td>
+      <td style="text-align: left">Obligatoriskt</td>
+      <td style="text-align: left">Bitbucket</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R2</td>
+      <td style="text-align: left">RIVTA flera dokument</td>
+      <td style="text-align: left">Finns på Webben</td>
+      <td style="text-align: left">http://rivta.se/</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R3</td>
+      <td style="text-align: left">Informationsspecifikation</td>
+      <td style="text-align: left">Finns på Webben</td>
+      <td style="text-align: left">Bitbucket</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R4</td>
+      <td style="text-align: left">Lista över vanligt förekommande kodverk och identifierare</td>
+      <td style="text-align: left">Finns på Webben</td>
+      <td style="text-align: left">https://bitbucket.org/rivta-domains/best-practice/wiki/ListOfCommonlyUsedCodeSystems</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R5</td>
+      <td style="text-align: left">Nationellt vårdprogram för prevention av livmoderhalscancer</td>
+      <td style="text-align: left">Finns på webben</td>
+      <td style="text-align: left">https://www.cancercentrum.se/samverkan/vara-uppdrag/prevention-och-tidig-upptackt/gynekologisk-cellprovskontroll/vardprogram/gallande-vardprogram/</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R6</td>
+      <td style="text-align: left">Sammanfattning av legal analys screeningstöd</td>
+      <td style="text-align: left">Finns på webben</td>
+      <td style="text-align: left">Bitbucket</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R7</td>
+      <td style="text-align: left">Verksamhetsregelverk</td>
+      <td style="text-align: left">Finns på webben</td>
+      <td style="text-align: left">Bitbucket</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="förkortningar">Förkortningar</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Förkortning</th>
+      <th style="text-align: left">Betydelse</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Anslutningspunkt (AP)</td>
+      <td style="text-align: left">Den server som hanterar inkommande anrop som förmedlats av en tjänsteplattform. Anslutningspunkten uppvisar ett server-certifikat som är betrott av tjänsteplattformen.</td>
+      <td style="text-align: left">Se referens R2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Källsystem (KS)</td>
+      <td style="text-align: left">Det verksamhetssystem där originalinformationen skapas (t.ex. en driftsinstans av ett Kallelsesyste, LIS eller Journalsystem.</td>
+      <td style="text-align: left">Se referens R2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument (TK)</td>
+      <td style="text-align: left">Informationssystem där aktörens agerande leder till automatiskt informationsutbyte med andra system En Tjänstekonsument använder en SOA-tjänst som i sin tur följer ett tjänstekontrakt.</td>
+      <td style="text-align: left">Se referens R2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent (TP)</td>
+      <td style="text-align: left">Hanterar logik och format så som specificeras av ett tjänstekontrakt.</td>
+      <td style="text-align: left">Se referens R2</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="kompletterande-dokument-i-källan">Kompletterande dokument i källan</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dokument</th>
+      <th>Fil</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Arkitekturella beslut – Screeningstöd livmoderhals (referens R1)</td>
+      <td><a href="AB_clinicalprocess_logistics_cervixscreening.docx">AB_clinicalprocess_logistics_cervixscreening.docx</a></td>
+    </tr>
+    <tr>
+      <td>Informationsspecifikation (referens R3)</td>
+      <td><a href="IS_clinicalprocess_logistics_cervixscreening.docx">IS_clinicalprocess_logistics_cervixscreening.docx</a></td>
+    </tr>
+    <tr>
+      <td>Legal analys av Screeningstöd livmoderhals (jfr referens R6)</td>
+      <td><a href="Legal_analys_av_Screeningstod_livmoderhals.docx">Legal_analys_av_Screeningstod_livmoderhals.docx</a></td>
+    </tr>
+    <tr>
+      <td>Självdeklaration för tjänstekonsument</td>
+      <td><a href="Sjalvdeklaration_for_Tjanstekonsument_ProcessCervixScreening.docx">Sjalvdeklaration_for_Tjanstekonsument_ProcessCervixScreening.docx</a></td>
+    </tr>
+    <tr>
+      <td>Självdeklaration för tjänsteproducent</td>
+      <td><a href="Sjalvdeklaration_for_Tjansteproducent_ProcessCervixScreening.docx">Sjalvdeklaration_for_Tjansteproducent_ProcessCervixScreening.docx</a></td>
+    </tr>
+    <tr>
+      <td>Självdeklaration för etablering av samverkan</td>
+      <td><a href="Sjalvdeklaration_Etablering_av_Samverkan_ProcessCervixScreening.docx">Sjalvdeklaration_Etablering_av_Samverkan_ProcessCervixScreening.docx</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Referenserna R1, R3, R6 och R7 anges i TKB:n bara som "Bitbucket". R7 (Verksamhetsregelverk) finns inte i källan. Källan innehåller också en testsvit och arbetsmaterial (Visual Paradigm-modell), som inte publiceras här; testsvitens schematron-regler finns under avsnitt 7.</p>
+
+<p>Detta är beskrivning av tjänstekontraktet i tjänstedomänen</p>
+
+<p>clinicalprocess:logistic:cervixscreening.</p>
+
+<p>Tjänstekontraktet är baserad på RIVTA 2.1 [R2] och reglerad genom arkitekturella beslut [R1].</p>
+
+<p>Tjänstekontraktsbeskrivningen är en kravspecifikation. Den skall fungera som ett teknikneutralt, formellt regelverk som reglerar integrationskrav för parter (tjänstekonsumenter och tjänsteproducenter) som avser ansluta system för samverkan enligt dessa tjänstekontrakt. Tjänstekontraktsbeskrivningen är också ett viktigt underlag för skapande av de tekniska kontrakten (scheman och WSDL-filer).</p>
+
+<p>Detta dokument kompletterar reglerna i de tekniska kontrakten. Tjänsteproducenter och tjänstekonsumenter ska m.a.o. följa såväl de maskintolkbara reglerna i de tekniska kontrakten, så väl som de regler som uttrycks verbalt i detta dokument.</p>
+
+<p>Syftet med denna domän är att specifikt kommunicera och utbyta information relaterat till Nationellt vårdprogram för prevention av livmoderhalscancer ([R5]) mellan sjuvårdhuvudmännens kallelsekanslier.</p>
+
+<p>Informationen är nödvändig att utbyta i syfte att säkerställa en obruten vårdkedja för att hälso- och sjukvården skall kunna erbjuda screening för livmoderhalscancer till kvinnor i åldern 23-64 år.  Oaktat vart en kvinna är folkbokförd. Eller vart en kvinna beslutar sig (via det fria vårdvalet) för att lämna ett cellprov eller genomgå eventuell nödvändig vård och behandling.</p>
+
+<h3 id="11-svenskt-namn">1.1 Svenskt namn</h3>
+
+<p>vård- och omsorg kärnprocess: logistik: livmoderhalsscreening</p>
+
+<h4 id="111-svenskt-kortnamn">1.1.1 Svenskt kortnamn</h4>
+
+<p>Livmoderhalsscreening</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.clinicalprocess-logistics-cervixscreening#1.0.0-rc4 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 18:11+0000">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

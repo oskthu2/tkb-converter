@@ -1,0 +1,2048 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>7 Tjänstekontrakt - clinicalprocess: healthcond: basic v1.2.3</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"7"}
+    h3,h4,h5,h6{--heading-prefix:"7"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">clinicalprocess: healthcond: basic</span>
+            <br/>
+            <span style="display:inline-block;">1.2.3 - release
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Kapitel<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="1-inledning.html">1 Inledning</a></li>
+      <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+      <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+      <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+      <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+      <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+    </ul>
+  </li>
+  <li><a href="7-tjanstekontrakt.html">Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">clinicalprocess: healthcond: basic - Local Development build (v1.2.3) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstekontrakt" id="markdown-toc-tjänstekontrakt">Tjänstekontrakt</a>    <ul>
+      <li><a href="#getobservations" id="markdown-toc-getobservations">GetObservations</a></li>
+      <li><a href="#gemensamma-dokument-för-domänen" id="markdown-toc-gemensamma-dokument-för-domänen">Gemensamma dokument för domänen</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstekontrakt">Tjänstekontrakt</h2>
+
+<blockquote>
+  <p><strong>Om numreringen:</strong> I TKB-dokumentet (version 1.2.1) är tjänstekontrakten kapitel 6, eftersom dokumentet saknar ett eget kapitel för gemensamma informationskomponenter. I denna IG ligger de i kapitel 7 enligt projektets sidstruktur. Hänvisningar i texten till avsnitt 6.1.x avser alltså underavsnitten till GetObservations nedan.</p>
+</blockquote>
+
+<h3 id="getobservations">GetObservations</h3>
+<p>Detta tjänstekontrakt returnerar strukturerade observationer för en patient. Den praktiska tillämpningen av detta kontrakt beskrivs i särskilda tilläggsbeskrivningar i form av interaktionsöverenskommelser.
+En typ av observation kan exempelvis vara ett kliniskt fynd eller en huvuddiagnos. Värdeattributet innehåller den faktiska observationen, t.ex. ”ankylos på tand” kodat med en Snomed CT-kod. Om observationen består av något som är uppmätt så beskrivs vad som uppmätts i attributet Observation.type/typ (exempelvis diastoliskt blodtryck) och resultatet av mätningen i Observation.value/värde (exempelvis 90 mmHg).
+Meddelandemodell från stycke 5.1 V-MIM - Observationer motsvarar svarsmeddelandet för detta tjänstekontrakt. Kopplingen mellan V-MIM enligt NI 2015:1 och de tekniska engelska namnen visas i tabellen i samma avsnitt.</p>
+
+<h4 id="version">Version</h4>
+<p>1.1</p>
+
+<h4 id="fältregler">Fältregler</h4>
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Referens till ytterligare regler för enskilda element anges i kolumnen ”Namn”. Dessa regler beskrivs mer i detalj i kapitlet ”Övriga regler”.</p>
+
+<h5 id="begäran">Begäran</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Begränsar sökningen till angiven personidentifierare för en patient. Tjänsteproducenten ska i svaret leverera alla uppgifter kopplad till patienten, dvs. även uppgifter som har registrerats på andra, till individen, kopplade personidentifierare. / Regel 1.1</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId.root</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Sätts till OID för typ av personidentifierare. / För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas. / För samordningsnummer skall Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas. / För andra typer av personidentifierare sätts root till aktuell OID.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId.extension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">time</td>
+      <td style="text-align: left">TimePeriodType</td>
+      <td style="text-align: left">Begränsar sökningen till det angivna intervallet. Om tidsattributet Observation.Time i svaret är en tidpunkt innebär begränsningen att endast poster returneras där Observation.Time i svaret ligger inom sökintervallets start- och sluttidpunkt. / Om tidsattributet Observation.Time i svaret är ett intervall innebär begränsningen att endast poster returneras där tidsintervallet som anges i attributet Observation.Time i svaret, överlappar med det angivna sökintervallet, dvs. / det bildade intervallets starttidpunkt ligger inom sökintervallets start- och sluttidpunkt / det bildade intervallets sluttidpunkt ligger inom sökintervallets start- och sluttidpunkt / det bildade intervallets starttidpunkt ligger före sökintervallets starttidpunkt och sluttidpunkt ligger efter sökintervallets sluttidpunkt</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">time.start</td>
+      <td style="text-align: left">TimeStampType</td>
+      <td style="text-align: left">Startdatum. Format ÅÅÅÅMMDDttmmss.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">time.end</td>
+      <td style="text-align: left">TimeStampType</td>
+      <td style="text-align: left">Slutdatum. Format ÅÅÅÅMMDDttmmss.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">observationType</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Begränsning av sökning avseende observationen till en viss typ av värde som man vill titta närmare på, t.ex. kliniskt fynd eller diagnoser.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">observationType.code</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för observationstyp</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">observationType.codeSystem</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kodsystem för angiven kod för observationstyp.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">observationType.codeSystemName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Ska ignoreras i begäran och ej skickas.</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">observationType.codeSystemVersion</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Ska ignoreras i begäran och ej skickas.</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">observationType.displayName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Ska ignoreras i begäran och ej skickas.</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">observationId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Ett unikt värde för själva observationen som också refererar till vilket källsystem informationen kommer ifrån. Motsvarar observation/id i svaret.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">observationId.root</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Källsystemets HSA-id.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">observationId.extension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Det i källsystemet unika identiteten för observationen</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sourceSystemHSAId</td>
+      <td style="text-align: left">HSAIdType</td>
+      <td style="text-align: left">Begränsar sökningen till aktivitet som är skapad i det angivna källsystemet. Tjänsteproducenten förväntas enbart returnera poster som tillhör efterfrågat källsystem.  Motsvarar observationGroup/sourceSystem i svaret.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careGiverId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Används när man vill söka hos en specifik vårdgivare.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careGiverId.root</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Root sätts till OID för HSA-id: 1.2.752.129.2.1.4.1</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careGiverId.extension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Extension sätts till HSA-id för den vårdgivaren från vilken observationer skall returneras från.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnitId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Begränsning av sökning mha HSAid för (PDL) vårdenhet som har ansvar för dokumentationen av obdervationen/observationerna.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnitId.root</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Root sätts till OID för HSA-id: 1.2.752.129.2.1.4.1</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnitId.extension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Extension sätts till HSA-id för PDL-vårdenheten.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">interactionAgreementId</td>
+      <td style="text-align: left">UUIDType</td>
+      <td style="text-align: left">Detta attribut används inte. Ange UUID / 2866a7c4-9c60-433f-9035-a4d779ffe7a1</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relation</td>
+      <td style="text-align: left">RelationFilterType</td>
+      <td style="text-align: left">Endast de poster med relationer som matchar villkoren i denna lista skall returneras. Om listan är tom filtreras inte observationer på deras relationer.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relation.typeCode</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Filtrera på sambandstyp</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relation.typeCode.code</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för sambandstyp</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relation.typeCode.codeSystem</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kodsystem för sambandstyp</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relation.typeCode.codeSystemName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Ska ignoreras i begäran och ej skickas.</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relation.typeCode.codeSystemVersion</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Versionsnummer för använt kodsystem.</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relation.typeCode.displayname</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Ska ignoreras i begäran och ej skickas.</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relation.id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Filtrera poster på den identitet som anges i sambandet/relationen. Detta ger exempelvis möjlighet att söka ut alla observationer som har en relation till en viss aktivitet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relation.id.root</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Id-root från den Uppgift i patientjournal som sambandet pekar ut. Detta är den vårdgivares HSA-id som är ansvarig för informationen.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relation.id.extension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Id-extension från den uppgift i patientjournal som sambandet pekar ut. Detta ska vara ett id som är unikt inom vårdgivaren oavsett vilket källsystem informationen lagras inom.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relation. referredInformationType</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Den typ av uppgift i patientjournal som sambandet pekar ut. Detta är en kod från Categorization i engagemangsindexposten. I denna version av tjänstekontraktet är följande typer möjliga: / chb-o  (observation) / caa-a (aktivitet)</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svar-observationgroup">Svar: observationGroup</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">observationGroup</td>
+      <td style="text-align: left">ObservationGroupType</td>
+      <td style="text-align: left">Grupp av observationer som delar samma patient, utförare (m. tillhörande organisatorisk knytning), signerare, ytterligare deltagare, källsystem, vårdprocess-id, utrustning, samt plats. Denna nivå är framförallt till för att kunna begränsa mängden redundant data i överföringen i de fall då flera observationer gjorts med samma medverkande (exempelvis mätning av systoliskt och diastoliskt blodtryck). Denna klass är en teknisk optimering som inte speglas i NI 2015:1.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patient</td>
+      <td style="text-align: left">PatientType</td>
+      <td style="text-align: left">Den patient som observationsgruppen avser.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">performerRole</td>
+      <td style="text-align: left">PerformerRoleType</td>
+      <td style="text-align: left">Den som utfört observationerna inom gruppen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">legalAuthenticator</td>
+      <td style="text-align: left">LegalAuthenticatorType</td>
+      <td style="text-align: left">Den som signerat observationerna inom gruppen.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">additionalParticipant</td>
+      <td style="text-align: left">AdditionalParticipantType</td>
+      <td style="text-align: left">Övriga deltagare relaterat till observationerna inom gruppen.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sourceSystem</td>
+      <td style="text-align: left">SourceSystemType</td>
+      <td style="text-align: left">Källsystem som observationsgruppen lagras i.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">observation</td>
+      <td style="text-align: left">ObservationType</td>
+      <td style="text-align: left">De observationer som ligger inom denna grupp av observationer.</td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svarsdel-observationgrouppatient">Svarsdel: observationGroup/patient</h5>
+<p>Klassen PatientType är en kompakt och specifik representation av den patient som observationen gäller.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">observationGroup/ / patient</th>
+      <th style="text-align: left">PatientType</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Id för patienten. Skall anges med 12 tecken utan avskiljare.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.root</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Sätts till OID för typ av identifierare. / För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1) användas. / För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3) användas. / För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3)</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.extension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Personnummer/samordningsnummer/reservnummer.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Personens namn</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dateOfBirth</td>
+      <td style="text-align: left">DateTime</td>
+      <td style="text-align: left">Anger patientens födelseår, månad och dag. Ej personnummer! / Datum. Format ÅÅÅÅMMDD</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">gender</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Anger patientens kön.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">gender.code</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för könstyp. / 0 okänt / 1 man / 2 kvinna / 9 ej tillämpligt</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">gender.codeSystem</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kodsystem för angiven kod för könstyp. / KV kön (OID: 1.2.752.129.2.2.1.1) [R9]</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">gender.codeSystemName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Namn för kodsystem.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">gender.codeSystemVersion</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Versionsnummer för använt kodsystem.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">gender.displayName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Textuell beskrivning av det som koden anger.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svarsdel-observationgroupperformerrole">Svarsdel: observationGroup/performerRole</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">observationGroup/ / performerRole</th>
+      <th style="text-align: left">PerformerRoleType</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Identitet för personen som utfört observationen. / Detta fält anges enbart om observationen utförts av hälso- och sjukvårdspersonal. Anges med HSA-id. / Regel 2.1</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.root</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1).</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.extension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">HSA-id för den hälso- och sjukvårdspersonal som utfört observationen.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">code</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Beskriver den roll som utföraren agerar i under observationen.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">code.code</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för utförarroll.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">code.codeSystem</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kodsystem för angiven kod för utförartyp.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">code.codeSystemName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Namn på kodsystem.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">code.codeSystemVersion</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Versionsnummer för använt kodsystem.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">code.displayName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Klartext för det som koden anger.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">person</td>
+      <td style="text-align: left">PersonType</td>
+      <td style="text-align: left">Beskriver den person som utfört observationen. Klassen används i två fall: / Då det finns behov av att beskriva egenskaper hos person som utfört observation som inte beskrivs i performerRole (t.ex. namn på hälso- och sjukvårdspersonal) / Då observationen utförts av en person som inte klassas som hälso- och sjukvårdspersonal. / Regel 2.1</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnit</td>
+      <td style="text-align: left">CareUnitType</td>
+      <td style="text-align: left">Den PDL-vårdenhet och PDL-vårdgivare som observationen utförs på uppdrag av (där utföraren har sitt medarbetaruppdrag). / Ska endast anges då den person som utfört observationen är hälso- och sjukvårdpersonal. / Regel 2.1 / Regel 2.5</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svarsdel--observationgrouplegalauthenticator">Svarsdel:  observationGroup/legalAuthenticator</h5>
+<p>Klassen LegalAuthenticator är en kompakt och specifik version av AdditionalPartipication.
+LegalAuthenticator är indirekt en ”Professionell aktör” med deltagandetyp signerare enligt V-MIM i de fall då informationen signerats.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">observationGroup/ / legalAuthenticator</th>
+      <th style="text-align: left">LegalAuthenticatorType</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">HSA-id för personen som signerat observationerna som ingår i observationsgruppen. / Regel 2.3</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.root</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1)</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.extension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">HSA-id</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">time</td>
+      <td style="text-align: left">PartialTimeStampType</td>
+      <td style="text-align: left">Tid för signeringen av observationerna i observationsgruppen. Uttrycks med formatet ÅÅÅÅMMDDttmmss där klockslaget är frivilligt.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">För- och efternamn i klartext för signerande person. / Regel 2.3</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svarsdel--observationgroupadditionalparticipant">Svarsdel:  observationGroup/additionalParticipant</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">observationGroup/ / additionalParticipant</th>
+      <th style="text-align: left">AdditionalParticipantType</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Identifierare för ytterligare deltagare. / Detta fält anges enbart om deltagaren klassas som hälso- och sjukvårdspersonal. Anges med HSA-id. / Regel 2.2</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.root</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1).</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.extension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">HSA-id för den hälso- och sjukvårdspersonal som är ytterligare deltagare.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Typ av deltagande. Detta beskriver på vilket sätt en deltagare deltagit i observationen. Kan exempelvis vara sekundär utförare/assistent. Istället för person kan ”deltagandet” handla om utrustning (device) eller organisation eller plats.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type.code</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för typ av deltagande.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type.codeSystem</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kodsystem för typ av deltagande.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type.codeSystemName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Skall ej anges</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type.codeSystemVersion</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Versionsnummer för använt kodsystem.</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type.displayName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Skall ej anges</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">role</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Beskriver i vilken roll deltagaren agerar (exempelvis rollen som anhörig eller i sin yrkesroll som vårdpersonal).</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">role.code</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för deltagares roll</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">role.codeSystem</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kodsystem för deltagares roll</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">role.codeSystemName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Skall ej anges</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">role.codeSystemVersion</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Versionsnummer för använt kodsystem.</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">role.displayName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Skall ej anges</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">time</td>
+      <td style="text-align: left">TimePeriodType</td>
+      <td style="text-align: left">Ifall deltagandetiden för denna deltagare inte överensstämmer med observationens tidsperiod kan time-attributet ange när den specifika deltagaren deltog i observationen.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Endast en av nedanstående</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">person</td>
+      <td style="text-align: left">PersonType</td>
+      <td style="text-align: left">Deltagande övriga personer.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">organisation</td>
+      <td style="text-align: left">OrganisationType</td>
+      <td style="text-align: left">Deltagande övrig organisation.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">device</td>
+      <td style="text-align: left">DeviceType</td>
+      <td style="text-align: left">Deltagande utrustning.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">location</td>
+      <td style="text-align: left">LocationType</td>
+      <td style="text-align: left">Deltagande plats.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svarsdel--observationgroupsourcesystem">Svarsdel:  observationGroup/sourceSystem</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">observationGroup/ / sourceSystem</th>
+      <th style="text-align: left">SourceSystemType</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">HSA-id för källsystemet som observationsgruppen hämtats ifrån.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.root</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Root sätts till OID för HSA-id: 1.2.752.129.2.1.4.1</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.extension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Extension sätts till HSA-id för systemet</td>
+      <td style="text-align: left">1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svarsdel--observationgroupadditionalparticipantdevice">Svarsdel:  observationGroup/additionalParticipant/device</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">observationGroup/ / additionalParticipant/ / device</th>
+      <th style="text-align: left">DeviceType</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Angivelse av identitetsbeteckning på en viss verklig instans av utrustning, exempelvis MR-maskinen på avdelning R23, rum 3.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.root</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Typ av identitetsbeteckning.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.extension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Specifikt id för utrustning.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Beskriver typ av deltagande utrustning.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type .code</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för typ av deltagande utrustning.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type.codeSystem</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">OID för kodsystem.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type.codeSystemName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Namn på kodsystem.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type.codeSystemVersion</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Versionsnummer för använt kodsystem.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type.displayName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Textuell beskrivning av det som koden anger.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">model</td>
+      <td style="text-align: left">SCType</td>
+      <td style="text-align: left">Modell för angiven utrustning.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">model.code</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Modellbeteckning</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">model.code.code</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för modellbeteckning</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">model.code.codeSystem</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kodsystem för modellbeteckning.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">model.code.codeSystemVersion</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Skall ej anges</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">model.code.displayName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Klartext för kod</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">model.value</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Tillverkarens modellbeteckning i klartext. Kan användas som komplement eller i stället för den model.code (kod för modell).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svarsdel--observationgroupadditionalparticipantlocation">Svarsdel:  observationGroup/additionalParticipant/location</h5>
+<p>Klassen Location är en sammanslagning av typen roll och plats enligt V-MIM.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">observationGroup/ / additionalParticipant/ / location</th>
+      <th style="text-align: left">LocationType</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Identifierare för platsen. Anges om platsen är en vårdenhet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.root</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Root sätts till OID för HSA-id: 1.2.752.129.2.1.4.1</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.extension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Extension sätts till HSA-id.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Namn på den plats där observation har genomförts.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">address</td>
+      <td style="text-align: left">AddressType</td>
+      <td style="text-align: left">Adress till plats</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">electronicAddress</td>
+      <td style="text-align: left">TelType</td>
+      <td style="text-align: left">Elektronisk adress till plats</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svarsdel--observationgroupobservation">Svarsdel:  observationGroup/observation</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">observationGroup/ / observation</th>
+      <th style="text-align: left">ObservationType</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En unik identifierare för observationen som avses. Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter. / Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.root</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdgivarens HSA-id.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.extension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Den inom vårdgivaren eller källsystemet unika identifieraren för observationen.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">NI 2015:1 / Kod som motsvarar den typ av observation som avses. Det som faktiskt är avsett, önskat eller observerat tillstånd dokumenteras i attributet värde [value]. Exempelvis kan typ [type] vara ”diagnos” vilket innebär att attributet värde [value] håller diagnosen.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type.code</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för observationstyp</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type.codeSystem</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kodsystem för angiven kod för observationstyp.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type.codeSystemName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Namn på kodsystem.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type.codeSystemVersion</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Versionsnummer för använt kodsystem.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type.displayName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Textuell beskrivning av det som koden anger.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">status</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">NI 2015:1 / Kod för observationens status, exempelvis för att dokumentera om det tillstånd som beskrivs har funnits eller är ett potentiellt tillstånd. En instans av klassen observation kan inte byta status. Om man exempelvis vill dokumentera ett måltillstånd och som senare uppfylls så dokumenteras detta som två instanser av klassen observation, en med status måltillstånd och en med status observerat. / Om statuskoden utelämnas antas detta vara en faktisk observation som dokumenterats.</td>
+      <td style="text-align: left">0..0 / Denna version av specifikation tillåter endast faktiskt utförda observationer.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">status.code</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för status</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">status.codeSystem</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kodsystem för angiven kod för status</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">status.codeSystemName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Namn på kodsystem</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">status.displayName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Textuell beskrivning av statuskod</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">targetSite</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">NI 2015:1 / Angivelse av lokalisation [targetSite], som används för att beskriva vad observationen avser gällande anatomi, funktion eller system. Lokalisation [targetSite] kan beskriva exempelvis lateralitet, organs position och orientering i relation till andra delar av kroppen. / Lokalisationsattributet [targetSite] används endast om inte attributet typ [type] innefattar tillräcklig information om detta.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">targetSite.code</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för lokalisation.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">targetSite.codeSystem</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kodsystem för angiven kod för lokalisation.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">targetSite.codeSystemName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Namn på kodsystem.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">targetSite.codeSystemVersion</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Versionsnummer för använt kodsystem.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">targetSite.displayName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Textuell beskrivning av kod för lokalisation.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">time</td>
+      <td style="text-align: left">PartialTimePeriodType</td>
+      <td style="text-align: left">Tidsperiod för observationen. / Består av PartialTimeStampTypeintervallerna startTime respektive endTime. Vardera uttrycks på formatet ÅÅÅÅMMDDttmmss där precisionen kan minskas ner till att bara ange år. / Om observationen är en tidpunkt, inte ett intervall, sätts sluttid till samma tid som starttid. / Minst en av startTime och endTime måste vara angiven. / NI 2015:1 / Angivelse av den tid då det som observerats faktiskt förekom eller förväntas förekomma. Exempelvis så kan tidsattributet ange att patienten hade huvudvärk igår kväll mellan kl. 20.00 och 21.45 även om detta berättades på morgonen efter och det dokumenterades först då. Om observationen är ett måltillstånd anger tidsattributet när detta tillstånd önskas vara uppnått. / Observationens tid skiljer sig vanligtvis från dokumentationstidpunkt [observation.registrationTime]  i journalhandling som beskriver när tillståndet dokumenterades, vilket alltid sker i efterhand.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">time.start</td>
+      <td style="text-align: left">TimeStampType</td>
+      <td style="text-align: left">Startdatum. Format ÅÅÅÅMMDDttmmss.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">time.end</td>
+      <td style="text-align: left">TimeStampType</td>
+      <td style="text-align: left">Slutdatum. Format ÅÅÅÅMMDDttmmss.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">method</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Kod för den typ av tillvägagångssätt för genomförandet av / obdervationen som avses</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">method.code</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för metodtyp.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">method.codeSystem</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kodsystem för angiven kod för metodtyp.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">method.codeSystemName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Namn för kodsystem.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">method.codeSystemVersion</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Versionsnummer för använt kodsystem.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">method.displayName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Klartextbeskrivning av det begrepp som avses.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">value</td>
+      <td style="text-align: left">ValueANYType</td>
+      <td style="text-align: left">Observations utfall/värde / NI 2015:1 / Angivelse av värde som innehåller resultatet av observationen. Exempelvis så skulle observationens typ (observation.type) kunna motsvara "längd mätt utan skor" och då innehåller värde-attributet resultatet av mätningen, exempelvis 168 cm. Om observationen avser ett måltillstånd motsvarar värde det resultat man önskar observera för att målet ska uppfyllas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">valueNegation</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">Denna flagga negerar betydelsen av det som anges i value-fältet. Normalvärde är false, det vill säga att det som anges i value är en positiv utsaga. Detta ska tolkas som att man letat efter ett visst tillstånd och konstaterat att det inte föreligger. Om man i value exempelvis har diagnoskoden N19.9 (Njursvikt, icke specificerad som akut eller kronisk) och valueNegation är satt till true betyder detta att patienten inte har njursvikt. / NI 2015:1 / Flagga som negerar betydelsen av observationen. Det används för att dokumentera exempelvis att ett tillstånd inte har förekommit/observerats men att man explicit har letat efter det. Detta till skillnad från att inget dokumenterats om ett specifikt tillstånd vilket kan innebära att man inte utrett det överhuvudtaget. Det som negeras är förekomsten av det som beskrivs av värdet. Detta innebär att om exempelvis metod [method] och lokalisation [targetsite] anges ska negationen tolkas som att man med en viss metod har letat efter ett visst tillstånd som beskrivs av ett visst värde men att detta tillstånd inte har kunnat observeras.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">description</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Fritextbeskrivning av observationen där sådan kompletterar kodbeteckningen.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">approvedForPatient</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">Anger om information får delas till patient (menprövad). Värdet sätts i sådant fall till ”true”, i annat fall till ”false”.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">registrationTime</td>
+      <td style="text-align: left">TimeStampType</td>
+      <td style="text-align: left">Dokumentationstidpunkt. När uppgiften registrerades i patientens journal. Kan skilja sig från signeringstidpunkt som återfinns i LegalAuthenticatior.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relation</td>
+      <td style="text-align: left">RelationType</td>
+      <td style="text-align: left">Beskriver typade samband till andra informationsmängder. Exempelvis kan en observation av en post-operativ infektion ha ett samband av typen ”har orsak” till en tidigare operation (aktivitet).</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svarsdel--observationgroupobservationvalue">Svarsdel:  observationGroup/observation/value</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">observationGroup/ / observation/ / value</th>
+      <th style="text-align: left">ValueAnyType</th>
+      <th style="text-align: left">Observations utfall/värde</th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>En och endast en av nedanstående huvudtyper</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Kodade värden</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cv</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Här anges det som observerats som ett kodat värde. Kan exempelvis vara en diagnoskod enligt ICD-10 eller ett kliniskt fynd enligt Snomed CT.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cv.code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kod för värdetyp.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cv.codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Kodsystem för angiven kod för värdestyp.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cv.codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Namn för kodsystem.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cv.codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Versionsnummer för använt kodsystem.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cv.displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Textuell beskrivning av det som koden anger.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Mätvärden</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">pq</td>
+      <td style="text-align: left">PQType</td>
+      <td style="text-align: left">Här anges det mätvärde som uppmätts. Kan exempelvis vara 187 cm.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">pq.value</td>
+      <td style="text-align: left">decimal</td>
+      <td style="text-align: left">Den numeriska delen av värdet (187).</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">pq.unit</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Enhet enligt UCUM. / Om värdet av observationen är enhetslöst (exempelvis ett värde på en skala) ska unit sättas till 1. Exempel för värdet 2 för hudfärg på Apgarskalan: / pq.value=2 / pq.unit=1</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Mätvärdesintervall</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ivl_pq</td>
+      <td style="text-align: left">PQIntervalType</td>
+      <td style="text-align: left">Här anges det mätvärdesintervall som uppmätts. Kan exempelvis vara 5–10 st.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ivl_pq.low</td>
+      <td style="text-align: left">decimal</td>
+      <td style="text-align: left">Intervallets lägsta mätetal mätt i enheten som anges av ”unit”. Minst ett av fälten low och high måste anges.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ivl_pq.lowClosed</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Angivelse av om värdet är en del av intervallet eller ej. Exempel: / lowClosed = true och low = 5 motsvarar intervallet ≥ 5 / lowClosed = false och low = 5 motsvarar intervallet &gt; 5</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ivl_pq.high</td>
+      <td style="text-align: left">decimal</td>
+      <td style="text-align: left">Intervallets högsta mätetal mätt i enheten som anges av ”unit”. Minst ett av fälten low och high måste anges.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ivl_pq.highClosed</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Angivelse av om värdet är en del av intervallet eller ej. Exempel: / highClosed = true och high = 5 motsvarar intervallet ≤ 5 / highClosed = false och high = 5 motsvarar intervallet &lt;5</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ivl_pq.unit</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Enhet enligt UCUM. / Om värdet av observationen är enhetslöst (exempelvis ett värde på en skala) ska unit sättas till 1. Exempel för värdet 2 för hudfärg på Apgarskalan: / pq.value=2 / pq.unit=1</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Tidpunkt</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ts</td>
+      <td style="text-align: left">PartialTimeStampType</td>
+      <td style="text-align: left">Tidsstämpel på formatet YYYYMMDDhhmmss där precisionen kan minskas ner till endast årtal</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Tidsintervall</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ivl_ts</td>
+      <td style="text-align: left">PartialTimePeriodType</td>
+      <td style="text-align: left">Tidsintervall. Minst en av start och end tiderna skall anges på formatet  YYYYMMDDhhmmss  där precisionen kan minskas ner till endast årtal.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svarsdel--observationgroupadditionalparticipantlocationaddress">Svarsdel:  observationGroup/additionalParticipant/location/address</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">observationGroup/ / additionalParticipant/ / location/ / address/</th>
+      <th style="text-align: left">AddressType</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">use</td>
+      <td style="text-align: left">PostalAddressUseEnum</td>
+      <td style="text-align: left">Om flera adresser anges skiljs de åt via sin use-kod. Den primära/default adressen anges alltid utan use-kod / PHYS – Adress till fysisk plats/besöksadress / H – Hemadress / HV – Semesteradress / WP – Arbetsplats / TMP – Tillfällig adress / När det inte finns en adress med ”use” som matchar syftet med adressanvändningen, väljs den primära adressen.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">part</td>
+      <td style="text-align: left">AddressPartType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svarsdel-observationgroupadditionalparticipantlocationaddresspart">Svarsdel: observationGroup/additionalParticipant/location/address/part</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">observationGroup/ / additionalParticipant/ / location/ / address/ / part</th>
+      <th style="text-align: left">AddressPartType</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">value</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">AddressPartTypeEnum</td>
+      <td style="text-align: left">Enumeration baserat på ISO 21090: / CAR = C/O (care of) adress / POB = Postbox / SAL = Gatuadressrad / ZIP = Postnummer / CTY = Postort / CNT = Land / PRE = Distriktsområde (LKF-kod) / CPA = Län (anges med länskod enligt SCB) / Koderna är listade i den sorteringsordning de ska förekomma i meddelandet.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svarsdel--observationgroupobservationrelation">Svarsdel:  observationGroup/observation/relation</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">observationGroup/ / observation/ / relation</th>
+      <th style="text-align: left">RelationType</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">code</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Anger vilken typ av relation den refererade informationen har till hämtad observation.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">code.code</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod för relationstyp.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">code.codeSystem</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kodsystem för angiven kod för relationstyp.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">code.codeSystemName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Namn för kodsystem.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">code.codeSystemVersion</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Versionsnummer för använt kodsystem.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">referredInformation</td>
+      <td style="text-align: left">ReferredInformationType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svarsdel--observationgroupobservationrelationreferredinformation">Svarsdel:  observationGroup/observation/relation/referredInformation</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">observationGroup/ / observation/ / relation/ / referredInformation</th>
+      <th style="text-align: left">ReferredInformationType</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Den refererade externa informationens identitet</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.root</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">HSA-id för källsystem där den refererade informationen är lagrad.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.extension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Ett inom vårdgivaren unikt id för denna observation.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">time</td>
+      <td style="text-align: left">PartialTimeStampType</td>
+      <td style="text-align: left">Starttid av refererad information. Uttrycks med formatet ÅÅÅÅMMDDttmmss där precisionen kan minskas ner till att bara ange år. / Regel 2.4</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Den typ av uppgift i patientjournal som sambandet pekar ut. Detta är en kod från  Categorization i engagemangsindexposten. Exempelvis kan en aktivitet ha ett samband till en observation och då är  referredInformationType ”chb-o”.Se avsnitt om categorization i tjänstekontraktsbeskrivning för respektive tjänst, som passar för det relaterade objektet.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">informationOwner</td>
+      <td style="text-align: left">InformationOwnerType</td>
+      <td style="text-align: left">Vårdgivare som är informationsägare av den refererade informationen, beroende på vilken adresseringsmodell tjänsten tillämpar.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svarsdel-observationgroupobservationrelationreferredinformationinformationowner">Svarsdel: observationGroup/observation/relation/referredInformation/informationOwner</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">observationGroup/ / observation/ / relation/ / referredInformation/ informationOwner</th>
+      <th style="text-align: left">InformationOwnerType</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Informationsägare av refererad information</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.root</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Root sätts till OID för HSA-id: 1.2.752.129.2.1.4.1</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.extension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdgivarens HSA-id.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svarsdel-observationgroupperformerroleperson">Svarsdel: observationGroup/performerRole/person</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">observationGroup/ / performerRole / / person / (och i additionalParticipant)</th>
+      <th style="text-align: left">PersonType</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Identifierare för person som utfört observationen. Detta fält anges endast om observationen utförts av person som INTE klassas som hälso- och sjukvårdspersonal. / Om observationen utförts av person som inte klassas som hälso- och sjukvårdspersonal och id inte anges måste person.name vara angiven.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.root</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Sätts till OID för typ av identifierare. / För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1) användas. / För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3) användas. / För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3)</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.extension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Personnummer/ samordningsnummer/reservnummer.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">För- och efternamn i klartext för person. / Regel 2.1</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svarsdel--observationgroupperformerrolecareunit">Svarsdel:  observationGroup/performerRole/careUnit</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">observationGroup/ / performarRole/ / careUnit</th>
+      <th style="text-align: left">CareUnitType</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">HSAid för PDL vårdenhet som har medicinskt ansvar för observationen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.root</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Root sätts till OID för HSA-id: 1.2.752.129.2.1.4.1</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.extension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Extension sätts till HSA-id för vårdenheten</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdenhetens namn till vilken observationen är knuten.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careGiver</td>
+      <td style="text-align: left">CareGiverType</td>
+      <td style="text-align: left">Den vårdgivaren som enheten är anknuten till.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svarsdel--observationgroupperformerrolecareunitcaregiver">Svarsdel:  observationGroup/performerRole/careUnit/caregiver</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">observationGroup/ / performerRole / / careUnit / / careGiver</th>
+      <th style="text-align: left">CareGiverType</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">HSAid. Vårdgivarens identitet som enheten är anknuten till.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.root</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Root sätts till OID för HSA-id: 1.2.752.129.2.1.4.1</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.extension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Extension sätts till HSA-id för vårdgivaren.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vårdgivarens namn till vilken enheten är knuten.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svarsdel-observationgroupadditionalparticipantlocation-electronicaddress">Svarsdel: observationGroup/additionalParticipant/location/ electronicAddress</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">observationGroup/ / additionalParticipant/ / location/</th>
+      <th style="text-align: left">TelType</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">electronicAddress</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">use</td>
+      <td style="text-align: left">TelTypeEnum</td>
+      <td style="text-align: left">voice = nummer för röstsamtal / fax = faxnummer / data = e-post adress / sms =  nummer för mobila textmeddelanden</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">value</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Elektronisk adress</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="svarsdel--observationgroupadditionalparticipantorganization">Svarsdel:  observationGroup/additionalParticipant/organization</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">observationGroup/ / additionalParticipant/ / organisation</th>
+      <th style="text-align: left">OrganisationType</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Id för organisation. Vanligtvis HSA-id</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.root</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Om HSA-id: / 1.2.752.129.2.1.4.1</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id.extension</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Id för organisation</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Organisationens namn</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="övriga-regler">Övriga regler</h4>
+<p>Till detta tjänstekontrakt finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">ID</th>
+      <th style="text-align: left">Kontext</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Regler i begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1.1</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Den enda sökparametern som explicit behöver anges är patientId. Det finns även möjlighet att kombinera patientId med ett eller flera andra parametrar: / timePeriod / För att begränsa till ett tidsintervall / observationCode / För att begränsa till en viss typ av observation / observationId / För att begränsa till en specifik observation / careGiverId / För att begränsa till en specifik vårdgivare / careUnitId / För att begränsa till en specifik vårdenhet / sourceSystemHSAId / För att begränsa till ett specifikt system / Relation / För att begränsa till observationer med relationer till annan instans / För att begränsa till observationer med relationer av viss typ / En begäran med patientId men utan någon av de andra sökparametrarna får nekas av producent, dvs inte vara genomförbart och ska i så fall resultera i ett tydligt felmeddelande. Detta skulle exempelvis inträffa om sökmängden blir för stor för att kunna returneras till konsumenten.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Regler i svaret</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2.1</td>
+      <td style="text-align: left">PerformerRole</td>
+      <td style="text-align: left">Observation utförd av hälso- och sjukvårdpersonal / Då observation är utförd av hälso- och sjukvårdpersonal ska PerformerRole.id anges med HSAid. / Om producenten ska stödja sammanhållen journalföring och patientens direktåtkomst krävs även att klassen Person används och att Person.name anges. / Observation utförd av icke vårdpersonal / Då observationen är utförd av personer som inte innefattar vårdpersonal ska PerformerRole.id inte anges. / Klasserna CareUnit (vårdenhet) och CareGiver (vårdgivare) ska inte användas. / Klassen Person ska användas samt Person.name anges.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2.2</td>
+      <td style="text-align: left">AdditionalParticipant</td>
+      <td style="text-align: left">AdditionalParticipant är hälso- och sjukvårdspersonal / Då ytterligare medverkande är hälso- och sjukvårdpersonal ska AdditionalParticipant.id anges med HSAid. / Om producenten ska stödja sammanhållen journalföring och patientens direktåtkomst krävs även att klassen Person används och att Person.name anges. / AdditionalParticipant är INTE hälso- och sjukvårdspersonal / Då ytterligare medverkande personer inte är hälso- och sjukvårdspersonal ska additionalParticipant.id inte anges. Istället används klassen Person. / AdditionalParticipant är inte en person / Då additionalParticipant är en device, careUnit eller organization används inte additionalParticipant.id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2.3</td>
+      <td style="text-align: left">LegalAuthenticator</td>
+      <td style="text-align: left">Om informationen är signerad av hälso- och sjukvårdspersonal ska LegalAuthenticator anges med namn och/eller HSA-id i svars-delen. / Minst ett av attributen LegalAuthenticator.id eller LegalAuthenticator.name ska anges.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2.4</td>
+      <td style="text-align: left">referredInformation.time</td>
+      <td style="text-align: left">ReferredInformation.time ska innehålla en tidpunkt som ska kunna användas som inparameter i ett tidsintervallbaserat sökvillkor till den tjänst som returnerar den identifierade informationsmängd som relationen pekar ut. Denna tidpunkt skall vara den tidpunkt som tidssökparametern till den utpekade tjänsten filtrerar på. I det fall då en konsument har behov av att söka upp flera relaterade informationsmängder från samma tjänst kan konsumenten skapa ett sökintervall som omfattar de ReferredInformation.time från dessa relationer. Detta sökintervall används sedan som inparameter till den tjänst som relationerna pekar ut. På detta sätt kan en konsument göra endast ett anrop över en begränsad tid som returnerar samtlig relaterad information istället för att göra anrop ett och ett med respektive id som anges i relationen, eller ta ut en patients totala informationsmängd utan någon möjlighet att filtrera på tid.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2.5</td>
+      <td style="text-align: left">observationGroup/ / performerRole/ / careUnit</td>
+      <td style="text-align: left">Åtkomstkontroll inom sammanhållen journalföring / Krävs för spärrhantering, åtkomstkontroll samt loggning enligt PDL. Om HSA-id för vårdenhet inte kan lämnas kommer elementet inte visas upp av konsumenter inom sammanhållen journalföring</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="icke-funktionella-krav">Icke funktionella krav</h5>
+<p>Inga övriga icke funktionella krav.</p>
+
+<h6 id="sla-krav">SLA-krav</h6>
+<p>Inga avvikande SLA-krav</p>
+
+<h4 id="annan-information-om-kontraktet">Annan information om kontraktet</h4>
+<p>Ingen övrig information om kontraktet</p>
+
+<h4 id="källfiler-riv-ta">Källfiler (RIV-TA)</h4>
+
+<p>Originalkällfiler för tjänstekontraktet ur Bitbucket-taggen 1.2.3, i RIV-TA-format:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetObservationsInteraction_1.2_RIVTABP21.wsdl">GetObservationsInteraction_1.2_RIVTABP21.wsdl</a></td>
+      <td>WSDL-kontrakt</td>
+    </tr>
+    <tr>
+      <td><a href="GetObservationsResponder_1.2.xsd">GetObservationsResponder_1.2.xsd</a></td>
+      <td>Tjänstespecifikt schema</td>
+    </tr>
+    <tr>
+      <td><a href="clinicalprocess_healthcond_basic_1.2.xsd">clinicalprocess_healthcond_basic_1.2.xsd</a></td>
+      <td>Domänschema (kärnkomponenter)</td>
+    </tr>
+    <tr>
+      <td><a href="clinicalprocess_healthcond_basic_1.2_ext.xsd">clinicalprocess_healthcond_basic_1.2_ext.xsd</a></td>
+      <td>Domänschema (tillägg 1.2: PQIntervalType/ivl_pq)</td>
+    </tr>
+    <tr>
+      <td><a href="clinicalprocess_healthcond_basic_enum_1.2.xsd">clinicalprocess_healthcond_basic_enum_1.2.xsd</a></td>
+      <td>Domänschema (enumerationer)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>Schema för LogicalAddress (itintegration:registry)</td>
+    </tr>
+    <tr>
+      <td><a href="Exempel_GetObservations_vikt_langd.xml">Exempel_GetObservations_vikt_langd.xml</a></td>
+      <td>Exempel på begäran (vikt/längd)</td>
+    </tr>
+    <tr>
+      <td><a href="Exempel_GetObservationsResponse_vikt_langd.xml">Exempel_GetObservationsResponse_vikt_langd.xml</a></td>
+      <td>Exempel på svar (vikt/längd)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TK_GetObservations_1.2.docx">SjD_TK_GetObservations_1.2.docx</a></td>
+      <td>Självdeklaration, tjänstekonsument</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TP_GetObservations_1.2.docx">SjD_TP_GetObservations_1.2.docx</a></td>
+      <td>Självdeklaration, tjänsteproducent</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exempelfilerna hette i källan <code class="language-plaintext highlighter-rouge">Exempel GetObservations - vikt längd.xml</code> respektive <code class="language-plaintext highlighter-rouge">Exempel GetObservationsResponse - vikt längd.xml</code> och har döpts om utan mellanslag och å/ä/ö.</p>
+
+<h4 id="skillnader-mellan-tkb-och-schema">Skillnader mellan TKB och schema</h4>
+
+<p>Följande avvikelser mellan TKB-dokumentet (version 1.2.1) och schemafilerna i taggen 1.2.3 har noterats. De logiska modellerna följer schemats struktur och typer och dokumenterar TKB:ns regler i beskrivningar och invarianter.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>TKB</th>
+      <th>Schema (XSD)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Kontraktets version (avsnitt Version)</td>
+      <td>1.1</td>
+      <td>1.2 (<code class="language-plaintext highlighter-rouge">GetObservationsResponder_1.2.xsd</code>, <code class="language-plaintext highlighter-rouge">version="1.2"</code>)</td>
+    </tr>
+    <tr>
+      <td>observation.status</td>
+      <td>0..0 ("Denna version av specifikation tillåter endast faktiskt utförda observationer")</td>
+      <td>0..1</td>
+    </tr>
+    <tr>
+      <td>patient.dateOfBirth</td>
+      <td>DateTime</td>
+      <td>DateType (ÅÅÅÅMMDD)</td>
+    </tr>
+    <tr>
+      <td>observation.time.start/end</td>
+      <td>TimeStampType</td>
+      <td>PartialTimeStampType (format + value)</td>
+    </tr>
+    <tr>
+      <td>relation.typeCode.code/codeSystem (begäran)</td>
+      <td>0..1</td>
+      <td>1..1 inom CVType när typeCode anges</td>
+    </tr>
+    <tr>
+      <td>observation.status, observation.relation.code</td>
+      <td>codeSystemVersion respektive displayName saknas i tabellen</td>
+      <td>Finns (0..1) i CVType</td>
+    </tr>
+    <tr>
+      <td>Ordning i begäran</td>
+      <td>sourceSystemHSAId före careGiverId</td>
+      <td>careGiverId, careUnitId, interactionAgreementId, sourceSystemHSAId</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fhir-artefakter">FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning och schemafilerna:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getobservations-request.html">StructureDefinition/getobservations-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getobservations.html">StructureDefinition/getobservations</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-postaladdressuse-cs.html">CodeSystem/postaladdressuse-cs</a> (PostalAddressUseEnum)</li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-postaladdressuse-vs.html">ValueSet/postaladdressuse-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-addressparttype-cs.html">CodeSystem/addressparttype-cs</a> (AddressPartTypeEnum)</li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-addressparttype-vs.html">ValueSet/addressparttype-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-teltype-cs.html">CodeSystem/teltype-cs</a> (TelTypeEnum)</li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-teltype-vs.html">ValueSet/teltype-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-timestamptypeformat-cs.html">CodeSystem/timestamptypeformat-cs</a> (TimeStampTypeFormatEnum)</li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-timestamptypeformat-vs.html">ValueSet/timestamptypeformat-vs</a></li>
+</ul>
+
+<p>Enumerationerna ResultCodeEnum och ErrorCodeEnum i <code class="language-plaintext highlighter-rouge">clinicalprocess_healthcond_basic_enum_1.2.xsd</code> används inte av GetObservations (ResultType ingår inte i svaret) och har därför inga egna kodverk.</p>
+
+<h3 id="gemensamma-dokument-för-domänen">Gemensamma dokument för domänen</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="AB_clinicalprocess_healthcond_basic.docx">AB_clinicalprocess_healthcond_basic.docx</a></td>
+      <td>Arkitekturella beslut (bilaga, referens R2)</td>
+    </tr>
+    <tr>
+      <td><a href="riv_clinicalprocess_healthcond_basic_ei_update_constraints.xml">riv_clinicalprocess_healthcond_basic_ei_update_constraints.xml</a></td>
+      <td>Schematron-regler för uppdatering av engagemangsindex (categorization chb-o, logicalAddress = sourceSystem)</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.clinicalprocess-healthcond-basic#1.2.3 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 18:07+0000">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

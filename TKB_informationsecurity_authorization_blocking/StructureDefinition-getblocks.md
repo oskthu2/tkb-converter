@@ -1,0 +1,369 @@
+# GetBlocks — Response - informationsecurity: authorization: blocking v4.0.4
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetBlocks — Response**
+
+## Logical Model: GetBlocks — Response 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/informationsecurity-authorization-blocking/StructureDefinition/getblocks | *Version*:4.0 |
+| Active as of 2026-10-08 | *Computable Name*:GetBlocks |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret i GetBlocks (urn:riv:informationsecurity:authorization:blocking:GetBlocksResponder:4, GetBlocksResponseType). 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.informationsecurity-authorization-blocking|current/StructureDefinition/StructureDefinition-getblocks.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getblocks.csv), [Excel](StructureDefinition-getblocks.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getblocks",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/informationsecurity-authorization-blocking/StructureDefinition/getblocks",
+  "version" : "4.0",
+  "name" : "GetBlocks",
+  "title" : "GetBlocks — Response",
+  "status" : "active",
+  "date" : "2026-10-08T18:28:59+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret i GetBlocks\n(urn:riv:informationsecurity:authorization:blocking:GetBlocksResponder:4, GetBlocksResponseType).",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/informationsecurity-authorization-blocking/StructureDefinition/getblocks",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getblocks",
+      "path" : "getblocks",
+      "short" : "GetBlocks — Response",
+      "definition" : "Logisk modell för svaret i GetBlocks\n(urn:riv:informationsecurity:authorization:blocking:GetBlocksResponder:4, GetBlocksResponseType)."
+    },
+    {
+      "id" : "getblocks.blockHeader",
+      "path" : "getblocks.blockHeader",
+      "short" : "blockHeader",
+      "definition" : "Datatyp som representerar spärrdata, antingen innehållandes endast spärrdata, eller spärrdata tillsammans med avregistrerade spärrar, beroende på hur klienten efterfrågat data. Datatypen utökar datatypen Result.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.result",
+      "path" : "getblocks.blockHeader.result",
+      "short" : "result",
+      "definition" : "Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.result.resultCode",
+      "path" : "getblocks.blockHeader.result.resultCode",
+      "short" : "resultCode",
+      "definition" : "resultCode",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/informationsecurity-authorization-blocking/ValueSet/authorization-blocking-resultcode-vs"
+      }
+    },
+    {
+      "id" : "getblocks.blockHeader.result.resultText",
+      "path" : "getblocks.blockHeader.result.resultText",
+      "short" : "resultText",
+      "definition" : "resultText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.blocks",
+      "path" : "getblocks.blockHeader.blocks",
+      "short" : "blocks",
+      "definition" : "Datatyp som representerar en existerande spärr med alla dess attribut. Datatypen beskriver grundformatet för en spärr.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.blocks.blockId",
+      "path" : "getblocks.blockHeader.blocks.blockId",
+      "short" : "blockId",
+      "definition" : "blockId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.blocks.blockType",
+      "path" : "getblocks.blockHeader.blocks.blockType",
+      "short" : "blockType",
+      "definition" : "blockType",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/informationsecurity-authorization-blocking/ValueSet/authorization-blocking-blocktype-vs"
+      }
+    },
+    {
+      "id" : "getblocks.blockHeader.blocks.informationStartDate",
+      "path" : "getblocks.blockHeader.blocks.informationStartDate",
+      "short" : "informationStartDate",
+      "definition" : "informationStartDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.blocks.informationEndDate",
+      "path" : "getblocks.blockHeader.blocks.informationEndDate",
+      "short" : "informationEndDate",
+      "definition" : "informationEndDate",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.blocks.informationCareUnitId",
+      "path" : "getblocks.blockHeader.blocks.informationCareUnitId",
+      "short" : "informationCareUnitId",
+      "definition" : "informationCareUnitId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.blocks.informationCareProviderId",
+      "path" : "getblocks.blockHeader.blocks.informationCareProviderId",
+      "short" : "informationCareProviderId",
+      "definition" : "informationCareProviderId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.blocks.patientId",
+      "path" : "getblocks.blockHeader.blocks.patientId",
+      "short" : "patientId",
+      "definition" : "En universellt unik identifierare.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.blocks.patientId.root",
+      "path" : "getblocks.blockHeader.blocks.patientId.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.blocks.patientId.iiExtension",
+      "path" : "getblocks.blockHeader.blocks.patientId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.blocks.excludedInformationTypes",
+      "path" : "getblocks.blockHeader.blocks.excludedInformationTypes",
+      "short" : "excludedInformationTypes",
+      "definition" : "Datatyp som representerar de Informationstyper som kan undantas från att spärras. En spärr gäller normalt alla informationstyper. Denna lista utgör de informationstyper som kan undantas från att spärras. Om försök görs att registrera en spärr innehållandes en okänd informationstyp skall spärrtjänsten att neka detta. lak Läkemedel - Ordination/förskrivning upp Uppmärksamhetsinformation",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.blocks.excludedInformationTypes.infoTypeId",
+      "path" : "getblocks.blockHeader.blocks.excludedInformationTypes.infoTypeId",
+      "short" : "infoTypeId",
+      "definition" : "infoTypeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.blocks.excludedInformationTypes.infoTypeDescription",
+      "path" : "getblocks.blockHeader.blocks.excludedInformationTypes.infoTypeDescription",
+      "short" : "infoTypeDescription",
+      "definition" : "infoTypeDescription",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.blocks.temporaryRevokes",
+      "path" : "getblocks.blockHeader.blocks.temporaryRevokes",
+      "short" : "temporaryRevokes",
+      "definition" : "Datatyp som representerar en tillfällig hävning för en spärr med alla dess attribut. En tillfällig hävning tillhör alltid en spärr. Datatypen beskriver grundformatet för en tillfällig hävning.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.blocks.temporaryRevokes.temporaryRevokeId",
+      "path" : "getblocks.blockHeader.blocks.temporaryRevokes.temporaryRevokeId",
+      "short" : "temporaryRevokeId",
+      "definition" : "temporaryRevokeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.blocks.temporaryRevokes.endDate",
+      "path" : "getblocks.blockHeader.blocks.temporaryRevokes.endDate",
+      "short" : "endDate",
+      "definition" : "endDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.blocks.temporaryRevokes.revokedForCareUnitId",
+      "path" : "getblocks.blockHeader.blocks.temporaryRevokes.revokedForCareUnitId",
+      "short" : "revokedForCareUnitId",
+      "definition" : "revokedForCareUnitId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.blocks.temporaryRevokes.revokedForEmployeeId",
+      "path" : "getblocks.blockHeader.blocks.temporaryRevokes.revokedForEmployeeId",
+      "short" : "revokedForEmployeeId",
+      "definition" : "revokedForEmployeeId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.blocks.temporaryRevokes.ownerId",
+      "path" : "getblocks.blockHeader.blocks.temporaryRevokes.ownerId",
+      "short" : "ownerId",
+      "definition" : "ownerId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.blocks.ownerId",
+      "path" : "getblocks.blockHeader.blocks.ownerId",
+      "short" : "ownerId",
+      "definition" : "ownerId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.nextCreatedOnOrAfter",
+      "path" : "getblocks.blockHeader.nextCreatedOnOrAfter",
+      "short" : "nextCreatedOnOrAfter",
+      "definition" : "nextCreatedOnOrAfter",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getblocks.blockHeader.latestCancellation",
+      "path" : "getblocks.blockHeader.latestCancellation",
+      "short" : "latestCancellation",
+      "definition" : "latestCancellation",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    }]
+  }
+}
+
+```

@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>7 Tjänstekontrakt - infrastructure: directory: synchronization v1.0.0-rc3</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">infrastructure: directory: synchronization</span>
+            <br/>
+            <span style="display:inline-block;">1.0.0-rc3 - RC
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Kapitel<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="1-inledning.html">1 Inledning</a></li>
+      <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+      <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+      <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+      <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+      <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma informationskomponenter</a></li>
+      <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+    </ul>
+  </li>
+  <li><a href="7-tjanstekontrakt.html">Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">infrastructure: directory: synchronization - Local Development build (v1.0.0-rc3) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/infrastructure-directory-synchronization/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div>
+<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
+</div>
+<h1 id="7-tjänstekontrakt">7 Tjänstekontrakt</h1>
+
+<p>Källa: <em>Tjänstekontraktsbeskrivning för katalogtjänstsynkronisering</em>, version 1.0_RC3 (2018-09-21), <a href="TKB_infrastructure_directory_synchronization.docx">TKB_infrastructure_directory_synchronization.docx</a>.</p>
+
+<p>Motsvarar TKB kapitel 6 <em>Tjänstekontrakt</em> (7.1 = TKB 6.1 osv.). Efter TKB:ns text följer för varje kontrakt fälten enligt schemat, tjänsteinteraktionen enligt WSDL, källfilerna och de genererade FHIR-artefakterna.</p>
+
+<h3 id="getmasterdatachangeset">GetMasterDataChangeSet</h3>
+
+<p>Hämtar information om masterdata som förändrats i en masterdatakälla baserat på sökkriterier. Sökkriterierna specificerar typ av förändring, datum för förändringen samt vilken typ av masterdata som efterfrågas. Masterdatakällan svarar med en lista innehållande id på poster som förändrats enligt sökkriterierna.</p>
+
+<h4 id="711-version">7.1.1 Version</h4>
+
+<p>1.0</p>
+
+<h4 id="712-fältregler">7.1.2 Fältregler</h4>
+
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Regler. Text i kolumnen ’Beskrivning’ som anges på första raden och är fetmarkerad motsvarar den benämning som används i meddelandemodellen.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">masterDataEntity</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Masterdataentitet / Angivelse av vilken typ masterdata som begäran avser.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../code</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kod som anger typ av masterdata i källan. / Definierar vilken typ av information i masterdatakällan som efterfrågas med hjälp av kod i kodsystem.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystem</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Kodsystem som anger masterdatakälla. / OID för t.ex. utbud</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemVersion</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Versionsnummer för kodsystem</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../displayName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Textuell beskrivning av det som koden anger. / Koden beskriven i fritext.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Namn på kodsystem</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../originalText</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Skall ej anges</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">timePeriod</td>
+      <td style="text-align: left">TimePeriodType</td>
+      <td style="text-align: left">Tidsintervall för förändringar. / Begränsning av sökning i tid. Resultatet innehåller information om poster som förändrats i masterdatakällan under angiven tidsperiod. Minst en av start- och endattributen ska anges om attributet timeInterval anges.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../start</td>
+      <td style="text-align: left">TimeStamp</td>
+      <td style="text-align: left">Starttid / Starttid för när en post förändrats. Endast katalogposter som förändrats efter denna tidpunkt ska tas med i svaret.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../end</td>
+      <td style="text-align: left">TimeStamp</td>
+      <td style="text-align: left">Sluttid / Slut för när en post förändrats. Endast katalogposter som förändrats före denna tidpunkt ska tas med i svaret.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">category</td>
+      <td style="text-align: left">Enum</td>
+      <td style="text-align: left">Kategori / Kategorisering av förändring. Enum med tillåtna värden: create, update, delete.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MasterDataChangeSet</td>
+      <td style="text-align: left">MasterDataChangeSetType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Id / Identifierare som unikt pekar ut en katalogdatapost i källsystemet. Idt kan användas för att hämta posten med tjänstekontraktet som pekas ut i förfrågan.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../id/root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">En universellt unik identifierare eller en identifierare som tillsammans med värdet för ”extension” / ger en universellt unik identifierare.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../id/extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">En textsträng som tillsammans med värdet för "root" bildar en unik identifierare. Används om värdet på "root" inte är universellt unikt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../category</td>
+      <td style="text-align: left">Enum</td>
+      <td style="text-align: left">Kategori / Kategorisering av förändring. / Enum med tillåtna värden: create, update, delete.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../changeTime</td>
+      <td style="text-align: left">TimeStamp</td>
+      <td style="text-align: left">Förändringstidpunkt / Tidpunkt för när förändringen genomfördes i masterdatakällan.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../attributes</td>
+      <td style="text-align: left">AttributeType</td>
+      <td style="text-align: left">Angivelse av förändrade attribut för katalogposten. / Om category är update kan förändrade fält anges i svaret, så att konsumenten kan härleda om uppdateringen är relevant för att trigga en hämtning av hela posten.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../attribute</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Attribut / Det förändrade attributet pekas ut med klass och attribut separerat med punktnotation. Exempel: Organisation.namn / Vilka attribut som kan anges beror helt på masterdatakällan.</td>
+      <td style="text-align: left">1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="713-övriga-regler">7.1.3 Övriga regler</h4>
+
+<p>Regel #1: När en tjänstekonsument anger en masterDataEntity som producenten inte stödjer ska tjänsteproducenten svara med ett SoapException.</p>
+
+<p>Regel #2: Tjänstekonsumenten ska begränsa sitt sökvillkor i begäran i syfte att minimera storleken på svarsmeddelandet.</p>
+
+<p>Regel #3: Tjänsteproducentens hantering av flera förändringar av samma katalogdatapost under sökperioden, som anges i begäran, kan hanteras på olika sätt beroende på tjänsteproducentens förmåga och användningsområde. I exemplet i Figur 1 uppdateras samma post två gånger. En begäran med sökintervall 2018-01-01  -  2018-01-10 får hanteras på 2 olika sätt:</p>
+
+<p><img src="img_003.svg" alt="Figur 1" /></p>
+
+<p><em>Figur 1. Katalogpost med id=abc uppdateras två gånger under tidsperioden 2018-01-01  -  2018-01-10</em></p>
+
+<p>Tjänsteproducent som endast kan tillhandahålla senaste versionen av en katalogpost via sitt huvudkontrakt anger en post i svaret med datum för senaste uppdateringen och antingen ingen attributangivelse, eller båda attributen som förändrats under tidsintervallet.</p>
+
+<p>Tjänsteproducent som kan och vill tillhandahålla historiska versioner av katalogposter via sitt huvudkontrakt anger två poster i svaret. Attributangivelse i respektive post är frivilligt.</p>
+
+<p>I Figur 2 visas hur en katalogpost blir skapad, uppdaterad och borttagen under ett tidsintervall. En begäran med sökintervall 2018-01-01  -  2018-01-10 får hanteras på 2 olika sätt:</p>
+
+<p><img src="img_002.svg" alt="Figur 2" /></p>
+
+<p><em>Figur 2. Katalogpost med id=abc skapas, uppdateras och tas bort under tidsperioden 2018-01-01  -  2018-01-10</em></p>
+
+<p>För en tjänsteproducent som endast kan tillhandahålla senaste versionen av en katalogpost via sitt huvudkontrakt ska svaret innehålla en post med information om borttagning.</p>
+
+<p>Tjänsteproducent som kan och vill tillhandahålla historiska versioner av katalogposter via sitt huvudkontrakt anger tre poster i svaret. Attributangivelse i uppdateringsposten är frivillig.</p>
+
+<h5 id="7131-icke-funktionella-krav">7.1.3.1 Icke funktionella krav</h5>
+
+<h6 id="71311-sla-krav">7.1.3.1.1 SLA-krav</h6>
+
+<p>Se generella SLA-krav för tjänstedomänen.</p>
+
+<h4 id="714-annan-information-om-kontraktet">7.1.4 Annan information om kontraktet</h4>
+
+<p>Ingen.</p>
+
+<h4 id="715-fältregler-enligt-schema-xsd">7.1.5 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">masterDataEntity</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">category</td>
+      <td style="text-align: left">CategoryEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">timePeriod</td>
+      <td style="text-align: left">TimePeriodType</td>
+      <td style="text-align: left">Används för att specificera ett datumintervall med hjälp av start- och slutdatum. start: Startdatum på formatet YYYYMMDDhhmmss end: Slutdatum på formatet YYYYMMDDhhmmss</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../start</td>
+      <td style="text-align: left">TimeStampType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../end</td>
+      <td style="text-align: left">TimeStampType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">masterDataChangeSet</td>
+      <td style="text-align: left">MasterDataChangeSetType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../id</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../category</td>
+      <td style="text-align: left">CategoryEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../changeTime</td>
+      <td style="text-align: left">TimeStampType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../attributes</td>
+      <td style="text-align: left">MasterDataAttributeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../masterDataAttribute</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="716-tjänsteinteraktion-enligt-wsdl">7.1.6 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:infrastructure:directory:synchronization:GetMasterDataChangeSetResponder:1:GetMasterDataChangeSet</code></p>
+
+<h4 id="717-källfiler-riv-ta">7.1.7 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetMasterDataChangeSetInteraction_1.0_RIVTABP21.wsdl">GetMasterDataChangeSetInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetMasterDataChangeSetResponder_1.0.xsd">GetMasterDataChangeSetResponder_1.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="infrastructure_directory_synchronization_1.0.xsd">infrastructure_directory_synchronization_1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="infrastructure_directory_synchronization_1.0_enum.xsd">infrastructure_directory_synchronization_1.0_enum.xsd</a></td>
+      <td>Uppräkningar (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="718-fhir-artefakter">7.1.8 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getmasterdatachangeset-request.html">StructureDefinition/getmasterdatachangeset-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getmasterdatachangeset.html">StructureDefinition/getmasterdatachangeset</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-directory-synchronization-category-cs.html">CodeSystem/directory-synchronization-category-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-directory-synchronization-category-vs.html">ValueSet/directory-synchronization-category-vs</a></li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.infrastructure-directory-synchronization#1.0.0-rc3 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 18:33+0000">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>3 Tjänstedomänens arkitektur - informationsecurity: authorization: consent v2.0.4</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"4"}
+    h3,h4,h5,h6{--heading-prefix:"4"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">informationsecurity: authorization: consent</span>
+            <br/>
+            <span style="display:inline-block;">2.0.4 - release
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Kapitel<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="1-inledning.html">1 Inledning</a></li>
+      <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+      <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+      <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+      <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+      <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma informationskomponenter</a></li>
+      <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+    </ul>
+  </li>
+  <li><a href="7-tjanstekontrakt.html">Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>3 Tjänstedomänens arkitektur</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">informationsecurity: authorization: consent - Local Development build (v2.0.4) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/informationsecurity-authorization-consent/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>3 Tjänstedomänens arkitektur</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#3-tjänstedomänens-arkitektur" id="markdown-toc-3-tjänstedomänens-arkitektur">3 Tjänstedomänens arkitektur</a>    <ul>
+      <li><a href="#31-flöden" id="markdown-toc-31-flöden">3.1 Flöden</a></li>
+      <li><a href="#32-adressering" id="markdown-toc-32-adressering">3.2 Adressering</a></li>
+      <li><a href="#33-aggregering-och-engagemangsindex" id="markdown-toc-33-aggregering-och-engagemangsindex">3.3 Aggregering och engagemangsindex</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="3-tjänstedomänens-arkitektur">3 Tjänstedomänens arkitektur</h1>
+
+<p>Källa: <em>Samtycke</em>, tjänstekontraktsbeskrivning version 2.0.4 (tagg 2.0.4, 2025-12-09), <a href="TKB_informationsecurity_authorization_consent.docx">TKB_informationsecurity_authorization_consent.docx</a>.</p>
+
+<p>Den nationella arkitekturen för samtyckeshantering är utformad</p>
+
+<p>dels för att stödja vård- och omsorgsutförares behov att hantera samtycken för lokala/regionala vårdsystem</p>
+
+<p>Dels för att möjliggöra en överblick över samtycken för en patient/invånare</p>
+
+<p>dels för motsvarande behov i nationella e-hälsotjänster</p>
+
+<p>Arkitekturen ska medge att vårdgivare/omsorgsutförare, kommuner och regioner, på ett flexibelt sätt kan hantera sina "egna" samtycken, samtidigt som samverkan möjliggörs med nationella e-tjänster som erbjuder direktåtkomst till patients/brukares journaluppgifter. Samtyckesinformation utbyts därför genom tydliga tjänstekontrakt.</p>
+
+<p>Tjänsterna syftar till att ge följande verksamhetsmässiga effekter</p>
+
+<p>Vård- och omsorgspersonalen ska få stöd att på ett enkelt sätt registrera patientens/brukarens samtycke, dess varaktighet och för vem/vilka registreringen gäller.</p>
+
+<p>Vård- och omsorgspersonalen ska kunna åberopa nödsituation när inte samtycke är möjligt att få från patienten/brukaren och det råder fara för patientens/brukarens liv och hälsa.</p>
+
+<p>Samtycken ska kunna få genomslag i anslutna tillämpningar, såväl lokala som nationella, t. ex. både i det egna journalsystemet och i nationell patientöversikt, så att dubbelregistreringar undviks.</p>
+
+<p><img src="img_029.png" alt="Tjänstedomänens arkitektur" /></p>
+
+<p>Figur 1: Principer för samverkande tjänster för hantering av samtycke</p>
+
+<p>Notera att en viss instans av samtyckestjänsten typiskt hanterar flera vårdgivares/omsorgsutförares information. För att visa på principerna ges exempel utifrån två fiktiva vårdgivare A och B.</p>
+
+<p>Nationellt anpassade tjänstekontrakt gör att journalsystem kan ansluta till ett och samma gränssnitt för samtycke oavsett hur huvudmannen ordnar med sin hantering och lokala infrastruktur.</p>
+
+<p>Tjänstekontrakten kan realiseras oberoende av var delsystemen realiseras. Man kan således välja att nyttja en mellan huvudmän delad molntjänst ("hotelltjänst"), alternativt en egen lokal installation.</p>
+
+<p>Det är vidare valfritt var användargränssnittet för att registrera samtycket realiseras, i ett separat gränssnitt mot samtyckestjänsten (som i fallet NPÖ) eller i respektive journalsystem/e-tjänst eller i en gemensam portal. Oavsett var sparas samtycket i samtyckestjänsten för aktuell vårdgivare/omsorgsutförare.</p>
+
+<p>Nationella e-tjänster, t ex NPÖ, får genom tjänstekontrakten ett gränssnitt till de samtycken och patientrelationer som behövs för dess hantering av direktåtkomst inom den sammanhållna journalföringen. Eftersom informationen kommer från många olika vårdgivare/omsorgsutförare över regiongränser, behöver tjänsteanropen förmedlas till den instans av samtyckestjänst som är aktuell. Förmedlingen bygger på verksamhetsmässig adressering av anropen enligt RIV TA och T-boken och är huvudsakligen baserad på vård- eller omsorgsgivarens identitet.</p>
+
+<h3 id="31-flöden">3.1 Flöden</h3>
+
+<h4 id="311-flöde-1-registrera-samtycke">3.1.1 Flöde 1: Registrera samtycke</h4>
+
+<p>Nedanstående flöde och sekvens visualiserar och beskriver användningsfallet att registrera ett samtycke.</p>
+
+<p>Dvs att patienten/brukaren samtycker till att vård- eller omsorgsgivaren kan få åtkomst till information hos andra vård- eller omsorgsgivare.</p>
+
+<h5 id="3111-arbetsflöde">3.1.1.1 Arbetsflöde</h5>
+
+<p><img src="img_004.jpg" alt="Arbetsflöde" /></p>
+
+<h5 id="3112-roller">3.1.1.2 Roller</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Användare</td>
+      <td style="text-align: left">En vård- eller omsorgsgivare som har behov av att ta del av journalinformation hos en annan vård- eller omsorgsgivare och därmed behöver patientens/brukarens samtycke till denna åtkomst. Samtycket behöver registreras så att journalsystemet sedan kan se att åtkomsten sker med patientens/brukarens samtycke.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">System som registrerar patientens/brukarens samtycke. Kan antingen vara ett lokalt journalsystem eller en samtyckestjänst.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">System som lagrar patientens/brukarens samtycke.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3113-sekvensdiagram">3.1.1.3 Sekvensdiagram</h5>
+
+<p>Sekvensdiagram för att registrera patientens/brukarens samtyckesåtkomst i sammanhållen journalföring.</p>
+
+<p><img src="img_019.png" alt="Sekvensdiagram" /></p>
+
+<h4 id="312-flöde-2-återta-registrerat-samtycke">3.1.2 Flöde 2: Återta registrerat samtycke</h4>
+
+<p>Flöde för att återkalla ett samtycke (avsluta i förtid) i samtyckestjänsten. Intyget raderas inte från samtyckestjänsten utan markeras som avslutat (ej längre giltig) för historikens skull. Ett avslutat samtycke kan ej återtas.</p>
+
+<h5 id="3121-arbetsflöde">3.1.2.1 Arbetsflöde</h5>
+
+<p><em>Figuren saknas i källdokumentet (TKB 2.0.4).</em></p>
+
+<h5 id="3122-roller">3.1.2.2 Roller</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Användare</td>
+      <td style="text-align: left">En vård- eller omsorgsgivare som har behov av att avsluta ett tidigare givet samtycke. Normalt sker detta på begäran av patienten/brukaren.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">System som administrerar patientens/brukarens samtycken. Kan antingen vara ett lokalt journalsystem eller en samtyckestjänst.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">System som lagrar patientens/brukarens samtycken.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3123-sekvensdiagram">3.1.2.3 Sekvensdiagram</h5>
+
+<p>Sekvensdiagram för att avsluta ett tidigare av patienten/brukaren givet samtycke för åtkomst i sammanhållen journalföring.</p>
+
+<p>Flödet inleds med en läsning av samtycken, för att aktören ska få underlag för vilket samtycke som ska administreras.</p>
+
+<p><img src="img_014.png" alt="Sekvensdiagram" /></p>
+
+<h4 id="313-flöde-3-makulering-av-samtycke">3.1.3 Flöde 3: Makulering av samtycke.</h4>
+
+<p>Makulering av samtycke används enbart för borttagning av felregistrerade samtycken från vård- eller omsorgen.</p>
+
+<p>Samtycket raderas inte från samtyckestjänst utan markeras som makulerat (ej längre giltig) för historikens skull. En makulering kan ej återtas. Notera att fram till att samtycket makuleras så är samtycket giltigt och skulle teoretiskt kunna ha nyttjats. En makulering är egentligen ett återtagande av samtycket, så som i flöde 2 men där återtagandets undantagsfall (felregistreringen) dokumenteras särskilt.</p>
+
+<h5 id="3131-arbetsflöde">3.1.3.1 Arbetsflöde</h5>
+
+<p><img src="img_009.jpg" alt="Arbetsflöde" /></p>
+
+<h5 id="3132-roller">3.1.3.2 Roller</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Användare</td>
+      <td style="text-align: left">En vård- eller omsorgsgivare som har behov av att makulera ett (felaktigt) tidigare registrerat samtycke.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">System som begär makulering av patientens/brukarens samtycke. Kan antingen vara ett lokalt journalsystem eller en samtyckestjänst.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">System som makulerar patientens/brukarens samtycke.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3133-sekvensdiagram">3.1.3.3 Sekvensdiagram</h5>
+
+<p>Sekvensdiagram för att makulera ett tidigare registrerat samtycke. Orsaken kan t.ex vara en felaktig registrering.</p>
+
+<p>Flödet inleds med en läsning av samtycken, för att aktören ska få underlag för vilket samtycke som ska administreras.</p>
+
+<p><img src="img_025.png" alt="Sekvensdiagram" /></p>
+
+<h4 id="314-flöde-4-hämta-patientensbrukarens-samtycken">3.1.4 Flöde 4: Hämta patientens/brukarens samtycken</h4>
+
+<p>Flöde för att läsa giltiga samtyckesintyg för en viss patient och en viss vård- eller omsorgsgivare med grundinformation.</p>
+
+<p>Med giltiga samtyckesintyg avses de samtyckesintyg, alternativt intyg om nödsituation, som används som underlag vid en kontroll gällande åtkomst (CheckConsents).</p>
+
+<p>Flödet är tänkt att användas i ett integrationsmönster där journalsystemet läser in de giltiga samtycken som finns för patienten/brukaren per vårdgivare, för att sedan utföra intern kontroll av samtycke.</p>
+
+<h5 id="3141-arbetsflöde">3.1.4.1 Arbetsflöde</h5>
+
+<p><img src="img_002.jpg" alt="Arbetsflöde" /></p>
+
+<h5 id="3142-roller">3.1.4.2 Roller</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">System som begär hämtning av patientens/brukarens samtycken för en angiven vårdgivare.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">System som tillhandahåller samtycken.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3143-sekvensdiagram">3.1.4.3 Sekvensdiagram</h5>
+
+<p>Sekvensdiagram för att hämta patientens/brukarens samtycken från en producent av samtycken.</p>
+
+<p><img src="img_020.png" alt="Sekvensdiagram" /></p>
+
+<h4 id="315-flöde-5-hämta-samtycken-för-en-given-vårdgivare">3.1.5 Flöde 5: Hämta samtycken för en given vårdgivare</h4>
+
+<p>Tjänst som läser alla giltiga samtyckesintyg för en viss vård- eller omsorgsgivare med grundinformation.</p>
+
+<p>Med giltiga samtyckesintyg avses de samtyckesintyg, alternativt intyg om nödsituation, som används som underlag vid en kontroll av åtkomst (CheckConsents).</p>
+
+<p>Flödet användas i ett integrationsmönster där journalsystemet med visst intervall inhämtar alla samtycken det behöver utifrån de vård- eller omsorgsgivare som systemet hanterar information från, för att sedan vid behov utföra intern kontroll mot underlaget av samtycken och nödsituationsintyg.</p>
+
+<h5 id="3151-arbetsflöde">3.1.5.1 Arbetsflöde</h5>
+
+<p><img src="img_015.jpg" alt="Arbetsflöde" /></p>
+
+<h5 id="3152-roller">3.1.5.2 Roller</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">System som begär hämtning av samtycken för en angiven vård- eller omsorgsgivare.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">System som tillhandahåller samtycken.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3153-sekvensdiagram">3.1.5.3 Sekvensdiagram</h5>
+
+<p>Sekvensdiagram för att hämta patientens/brukarens samtycken från en producent av samtycken.</p>
+
+<p><img src="img_007.png" alt="Sekvensdiagram" /></p>
+
+<h4 id="316-flöde-6-hämta-utökad-information-kring-samtycken-för-en-given-patient-och-vårdgivare">3.1.6 Flöde 6: Hämta utökad information kring samtycken för en given patient och vårdgivare</h4>
+
+<p>Flöde för att läsa registrerade samtyckesintyg för en viss patient och vård- eller omsorgsgivare med utökad information.</p>
+
+<p>Det är valbart om ogiltiga (makulerade, avslutade och utgångna) samtyckesintyg skall returneras.</p>
+
+<p>Flödet används normalt för att söka fram och administrera patientens/brukarens samtycken för en viss vård- eller omsorgsgivare.</p>
+
+<h5 id="3161-arbetsflöde">3.1.6.1 Arbetsflöde</h5>
+
+<p><img src="img_021.jpg" alt="Arbetsflöde" /></p>
+
+<h5 id="3162-roller">3.1.6.2 Roller</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Användare</td>
+      <td style="text-align: left">En aktör som har behov av att administrera ett samtycke och därmed behöver fullständiga uppgifter kring samtycket. Syftet kan t.ex vara att avsluta ett tidigare registrerat samtycke.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">System som begär hämtning av samtycken för en angiven vård- eller omsorgsgivare.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">System som tillhandahåller samtycken.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3163-sekvensdiagram">3.1.6.3 Sekvensdiagram</h5>
+
+<p>Sekvensdiagram för att hämta utökad information kring en patientens/brukarens samtycke från en producent av samtycken.</p>
+
+<p><img src="img_017.png" alt="Sekvensdiagram" /></p>
+
+<h4 id="317-flöde-7-kontrollera-om-det-finns-ett-giltigt-samtycke">3.1.7 Flöde 7: Kontrollera om det finns ett giltigt samtycke</h4>
+
+<p>alternativt intyg om nödåtkomst för en given patient och vårdgivare</p>
+
+<p>Flöde för att kontrollera om det finns ett giltigt samtycke, alternativt intyg om nödsituation, gällande åtkomst för viss aktör (vård-/omsorgsenhet eller medarbetare). Med giltigt samtycke avses ett samtycke som fortfarande är giltigt (giltigt t o m har ej passerats), ej makulerat eller avslutat.</p>
+
+<p>Om ett giltigt intyg gällande åtkomst för angiven aktör hittas, kommer tjänsten att svara OK</p>
+
+<h5 id="3171-arbetsflöde">3.1.7.1 Arbetsflöde</h5>
+
+<p><img src="img_010.jpg" alt="Arbetsflöde" /></p>
+
+<h5 id="3172-roller">3.1.7.2 Roller</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Användare</td>
+      <td style="text-align: left">En vård- eller omsorgsgivare som har behov av att se journalinformation hos andra vårdgivare</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">System som ansvarar för att endast visa information som det finns ett samtycke registrerat för hos den aktuella vård- eller omsorgsgivaren. Konsumenten begär kontroll av detta hos en producent av registrerade samtycken.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">System som tillhandahåller kontroll av samtycken.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3173-sekvensdiagram">3.1.7.3 Sekvensdiagram</h5>
+
+<p>Sekvensdiagram för att kontrollera om samtycken finns för en given aktör för åtkomst till journalinformation inom sammanhållen journalföring.</p>
+
+<p><img src="img_026.png" alt="Sekvensdiagram" /></p>
+
+<h4 id="318-flöde-8-patientbrukare-tar-del-av-alla-sina-givna-samtycken">3.1.8 Flöde 8: Patient/brukare tar del av alla sina givna samtycken</h4>
+
+<p>Flöde för att patient/brukare, via en e-tjänst, kunna ta del av alla sina givna samtyckesintyg. Patient/brukare kan se till vilken vård- eller omsorgsutförare som patient/brukare givit samtycke samt samtyckets giltighetstid.</p>
+
+<h5 id="3181-arbetsflöde">3.1.8.1 Arbetsflöde</h5>
+
+<p><em>Figuren saknas i källdokumentet (TKB 2.0.4).</em></p>
+
+<h5 id="3182-roller">3.1.8.2 Roller</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Användare</td>
+      <td style="text-align: left">En patient/brukare som har behov av att se vilka samtycken patienten/brukaren givit och som registrerats av vård- eller omsorgsutförare.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">System som ansvarar för att endast visa information om patientens/brukarens registrerade samtycken hos olika vårdenheter/vårdaktörer.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">System som tillhandahåller lagring av samtyckesintyg.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3183-sekvensdiagram">3.1.8.3 Sekvensdiagram</h5>
+
+<p>Sekvensdiagram för att kontrollera om samtycken finns för en given aktör för åtkomst till journalinformation inom sammanhållen journalföring.</p>
+
+<p><img src="img_005.png" alt="Sekvensdiagram" /></p>
+
+<h4 id="319-flöde-10-patientbrukare-avslutar-ett-redan-givet-samtycke-i-förtid">3.1.9 Flöde 10: Patient/brukare avslutar ett redan givet samtycke i förtid</h4>
+
+<p>Flöde för att patient/brukare, via en e-tjänst, ska kunna avsluta ett givet samtycke som patient/brukare tidigare har givit.</p>
+
+<h5 id="3191-arbetsflöde">3.1.9.1 Arbetsflöde</h5>
+
+<p><em>Figuren saknas i källdokumentet (TKB 2.0.4).</em></p>
+
+<h5 id="3192-roller">3.1.9.2 Roller</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Användare</td>
+      <td style="text-align: left">En patient/brukare som har behov av att se vilka samtycken patienten/brukaren givit och som registrerats av vård- eller omsorgsutförare.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">System som ansvarar för att visa information om patientens/brukarens registrerade samtycken hos olika vårdenheter/vårdaktörer samt ger patient/brukare möjlighet att avsluta ett samtycke i förtid.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">System som tillhandahåller lagring av samtyckesintyg.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3193-sekvensdiagram">3.1.9.3 Sekvensdiagram</h5>
+
+<p>Sekvensdiagram för att kontrollera om samtycken finns för en given aktör för åtkomst till journalinformation inom sammanhållen journalföring.</p>
+
+<p><em>Figuren saknas i källdokumentet (TKB 2.0.4).</em></p>
+
+<h4 id="3110-obligatoriska-kontrakt">3.1.10 Obligatoriska kontrakt</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Tjänstekontrakt</th>
+      <th style="text-align: left">Flöde 1</th>
+      <th style="text-align: left">Flöde 2</th>
+      <th style="text-align: left">Flöde 3</th>
+      <th style="text-align: left">Flöde 4</th>
+      <th style="text-align: left">Flöde 5</th>
+      <th style="text-align: left">Flöde 6</th>
+      <th style="text-align: left">Flöde 7</th>
+      <th style="text-align: left">Flöde 8</th>
+      <th style="text-align: left">Flöde 9</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">RegisterExtendedConsent</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CancelExtendedConsent</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DeleteExtendedConsent</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetConsentsForPatient</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetConsentsForCareProvider</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetExtendedConsentsForPatient</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CheckConsent</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetAllExtendedConsentsForPatient</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">EndConsentByPatient</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="32-adressering">3.2 Adressering</h3>
+
+<h4 id="321-logisk-adressering">3.2.1 Logisk adressering</h4>
+
+<p>Alla tjänster i tjänstegränssnitten följer RIV-TA-profilens standard för logisk adressering. Med logisk adressering ges möjligheten att kunna ange en logisk adress/mottagare i det fall en tjänsteväxel (tjänsteplattform) används. Detta möjliggör att en för avsändaren transparent tjänsteväxel kan förmedla anrop vidare till en viss instans av samtyckestjänsten och även behörighetsstyra anropet.</p>
+
+<p>Alla tjänster har ett obligatoriskt meddelandefält där mottagande vård- eller omsorgsgivares Id (t.ex. HSA-id) skall anges som logisk adressat. För den nationella samtyckestjänsten skall Ineras nationella HSA-id SE165565594230-1000 anges. Denna tjänst representerar en nationell nivå och hanterar alla nationellt kända informationsposter.</p>
+
+<p>Om en regional eller lokal samtyckestjänst etableras ska denna adresseras via logisk adress enligt nedan:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Tjänst</th>
+      <th style="text-align: left">Logisk adressat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Regional samtyckestjänst</td>
+      <td style="text-align: left">Regionens HsaId eller organisationsnummer</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Lokal samtyckestjänst</td>
+      <td style="text-align: left">Systemets HsaId</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="33-aggregering-och-engagemangsindex">3.3 Aggregering och engagemangsindex</h3>
+
+<p>Ej tillämpbart för denna tjänstedomän.</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.informationsecurity-authorization-consent#2.0.4 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 18:29+0000">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

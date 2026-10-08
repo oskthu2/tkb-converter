@@ -1,0 +1,3672 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>7 Tjänstekontrakt - orgmaster: hsa v1.0.0-snapshot</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"4"}
+    h3,h4,h5,h6{--heading-prefix:"4"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">orgmaster: hsa</span>
+            <br/>
+            <span style="display:inline-block;">1.0.0-snapshot - snapshot
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Kapitel<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="1-inledning.html">1 Inledning</a></li>
+      <li><a href="2-generella-regler.html">2 Generella regler</a></li>
+      <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+      <li><a href="8-datatyper.html">8 Datatyper</a></li>
+    </ul>
+  </li>
+  <li><a href="7-tjanstekontrakt.html">Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">orgmaster: hsa - Local Development build (v1.0.0-snapshot) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/orgmaster-hsa/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#7-tjänstekontrakt" id="markdown-toc-7-tjänstekontrakt">7 Tjänstekontrakt</a>    <ul>
+      <li><a href="#gethsaunit" id="markdown-toc-gethsaunit">GetHsaUnit</a></li>
+      <li><a href="#gethsaperson" id="markdown-toc-gethsaperson">GetHsaPerson</a></li>
+      <li><a href="#getmiuforperson" id="markdown-toc-getmiuforperson">GetMiuForPerson</a></li>
+      <li><a href="#gethsaunitlist" id="markdown-toc-gethsaunitlist">GetHsaUnitList</a></li>
+      <li><a href="#getpersonswithcommissionathealthcareunit" id="markdown-toc-getpersonswithcommissionathealthcareunit">GetPersonsWithCommissionAtHealthCareUnit</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="7-tjänstekontrakt">7 Tjänstekontrakt</h1>
+
+<p>Källa: <em>Tjänstekontrakt Organisationsinformation (orgmaster:hsa)</em>, RevB (2012-11-27), <a href="Tjanstekontrakt_hsa_orgmaster_Beskrivning.docx">Tjanstekontrakt_hsa_orgmaster_Beskrivning.docx</a>.</p>
+
+<p>Tjänstekontraktsbeskrivningen beskriver ett tjänstekontrakt per huvudavsnitt (avsnitt 3–7). I denna IG ligger de under avsnitt 7, i samma ordning: 7.1 = TKB 3, 7.2 = TKB 4 osv.</p>
+
+<h3 id="gethsaunit">GetHsaUnit</h3>
+
+<p><em>TKB avsnitt 3.</em></p>
+
+<p>GetHsaUnit används för att söka ut information om en specifik enhet eller funktion.</p>
+
+<h4 id="711-frivillighet">7.1.1 Frivillighet</h4>
+
+<p>Tjänsten är obligatorisk</p>
+
+<h4 id="712-version">7.1.2 Version</h4>
+
+<p>Detta är första versionen av tjänsten.</p>
+
+<h4 id="713-begäran-request">7.1.3 Begäran (Request)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Antal</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">hsaIdentity</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 - 1</td>
+      <td style="text-align: left">HSA-identitet på den enhet som skall sökas ut.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">searchBase</td>
+      <td style="text-align: left">DN</td>
+      <td style="text-align: left">0 - 1</td>
+      <td style="text-align: left">Sökbas för sökning i HSA-katalogen. / Om ingen sökbas anges används c=SE som sökbas.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getParentInfo</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">true: om careGiver och parentHsaIdentity svarsparametrar ska returneras.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="714-svar-response">7.1.4 Svar (Response)</h4>
+
+<p>Om specificerad enhet hittas returneras information om enheten i ett objekt av XML-typen GetHsaUnitResponse.
+Om enheten inte hittas returneras null (en tom SOAP-body).</p>
+
+<h4 id="715-gethsaunitresponse">7.1.5 GetHsaUnitResponse</h4>
+
+<p>För detaljerad information om respektive parameter se HSA-specifikationen (ref 1).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Underparameter</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Antal</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">careGiver</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Hsa-identitet för vårdgivaren som vårdenheten tillhör. Returneras bara om aktuell enhet är en vårdenhet. /  / (ny parameter för E-remiss)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">parentHsaIdentity</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 - 1</td>
+      <td style="text-align: left">Hsa-identitet för den överliggande enheten. Om ingen överliggande enhet finns ska fältet sättas till NULL. /  / Förälder för en enhet är överliggande enhet i DN, med andra ord närmsta OU eller O. / Returneras bara om getParentInfo är true. /  / (ny parameter för E-remiss)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">unitPrescriptionCodes</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 - 1</td>
+      <td style="text-align: left">(ny parameter för E-remiss)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">unitPrescriptionCode / HSA: Arbetsplatskod / LDAP: unitPrescriptionCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Arbetsplatskod för enheten</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">alternateNames</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">alternateName / HSA: Alternativt namn / LDAP: ouShort</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Alternativt namn på enheten som används vid sidan av det officiella namnet (publicName).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">alternateText / HSA: alt-text / LDAP: hsaAltText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Beskrivande text som alternativ till bild på enhet.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">businessClassifications</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">businessClassification / HSA: Verksamhet / LDAP: businessClassification Name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Typ av verksamhet (klartext).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">businessClassificationCodes</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">businessClassificationCode / HSA: Verksamhetskod / LDAP: businessClassification Code</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Typ av verksamhet (kod)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">businessTypes</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">businessType / HSA: Enhetstyp / LDAP: hsaBusinessType</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Klassificering av enhet (t.ex. sjukhus).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careTypes</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">careType / HSA: Vårdform / LDAP: careType</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Vårdform.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">county / HSA: Länsnamn / LDAP: countyName</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Namn på län.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">countyCode / HSA: Länskod / LDAP: countyCode</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Kod för län.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">description / HSA:Beskrivning / LDAP: description</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Allmän beskrivning för enheten.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">directoryContact / HSA: Innehållsansvarig / LDAP: hsaDirectoryContact (hämtad från överliggande o eller ou-objekt)</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Ansvarig för informationen om enheten (emailadress).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">displayOption / HSA:Alternativ namnvisning / LDAP: displayOption</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Alternativ namnvisning, se Hsa Schemat för syntax.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dropInHours</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">dropInHour / HSA: Tid för dropin-besök utan tidsbokning / LDAP: dropInHours</td>
+      <td style="text-align: left">Time Span</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Tider för så dropin-besök (utan tidbokning).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Email / HSA: e-postadress / LDAP: mail</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Officiell emailadress till enheten.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">faxNumbers</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">faxNumber / HSA: Fax / LDAP: facsimileTelephone Number</td>
+      <td style="text-align: left">Telefon</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Faxnummer till enheten.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">geographicalCoordinatesRt90 / HSA: Geografiska koordinater / LDAP: geographicalCoordinates</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Geo Coord</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Geografiska koordinater för enhetens huvudsakliga fysiska placering. Koordinaterna anges enligt RT90.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthCareArea / HSA: Områdesansvar / LDAP: hsaHealthCareArea</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Geografiskt område för någon typ av administrativt område.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaDestinationIndicators</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">hsaDestinationIndicator / HSA: Visas för / LDAP: hsaDestinationIndicator</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Anger vilka parter som får ta del av enhetens information.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaIdentity / HSA: HSA-id / LDAP: hsaIdentity</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">HSA-identitet</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaJpegLogotype / HSA: Logotyp / LDAP: hsaJpegLogotype</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Logotype för enheten. / Logotypen är en binär bild i JPEG-format. Bildinformationen returneras Base64-kodat.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">invoiceAddress / HSA: Fakturaadress / LDAP: hsaInvoiceAddress</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Address</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Fakturaadress.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">jpegPhoto / HSA: Bild / LDAP: jpegPhoto</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Allmän bild för enheten. / Bilden är en binär bild i JPEG-format. Bildinformationen returneras Base64-kodat.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">labeledUri / HSA: Webbadress / LDAP: labeledURI</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Fullständig webbadress (inklusive http://  eller https://)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Location / HSA: Geografisk plats / LDAP: l</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Namn på geografiskt område där enheten i huvudsak är placerad.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">webPage1177 / HSA: 1177-kontaktkortslänk / LDAP: hsaVpwWebPage</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Länk till Enhetens sida på 1177.se (om enheten är publik och finns på 1177.se)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">managements</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">management / HSA: Ägarform / LDAP: management</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Ägarform i klartext.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">municipality / HSA: Kommunnamn / LDAP: municipalityName</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Namn på kommun.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">municipalityCode / HSA: Kommunkod / LDAP: municipalityCode</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Kod för kommun.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">municipalitySection / HSA: Kommundelsnamn / LDAP: municipalitySectionName</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Namn på kommundel.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name / HSA: Organisationsnamn, Enhetsnamn eller Objektnamn, / LDAP: o, ou eller cn (beroende på objekttyp)</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Namn / Namn i detta sammanhang definieras som värdet i LDAP-attributet o (organization), ou (organisationsenhet) eller cn (organisationsroll).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientInformation / HSA: Information till patient / LDAP: hsaVpwInformation4</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Informationstext till patienter.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postalAddress / HSA: Postadress / LDAP: postalAddress</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Address</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Postadress.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postalCode / HSA: Postnummer / LDAP: postalCode</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Postnummer.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">priceInformation / HSA: Prisinformation / LDAP: hsaVpwInformation3</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Prisinformation.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">publicName / (Namn som sätts samman utifrån flera olika Hsa-attribut, se beskrivningen)</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Publikt officiellt namn. / Det publika namnet beräknas i första hand utifrån enhetens DN tillsammans med värdet i attributet displayOption i enlighet med beskrivningen i HSA-specifikationen (se ref 3). / Om enheten inte har något värde för displayOption beräknas det publika namnet utifrån följande attributkombinationer, i prioritetsordning; / ou<code class="language-plaintext highlighter-rouge">&lt;blanktecken&gt;</code>l / o<code class="language-plaintext highlighter-rouge">&lt;blanktecken&gt;</code>l / cn<code class="language-plaintext highlighter-rouge">&lt;blanktecken&gt;</code>l</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relatedUnits</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">relatedUnit / HSA: Relaterad enhet / LDAP: hsaVpwNeighbouring Object</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">HSA-identitet på en enhet som på något sätt hör ihop med aktuell enhet. / Informationen hämtas från LDAP-attributet hsaVpwNeighbouringObject.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">route / HSA: Vägbeskrivning / LDAP: route</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Vägbeskrivning.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">street / HSA: Besöksadress / LDAP: street</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Besöksadress (gatuadress).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">surgeryHours</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">surgeryHour / HSA: Öppettider / LDAP: surgeryHours</td>
+      <td style="text-align: left">Time Span</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Öppetider.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">switchboardNumber / HSA: Växeltelefon / LDAP: hsaSwitchboardNumber</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Telefon</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Telefonnummer till växel</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telephoneHours</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">telephoneHour / HSA: Telefontid / LDAP: telephoneHours</td>
+      <td style="text-align: left">Time Span</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Telefontider för telefonnummer i parametern telephoneNumbers.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telephoneNumbers</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">telephoneNumber / HSA: Telefonnummer / LDAP: telephoneNumber</td>
+      <td style="text-align: left">Telefon</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Publikt direkttelefonnummer.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">textTelephoneNumbers</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">textTelephoneNumber / HSA: Texttelefon / LDAP: hsaTextTelephone Number</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Texttelefonnummer för personer med tal- eller hörselhandikapp.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">unitExtraInformation / HSA:  Mer om / LDAP: hsaVpwInformation1</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Kompleterande information om enheten</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">unitFunctions</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">unitFunction / (se nedan för Hsa och Ldapnamn)</td>
+      <td style="text-align: left">UnitFunc</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Reserverade funktionsnamn kopplade till aktuell enhet.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">unitTemporaryInformation / HSA: Tillfällig information / LDAP: hsaVpwInformation2</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">DateSpan</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Temporär information om enheten.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">visitingHours</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">visitingHour / HSA: Besökstider för anhöriga / LDAP: visitingHours</td>
+      <td style="text-align: left">TimeSpan</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Besökstider för anhöriga.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">visitingRuleAge / HSA: Åldersregler för vårdkontakt / LDAP: hsaVisitingRuleAge</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">AgeSpan</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Åldersintervall på patienter som tas emot.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">visitingRuleReferral / HSA: Remisskrav / LDAP: hsaVisitingRuleReferral</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Beskrivning av remisskrav.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">visitingRules / HSA: Besöksregler / LDAP: hsaVisitingRules</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Besöksregler</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">referralReceiver</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Flagga som anger om enheten kan ta emot remisser.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">referralTypes</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">referralType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Vilken typ av remisser som en enhet kan ta emot</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="716-timespan">7.1.6 TimeSpan</h4>
+
+<p>Tidsintervall.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Antal</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">fromDay</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Från dag. / Måndag (1) – Söndag (7).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">fromTime</td>
+      <td style="text-align: left">Time (XML)</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Från tid.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">toDay</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Till dag. / Måndag (1) – Söndag (7).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">toTime</td>
+      <td style="text-align: left">Time (XML)</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Till tid.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Comment</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Information om aktuellt tidsintervall.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="717-geocoord">7.1.7 GeoCoord</h4>
+
+<p>Geografiska koordinater.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Antal</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Type</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Typ av geografisk koordinat. / Idag används enbart RT90.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">X-koordinat.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Y</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Y-koordinat.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="718-address">7.1.8 Address</h4>
+
+<p>Addressinformation</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Antal</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">addressLine</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – n</td>
+      <td style="text-align: left">Adressrad.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="719-unitfunc">7.1.9 UnitFunc</h4>
+
+<p>Information om så kallad enhetsfunktion. Idag finns följande enhetsfunktioner;
+Avbokning
+Bokning
+Sjukresebeställning
+Receptförnyelse
+Rådgivning</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Underparameter</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Antal</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">namn / HSA: Objektnamn / LDAP: cn</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Enhetsfunktionens namn (se ovanstående lista).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telephoneHours</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">telephoneHour / HSA: Telefontid / LDAP: telephoneHours</td>
+      <td style="text-align: left">TimeSpan</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Telefontider för telefonnummer i parametern telephoneNumbers.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telephoneNumbers</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">telephoneNumber / HSA: Telefonnummer / LDAP: telephoneNumber</td>
+      <td style="text-align: left">Telefon</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Publikt direkttelefonnummer.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7110-agespan">7.1.10 AgeSpan</h4>
+
+<p>Åldersintervall</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Antal</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">From</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Från ålder. 00 för nyfödd.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">To</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Till ålder. 99 för ingen övre åldersgräns.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7111-telefon">7.1.11 Telefon</h4>
+
+<p>Telefonnummer anges med XML-typen string. Telefonnummer kodas i nationellt format utan bindestreck och mellanslag (t.ex. 08123456).</p>
+
+<h4 id="7112-datespan">7.1.12 DateSpan</h4>
+
+<p>Datumintervall.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Antal</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">fromDate</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Från datum. / Exempel: 20101123</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">toDate</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Till datum. / Exempel: 20101131</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7113-regler">7.1.13 Regler</h4>
+
+<p>Vid ett tekniskt fel levereras ett generellt undantag (SOAP-Exception)</p>
+
+<h4 id="7114-tjänsteinteraktion">7.1.14 Tjänsteinteraktion</h4>
+
+<p>GetHsaUnitInteraction</p>
+
+<h4 id="7115-fältregler-enligt-schema-xsd">7.1.15 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="8-datatyper.html">avsnitt 8</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaIdentity</td>
+      <td style="text-align: left">HsaIdentityType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">searchBase</td>
+      <td style="text-align: left">SearchBaseType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getParentInfo</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careGiver</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">parentHsaIdentity</td>
+      <td style="text-align: left">HsaIdentityType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">unitPrescriptionCodes</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">alternateNames</td>
+      <td style="text-align: left">alternateNames</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../alternateName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">alternateText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">businessClassifications</td>
+      <td style="text-align: left">businessClassifications</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../businessClassification</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">businessClassificationCodes</td>
+      <td style="text-align: left">businessClassificationCodes</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../businessClassificationCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">businessTypes</td>
+      <td style="text-align: left">businessTypes</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../businessType</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careTypes</td>
+      <td style="text-align: left">careTypes</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../careType</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">county</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">countyCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">description</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">directoryContact</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">displayOption</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dropInHours</td>
+      <td style="text-align: left">dropInHours</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../dropInHour</td>
+      <td style="text-align: left">TimeSpanType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../fromDay</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../fromTime</td>
+      <td style="text-align: left">time</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../fromTime2</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../toDay</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../toTime</td>
+      <td style="text-align: left">time</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../toTime2</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../comment</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">email</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">faxNumbers</td>
+      <td style="text-align: left">faxNumbers</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../faxNumber</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">geographicalCoordinatesRt90</td>
+      <td style="text-align: left">CoordinatesType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../type</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../x</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../y</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">healthCareArea</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaDestinationIndicators</td>
+      <td style="text-align: left">hsaDestinationIndicators</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../hsaDestinationIndicator</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaIdentity</td>
+      <td style="text-align: left">HsaIdentityType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaJpegLogotype</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">invoiceAddress</td>
+      <td style="text-align: left">AddressType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../addressLine</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">jpegPhoto</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">labeledUri</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">location</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">webPage1177</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">managements</td>
+      <td style="text-align: left">managements</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../management</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">municipality</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">municipalityCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">municipalitySection</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientInformation</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postalAddress</td>
+      <td style="text-align: left">AddressType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../addressLine</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postalCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">priceInformation</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">publicName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relatedUnits</td>
+      <td style="text-align: left">relatedUnits</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../relatedUnit</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">route</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">street</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">surgeryHours</td>
+      <td style="text-align: left">surgeryHours</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../surgeryHour</td>
+      <td style="text-align: left">TimeSpanType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../fromDay</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../fromTime</td>
+      <td style="text-align: left">time</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../fromTime2</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../toDay</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../toTime</td>
+      <td style="text-align: left">time</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../toTime2</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../comment</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">switchboardNumber</td>
+      <td style="text-align: left">TelephoneNumberType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telephoneHours</td>
+      <td style="text-align: left">TelephoneHoursType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../telephoneHour</td>
+      <td style="text-align: left">TimeSpanType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../fromDay</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../fromTime</td>
+      <td style="text-align: left">time</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../fromTime2</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../toDay</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../toTime</td>
+      <td style="text-align: left">time</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../toTime2</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../comment</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telephoneNumbers</td>
+      <td style="text-align: left">telephoneNumbers</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../telephoneNumber</td>
+      <td style="text-align: left">TelephoneNumberType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">textTelephoneNumbers</td>
+      <td style="text-align: left">textTelephoneNumbers</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../textTelephoneNumber</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">unitExtraInformation</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">unitFunctions</td>
+      <td style="text-align: left">unitFunctions</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../unitFunction</td>
+      <td style="text-align: left">HsaUnitFunctionType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../telephoneHours</td>
+      <td style="text-align: left">TelephoneHoursType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../telephoneHour</td>
+      <td style="text-align: left">TimeSpanType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../fromDay</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../fromTime</td>
+      <td style="text-align: left">time</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../fromTime2</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../toDay</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../toTime</td>
+      <td style="text-align: left">time</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../toTime2</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../comment</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../telephoneNumbers</td>
+      <td style="text-align: left">telephoneNumbers</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../telephoneNumber</td>
+      <td style="text-align: left">TelephoneNumberType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">unitTemporaryInformation</td>
+      <td style="text-align: left">DateSpanType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../fromDate</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../toDate</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../comment</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">visitingHours</td>
+      <td style="text-align: left">visitingHours</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../visitingHour</td>
+      <td style="text-align: left">TimeSpanType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../fromDay</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../fromTime</td>
+      <td style="text-align: left">time</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../fromTime2</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../toDay</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../toTime</td>
+      <td style="text-align: left">time</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../toTime2</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../comment</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">visitingRuleAge</td>
+      <td style="text-align: left">AgeSpanType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../from</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../to</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">visitingRuleReferral</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">visitingRules</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">referralReceiver</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">referralTypes</td>
+      <td style="text-align: left">referralTypes</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../referralType</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DN</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7116-tjänsteinteraktion-enligt-wsdl">7.1.16 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>Tjänsteinteraktionens namn: GetHsaUnitInteraction<br />
+Beskrivning:<br />
+Submission of medical health reports to the Swedish social insurance institutions<br />
+Revisioner:<br />
+Tjänstedomän: orgmaster:hsa<br />
+Tjänsteinteraktionstyp: Fråga-Svar<br />
+WS-profil: RIVTABP21<br />
+Förvaltas av: Sveriges Kommuner och Landsting</p>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaUnitResponder:1:GetHsaUnit</code></p>
+
+<h4 id="7117-källfiler-riv-ta">7.1.17 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetHsaUnitInteraction_1.0_RIVTABP21.wsdl">GetHsaUnitInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetHsaUnitResponder_1.0.xsd">GetHsaUnitResponder_1.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="orgmaster_hsa_1.0.xsd">orgmaster_hsa_1.0.xsd</a></td>
+      <td>Domänschema</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7118-fhir-artefakter">7.1.18 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-gethsaunit-request.html">StructureDefinition/gethsaunit-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-gethsaunit.html">StructureDefinition/gethsaunit</a></li>
+</ul>
+
+<h3 id="gethsaperson">GetHsaPerson</h3>
+
+<p><em>TKB avsnitt 4.</em></p>
+
+<p>GetHsaPerson hämtar information om en HSA-person (hsaPersonExtension).</p>
+
+<h4 id="721-frivillighet">7.2.1 Frivillighet</h4>
+
+<p>Tjänsten är obligatorisk</p>
+
+<h4 id="722-version">7.2.2 Version</h4>
+
+<p>Detta är första versionen av tjänsten.</p>
+
+<h4 id="723-begäran-request">7.2.3 Begäran (Request)</h4>
+
+<p>Endast en av parametrarna hsaIdentity och personalIdentityNumber skall och måste användas.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Antal</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">hsaIdentity</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 - 1</td>
+      <td style="text-align: left">HSA-identitet för användaren vars information skall hämtas.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personalIdentityNumber</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Personnummer för användaren vars information skall hämtas.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">searchBase</td>
+      <td style="text-align: left">DN</td>
+      <td style="text-align: left">0 - 1</td>
+      <td style="text-align: left">Sökbas för sökning i HSA-katalogen. / Om ingen sökbas anges används c=SE som sökbas.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="724-svar-response">7.2.4 Svar (Response)</h4>
+
+<p>En lista med de personobjekt som matchar sökriterierna av XML-typen GetHsaPersonResponseType returneras. Detta objekt innehåller information om personen som eftersöks.
+Om inga personobjekt hittas returneras en tom lista.
+För närvarande (se ref. 3) finns inte något sätt att koppla paTitleCode till paTitleName för person.</p>
+
+<h4 id="725-gethsapersonresponsetype">7.2.5 GetHsaPersonResponseType</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Underparameter</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Antal</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">userInformations</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">userInformation</td>
+      <td style="text-align: left">User Information</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Information om personen. / Om personen har flera HSA-objekt returneras en instans per HSA-objekt.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="726-userinformation">7.2.6 UserInformation</h4>
+
+<p>Information om HSA-personen i form av GetHsaPersonHsaUserType. För detaljerad information om respektive parameter se HSA-specifikationen (ref 1).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Underparameter</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Antal</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">personalPrescriptionCode / HSA: förskrivarkod / LDAP: personalPrescriptionCode</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 - 1</td>
+      <td style="text-align: left">Kod som identifierar en förskrivare eller en grupp av förskrivare. /  / (ny parameter för E-remiss)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paTitleCodes</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 - 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paTitleCode / HSA: befattningskod / LDAP: paTitleCode</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 - n</td>
+      <td style="text-align: left">Kod för personens befattning. /  / (ny parameter för E-remiss)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paTitleNames</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 - 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paTitleName / HSA: befattning / LDAP: paTitleName</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 - n</td>
+      <td style="text-align: left">Uppgift om vad personen är anställd som. Klartext för personens befattning. /  / (ny parameter för E-remiss)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaIdentity / HSA: HSA-id / LDAP: hsaIdentity</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">HSA-identitet.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">givenName / HSA: tilltalsnamn / LDAP: givenName</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Tilltalsnamn.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sn / HSA: efternamn / LDAP: sn</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Efternamn.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">middleName / HSA: mellannamn / LDAP: middleName</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Mellannamn för person</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">nickName / HSA: smeknamn / LDAP: nickName</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Smeknamn för användning istället för tilltalsnamn.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mail / HSA: e-postadress / LDAP: mail</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Epostadress.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telephoneNumbers</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">telephoneNumber / HSA: direkttelefon / LDAP: telephoneNumber</td>
+      <td style="text-align: left">Telefon</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Publikt direkttelefonnummer.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaSwitchboardNumber</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Telefon</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Telefonnummer till växel.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaTelephoneNumbers</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">hsaTelephoneNumber / HSA: tjänstetelefon / LDAP: hsaTelephoneNumber</td>
+      <td style="text-align: left">Telefon</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Tjänstetelefonnummer. / Skall inte visas för allmänheten.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mobileNumbers</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">mobileNumber / HSA: mobiltelefon / LDAP: mobile</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Mobiltelefonnummer.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">smsTelephoneNumber / HSA: SMS-telefon / LDAP: smsTelephoneNumber</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Telefon</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Telefonnummer för SMS-meddelanden.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">facsimilleTelephoneNumbers</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">facsimilleTelephoneNumber HSA: faxnummer / LDAP: facsimilleTelephoneNumber</td>
+      <td style="text-align: left">Telefon</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Faxnummer.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">telephoneHours</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">telephoneHour / HSA: telefontid / LDAP: telephoneHour</td>
+      <td style="text-align: left">TimeSpan</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Telefontider för publik telefon (telephoneNumbers). / För mer information se avsnitt 4.4.3.3.2.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postalAddress / HSA: postadress / LDAP: postalAddress</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">AddressType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Postadress.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">labeledUri / HSA: webbadress / LDAP: labeledURI</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Webbadress.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">description / HSA: beskrivning / LDAP: description</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Generell beskrivning.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">languageKnowledgeCodes</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">languageKnowledgeCode / HSA: språkkod / LDAP: languageKnowledge Code</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Kod för språk personen har tillräcklig kunskap om för att kunna ta emot patienter som talar detta språk.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">title / HSA: titel / LDAP: title</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Yrkestitel i fritext</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaTitles</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">hsaTitle / HSA: Legitimerad yrkesgrupp / LDAP: hsaTitle</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">HSA-titel för specificerad person. / Aktuella HSA-titlar specificeras i HSA kodtabell.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">specialityNames</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">specialityName / HSA: specialitet / LDAP: specialityName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Specialistutbildning utöver grundutbildning.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">specialityCodes</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">specialityCode / HSA: specialitetskod / LDAP: specialityCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Klassificeringskod för specialistutbildning utöver grundutbildning.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DN</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">DN</td>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">DN för person</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="727-regler">7.2.7 Regler</h4>
+
+<p>Vid ett tekniskt fel levereras ett generellt undantag (SOAP-Exception)</p>
+
+<h4 id="728-tjänsteinteraktion">7.2.8 Tjänsteinteraktion</h4>
+
+<p>GetHsaPersonInteraction</p>
+
+<h4 id="729-fältregler-enligt-schema-xsd">7.2.9 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="8-datatyper.html">avsnitt 8</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaIdentity</td>
+      <td style="text-align: left">HsaIdentityType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personalIdentityNumber</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">searchBase</td>
+      <td style="text-align: left">SearchBaseType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">userInformations</td>
+      <td style="text-align: left">userInformations</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../userInformation</td>
+      <td style="text-align: left">GetHsaPersonHsaUserType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../personalPrescriptionCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../description</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../paTitleCodes</td>
+      <td style="text-align: left">PaTitleCodesType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../paTitleCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../paTitleNames</td>
+      <td style="text-align: left">PaTitleNamesType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../paTitleName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../mail</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../givenName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../hsaIdentity</td>
+      <td style="text-align: left">HsaIdentityType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../hsaSwitchboardNumber</td>
+      <td style="text-align: left">TelephoneNumberType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../hsaTelephoneNumbers</td>
+      <td style="text-align: left">hsaTelephoneNumbers</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../hsaTelephoneNumber</td>
+      <td style="text-align: left">TelephoneNumberType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../labeledUri</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../languageKnowledgeCodes</td>
+      <td style="text-align: left">languageKnowledgeCodes</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../languageKnowledgeCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../mobileNumbers</td>
+      <td style="text-align: left">mobileNumbers</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../mobileNumber</td>
+      <td style="text-align: left">TelephoneNumberType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../facsimileTelephoneNumbers</td>
+      <td style="text-align: left">facsimileTelephoneNumbers</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../facsimileTelephoneNumber</td>
+      <td style="text-align: left">TelephoneNumberType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../nickName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../smsTelephoneNumber</td>
+      <td style="text-align: left">TelephoneNumberType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../specialityCodes</td>
+      <td style="text-align: left">specialityCodes</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../specialityCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../specialityNames</td>
+      <td style="text-align: left">specialityNames</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../specialityName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../sn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../telephoneHours</td>
+      <td style="text-align: left">TelephoneHoursType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../telephoneHour</td>
+      <td style="text-align: left">TimeSpanType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../fromDay</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../fromTime</td>
+      <td style="text-align: left">time</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../fromTime2</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../toDay</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../toTime</td>
+      <td style="text-align: left">time</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../toTime2</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../comment</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../telephoneNumbers</td>
+      <td style="text-align: left">telephoneNumbers</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../telephoneNumber</td>
+      <td style="text-align: left">TelephoneNumberType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../title</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../DN</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../middleName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../postalAddress</td>
+      <td style="text-align: left">AddressType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../addressLine</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../hsaTitles</td>
+      <td style="text-align: left">HsaTitlesType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../hsaTitle</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7210-tjänsteinteraktion-enligt-wsdl">7.2.10 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>Tjänsteinteraktionens namn: GetHsaPersonInteraction<br />
+Beskrivning:<br />
+Used to search for information about a specified unit or function<br />
+Revisioner:<br />
+Tjänstedomän: orgmaster:hsa<br />
+Tjänsteinteraktionstyp: Fråga-Svar<br />
+WS-profil: RIVTABP21<br />
+Förvaltas av: Sveriges Kommuner och Landsting</p>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaPersonResponder:1:GetHsaPerson</code></p>
+
+<h4 id="7211-källfiler-riv-ta">7.2.11 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetHsaPersonInteraction_1.0_RIVTABP21.wsdl">GetHsaPersonInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetHsaPersonResponder_1.0.xsd">GetHsaPersonResponder_1.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="orgmaster_hsa_1.0.xsd">orgmaster_hsa_1.0.xsd</a></td>
+      <td>Domänschema</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7212-fhir-artefakter">7.2.12 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-gethsaperson-request.html">StructureDefinition/gethsaperson-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-gethsaperson.html">StructureDefinition/gethsaperson</a></li>
+</ul>
+
+<h3 id="getmiuforperson">GetMiuForPerson</h3>
+
+<p><em>TKB avsnitt 5.</em></p>
+
+<p>GetMiuForPerson används för att söka ut behörighetsegenskaper (så kallade medarbetare i uppdrag) för en specificerad HSA-person.</p>
+
+<h4 id="731-frivillighet">7.3.1 Frivillighet</h4>
+
+<p>Tjänsten är obligatorisk</p>
+
+<h4 id="732-version">7.3.2 Version</h4>
+
+<p>Detta är första versionen av tjänsten.</p>
+
+<h4 id="733-begäran-request">7.3.3 Begäran (Request)</h4>
+
+<p>Endast en av parametrarna hsaIdentity och personalIdentityNumber skall och måste användas.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Antal</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">hsaIdentity</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">HSA-identitet på den person vars behörighetsegenskaper (MiU) skall utsökas..</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personalIdentityNumber</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Personnummer på den person vars behörighetsegenskaper (MiU) skall utsökas.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">searchBase</td>
+      <td style="text-align: left">DN</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Sökbas för sökning i HSA-katalogen. / Om ingen sökbas anges används c=SE som sökbas.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="734-svar-response">7.3.4 Svar (Response)</h4>
+
+<p>Om specificerad person har behörighetsstyrande egenskaper (personen är kopplad till en eller flera giltiga MiU) returneras dessa i objekt av XML-typen MiuInformation. Ett objekt per kopplad MiU returneras. Listan med funna MiUInformation packas in i ett objekt av XML-typen GetMiuForPersonResponse.
+Observera att enbart MiU:s med aktuella kopplingar (aktuell tidpunkt ligger inom kopplingens start och slutdatum) returneras.
+Om personen inte har några behörighetsegenskaper (personen är inte kopplad till någon giltig MiU) returneras null.</p>
+
+<h4 id="735-getmiuforpersonresponse">7.3.5 GetMiuForPersonResponse</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Antal</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">MiuInformation</td>
+      <td style="text-align: left">Se nedan</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Funna behörighetsegenskaper (MiU:s) för specificerad person.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="736-miuinformation">7.3.6 MiuInformation</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Underparameter</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Antal</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">miuName / HSA: Objektnamn / LDAP: cn</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Namn på aktuell MiU (commission).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaIdentity / HSA: HSA-id / LDAP: hsaIdentity</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">HSA-identitet för aktuell MiU (commission).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">miuPurpose / HSA: medarbetaruppdragets syfte / LDAP: hsaCommissionPurpose</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Syfte med aktuell MiU. / Aktuella syften specificeras i HSA kodtabell.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnitHsaIdentity / HSA: HSA-id / LDAP: hsaIdentity</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">HSA-identitet på den vårdenhet aktuell MiU (commission)  tillhör.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnitName / HSA: Enhetsnamn eller Organisationsnamn / LDAP: ou eller o</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Namn på den vårdenhet aktuell MiU (commission)  tillhör.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careGiver / HSA: HSA-id / LDAP: hsaIdentity</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">HSA-identitet på den vårdgivare aktuell MiU (commission) tillhör. Observera att en MiU inte är direkt kopplad till en vårdgivare utan tillhör den vårdgivare som MiU:ns vårdenhet tillhör.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careGiverName / HSA: Enhetsnamn eller Organisationsnamn / LDAP: ou eller o</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Namn på den vårdgivare aktuell MiU tillhör.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careGiverOrgNo / HSA:  Organisationsnummer / LDAP: orgNo</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Organisationsnummer för den vårdgivare aktuell MiU (commission) tillhör.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personalPrescriptionCode / HSA: Förskrivarkod / LDAP: personalPrescriptionCode</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – 1</td>
+      <td style="text-align: left">Förskrivarkod för specificerad person.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaTitles</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">hsaTitle / HSA: Legitimerad yrkesgrupp / LDAP: hsaTitle</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">HSA-titel för specificerad person. / Aktuella HSA-titlar specificeras i HSA kodtabell.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">miuRights</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">miuRight / HSA: Medarbetaruppdragets rättigheter / LDAP: hsaCommissionRight</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Rättighet för aktuell MiU (commission), / För mer information se avsnitt 4.4.5.3.3.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaSystemRoles</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">hsaSystemRole / HSA: individuell behörighets-egenskap för it-tjänster / LDAP: hsaSystemRole</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Systemroller kopplade till specificerad person. / För mer information se avsnitt 4.4.5.3.4.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaIdentityPerson / HSA: HSA-id / LDAP: hsaIdentity</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">HSA-identitet för aktuell Person</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paTitleCodes</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 - 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paTitleCode / HSA: befattningskod / LDAP: paTitleCode</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Befattningskoder kopplade till specificerad person.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">givenName / HSA: förnamn / LDAP: givenName</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Förnamn för person</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">middleAndSurName / HSA: mellannamn + efternamn / LDAP: middleName + surName (sn)</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Mellannamn + efternamn för person.  Namnen är separerade med bindestreck.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="737-miurights">7.3.7 MiuRights</h4>
+
+<p>Rättigheterna för en MiU specificeras i en sträng enligt följande syntax, <code class="language-plaintext highlighter-rouge">&lt;aktivitet&gt;</code>;<code class="language-plaintext highlighter-rouge">&lt;informationstyp&gt;</code>;<code class="language-plaintext highlighter-rouge">&lt;organisationsomfång&gt;</code>.
+Aktivitet: Vad som får göras med aktuell information. Aktuella aktiviteter specificeras i HSA kodtabell.
+Informationstyp: Den typ av information aktiviteten får utföras på. Aktuella informationstyper specificeras i HSA kodtabell.
+Organisationsomfång: Inom vilken sfär får specificerad person komma åt informationen. Aktuella informationsomfång specificeras i HSA kodtabell</p>
+
+<h4 id="738-hsasystemroles">7.3.8 HsaSystemRoles</h4>
+
+<p>De så kallade systemroller (hsaSystemRole) som är kopplade till aktuell person. En systemroll specificeras i en sträng med följande syntax, <code class="language-plaintext highlighter-rouge">&lt;systemidentitet&gt;</code>;<code class="language-plaintext highlighter-rouge">&lt;systemroll&gt;</code>.</p>
+
+<h4 id="739-regler">7.3.9 Regler</h4>
+
+<p>Vid ett tekniskt fel levereras ett generellt undantag (SOAP-Exception)</p>
+
+<h4 id="7310-tjänsteinteraktion">7.3.10 Tjänsteinteraktion</h4>
+
+<p>GetMiuForPersonInteraction</p>
+
+<h4 id="7311-fältregler-enligt-schema-xsd">7.3.11 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="8-datatyper.html">avsnitt 8</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaIdentity</td>
+      <td style="text-align: left">HsaIdentityType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personalIdentityNumber</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">searchBase</td>
+      <td style="text-align: left">SearchBaseType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MiuInformation</td>
+      <td style="text-align: left">MiuInformationType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../miuName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../hsaIdentity</td>
+      <td style="text-align: left">HsaIdentityType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../miuPurpose</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../careUnitHsaIdentity</td>
+      <td style="text-align: left">HsaIdentityType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../careUnitName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../careGiver</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../careGiverName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../careGiverOrgNo</td>
+      <td style="text-align: left">orgNo</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../personalPrescriptionCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../hsaTitles</td>
+      <td style="text-align: left">HsaTitlesType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../hsaTitle</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../miuRights</td>
+      <td style="text-align: left">MiuRightsType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../miuRight</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../hsaSystemRoles</td>
+      <td style="text-align: left">HsaSystemRolesType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../hsaSystemRole</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../hsaIdentityPerson</td>
+      <td style="text-align: left">HsaIdentityType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../paTitleCodes</td>
+      <td style="text-align: left">PaTitleCodesType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../paTitleCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../givenName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../middleAndSurName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7312-tjänsteinteraktion-enligt-wsdl">7.3.12 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>Tjänsteinteraktionens namn: GetMiuForPersonInteraction<br />
+Beskrivning:<br />
+Search for authorization properties for a specified HSA-person<br />
+Revisioner:<br />
+Tjänstedomän: orgmaster:hsa<br />
+Tjänsteinteraktionstyp: Fråga-Svar<br />
+WS-profil: RIVTABP21<br />
+Förvaltas av: Sveriges Kommuner och Landsting</p>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetMiuForPersonResponder:1:GetMiuForPerson</code></p>
+
+<h4 id="7313-källfiler-riv-ta">7.3.13 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetMiuForPersonInteraction_1.0_RIVTABP21.wsdl">GetMiuForPersonInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetMiuForPersonResponder_1.0.xsd">GetMiuForPersonResponder_1.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="orgmaster_hsa_1.0.xsd">orgmaster_hsa_1.0.xsd</a></td>
+      <td>Domänschema</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7314-fhir-artefakter">7.3.14 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getmiuforperson-request.html">StructureDefinition/getmiuforperson-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getmiuforperson.html">StructureDefinition/getmiuforperson</a></li>
+</ul>
+
+<h3 id="gethsaunitlist">GetHsaUnitList</h3>
+
+<p><em>TKB avsnitt 6 (rubrik i TKB: GetUnitList).</em></p>
+
+<p>GetUnitList hämtar information om en organisatorisk enhet och alla dess underenheter.
+En underenhet definieras som en enhet som har den överliggande enhetens namn i OU eller O i sitt DN.</p>
+
+<h4 id="741-frivillighet">7.4.1 Frivillighet</h4>
+
+<p>Tjänsten är obligatorisk</p>
+
+<h4 id="742-version">7.4.2 Version</h4>
+
+<p>Detta är första versionen av tjänsten.</p>
+
+<h4 id="743-begäran-request">7.4.3 Begäran (Request)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Antal</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">hsaIdentity</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 - 1</td>
+      <td style="text-align: left">HSA-identitet för enheten eller organisationen från vilken alla underliggande enheter ska hämtas.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">searchBase</td>
+      <td style="text-align: left">DN</td>
+      <td style="text-align: left">0 - 1</td>
+      <td style="text-align: left">Sökbas för sökning i HSA-katalogen. / Om ingen sökbas anges används c=SE som sökbas.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="744-svar-response">7.4.4 Svar (Response)</h4>
+
+<p>En lista med unitobjekt av XML-typen GetHsaUnitListResponseType returneras.
+Om inga objekt hittas returneras en tom lista.</p>
+
+<h4 id="745-gethsaunitlistresponsetype">7.4.5 GetHsaUnitListResponseType</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Underparameter</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Antal</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">UnitList</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">unitListUnit</td>
+      <td style="text-align: left">UnitListUnit</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="746-unitlistunit">7.4.6 UnitListUnit</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Antal</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">hsaIdentity / HSA: HSA-id / LDAP: hsaIdentity</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Enhetens HSA-identitet.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name / HSA: Organisationsnamn, Enhetsnamn, / LDAP: ou</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Namn / Namn i detta sammanhang definieras som värdet i LDAP-attributet ou (organisationsenhet).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">parentHsaIdentity</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 - 1</td>
+      <td style="text-align: left">Hsa-identitet för den överliggande enheten. Om ingen överliggande enhet finns ska fältet sättas till NULL. /  / Förälder för en enhet är överliggande enhet i DN, med andra ord närmsta OU eller O.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="747-regler">7.4.7 Regler</h4>
+
+<p>Vid ett tekniskt fel levereras ett generellt undantag (SOAP-Exception)</p>
+
+<h4 id="748-tjänsteinteraktion">7.4.8 Tjänsteinteraktion</h4>
+
+<p>GetHsaUnitListInteraction</p>
+
+<h4 id="749-fältregler-enligt-schema-xsd">7.4.9 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="8-datatyper.html">avsnitt 8</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaIdentity</td>
+      <td style="text-align: left">HsaIdentityType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">searchBase</td>
+      <td style="text-align: left">SearchBaseType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UnitList</td>
+      <td style="text-align: left">UnitList</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../unitListUnit</td>
+      <td style="text-align: left">UnitListUnit</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../hsaIdentity</td>
+      <td style="text-align: left">HsaIdentityType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../parentHsaIdentity</td>
+      <td style="text-align: left">HsaIdentityType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7410-tjänsteinteraktion-enligt-wsdl">7.4.10 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>Tjänsteinteraktionens namn: GetHsaUnitListInteraction<br />
+Beskrivning:<br />
+Fetch information about an organizational unit and all sub units<br />
+Revisioner:<br />
+Tjänstedomän: orgmaster:hsa<br />
+Tjänsteinteraktionstyp: Fråga-Svar<br />
+WS-profil: RIVTABP21<br />
+Förvaltas av: Sveriges Kommuner och Landsting</p>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetHsaUnitListResponder:1:GetHsaUnitList</code></p>
+
+<h4 id="7411-källfiler-riv-ta">7.4.11 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetHsaUnitListInteraction_1.0_RIVTABP21.wsdl">GetHsaUnitListInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetHsaUnitListResponder_1.0.xsd">GetHsaUnitListResponder_1.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="orgmaster_hsa_1.0.xsd">orgmaster_hsa_1.0.xsd</a></td>
+      <td>Domänschema</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7412-fhir-artefakter">7.4.12 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-gethsaunitlist-request.html">StructureDefinition/gethsaunitlist-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-gethsaunitlist.html">StructureDefinition/gethsaunitlist</a></li>
+</ul>
+
+<h3 id="getpersonswithcommissionathealthcareunit">GetPersonsWithCommissionAtHealthCareUnit</h3>
+
+<p><em>TKB avsnitt 7.</em></p>
+
+<p>GetPersonsWithCommissionAtHealthCareUnit hämtar information om personer som har Medarbetaruppdrag under vårdenheten
+Sökningen kan även begränsas om en eller flera HsaTitles eller PaTitles anges.</p>
+
+<h4 id="751-frivillighet">7.5.1 Frivillighet</h4>
+
+<p>Tjänsten är obligatorisk</p>
+
+<h4 id="752-version">7.5.2 Version</h4>
+
+<p>Detta är första versionen av tjänsten.</p>
+
+<h4 id="753-begäran-request">7.5.3 Begäran (Request)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Antal</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">hsaIdentity</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 - 1</td>
+      <td style="text-align: left">HSA-identitet för användaren vars information skall hämtas.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">searchBase</td>
+      <td style="text-align: left">DN</td>
+      <td style="text-align: left">0 - 1</td>
+      <td style="text-align: left">Sökbas för sökning i HSA-katalogen. / Om ingen sökbas anges används c=SE som sökbas.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paTitleCodes</td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 - 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paTitleCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Om angiven skall endast anställda med angiven befattning visas. Klartext för personens befattning.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaTitles</td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 - 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaTitle</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left">Om angiven skall endast anställda med angiven legitimerad yrkesgrupp visas. Klartext för personens legitimerade yrkesgrupp.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="754-svar-response">7.5.4 Svar (Response)</h4>
+
+<p>En lista med objekt av XML-typen GetPersonsWithCommissionAtHealthCareUnitResponseType returneras.
+Om inga objekt hittas returneras en tom lista.</p>
+
+<h4 id="755-getpersonswithcommissionathealthcareunitresponsetype">7.5.5 GetPersonsWithCommissionAtHealthCareUnitResponseType</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Underparameter</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Antal</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">PersonList</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">personListPerson</td>
+      <td style="text-align: left">PersonListPerson</td>
+      <td style="text-align: left">0 – n</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="756-personlistperson">7.5.6 PersonListPerson</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Parameter</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Antal</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">hsaIdentity / HSA: HSA-id / LDAP: hsaIdentity</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Personens HSA-identitet.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">givenName / HSA: tilltalsnamn / LDAP: givenName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Tilltalsnamn.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sn / HSA: efternamn / LDAP: sn</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left">Efternamn.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">personalPrescriptionCode / HSA: förskrivarkod / LDAP: personalPrescriptionCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 - 1</td>
+      <td style="text-align: left">Kod som identifierar en förskrivare eller en grupp av förskrivare.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paTitleCodes</td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paTitleCode / HSA: befattningskod / LDAP: paTitleCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 - n</td>
+      <td style="text-align: left">Kod för personens befattning.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paTitleNames</td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paTitleName / HSA: befattning / LDAP: paTitleName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 - n</td>
+      <td style="text-align: left">Uppgift om vad personen är anställd som. Klartext för personens befattning.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaTitles</td>
+      <td style="text-align: left">Collection</td>
+      <td style="text-align: left">1 – 1</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaTitle / HSA: Legitimerad yrkesgrupp / LDAP: hsaTitle</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">0 - n</td>
+      <td style="text-align: left">Legitimerad yrkesgrupp som personen tillhör.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="757-regler">7.5.7 Regler</h4>
+
+<p>Vid ett tekniskt fel levereras ett generellt undantag (SOAP-Exception)</p>
+
+<h4 id="758-tjänsteinteraktion">7.5.8 Tjänsteinteraktion</h4>
+
+<p>GetPersonsWithCommissionAtHealthCareUnitInteraction</p>
+
+<h4 id="759-fältregler-enligt-schema-xsd">7.5.9 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="8-datatyper.html">avsnitt 8</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaIdentity</td>
+      <td style="text-align: left">HsaIdentityType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">searchBase</td>
+      <td style="text-align: left">SearchBaseType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paTitleCodes</td>
+      <td style="text-align: left">PaTitleCodesType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../paTitleCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hsaTitles</td>
+      <td style="text-align: left">HsaTitlesType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../hsaTitle</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PersonList</td>
+      <td style="text-align: left">PersonList</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../personListPerson</td>
+      <td style="text-align: left">PersonListPerson</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../hsaIdentity</td>
+      <td style="text-align: left">HsaIdentityType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../givenName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../sn</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../personalPrescriptionCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../paTitleCodes</td>
+      <td style="text-align: left">PaTitleCodesType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../paTitleCode</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../paTitleNames</td>
+      <td style="text-align: left">PaTitleNamesType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../paTitleName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../hsaTitles</td>
+      <td style="text-align: left">HsaTitlesType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../hsaTitle</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7510-tjänsteinteraktion-enligt-wsdl">7.5.10 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>Tjänsteinteraktionens namn: GetPersonsWithCommissionAtHealthCareUnitInteraction<br />
+Beskrivning:<br />
+List of persons on commission in the specified unit<br />
+Revisioner:<br />
+Tjänstedomän: orgmaster:hsa<br />
+Tjänsteinteraktionstyp: Fråga-Svar<br />
+WS-profil: RIVTABP21<br />
+Förvaltas av: Sveriges Kommuner och Landsting</p>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:orgmaster:hsa:GetPersonsWithCommissionAtHealthCareUnitResponder:1:GetPersonsWithCommissionAtHealthCareUnit</code></p>
+
+<h4 id="7511-källfiler-riv-ta">7.5.11 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetPersonsWithCommissionAtHealthCareUnitInteraction_1.0_RIVTABP21.wsdl">GetPersonsWithCommissionAtHealthCareUnitInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetPersonsWithCommissionAtHealthCareUnitResponder_1.0.xsd">GetPersonsWithCommissionAtHealthCareUnitResponder_1.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="orgmaster_hsa_1.0.xsd">orgmaster_hsa_1.0.xsd</a></td>
+      <td>Domänschema</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7512-fhir-artefakter">7.5.12 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getpersonswithcommissionathealthcareunit-request.html">StructureDefinition/getpersonswithcommissionathealthcareunit-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getpersonswithcommissionathealthcareunit.html">StructureDefinition/getpersonswithcommissionathealthcareunit</a></li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.orgmaster-hsa#1.0.0-snapshot based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 18:43+0000">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

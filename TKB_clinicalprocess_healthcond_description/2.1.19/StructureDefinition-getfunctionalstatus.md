@@ -1,0 +1,595 @@
+# GetFunctionalStatus - clinicalprocess: healthcond: description 2.1 v2.1.19
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetFunctionalStatus**
+
+## Logical Model: GetFunctionalStatus 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getfunctionalstatus | *Version*:2.0 |
+| Active as of 2026-10-08 | *Computable Name*:GetFunctionalStatus |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för svaret i tjänstekontraktet GetFunctionalStatus version 2.0 (RIV-TA urn:riv:clinicalprocess:healthcond:description:GetFunctionalStatusResponder:2), enligt fältreglerna i TKB clinicalprocess:healthcond:description 2.1.18. Representerar svarets informationsstruktur: funktionsstatusbedömningar för en patient samt resultat. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.clinicalprocess-healthcond-description|current/StructureDefinition/StructureDefinition-getfunctionalstatus.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getfunctionalstatus.csv), [Excel](StructureDefinition-getfunctionalstatus.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getfunctionalstatus",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getfunctionalstatus",
+  "version" : "2.0",
+  "name" : "GetFunctionalStatus",
+  "title" : "GetFunctionalStatus",
+  "status" : "active",
+  "date" : "2026-10-08T18:09:54+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för svaret i tjänstekontraktet GetFunctionalStatus version 2.0 (RIV-TA urn:riv:clinicalprocess:healthcond:description:GetFunctionalStatusResponder:2), enligt fältreglerna i TKB clinicalprocess:healthcond:description 2.1.18. Representerar svarets informationsstruktur: funktionsstatusbedömningar för en patient samt resultat.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getfunctionalstatus",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getfunctionalstatus",
+      "path" : "getfunctionalstatus",
+      "short" : "GetFunctionalStatus",
+      "definition" : "Logisk modell för svaret i tjänstekontraktet GetFunctionalStatus version 2.0 (RIV-TA urn:riv:clinicalprocess:healthcond:description:GetFunctionalStatusResponder:2), enligt fältreglerna i TKB clinicalprocess:healthcond:description 2.1.18. Representerar svarets informationsstruktur: funktionsstatusbedömningar för en patient samt resultat."
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment",
+      "path" : "getfunctionalstatus.functionalStatusAssessment",
+      "short" : "De funktionsstatusbedömningar som matchar begäran",
+      "definition" : "De funktionsstatusbedömningar som matchar begäran. TKB-typ: FunctionalStatusAssessmentTime. Kardinalitet: 0..*.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader",
+      "short" : "Innehåller basinformation om dokumentet",
+      "definition" : "Innehåller basinformation om dokumentet. TKB-typ: PatientSummaryHeaderType. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentId",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentId",
+      "short" : "Funktionsbedömningens identitet som är unik inom källsystemet",
+      "definition" : "Funktionsbedömningens identitet som är unik inom källsystemet. / Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter. / Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen. TKB-typ: string. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.sourceSystemHSAId",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.sourceSystemHSAId",
+      "short" : "HSA-id för det system som dokumentet är skapat i",
+      "definition" : "HSA-id för det system som dokumentet är skapat i. TKB-typ: HSAIdType. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentTitle",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentTitle",
+      "short" : "documentTitle",
+      "definition" : "Används ej. TKB-typ: string. Kardinalitet: 0..0.",
+      "min" : 0,
+      "max" : "0",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentTime",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.documentTime",
+      "short" : "Bedömningstidpunkt/händelsetidpunkt",
+      "definition" : "Bedömningstidpunkt/händelsetidpunkt. TKB-typ: TimeStampType. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.patientId",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.patientId",
+      "short" : "Identifierare för patient",
+      "definition" : "Identifierare för patient. TKB-typ: PersonIdType. Kardinalitet: 1..1. Underelement i PersonIdType: id (string, 1..1): Sätts till patientens identifierare. Anges med 12 tecken utan avskiljare. | type (string, 1..1): Sätts till OID för typ av identifierare. / För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1), [R14]. / För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3), [R14]. / För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3), [R14].",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional",
+      "short" : "Information om den hälso- och sjukvårdsperson som ansvarar för funktionsstatusbedömninge, nedan kallas …",
+      "definition" : "Information om den hälso- och sjukvårdsperson som ansvarar för funktionsstatusbedömninge, nedan kallas författare. TKB-typ: HealthcareProfessionalType. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.authorTime",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.authorTime",
+      "short" : "Tidpunkt då informationen registrerades",
+      "definition" : "Tidpunkt då informationen registrerades. TKB-typ: TimeStampType. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+      "short" : "Författarens HSA-id",
+      "definition" : "Författarens HSA-id. TKB-typ: HSAIdType. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+      "short" : "Namn på författaren",
+      "definition" : "Namn på författaren. Om tillgängligt ska detta anges. TKB-typ: string. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+      "short" : "Information om personens befattning",
+      "definition" : "Information om personens befattning. Om möjligt ska kodverket Befattning (OID 1.2.752.129.2.2.1.4) användas, [R13]. / I de fall kodverket Befattning ej kan användas, men information om befattning finns tillgänglig, måste vårdgivaren ange en OID på det organisationsinterna kodverk som används istället. / Information som finns kan inte utelämnas på grund av att mappning till kodverket Befattning inte är möjlig. TKB-typ: CVType. Kardinalitet: 0..1. Underelement i CVType: code (string, 0..1): Befattningskod. Om code anges ska också codeSystem  samt displayName anges. | codeSystem (string, 0..1): Kodsystem för befattningskod. Om codeSystem anges ska också code samt displayName anges. | codeSystemName (string, 0..1): Namn på kodsystem för befattningskod. | codeSystemVersion (string, 0..1): Version på kodsystem för befattningskod. | displayName (string, 0..1): Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges. | originalText (string, 0..1): Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. / Om originalText anges ska inget annat värde i healthcareProfessionalRoleCode anges.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+      "short" : "Den organisation som författaren är uppdragstagare på",
+      "definition" : "Den organisation som författaren är uppdragstagare på. TKB-typ: OrgUnitType. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+      "short" : "HSA-id för organisationsenhet",
+      "definition" : "HSA-id för organisationsenhet. TKB-typ: HSAIdType. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+      "short" : "Namnet på den organisation som författaren är uppdragstagare på",
+      "definition" : "Namnet på den organisation som författaren är uppdragstagare på. TKB-typ: string. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+      "short" : "Telefon till organisationsenhet",
+      "definition" : "Telefon till organisationsenhet. TKB-typ: string. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+      "short" : "Epost till organisationsenhet",
+      "definition" : "Epost till organisationsenhet. TKB-typ: string. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+      "short" : "Postadress för den organisation som författaren är uppdragstagare på",
+      "definition" : "Postadress för den organisation som författaren är uppdragstagare på. TKB-typ: string. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+      "short" : "Text som anger namnet på plats eller ort för organisationens fysiska placering",
+      "definition" : "Text som anger namnet på plats eller ort för organisationens fysiska placering. TKB-typ: string. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+      "short" : "HSA-id för vårdenhet",
+      "definition" : "HSA-id för vårdenhet. (Regel:1) TKB-typ: HSAIdType. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+      "short" : "HSA-id för vårdgivaren, som är vårdgivare för den enhet som författaren är uppdragstagare för",
+      "definition" : "HSA-id för vårdgivaren, som är vårdgivare för den enhet som författaren är uppdragstagare för. (Regel:1) TKB-typ: HSAIdType. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator",
+      "short" : "Information om vem som signerat informationen i dokumentet",
+      "definition" : "Information om vem som signerat informationen i dokumentet. TKB-typ: LegalAuthenticatorType. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.signatureTime",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.signatureTime",
+      "short" : "Signaturtidpunkt",
+      "definition" : "Signaturtidpunkt. / Tid vid vilken funktionsstatusbedömningen signeras. TKB-typ: TimeStampType. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.legalAuthenticatorHSAId",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.legalAuthenticatorHSAId",
+      "short" : "HSA-id för person som signerat dokumentet",
+      "definition" : "HSA-id för person som signerat dokumentet. TKB-typ: HSAIdType. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Identifier"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.legalAuthenticatorName",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.legalAuthenticatorName",
+      "short" : "Namnen i klartext för signerande person",
+      "definition" : "Namnen i klartext för signerande person. TKB-typ: string. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.legalAuthenticatorRoleCode",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.legalAuthenticator.legalAuthenticatorRoleCode",
+      "short" : "Signerande persons befattning",
+      "definition" : "Signerande persons befattning. Om möjligt ska kodverket Befattning (OID 1.2.752.129.2.2.1.4), [R13]. TKB-typ: CVType. Kardinalitet: 0..1. Underelement i CVType: code (string, 0..1): Befattningskod. Om code anges ska också codeSystem  samt displayName anges. | codeSystem (string, 0..1): Kodsystem för befattningskod. Om codeSystem anges ska också code samt displayName anges. | codeSystemName (string, 0..1): Namn på kodsystem för befattningskod. | codeSystemVersion (string, 0..1): Version på kodsystem för befattningskod. | displayName (string, 0..1): Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges. | originalText (string, 0..1): Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. / Om originalText anges ska inget annat värde i healthcareProfessionalRoleCode anges. OBS: elementet finns inte i LegalAuthenticatorType i XSD:n (clinicalprocess_healthcond_description_2.1.xsd); det kan bara skickas via xs:any.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.approvedForPatient",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.approvedForPatient",
+      "short" : "Anger om information får delas till patient",
+      "definition" : "Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false. TKB-typ: boolean. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.careContactId",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.careContactId",
+      "short" : "Vårdkontakts-id",
+      "definition" : "Vårdkontakts-id. / Id för den vårdkontakt vid vilken funktionsstatusbedömningen gjorts. TKB-typ: string. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.nullified",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.nullified",
+      "short" : "nullified",
+      "definition" : "Används ej. TKB-typ: boolean. Kardinalitet: 0..0.",
+      "min" : 0,
+      "max" : "0",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.nullifiedReason",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentHeader.nullifiedReason",
+      "short" : "nullifiedReason",
+      "definition" : "Används ej. TKB-typ: string. Kardinalitet: 0..0.",
+      "min" : 0,
+      "max" : "0",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody",
+      "short" : "functionalStatusAssessmentBody",
+      "definition" : "functionalStatusAssessmentBody. TKB-typ: FunctionalStatusAssessmentBodyType. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }],
+      "constraint" : [{
+        "key" : "getfunctionalstatus-padl-only-pad",
+        "severity" : "error",
+        "human" : "padl får enbart anges samtidigt som assessmentCategory = pad-pad (TKB 7.4.3).",
+        "expression" : "padl.exists() implies assessmentCategory = 'pad-pad'",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getfunctionalstatus"
+      },
+      {
+        "key" : "getfunctionalstatus-disability-only-fun",
+        "severity" : "error",
+        "human" : "disability får endast anges om assessmentCategory = fun-fun (TKB 7.4.3).",
+        "expression" : "disability.exists() implies assessmentCategory = 'fun-fun'",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getfunctionalstatus"
+      },
+      {
+        "key" : "getfunctionalstatus-comment-only-pad",
+        "severity" : "error",
+        "human" : "comment får endast användas om assessmentCategory = pad-pad (TKB 7.4.3).",
+        "expression" : "comment.exists() implies assessmentCategory = 'pad-pad'",
+        "source" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/StructureDefinition/getfunctionalstatus"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.assessmentCategory",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.assessmentCategory",
+      "short" : "Bedömningskategori",
+      "definition" : "Bedömningskategori. / Beskriver vilken kategori av bedömning som är gjord. Tillåtna värden är \"pad-pad\" (för PADL-bedömning) och \"fun-fun\" (för funktionsnedsättningsbedömningar). / Värdet här ska stämma överens med elementet categorization i den Update som tjänsteproducent skickar till EI. TKB-typ: AssessmentCategoryEnum. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/clinicalprocess-healthcond-description/ValueSet/assessmentcategory-vs"
+      }
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.comment",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.comment",
+      "short" : "Kommentar",
+      "definition" : "Kommentar. / Text som innehåller kommentar till totaliten av bedömningarna. Får endast användas om assessmentCategory = pad-pad. TKB-typ: string. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl",
+      "short" : "Beskriver gjorda PADL-bedömningar",
+      "definition" : "Beskriver gjorda PADL-bedömningar. / Får enbart anges samtidigt som assessmentCategory = pad-pad. TKB-typ: PADLType. Kardinalitet: 0..*.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl.typeOfAssessment",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl.typeOfAssessment",
+      "short" : "Typ av PADL-bedömning",
+      "definition" : "Typ av PADL-bedömning. Kan anges med lämpligt kodsystem. / (Regel:2) TKB-typ: CVType. Kardinalitet: 1..1. Underelement i CVType: code (string, 0..1): Kod för PADL-bedömning. / Om code anges ska också codeSystem  samt displayName anges. | codeSystem (string, 0..1): Kodsystem för PADL-bedömning. / Om codeSystem anges ska också code samt displayName anges. | codeSystemName (string, 0..1): Namn på kodsystem för PADL-bedömning. | codeSystemVersion (string, 0..1): Version på kodsystem för PADL-bedömning. | displayName (string, 0..1): PADL-bedömningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges. | originalText (string, 0..1): Om PADL-bedömning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. / Om originalText anges ska inget annat värde i typeOfAssessment anges.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl.assessment",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.padl.assessment",
+      "short" : "Den textuella PADL-bedömning som gjorts i kategorin av bedömningar som beskrivs i typeOfAssessment",
+      "definition" : "Den textuella PADL-bedömning som gjorts i kategorin av bedömningar som beskrivs i typeOfAssessment. TKB-typ: string. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability",
+      "short" : "Beskriver gjord funktionsnedsättningsbedömning",
+      "definition" : "Beskriver gjord funktionsnedsättningsbedömning. / Får endast anges om assessmentCategory = fun-fun. TKB-typ: DisabilityType. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability.disabilityAssessment",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability.disabilityAssessment",
+      "short" : "Angivelse av kod för den funktion som bedömts nedsatt",
+      "definition" : "Angivelse av kod för den funktion som bedömts nedsatt. / Om funktionen anges strukturerat ska kod från ICF [R13] användas. Koden ska anges utan bedömningsfaktor och detta ska tolkas som att det är den funktion som ICF-koden representerar som är nedsatt från normal funktion. I attributet kommentar kan nedsättningen vid behov textuellt graderas och specificeras ytterligare. / Om ICF-kod inte kan anges kan den nedsatta funktionen anges i attributet originalText / Kontraktet har i denna version inte stöd för ICFs numeriska bedömningsfaktor. TKB-typ: CVType. Kardinalitet: 1..1. Underelement i CVType: code (string, 0..1): Kod för den funktion som bedömts nedsatt. Exempelvis ICF kod: b3101 / Om code anges ska också codeSystem  samt displayName anges, men ej originalText. | codeSystem (string, 0..1): OID för ICF: 1.2.752.116.1.1.3 | codeSystemName (string, 0..0): Namn på kodsystem för funktionsnedsättning. | codeSystemVersion (string, 0..0): Version på kodsystem för funktionsnedsättning. | displayName (string, 0..1): ICF-kodens klartextbenämning, exempelvis ”röstkvalitet” . | originalText (string, 0..1): Om ICF-kod saknas, kan en funktionsnedsättningen beskrivas i text i detta attribut. / Om originalText anges ska inget annat värde i disabilityAssessment anges.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability.comment",
+      "path" : "getfunctionalstatus.functionalStatusAssessment.functionalStatusAssessmentBody.disability.comment",
+      "short" : "Kommentar",
+      "definition" : "Kommentar. / Text som innehåller ytterligare information om funktionsnedsättningen. Exempelvis: ”uttalssvårigheter och tillfälligt bortfall av röststyrka”. TKB-typ: string. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.result",
+      "path" : "getfunctionalstatus.result",
+      "short" : "Innehåller information om begäran gick bra eller ej",
+      "definition" : "Innehåller information om begäran gick bra eller ej. TKB-typ: ResultType. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.result.resultCode",
+      "path" : "getfunctionalstatus.result.resultCode",
+      "short" : "Kan endast vara OK, INFO eller ERROR",
+      "definition" : "Kan endast vara OK, INFO eller ERROR. TKB-typ: ResultCodeEnum. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.result.errorCode",
+      "path" : "getfunctionalstatus.result.errorCode",
+      "short" : "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information",
+      "definition" : "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information. TKB-typ: ErrorCodeEnum. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.result.subcode",
+      "path" : "getfunctionalstatus.result.subcode",
+      "short" : "Inga subkoder är specificerade",
+      "definition" : "Inga subkoder är specificerade. TKB-typ: string. Kardinalitet: 0..1. OBS: elementet heter subCode i XSD:n.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.result.logId",
+      "path" : "getfunctionalstatus.result.logId",
+      "short" : "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent",
+      "definition" : "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent. TKB-typ: string. Kardinalitet: 1..1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getfunctionalstatus.result.message",
+      "path" : "getfunctionalstatus.result.message",
+      "short" : "En beskrivande text som kan visas för användaren",
+      "definition" : "En beskrivande text som kan visas för användaren. TKB-typ: string. Kardinalitet: 0..1.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

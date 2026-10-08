@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>3 Tjänstedomänens arkitektur - coreprocess: residentparticipation: residentparticipation v1.0.0-rc2</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"4"}
+    h3,h4,h5,h6{--heading-prefix:"4"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">coreprocess: residentparticipation: residentparticipation</span>
+            <br/>
+            <span style="display:inline-block;">1.0.0-rc2 - RC
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Kapitel<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="1-inledning.html">1 Inledning</a></li>
+      <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+      <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+      <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+      <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+      <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma informationskomponenter</a></li>
+      <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+    </ul>
+  </li>
+  <li><a href="7-tjanstekontrakt.html">Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>3 Tjänstedomänens arkitektur</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">coreprocess: residentparticipation: residentparticipation - Local Development build (v1.0.0-rc2) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/coreprocess-residentparticipation-residentparticipation/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>3 Tjänstedomänens arkitektur</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#3-tjänstedomänens-arkitektur" id="markdown-toc-3-tjänstedomänens-arkitektur">3 Tjänstedomänens arkitektur</a>    <ul>
+      <li><a href="#31-flöden" id="markdown-toc-31-flöden">3.1 Flöden</a></li>
+      <li><a href="#32-adressering" id="markdown-toc-32-adressering">3.2 Adressering</a></li>
+      <li><a href="#33-aggregering-och-engagemangsindex" id="markdown-toc-33-aggregering-och-engagemangsindex">3.3 Aggregering och engagemangsindex</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="3-tjänstedomänens-arkitektur">3 Tjänstedomänens arkitektur</h1>
+
+<p>Källa: <em>Tjänstekontraktsbeskrivning för coreprocess: residentparticipation: residentparticipation</em>, version 1.0 RC2 (tagg 1.0_RC2, 2026-06-29), <a href="TKB_coreprocess_residentparticipation_residentparticipation.docx">TKB_coreprocess_residentparticipation_residentparticipation.docx</a>.</p>
+
+<p>Tjänstedomänen tillgängliggör information kopplad till patients fasta kontakter. Utgångspunkten för tjänstekontraktet i denna tjänstedomän är i första hand patientens och professionens behov av direktåtkomst till en patients fasta kontakter, sett ur ett nationellt eller ett regionalt perspektiv. I båda fallen är syftet att sammanställa information från det eller de källsystem där det finns information om fasta kontakter via s.k. aggregerande tjänst, snarare än att begära information från ett specifikt system eller en specifik verksamhet.</p>
+
+<p>Tjänstekontraktet erbjuder även möjlighet att nå information från ett specifikt system eller en specifik verksamhet.</p>
+
+<p>Följande flödesmodeller beskriver översiktligt hur tjänstekontraktet är tänkt att användas.</p>
+
+<h3 id="31-flöden">3.1 Flöden</h3>
+
+<p>Detta kapitel beskriver de flöden som är relevanta för tjänstedomänen. Beskrivningarna är i form av modeller. För varje flöde finns dels ett arbetsflöde som beskriver vilka steg som ingår i flödet, dels ett sekvensdiagram som tar hänsyn till vilka tjänstekontrakt som nyttjas i de olika stegen.</p>
+
+<p>Flöden:</p>
+
+<ul>
+  <li>Flöde 1 - Patient väljer att se sina fasta kontakter</li>
+  <li>Flöde 2 – Vårdpersonal väljer att se patients fasta kontakter</li>
+</ul>
+
+<h4 id="311-flöde-1--patient-väljer-att-se-sina-fasta-kontakter">3.1.1 Flöde 1 – Patient väljer att se sina fasta kontakter</h4>
+
+<p>Flödet beskriver patients tillgång till sina fasta kontakter.</p>
+
+<p><img src="img_007.jpeg" alt="Flöde 1 – Patient väljer att se sina fasta kontakter" /></p>
+
+<h5 id="3111-arbetsflöde">3.1.1.1 Arbetsflöde</h5>
+
+<h6 id="31111-roller">3.1.1.1.1 Roller</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Patient</td>
+      <td style="text-align: left">Den patient som vill få tillgång till sina fasta kontakter.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="31112-flödessteg">3.1.1.1.2 Flödessteg</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Flödessteg</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Logga in i 1177 och navigera till tjänst</td>
+      <td style="text-align: left">Patient som har behov av att se sina fasta kontakter (fasta vårdkontakter och/eller fast läkarkontakt) loggar in i patientportal (exempelvis 1177) med mobilt bankId. Patient navigerar till tjänst(er) som visar patients fasta kontakter.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Väljer att se sina fasta kontakter</td>
+      <td style="text-align: left">Patient väljer att se sina fasta kontakter. Patientportal anropar en sammanställande tjänst (aggregerande tjänst) som kan hämta uppgifter om fasta kontakter från olika vårdinformationssystem som håller uppgifter om fasta kontakter</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Ser alla sina fasta kontakter</td>
+      <td style="text-align: left">Patient får en sammanfattande vy med sina fasta kontakter</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3112-sekvensdiagram---getcaremanagers">3.1.1.2 Sekvensdiagram - GetCareManagers</h5>
+
+<p><img src="img_004.jpeg" alt="Sekvensdiagram - GetCareManagers" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">Det system som används för att konsumera information. Dvs det system som använder tjänster enligt ett tjänstekontrakt. Tjänstekonsumenten kan vara en e-tjänst för patient eller e-tjänst för vårdpersonal som stödjer sammanhållen vård- och omsorgsdokumentation.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteplattform</td>
+      <td style="text-align: left">Tjänsteplattformen är det lager som hanterar virtuella tjänster, aggregerande tjänster samt anpassningstjänster.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aggregerande tjänst</td>
+      <td style="text-align: left">En aggregerande tjänst är en integrationstjänst som för en tjänstekonsument sammanställer en nationell vy av informationen av den typ som är aktuell för tjänsten i fråga. Är beroende av engagemangsindex för att begränsa sökningen till relevanta informationsägare.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Engagemangsindex</td>
+      <td style="text-align: left">En tjänst där det finns uppdaterade nationella index över vilka informationsägare som har information kring en viss invånare/patient.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">Det system som i detta fall utgör källsystemet som vårdpersonal direkt registrerar/uppdaterar/raderar information i.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="312-flöde-2--vårdpersonal-väljer-att-se-patients-fasta-kontakter">3.1.2 Flöde 2 – Vårdpersonal väljer att se patients fasta kontakter</h4>
+
+<p>Flödet beskriver vård- eller omsorgspersonals tillgång till patients fasta kontakter..</p>
+
+<p><img src="img_002.jpeg" alt="Flöde 2 – Vårdpersonal väljer att se patients fasta kontakter" /></p>
+
+<h5 id="3121-arbetsflöde">3.1.2.1 Arbetsflöde</h5>
+
+<h6 id="31211-roller">3.1.2.1.1 Roller</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Flödessteg</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Vårdpersonal</td>
+      <td style="text-align: left">Den vård- eller omsorgsperson som vill få tillgång till patientens fasta kontakter.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="31212-flödessteg">3.1.2.1.2 Flödessteg</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn/beteckning</th>
+      <th style="text-align: left">Beskrivning alt. referens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Logga in i patientöversikt och navigera till tjänst</td>
+      <td style="text-align: left">Vård- och omsorgsperson loggar in i patientöversikt via sitt tjänstekort.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Väljer att se patients fasta kontakter.</td>
+      <td style="text-align: left">Vård- och omsorgsperson söker efter patient som vård- och omsorgspersonal har en vård- eller omsorgsrelation till.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Samtycker patient att vårdpersonal tar del av fasta kontakter kopplade till annan vårdgivare</td>
+      <td style="text-align: left">Tjänst för patientöversikt kontrollerar om patient tidigare givit samtycke för att vård- eller omsorgspersonal i sitt aktuella uppdrag ska få ta del av fasta kontakter kopplade till annan vårdgivare (enligt lagen om sammanhållen vård- och omsorgsdokumentation). / Om inget samtycke finns sedan tidigare frågar tjänst för patientöversikt vård- eller omsorgspersonalen om att efterfråga samtycke från patient (eventuell nödöppning eller beslut om mognadsbedömning kan också ge vård- eller omsorgspersonal möjlighet att ta del av patients fasta kontakter).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Ser patients alla fasta kontakter</td>
+      <td style="text-align: left">Vård- eller omsorgspersonal tar del detaljer om patients fasta kontakter.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="3122-sekvensdiagram---getcaremanagers">3.1.2.2 Sekvensdiagram - GetCareManagers</h5>
+
+<p><img src="img_008.jpeg" alt="Sekvensdiagram - GetCareManagers" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Tjänstekonsument</td>
+      <td style="text-align: left">Det system som används för att konsumera information. Dvs det system som använder tjänster enligt ett tjänstekontrakt. Tjänstekonsumenten kan vara en e-tjänst för patient eller e-tjänst för vårdpersonal som stödjer sammanhållen vård- och omsorgsdokumentation.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteplattform</td>
+      <td style="text-align: left">Tjänsteplattformen är det lager som hanterar virtuella tjänster, aggregerande tjänster samt anpassningstjänster.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aggregerande tjänst</td>
+      <td style="text-align: left">En aggregerande tjänst är en integrationstjänst som för en tjänstekonsument sammanställer en nationell vy av informationen av den typ som är aktuell för tjänsten i fråga. Är beroende av engagemangsindex för att begränsa sökningen till relevanta informationsägare.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Samtyckestjänst</td>
+      <td style="text-align: left">Tjänst som håller patienters givna samtycken till vårdgivare/vårdenhet. Se tjänstedomän för samtyckeshantering informationsecurity:authorization:consent för vidare information om dess tjänstekontrakt, ref [R8].</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Engagemangsindex</td>
+      <td style="text-align: left">En tjänst där det finns uppdaterade nationella index över vilka informationsägare som har information kring en viss invånare/patient.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tjänsteproducent</td>
+      <td style="text-align: left">Det system som i detta fall utgör källsystemet som vårdpersonal direkt registrerar/uppdaterar/raderar information i.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="313-obligatoriska-kontrakt">3.1.3 Obligatoriska kontrakt</h4>
+
+<p>Domänen innehåller endast ett (1) tjänstekontrakt. Tjänstekontraktet är obligatoriskt i de två flödena specificerade ovan.</p>
+
+<h3 id="32-adressering">3.2 Adressering</h3>
+
+<p>Tjänstedomänen tillämpar källsystem-adressering. Observera att tjänstekonsumenter främst anropar aggregerande tjänster.</p>
+
+<p>Tjänstekonsumenten adresserar den aggregerande tjänsten med antingen nationellt HSA-id (Ineras HSA-id) eller HSA-id för aktuell huvudman om det är en regional- eller huvudmanna-specifik (t.ex. ”regional”) aggregerande tjänst som ska adresseras.</p>
+
+<p>Det finns också fall då en tjänstekonsument adresserar ett specifikt källsystem. Det förutsätter att tjänstekonsumenten känner till källsystemets HSA-id (den logiska adressen). Det kan exempelvis ske genom att ett sådant anrop föregås av ett anrop till en aggregerande tjänst (källsystemets HSA-id finns då i svarsmeddelandet) rörande en patients information i ett specifikt källsystem.</p>
+
+<p>Adressering sker i enlighet med RIV Tekniska Anvisningar Översikt, Rev PD2, avsnitt 8.3 (referens [R2]), där mer information kan hittas.</p>
+
+<h3 id="33-aggregering-och-engagemangsindex">3.3 Aggregering och engagemangsindex</h3>
+
+<p>Det behövs en aggregerande tjänst för tjänstekontraktet som läser data i denna domän (GetCareManagers).</p>
+
+<p>Aggregerande tjänster har samma tjänstekontrakt och anropsadress som en traditionell virtuell tjänst, men nås via olika logiska adresser.</p>
+
+<p>Om ett källsystems HSA-id anges som logisk adress, kommer frågemeddelandet att dirigeras vidare direkt till källsystemet av tjänsteplattformen utan att passera en aggregerande tjänst.</p>
+
+<p>Om logisk adress är HSA-id för Inera eller en huvudman kommer anropet att dirigeras till aggregerande tjänsten som i sin tur – efter att ha konsulterat engagemangsindex – vidarebefordrar frågan till de källsystem som har information om patienten.</p>
+
+<h4 id="331-sammanfattning-av-adresseringsmodell">3.3.1 Sammanfattning av adresseringsmodell</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Åtkomstbehov för patientens fasta kontakter</th>
+      <th style="text-align: left">Logisk adress</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Nationellt</td>
+      <td style="text-align: left">Ineras HSA-id: 5565594230</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">För en huvudman/region</td>
+      <td style="text-align: left">Huvudmannens/regionens HSA-id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">För ett källsystem</td>
+      <td style="text-align: left">Logisk adress som källsystemet förväntas kunna adresseras genom, enligt tjänsteadresseringskatalogen i anropad tjänsteplattform. / Observera att värdet för logisk adress inte nödvändigtvis alltid har samma värde som källsystemets HsaId (så som uttryckt i källsystemets servercertifikat). / Se T-bokens styrande principer – IT4 - Lös koppling (loose coupling) &amp; interoperabilitet, ref [R9].</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.coreprocess-residentparticipation-residentparticipation#1.0.0-rc2 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 18:13+0000">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

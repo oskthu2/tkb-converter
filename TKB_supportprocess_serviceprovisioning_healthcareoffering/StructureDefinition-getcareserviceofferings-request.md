@@ -1,0 +1,1036 @@
+# GetCareServiceOfferings — Request - supportprocess: serviceprovisioning: healthcareoffering v3.0.0
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **GetCareServiceOfferings — Request**
+
+## Logical Model: GetCareServiceOfferings — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/getcareserviceofferings-request | *Version*:3.0 |
+| Active as of 2026-10-08 | *Computable Name*:GetCareServiceOfferingsRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i GetCareServiceOfferings (urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetCareServiceOfferingsResponder:3, GetCareServiceOfferingsType), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.supportprocess-serviceprovisioning-healthcareoffering|current/StructureDefinition/StructureDefinition-getcareserviceofferings-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-getcareserviceofferings-request.csv), [Excel](StructureDefinition-getcareserviceofferings-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "getcareserviceofferings-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/getcareserviceofferings-request",
+  "version" : "3.0",
+  "name" : "GetCareServiceOfferingsRequest",
+  "title" : "GetCareServiceOfferings — Request",
+  "status" : "active",
+  "date" : "2026-10-08T18:58:01+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i GetCareServiceOfferings\n(urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetCareServiceOfferingsResponder:3, GetCareServiceOfferingsType), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/StructureDefinition/getcareserviceofferings-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "getcareserviceofferings-request",
+      "path" : "getcareserviceofferings-request",
+      "short" : "GetCareServiceOfferings — Request",
+      "definition" : "Logisk modell för begäran i GetCareServiceOfferings\n(urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetCareServiceOfferingsResponder:3, GetCareServiceOfferingsType), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "getcareserviceofferings-request.logicalAddress",
+      "path" : "getcareserviceofferings-request.logicalAddress",
+      "short" : "logicalAddress",
+      "definition" : "SOAP-huvud LogicalAddress. The organisation number of the careservice provider",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.careServiceId",
+      "path" : "getcareserviceofferings-request.careServiceId",
+      "short" : "careServiceId",
+      "definition" : "careServiceId",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.careServiceId.root",
+      "path" : "getcareserviceofferings-request.careServiceId.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.careServiceId.iiExtension",
+      "path" : "getcareserviceofferings-request.careServiceId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.typeOfCareService",
+      "path" : "getcareserviceofferings-request.typeOfCareService",
+      "short" : "typeOfCareService",
+      "definition" : "typeOfCareService",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.typeOfCareService.cvCode",
+      "path" : "getcareserviceofferings-request.typeOfCareService.cvCode",
+      "short" : "cvCode",
+      "definition" : "cvCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.typeOfCareService.codeSystem",
+      "path" : "getcareserviceofferings-request.typeOfCareService.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "codeSystem",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.typeOfCareService.codeSystemName",
+      "path" : "getcareserviceofferings-request.typeOfCareService.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.typeOfCareService.codeSystemVersion",
+      "path" : "getcareserviceofferings-request.typeOfCareService.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.typeOfCareService.displayName",
+      "path" : "getcareserviceofferings-request.typeOfCareService.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.typeOfCareService.originalText",
+      "path" : "getcareserviceofferings-request.typeOfCareService.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.typeOfPlace",
+      "path" : "getcareserviceofferings-request.typeOfPlace",
+      "short" : "typeOfPlace",
+      "definition" : "typeOfPlace",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.typeOfPlace.typeOfPlaceEnum",
+      "path" : "getcareserviceofferings-request.typeOfPlace.typeOfPlaceEnum",
+      "short" : "typeOfPlaceEnum",
+      "definition" : "typeOfPlaceEnum",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/ValueSet/healthcareoffering-typeofplace-vs"
+      }
+    },
+    {
+      "id" : "getcareserviceofferings-request.typeOfBusiness",
+      "path" : "getcareserviceofferings-request.typeOfBusiness",
+      "short" : "typeOfBusiness",
+      "definition" : "typeOfBusiness",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.typeOfBusiness.cvCode",
+      "path" : "getcareserviceofferings-request.typeOfBusiness.cvCode",
+      "short" : "cvCode",
+      "definition" : "cvCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.typeOfBusiness.codeSystem",
+      "path" : "getcareserviceofferings-request.typeOfBusiness.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "codeSystem",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.typeOfBusiness.codeSystemName",
+      "path" : "getcareserviceofferings-request.typeOfBusiness.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.typeOfBusiness.codeSystemVersion",
+      "path" : "getcareserviceofferings-request.typeOfBusiness.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.typeOfBusiness.displayName",
+      "path" : "getcareserviceofferings-request.typeOfBusiness.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.typeOfBusiness.originalText",
+      "path" : "getcareserviceofferings-request.typeOfBusiness.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.providingOrganization",
+      "path" : "getcareserviceofferings-request.providingOrganization",
+      "short" : "providingOrganization",
+      "definition" : "providingOrganization",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.providingOrganization.providingOrganizationId",
+      "path" : "getcareserviceofferings-request.providingOrganization.providingOrganizationId",
+      "short" : "providingOrganizationId",
+      "definition" : "providingOrganizationId",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.providingOrganization.providingOrganizationId.root",
+      "path" : "getcareserviceofferings-request.providingOrganization.providingOrganizationId.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.providingOrganization.providingOrganizationId.iiExtension",
+      "path" : "getcareserviceofferings-request.providingOrganization.providingOrganizationId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.providingOrganization.management",
+      "path" : "getcareserviceofferings-request.providingOrganization.management",
+      "short" : "management",
+      "definition" : "management",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.providingOrganization.management.cvCode",
+      "path" : "getcareserviceofferings-request.providingOrganization.management.cvCode",
+      "short" : "cvCode",
+      "definition" : "cvCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.providingOrganization.management.codeSystem",
+      "path" : "getcareserviceofferings-request.providingOrganization.management.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "codeSystem",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.providingOrganization.management.codeSystemName",
+      "path" : "getcareserviceofferings-request.providingOrganization.management.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.providingOrganization.management.codeSystemVersion",
+      "path" : "getcareserviceofferings-request.providingOrganization.management.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.providingOrganization.management.displayName",
+      "path" : "getcareserviceofferings-request.providingOrganization.management.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.providingOrganization.management.originalText",
+      "path" : "getcareserviceofferings-request.providingOrganization.management.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.providingOrganization.publicProvider",
+      "path" : "getcareserviceofferings-request.providingOrganization.publicProvider",
+      "short" : "publicProvider",
+      "definition" : "publicProvider",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.actorLanguage",
+      "path" : "getcareserviceofferings-request.actorLanguage",
+      "short" : "actorLanguage",
+      "definition" : "actorLanguage",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.actorLanguage.cvCode",
+      "path" : "getcareserviceofferings-request.actorLanguage.cvCode",
+      "short" : "cvCode",
+      "definition" : "cvCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.actorLanguage.codeSystem",
+      "path" : "getcareserviceofferings-request.actorLanguage.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "codeSystem",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.actorLanguage.codeSystemName",
+      "path" : "getcareserviceofferings-request.actorLanguage.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.actorLanguage.codeSystemVersion",
+      "path" : "getcareserviceofferings-request.actorLanguage.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.actorLanguage.displayName",
+      "path" : "getcareserviceofferings-request.actorLanguage.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.actorLanguage.originalText",
+      "path" : "getcareserviceofferings-request.actorLanguage.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.actorRole",
+      "path" : "getcareserviceofferings-request.actorRole",
+      "short" : "actorRole",
+      "definition" : "actorRole",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.actorRole.cvCode",
+      "path" : "getcareserviceofferings-request.actorRole.cvCode",
+      "short" : "cvCode",
+      "definition" : "cvCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.actorRole.codeSystem",
+      "path" : "getcareserviceofferings-request.actorRole.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "codeSystem",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.actorRole.codeSystemName",
+      "path" : "getcareserviceofferings-request.actorRole.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.actorRole.codeSystemVersion",
+      "path" : "getcareserviceofferings-request.actorRole.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.actorRole.displayName",
+      "path" : "getcareserviceofferings-request.actorRole.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.actorRole.originalText",
+      "path" : "getcareserviceofferings-request.actorRole.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.performingOrganizationId",
+      "path" : "getcareserviceofferings-request.performingOrganizationId",
+      "short" : "performingOrganizationId",
+      "definition" : "performingOrganizationId",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.performingOrganizationId.root",
+      "path" : "getcareserviceofferings-request.performingOrganizationId.root",
+      "short" : "root",
+      "definition" : "root",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.performingOrganizationId.iiExtension",
+      "path" : "getcareserviceofferings-request.performingOrganizationId.iiExtension",
+      "short" : "iiExtension",
+      "definition" : "iiExtension Heter extension i schemat.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.targetGroupAge",
+      "path" : "getcareserviceofferings-request.targetGroupAge",
+      "short" : "targetGroupAge",
+      "definition" : "targetGroupAge",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.targetGroupGender",
+      "path" : "getcareserviceofferings-request.targetGroupGender",
+      "short" : "targetGroupGender",
+      "definition" : "targetGroupGender",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.targetGroupGender.cvCode",
+      "path" : "getcareserviceofferings-request.targetGroupGender.cvCode",
+      "short" : "cvCode",
+      "definition" : "cvCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.targetGroupGender.codeSystem",
+      "path" : "getcareserviceofferings-request.targetGroupGender.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "codeSystem",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.targetGroupGender.codeSystemName",
+      "path" : "getcareserviceofferings-request.targetGroupGender.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.targetGroupGender.codeSystemVersion",
+      "path" : "getcareserviceofferings-request.targetGroupGender.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.targetGroupGender.displayName",
+      "path" : "getcareserviceofferings-request.targetGroupGender.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.targetGroupGender.originalText",
+      "path" : "getcareserviceofferings-request.targetGroupGender.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.targetGroupAttribute",
+      "path" : "getcareserviceofferings-request.targetGroupAttribute",
+      "short" : "targetGroupAttribute",
+      "definition" : "targetGroupAttribute",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.targetGroupAttribute.typeOfPersonalAttribute",
+      "path" : "getcareserviceofferings-request.targetGroupAttribute.typeOfPersonalAttribute",
+      "short" : "typeOfPersonalAttribute",
+      "definition" : "typeOfPersonalAttribute",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.targetGroupAttribute.typeOfPersonalAttribute.cvCode",
+      "path" : "getcareserviceofferings-request.targetGroupAttribute.typeOfPersonalAttribute.cvCode",
+      "short" : "cvCode",
+      "definition" : "cvCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.targetGroupAttribute.typeOfPersonalAttribute.codeSystem",
+      "path" : "getcareserviceofferings-request.targetGroupAttribute.typeOfPersonalAttribute.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "codeSystem",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.targetGroupAttribute.typeOfPersonalAttribute.codeSystemName",
+      "path" : "getcareserviceofferings-request.targetGroupAttribute.typeOfPersonalAttribute.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.targetGroupAttribute.typeOfPersonalAttribute.codeSystemVersion",
+      "path" : "getcareserviceofferings-request.targetGroupAttribute.typeOfPersonalAttribute.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.targetGroupAttribute.typeOfPersonalAttribute.displayName",
+      "path" : "getcareserviceofferings-request.targetGroupAttribute.typeOfPersonalAttribute.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.targetGroupAttribute.typeOfPersonalAttribute.originalText",
+      "path" : "getcareserviceofferings-request.targetGroupAttribute.typeOfPersonalAttribute.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.targetGroupAttribute.attributeValue",
+      "path" : "getcareserviceofferings-request.targetGroupAttribute.attributeValue",
+      "short" : "attributeValue",
+      "definition" : "attributeValue",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.location",
+      "path" : "getcareserviceofferings-request.location",
+      "short" : "location",
+      "definition" : "location",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.location.geographicalLocation",
+      "path" : "getcareserviceofferings-request.location.geographicalLocation",
+      "short" : "geographicalLocation",
+      "definition" : "geographicalLocation",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.location.geographicalLocation.geographicalCoordinates",
+      "path" : "getcareserviceofferings-request.location.geographicalLocation.geographicalCoordinates",
+      "short" : "geographicalCoordinates",
+      "definition" : "geographicalCoordinates",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.location.geographicalLocation.geographicalCoordinates.north",
+      "path" : "getcareserviceofferings-request.location.geographicalLocation.geographicalCoordinates.north",
+      "short" : "north",
+      "definition" : "north (xs:long i schemat.)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.location.geographicalLocation.geographicalCoordinates.east",
+      "path" : "getcareserviceofferings-request.location.geographicalLocation.geographicalCoordinates.east",
+      "short" : "east",
+      "definition" : "east (xs:long i schemat.)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.location.geographicalLocation.radius",
+      "path" : "getcareserviceofferings-request.location.geographicalLocation.radius",
+      "short" : "radius",
+      "definition" : "radius",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.location.county",
+      "path" : "getcareserviceofferings-request.location.county",
+      "short" : "county",
+      "definition" : "county",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.location.county.cvCode",
+      "path" : "getcareserviceofferings-request.location.county.cvCode",
+      "short" : "cvCode",
+      "definition" : "cvCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.location.county.codeSystem",
+      "path" : "getcareserviceofferings-request.location.county.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "codeSystem",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.location.county.codeSystemName",
+      "path" : "getcareserviceofferings-request.location.county.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.location.county.codeSystemVersion",
+      "path" : "getcareserviceofferings-request.location.county.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.location.county.displayName",
+      "path" : "getcareserviceofferings-request.location.county.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.location.county.originalText",
+      "path" : "getcareserviceofferings-request.location.county.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.location.municipality",
+      "path" : "getcareserviceofferings-request.location.municipality",
+      "short" : "municipality",
+      "definition" : "municipality",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.location.municipality.cvCode",
+      "path" : "getcareserviceofferings-request.location.municipality.cvCode",
+      "short" : "cvCode",
+      "definition" : "cvCode Heter code i schemat.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.location.municipality.codeSystem",
+      "path" : "getcareserviceofferings-request.location.municipality.codeSystem",
+      "short" : "codeSystem",
+      "definition" : "codeSystem",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.location.municipality.codeSystemName",
+      "path" : "getcareserviceofferings-request.location.municipality.codeSystemName",
+      "short" : "codeSystemName",
+      "definition" : "codeSystemName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.location.municipality.codeSystemVersion",
+      "path" : "getcareserviceofferings-request.location.municipality.codeSystemVersion",
+      "short" : "codeSystemVersion",
+      "definition" : "codeSystemVersion",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.location.municipality.displayName",
+      "path" : "getcareserviceofferings-request.location.municipality.displayName",
+      "short" : "displayName",
+      "definition" : "displayName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.location.municipality.originalText",
+      "path" : "getcareserviceofferings-request.location.municipality.originalText",
+      "short" : "originalText",
+      "definition" : "originalText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "getcareserviceofferings-request.searchTerm",
+      "path" : "getcareserviceofferings-request.searchTerm",
+      "short" : "searchTerm",
+      "definition" : "searchTerm",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}
+
+```

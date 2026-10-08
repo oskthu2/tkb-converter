@@ -1,0 +1,78 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getobservations-request","getobservations-request","","","",0,*,"","","","null {[]} {[]}
+","GetObservations — Request","Logisk modell för begäran i tjänstekontraktet GetObservations 1.2
+(RIV-TA urn:riv:clinicalprocess:healthcond:basic:GetObservationsResponder:1, elementet GetObservations).
+Den enda sökparametern som explicit behöver anges är patientId (övrig regel 1.1).
+En begäran med patientId men utan någon av de andra sökparametrarna får nekas av producent.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getobservations-request.patientId","getobservations-request.patientId","","","",1,1,"","","","Identifier {[]} {[]}
+","Personidentifierare för den patient sökningen avser (IIType).","Begränsar sökningen till angiven personidentifierare för en patient. Tjänsteproducenten ska i svaret
+leverera alla uppgifter kopplade till patienten, dvs. även uppgifter som har registrerats på andra,
+till individen, kopplade personidentifierare. Regel 1.1.
+- root: OID för typ av personidentifierare. Personnummer 1.2.752.129.2.1.3.1,
+  samordningsnummer 1.2.752.129.2.1.3.3, för andra typer av personidentifierare aktuell OID.
+- extension: patientens identifierare, 12 tecken utan avskiljare.","","","","","","","","","",,,,,"",,,,"getobservations-request.patientId",1,1,"",""
+"getobservations-request.time","getobservations-request.time","","","",0,1,"","","","BackboneElement {[]} {[]}
+","Begränsar sökningen till angivet tidsintervall (TimePeriodType).","Om Observation.time i svaret är en tidpunkt returneras poster där tidpunkten ligger inom sökintervallet.
+Om Observation.time är ett intervall returneras poster vars intervall överlappar sökintervallet.","","","","","","","","","",,,,,"",,,,"getobservations-request.time",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getobservations-request.time.id","getobservations-request.time.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getobservations-request.time.extension","getobservations-request.time.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getobservations-request.time.modifierExtension","getobservations-request.time.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getobservations-request.time.start","getobservations-request.time.start","","","",0,1,"","","","instant {[]} {[]}
+","Startdatum. Format ÅÅÅÅMMDDttmmss (TimeStampType).","Startdatum. Format ÅÅÅÅMMDDttmmss (TimeStampType).","","","","","","","","","",,,,,"",,,,"getobservations-request.time.start",0,1,"",""
+"getobservations-request.time.end","getobservations-request.time.end","","","",0,1,"","","","instant {[]} {[]}
+","Slutdatum. Format ÅÅÅÅMMDDttmmss (TimeStampType).","Slutdatum. Format ÅÅÅÅMMDDttmmss (TimeStampType).","","","","","","","","","",,,,,"",,,,"getobservations-request.time.end",0,1,"",""
+"getobservations-request.observationType","getobservations-request.observationType","","","",0,*,"","","","CodeableConcept {[]} {[]}
+","Begränsning till en viss typ av observation (CVType).","Begränsning av sökning avseende observationen till en viss typ av värde, t.ex. kliniskt fynd eller diagnoser.
+code och codeSystem anges (1..1). codeSystemName, codeSystemVersion och displayName ska ignoreras
+i begäran och ej skickas (0..0).","","","","","","","","","",,,,,"",,,,"getobservations-request.observationType",0,*,"",""
+"getobservations-request.observationId","getobservations-request.observationId","","","",0,*,"","","","Identifier {[]} {[]}
+","Identitet för en specifik observation (IIType).","Motsvarar observation/id i svaret.
+- root: källsystemets HSA-id.
+- extension: den i källsystemet unika identiteten för observationen.","","","","","","","","","",,,,,"",,,,"getobservations-request.observationId",0,*,"",""
+"getobservations-request.careGiverId","getobservations-request.careGiverId","","","",0,1,"","","","Identifier {[]} {[]}
+","Vårdgivare att söka hos (IIType).","- root: OID för HSA-id, 1.2.752.129.2.1.4.1.
+- extension: HSA-id för vårdgivaren från vilken observationer ska returneras.","","","","","","","","","",,,,,"",,,,"getobservations-request.careGiverId",0,1,"",""
+"getobservations-request.careUnitId","getobservations-request.careUnitId","","","",0,1,"","","","Identifier {[]} {[]}
+","PDL-vårdenhet med ansvar för dokumentationen (IIType).","- root: OID för HSA-id, 1.2.752.129.2.1.4.1.
+- extension: HSA-id för PDL-vårdenheten.","","","","","","","","","",,,,,"",,,,"getobservations-request.careUnitId",0,1,"",""
+"getobservations-request.interactionAgreementId","getobservations-request.interactionAgreementId","","","",1,1,"","","","string {[]} {[]}
+","Används inte. Ange UUID 2866a7c4-9c60-433f-9035-a4d779ffe7a1 (UUIDType).","Attributet används inte, men är obligatoriskt i schemat. Ange UUID 2866a7c4-9c60-433f-9035-a4d779ffe7a1.
+UUIDType: 36 tecken, mönster [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[8-9a-bA-B][0-9a-fA-F]{3}-[0-9a-fA-F]{12}.","","","","","","","","","",,,,,"",,,,"getobservations-request.interactionAgreementId",1,1,"",""
+"getobservations-request.sourceSystemHSAId","getobservations-request.sourceSystemHSAId","","","",0,1,"","","","Identifier {[]} {[]}
+","Källsystem att söka i (HSAIdType).","Begränsar sökningen till observationer skapade i det angivna källsystemet. Motsvarar
+observationGroup/sourceSystem i svaret. I schemat en sträng (HSAIdType) med källsystemets HSA-id.","","","","","","","","","",,,,,"",,,,"getobservations-request.sourceSystemHSAId",0,1,"",""
+"getobservations-request.relation","getobservations-request.relation","","","",0,*,"","","","BackboneElement {[]} {[]}
+","Filter på relationer (RelationFilterType).","Endast de poster med relationer som matchar villkoren i denna lista ska returneras.
+Om listan är tom filtreras inte observationer på deras relationer.","","","","","","","","","",,,,,"",,,,"getobservations-request.relation",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+"
+"getobservations-request.relation.id","getobservations-request.relation.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getobservations-request.relation.extension","getobservations-request.relation.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getobservations-request.relation.modifierExtension","getobservations-request.relation.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getobservations-request.relation.relationId","getobservations-request.relation.relationId","","","",0,1,"","","","Identifier {[]} {[]}
+","Identitet som anges i sambandet/relationen (relation.id, IIType).","- root: HSA-id för den vårdgivare som är ansvarig för informationen som sambandet pekar ut.
+- extension: id som är unikt inom vårdgivaren oavsett vilket källsystem informationen lagras inom.","","","","","","","","","",,,,,"",,,,"getobservations-request.relation.relationId",0,1,"",""
+"getobservations-request.relation.typeCode","getobservations-request.relation.typeCode","","","",0,1,"","","","CodeableConcept {[]} {[]}
+","Sambandstyp att filtrera på (CVType).","code och codeSystem för sambandstyp. codeSystemName, codeSystemVersion och displayName ska ej skickas.","","","","","","","","","",,,,,"",,,,"getobservations-request.relation.typeCode",0,1,"",""
+"getobservations-request.relation.referredInformationType","getobservations-request.relation.referredInformationType","","","",1,1,"","","","string {[]} {[]}
+","Typ av uppgift som sambandet pekar ut (Categorization i engagemangsindex).","I denna version av tjänstekontraktet är följande typer möjliga: chb-o (observation), caa-a (aktivitet).","","","","","","","","","",,,,,"",,,,"getobservations-request.relation.referredInformationType",1,1,"",""

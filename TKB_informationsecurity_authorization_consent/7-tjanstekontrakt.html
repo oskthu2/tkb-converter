@@ -1,0 +1,3466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>7 Tjänstekontrakt - informationsecurity: authorization: consent v2.0.4</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">informationsecurity: authorization: consent</span>
+            <br/>
+            <span style="display:inline-block;">2.0.4 - release
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Kapitel<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="1-inledning.html">1 Inledning</a></li>
+      <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+      <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+      <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+      <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+      <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma informationskomponenter</a></li>
+      <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+    </ul>
+  </li>
+  <li><a href="7-tjanstekontrakt.html">Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">informationsecurity: authorization: consent - Local Development build (v2.0.4) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/informationsecurity-authorization-consent/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#7-tjänstekontrakt" id="markdown-toc-7-tjänstekontrakt">7 Tjänstekontrakt</a>    <ul>
+      <li><a href="#getconsentsforpatient" id="markdown-toc-getconsentsforpatient">GetConsentsForPatient</a></li>
+      <li><a href="#getconsentsforcareprovider" id="markdown-toc-getconsentsforcareprovider">GetConsentsForCareProvider</a></li>
+      <li><a href="#getextendedconsentsforpatient" id="markdown-toc-getextendedconsentsforpatient">GetExtendedConsentsForPatient</a></li>
+      <li><a href="#checkconsent" id="markdown-toc-checkconsent">CheckConsent</a></li>
+      <li><a href="#registerextendedconsent" id="markdown-toc-registerextendedconsent">RegisterExtendedConsent</a></li>
+      <li><a href="#cancelextendedconsent" id="markdown-toc-cancelextendedconsent">CancelExtendedConsent</a></li>
+      <li><a href="#deleteextendedconsent" id="markdown-toc-deleteextendedconsent">DeleteExtendedConsent</a></li>
+      <li><a href="#getallextendedconsentsforpatient" id="markdown-toc-getallextendedconsentsforpatient">GetAllExtendedConsentsForPatient</a></li>
+      <li><a href="#endconsentbypatient" id="markdown-toc-endconsentbypatient">EndConsentByPatient</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="7-tjänstekontrakt">7 Tjänstekontrakt</h1>
+
+<p>Källa: <em>Samtycke</em>, tjänstekontraktsbeskrivning version 2.0.4 (tagg 2.0.4, 2025-12-09), <a href="TKB_informationsecurity_authorization_consent.docx">TKB_informationsecurity_authorization_consent.docx</a>.</p>
+
+<p>Motsvarar TKB kapitel 6 <em>Tjänstekontrakt</em> (7.1 = TKB 6.1 osv.). Efter TKB:ns text följer för varje kontrakt fälten enligt schemat, tjänsteinteraktionen enligt WSDL, källfilerna och de genererade FHIR-artefakterna.</p>
+
+<h3 id="getconsentsforpatient">GetConsentsForPatient</h3>
+
+<p>Tjänst som läser giltiga samtyckesintyg för en viss patient och en viss vårdgivare med grundinformation.</p>
+
+<p>Med giltiga samtyckesintyg avses de samtyckesintyg, alternativt intyg om nödsituation, som används som underlag vid en kontroll gällande åtkomst (CheckConsents).</p>
+
+<p>Ogiltiga intyg (giltigt t o m har passerats, makulerade eller avslutade) returneras ej.</p>
+
+<p>Tjänsten kan användas i ett integrationsmönster där journalsystemet läser in giltiga samtycken som finns för patienten/brukaren per vård- eller omsorgsgivare, för att sedan utföra intern kontroll av samtycke.</p>
+
+<h4 id="711-version">7.1.1 Version</h4>
+
+<p>2.0</p>
+
+<h4 id="712-meddelandeinformationsmodell">7.1.2 Meddelandeinformationsmodell</h4>
+
+<p><img src="img_027.jpeg" alt="Meddelandeinformationsmodell" /></p>
+
+<h4 id="713-fältregler">7.1.3 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:HsaId</td>
+      <td style="text-align: left">Obligatoriskt id på den vårdgivare vars samtycken skall hämtas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:IIType</td>
+      <td style="text-align: left">Personidentitet på patienten/brukaren vars samtycken skall hämtas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getConsentsResult</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:GetConsentsResultType</td>
+      <td style="text-align: left">Lista med giltiga samtycken för patient/brukare.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="714-övriga-regler">7.1.4 Övriga regler</h4>
+
+<p>N/A</p>
+
+<h4 id="715-icke-funktionella-krav">7.1.5 Icke funktionella krav</h4>
+
+<p>N/A</p>
+
+<h4 id="716-sla-krav">7.1.6 SLA-krav</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svarstid</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tillgänglighet</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Last</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Grundprincipen är att de senaste registrerade intygsuppgifterna i samtyckestjänsten returneras.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="717-fältregler-enligt-schema-xsd">7.1.7 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En universellt unik identifierare.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getConsentsResult</td>
+      <td style="text-align: left">GetConsentsResultType</td>
+      <td style="text-align: left">Datatyp som innehåller resultatet från en hämtning av samtyckesintyg enligt det utökade formatet tillsammans med hämtade samtyckesintyg. Datatypen utökar datatypen Result.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../resultCode</td>
+      <td style="text-align: left">ResultCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../pdlAssertions</td>
+      <td style="text-align: left">PDLAssertionType</td>
+      <td style="text-align: left">Datatyp som representerar ett intyg som ger direktåtkomst till andra vårdgivares information enligt PDL. Datatypen beskriver grundformatet för ett intyg.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assertionId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assertionType</td>
+      <td style="text-align: left">AssertionTypeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../scope</td>
+      <td style="text-align: left">ScopeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../careProviderId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../careUnitId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../startDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../endDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../ownerId</td>
+      <td style="text-align: left">OwnerId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En universellt unik identifierare.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="718-tjänsteinteraktion-enligt-wsdl">7.1.8 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:consent:GetConsentsForPatientResponder:2:GetConsentsForPatient</code></p>
+
+<h4 id="719-källfiler-riv-ta">7.1.9 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetConsentsForPatientInteraction_2.0_RIVTABP21.wsdl">GetConsentsForPatientInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetConsentsForPatientResponder_2.0.xsd">GetConsentsForPatientResponder_2.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_consent_2.0.xsd">informationsecurity_authorization_consent_2.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TK_GetConsentsForPatient_2.0.docx">SjD_TK_GetConsentsForPatient_2.0.docx</a></td>
+      <td>Självdeklaration (tjänstekonsument), version 2.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7110-fhir-artefakter">7.1.10 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getconsentsforpatient-request.html">StructureDefinition/getconsentsforpatient-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getconsentsforpatient.html">StructureDefinition/getconsentsforpatient</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-consent-assertiontype-cs.html">CodeSystem/authorization-consent-assertiontype-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-consent-assertiontype-vs.html">ValueSet/authorization-consent-assertiontype-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-consent-resultcode-cs.html">CodeSystem/authorization-consent-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-consent-resultcode-vs.html">ValueSet/authorization-consent-resultcode-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-consent-scope-cs.html">CodeSystem/authorization-consent-scope-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-consent-scope-vs.html">ValueSet/authorization-consent-scope-vs</a></li>
+</ul>
+
+<h3 id="getconsentsforcareprovider">GetConsentsForCareProvider</h3>
+
+<p>Tjänst som läser alla giltiga samtyckesintyg för en viss vård-/omsorgsgivare med grundinformation.</p>
+
+<p>Med giltiga samtyckesintyg avses de samtyckesintyg, alternativt intyg om nödsituation, som används som underlag vid en kontroll av åtkomst (CheckConsents).</p>
+
+<p>Det är valbart om makulerade, avslutade samtyckesintyg eller samtyckesintyg som ej är utgångna (giltigt t o m har passerats) skall returneras. Utgångna samtyckesintyg (giltigt t o m har passerats) returneras ej oavsett makulering.</p>
+
+<p>Det går även att ange en tidpunkt (CreatedOnOrAfter) från när man önskar inhämta uppgifter och på så sätt undvika att inhämta data som redan hämtats vid ett tidigare tillfälle. Här avses tidpunkten då samtycket lagrades i tjänsten.</p>
+
+<p>Tjänsten tillåts att dela upp listan av samtyckesintyg i mindre delar för att minska på belastningen på systemet. Om detta sker kommer flaggan HasMore att vara satt om det finns fler samtyckesintyg att hämta. De resterande samtyckesintygen skall i så fall hämtas med ytterligare anrop till tjänsten tills flaggan HashMore ej längre är satt (false).</p>
+
+<p>Tjänsten returnerar en ny tidpunkt (CreatedOnOrAfter) som anger från och med nästa tidpunkt som samtyckesintygen ej har hämtats. Detta värde kan användas som inparameter i ytterligare anrop till tjänsten för att hämta nästa sekvens av samtyckesintyg.</p>
+
+<p>Tjänsten kan användas i ett integrationsmönster där vårdsystemet med visst intervall inhämtar alla samtycken det behöver utifrån de vårdgivare som systemet hanterar information från, för att sedan vid behov utföra intern kontroll mot underlaget av samtycken och nödsituationsintyg.</p>
+
+<p>Viktigt att kontrollera att alla samtycken är hämtade genom att kontrollera värdet på flaggan HasMore.</p>
+
+<h4 id="721-version">7.2.1 Version</h4>
+
+<p>2.0</p>
+
+<h4 id="722-meddelandeinformationsmodell">7.2.2 Meddelandeinformationsmodell</h4>
+
+<p><img src="img_003.jpeg" alt="Meddelandeinformationsmodell" /></p>
+
+<h4 id="723-fältregler">7.2.3 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:HsaId</td>
+      <td style="text-align: left">HSA-id på den vård-/omsorgsgivare vars samtycken skall hämtas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">createdOnOrAfter</td>
+      <td style="text-align: left">xs:DateTime</td>
+      <td style="text-align: left">Ej obligatoriskt startdatum för hur gamla samtyckesintyg som skall hämtas. Om angivet returneras endast samtyckesintyg som är giltiga i tjänsten på eller efter denna tidpunkt. Användbart vid upprepande förfrågningar och undviker att data som redan inhämtats returneras.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getCancelledFlag</td>
+      <td style="text-align: left">xs:Boolean</td>
+      <td style="text-align: left">Flagga som avgör om makulerade samtyckesintyg eller samtyckesintyg som ej är utgångna (giltigt t o m har passerats) skall returneras.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getAllAssertionsResult</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:GetAllAssertionsResultType</td>
+      <td style="text-align: left">Lista med giltiga samtyckesintyg och eventuellt en lista med ogiltiga samtyckesintyg. Information om det finns fler samtyckesintyg att hämta samt ny starttidpunkt ingår även i svaret.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="724-övriga-regler">7.2.4 Övriga regler</h4>
+
+<p>N/A</p>
+
+<h4 id="725-icke-funktionella-krav">7.2.5 Icke funktionella krav</h4>
+
+<p>N/A</p>
+
+<h4 id="726-sla-krav">7.2.6 SLA-krav</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svarstid</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tillgänglighet</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Last</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Grundprincipen är att de senaste registrerade intygsuppgifterna i samtyckestjänsten returneras.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="727-fältregler-enligt-schema-xsd">7.2.7 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">createdOnOrAfter</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getCancelledFlag</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getAllAssertionsResult</td>
+      <td style="text-align: left">GetAllAssertionsResultType</td>
+      <td style="text-align: left">Datatyp som representerar en lista med giltiga intyg tillsammans med en lista av makulerade och återkallade intyg. Den används för att dela upp svaret från tjänsten i mindre delar baserat på tidpunkt. Datatypen innehåller information om det finns ytterligare intyg att hämta samt en ny starttidpunkt för när nästa sekvens av intyg startar. Datatypen utökar datatypen Result.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../resultCode</td>
+      <td style="text-align: left">ResultCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../moreOnOrAfter</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../hasMore</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../assertions</td>
+      <td style="text-align: left">PDLAssertionType</td>
+      <td style="text-align: left">Datatyp som representerar ett intyg som ger direktåtkomst till andra vårdgivares information enligt PDL. Datatypen beskriver grundformatet för ett intyg.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assertionId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assertionType</td>
+      <td style="text-align: left">AssertionTypeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../scope</td>
+      <td style="text-align: left">ScopeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../careProviderId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../careUnitId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../startDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../endDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../ownerId</td>
+      <td style="text-align: left">OwnerId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En universellt unik identifierare.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../cancelledAssertions</td>
+      <td style="text-align: left">CancelledAssertionType</td>
+      <td style="text-align: left">Datatyp som representerar ett makulerat eller återkallat samtycke samt tidpunkten när makuleringen eller återkallan utfördes.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assertionId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../cancellationDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="728-tjänsteinteraktion-enligt-wsdl">7.2.8 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:consent:GetConsentsForCareProviderResponder:2:GetConsentsForCareProvider</code></p>
+
+<h4 id="729-källfiler-riv-ta">7.2.9 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetConsentsForCareProviderInteraction_2.0_RIVTABP21.wsdl">GetConsentsForCareProviderInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetConsentsForCareProviderResponder_2.0.xsd">GetConsentsForCareProviderResponder_2.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_consent_2.0.xsd">informationsecurity_authorization_consent_2.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TK_GetConsentsForCareProvider_2.0.docx">SjD_TK_GetConsentsForCareProvider_2.0.docx</a></td>
+      <td>Självdeklaration (tjänstekonsument), version 2.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7210-fhir-artefakter">7.2.10 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getconsentsforcareprovider-request.html">StructureDefinition/getconsentsforcareprovider-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getconsentsforcareprovider.html">StructureDefinition/getconsentsforcareprovider</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-consent-assertiontype-cs.html">CodeSystem/authorization-consent-assertiontype-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-consent-assertiontype-vs.html">ValueSet/authorization-consent-assertiontype-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-consent-resultcode-cs.html">CodeSystem/authorization-consent-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-consent-resultcode-vs.html">ValueSet/authorization-consent-resultcode-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-consent-scope-cs.html">CodeSystem/authorization-consent-scope-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-consent-scope-vs.html">ValueSet/authorization-consent-scope-vs</a></li>
+</ul>
+
+<h3 id="getextendedconsentsforpatient">GetExtendedConsentsForPatient</h3>
+
+<p>Tjänst som läser registrerade samtyckesintyg för en viss patient/brukare med utökad information.</p>
+
+<p>Det är valbart om ogiltiga (makulerade och utgångna) samtyckesintyg skall returneras.</p>
+
+<p>Tjänsten kan användas för att söka fram och administrera patientens/brukarens samtycken för en viss vård-/omsorgsgivare.</p>
+
+<h4 id="731-version">7.3.1 Version</h4>
+
+<p>2.0</p>
+
+<h4 id="732-meddelandeinformationsmodell">7.3.2 Meddelandeinformationsmodell</h4>
+
+<p><img src="img_012.jpeg" alt="Meddelandeinformationsmodell" /></p>
+
+<h4 id="733-fältregler">7.3.3 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:HsaId</td>
+      <td style="text-align: left">HSA-id på den vård-/omsorgsgivare vars samtycken skall hämtas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:IIType</td>
+      <td style="text-align: left">Personidentitet på patienten/brukaren vars samtycken skall hämtas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getCancelledFlag</td>
+      <td style="text-align: left">xs:Boolean</td>
+      <td style="text-align: left">Flagga som avgör om ogiltiga samtyckesintyg skall returneras.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getExtendedConsentsResult</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:GetExtendedConsentsResultType</td>
+      <td style="text-align: left">Utökad information för samtycke.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="734-övriga-regler">7.3.4 Övriga regler</h4>
+
+<p>N/A</p>
+
+<h4 id="735-icke-funktionella-krav">7.3.5 Icke funktionella krav</h4>
+
+<p>N/A</p>
+
+<h4 id="736-sla-krav">7.3.6 SLA-krav</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svarstid</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tillgänglighet</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Last</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Grundprincipen är att de senaste registrerade intygsuppgifterna i samtyckestjänsten returneras.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="737-fältregler-enligt-schema-xsd">7.3.7 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En universellt unik identifierare.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getCancelledFlag</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getExtendedConsentsResult</td>
+      <td style="text-align: left">GetExtendedConsentsResultType</td>
+      <td style="text-align: left">Datatyp som innehåller resultatet från en hämtning av samtyckesintyg enligt det utökade formatet tillsammans med hämtade samtyckesintyg. Datatypen utökar datatypen Result.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../resultCode</td>
+      <td style="text-align: left">ResultCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../pdlAssertions</td>
+      <td style="text-align: left">ExtendedPDLAssertionType</td>
+      <td style="text-align: left">Datatyp som representerar ett samtycke med ett utökat format. Innehåller information vem som har begärt respektive registrerat samtycket, samt om och när samtycket är återkallat eller makulerat. Datatypen utökar datatypen PDLAssertion.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../pDLAssertion</td>
+      <td style="text-align: left">PDLAssertionType</td>
+      <td style="text-align: left">Datatyp som representerar ett intyg som ger direktåtkomst till andra vårdgivares information enligt PDL. Datatypen beskriver grundformatet för ett intyg.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../assertionId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../assertionType</td>
+      <td style="text-align: left">AssertionTypeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../scope</td>
+      <td style="text-align: left">ScopeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../careProviderId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../careUnitId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../startDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../endDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../ownerId</td>
+      <td style="text-align: left">OwnerId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En universellt unik identifierare.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../representedBy</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En universellt unik identifierare.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../registrationInfo</td>
+      <td style="text-align: left">ActionType</td>
+      <td style="text-align: left">Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../requestDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../requestedBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../registrationDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../registeredBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../reasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../cancellationInfo</td>
+      <td style="text-align: left">ActionType</td>
+      <td style="text-align: left">Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../requestDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../requestedBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../registrationDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../registeredBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../reasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../deletionInfo</td>
+      <td style="text-align: left">ActionType</td>
+      <td style="text-align: left">Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../requestDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../requestedBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../registrationDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../registeredBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../reasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="738-tjänsteinteraktion-enligt-wsdl">7.3.8 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:consent:GetExtendedConsentsForPatientResponder:2:GetExtendedConsentsForPatient</code></p>
+
+<h4 id="739-källfiler-riv-ta">7.3.9 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetExtendedConsentsForPatientInteraction_2.0_RIVTABP21.wsdl">GetExtendedConsentsForPatientInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetExtendedConsentsForPatientResponder_2.0.xsd">GetExtendedConsentsForPatientResponder_2.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_consent_2.0.xsd">informationsecurity_authorization_consent_2.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TK_GetExtendedConsentsForPatient_2.0.docx">SjD_TK_GetExtendedConsentsForPatient_2.0.docx</a></td>
+      <td>Självdeklaration (tjänstekonsument), version 2.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7310-fhir-artefakter">7.3.10 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getextendedconsentsforpatient-request.html">StructureDefinition/getextendedconsentsforpatient-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getextendedconsentsforpatient.html">StructureDefinition/getextendedconsentsforpatient</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-consent-assertiontype-cs.html">CodeSystem/authorization-consent-assertiontype-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-consent-assertiontype-vs.html">ValueSet/authorization-consent-assertiontype-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-consent-resultcode-cs.html">CodeSystem/authorization-consent-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-consent-resultcode-vs.html">ValueSet/authorization-consent-resultcode-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-consent-scope-cs.html">CodeSystem/authorization-consent-scope-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-consent-scope-vs.html">ValueSet/authorization-consent-scope-vs</a></li>
+</ul>
+
+<h3 id="checkconsent">CheckConsent</h3>
+
+<p>Tjänst som kontrollerar om det finns ett giltigt samtycke, alternativt intyg om nödsituation, gällande åtkomst för viss aktör (vårdenhet eller medarbetare).</p>
+
+<p>Med giltigt samtycke avses ett samtycke som fortfarande är giltigt (giltigt t o m har ej passerats), ej makulerat.</p>
+
+<p>Om ett giltigt intyg gällande åtkomst för angiven aktör hittas, kommer tjänsten att svara OK.</p>
+
+<h4 id="741-version">7.4.1 Version</h4>
+
+<p>2.0</p>
+
+<h4 id="742-meddelandeinformationsmodell">7.4.2 Meddelandeinformationsmodell</h4>
+
+<p><img src="img_030.jpeg" alt="Meddelandeinformationsmodell" /></p>
+
+<h4 id="743-fältregler">7.4.3 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">accessingActor</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:AccessingActorType</td>
+      <td style="text-align: left">Representerar den aktör/person som önskar åtkomst till informationen.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:IIType</td>
+      <td style="text-align: left">Personidentitet på patienten/brukaren vars samtycke skall kontrolleras.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">checkResult</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:CheckResultType</td>
+      <td style="text-align: left">Status för om ett giltigt intyg gällande åtkomst för angiven aktör hittades.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="744-övriga-regler">7.4.4 Övriga regler</h4>
+
+<p>N/A</p>
+
+<h4 id="745-icke-funktionella-krav">7.4.5 Icke funktionella krav</h4>
+
+<p>N/A</p>
+
+<h4 id="746-sla-krav">7.4.6 SLA-krav</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svarstid</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tillgänglighet</td>
+      <td style="text-align: left">Beror på ingående samtyckestjänsters tillgänglighet. Önskas högre tillgänglighet kan konsumerande system mellanlagra data i cache som anpassas till krav på aktualitet.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Last</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Grundprincipen är att utföra en kontroll på de senaste registrerade intygsuppgifterna i samtyckestjänsten.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="747-fältregler-enligt-schema-xsd">7.4.7 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">accessingActor</td>
+      <td style="text-align: left">AccessingActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person som vill ha åtkomst till specifik information.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../careProviderId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../careUnitId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En universellt unik identifierare.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">checkResult</td>
+      <td style="text-align: left">CheckResultType</td>
+      <td style="text-align: left">Datatyp som anger om det finns ett giltigt samtycke, alternativt intyg om nödsituation, gällande åtkomst för viss aktör. Datatypen utökar datatypen Result.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../resultCode</td>
+      <td style="text-align: left">ResultCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../hasConsent</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../assertionType</td>
+      <td style="text-align: left">AssertionTypeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="748-tjänsteinteraktion-enligt-wsdl">7.4.8 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:consent:CheckConsentResponder:2:CheckConsent</code></p>
+
+<h4 id="749-källfiler-riv-ta">7.4.9 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="CheckConsentInteraction_2.0_RIVTABP21.wsdl">CheckConsentInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="CheckConsentResponder_2.0.xsd">CheckConsentResponder_2.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_consent_2.0.xsd">informationsecurity_authorization_consent_2.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TK_CheckConsent_2.0.docx">SjD_TK_CheckConsent_2.0.docx</a></td>
+      <td>Självdeklaration (tjänstekonsument), version 2.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7410-fhir-artefakter">7.4.10 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-checkconsent-request.html">StructureDefinition/checkconsent-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-checkconsent.html">StructureDefinition/checkconsent</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-consent-assertiontype-cs.html">CodeSystem/authorization-consent-assertiontype-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-consent-assertiontype-vs.html">ValueSet/authorization-consent-assertiontype-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-consent-resultcode-cs.html">CodeSystem/authorization-consent-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-consent-resultcode-vs.html">ValueSet/authorization-consent-resultcode-vs</a></li>
+</ul>
+
+<h3 id="registerextendedconsent">RegisterExtendedConsent</h3>
+
+<p>Tjänst som registrerar ett intyg gällande viss patient som ger direktåtkomst till patientens/brukarens information från andra vårdgivare enligt PDL.</p>
+
+<p>Intyget avser patientens/brukarens aktiva medgivande (samtycke), alternativt nödsituation då HoS personal bedömer att behov av uppgifterna finns för nödvändig vård av patient som inte kan ge aktivt medgivande.</p>
+
+<p>Det går även att registrera patientens/brukarens företrädare.</p>
+
+<p>Tjänsten kräver utökad information (metainformation) kring skapande av intyget.</p>
+
+<h4 id="751-version">7.5.1 Version</h4>
+
+<p>2.0</p>
+
+<h4 id="752-meddelandeinformationsmodell">7.5.2 Meddelandeinformationsmodell</h4>
+
+<p><img src="img_006.jpeg" alt="Meddelandeinformationsmodell" /></p>
+
+<h4 id="753-fältregler">7.5.3 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">assertionId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:Id</td>
+      <td style="text-align: left">Unik, global identifierare för intyget. Tjänstekonsumenten ansvarar för att generera id:et.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">assertionType</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:AssertionTypeType</td>
+      <td style="text-align: left">Typ av intyg som ger direktåtkomst till information från andra vård-/omsorgsgivare enligt SVOD. Kan vara patientens/brukarens samtycke eller nödsituation.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">scope</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:ScopeType</td>
+      <td style="text-align: left">Omfånget/tillämpningsområde på intyget.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:IIType</td>
+      <td style="text-align: left">Personidentitet på patienten/brukaren på vilket samtycket ska registreras.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:HsaId</td>
+      <td style="text-align: left">Id på den vård-/omsorgsgivare som intyget gäller för/kopplas till.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnitId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:HsaId</td>
+      <td style="text-align: left">Id på den enhet som intyget gäller för/kopplas till.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">employeeId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:HsaId</td>
+      <td style="text-align: left">MedarbetarId. Om samtycket är personligt anges id för den medarbetare som samtycket skall gälla för. Om samtycket gäller all behörig personal på angiven vårdenhet, skall inget medarbetarid anges.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">startDate</td>
+      <td style="text-align: left">xs:DateTime</td>
+      <td style="text-align: left">Ej obligatoriskt startdatum för intygets giltighetstid. Om ett startdatum är angivet gäller intyget fr.o.m denna tidpunkt, annars gäller samtycket fr.o.m aktuell tidpunkt (registreringstidpunkt).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">endDate</td>
+      <td style="text-align: left">xs:DateTime</td>
+      <td style="text-align: left">Ej obligatoriskt slutdatum för intygets giltighetstid. Om ett slutdatum är angivet gäller intyget t.o.m denna tidpunkt. Om inget slutdatum anges, gäller samtycket tills det blir avslutat eller makulerat.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">representedBy</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:IIType</td>
+      <td style="text-align: left">Ej obligatorisk personidentitet på företrädare/vårdnadshavare som företräder patienten/brukaren. Värdet ska anges om samtycket är inhämtat från företrädare/vårdnadshavare.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">registrationAction</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:ActionType</td>
+      <td style="text-align: left">Identifierar de personer som begärt och registrerat intyget samt tidpunkter för dessa.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:ResultType</td>
+      <td style="text-align: left">Status för om tjänsten utfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="754-övriga-regler">7.5.4 Övriga regler</h4>
+
+<p>N/A</p>
+
+<h4 id="755-icke-funktionella-krav">7.5.5 Icke funktionella krav</h4>
+
+<p>N/A</p>
+
+<h4 id="756-sla-krav">7.5.6 SLA-krav</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svarstid</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tillgänglighet</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Last</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Tjänsten garanterar att registrering av samtycke skett då anropet genomförts utan fel. Registreringen speglas omedelbart i svar från frågor till samtyckestjänsten.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="757-fältregler-enligt-schema-xsd">7.5.7 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">assertionId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">assertionType</td>
+      <td style="text-align: left">AssertionTypeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">scope</td>
+      <td style="text-align: left">ScopeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En universellt unik identifierare.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careProviderId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">careUnitId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">startDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">endDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">representedBy</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En universellt unik identifierare.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">registrationAction</td>
+      <td style="text-align: left">ActionType</td>
+      <td style="text-align: left">Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../requestDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../requestedBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../registrationDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../registeredBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../reasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultCode</td>
+      <td style="text-align: left">ResultCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="758-tjänsteinteraktion-enligt-wsdl">7.5.8 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:consent:RegisterExtendedConsentResponder:2:RegisterExtendedConsent</code></p>
+
+<h4 id="759-källfiler-riv-ta">7.5.9 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="RegisterExtendedConsentInteraction_2.0_RIVTABP21.wsdl">RegisterExtendedConsentInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="RegisterExtendedConsentResponder_2.0.xsd">RegisterExtendedConsentResponder_2.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_consent_2.0.xsd">informationsecurity_authorization_consent_2.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TK_RegisterExtendedConsent_2.0.docx">SjD_TK_RegisterExtendedConsent_2.0.docx</a></td>
+      <td>Självdeklaration (tjänstekonsument), version 2.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7510-fhir-artefakter">7.5.10 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-registerextendedconsent-request.html">StructureDefinition/registerextendedconsent-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-registerextendedconsent.html">StructureDefinition/registerextendedconsent</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-consent-assertiontype-cs.html">CodeSystem/authorization-consent-assertiontype-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-consent-assertiontype-vs.html">ValueSet/authorization-consent-assertiontype-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-consent-resultcode-cs.html">CodeSystem/authorization-consent-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-consent-resultcode-vs.html">ValueSet/authorization-consent-resultcode-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-consent-scope-cs.html">CodeSystem/authorization-consent-scope-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-consent-scope-vs.html">ValueSet/authorization-consent-scope-vs</a></li>
+</ul>
+
+<h3 id="cancelextendedconsent">CancelExtendedConsent</h3>
+
+<p>Tjänst som avslutar ett samtycke i samtyckestjänsten. Intyget raderas inte från samtyckestjänsten utan markeras som avslutat (ej längre giltig) för historikens skull. Ett avslutat samtycke kan ej återtas.</p>
+
+<h4 id="761-version">7.6.1 Version</h4>
+
+<p>2.0</p>
+
+<h4 id="762-meddelandeinformationsmodell">7.6.2 Meddelandeinformationsmodell</h4>
+
+<p><img src="img_023.jpeg" alt="Meddelandeinformationsmodell" /></p>
+
+<h4 id="763-fältregler">7.6.3 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">assertionId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:Id</td>
+      <td style="text-align: left">Identifierare för det intyg som skall avslutas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cancellationAction</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:ActionType</td>
+      <td style="text-align: left">Identifierar de personer som begärt och registrerat avslutandet samt tidpunkter för dessa. En anledning till avslutande i fritext kan även ges.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:ResultType</td>
+      <td style="text-align: left">Status för om tjänsten utfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="764-övriga-regler">7.6.4 Övriga regler</h4>
+
+<p>N/A</p>
+
+<h4 id="765-icke-funktionella-krav">7.6.5 Icke funktionella krav</h4>
+
+<p>N/A</p>
+
+<h4 id="766-sla-krav">7.6.6 SLA-krav</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svarstid</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tillgänglighet</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Last</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Tjänsten garanterar att avslutande av samtycket skett då anropet genomförts utan fel. Avslutande speglas omedelbart i svar från frågor genom tjänsterna.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="767-fältregler-enligt-schema-xsd">7.6.7 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">assertionId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">cancellationAction</td>
+      <td style="text-align: left">ActionType</td>
+      <td style="text-align: left">Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../requestDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../requestedBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../registrationDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../registeredBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../reasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultCode</td>
+      <td style="text-align: left">ResultCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="768-tjänsteinteraktion-enligt-wsdl">7.6.8 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:consent:CancelExtendedConsentResponder:2:CancelExtendedConsent</code></p>
+
+<h4 id="769-källfiler-riv-ta">7.6.9 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="CancelExtendedConsentInteraction_2.0_RIVTABP21.wsdl">CancelExtendedConsentInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="CancelExtendedConsentResponder_2.0.xsd">CancelExtendedConsentResponder_2.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_consent_2.0.xsd">informationsecurity_authorization_consent_2.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TK_CancelExtendedConsent_2.0.docx">SjD_TK_CancelExtendedConsent_2.0.docx</a></td>
+      <td>Självdeklaration (tjänstekonsument), version 2.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7610-fhir-artefakter">7.6.10 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-cancelextendedconsent-request.html">StructureDefinition/cancelextendedconsent-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-cancelextendedconsent.html">StructureDefinition/cancelextendedconsent</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-consent-resultcode-cs.html">CodeSystem/authorization-consent-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-consent-resultcode-vs.html">ValueSet/authorization-consent-resultcode-vs</a></li>
+</ul>
+
+<h3 id="deleteextendedconsent">DeleteExtendedConsent</h3>
+
+<p>Tjänst som makulerar ett samtycke i samtyckestjänsten. Makulering av samtycke används enbart för borttagning av felregistrerade samtycken.</p>
+
+<p>Samtycket raderas inte från samtyckestjänst utan markeras som makulerad (ej längre giltig) för historikens skull. En makulering kan ej återtas.</p>
+
+<h4 id="771-version">7.7.1 Version</h4>
+
+<p>2.0</p>
+
+<h4 id="772-meddelandeinformationsmodell">7.7.2 Meddelandeinformationsmodell</h4>
+
+<p><img src="img_018.jpeg" alt="Meddelandeinformationsmodell" /></p>
+
+<h4 id="773-fältregler">7.7.3 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">assertionId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:Id</td>
+      <td style="text-align: left">Identifierar det intyg som skall makuleras.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">deletionAction</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:ActionType</td>
+      <td style="text-align: left">Identifierar de personer som begärt och utfört makulering samt tidpunkter för dessa. En anledning till makuleringen i fritext kan även ges.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:ResultType</td>
+      <td style="text-align: left">Status för om tjänsten utfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="774-övriga-regler">7.7.4 Övriga regler</h4>
+
+<p>N/A</p>
+
+<h4 id="775-icke-funktionella-krav">7.7.5 Icke funktionella krav</h4>
+
+<p>N/A</p>
+
+<h4 id="776-sla-krav">7.7.6 SLA-krav</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svarstid</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tillgänglighet</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Last</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Tjänsten garanterar att makulering av samtycke skett då anropet genomförts utan fel. Makuleringen speglas omedelbart i svar från frågor genom tjänsterna.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="777-fältregler-enligt-schema-xsd">7.7.7 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">assertionId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">deletionAction</td>
+      <td style="text-align: left">ActionType</td>
+      <td style="text-align: left">Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../requestDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../requestedBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../registrationDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../registeredBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../reasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultCode</td>
+      <td style="text-align: left">ResultCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="778-tjänsteinteraktion-enligt-wsdl">7.7.8 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:consent:DeleteExtendedConsentResponder:2:DeleteExtendedConsent</code></p>
+
+<h4 id="779-källfiler-riv-ta">7.7.9 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="DeleteExtendedConsentInteraction_2.0_RIVTABP21.wsdl">DeleteExtendedConsentInteraction_2.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="DeleteExtendedConsentResponder_2.0.xsd">DeleteExtendedConsentResponder_2.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_consent_2.0.xsd">informationsecurity_authorization_consent_2.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TK_DeleteExtendedConsent_2.0.docx">SjD_TK_DeleteExtendedConsent_2.0.docx</a></td>
+      <td>Självdeklaration (tjänstekonsument), version 2.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7710-fhir-artefakter">7.7.10 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-deleteextendedconsent-request.html">StructureDefinition/deleteextendedconsent-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-deleteextendedconsent.html">StructureDefinition/deleteextendedconsent</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-consent-resultcode-cs.html">CodeSystem/authorization-consent-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-consent-resultcode-vs.html">ValueSet/authorization-consent-resultcode-vs</a></li>
+</ul>
+
+<h3 id="getallextendedconsentsforpatient">GetAllExtendedConsentsForPatient</h3>
+
+<p>Tjänst som läser registrerade samtyckesintyg för en viss patient/brukare med utökad information.</p>
+
+<p>Det är valbart om ogiltiga (makulerade och utgångna) samtyckesintyg skall returneras.</p>
+
+<p>Tjänsten kan användas för att söka patients/brukares samtliga samtycken. Aktören är patienten/brukaren själv eller patients legala ombud.</p>
+
+<h4 id="781-version">7.8.1 Version</h4>
+
+<p>1.0</p>
+
+<h4 id="782-meddelandeinformationsmodell">7.8.2 Meddelandeinformationsmodell</h4>
+
+<p><img src="img_013.jpeg" alt="Meddelandeinformationsmodell" /></p>
+
+<h4 id="783-fältregler">7.8.3 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:IIType</td>
+      <td style="text-align: left">Personidentitet på patienten/brukaren vars samtycken skall hämtas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getCancelledFlag</td>
+      <td style="text-align: left">xs:Boolean</td>
+      <td style="text-align: left">Flagga som avgör om ogiltiga samtyckesintyg skall returneras.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getExtendedConsentsResult</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:GetExtendedConsentsResultType</td>
+      <td style="text-align: left">Utökad information för samtycke.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="784-övriga-regler">7.8.4 Övriga regler</h4>
+
+<p>N/A</p>
+
+<h4 id="785-icke-funktionella-krav">7.8.5 Icke funktionella krav</h4>
+
+<p>N/A</p>
+
+<h4 id="786-sla-krav">7.8.6 SLA-krav</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svarstid</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tillgänglighet</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Last</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Grundprincipen är att de senaste registrerade intygsuppgifterna i samtyckestjänsten returneras.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="787-fältregler-enligt-schema-xsd">7.8.7 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En universellt unik identifierare.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getCancelledFlag</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">getExtendedConsentsResult</td>
+      <td style="text-align: left">GetExtendedConsentsResultType</td>
+      <td style="text-align: left">Datatyp som innehåller resultatet från en hämtning av samtyckesintyg enligt det utökade formatet tillsammans med hämtade samtyckesintyg. Datatypen utökar datatypen Result.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../resultCode</td>
+      <td style="text-align: left">ResultCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../pdlAssertions</td>
+      <td style="text-align: left">ExtendedPDLAssertionType</td>
+      <td style="text-align: left">Datatyp som representerar ett samtycke med ett utökat format. Innehåller information vem som har begärt respektive registrerat samtycket, samt om och när samtycket är återkallat eller makulerat. Datatypen utökar datatypen PDLAssertion.</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../pDLAssertion</td>
+      <td style="text-align: left">PDLAssertionType</td>
+      <td style="text-align: left">Datatyp som representerar ett intyg som ger direktåtkomst till andra vårdgivares information enligt PDL. Datatypen beskriver grundformatet för ett intyg.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../assertionId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../assertionType</td>
+      <td style="text-align: left">AssertionTypeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../scope</td>
+      <td style="text-align: left">ScopeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../careProviderId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../careUnitId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../startDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../endDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../ownerId</td>
+      <td style="text-align: left">OwnerId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En universellt unik identifierare.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../representedBy</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En universellt unik identifierare.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../registrationInfo</td>
+      <td style="text-align: left">ActionType</td>
+      <td style="text-align: left">Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../requestDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../requestedBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../registrationDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../registeredBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../reasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../cancellationInfo</td>
+      <td style="text-align: left">ActionType</td>
+      <td style="text-align: left">Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../requestDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../requestedBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../registrationDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../registeredBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../reasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../deletionInfo</td>
+      <td style="text-align: left">ActionType</td>
+      <td style="text-align: left">Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../requestDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../requestedBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../registrationDate</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../registeredBy</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Datatyp som identifierar en medarbetare/person.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../employeeId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentId</td>
+      <td style="text-align: left">HsaId</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../assignmentName</td>
+      <td style="text-align: left">AssignmentNameType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../reasonText</td>
+      <td style="text-align: left">ReasonText</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="788-tjänsteinteraktion-enligt-wsdl">7.8.8 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:consent:GetAllExtendedConsentsForPatientResponder:1:GetAllExtendedConsentsForPatient</code></p>
+
+<h4 id="789-källfiler-riv-ta">7.8.9 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="GetAllExtendedConsentsForPatientInteraction_1.0_RIVTABP21.wsdl">GetAllExtendedConsentsForPatientInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="GetAllExtendedConsentsForPatientResponder_1.0.xsd">GetAllExtendedConsentsForPatientResponder_1.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_consent_2.0.xsd">informationsecurity_authorization_consent_2.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_TK_GetAllExtendedConsentsForPatient_1.0.docx">SjD_TK_GetAllExtendedConsentsForPatient_1.0.docx</a></td>
+      <td>Självdeklaration (tjänstekonsument), version 1.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7810-fhir-artefakter">7.8.10 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-getallextendedconsentsforpatient-request.html">StructureDefinition/getallextendedconsentsforpatient-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-getallextendedconsentsforpatient.html">StructureDefinition/getallextendedconsentsforpatient</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-consent-assertiontype-cs.html">CodeSystem/authorization-consent-assertiontype-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-consent-assertiontype-vs.html">ValueSet/authorization-consent-assertiontype-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-consent-resultcode-cs.html">CodeSystem/authorization-consent-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-consent-resultcode-vs.html">ValueSet/authorization-consent-resultcode-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-consent-scope-cs.html">CodeSystem/authorization-consent-scope-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-consent-scope-vs.html">ValueSet/authorization-consent-scope-vs</a></li>
+</ul>
+
+<h3 id="endconsentbypatient">EndConsentByPatient</h3>
+
+<p>Tjänst som ger patient/brukare möjlighet att avsluta ett tidigare givet samtycke i förtid.</p>
+
+<p>Tjänsten förutsätter att giltiga samtycken först har inhämtats via tjänstekontraktet GetAllExtendedConsentsForPatient, varifrån det unika id för samtycket som ska avslutas också hämtas.</p>
+
+<p>Aktören är patienten/brukaren själv eller patients legala ombud.</p>
+
+<h4 id="791-version">7.9.1 Version</h4>
+
+<p>1.0</p>
+
+<h4 id="792-meddelandeinformationsmodell">7.9.2 Meddelandeinformationsmodell</h4>
+
+<p><img src="img_028.jpeg" alt="Meddelandeinformationsmodell" /></p>
+
+<h4 id="793-fältregler">7.9.3 Fältregler</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Datatyp</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">assertionId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:Id</td>
+      <td style="text-align: left">Unikt id som identifierar det intyg som skall avslutas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:IIType</td>
+      <td style="text-align: left">Personidentitet på patienten/brukaren vars samtycken skall hämtas.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">representedById</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:IIType</td>
+      <td style="text-align: left">Personidentitet för den företrädare/vårdnadshavare som företräder patienten/brukaren. / Ska anges om samtycket avslutas av företrädare/vårdnadshavare.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">endDateTime</td>
+      <td style="text-align: left">xs:dateTime</td>
+      <td style="text-align: left">Frivillig tidpunkt/tidsstämpel för när samtycket ska avslutas. Tidstämpeln ska som tidigast vara nuvarande tidpunkt, alternativt före en tidigare given sista giltighetstidpunkt som är i framtiden. Om ingen tidpunkt anges ska producenten tolka samtyckets nya giltighetstidpunkt t o m nuvarande tidpunkt.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">urn:riv:informationsecurity:authorization:consent:2:ResultType</td>
+      <td style="text-align: left">Status för om tjänsten utfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="794-övriga-regler">7.9.4 Övriga regler</h4>
+
+<p>N/A</p>
+
+<h4 id="795-icke-funktionella-krav">7.9.5 Icke funktionella krav</h4>
+
+<p>N/A</p>
+
+<h4 id="796-sla-krav">7.9.6 SLA-krav</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Kategori</th>
+      <th style="text-align: left">Värde</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Svarstid</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tillgänglighet</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Last</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Aktualitet</td>
+      <td style="text-align: left">Grundprincipen är att de senaste registrerade intygsuppgifterna i samtyckestjänsten returneras.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="797-fältregler-enligt-schema-xsd">7.9.7 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">assertionId</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En universellt unik identifierare.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">representedById</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">En universellt unik identifierare.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">endDateTime</td>
+      <td style="text-align: left">dateTime</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">result</td>
+      <td style="text-align: left">ResultType</td>
+      <td style="text-align: left">Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. En tjänstekonsument skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultCode</td>
+      <td style="text-align: left">ResultCodeType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="798-tjänsteinteraktion-enligt-wsdl">7.9.8 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:informationsecurity:authorization:consent:EndConsentByPatientResponder:1:EndConsentByPatient</code></p>
+
+<h4 id="799-källfiler-riv-ta">7.9.9 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="EndConsentByPatientInteraction_1.0_RIVTABP21.wsdl">EndConsentByPatientInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="EndConsentByPatientResponder_1.0.xsd">EndConsentByPatientResponder_1.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="informationsecurity_authorization_consent_2.0.xsd">informationsecurity_authorization_consent_2.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="7910-fhir-artefakter">7.9.10 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-endconsentbypatient-request.html">StructureDefinition/endconsentbypatient-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-endconsentbypatient.html">StructureDefinition/endconsentbypatient</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-authorization-consent-resultcode-cs.html">CodeSystem/authorization-consent-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-authorization-consent-resultcode-vs.html">ValueSet/authorization-consent-resultcode-vs</a></li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.informationsecurity-authorization-consent#2.0.4 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 18:29+0000">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

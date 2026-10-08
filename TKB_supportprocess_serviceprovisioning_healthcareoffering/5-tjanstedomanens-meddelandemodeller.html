@@ -1,0 +1,1010 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>5 Tjänstedomänens meddelandemodeller - supportprocess: serviceprovisioning: healthcareoffering v3.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"6"}
+    h3,h4,h5,h6{--heading-prefix:"6"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">supportprocess: serviceprovisioning: healthcareoffering</span>
+            <br/>
+            <span style="display:inline-block;">3.0.0 - release
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Kapitel<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="1-inledning.html">1 Inledning</a></li>
+      <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+      <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+      <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+      <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+      <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma informationskomponenter</a></li>
+      <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+    </ul>
+  </li>
+  <li><a href="7-tjanstekontrakt.html">Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>5 Tjänstedomänens meddelandemodeller</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">supportprocess: serviceprovisioning: healthcareoffering - Local Development build (v3.0.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/supportprocess-serviceprovisioning-healthcareoffering/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>5 Tjänstedomänens meddelandemodeller</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#5-tjänstedomänens-meddelandemodeller" id="markdown-toc-5-tjänstedomänens-meddelandemodeller">5 Tjänstedomänens meddelandemodeller</a>    <ul>
+      <li><a href="#51-v-mim" id="markdown-toc-51-v-mim">5.1 V-MIM</a></li>
+      <li><a href="#52-formatregler" id="markdown-toc-52-formatregler">5.2 Formatregler</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="5-tjänstedomänens-meddelandemodeller">5 Tjänstedomänens meddelandemodeller</h1>
+
+<p>Källa: <em>Tjänstekontraktsbeskrivning Vård- och omsorgsutbud</em>, version 3.0 (2023-04-25), <a href="TKB_supportprocess_serviceprovisioning_healthcareoffering.docx">TKB_supportprocess_serviceprovisioning_healthcareoffering.docx</a>.</p>
+
+<p>Här beskrivs de meddelandemodeller som tjänstekontrakten bygger på. För varje meddelandemodell beskrivs hur mappning ser ut mot schema (XSD) för tjänstekontrakt.</p>
+
+<p>För mappning mot RIM (bland annat NI 2021:2) se informationsspecifikationen [R9].</p>
+
+<h3 id="51-v-mim">5.1 V-MIM</h3>
+
+<h4 id="511-getofferingcatalogues">5.1.1 GetOfferingCatalogues</h4>
+
+<p>Begäran visas nedan med rosa bakgrund och svaret med vit bakgrund.</p>
+
+<p><img src="img_005.png" alt="GetOfferingCatalogues" /></p>
+
+<h5 id="5111-begäran">5.1.1.1 Begäran</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Klass.attribut</th>
+      <th style="text-align: left">Mappning mot XSD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">GetOfferingCatalogues</td>
+      <td style="text-align: left">GetOfferingCatalogues</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Katalogansvarig Organisation</td>
+      <td style="text-align: left">providingOrganization</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">providingOrganizationId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ägarform</td>
+      <td style="text-align: left">management</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">offentlig huvudman</td>
+      <td style="text-align: left">publicProvider</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="5112-svar">5.1.1.2 Svar</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Klass.attribut</th>
+      <th style="text-align: left">Mappning mot XSD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">GetOfferingCataloguesResponse</td>
+      <td style="text-align: left">GetOfferingCataloguesResponse</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Utbudskatalog</td>
+      <td style="text-align: left">offeringCatalogue</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Katalogansvarig organisation</td>
+      <td style="text-align: left">providingOrganization</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Katalogsansvarig organisation.id</td>
+      <td style="text-align: left">id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Katalogansvarig organisation.namn</td>
+      <td style="text-align: left">name</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Katalogansvarig organisation.ägarform</td>
+      <td style="text-align: left">management</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Katalogansvarig organisation.offentlig huvudman</td>
+      <td style="text-align: left">publicProvider</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beskrivning</td>
+      <td style="text-align: left">description</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beskrivning.text</td>
+      <td style="text-align: left">text</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beskrivning.språk</td>
+      <td style="text-align: left">language</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beskrivning.roll</td>
+      <td style="text-align: left">role</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Interaktion</td>
+      <td style="text-align: left">interaction</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Interaktion.logisk adress</td>
+      <td style="text-align: left">logicalAddress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Interaktion.namn</td>
+      <td style="text-align: left">name</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Interaktion.huvudversion</td>
+      <td style="text-align: left">majorVersion</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Interaktion.delversion</td>
+      <td style="text-align: left">minorVersion</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Interaktion.rivtaversion</td>
+      <td style="text-align: left">rivtaVersion</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="512-getcareserviceofferings">5.1.2 GetCareServiceOfferings</h4>
+
+<p>Begäran visas nedan med rosa bakgrund och svaret med vit bakgrund.</p>
+
+<p><img src="img_003.png" alt="GetCareServiceOfferings" /></p>
+
+<h5 id="5121-begäran">5.1.2.1 Begäran</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Klass.attribut</th>
+      <th style="text-align: left">Mappning mot XSD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">GetCareServiceOfferings</td>
+      <td style="text-align: left">GetCareServiceOfferings</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetCareServiceOfferings.id</td>
+      <td style="text-align: left">careServiceId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetCareServiceOfferings.typ av vård- och omsorgstjänst</td>
+      <td style="text-align: left">typeOfCareService</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetCareServiceOfferings.typ av plats</td>
+      <td style="text-align: left">typeOfPlace</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetCareServiceOfferings.typ av verksamhet</td>
+      <td style="text-align: left">typeOfBusiness</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetCareServiceOfferings.språk</td>
+      <td style="text-align: left">actorLanguage</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetCareServiceOfferings.roll</td>
+      <td style="text-align: left">actorRole</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetCareServiceOfferings.enhets id</td>
+      <td style="text-align: left">performingOrganizationId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetCareServiceOfferings.ålder</td>
+      <td style="text-align: left">targetGroupAge</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetCareServiceOfferings.kön</td>
+      <td style="text-align: left">targetGroupGender</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GetCareServiceOfferings.fritextsökning</td>
+      <td style="text-align: left">searchTerm</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Katalogansvarig organisation</td>
+      <td style="text-align: left">providingOrganization</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Katalogansvarig organisation.id för katalogansvarig organisation</td>
+      <td style="text-align: left">providingOrganizationId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Katalogansvarig organisation.ägarform</td>
+      <td style="text-align: left">management</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Katalogansvarig organisation.offentlig huvudman</td>
+      <td style="text-align: left">publicProvider</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Sökområde (begäran)</td>
+      <td style="text-align: left">location</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Geografiskt område (begäran)</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Geografiskt område.geografiska koordinater</td>
+      <td style="text-align: left">geographicalCoordinates</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Geografiskt område.radie</td>
+      <td style="text-align: left">radius</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Län (begäran)</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Län.länskod</td>
+      <td style="text-align: left">county</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kommun (begäran)</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kommun.kommunkod</td>
+      <td style="text-align: left">municipality</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Egenskap (begäran)</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Egenskap.typ av egenskap</td>
+      <td style="text-align: left">typeOfPersonalAttribute</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Egenskap.värde</td>
+      <td style="text-align: left">attributeValue</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="5122-svar">5.1.2.2 Svar</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Klass.attribut</th>
+      <th style="text-align: left">Mappning mot XSD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">GetCareServiceOfferingsResponse</td>
+      <td style="text-align: left">GetCareServiceOfferingsResponse</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Vård- och omsorgstjänst</td>
+      <td style="text-align: left">careService</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Vård- och omsorgstjänst.Id</td>
+      <td style="text-align: left">careServiceId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Vård- och omsorgstjänst.typ av vård- och omsorgstjänst</td>
+      <td style="text-align: left">typeOfCareService</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Vård- och omsorgstjänst.giltighet</td>
+      <td style="text-align: left">validity</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Vård- och omsorgstjänst.status</td>
+      <td style="text-align: left">offeringStatus</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Vård- och omsorgstjänst.vårdval</td>
+      <td style="text-align: left">careOption</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Vård- och omsorgstjänst.remisskrav</td>
+      <td style="text-align: left">referralRequired</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patientavgift</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Patientavgift.avgift</td>
+      <td style="text-align: left">patientFee</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Indikator</td>
+      <td style="text-align: left">indicator</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Indikator.id</td>
+      <td style="text-align: left">indicatorId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Indikator.logisk adress</td>
+      <td style="text-align: left">logicalAddress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Målgrupp</td>
+      <td style="text-align: left">targetGroup</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Målgrupp.ålder</td>
+      <td style="text-align: left">age</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Målgrupp.kön</td>
+      <td style="text-align: left">gender</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Egenskap</td>
+      <td style="text-align: left">targetGroupAttribute</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Egenskap.typ av egenskap</td>
+      <td style="text-align: left">typeOfPersonalAttribute</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Egenskap.värde</td>
+      <td style="text-align: left">attributeValue</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Remissanvisning</td>
+      <td style="text-align: left">requestTemplate</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">adress</td>
+      <td style="text-align: left">address</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">obligatorisk</td>
+      <td style="text-align: left">mandatory</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beskrivning</td>
+      <td style="text-align: left">description</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beskrivning.text</td>
+      <td style="text-align: left">text</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beskrivning.språk</td>
+      <td style="text-align: left">language</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beskrivning.roll</td>
+      <td style="text-align: left">role</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Plats</td>
+      <td style="text-align: left">location</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Geografiskt område</td>
+      <td style="text-align: left">geographicalLocation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Län</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Län.länskod</td>
+      <td style="text-align: left">county</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kommun</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kommun.kommunkod</td>
+      <td style="text-align: left">municipality</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Övrigt område</td>
+      <td style="text-align: left">otherLocation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Övrigt område.polygon</td>
+      <td style="text-align: left">polygon</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Övrigt område.benämning</td>
+      <td style="text-align: left">name</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Fysisk plats</td>
+      <td style="text-align: left">physicalLocation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Fysisk plats.belägenhetsadress</td>
+      <td style="text-align: left">locationAddress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Fysisk plats.geografiska koordinater</td>
+      <td style="text-align: left">geographicalCoordinates</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Virtuell plats</td>
+      <td style="text-align: left">virtualLocation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Virtuell plats.id</td>
+      <td style="text-align: left">id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kontaktuppgift</td>
+      <td style="text-align: left">contactInformation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kontaktuppgift.rangordning</td>
+      <td style="text-align: left">ranking</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kontaktuppgift.för roll</td>
+      <td style="text-align: left">forRole</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kontaktuppgift.syfte</td>
+      <td style="text-align: left">purpose</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Adress för telekommunikation</td>
+      <td style="text-align: left">telecom</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Telekom.typ av medium</td>
+      <td style="text-align: left">typeOfTelecom</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Telekom.adress</td>
+      <td style="text-align: left">contactPoint</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Postadress</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Adress.adress</td>
+      <td style="text-align: left">address</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Samverkan</td>
+      <td style="text-align: left">cooperation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Samverkan.typ av samverkan</td>
+      <td style="text-align: left">typeOfCooperation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Samverkan.Giltighet</td>
+      <td style="text-align: left">validity</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Referens till vård- och omsorgstjänst</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Referens till vård- och omsorgstjänst.id</td>
+      <td style="text-align: left">referenceToCareServiceId</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Resurs</td>
+      <td style="text-align: left">resource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Resurs.typ av resurs</td>
+      <td style="text-align: left">typeOfResource</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Resurs.egenskap</td>
+      <td style="text-align: left">resourceAttribute</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kalendertid</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kalendertid.tid</td>
+      <td style="text-align: left">availableTime</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Störningsinformation</td>
+      <td style="text-align: left">interferenceInformation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Störningsinformation.datumperiod</td>
+      <td style="text-align: left">datePeriod</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Störningsinformation.typ av störning</td>
+      <td style="text-align: left">typeOfInterference</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Utbud</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Katalogansvarig organisation</td>
+      <td style="text-align: left">providingOrganization</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Katalogansvarig organisation.id</td>
+      <td style="text-align: left">id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Katalogansvarig organisation.namn</td>
+      <td style="text-align: left">name</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Katalogansvarig organisation.ägarform</td>
+      <td style="text-align: left">management</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Katalogansvarig organisation.offentlig huvudman</td>
+      <td style="text-align: left">publicProvider</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisatorisk enhet</td>
+      <td style="text-align: left">performingOrganization</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisatorisk enhet.enhets id</td>
+      <td style="text-align: left">id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisatorisk enhet.enhetsnamn</td>
+      <td style="text-align: left">name</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisation</td>
+      <td style="text-align: left">responsibleOrganisation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisation.id</td>
+      <td style="text-align: left">id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Organisation.namn</td>
+      <td style="text-align: left">name</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Verksamhet</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Verksamhet.typ av verksamhet</td>
+      <td style="text-align: left">typeOfBusiness</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="52-formatregler">5.2 Formatregler</h3>
+
+<h4 id="521-format-för-datum-och-tidpunkter">5.2.1 Format för datum och tidpunkter</h4>
+
+<p>Datum anges på formatet ”ÅÅÅÅMMDD”. Detta motsvarar den ISO 8601 och ISO 8824-kompatibla formatbeskrivningen ”YYYYMMDD” (se referens [R6]).</p>
+
+<p>Tidpunkter anges alltid på formatet ”ÅÅÅÅMMDDttmmss”, vilket motsvarar den ISO 8601 och ISO 8824-kompatibla formatbeskrivningen ”YYYYMMDDhhmmss” (se referens [R6]).</p>
+
+<h5 id="5211-tidszon-för-tidpunkter">5.2.1.1 Tidszon för tidpunkter</h5>
+
+<p>Tidszon anges inte i meddelandeformaten. All information om datum och tidpunkter som utbyts via tjänsterna ska ange datum och tidpunkter i den tidszon som gäller/gällde i Sverige vid den tidpunkt som respektive datum- eller tidpunktsfält bär information om. Såväl tjänstekonsumenter som tjänsteproducenter ska med andra ord förutsätta att datum och tidpunkter som utbyts är i tidszonerna CET (svensk normaltid) respektive CEST (svensk normaltid med justering för sommartid).</p>
+
+<h4 id="522-format-för-kalenderangivelser---öppettider">5.2.2 Format för kalenderangivelser - öppettider</h4>
+
+<p>Kalenderangivelser enligt iCalendar används för att ange starttid, sluttid, intervall samt frekvens av aktivitet som beställs.</p>
+
+<p>Format och regler för iCalendar är reglerat i RFC 5545 [R4], man bör även läsa errata [R5] för RFC 5545.</p>
+
+<p>UTF-8 bör användas, varje rad ska termineras med CR+LF (hexadecimalt 0D0A), varje rad bör inte vara längre än 75 oktetter, nästföljande rad ska börja med ett space-tecken(hex: 20) eller tab(hex: 09).</p>
+
+<p>Nedan listas exempel på kalenderangivelser, observera att iCalendar inte är begränsad till dessa exempel och en producent eller konsument av iCalendar måste kunna tyda enligt RFC 5545 [R4].</p>
+
+<p>Exempel 1: En kalenderangivelse med endast en starttid.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">BEGIN:VCALENDAR</th>
+      <th style="text-align: left">Start på kalenderangivelse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">VERSION:2.0</td>
+      <td style="text-align: left">Alltid version 2.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PRODID:-//xyz Corp//NONSGML PDA Calendar Version 1.0//EN</td>
+      <td style="text-align: left">Identifierare av det system som skapade kalenderangivelsen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">BEGIN:VEVENT</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DTSTART;TZID=W. Europe Standard Time:20150121T100000</td>
+      <td style="text-align: left">Starttid med tidszonsangivelse.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SEQUENCE:0</td>
+      <td style="text-align: left">Börjar alltid på 0, räknas upp vid varje uppdatering</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UID:uid@example.com</td>
+      <td style="text-align: left">Unikt id för kalenderangivelse, återanvänds vid uppdatering.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">END:VEVENT</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">END:VCALENDAR</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exempel 2: En kalenderangivelse med start- och sluttid.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">BEGIN:VCALENDAR</th>
+      <th style="text-align: left">Start på kalenderangivelse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">VERSION:2.0</td>
+      <td style="text-align: left">Alltid version 2.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PRODID:-//xyz Corp//NONSGML PDA Calendar Version 1.0//EN</td>
+      <td style="text-align: left">Identifierare av det system som skapade kalenderangivelsen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">BEGIN:VEVENT</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DTSTART;TZID=W. Europe Standard Time:20150121T100000</td>
+      <td style="text-align: left">Starttid med tidszonsangivelse.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DTEND;TZID=W. Europe Standard Time:20150127T120000</td>
+      <td style="text-align: left">Sluttid med tidszonsangivelse.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SEQUENCE:0</td>
+      <td style="text-align: left">Börjar alltid på 0, räknas upp vid varje uppdatering</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UID:uid@example.com</td>
+      <td style="text-align: left">Unikt id för kalenderangivelse, återanvänds vid uppdatering.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">END:VEVENT</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">END:VCALENDAR</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exempel 3: En kalenderangivelse med ett återkommande event som upprepas fem gånger varannan dag.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">BEGIN:VCALENDAR</th>
+      <th style="text-align: left">Start på kalenderangivelse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">METHOD:REQUEST</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PRODID:-//xyz Corp//NONSGML PDA Calendar Version 1.0//EN</td>
+      <td style="text-align: left">Identifierare av det system som skapade kalenderangivelsen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">VERSION:2.0</td>
+      <td style="text-align: left">Alltid version 2.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">BEGIN:VEVENT</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SUMMARY;LANGUAGE=sv-SE:Insamling av hälsodata i hemmet.</td>
+      <td style="text-align: left">Beskrivning av kalenderangivelsen, den text som syns i kalendrar med stöd för iCalendar.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DTSTART;TZID=W. Europe Standard Time:20150119T100000</td>
+      <td style="text-align: left">Starttid med tidszonangivelse</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DTEND;TZID=W. Europe Standard Time:20150119T120000</td>
+      <td style="text-align: left">Sluttid med tidszonsangivelse</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RRULE:FREQ=DAILY;INTERVAL=2;COUNT=5</td>
+      <td style="text-align: left">Regel som beskriver frekvens samt antal återkommande händelser.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UID:uid@example.com</td>
+      <td style="text-align: left">Unikt id för kalenderangivelse, återanvänds vid uppdatering.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DTSTAMP:20141209T125458Z</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SEQUENCE:0</td>
+      <td style="text-align: left">Börjar alltid på 0, räknas upp vid varje uppdatering</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">END:VEVENT</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">END:VCALENDAR</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exempel på bibliotek för Java är iCal4J som kan producera och konsumera iCalendar.</p>
+
+<p>För presentation i en html5-kapabel enhet/applikation t.ex. en browser se http://microformats.org/wiki/hcalendar  det rådata enligt iCalendar-formatet måste först transformeras till hcalendar för direkt visning i en html5-kapabel enhet.</p>
+
+<p>De flesta kalenderapplikationer kan importera iCalendar ifrån fil med ändelsen .ics</p>
+
+<h4 id="523-rdf">5.2.3 RDF</h4>
+
+<p>RDF står för Resource Description Framework och är ett ramverk för att beskriva resurser såsom e-tjänster. RDF har tagits fram för att system ska kunna få nödvändig semantisk information om andra system.</p>
+
+<h4 id="524-uri">5.2.4 URI</h4>
+
+<p>URI står för Uniform Resource Identifier som består av en sträng av tecken som används för att identifiera eller namnge en resurs. Används främst för att referera till en resurs över ett nätverk. En Uniform Resource Locator, URL, är en URI, som förutom att identifiera en resurs även ger information hur man når resursen och var den finns.</p>
+
+<p>Exempel: URL:en http://example.com/ är en URI som identifierar en resurs och som visar att en representation av den resursen (ingångssidans HTML-kod) kan hämtas med HTTP från en värddator med namnet example.com.</p>
+
+<h4 id="525-itu">5.2.5 ITU</h4>
+
+<p>Telefonnummer ska följa https://www.pts.se/contentassets/3c43df1548f447ffa18bb43a84c4dadb/swedish-numbering-plan-for-telephony-acc-itu-180313.pdf</p>
+
+<p>Internationellt prefix + landsnummer + nationell destinationskod + abonnentnummer</p>
+
+<p>Exempel:</p>
+
+<p>Internationellt prefix: 00 eller +</p>
+
+<p>Landsnummer: 46 (Sverige)</p>
+
+<p>Nationell destinationskod - geografiskt riktnummerområde: 0150 (Katrineholm)</p>
+
+<p>Nationell destinationskod - icke-geografiska nummer: 070, 072, 073, 076, 079 (mobiltelefoni)</p>
+
+<p>Abonnentnummer: består av 5-8 siffror</p>
+
+<h4 id="526-rfc2822">5.2.6 RFC2822</h4>
+
+<p>E-postadress anges enligt format RFC2822.</p>
+
+<p>användarnamn@example.com</p>
+
+<p>example.com = domännamn</p>
+
+<p>com= toppdomän som anger namn eller organisation</p>
+
+<h4 id="527-sweref-99-tm">5.2.7 SWEREF 99 TM</h4>
+
+<p>Geografiska koordinater anges enligt referenssystemet SWEREF 99 TM, med angivelse i meter.</p>
+
+<p>Exempel:</p>
+
+<p>geoLocation.north = 6407869</p>
+
+<p>geoLocation.east = 485748</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.supportprocess-serviceprovisioning-healthcareoffering#3.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 18:58+0000">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

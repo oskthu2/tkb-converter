@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>3 Tjänstedomänens arkitektur - clinicalprocess: activityprescription: actoutcome 1.0 v1.0.2</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"4"}
+    h3,h4,h5,h6{--heading-prefix:"4"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">clinicalprocess: activityprescription: actoutcome 1.0</span>
+            <br/>
+            <span style="display:inline-block;">1.0.2 - release
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Kapitel<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="1-inledning.html">1 Inledning</a></li>
+      <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+      <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+      <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+      <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+      <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma informationskomponenter</a></li>
+      <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+    </ul>
+  </li>
+  <li><a href="7-tjanstekontrakt.html">Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>3 Tjänstedomänens arkitektur</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">clinicalprocess: activityprescription: actoutcome 1.0 - Local Development build (v1.0.2) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/clinicalprocess-activityprescription-actoutcome/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>3 Tjänstedomänens arkitektur</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#tjänstedomänens-arkitektur" id="markdown-toc-tjänstedomänens-arkitektur">Tjänstedomänens arkitektur</a>    <ul>
+      <li><a href="#övergripande" id="markdown-toc-övergripande">Övergripande</a></li>
+      <li><a href="#nationell-användning" id="markdown-toc-nationell-användning">Nationell användning</a></li>
+      <li><a href="#regional-användning" id="markdown-toc-regional-användning">Regional användning</a></li>
+      <li><a href="#adresseringsmodell" id="markdown-toc-adresseringsmodell">Adresseringsmodell</a></li>
+      <li><a href="#aggregerande-tjänster" id="markdown-toc-aggregerande-tjänster">Aggregerande tjänster</a></li>
+      <li><a href="#informationssäkerhet" id="markdown-toc-informationssäkerhet">Informationssäkerhet</a></li>
+      <li><a href="#tjänstekontraktens-design" id="markdown-toc-tjänstekontraktens-design">Tjänstekontraktens design</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h2 id="tjänstedomänens-arkitektur">Tjänstedomänens arkitektur</h2>
+
+<p><em>I källdokumentet (TKB 1.0, utgåva 1.0.2) är detta kapitel 4 ”Tjänstedomänens arkitektur”. IG:n följer projektets gemensamma kapitelindelning, men texten nedan är TKB:ns egen.</em></p>
+
+<p>I detta avsnitt beskrivs hur T-boken tillämpats i tjänstedomänen. Avsnittet syftar till att ge läsaren överblick och förståelse. Avsnittet innehåller inga regler, men ger ett sammanhang för de regler som beskrivs i övriga delar av dokumentet.</p>
+
+<h3 id="övergripande">Övergripande</h3>
+
+<p>Tjänsterna erbjuder sökning av information i vård- och omsorgsgivarnas system för patientadministration och vårddokumentation.</p>
+
+<p>Utgångspunkten är i första hand patientens och professionens behov av direktåtkomst till en patients vård- och omsorgshistorik sett ur ett nationellt eller ett regionalt perspektiv.</p>
+
+<p>I båda fallen är syftet att historisk information sammanställs från de källsystem där det finns historik, snarare än att begära information från ett specifikt system eller en specifik verksamhet.</p>
+
+<p>Tjänstekontrakten erbjuder även möjlighet att nå information från ett specifikt system eller en specifik verksamhet. Behovet av att rikta en fråga till ett specifikt system uppstår främst när tjänstekonsumenten också är prenumerant på notifieringar från engagemangsindex och på det sättet (via ProcessNotification) får information om en händelse i ett specifikt system. Det är då ändamålsenligt att adressera det systemet, istället för den aggregerande tjänsten.</p>
+
+<p>Tjänstedomänen förutsätter en aggregeringsplattform motsvarande den som beskrivs i T-boken, REV B. Tjänstedomänen förutsätter också användning av engagemangsindex på nationell nivå. Behovet av ett regionalt engagemangsindex beror dels av om regionen avser tillämpa tjänstekontrakten för regionala tjänstekonsumenter och av antalet informationskällor som ska tillgängliggöras för regionala behov.</p>
+
+<p>Följande flödesmodeller beskriver översiktligt hur tjänstekontrakten är tänkta att användas. Tjänstekonsument (K) och tjänsteproducenter (P) är markerade i figurerna. Den första figuren visar direktåtkomst inom sammanhållen journalföring och den andra figuren visar användning inom patientens direktåtkomst.</p>
+
+<p><img src="img_007.png" alt="img_007.png" /></p>
+
+<p>Figur: Direktåtkomst inom sammanhållen journalföring</p>
+
+<p><img src="img_004.png" alt="img_004.png" /></p>
+
+<p>Figur: Patientens direktåtkomst</p>
+
+<h3 id="nationell-användning">Nationell användning</h3>
+
+<p>Vid nationell användning av tjänstekontrakten (d.v.s. tjänstekonsumenter som begär information från alla tjänsteproducenter i Sverige) sker aggregering av informationen genom aggregerande tjänster i den gemensamma tjänsteplattformen. Regioner och Landsting tillhandahåller då källsystemens (KS) information genom anslutningspunkter (AP) i enlighet med tjänstekontrakten. Det kan t.ex. ske enligt olika modeller:</p>
+
+<p>A: Direktanslutning av källsystem: Källsystemet är anslutningspunkten till gemensamma tjänsteplattformen</p>
+
+<p>B: Källsystem ansluts via regional tjänsteplattform: Regionens tjänstplattform är anslutningspunkt till gemensamma tjänsteplattformen</p>
+
+<p>C: Mellanlager ansluts direkt eller via regional tjänsteplattform: Ett mellanlager avskärmar källsystemen från den last som uppstår vid från nationella medarbetar- och invånartjänster</p>
+
+<p>Modellerna illustreras nedan (från höger till vänster):</p>
+
+<p><img src="img_003.png" alt="img_003.png" /></p>
+
+<p>Figur: Olika modeller för anslutning av källsystem.</p>
+
+<p>Anslutningsmodellerna förutsätter att:</p>
+
+<ul>
+  <li>vårdsystemen uppdaterar nationellt engagemangsindex – direkt eller indirekt via regionalt index. Källsystemets HSA-id anges i engagemangsposten jämte övrig info enligt beskrivning i särskilt avsnitt under regelverk</li>
+  <li>en ev. regional tjänsteplattform kan dirigera anrop till rätt tjänsteproducent baserat på källsystemets HSA-id (på samma sätt som nationellt)</li>
+  <li>tjänsteproducenten validerar att aktuell tjänstekonsument (HSA-id i http-header) är godkänd av verksamheten (informationsägande vårdenhet)</li>
+</ul>
+
+<h3 id="regional-användning">Regional användning</h3>
+
+<p>Regional användning innebär att tjänstekonsumenten är regional (R-K) och begär information från alla producenter i regionen, avseende ett visst tjänstekontrakt inom tjänstedomänen. Det innebär att regionen behöver utföra regional aggregering i den regionala tjänsteplattformen. Anslutningen av regional tjänsteplattform till nationell påverkas inte av att regionen inför en regional aggregerande tjänst:</p>
+
+<p><img src="img_001.png" alt="img_001.png" /></p>
+
+<h3 id="adresseringsmodell">Adresseringsmodell</h3>
+
+<p>Tjänstedomänen tillämpar system-adressering. Observera att tjänstekonsumenter främst anropar aggregerande tjänster. Källsystemet adresserar därför den aggregerande tjänsten med antingen nationellt HSA-id (Ineras HSA-id) eller HSA-id för aktuell huvudman om det är en regional/huvudmanna-specifik (t.ex. ”regional”) aggregerande tjänst som ska adresseras.</p>
+
+<p>Det finns också fall då en tjänstekonsument adresserar ett källsystem. Det förutsätter att tjänstekonsumenten känner till källsystemets HSA. Det sker genom att ett sådant anrop föregås av ett anrop till en aggregerande tjänst (källsystemets HSAid finns då i svarsmeddelandet) eller genom att tjänstekonsumenten är producent för Engagemangsindex notifieringskontrakt (ProcessNotification). Notifieringen innehåller information om en händelse rörande en patients information i ett specifikt källsystem. Genom att använda informationen om källsystemets HSA-id kan tjänstekonsumenten direkt adressera källsystemet i syfte att hämta information om den händelse som just notifierats för patienten.</p>
+
+<p>Följande figur illustrerar adressering av aggregerande tjänst genom ett exempel. Det är alltid källsystemets HSA-id som är logisk adress när en aggregerande tjänst anropar en anslutningspunkt (ap), även om det inte är just källsystemet som är anslutningspunkt eller ens tjänsteproducent (i fallet av ett mellanlager).</p>
+
+<h4 id="adressering-vid-nationell-användning">Adressering vid nationell användning</h4>
+
+<p><img src="img_008.png" alt="img_008.png" /></p>
+
+<p>Figur: Adressering vid anrop till nationell aggregerande tjänst (t.ex. från Mina vårdkontakter eller NPÖ-tillämpningen)</p>
+
+<h4 id="adressering-vid-regional-användning">Adressering vid regional användning</h4>
+
+<p><img src="img_005.png" alt="img_005.png" /></p>
+
+<p>Figur: Adressering vid anrop till regional aggregerande tjänst (t.ex. från ett vårddokumentationssystem, beslutsstödsystem eller en regional patientöversikt)</p>
+
+<h4 id="adressering-direkt-till-ett-källsystem">Adressering direkt till ett källsystem</h4>
+
+<p>Tjänstekontrakten i denna domän möjliggör sökning av information relaterad till en patient.</p>
+
+<p>Eftersom vårdkontaktid finns som sökparameter till tjänstekontrakten i denna domän, kan man filtrera sökningen. Vårdkontakt-id är bara unikt inom ett källsystem. Man behöver därför avgränsa en sådan fråga till ett specifikt källsystem. Det görs helt enkelt genom att ange källsystemets HSA-id som sökparameter, tillsammans med vårdkontakt-id. I detta fall används källsystemets HSA-id som logisk adress. Källsystemets HSA-id och vårdkontakt-id ingår i svarsmängden för alla tjänstekontrakt i denna domän.</p>
+
+<p><img src="img_002.png" alt="img_002.png" /></p>
+
+<p>Figur: Flöde som förutsätter adressering med källsystemets HSAid</p>
+
+<p>Eftersom anropet i detta fall sker direkt mot virtuell tjänst, sker adressering med källsystemets HSA-id direkt från tjänstekonsumenten. Detta beskrivs i figuren nedan.</p>
+
+<p><img src="img_009.png" alt="img_009.png" /></p>
+
+<p>Figur: Adressering vid sökning efter information ur ett specifikt källsystem</p>
+
+<h4 id="sammanfattning-av-adresseringsmodell">Sammanfattning av adresseringsmodell</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Åtkomstbehov för patientens journalhistorik</th>
+      <th style="text-align: left">Logisk adress</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">För alla huvudmän</td>
+      <td style="text-align: left">Ineras HSA-id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">För en huvudman/region</td>
+      <td style="text-align: left">Huvudmannens/regionens HSA-id</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">För ett källsystem</td>
+      <td style="text-align: left">Källsystemets HSA-id</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="aggregerande-tjänster">Aggregerande tjänster</h3>
+
+<p>Det behövs en aggregerande tjänst för varje tjänstekontrakt i denna domän.</p>
+
+<p>Aggregerande tjänster har samma tjänstekontrakt och anropsadress som en traditionell virtuell tjänst, men nås via olika logiska adresser.</p>
+
+<p>Om ett källsystemets HSA-id anges som logisk adress, kommer frågemeddelandet att dirigera vidare direkt till källsystemet utan att passera en aggregerande tjänst.</p>
+
+<p>Om logisk adress HSA-id för Inera eller en huvudman kommer anropet att dirigeras till aggregerande tjänsten som i sin tur – efter att ha konsulterat engagemangsindex, vidarebefordrar frågan till de källsystem som har information om patienten.</p>
+
+<h3 id="informationssäkerhet">Informationssäkerhet</h3>
+
+<h4 id="medarbetarens-direktåtkomst">Medarbetarens direktåtkomst</h4>
+
+<p>Vid sammanhållen journalföring ansvarar verksamheten som erbjuder sina medarbetare direktåtkomst till sammanhållen journal för att patientdatalagen efterlevs. Det innebär bl.a. att spärrkontroll kan behöva genomföras innan information kan visas. Det innebär också att regelverket för samtycke, vårdrelation och åtkomstloggning måste följas. Dessutom finns krav från datainspektionen om ytterligare teknisk åtkomstkontroll.</p>
+
+<p>Patientdatalagen ställer också krav (via dess tolkning ”PDL-i-praktiken”) på att medarbetaren är starkt autentiserad om medarbetarens inloggning sker i nät som delas med flera vårdgivare och att uppdragsval görs i samband med autentisering (vårdenhet). Det kompletta regelverket finns i senaste utredningen PDLiP samt i anvisningar för tillgänglig patient.</p>
+
+<p>Observera att tjänstekontrakten i sig inte påtvingar sammanhållen journalföring. Krav rörande sammanhållen journalföring och eller krav på spärrhantering uppstår först om tjänstekonsumenten (e-tjänsten) för medarbetaren tillgängliggör information som härrör från andra vårdgivare (sammanhållen journalföring) eller andra vårdenheter inom egna vårdgivaren (spärrkrav).</p>
+
+<h4 id="patientens-direktåtkomst">Patientens direktåtkomst</h4>
+
+<p>Alla tjänstekontrakten i denna tjänstedomän har en svarsflagga som anger om verksamheten (informationsägaren) godkänt att informationen får visas för patient. Det kan t.ex. ha skett genom menprövning eller rådrum. För vissa av tjänstekontrakten, såsom Vård- och omsorgskontakter, kanske informationsägaren policymässigt har menprövat all information. Det är varje vårdgivares ansvar att tjänsteproducenten sätter ”kan visas för patient”-flaggan i enlighet med vårdgivarens verksamhetsregler.</p>
+
+<h4 id="generellt">Generellt</h4>
+
+<p>Tjänsteproducenten ansvarar för att information endast lämnas ut till de tjänstekonsumenter som informationsägaren godkänt. Det är inte ett juridiskt krav, men tydliggörs här eftersom det avviker från T-boken i det att tjänsteplattformen då inte ansvarar för den tekniska åtkomstkontrollen (ej möjligt när systembaserad adressering tillämpas). Om informationsägaren har behov av att reglera åtkomst per tjänstekonsument, ska tjänsteproducenten filtrera svaret enligt informationsägarens önskemål. Observera att det är regionala policyer snarare än lagar och förordningar som styr i vilken grad tjänsteproducenten ska begränsa åtkomst för en viss tjänstekonsument. Kunskapen om tjänstekonsumentens (tjänstens) identitet (d.v.s. ursprunglig tjänstekonsument i anropskedjan) får bara användas för teknisk åtkomstbegränsning på så sätt att svaret blir som om de vårdenheter vars verksamhetschef inte godkänner aktuell tjänstekonsument varit exkluderade i frågan.</p>
+
+<h3 id="tjänstekontraktens-design">Tjänstekontraktens design</h3>
+
+<p>Tjänsterna, som beskrivs nedan, returnerar 0, 1 eller flera instanser av tjänstespecifik patientbunden information i form av dokument enligt HL7 Green CDA-standarden.</p>
+
+<p>Varje dokument består av en inledning (Header) – PatientSummaryHeader - som är gemensam för alla tjänster i domänen, samt en Body som är specifik för varje tjänstekontrakt, där ett dokument omfattar en instans av information som ska överföras, exempelvis patientens vaccinationshistorik.</p>
+
+<p>Ett dokument motsvarar den information som täcks av en signatur (oavsett om signaturen ännu gjorts).</p>
+
+<p>Tjänsterna har en gemensam basuppsättning sökparametrar som i vissa fall utökats specifikt per tjänst.</p>
+
+<p>Tjänstekontrakten i sig stödjer inte HL7 CDA, men de distribueras tillsammans med XSLT-transformationsfiler som leverantörer av CDA-kompatibla system kan använda för att transformera svarsmeddelandet till HL7 CDA, eller omvänt - för att skapa ett svarsmeddelande från ett HL7 CDA-meddelande.</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.clinicalprocess-activityprescription-actoutcome#1.0.2 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 18:03+0000">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

@@ -1,0 +1,251 @@
+# CancelTemporaryExtendedRevoke — Request - informationsecurity: authorization: blocking v4.0.4
+
+* [**Table of Contents**](toc.md)
+* [**Artifacts Summary**](artifacts.md)
+* **CancelTemporaryExtendedRevoke — Request**
+
+## Logical Model: CancelTemporaryExtendedRevoke — Request 
+
+| | |
+| :--- | :--- |
+| *Official URL*:https://fhir.inera.se/ig/informationsecurity-authorization-blocking/StructureDefinition/canceltemporaryextendedrevoke-request | *Version*:4.0 |
+| Active as of 2026-10-08 | *Computable Name*:CancelTemporaryExtendedRevokeRequest |
+| **Copyright/Legal**: Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0. | |
+
+ 
+Logisk modell för begäran i CancelTemporaryExtendedRevoke (urn:riv:informationsecurity:authorization:blocking:CancelTemporaryExtendedRevokeResponder:4, CancelTemporaryExtendedRevokeType), inklusive SOAP-huvuden enligt WSDL. 
+
+**Usages:**
+
+* This Logical Model is not used by any profiles in this Specification
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/inera.informationsecurity-authorization-blocking|current/StructureDefinition/StructureDefinition-canceltemporaryextendedrevoke-request.json)
+
+### Formal Views of Profile Content
+
+ [Description of Profiles, Differentials, Snapshots and how the different presentations work](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](StructureDefinition-canceltemporaryextendedrevoke-request.csv), [Excel](StructureDefinition-canceltemporaryextendedrevoke-request.xlsx) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "canceltemporaryextendedrevoke-request",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-be-target"
+  }],
+  "url" : "https://fhir.inera.se/ig/informationsecurity-authorization-blocking/StructureDefinition/canceltemporaryextendedrevoke-request",
+  "version" : "4.0",
+  "name" : "CancelTemporaryExtendedRevokeRequest",
+  "title" : "CancelTemporaryExtendedRevoke — Request",
+  "status" : "active",
+  "date" : "2026-10-08T18:28:59+00:00",
+  "contact" : [{
+    "name" : "Inera Arkitektur",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Logisk modell för begäran i CancelTemporaryExtendedRevoke\n(urn:riv:informationsecurity:authorization:blocking:CancelTemporaryExtendedRevokeResponder:4, CancelTemporaryExtendedRevokeType), inklusive SOAP-huvuden enligt WSDL.",
+  "copyright" : "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "fhirVersion" : "4.0.1",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "https://fhir.inera.se/ig/informationsecurity-authorization-blocking/StructureDefinition/canceltemporaryextendedrevoke-request",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "id" : "canceltemporaryextendedrevoke-request",
+      "path" : "canceltemporaryextendedrevoke-request",
+      "short" : "CancelTemporaryExtendedRevoke — Request",
+      "definition" : "Logisk modell för begäran i CancelTemporaryExtendedRevoke\n(urn:riv:informationsecurity:authorization:blocking:CancelTemporaryExtendedRevokeResponder:4, CancelTemporaryExtendedRevokeType), inklusive SOAP-huvuden enligt WSDL."
+    },
+    {
+      "id" : "canceltemporaryextendedrevoke-request.logicalAddress",
+      "path" : "canceltemporaryextendedrevoke-request.logicalAddress",
+      "short" : "logicalAddress",
+      "definition" : "SOAP-huvud LogicalAddress. Som logisk adress anges HSA-id för vårdgivaren som spärren gäller för.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "canceltemporaryextendedrevoke-request.temporaryRevokeId",
+      "path" : "canceltemporaryextendedrevoke-request.temporaryRevokeId",
+      "short" : "temporaryRevokeId",
+      "definition" : "temporaryRevokeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "canceltemporaryextendedrevoke-request.cancellationInfo",
+      "path" : "canceltemporaryextendedrevoke-request.cancellationInfo",
+      "short" : "cancellationInfo",
+      "definition" : "Datatyp som representerar den eller de aktörer/personer som begärt och/eller utfört en åtgärd med en möjlig orsak/anledning angivet som fritext.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "canceltemporaryextendedrevoke-request.cancellationInfo.requestDate",
+      "path" : "canceltemporaryextendedrevoke-request.cancellationInfo.requestDate",
+      "short" : "requestDate",
+      "definition" : "requestDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "canceltemporaryextendedrevoke-request.cancellationInfo.requestedBy",
+      "path" : "canceltemporaryextendedrevoke-request.cancellationInfo.requestedBy",
+      "short" : "requestedBy",
+      "definition" : "Datatyp som identifierar en medarbetare/person.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "canceltemporaryextendedrevoke-request.cancellationInfo.requestedBy.employeeId",
+      "path" : "canceltemporaryextendedrevoke-request.cancellationInfo.requestedBy.employeeId",
+      "short" : "employeeId",
+      "definition" : "employeeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "canceltemporaryextendedrevoke-request.cancellationInfo.requestedBy.assignmentId",
+      "path" : "canceltemporaryextendedrevoke-request.cancellationInfo.requestedBy.assignmentId",
+      "short" : "assignmentId",
+      "definition" : "assignmentId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "canceltemporaryextendedrevoke-request.cancellationInfo.requestedBy.assignmentName",
+      "path" : "canceltemporaryextendedrevoke-request.cancellationInfo.requestedBy.assignmentName",
+      "short" : "assignmentName",
+      "definition" : "assignmentName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "canceltemporaryextendedrevoke-request.cancellationInfo.registrationDate",
+      "path" : "canceltemporaryextendedrevoke-request.cancellationInfo.registrationDate",
+      "short" : "registrationDate",
+      "definition" : "registrationDate",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "canceltemporaryextendedrevoke-request.cancellationInfo.registeredBy",
+      "path" : "canceltemporaryextendedrevoke-request.cancellationInfo.registeredBy",
+      "short" : "registeredBy",
+      "definition" : "Datatyp som identifierar en medarbetare/person.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "BackboneElement"
+      }]
+    },
+    {
+      "id" : "canceltemporaryextendedrevoke-request.cancellationInfo.registeredBy.employeeId",
+      "path" : "canceltemporaryextendedrevoke-request.cancellationInfo.registeredBy.employeeId",
+      "short" : "employeeId",
+      "definition" : "employeeId",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "canceltemporaryextendedrevoke-request.cancellationInfo.registeredBy.assignmentId",
+      "path" : "canceltemporaryextendedrevoke-request.cancellationInfo.registeredBy.assignmentId",
+      "short" : "assignmentId",
+      "definition" : "assignmentId",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "canceltemporaryextendedrevoke-request.cancellationInfo.registeredBy.assignmentName",
+      "path" : "canceltemporaryextendedrevoke-request.cancellationInfo.registeredBy.assignmentName",
+      "short" : "assignmentName",
+      "definition" : "assignmentName",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "canceltemporaryextendedrevoke-request.cancellationInfo.reasonText",
+      "path" : "canceltemporaryextendedrevoke-request.cancellationInfo.reasonText",
+      "short" : "reasonText",
+      "definition" : "reasonText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "canceltemporaryextendedrevoke-request.cancelReasonText",
+      "path" : "canceltemporaryextendedrevoke-request.cancelReasonText",
+      "short" : "cancelReasonText",
+      "definition" : "cancelReasonText",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "canceltemporaryextendedrevoke-request.replicationTimeout",
+      "path" : "canceltemporaryextendedrevoke-request.replicationTimeout",
+      "short" : "replicationTimeout",
+      "definition" : "replicationTimeout",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    }]
+  }
+}
+
+```

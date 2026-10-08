@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>1 Inledning - masterdata: citizen: patient v1.0.0-rc1.snapshot</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"2"}
+    h3,h4,h5,h6{--heading-prefix:"2"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">masterdata: citizen: patient</span>
+            <br/>
+            <span style="display:inline-block;">1.0.0-rc1.snapshot - RC
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Kapitel<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="1-inledning.html">1 Inledning</a></li>
+      <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+      <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+      <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+      <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+      <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma informationskomponenter</a></li>
+      <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+    </ul>
+  </li>
+  <li><a href="7-tjanstekontrakt.html">Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>1 Inledning</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">masterdata: citizen: patient - Local Development build (v1.0.0-rc1.snapshot) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/masterdata-citizen-patient/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>1 Inledning</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#1-inledning" id="markdown-toc-1-inledning">1 Inledning</a>    <ul>
+      <li><a href="#dokumentinformation" id="markdown-toc-dokumentinformation">Dokumentinformation</a></li>
+      <li><a href="#11-svenskt-namn" id="markdown-toc-11-svenskt-namn">1.1 Svenskt namn</a></li>
+      <li><a href="#12-web-beskrivning" id="markdown-toc-12-web-beskrivning">1.2 WEB beskrivning</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="1-inledning">1 Inledning</h1>
+
+<p>Källa: <em>Tjänstekontraktsbeskrivning masterdata: citizen: patient</em>, version 1.0_RC1 (2017-01-26), <a href="TKB_masterdata_citizen_patient.docx">TKB_masterdata_citizen_patient.docx</a>. Dokumentet är till stor del en ej ifylld mall; texten återges ordagrant och fältreglerna enligt schemat finns i avsnitt 7.</p>
+
+<h3 id="dokumentinformation">Dokumentinformation</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Dokument</th>
+      <th style="text-align: left">Tjänstekontraktsbeskrivning masterdata: citizen: patient</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Domän</td>
+      <td style="text-align: left">masterdata: citizen: patient (underlagförprocesstöd: invånare: patientuppgifter)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Version</td>
+      <td style="text-align: left">1.0 (1.0_RC1 enligt revisionshistoriken)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Datum</td>
+      <td style="text-align: left">2017-01-26 enligt revisionshistoriken</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Titelsida</td>
+      <td style="text-align: left">Dokumentnamn(Title) / Underrubrik på titelsida / Version 1.4 / ARK_0015 / 2014-09-08 (mallens titelsida, ej ifylld)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="mallens-anvisningar-kvar-i-källdokumentet">Mallens anvisningar (kvar i källdokumentet)</h4>
+
+<p>Källdokumentet är till stor del en ej ifylld TKB-mall. Mallens anvisningar återges här eftersom de står kvar i dokumentet.</p>
+
+<blockquote>
+  <p>All grön text motsvaras av variabler. I MS Word, gå in under Arkiv-Egenskaper och välj fliken Eget och fyll i rätt värden för variablerna.</p>
+</blockquote>
+
+<blockquote>
+  <p>Gulmarkerat är text som skall fyllas i och bytas ut.</p>
+</blockquote>
+
+<blockquote>
+  <p>Blå text är anvisningar för hur denna mall skall fyllas i. Den SKALL tas bort i det färdiga dokumentet.</p>
+</blockquote>
+
+<blockquote>
+  <p>Svart italic text är text som kan behållas från mallen.</p>
+</blockquote>
+
+<blockquote>
+  <p>Tjänstekontraktbeskrivning är ett dokument som beskriver en viss revision av tjänstekontrakten i en tjänstedomän. Tjänstekontraktsbeskrivningen är en beskrivning som kompletterar den maskinläsabara beskrivningen. Den maskinläsbara beskrivningen följer RIV Tekniska Anvisningar. En tjänstekontraktsbeskrivning kompletterar den maskinläsbara anvisningen och är en teknisk anvisning som är baserad på resultat från tidigare faser i RIV-metoden. Dokumentet ska kunna läsas fristående.</p>
+</blockquote>
+
+<blockquote>
+  <p>En Tjänstekontraktbeskrivning versionshanteras (förvaltas i original) och publiceras enligt riktlinjer för tjänstekontraktsförvaltningen .</p>
+</blockquote>
+
+<blockquote>
+  <p>Målgruppen för Tjänstekontraktbeskrivningen är integratörer inom vårdgivare och hos leverantörer av IT-lösningar för vård och omsorg, med grundläggande kunskap om RIV Tekniska Anvisningar och den nationella, tekniska arkitekturen (T-boken).</p>
+</blockquote>
+
+<blockquote>
+  <p>En tjänstekontraktsbeskrivning skall vara oberoende av specifika system. Den skall kunna användas som upphandlingsunderlag för utveckling av tjänstekonsumenter och tjänsteproducenter.</p>
+</blockquote>
+
+<blockquote>
+  <p>När en revision av en tjänstedomän innehåller samma version av ett tjänstekontrakt som en tidigare version, måste beskrivningen i den senare revisionen vara identisk med motsvarande beskrivning i den tidigare revisionen. Förtydliganden och rättning av skrivfel kan förekomma, men inget som riskerar försämringar i interoperabilitet mellan konsumenter och producenter baserade på samma tjänstekontrakt ur de båda revisionerna.</p>
+</blockquote>
+
+<blockquote>
+  <p>Dokumentet Arkitekturella beslut skall alltid åtfölja tjänstekontraktsbeskrivningen (även om det inte finns några dokumenterade beslut).</p>
+</blockquote>
+
+<blockquote>
+  <p>Resterande del av anvisningen följer uppställningen i en Tjänstekontraktsbeskrivning. Se även Tjänstekontraktsbeskrivning – exempel.</p>
+</blockquote>
+
+<h4 id="revisionshistorik">Revisionshistorik</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Version</th>
+      <th style="text-align: left">Revision Nr</th>
+      <th style="text-align: left">Revision Datum</th>
+      <th style="text-align: left">Beskrivning av ändringar</th>
+      <th style="text-align: left">Ändringar gjorda av</th>
+      <th style="text-align: left">Granskad av</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1.0_RC1</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">2017-01-26</td>
+      <td style="text-align: left">Första version</td>
+      <td style="text-align: left">Khaled Daham, Carity AB</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="referenser">Referenser</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Dokument</th>
+      <th style="text-align: left">Kommentar</th>
+      <th style="text-align: left">Länk</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">R1</td>
+      <td style="text-align: left">Arkitekturella beslut – Dokumentnamn(Title)</td>
+      <td style="text-align: left">Obligatoriskt</td>
+      <td style="text-align: left">Plats där dokumentet finns</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">R2</td>
+      <td style="text-align: left">RIVTA flera dokument</td>
+      <td style="text-align: left">Finns på Webben</td>
+      <td style="text-align: left">http://rivta.se/</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="förkortningar">Förkortningar</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Förkortning</th>
+      <th style="text-align: left">Betydelse</th>
+      <th style="text-align: left">Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="kompletterande-dokument-i-källan">Kompletterande dokument i källan</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dokument</th>
+      <th>Fil</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Arkitekturella beslut – masterdata: citizen: patient (referens R1)</td>
+      <td><a href="AB_masterdata_citizen_patient.docx">AB_masterdata_citizen_patient.docx</a></td>
+    </tr>
+    <tr>
+      <td>Informationsspecifikation – masterdata: citizen: patient</td>
+      <td><a href="IS_masterdata_citizen_patient.docx">IS_masterdata_citizen_patient.docx</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Källan innehåller även en meddelandemodell i Visual Paradigm-format (<code class="language-plaintext highlighter-rouge">docs/work_material/riv.masterdata.citizen.patient-MIM.vpp</code>), som inte publiceras här.</p>
+
+<p>Detta är beskrivningen av tjänstekontrakten i tjänstedomänen</p>
+
+<p>masterdata: citizen: patient</p>
+
+<p>Tjänstekontrakten är baserade på RIVTA 2.1 [R2] och reglerade genom arkitekturella beslut [R1].</p>
+
+<p>OBS obligatorisk även om tom.</p>
+
+<p>Övergripande beskrivning av de processer som stöds av denna domän.</p>
+
+<p>Tjänstekontraktsbeskrivningen är en kravspecifikation. Den skall fungera som ett teknikneutralt, formellt regelverk som reglerar integrationskrav för parter (tjänstekonsumenter och tjänsteproducenter) som avser ansluta system för samverkan enligt dessa tjänstekontrakt. Tjänstekontraktsbeskrivningen är också ett viktigt underlag för skapande av de tekniska kontrakten (scheman och WSDL-filer).</p>
+
+<p>Detta dokument kompletterar reglerna i de tekniska kontrakten. Tjänsteproducenter och tjänstekonsumenter ska m.a.o. följa såväl de maskintolkbara reglerna i de tekniska kontrakten, så väl som de regler som uttrycks verbalt i detta dokument.</p>
+
+<h3 id="11-svenskt-namn">1.1 Svenskt namn</h3>
+
+<p>underlagförprocesstöd:invånare:patientuppgifter</p>
+
+<p>patientuppgifter</p>
+
+<h3 id="12-web-beskrivning">1.2 WEB beskrivning</h3>
+
+<p>Omfattning och disposition webbtext tjänstedomän + tjänstekontrakt:</p>
+
+<p>1.       Cirka 1-2 meningar om syftet och nyttan med tjänstedomänen.</p>
+
+<p>2.       Max 5 meningar om vad syftet med tjänstekontrakten är, som till exempel vilket/vilka typer av informationsflöden de stödjer. Inga tekniska detaljer, utan en övergripande summerande beskrivning.</p>
+
+<p>OBS! Texten ska vara skriven på ett övergripande sätt så att även andra än tekniker kan förstå.</p>
+
+<p>OBS! Texten är obligatorisk eftersom den kommer att visas ut på Ineras externa webbplats. Om detta kapitel är tomt, kommer det inte att visas någon beskrivning om domänen på inera.se.</p>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.masterdata-citizen-patient#1.0.0-rc1.snapshot based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 18:42+0000">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

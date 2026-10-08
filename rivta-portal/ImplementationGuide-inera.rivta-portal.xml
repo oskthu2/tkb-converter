@@ -1,0 +1,1186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="inera.rivta-portal"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ImplementationGuide inera.rivta-portal</b></p><a name="inera.rivta-portal"> </a><a name="hcinera.rivta-portal"> </a><h2>RivtaPortal</h2><p>The official URL for this implementation guide is: </p><pre>https://fhir.inera.se/ig/rivta-portal/ImplementationGuide/inera.rivta-portal</pre></div>
+  </text>
+  <url value="https://fhir.inera.se/ig/rivta-portal/ImplementationGuide/inera.rivta-portal"/>
+  <version value="0.1.0"/>
+  <name value="RivtaPortal"/>
+  <title value="RIV Tekniska Anvisningar — tjänstedomäner och regelverk"/>
+  <status value="draft"/>
+  <date value="2026-10-08T18:59:02+00:00"/>
+  <contact>
+    <name value="Inera Arkitektur"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://www.inera.se"/>
+    </telecom>
+  </contact>
+  <copyright value="Copyright 2026 Inera AB. Licensieras under Creative Commons Attribution 4.0."/>
+  <packageId value="inera.rivta-portal"/>
+  <license value="CC0-1.0"/>
+  <fhirVersion value="4.0.1"/>
+  <dependsOn id="hl7tx">
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment">
+      <valueMarkdown value="Automatically added as a dependency - all IGs depend on HL7 Terminology"/>
+    </extension>
+    <uri value="http://terminology.hl7.org/ImplementationGuide/hl7.terminology"/>
+    <packageId value="hl7.terminology.r4"/>
+    <version value="7.4.0"/>
+  </dependsOn>
+  <dependsOn id="hl7ext">
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment">
+      <valueMarkdown value="Automatically added as a dependency - all IGs depend on the HL7 Extension Pack"/>
+    </extension>
+    <uri value="http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions"/>
+    <packageId value="hl7.fhir.uv.extensions.r4"/>
+    <version value="5.3.0"/>
+  </dependsOn>
+  <definition>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="copyrightyear"/>
+      </extension>
+      <extension url="value">
+        <valueString value="2026+"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="releaselabel"/>
+      </extension>
+      <extension url="value">
+        <valueString value="draft"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-contact"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-publisher"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-version"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-copyright"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="autoload-resources"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-liquid"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template/liquid"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-liquid"/>
+      </extension>
+      <extension url="value">
+        <valueString value="input/liquid"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-qa"/>
+      </extension>
+      <extension url="value">
+        <valueString value="temp/qa"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-temp"/>
+      </extension>
+      <extension url="value">
+        <valueString value="temp/pages"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-output"/>
+      </extension>
+      <extension url="value">
+        <valueString value="output"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-suppressed-warnings"/>
+      </extension>
+      <extension url="value">
+        <valueString value="input/ignoreWarnings.txt"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="path-history"/>
+      </extension>
+      <extension url="value">
+        <valueString value="https://fhir.inera.se/ig/rivta-portal/history.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="template-html"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template-page.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="template-md"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template-page-md.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-context"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-jurisdiction"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-license"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="apply-wg"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="active-tables"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="fmm-definition"/>
+      </extension>
+      <extension url="value">
+        <valueString value="http://hl7.org/fhir/versions.html#maturity"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="propagate-status"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="excludelogbinaryformat"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="tabbed-snapshots"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency">
+      <valueCode value="hl7.fhir.uv.tools.r4#1.1.2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="copyrightyear"/>
+      </extension>
+      <extension url="value">
+        <valueString value="2026+"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="releaselabel"/>
+      </extension>
+      <extension url="value">
+        <valueString value="draft"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-contact"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-publisher"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-version"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-copyright"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="autoload-resources"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-liquid"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template/liquid"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-liquid"/>
+      </extension>
+      <extension url="value">
+        <valueString value="input/liquid"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-qa"/>
+      </extension>
+      <extension url="value">
+        <valueString value="temp/qa"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-temp"/>
+      </extension>
+      <extension url="value">
+        <valueString value="temp/pages"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-output"/>
+      </extension>
+      <extension url="value">
+        <valueString value="output"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-suppressed-warnings"/>
+      </extension>
+      <extension url="value">
+        <valueString value="input/ignoreWarnings.txt"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="path-history"/>
+      </extension>
+      <extension url="value">
+        <valueString value="https://fhir.inera.se/ig/rivta-portal/history.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="template-html"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template-page.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="template-md"/>
+      </extension>
+      <extension url="value">
+        <valueString value="template-page-md.html"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-context"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-jurisdiction"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-license"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="apply-wg"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="active-tables"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="fmm-definition"/>
+      </extension>
+      <extension url="value">
+        <valueString value="http://hl7.org/fhir/versions.html#maturity"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="propagate-status"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="excludelogbinaryformat"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="tabbed-snapshots"/>
+      </extension>
+      <extension url="value">
+        <valueString value="true"/>
+      </extension>
+    </extension>
+    <page>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+        <valueUrl value="toc.html"/>
+      </extension>
+      <nameUrl value="toc.html"/>
+      <title value="Table of Contents"/>
+      <generation value="html"/>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="index.html"/>
+        </extension>
+        <nameUrl value="index.html"/>
+        <title value="Start"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="tjanstedomaner.html"/>
+        </extension>
+        <nameUrl value="tjanstedomaner.html"/>
+        <title value="Tjänstedomäner"/>
+        <generation value="markdown"/>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-cgi-healthcare-efrikort.html"/>
+          </extension>
+          <nameUrl value="doman-cgi-healthcare-efrikort.html"/>
+          <title value="cgi:healthcare:efrikort"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-clinicalprocess-activity-actions.html"/>
+          </extension>
+          <nameUrl value="doman-clinicalprocess-activity-actions.html"/>
+          <title value="clinicalprocess:activity:actions"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-clinicalprocess-activity-order.html"/>
+          </extension>
+          <nameUrl value="doman-clinicalprocess-activity-order.html"/>
+          <title value="clinicalprocess:activity:order"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-clinicalprocess-activity-request.html"/>
+          </extension>
+          <nameUrl value="doman-clinicalprocess-activity-request.html"/>
+          <title value="clinicalprocess:activity:request"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-clinicalprocess-activityprescription-actoutcome.html"/>
+          </extension>
+          <nameUrl value="doman-clinicalprocess-activityprescription-actoutcome.html"/>
+          <title value="clinicalprocess:activityprescription:actoutcome"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-clinicalprocess-activityprescription-logistics.html"/>
+          </extension>
+          <nameUrl value="doman-clinicalprocess-activityprescription-logistics.html"/>
+          <title value="clinicalprocess:activityprescription:logistics"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-clinicalprocess-activityprescription-prescribe.html"/>
+          </extension>
+          <nameUrl value="doman-clinicalprocess-activityprescription-prescribe.html"/>
+          <title value="clinicalprocess:activityprescription:prescribe"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-clinicalprocess-healthcond-actoutcome.html"/>
+          </extension>
+          <nameUrl value="doman-clinicalprocess-healthcond-actoutcome.html"/>
+          <title value="clinicalprocess:healthcond:actoutcome"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-clinicalprocess-healthcond-basic.html"/>
+          </extension>
+          <nameUrl value="doman-clinicalprocess-healthcond-basic.html"/>
+          <title value="clinicalprocess:healthcond:basic"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-clinicalprocess-healthcond-certificate.html"/>
+          </extension>
+          <nameUrl value="doman-clinicalprocess-healthcond-certificate.html"/>
+          <title value="clinicalprocess:healthcond:certificate"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-clinicalprocess-healthcond-description.html"/>
+          </extension>
+          <nameUrl value="doman-clinicalprocess-healthcond-description.html"/>
+          <title value="clinicalprocess:healthcond:description"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-clinicalprocess-healthcond-rheuma.html"/>
+          </extension>
+          <nameUrl value="doman-clinicalprocess-healthcond-rheuma.html"/>
+          <title value="clinicalprocess:healthcond:rheuma"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-clinicalprocess-logistics-cervixscreening.html"/>
+          </extension>
+          <nameUrl value="doman-clinicalprocess-logistics-cervixscreening.html"/>
+          <title value="clinicalprocess:logistics:cervixscreening"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-clinicalprocess-logistics-logistics.html"/>
+          </extension>
+          <nameUrl value="doman-clinicalprocess-logistics-logistics.html"/>
+          <title value="clinicalprocess:logistics:logistics"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-coreprocess-residentparticipation-residentparticipation.html"/>
+          </extension>
+          <nameUrl value="doman-coreprocess-residentparticipation-residentparticipation.html"/>
+          <title value="coreprocess:residentparticipation:residentparticipation"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-crm-carelisting.html"/>
+          </extension>
+          <nameUrl value="doman-crm-carelisting.html"/>
+          <title value="crm:carelisting"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-crm-requeststatus.html"/>
+          </extension>
+          <nameUrl value="doman-crm-requeststatus.html"/>
+          <title value="crm:requeststatus"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-crm-scheduling.html"/>
+          </extension>
+          <nameUrl value="doman-crm-scheduling.html"/>
+          <title value="crm:scheduling"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-druglogistics-dosedispensing.html"/>
+          </extension>
+          <nameUrl value="doman-druglogistics-dosedispensing.html"/>
+          <title value="druglogistics:dosedispensing"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-ehr-accesscontrol.html"/>
+          </extension>
+          <nameUrl value="doman-ehr-accesscontrol.html"/>
+          <title value="ehr:accesscontrol"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-ehr-blocking.html"/>
+          </extension>
+          <nameUrl value="doman-ehr-blocking.html"/>
+          <title value="ehr:blocking"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-ehr-commission.html"/>
+          </extension>
+          <nameUrl value="doman-ehr-commission.html"/>
+          <title value="ehr:commission"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-ehr-log.html"/>
+          </extension>
+          <nameUrl value="doman-ehr-log.html"/>
+          <title value="ehr:log"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-ehr-patientconsent.html"/>
+          </extension>
+          <nameUrl value="doman-ehr-patientconsent.html"/>
+          <title value="ehr:patientconsent"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-ehr-patientrelationship.html"/>
+          </extension>
+          <nameUrl value="doman-ehr-patientrelationship.html"/>
+          <title value="ehr:patientrelationship"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-ehr-patientsummary.html"/>
+          </extension>
+          <nameUrl value="doman-ehr-patientsummary.html"/>
+          <title value="ehr:patientsummary"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-eservicesupply-eoffering.html"/>
+          </extension>
+          <nameUrl value="doman-eservicesupply-eoffering.html"/>
+          <title value="eservicesupply:eoffering"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-financial-billing-claim.html"/>
+          </extension>
+          <nameUrl value="doman-financial-billing-claim.html"/>
+          <title value="financial:billing:claim"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-financial-patientfees-exemption.html"/>
+          </extension>
+          <nameUrl value="doman-financial-patientfees-exemption.html"/>
+          <title value="financial:patientfees:exemption"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-followup-groupoutcomes-qualityreporting.html"/>
+          </extension>
+          <nameUrl value="doman-followup-groupoutcomes-qualityreporting.html"/>
+          <title value="followup:groupoutcomes:qualityreporting"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-followup-processdevelopment-infections.html"/>
+          </extension>
+          <nameUrl value="doman-followup-processdevelopment-infections.html"/>
+          <title value="followup:processdevelopment:infections"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-followup-qualityregistry-nkrr.html"/>
+          </extension>
+          <nameUrl value="doman-followup-qualityregistry-nkrr.html"/>
+          <title value="followup:qualityregistry:nkrr"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-healthcertificate-lifeline.html"/>
+          </extension>
+          <nameUrl value="doman-healthcertificate-lifeline.html"/>
+          <title value="healthcertificate:lifeline"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-ihe-pcd-dec.html"/>
+          </extension>
+          <nameUrl value="doman-ihe-pcd-dec.html"/>
+          <title value="ihe:pcd:dec"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-informatics-terminology.html"/>
+          </extension>
+          <nameUrl value="doman-informatics-terminology.html"/>
+          <title value="informatics:terminology"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-informationsecurity-auditing-log.html"/>
+          </extension>
+          <nameUrl value="doman-informationsecurity-auditing-log.html"/>
+          <title value="informationsecurity:auditing:log"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-informationsecurity-authorization-blocking.html"/>
+          </extension>
+          <nameUrl value="doman-informationsecurity-authorization-blocking.html"/>
+          <title value="informationsecurity:authorization:blocking"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-informationsecurity-authorization-consent.html"/>
+          </extension>
+          <nameUrl value="doman-informationsecurity-authorization-consent.html"/>
+          <title value="informationsecurity:authorization:consent"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-informationsecurity-authorization-pip.html"/>
+          </extension>
+          <nameUrl value="doman-informationsecurity-authorization-pip.html"/>
+          <title value="informationsecurity:authorization:pip"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-infrastructure-directory-authorizationmanagement.html"/>
+          </extension>
+          <nameUrl value="doman-infrastructure-directory-authorizationmanagement.html"/>
+          <title value="infrastructure:directory:authorizationmanagement"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-infrastructure-directory-employee.html"/>
+          </extension>
+          <nameUrl value="doman-infrastructure-directory-employee.html"/>
+          <title value="infrastructure:directory:employee"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-infrastructure-directory-organization.html"/>
+          </extension>
+          <nameUrl value="doman-infrastructure-directory-organization.html"/>
+          <title value="infrastructure:directory:organization"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-infrastructure-directory-synchronization.html"/>
+          </extension>
+          <nameUrl value="doman-infrastructure-directory-synchronization.html"/>
+          <title value="infrastructure:directory:synchronization"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-infrastructure-eservicesupply-forminteraction.html"/>
+          </extension>
+          <nameUrl value="doman-infrastructure-eservicesupply-forminteraction.html"/>
+          <title value="infrastructure:eservicesupply:forminteraction"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-infrastructure-eservicesupply-patientportal.html"/>
+          </extension>
+          <nameUrl value="doman-infrastructure-eservicesupply-patientportal.html"/>
+          <title value="infrastructure:eservicesupply:patientportal"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-infrastructure-informationstructureservice-terminology.html"/>
+          </extension>
+          <nameUrl value="doman-infrastructure-informationstructureservice-terminology.html"/>
+          <title value="infrastructure:informationstructureservice:terminology"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-infrastructure-itintegration-dataexchange.html"/>
+          </extension>
+          <nameUrl value="doman-infrastructure-itintegration-dataexchange.html"/>
+          <title value="infrastructure:itintegration:dataexchange"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-infrastructure-itintegration-messagebox.html"/>
+          </extension>
+          <nameUrl value="doman-infrastructure-itintegration-messagebox.html"/>
+          <title value="infrastructure:itintegration:messagebox"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-infrastructure-itintegration-registry.html"/>
+          </extension>
+          <nameUrl value="doman-infrastructure-itintegration-registry.html"/>
+          <title value="infrastructure:itintegration:registry"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-infrastructure-supportservices-forminteraction.html"/>
+          </extension>
+          <nameUrl value="doman-infrastructure-supportservices-forminteraction.html"/>
+          <title value="infrastructure:supportservices:forminteraction"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-insuranceprocess-healthreporting.html"/>
+          </extension>
+          <nameUrl value="doman-insuranceprocess-healthreporting.html"/>
+          <title value="insuranceprocess:healthreporting"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-interoperability-headers.html"/>
+          </extension>
+          <nameUrl value="doman-interoperability-headers.html"/>
+          <title value="interoperability:headers"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-intygsbestallning-certificate-order.html"/>
+          </extension>
+          <nameUrl value="doman-intygsbestallning-certificate-order.html"/>
+          <title value="intygsbestallning.certificate.order"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-itintegration-engagementindex.html"/>
+          </extension>
+          <nameUrl value="doman-itintegration-engagementindex.html"/>
+          <title value="itintegration:engagementindex"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-itintegration-monitoring.html"/>
+          </extension>
+          <nameUrl value="doman-itintegration-monitoring.html"/>
+          <title value="itintegration:monitoring"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-itintegration-registry.html"/>
+          </extension>
+          <nameUrl value="doman-itintegration-registry.html"/>
+          <title value="itintegration:registry"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-masterdata-citizen-citizen.html"/>
+          </extension>
+          <nameUrl value="doman-masterdata-citizen-citizen.html"/>
+          <title value="masterdata:citizen:citizen"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-masterdata-citizen-patient.html"/>
+          </extension>
+          <nameUrl value="doman-masterdata-citizen-patient.html"/>
+          <title value="masterdata:citizen:patient"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-masterdata-organisationalresources-licensetopractice.html"/>
+          </extension>
+          <nameUrl value="doman-masterdata-organisationalresources-licensetopractice.html"/>
+          <title value="masterdata:organisationalresources:licensetopractice"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-orgmaster-hsa.html"/>
+          </extension>
+          <nameUrl value="doman-orgmaster-hsa.html"/>
+          <title value="orgmaster:hsa"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-population-residentmaster.html"/>
+          </extension>
+          <nameUrl value="doman-population-residentmaster.html"/>
+          <title value="population:residentmaster"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-processdevelopment-infections.html"/>
+          </extension>
+          <nameUrl value="doman-processdevelopment-infections.html"/>
+          <title value="processdevelopment:infections"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-processmanagement-decisionsupport-insurancemedicinedecisionsupport.html"/>
+          </extension>
+          <nameUrl value="doman-processmanagement-decisionsupport-insurancemedicinedecisionsupport.html"/>
+          <title value="processmanagement:decisionsupport:insurancemedicinedecisionsupport"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-se-apotekensservice-axs.html"/>
+          </extension>
+          <nameUrl value="doman-se-apotekensservice-axs.html"/>
+          <title value="se.apotekensservice:axs"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-se-apotekensservice-expo.html"/>
+          </extension>
+          <nameUrl value="doman-se-apotekensservice-expo.html"/>
+          <title value="se.apotekensservice:expo"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-se-apotekensservice-lf.html"/>
+          </extension>
+          <nameUrl value="doman-se-apotekensservice-lf.html"/>
+          <title value="se.apotekensservice:lf"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-se-apotekensservice-or.html"/>
+          </extension>
+          <nameUrl value="doman-se-apotekensservice-or.html"/>
+          <title value="se.apotekensservice:or"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-se-apotekensservice-pris.html"/>
+          </extension>
+          <nameUrl value="doman-se-apotekensservice-pris.html"/>
+          <title value="se.apotekensservice:pris"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-sebra-reporting-pharmacovigilance.html"/>
+          </extension>
+          <nameUrl value="doman-sebra-reporting-pharmacovigilance.html"/>
+          <title value="sebra:reporting:pharmacovigilance"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-sob-apps-resident.html"/>
+          </extension>
+          <nameUrl value="doman-sob-apps-resident.html"/>
+          <title value="sob:apps:resident"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-strategicresourcemanagement-organizational-organization.html"/>
+          </extension>
+          <nameUrl value="doman-strategicresourcemanagement-organizational-organization.html"/>
+          <title value="strategicresourcemanagement:organizational:organization"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-strategicresourcemanagement-persons-employee.html"/>
+          </extension>
+          <nameUrl value="doman-strategicresourcemanagement-persons-employee.html"/>
+          <title value="strategicresourcemanagement:persons:employee"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-strategicresourcemanagement-persons-person.html"/>
+          </extension>
+          <nameUrl value="doman-strategicresourcemanagement-persons-person.html"/>
+          <title value="strategicresourcemanagement:persons:person"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-supportprocess-logistics-carelisting.html"/>
+          </extension>
+          <nameUrl value="doman-supportprocess-logistics-carelisting.html"/>
+          <title value="supportprocess:logistics:carelisting"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-supportprocess-logistics-scheduling.html"/>
+          </extension>
+          <nameUrl value="doman-supportprocess-logistics-scheduling.html"/>
+          <title value="supportprocess:logistics:scheduling"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-supportprocess-personalresources-interpretation.html"/>
+          </extension>
+          <nameUrl value="doman-supportprocess-personalresources-interpretation.html"/>
+          <title value="supportprocess:personalresources:interpretation"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+            <valueUrl value="doman-supportprocess-serviceprovisioning-healthcareoffering.html"/>
+          </extension>
+          <nameUrl value="doman-supportprocess-serviceprovisioning-healthcareoffering.html"/>
+          <title value="supportprocess:serviceprovisioning:healthcareoffering"/>
+          <generation value="markdown"/>
+        </page>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="tjanstekontrakt.html"/>
+        </extension>
+        <nameUrl value="tjanstekontrakt.html"/>
+        <title value="Tjänstekontrakt"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="dokument.html"/>
+        </extension>
+        <nameUrl value="dokument.html"/>
+        <title value="Dokument"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="aktuellt.html"/>
+        </extension>
+        <nameUrl value="aktuellt.html"/>
+        <title value="Aktuellt"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="utveckling.html"/>
+        </extension>
+        <nameUrl value="utveckling.html"/>
+        <title value="Utveckling"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="faq.html"/>
+        </extension>
+        <nameUrl value="faq.html"/>
+        <title value="FAQ"/>
+        <generation value="markdown"/>
+      </page>
+    </page>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/capabilities"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/examples"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/extensions"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/models"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/operations"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/profiles"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/resources"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/vocabulary"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/maps"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/testing"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/history"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="fsh-generated/resources"/>
+    </parameter>
+    <parameter>
+      <code value="path-pages"/>
+      <value value="template/config"/>
+    </parameter>
+    <parameter>
+      <code value="path-pages"/>
+      <value value="input/images"/>
+    </parameter>
+    <parameter>
+      <code value="path-tx-cache"/>
+      <value value="input-cache/txcache"/>
+    </parameter>
+  </definition>
+</ImplementationGuide>

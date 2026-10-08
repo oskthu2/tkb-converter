@@ -1,0 +1,1169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>7 Tjänstekontrakt - financial: patientfees: exemption v1.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">financial: patientfees: exemption</span>
+            <br/>
+            <span style="display:inline-block;">1.0.0 - release
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Kapitel<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="1-inledning.html">1 Inledning</a></li>
+      <li><a href="2-versionsinformation.html">2 Versionsinformation</a></li>
+      <li><a href="3-tjanstedomanens-arkitektur.html">3 Tjänstedomänens arkitektur</a></li>
+      <li><a href="4-tjanstedomanens-krav-och-regler.html">4 Tjänstedomänens krav och regler</a></li>
+      <li><a href="5-tjanstedomanens-meddelandemodeller.html">5 Tjänstedomänens meddelandemodeller</a></li>
+      <li><a href="6-gemensamma-informationskomponenter.html">6 Gemensamma informationskomponenter</a></li>
+      <li><a href="7-tjanstekontrakt.html">7 Tjänstekontrakt</a></li>
+    </ul>
+  </li>
+  <li><a href="7-tjanstekontrakt.html">Tjänstekontrakt</a></li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+</ul>
+
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>7 Tjänstekontrakt</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">financial: patientfees: exemption - Local Development build (v1.0.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://fhir.inera.se/ig/financial-patientfees-exemption/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>7 Tjänstekontrakt</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#7-tjänstekontrakt" id="markdown-toc-7-tjänstekontrakt">7 Tjänstekontrakt</a>    <ul>
+      <li><a href="#requestexemptionstatuses" id="markdown-toc-requestexemptionstatuses">RequestExemptionStatuses</a></li>
+      <li><a href="#processexemptionstatuses" id="markdown-toc-processexemptionstatuses">ProcessExemptionStatuses</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="7-tjänstekontrakt">7 Tjänstekontrakt</h1>
+
+<p>Källa: <em>Högkostnadsskydd</em>, tjänstekontraktbeskrivning version 1.0 (2024-03-25), <a href="TKB_financial_patientfees_exemption.docx">TKB_financial_patientfees_exemption.docx</a>.</p>
+
+<p>Motsvarar TKB kapitel 6 <em>Tjänstekontrakt</em> (7.1 = TKB 6.1 osv.). Efter TKB:ns text följer för varje kontrakt fälten enligt schemat, tjänsteinteraktionen enligt WSDL, källfilerna och de genererade FHIR-artefakterna.</p>
+
+<h3 id="requestexemptionstatuses">RequestExemptionStatuses</h3>
+
+<p>Detta tjänstekontrakt används för att begära ut högkostandsskyddstatus samt alla transaktioner 12 månader bakåt i tiden för det patientId som anges i begäran. Genom att anropa tjänstekontraktet initieras en begäran om ett utlämnande. Den efterfrågade informationen skickas sedan av utlämnande part via tjänstekontraktet ProcessExemptionStatuses.</p>
+
+<h4 id="711-version">7.1.1 Version</h4>
+
+<p>1.0</p>
+
+<h4 id="712-fältregler">7.1.2 Fältregler</h4>
+
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Övriga Regler.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">requestId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Unikt Id för begäran om utlämnandet. Det är konsuments ansvar att säkerställa identifierarens unikitet. Producent kommer därefter att använda denna identifierare i sitt svar som sker asynkront via tjänstekontraktet ProcessExemptionStatuses</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt Id för begäran om utlämnandet, ska förmedlas så som ett uuid.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Ska utelämnas, då id förmedlas som ett uuid.</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Id för patienten där fältet id sätts till patientens identifierare. Anges med 12 tecken utan avskiljare. / Tjänsteproducenten skall i svaret leverera all information på en begäran riktad mot individens huvudidentitet, dvs även information som tidigare har registrerats på andra till individen kopplade identiteter (LRID, NRID, tidigare SNR, eller tidigare PNR) / Fältet type sätts till OID för typ av identifierare. / 1) För PNR skall Skatteverkets oid för PNR (1.2.752.129.2.1.3.1) användas. / 2) För SNR skall Skatteverkets oid för SNR (1.2.752.129.2.1.3.3) användas. / 3) För NRID skall Ineras oid för NRID (1.2.752.74.9.1) användas. / 4) Tjänsteproducenter skall även stödja sökning på LRID med hjälp av att ange lokalt definierade oid’ar för LRID, exempelvis SLL’s LRID(1.2.752.97.3.1.3). / OBS LRID kan ej användas tillsammans med EI och aggregerande tjänster då dessa komponenter idag inte är anpassade för att stödja typ av id, inga uppdateringar till EI skall göras av en tjänsteproducent för LRID. / En tjänstekonsument som vill begära mha LRID måste därmed använda sig av systemadressering och ha vetskap om vilken LRID-oid som gäller vid anrop mot en specifik tjänsteproducent.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left">Aktören som begär utlämnandet. / Aktören är antingen invånare som begär ut sin information alternativt vårdnadshavare som begär ut barnets information. / Aktören kan även vara en vårdgivare som begär ut patients information från annan vårdgivare.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor.actorTypeEnum</td>
+      <td style="text-align: left">ActorTypeEnum</td>
+      <td style="text-align: left">Enumeration som visar typ av aktör. Kan vara en av följande: / CITIZEN / GUARDIAN / CAREGIVER</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor.actorId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Beroende på typ av aktör anges antingen aktörens personnummer eller HSAId. / För CITIZEN och GUARDIAN anges ett personnummer, se attributet patientId för hur personnummer anges. / För CAREGIVER anges ett HSAId för vårdpersonal. I det fall sätts: / actor.actorId.root = 1.2.752.129.2.1.4.1 / actor.actorId.extension = <code class="language-plaintext highlighter-rouge">&lt;HSA Id&gt;</code></td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor.careGiverId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Om aktören är CAREGIVER ska HSAId för vårdgivare anges. Annars ska detta fält utelämnas. / För vårdgivare sätts: / actor.careGiverId.root = 1.2.752.129.2.1.4.1 / actor.careGiverId.extension = <code class="language-plaintext highlighter-rouge">&lt;HSA Id&gt;</code></td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">responseLogicalAddress</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Logisk adress dit utlämnandet senare ska skickas. Anropande part av detta tjänstekontrakt måste således även vara producent för tjänstekontraktet ProcessExemptionStatuses, dit svaret/utlämnandet senare skickas asynkront. Det betyder att anropande part behöver vara upplagd i tjänsteadresseringskatalogen (TAK) som producent samt att konsument av ProcessExemptionStatuses givits anropsbehörighet till anropande part.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Svar</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Tomt svar</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="713-övriga-regler">7.1.3 Övriga regler</h4>
+
+<p>Se tillägg om header (ProcessingStatus) i referens [R8] - RIV Tekniska Anvisningar Basic Profile Valfria tillägg 2.1.</p>
+
+<h5 id="7131-icke-funktionella-krav">7.1.3.1 Icke funktionella krav</h5>
+
+<p>N/A</p>
+
+<h6 id="71311-sla-krav">7.1.3.1.1 SLA-krav</h6>
+
+<p>Inga avvikande SLA-krav</p>
+
+<h4 id="714-fältregler-enligt-schema-xsd">7.1.4 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">requestId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">actor</td>
+      <td style="text-align: left">ActorType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../actorTypeEnum</td>
+      <td style="text-align: left">ActorTypeEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../actorId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../careGiverId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">responseLogicalAddress</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>(tomt)</em></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Svaret innehåller inga element utöver utökningspunkter.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="715-tjänsteinteraktion-enligt-wsdl">7.1.5 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:financial:patientfees:exemption:RequestExemptionStatusesResponder:1:RequestExemptionStatuses</code></p>
+
+<h4 id="716-källfiler-riv-ta">7.1.6 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="RequestExemptionStatusesInteraction_1.0_RIVTABP21.wsdl">RequestExemptionStatusesInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="RequestExemptionStatusesResponder_1.0.xsd">RequestExemptionStatusesResponder_1.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="financial_patientfees_exemption_1.0.xsd">financial_patientfees_exemption_1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="financial_patientfees_exemption_enum_1.0.xsd">financial_patientfees_exemption_enum_1.0.xsd</a></td>
+      <td>Uppräkningar (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_Hogkostnadsskydd_BegarandePart.docx">SjD_Hogkostnadsskydd_BegarandePart.docx</a></td>
+      <td>Självdeklaration</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="717-fhir-artefakter">7.1.7 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-requestexemptionstatuses-request.html">StructureDefinition/requestexemptionstatuses-request</a></li>
+  <li><strong>Logisk modell (response):</strong> ingen. Svaret innehåller bara <code class="language-plaintext highlighter-rouge">xs:any</code> (kontraktet är asynkront; resultatet skickas med ProcessExemptionStatuses), så ingen svarsmodell har genererats.</li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-patientfees-exemption-actortype-cs.html">CodeSystem/patientfees-exemption-actortype-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-patientfees-exemption-actortype-vs.html">ValueSet/patientfees-exemption-actortype-vs</a></li>
+</ul>
+
+<h3 id="processexemptionstatuses">ProcessExemptionStatuses</h3>
+
+<p>Detta tjänstekontrakt används för att lämna ut högkostandsskyddstatus samt alla transaktioner 12 månader bakåt i tiden för det patientId som begärts ut.</p>
+
+<p>Tjänstekontraktet kan förmedla utfärdade frikort hos region samt samtliga transaktioner som finns registrerade hos region.</p>
+
+<p>Tjänstekontraktet anropas av utlämnande part efter att en begäran tidigare har mottagits – se tjänstekontraktet RequestExemptionStatuses ovan för begäran om utlämnande. Observera att det inte är tillåtet att använda tjänstekontraktet ProcessExemptionStatuses om inte annan part tidigare anropat region via RequestExemptionStatuses.</p>
+
+<p>Om RequestExemptionStatuses anropats med aktören invånare eller vårdnadshavare ska ProcessExemptionStatuses innehålla både exemptions och transactions om sådana finns registrerade hos region, se nedan.</p>
+
+<p>Om RequestExemptionStatuses anropats med aktören vårdgivare ska ProcessExemptionStatuses innehålla utfärdat frikort (exemptions). Om inget frikort finns utfärdat hos region för berörd person ska ProcessExemptionStatuses innehålla de hos region registrerade transaktionerna. I det fall ska transaktionerna inte innehålla ursprunglig vårdgivare/vårdenhet där avgiften genererats.</p>
+
+<h4 id="721-version">7.2.1 Version</h4>
+
+<p>1.0</p>
+
+<h4 id="722-fältregler">7.2.2 Fältregler</h4>
+
+<p>Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en * finns ytterligare regler för detta element och beskrivs mer i detalj i stycket Övriga Regler.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Begäran</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">requestId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Unikt Id för begäran om utlämnandet. Det är begärande parts ansvar att säkerställa identifierarens unikitet. Detta Id ska således återspegla det requestId som tidigare skickats via tjänstekontraktet RequestExemptionStatuses.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt Id för begäran om utlämnandet, ska förmedlas så som ett uuid.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Ska utelämnas, då id förmedlas som ett uuid.</td>
+      <td style="text-align: left">0..0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">feeExemption</td>
+      <td style="text-align: left">FeeExemptionType</td>
+      <td style="text-align: left">Returnerar en patients högkostnadsskyddstatus</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">Id för patienten (samma som i begäran), även kopplade identiteter till en huvudidentitet i begäran skall returneras av tjänsteproducenten. / Dvs information som registrerats på t.ex tidigare NRID, LRID, SNR eller PNR. / Fältet extension sätts till patientens identifierare, anges med 12 siffror utan avskiljare. / Fältet root sätts till typ av identifierare. / För personnummer ska Skatteverkets identifierare för personnummer (1.2.752.129.2.1.3.1) användas. / För samordningsnummer ska Skatteverkets identifierare för samordningsnummer (1.2.752.129.2.1.3.3) användas. / För reservidentiterer ska identifierare för nationell reservidentitet (1.2.752.74.9.1) användas. / Exempel: / <code class="language-plaintext highlighter-rouge">&lt;patientId&gt;</code> / <code class="language-plaintext highlighter-rouge">&lt;root&gt;</code>1.2.752.129.2.1.3.1<code class="language-plaintext highlighter-rouge">&lt;/root&gt;</code> / <code class="language-plaintext highlighter-rouge">&lt;extension&gt;</code>196705053723<code class="language-plaintext highlighter-rouge">&lt;/extension&gt;</code> / <code class="language-plaintext highlighter-rouge">&lt;/patientId&gt;</code></td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../transaction</td>
+      <td style="text-align: left">TransactionType</td>
+      <td style="text-align: left">Alla avgifter patienten har betalat för besök inom hälsa och sjukvård (öppen vård).</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../fee*</td>
+      <td style="text-align: left">AmountType</td>
+      <td style="text-align: left">Patientavgift, den avgift patienten har betalat vid tillfället. / Avgifter på 0 SEK skall inte visas (t.ex makulerade transaktioner).</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../amount</td>
+      <td style="text-align: left">decimal</td>
+      <td style="text-align: left">Belopp med högst två decimaler.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../currency*</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left">Typ av valuta anges med oid 1.0.4217 samt den ISO-kod för valutan summan avser. Ska alltid vara SEK. / code: SEK / codeSystem: ”1.0.4217”</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../dateOfVisit*</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left">Datum för besök, måste ha ett värde om typeOfFee är CARE_VISIT</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../timeOfRegistration*</td>
+      <td style="text-align: left">TimeStampType</td>
+      <td style="text-align: left">Datum och tidpunkt när avgiften registrerades i källsystemet. / Måste ha ett värde om typeOfFee är CARE_VISIT</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../typeOfFee*</td>
+      <td style="text-align: left">TypeOfExemptionEnum</td>
+      <td style="text-align: left">Denna version av tjänstedomänen tillåter endast värdet: / CARE_VISIT - Öppen sjukvård</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../careGiver*</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">HSA-id för Vårdgivare där besöket genomfördes, obligatorisk när typeOfFee är satt till CARE_VISIT.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../careUnit*</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">HSA-id för Vårdenhet där besöket genomfördes, obligatorisk när typeOfFee är satt till CARE_VISIT.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../exemption</td>
+      <td style="text-align: left">ExemptionType</td>
+      <td style="text-align: left">Frikort / (Observera att nuvarande version av tjänstedomänen endast tillåter ../exemption.typeOfExemption = CARE_VISIT, vilket i praktiken innebär att kardinaliteten för exemptions i meddelandet bara kan vara [0..1])</td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Unikt frikortsnummer eller serienummer för frikortet. Frikortsnumret genereras av källsystemet: ID’t är således unikt per källsystem.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../highCostProtectionPeriod*</td>
+      <td style="text-align: left">DatePeriodType</td>
+      <td style="text-align: left">Högkostnadsperioden är från första besöket hos vårdgivare till 12 månader framåt. / Nästa högkostnadsskydds period börjar när den senaste frikortsperioden är avslutad. / Se övriga regler.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../start</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left">Startdatum för högkostnadsskydd.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../end</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left">Slutdatum för högkostnadsskydd.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../exemptionPeriod*</td>
+      <td style="text-align: left">DatePeriodType</td>
+      <td style="text-align: left">Den period som frikortet gäller, se övriga regler.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../start</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left">Startdatum för frikort.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../end</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left">Slutdatum för frikort.</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../typeOfExemption*</td>
+      <td style="text-align: left">TypeOfExemptionEnum</td>
+      <td style="text-align: left">Denna version av tjänstedomänen tillåter endast värdet: / CARE_VISIT - Öppen sjukvård</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../region</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left">HSA-id för den region som fattade beslut om att utfärda frikort.</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Svar</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultCodeEnum</td>
+      <td style="text-align: left">Kan vara ett av följande: / OK / INFO / ERROR</td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Producent förväntas skicka ett tillräckligt informativt meddelande som underlättar felsökning i de fall resultCode == ERROR</td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="723-övriga-regler">7.2.3 Övriga regler</h4>
+
+<p>Till denna informationsmängd finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan.</p>
+
+<p>[sch]= validering i schematron. I schematronfilen contraints.xml är id´t på regeln samma som i Id-kolumnen i tabellen.</p>
+
+<p>Gemensamt för alla regler som valideras m h a schematron är att om fältet inte är obligatoriskt och inte finns med i nyttolasten så kommer regeln inte ge ett fel.</p>
+
+<p>Fält exemptionPeriod</p>
+
+<p>’</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Kontext (xpath)</th>
+      <th style="text-align: left">Beskrivning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">rule001 [sch]</td>
+      <td style="text-align: left">//transaction/dateOfVisit</td>
+      <td style="text-align: left">Datumet får inte vara i framtiden</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rule002 [sch]</td>
+      <td style="text-align: left">//transaction/dateOfVisit</td>
+      <td style="text-align: left">Får ej vara äldre än 12 månader</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rule003 [sch]</td>
+      <td style="text-align: left">//exemption/typeOfExemption</td>
+      <td style="text-align: left">Får endast sättas till CARE_VISIT</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rule004 [sch]</td>
+      <td style="text-align: left">//transaction/typeOfFee</td>
+      <td style="text-align: left">Får endast sättas till CARE_VISIT</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rule005 [sch]</td>
+      <td style="text-align: left">count(//exemptions) == 0 and / actor.actorTypeEnum[text() = CAREGIVER]</td>
+      <td style="text-align: left">När antal exemptions är noll och actor.actorTypeEnum var satt till CAREGIVER i motsvarande föregångna anrop (RequestExemptionStatuses) som initierat begäran om utlämnande så ska transaction.careUnit och transaction.careGiver uteslutas.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rule006 [sch]</td>
+      <td style="text-align: left">//transaction/timeOfRegistration</td>
+      <td style="text-align: left">Får ej vara äldre än dateOfVisit</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rule007 [sch]</td>
+      <td style="text-align: left">//transaction/timeOfRegistration</td>
+      <td style="text-align: left">Får ej vara i framtiden</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rule008 [sch]</td>
+      <td style="text-align: left">//patientId/root</td>
+      <td style="text-align: left">Tillåtna värden är oid för personnummer, samordningsnummer enligt skatteverket samt nationell reservidentitet.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rule009 [sch]</td>
+      <td style="text-align: left">//fee/currency/code</td>
+      <td style="text-align: left">Får endast sättas till SEK</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rule010 [sch]</td>
+      <td style="text-align: left">//fee/currency/codeSystem</td>
+      <td style="text-align: left">Får endast sättas till 1.0.4217</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rule011 [sch]</td>
+      <td style="text-align: left">Element av typen CVType</td>
+      <td style="text-align: left">Endast codeSystem och code ska ha värden.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rule012 [sch]</td>
+      <td style="text-align: left">//transaction/typeOfFee, //transaction/dateOfVisit, //transaction/timeOfRegistration</td>
+      <td style="text-align: left">För öppenvård måste både timeOfRegistration samt dateOfVisit vara med.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rule013 [sch]</td>
+      <td style="text-align: left">typeOfExemption[text() = CARE_VISIT]</td>
+      <td style="text-align: left">När typeOfExemption är satt till CARE_VISIT så är careUnit och careGiver obligatoriska.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rule014 [sch]</td>
+      <td style="text-align: left">highCostProtectionPeriod.end = ../exemptionPeriod.end</td>
+      <td style="text-align: left">Slutdatum på högkostnadsperioden skall vara samma som slutdatum för frikortsperioden.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rule015 [sch]</td>
+      <td style="text-align: left">//amount</td>
+      <td style="text-align: left">Inga transaktioner med summa 0 får skickas med.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rule016 [sch]</td>
+      <td style="text-align: left">actor.actorTypeEnum[text() = CITIZEN OR text() = GUARDIAN]</td>
+      <td style="text-align: left">actor.actorTypeEnum var satt till CITIZEN eller GUARDIAN i motsvarande föregångna anrop (RequestExemptionStatuses) som initierat begäran om utlämnande så är careUnit och careGiver obligatoriska.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rule017 [sch]</td>
+      <td style="text-align: left">count(//exemptions) == 0 and / actor.actorTypeEnum[text() = CAREGIVER]</td>
+      <td style="text-align: left">När antal exemptions är noll och actor.actorTypeEnum var satt till CAREGIVER i motsvarande föregångna anrop (RequestExemptionStatuses) som initierat begäran om utlämnande så ska meddelande innehålla en lista med transactions, om sådana finns registrerade hos den utlämnande regionen.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rule018 [sch]</td>
+      <td style="text-align: left">count(//exemptions) != 0 and / actor.actorTypeEnum[text() = CAREGIVER]</td>
+      <td style="text-align: left">När antal exemptions är skiljt från 0 och actor.actorTypeEnum var satt till CAREGIVER i motsvarande föregångna anrop (RequestExemptionStatuses) som initierat begäran om utlämnande så ska meddelandet inte innehålla en lista med transactions. / (Observera att nuvarande version av tjänstedomänen endast tillåter TypeOfFee = CARE_VISIT, vilket i praktiken innebär att kardinaliteten för exemptions i meddelandet bara kan vara [0..1])</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="img_002.png" alt="Övriga regler" /></p>
+
+<p><img src="img_007.png" alt="Övriga regler" /></p>
+
+<p>Krav på hur en tjänstekonsument skall tolka</p>
+
+<p>Finns det ett frikort</p>
+
+<p>Summera transaktionerna de senaste 12 månaderna</p>
+
+<p>Titta på transaktioner inom en högkostnad</p>
+
+<h5 id="7231-icke-funktionella-krav">7.2.3.1 Icke funktionella krav</h5>
+
+<p>N/A</p>
+
+<h6 id="72311-sla-krav">7.2.3.1.1 SLA-krav</h6>
+
+<p>Inga avvikande SLA-krav</p>
+
+<h4 id="724-fältregler-enligt-schema-xsd">7.2.4 Fältregler enligt schema (XSD)</h4>
+
+<p>Tabellen är genererad ur tjänsteschemat. Typerna beskrivs i <a href="6-gemensamma-informationskomponenter.html">avsnitt 6</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Namn</th>
+      <th style="text-align: left">Typ</th>
+      <th style="text-align: left">Beskrivning</th>
+      <th style="text-align: left">Kardinalitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Begäran</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">requestId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">feeExemption</td>
+      <td style="text-align: left">FeeExemptionType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../patientId</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../transactions</td>
+      <td style="text-align: left">TransactionType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../fee</td>
+      <td style="text-align: left">AmountType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../amount</td>
+      <td style="text-align: left">decimal</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../currency</td>
+      <td style="text-align: left">CVType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../code</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystem</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../codeSystemVersion</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../displayName</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../../originalText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../dateOfVisit</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../timeOfRegistration</td>
+      <td style="text-align: left">TimeStampType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../typeOfFee</td>
+      <td style="text-align: left">TypeOfExemptionEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../careGiver</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../careUnit</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../exemptions</td>
+      <td style="text-align: left">ExemptionType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..*</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../highCostProtectionPeriod</td>
+      <td style="text-align: left">DatePeriodType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../start</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../end</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../exemptionPeriod</td>
+      <td style="text-align: left">DatePeriodType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../start</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../end</td>
+      <td style="text-align: left">DateType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../typeOfExemption</td>
+      <td style="text-align: left">TypeOfExemptionEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../region</td>
+      <td style="text-align: left">IIType</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../root</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">../../../extension</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Svar</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultCode</td>
+      <td style="text-align: left">ResultCodeEnum</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">1..1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">resultText</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">0..1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="725-tjänsteinteraktion-enligt-wsdl">7.2.5 Tjänsteinteraktion enligt WSDL</h4>
+
+<p>SOAPAction: <code class="language-plaintext highlighter-rouge">urn:riv:financial:patientfees:exemption:ProcessExemptionStatusesResponder:1:ProcessExemptionStatuses</code></p>
+
+<h4 id="726-källfiler-riv-ta">7.2.6 Källfiler (RIV-TA)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fil</th>
+      <th>Typ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="ProcessExemptionStatusesInteraction_1.0_RIVTABP21.wsdl">ProcessExemptionStatusesInteraction_1.0_RIVTABP21.wsdl</a></td>
+      <td>WSDL (tjänsteinteraktion)</td>
+    </tr>
+    <tr>
+      <td><a href="ProcessExemptionStatusesResponder_1.0.xsd">ProcessExemptionStatusesResponder_1.0.xsd</a></td>
+      <td>Tjänsteschema</td>
+    </tr>
+    <tr>
+      <td><a href="financial_patientfees_exemption_1.0.xsd">financial_patientfees_exemption_1.0.xsd</a></td>
+      <td>Domänschema (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="financial_patientfees_exemption_enum_1.0.xsd">financial_patientfees_exemption_enum_1.0.xsd</a></td>
+      <td>Uppräkningar (delat)</td>
+    </tr>
+    <tr>
+      <td><a href="itintegration_registry_1.0.xsd">itintegration_registry_1.0.xsd</a></td>
+      <td>LogicalAddress (SOAP-huvud)</td>
+    </tr>
+    <tr>
+      <td><a href="SjD_Hogkostnadsskydd_UtlamnandePart.docx">SjD_Hogkostnadsskydd_UtlamnandePart.docx</a></td>
+      <td>Självdeklaration</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="727-fhir-artefakter">7.2.7 FHIR-artefakter</h4>
+
+<p>Följande FHIR-artefakter har genererats från schemat:</p>
+
+<ul>
+  <li><strong>Logisk modell (request):</strong> <a href="StructureDefinition-processexemptionstatuses-request.html">StructureDefinition/processexemptionstatuses-request</a></li>
+  <li><strong>Logisk modell (response):</strong> <a href="StructureDefinition-processexemptionstatuses.html">StructureDefinition/processexemptionstatuses</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-patientfees-exemption-resultcode-cs.html">CodeSystem/patientfees-exemption-resultcode-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-patientfees-exemption-resultcode-vs.html">ValueSet/patientfees-exemption-resultcode-vs</a></li>
+  <li><strong>Kodsystem:</strong> <a href="CodeSystem-patientfees-exemption-typeofexemption-cs.html">CodeSystem/patientfees-exemption-typeofexemption-cs</a></li>
+  <li><strong>ValueSet:</strong> <a href="ValueSet-patientfees-exemption-typeofexemption-vs.html">ValueSet/patientfees-exemption-typeofexemption-vs</a></li>
+</ul>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se"></a>.  Package inera.financial-patientfees-exemption#1.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Oct 8, 2026 18:24+0000">2026-10-08</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+
