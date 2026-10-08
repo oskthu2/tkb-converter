@@ -114,6 +114,8 @@ def load_registry():
     reg = json.loads(REGISTRY.read_text(encoding="utf-8"))
     out = {}
     for d in reg.get("domains", []):
+        if d.get("version_of"):
+            continue  # äldre huvudversion (igs/TKB_x/versions/<v>/), inte en egen domän
         outdir = (d.get("output_dir") or "").rstrip("/")
         if outdir and (ROOT / outdir / "sushi-config.yaml").exists():
             out[d["id"]] = Path(outdir).name

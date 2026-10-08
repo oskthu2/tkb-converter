@@ -204,7 +204,7 @@ def main():
     ap.add_argument("dirs", nargs="*")
     ap.add_argument("--all", action="store_true")
     args = ap.parse_args()
-    dirs = sorted(Path("igs").glob("TKB_*")) if args.all else [Path(d.rstrip("/")) for d in args.dirs]
+    dirs = sorted([*Path("igs").glob("TKB_*"), *Path("igs").glob("TKB_*/versions/*")]) if args.all else [Path(d.rstrip("/")) for d in args.dirs]
     if not dirs:
         ap.error("ange minst en IG-katalog eller --all")
     total_err = 0
