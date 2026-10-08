@@ -1,2 +1,10 @@
+[AddressPartTypeCS]: CodeSystem-addressparttype-cs.html
+[AddressPartTypeVS]: ValueSet-addressparttype-vs.html
 [GetObservations]: StructureDefinition-getobservations.html
 [GetObservationsRequest]: StructureDefinition-getobservations-request.html
+[PostalAddressUseCS]: CodeSystem-postaladdressuse-cs.html
+[PostalAddressUseVS]: ValueSet-postaladdressuse-vs.html
+[TelTypeCS]: CodeSystem-teltype-cs.html
+[TelTypeVS]: ValueSet-teltype-vs.html
+[TimeStampTypeFormatCS]: CodeSystem-timestamptypeformat-cs.html
+[TimeStampTypeFormatVS]: ValueSet-timestamptypeformat-vs.html

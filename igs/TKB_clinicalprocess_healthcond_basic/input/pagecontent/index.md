@@ -1,19 +1,21 @@
 # clinicalprocess: healthcond: basic
 
 <!-- tkb-version -->
-**TKB-version:** 2.0 · **IG-version:** 2.0.0-snapshot · **Källa:** Bitbucket-commit `16f8cd696770` (ingen tagg)
+**TKB-version:** 1.2.3 · **IG-version:** 1.2.3 · **Källa:** Bitbucket-tagg `1.2.3`
 <!-- /tkb-version -->
 
 ## Översikt
 
-FHIR Implementation Guide för tjänstedomänen **clinicalprocess: healthcond: basic** version 2.0.
-Genererad från Ineras Tjänstekontraktsbeskrivning (TKB).
+FHIR Implementation Guide för tjänstedomänen **clinicalprocess: healthcond: basic** (Vård- och omsorg kärnprocess: hantera hälsorelaterade tillstånd: basuppgifter), version 1.2.3.
+Genererad från Ineras Tjänstekontraktsbeskrivning (TKB) och schemafilerna i Bitbucket-taggen `1.2.3` (commit `55a953227545`, 2026-05-12). TKB-dokumentet i taggen har dokumentversion 1.2.1 (2025-07-07).
+
+Domänen hanterar information om observationer och mätvärden. Syftet är att tillgängliggöra journalförd, strukturerad och kodad information om observationer från vårdverksamheter för återanvändning, till exempel i kvalitetsregister, uppföljningssystem, system för den enskildes direktåtkomst och sammanhållen journalföring.
 
 Domänen innehåller följande tjänstekontrakt:
 
 | Kontrakt | Version | Beskrivning |
 |----------|---------|-------------|
-| [GetObservations](7-tjanstekontrakt.html#getobservations) | 2.0 | Hämtar strukturerade observationer rörande en patient. Kontraktet är abstrakt — godtyckliga observationstyper kan hämtas. |
+| [GetObservations](7-tjanstekontrakt.html#getobservations) | 1.2 | Returnerar strukturerade observationer för en patient. Den praktiska tillämpningen beskrivs i interaktionsöverenskommelser. |
 
 ## Innehåll
 
@@ -24,3 +26,5 @@ Domänen innehåller följande tjänstekontrakt:
 * [5 Tjänstedomänens meddelandemodeller](5-tjanstedomanens-meddelandemodeller.html)
 * [7 Tjänstekontrakt](7-tjanstekontrakt.html)
 * [Artefakter](artifacts.html)
+
+TKB-dokumentet saknar ett kapitel för gemensamma informationskomponenter; tjänstekontraktet är kapitel 6 i dokumentet och kapitel 7 i denna IG.

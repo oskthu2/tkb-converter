@@ -2,7 +2,8 @@
 # discover_domains.sh — avgör vilka igs/TKB_*-kataloger som ska byggas.
 #
 # En katalog är "redo" om den har en sushi-config.yaml (dvs. IG Builder +
-# Model Builder har producerat FSH-källkod för den). Skriver katalogsökvägar,
+# Model Builder har producerat FSH-källkod för den). Äldre levande
+# huvudversioner ligger i igs/TKB_x/versions/<semver>/ och är egna byggenheter. Skriver katalogsökvägar,
 # en per rad, till $DOMAINS_FILE (default: domains.txt) och sätter output
 # any_ready=true/false på $GITHUB_OUTPUT.
 #
@@ -17,7 +18,8 @@ DOMAINS_FILE="${DOMAINS_FILE:-domains.txt}"
 EVENT_NAME="${EVENT_NAME:-push}"
 GITHUB_OUTPUT="${GITHUB_OUTPUT:-/dev/null}"
 
-mapfile -t READY_DIRS < <(find igs -maxdepth 2 -name 'sushi-config.yaml' -printf '%h\n' | sort)
+mapfile -t READY_DIRS < <(find igs -maxdepth 4 -name 'sushi-config.yaml' -printf '%h\n' \
+  | grep -E '^igs/[^/]+$|^igs/[^/]+/versions/[^/]+$' | sort)
 
 : > "$DOMAINS_FILE"
 
@@ -25,7 +27,10 @@ case "$EVENT_NAME" in
   pull_request)
     BASE_SHA="${BASE_SHA:?BASE_SHA krävs för pull_request}"
     HEAD_SHA="${HEAD_SHA:?HEAD_SHA krävs för pull_request}"
-    mapfile -t CHANGED < <(git diff --name-only "$BASE_SHA" "$HEAD_SHA" -- igs/ | cut -d/ -f1-2 | sort -u)
+    # En ändrad fil hör till den byggenhet vars katalog den ligger i;
+    # filer under igs/TKB_x/versions/<v>/ hör till versionen, inte till TKB_x.
+    mapfile -t CHANGED < <(git diff --name-only "$BASE_SHA" "$HEAD_SHA" -- igs/ \
+      | sed -E 's#^(igs/[^/]+/versions/[^/]+)/.*#\1#; t; s#^(igs/[^/]+)/.*#\1#' | sort -u)
     for dir in "${READY_DIRS[@]}"; do
       for changed in "${CHANGED[@]}"; do
         if [ "$dir" = "$changed" ]; then

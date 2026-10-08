@@ -16,9 +16,9 @@ if [ ! -d "$QA_RESULTS_DIR" ] || [ -z "$(find "$QA_RESULTS_DIR" -maxdepth 1 -min
 fi
 
 failed=0
-for status_file in "$QA_RESULTS_DIR"/*/status.json; do
+while IFS= read -r status_file; do
     [ -f "$status_file" ] || continue
-    slug="$(basename "$(dirname "$status_file")")"
+    slug="${status_file#"$QA_RESULTS_DIR"/}"; slug="${slug%/status.json}"
     qa_file="$(dirname "$status_file")/qa-errors.json"
 
     # status.json speglar det FAKTISKA exitkoden från java -jar publisher.jar.
@@ -40,7 +40,7 @@ for status_file in "$QA_RESULTS_DIR"/*/status.json; do
             failed=1
         fi
     fi
-done
+done < <(find "$QA_RESULTS_DIR" -name status.json | sort)
 
 if [ "$failed" -ne 0 ]; then
     echo "[check_quality_gate] Kvalitetsgrinden underkänd — se sammanfattningen ovan och qa-results/*/qa-errors.json"

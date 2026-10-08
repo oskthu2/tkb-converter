@@ -4,23 +4,31 @@
 # source/-kataloger: råutpackade zip-filer från Bitbucket — spåras ej i git
 # (viktiga filer kopieras till input/files/ av IG Builder)
 igs/*/source/
+igs/*/versions/*/source/
 
 # IG Publisher output — stora filer, regenereras av GitHub Actions
 # (.github/workflows/build-and-publish.yml) och publiceras till GitHub Pages
 igs/*/output/
+igs/*/versions/*/output/
 igs/*/temp/
+igs/*/versions/*/temp/
 igs/*/template/
+igs/*/versions/*/template/
 igs/*/input-cache/
+igs/*/versions/*/input-cache/
 igs/*/Requirements-fromNarrative.json
+igs/*/versions/*/Requirements-fromNarrative.json
 
 # Bilder i docx-converted/ är exakta kopior av input/images/ (IG Publisher-källan)
 # Undviker dubblering — input/images/ spåras och är vad som räknas
 igs/*/docx-converted/images/
+igs/*/versions/*/docx-converted/images/
 
 # IG Publisher build-loggar — individuella varningar fångas i qa-errors.json av scripts/parse_qa.py.
 # Om qa-errors.json efter rebuild fortfarande saknar detaljer: ta bort raden nedan
 # och kör 'git add igs/*/ig-publisher-logs/build.log' för att fånga råloggen istället.
 igs/*/ig-publisher-logs/*.log
+igs/*/versions/*/ig-publisher-logs/*.log
 
 # Lokala körningar av scripts/build_all.sh (samma jobb som GitHub Actions kör)
 _site/

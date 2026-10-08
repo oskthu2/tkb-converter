@@ -1,4 +1,4 @@
-// Genererad från TKB clinicalprocess:healthcond:description v3.0.5
+// Genererad från TKB clinicalprocess:healthcond:description v3.0.6
 // Kontrakt: GetAlertInformation v2.0
 // Namespace: urn:riv:clinicalprocess:healthcond:description:GetAlertInformationResponder:2
 // Genererad: 2026-03-19

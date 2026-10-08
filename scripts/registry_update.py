@@ -14,6 +14,8 @@ Exempel:
         --contracts '[{"id": "GetX", "version": "1.0"}]'
     scripts/registry_update.py x.y.z --status blocked --blocked-reason "..."
     scripts/registry_update.py --next-pending       # skriv ut nästa pending-domän
+    scripts/registry_update.py --add-version-of x.y.z --tag 2.1.19 \
+        --set source_commit=...                     # äldre levande major som egen IG
 """
 
 import argparse
@@ -53,6 +55,10 @@ def main():
     ap.add_argument("--set", action="append", default=[], metavar="KEY=VALUE",
                     help="godtyckligt fält; VALUE tolkas som JSON om möjligt")
     ap.add_argument("--next-pending", action="store_true")
+    ap.add_argument("--add-version-of", metavar="DOMÄN",
+                    help="skapa en post för en äldre levande major av DOMÄN (kräver --tag); "
+                         "posten får id DOMÄN@<semver> och output_dir <domänens katalog>/versions/<semver>/")
+    ap.add_argument("--tag", help="Bitbucket-taggen för --add-version-of")
     ap.add_argument("--exclude", action="append", default=[],
                     help="domän-id att hoppa över vid --next-pending (t.ex. med öppen PR)")
     args = ap.parse_args()
@@ -65,6 +71,40 @@ def main():
                 print(d["id"])
                 return
         sys.exit(3)  # inga pending-domäner kvar
+
+    if args.add_version_of:
+        if not args.tag:
+            ap.error("--add-version-of kräver --tag")
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import tkb_version
+        parent = next((d for d in data["domains"] if d["id"] == args.add_version_of), None)
+        if parent is None:
+            sys.exit(f"okänd domän: {args.add_version_of}")
+        semver = tkb_version.semver(args.tag)
+        vid = f"{parent['id']}@{semver}"
+        if any(d["id"] == vid for d in data["domains"]):
+            sys.exit(f"finns redan: {vid}")
+        slug = parent["bitbucket_slug"]
+        data["domains"].append({
+            "id": vid,
+            "version_of": parent["id"],
+            "role": "supported",
+            "bitbucket_slug": slug,
+            "zip_url": f"https://bitbucket.org/rivta-domains/{slug}/get/{args.tag}.zip",
+            "domain_version": tkb_version.label(args.tag),
+            "status": "in-progress",
+            "blocked_reason": None,
+            "output_dir": f"{parent['output_dir'].rstrip('/')}/versions/{semver}/",
+            "contracts": [],
+            "questions_count": 0,
+            "sushi_result": None,
+            "started_at": now(),
+            "completed_at": None,
+            "source_tag": args.tag,
+            "source_kind": "tag",
+            "ig_version": semver,
+        })
+        args.domain = vid
 
     if not args.domain:
         ap.error("domän-id krävs")

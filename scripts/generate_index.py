@@ -33,7 +33,7 @@ def main():
     args = parser.parse_args()
 
     entries = []
-    for status_file in sorted(args.qa_results.glob("*/status.json")):
+    for status_file in sorted(args.qa_results.rglob("status.json")):
         status = json.loads(status_file.read_text(encoding="utf-8"))
         slug = status["slug"]
         qa_file = status_file.parent / "qa-errors.json"
@@ -62,6 +62,7 @@ def main():
     entries = [e for e in entries if e["slug"] != PORTAL_SLUG]
     entries.sort(key=lambda e: e["title"].lower())
 
+    n_versions = sum(1 for e in entries if "/" in e["slug"])
     n_pass = sum(1 for e in entries if e["passed"])
     n_fail = len(entries) - n_pass
 
@@ -109,7 +110,7 @@ def main():
 </head>
 <body>
 <h1>Inera TKB → FHIR Implementation Guides</h1>
-{portal_html}<p class="summary">{len(entries)} tjänstedomäner byggda — {n_pass} OK, {n_fail} med fel. Genererad av GitHub Actions.</p>
+{portal_html}<p class="summary">{len(entries) - n_versions} tjänstedomäner och {n_versions} äldre huvudversioner byggda — {n_pass} OK, {n_fail} med fel. Genererad av GitHub Actions.</p>
 <table>
   <thead><tr><th>Tjänstedomän</th><th>Status</th><th>Varningar</th><th>QA-rapport</th></tr></thead>
   <tbody>

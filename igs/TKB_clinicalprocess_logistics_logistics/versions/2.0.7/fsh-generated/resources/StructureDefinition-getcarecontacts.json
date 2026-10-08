@@ -1,0 +1,508 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getcarecontacts",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/getcarecontacts",
+  "version": "2.0",
+  "name": "GetCareContacts",
+  "title": "GetCareContacts",
+  "status": "active",
+  "description": "Logisk modell för tjänstekontraktet GetCareContacts 2.0\n(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCareContactsResponder:2).\nRepresenterar svarets informationsstruktur (GetCareContactsResponseType):\nnoll eller flera vårdkontakter, var och en med ett huvud (careContactHeader) och en kropp (careContactBody).",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/StructureDefinition/getcarecontacts",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getcarecontacts",
+        "path": "getcarecontacts",
+        "short": "GetCareContacts",
+        "definition": "Logisk modell för tjänstekontraktet GetCareContacts 2.0\n(RIV-TA urn:riv:clinicalprocess:logistics:logistics:GetCareContactsResponder:2).\nRepresenterar svarets informationsstruktur (GetCareContactsResponseType):\nnoll eller flera vårdkontakter, var och en med ett huvud (careContactHeader) och en kropp (careContactBody)."
+      },
+      {
+        "id": "getcarecontacts.careContact",
+        "path": "getcarecontacts.careContact",
+        "short": "De hälso- och sjukvårdskontakter som matchar begäran",
+        "definition": "Typ CareContactType.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactHeader",
+        "path": "getcarecontacts.careContact.careContactHeader",
+        "short": "Basinformation om dokumentet",
+        "definition": "Typ PatientSummaryHeaderType.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactHeader.documentId",
+        "path": "getcarecontacts.careContact.careContactHeader.documentId",
+        "short": "Vårdkontaktens identitet",
+        "definition": "Identifieraren ska vara konsistent och beständig mellan olika majorversioner av ett kontrakt\noch mellan olika kontrakt.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactHeader.sourceSystemHSAId",
+        "path": "getcarecontacts.careContact.careContactHeader.sourceSystemHSAId",
+        "short": "HSA-id för det system som dokumentet är skapat i",
+        "definition": "HSA-id för det system som dokumentet är skapat i",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactHeader.patientId",
+        "path": "getcarecontacts.careContact.careContactHeader.patientId",
+        "short": "Identifierare för patient",
+        "definition": "Typ PersonIdType. value (id i schemat) = patientens identifierare med 12 tecken utan avskiljare.\nsystem (type i schemat) = OID för typ av identifierare: personnummer 1.2.752.129.2.1.3.1,\nsamordningsnummer 1.2.752.129.2.1.3.3, reservnummer lokalt definierad OID (t.ex. SLL 1.2.752.97.3.1.3).",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional",
+        "path": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional",
+        "short": "Hälso- och sjukvårdsperson som ansvarar för vårdkontakten",
+        "definition": "Typ HealthcareProfessionalType. Ska anges om tillgänglig.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.authorTime",
+        "path": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.authorTime",
+        "short": "Tidpunkt då dokumentet skapades",
+        "definition": "Typ TimeStampType (ÅÅÅÅMMDDttmmss, svensk lokal tid). Den senaste tidpunkten då informationen\nuppdaterades i systemet ska anges om informationen ändrats efter att den skapades. Regel 2.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+        "path": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+        "short": "HSA-id för hälso- och sjukvårdsperson som ansvarar för vårdkontakten",
+        "definition": "HSA-id för hälso- och sjukvårdsperson som ansvarar för vårdkontakten",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+        "path": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+        "short": "Namn på hälso- och sjukvårdsperson",
+        "definition": "Namn på hälso- och sjukvårdsperson",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+        "path": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+        "short": "Hälso- och sjukvårdspersonens befattning",
+        "definition": "Typ CVType. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4) användas [R9].\noriginalText används för lokalt kodverk utan OID eller när kod saknas; då anges inget annat värde.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+        "path": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+        "short": "Den organisation som hälso- och sjukvårdspersonen är uppdragstagare på",
+        "definition": "Typ OrgUnitType. Regel 4.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+        "path": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+        "short": "HSA-id för organisationsenhet (Regel 4)",
+        "definition": "HSA-id för organisationsenhet (Regel 4)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+        "path": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+        "short": "Namn på organisationsenheten (Regel 4)",
+        "definition": "Namn på organisationsenheten (Regel 4)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+        "path": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+        "short": "Telefon till organisationsenhet",
+        "definition": "Telefon till organisationsenhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+        "path": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+        "short": "Epost till enhet",
+        "definition": "Epost till enhet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+        "path": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+        "short": "Postadress för organisationen",
+        "definition": "Postadress för organisationen",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+        "path": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+        "short": "Namn på plats eller ort för organisationens fysiska placering",
+        "definition": "Namn på plats eller ort för organisationens fysiska placering",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+        "path": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+        "short": "HSA-id för vårdenhet (Regel 1)",
+        "definition": "TKB-tabellen anger 1..1, schemat 0..1. Modellen följer schemat.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+        "path": "getcarecontacts.careContact.careContactHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+        "short": "HSA-id för vårdgivaren (Regel 1)",
+        "definition": "Vårdgivare för den enhet som hälso- och sjukvårdspersonen är uppdragstagare för.\nTKB-tabellen anger 1..1, schemat 0..1. Modellen följer schemat.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactHeader.approvedForPatient",
+        "path": "getcarecontacts.careContact.careContactHeader.approvedForPatient",
+        "short": "Anger om information får delas till patient (Regel 3)",
+        "definition": "Anger om information får delas till patient (Regel 3)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactHeader.nullified",
+        "path": "getcarecontacts.careContact.careContactHeader.nullified",
+        "short": "Anger om dokumentet makulerats i källsystemet",
+        "definition": "Anger om dokumentet makulerats i källsystemet",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactHeader.nullifiedReason",
+        "path": "getcarecontacts.careContact.careContactHeader.nullifiedReason",
+        "short": "Orsak till makulering",
+        "definition": "Orsak till makulering",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactBody",
+        "path": "getcarecontacts.careContact.careContactBody",
+        "short": "Vårdkontaktens innehåll",
+        "definition": "Typ CareContactBodyType.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactBody.careContactCode",
+        "path": "getcarecontacts.careContact.careContactBody.careContactCode",
+        "short": "Typ av vårdkontakt",
+        "definition": "CareContactCodeEnum: 1 = Besök, 2 = Telefon, 3 = Vårdtillfälle, 4 = Dagsjukvård, 5 = Annan.\nUtelämnat värde betyder att värdet är okänt.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/ValueSet/carecontactcode-vs"
+        }
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactBody.careContactReason",
+        "path": "getcarecontacts.careContact.careContactBody.careContactReason",
+        "short": "Orsak till kontakten enligt patienten eller dess företrädare",
+        "definition": "Orsak till kontakten enligt patienten eller dess företrädare",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactBody.careContactOrgUnit",
+        "path": "getcarecontacts.careContact.careContactBody.careContactOrgUnit",
+        "short": "Den enhet som kontakten utfördes vid",
+        "definition": "Typ OrgUnitType.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactBody.careContactOrgUnit.orgUnitHSAId",
+        "path": "getcarecontacts.careContact.careContactBody.careContactOrgUnit.orgUnitHSAId",
+        "short": "HSA-id för organisationsenhet",
+        "definition": "HSA-id för organisationsenhet",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactBody.careContactOrgUnit.orgUnitName",
+        "path": "getcarecontacts.careContact.careContactBody.careContactOrgUnit.orgUnitName",
+        "short": "Namn på organisationsenheten",
+        "definition": "Namn på organisationsenheten",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactBody.careContactOrgUnit.orgUnitTelecom",
+        "path": "getcarecontacts.careContact.careContactBody.careContactOrgUnit.orgUnitTelecom",
+        "short": "Telefon till organisationsenheten",
+        "definition": "Telefon till organisationsenheten",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactBody.careContactOrgUnit.orgUnitEmail",
+        "path": "getcarecontacts.careContact.careContactBody.careContactOrgUnit.orgUnitEmail",
+        "short": "Epost till organisationsenheten",
+        "definition": "Epost till organisationsenheten",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactBody.careContactOrgUnit.orgUnitAddress",
+        "path": "getcarecontacts.careContact.careContactBody.careContactOrgUnit.orgUnitAddress",
+        "short": "Postadress till organisationsenheten",
+        "definition": "Postadress till organisationsenheten",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactBody.careContactOrgUnit.orgUnitLocation",
+        "path": "getcarecontacts.careContact.careContactBody.careContactOrgUnit.orgUnitLocation",
+        "short": "Namn på plats eller ort för organisationsenhetens fysiska placering",
+        "definition": "Namn på plats eller ort för organisationsenhetens fysiska placering",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactBody.careContactTimePeriod",
+        "path": "getcarecontacts.careContact.careContactBody.careContactTimePeriod",
+        "short": "Vårdkontaktens tidsperiod",
+        "definition": "Typ TimePeriodType. För besök sätts sluttidpunkten till samma tid som starttidpunkten.\nFör planerade kontakter sätts ingen sluttidpunkt. Pågående vårdtillfälle anges som en\nplanerad vårdkontakt, med startdatum men utan slutdatum.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactBody.careContactTimePeriod.start",
+        "path": "getcarecontacts.careContact.careContactBody.careContactTimePeriod.start",
+        "short": "Starttidpunkt",
+        "definition": "Starttidpunkt",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactBody.careContactTimePeriod.end",
+        "path": "getcarecontacts.careContact.careContactBody.careContactTimePeriod.end",
+        "short": "Sluttidpunkt",
+        "definition": "Sluttidpunkt",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      },
+      {
+        "id": "getcarecontacts.careContact.careContactBody.careContactStatus",
+        "path": "getcarecontacts.careContact.careContactBody.careContactStatus",
+        "short": "Status på vårdkontakten",
+        "definition": "CareContactStatusEnum (kodverk ur NPÖ RIV-spec 2.2): 1 = Ej påbörjad, 2 = Inställd,\n3 = Pågående, 4 = Avbruten, 5 = Avslutad.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-logistics-logistics/ValueSet/carecontactstatus-vs"
+        }
+      }
+    ]
+  }
+}

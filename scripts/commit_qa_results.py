@@ -31,7 +31,7 @@ def main():
     by_output_dir = {d.get("output_dir", "").rstrip("/"): d for d in registry.get("domains", [])}
 
     updated = 0
-    for status_file in sorted(QA_RESULTS_DIR.glob("*/status.json")):
+    for status_file in sorted(QA_RESULTS_DIR.rglob("status.json")):
         status = json.loads(status_file.read_text(encoding="utf-8"))
         qa_file = status_file.parent / "qa-errors.json"
         ig_dir = Path(status["dir"].rstrip("/"))

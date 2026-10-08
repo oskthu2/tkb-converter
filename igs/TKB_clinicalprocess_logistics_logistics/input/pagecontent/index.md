@@ -1,7 +1,7 @@
 # clinicalprocess: logistics: logistics
 
 <!-- tkb-version -->
-**TKB-version:** 3.0.13 · **IG-version:** 3.0.13 · **Källa:** Bitbucket-tagg `3.0.13`
+**TKB-version:** 3.0.13 · **IG-version:** 3.0.13 · **Källa:** Bitbucket-tagg `3.0.13` · **Andra huvudversioner:** [2.0.7](https://oskthu2.github.io/tkb-converter/TKB_clinicalprocess_logistics_logistics/2.0.7/index.html)
 <!-- /tkb-version -->
 
 ## Översikt

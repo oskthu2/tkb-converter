@@ -17,7 +17,7 @@ fi
 echo "| Domän | Status | Fatal | Fel | Varningar |"
 echo "|---|---|---|---|---|"
 
-for status_file in "$QA_RESULTS_DIR"/*/status.json; do
+while IFS= read -r status_file; do
     [ -f "$status_file" ] || continue
     dir="$(dirname "$status_file")"
     qa_file="$dir/qa-errors.json"
@@ -38,4 +38,4 @@ overall_passed = status.get("status") == "success" and qa.get("passed", True)
 icon = "✅" if overall_passed else "❌"
 print(f"| {slug} | {icon} | {s.get('fatal', 0)} | {s.get('errors', 0)} | {s.get('warnings', 0)} |")
 PYEOF
-done
+done < <(find "$QA_RESULTS_DIR" -name status.json | sort)

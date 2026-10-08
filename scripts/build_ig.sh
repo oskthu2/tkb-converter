@@ -14,12 +14,19 @@
 #   $QA_RESULTS_DIR/<slug>/qa-errors.json     — kopia för CI-aggregering
 #   $QA_RESULTS_DIR/<slug>/status.json        — kort sammanfattning för rapport/gate
 #   $SITE_DIR/<slug>/                         — publicerad HTML-IG (för GitHub Pages)
+#   (slug = TKB_x, eller TKB_x/<semver> för en äldre huvudversion)
 
 set -uo pipefail  # inte -e: vi vill fortsätta och rapportera fel per domän
 
 IG_DIR="${1:?Användning: build_ig.sh <ig_dir>}"
 IG_DIR="${IG_DIR%/}"
-SLUG="$(basename "$IG_DIR")"
+# Äldre levande huvudversion (igs/TKB_x/versions/<semver>) publiceras under
+# TKB_x/<semver>/, bredvid den aktuella versionen i TKB_x/.
+if [[ "$IG_DIR" =~ ^(.*/)?([^/]+)/versions/([^/]+)$ ]]; then
+    SLUG="${BASH_REMATCH[2]}/${BASH_REMATCH[3]}"
+else
+    SLUG="$(basename "$IG_DIR")"
+fi
 
 TX_SERVER="${TX_SERVER:-n/a}"
 PUBLISHER_JAR="${PUBLISHER_JAR:?PUBLISHER_JAR måste sättas}"

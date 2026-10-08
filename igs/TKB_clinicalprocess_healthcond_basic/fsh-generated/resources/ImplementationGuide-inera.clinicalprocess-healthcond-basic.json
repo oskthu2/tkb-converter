@@ -2,10 +2,10 @@
   "resourceType": "ImplementationGuide",
   "id": "inera.clinicalprocess-healthcond-basic",
   "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-basic/ImplementationGuide/inera.clinicalprocess-healthcond-basic",
-  "version": "2.0.0-snapshot",
+  "version": "1.2.3",
   "name": "clinicalprocesshealthcondbasic",
   "title": "clinicalprocess: healthcond: basic",
-  "status": "draft",
+  "status": "active",
   "contact": [
     {
       "name": "Inera Arkitektur",
@@ -34,10 +34,26 @@
     "resource": [
       {
         "reference": {
+          "reference": "CodeSystem/addressparttype-cs"
+        },
+        "name": "AddressPartTypeEnum",
+        "description": "Typ av adressdel (AddressPartType.type), baserat på ISO 21090. Källa: AddressPartTypeEnum i clinicalprocess_healthcond_basic_enum_1.2.xsd.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/addressparttype-vs"
+        },
+        "name": "AddressPartTypeEnum — ValueSet",
+        "description": "Tillåtna värden enligt AddressPartTypeEnum.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/getobservations"
         },
         "name": "GetObservations",
-        "description": "Logisk modell för tjänstekontraktet GetObservations\n(RIV-TA urn:riv:clinicalprocess:healthcond:basic:GetObservationsInteraction:2).\nRepresenterar responsens informationsstruktur — en samling observationer som\nmatchar sökkriterier i begäran, inklusive header-information.\nMeddelandemodellen från avsnitt 5.1 V-MIM — Observationer i TKB motsvarar\nen observation i svarsmeddelandet.",
+        "description": "Logisk modell för tjänstekontraktet GetObservations 1.2\n(RIV-TA urn:riv:clinicalprocess:healthcond:basic:GetObservationsResponder:1, elementet GetObservationsResponse).\nRepresenterar svarets informationsstruktur: grupper av observationer (observationGroup) som delar patient,\nutförare, signerare, ytterligare deltagare och källsystem. Meddelandemodellen V-MIM – Observationer\n(TKB avsnitt 5.1) motsvarar svarsmeddelandet.",
         "exampleBoolean": false
       },
       {
@@ -45,7 +61,55 @@
           "reference": "StructureDefinition/getobservations-request"
         },
         "name": "GetObservations — Request",
-        "description": "Logisk modell för requestparametrar i tjänstekontraktet GetObservations\n(RIV-TA urn:riv:clinicalprocess:healthcond:basic:GetObservationsInteraction:2).\nDen enda alltid obligatoriska sökparametern är personPatientId. Minst en ytterligare\nsökparameter måste anges — annars ska producenten avvisa begäran med SOAP exception.",
+        "description": "Logisk modell för begäran i tjänstekontraktet GetObservations 1.2\n(RIV-TA urn:riv:clinicalprocess:healthcond:basic:GetObservationsResponder:1, elementet GetObservations).\nDen enda sökparametern som explicit behöver anges är patientId (övrig regel 1.1).\nEn begäran med patientId men utan någon av de andra sökparametrarna får nekas av producent.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/postaladdressuse-cs"
+        },
+        "name": "PostalAddressUseEnum",
+        "description": "Användningskod för adress (AddressType.use). Källa: PostalAddressUseEnum i clinicalprocess_healthcond_basic_enum_1.2.xsd.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/postaladdressuse-vs"
+        },
+        "name": "PostalAddressUseEnum — ValueSet",
+        "description": "Tillåtna värden enligt PostalAddressUseEnum.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/teltype-cs"
+        },
+        "name": "TelTypeEnum",
+        "description": "Typ av elektronisk adress (TelType.use). Källa: TelTypeEnum i clinicalprocess_healthcond_basic_enum_1.2.xsd.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/teltype-vs"
+        },
+        "name": "TelTypeEnum — ValueSet",
+        "description": "Tillåtna värden enligt TelTypeEnum.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/timestamptypeformat-cs"
+        },
+        "name": "TimeStampTypeFormatEnum",
+        "description": "Precision för en tidpunkt med varierande precision (PartialTimeStampType.format). Källa: TimeStampTypeFormatEnum i clinicalprocess_healthcond_basic_enum_1.2.xsd.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/timestamptypeformat-vs"
+        },
+        "name": "TimeStampTypeFormatEnum — ValueSet",
+        "description": "Tillåtna värden enligt TimeStampTypeFormatEnum.",
         "exampleBoolean": false
       }
     ],
@@ -98,7 +162,7 @@
       },
       {
         "code": "releaselabel",
-        "value": "snapshot"
+        "value": "release"
       },
       {
         "code": "show-inherited-invariants",
@@ -122,19 +186,19 @@
       },
       {
         "code": "special-url",
-        "value": "https://fhir.inera.se/CodeSystem/observation-status-cs"
+        "value": "https://fhir.inera.se/CodeSystem/postaladdressuse-cs"
       },
       {
         "code": "special-url",
-        "value": "https://fhir.inera.se/CodeSystem/observation-relation-type-cs"
+        "value": "https://fhir.inera.se/CodeSystem/addressparttype-cs"
       },
       {
         "code": "special-url",
-        "value": "https://fhir.inera.se/CodeSystem/participation-type-cs"
+        "value": "https://fhir.inera.se/CodeSystem/teltype-cs"
       },
       {
         "code": "special-url",
-        "value": "https://fhir.inera.se/CodeSystem/value-any-type-cs"
+        "value": "https://fhir.inera.se/CodeSystem/timestamptypeformat-cs"
       }
     ]
   }

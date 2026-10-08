@@ -104,7 +104,26 @@ def update_resources(ig: Path, entry: dict) -> int:
     return n
 
 
-def update_index(ig: Path, entry: dict):
+PAGES_BASE = "https://oskthu2.github.io/tkb-converter/"
+
+
+def pages_url(entry: dict) -> str:
+    """Publicerad adress: TKB_x/ för aktuell version, TKB_x/<semver>/ för en äldre major."""
+    parts = Path(entry["output_dir"].rstrip("/")).parts  # igs, TKB_x[, versions, v]
+    path = "/".join([parts[1]] + list(parts[3:]))
+    return f"{PAGES_BASE}{path}/index.html"
+
+
+def other_versions(entry: dict, domains: list) -> list:
+    """Övriga levande huvudversioner av samma domän, nyaste först."""
+    base = entry.get("version_of") or entry["id"]
+    out = [d for d in domains
+           if d is not entry and (d["id"] == base or d.get("version_of") == base) and d.get("output_dir")]
+    return sorted(out, key=lambda d: [int(x) if x.isdigit() else 0 for x in re.split(r"[.-]", d.get("ig_version") or "0")],
+                  reverse=True)
+
+
+def update_index(ig: Path, entry: dict, domains: list = ()):
     idx = ig / "input" / "pagecontent" / "index.md"
     if not idx.exists():
         return
@@ -118,7 +137,12 @@ def update_index(ig: Path, entry: dict):
     else:
         src = f"Bitbucket-commit `{commit}` (ingen tagg)"
     block = (f"{MARK_START}\n**TKB-version:** {entry['domain_version']} · **IG-version:** {entry['ig_version']} · "
-             f"**Källa:** {src}\n{MARK_END}")
+             f"**Källa:** {src}")
+    others = other_versions(entry, list(domains))
+    if others:
+        links = ", ".join(f"[{d['domain_version']}]({pages_url(d)})" for d in others)
+        block += f" · **Andra huvudversioner:** {links}"
+    block += f"\n{MARK_END}"
     if MARK_START in text:
         text = re.sub(re.escape(MARK_START) + r".*?" + re.escape(MARK_END), lambda _: block, text, count=1, flags=re.S)
     else:
@@ -145,7 +169,7 @@ def main():
         ig = ROOT / rel
         update_config(ig, entry)
         n = update_resources(ig, entry)
-        update_index(ig, entry)
+        update_index(ig, entry, domains)
         print(f"{rel}: {entry['ig_version']} ({n} resurser)")
 
 

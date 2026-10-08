@@ -1,0 +1,1041 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getreferraloutcome",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getreferraloutcome",
+  "version": "3.1",
+  "name": "GetReferralOutcome",
+  "title": "GetReferralOutcome",
+  "status": "active",
+  "description": "Logisk modell för tjänstekontraktet GetReferralOutcome 3.1\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetReferralOutcomeResponder:3).\nRepresenterar svarets (response) informationsstruktur enligt fältreglerna i TKB 3.1.10, avsnitt 7.1.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getreferraloutcome",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getreferraloutcome",
+        "path": "getreferraloutcome",
+        "short": "GetReferralOutcome",
+        "definition": "Logisk modell för tjänstekontraktet GetReferralOutcome 3.1\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetReferralOutcomeResponder:3).\nRepresenterar svarets (response) informationsstruktur enligt fältreglerna i TKB 3.1.10, avsnitt 7.1."
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome",
+        "path": "getreferraloutcome.referralOutcome",
+        "short": "Returnerar en patients konsultationsremissvar.",
+        "definition": "Returnerar en patients konsultationsremissvar.\nRIV-TA-typ: ReferralOutcomeType. Kardinalitet i TKB: 0..*.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader",
+        "short": "Innehåller basinformation om dokumentet",
+        "definition": "Innehåller basinformation om dokumentet\nRIV-TA-typ: PatientSummaryHeaderType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.documentId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.documentId",
+        "short": "Dokumentets identitet som är unik inom källsystemet / Identifieraren ska vara konsistent och beständigt mellan",
+        "definition": "Dokumentets identitet som är unik inom källsystemet / Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter. / Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.\nRIV-TA-typ: string. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.sourceSystemHSAId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.sourceSystemHSAId",
+        "short": "HSAid för det system som dokumentet är skapat i.",
+        "definition": "HSAid för det system som dokumentet är skapat i.\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.documentTitle",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.documentTitle",
+        "short": "Titel som beskriver den information som sänds i dokumentet.",
+        "definition": "Titel som beskriver den information som sänds i dokumentet.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.documentTime",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.documentTime",
+        "short": "Tidpunkten då remissvaret inkom till remittentens vårdinformationssystem.",
+        "definition": "Tidpunkten då remissvaret inkom till remittentens vårdinformationssystem.\nRIV-TA-typ: TimeStampType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.patientId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.patientId",
+        "short": "Identifierare för patient.",
+        "definition": "Identifierare för patient.\nRIV-TA-typ: PersonIdType. Kardinalitet i TKB: 1..1.\nDelelement enligt TKB:\n- id (string, 1..1): Identiteten enligt den identitetstyp (type) som angivits. Anges med 12 tecken utan bindestreck.\n- type (string, 1..1): OID för typ av identifierare. / För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1). / För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3). / För reservnummer används lokalt definierade reservnummer, exempelvis SLL reservnummer (1.2.752.97.3.1.3)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional",
+        "short": "Information om den hälso- och sjukvårdsperson som skapat informationen i dokumentet, nedan kallas författare",
+        "definition": "Information om den hälso- och sjukvårdsperson som skapat informationen i dokumentet, nedan kallas författare. Vid uppdatering av tidigare skapade dokument avses den hälso- och sjukvårdsperson som senast uppdaterade informationen\nRIV-TA-typ: HealthcareProfessionalType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.authorTime",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.authorTime",
+        "short": "Tidpunkt vid vilken remissvaret skapades eller senast uppdaterades i remissmottagarens vårdinformationssystem.",
+        "definition": "Tidpunkt vid vilken remissvaret skapades eller senast uppdaterades i remissmottagarens vårdinformationssystem.\nRIV-TA-typ: TimeStampType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+        "short": "HSA-id för hälso-och sjukvårdspersonal",
+        "definition": "HSA-id för hälso-och sjukvårdspersonal. Ska anges om tillgänglig.\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+        "short": "Namn på författaren",
+        "definition": "Namn på författaren. Om tillgängligt ska detta anges.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+        "short": "Information om personens befattning",
+        "definition": "Information om personens befattning. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4) användas, se referens [R 5]. Om kodverk saknas anges befattning i originalText.\nRIV-TA-typ: CVType. Kardinalitet i TKB: 0..1.\nDelelement enligt TKB:\n- code (string, 0..1): Befattningskod. Om code anges ska också codeSystem  samt displayName anges.\n- codeSystem (string, 0..1): Kodsystem för befattningskod. Om codeSystem anges ska också code samt displayName anges.\n- codeSystemName (string, 0..1): Namn på kodsystem för befattningskod.\n- codeSystemVersion (string, 0..1): Version på kodsystem för befattningskod.\n- displayName (string, 0..1): Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges.\n- originalText (string, 0..1): Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. Om originalText anges ska inget annat värde i healthcareProfessionalRoleCode anges.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+        "short": "Den organisation som angiven hälso-och sjukvårdsperson är uppdragstagare på",
+        "definition": "Den organisation som angiven hälso-och sjukvårdsperson är uppdragstagare på. Om tillgängligt ska detta anges.\nRIV-TA-typ: OrgUnitType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+        "short": "HSA-id för organisationsenhet",
+        "definition": "HSA-id för organisationsenhet. Om tillgängligt ska detta anges.\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+        "short": "Namn på organisationsenhet (TKB: orgUnitname)",
+        "definition": "Namn på organisationsenhet. Om tillgängligt ska detta anges.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+        "short": "Telefon till organisationsenhet",
+        "definition": "Telefon till organisationsenhet\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+        "short": "Epost till organisationsenhet.",
+        "definition": "Epost till organisationsenhet.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+        "short": "Postadress till organisationsenhet",
+        "definition": "Postadress till organisationsenhet. Skrivs på ett så naturligt sätt som möjligt, exempelvis: / ”Storgatan 12 / 468 91 Lilleby”\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+        "short": "Text som anger namnet på plats eller ort för organisationens fysiska placering",
+        "definition": "Text som anger namnet på plats eller ort för organisationens fysiska placering\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+        "short": "HSA-id för Vårdenhet som hälso-och sjukvårdsperson är uppdragstagare för",
+        "definition": "HSA-id för Vårdenhet som hälso-och sjukvårdsperson är uppdragstagare för. Ska anges om tillgänglig. [Regel 2]\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+        "short": "HSA-id för vårdgivaren, som är vårdgivare för den enhet som författaren är uppdragstagare för",
+        "definition": "HSA-id för vårdgivaren, som är vårdgivare för den enhet som författaren är uppdragstagare för. Ska anges om tillgänglig. [Regel 2]\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.legalAuthenticator",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.legalAuthenticator",
+        "short": "Information om vem som signerat informationen i dokumentet",
+        "definition": "Information om vem som signerat informationen i dokumentet. Signering = signering av remissvar. Information om vidimering sker i attributet attested i bodyn.\nRIV-TA-typ: LegalAuthenticatorType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.legalAuthenticator.signatureTime",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.legalAuthenticator.signatureTime",
+        "short": "Tidpunkt för signering",
+        "definition": "Tidpunkt för signering\nRIV-TA-typ: TimeStampType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.legalAuthenticator.legalAuthenticatorHSAId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.legalAuthenticator.legalAuthenticatorHSAId",
+        "short": "HSA-id för person som signerat dokumentet. (TKB: legalAuthenticatorHSAid)",
+        "definition": "HSA-id för person som signerat dokumentet.\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.legalAuthenticator.legalAuthenticatorName",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.legalAuthenticator.legalAuthenticatorName",
+        "short": "Namnen i klartext för signerande person",
+        "definition": "Namnen i klartext för signerande person\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.legalAuthenticator.legalAuthenticatorRoleCode",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.legalAuthenticator.legalAuthenticatorRoleCode",
+        "short": "Ska ej anges.",
+        "definition": "Ska ej anges.\nRIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0.",
+        "min": 0,
+        "max": "0",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.approvedForPatient",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.approvedForPatient",
+        "short": "Anger om information får delas till patient",
+        "definition": "Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false.\nRIV-TA-typ: boolean. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.careContactId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.careContactId",
+        "short": "Identitetet för den hälso-och sjukvårdskontakt som föranlett den information som omfattas av dokumentet",
+        "definition": "Identitetet för den hälso-och sjukvårdskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.nullified",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.nullified",
+        "short": "Ska ej anges.",
+        "definition": "Ska ej anges.\nRIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0.",
+        "min": 0,
+        "max": "0",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeHeader.nullifiedReason",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeHeader.nullifiedReason",
+        "short": "Ska ej anges.",
+        "definition": "Ska ej anges.\nRIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0.",
+        "min": 0,
+        "max": "0",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody",
+        "short": "referralOutcomeBody",
+        "definition": "RIV-TA-typ: ReferralOutcomeBodyType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referralOutcomeTypeCode",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referralOutcomeTypeCode",
+        "short": "Anger typ av svar",
+        "definition": "Anger typ av svar. / Giltiga koder: / SR, svar på remissfråga / SS, slutsvar på remissfråga\nRIV-TA-typ: referralOutcomeTypeCodeEnum. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referralOutcomeTitle",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referralOutcomeTitle",
+        "short": "Text som beskriver vilken specialitet som utlåtandet gäller",
+        "definition": "Text som beskriver vilken specialitet som utlåtandet gäller. Typen av specialitet som anlitats anges i text. / Exempel: / Patologi / Klinisk fysik / Logopedi\nRIV-TA-typ: string. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referralOutcomeText",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referralOutcomeText",
+        "short": "Text som beskriver det sammanfattande utlåtandet kring undersökningsresultatet.",
+        "definition": "Text som beskriver det sammanfattande utlåtandet kring undersökningsresultatet.\nRIV-TA-typ: string. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation",
+        "short": "Klinisk information för remissvaret",
+        "definition": "Klinisk information för remissvaret. Dessa kliniska data är direkt kopplat till svaret.\nRIV-TA-typ: ClinicalInformationType. Kardinalitet i TKB: 0..*.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationCode",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationCode",
+        "short": "Kod för åtgärd",
+        "definition": "Kod för åtgärd. / Koden anges i code. / Kodverkets OID i codeSystem.\nRIV-TA-typ: ClinicalInformationCodeType. Kardinalitet i TKB: 1..1.\nDelelement enligt TKB:\n- code (string, 1..1): Kod.\n- codeSystem (string, 1..1): Kod kan komma från kodverket ICD-10 (1.2.752.116.1.1.1.1.3) men andra kodverk kan  förekomma.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationText",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.clinicalInformation.clinicalInformationText",
+        "short": "Beskrivning av klinisk information",
+        "definition": "Beskrivning av klinisk information\nRIV-TA-typ: string. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.act",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.act",
+        "short": "Utförd åtgärd",
+        "definition": "Utförd åtgärd\nRIV-TA-typ: ActType. Kardinalitet i TKB: 0..*.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actId",
+        "short": "Åtgärdens identitet som är unik inom det lokala avsändande systemet",
+        "definition": "Åtgärdens identitet som är unik inom det lokala avsändande systemet\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actCode",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actCode",
+        "short": "Kod för åtgärd",
+        "definition": "Kod för åtgärd. / Koden anges i code. / Kodverkets OID anges i codeSystem.\nRIV-TA-typ: ActCodeType. Kardinalitet i TKB: 0..1.\nDelelement enligt TKB:\n- code (string, 1..1): Nullvärde är tillåtet om kod ej är tillgänglig, och åtgärdskodstext ska då skrivas i `<actText>`.\n- codeSystem (string, 1..1): Lämpliga kodverk kan vara: KVÅ (1.2.752.116.1.3.2.1.4) men andra kodverk kan förekomma.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actText",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actText",
+        "short": "Text som anger namnet på den kod som anges i attributet åtgärdskod",
+        "definition": "Text som anger namnet på den kod som anges i attributet åtgärdskod. Beskrivning av åtgärd anges här om ingen kod har angetts i attributet åtgärdskod.\nRIV-TA-typ: string. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actTime",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actTime",
+        "short": "Tidpunkt då åtgärd genomfördes",
+        "definition": "Tidpunkt då åtgärd genomfördes\nRIV-TA-typ: TimeStampType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actResult",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actResult",
+        "short": "Resultat av åtgärd",
+        "definition": "Resultat av åtgärd. Data i form av bifogade bilder eller liknande\nRIV-TA-typ: MultimediaType. Kardinalitet i TKB: 0..*.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "getreferraloutcome-actresult-value-xor-reference",
+            "severity": "error",
+            "human": "actResult: ett och endast ett av value och reference ska anges.",
+            "expression": "actResultValue.exists() xor reference.exists()",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getreferraloutcome"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actResult.actResultId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actResult.actResultId",
+        "short": "Ska ej anges. (RIV-TA: id)",
+        "definition": "Ska ej anges.\nRIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0.",
+        "min": 0,
+        "max": "0",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actResult.mediaType",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actResult.mediaType",
+        "short": "Typ av multimedia",
+        "definition": "Typ av multimedia\nRIV-TA-typ: MediaTypeEnum. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/ValueSet/mediatype-vs"
+        }
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actResult.actResultValue",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actResult.actResultValue",
+        "short": "Value är binärdata som representerar objektet (RIV-TA: value)",
+        "definition": "Value är binärdata som representerar objektet. Ett och endast ett av value och reference ska anges.\nRIV-TA-typ: base64Binary. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "base64Binary"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actResult.reference",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.act.actResult.reference",
+        "short": "Referens till extern bild i form av en URL",
+        "definition": "Referens till extern bild i form av en URL. Ett och endast ett av value och reference ska anges.\nRIV-TA-typ: anyURI. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.attested",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.attested",
+        "short": "Information om vidimering av enskild utförd åtgärd med tillhörande resultat",
+        "definition": "Information om vidimering av enskild utförd åtgärd med tillhörande resultat. Finns attester är åtgärden vidimerad. Med vidimerat menas att information om åtgärden har lästs och den som läst har tagit ansvar.\nRIV-TA-typ: AttestedType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.attested.attestedTime",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.attested.attestedTime",
+        "short": "Tidpunkten för vidimering",
+        "definition": "Tidpunkten för vidimering\nRIV-TA-typ: TimeStampType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.attested.attesterHSAId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.attested.attesterHSAId",
+        "short": "HSA-id för person som vidimerat",
+        "definition": "HSA-id för person som vidimerat\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.attested.attesterName",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.attested.attesterName",
+        "short": "Namn på person som vidimerat",
+        "definition": "Namn på person som vidimerat\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral",
+        "short": "Information om den vårdbegäran som ligger till grund för svaret",
+        "definition": "Information om den vårdbegäran som ligger till grund för svaret\nRIV-TA-typ: ReferralType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralId",
+        "short": "Remissens identitet som är unik inom det lokala avsändade systemet",
+        "definition": "Remissens identitet som är unik inom det lokala avsändade systemet\nRIV-TA-typ: string. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralReason",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralReason",
+        "short": "Text som anger aktuell frågeställning.",
+        "definition": "Text som anger aktuell frågeställning.\nRIV-TA-typ: string. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralTime",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralTime",
+        "short": "Tid då vårdbegäran framställdes.",
+        "definition": "Tid då vårdbegäran framställdes.\nRIV-TA-typ: TimeStampType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor",
+        "short": "Information om den hälso- och sjukvårdsperson som framställt vårdbegäran som ligger till grund för svaret, ned",
+        "definition": "Information om den hälso- och sjukvårdsperson som framställt vårdbegäran som ligger till grund för svaret, nedan kallas författare.\nRIV-TA-typ: HealthcareProfessionalType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.authorTime",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.authorTime",
+        "short": "Tidpunkt då vårdbegäran registrerades i systemet.",
+        "definition": "Tidpunkt då vårdbegäran registrerades i systemet.\nRIV-TA-typ: TimeStampType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalHSAId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalHSAId",
+        "short": "HSA-id för hälso-och sjukvårdspersonal",
+        "definition": "HSA-id för hälso-och sjukvårdspersonal. Ska anges om tillgänglig.\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalName",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalName",
+        "short": "Namn på författaren",
+        "definition": "Namn på författaren. Om tillgängligt ska detta anges.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalRoleCode",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalRoleCode",
+        "short": "Information om personens befattning",
+        "definition": "Information om personens befattning. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4) användas. Se referens [R 5]. Om kodverk saknas anges befattning i originalText.\nRIV-TA-typ: CVType. Kardinalitet i TKB: 0..1.\nDelelement enligt TKB:\n- code (string, 0..1): Befattningskod. Om code anges ska också codeSystem  samt displayName anges.\n- codeSystem (string, 0..1): Kodsystem för befattningskod. Om codeSystem anges ska också code samt displayName anges.\n- codeSystemName (string, 0..1): Namn på kodsystem för befattningskod.\n- codeSystemVersion (string, 0..1): Version på kodsystem för befattningskod.\n- displayName (string, 0..1): Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges.\n- originalText (string, 0..1): Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. Om originalText anges ska inget annat värde i healthcareProfessionalRoleCode anges.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalOrgUnit",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalOrgUnit",
+        "short": "Den organisation som angiven hälso-och sjukvårdsperson är uppdragstagare på",
+        "definition": "Den organisation som angiven hälso-och sjukvårdsperson är uppdragstagare på. Om tillgängligt ska detta anges.\nRIV-TA-typ: OrgUnitType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalOrgUnit.orgUnitHSAId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalOrgUnit.orgUnitHSAId",
+        "short": "HSA-id för organisationsenhet",
+        "definition": "HSA-id för organisationsenhet. Om tillgängligt ska detta anges.\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalOrgUnit.orgUnitName",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalOrgUnit.orgUnitName",
+        "short": "Namn på organisationsenhet (TKB: orgUnitname)",
+        "definition": "Namn på organisationsenhet. Om tillgängligt ska detta anges.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalOrgUnit.orgUnitTelecom",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalOrgUnit.orgUnitTelecom",
+        "short": "Telefon till organisationsenhet",
+        "definition": "Telefon till organisationsenhet\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalOrgUnit.orgUnitEmail",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalOrgUnit.orgUnitEmail",
+        "short": "Epost till organisationsenhet.",
+        "definition": "Epost till organisationsenhet.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalOrgUnit.orgUnitAddress",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalOrgUnit.orgUnitAddress",
+        "short": "Postadress till organisationsenhet",
+        "definition": "Postadress till organisationsenhet. Skrivs på ett så naturligt sätt som möjligt, exempelvis: / ”Storgatan 12 / 468 91 Lilleby”\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalOrgUnit.orgUnitLocation",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalOrgUnit.orgUnitLocation",
+        "short": "Text som anger namnet på plats eller ort för organisationens fysiska placering",
+        "definition": "Text som anger namnet på plats eller ort för organisationens fysiska placering\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalCareUnitHSAId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalCareUnitHSAId",
+        "short": "Ska ej anges.",
+        "definition": "Ska ej anges.\nRIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0.",
+        "min": 0,
+        "max": "0",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalCareGiverHSAId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.referralAuthor.healthcareProfessionalCareGiverHSAId",
+        "short": "Ska ej anges.",
+        "definition": "Ska ej anges.\nRIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0.",
+        "min": 0,
+        "max": "0",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.careContactId",
+        "path": "getreferraloutcome.referralOutcome.referralOutcomeBody.referral.careContactId",
+        "short": "Identitet för den hälso-och sjukvårdskontakt som föranlett den information som omfattas av dokumentet",
+        "definition": "Identitet för den hälso-och sjukvårdskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet. Detta ID kan användas för att genom tjänstekontaktet GetCareContacts (annan tjänstedomän) hämta kompletterandekontaktinformation.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.result",
+        "path": "getreferraloutcome.result",
+        "short": "Innehåller information om begäran gick bra eller ej.",
+        "definition": "Innehåller information om begäran gick bra eller ej.\nRIV-TA-typ: ResultType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.result.resultCode",
+        "path": "getreferraloutcome.result.resultCode",
+        "short": "Kan endast vara OK, INFO eller ERROR",
+        "definition": "Kan endast vara OK, INFO eller ERROR\nRIV-TA-typ: ResultCodeEnum. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "getreferraloutcome.result.errorCode",
+        "path": "getreferraloutcome.result.errorCode",
+        "short": "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.",
+        "definition": "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.\nRIV-TA-typ: ErrorCodeEnum. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/ValueSet/errorcode-vs"
+        }
+      },
+      {
+        "id": "getreferraloutcome.result.subCode",
+        "path": "getreferraloutcome.result.subCode",
+        "short": "Inga subkoder är specificerade. (TKB: subcode)",
+        "definition": "Inga subkoder är specificerade.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.result.logId",
+        "path": "getreferraloutcome.result.logId",
+        "short": "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.",
+        "definition": "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.\nRIV-TA-typ: string. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getreferraloutcome.result.message",
+        "path": "getreferraloutcome.result.message",
+        "short": "En beskrivande text som kan visas för användaren.",
+        "definition": "En beskrivande text som kan visas för användaren.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

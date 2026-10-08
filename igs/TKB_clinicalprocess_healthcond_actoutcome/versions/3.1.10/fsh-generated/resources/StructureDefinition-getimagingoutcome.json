@@ -1,0 +1,1556 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "getimagingoutcome",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-target"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getimagingoutcome",
+  "version": "1.0",
+  "name": "GetImagingOutcome",
+  "title": "GetImagingOutcome",
+  "status": "active",
+  "description": "Logisk modell för tjänstekontraktet GetImagingOutcome 1.0\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetImagingOutcomeResponder:1).\nRepresenterar svarets (response) informationsstruktur enligt fältreglerna i TKB 3.1.10, avsnitt 7.4.",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getimagingoutcome",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "getimagingoutcome",
+        "path": "getimagingoutcome",
+        "short": "GetImagingOutcome",
+        "definition": "Logisk modell för tjänstekontraktet GetImagingOutcome 1.0\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetImagingOutcomeResponder:1).\nRepresenterar svarets (response) informationsstruktur enligt fältreglerna i TKB 3.1.10, avsnitt 7.4."
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome",
+        "path": "getimagingoutcome.imagingOutcome",
+        "short": "De Bild-resultat(dokument) som matchar begäran.",
+        "definition": "De Bild-resultat(dokument) som matchar begäran.\nRIV-TA-typ: ImagingOutcomeType. Kardinalitet i TKB: 0..*.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader",
+        "short": "Innehåller basinformation om dokumentet",
+        "definition": "Innehåller basinformation om dokumentet\nRIV-TA-typ: PatientSummaryHeaderType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.documentId",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.documentId",
+        "short": "Dokumentets identitet som är unik inom källsystemet",
+        "definition": "Dokumentets identitet som är unik inom källsystemet. / Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter. / Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.\nRIV-TA-typ: string. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.sourceSystemHSAId",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.sourceSystemHSAId",
+        "short": "HSA-id för det system som dokumentet är skapat i.",
+        "definition": "HSA-id för det system som dokumentet är skapat i.\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.documentTitle",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.documentTitle",
+        "short": "Titel som beskriver den information som sänds i dokumentet.",
+        "definition": "Titel som beskriver den information som sänds i dokumentet.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.documentTime",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.documentTime",
+        "short": "Händelsetidpunkt, om sådan finns",
+        "definition": "Händelsetidpunkt, om sådan finns. Tidpunkten bör vara då undersökningen gjordes inte när bilden skapades (t.ex. skannad bild).\nRIV-TA-typ: TimeStampType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.patientId",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.patientId",
+        "short": "Identifierare för patient.",
+        "definition": "Identifierare för patient.\nRIV-TA-typ: PersonIdType. Kardinalitet i TKB: 1..1.\nDelelement enligt TKB:\n- id (string, 1..1): Identiteten enligt den identitetstyp (type) som angivits. Anges med 12 tecken utan bindestreck.\n- type (string, 1..1): OID för typ av identifierare. För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1). För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3). För reservnummer används lokalt definierade reservnummer, exempelvis SLL reservnummer (1.2.752.97.3.1.3)",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional",
+        "short": "Ansvarig hälso- och sjukvårdsperson",
+        "definition": "Ansvarig hälso- och sjukvårdsperson. Ansvarig för undersökningsresultatet. Avser person som är ansvarig för det samlade dokumentet.\nRIV-TA-typ: HealthcareProfessionalType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.authorTime",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.authorTime",
+        "short": "Tidpunkt då dokumentet skapades",
+        "definition": "Tidpunkt då dokumentet skapades. Det är den senaste tidpunkten då informationen uppdaterats i systemet som ska finnas här i de fall informationen har ändrats efter det att den skapades. Registreringstidpunkt i NPÖ riv-spec 2.2.0 avsnitt 5.3\nRIV-TA-typ: TimeStampType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+        "short": "HSA-id för hälso-och sjukvårdspersonal",
+        "definition": "HSA-id för hälso-och sjukvårdspersonal. Ska anges om tillgänglig.\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalName",
+        "short": "Namn på hälso-och sjukvårdspersonal",
+        "definition": "Namn på hälso-och sjukvårdspersonal. Om tillgängligt ska detta anges.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+        "short": "Information om ansvarige personens befattning",
+        "definition": "Information om ansvarige personens befattning. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4), se referens [R 5]. Om kodverk saknas anges befattning i originalText.\nRIV-TA-typ: CVType. Kardinalitet i TKB: 0..1.\nDelelement enligt TKB:\n- code (string, 0..1): Befattningskod. Om code anges ska också codeSystem  samt displayName anges.\n- codeSystem (string, 0..1): Kodsystem för befattningskod. Om codeSystem anges ska också code samt displayName anges.\n- codeSystemName (string, 0..1): Namn på kodsystem för befattningskod.\n- codeSystemVersion (string, 0..1): Version på kodsystem för befattningskod.\n- displayName (string, 0..1): Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges.\n- originalText (string, 0..1): Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. / Om originalText anges ska inget annat värde i healthcareProfessionalRoleCode anges.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+        "short": "Den organisation som angiven hälso-och sjukvårdsperson är uppdragstagare på",
+        "definition": "Den organisation som angiven hälso-och sjukvårdsperson är uppdragstagare på. Om tillgängligt ska detta anges.\nRIV-TA-typ: OrgUnitType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+        "short": "HSA-id för organisationsenhet",
+        "definition": "HSA-id för organisationsenhet. Om tillgängligt ska detta anges. (Enligt NPÖ riv-spec 2.2.0 avsnitt 4.1.6 beslutsregel: I de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges.)\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+        "short": "Namn på organisationsenhet",
+        "definition": "Namn på organisationsenhet. Om tillgängligt ska detta anges.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+        "short": "Telefon till organisationsenhet.",
+        "definition": "Telefon till organisationsenhet.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+        "short": "Epost till organisationsenhet.",
+        "definition": "Epost till organisationsenhet.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+        "short": "Postadress till organisationsenhet",
+        "definition": "Postadress till organisationsenhet. Skrivs på ett så naturligt sätt som möjligt, exempelvis: / ”Storgatan 12 / 468 91 Lilleby”\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+        "short": "Text som anger namnet på plats eller ort för organisationens fysiska placering.",
+        "definition": "Text som anger namnet på plats eller ort för organisationens fysiska placering.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+        "short": "HSA-id för informationsägande vårdenhet (pdl-ansvar)",
+        "definition": "HSA-id för informationsägande vårdenhet (pdl-ansvar). Ska anges om tillgänglig. [Regel 2]\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+        "short": "HSA-id för informationsägande vårdgivare (pdl-ansvar)",
+        "definition": "HSA-id för informationsägande vårdgivare (pdl-ansvar). Ska anges om tillgänglig. [Regel 2]\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.legalAuthenticator",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.legalAuthenticator",
+        "short": "Information om vem som signerat informationen i dokumentet",
+        "definition": "Information om vem som signerat informationen i dokumentet. Det är normalt radiologen som signerar bilddiagnostiska svar. Signering = signering av remissvar. Vidimering anges i attributet attested i bodyn.\nRIV-TA-typ: LegalAuthenticatorType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.legalAuthenticator.signatureTime",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.legalAuthenticator.signatureTime",
+        "short": "Tidpunkt för signering.",
+        "definition": "Tidpunkt för signering.\nRIV-TA-typ: TimeStampType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.legalAuthenticator.legalAuthenticatorHSAId",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.legalAuthenticator.legalAuthenticatorHSAId",
+        "short": "HSA-id för person som signerat dokumentet",
+        "definition": "HSA-id för person som signerat dokumentet. HSA-id för hälso-och sjukvårdspersonal. Ska anges om tillgänglig\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.legalAuthenticator.legalAuthenticatorName",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.legalAuthenticator.legalAuthenticatorName",
+        "short": "Namnen i klartext för signerande person.",
+        "definition": "Namnen i klartext för signerande person.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.legalAuthenticator.legalAuthenticatorRoleCode",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.legalAuthenticator.legalAuthenticatorRoleCode",
+        "short": "Ska ej anges",
+        "definition": "Ska ej anges\nRIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0.",
+        "min": 0,
+        "max": "0",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.approvedForPatient",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.approvedForPatient",
+        "short": "Anger om information får delas till patient",
+        "definition": "Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false.\nRIV-TA-typ: boolean. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.careContactId",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.careContactId",
+        "short": "Identitetet för den hälso-och sjukvårdskontakt som föranlett den information som omfattas av dokumentet",
+        "definition": "Identitetet för den hälso-och sjukvårdskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.nullified",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.nullified",
+        "short": "Anger om dokumentet makulerats i källsystemet",
+        "definition": "Anger om dokumentet makulerats i källsystemet. Sätts i så fall till true annars false. Används bl.a. i statistik-/rapportuttag med hjälp av tjänstekontrakten.\nRIV-TA-typ: boolean. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.nullifiedReason",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeHeader.nullifiedReason",
+        "short": "Anger orsak till makulering",
+        "definition": "Anger orsak till makulering\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody",
+        "short": "imagingOutcomeBody",
+        "definition": "RIV-TA-typ: ImagingOutcomeBodyType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.examinationSpeciality",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.examinationSpeciality",
+        "short": "Undersökningstyp",
+        "definition": "Undersökningstyp. Bör anges med kod enligt SNOMED. / Text som beskriver vilken specialitet som utlåtandet gäller.Exempel: / Typen av specialitet som anlitats anges i text Exempel: Patologi, Klinisk fysiologi, Logopedi\nRIV-TA-typ: CVType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.typeOfResult",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.typeOfResult",
+        "short": "Svarstyp",
+        "definition": "Svarstyp. / PREL = Preliminärsvar, denna typ är ny och finns ej i NPÖ:s riv-specifikation. / DEF = Definitivsvar, ett svar som har kommit tillbaka till beställaren från utföraren. / TILL = Tilläggssvar, kan avse två typer av svar: / Det fynd som gjorts enligt beställd undersökning, och som beskrivs i definitivsvaret, var så intressant att ytterligare undersökningar gjorts och svaret således behöver kompletteras. / Slutsvaret behöver av någon anledning korrigeras, och skickas således i ett tilläggssvar. / DEF sätts som förvalt värde. Den senaste statusen är den som ska skickas med.\nRIV-TA-typ: TypeOfResultCodeEnum. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/ValueSet/typeofresultcode-vs"
+        }
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.resultTime",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.resultTime",
+        "short": "Svarstidpunkt",
+        "definition": "Svarstidpunkt. Tidpunkt då svar skickas till framställaren av vårdbegäran.\nRIV-TA-typ: TimeStampType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.resultReport",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.resultReport",
+        "short": "Text som beskriver det sammanfattade utlåtandet kring undersökningsresultatet",
+        "definition": "Text som beskriver det sammanfattade utlåtandet kring undersökningsresultatet\nRIV-TA-typ: string. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.resultComment",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.resultComment",
+        "short": "Kommentar till det sammanfattande utlåtandet",
+        "definition": "Kommentar till det sammanfattande utlåtandet\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.radiationDose",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.radiationDose",
+        "short": "Ett dosvärde som härrör till undersökningen",
+        "definition": "Ett dosvärde som härrör till undersökningen. / Dosen kan anges på flera olika sätt (t.ex. som effektiv dos i Sv) eller som KAP. Den totala dosen som härrör till underökningen är summan av alla redovisade radiationDose. Enheten ska vara SI-enhet (eller kombination av sådana). (För KAP ska värdet räknas om till Gy*m² istället för Gy*cm².)\nRIV-TA-typ: PQType. Kardinalitet i TKB: 0..*.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.patientData",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.patientData",
+        "short": "Ytterligare information om patienten med relevans för bedömningen",
+        "definition": "Ytterligare information om patienten med relevans för bedömningen. Kan typiskt anges i samband med givande av strukturerad bild-information enligt nedan\nRIV-TA-typ: PatientDataType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.patientData.patientWeight",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.patientData.patientWeight",
+        "short": "Patientens vikt i kgvid undersökningstillfället.",
+        "definition": "Patientens vikt i kgvid undersökningstillfället.\nRIV-TA-typ: PQType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.patientData.patientLength",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.patientData.patientLength",
+        "short": "Patientens längd i cm vid undersökningstillfället.",
+        "definition": "Patientens längd i cm vid undersökningstillfället.\nRIV-TA-typ: PQType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording",
+        "short": "Beskrivning av bild-tagning(ar)",
+        "definition": "Beskrivning av bild-tagning(ar). Bild(er) tas som en eller flera tagningar (noll tillåts i fall då tillgång till bild saknas, utan endast (remiss och) sammanfattande utlåtande finns). / En bildtagning kan i sin tur ha flera bilder\nRIV-TA-typ: ImageRecordingType. Kardinalitet i TKB: 0..*.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.recordingId",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.recordingId",
+        "short": "Id för Bild-tagningen som är unikt inom källsystemet.",
+        "definition": "Id för Bild-tagningen som är unikt inom källsystemet.\nRIV-TA-typ: IIType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.examinationActivity",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.examinationActivity",
+        "short": "Åtgärdskod för utförd typ av Bild",
+        "definition": "Åtgärdskod för utförd typ av Bild. KRÅ91-kod eller i förekommande fall annat kodverk. Om inget gemensamt kodverk används, anges åtgärdsbeskrivning i originalText. (not. I npö rivspec saknas angivande av typ av övrig bilddiagnostik vilket är en brist eftersom uppföljning av olika slags bilder görs)\nRIV-TA-typ: CVType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.examinationTimePeriod",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.examinationTimePeriod",
+        "short": "Tidpunkt då Bild-insamlingen startar och slutar",
+        "definition": "Tidpunkt då Bild-insamlingen startar och slutar\nRIV-TA-typ: TimePeriodType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Period"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.examinationStatus",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.examinationStatus",
+        "short": "Text som anger åtgärdens status",
+        "definition": "Text som anger åtgärdens status. Kommer från KV åtgärdsstatus i V-TIM 1.0. Tillåtna värden är: Initierad, Planerad (bevakad), Tidbokad, Uppskjuten, Annullerad, Pågående, Avvakta, Avbruten, Avklarad, Inaktuell, Makulerad.\nRIV-TA-typ: ExaminationStatusCodeEnum. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/ValueSet/examinationstatuscode-vs"
+        }
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.examinationUnit",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.examinationUnit",
+        "short": "Text som anger vilken typ av labenhet som undersökningsresultatet härrör från",
+        "definition": "Text som anger vilken typ av labenhet som undersökningsresultatet härrör från. T ex MR-lab, CT inom bild. (not. Generaliserad från npö riv-spec för b&f undersökningar)\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional",
+        "short": "Hälso- och sjukvårdsperson som är ansvarig för informationen som härstammar från insamlingstillfället",
+        "definition": "Hälso- och sjukvårdsperson som är ansvarig för informationen som härstammar från insamlingstillfället. Den person som har den fysiska kontakten med patienten vid insamlandet av data.\nRIV-TA-typ: HealthcareProfessionalType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.authorTime",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.authorTime",
+        "short": "Tidpunkt då dokumentet skapades",
+        "definition": "Tidpunkt då dokumentet skapades. Det är den senaste tidpunkten då informationen uppdaterats i systemet som ska finnas här i de fall informationen har ändrats efter det att den skapades. Registreringstidpunkt i NPÖ riv-spec 2.2.0 avsnitt 5.3 / Attributet sätts till detsamma som examinationTimePeriod.end, eller .start i de fall som inget .end finns\nRIV-TA-typ: TimeStampType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+        "short": "HSA-id för hälso-och sjukvårdspersonal",
+        "definition": "HSA-id för hälso-och sjukvårdspersonal. Ska anges om tillgänglig.\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalName",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalName",
+        "short": "Namn på hälso-och sjukvårdspersonal",
+        "definition": "Namn på hälso-och sjukvårdspersonal. Om tillgängligt ska detta anges.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+        "short": "Information om ansvarige personens befattning",
+        "definition": "Information om ansvarige personens befattning. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4), se referens [R 5]. / Om kodverk saknas anges befattning i originalText.\nRIV-TA-typ: CVType. Kardinalitet i TKB: 0..1.\nDelelement enligt TKB:\n- code (string, 0..1): Befattningskod. Om code anges ska också codeSystem  samt displayName anges.\n- codeSystem (string, 0..1): Kodsystem för befattningskod. Om codeSystem anges ska också code samt displayName anges.\n- codeSystemName (string, 0..1): Namn på kodsystem för befattningskod.\n- codeSystemVersion (string, 0..1): Version på kodsystem för befattningskod.\n- displayName (string, 0..1): Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges.\n- originalText (string, 0..1): Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. / Om originalText anges ska inget annat värde i healthcareProfessionalRoleCode anges.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+        "short": "Den organisation som angiven hälso-och sjukvårdsperson är uppdragstagare på",
+        "definition": "Den organisation som angiven hälso-och sjukvårdsperson är uppdragstagare på. Om tillgängligt ska detta anges.\nRIV-TA-typ: OrgUnitType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+        "short": "HSA-id för organisationsenhet",
+        "definition": "HSA-id för organisationsenhet. Om tillgängligt ska detta anges. (Enligt NPÖ riv-spec 2.2.0 avsnitt 4.1.6 beslutsregel: I de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges.)\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+        "short": "Namn på organisationsenhet",
+        "definition": "Namn på organisationsenhet. Om tillgängligt ska detta anges.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+        "short": "Telefon till organisationsenhet.",
+        "definition": "Telefon till organisationsenhet.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+        "short": "Epost till organisationsenhet.",
+        "definition": "Epost till organisationsenhet.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+        "short": "Postadress till organisationsenhet",
+        "definition": "Postadress till organisationsenhet. Skrivs på ett så naturligt sätt som möjligt, exempelvis: / ”Storgatan 12 / 468 91 Lilleby”\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+        "short": "Text som anger namnet på plats eller ort för organisationens fysiska placering.",
+        "definition": "Text som anger namnet på plats eller ort för organisationens fysiska placering.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+        "short": "Ska ej anges",
+        "definition": "Ska ej anges\nRIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0.",
+        "min": 0,
+        "max": "0",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+        "short": "Ska ej anges",
+        "definition": "Ska ej anges\nRIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0.",
+        "min": 0,
+        "max": "0",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.numberOfImages",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.numberOfImages",
+        "short": "Det totala antalet bilder i bildtagningen",
+        "definition": "Det totala antalet bilder i bildtagningen\nRIV-TA-typ: int. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "integer"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData",
+        "short": "Information om bild-utrustningen som använts",
+        "definition": "Information om bild-utrustningen som använts\nRIV-TA-typ: ModalityDataType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.typeOfModality",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.typeOfModality",
+        "short": "Modalitetstyp för bildfångande utrustning.",
+        "definition": "Modalitetstyp för bildfångande utrustning.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.manufacturer",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.manufacturer",
+        "short": "Producerande utrustnings tillverkare.",
+        "definition": "Producerande utrustnings tillverkare.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.modelName",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.modelName",
+        "short": "Producerande utrustnings modellnamn.",
+        "definition": "Producerande utrustnings modellnamn.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.equipmentId",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.equipmentId",
+        "short": "Identifierare för utrustningen",
+        "definition": "Identifierare för utrustningen. Kan tex vara serienummer eller inventarienummer.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.softwareVersion",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.softwareVersion",
+        "short": "Text som anger tillverkarens version av den bildproducerande mjukvaran",
+        "definition": "Text som anger tillverkarens version av den bildproducerande mjukvaran\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.lineFilter",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.modalityData.lineFilter",
+        "short": "Ska ej anges.",
+        "definition": "Ska ej anges.\nRIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0.",
+        "min": 0,
+        "max": "0",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageDicomData",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageDicomData",
+        "short": "DICOM-objekt",
+        "definition": "DICOM-objekt. För att ge renderbar data som kan visas på det sätt som användaren önskar (med hjälp av en viewer/renderare) ges möjligheten att skicka med binärdata eller en URI till ett DICOM-objekt i någon av SOP-klasserna för Bild. / Både imageDicomData och ImageStaticData kan, och om möjligt bör anges för att underlätta för konsument.\nRIV-TA-typ: DicomDataType. Kardinalitet i TKB: 0..*.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageDicomData.dicomSOP",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageDicomData.dicomSOP",
+        "short": "SOP UID för DICOM-objektet",
+        "definition": "SOP UID för DICOM-objektet. Beskriver vilken information som kan förväntas i datan (jmf. mediaType nedan för statisk bild). / T.ex. 1.2.840.10008.5.1.4.1.1.1.1 för digital x-ray for presentation\nRIV-TA-typ: IIType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageDicomData.dicomValue",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageDicomData.dicomValue",
+        "short": "Binärdata som representerar objektet",
+        "definition": "Binärdata som representerar objektet. Ett och endast ett av DicomValue och DicomReference ska anges.\nRIV-TA-typ: base64Binary. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "base64Binary"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageDicomData.dicomReference",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageDicomData.dicomReference",
+        "short": "Referens till externt DICOM-objekt med åtkomst enligt WADO",
+        "definition": "Referens till externt DICOM-objekt med åtkomst enligt WADO. En tillverkarspecifik länk som är möjlig att via en säker anslutning visa i en webklient\nRIV-TA-typ: anyURI. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData",
+        "short": "Strukturerad mätdata för bild-tagningen med statiskt bildobjekt eller referens till bildfil.",
+        "definition": "Strukturerad mätdata för bild-tagningen med statiskt bildobjekt eller referens till bildfil.\nRIV-TA-typ: ImageStructuredDataType. Kardinalitet i TKB: 0..*.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.aperture",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.aperture",
+        "short": "Anges som f/(enhetslöst).",
+        "definition": "Anges som f/(enhetslöst).\nRIV-TA-typ: PQType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.exposureTime",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.exposureTime",
+        "short": "I sekunder",
+        "definition": "I sekunder\nRIV-TA-typ: PQType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageCreationTime",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageCreationTime",
+        "short": "Tid då bilden skapats.",
+        "definition": "Tid då bilden skapats.\nRIV-TA-typ: TimeStampType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.bodyPartExamined",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.bodyPartExamined",
+        "short": "Kroppsdel",
+        "definition": "Kroppsdel. Bör anges med kod ur SNOMED CT (OID: 1.2.752.116.2.1.1). Om kodverk saknas kan kroppsdel anges i originalText.\nRIV-TA-typ: CVType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.contrastAgentUsed",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.contrastAgentUsed",
+        "short": "Kontrast som använts vid bildtagningen.",
+        "definition": "Kontrast som använts vid bildtagningen.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.magneticFieldStrength",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.magneticFieldStrength",
+        "short": "Magnetisk fältsyrka i T.",
+        "definition": "Magnetisk fältsyrka i T.\nRIV-TA-typ: PQType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.copyright",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.copyright",
+        "short": "Copyright-ägare av bilden",
+        "definition": "Copyright-ägare av bilden\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData",
+        "short": "Möjlighet att svara med en bild i något av de tillåtna formaten enligt HL7 multimediatyper (inkl",
+        "definition": "Möjlighet att svara med en bild i något av de tillåtna formaten enligt HL7 multimediatyper (inkl. PDF).\nRIV-TA-typ: ImageDataType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "getimagingoutcome-imagedata-value-xor-reference",
+            "severity": "error",
+            "human": "imageData: ett och endast ett av value och reference ska anges.",
+            "expression": "imageDataValue.exists() xor reference.exists()",
+            "source": "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/StructureDefinition/getimagingoutcome"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.mediaType",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.mediaType",
+        "short": "Mediatyper enligt HL7 MediaType.",
+        "definition": "Mediatyper enligt HL7 MediaType.\nRIV-TA-typ: MediaTypeEnum. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/ValueSet/mediatype-vs"
+        }
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.imageDataValue",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.imageDataValue",
+        "short": "Value är binärdata som representerar objektet (RIV-TA: value)",
+        "definition": "Value är binärdata som representerar objektet. Ett och endast ett av value och reference ska anges.\nRIV-TA-typ: base64Binary. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "base64Binary"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.reference",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.reference",
+        "short": "Referens till extern bild i form av en URL",
+        "definition": "Referens till extern bild i form av en URL. Ett och endast ett av value och reference ska anges. En tillverkarspecifik länk som är möjlig att via en säker anslutning visa i en webklient\nRIV-TA-typ: anyURI. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.burnedInaAnnotations",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.imageRecording.imageStructuredData.imageData.burnedInaAnnotations",
+        "short": "True om patientdata finns i pixelinformationen. (TKB: burnedInAnnotations)",
+        "definition": "True om patientdata finns i pixelinformationen.\nRIV-TA-typ: boolean. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral",
+        "short": "Information om den vårdbegäran(remiss) som ligger till grund för undersökningen och dess svar",
+        "definition": "Information om den vårdbegäran(remiss) som ligger till grund för undersökningen och dess svar. Måste vara valfri eftersom tagning av Bild inte alltid remitteras\nRIV-TA-typ: ReferralType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.referralId",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.referralId",
+        "short": "Remissens identitet som är unik inom det lokala avsändande systemet",
+        "definition": "Remissens identitet som är unik inom det lokala avsändande systemet. Motsvarar vårdbegäran-id\nRIV-TA-typ: string. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.referralReason",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.referralReason",
+        "short": "Text som anger frågeställningen",
+        "definition": "Text som anger frågeställningen\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.anamnesis",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.anamnesis",
+        "short": "Text som anger bakgrund till frågeställningen",
+        "definition": "Text som anger bakgrund till frågeställningen\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.careContactId",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.careContactId",
+        "short": "Identitet för den hälso-och sjukvårdskontakt som föranlett vårdbegäran",
+        "definition": "Identitet för den hälso-och sjukvårdskontakt som föranlett vårdbegäran. Identiteten är unik inom producernade system.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional",
+        "short": "Information om den hälso-och sjukvårdspersonal som framställt vårdbegäran, nedan kallad remittent.",
+        "definition": "Information om den hälso-och sjukvårdspersonal som framställt vårdbegäran, nedan kallad remittent.\nRIV-TA-typ: HealthcareProfessionalType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.authorTime",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.authorTime",
+        "short": "Tid då vårdbegäran framställdes",
+        "definition": "Tid då vårdbegäran framställdes\nRIV-TA-typ: TimeStampType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalHSAId",
+        "short": "Remittentens HSA-id (TKB: healthcareProfessionalHSAid)",
+        "definition": "Remittentens HSA-id. HSA-id för hälso-och sjukvårdspersonal. Ska anges om tillgänglig.\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalName",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalName",
+        "short": "Namn på remittenten",
+        "definition": "Namn på remittenten. Om tillgängligt ska detta anges.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalRoleCode",
+        "short": "Information om remittentens befattning",
+        "definition": "Information om remittentens befattning. Om möjligt ska KV Befattning (OID 1.2.752.129.2.2.1.4) användas. Om kodverk saknas anges befattning i originalText.\nRIV-TA-typ: CVType. Kardinalitet i TKB: 0..1.\nDelelement enligt TKB:\n- code (string, 0..1): Befattningskod. Om code anges ska också codeSystem  samt displayName anges.\n- codeSystem (string, 0..1): Kodsystem för befattningskod. Om codeSystem anges ska också code samt displayName anges.\n- displayName (string, 0..1): Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges.\n- codeSystemName (string, 0..1): Namn på kodsystem för befattningskod.\n- codeSystemVersion (string, 0..1): Version på kodsystem för befattningskod.\n- originalText (string, 0..1): Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit",
+        "short": "Den organisation som remittenten är uppdragstagare på",
+        "definition": "Den organisation som remittenten är uppdragstagare på\nRIV-TA-typ: OrgUnitType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitHSAId",
+        "short": "HSA-id för organisationsenhet",
+        "definition": "HSA-id för organisationsenhet. (Enligt NPÖ riv-spec 2.2.0 avsnitt 4.1.6 beslutsregel: I de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges.)\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitName",
+        "short": "Namnet på den organisation som remittenten är uppdragstagare på",
+        "definition": "Namnet på den organisation som remittenten är uppdragstagare på\nRIV-TA-typ: string. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitTelecom",
+        "short": "Telefon till organisationsenhet",
+        "definition": "Telefon till organisationsenhet\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitEmail",
+        "short": "Epost till enhet",
+        "definition": "Epost till enhet\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitAddress",
+        "short": "Postadress för den organisation som remittenten är uppdragstagare på",
+        "definition": "Postadress för den organisation som remittenten är uppdragstagare på\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalOrgUnit.orgUnitLocation",
+        "short": "Text som anger namnet på plats eller ort för organisationens fysiska placering",
+        "definition": "Text som anger namnet på plats eller ort för organisationens fysiska placering\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId",
+        "short": "Ska ej anges.",
+        "definition": "Ska ej anges.\nRIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0.",
+        "min": 0,
+        "max": "0",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.accountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId",
+        "short": "Ska ej anges.",
+        "definition": "Ska ej anges.\nRIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0.",
+        "min": 0,
+        "max": "0",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.attested",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.attested",
+        "short": "Information om den som vidimerat mottaget svar på vårdbegäran",
+        "definition": "Information om den som vidimerat mottaget svar på vårdbegäran\nRIV-TA-typ: LegalAuthenticatorType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.attested.signatureTime",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.attested.signatureTime",
+        "short": "Tidpunkt för vidimering.",
+        "definition": "Tidpunkt för vidimering.\nRIV-TA-typ: TimeStampType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "instant"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.attested.legalAuthenticatorHSAId",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.attested.legalAuthenticatorHSAId",
+        "short": "HSA-id för person som vidimerat dokumentet",
+        "definition": "HSA-id för person som vidimerat dokumentet. HSA-id för hälso-och sjukvårdspersonal. Ska anges om tillgänglig.\nRIV-TA-typ: HSAIdType. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.attested.legalAuthenticatorName",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.attested.legalAuthenticatorName",
+        "short": "Namnen i klartext för vidimerande person.",
+        "definition": "Namnen i klartext för vidimerande person.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.attested.legalAuthenticatorRoleCode",
+        "path": "getimagingoutcome.imagingOutcome.imagingOutcomeBody.referral.attested.legalAuthenticatorRoleCode",
+        "short": "Ska ej anges",
+        "definition": "Ska ej anges\nRIV-TA-typ: (ej angiven). Kardinalitet i TKB: 0..0.",
+        "min": 0,
+        "max": "0",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.result",
+        "path": "getimagingoutcome.result",
+        "short": "Innehåller information om begäran gick bra eller ej.",
+        "definition": "Innehåller information om begäran gick bra eller ej.\nRIV-TA-typ: ResultType. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.result.resultCode",
+        "path": "getimagingoutcome.result.resultCode",
+        "short": "Kan endast vara OK, INFO eller ERROR.",
+        "definition": "Kan endast vara OK, INFO eller ERROR.\nRIV-TA-typ: ResultCodeEnum. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/ValueSet/resultcode-vs"
+        }
+      },
+      {
+        "id": "getimagingoutcome.result.errorCode",
+        "path": "getimagingoutcome.result.errorCode",
+        "short": "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.",
+        "definition": "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information.\nRIV-TA-typ: ErrorCodeEnum. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/ValueSet/errorcode-vs"
+        }
+      },
+      {
+        "id": "getimagingoutcome.result.subCode",
+        "path": "getimagingoutcome.result.subCode",
+        "short": "Inga subkoder är specificerade. (TKB: subcode)",
+        "definition": "Inga subkoder är specificerade.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.result.logId",
+        "path": "getimagingoutcome.result.logId",
+        "short": "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.",
+        "definition": "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.\nRIV-TA-typ: string. Kardinalitet i TKB: 1..1.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "getimagingoutcome.result.message",
+        "path": "getimagingoutcome.result.message",
+        "short": "En beskrivande text som kan visas för användaren.",
+        "definition": "En beskrivande text som kan visas för användaren.\nRIV-TA-typ: string. Kardinalitet i TKB: 0..1.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      }
+    ]
+  }
+}

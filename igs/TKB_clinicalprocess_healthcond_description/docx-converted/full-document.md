@@ -171,6 +171,7 @@ Claudia Ehrentraut | Förtydligat regel 2 för GetFunctionalStatus. / Uppdaterat
 | 3.0.3 | 2024-05-06 | Tobias Blomberg | Stegrad domänversion. Inga ändringar i detta dokument. |
 | 3.0.4 | 2024-05-28 | Tobias Blomberg | Stegrad domänversion. Inga ändringar i detta dokument. |
 | 3.0.5 | 2024-11-22 | Thomas Siltberg | Förtydligande av beskrivning för atcSubstance, nonATCSubstance samt nonATCSubstanceComment i GetAlertInformation. |
+| 3.0.6 | 2026-06-03 | Tobias Blomberg | Justerat texten under kap. 4.3.1 SLA krav från “Svarstiden för ett anrop får inte överstiga 30 sekunder” till “Svarstiden för ett anrop får inte överstiga 27 sekunder” |
 Referenser
 
 | Namn | Dokument | Kommentar | Länk |
@@ -219,19 +220,20 @@ Tjänstekontrakten i denna domän hanterar specifikt patientens journalantecknin
 ## Versionsinformation
 Denna revision av tjänstekontraktsbeskrivningen handlar om domänen clinicalprocess: healthcond: description. Observera att version för detta dokument och domänen måste vara lika. Detta för att spårbarheten inte skall brytas.
 
-### Version 3.0.5
+### Version 3.0.6
 
 #### Oförändrade tjänstekontrakt
 GetDiagnosis, version 2.0
 GetAlertInformation, version 2.0
 GetFunctionalStatus, version 2.0
+GetCareDocumentation, version 3.0
 
 #### Nya tjänstekontrakt
 Följande nya tjänstekontrakt finns från och med denna version:
 Inga nya kontrakt har tillkommit i denna version
 
 #### Förändrade tjänstekontrakt
-GetCareDocumentation, version 3.0
+Inga förändrade tjänstekontrakt i denna version
 Nedan redovisas kompatibilitet mellan konsument och producent för tjänstekontrakten som finns i flera versioner. Kompatibilitet avser här såväl format som semantik. För definition av kompatibilitet mellan format, se RIV Tekniska Anvisningar, Översikt.
 
 | Tjänstekontrakt | Konsument | Producent | Kompatibilitet |
@@ -245,7 +247,7 @@ Nedan redovisas kompatibilitet mellan konsument och producent för tjänstekontr
 Inga tjänstekontrakt har utgått.
 
 ### Version tidigare
-3.0.2
+3.0.5
 
 ## Tjänstedomänens arkitektur
 I detta avsnitt beskrivs hur T-boken tillämpats i tjänstedomänen. Avsnittet syftar till att ge läsaren överblick och förståelse. Avsnittet innehåller inga regler, men ger ett sammanhang för de regler som beskrivs i övriga delar av dokumentet.
@@ -366,7 +368,7 @@ Följande generella SLA-krav gäller för alla tjänsteproducenter som tillhanda
 
 | Kategori | Värde | Beskrivning |
 | :--- | :--- | :--- |
-| Svarstid | Svarstiden för ett anrop får inte överstiga 30 sekunder. |  |
+| Svarstid | Svarstiden för ett anrop får inte överstiga 27 sekunder. |  |
 | Tillgänglighet | 24x7, 99,5% |  |
 | Last | Tjänsteproducenten ska kunna hantera minst dubbla mängden frågor per dygn i förhållande till antalet journaluppdatering per dygn. |  |
 | Aktualitet | Kraven på aktualitet varierar för olika tjänstekonsumenter. Det behöver inte vara absolut aktualitet i förhållande till källsystemet, men ju mindre fördröjning desto bättre. Ett riktmärke är att försöka undvika längre fördröjning än 60 minuter. Fördröjningen avser både journaldata och uppdatering av engagemangsindex. / Uppdatering av engagemangspost måste ske så att engagemangsposten refererar data som är omedelbart tillgängligt via tjänstekontraktet. |  |
