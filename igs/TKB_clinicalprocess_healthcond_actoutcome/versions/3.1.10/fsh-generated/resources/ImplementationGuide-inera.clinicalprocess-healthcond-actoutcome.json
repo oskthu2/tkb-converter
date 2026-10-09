@@ -1,0 +1,398 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "inera.clinicalprocess-healthcond-actoutcome",
+  "url": "https://fhir.inera.se/ig/clinicalprocess-healthcond-actoutcome/ImplementationGuide/inera.clinicalprocess-healthcond-actoutcome",
+  "version": "3.1.10",
+  "name": "clinicalprocesshealthcondactoutcome",
+  "title": "clinicalprocess: healthcond: actoutcome 3.1.10",
+  "status": "active",
+  "contact": [
+    {
+      "name": "Inera Arkitektur",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.inera.se"
+        }
+      ]
+    }
+  ],
+  "copyright": "Copyright 2024 Inera AB. Licensieras under Creative Commons Attribution 4.0.",
+  "packageId": "inera.clinicalprocess-healthcond-actoutcome",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.r4.core",
+      "version": "4.0.1",
+      "uri": "http://fhir.org/packages/hl7.fhir.r4.core/ImplementationGuide/hl7.fhir.r4.core",
+      "id": "hl7_fhir_r4_core"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "CodeSystem/deliverycode-cs"
+        },
+        "name": "DeliveryCode",
+        "description": "Förlossningsutfall (DeliveryCodeEnum). Används i GetMaternityMedicalHistory. Koder enligt clinicalprocess_healthcond_actoutcome_enum_2.0.xsd.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/deliverycode-vs"
+        },
+        "name": "DeliveryCode — ValueSet",
+        "description": "Tillåtna värden enligt DeliveryCodeEnum.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/errorcode-cs"
+        },
+        "name": "ErrorCode",
+        "description": "Felkod vid logiskt fel (ErrorCodeEnum), se kapitel 4.4. Koder enligt clinicalprocess_healthcond_actoutcome_enum_3.1.xsd.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/errorcode-vs"
+        },
+        "name": "ErrorCode — ValueSet",
+        "description": "Tillåtna värden enligt ErrorCodeEnum.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/examinationstatuscode-cs"
+        },
+        "name": "ExaminationStatusCode",
+        "description": "Undersökningsstatus (ExaminationStatusCodeEnum). Används i GetImagingOutcome. Koder enligt clinicalprocess_healthcond_actoutcome_enum_3.1.xsd.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/examinationstatuscode-vs"
+        },
+        "name": "ExaminationStatusCode — ValueSet",
+        "description": "Tillåtna värden enligt ExaminationStatusCodeEnum.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/fetalpositioncode-cs"
+        },
+        "name": "FetalPositionCode",
+        "description": "Fosterläge (FetalPositionCodeEnum). Används i GetMaternityMedicalHistory. Koder enligt clinicalprocess_healthcond_actoutcome_enum_2.0.xsd.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/fetalpositioncode-vs"
+        },
+        "name": "FetalPositionCode — ValueSet",
+        "description": "Tillåtna värden enligt FetalPositionCodeEnum.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/fetalpresentationcode-cs"
+        },
+        "name": "FetalPresentationCode",
+        "description": "Föregående fosterdel (FetalPresentationCodeEnum). Används i GetMaternityMedicalHistory. Koder enligt clinicalprocess_healthcond_actoutcome_enum_2.0.xsd.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/fetalpresentationcode-vs"
+        },
+        "name": "FetalPresentationCode — ValueSet",
+        "description": "Tillåtna värden enligt FetalPresentationCodeEnum.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getimagingoutcome"
+        },
+        "name": "GetImagingOutcome",
+        "description": "Logisk modell för tjänstekontraktet GetImagingOutcome 1.0\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetImagingOutcomeResponder:1).\nRepresenterar svarets (response) informationsstruktur enligt fältreglerna i TKB 3.1.10, avsnitt 7.4.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getimagingoutcome-request"
+        },
+        "name": "GetImagingOutcome — Begäran",
+        "description": "Logisk modell för tjänstekontraktet GetImagingOutcome 1.0\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetImagingOutcomeResponder:1).\nRepresenterar begärans (request) parametrar enligt fältreglerna i TKB 3.1.10, avsnitt 7.4.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getlaboratoryorderoutcome"
+        },
+        "name": "GetLaboratoryOrderOutcome",
+        "description": "Logisk modell för tjänstekontraktet GetLaboratoryOrderOutcome 3.1\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetLaboratoryOrderOutcomeResponder:3).\nRepresenterar svarets (response) informationsstruktur enligt fältreglerna i TKB 3.1.10, avsnitt 7.3.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getlaboratoryorderoutcome-request"
+        },
+        "name": "GetLaboratoryOrderOutcome — Begäran",
+        "description": "Logisk modell för tjänstekontraktet GetLaboratoryOrderOutcome 3.1\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetLaboratoryOrderOutcomeResponder:3).\nRepresenterar begärans (request) parametrar enligt fältreglerna i TKB 3.1.10, avsnitt 7.3.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getmaternitymedicalhistory"
+        },
+        "name": "GetMaternityMedicalHistory",
+        "description": "Logisk modell för tjänstekontraktet GetMaternityMedicalHistory 2.0\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetMaternityMedicalHistoryResponder:2).\nRepresenterar svarets (response) informationsstruktur enligt fältreglerna i TKB 3.1.10, avsnitt 7.2.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getmaternitymedicalhistory-request"
+        },
+        "name": "GetMaternityMedicalHistory — Begäran",
+        "description": "Logisk modell för tjänstekontraktet GetMaternityMedicalHistory 2.0\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetMaternityMedicalHistoryResponder:2).\nRepresenterar begärans (request) parametrar enligt fältreglerna i TKB 3.1.10, avsnitt 7.2.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getreferraloutcome"
+        },
+        "name": "GetReferralOutcome",
+        "description": "Logisk modell för tjänstekontraktet GetReferralOutcome 3.1\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetReferralOutcomeResponder:3).\nRepresenterar svarets (response) informationsstruktur enligt fältreglerna i TKB 3.1.10, avsnitt 7.1.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/getreferraloutcome-request"
+        },
+        "name": "GetReferralOutcome — Begäran",
+        "description": "Logisk modell för tjänstekontraktet GetReferralOutcome 3.1\n(RIV-TA urn:riv:clinicalprocess:healthcond:actoutcome:GetReferralOutcomeResponder:3).\nRepresenterar begärans (request) parametrar enligt fältreglerna i TKB 3.1.10, avsnitt 7.1.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/mediatype-cs"
+        },
+        "name": "MediaType",
+        "description": "Typ av multimedia, MIME-typ (MediaTypeEnum). Används i GetReferralOutcome och GetImagingOutcome. Koder enligt clinicalprocess_healthcond_actoutcome_enum_3.1.xsd.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/mediatype-vs"
+        },
+        "name": "MediaType — ValueSet",
+        "description": "Tillåtna värden enligt MediaTypeEnum.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/referraloutcometypecode-cs"
+        },
+        "name": "ReferralOutcomeTypeCode",
+        "description": "Typ av remissvar (ReferralOutcomeTypeCodeEnum). Används i GetReferralOutcome. Koder enligt clinicalprocess_healthcond_actoutcome_enum_3.1.xsd.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/referraloutcometypecode-vs"
+        },
+        "name": "ReferralOutcomeTypeCode — ValueSet",
+        "description": "Tillåtna värden enligt ReferralOutcomeTypeCodeEnum.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/resultcode-cs"
+        },
+        "name": "ResultCode",
+        "description": "Resultatkod för begäran (ResultCodeEnum). Koder enligt clinicalprocess_healthcond_actoutcome_enum_3.1.xsd.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/resultcode-vs"
+        },
+        "name": "ResultCode — ValueSet",
+        "description": "Tillåtna värden enligt ResultCodeEnum.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/sexcode-cs"
+        },
+        "name": "SexCode",
+        "description": "Kön (SexCodeEnum), enligt TKB:n kodverk med OID 1.2.752.129.2.2.1.1. Används i GetMaternityMedicalHistory. Koder enligt clinicalprocess_healthcond_actoutcome_enum_2.0.xsd.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/sexcode-vs"
+        },
+        "name": "SexCode — ValueSet",
+        "description": "Tillåtna värden enligt SexCodeEnum.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/typeofleavecode-cs"
+        },
+        "name": "TypeOfLeaveCode",
+        "description": "Typ av ledighet (TypeOfLeaveCodeEnum). Används i GetMaternityMedicalHistory. Koder enligt clinicalprocess_healthcond_actoutcome_enum_2.0.xsd.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/typeofleavecode-vs"
+        },
+        "name": "TypeOfLeaveCode — ValueSet",
+        "description": "Tillåtna värden enligt TypeOfLeaveCodeEnum.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/typeofresultcode-cs"
+        },
+        "name": "TypeOfResultCode",
+        "description": "Typ av svar (TypeOfResultCodeEnum). Används i GetLaboratoryOrderOutcome och GetImagingOutcome. Koder enligt clinicalprocess_healthcond_actoutcome_enum_3.1.xsd.",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/typeofresultcode-vs"
+        },
+        "name": "TypeOfResultCode — ValueSet",
+        "description": "Tillåtna värden enligt TypeOfResultCodeEnum.",
+        "exampleBoolean": false
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "Hem",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "1-inledning.html",
+          "title": "1 Inledning",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "2-versionsinformation.html",
+          "title": "2 Versionsinformation",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "3-tjanstedomanens-arkitektur.html",
+          "title": "3 Tjänstedomänens arkitektur",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "4-tjanstedomanens-krav-och-regler.html",
+          "title": "4 Tjänstedomänens krav och regler",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "5-gemensamma-informationskomponenter.html",
+          "title": "5 Gemensamma informationskomponenter",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "6-tjanstedomanens-meddelandemodeller.html",
+          "title": "6 Tjänstedomänens meddelandemodeller",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "7-tjanstekontrakt.html",
+          "title": "7 Tjänstekontrakt",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2024+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "release"
+      },
+      {
+        "code": "show-inherited-invariants",
+        "value": "false"
+      },
+      {
+        "code": "apply-contact",
+        "value": "true"
+      },
+      {
+        "code": "apply-publisher",
+        "value": "true"
+      },
+      {
+        "code": "apply-version",
+        "value": "false"
+      },
+      {
+        "code": "apply-copyright",
+        "value": "true"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/deliverycode"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/errorcode"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/examinationstatuscode"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/fetalpositioncode"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/fetalpresentationcode"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/mediatype"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/referraloutcometypecode"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/resultcode"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/sexcode"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/typeofleavecode"
+      },
+      {
+        "code": "special-url",
+        "value": "https://fhir.inera.se/CodeSystem/typeofresultcode"
+      }
+    ]
+  }
+}

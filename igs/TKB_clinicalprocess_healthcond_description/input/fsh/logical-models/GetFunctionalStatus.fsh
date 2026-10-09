@@ -1,4 +1,4 @@
-// Genererad från TKB clinicalprocess:healthcond:description v3.0.5
+// Genererad från TKB clinicalprocess:healthcond:description v3.0.6
 // Kontrakt: GetFunctionalStatus v2.0
 // Namespace: urn:riv:clinicalprocess:healthcond:description:GetFunctionalStatusResponder:2
 // Genererad: 2026-03-19

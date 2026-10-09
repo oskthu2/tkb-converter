@@ -289,3 +289,14 @@ Följande FHIR-artefakter har genererats från ovanstående kontraktsbeskrivning
 **Publicerings-QA missar detta:** IG Publishers egen `qa.json`/`qa.html` validerar FHIR-resurser (StructureDefinitions, CodeSystems etc.), inte om `<img src>`- eller `<a href>`-referenser i den renderade HTML:n faktiskt pekar på existerande filer. En domän kan rapportera "0 errors, 0 warnings" i `qa-errors.json` samtidigt som samtliga bilder på sidan är trasiga (404) i den publicerade IG:n — detta hände faktiskt i 29 av de första 31 migrerade domänerna innan felet upptäcktes 2026-09-16 genom att direkt inspektera `gh-pages`-branchens innehåll. Lita därför **inte** enbart på `qa-errors.json` för att avgöra om en IG är komplett — se "Steg 4.7 — Publicerings-verifiering" i skillen `tkb-ci-feedback` för den kompletterande kontroll som numera körs i CI.
 
 ---
+
+## Äldre levande huvudversioner (sedan 2026-10-08)
+
+En domän har en levande IG per huvudversion (beslut 2026-10-05, tråden "IG-versionering enligt TKB"). Den aktuella versionen ligger i `igs/TKB_x/`. En äldre major får en fullständig egen IG-källa i `igs/TKB_x/versions/<semver>/` och publiceras på Pages under `/TKB_x/<semver>/`.
+
+- Registret: en egen post med id `<domän>@<semver>`, `version_of: <domän>` och `role: supported`. Skapa den med `scripts/registry_update.py --add-version-of <domän> --tag <tagg> --set source_commit=<hash>`, som också sätter `output_dir`, `source_tag` och `ig_version`. Alla skript som utgår från `output_dir` (lint, `set_ig_version.py`, `commit_qa_results.py`) fungerar därmed oförändrade. `build_portal.py` hoppar över poster med `version_of`.
+- `sushi-config.yaml`: samma `id`, `canonical` och `name` som den aktuella IG:n; versionen skiljer dem åt. `title` får TKB-etiketten som suffix, t.ex. `clinicalprocess: healthcond: description 2.1`.
+- `index.md` börjar med en ruta "**Äldre huvudversion.**" som länkar till den aktuella IG:n med absolut URL (relativa länkar ut ur IG:n underkänns av `check_links.py`).
+- `set_ig_version.py` skriver "Andra huvudversioner" med länkar i versionsraden på startsidan, i både den aktuella och de äldre IG:arna.
+- Bygget: `discover_domains.sh` listar `igs/TKB_x/versions/<v>` som egen byggenhet, och en PR bygger bara de versioner den ändrar. `build_ig.sh` använder sluggen `TKB_x/<v>` för Pages och `qa-results/`.
+- Ersatta minor- och patchversioner byggs inte: en ny tagg i samma major ersätter innehållet i samma katalog.

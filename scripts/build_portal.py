@@ -132,18 +132,26 @@ def load_registry():
     reg = json.loads(REGISTRY.read_text(encoding="utf-8"))
     out = {}
     for d in reg.get("domains", []):
+        if d.get("version_of"):
+            continue  # äldre huvudversion (igs/TKB_x/versions/<v>/), inte en egen domän
         outdir = (d.get("output_dir") or "").rstrip("/")
         if outdir and (ROOT / outdir / "sushi-config.yaml").exists():
             out[d["id"]] = Path(outdir).name
     return out
 
 
+def ig_key(outdir: str) -> str:
+    """IG-katalogen relativt igs/: "TKB_x" eller "TKB_x/versions/2.1.19"."""
+    path = Path(outdir.rstrip("/"))
+    return str(path.relative_to("igs")) if path.parts[:1] == ("igs",) else path.name
+
+
 def load_registry_entries():
-    """IG-katalognamn → registerpost (för källtagg, zip och version)."""
+    """IG-katalog relativt igs/ → registerpost (för källtagg, zip och version)."""
     if not REGISTRY.exists():
         return {}
     reg = json.loads(REGISTRY.read_text(encoding="utf-8"))
-    return {Path((d.get("output_dir") or "").rstrip("/")).name: d for d in reg.get("domains", [])}
+    return {ig_key(d["output_dir"]): d for d in reg.get("domains", []) if d.get("output_dir")}
 
 
 def ig_slug_for(name: str, registry: dict):
@@ -294,11 +302,15 @@ def domain_href(d, registry, base) -> str:
     return f"{base}{slug}/index.html" if slug else f"{domain_page(d['name'])}.html"
 
 
-def page_domains(domains, registry, base, source_note):
+def page_domains(domains, registry, entries, base, source_note):
     rows = []
     for d in domains:
         slug = ig_slug_for(d["name"], registry)
         ig = f'<a href="{base}{slug}/index.html">FHIR IG</a>' if slug else "–"
+        older = sorted((k.split("/")[-1] for k in entries if slug and k.startswith(f"{slug}/versions/")),
+                       key=version_key, reverse=True)
+        if older:
+            ig += "<br/>Äldre: " + ", ".join(f'<a href="{base}{slug}/{v}/index.html">{esc(v)}</a>' for v in older)
         dtype = DOMAIN_TYPE_SHORT.get((d.get("domainType") or {}).get("name"), (d.get("domainType") or {}).get("name") or "")
         if d.get("portalNote"):
             dtype = f"{dtype} ({d['portalNote']})" if dtype else d["portalNote"]
@@ -519,9 +531,12 @@ def write_ig_overviews(domains_all, registry, entries, base, source_note) -> int
         if slug and (slug not in by_slug or by_slug[slug].get("hidden")):
             by_slug[slug] = d
     changed = 0
-    for rid, slug in sorted(registry.items()):
-        index = ROOT / "igs" / slug / "input" / "pagecontent" / "index.md"
-        if slug == PORTAL.name or not index.exists():
+    # Den aktuella IG:n per domän och dess äldre huvudversioner (igs/TKB_x/versions/<v>/),
+    # som får samma fakta om domänen men sitt eget underlag (tagg och zip).
+    for key in sorted(entries):
+        slug = key.split("/")[0]
+        index = ROOT / "igs" / key / "input" / "pagecontent" / "index.md"
+        if slug == PORTAL.name or slug not in registry.values() or not index.exists():
             continue
         d = by_slug.get(slug) or {"portalNote": "saknas i DOMDB"}
         if d.get("hidden") and not d.get("portalNote"):
@@ -529,9 +544,9 @@ def write_ig_overviews(domains_all, registry, entries, base, source_note) -> int
         text = index.read_text(encoding="utf-8")
         new = strip_block(strip_block(text, FACTS_START, FACTS_END), VERSIONS_START, VERSIONS_END)
         if "## Översikt\n" not in new or "\n## Innehåll" not in new:
-            print(f"[build_portal] {slug}: index.md saknar Översikt/Innehåll — hoppar över", file=sys.stderr)
+            print(f"[build_portal] {key}: index.md saknar Översikt/Innehåll — hoppar över", file=sys.stderr)
             continue
-        facts = f"{FACTS_START}\n\n{ig_facts(d, entries.get(slug, {}), base)}\n{FACTS_END}\n\n"
+        facts = f"{FACTS_START}\n\n{ig_facts(d, entries[key], base)}\n{FACTS_END}\n\n"
         new = re.sub(r"## Översikt\n+", lambda m: "## Översikt\n\n" + facts, new, count=1)
         versions = versions_table(d)
         if versions:
@@ -791,7 +806,7 @@ def main():
                       for d in domains)
     page_list = [
         page_index(items, domains, n_contracts, registry, base),
-        page_domains(domains, registry, base, source_note),
+        page_domains(domains, registry, entries, base, source_note),
         page_contracts(domains, registry, entries, base, source_note),
         page_documents(doc_data),
         page_news(items),

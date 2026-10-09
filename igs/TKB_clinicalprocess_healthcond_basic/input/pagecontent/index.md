@@ -1,7 +1,7 @@
 # clinicalprocess: healthcond: basic
 
 <!-- tkb-version -->
-**TKB-version:** 2.0 · **IG-version:** 2.0.0-snapshot · **Källa:** Bitbucket-commit `16f8cd696770` (ingen tagg)
+**TKB-version:** 1.2.3 · **IG-version:** 1.2.3 · **Källa:** Bitbucket-tagg `1.2.3`
 <!-- /tkb-version -->
 
 ## Översikt
@@ -17,20 +17,22 @@
 <tr><th>Källkod</th><td><a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.healthcond.basic/src">Bitbucket</a></td></tr>
 <tr><th>Ärenden</th><td><a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.healthcond.basic/issues">Bitbucket issues</a></td></tr>
 <tr><th>Informationssida</th><td><a href="https://inera.atlassian.net/wiki/spaces/OITOF/pages/81396444/clinicalprocess+healthcond+basic+basuppgifter+tillst+nd">Confluence</a></td></tr>
-<tr><th>Underlag för denna IG</th><td>Version 2.0 · <a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.healthcond.basic/src/16f8cd6967702f16abf3ade6458028f3538d8e3e">commit 16f8cd696770</a></td></tr>
+<tr><th>Underlag för denna IG</th><td>Version 1.2.3 · <a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.healthcond.basic/src/1.2.3">tagg 1.2.3</a> · <a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.healthcond.basic/get/1.2.3.zip">zip</a></td></tr>
 <tr><th>RIV-TA-portalen</th><td><a href="https://oskthu2.github.io/tkb-converter/rivta-portal/tjanstedomaner.html">Alla tjänstedomäner</a> · <a href="https://oskthu2.github.io/tkb-converter/rivta-portal/tjanstekontrakt.html">Alla tjänstekontrakt</a></td></tr>
 </table>
 
 <!-- /landningssida:fakta -->
 
-FHIR Implementation Guide för tjänstedomänen **clinicalprocess: healthcond: basic** version 2.0.
-Genererad från Ineras Tjänstekontraktsbeskrivning (TKB).
+FHIR Implementation Guide för tjänstedomänen **clinicalprocess: healthcond: basic** (Vård- och omsorg kärnprocess: hantera hälsorelaterade tillstånd: basuppgifter), version 1.2.3.
+Genererad från Ineras Tjänstekontraktsbeskrivning (TKB) och schemafilerna i Bitbucket-taggen `1.2.3` (commit `55a953227545`, 2026-05-12). TKB-dokumentet i taggen har dokumentversion 1.2.1 (2025-07-07).
+
+Domänen hanterar information om observationer och mätvärden. Syftet är att tillgängliggöra journalförd, strukturerad och kodad information om observationer från vårdverksamheter för återanvändning, till exempel i kvalitetsregister, uppföljningssystem, system för den enskildes direktåtkomst och sammanhållen journalföring.
 
 Domänen innehåller följande tjänstekontrakt:
 
 | Kontrakt | Version | Beskrivning |
 |----------|---------|-------------|
-| [GetObservations](7-tjanstekontrakt.html#getobservations) | 2.0 | Hämtar strukturerade observationer rörande en patient. Kontraktet är abstrakt — godtyckliga observationstyper kan hämtas. |
+| [GetObservations](7-tjanstekontrakt.html#getobservations) | 1.2 | Returnerar strukturerade observationer för en patient. Den praktiska tillämpningen beskrivs i interaktionsöverenskommelser. |
 
 <!-- landningssida:versioner — genererad av scripts/build_portal.py, redigera inte för hand -->
 
@@ -57,3 +59,5 @@ Domänen innehåller följande tjänstekontrakt:
 * [5 Tjänstedomänens meddelandemodeller](5-tjanstedomanens-meddelandemodeller.html)
 * [7 Tjänstekontrakt](7-tjanstekontrakt.html)
 * [Artefakter](artifacts.html)
+
+TKB-dokumentet saknar ett kapitel för gemensamma informationskomponenter; tjänstekontraktet är kapitel 6 i dokumentet och kapitel 7 i denna IG.

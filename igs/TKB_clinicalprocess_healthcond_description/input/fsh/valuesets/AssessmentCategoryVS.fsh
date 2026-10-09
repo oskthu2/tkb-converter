@@ -1,4 +1,4 @@
-// Genererad från TKB clinicalprocess:healthcond:description v3.0.5
+// Genererad från TKB clinicalprocess:healthcond:description v3.0.6
 // Kontrakt: GetFunctionalStatus v2.0
 // Genererad: 2026-03-19
 
@@ -6,6 +6,6 @@ ValueSet: AssessmentCategoryVS
 Id: assessmentcategory-vs
 Title: "AssessmentCategory — ValueSet"
 Description: "Tillåtna värden för fältet assessmentCategory i GetFunctionalStatus."
-* ^version = "3.0.5"
+* ^version = "3.0.6"
 * ^status = #active
 * include codes from system AssessmentCategoryCS

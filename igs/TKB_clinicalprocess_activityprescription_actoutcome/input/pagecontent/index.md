@@ -1,7 +1,7 @@
 # clinicalprocess: activityprescription: actoutcome
 
 <!-- tkb-version -->
-**TKB-version:** 2.2.1 · **IG-version:** 2.2.1 · **Källa:** Bitbucket-tagg `2.2.1`
+**TKB-version:** 2.2.1 · **IG-version:** 2.2.1 · **Källa:** Bitbucket-tagg `2.2.1` · **Andra huvudversioner:** [1.0.2](https://oskthu2.github.io/tkb-converter/TKB_clinicalprocess_activityprescription_actoutcome/1.0.2/index.html)
 <!-- /tkb-version -->
 
 ## Översikt

@@ -1,0 +1,57 @@
+// Genererad från TKB clinicalprocess:healthcond:description 2.1.18 (Bitbucket-tagg 2.1.19)
+// Kontrakt: GetDiagnosis v2.0
+// Namespace: urn:riv:clinicalprocess:healthcond:description:GetDiagnosisResponder:2
+// Källa: fältreglerna i TKB avsnitt 7 (svar), typer verifierade mot XSD:n i taggen
+// Genererad: 2026-10-08
+
+
+Logical: GetDiagnosis
+Id: getdiagnosis
+Title: "GetDiagnosis"
+Description: "Logisk modell för svaret i tjänstekontraktet GetDiagnosis version 2.0 (RIV-TA urn:riv:clinicalprocess:healthcond:description:GetDiagnosisResponder:2), enligt fältreglerna i TKB clinicalprocess:healthcond:description 2.1.18. Representerar svarets informationsstruktur: diagnoser för en patient samt resultat."
+Characteristics: #can-be-target
+
+* ^version = "2.0"
+* diagnosis 0..* BackboneElement "De diagnoser som matchar begäran" "De diagnoser som matchar begäran. TKB-typ: DiagnosisType. Kardinalitet: 0..*."
+  * diagnosisHeader 1..1 BackboneElement "Innehåller basinformation om dokumentet" "Innehåller basinformation om dokumentet. TKB-typ: PatientSummaryHeaderType. Kardinalitet: 1..1."
+    * documentId 1..1 string "Dokumentets identitet som är unik inom källsystemet" "Dokumentets identitet som är unik inom källsystemet. / Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter. / Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen. TKB-typ: string. Kardinalitet: 1..1."
+    * sourceSystemHSAId 1..1 Identifier "HSA-id för det system som dokumentet är skapat i" "HSA-id för det system som dokumentet är skapat i. TKB-typ: HSAIdType. Kardinalitet: 1..1."
+    * documentTitle 0..0 string "documentTitle" "Används ej. TKB-typ: -. Kardinalitet: 0..0."
+    * documentTime 0..0 dateTime "documentTime" "Används ej. TKB-typ: -. Kardinalitet: 0..0."
+    * patientId 1..1 Identifier "Identifierare för patient" "Identifierare för patient. TKB-typ: PersonIdType. Kardinalitet: 1..1. Underelement i PersonIdType: id (string, 1..1): Sätts till patientens identifierare. Anges med 12 tecken utan avskiljare. | type (string, 1..1): Sätts till OID för typ av identifierare. / För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1), [R14]. / För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3), [R14]. / För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3), [R14]."
+    * accountableHealthcareProfessional 1..1 BackboneElement "Information om den hälso- och sjukvårdsperson som ansvarar för informationen i dokumentet, nedan kallas …" "Information om den hälso- och sjukvårdsperson som ansvarar för informationen i dokumentet, nedan kallas författare. TKB-typ: HealthcareProfessionalType. Kardinalitet: 1..1."
+      * authorTime 1..1 dateTime "Tidpunkt då informationen registrerades" "Tidpunkt då informationen registrerades. TKB-typ: TimeStampType. Kardinalitet: 1..1."
+      * healthcareProfessionalHSAId 0..1 Identifier "Författarens HSA-id" "Författarens HSA-id. TKB-typ: HSAIdType. Kardinalitet: 0..1."
+      * healthcareProfessionalName 0..1 string "Namn på författaren" "Namn på författaren. Om tillgängligt ska detta anges. TKB-typ: string. Kardinalitet: 0..1."
+      * healthcareProfessionalRoleCode 0..1 CodeableConcept "Information om personens befattning" "Information om personens befattning. Om möjligt ska kodverket Befattning (OID 1.2.752.129.2.2.1.4), [R13]. TKB-typ: CVType. Kardinalitet: 0..1. Underelement i CVType: code (string, 0..1): Befattningskod. Om code anges ska också codeSystem  samt displayName anges. | codeSystem (string, 0..1): Kodsystem för befattningskod. Om codeSystem anges ska också code samt displayName anges. | codeSystemName (string, 0..1): Namn på kodsystem för befattningskod. | codeSystemVersion (string, 0..1): Version på kodsystem för befattningskod. | displayName (string, 0..1): Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges. | originalText (string, 0..1): Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. / Om originalText anges ska inget annat värde i healthcareProfessionalRoleCode anges."
+      * healthcareProfessionalOrgUnit 0..1 BackboneElement "Den organisation som författaren är uppdragstagare på" "Den organisation som författaren är uppdragstagare på. I de fall då HSA-id inte finns tillgängligt i systemet ska lokalt id anges (unikt inom källsystemet). TKB-typ: OrgUnitType. Kardinalitet: 0..1."
+        * orgUnitHSAId 1..1 Identifier "HSA-id för organisationsenhet" "HSA-id för organisationsenhet. I de fall då HSA-id inte finns tillgängligt i systemet ska lokalt id anges (unikt inom källsystemet). TKB-typ: HSAIdType. Kardinalitet: 1..1."
+        * orgUnitName 1..1 string "Namnet på den organisation som författaren är uppdragstagare på" "Namnet på den organisation som författaren är uppdragstagare på. TKB-typ: string. Kardinalitet: 1..1."
+        * orgUnitTelecom 0..1 string "Telefon till organisationsenhet" "Telefon till organisationsenhet. TKB-typ: string. Kardinalitet: 0..1."
+        * orgUnitEmail 0..1 string "Epost till organisationsenhet" "Epost till organisationsenhet. TKB-typ: string. Kardinalitet: 0..1."
+        * orgUnitAddress 0..1 string "Postadress för den organisation som författaren är uppdragstagare på" "Postadress för den organisation som författaren är uppdragstagare på. TKB-typ: string. Kardinalitet: 0..1."
+        * orgUnitLocation 0..1 string "Text som anger namnet på plats eller ort för organisationens fysiska placering" "Text som anger namnet på plats eller ort för organisationens fysiska placering. TKB-typ: string. Kardinalitet: 0..1."
+      * healthcareProfessionalCareUnitHSAId 0..1 Identifier "HSA-id för vårdenhet" "HSA-id för vårdenhet / (Regel: 1) TKB-typ: HSAIdType. Kardinalitet: 0..1."
+      * healthcareProfessionalCareGiverHSAId 0..1 Identifier "HSA-id för vårdgivaren, som är vårdgivare för den enhet som författaren är uppdragstagare för" "HSA-id för vårdgivaren, som är vårdgivare för den enhet som författaren är uppdragstagare för. (Regel: 1) TKB-typ: HSAIdType. Kardinalitet: 0..1."
+    * legalAuthenticator 0..1 BackboneElement "Information om vem som signerat informationen i dokumentet" "Information om vem som signerat informationen i dokumentet. TKB-typ: LegalAuthenticatorType. Kardinalitet: 0..1."
+      * signatureTime 1..1 dateTime "Tidpunkt för signering" "Tidpunkt för signering. TKB-typ: TimeStampType. Kardinalitet: 1..1."
+      * legalAuthenticatorHSAId 0..1 Identifier "HSA-id för person som signerat dokumentet" "HSA-id för person som signerat dokumentet. TKB-typ: HSAIdType. Kardinalitet: 0..1."
+      * legalAuthenticatorName 0..1 string "Namnen i klartext för signerande person" "Namnen i klartext för signerande person. TKB-typ: string. Kardinalitet: 0..1."
+    * approvedForPatient 1..1 boolean "Anger om information får delas till patient" "Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false. TKB-typ: boolean. Kardinalitet: 1..1."
+    * careContactId 0..1 string "Identitetet för den hälso- och sjukvårds skontakt som föranlett den information som omfattas av dokumentet" "Identitetet för den hälso- och sjukvårds skontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet. TKB-typ: string. Kardinalitet: 0..1."
+    * nullified 0..0 boolean "nullified" "Används ej. TKB-typ: -. Kardinalitet: 0..0."
+    * nullifiedReason 0..0 string "nullifiedReason" "Används ej. TKB-typ: -. Kardinalitet: 0..0."
+  * diagnosisBody 1..1 BackboneElement "diagnosisBody" "diagnosisBody. TKB-typ: DiagnosisBodyType. Kardinalitet: 1..1."
+    * typeOfDiagnosis 1..1 code "Anges som \"Huvuddiagnos\" eller \"Bidiagnos\"" "Anges som \"Huvuddiagnos\" eller \"Bidiagnos\". TKB-typ: TypeOfDiagnosisEnum. Kardinalitet: 1..1."
+    * typeOfDiagnosis from DiagnosisTypeVS (required)
+    * chronicDiagnosis 0..1 boolean "Sätts till true om diagnosen är kronisk, false om diagnosen inte är kronisk, och används inte om okänt" "Sätts till true om diagnosen är kronisk, false om diagnosen inte är kronisk, och används inte om okänt. TKB-typ: boolean. Kardinalitet: 0..1."
+    * diagnosisTime 0..1 dateTime "Tidpunkt då bedömningen gjordes" "Tidpunkt då bedömningen gjordes. TKB-typ: TimeStampType. Kardinalitet: 0..1."
+    * diagnosisCode 0..1 CodeableConcept "Diagnoskod" "Diagnoskod. TKB-typ: CVType. Kardinalitet: 0..1. Underelement i CVType: code (string, 0..1): Kod för den aktuella diagnosen. / Om code anges ska även codeSystem samt displayName anges. | displayName (string, 0..1): Klartext för kod som angivits i attributet diagnosisCode. / Om displayName anges ska även code samt codeSystem anges. | codeSystem (string, 0..1): OID för kodsystem. | codeSystemName (string, 0..1): Namn på kodsystem. / Om codeSystem anges ska även code samt displayName anges. | codeSystemVersion (string, 0..1): Om tillämpbart, versionsangivelse som definierats av det givna kodsystemet. | originalText (string, 0..1): originalText ska användas vid överföring av värden som kommer från lokala kodverk som ej är identifierade med OID eller när kod helt saknas. I sådana fall ska en beskrivande text anges i originalText. / Om originalText anges ska inget annat värde i diagnosisCode anges."
+    * relatedDiagnosis 0..* BackboneElement "Relaterad diagnos" "Relaterad diagnos. / Associationen används för att länka samman diagnoser som relaterar till varandra. Använd om möjligt detta för att länka t.ex. bidiagnos till huvuddiagnos eller orsakskod till diagnos. TKB-typ: RelatedDiagnosisType. Kardinalitet: 0..*."
+      * documentId 1..1 string "Unik identitet för diagnosen" "Unik identitet för diagnosen. TKB-typ: string. Kardinalitet: 1..1."
+* result 1..1 BackboneElement "Innehåller information om begäran gick bra eller ej, en P av 2.1 måste skicka med resultType, för …" "Innehåller information om begäran gick bra eller ej, en P av 2.1 måste skicka med resultType, för kompabilitet mellan K 2.1 och P 2.0 är den satt till icke obligatorisk i wsdl. TKB-typ: ResultType. Kardinalitet: 1..1."
+  * resultCode 1..1 code "Kan endast vara OK, INFO eller ERROR" "Kan endast vara OK, INFO eller ERROR. TKB-typ: ResultCodeEnum. Kardinalitet: 1..1."
+  * errorCode 0..1 code "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information" "Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information. TKB-typ: ErrorCodeEnum. Kardinalitet: 0..1."
+  * subcode 0..1 string "Inga subkoder är specificerade" "Inga subkoder är specificerade. TKB-typ: string. Kardinalitet: 0..1. OBS: elementet heter subCode i XSD:n."
+  * logId 1..1 string "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent" "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent. TKB-typ: string. Kardinalitet: 1..1."
+  * message 0..1 string "En beskrivande text som kan visas för användaren" "En beskrivande text som kan visas för användaren. TKB-typ: string. Kardinalitet: 0..1."
