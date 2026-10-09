@@ -6,6 +6,23 @@
 
 ## Översikt
 
+<!-- landningssida:fakta — genererad av scripts/build_portal.py, redigera inte för hand -->
+
+<table class="grid">
+<tr><th>Beskrivning</th><td>Denna domän är en vidareutveckling av crm:scheduling.</td></tr>
+<tr><th>Svenskt kortnamn</th><td>tidbokning</td></tr>
+<tr><th>Svenskt namn</th><td>processtöd:tillgängliggör kontaktväg:tidbokning</td></tr>
+<tr><th>Typ</th><td>Nationell tjänstedomän</td></tr>
+<tr><th>Anmärkning</th><td>dold på rivta.se</td></tr>
+<tr><th>Förvaltare</th><td>gunilla.olofsson@sll.se</td></tr>
+<tr><th>Källkod</th><td><a href="https://bitbucket.org/rivta-domains/riv.supportprocess.logistics.scheduling/src">Bitbucket</a></td></tr>
+<tr><th>Ärenden</th><td><a href="https://bitbucket.org/rivta-domains/riv.supportprocess.logistics.scheduling/issues">Bitbucket issues</a></td></tr>
+<tr><th>Underlag för denna IG</th><td>Version 2.0_RC1 · <a href="https://bitbucket.org/rivta-domains/riv.supportprocess.logistics.scheduling/src/2.0_RC1">tagg 2.0_RC1</a> · <a href="https://bitbucket.org/rivta-domains/riv.supportprocess.logistics.scheduling/get/2.0_RC1.zip">zip</a></td></tr>
+<tr><th>RIV-TA-portalen</th><td><a href="https://oskthu2.github.io/tkb-converter/rivta-portal/tjanstedomaner.html">Alla tjänstedomäner</a> · <a href="https://oskthu2.github.io/tkb-converter/rivta-portal/tjanstekontrakt.html">Alla tjänstekontrakt</a></td></tr>
+</table>
+
+<!-- /landningssida:fakta -->
+
 FHIR Implementation Guide för tjänstedomänen **supportprocess: logistics: scheduling** (Tidbokning) version 2.0.
 Genererad från Ineras Tjänstekontraktsbeskrivning (TKB), version 2.0 RC2 (2023-11-01), och domänens WSDL- och XSD-filer (tagg 2.0_RC1).
 

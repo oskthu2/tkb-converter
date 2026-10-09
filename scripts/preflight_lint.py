@@ -188,6 +188,31 @@ def lint_pages(ig: Path, errors: list, warnings: list):
                     errors.append(f"{idx}:{n}: ankare #{a} finns inte som rubrik i 7-tjanstekontrakt.md")
 
 
+def lint_overview(ig: Path, errors: list):
+    """index.md ska ha landningssidans struktur (se tkb-ig-builder, "index.md")."""
+    idx = ig / "input" / "pagecontent" / "index.md"
+    if not idx.exists():
+        errors.append(f"{idx}: saknas")
+        return
+    text = idx.read_text(encoding="utf-8")
+    for heading in ("## Översikt", "## Innehåll"):
+        if not re.search(rf"^{heading}\s*$", text, re.M):
+            errors.append(f"{idx}: rubriken '{heading}' saknas (build_portal.py lägger landningssidans fakta under den)")
+    if "<!-- landningssida:fakta" not in text:
+        errors.append(f"{idx}: landningssidans faktablock saknas — kör scripts/build_portal.py och checka in resultatet")
+    contracts = []
+    meta = ig / "domain-metadata.json"
+    if meta.exists():
+        contracts = [c.get("id") for c in json.loads(meta.read_text(encoding="utf-8")).get("contracts") or []]
+    if not contracts:
+        contracts = [c.get("id") for c in (registry_entry(ig) or {}).get("contracts") or []]
+    linked = {m.lower() for m in re.findall(r"\[`?([A-Za-z]\w*)`?\]\([\w-]*tjanstekontrakt\.html#[\w-]+\)", text)}
+    for c in contracts:
+        if c and c.removesuffix("Interaction").lower() not in linked:
+            errors.append(f"{idx}: kontraktet {c} saknar länk [{c}](7-tjanstekontrakt.html#{c.lower()}) i översiktens "
+                          "kontraktstabell (portalen länkar kontraktet via den)")
+
+
 def lint_menu(ig: Path, errors: list):
     """Menyn ska vara exakt den som scripts/gen_menu.py skriver (se tkb-ig-builder, avsnittet Meny)."""
     if not (ig / "sushi-config.yaml").exists():
@@ -216,6 +241,7 @@ def main():
         lint_versions(ig, errors)
         lint_fsh(ig, errors, warnings)
         lint_pages(ig, errors, warnings)
+        lint_overview(ig, errors)
         lint_menu(ig, errors)
         status = "OK" if not errors else f"{len(errors)} FEL"
         print(f"[preflight] {ig.name}: {status}, {len(warnings)} varning(ar)")

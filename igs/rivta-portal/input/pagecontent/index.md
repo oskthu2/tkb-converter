@@ -5,7 +5,7 @@ Denna webbplats samlar regelverket för RIV Tekniska Anvisningar (RIV-TA): tjän
 
 <table class="grid">
 <tr><td><a href="tjanstedomaner.html">Tjänstedomäner</a></td><td>77 tjänstedomäner, varav 70 med FHIR IG</td></tr>
-<tr><td><a href="tjanstekontrakt.html">Tjänstekontrakt</a></td><td>515 tjänstekontrakt (en rad per huvudversion)</td></tr>
+<tr><td><a href="tjanstekontrakt.html">Tjänstekontrakt</a></td><td>554 tjänstekontrakt (en rad per huvudversion)</td></tr>
 <tr><td><a href="dokument.html">Dokument</a></td><td>Referensarkitekturer, RIV Tekniska anvisningar, mallar och presentationer</td></tr>
 <tr><td><a href="aktuellt.html">Aktuellt</a></td><td>Nyheter och arkiv sedan 2014, även som <a href="rss.xml">RSS</a></td></tr>
 <tr><td><a href="utveckling.html">Utveckling</a></td><td>Anvisningar, mallar och verktyg för tjänstekontrakt, e-tjänster och tjänsteplattform</td></tr>

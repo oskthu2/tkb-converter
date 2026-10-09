@@ -6,6 +6,17 @@
 
 ## Översikt
 
+<!-- landningssida:fakta — genererad av scripts/build_portal.py, redigera inte för hand -->
+
+<table class="grid">
+<tr><th>Anmärkning</th><td>saknas i DOMDB</td></tr>
+<tr><th>Källkod</th><td><a href="https://bitbucket.org/rivta-domains/riv.infrastructure.itintegration.dataexchange/src">Bitbucket</a></td></tr>
+<tr><th>Underlag för denna IG</th><td>Version 1.0 · <a href="https://bitbucket.org/rivta-domains/riv.infrastructure.itintegration.dataexchange/src/7fdd1d090b32ed41a8e5e263a435658df636a9a2">commit 7fdd1d090b32</a> · <a href="https://bitbucket.org/rivta-domains/riv.infrastructure.itintegration.dataexchange/get/7fdd1d090b32.zip">zip</a></td></tr>
+<tr><th>RIV-TA-portalen</th><td><a href="https://oskthu2.github.io/tkb-converter/rivta-portal/tjanstedomaner.html">Alla tjänstedomäner</a> · <a href="https://oskthu2.github.io/tkb-converter/rivta-portal/tjanstekontrakt.html">Alla tjänstekontrakt</a></td></tr>
+</table>
+
+<!-- /landningssida:fakta -->
+
 FHIR Implementation Guide för tjänstedomänen **infrastructure: itintegration: dataexchange** (Datautbyte) version 1.0.
 Genererad från Ineras Tjänstekontraktsbeskrivning (TKB) och domänens WSDL- och XSD-filer på grenen develop (commit 7fdd1d090b32, 2025-09-11).
 

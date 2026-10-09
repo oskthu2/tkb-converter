@@ -174,14 +174,21 @@ Kör `set_ig_version.py` efter att sidorna och FSH-filerna skrivits, och igen om
 
 ### Sidmallar
 
-**index.md** — genererad, kort översikt med länklista:
+**index.md** — domänens landningssida (sedan 2026-10-05). RIV-TA-portalen (`igs/rivta-portal`) länkar varje domän direkt hit och varje tjänstekontrakt direkt till dess avsnitt på kontraktssidan, så index.md ska samla fakta, länkar, kontrakt och granskningar på ett ställe. Strukturen är fast:
+
 ```markdown
 # {domain_title}
 
+<!-- tkb-version -->            ← skrivs av scripts/set_ig_version.py
+<!-- /tkb-version -->
+
 ## Översikt
 
+<!-- landningssida:fakta … -->  ← skrivs av scripts/build_portal.py, skriv aldrig för hand
+<!-- /landningssida:fakta -->
+
 FHIR Implementation Guide för tjänstedomänen **{domain_title}** version {domain_version}.
-Genererad från Ineras Tjänstekontraktsbeskrivning (TKB).
+Genererad från Ineras Tjänstekontraktsbeskrivning (TKB). {1–3 meningar om domänens syfte, ur TKB:ns inledning}
 
 Domänen innehåller följande tjänstekontrakt:
 
@@ -189,7 +196,18 @@ Domänen innehåller följande tjänstekontrakt:
 |----------|---------|-------------|
 | [GetCareDocumentation](7-tjanstekontrakt.html#getcaredocumentation) | 3.0 | ... |
 | [GetDiagnosis](7-tjanstekontrakt.html#getdiagnosis) | 2.0 | ... |
+
+<!-- landningssida:versioner … -->  ← skrivs av scripts/build_portal.py (versioner och granskningar)
+<!-- /landningssida:versioner -->
+
+## Innehåll
+...
 ```
+
+- Rubrikerna `## Översikt` och `## Innehåll` måste finnas. `build_portal.py` lägger faktablocket direkt under `## Översikt` och versionsblocket direkt före `## Innehåll`.
+- **Varje** kontrakt i `domain-metadata.json` ska finnas i kontraktstabellen som länk `[Kontrakt](7-tjanstekontrakt.html#kontrakt)`. Portalens kontraktslista hämtar sina ankare härifrån. Ett kontrakt utan länk syns olänkat i portalen. Tabellen får delas upp i grupper (som i `ehr_blocking`) eller ha fler kolumner (`Underdomän`, `Typ`).
+- Markörerna behöver inte skrivas för hand. `build_portal.py` lägger in dem och skriver om innehållet mellan dem vid varje körning. Kör `python3 scripts/build_portal.py` när registret har domänens `output_dir`, `bitbucket_slug` och `source_tag`. Skriptet fyller faktablocket från DOMDB (svenskt namn, förvaltare, Bitbucket, ärenden, Confluence) och registret (tagg och zip), och uppdaterar samtidigt portalens domän- och kontraktslistor. Checka in både `igs/TKB_x/input/pagecontent/index.md` och ändringarna under `igs/rivta-portal/`.
+- `preflight_lint.py` felmarkerar en index.md som saknar rubrikerna, faktablocket eller en kontraktslänk.
 
 **KRITISKT — ankarformat:** Rubrikerna i `7-tjanstekontrakt.md` är alltid `### GetContractName` (utan nummerprefixet 7.1, 7.2). Ankaret blir då `#getcontractname` (lowercase). Skriv **aldrig** `#71-getcontractname` eller `#7.1-getcontractname` — dessa ankare existerar inte och ger brutna länkar vid validering. (Verkligt exempel på avvikelsen: `eservicesupply_eoffering` hade `## 7.1 GetAvailableEServices` istället för `### GetAvailableEServices`, vilket gav ett trasigt ankare — upptäckt och fixat 2026-09-16 av `check_links.py`, se Steg 4.7.)
 

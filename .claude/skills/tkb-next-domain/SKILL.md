@@ -59,6 +59,7 @@ Följ `tkb-fetch-convert`, sedan `tkb-ig-builder` och sist `tkb-fsh-model`. Inna
 
 ```bash
 scripts/set_ig_version.py igs/TKB_{domain_dir}   # version, status, ^version enligt registret
+python3 scripts/build_portal.py                   # landningsfakta i index.md + portalens listor (checka in igs/rivta-portal/ också)
 scripts/preflight_lint.py igs/TKB_{domain_dir}    # exit 0 krävs
 make sushi-one D=TKB_{domain_dir}                 # 0 Errors krävs
 ```

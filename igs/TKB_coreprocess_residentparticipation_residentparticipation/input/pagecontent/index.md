@@ -6,6 +6,17 @@
 
 ## Översikt
 
+<!-- landningssida:fakta — genererad av scripts/build_portal.py, redigera inte för hand -->
+
+<table class="grid">
+<tr><th>Anmärkning</th><td>saknas i DOMDB</td></tr>
+<tr><th>Källkod</th><td><a href="https://bitbucket.org/rivta-domains/riv.coreprocess.residentparticipation.residentparticipation/src">Bitbucket</a></td></tr>
+<tr><th>Underlag för denna IG</th><td>Version 1.0_RC2 · <a href="https://bitbucket.org/rivta-domains/riv.coreprocess.residentparticipation.residentparticipation/src/1.0_RC2">tagg 1.0_RC2</a> · <a href="https://bitbucket.org/rivta-domains/riv.coreprocess.residentparticipation.residentparticipation/get/1.0_RC2.zip">zip</a></td></tr>
+<tr><th>RIV-TA-portalen</th><td><a href="https://oskthu2.github.io/tkb-converter/rivta-portal/tjanstedomaner.html">Alla tjänstedomäner</a> · <a href="https://oskthu2.github.io/tkb-converter/rivta-portal/tjanstekontrakt.html">Alla tjänstekontrakt</a></td></tr>
+</table>
+
+<!-- /landningssida:fakta -->
+
 FHIR Implementation Guide för tjänstedomänen **coreprocess: residentparticipation: residentparticipation** (Fasta kontakter) version 1.0 RC2.
 Genererad från Ineras Tjänstekontraktsbeskrivning (TKB) och domänens WSDL- och XSD-filer i taggen 1.0_RC2 (2026-06-29).
 
