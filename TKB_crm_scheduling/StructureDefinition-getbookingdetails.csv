@@ -1,0 +1,86 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"getbookingdetails","getbookingdetails","","","",0,*,"","","","null {[]} {[]}
+","GetBookingDetails","Logisk modell för tjänstekontraktet GetBookingDetails
+(RIV-TA urn:riv:crm:scheduling:GetBookingDetails:1).
+Representerar responsens informationsstruktur.
+Tjänsten hämtar detaljinformation för en befintlig bokning vid en vårdenhet.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"getbookingdetails.timeslotDetail","getbookingdetails.timeslotDetail","","","",1,1,"","","","BackboneElement {[]} {[]}
+","Information om den aktuella tiden (TimeslotType)","Information om den aktuella bokade/kallade tiden.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail",1,1,"","getbookingdetails-purpose-required:purpose ska anges om isInvitation är true (kallelse) {isInvitation = true implies purpose.exists()}
+ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}"
+"getbookingdetails.timeslotDetail.id","getbookingdetails.timeslotDetail.id","","","",0,1,"","","","string {[]} {[]}
+","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"",""
+"getbookingdetails.timeslotDetail.extension","getbookingdetails.timeslotDetail.extension","","extensions
+user content","",0,*,"","","","Extension {[]} {[]}
+","Additional content defined by implementations","May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","","","","","","","","",,,,,"","value:url}
+","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getbookingdetails.timeslotDetail.modifierExtension","getbookingdetails.timeslotDetail.modifierExtension","","extensions
+user contentmodifiers","",0,*,"","Y","Y","Extension {[]} {[]}
+","Extensions that cannot be ignored even if unrecognized","May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).","There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.","Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).","","","","","","","",,,,,"",,,,"BackboneElement.modifierExtension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
+"getbookingdetails.timeslotDetail.startTimeInclusive","getbookingdetails.timeslotDetail.startTimeInclusive","","","",0,1,"","","","string {[]} {[]}
+","Startdatum och klockslag (ÅÅÅÅMMDDttmmss)","Startdatum och klockslag. Kan saknas för öppen kallelse.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.startTimeInclusive",0,1,"",""
+"getbookingdetails.timeslotDetail.endTimeExclusive","getbookingdetails.timeslotDetail.endTimeExclusive","","","",0,1,"","","","string {[]} {[]}
+","Slutdatum och klockslag (ÅÅÅÅMMDDttmmss)","Slutdatum och klockslag. Kan saknas för öppen kallelse.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.endTimeExclusive",0,1,"",""
+"getbookingdetails.timeslotDetail.healthcare-facility","getbookingdetails.timeslotDetail.healthcare_facility","","","",1,1,"","","","Identifier {[]} {[]}
+","HSA-id för mottagning/vårdenhet","HSA-id för mottagning/vårdenhet.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.healthcare_facility",1,1,"",""
+"getbookingdetails.timeslotDetail.performer","getbookingdetails.timeslotDetail.performer","","","",0,1,"","","","Identifier {[]} {[]}
+","HSA-id för Hos-person","HSA-id för Hos-person som besöket är bokat hos.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.performer",0,1,"",""
+"getbookingdetails.timeslotDetail.bookingId","getbookingdetails.timeslotDetail.bookingId","","","",0,1,"","","","string {[]} {[]}
+","Bokningsidentitet","Bokningsidentitet för det bokade besöket.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.bookingId",0,1,"",""
+"getbookingdetails.timeslotDetail.subject-of-care","getbookingdetails.timeslotDetail.subject_of_care","","","",1,1,"","","","string {[]} {[]}
+","Personnummer enl. yyyymmddxxxx","Personnummer för invånaren.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.subject_of_care",1,1,"",""
+"getbookingdetails.timeslotDetail.purpose","getbookingdetails.timeslotDetail.purpose","","","",0,1,"","","","string {[]} {[]}
+","Beskrivning av besöksorsak angiven av vårdenhet","Beskrivning av besöksorsak angiven av vårdenhet.
+Villkorlig: obligatorisk om isInvitation = true (kallelse).
+Producenten kan använda DocBook-format version 5.0.
+Kardinalitet: Valfri (villkorlig).","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.purpose",0,1,"",""
+"getbookingdetails.timeslotDetail.reason","getbookingdetails.timeslotDetail.reason","","","",0,1,"","","","string {[]} {[]}
+","Kontaktorsak som invånare uppger","Kontaktorsak som invånare uppger vid bokning.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.reason",0,1,"",""
+"getbookingdetails.timeslotDetail.resourceName","getbookingdetails.timeslotDetail.resourceName","","","",0,1,"","","","string {[]} {[]}
+","Namn på resurs","Namn på resurs.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.resourceName",0,1,"",""
+"getbookingdetails.timeslotDetail.healthcare-facility-name","getbookingdetails.timeslotDetail.healthcare_facility_name","","","",0,1,"","","","string {[]} {[]}
+","Namn på bokad mottagning/vårdenhet","Namn på bokad mottagning/vårdenhet.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.healthcare_facility_name",0,1,"",""
+"getbookingdetails.timeslotDetail.performerName","getbookingdetails.timeslotDetail.performerName","","","",0,1,"","","","string {[]} {[]}
+","Namn på HoS-person","Namn på HoS-person som besöket är bokat hos.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.performerName",0,1,"",""
+"getbookingdetails.timeslotDetail.resourceID","getbookingdetails.timeslotDetail.resourceID","","","",0,1,"","","","string {[]} {[]}
+","Identitet för resurs","Identitet för resurs.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.resourceID",0,1,"",""
+"getbookingdetails.timeslotDetail.timeTypeName","getbookingdetails.timeslotDetail.timeTypeName","","","",0,1,"","","","string {[]} {[]}
+","Tidstyp för det bokade besöket","Tidstyp för det bokade besöket.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.timeTypeName",0,1,"",""
+"getbookingdetails.timeslotDetail.timeTypeID","getbookingdetails.timeslotDetail.timeTypeID","","","",0,1,"","","","string {[]} {[]}
+","Identitet för tidstyp","Identitet för tidstyp.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.timeTypeID",0,1,"",""
+"getbookingdetails.timeslotDetail.careTypeName","getbookingdetails.timeslotDetail.careTypeName","","","",0,1,"","","","string {[]} {[]}
+","Klartext för vårdtyp","Klartext för vårdtyp.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.careTypeName",0,1,"",""
+"getbookingdetails.timeslotDetail.careTypeID","getbookingdetails.timeslotDetail.careTypeID","","","",0,1,"","","","string {[]} {[]}
+","Identitet för vårdtyp","Identitet för vårdtyp.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.careTypeID",0,1,"",""
+"getbookingdetails.timeslotDetail.cancel-booking-allowed","getbookingdetails.timeslotDetail.cancel_booking_allowed","","","",1,1,"","","","boolean {[]} {[]}
+","Om bokningen kan avbokas","Sätts av producenten. Anger om bokningen kan avbokas.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.cancel_booking_allowed",1,1,"",""
+"getbookingdetails.timeslotDetail.rebooking-allowed","getbookingdetails.timeslotDetail.rebooking_allowed","","","",1,1,"","","","boolean {[]} {[]}
+","Om bokningen kan ombokas","Sätts av producenten. Anger om bokningen kan ombokas.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.rebooking_allowed",1,1,"",""
+"getbookingdetails.timeslotDetail.message-allowed","getbookingdetails.timeslotDetail.message_allowed","","","",1,1,"","","","boolean {[]} {[]}
+","Om orsak kan skickas","Sätts av producenten. Anger om orsak till av- eller ombokning kan skickas.
+Kardinalitet: Obligatorisk.","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.message_allowed",1,1,"",""
+"getbookingdetails.timeslotDetail.isInvitation","getbookingdetails.timeslotDetail.isInvitation","","","",0,1,"","","","boolean {[]} {[]}
+","Om bokningen är en kallelse","Sätts av producenten. Anger om bokningen skapats på vårdgivarens initiativ (kallelse).
+isInvitation = true innebär kallelse; false eller saknat innebär invånariniterad bokning.
+Kardinalitet: Valfri.","","","","","","","","","",,,,,"",,,,"getbookingdetails.timeslotDetail.isInvitation",0,1,"",""

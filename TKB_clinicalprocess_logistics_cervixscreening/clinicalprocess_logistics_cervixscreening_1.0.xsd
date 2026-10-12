@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:tns='urn:riv:clinicalprocess:logistics:cervixscreening:1' targetNamespace='urn:riv:clinicalprocess:logistics:cervixscreening:1' elementFormDefault='qualified' attributeFormDefault='unqualified' version='1.0'>
+  <xs:complexType name='CervixScreeningInformationType'>
+    <xs:sequence>
+      <xs:element name="subjectOfCare" type="tns:PersonType" />
+      <xs:element name="sendingRegion" type="tns:RegionType" />
+      <xs:element name="exclusion" type="tns:ExclusionType" minOccurs="0" />
+      <xs:element name="followUpGroups" type="tns:FollowUpGroupType" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="plannedInvitation" type="tns:PlannedInvitationType" minOccurs="0"/>
+      <xs:element name="specimen" type="tns:SpecimenType" minOccurs="0" />
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PersonType">
+    <xs:sequence>
+      <xs:element name="personId" type="tns:IIType"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExclusionType">
+    <xs:sequence>
+      <xs:element name="reason" type="tns:CVType"/>
+      <xs:element name="registeredAt" type="tns:DateType" />
+      <xs:element name="originalRegion" type="tns:RegionType" />
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegionType">
+    <xs:sequence>
+      <xs:element name="region" type="tns:OrganisationType" />
+      <xs:element name="careGiver" type="tns:OrganisationType" minOccurs="0" />
+      <xs:element name="careUnit" type="tns:OrganisationType" minOccurs="0" />
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrganisationType">
+    <xs:sequence>
+      <xs:element name="id" type="tns:IIType" />
+      <xs:element name="name" type="xs:string" />
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FollowUpGroupType">
+    <xs:sequence>
+      <xs:element name="type" type="tns:CVType" />
+      <xs:element name="inclusionDate" type="tns:DateType" />
+      <xs:element name="originalRegion" type="tns:RegionType" />
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SpecimenType">
+    <xs:sequence>
+      <xs:element name="specimenDate" type="tns:DateType" />
+      <xs:element name="originalRegion" type="tns:RegionType" />
+      <xs:element name="HPVstatusList" type="tns:HPVstatusType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HPVstatusType">
+    <xs:sequence>
+      <xs:element name="value" type="tns:CVType" />
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PlannedInvitationType">
+    <xs:sequence>
+      <xs:element name="date" type="tns:DateType"/>
+      <xs:element name="reason" type="xs:string" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IIType">
+    <xs:sequence>
+      <xs:element name="root" type="xs:string"/>
+      <xs:element name="extension" type="xs:string" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CVType">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="xs:string" />
+      <xs:element name="codeSystem" type="xs:string" />
+      <xs:element name="codeSystemName" type="xs:string" minOccurs="0"/>
+      <xs:element name="codeSystemVersion" type="xs:string" minOccurs="0"/>
+      <xs:element name="displayName" type="xs:string" minOccurs="0"/>
+      <xs:element name="originalText" type="xs:string" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="DateType">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

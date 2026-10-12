@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Inera AB licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetCareServiceOfferingsResponder:3"
+           xmlns:core="urn:riv:supportprocess:serviceprovisioning:healthcareoffering:3"
+           targetNamespace="urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetCareServiceOfferingsResponder:3"
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0">
+
+    <xs:import schemaLocation="../../core_components/supportprocess_serviceprovisioning_healthcareoffering_3.0.xsd"
+               namespace="urn:riv:supportprocess:serviceprovisioning:healthcareoffering:3"/>
+
+    <!-- The request wrapper -->
+    <xs:element name="GetCareServiceOfferings" type="tns:GetCareServiceOfferingsType"/>
+
+    <!-- The response wrapper -->
+    <xs:element name="GetCareServiceOfferingsResponse" type="tns:GetCareServiceOfferingsResponseType"/>
+
+    <!-- The request -->
+    <xs:complexType name="GetCareServiceOfferingsType">
+        <xs:sequence>
+            <xs:element name="careServiceId" minOccurs="0" maxOccurs="unbounded" type="core:IIType"/>
+            <xs:element name="typeOfCareService" minOccurs="0" maxOccurs="unbounded" type="core:CVType"/>
+            <xs:element name="typeOfPlace" type="core:TypeOfPlaceType"/>
+            <xs:element name="typeOfBusiness" minOccurs="0" maxOccurs="unbounded" type="core:CVType"/>
+            <xs:element name="providingOrganization" minOccurs="0" type="core:SearchProvidingOrganizationType"/>
+            <xs:element name="actorLanguage" minOccurs="0" type="core:CVType"/>
+            <xs:element name="actorRole" minOccurs="0" type="core:CVType"/>
+            <xs:element name="performingOrganizationId" minOccurs="0" maxOccurs="unbounded" type="core:IIType"/>
+            <xs:element name="targetGroupAge" minOccurs="0" type="xs:int"/>
+            <xs:element name="targetGroupGender" minOccurs="0" type="core:CVType"/>
+            <xs:element name="targetGroupAttribute" minOccurs="0" maxOccurs="unbounded" type="core:TargetGroupAttributeType"/>
+            <xs:element name="location" minOccurs="0" type="core:SearchLocationType"/>
+            <xs:element name="searchTerm" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
+            <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GetCareServiceOfferingsResponseType">
+        <xs:sequence>
+            <xs:element name="careService" minOccurs="0" maxOccurs="unbounded" type="core:CareServiceType"/>
+            <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

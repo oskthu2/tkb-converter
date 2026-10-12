@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->		
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="urn:riv:supportprocess:serviceprovisioning:healthcareoffering:3"
+	xmlns:codes="urn:riv:supportprocess:serviceprovisioning:healthcareoffering:enums:3"
+	targetNamespace="urn:riv:supportprocess:serviceprovisioning:healthcareoffering:3"
+	elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.0">
+
+	<xs:import schemaLocation="supportprocess_serviceprovisioning_healthcareoffering_3.0_enums.xsd"
+		namespace="urn:riv:supportprocess:serviceprovisioning:healthcareoffering:enums:3"/>
+
+	<xs:complexType name="OfferingCatalogueType">
+		<xs:sequence>
+			<xs:element name="providingOrganization" maxOccurs="unbounded" type="tns:ProvidingOrganizationType"/>
+			<xs:element name="interaction" type="tns:InteractionType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CareServiceType">
+		<xs:sequence>
+			<xs:element name="careServiceId" type="tns:IIType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="typeOfCareService" type="tns:CVType"/>
+			<xs:element name="typeOfCareServiceDescription" minOccurs="0" maxOccurs="unbounded" type="tns:DescriptionType"/>
+			<xs:element name="validity" type="tns:DatePeriodType"/>
+			<xs:element name="careServiceStatus" type="codes:CareServiceStatusEnum"/>
+			<xs:element name="careOption" type="xs:boolean"/>
+			<xs:element name="referralRequired" type="xs:boolean"/>
+			<xs:element name="description" minOccurs="0" maxOccurs="unbounded" type="tns:DescriptionType"/>
+			<xs:element name="indicator" minOccurs="0" maxOccurs="unbounded" type="tns:IndicatorType"/>
+			<xs:element name="requestTemplate" minOccurs="0" type="tns:RequestTemplateType"/>
+			<xs:element name="providingOrganization" type="tns:ProvidingOrganizationType"/>
+			<xs:element name="performingOrganization" type="tns:PerformingOrganizationType"/>
+			<xs:element name="patientFee" minOccurs="0" type="tns:MOType"/>
+			<xs:element name="targetGroup" minOccurs="0" maxOccurs="unbounded" type="tns:TargetGroupType"/>
+			<xs:element name="location" maxOccurs="unbounded" type="tns:LocationType"/>
+			<xs:element name="contactInformation" minOccurs="0" maxOccurs="unbounded"
+						type="tns:ContactInformationType"/>
+			<xs:element name="cooperation" minOccurs="0" maxOccurs="unbounded" type="tns:CooperationType"/>
+			<xs:element name="resource" minOccurs="0" maxOccurs="unbounded" type="tns:ResourceType"/>
+			<xs:element name="interferenceInformation" minOccurs="0" maxOccurs="unbounded"
+						type="tns:InterferenceInformationType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="RequestTemplateType">
+		<xs:sequence>
+			<xs:element name="address" type="xs:anyURI"/>
+			<xs:element name="mandatory" type="xs:boolean"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ADXPType">
+		<xs:sequence>
+			<xs:element name="value" type="xs:string"/>
+			<xs:element name="type" minOccurs="0" type="tns:ADXPType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="CalendarType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+
+	<xs:complexType name="ContactInformationType">
+		<xs:sequence>
+			<xs:element name="ranking" minOccurs="0" type="xs:int"/>
+			<xs:element name="forRole" minOccurs="0" maxOccurs="unbounded" type="tns:CVType"/>
+			<xs:element name="purpose" minOccurs="0" type="xs:string"/>
+			<xs:element name="address" minOccurs="0" type="xs:string"/>
+			<xs:element name="availableTime" minOccurs="0" maxOccurs="unbounded"
+				type="tns:CalendarType"/>
+			<xs:element name="telecom" minOccurs="0" type="tns:TelecomType"/>
+			<xs:element name="description" minOccurs="0" maxOccurs="unbounded" type="tns:DescriptionType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CooperationType">
+		<xs:sequence>
+			<xs:element name="typeOfCooperation" type="xs:string"/>
+			<xs:element name="validity" minOccurs="0" type="tns:DatePeriodType"/>
+			<xs:element name="referenceToCareServiceId" type="tns:IIType"/>
+			<xs:element name="description" minOccurs="0" maxOccurs="unbounded" type="tns:DescriptionType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CVType">
+		<xs:sequence>
+			<xs:element name="code" type="xs:string" minOccurs="1"/>
+			<xs:element name="codeSystem" type="xs:string" minOccurs="1"/>
+			<xs:element name="codeSystemName" type="xs:string" minOccurs="0"/>
+			<xs:element name="codeSystemVersion" type="xs:string" minOccurs="0"/>
+			<xs:element name="displayName" type="xs:string" minOccurs="0"/>
+			<xs:element name="originalText" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DatePeriodType">
+		<xs:annotation>
+			<xs:documentation>
+				Används för att specificera ett datumintervall
+				med hjälp av start- och slutdatum.
+
+				start:
+				Startdatum på formatet ÅÅÅÅMMDD
+				end:
+				Slutdatum på formatet ÅÅÅÅMMDD
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="start" type="tns:DateType" minOccurs="0"/>
+			<xs:element name="end" type="tns:DateType" minOccurs="0"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="DateType">
+		<xs:annotation>
+			<xs:documentation>Date format YYYYMMDD</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="DescriptionType">
+		<xs:sequence>
+			<xs:element name="text" type="xs:string"/>
+			<xs:element name="language" minOccurs="0" type="tns:CVType"/>
+			<xs:element name="role" minOccurs="0" maxOccurs="unbounded" type="tns:CVType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="GeographicalLocationType">
+		<xs:sequence>
+			<xs:element name="county" minOccurs="0" type="tns:CVType"/>
+			<xs:element name="municipality" minOccurs="0" type="tns:CVType"/>
+			<xs:element name="otherLocation" minOccurs="0" type="tns:OtherLocationType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="GeoLocationType">
+		<xs:sequence>
+			<xs:element name="north" type="xs:long"/>
+			<xs:element name="east" type="xs:long"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="IIType">
+		<xs:sequence>
+			<xs:element name="root" type="xs:string"/>
+			<xs:element name="extension" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="IndicatorType">
+		<xs:sequence>
+			<xs:element name="indicatorId" type="tns:IIType"/>
+			<xs:element name="logicalAddress" type="xs:string"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="InteractionType">
+		<xs:sequence>
+			<xs:element name="logicalAddress" type="xs:string"/>
+			<xs:element name="name" type="xs:anyURI"/>
+			<xs:element name="majorVersion" type="xs:int"/>
+			<xs:element name="minorVersion" minOccurs="0" type="xs:int"/>
+			<xs:element name="rivtaVersion" type="codes:RIVTAVersionEnum"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="InterferenceInformationType">
+		<xs:sequence>
+			<xs:element name="datePeriod" type="tns:DatePeriodType"/>
+			<xs:element name="typeOfInterference" minOccurs="0" type="tns:CVType"/>
+			<xs:element name="description" minOccurs="1" maxOccurs="unbounded" type="tns:DescriptionType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ListType">
+		<xs:sequence>
+			<xs:element name="data" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="LocationType">
+		<xs:sequence>
+			<xs:element name="geographicalLocation" minOccurs="0" type="tns:GeographicalLocationType"/>
+			<xs:element name="physicalLocation" minOccurs="0" type="tns:PhysicalLocationType"/>
+			<xs:element name="virtualLocation" minOccurs="0" type="tns:VirtualLocationType"/>
+			<xs:element name="description" minOccurs="0" maxOccurs="unbounded" type="tns:DescriptionType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SearchProvidingOrganizationType">
+		<xs:sequence>
+			<xs:element name="providingOrganizationId" minOccurs="0" maxOccurs="unbounded" type="tns:IIType"/>
+			<xs:element name="management" minOccurs="0" maxOccurs="unbounded" type="tns:CVType"/>
+			<xs:element name="publicProvider" minOccurs="0" type="xs:boolean"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SearchLocationType">
+		<xs:sequence>
+			<xs:element name="geographicalLocation" minOccurs="0" type="tns:SearchGeographicalLocationType"/>
+			<xs:element name="county" minOccurs="0" maxOccurs="unbounded" type="tns:CVType"/>
+			<xs:element name="municipality" minOccurs="0" maxOccurs="unbounded" type="tns:CVType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SearchGeographicalLocationType">
+		<xs:sequence>
+			<xs:element name="geographicalCoordinates" type="tns:GeoLocationType"/>
+			<xs:element name="radius" type="xs:int"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="VirtualLocationType">
+		<xs:sequence>
+			<xs:element name="id" minOccurs="1" type="xs:anyURI"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="MOType">
+		<xs:sequence>
+			<xs:element name="value" type="xs:decimal"/>
+			<xs:element name="currency" type="xs:string"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ProvidingOrganizationType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:IIType"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="management" type="tns:CVType"/>
+			<xs:element name="publicProvider" type="xs:boolean"/>
+			<xs:element name="description" minOccurs="0" maxOccurs="unbounded" type="tns:DescriptionType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="PerformingOrganizationType">
+		<xs:sequence>
+			<xs:element name="id" maxOccurs="unbounded" type="tns:IIType"/>
+			<xs:element name="name" minOccurs="0" maxOccurs="unbounded" type="xs:string"/>
+			<xs:element name="responsibleOrganization" type="tns:ResponsibleOrganizationType"/>
+			<xs:element name="availableTime" minOccurs="0" maxOccurs="unbounded" type="tns:CalendarType"/>
+			<xs:element name="typeOfBusiness" minOccurs="0" maxOccurs="unbounded" type="tns:CVType"/>
+			<xs:element name="description" minOccurs="0" maxOccurs="unbounded" type="tns:DescriptionType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ResponsibleOrganizationType">
+		<xs:sequence>
+			<xs:element name="id" type="tns:IIType"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="description" minOccurs="0" maxOccurs="unbounded" type="tns:DescriptionType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="OtherLocationType">
+		<xs:sequence>
+			<xs:element name="polygon" minOccurs="3" maxOccurs="unbounded" type="tns:GeoLocationType"/>
+			<xs:element name="name" minOccurs="0" type="xs:string"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="PhysicalLocationType">
+		<xs:sequence>
+			<xs:element name="locationAddress" minOccurs="0" type="xs:string"/>
+			<xs:element name="geographicalCoordinates" minOccurs="0" type="tns:GeoLocationType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="PositiveIntPeriodType">
+		<xs:sequence>
+			<xs:element name="start" minOccurs="0" type="xs:int"/>
+			<xs:element name="end" minOccurs="0" type="xs:int"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ResourceType">
+		<xs:sequence>
+			<xs:element name="typeOfResource" type="tns:CVType"/>
+			<xs:element name="resourceAttribute" minOccurs="0" type="xs:string"/>
+			<xs:element name="availableTime" minOccurs="0" maxOccurs="unbounded"
+				type="tns:CalendarType"/>
+			<xs:element name="description" minOccurs="0" maxOccurs="unbounded"
+				type="tns:DescriptionType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TargetGroupType">
+		<xs:sequence>
+			<xs:element name="age" minOccurs="0" type="tns:PositiveIntPeriodType"/>
+			<xs:element name="gender" minOccurs="0" type="tns:CVType"/>
+			<xs:element name="targetGroupAttribute" minOccurs="0" maxOccurs="unbounded"
+				type="tns:TargetGroupAttributeType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TargetGroupAttributeType">
+		<xs:sequence>
+			<xs:element name="typeOfPersonalAttribute" type="tns:CVType"/>
+			<xs:element name="attributeValue" type="xs:string"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TelecomType">
+		<xs:sequence>
+			<xs:element name="typeOfTelecom" type="tns:CVType"/>
+			<xs:element name="contactPoint" type="xs:string"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TypeOfPlaceType">
+		<xs:sequence>
+			<xs:element name="typeOfPlaceEnum" type="codes:TypeOfPlaceEnum"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>
