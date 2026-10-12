@@ -6,6 +6,22 @@
 
 ## Översikt
 
+<!-- landningssida:fakta — genererad av scripts/build_portal.py, redigera inte för hand -->
+
+<table class="grid">
+<tr><th>Beskrivning</th><td>Syftet med tjänstedomänen är att förse övriga e-tjänster med kvalitetssäkrade och aktuella personuppgifter om personer som är anställda inom, eller arbetar på uppdrag av, organisationer inom vård och omsorg. Tjänstekontrakten inom domänen används främst för att göra sökningar efter kontaktinformation och andra egenskaper för personer verksamma inom vård och omsorg. Tjänstekontrakten möjliggör också att e-tjänster kan lista tillgängliga medarbetare inom en specifik vårdenhet.</td></tr>
+<tr><th>Svenskt kortnamn</th><td>medarbetare</td></tr>
+<tr><th>Svenskt namn</th><td>infrastruktur:katalogtjänster:medarbetare</td></tr>
+<tr><th>Typ</th><td>Nationell tjänstedomän</td></tr>
+<tr><th>Anmärkning</th><td>dold på rivta.se</td></tr>
+<tr><th>Källkod</th><td><a href="https://bitbucket.org/rivta-domains/riv.strategicresourcemanagement.persons.employee/src">Bitbucket</a></td></tr>
+<tr><th>Ärenden</th><td><a href="https://bitbucket.org/rivta-domains/riv.strategicresourcemanagement.persons.employee/issues">Bitbucket issues</a></td></tr>
+<tr><th>Underlag för denna IG</th><td>Version 2.0_RC1 · <a href="https://bitbucket.org/rivta-domains/riv.strategicresourcemanagement.persons.employee/src/2.0_RC1">tagg 2.0_RC1</a> · <a href="https://bitbucket.org/rivta-domains/riv.strategicresourcemanagement.persons.employee/get/2.0_RC1.zip">zip</a></td></tr>
+<tr><th>RIV-TA-portalen</th><td><a href="https://oskthu2.github.io/tkb-converter/rivta-portal/tjanstedomaner.html">Alla tjänstedomäner</a> · <a href="https://oskthu2.github.io/tkb-converter/rivta-portal/tjanstekontrakt.html">Alla tjänstekontrakt</a></td></tr>
+</table>
+
+<!-- /landningssida:fakta -->
+
 FHIR Implementation Guide för tjänstedomänen **strategicresourcemanagement: persons: employee** (infrastruktur: katalogtjänster: medarbetare), version 2.0_RC1.
 Genererad från Ineras Tjänstekontraktsbeskrivning (TKB) och domänens WSDL- och XSD-filer i taggen 2.0_RC1 (2016-11-22).
 
@@ -21,6 +37,22 @@ Domänen innehåller följande tjänstekontrakt:
 | [GetEmployee](7-tjanstekontrakt.html#getemployee) | 2.0 | Metoden är identisk med GetEmployeeIncludingProtectedPerson, förutom att skyddade personer aldrig returneras. |
 | [GetCommissionMembersIncludingProtectedPerson](7-tjanstekontrakt.html#getcommissionmembersincludingprotectedperson) | 2.0 | GetCommissionMembersIncludingProtectedPerson returnerar information, som namn, kontaktinformation samt legitimerad yrkesgrupp och specialitet, om personer som är kopplade till medarbetaruppdrag för angiven enhet eller organisation och kopplingen är inom ev angivna start- och slutdatum. Listan kan vid behov filtreras. Metoden kan användas av en tjänstekonsument för att t.ex. för en administratör presentera en lista med valbara personer för registrering i en intern användardatabas eller för tilldelning av ärenden. |
 | [GetCommissionMembers](7-tjanstekontrakt.html#getcommissionmembers) | 2.0 | Metoden är identisk med GetCommissionMembersIncludingProtectedPerson, förutom att skyddade personer aldrig returneras. |
+
+<!-- landningssida:versioner — genererad av scripts/build_portal.py, redigera inte för hand -->
+
+### Versioner och granskningar
+
+<table class="grid">
+<thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
+<tbody>
+<tr><td>2.0_RC1</td><td>TKB, AB</td><td><a href="http://rivta.se/downloads//strategicresourcemanagement_persons_employee/2.0_RC1/T-granskning%20strategicresourcemanagement_persons_employee_2.0_RC1.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a></td><td><a href="http://rivta.se/downloads//strategicresourcemanagement_persons_employee/2.0_RC1/ServiceContracts_strategicresourcemanagement_persons_employee_2.0_RC1.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.strategicresourcemanagement.persons.employee/src/2.0_RC1">källkod</a></td></tr>
+<tr><td>trunk</td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+
+<p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
+
+<!-- /landningssida:versioner -->
 
 ## Innehåll
 

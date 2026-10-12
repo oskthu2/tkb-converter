@@ -6,6 +6,17 @@
 
 ## Översikt
 
+<!-- landningssida:fakta — genererad av scripts/build_portal.py, redigera inte för hand -->
+
+<table class="grid">
+<tr><th>Anmärkning</th><td>saknas i DOMDB</td></tr>
+<tr><th>Källkod</th><td><a href="https://bitbucket.org/rivta-domains/riv.interoperability.headers/src">Bitbucket</a></td></tr>
+<tr><th>Underlag för denna IG</th><td>Version 1.1 · <a href="https://bitbucket.org/rivta-domains/riv.interoperability.headers/src/interoperability_headers_1.1">tagg interoperability_headers_1.1</a> · <a href="https://bitbucket.org/rivta-domains/riv.interoperability.headers/get/interoperability_headers_1.1.zip">zip</a></td></tr>
+<tr><th>RIV-TA-portalen</th><td><a href="https://oskthu2.github.io/tkb-converter/rivta-portal/tjanstedomaner.html">Alla tjänstedomäner</a> · <a href="https://oskthu2.github.io/tkb-converter/rivta-portal/tjanstekontrakt.html">Alla tjänstekontrakt</a></td></tr>
+</table>
+
+<!-- /landningssida:fakta -->
+
 FHIR Implementation Guide för RIV-TA-domänen **interoperability: headers** version 1.1.
 
 RIV-TA namnrymd: `urn:riv:interoperability:headers:1`

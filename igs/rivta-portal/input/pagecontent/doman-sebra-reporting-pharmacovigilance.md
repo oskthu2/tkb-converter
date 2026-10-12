@@ -21,7 +21,7 @@
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>1.0_RC1</td><td>AB, TKB, IS</td><td><a href="http://rivta.se/downloads//sebra_reporting_pharmacovigilance/1.0_RC1/T-granskning - riv-application_sebra_reporting_pharmacovigilance 1.0_RC1.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a></td><td><a href="http://rivta.se/downloads//sebra_reporting_pharmacovigilance/1.0_RC1/ServiceContracts_sebra_reporting_pharmacovigilance_1.0_RC1.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv-application.sebra.reporting.pharmacovigilance/src/1.0_RC1">källkod</a></td></tr>
+<tr><td>1.0_RC1</td><td>AB, TKB, IS</td><td><a href="http://rivta.se/downloads//sebra_reporting_pharmacovigilance/1.0_RC1/T-granskning%20-%20riv-application_sebra_reporting_pharmacovigilance%201.0_RC1.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a></td><td><a href="http://rivta.se/downloads//sebra_reporting_pharmacovigilance/1.0_RC1/ServiceContracts_sebra_reporting_pharmacovigilance_1.0_RC1.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv-application.sebra.reporting.pharmacovigilance/src/1.0_RC1">källkod</a></td></tr>
 <tr><td>trunk</td><td></td><td></td><td></td></tr>
 </tbody>
 </table>

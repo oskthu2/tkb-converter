@@ -17,6 +17,9 @@ Skriver (genererat, redigera inte för hand):
   igs/rivta-portal/sushi-config.yaml
   igs/rivta-portal/input/pagecontent/*.md
   igs/rivta-portal/input/images/rss.xml
+  igs/TKB_*/input/pagecontent/index.md   bara blocken mellan markörerna
+                                          <!-- landningssida:fakta --> och
+                                          <!-- landningssida:versioner -->
 
 Användning:
   build_portal.py            # bygger från ögonblicksbilden
@@ -89,7 +92,22 @@ def domain_page(name: str) -> str:
 
 # ── Data ─────────────────────────────────────────────────────────────────────
 
+def squash_text(domains):
+    """DOMDB-texter har \r\n och tomrader; en tomrad mitt i ett HTML-block
+    avslutar blocket i kramdown, så all blanktext slås ihop till mellanslag."""
+    for d in domains:
+        for k in ("description", "swedishLong", "swedishShort", "owner"):
+            if isinstance(d.get(k), str):
+                d[k] = " ".join(d[k].split())
+    return domains
+
+
 def load_domdb(live: bool):
+    domains, note = _load_domdb(live)
+    return squash_text(domains), note
+
+
+def _load_domdb(live: bool):
     snapshot = json.loads((DATA / "servicedomains-snapshot.json").read_text(encoding="utf-8"))
     if live:
         for url in DOMDB_URLS:
@@ -120,6 +138,20 @@ def load_registry():
         if outdir and (ROOT / outdir / "sushi-config.yaml").exists():
             out[d["id"]] = Path(outdir).name
     return out
+
+
+def ig_key(outdir: str) -> str:
+    """IG-katalogen relativt igs/: "TKB_x" eller "TKB_x/versions/2.1.19"."""
+    path = Path(outdir.rstrip("/"))
+    return str(path.relative_to("igs")) if path.parts[:1] == ("igs",) else path.name
+
+
+def load_registry_entries():
+    """IG-katalog relativt igs/ → registerpost (för källtagg, zip och version)."""
+    if not REGISTRY.exists():
+        return {}
+    reg = json.loads(REGISTRY.read_text(encoding="utf-8"))
+    return {ig_key(d["output_dir"]): d for d in reg.get("domains", []) if d.get("output_dir")}
 
 
 def ig_slug_for(name: str, registry: dict):
@@ -206,17 +238,85 @@ def write_page(name: str, title: str, body: str, scripts: bool = False):
     return name, title
 
 
-def page_domains(domains, registry, base, source_note):
+# ── Länkar in i domän-IG:arna ───────────────────────────────────────────────
+
+def heading_anchor(text: str) -> str:
+    """Rubrik-id som IG Publishers kramdown sätter (GFM-stil, behåller å/ä/ö)."""
+    text = re.sub(r"<[^>]+>|[*`]", "", text).strip().lower()
+    return re.sub(r"[^\w\- ]", "", text).replace(" ", "-")
+
+
+def contracts_page(slug: str):
+    pages = sorted((ROOT / "igs" / slug / "input" / "pagecontent").glob("*tjanstekontrakt*.md"))
+    return pages[0] if pages else None
+
+
+_ANCHOR_CACHE = {}
+
+
+def contract_anchors(slug: str) -> dict:
+    """kontraktsnamn (gemener) → relativ länk till kontraktets avsnitt i IG:n.
+
+    I första hand används länkarna i IG:ns egen kontraktstabell på index.md
+    (de kontrolleras av check_links.py i varje bygge), i andra hand rubrikerna
+    på kontraktssidan.
+    """
+    if slug in _ANCHOR_CACHE:
+        return _ANCHOR_CACHE[slug]
+    out = {}
+    page = contracts_page(slug)
+    if page:
+        seen = {}
+        in_code = False
+        for line in page.read_text(encoding="utf-8").splitlines():
+            if line.startswith("```"):
+                in_code = not in_code
+            m = None if in_code else re.match(r"^(#{1,6})\s+(.+?)\s*#*\s*$", line)
+            if not m:
+                continue
+            anchor = heading_anchor(m.group(2))
+            n = seen.get(anchor, 0)
+            seen[anchor] = n + 1
+            if n:
+                anchor = f"{anchor}-{n}"
+            first = re.sub(r"^[\d.]+\s+", "", re.sub(r"[*`]", "", m.group(2))).split()
+            if len(m.group(1)) in (2, 3) and first and re.fullmatch(r"[A-Za-z][A-Za-z0-9_]*", first[0]):
+                out.setdefault(first[0].lower(), f"{page.stem}.html#{anchor}")
+    index = ROOT / "igs" / slug / "input" / "pagecontent" / "index.md"
+    if index.exists():
+        for name, href in re.findall(r"\[`?([A-Za-z][A-Za-z0-9_]*)`?\]\(([\w-]*tjanstekontrakt\.html#[^)\s]+)\)",
+                                     index.read_text(encoding="utf-8")):
+            out[name.lower()] = href
+    _ANCHOR_CACHE[slug] = out
+    return out
+
+
+def contract_href(slug: str, contract: str, base: str):
+    """Absolut länk till kontraktet i domänens IG, eller None om det inte finns där."""
+    href = contract_anchors(slug).get(contract.lower())
+    return f"{base}{slug}/{href}" if href else None
+
+
+def domain_href(d, registry, base) -> str:
+    slug = ig_slug_for(d["name"], registry)
+    return f"{base}{slug}/index.html" if slug else f"{domain_page(d['name'])}.html"
+
+
+def page_domains(domains, registry, entries, base, source_note):
     rows = []
     for d in domains:
         slug = ig_slug_for(d["name"], registry)
         ig = f'<a href="{base}{slug}/index.html">FHIR IG</a>' if slug else "–"
+        older = sorted((k.split("/")[-1] for k in entries if slug and k.startswith(f"{slug}/versions/")),
+                       key=version_key, reverse=True)
+        if older:
+            ig += "<br/>Äldre: " + ", ".join(f'<a href="{base}{slug}/{v}/index.html">{esc(v)}</a>' for v in older)
         dtype = DOMAIN_TYPE_SHORT.get((d.get("domainType") or {}).get("name"), (d.get("domainType") or {}).get("name") or "")
         if d.get("portalNote"):
             dtype = f"{dtype} ({d['portalNote']})" if dtype else d["portalNote"]
         rows.append(
             "<tr>"
-            f'<td><a href="{domain_page(d["name"])}.html"><code>{esc(d["name"])}</code></a></td>'
+            f'<td><a href="{domain_href(d, registry, base)}"><code>{esc(d["name"])}</code></a></td>'
             f'<td>{esc(d.get("swedishShort"))}</td>'
             f'<td>{esc(d.get("swedishLong"))}</td>'
             f"<td>{esc(dtype)}</td>"
@@ -225,8 +325,10 @@ def page_domains(domains, registry, base, source_note):
         )
     n_ig = sum(1 for d in domains if ig_slug_for(d["name"], registry))
     body = (
-        "Här hittar du en förteckning över tjänstedomäner. Klicka på domännamnet för mer information. "
-        f"{len(domains)} domäner listas, varav {n_ig} har en FHIR Implementation Guide.\n\n"
+        "Här hittar du en förteckning över tjänstedomäner. "
+        f"{len(domains)} domäner listas, varav {n_ig} har en FHIR Implementation Guide. "
+        "Domännamnet leder till domänens FHIR IG, vars startsida samlar fakta, länkar, "
+        "tjänstekontrakt och granskningar. Domäner utan IG har en landningssida här i portalen.\n\n"
         + filter_box("domains", "Filtrera på namn, svenskt namn eller typ")
         + '<table class="grid" id="domains">\n<thead><tr><th>Tjänstedomän</th><th>Svenskt kortnamn</th>'
         "<th>Svenskt namn</th><th>Typ</th><th>FHIR IG</th></tr></thead>\n<tbody>\n"
@@ -258,25 +360,48 @@ def contracts_of(domain):
     return sorted(best.values(), key=lambda c: (c["name"].lower(), -(c["major"] or 0)))
 
 
-def page_contracts(domains, source_note):
+def ig_only_contracts(d, slug, entries):
+    """Kontrakt i domänens IG (enligt registret) som saknas i DOMDB-datat."""
+    known = {c["name"].lower() for c in contracts_of(d)}
+    out = []
+    for c in (entries.get(slug) or {}).get("contracts") or []:
+        cid = (c.get("id") or "").removesuffix("Interaction")
+        if cid and cid.lower() not in known:
+            known.add(cid.lower())
+            ver = str(c.get("version") or "")
+            out.append({"name": cid, "major": ".".join(ver.split(".")[:2]) or "–", "minor": None, "profile": ""})
+    return out
+
+
+def page_contracts(domains, registry, entries, base, source_note):
     rows = []
     count = 0
+    n_ig_only = 0
     for d in domains:
-        for c in contracts_of(d):
+        slug = ig_slug_for(d["name"], registry)
+        extra = ig_only_contracts(d, slug, entries) if slug else []
+        n_ig_only += len(extra)
+        for c in contracts_of(d) + extra:
             count += 1
+            version = c["major"] if c["minor"] is None else f'{c["major"]}.{c["minor"]}'
+            href = contract_href(slug, c["name"], base) if slug else None
+            name = f'<a href="{esc(href)}">{esc(c["name"])}</a>' if href else esc(c["name"])
             rows.append(
                 (c["name"].lower(),
                  "<tr>"
-                 f'<td>{esc(c["name"])}</td>'
-                 f'<td>{c["major"]}.{c["minor"]}</td>'
-                 f'<td><a href="{domain_page(d["name"])}.html"><code>{esc(d["name"])}</code></a></td>'
+                 f"<td>{name}</td>"
+                 f"<td>{esc(version)}</td>"
+                 f'<td><a href="{domain_href(d, registry, base)}"><code>{esc(d["name"])}</code></a></td>'
                  f'<td>{esc(c["profile"])}</td>'
                  "</tr>")
             )
     rows.sort(key=lambda r: r[0])
     body = (
         f"Här hittar du en förteckning över tjänstekontrakt, {count} stycken, med en rad per huvudversion. "
-        "Klicka på tjänstedomänen för namnrymder, versioner och granskningar.\n\n"
+        f"{n_ig_only} av dem finns i en FHIR IG men saknas i domänlistans datakälla; de saknar RIV-TA-profil här. "
+        "Kontraktsnamnet leder till kontraktets avsnitt i domänens FHIR IG när kontraktet finns i den "
+        "version av tjänstekontraktsbeskrivningen som IG:n bygger på. Tjänstedomänen leder till domänens "
+        "IG, eller till dess landningssida här om IG saknas.\n\n"
         + filter_box("contracts", "Filtrera på kontrakt, domän eller profil")
         + '<table class="grid" id="contracts">\n<thead><tr><th>Tjänstekontrakt</th><th>Version</th>'
         "<th>Tjänstedomän</th><th>RIV-TA-profil</th></tr></thead>\n<tbody>\n"
@@ -288,28 +413,55 @@ def page_contracts(domains, source_note):
 
 
 def link(url, text):
-    return f'<a href="{esc(url)}">{esc(text)}</a>' if url else ""
+    # DOMDB-URL:er till granskningsprotokoll innehåller ibland mellanslag.
+    return f'<a href="{esc(url.strip().replace(" ", "%20"))}">{esc(text)}</a>' if url else ""
+
+
+def facts_table(facts) -> str:
+    return '<table class="grid">\n' + "\n".join(
+        f"<tr><th>{k}</th><td>{v}</td></tr>" for k, v in facts if v) + "\n</table>\n"
+
+
+def domdb_facts(d):
+    return [
+        ("Svenskt kortnamn", esc(d.get("swedishShort"))),
+        ("Svenskt namn", esc(d.get("swedishLong"))),
+        ("Typ", esc((d.get("domainType") or {}).get("name"))),
+        ("Anmärkning", esc(d.get("portalNote"))),
+        ("Förvaltare", esc(d.get("owner"))),
+    ]
+
+
+def versions_table(d) -> str:
+    versions = [v for v in d.get("versions") or [] if not v.get("hidden")]
+    if not versions:
+        return ""
+    out = ['<table class="grid">\n<thead><tr><th>Version</th><th>Dokument</th>'
+           "<th>Granskningar</th><th>Nedladdning</th></tr></thead>\n<tbody>\n"]
+    for v in sorted(versions, key=lambda v: version_key(v.get("name", "")), reverse=True):
+        docs = ", ".join(esc(x.get("documentType") or x.get("fileName")) for x in v.get("descriptionDocuments") or [])
+        reviews = "<br/>".join(
+            (link(r.get("reportUrl"), f'{r["reviewProtocol"]["name"]}: {r["reviewOutcome"]["name"]}')
+             if r.get("reportUrl") else esc(f'{r["reviewProtocol"]["name"]}: {r["reviewOutcome"]["name"]}'))
+            for r in v.get("reviews") or [])
+        dl = " · ".join(x for x in (link(v.get("zipUrl"), "zip"), link(v.get("sourceControlPath"), "källkod")) if x)
+        out.append(f'<tr><td>{esc(v.get("name"))}</td><td>{docs}</td><td>{reviews}</td><td>{dl}</td></tr>\n')
+    out.append("</tbody>\n</table>\n")
+    return "".join(out)
 
 
 def page_domain(d, registry, base):
+    """Landningssida i portalen, för domäner som ännu saknar FHIR IG."""
     name = d["name"]
-    slug = ig_slug_for(name, registry)
-    dtype = (d.get("domainType") or {}).get("name")
-    facts = [
-        ("Svenskt kortnamn", esc(d.get("swedishShort"))),
-        ("Svenskt namn", esc(d.get("swedishLong"))),
-        ("Typ", esc(dtype)),
-        ("Anmärkning", esc(d.get("portalNote"))),
-        ("Förvaltare", esc(d.get("owner"))),
-        ("FHIR IG", f'<a href="{base}{slug}/index.html">{esc(slug)}</a>' if slug else "Ingen FHIR IG ännu"),
+    facts = domdb_facts(d) + [
+        ("FHIR IG", "Ingen FHIR IG ännu"),
         ("Källkod", link(d.get("sourceCodeUrl"), "Bitbucket")),
         ("Ärenden", link(d.get("issueTrackerUrl"), "Bitbucket issues")),
         ("Informationssida", link(d.get("infoPageUrl"), "Confluence")),
     ]
     out = []
     out.append(f"<p>{esc(d.get('description'))}</p>\n" if d.get("description") else "")
-    out.append('<table class="grid">\n' + "\n".join(
-        f"<tr><th>{k}</th><td>{v}</td></tr>" for k, v in facts if v) + "\n</table>\n\n")
+    out.append(facts_table(facts) + "\n")
 
     contracts = contracts_of(d)
     if contracts:
@@ -321,23 +473,91 @@ def page_domain(d, registry, base):
                        f'<td>{esc(c["profile"])}</td><td><code>{esc(c["namespace"])}</code></td></tr>\n')
         out.append("</tbody>\n</table>\n\n")
 
-    versions = [v for v in d.get("versions") or [] if not v.get("hidden")]
+    versions = versions_table(d)
     if versions:
-        out.append("### Versioner\n\n")
-        out.append('<table class="grid">\n<thead><tr><th>Version</th><th>Dokument</th>'
-                   "<th>Granskningar</th><th>Nedladdning</th></tr></thead>\n<tbody>\n")
-        for v in sorted(versions, key=lambda v: version_key(v.get("name", "")), reverse=True):
-            docs = ", ".join(esc(x.get("documentType") or x.get("fileName")) for x in v.get("descriptionDocuments") or [])
-            reviews = "<br/>".join(
-                (link(r.get("reportUrl"), f'{r["reviewProtocol"]["name"]}: {r["reviewOutcome"]["name"]}')
-                 if r.get("reportUrl") else esc(f'{r["reviewProtocol"]["name"]}: {r["reviewOutcome"]["name"]}'))
-                for r in v.get("reviews") or [])
-            dl = " · ".join(x for x in (link(v.get("zipUrl"), "zip"), link(v.get("sourceControlPath"), "källkod")) if x)
-            out.append(f'<tr><td>{esc(v.get("name"))}</td><td>{docs}</td><td>{reviews}</td><td>{dl}</td></tr>\n')
-        out.append("</tbody>\n</table>\n")
+        out.append("### Versioner\n\n" + versions)
 
     out.append('\n<p><a href="tjanstedomaner.html">← Alla tjänstedomäner</a></p>\n')
     return write_page(domain_page(name), name, "".join(out))
+
+
+# ── Landningssidan i varje domän-IG ──────────────────────────────────────────
+#
+# Fakta, länkar och granskningar som rivta.se visar på domänens landningssida
+# läggs in i översikten på IG:ns index.md, mellan markörer som skrivs om vid
+# varje körning. Resten av index.md (inledning, kontraktstabell, innehåll)
+# lämnas orört.
+
+FACTS_START = "<!-- landningssida:fakta — genererad av scripts/build_portal.py, redigera inte för hand -->"
+FACTS_END = "<!-- /landningssida:fakta -->"
+VERSIONS_START = "<!-- landningssida:versioner — genererad av scripts/build_portal.py, redigera inte för hand -->"
+VERSIONS_END = "<!-- /landningssida:versioner -->"
+
+
+def strip_block(text: str, start: str, end: str) -> str:
+    return re.sub(re.escape(start) + r".*?" + re.escape(end) + r"\n*", "", text, flags=re.S)
+
+
+def ig_facts(d, entry, base) -> str:
+    bb_slug = entry.get("bitbucket_slug") or ""
+    bb = f"https://bitbucket.org/rivta-domains/{bb_slug}" if bb_slug else None
+    tag = entry.get("source_tag")
+    ver = entry.get("domain_version") or entry.get("ig_version")
+    basis = []
+    if ver:
+        basis.append(f"Version {esc(ver)}")
+    if tag and bb:
+        basis.append(link(f"{bb}/src/{tag}", f"tagg {tag}"))
+    elif entry.get("source_commit") and bb:
+        basis.append(link(f"{bb}/src/{entry['source_commit']}", f"commit {entry['source_commit'][:12]}"))
+    if entry.get("zip_url"):
+        basis.append(link(entry["zip_url"], "zip"))
+    portal = f"{base}rivta-portal/"
+    facts = [("Beskrivning", esc(d.get("description")))] + domdb_facts(d) + [
+        ("Källkod", link(d.get("sourceCodeUrl") or (f"{bb}/src" if bb else None), "Bitbucket")),
+        ("Ärenden", link(d.get("issueTrackerUrl"), "Bitbucket issues")),
+        ("Informationssida", link(d.get("infoPageUrl"), "Confluence")),
+        ("Underlag för denna IG", " · ".join(basis)),
+        ("RIV-TA-portalen", f'{link(portal + "tjanstedomaner.html", "Alla tjänstedomäner")} · '
+                            f'{link(portal + "tjanstekontrakt.html", "Alla tjänstekontrakt")}'),
+    ]
+    return facts_table(facts)
+
+
+def write_ig_overviews(domains_all, registry, entries, base, source_note) -> int:
+    by_slug = {}
+    for d in domains_all:
+        slug = ig_slug_for(d["name"], registry)
+        if slug and (slug not in by_slug or by_slug[slug].get("hidden")):
+            by_slug[slug] = d
+    changed = 0
+    # Den aktuella IG:n per domän och dess äldre huvudversioner (igs/TKB_x/versions/<v>/),
+    # som får samma fakta om domänen men sitt eget underlag (tagg och zip).
+    for key in sorted(entries):
+        slug = key.split("/")[0]
+        index = ROOT / "igs" / key / "input" / "pagecontent" / "index.md"
+        if slug == PORTAL.name or slug not in registry.values() or not index.exists():
+            continue
+        d = by_slug.get(slug) or {"portalNote": "saknas i DOMDB"}
+        if d.get("hidden") and not d.get("portalNote"):
+            d = {**d, "portalNote": "dold på rivta.se"}
+        text = index.read_text(encoding="utf-8")
+        new = strip_block(strip_block(text, FACTS_START, FACTS_END), VERSIONS_START, VERSIONS_END)
+        if "## Översikt\n" not in new or "\n## Innehåll" not in new:
+            print(f"[build_portal] {key}: index.md saknar Översikt/Innehåll — hoppar över", file=sys.stderr)
+            continue
+        facts = f"{FACTS_START}\n\n{ig_facts(d, entries[key], base)}\n{FACTS_END}\n\n"
+        new = re.sub(r"## Översikt\n+", lambda m: "## Översikt\n\n" + facts, new, count=1)
+        versions = versions_table(d)
+        if versions:
+            block = (f"{VERSIONS_START}\n\n### Versioner och granskningar\n\n{versions}\n"
+                     f"<p><i>Källa: {esc(source_note)}, via RIV-TA-portalen.</i></p>\n\n{VERSIONS_END}\n")
+            head, tail = new.split("\n## Innehåll", 1)
+            new = head.rstrip("\n") + "\n\n" + block + "\n## Innehåll" + tail
+        if new != text:
+            index.write_text(new, encoding="utf-8")
+            changed += 1
+    return changed
 
 
 def version_key(name: str):
@@ -581,22 +801,27 @@ def main():
     for old in PAGES.glob("*.md"):
         old.unlink()
 
-    n_contracts = sum(len(contracts_of(d)) for d in domains)
+    entries = load_registry_entries()
+    n_contracts = sum(len(contracts_of(d)) + len(ig_only_contracts(d, ig_slug_for(d["name"], registry), entries))
+                      for d in domains)
     page_list = [
         page_index(items, domains, n_contracts, registry, base),
-        page_domains(domains, registry, base, source_note),
-        page_contracts(domains, source_note),
+        page_domains(domains, registry, entries, base, source_note),
+        page_contracts(domains, registry, entries, base, source_note),
         page_documents(doc_data),
         page_news(items),
         page_development(dev, expand, doc_data["documents"]),
         page_faq(faq, expand),
     ]
-    domain_pages = [page_domain(d, registry, base) for d in domains]
+    # Domäner med FHIR IG får sin landningssida i IG:ns översikt i stället.
+    domain_pages = [page_domain(d, registry, base) for d in domains if not ig_slug_for(d["name"], registry)]
+    n_overviews = write_ig_overviews(domains_all, registry, entries, base, source_note)
     write_rss(items, base)
     write_sushi_config(page_list, domain_pages, doc_data, dev)
 
     print(f"[build_portal] {len(domains)} domäner ({source_note}), {n_contracts} kontrakt, "
-          f"{len(items)} nyheter, {len(faq['faq'])} FAQ-frågor → {PORTAL.relative_to(ROOT)}")
+          f"{len(items)} nyheter, {len(faq['faq'])} FAQ-frågor → {PORTAL.relative_to(ROOT)}; "
+          f"{len(domain_pages)} landningssidor i portalen, {n_overviews} IG-översikter uppdaterade")
 
 
 if __name__ == "__main__":
