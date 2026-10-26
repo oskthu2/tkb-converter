@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->		
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:tns='urn:riv:supportprocess:logistics:scheduling:2' targetNamespace='urn:riv:supportprocess:logistics:scheduling:2' elementFormDefault='qualified' attributeFormDefault='unqualified' version='2.0'>
+    
+	<xs:complexType name="TimeslotType">
+		<xs:sequence>
+			<xs:element name="timeslotId" type="tns:uuidType"/>
+			<xs:element name="timeType" type="tns:TimeTypeType" />
+			<xs:element name="startTime" type="tns:TS" />
+			<xs:element name="endTime" type="tns:TS" minOccurs="0" />
+			<xs:element name="timeLength" type="xs:double" minOccurs="0" />
+			<xs:element name="healthcareFacilityHSAId" type="tns:HSAIdType" />
+			<xs:element name="practitioner" type="tns:PractitionerType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="resource" type="tns:ResourceType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="withinCareGuarantee" type="xs:boolean" minOccurs="0" /><!--Vårdgaranti-->
+			<xs:element name="alternativeLocation" type="xs:string" minOccurs="0" />
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+		
+	<xs:complexType name="AvailableDateType">
+		<xs:sequence>
+			<xs:element name="date" type="tns:DT" />
+			<xs:element name="noOfTimeslots" type="xs:int"/>
+			<xs:element name="timeType" type="tns:TimeTypeType" />
+			<xs:element name="practitioner" type="tns:PractitionerType" minOccurs="0"/>
+			<xs:element name="resource" type="tns:ResourceType" minOccurs="0"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="AppointmentType">
+		<xs:sequence>
+    		<xs:element name="appointmentId" type="tns:uuidType" />
+			<xs:element name="relatedAppointmentId" type="tns:uuidType" minOccurs="0" maxOccurs="unbounded"/>
+    		<xs:element name="timeslot" type="tns:TimeslotType" />
+    		<xs:element name="personId" type="tns:PersonIdType" />
+			<xs:element name="information" type="tns:InformationType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="status" type="tns:AppointmentStatusEnum" />
+			<xs:element name="newAppointmentReasonText" type="xs:string" minOccurs="0" />
+			<xs:element name="newAppointmentReasonCode" type="tns:CVType" minOccurs="0" />
+			<xs:element name="updateAppointmentReasonText" type="xs:string" minOccurs="0" />
+			<xs:element name="updateAppointmentReasonCode" type="tns:CVType" minOccurs="0" />
+			<xs:element name="alternativeLocation" type="xs:string" minOccurs="0" />
+			<xs:element name="reference" type="tns:ReferenceType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TimeTypeType">
+		<xs:sequence>
+			<xs:element name="code" type="xs:string" />
+			<xs:element name="hidden" type="xs:boolean" minOccurs="0" />
+			<xs:element name="careContactCode" type="tns:CVType" minOccurs="0" />
+			<xs:element name="healthcareService" type="tns:HealthcareServiceType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="healthcareTeam" type="xs:boolean" minOccurs="0" /><!--Teambokning-->
+			<xs:element name="patientGroup" type="xs:boolean" minOccurs="0" /><!--Gruppbokning-->
+			<xs:element name="cancelAppointmentAllowed" type="xs:boolean" />
+			<xs:element name="updateAppointmentAllowed" type="xs:boolean" />
+			<xs:element name="appointmentRule" type="tns:TimeTypeRulesType" minOccurs="0" maxOccurs="3" />
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TimeTypeRulesType">
+		<xs:sequence>
+			<xs:element name="type" type="tns:ProcessEnum" />
+			<xs:element name="reasonTextRequired" type="tns:ReasonRequiredEnum" />
+			<xs:element name="reasonCodeRequired" type="tns:ReasonRequiredEnum" />
+			<xs:element name="reasonCodes" type="tns:CVType" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="information" type="tns:InformationType" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="conditionToConfirm" type="tns:InformationType" minOccurs="0" maxOccurs="unbounded" />
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="ProcessEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NYBOKNING"/>
+			<xs:enumeration value="AVBOKNING"/>
+			<xs:enumeration value="OMBOKNING"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="HealthcareServiceType">
+		<xs:sequence>
+			<xs:element name="code" type="tns:SnomedCtType" />
+			<xs:element name="information" type="tns:InformationType" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="conditionsToConfirm" type="tns:InformationType" minOccurs="0" maxOccurs="unbounded" />
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SnomedCtType">
+		<xs:complexContent>
+			<xs:restriction base="tns:CVType">
+				<xs:sequence>
+					<xs:element name="code" type="xs:string"/>
+					<xs:element name="codeSystem">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="1.2.752.116.2.1.1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="codeSystemName" type="xs:string" minOccurs="0"/>
+					<xs:element name="codeSystemVersion" type="xs:string" minOccurs="0"/>
+					<xs:element name="displayName" type="xs:string" minOccurs="0"/>
+					<xs:element name="originalText" type="xs:string" minOccurs="0"/>
+					<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="AppointmentPerHealthcareFacilityType">
+		<xs:sequence>
+			<xs:element name="appointmentId" type="tns:uuidType" />
+			<xs:element name="healthcareFacilityId" type="tns:HSAIdType" />
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ReferenceType">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="description" type="xs:string" minOccurs="0" />
+			<xs:element name="link" type="xs:anyURI" minOccurs="0" />
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="InformationType">
+		<xs:sequence>
+			<xs:element name="header" type="xs:string" />
+			<xs:element name="description" type="xs:string" minOccurs="0" />
+			<xs:element name="link" type="xs:anyURI" minOccurs="0" />
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="AppointmentStatusEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="confirmed"/>
+			<xs:enumeration value="preliminary"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ReasonRequiredEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Mandatory"/>
+			<xs:enumeration value="Optional"/>
+			<xs:enumeration value="ReasonNotSupported"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="ResourceType">
+		<xs:sequence>
+			<xs:element name="typeOfResource" type="tns:CVType" minOccurs="0"/>
+			<xs:element name="resourceAttribute" type="tns:CVType" minOccurs="0"/>
+			<xs:element name="description" type="xs:string" minOccurs="0" />
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="IIType">
+		<xs:sequence>
+			<xs:element name="root" type="xs:string"/>
+			<xs:element name="extension" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="DT">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[1-9]{1}[0-9]{3}(0[1-9]{1}|1[0-2]{1})([0-2]{1}[0-9]{1}|3[0-1]{1})"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+    <xs:simpleType name='ResultCodeEnum'>
+		<xs:restriction base='xs:string'>
+			<xs:enumeration value='OK' />
+			<xs:enumeration value='ERROR' />
+			<xs:enumeration value='INFO' />
+			<!--MakeAppointment-->
+			<xs:enumeration value='REQUESTED_TIME_IS_ALREADY_RESERVED' />
+			<xs:enumeration value='REQUESTED_TIME_HAS_ALREADY_PASSED' />
+			<xs:enumeration value='REQUESTED_TIME_IS_NO_LONGER_AVAILABLE' />
+			<xs:enumeration value='TOO_LATE_TO_MAKE_APPOINTMENT' />
+			<xs:enumeration value='USER_IS_ALREADY_OCCUPIED' />
+			<xs:enumeration value='APPOINTMENT_IS_NOT_ALLOWED' />
+			<!--UpdateAppointment-->
+			<xs:enumeration value='APPOINTMENT_IS_ALREADY_CANCELED' />
+			<xs:enumeration value='APPOINTMENT_IS_ALREADY_UPDATED' />
+			<xs:enumeration value='REQUESTED_TIME_IS_ALREADY_RESERVED' />
+			<xs:enumeration value='REQUESTED_TIME_HAS_ALREADY_PASSED' />
+			<xs:enumeration value='REQUESTED_TIME_IS_NO_LONGER_AVAILABLE' />
+			<xs:enumeration value='TOO_LATE_TO_UPDATE_APPOINTMENT' />
+			<xs:enumeration value='APPOINTMENT_DOES_NOT_EXIST' />
+			<xs:enumeration value='USER_IS_ALREADY_OCCUPIED' />
+			<xs:enumeration value='UPDATE_APPOINTMENT_IS_NOT_ALLOWED' />
+			<xs:enumeration value='APPOINTMENT_IS_ALREADY_CANCELED' />
+			<xs:enumeration value='APPOINTMENT_IS_ALREADY_UPDATED' />
+			<!--CancelAppointment-->
+			<xs:enumeration value='APPOINTMENT_IS_ALREADY_CANCELED' />
+			<xs:enumeration value='APPOINTMENT_IS_ALREADY_UPDATED' />
+			<xs:enumeration value='TOO_LATE_TO_CANCEL_APPOINTMENT' />
+			<xs:enumeration value='APPOINTMENT_DOES_NOT_EXIST' />
+			<xs:enumeration value='CANCEL_IS_NOT_ALLOWED' />
+			<!--ConfirmAppointment-->
+			<xs:enumeration value='APPOINTMENT_IS_ALREADY_CONFIRMED' />
+			<xs:enumeration value='TOO_LATE_TO_CONFIRM_APPOINTMENT' />
+			<xs:enumeration value='APPOINTMENT_DOES_NOT_EXIST' />
+			<xs:enumeration value='CONFIRM_IS_NOT_ALLOWED' />
+		</xs:restriction>		
+  	</xs:simpleType>
+
+	<xs:complexType name="PersonIdType">
+		<xs:complexContent>
+			<xs:restriction base="tns:IIType">
+				<xs:sequence>
+					<xs:element name="root">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="1.2.752.129.2.1.3.1"/>
+								<xs:enumeration value="1.2.752.129.2.1.3.3"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="extension" type="xs:string"/>
+					<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="HSAIdType">
+		<xs:complexContent>
+			<xs:restriction base="tns:IIType">
+				<xs:sequence>
+					<xs:element name="root" type="xs:string" fixed="1.2.752.129.2.1.4.1"/>
+					<xs:element name="extension" type="xs:string" />
+					<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:simpleType name="TS">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[1-9]{1}[0-9]{3}(0[1-9]{1}|1[0-2]{1})([0-2]{1}[0-9]{1}|3[0-1]{1})([0-1]{1}[0-9]{1}|2[0-3]{1})[0-5]{1}[0-9]{1}[0-5]{1}[0-9]{1}"/>
+		</xs:restriction>
+	</xs:simpleType>
+		
+	<xs:complexType name="CVType">
+		<xs:sequence>
+			<xs:element name="code" type="xs:string" />
+			<xs:element name="codeSystem" type="xs:string" />
+			<xs:element name="codeSystemName" type="xs:string" minOccurs="0"/>
+			<xs:element name="codeSystemVersion" type="xs:string" minOccurs="0"/>
+			<xs:element name="displayName" type="xs:string" minOccurs="0"/>
+			<xs:element name="originalText" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="OrgUnitType">
+		<xs:sequence>
+			<xs:element name="HSAId" type="tns:HSAIdType"/>
+			<xs:element name="name" type="xs:string" minOccurs="0"/>
+			<xs:element name="alternativeLocation" type="xs:string" minOccurs="0" />
+			<xs:element name="information" type="tns:InformationType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="conditionToConfirm" type="tns:InformationType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="PractitionerType">
+		<xs:sequence>
+			<xs:element name="HSAId" type="tns:HSAIdType" />
+			<xs:element name="firstName" type="xs:string" />
+			<xs:element name="lastName" type="xs:string" />
+			<xs:element name="title" type="xs:string" minOccurs="0" />
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ActorType">
+		<xs:sequence>
+			<xs:element name="actorId" type="tns:IIType"/>
+			<xs:element name="actorType" type="tns:SnomedCtType"/>
+			<xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="uuidType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([0-9]|[a-f]|[A-F]){8}-([0-9]|[a-f]|[A-F]){4}-([0-9]|[a-f]|[A-F]){4}-([0-9]|[a-f]|[A-F]){4}-([0-9]|[a-f]|[A-F]){12}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>

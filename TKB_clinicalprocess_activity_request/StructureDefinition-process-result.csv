@@ -1,0 +1,14 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"process-result","process-result","","","",0,*,"","","","null {[]} {[]}
+","Process* — Svar (ResultType)","Logisk modell för svaret i ProcessRequest, ProcessRequestConfirmation och ProcessRequestOutcome (ProcessRequest*ResponseType.result av typen ResultType). Beskriver om begäran gick bra eller ej, se avsnitt 4.3 Felhantering.","","","","","","","","","",,,,,"",,,,"Base",0,*,"","processresult-errorcode-only-on-error:errorCode sätts endast när resultCode är ERROR {errorCode.exists() implies resultCode = 'ERROR'}
+"
+"process-result.resultCode","process-result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","Resultatkod","OK, INFO eller ERROR.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-activity-request/ValueSet/resultcode-vs","",,,,"process-result.resultCode",1,1,"",""
+"process-result.errorCode","process-result.errorCode","","","",0,1,"","","","code {[]} {[]}
+","Felkod","VALIDATION_ERROR eller APPLICATION_ERROR. Sätts endast när resultCode är ERROR.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/clinicalprocess-activity-request/ValueSet/errorcode-vs","",,,,"process-result.errorCode",0,1,"",""
+"process-result.subCode","process-result.subCode","","","",0,1,"","","","string {[]} {[]}
+","Underkod","Standardiserad felkod för logiska fel, se 4.3.1.1 Logiska fel – tabell Felkoder.","","","","","","","","","",,,,,"",,,,"process-result.subCode",0,1,"",""
+"process-result.logId","process-result.logId","","","",0,1,"","","","string {[]} {[]}
+","Logg-id","Unikt log-id för felsökning hos producenten.","","","","","","","","","",,,,,"",,,,"process-result.logId",0,1,"",""
+"process-result.message","process-result.message","","","",0,1,"","","","string {[]} {[]}
+","Meddelande","Beskrivande text som kan visas för användaren.","","","","","","","","","",,,,,"",,,,"process-result.message",0,1,"",""

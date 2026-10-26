@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Inera AB licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->		
+<wsdl:definitions name='GetOfferingCataloguesInteraction'
+                  xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/'
+                  xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/'
+                  xmlns:xs='http://www.w3.org/2001/XMLSchema'
+                  xmlns:tjsr='urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetOfferingCataloguesResponder:2'
+                  xmlns:tjsi='urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetOfferingCataloguesInitiator:2'
+                  xmlns:tns='urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetOfferingCatalogues:2:rivtabp21'
+                  targetNamespace='urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetOfferingCatalogues:2:rivtabp21'
+                  xmlns:itr='urn:riv:itintegration:registry:1'>
+	<wsdl:documentation>
+			 Tjänsteinteraktionens namn: GetOfferingCataloguesInteraction
+			 Beskrivning: 
+			   operativt processtöd:tillgängliggöra tjänst :vårdochomsorgsutbud
+			 Revisioner: 
+			 Tjänstedomän: supportprocess:serviceprovisioning:healthcareoffering
+			 Tjänsteinteraktionstyp: Fråga-Svar
+			 WS-profil: RIVTABP21
+			 Förvaltas av: Inera AB
+	</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema targetNamespace='urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetOfferingCatalogues:2:rivtabp21'>
+      <xs:import schemaLocation='GetOfferingCataloguesResponder_2.0.xsd' namespace='urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetOfferingCataloguesResponder:2' />
+      <xs:import schemaLocation='../../core_components/itintegration_registry_1.0.xsd' namespace='urn:riv:itintegration:registry:1' />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name='GetOfferingCataloguesRequest'>
+    <wsdl:part name='LogicalAddress' element='itr:LogicalAddress'>
+      <wsdl:documentation>The organisation number of the careservice provider</wsdl:documentation>
+    </wsdl:part>
+    <wsdl:part name='parameters' element='tjsr:GetOfferingCatalogues' />
+  </wsdl:message>
+  <wsdl:message name='GetOfferingCataloguesResponse'>
+    <wsdl:part name='parameters' element='tjsr:GetOfferingCataloguesResponse' />
+  </wsdl:message>
+  <wsdl:portType name='GetOfferingCataloguesResponderInterface'>
+    <wsdl:operation name='GetOfferingCatalogues'>
+      <wsdl:input message='tns:GetOfferingCataloguesRequest' />
+      <wsdl:output message='tns:GetOfferingCataloguesResponse' />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name='GetOfferingCataloguesResponderBinding' type='tns:GetOfferingCataloguesResponderInterface'>
+    <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http' />
+    <wsdl:operation name='GetOfferingCatalogues'>
+      <soap:operation soapAction='urn:riv:supportprocess:serviceprovisioning:healthcareoffering:GetOfferingCataloguesResponder:2:GetOfferingCatalogues' style='document' />
+      <wsdl:input>
+        <soap:header use='literal' message='tns:GetOfferingCataloguesRequest' part='LogicalAddress' />
+        <soap:body use='literal' parts='parameters' />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use='literal' />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name='GetOfferingCataloguesResponderService'>
+    <wsdl:port name='GetOfferingCataloguesResponderPort' binding='tns:GetOfferingCataloguesResponderBinding'>
+      <soap:address location='http://tempuri.org' />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

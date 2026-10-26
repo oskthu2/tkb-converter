@@ -1,0 +1,82 @@
+<iso:schema xmlns:iso="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2"
+  schemaVersion="ISO19757-3">
+
+  <iso:ns prefix="urn" uri="urn:riv:informationsecurity:authorization:pip:GetSealsResponder:1"/>
+  <iso:ns prefix="urn1" uri="urn:riv:informationsecurity:authorization:pip:1"/>
+
+  <iso:let name="currentDate" value="format-date(current-date(), '[Y0001][M01][D01]')"/>
+  <iso:let name="oid_HSA" value="string('1.2.752.129.2.1.4.1')"/>
+  <iso:let name="oid_personalIdentityNumber" value="string('1.2.752.129.2.1.3.1')"/>
+  <iso:let name="oid_coOrdinationNumber" value="string('1.2.752.129.2.1.3.3')"/>
+  
+  <iso:title>Validation for GetSeals</iso:title>
+
+  <iso:pattern id="Validate_validDatePeriod">
+    <iso:rule context="urn:seal[exists(urn1:validTo) and exists(urn1:validFrom)]"
+      id="validDatePeriod">
+      <iso:assert test="(number(urn1:validTo) ge number(urn1:validFrom))" flag="fatal"> validFrom
+        must be older than validTo</iso:assert>
+    </iso:rule>
+  </iso:pattern>
+
+  <iso:pattern id="Validate_created_updated">
+    <iso:rule context="urn:seal">
+      <iso:assert test="number(urn1:timeLastUpdated) ge number(urn1:timeCreated)" flag="fatal">
+        timeCreated must be older than timeLastUpdated</iso:assert>
+    </iso:rule>
+  </iso:pattern>
+
+  <iso:pattern abstract="true" id="IIType_patientId">
+    <iso:rule context="$path/urn1:root">
+      <iso:assert test=". eq $oid_personalIdentityNumber or . eq $oid_coOrdinationNumber"
+        ><iso:name/> must be set to <iso:value-of select="$oid_personalIdentityNumber"/> or
+          <iso:value-of select="$oid_coOrdinationNumber"/></iso:assert>
+    </iso:rule>
+    <iso:rule context="$path/urn1:extension">
+      <iso:assert test="matches(., '[0-9]{8}[0-9pPtTfF][0-9]{3}')" flag="fatal">
+        <iso:name/> must match 0-9]{8}[0-9pPtTfF][0-9]{3}</iso:assert>
+    </iso:rule>
+  </iso:pattern>
+
+  <iso:pattern abstract="true" id="Seal_count">
+    <iso:rule context="urn:seal">
+      <iso:report
+        test="(count(urn1:orgUnitSeal) + count(urn1:careProviderSeal) + count(urn1:fullSeal)) = 0">
+        At least one of orgUnitSeal, careProviderSeal or fullSeal must be given for
+        <iso:name/>.</iso:report>
+      <iso:report
+        test="(count(urn1:orgUnitSeal) + count(urn1:careProviderSeal) + count(urn1:fullSeal)) > 1">
+        One and only one of orgUnitSeal, careProviderSeal or fullSeal must be given for
+        <iso:name/>.</iso:report>
+    </iso:rule>
+  </iso:pattern>
+
+  <iso:pattern abstract="true" id="IIType_HSA">
+    <iso:rule context="$path">
+      <iso:assert test="urn1:root = $oid_HSA"> In $path, root must be set to <iso:value-of
+          select="$oid_HSA"/></iso:assert>
+    </iso:rule>
+  </iso:pattern>
+
+  <iso:pattern id="Verify_patientId" is-a="IIType_patientId">
+    <iso:param name="path" value="/urn:GetSealsResponse/urn:seal/urn1:patientId"/>
+  </iso:pattern>
+
+  <iso:pattern id="Verify_unitId" is-a="IIType_HSA">
+    <iso:param name="path" value="/urn:GetSealsResponse/urn:seal/urn1:unitId"/>
+  </iso:pattern>
+
+  <iso:pattern id="Verify_orgUnit" is-a="IIType_HSA">
+    <iso:param name="path" value="/urn:GetSealsResponse/urn:seal/urn:orgUnitSeal/urn1:orgUnit"/>
+  </iso:pattern>
+
+  <iso:pattern id="Verify_careProviderId" is-a="IIType_HSA">
+    <iso:param name="path"
+      value="/urn:GetSealsResponse/urn:seal/urn:careProviderSeal/urn1:careProviderId"/>
+  </iso:pattern>
+
+  <iso:pattern id="Verify_sealTypes" is-a="Seal_count">
+    <iso:param name="path" value="/urn:GetSealsResponse/urn:seal"/>
+  </iso:pattern>
+
+</iso:schema>

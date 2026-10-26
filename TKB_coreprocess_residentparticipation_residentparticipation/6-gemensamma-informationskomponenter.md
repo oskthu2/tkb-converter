@@ -1,0 +1,179 @@
+# 6 Gemensamma informationskomponenter - coreprocess: residentparticipation: residentparticipation v1.0.0-rc2
+
+* [**Table of Contents**](toc.md)
+* **6 Gemensamma informationskomponenter**
+
+## 6 Gemensamma informationskomponenter
+
+# 6 Gemensamma informationskomponenter
+
+Källa: **Tjänstekontraktsbeskrivning för coreprocess: residentparticipation: residentparticipation**, version 1.0 RC2 (tagg 1.0_RC2, 2026-06-29), [TKB_coreprocess_residentparticipation_residentparticipation.docx](TKB_coreprocess_residentparticipation_residentparticipation.docx).
+
+TKB:n har inget eget kapitel om gemensamma informationskomponenter; datatyperna beskrivs i avsnitt 5. Tabellerna nedan är genererade ur domänschemat [coreprocess_residentparticipation_residentparticipation_1.0.xsd](coreprocess_residentparticipation_residentparticipation_1.0.xsd) och [coreprocess_residentparticipation_residentparticipation_enum_1.0.xsd](coreprocess_residentparticipation_residentparticipation_enum_1.0.xsd).
+
+### 6.1 Kodverk
+
+Uppräkningarna i domänens enum-schema är modellerade som kodverk (de används i HoursOfServiceType, se avsnitt 5):
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| Months (`MonthsEnum`) | January, February, March, April, May, June, July, August, September, October, November, December | [residentparticipation-months-cs](CodeSystem-residentparticipation-months-cs.md) | [residentparticipation-months-vs](ValueSet-residentparticipation-months-vs.md) |
+| WeekDays (`WeekDaysEnum`) | Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday | [residentparticipation-weekdays-cs](CodeSystem-residentparticipation-weekdays-cs.md) | [residentparticipation-weekdays-vs](ValueSet-residentparticipation-weekdays-vs.md) |
+
+### 6.2 Typer i domänschemat (XSD)
+
+#### AccessControlHeaderType
+
+Domänschema `coreprocess_residentparticipation_residentparticipation_1.0.xsd` (namnrymd `urn:riv:coreprocess:residentparticipation:residentparticipation:1`).
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| accountableHealthcareProviderId | IIType |   | 1..1 |
+| accountableCareUnitId | IIType |   | 0..1 |
+| patientId | IIType |   | 1..1 |
+| careProcessId | IIType |   | 0..1 |
+| blockComparisonTime | TimeStampType |   | 1..1 |
+
+#### AddressType
+
+Domänschema `coreprocess_residentparticipation_residentparticipation_1.0.xsd` (namnrymd `urn:riv:coreprocess:residentparticipation:residentparticipation:1`).
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| type | CVType |   | 0..1 |
+| line | string |   | 0..* |
+| city | string |   | 0..1 |
+| postalCode | string |   | 0..1 |
+| period | HoursOfServiceType |   | 0..* |
+
+#### CVType
+
+Domänschema `coreprocess_residentparticipation_residentparticipation_1.0.xsd` (namnrymd `urn:riv:coreprocess:residentparticipation:residentparticipation:1`).
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| code | string |   | 0..1 |
+| codeSystem | string |   | 0..1 |
+| codeSystemName | string |   | 0..1 |
+| codeSystemVersion | string |   | 0..1 |
+| displayName | string |   | 0..1 |
+| originalText | string |   | 0..1 |
+
+#### CareTeamType
+
+Domänschema `coreprocess_residentparticipation_residentparticipation_1.0.xsd` (namnrymd `urn:riv:coreprocess:residentparticipation:residentparticipation:1`).
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| id | IIType |   | 1..1 |
+| name | string |   | 1..1 |
+| internalNotes | string |   | 0..1 |
+| externalNotes | string |   | 0..1 |
+| contact | ContactType |   | 0..* |
+
+#### ContactPointSystemType
+
+Domänschema `coreprocess_residentparticipation_residentparticipation_1.0.xsd` (namnrymd `urn:riv:coreprocess:residentparticipation:residentparticipation:1`).
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| system | CVType |   | 0..1 |
+| value | string |   | 1..1 |
+| period | HoursOfServiceType |   | 0..* |
+
+#### ContactType
+
+Domänschema `coreprocess_residentparticipation_residentparticipation_1.0.xsd` (namnrymd `urn:riv:coreprocess:residentparticipation:residentparticipation:1`).
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| telecom | ContactPointSystemType |   | 0..* |
+| address | AddressType |   | 0..1 |
+
+#### DatePeriodType
+
+Domänschema `coreprocess_residentparticipation_residentparticipation_1.0.xsd` (namnrymd `urn:riv:coreprocess:residentparticipation:residentparticipation:1`).
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| start | DateType |   | 1..1 |
+| end | DateType |   | 0..1 |
+
+#### HeaderType
+
+Domänschema `coreprocess_residentparticipation_residentparticipation_1.0.xsd` (namnrymd `urn:riv:coreprocess:residentparticipation:residentparticipation:1`).
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| accessControlHeader | AccessControlHeaderType |   | 1..1 |
+| sourceSystemId | IIType |   | 1..1 |
+
+#### HoursOfServiceType
+
+Domänschema `coreprocess_residentparticipation_residentparticipation_1.0.xsd` (namnrymd `urn:riv:coreprocess:residentparticipation:residentparticipation:1`).
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| datePeriod | DatePeriodType |   | 0..1 |
+| weekDay | WeekDaysEnum |   | 0..7 |
+| month | MonthsEnum |   | 0..* |
+| time | TimePeriodType | Används för att specificera ett tidsintervall med hjälp av start- och sluttid. start: Starttid på formatet HHmmss end: Sluttid på formatet HHmmss | 0..1 |
+
+#### IIType
+
+Domänschema `coreprocess_residentparticipation_residentparticipation_1.0.xsd` (namnrymd `urn:riv:coreprocess:residentparticipation:residentparticipation:1`).
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| root | string |   | 1..1 |
+| extension | string |   | 0..1 |
+
+#### OrganizationType
+
+Domänschema `coreprocess_residentparticipation_residentparticipation_1.0.xsd` (namnrymd `urn:riv:coreprocess:residentparticipation:residentparticipation:1`).
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| hsaId | IIType |   | 1..1 |
+| name | string |   | 0..1 |
+| contact | ContactType |   | 0..* |
+
+#### PractitionerRoleType
+
+Domänschema `coreprocess_residentparticipation_residentparticipation_1.0.xsd` (namnrymd `urn:riv:coreprocess:residentparticipation:residentparticipation:1`).
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| careManagerHeader | HeaderType |   | 1..1 |
+| code | CVType |   | 1..1 |
+| practitioner | PractitionerType |   | 1..1 |
+| careTeam | CareTeamType |   | 0..1 |
+| period | DatePeriodType |   | 1..1 |
+| internalNotes | string |   | 0..1 |
+| externalNotes | string |   | 0..1 |
+| managingCareGiver | OrganizationType |   | 1..1 |
+| managingCareUnit | OrganizationType |   | 0..1 |
+| careProvidingCareUnit | OrganizationType |   | 0..1 |
+| contact | ContactType |   | 0..* |
+
+#### PractitionerType
+
+Domänschema `coreprocess_residentparticipation_residentparticipation_1.0.xsd` (namnrymd `urn:riv:coreprocess:residentparticipation:residentparticipation:1`).
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| hsaId | IIType |   | 1..1 |
+| name | string |   | 0..1 |
+| qualification | CVType |   | 0..1 |
+
+#### TimePeriodType
+
+Domänschema `coreprocess_residentparticipation_residentparticipation_1.0.xsd` (namnrymd `urn:riv:coreprocess:residentparticipation:residentparticipation:1`).
+
+Används för att specificera ett tidsintervall med hjälp av start- och sluttid. start: Starttid på formatet HHmmss end: Sluttid på formatet HHmmss
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| start | TimeType |   | 0..1 |
+| end | TimeType |   | 0..1 |
+

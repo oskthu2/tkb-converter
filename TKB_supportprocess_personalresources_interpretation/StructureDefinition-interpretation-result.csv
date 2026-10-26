@@ -1,0 +1,14 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"interpretation-result","interpretation-result","","","",0,*,"","","","null {[]} {[]}
+","Resultat (ResultType)","Logisk modell för ResultType, som returneras av AnswerInquiry, CreateBooking och UpdateBooking. Se avsnitt 4.3 Felhantering.","","","","","","","","","",,,,,"",,,,"Base",0,*,"","interpretation-result-errorcode-on-error:errorCode anges bara när resultCode är ERROR {errorCode.exists() implies resultCode = 'ERROR'}
+"
+"interpretation-result.resultCode","interpretation-result.resultCode","","","",1,1,"","","","code {[]} {[]}
+","Resultatkod","OK, INFO eller ERROR.","","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-personalresources-interpretation/ValueSet/resultcode-vs","",,,,"interpretation-result.resultCode",1,1,"",""
+"interpretation-result.errorCode","interpretation-result.errorCode","","","",0,1,"","","","code {[]} {[]}
+","Felkod","ErrorCodeEnum, se Regel #11 Logiska fel [R4].","","","","","","","","","",,"required","","https://fhir.inera.se/ig/supportprocess-personalresources-interpretation/ValueSet/errorcode-vs","",,,,"interpretation-result.errorCode",0,1,"",""
+"interpretation-result.subcode","interpretation-result.subcode","","","",0,1,"","","","string {[]} {[]}
+","Underkod","Ytterligare felkod.","","","","","","","","","",,,,,"",,,,"interpretation-result.subcode",0,1,"",""
+"interpretation-result.logId","interpretation-result.logId","","","",1,1,"","","","string {[]} {[]}
+","Logg-id","Unikt log-id för felsökning.","","","","","","","","","",,,,,"",,,,"interpretation-result.logId",1,1,"",""
+"interpretation-result.message","interpretation-result.message","","","",0,1,"","","","string {[]} {[]}
+","Meddelande","Beskrivande text.","","","","","","","","","",,,,,"",,,,"interpretation-result.message",0,1,"",""
