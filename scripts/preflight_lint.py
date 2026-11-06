@@ -47,11 +47,16 @@ def lint_fsh(ig: Path, errors: list, warnings: list):
     for f in sorted((ig / "input" / "fsh").rglob("*.fsh")):
         rel = f.relative_to(ig.parent.parent) if ig.parent.parent in f.parents else f
         stack = []  # [(indent, fältnamn)]
-        for n, line in enumerate(f.read_text(encoding="utf-8").splitlines(), 1):
+        text = f.read_text(encoding="utf-8")
+        # Nästlade element av typen Base (scripts/xsd_logical_models.py) har inga egna id/extension,
+        # så schemats namn får användas där (se tkb-fsh-model, "Datatyper enligt schemat").
+        base_paths = set(re.findall(r"^\*\s+([\w.]+)\s+\d+\.\.[\d*]+\s+Base\b", text, re.M))
+        for n, line in enumerate(text.splitlines(), 1):
             if re.search(r"\*\s+\^obeys", line):
                 errors.append(f"{rel}:{n}: '^obeys' — obeys tar aldrig caret (skriv '* obeys id')")
             if "logical-models" in f.parts:
-                if RE_RESERVED_HARD.search(line):
+                rm = re.match(r"^\*\s+([\w.]+)\.\w+\s+\d+\.\.", line)
+                if RE_RESERVED_HARD.search(line) and not (rm and rm.group(1) in base_paths):
                     errors.append(f"{rel}:{n}: reserverat elementnamn (krockar med Element) — {line.strip()}")
                 elif RE_RESERVED_SOFT.search(line):
                     warnings.append(f"{rel}:{n}: reserverat namn på rotnivå — prefixa enligt konvention: {line.strip()}")

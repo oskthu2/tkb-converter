@@ -1,0 +1,33 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "DecimalPrimitiveType",
+  "url": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DecimalPrimitiveType",
+  "version": "1.0.0",
+  "name": "DecimalPrimitiveType",
+  "title": "DecimalPrimitiveType",
+  "status": "active",
+  "description": "Decimaltal som bevarar signifikanta avslutande nollor. (xs:simpleType, restriktion av xs:string.)",
+  "fhirVersion": "4.0.1",
+  "kind": "primitive-type",
+  "abstract": false,
+  "type": "string",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/string",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "string",
+        "path": "string",
+        "constraint": [
+          {
+            "key": "rivta-decimalprimitivetype-pattern",
+            "severity": "error",
+            "human": "DecimalPrimitiveType ska följa mönstret i schemat: -?(0|[1-9][0-9]*)((\\.|,)[0-9]+)?([eE][+-]?[0-9]+)?",
+            "expression": "matches('^(?:(?:-?(0|[1-9][0-9]*)((\\\\.|,)[0-9]+)?([eE][+-]?[0-9]+)?))$')",
+            "source": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DecimalPrimitiveType"
+          }
+        ]
+      }
+    ]
+  }
+}

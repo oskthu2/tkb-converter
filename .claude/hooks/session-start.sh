@@ -57,6 +57,14 @@ if [ ! -f "$HOME/.fhir/packages/hl7.fhir.r4.core#4.0.1/package/package.json" ]; 
   python3 gen_fhir_stubs.py >/dev/null 2>&1 || missing+=("hl7.fhir.r4.core-stub")
 fi
 
+# De gemensamma RIV-TA-datatyperna (igs/rivta-datatyper) — beroende till TKB-IG:erna,
+# finns inte på packages.fhir.org. Byggs ur repot med SUSHI (se tkb-fsh-model).
+if command -v sushi >/dev/null 2>&1 && [ -f igs/rivta-datatyper/sushi-config.yaml ] \
+    && [ ! -f "$HOME/.fhir/packages/inera.rivta.datatypes#1.0.0/package/package.json" ]; then
+  log "installerar inera.rivta.datatypes ur igs/rivta-datatyper"
+  python3 scripts/install_datatypes_package.py >/dev/null 2>&1 || missing+=("inera.rivta.datatypes")
+fi
+
 if [ ${#missing[@]} -gt 0 ]; then
   log "VARNING: kunde inte installera: ${missing[*]}"
 else

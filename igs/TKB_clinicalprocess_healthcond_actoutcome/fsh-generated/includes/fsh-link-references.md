@@ -11,6 +11,7 @@
 [GetMaternityMedicalHistoryRequest]: StructureDefinition-getmaternitymedicalhistory-request.html
 [GetReferralOutcome]: StructureDefinition-getreferraloutcome.html
 [GetReferralOutcomeRequest]: StructureDefinition-getreferraloutcome-request.html
+[IIType]: StructureDefinition-IIType.html
 [ReferralOutcomeTypeCodeCS]: CodeSystem-referraloutcometypecode-cs.html
 [ReferralOutcomeTypeCodeVS]: ValueSet-referraloutcometypecode-vs.html
 [SexCodeCS]: CodeSystem-sexcode-cs.html

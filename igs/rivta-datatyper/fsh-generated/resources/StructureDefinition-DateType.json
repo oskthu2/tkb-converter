@@ -1,0 +1,33 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "DateType",
+  "url": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType",
+  "version": "1.0.0",
+  "name": "DateType",
+  "title": "DateType",
+  "status": "active",
+  "description": "Datum på formatet YYYYMMDD utan tidszon. (xs:simpleType, restriktion av xs:string.)",
+  "fhirVersion": "4.0.1",
+  "kind": "primitive-type",
+  "abstract": false,
+  "type": "string",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/string",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "string",
+        "path": "string",
+        "constraint": [
+          {
+            "key": "rivta-datetype-pattern",
+            "severity": "error",
+            "human": "DateType ska följa mönstret i schemat: (19|20)\\d\\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])",
+            "expression": "matches('^(?:(?:(19|20)\\\\d\\\\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])))$')",
+            "source": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/DateType"
+          }
+        ]
+      }
+    ]
+  }
+}

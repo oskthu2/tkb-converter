@@ -3,9 +3,7 @@
 
 RuleSet: GetLaboratoryOrderOutcomeFieldDescriptions
 * laboratoryOrderOutcome ^definition = "Ett eller flera laboratoriesvar som matchar begäran."
-* laboratoryOrderOutcome ^comment = "TKB-fält: `//*:laboratoryOrderOutcome` (`LaboratoryOrderOutcomeType`, kardinalitet 0..*).
-
-**Modellanteckning:** En labbeställning med tillhörande svar. Kardinalitet: Valfri, lista."
+* laboratoryOrderOutcome ^comment = "TKB-fält: `//*:laboratoryOrderOutcome` (`LaboratoryOrderOutcomeType`, kardinalitet 0..*)."
 * laboratoryOrderOutcome.header ^definition = "Innehåller information som är gemensam för uppgifter i patientjournalen som tillgängliggörs, exempelvis information om vilken hälso- och sjukvårdspersonal som är angiven som författare av en uppgift samt information om signering."
 * laboratoryOrderOutcome.header ^comment = "TKB-fält: `//*:header` (`HeaderType`, kardinalitet 1..1)."
 * laboratoryOrderOutcome.header.accessControlHeader ^definition = "Information som används för kontroll av åtkomst. Tjänstekonsumenten får enbart ta del av uppgifterna i AccessControlHeaderType innan övrig information om uppgift i patientjournal kan bearbetas."
@@ -27,9 +25,7 @@ root sätts till OID för organisationsnummer (1.2.752.29.4.3)
 extension sätts till organisationsnumret. Enskild näringsidkare har i rollen som juridisk person sitt personnummer som organisationsnummer."
 * laboratoryOrderOutcome.header.accessControlHeader.accountableCareGiver ^comment = "TKB-fält: `//*:header/*:accessControlHeader/*:accountableCareGiver` (`IIType`, kardinalitet 1..1).
 
-**Regel 2.1:** Fältet krävs för spärrhantering, åtkomstkontroll samt loggning enligt PDL. Om HSA-id för vårdenhet och vårdgivare inte kan lämnas kommer elementet inte visas upp av tjänstekonsumenter inom sammanhållen journalföring.
-
-**Modellanteckning:** HSA-id för den vårdgivare som är ansvarig för posten. Obligatorisk."
+**Regel 2.1:** Fältet krävs för spärrhantering, åtkomstkontroll samt loggning enligt PDL. Om HSA-id för vårdenhet och vårdgivare inte kan lämnas kommer elementet inte visas upp av tjänstekonsumenter inom sammanhållen journalföring."
 * laboratoryOrderOutcome.header.accessControlHeader.accountableCareUnit ^definition = "HSA-id för vårdenheten [R15] där uppgiften är dokumenterad.
 
 root sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1)
@@ -37,23 +33,9 @@ root sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1)
 extension sätts till HSA-id"
 * laboratoryOrderOutcome.header.accessControlHeader.accountableCareUnit ^comment = "TKB-fält: `//*:header/*:accessControlHeader/*:accountableCareUnit` (`IIType`, kardinalitet 1..1).
 
-**Regel 2.1:** Fältet krävs för spärrhantering, åtkomstkontroll samt loggning enligt PDL. Om HSA-id för vårdenhet och vårdgivare inte kan lämnas kommer elementet inte visas upp av tjänstekonsumenter inom sammanhållen journalföring.
+Obs: modellen anger 0..1 där TKB:n anger 1..1.
 
-**Modellanteckning:** HSA-id för den vårdenhet som är ansvarig för posten. Obligatorisk."
-* laboratoryOrderOutcome.header.accessControlHeader.patientId ^definition = "Personidentifierare för patienten.
-
-root sätts till OID för typ av personidentifierare.
-
-För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.
-
-För samordningsnummer skall Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.
-
-För andra typer av personidentifierare sätts root till aktuell OID.
-
-extension sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.
-
-Obligatorisk vid nyanslutning"
-* laboratoryOrderOutcome.header.accessControlHeader.patientId ^comment = "TKB-fält: `//*:header/*:accessControlHeader/*:patientId` (`IIType`, kardinalitet 0..1)."
+**Regel 2.1:** Fältet krävs för spärrhantering, åtkomstkontroll samt loggning enligt PDL. Om HSA-id för vårdenhet och vårdgivare inte kan lämnas kommer elementet inte visas upp av tjänstekonsumenter inom sammanhållen journalföring."
 * laboratoryOrderOutcome.header.accessControlHeader.originalPatientId ^definition = "Personidentifieraren som den tillgängliggjorda uppgiften lagrades under då den skapades. Detta fält anges endast då det skiljer sig från patientId, exempelvis då patienten tidigare erhållit vård som dokumenterats under ett samordningsnummer för att sedan bli folkbokförd i Sverige och få ett personnummer.
 
 root sätts till OID för typ av personidentifierare.
@@ -68,6 +50,9 @@ extension sätts till patientens identifierare. Anges med 12 tecken utan avskilj
 * laboratoryOrderOutcome.header.accessControlHeader.originalPatientId ^comment = "TKB-fält: `//*:header/*:accessControlHeader/*:originalPatientId` (`IIType`, kardinalitet 0..1)."
 * laboratoryOrderOutcome.header.accessControlHeader.careProcessId ^definition = "Id för den individanpassade vårdprocess som uppgiften journalförts inom ramen för. Består av ett lokalt genererat UUID."
 * laboratoryOrderOutcome.header.accessControlHeader.careProcessId ^comment = "TKB-fält: `//*:header/*:accessControlHeader/*:careProcessId` (`UUIDType`, kardinalitet 0..1)."
+* laboratoryOrderOutcome.header.accessControlHeader.lockTime ^comment = "TKB-fält: `.//*:header/*:accessControlHeader/*:lockTime` (`TimeStampType`, kardinalitet 0..0).
+
+**Regel 2.2:** Detta element skall ej användas. Enligt SOSFS 2016:40 ska det ej längre finnas möjlighet att låsa osignerade journalanteckningar"
 * laboratoryOrderOutcome.header.accessControlHeader.blockComparisonTime ^definition = "Den tidpunkt mot vilken spärrkontroll sker vid åtkomst med syftet sammanhållen journalföring. Gäller både yttre (mellan vårdgivare) och inre (mellan vårdenheter) spärr.
 
 I detta fält anges provtagningstidpunkt. Om ett svar innehåller analyser utförda på olika prov anges tidpunkt för det senast tagna provet."
@@ -77,9 +62,21 @@ I detta fält anges provtagningstidpunkt. Om ett svar innehåller analyser utfö
 Om uppgiften beslutas delas sätts värdet till true, i annat fall till false. False innebär att uppgiften inte får delas till patient.
 
 Notera att värdet kan, för samma uppgift, förändras med tiden på grund av att rådrumstid har passerats, eller att verksamheten ändrat policy för vad som lämnas ut till patient. I sådana fall skall källsystemet uppdatera engagemangsindex."
-* laboratoryOrderOutcome.header.accessControlHeader.approvedForPatient ^comment = "TKB-fält: `//*:header/*:accessControlHeader/*:approvedForPatient` (`boolean`, kardinalitet 1..1).
+* laboratoryOrderOutcome.header.accessControlHeader.approvedForPatient ^comment = "TKB-fält: `//*:header/*:accessControlHeader/*:approvedForPatient` (`boolean`, kardinalitet 1..1)."
+* laboratoryOrderOutcome.header.accessControlHeader.patientId ^definition = "Personidentifierare för patienten.
 
-**Modellanteckning:** Anger om informationsägaren godkänt att patienten kan ta del av informationen."
+root sätts till OID för typ av personidentifierare.
+
+För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.
+
+För samordningsnummer skall Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.
+
+För andra typer av personidentifierare sätts root till aktuell OID.
+
+extension sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.
+
+Obligatorisk vid nyanslutning"
+* laboratoryOrderOutcome.header.accessControlHeader.patientId ^comment = "TKB-fält: `//*:header/*:accessControlHeader/*:patientId` (`IIType`, kardinalitet 0..1)."
 * laboratoryOrderOutcome.header.sourceSystemId ^definition = "Det källsystem som uppgiften lagras i.
 
 root sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1)
@@ -88,14 +85,14 @@ extension sätts till källsystemets HSA-id"
 * laboratoryOrderOutcome.header.sourceSystemId ^comment = "TKB-fält: `//*:header/*:sourceSystemId` (`IIType`, kardinalitet 1..1)."
 * laboratoryOrderOutcome.header.record ^definition = "Information avseende uppgiften som tillgängliggörs."
 * laboratoryOrderOutcome.header.record ^comment = "TKB-fält: `//*:header/*:record` (`RecordType`, kardinalitet 1..1)."
-* laboratoryOrderOutcome.header.record.recordId ^definition = "Identifierare för uppgift i patientjournal.
+* laboratoryOrderOutcome.header.record.id ^definition = "Identifierare för uppgift i patientjournal.
 
 Identifieraren ska vara konsistent och beständig mellan olika majorversioner av ett tjänstekontrakt. Detta för att en tjänstekonsument ska kunna ta bort dubbletter från de tjänsteproducenter som producerar via flera majorversioner. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.
 
 Identifieraren ska även vara konsistent och beständig mellan olika tjänstekontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.
 
 Motsvarar Laboratoriesvar.id i informationsspecifikationen [R6]"
-* laboratoryOrderOutcome.header.record.recordId ^comment = "TKB-fält: `//*:header/*:record/*:id` (`IIType`, kardinalitet 1..1)."
+* laboratoryOrderOutcome.header.record.id ^comment = "TKB-fält: `//*:header/*:record/*:id` (`IIType`, kardinalitet 1..1)."
 * laboratoryOrderOutcome.header.record.timestamp ^definition = "Den tidpunkt då uppgiften skapades i tjänsteproducentens källsystem. Denna information ska vara beständig även om tjänsteproducenten migrerat uppgiften från ett källsystem till en annat.
 
 Motsvarar Laboratoriesvar.svarstidpunkt i informationsspecifikationen [R6]"
@@ -104,12 +101,12 @@ Motsvarar Laboratoriesvar.svarstidpunkt i informationsspecifikationen [R6]"
 
 Notera att den som registrerar uppgiften från annan källa, exempelvis en medicinsk sekreterare som transkriberar ett diktat, inte avses."
 * laboratoryOrderOutcome.header.author ^comment = "TKB-fält: `//*:header/*:author` (`AuthorType`, kardinalitet 0..1)."
-* laboratoryOrderOutcome.header.author.authorId ^definition = "HSA-id för hälso- och sjukvårdspersonal som dokumenterat uppgiften som tillgängliggörs.
+* laboratoryOrderOutcome.header.author.id ^definition = "HSA-id för hälso- och sjukvårdspersonal som dokumenterat uppgiften som tillgängliggörs.
 
 root sätts till OID för HSA-id (1.2.752.129.2.1.4.1)
 
 extension sätts till HSA-id"
-* laboratoryOrderOutcome.header.author.authorId ^comment = "TKB-fält: `//*:header/*:author/*:id` (`IIType`, kardinalitet 0..1)."
+* laboratoryOrderOutcome.header.author.id ^comment = "TKB-fält: `//*:header/*:author/*:id` (`IIType`, kardinalitet 0..1)."
 * laboratoryOrderOutcome.header.author.name ^definition = "Namn på hälso- och sjukvårdspersonal. Anges med tilltalsnamn och efternamn."
 * laboratoryOrderOutcome.header.author.name ^comment = "TKB-fält: `//*:header/*:author/*:name` (`string`, kardinalitet 0..1)."
 * laboratoryOrderOutcome.header.author.timestamp ^definition = "Tidpunkt då uppgiften dokumenterades eller senast uppdaterades.
@@ -124,8 +121,8 @@ Om kod inte är tillgänglig anges befattning som klartext i datatypens attribut
 * laboratoryOrderOutcome.header.author.byRole ^comment = "TKB-fält: `//*:header/*:author/*:byRole` (`CVType`, kardinalitet 0..1)."
 * laboratoryOrderOutcome.header.author.orgUnit ^definition = "Den organisation som hälso- och sjukvårdspersonalen är uppdragstagare på."
 * laboratoryOrderOutcome.header.author.orgUnit ^comment = "TKB-fält: `//*:header/*:author/*:orgUnit` (`OrgUnitType`, kardinalitet 0..1)."
-* laboratoryOrderOutcome.header.author.orgUnit.orgUnitId ^definition = "Id för organisationsenheten där vårdpersonen verkat på uppdrag av. Om tillgängligt skall HSAid anges. Notera att det är den verksamhet där utrustningen använts som avses, inte utrustningens ägare. I de fall HSAid saknas kan ett för källsystemet unikt id användas varvid fältet root sätts till källsystemets HSAid och fältet extions sätts till lokalt id i källsystemet. Om HSAid används sätts fältet root till OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till HSAid. Om organisationsnummer används skall fältet root sättas till OID för Skatteverkets organisationsnummer (2.5.4.97) och fältet extension sättas till organisationsnumret."
-* laboratoryOrderOutcome.header.author.orgUnit.orgUnitId ^comment = "TKB-fält i OrgUnitType: `id` (`IIType`, kardinalitet 0..1)."
+* laboratoryOrderOutcome.header.author.orgUnit.id ^definition = "Id för organisationsenheten där vårdpersonen verkat på uppdrag av. Om tillgängligt skall HSAid anges. Notera att det är den verksamhet där utrustningen använts som avses, inte utrustningens ägare. I de fall HSAid saknas kan ett för källsystemet unikt id användas varvid fältet root sätts till källsystemets HSAid och fältet extions sätts till lokalt id i källsystemet. Om HSAid används sätts fältet root till OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till HSAid. Om organisationsnummer används skall fältet root sättas till OID för Skatteverkets organisationsnummer (2.5.4.97) och fältet extension sättas till organisationsnumret."
+* laboratoryOrderOutcome.header.author.orgUnit.id ^comment = "TKB-fält i OrgUnitType: `id` (`IIType`, kardinalitet 0..1)."
 * laboratoryOrderOutcome.header.author.orgUnit.name ^definition = "Namn på organisationsenhet. Om tillgängligt skall detta anges."
 * laboratoryOrderOutcome.header.author.orgUnit.name ^comment = "TKB-fält i OrgUnitType: `name` (`string`, kardinalitet 1..1)."
 * laboratoryOrderOutcome.header.signature ^definition = "Information avseende signering av laboratoriesvaret.
@@ -134,12 +131,12 @@ Laboratoriesvaret signeras av en medicinskt ansvarig hälso- och sjukvårdsperso
 
 Den ansvariga enheten kan vara den remissmottagande enheten eller den utförande enheten (exempelvis vid patientnära analyser)."
 * laboratoryOrderOutcome.header.signature ^comment = "TKB-fält: `//*:header/*:signature` (`AuthorType`, kardinalitet 0..1)."
-* laboratoryOrderOutcome.header.signature.signatureId ^definition = "HSA-id för hälso- och sjukvårdspersonal som signerat uppgiften som tillgängliggörs.
+* laboratoryOrderOutcome.header.signature.id ^definition = "HSA-id för hälso- och sjukvårdspersonal som signerat uppgiften som tillgängliggörs.
 
 root sätts till OID för HSA-id (1.2.752.129.2.1.4.1)
 
 extension sätts till HSA-id"
-* laboratoryOrderOutcome.header.signature.signatureId ^comment = "TKB-fält: `//*:header/*:signature/*:id` (`IIType`, kardinalitet 0..1)."
+* laboratoryOrderOutcome.header.signature.id ^comment = "TKB-fält: `//*:header/*:signature/*:id` (`IIType`, kardinalitet 0..1)."
 * laboratoryOrderOutcome.header.signature.name ^definition = "Namn på hälso- och sjukvårdspersonal. Anges med tilltalsnamn och efternamn."
 * laboratoryOrderOutcome.header.signature.name ^comment = "TKB-fält: `//*:header/*:signature/*:name` (`string`, kardinalitet 0..1)."
 * laboratoryOrderOutcome.header.signature.timestamp ^definition = "Tidpunkt då uppgiften signerades."
@@ -150,6 +147,12 @@ Anges med HSAs kodverk Befattning  (OID: 1.2.752.129.2.2.1.4).
 
 Om kod inte är tillgänglig anges befattning i klartext i datatypens attribut originalText."
 * laboratoryOrderOutcome.header.signature.byRole ^comment = "TKB-fält: `//*:header/*:signature/*:byRole` (`CVType`, kardinalitet 0..1)."
+* laboratoryOrderOutcome.header.signature.orgUnit ^definition = "Anges ej för Signature"
+* laboratoryOrderOutcome.header.signature.orgUnit ^comment = "TKB-fält: `//*:header/*:signature/*:orgUnit` (`OrgUnitType`, kardinalitet 0..0)."
+* laboratoryOrderOutcome.header.signature.orgUnit.id ^definition = "Id för organisationsenheten där vårdpersonen verkat på uppdrag av. Om tillgängligt skall HSAid anges. Notera att det är den verksamhet där utrustningen använts som avses, inte utrustningens ägare. I de fall HSAid saknas kan ett för källsystemet unikt id användas varvid fältet root sätts till källsystemets HSAid och fältet extions sätts till lokalt id i källsystemet. Om HSAid används sätts fältet root till OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till HSAid. Om organisationsnummer används skall fältet root sättas till OID för Skatteverkets organisationsnummer (2.5.4.97) och fältet extension sättas till organisationsnumret."
+* laboratoryOrderOutcome.header.signature.orgUnit.id ^comment = "TKB-fält i OrgUnitType: `id` (`IIType`, kardinalitet 0..1)."
+* laboratoryOrderOutcome.header.signature.orgUnit.name ^definition = "Namn på organisationsenhet. Om tillgängligt skall detta anges."
+* laboratoryOrderOutcome.header.signature.orgUnit.name ^comment = "TKB-fält i OrgUnitType: `name` (`string`, kardinalitet 1..1)."
 * laboratoryOrderOutcome.body ^definition = "Information om laboratoriesvaret."
 * laboratoryOrderOutcome.body ^comment = "TKB-fält: `//*:body` (`LaboratoryOrderOutcomeBodyType`, kardinalitet 1..1)."
 * laboratoryOrderOutcome.body.identifier ^definition = "Angivelse av identitetsbeteckning för laboratoriesvaret."
@@ -190,20 +193,20 @@ Om kod ej kan anges kan datatypens attribut originalText användas för en frite
 * laboratoryOrderOutcome.body.referral.requestedCareService ^comment = "TKB-fält: `//*:body/*:referral/*:requestedCareService` (`CVType`, kardinalitet 0..*)."
 * laboratoryOrderOutcome.body.referral.requester ^definition = "Hälso- och sjukvårdspersonal som skrivit remiss."
 * laboratoryOrderOutcome.body.referral.requester ^comment = "TKB-fält: `//*:body/*:referral/*:requester` (`ActorType`, kardinalitet 0..1)."
-* laboratoryOrderOutcome.body.referral.requester.requesterId ^definition = "HSA-id för hälso- och sjukvårdspersonal.
+* laboratoryOrderOutcome.body.referral.requester.id ^definition = "HSA-id för hälso- och sjukvårdspersonal.
 
 root sätts till OID för HSA-id (1.2.752.129.2.1.4.1)
 
 extension sätts till HSA-id"
-* laboratoryOrderOutcome.body.referral.requester.requesterId ^comment = "TKB-fält: `//*:body/*:referral/*:requester/*:id` (`IIType`, kardinalitet 0..1)."
+* laboratoryOrderOutcome.body.referral.requester.id ^comment = "TKB-fält: `//*:body/*:referral/*:requester/*:id` (`IIType`, kardinalitet 0..1)."
 * laboratoryOrderOutcome.body.referral.requester.name ^definition = "Namn på hälso- och sjukvårdspersonal"
 * laboratoryOrderOutcome.body.referral.requester.name ^comment = "TKB-fält: `//*:body/*:referral/*:requester/*:name` (`string`, kardinalitet 0..1)."
 * laboratoryOrderOutcome.body.referral.requester.byRole ^definition = "Information om hälso- och sjukvårdspersonalens befattning. Om möjligt skall kod från HSA:s kodverk Befattning (OID: 1.2.752.129.2.2.1.4) [R3] användas för att ange personens befattning så som den var angiven i HSA-katalogen vid tidpunkten. Om kod inte är tillgänglig anges befattning i klartext i CV-typens attribut originalText."
 * laboratoryOrderOutcome.body.referral.requester.byRole ^comment = "TKB-fält: `//*:body/*:referral/*:requester/*:byRole` (`CVType`, kardinalitet 0..1)."
 * laboratoryOrderOutcome.body.referral.requester.orgUnit ^definition = "Den organisation som remittenten är uppdragstagare på. För detta fält är det obligatoriskt att ange både orgUnitType.id samt orgUnitType.name."
 * laboratoryOrderOutcome.body.referral.requester.orgUnit ^comment = "TKB-fält: `//*:body/*:referral/*:requester/*:orgUnit` (`OrgUnitType`, kardinalitet 0..1)."
-* laboratoryOrderOutcome.body.referral.requester.orgUnit.orgUnitId ^definition = "Id för organisationsenheten där vårdpersonen verkat på uppdrag av. Om tillgängligt skall HSAid anges. Notera att det är den verksamhet där utrustningen använts som avses, inte utrustningens ägare. I de fall HSAid saknas kan ett för källsystemet unikt id användas varvid fältet root sätts till källsystemets HSAid och fältet extions sätts till lokalt id i källsystemet. Om HSAid används sätts fältet root till OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till HSAid. Om organisationsnummer används skall fältet root sättas till OID för Skatteverkets organisationsnummer (2.5.4.97) och fältet extension sättas till organisationsnumret."
-* laboratoryOrderOutcome.body.referral.requester.orgUnit.orgUnitId ^comment = "TKB-fält i OrgUnitType: `id` (`IIType`, kardinalitet 0..1)."
+* laboratoryOrderOutcome.body.referral.requester.orgUnit.id ^definition = "Id för organisationsenheten där vårdpersonen verkat på uppdrag av. Om tillgängligt skall HSAid anges. Notera att det är den verksamhet där utrustningen använts som avses, inte utrustningens ägare. I de fall HSAid saknas kan ett för källsystemet unikt id användas varvid fältet root sätts till källsystemets HSAid och fältet extions sätts till lokalt id i källsystemet. Om HSAid används sätts fältet root till OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till HSAid. Om organisationsnummer används skall fältet root sättas till OID för Skatteverkets organisationsnummer (2.5.4.97) och fältet extension sättas till organisationsnumret."
+* laboratoryOrderOutcome.body.referral.requester.orgUnit.id ^comment = "TKB-fält i OrgUnitType: `id` (`IIType`, kardinalitet 0..1)."
 * laboratoryOrderOutcome.body.referral.requester.orgUnit.name ^definition = "Namn på organisationsenhet. Om tillgängligt skall detta anges."
 * laboratoryOrderOutcome.body.referral.requester.orgUnit.name ^comment = "TKB-fält i OrgUnitType: `name` (`string`, kardinalitet 1..1)."
 * laboratoryOrderOutcome.body.referral.referralInformation ^definition = "Ytterligare information från beställaren."
@@ -213,9 +216,7 @@ extension sätts till HSA-id"
 * laboratoryOrderOutcome.body.groupOfAnalyses ^definition = "Grupperar ett antal analyser som utförs på ett eller flera prov från samma provgivare och som man väljer att betrakta som en enhet. Detta är en möjlighet för ett laboratorium att för ett givet svar kommentera en egen vald mängd analyser med en gemensam gruppkommentar. En grupp som endast innehåller en enda analys utan angivelse av name eller code ska tolkas som att analysen inte är grupperad. Det är inte tillåtet att ha en grupp med flera analyser utan att ange attributet name eller code."
 * laboratoryOrderOutcome.body.groupOfAnalyses ^comment = "TKB-fält: `//*:body/*:groupOfAnalyses` (`GroupOfAnalysesType`, kardinalitet 0..*).
 
-**Regel 3.1:** Om en groupOfAnalyses innehåller fler än en analysis måste attributet name eller code vara angivet.
-
-**Modellanteckning:** En grupp av relaterade analyser (t.ex. ett analyspaket). Kardinalitet: Valfri, lista."
+**Regel 3.1:** Om en groupOfAnalyses innehåller fler än en analysis måste attributet name eller code vara angivet."
 * laboratoryOrderOutcome.body.groupOfAnalyses.name ^definition = "Namn eller benämning för hela analysgruppen.
 
 Obligatorisk om attributet comment anges."
@@ -375,10 +376,7 @@ String – textuellt svar
 CVType – kodat värde"
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.value ^comment = "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:value` (`AnyValueType`, kardinalitet 1..1).
 
-**Regel 3.3:** Om enhet till provsvar ej finns anges unit som tom sträng.
-
-**Modellanteckning:** ASSUME-001: AnyValueType kan innehålla PQ, string, boolean eller kodad typ.
-Modellerad som string i avvaktan på mappningsverifiering. Se QUESTIONS.md."
+**Regel 3.3:** Om enhet till provsvar ej finns anges unit som tom sträng."
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.comment ^definition = "Angivelse av kommentar som rör laboratorieanalysresultatet."
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.comment ^comment = "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:comment` (`string`, kardinalitet 0..1)."
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.interpretation ^definition = "Kod (SNOMED-CT-SE) för en tolkning av laboratorieanalysresultatet.
@@ -411,10 +409,10 @@ Ett och endast ett av attributen interval och description ska anges."
 
 Analysen signeras av hälso- och sjukvårdspersonal på den remissvarsmottagande enheten när den förs in i patientjournalen."
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature ^comment = "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:recipientSignature` (`SignatureType`, kardinalitet 0..1)."
-* laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.recipientSignatureId ^definition = "Root sätts till OID för HSA (1.2.752.129.2.1.4.1)
+* laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.id ^definition = "Root sätts till OID för HSA (1.2.752.129.2.1.4.1)
 
 Extension sätts till HSA-id för hälso- och sjukvårdspersonal"
-* laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.recipientSignatureId ^comment = "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:recipientSignature/*:id` (`IIType`, kardinalitet 0..1)."
+* laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.id ^comment = "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:recipientSignature/*:id` (`IIType`, kardinalitet 0..1)."
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.name ^definition = "Namn på hälso- och sjukvårdspersonal."
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.name ^comment = "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:recipientSignature/*:name` (`string`, kardinalitet 0..1)."
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.recipientSignature.timestamp ^definition = "Tidpunkt för signering."
@@ -429,10 +427,10 @@ Om kod inte är tillgänglig anges befattning som klartext i datatypens attribut
 
 Analysen signeras av den hälso- och sjukvårdspersonal som utför analysen."
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature ^comment = "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature` (`SignatureType`, kardinalitet 0..1)."
-* laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.performerSignatureId ^definition = "Root sätts till OID för HSA (1.2.752.129.2.1.4.1)
+* laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.id ^definition = "Root sätts till OID för HSA (1.2.752.129.2.1.4.1)
 
 Extension sätts till HSA-id för hälso- och sjukvårdspersonal"
-* laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.performerSignatureId ^comment = "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature/*:id` (`IIType`, kardinalitet 0..1)."
+* laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.id ^comment = "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature/*:id` (`IIType`, kardinalitet 0..1)."
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.name ^definition = "Namn på hälso- och sjukvårdspersonal."
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.name ^comment = "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature/*:name` (`string`, kardinalitet 0..1)."
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.timestamp ^definition = "Tidpunkt då signering genomfördes."
@@ -444,21 +442,23 @@ Anges med HSAs kodverk Befattning (OID: 1.2.752.129.2.2.1.4).
 Om kod inte är tillgänglig anges befattning som klartext i datatypens attribut originalText."
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.byRole ^comment = "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature/*:byRole` (`CVType`, kardinalitet 0..1)."
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.related ^definition = "Relaterade analyser, till exempel mikrobiologiska odlingssvar där resistensbestämning görs på fynd."
-* laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.related ^comment = "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:related` (`AnalysisType`, kardinalitet 0..*)."
+* laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.related ^comment = "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:related` (`AnalysisType`, kardinalitet 0..*).
+
+**Modellanteckning:** related Rekursiv: samma struktur som GetLaboratoryOrderOutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis."
 * laboratoryOrderOutcome.body.recipientUnit ^definition = "Mottagande enhet."
 * laboratoryOrderOutcome.body.recipientUnit ^comment = "TKB-fält: `//*:body/*:recipientUnit` (`OrgUnitType`, kardinalitet 1..1)."
-* laboratoryOrderOutcome.body.recipientUnit.recipientUnitId ^definition = "Identitet för mottagande enhet."
-* laboratoryOrderOutcome.body.recipientUnit.recipientUnitId ^comment = "TKB-fält: `//*:body/*:recipientUnit/*:id` (`IIType`, kardinalitet 0..1)."
+* laboratoryOrderOutcome.body.recipientUnit.id ^definition = "Identitet för mottagande enhet."
+* laboratoryOrderOutcome.body.recipientUnit.id ^comment = "TKB-fält: `//*:body/*:recipientUnit/*:id` (`IIType`, kardinalitet 0..1)."
 * laboratoryOrderOutcome.body.recipientUnit.name ^definition = "Namn på mottagande enhet."
 * laboratoryOrderOutcome.body.recipientUnit.name ^comment = "TKB-fält: `//*:body/*:recipientUnit/*:name` (`string`, kardinalitet 1..1)."
 * laboratoryOrderOutcome.body.recipientSignature ^definition = "Information avseende signering av laboratoriesvaret.
 
 Laboratoriesvaret signeras av hälso- och sjukvårdspersonal på den remissvarsmottagande enheten när det förs in i patientjournalen."
 * laboratoryOrderOutcome.body.recipientSignature ^comment = "TKB-fält: `//*:body/*:recipientSignature` (`SignatureType`, kardinalitet 0..1)."
-* laboratoryOrderOutcome.body.recipientSignature.recipientSignatureId ^definition = "Root sätts till OID för HSA (1.2.752.129.2.1.4.1)
+* laboratoryOrderOutcome.body.recipientSignature.id ^definition = "Root sätts till OID för HSA (1.2.752.129.2.1.4.1)
 
 Extension sätts till HSA-id för hälso- och sjukvårdspersonal"
-* laboratoryOrderOutcome.body.recipientSignature.recipientSignatureId ^comment = "TKB-fält: `//*:body/*:recipientSignature/*:id` (`IIType`, kardinalitet 0..1)."
+* laboratoryOrderOutcome.body.recipientSignature.id ^comment = "TKB-fält: `//*:body/*:recipientSignature/*:id` (`IIType`, kardinalitet 0..1)."
 * laboratoryOrderOutcome.body.recipientSignature.name ^definition = "Namn på hälso- och sjukvårdspersonal"
 * laboratoryOrderOutcome.body.recipientSignature.name ^comment = "TKB-fält: `//*:body/*:recipientSignature/*:name` (`string`, kardinalitet 0..1)."
 * laboratoryOrderOutcome.body.recipientSignature.timestamp ^definition = "Tidpunkt för signering."

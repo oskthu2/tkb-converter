@@ -1,0 +1,61 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "PartialDateType",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-type"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PartialDateType",
+  "version": "1.0.0",
+  "name": "PartialDateType",
+  "title": "PartialDateType",
+  "status": "active",
+  "description": "Datum med variabel noggrannhet. (xs:complexType.)",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PartialDateType",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "PartialDateType",
+        "path": "PartialDateType",
+        "short": "PartialDateType",
+        "definition": "Datum med variabel noggrannhet. (xs:complexType.)"
+      },
+      {
+        "id": "PartialDateType.format",
+        "path": "PartialDateType.format",
+        "short": "format",
+        "definition": "Anger noggrannheten i value: YYYY, YYYYMM eller YYYYMMDD. Typ i schemat: DateTypeFormatEnum. Kodverket (DateTypeFormatEnum) definieras i respektive domänschema.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "PartialDateType.value",
+        "path": "PartialDateType.value",
+        "short": "value",
+        "definition": "Datumvärdet med den noggrannhet som format anger. Typ i schemat: PartialDateValueType.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string",
+            "profile": [
+              "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/PartialDateValueType"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

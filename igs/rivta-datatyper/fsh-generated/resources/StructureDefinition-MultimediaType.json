@@ -1,0 +1,84 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "MultimediaType",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+      "valueCode": "can-be-type"
+    }
+  ],
+  "url": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/MultimediaType",
+  "version": "1.0.0",
+  "name": "MultimediaType",
+  "title": "MultimediaType",
+  "status": "active",
+  "description": "Multimediaobjekt som binärdata eller extern referens. (xs:complexType.)",
+  "fhirVersion": "4.0.1",
+  "kind": "logical",
+  "abstract": false,
+  "type": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/MultimediaType",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation": "specialization",
+  "differential": {
+    "element": [
+      {
+        "id": "MultimediaType",
+        "path": "MultimediaType",
+        "short": "MultimediaType",
+        "definition": "Multimediaobjekt som binärdata eller extern referens. (xs:complexType.)"
+      },
+      {
+        "id": "MultimediaType.id",
+        "path": "MultimediaType.id",
+        "short": "id",
+        "definition": "Objektets id. Typ i schemat: string.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ]
+      },
+      {
+        "id": "MultimediaType.mediaType",
+        "path": "MultimediaType.mediaType",
+        "short": "mediaType",
+        "definition": "Objektets MIME-typ. Typ i schemat: MediaTypeEnum. Kodverket (MediaTypeEnum) definieras i respektive domänschema.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "code"
+          }
+        ]
+      },
+      {
+        "id": "MultimediaType.value",
+        "path": "MultimediaType.value",
+        "short": "value",
+        "definition": "Objektet som binärdata (base64). Anges om reference inte anges. Typ i schemat: base64Binary.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "base64Binary"
+          }
+        ]
+      },
+      {
+        "id": "MultimediaType.reference",
+        "path": "MultimediaType.reference",
+        "short": "reference",
+        "definition": "Referens (URL) till objektet. Anges om value inte anges. Typ i schemat: anyURI.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "uri"
+          }
+        ]
+      }
+    ]
+  }
+}

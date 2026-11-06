@@ -1,0 +1,33 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "TimeStampType",
+  "url": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType",
+  "version": "1.0.0",
+  "name": "TimeStampType",
+  "title": "TimeStampType",
+  "status": "active",
+  "description": "Tidpunkt på formatet YYYYMMDDhhmmss utan tidszon. (xs:simpleType, restriktion av xs:string.)",
+  "fhirVersion": "4.0.1",
+  "kind": "primitive-type",
+  "abstract": false,
+  "type": "string",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/string",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "string",
+        "path": "string",
+        "constraint": [
+          {
+            "key": "rivta-timestamptype-pattern",
+            "severity": "error",
+            "human": "TimeStampType ska följa mönstret i schemat: (19|20)\\d\\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])(0[0-9]|1[0-9]|2[0123])([0-5])([0-9])([0-5])([0-9])",
+            "expression": "matches('^(?:(?:(19|20)\\\\d\\\\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])(0[0-9]|1[0-9]|2[0123])([0-5])([0-9])([0-5])([0-9])))$')",
+            "source": "https://fhir.inera.se/ig/rivta-datatypes/StructureDefinition/TimeStampType"
+          }
+        ]
+      }
+    ]
+  }
+}

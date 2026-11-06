@@ -451,7 +451,7 @@ def build_comment(row: Row, rules: dict, elem: Elem) -> str:
         parts.append(f"**{h}:** {md_text(v)}")
     old = "\n".join(l for l in elem.definition.strip().splitlines()
                     if not re.match(r"^\s*(Kardinalitet|Kard\.?|Multiplicitet)\s*:", l, re.I)).strip()
-    if old and not redundant(old, elem.short + " " + row.desc):
+    if old and old != elem.path[-1] and not redundant(old, elem.short + " " + row.desc):  # bara elementnamnet är ingen anteckning
         parts.append("**Modellanteckning:** " + old)
     return "\n\n".join(parts)
 
