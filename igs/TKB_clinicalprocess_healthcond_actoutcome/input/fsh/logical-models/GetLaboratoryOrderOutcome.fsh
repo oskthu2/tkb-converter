@@ -1,9 +1,6 @@
 // Elementen genereras ur GetLaboratoryOrderOutcomeResponder_4.2.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
 // Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
 
-// Elementen genereras ur GetLaboratoryOrderOutcomeResponder_4.2.xsd av scripts/xsd_logical_models.py — redigera inte för hand.
-// Grunddatatyper refereras till RIV-TA:s gemensamma datatyper (inera.rivta.datatypes).
-
 // Genererad från TKB clinicalprocess:healthcond:actoutcome v4.2.2
 // Kontrakt: GetLaboratoryOrderOutcome v4.2
 // Genererad: 2026-03-19
@@ -134,7 +131,7 @@ Characteristics: #can-be-target
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.timestamp 1..1 string "timestamp" "timestamp"
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.timestamp only TimeStampType
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.performerSignature.byRole 0..1 CVType "byRole" "byRole"
-* laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.related 0..* contentReference #GetLaboratoryOrderOutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis "AnalysisType" "related Rekursiv: samma struktur som GetLaboratoryOrderOutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis."
+* laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.related 0..* contentReference #getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis "AnalysisType" "related Rekursiv: samma struktur som getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis."
 * laboratoryOrderOutcome.body.recipientUnit 1..1 Base "OrgUnitType" "recipientUnit"
 * laboratoryOrderOutcome.body.recipientUnit.id 0..1 IIType "id" "id"
 * laboratoryOrderOutcome.body.recipientUnit.name 1..1 string "name" "name"

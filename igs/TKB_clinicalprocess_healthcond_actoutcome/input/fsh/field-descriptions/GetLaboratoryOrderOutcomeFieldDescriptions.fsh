@@ -444,7 +444,7 @@ Om kod inte är tillgänglig anges befattning som klartext i datatypens attribut
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.related ^definition = "Relaterade analyser, till exempel mikrobiologiska odlingssvar där resistensbestämning görs på fynd."
 * laboratoryOrderOutcome.body.groupOfAnalyses.analysis.result.related ^comment = "TKB-fält: `//*:body/*:groupOfAnalyses/*:analysis/*:result/*:related` (`AnalysisType`, kardinalitet 0..*).
 
-**Modellanteckning:** related Rekursiv: samma struktur som GetLaboratoryOrderOutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis."
+**Modellanteckning:** related Rekursiv: samma struktur som getlaboratoryorderoutcome.laboratoryOrderOutcome.body.groupOfAnalyses.analysis."
 * laboratoryOrderOutcome.body.recipientUnit ^definition = "Mottagande enhet."
 * laboratoryOrderOutcome.body.recipientUnit ^comment = "TKB-fält: `//*:body/*:recipientUnit` (`OrgUnitType`, kardinalitet 1..1)."
 * laboratoryOrderOutcome.body.recipientUnit.id ^definition = "Identitet för mottagande enhet."

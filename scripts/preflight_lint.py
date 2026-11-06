@@ -50,6 +50,13 @@ def lint_fsh(ig: Path, errors: list, warnings: list):
         text = f.read_text(encoding="utf-8")
         # Nästlade element av typen Base (scripts/xsd_logical_models.py) har inga egna id/extension,
         # så schemats namn får användas där (se tkb-fsh-model, "Datatyper enligt schemat").
+        # contentReference i en Logical pekar på elementets id, som börjar med modellens Id (inte
+        # namnet). Fel rot ger "getElementByName: can't find #…" och en trasig tabell på sidan.
+        lid = re.search(r"^Id:\s*(\S+)", text, re.M)
+        if lid and "logical-models" in f.parts:
+            for cr in re.findall(r"contentReference\s+#([\w\-]+)\.", text):
+                if cr != lid.group(1):
+                    errors.append(f"{rel}: contentReference #{cr}.… — ska börja med modellens Id '{lid.group(1)}'")
         base_paths = set(re.findall(r"^\*\s+([\w.]+)\s+\d+\.\.[\d*]+\s+Base\b", text, re.M))
         for n, line in enumerate(text.splitlines(), 1):
             if re.search(r"\*\s+\^obeys", line):
