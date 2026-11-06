@@ -43,10 +43,11 @@ Domänen innehåller följande tjänstekontrakt:
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>2.0_RC8</td><td>AB, TKB</td><td><a href="http://rivta.se/downloads/infrastructure_itintegration_registry/2.0_RC8/AL-T%20Granskning%20av%20infrastructure_itintegration_registry_2.0.0_RC8_PA_1.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a></td><td><a href="http://rivta.se/downloads/infrastructure_itintegration_registry/2.0_RC8/ServiceContracts_infrastructure_itintegration_registry_2.0_RC8.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.infrastructure.itintegration.registry/src/infrastructure_itintegration_registry_2.0_RC8">källkod</a></td></tr>
+<tr><td>2.0_RC8</td><td>AB, TKB</td><td>Arkitektur &amp; Regelverk: Teknik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.infrastructure.itintegration.registry/get/infrastructure_itintegration_registry_2.0_RC8.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.infrastructure.itintegration.registry/src/infrastructure_itintegration_registry_2.0_RC8">källkod</a></td></tr>
 <tr><td>trunk</td><td>AB, TKB</td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.infrastructure.itintegration.registry/src/master">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 

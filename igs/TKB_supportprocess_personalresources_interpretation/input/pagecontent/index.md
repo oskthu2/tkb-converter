@@ -50,6 +50,7 @@ Domänen innehåller följande tjänstekontrakt:
 <tr><td>trunk</td><td>TKB, AB</td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.supportprocess.personalresources.interpretation/src/master">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 

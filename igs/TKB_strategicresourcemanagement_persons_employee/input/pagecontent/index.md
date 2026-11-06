@@ -45,10 +45,11 @@ Domänen innehåller följande tjänstekontrakt:
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>2.0_RC1</td><td>TKB, AB</td><td><a href="http://rivta.se/downloads//strategicresourcemanagement_persons_employee/2.0_RC1/T-granskning%20strategicresourcemanagement_persons_employee_2.0_RC1.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a></td><td><a href="http://rivta.se/downloads//strategicresourcemanagement_persons_employee/2.0_RC1/ServiceContracts_strategicresourcemanagement_persons_employee_2.0_RC1.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.strategicresourcemanagement.persons.employee/src/2.0_RC1">källkod</a></td></tr>
+<tr><td>2.0_RC1</td><td>TKB, AB</td><td>Arkitektur &amp; Regelverk: Teknik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.strategicresourcemanagement.persons.employee/get/2.0_RC1.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.strategicresourcemanagement.persons.employee/src/2.0_RC1">källkod</a></td></tr>
 <tr><td>trunk</td><td></td><td></td><td></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 

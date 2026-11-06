@@ -23,9 +23,10 @@
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>1.0</td><td>IS, TKB, AB</td><td><a href="http://rivta.se/downloads//clinicalprocess_activity_order/1.0/AL-T%20Granskning%20av%20clinicalprocess_activity_order_1.0.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a></td><td><a href="http://rivta.se/downloads//clinicalprocess_activity_order/1.0/ServiceContracts_clinicalprocess_activity_order_1.0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv-telia.clinicalprocess.activity.order/src/clinicalprocess_activity_order_1.0">källkod</a></td></tr>
+<tr><td>1.0</td><td>IS, TKB, AB</td><td>Arkitektur &amp; Regelverk: Teknik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv-telia.clinicalprocess.activity.order/get/clinicalprocess_activity_order_1.0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv-telia.clinicalprocess.activity.order/src/clinicalprocess_activity_order_1.0">källkod</a></td></tr>
 <tr><td>trunk</td><td>TKB, AB, IS</td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv-telia.clinicalprocess.activity.order/src/master">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><a href="tjanstedomaner.html">← Alla tjänstedomäner</a></p>

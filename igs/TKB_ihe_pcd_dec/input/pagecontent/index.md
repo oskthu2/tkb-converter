@@ -40,10 +40,11 @@ Domänen innehåller följande tjänstekontrakt:
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>1.0</td><td>AB, TKB</td><td><a href="http://rivta.se/downloads//ihe_pcd_dec/1.0/T-granskning%20-%20riv.ihe.pcd.dec_1.0.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a></td><td><a href="http://rivta.se/downloads//ihe_pcd_dec/1.0/ServiceContracts_IHE_PCD_DEC_1.0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.ihe.pcd.dec/src/1.0">källkod</a></td></tr>
+<tr><td>1.0</td><td>AB, TKB</td><td>Arkitektur &amp; Regelverk: Teknik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.ihe.pcd.dec/get/1.0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.ihe.pcd.dec/src/1.0">källkod</a></td></tr>
 <tr><td>trunk</td><td>AB, TKB</td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.ihe.pcd.dec/src/master">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 

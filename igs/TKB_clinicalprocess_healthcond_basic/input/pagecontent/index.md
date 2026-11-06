@@ -41,10 +41,11 @@ Domänen innehåller följande tjänstekontrakt:
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>1.0.10</td><td>AB, TKB</td><td><a href="http://rivta.se/downloads//clinicalprocess_healthcond_basic/1.0.10/VIS_granskning%20-%20clinicalprocess_healthcond_basic_1.0.10.docx">Arkitektur &amp; Regelverk: Säkerhet: Godkänd</a><br/><a href="http://rivta.se/downloads//clinicalprocess_healthcond_basic/1.0.10/T-granskning%20-%20clinicalprocess_healthcond_basic_1.0.10.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a><br/><a href="http://rivta.se/downloads//clinicalprocess_healthcond_basic/1.0.10/VIS_granskning%20-%20clinicalprocess_healthcond_basic_1.0.10.docx">Arkitektur &amp; Regelverk: Informatik: Godkänd</a></td><td><a href="http://rivta.se/downloads//clinicalprocess_healthcond_basic/1.0.10/ServiceContracts_clinicalprocess_healthcond_basic_1.0.10.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.healthcond.basic/src/1.0.10">källkod</a></td></tr>
+<tr><td>1.0.10</td><td>AB, TKB</td><td>Arkitektur &amp; Regelverk: Säkerhet: Godkänd<br/>Arkitektur &amp; Regelverk: Teknik: Godkänd<br/>Arkitektur &amp; Regelverk: Informatik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.healthcond.basic/get/1.0.10.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.healthcond.basic/src/1.0.10">källkod</a></td></tr>
 <tr><td>trunk</td><td>TKB, IS, AB</td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.healthcond.basic/src/master">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 

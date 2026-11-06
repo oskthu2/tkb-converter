@@ -41,10 +41,11 @@ Domänen innehåller följande tjänstekontrakt:
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>1.0.6</td><td>TKB, AB</td><td><a href="http://rivta.se/downloads//clinicalprocess_activity_actions/1.0.6/VIS_granskning%20-%20clinicalprocess_activity_actions_1.0.6.docx">Arkitektur &amp; Regelverk: Säkerhet: Godkänd</a><br/><a href="http://rivta.se/downloads//clinicalprocess_activity_actions/1.0.6/T-granskning_clinicalprocess.activity.actions_1.0.6.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a><br/><a href="http://rivta.se/downloads//clinicalprocess_activity_actions/1.0.6/VIS_granskning%20-%20clinicalprocess_activity_actions_1.0.6.docx">Arkitektur &amp; Regelverk: Informatik: Godkänd</a></td><td><a href="http://rivta.se/downloads//clinicalprocess_activity_actions/1.0.6/ServiceContracts_clinicalprocess_activity_actions_1.0.6.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.activity.actions/src/1.0.6">källkod</a></td></tr>
+<tr><td>1.0.6</td><td>TKB, AB</td><td>Arkitektur &amp; Regelverk: Säkerhet: Godkänd<br/>Arkitektur &amp; Regelverk: Teknik: Godkänd<br/>Arkitektur &amp; Regelverk: Informatik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.activity.actions/get/1.0.6.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.activity.actions/src/1.0.6">källkod</a></td></tr>
 <tr><td>trunk</td><td>AB, TKB</td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.activity.actions/src/master">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 

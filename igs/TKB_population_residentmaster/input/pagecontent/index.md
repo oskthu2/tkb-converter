@@ -42,11 +42,12 @@ Domänen innehåller följande tjänstekontrakt:
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>1.2</td><td>TKB, AB</td><td><a href="http://rivta.se/downloads//population_residentmaster/1.2/AL%20T-granskning%20population_residentmaster_1.2.doc">Arkitektur &amp; Regelverk: Teknik: Godkänd</a><br/><a href="http://rivta.se/downloads//population_residentmaster/1.2/VIS-granskning_%20population_residentmaster_1.2.docx">Arkitektur &amp; Regelverk: Informatik: Underkänd</a><br/><a href="http://rivta.se/downloads//population_residentmaster/1.2/VIS-granskning_%20population_residentmaster_1.2.docx">Arkitektur &amp; Regelverk: Säkerhet: Delvis Godkänd</a></td><td><a href="http://rivta.se/downloads//population_residentmaster/1.2/ServiceContracts_population_residentmaster_1.2.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.population.residentmaster/src/population_residentmaster_1.2">källkod</a></td></tr>
-<tr><td>1.0.0</td><td>TKB</td><td>Äldre granskningsprocess: Teknik: Godkänd</td><td><a href="http://rivta.se/downloads/population_residentmaster/1.0.0/ServiceContracts_population_residentmaster_1.0.0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.population.residentmaster/src/TD_RESIDENTMASTER_1_0_0_R">källkod</a></td></tr>
+<tr><td>1.2</td><td>TKB, AB</td><td>Arkitektur &amp; Regelverk: Teknik: Godkänd<br/>Arkitektur &amp; Regelverk: Informatik: Underkänd<br/>Arkitektur &amp; Regelverk: Säkerhet: Delvis Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.population.residentmaster/get/population_residentmaster_1.2.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.population.residentmaster/src/population_residentmaster_1.2">källkod</a></td></tr>
+<tr><td>1.0.0</td><td>TKB</td><td>Äldre granskningsprocess: Teknik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.population.residentmaster/get/TD_RESIDENTMASTER_1_0_0_R.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.population.residentmaster/src/TD_RESIDENTMASTER_1_0_0_R">källkod</a></td></tr>
 <tr><td>trunk</td><td>TKB, AB</td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.population.residentmaster/src/master">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 
