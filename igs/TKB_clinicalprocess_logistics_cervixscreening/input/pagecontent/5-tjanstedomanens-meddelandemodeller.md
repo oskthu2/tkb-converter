@@ -12,7 +12,7 @@ Nedanstående bild visar schemat för meddelandemodellen.
 
 ![process:cervix:screening:information](img_001.jpeg)
 
-| Klass.attribut / (enligt Informationsmodell i [R3] | Mappning mot Schema |
+| Klass.attribut<br/>(enligt Informationsmodell i [R3] | Mappning mot Schema |
 | :--- | :--- |
 | Cervixscreeninginformation | CervixScreeningInformationType |
 | Klassen innehåller inga attribut | - |

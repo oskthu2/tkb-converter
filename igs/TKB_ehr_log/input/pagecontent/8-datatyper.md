@@ -9,11 +9,11 @@ Datatyp som representerar vilken typ av aktivitet som utförts, på vilken nivå
 
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| activityType | log:ActivityTypeValue | Värde som anger vilken typ av aktivitet som utförts. / Något av dessa värden ska anges: Läsa, Skriva, Signera, Utskrift, Vidimera, Radera och Nödöppning | 1 |
+| activityType | log:ActivityTypeValue | Värde som anger vilken typ av aktivitet som utförts.<br/>Något av dessa värden ska anges: Läsa, Skriva, Signera, Utskrift, Vidimera, Radera och Nödöppning | 1 |
 | activityLevel | log:ActivityLevel | Information om vilken nivå som aktivitet utförts på. | 0..1 |
 | activityArgs | log:ActivityArgs | Övrig information för aktiviteten. T.ex. parameterar för en rapport. | 0..1 |
 | startDate | xs:dateTime | Information om tidpunkt som aktivitet utfördes på. | 1 |
-| purpose | log:PurposeDescription | Information om syftet med aktiviten. / Något av dessa värden ska anges: Vård och behandling, Kvalitetssäkring, Annan dokumentation enligt lag, Statistik, Administration och Kvalitetsregister. | 1 |
+| purpose | log:PurposeDescription | Information om syftet med aktiviten.<br/>Något av dessa värden ska anges: Vård och behandling, Kvalitetssäkring, Annan dokumentation enligt lag, Statistik, Administration och Kvalitetsregister. | 1 |
 
 #### log:ActivityArgs
 Datatyp som representerar en .
@@ -194,7 +194,7 @@ Datatyp som håller information för vilken vårdgivare och vårdenhet som haft 
 | UserId | log:HsaId | Aktörens Id | 1 |
 | UserName | log:UserName | Namn på vårdaktören | 0..1 |
 | UserTitle | log:UserTitle | Titel på vårdaktören | 0..1 |
-| Purpose | log:PurposeDescription | Information om syftet med aktiviten. / kan vara något av dessa värden: Vård och behandling, Kvalitetssäkring, Annan dokumentation enligt lag, Statistik, Administration och Kvalitetsregister. | 1 |
+| Purpose | log:PurposeDescription | Information om syftet med aktiviten.<br/>kan vara något av dessa värden: Vård och behandling, Kvalitetssäkring, Annan dokumentation enligt lag, Statistik, Administration och Kvalitetsregister. | 1 |
 | ResourceType | log:ResourceTypeValue | Typ av resurs. | 1 |
 
 #### log.querying:AccessLogs
@@ -250,8 +250,8 @@ Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes.
 | resultText | xs:string | Optionellt felmeddelande som innehåller information om felet som uppstod. Fältet är tomt om resultatkoden är "OK". | 1 |
 | startInterval | xs:dateTime | Parameter som anger datum för första loggposten som finns för uppföljning när rapporten skapas. | 0..1 |
 | endInterval | xs:dateTime | Parameter som anger datum för sista loggposten som finns för uppföljning när rapporten skapas. | 0..1 |
-| queuedReportId | log:Id | Parameter som anger id på den rapport som efterfrågas och returneras om anropet avslutas innan rapporten är genererad. Ytterligare anrop kan då göras / med raport id som inparameter för att hämta rapport. Finns för att undvika hängande anrop samt köa upp jobb vid hög belastning. | 0..1 |
-| queueTime | xs:int | Parameter som anger ungefärlig tid det förväntas ta innan rapporten är genererad och returneras tillsammans med queuedReportId. / Ytterligare anrop kan då göras av anropande system efter föväntad tid har gått.	Finns för att undvika hängande anrop. Anges i sekunder. | 0..1 |
+| queuedReportId | log:Id | Parameter som anger id på den rapport som efterfrågas och returneras om anropet avslutas innan rapporten är genererad. Ytterligare anrop kan då göras<br/>med raport id som inparameter för att hämta rapport. Finns för att undvika hängande anrop samt köa upp jobb vid hög belastning. | 0..1 |
+| queueTime | xs:int | Parameter som anger ungefärlig tid det förväntas ta innan rapporten är genererad och returneras tillsammans med queuedReportId.<br/>Ytterligare anrop kan då göras av anropande system efter föväntad tid har gått.	Finns för att undvika hängande anrop. Anges i sekunder. | 0..1 |
 
 ### Datatyper från namnrymd urn:riv:ehr:log.store:1
 Nedan beskrivs några komplexa datatyper som är deklarerade i aktuell namnrymd urn:riv:ehr:log.store:1, version 1.0. Dessa datatyper är vanligt förekommande i övriga tjänster senare i kapitlet.

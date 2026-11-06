@@ -45,7 +45,7 @@ Följande generella SLA-krav gäller för alla tjänsteproducenter som tillhanda
 | Kategori | Värde | Beskrivning |
 | :--- | :--- | :--- |
 | Aktualitet | - | Se [R7] |
-| Last | 10 transaktioner per sekund | En producent ska hantera 10 samtidiga transaktioner. / En tjänstekonsument ska ej i en och samma transaktion skicka en nyttolast som är större än 5MB. |
+| Last | 10 transaktioner per sekund | En producent ska hantera 10 samtidiga transaktioner.<br/>En tjänstekonsument ska ej i en och samma transaktion skicka en nyttolast som är större än 5MB. |
 | Tillgänglighet | 24x7, 99,5% |  |
 | Återställningstid | 1 dygn | Vid katastrof, bortfall av hel hall |
 
@@ -85,7 +85,7 @@ ResultCode kan vara:
 | :--- | :--- |
 | OK | Transaktionen har utförts enligt uppdraget i begäran. |
 | INFO | Transaktionen har utförts enligt uppdraget i begäran, men det finns ett meddelande som tjänstekonsumenten måste visa upp för användaren. |
-| ERROR | Transaktionen har INTE kunnat utföras enligt anrop p.g.a. logiskt fel. / Fältet resultText ska sättas till den rapport som skapas av schematron-reglerna eller schema-validering. / Meddelandet anses inte mottaget. |
+| ERROR | Transaktionen har INTE kunnat utföras enligt anrop p.g.a. logiskt fel.<br/>Fältet resultText ska sättas till den rapport som skapas av schematron-reglerna eller schema-validering.<br/>Meddelandet anses inte mottaget. |
 
 #### 4.3.2 Krav på en tjänstekonsument
 

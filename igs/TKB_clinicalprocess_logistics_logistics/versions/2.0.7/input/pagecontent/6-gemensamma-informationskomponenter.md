@@ -26,12 +26,12 @@ För annan användning av koder, exempelvis för lokala kodverk utan OID, ska or
 
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| code | string | Kod enligt producentsystemets kodverk. / Om code anges ska också codeSystem  samt displayName anges. | 0..1 |
+| code | string | Kod enligt producentsystemets kodverk.<br/>Om code anges ska också codeSystem  samt displayName anges. | 0..1 |
 | codeSystem | string | Anger kodverket som definierar koden. Dvs OID för det kodverk som används. Om codeSystem anges ska också code samt displayName anges. | 0..1 |
 | codeSystemName | string | Kodverkets namn i klartext. Ska anges när så är möjligt. | 0..1 |
 | codeSystemVersion | string | Om tillämpbart, versionsangivelse som definierats av det givna kodsystemet. | 0..1 |
-| displayName | string | Koden i klartext, under vilket det producerande systemet visar koden för sina användare. / Om separat displayName inte finns i producerande system ska det ange samma värde som för code. / Om displayName anges ska även code samt codeSystem anges. | 0..1 |
-| originalText | string | originalText ska användas vid överföring av värden som kommer från lokala kodverk som ej är identifierade med OID eller när kod helt saknas. I sådana fall ska en beskrivande text anges i originalText. / Om originalText anges kan ingen av de övriga elementen anges. | 0..1 |
+| displayName | string | Koden i klartext, under vilket det producerande systemet visar koden för sina användare.<br/>Om separat displayName inte finns i producerande system ska det ange samma värde som för code.<br/>Om displayName anges ska även code samt codeSystem anges. | 0..1 |
+| originalText | string | originalText ska användas vid överföring av värden som kommer från lokala kodverk som ej är identifierade med OID eller när kod helt saknas. I sådana fall ska en beskrivande text anges i originalText.<br/>Om originalText anges kan ingen av de övriga elementen anges. | 0..1 |
 
 ### DatePeriodType
 
@@ -107,11 +107,11 @@ Innehåller basinformation om ett dokument.
 
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| documentId | string | Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter. / Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen. | 1..1 |
+| documentId | string | Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.<br/>Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen. | 1..1 |
 | sourceSystemHSAId | HSAIdType | HSAid för det system som dokumentet är skapat i. | 1..1 |
 | documentTitle | string | Titel som beskriver den information som sänds i dokumentet. | 0..1 |
 | documentTime | TimeStampType | Händelsetidpunkt, om relevant. | 0..1 |
-| patientId | PersonIdType | Id för patienten. Anges med 12 siffror utan avskiljare. / id sätts till patientens identifierare. / Type sätts till OID för typ av identifierare. / För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1). / För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3). / För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3) | 1..1 |
+| patientId | PersonIdType | Id för patienten. Anges med 12 siffror utan avskiljare.<br/>id sätts till patientens identifierare.<br/>Type sätts till OID för typ av identifierare.<br/>För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1).<br/>För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3).<br/>För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3) | 1..1 |
 | accountableHealthcareProfessional | HealthcareProfessionalType | Ansvarig hälso- och sjukvårdsperson. | 1..1 |
 | legalAuthenticator | LegalAuthenticatorType | Information om vem som signerat informationen i dokumentet. | 0..1 |
 | approvedForPatient | boolean | Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false. | 1..1 |
@@ -124,7 +124,7 @@ Innehåller basinformation om ett dokument.
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | id | string | Identiteten enligt den identitetstyp (type) som angivits. Anges med 12 tecken utan bindestreck. | 1..1 |
-| type | string | OID för typ av identifierare. / För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1). / För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3). / För reservnummer används lokalt definierade reservnummer, exempelvis SLL reservnummer (1.2.752.97.3.1.3) | 1..1 |
+| type | string | OID för typ av identifierare.<br/>För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1).<br/>För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3).<br/>För reservnummer används lokalt definierade reservnummer, exempelvis SLL reservnummer (1.2.752.97.3.1.3) | 1..1 |
 
 ### PQType
 

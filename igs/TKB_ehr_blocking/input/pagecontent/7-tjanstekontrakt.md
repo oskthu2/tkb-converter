@@ -32,7 +32,7 @@ Obligatorisk för tjänsteproducent.
 | Svarstid |  |  |
 | Tillgänglighet |  |  |
 | Last |  |  |
-| Aktualitet | Grundprincipen är att de senast registrerade spärruppgifterna i spärrtjänsten returneras. / Tjänsten skall returnera felkod om inte tillräckligt aktuellt underlag kan returneras. |  |
+| Aktualitet | Grundprincipen är att de senast registrerade spärruppgifterna i spärrtjänsten returneras.<br/>Tjänsten skall returnera felkod om inte tillräckligt aktuellt underlag kan returneras. |  |
 
 ### Fältregler
 
@@ -147,7 +147,7 @@ Obligatorisk för tjänsteproducent.
 | Svarstid |  |  |
 | Tillgänglighet |  |  |
 | Last |  |  |
-| Aktualitet | Grundprincipen är att de senast registrerade spärruppgifterna i spärrtjänsten returneras. / Tjänsten skall returnera felkod om inte tillräckligt aktuellt underlag kan returneras. |  |
+| Aktualitet | Grundprincipen är att de senast registrerade spärruppgifterna i spärrtjänsten returneras.<br/>Tjänsten skall returnera felkod om inte tillräckligt aktuellt underlag kan returneras. |  |
 
 ### Fältregler
 
@@ -459,7 +459,7 @@ Obligatorisk för tjänsteproducent.
 | Svarstid |  |  |
 | Tillgänglighet |  |  |
 | Last |  |  |
-| Aktualitet | Grundprincipen är att de senast registrerade spärruppgifterna i spärrtjänsten returneras. / Det skall i så fall kunna konfigureras i tjänsten hur länge underlag får sparas, vilket då anges i SLA. Tjänsten skall returnera felkod om inte tillräckligt aktuellt underlag kan returneras. |  |
+| Aktualitet | Grundprincipen är att de senast registrerade spärruppgifterna i spärrtjänsten returneras.<br/>Det skall i så fall kunna konfigureras i tjänsten hur länge underlag får sparas, vilket då anges i SLA. Tjänsten skall returnera felkod om inte tillräckligt aktuellt underlag kan returneras. |  |
 
 ### Fältregler
 
@@ -805,7 +805,7 @@ Obligatorisk för tjänsteproducent.
 | Svarstid |  |  |
 | Tillgänglighet |  |  |
 | Last |  |  |
-| Aktualitet | Grundprincipen är att utföra en kontroll om spärr föreligger på de senast registrerade spärruppgifterna i spärrtjänsten på lokal respektive nationell nivå. / Tjänsten skall returnera felkod om inte tillräckligt aktuellt underlag finns tillgängligt. |  |
+| Aktualitet | Grundprincipen är att utföra en kontroll om spärr föreligger på de senast registrerade spärruppgifterna i spärrtjänsten på lokal respektive nationell nivå.<br/>Tjänsten skall returnera felkod om inte tillräckligt aktuellt underlag finns tillgängligt. |  |
 
 ### Fältregler
 
@@ -1246,7 +1246,7 @@ Frivillig.
 | Svarstid |  |  |
 | Tillgänglighet |  |  |
 | Last |  |  |
-| Aktualitet | Tjänsten garanterar att registrering av spärren skett då anropet genomförts utan fel. / Tjänsten garanterar även att registrering av spärren skett på nationell nivå då anropet genomförts utan fel om anroparen har begärt det. I annat fall meddelas ej anroparen status på nationell registrering. / Det är tjänstens ansvar att förmedla registreringen vidare till den nationella instansen. Detta skall ske så snart som möjligt (synkront), eller med upprepade försök om eventuella problem uppstår. |  |
+| Aktualitet | Tjänsten garanterar att registrering av spärren skett då anropet genomförts utan fel.<br/>Tjänsten garanterar även att registrering av spärren skett på nationell nivå då anropet genomförts utan fel om anroparen har begärt det. I annat fall meddelas ej anroparen status på nationell registrering.<br/>Det är tjänstens ansvar att förmedla registreringen vidare till den nationella instansen. Detta skall ske så snart som möjligt (synkront), eller med upprepade försök om eventuella problem uppstår. |  |
 
 ### Fältregler
 
@@ -1262,7 +1262,7 @@ Frivillig.
 | informationCareProviderId | blocking:HsaId | Obligatoriskt HSA-id för den vårdgivare spärren gäller för. | 1..1 |
 | excludedInformationTypes | blocking:InformationTypeIdValue | Ej obligatorisk lista med de informationstyper som skall undantas från spärren. Tillåtna värden är 'lak' och 'upp'. | 0..* |
 | registerAction | blocking:Action | Identifierar de personer som begärt och registrerat spärren samt tidpunkter för dessa. | 1..1 |
-| replicationTimeout | xs:int | Anger hur replikering till nationell spärrtjänst ska ske. / -   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas. / -   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt. / -   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt. | 1..1 |
+| replicationTimeout | xs:int | Anger hur replikering till nationell spärrtjänst ska ske.<br/>-   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas.<br/>-   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt.<br/>-   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt. | 1..1 |
 | Svar |  |  |  |
 | registerExtendedBlock | blocking:Result | Status för om operationen lyckades eller inte. | 1..1 |
 
@@ -1363,7 +1363,7 @@ Frivillig.
 | Svarstid |  |  |
 | Tillgänglighet |  |  |
 | Last |  |  |
-| Aktualitet | Tjänsten garanterar att registrering av hävningen skett då anropet genomförts utan fel. / Tjänsten garanterar även att registrering av hävningen skett på nationell nivå då anropet genomförts utan fel om anroparen har begärt det. I annat fall meddelas ej anroparen status på nationell registrering. / Det är tjänstens ansvar att förmedla registreringen vidare till den nationella instansen. Detta skall ske så snart som möjligt (synkront), eller med upprepade försök om eventuella problem uppstår. |  |
+| Aktualitet | Tjänsten garanterar att registrering av hävningen skett då anropet genomförts utan fel.<br/>Tjänsten garanterar även att registrering av hävningen skett på nationell nivå då anropet genomförts utan fel om anroparen har begärt det. I annat fall meddelas ej anroparen status på nationell registrering.<br/>Det är tjänstens ansvar att förmedla registreringen vidare till den nationella instansen. Detta skall ske så snart som möjligt (synkront), eller med upprepade försök om eventuella problem uppstår. |  |
 
 ### Fältregler
 
@@ -1373,7 +1373,7 @@ Frivillig.
 | blockId | blocking:Id | Unik, global identifierare för spärren. | 1..1 |
 | revokeAction | blocking:Action | Identifierar de personer som begärt och permanent hävt spärren samt tidpunkter för dessa. | 1..1 |
 | revokeReasonText | blocking:ReasonText | Orsaken till den permanenta hävningen. | 0..1 |
-| replicationTimeout | xs:int | Anger hur replikering till nationell spärrtjänst ska ske. / -   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas. / -   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt. / -   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt. | 1..1 |
+| replicationTimeout | xs:int | Anger hur replikering till nationell spärrtjänst ska ske.<br/>-   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas.<br/>-   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt.<br/>-   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt. | 1..1 |
 | Svar |  |  |  |
 | revokeExtendedBlock | blocking:Result | Status för om operationen lyckades eller inte. | 1..1 |
 
@@ -1464,7 +1464,7 @@ Frivillig.
 | Svarstid |  |  |
 | Tillgänglighet |  |  |
 | Last |  |  |
-| Aktualitet | Tjänsten garanterar att makulering skett då anropet genomförts utan fel. / Tjänsten garanterar även att makulering skett på nationell nivå då anropet genomförts utan fel om anroparen har begärt det. I annat fall meddelas ej anroparen status på nationell registrering. / Det är tjänstens ansvar att förmedla registreringen vidare till den nationella instansen. Detta skall ske så snart som möjligt (synkront), eller med upprepade försök om eventuella problem uppstår. |  |
+| Aktualitet | Tjänsten garanterar att makulering skett då anropet genomförts utan fel.<br/>Tjänsten garanterar även att makulering skett på nationell nivå då anropet genomförts utan fel om anroparen har begärt det. I annat fall meddelas ej anroparen status på nationell registrering.<br/>Det är tjänstens ansvar att förmedla registreringen vidare till den nationella instansen. Detta skall ske så snart som möjligt (synkront), eller med upprepade försök om eventuella problem uppstår. |  |
 
 ### Fältregler
 
@@ -1474,7 +1474,7 @@ Frivillig.
 | blockId | blocking:Id | Identifierare för den spärr som skall makuleras. | 1..1 |
 | deleteAction | blocking:Action | Identifierar de personer som begärt och makulerat spärren samt tidpunkter för dessa. | 1..1 |
 | deleteReasonText | blocking:ReasonText | Ej obligatorisk, kompletterande text för orsak till makuleringen. | 0..1 |
-| replicationTimeout | xs:int | Anger hur replikering till nationell spärrtjänst ska ske. / -   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas. / -   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt. / -   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt. | 1..1 |
+| replicationTimeout | xs:int | Anger hur replikering till nationell spärrtjänst ska ske.<br/>-   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas.<br/>-   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt.<br/>-   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt. | 1..1 |
 | Svar |  |  |  |
 | deleteExtendedBlock | blocking:Result | Status för om operationen lyckades eller inte. | 1..1 |
 
@@ -1565,7 +1565,7 @@ Frivillig.
 | Svarstid |  |  |
 | Tillgänglighet |  |  |
 | Last |  |  |
-| Aktualitet | Tjänsten garanterar att registrering av den tillfälliga hävningen skett då anropet genomförts utan fel. / Tjänsten garanterar även att registrering av den tillfälliga hävningen skett på nationell nivå då anropet genomförts utan fel om anroparen har begärt det. I annat fall meddelas ej anroparen status på nationell registrering. / Det är tjänstens ansvar att förmedla registreringen vidare till den nationella instansen. Detta skall ske så snart som möjligt (synkront), eller med upprepade försök om eventuella problem uppstår. |  |
+| Aktualitet | Tjänsten garanterar att registrering av den tillfälliga hävningen skett då anropet genomförts utan fel.<br/>Tjänsten garanterar även att registrering av den tillfälliga hävningen skett på nationell nivå då anropet genomförts utan fel om anroparen har begärt det. I annat fall meddelas ej anroparen status på nationell registrering.<br/>Det är tjänstens ansvar att förmedla registreringen vidare till den nationella instansen. Detta skall ske så snart som möjligt (synkront), eller med upprepade försök om eventuella problem uppstår. |  |
 
 ### Fältregler
 
@@ -1580,7 +1580,7 @@ Frivillig.
 | registerAction | blocking:Action | Identifierar de personer som begärt och registrerat den tillfälliga hävningen samt tidpunkter för dessa. | 1..1 |
 | revokeReason | blocking:TemporaryRevokeReason | Enumerationsvärde för orsak till tillfällig hävning. | 1..1 |
 | revokeReasonText | blocking:ReasonText | Obligatorisk, kompletterande text för orsak till tillfällig hävning. | 0..1 |
-| replicationTimeout | xs:int | Anger hur replikering till nationell spärrtjänst ska ske. / -   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas. / -   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt. / -   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt. | 1..1 |
+| replicationTimeout | xs:int | Anger hur replikering till nationell spärrtjänst ska ske.<br/>-   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas.<br/>-   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt.<br/>-   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt. | 1..1 |
 | Svar |  |  |  |
 | registerTemporaryExtendedRevoke | blocking:Result | Status för om operationen lyckades eller inte. | 1..1 |
 
@@ -1677,7 +1677,7 @@ Frivillig.
 | Svarstid |  |  |
 | Tillgänglighet |  |  |
 | Last |  |  |
-| Aktualitet | Tjänsten garanterar att registrering av återkallan skett då anropet genomförts utan fel. / Tjänsten garanterar även att registrering av återkallan skett på nationell nivå då anropet genomförts utan fel om anroparen har begärt det. I annat fall meddelas ej anroparen status på nationell registrering. / Det är tjänstens ansvar att förmedla registreringen vidare till den nationella instansen. Detta skall ske så snart som möjligt (synkront), eller med upprepade försök om eventuella problem uppstår. |  |
+| Aktualitet | Tjänsten garanterar att registrering av återkallan skett då anropet genomförts utan fel.<br/>Tjänsten garanterar även att registrering av återkallan skett på nationell nivå då anropet genomförts utan fel om anroparen har begärt det. I annat fall meddelas ej anroparen status på nationell registrering.<br/>Det är tjänstens ansvar att förmedla registreringen vidare till den nationella instansen. Detta skall ske så snart som möjligt (synkront), eller med upprepade försök om eventuella problem uppstår. |  |
 
 ### Fältregler
 
@@ -1687,7 +1687,7 @@ Frivillig.
 | temporaryRevokeId | blocking:Id | Identifierare för den tillfälliga hävning som skall återkallas. | 1..1 |
 | cancellationInfo | blocking:Action | Identifierar de personer som begärt och hävt den tillfälliga hävningen samt tidpunkter för dessa. | 1..1 |
 | cancelReasonText | blocking:ReasonText | Ej obligatorisk, kompletterande text för orsak till makuleringen. | 0..1 |
-| replicationTimeout | xs:int | Anger hur replikering till nationell spärrtjänst ska ske. / -   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas. / -   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt. / -   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt. | 1..1 |
+| replicationTimeout | xs:int | Anger hur replikering till nationell spärrtjänst ska ske.<br/>-   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas.<br/>-   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt.<br/>-   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt. | 1..1 |
 | Svar |  |  |  |
 | cancelTemporaryExtendedRevoke | blocking:Result | Status för om operationen lyckades eller inte. | 1..1 |
 

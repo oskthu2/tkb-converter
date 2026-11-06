@@ -27,14 +27,14 @@ Relevant flöde för denna tjänstekontraktsbeskrivning är det som är markerat
 | Fakturaunderlag skapas och sparas | Baserat på uppgifterna från journalsystemet + övriga relevanta uppgifter (se informationsmodell) skapas ett fakturaunderlag av säljande region (vårdregion). |
 | Fakturaunderlag skickas | Då fakturaunderlaget är skapat och sparat, kan det skickas till köpande region (patientens hemregion). |
 | Fakturaunderlag tas emot | Köpande region/ hemregionen tar emot fakturaunderlaget. |
-| Faktura matchas med fakturaunderlag | Köpande region / hemregion, som tar emot både faktura och fakturaunderlag, gör en matchning mellan dessa.  Matchningen görs med det fakturaunderlags-id som finns i fakturan. |
+| Faktura matchas med fakturaunderlag | Köpande region<br/>hemregion, som tar emot både faktura och fakturaunderlag, gör en matchning mellan dessa.  Matchningen görs med det fakturaunderlags-id som finns i fakturan. |
 
 ###### 3.1.1.1.1 Roller
 
 | Roll | Beskrivning |
 | :--- | :--- |
 | Journalsystem | Det system som används för att hämta uppgifter om en patients vård i vårdregionen (säljande region). |
-| Säljande regions databas/system | Den databas eller det system som används för att skapa ett fakturaunderlag hos säljande region / vårdregion. |
+| Säljande regions databas/system | Den databas eller det system som används för att skapa ett fakturaunderlag hos säljande region<br/>vårdregion. |
 | Köpande regions databas/system | Den databas eller det system som används för att spara mottaget fakturaunderlag hos köpande region /hemregion. Om något system inte finns, sker hanteringen manuellt. |
 
 ##### 3.1.1.2 Sekvensdiagram
@@ -87,8 +87,8 @@ Om det endast är en mindre mängd fel i en fil med fakturaunderlaget ska kredit
 
 | Flöde | Beskrivning |
 | :--- | :--- |
-| Upptäckt av felaktig information i faktura eller fakturaunderlag | Felaktig information har upptäckts i fakturan eller fakturaunderlaget. / Se de olika alternativen ovan. |
-| Kreditering av fakturaunderlag skapas och skickas (med referens till fakturaunderlag) | Säljande region / vårdregion skapar en kreditering av fakturaunderlag och skickar till köpande region / hemregion. Ska innehålla hänvisning till det ursprungliga fakturaunderlaget. |
+| Upptäckt av felaktig information i faktura eller fakturaunderlag | Felaktig information har upptäckts i fakturan eller fakturaunderlaget.<br/>Se de olika alternativen ovan. |
+| Kreditering av fakturaunderlag skapas och skickas (med referens till fakturaunderlag) | Säljande region<br/>vårdregion skapar en kreditering av fakturaunderlag och skickar till köpande region<br/>hemregion. Ska innehålla hänvisning till det ursprungliga fakturaunderlaget. |
 | Nytt fakturaunderlag skapas och skickas | Efter skapad och skickad krediterat fakturaunderlag, kan ett nytt fakturaunderlag skapas och skickas, se flöde Skapa och skicka fakturaunderlag. |
 
 ###### 3.1.2.1.1 Roller

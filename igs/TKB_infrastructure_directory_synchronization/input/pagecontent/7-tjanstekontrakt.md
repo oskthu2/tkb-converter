@@ -19,26 +19,26 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | Namn | Typ | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |
-| masterDataEntity | CVType | Masterdataentitet / Angivelse av vilken typ masterdata som begäran avser. | 1 |
-| ../code | String | Kod som anger typ av masterdata i källan. / Definierar vilken typ av information i masterdatakällan som efterfrågas med hjälp av kod i kodsystem. | 1 |
-| ../codeSystem | String | Kodsystem som anger masterdatakälla. / OID för t.ex. utbud | 1 |
+| masterDataEntity | CVType | Masterdataentitet<br/>Angivelse av vilken typ masterdata som begäran avser. | 1 |
+| ../code | String | Kod som anger typ av masterdata i källan.<br/>Definierar vilken typ av information i masterdatakällan som efterfrågas med hjälp av kod i kodsystem. | 1 |
+| ../codeSystem | String | Kodsystem som anger masterdatakälla.<br/>OID för t.ex. utbud | 1 |
 | ../codeSystemVersion | String | Versionsnummer för kodsystem | 0..1 |
-| ../displayName | String | Textuell beskrivning av det som koden anger. / Koden beskriven i fritext. | 0..1 |
+| ../displayName | String | Textuell beskrivning av det som koden anger.<br/>Koden beskriven i fritext. | 0..1 |
 | ../codeSystemName | String | Namn på kodsystem | 0..1 |
 | ../originalText | String | Skall ej anges | 0..0 |
-| timePeriod | TimePeriodType | Tidsintervall för förändringar. / Begränsning av sökning i tid. Resultatet innehåller information om poster som förändrats i masterdatakällan under angiven tidsperiod. Minst en av start- och endattributen ska anges om attributet timeInterval anges. | 0..1 |
-| ../start | TimeStamp | Starttid / Starttid för när en post förändrats. Endast katalogposter som förändrats efter denna tidpunkt ska tas med i svaret. | 0..1 |
-| ../end | TimeStamp | Sluttid / Slut för när en post förändrats. Endast katalogposter som förändrats före denna tidpunkt ska tas med i svaret. | 0..1 |
-| category | Enum | Kategori / Kategorisering av förändring. Enum med tillåtna värden: create, update, delete. | 0..* |
+| timePeriod | TimePeriodType | Tidsintervall för förändringar.<br/>Begränsning av sökning i tid. Resultatet innehåller information om poster som förändrats i masterdatakällan under angiven tidsperiod. Minst en av start- och endattributen ska anges om attributet timeInterval anges. | 0..1 |
+| ../start | TimeStamp | Starttid<br/>Starttid för när en post förändrats. Endast katalogposter som förändrats efter denna tidpunkt ska tas med i svaret. | 0..1 |
+| ../end | TimeStamp | Sluttid<br/>Slut för när en post förändrats. Endast katalogposter som förändrats före denna tidpunkt ska tas med i svaret. | 0..1 |
+| category | Enum | Kategori<br/>Kategorisering av förändring. Enum med tillåtna värden: create, update, delete. | 0..* |
 | Svar |  |  |  |
 | MasterDataChangeSet | MasterDataChangeSetType |  | 0..* |
-| ../id | IIType | Id / Identifierare som unikt pekar ut en katalogdatapost i källsystemet. Idt kan användas för att hämta posten med tjänstekontraktet som pekas ut i förfrågan. | 1 |
-| ../id/root | string | En universellt unik identifierare eller en identifierare som tillsammans med värdet för ”extension” / ger en universellt unik identifierare. | 1 |
+| ../id | IIType | Id<br/>Identifierare som unikt pekar ut en katalogdatapost i källsystemet. Idt kan användas för att hämta posten med tjänstekontraktet som pekas ut i förfrågan. | 1 |
+| ../id/root | string | En universellt unik identifierare eller en identifierare som tillsammans med värdet för ”extension”<br/>ger en universellt unik identifierare. | 1 |
 | ../id/extension | string | En textsträng som tillsammans med värdet för "root" bildar en unik identifierare. Används om värdet på "root" inte är universellt unikt. | 0..1 |
-| ../category | Enum | Kategori / Kategorisering av förändring. / Enum med tillåtna värden: create, update, delete. | 1 |
-| ../changeTime | TimeStamp | Förändringstidpunkt / Tidpunkt för när förändringen genomfördes i masterdatakällan. | 1 |
-| ../attributes | AttributeType | Angivelse av förändrade attribut för katalogposten. / Om category är update kan förändrade fält anges i svaret, så att konsumenten kan härleda om uppdateringen är relevant för att trigga en hämtning av hela posten. | 0..* |
-| ../../attribute | String | Attribut / Det förändrade attributet pekas ut med klass och attribut separerat med punktnotation. Exempel: Organisation.namn / Vilka attribut som kan anges beror helt på masterdatakällan. | 1 |
+| ../category | Enum | Kategori<br/>Kategorisering av förändring.<br/>Enum med tillåtna värden: create, update, delete. | 1 |
+| ../changeTime | TimeStamp | Förändringstidpunkt<br/>Tidpunkt för när förändringen genomfördes i masterdatakällan. | 1 |
+| ../attributes | AttributeType | Angivelse av förändrade attribut för katalogposten.<br/>Om category är update kan förändrade fält anges i svaret, så att konsumenten kan härleda om uppdateringen är relevant för att trigga en hämtning av hela posten. | 0..* |
+| ../../attribute | String | Attribut<br/>Det förändrade attributet pekas ut med klass och attribut separerat med punktnotation. Exempel: Organisation.namn<br/>Vilka attribut som kan anges beror helt på masterdatakällan. | 1 |
 
 #### 7.1.3 Övriga regler
 

@@ -28,9 +28,8 @@ Alla tjänster har ett obligatoriskt meddelandefält där tjänstekonsumenten ad
 
 ### Referenser
 
-| Beteckning | Dokument / Källa |
+| Beteckning | Dokument<br/>Källa |
 | :--- | :--- |
-| RIV TA 2.1 | RIV Teknisk Anvisning Basic Profile 2.1
-http://rivta.googlecode.com/svn/wiki/specs/RIV_Tekniska_Anvisningar_Basic_profile_2.1.pdf |
-| WS-Trust 1.3 | Specifikation för WS-Trust 1.3 / http://docs.oasis-open.org/ws-sx/ws-trust/200512/ws-trust-1.3-os.html |
+| RIV TA 2.1 | RIV Teknisk Anvisning Basic Profile 2.1<br/>http://rivta.googlecode.com/svn/wiki/specs/RIV_Tekniska_Anvisningar_Basic_profile_2.1.pdf |
+| WS-Trust 1.3 | Specifikation för WS-Trust 1.3<br/>http://docs.oasis-open.org/ws-sx/ws-trust/200512/ws-trust-1.3-os.html |
 

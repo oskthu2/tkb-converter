@@ -18,7 +18,7 @@ Information om medarbetare i vård- och omsorg som genomfört den behandling som
 
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| hsaId | HSAIdType | HSAid för personen. (Enligt NPÖ riv-spec 2.2.0 avsnitt 4.1.39 beslutsregel: / I de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges.) | 0..1 |
+| hsaId | HSAIdType | HSAid för personen. (Enligt NPÖ riv-spec 2.2.0 avsnitt 4.1.39 beslutsregel:<br/>I de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges.) | 0..1 |
 | name | string | Namn på personen. Minst ett av dessa två fält ska anges. | 0..1 |
 | personEmail | string | Epostadress till personen | 0..1 |
 | personTelecom | string | Telefon till personen | 0..1 |
@@ -32,12 +32,12 @@ För annan användning av koder, exempelvis för lokala kodverk utan OID, skall 
 
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| code | string | Kod enligt producentsystemets kodverk. / Om code anges skall också codeSystem  samt displayName anges. | 0..1 |
+| code | string | Kod enligt producentsystemets kodverk.<br/>Om code anges skall också codeSystem  samt displayName anges. | 0..1 |
 | codeSystem | string | Anger kodverket som definierar koden. Dvs UID/OID för det kodverk som används. Om codeSystem anges skall också code samt displayName anges. | 0..1 |
 | codeSystemName | string | Kodverkets namn i klartext. Skall anges när så är möjligt. | 0..1 |
 | codeSystemVersion | string | Om tillämpbart, versionsangivelse som definierats av det givna kodsystemet. | 0..1 |
-| displayName | string | Koden i klartext, under vilket det producerande systemet visar koden för sina användare. / Om separat displayName inte finns i producerande system skall det ange samma värde som för code. | 0..1 |
-| originalText | string | originalText ska användas vid överföring av värden som kommer från lokala kodverk som ej är identifierade med OID eller när kod helt saknas. I sådana fall skall en beskrivande text anges i originalText. / Om originalText anges kan ingen av de övriga elementen anges. | 0..1 |
+| displayName | string | Koden i klartext, under vilket det producerande systemet visar koden för sina användare.<br/>Om separat displayName inte finns i producerande system skall det ange samma värde som för code. | 0..1 |
+| originalText | string | originalText ska användas vid överföring av värden som kommer från lokala kodverk som ej är identifierade med OID eller när kod helt saknas. I sådana fall skall en beskrivande text anges i originalText.<br/>Om originalText anges kan ingen av de övriga elementen anges. | 0..1 |
 
 #### DatePeriodType
 
@@ -59,7 +59,7 @@ Datum anges alltid på formatet ”ÅÅÅÅMMDD”, vilket motsvarar den ISO 882
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | authorTime | TimeStampType | Den tidpunkt då dokumentet skapades. | 1..1 |
-| healthcareProfessionalHSAId | HSAIdType | HSA-id för vård- och omsorgspersonal. Skall anges om tillgänglig. (Enligt NPÖ riv-spec 2.2.0 avsnitt 4.1.39 beslutsregel: / I de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges.) | 0..1 |
+| healthcareProfessionalHSAId | HSAIdType | HSA-id för vård- och omsorgspersonal. Skall anges om tillgänglig. (Enligt NPÖ riv-spec 2.2.0 avsnitt 4.1.39 beslutsregel:<br/>I de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges.) | 0..1 |
 | healthcareProfessionalName | string | Namn på vård- och omsorgspersonal. Om tillgängligt skall detta anges. | 0..1 |
 | healthcareProfessionalRoleCode | CVType | Information om personens befattning. Om möjligt skall KV Befattning (OID 1.2.752.129.2.2.1.4) användas. | 0..1 |
 | healthcareProfessionalOrgUnit | OrgUnitType | Den organisation som angiven vård- och omsorgsperson är uppdragstagare på. Om tillgängligt skall detta anges. | 0..1 |
@@ -84,7 +84,7 @@ Datum anges alltid på formatet ”ÅÅÅÅMMDD”, vilket motsvarar den ISO 882
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | signatureTime | TimeStampType | Tidpunkt för signering | 1..1 |
-| legalAuthenticatorHSAId | HSAIdType | HSA-id för person som signerat dokumentet. (Enligt NPÖ riv-spec 2.2.0 avsnitt 4.1.39 beslutsregel: / I de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges.) | 0..1 |
+| legalAuthenticatorHSAId | HSAIdType | HSA-id för person som signerat dokumentet. (Enligt NPÖ riv-spec 2.2.0 avsnitt 4.1.39 beslutsregel:<br/>I de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges.) | 0..1 |
 | legalAuthenticatorName | string | Namnen i klartext för signerande person | 0..1 |
 
 #### MultimediaType
@@ -100,11 +100,11 @@ Datum anges alltid på formatet ”ÅÅÅÅMMDD”, vilket motsvarar den ISO 882
 
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| orgUnitHSAId | HSAIdType | HSA-id för organisationsenhet. Om tillgängligt skall detta anges. (Enligt NPÖ riv-spec 2.2.0 avsnitt 4.1.6 beslutsregel: / I de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges.) | 0..1 |
+| orgUnitHSAId | HSAIdType | HSA-id för organisationsenhet. Om tillgängligt skall detta anges. (Enligt NPÖ riv-spec 2.2.0 avsnitt 4.1.6 beslutsregel:<br/>I de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges.) | 0..1 |
 | orgUnitName | string | Namn på organisationsenhet. Om tillgängligt skall detta anges. | 0..1 |
 | orgUnitTelecom | string | Telefon till organisationsenhet. | 0..1 |
 | orgUnitEmail | string | Epost till organisationsenhet. | 0..1 |
-| orgUnitAddress | string | Postadress till organisationsenhet. Skrivs på ett så naturligt sätt som möjligt, exempelvis: / ”Storgatan 12 / 468 91 Lilleby” | 0..1 |
+| orgUnitAddress | string | Postadress till organisationsenhet. Skrivs på ett så naturligt sätt som möjligt, exempelvis:<br/>”Storgatan 12<br/>468 91 Lilleby” | 0..1 |
 | orgUnitLocation | string | Text som anger namnet på plats eller ort för enhetens eller funktionens fysiska placering | 0..1 |
 
 #### PatientSummaryHeaderType
@@ -117,7 +117,7 @@ Innehåller basinformation om ett dokument.
 | sourceSystemHSAId | HSAIdType | HSAid för det system som dokumentet är skapat i. | 1..1 |
 | documentTitle | string | Titel som beskriver den information som sänds i dokumentet. | 0..1 |
 | documentTime | TimeStampType | Händelsetidpunkt, om relevant. | 0..1 |
-| patientId | PersonIdType | Id för patienten. Anges med 12 siffror utan avskiljare. / id sätts till patientens identifierare. / Type sätts till OID för typ av identifierare. / För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1). / För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3). / För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3) | 1..1 |
+| patientId | PersonIdType | Id för patienten. Anges med 12 siffror utan avskiljare.<br/>id sätts till patientens identifierare.<br/>Type sätts till OID för typ av identifierare.<br/>För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1).<br/>För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3).<br/>För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3) | 1..1 |
 | accountableHealthCareProfessional | HealthCareProfessionalType | Ansvarig hälso- och sjukvårdsperson. | 1..1 |
 | legalAuthenticator | LegalAuthenticatorType | Information om vem som signerat informationen i dokumentet. | 0..1 |
 | approvedForPatient | boolean | Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false. | 1..1 |
@@ -130,7 +130,7 @@ Innehåller basinformation om ett dokument.
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | id | string | Identiteten enligt den identitetstyp (type) som angivits. Anges med 12 tecken utan bindestreck. | 1..1 |
-| type | string | OID för typ av identifierare. / För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1). / För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3). / För reservnummer används lokalt definierade reservnummer, exempelvis SLL reservnummer (1.2.752.97.3.1.3) | 1..1 |
+| type | string | OID för typ av identifierare.<br/>För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1).<br/>För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3).<br/>För reservnummer används lokalt definierade reservnummer, exempelvis SLL reservnummer (1.2.752.97.3.1.3) | 1..1 |
 
 #### PQType
 
@@ -164,5 +164,5 @@ Tidszon anges inte i meddelandeformaten. All information om datum och tidpunkter
 
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| quantity | PQType | Mängd preparat som givits dvs 1 ml etc. / Skall anges om möjligt i denna strukturerade form med värde(float) samt enhet. Annars i nästa fält om det endast finns angivet som text | 0..1 |
-| displayName | string | Fritextbeskrivning av preparat och mängd som givits. T ex ”Twinrix 1 ml, 1 av 3”, ”2 ml” odyl. / Anges även om quantity angivits ovan | 1..1 |
+| quantity | PQType | Mängd preparat som givits dvs 1 ml etc.<br/>Skall anges om möjligt i denna strukturerade form med värde(float) samt enhet. Annars i nästa fält om det endast finns angivet som text | 0..1 |
+| displayName | string | Fritextbeskrivning av preparat och mängd som givits. T ex ”Twinrix 1 ml, 1 av 3”, ”2 ml” odyl.<br/>Anges även om quantity angivits ovan | 1..1 |

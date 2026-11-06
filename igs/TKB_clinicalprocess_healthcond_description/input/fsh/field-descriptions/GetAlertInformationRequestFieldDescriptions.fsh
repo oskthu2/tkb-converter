@@ -28,7 +28,23 @@ det bildade intervallets startdatum ligger före sökintervallets startdatum och
 
 Notera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse konverteras datapostens tidpunkter till datum."
 * timePeriod ^comment = "TKB-fält: `timePeriod` (`DatePeriodType`, kardinalitet 0..1)."
-* sourceSystemHSAId ^definition = "Begränsar sökningen till uppmärksamhetsinformation som tillgängliggörs av angivet källsystem."
-* sourceSystemHSAId ^comment = "TKB-fält: `sourceSystemHSAId` (`HSAIdType`).
+* sourceSystemHSAId ^definition = "Begränsar sökningen till uppmärksamhetsinformation som tillgängliggörs av angivet källsystem.
+
+Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header).
+
+Det innebär i praktiken att aggregerande tjänster inte används när detta fält anges.
+
+Ska anges om careContactId angivits.
+
+Ska anges vid begäran på reservnummer.
+
+Om sourceSystemHSAId och logicalAddress är olika ska ett svar endast innehålla en resultType med result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST
+
+Om careContactId är satt och sourceSystemHSAId är tomt ska ett svar endast innehålla en resultType med  result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST."
+* sourceSystemHSAId ^comment = "TKB-fält: `sourceSystemHSAId` (`HSAIdType`, kardinalitet 0..1).
 
 **Modellanteckning:** Begränsar sökning till uppmärksamhetsinformation från ett specifikt källsystem."
+* careContactId ^definition = "Begränsar sökningen till den uppmärksamhetsinformation som dokumenterades vid hälso- och sjukvårds kontakt."
+* careContactId ^comment = "TKB-fält: `careContactId` (`string`, kardinalitet 0..*).
+
+**Modellanteckning:** Begränsar sökning till uppmärksamhetsinformation kopplad till angiven vårdkontakt."

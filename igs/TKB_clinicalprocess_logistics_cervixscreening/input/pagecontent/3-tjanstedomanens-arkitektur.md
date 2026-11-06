@@ -55,7 +55,7 @@ Hur den manuella sekretessprövningen implementeras i respektive region beskrivs
 
 Följande tabell specificerar vilka kontrakt som är obligatoriska att realisera för respektive flöde.
 
-| Tjänstekontrakt | Kvinna flyttar mellan regioner / (flyttar över länsgräns) | Kvinna lämnar prov i annan region | Kvinna behandlas i annan region |
+| Tjänstekontrakt | Kvinna flyttar mellan regioner<br/>(flyttar över länsgräns) | Kvinna lämnar prov i annan region | Kvinna behandlas i annan region |
 | :--- | :--- | :--- | :--- |
 | ProcessCervixScreeningInformation | X | X | X |
 

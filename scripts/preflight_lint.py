@@ -23,6 +23,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import tkb_version  # noqa: E402
 import gen_menu  # noqa: E402
 import sync_field_descriptions  # noqa: E402
+import fix_md_tables  # noqa: E402
 
 # Kraschar bevisligen IG Publisher/SUSHI på alla nivåer (krockar med Element.id/extension):
 RE_RESERVED_HARD = re.compile(r"(^\s*\*\s+|\.)(id|extension|modifierExtension|contained|implicitRules)\s+[0-9]+\.\.[0-9*]+")
@@ -187,6 +188,10 @@ def lint_pages(ig: Path, errors: list, warnings: list):
     page_names = {p.stem + ".html" for p in pages.glob("*.md")} | {"artifacts.html", "index.html"}
     resources = ig / "fsh-generated" / "resources"  # finns bara efter en lokal sushi-körning
     for f in sorted(pages.glob("*.md")):
+        text = f.read_text(encoding="utf-8")
+        if fix_md_tables.fix_text(text) != text:
+            errors.append(f"{f}: tabellceller med ' / ' som radbrytning eller tabellrader uppdelade på flera rader "
+                          f"— kör scripts/fix_md_tables.py {ig} (se tkb-ig-builder, Tabeller)")
         in_code = False
         for n, line in enumerate(f.read_text(encoding="utf-8").splitlines(), 1):
             if line.lstrip().startswith("```"):

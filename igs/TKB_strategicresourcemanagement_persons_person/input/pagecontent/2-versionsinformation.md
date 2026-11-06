@@ -48,17 +48,17 @@ Nedan redovisas kompatibilitet mellan konsument och producent för tjänstekontr
 
 | Tjänstekontrakt | Konsument | Producent | Kompatibilitet |
 | :--- | :--- | :--- | :--- |
-| LinkPersonIdentity, / UnlinkPersonIdentity | 3.x | 4.x | EJ kompatibel |
+| LinkPersonIdentity,<br/>UnlinkPersonIdentity | 3.x | 4.x | EJ kompatibel |
 |  | 4.x | 3.x | EJ kompatibel |
-| UpdatePersonContactInformation, / UpdatePersonContactInformationUnrestricted | 3.x | 4.x | EJ kompatibel |
+| UpdatePersonContactInformation,<br/>UpdatePersonContactInformationUnrestricted | 3.x | 4.x | EJ kompatibel |
 |  | 4.x | 3.x | EJ kompatibel |
-| GetPersonContactInformation, / GetPersonContactInformationUnrestricted | 3.x | 4.x | EJ kompatibel |
+| GetPersonContactInformation,<br/>GetPersonContactInformationUnrestricted | 3.x | 4.x | EJ kompatibel |
 |  | 4.x | 3.x | EJ kompatibel |
-| GetPersonForProfile, / GetPersonForProfileUnrestricted | 4.x | 5.x | EJ kompatibel |
+| GetPersonForProfile,<br/>GetPersonForProfileUnrestricted | 4.x | 5.x | EJ kompatibel |
 |  | 5.x | 4.x | EJ kompatibel |
-| SearchPersonsForProfile, / SearchPersonsForProfileUnrestricted | 4.x | 5.x | EJ kompatibel |
+| SearchPersonsForProfile,<br/>SearchPersonsForProfileUnrestricted | 4.x | 5.x | EJ kompatibel |
 |  | 5.x | 4.x | EJ kompatibel |
-| SearchPersonsForProfileByOrder, / SearchPersonsForProfileByOrderUnrestricted | 4.x | 5.x | EJ kompatibel |
+| SearchPersonsForProfileByOrder,<br/>SearchPersonsForProfileByOrderUnrestricted | 4.x | 5.x | EJ kompatibel |
 |  | 5.x | 4.x | EJ kompatibel |
 | UpdatePerson, | 4.x | 5.x | EJ kompatibel |
 |  | 5.x | 4.x | EJ kompatibel |

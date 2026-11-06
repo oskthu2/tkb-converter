@@ -33,7 +33,7 @@ Källa: *Samtycke*, tjänstekontraktsbeskrivning version 2.0.4 (tagg 2.0.4, 2025
 | 2.0 | 2017-06-21 | Björn Skeppner | Fel kardinalitet på resultText åtgärdat |
 | 2.0.1 | 2020-02-12 | Björn Skeppner | Justerat referenser |
 | 2.0.2 | 2021-04-09 | Björn Skeppner | Justerat versionsnumret pga uppdaterad domänversion |
-| 2.0.3 | 2024-11-06 | Thomas Fafoutis / Emma Fridén | Utökning av tjänstedomänens ändamål för att även stödja patientens/brukarens behov av att se givna samtycken |
+| 2.0.3 | 2024-11-06 | Thomas Fafoutis<br/>Emma Fridén | Utökning av tjänstedomänens ändamål för att även stödja patientens/brukarens behov av att se givna samtycken |
 | 2.0.4 | 2025-06-04 | Thomas Fafoutis | Två nya tjänstekontrakt tillagda. RegisterConsentByPatient och EndConsentByPatient |
 | 2.0.4 | 2025-06-04 | Thomas Fafoutis | Ändrat begäran i EndConsentByPatient (endDate -> endDateTime) |
 
@@ -44,8 +44,8 @@ Källa: *Samtycke*, tjänstekontraktsbeskrivning version 2.0.4 (tagg 2.0.4, 2025
 | R1 | RIV PDLiP | Obligatoriskt | RIV Specifikation Patientdatalagen i Praktiken, http://rivta.se/documents/ARK_0031/PDLiP_RIV_1.0.pdf |
 | R2 | SVOD | Finns på Webben | Lag om sammanhållen vård- och omsorgsdokumentation (2022:913), https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-2022913-om-sammanhallen-vard-och_sfs-2022-913 |
 | R3 | HSLF-FS 2016:40 |  | https://www.socialstyrelsen.se/regler-och-riktlinjer/foreskrifter-och-allmanna-rad/konsoliderade-foreskrifter/201640-om-journalforing-och-behandling-av-personuppgifter-i-halso--och-sjukvarden/ |
-| R4 | RIV TA |  | RIV Teknisk Anvisning Basic Profile / http://rivta.se/ |
-| R5 | RIV Tekniska Anvisningar – Kryptografi |  | ARK_0036 / http://rivta.se/documents/ARK_0036/ |
+| R4 | RIV TA |  | RIV Teknisk Anvisning Basic Profile<br/>http://rivta.se/ |
+| R5 | RIV Tekniska Anvisningar – Kryptografi |  | ARK_0036<br/>http://rivta.se/documents/ARK_0036/ |
 | R6 | Arkitekturella beslut |  | AB_informationsecurity_authorization_consent |
 | R7 | Regel #11, Logiska fel |  | RIV Tekniska Anvisningar - Tjänsteschema 2.1, http://rivta.se/documents/ARK_0005/ |
 

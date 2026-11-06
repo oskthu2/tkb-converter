@@ -19,8 +19,8 @@ Källa: *Personuppgifter – Tjänstekontraktsbeskrivning*, version 2.0 (2016-02
 | 2.0 | 0.2 | 2016-01-28 | Uppdateringar | Daniel Fjällström, CGI |  |
 | 2.0 | 0.3 | 2016-02-01 | Uppdateringar | Daniel Fjällström, CGI |  |
 | 2.0 | RC1 | 2016-02-11 | Uppdateringar efter granskning från Khaled | Daniel Fjällström, CGI |  |
-| 2.0 | RC2 | 2016-02-29 | Uppdateringar efter granskning Inera A&R: / Kap 4.3 Felhantering / Ändrat till enbart tekniska fel via SOAP faults för läsande tjänst. / Övriga uppdateringar: / 7.1.21 ImmigrationIdentity / förbättrad struktur, landskodning. / 7.1.3 Address namnbyte till AddressInformation / Gender borttagen (används ej) | Per Mützell |  |
-| 2.0 | RC3 | 2016-04-22 | protectedPersonIndicator: obligatorisk (tidigare optionell). / testIndicator: obligatorisk (tidigare optionell). / referredPersonalIdentityNumber  byter  namn till: referredPersonalIdentity. / searchDate byter  namn till notificationDate. / Dokumentationsändringar: / 2.1.3 	Förtydligande vilket äldre kontrakt som ersätts. / 3.1.1.2. 	Justering sekvensdiagram (enligt granskningsprotokoll). / 4.1 Informationssäkerhet och juridik, justerad. / 4.2.1 Justerat krav för last. / 5.1 Uppdaterad V-MIM enligt ovan. / 8. 	Förtydligande  vilka attribut som levereras vid sekretessmarkering / 7.1.29 searchDate, uppdaterad beskrivning / 7.1.29 modificationTime, uppdaterad beskrivning / 7.1.34 maritalStatus, rättad felstavning | Per Mützell |  |
+| 2.0 | RC2 | 2016-02-29 | Uppdateringar efter granskning Inera A&R:<br/>Kap 4.3 Felhantering<br/>Ändrat till enbart tekniska fel via SOAP faults för läsande tjänst.<br/>Övriga uppdateringar:<br/>7.1.21 ImmigrationIdentity<br/>förbättrad struktur, landskodning.<br/>7.1.3 Address namnbyte till AddressInformation<br/>Gender borttagen (används ej) | Per Mützell |  |
+| 2.0 | RC3 | 2016-04-22 | protectedPersonIndicator: obligatorisk (tidigare optionell).<br/>testIndicator: obligatorisk (tidigare optionell).<br/>referredPersonalIdentityNumber  byter  namn till: referredPersonalIdentity.<br/>searchDate byter  namn till notificationDate.<br/>Dokumentationsändringar:<br/>2.1.3 	Förtydligande vilket äldre kontrakt som ersätts.<br/>3.1.1.2. 	Justering sekvensdiagram (enligt granskningsprotokoll).<br/>4.1 Informationssäkerhet och juridik, justerad.<br/>4.2.1 Justerat krav för last.<br/>5.1 Uppdaterad V-MIM enligt ovan.<br/>8. 	Förtydligande  vilka attribut som levereras vid sekretessmarkering<br/>7.1.29 searchDate, uppdaterad beskrivning<br/>7.1.29 modificationTime, uppdaterad beskrivning<br/>7.1.34 maritalStatus, rättad felstavning | Per Mützell |  |
 
 #### Referenser
 
@@ -28,7 +28,7 @@ Källa: *Personuppgifter – Tjänstekontraktsbeskrivning*, version 2.0 (2016-02
 | :--- | :--- | :--- | :--- |
 | R1 | Arkitekturella beslut – Personuppgifter | Obligatoriskt | Bilaga AB_masterdata_citizen_citizen.docx |
 | R2 | RIVTA flera dokument | Finns på Webben | http://rivta.se/ |
-| R3 | Informationsspecifikation - / Personuppgifter |  | Bilaga IS_masterdata_citizen_citizen.docx |
+| R3 | Informationsspecifikation -<br/>Personuppgifter |  | Bilaga IS_masterdata_citizen_citizen.docx |
 | R4 | ISO8601 | ISO8601-standarden för datum- och tidsformat | https://sv.wikipedia.org/wiki/ISO_8601 |
 | R5 | RFC3339 | Standard för datum- och tidsformat för internetbaserade protokoll baserat på ISO8601 | https://www.ietf.org/rfc/rfc3339.txt |
 | R6 | ISO 3166-1 alpha-2 | Standard för landskod | https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 |

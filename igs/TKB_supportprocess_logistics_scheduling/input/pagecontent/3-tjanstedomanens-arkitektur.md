@@ -65,7 +65,7 @@ Flödet beskriver hur invånare bokar tid på en utvald vårdcentral. Flödet ut
 
 | Förutsättningar |
 | :--- |
-| Vårdcentralen erbjuder invånare möjlighet att utan förkrav boka ny tid, exempelvis utan att ha kallat invånare / Vårdcentralen ingår inte som en del av en grupp vårdcentraler, eller är en virtuell vårdcentral för flera fysiska vårdcentraler (m a o exponerar inte tjänstekontraktet GetHealthcareFacilities) |
+| Vårdcentralen erbjuder invånare möjlighet att utan förkrav boka ny tid, exempelvis utan att ha kallat invånare<br/>Vårdcentralen ingår inte som en del av en grupp vårdcentraler, eller är en virtuell vårdcentral för flera fysiska vårdcentraler (m a o exponerar inte tjänstekontraktet GetHealthcareFacilities) |
 
 ##### 3.2.1.1 Sekvensdiagram
 
@@ -115,7 +115,7 @@ Ett exempel på en sådan verksamhetsmässig uppdelning kan vara då verksamhete
 
 | Förutsättningar |
 | :--- |
-| Vårdcentralen erbjuder invånare möjlighet att utan för-krav boka ny tid, exempelvis att ha kallat invånare / Vårdcentralen ingår som en del av en grupp vårdcentraler, eller är en virtuell vårdcentral för flera fysiska vårdcentraler (m a o stödjer tjänstekontraktet GetHealthcareFacilities) |
+| Vårdcentralen erbjuder invånare möjlighet att utan för-krav boka ny tid, exempelvis att ha kallat invånare<br/>Vårdcentralen ingår som en del av en grupp vårdcentraler, eller är en virtuell vårdcentral för flera fysiska vårdcentraler (m a o stödjer tjänstekontraktet GetHealthcareFacilities) |
 
 ##### 3.2.2.1 Sekvensdiagram
 
@@ -165,7 +165,7 @@ Flödet utgår från att invånaren i förväg vet vilken vårdcentral som invå
 
 | Förutsättningar |
 | :--- |
-| Vårdcentralen erbjuder invånare möjlighet att utan förkrav boka ny tid, exempelvis att ha kallat invånare / Vårdcentralen erbjuder tidbokning men först efter att invånaren blivit kvalificerad till specifik typ av tid. Exempel på ett sådant försteg kan vara ett frågebatteri som invånaren först måste besvara. Baserat på invånarens svar hänvisas invånaren att boka tid av framräknad typ av tid. |
+| Vårdcentralen erbjuder invånare möjlighet att utan förkrav boka ny tid, exempelvis att ha kallat invånare<br/>Vårdcentralen erbjuder tidbokning men först efter att invånaren blivit kvalificerad till specifik typ av tid. Exempel på ett sådant försteg kan vara ett frågebatteri som invånaren först måste besvara. Baserat på invånarens svar hänvisas invånaren att boka tid av framräknad typ av tid. |
 
 ##### 3.2.3.1 Sekvensdiagram
 
@@ -200,7 +200,7 @@ Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan b
 | 13 | Invånare väljer datum för att se lediga tider |
 | 14 | E-tjänst hämtar lediga tider för valt datum, samt för vald tidstyp, vårdtjänst och vårdpersonal (via tjänstekontraktet GetAvailableTimeslots). |
 | 15 | Invånare väljer en tid att boka |
-| 16 | Baserat på tidstypens inställning (inställning som hämtats tillsammans med tidstypen) kan verksamheten kräva att invånaren anger en anledning till bokningen. Verksamheten kan välja att kräva att invånaren anger något eller att invånaren frivilligt anger något eller att invånaren inte får ange något (då visas inte något till invånaren) / Invånaren anger en anledning till bokningen (baserat på tidstypens inställning enligt föregående steg) / Invånaren bekräftar eventuella villkor och bokar tiden |
+| 16 | Baserat på tidstypens inställning (inställning som hämtats tillsammans med tidstypen) kan verksamheten kräva att invånaren anger en anledning till bokningen. Verksamheten kan välja att kräva att invånaren anger något eller att invånaren frivilligt anger något eller att invånaren inte får ange något (då visas inte något till invånaren)<br/>Invånaren anger en anledning till bokningen (baserat på tidstypens inställning enligt föregående steg)<br/>Invånaren bekräftar eventuella villkor och bokar tiden |
 | 17 | E-tjänst begär att boka vald tid genom att anropa tjänstekontraktet MakeAppointment. |
 | 18 | Om bokningen lyckas anropar tidbokningstjänst tjänstekontraktet GetAppointment för att hämta detaljer om bokningen. Verksamheten kan ha valt att komplettera bokningen med ytterligare detaljer, t ex en unik länk till ett videobesök i fall att kontaktsättet är videobesök. |
 | 19 | E-tjänst presenterar en bokningsbekräftelse med detaljerna som hämtats |
@@ -212,7 +212,7 @@ Flödet utgår från att vårdcentralen skickar en digital kallelse till invåna
 
 | Förutsättningar |
 | :--- |
-| Vårdcentralen erbjuder invånare möjlighet att utan förkrav boka ny tid, exempelvis att ha kallat invånare / Vårdcentralen skickar en digital kallelse till invånaren med erbjudande att själv boka en tid för en specifik typ av tid |
+| Vårdcentralen erbjuder invånare möjlighet att utan förkrav boka ny tid, exempelvis att ha kallat invånare<br/>Vårdcentralen skickar en digital kallelse till invånaren med erbjudande att själv boka en tid för en specifik typ av tid |
 
 ##### 3.2.4.1 Sekvensdiagram
 
@@ -246,7 +246,7 @@ Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan b
 | 12 | Invånare väljer datum för att se lediga tider |
 | 13 | E-tjänst hämtar lediga tider för valt datum, samt för vald tidstyp, vårdtjänst och vårdpersonal. |
 | 14 | Invånare väljer en tid att boka |
-| 15 | Baserat på tidstypens inställning (inställning som hämtats tillsammans med tidstypen) kan verksamheten kräva att invånaren anger en anledning till bokningen. Verksamheten kan välja att kräva att invånaren anger något eller att invånaren frivilligt anger något eller att invånaren inte får ange något (då visas inte något till invånaren) / Invånaren anger en anledning till bokningen (baserat på tidstypens inställning enligt föregående steg) / Invånaren bekräftar eventuella villkor och bokar tiden |
+| 15 | Baserat på tidstypens inställning (inställning som hämtats tillsammans med tidstypen) kan verksamheten kräva att invånaren anger en anledning till bokningen. Verksamheten kan välja att kräva att invånaren anger något eller att invånaren frivilligt anger något eller att invånaren inte får ange något (då visas inte något till invånaren)<br/>Invånaren anger en anledning till bokningen (baserat på tidstypens inställning enligt föregående steg)<br/>Invånaren bekräftar eventuella villkor och bokar tiden |
 | 16 | E-tjänst begär att boka vald tid genom att anropa tjänstekontraktet MakeAppointment. |
 | 17 | Om bokningen lyckas anropar e-tjänst tjänstekontraktet GetAppointment för att hämta detaljer om bokningen. Verksamheten kan ha valt att komplettera bokningen med ytterligare detaljer, t ex en unik länk till ett videobesök i fall att kontaktsättet är videobesök. |
 | 18 | E-tjänst presenterar en bokningsbekräftelse med detaljerna som hämtats |
@@ -293,7 +293,7 @@ Flödet beskriver hur patient kan se en sammanställning av sina bokade tider p�
 
 | Förutsättningar |
 | :--- |
-| Vårdcentralen erbjuder invånare möjlighet att digitalt att boka ny tid utan att ha kallat invånare / Vårdcentralen skickar en digital kallelse till invånaren med erbjudande att själv boka en tid för en specifik typ av tid |
+| Vårdcentralen erbjuder invånare möjlighet att digitalt att boka ny tid utan att ha kallat invånare<br/>Vårdcentralen skickar en digital kallelse till invånaren med erbjudande att själv boka en tid för en specifik typ av tid |
 
 ##### 3.2.6.1 Sekvensdiagram
 
@@ -327,7 +327,7 @@ Flödet beskriver interaktionerna mellan e-tjänst för tidbokning (tjänstekons
 
 | Förutsättningar |
 | :--- |
-| Vårdcentralen erbjuder invånare möjlighet att boka ny tid utan att ha kallat invånare / Vårdcentralen skickar en digital kallelse till invånaren med erbjudande att själv boka en tid för en specifik typ av tid |
+| Vårdcentralen erbjuder invånare möjlighet att boka ny tid utan att ha kallat invånare<br/>Vårdcentralen skickar en digital kallelse till invånaren med erbjudande att själv boka en tid för en specifik typ av tid |
 
 ##### 3.2.7.1 Sekvensdiagram
 
@@ -363,7 +363,7 @@ Flödet beskriver interaktionerna mellan e-tjänst för tidbokning (tjänstekons
 
 | Förutsättningar |
 | :--- |
-| Vårdcentralen erbjuder invånare möjlighet att boka ny tid utan att ha kallat invånare / Vårdcentralen skickar en digital kallelse till invånaren med erbjudande att själv boka en tid för en specifik typ av tid |
+| Vårdcentralen erbjuder invånare möjlighet att boka ny tid utan att ha kallat invånare<br/>Vårdcentralen skickar en digital kallelse till invånaren med erbjudande att själv boka en tid för en specifik typ av tid |
 
 ##### 3.2.8.1 Sekvensdiagram
 
@@ -398,7 +398,7 @@ Flödet beskriver interaktionerna mellan e-tjänst för tidbokning (tjänstekons
 
 | Förutsättningar |
 | :--- |
-| Vårdcentralen erbjuder invånare möjlighet att omboka en bokad tid / Patienten har en bokning på vårdcentralen / Vårdcentralen tillåter att bokningen får ombokas av patienten |
+| Vårdcentralen erbjuder invånare möjlighet att omboka en bokad tid<br/>Patienten har en bokning på vårdcentralen<br/>Vårdcentralen tillåter att bokningen får ombokas av patienten |
 
 ##### 3.2.9.1 Sekvensdiagram
 
@@ -476,7 +476,7 @@ Nedanstående diagram beskriver vilka tjänstekontrakt som används i det ovan b
 | 6 | Tidbokningstjänst sammanställer en lista med bokningar |
 | 7 | Patient tar del av informationen om sina bokade tider på vårdcentralen |
 | 8 | Patient väljer den bokning som patient önskar avboka |
-| 9 | Tidbokningstjänst hämtar detaljer om vald bokning. I bokningsdetaljerna ingår även en flagga som verksamheten returnerar och som avgör om bokningen får avbokas av patient (attributet cancelAppointmentAllowed i datatypen AppointmentType). / Baserat på tidstypens inställning (inställning som hämtats tillsammans med tidstypen) kan verksamheten kräva att invånaren anger en anledning till avbokningen. Verksamheten kan välja att kräva att invånaren anger något eller att invånaren frivilligt anger något eller att invånaren inte får ange något (då visas inte något till invånaren) / Invånaren anger en anledning till avbokningen |
+| 9 | Tidbokningstjänst hämtar detaljer om vald bokning. I bokningsdetaljerna ingår även en flagga som verksamheten returnerar och som avgör om bokningen får avbokas av patient (attributet cancelAppointmentAllowed i datatypen AppointmentType).<br/>Baserat på tidstypens inställning (inställning som hämtats tillsammans med tidstypen) kan verksamheten kräva att invånaren anger en anledning till avbokningen. Verksamheten kan välja att kräva att invånaren anger något eller att invånaren frivilligt anger något eller att invånaren inte får ange något (då visas inte något till invånaren)<br/>Invånaren anger en anledning till avbokningen |
 | 10 | Invånaren anger en anledning till bokningen (baserat på tidstypens inställning enligt föregående steg) |
 | 11 | Invånaren bekräftar eventuella villkor och bokar tiden |
 | 12 | Tidbokningstjänst begär att omboka vald tid genom att anropa tjänstekontraktet CancelAppointment. |
@@ -497,8 +497,8 @@ För användning av en aggregerande tjänst behöver producenter uppdatera Engag
 
 | Begäran om att hämta invånares/patients bokade tider (GetAppointments) | Logisk adress |
 | :--- | :--- |
-| Nationell sammanfattning av invånares bokade tider | Ineras HSA-id: 5565594230 / Genom att adressera på detta sätt triggas aggregerad tjänst igång på den nationella tjänsteplattformen som i sin tur baserar sina vidare anrop på innehållet i engagemangsindex. |
-| Regional sammanfattning av invånares bokade tider | Huvudmannens länskod eller annan identifierare som är TAKad på den nationella tjänsteplattformen. / Genom att adressera på detta sätt dirigeras anropet till annan (regional tjänsteplattform) som i sin tur triggar regional aggregerad tjänst. |
+| Nationell sammanfattning av invånares bokade tider | Ineras HSA-id: 5565594230<br/>Genom att adressera på detta sätt triggas aggregerad tjänst igång på den nationella tjänsteplattformen som i sin tur baserar sina vidare anrop på innehållet i engagemangsindex. |
+| Regional sammanfattning av invånares bokade tider | Huvudmannens länskod eller annan identifierare som är TAKad på den nationella tjänsteplattformen.<br/>Genom att adressera på detta sätt dirigeras anropet till annan (regional tjänsteplattform) som i sin tur triggar regional aggregerad tjänst. |
 | Invånares bokade tider på en vårdcentral | E-tjänst adresserar specifik vårdcentral direkt. Den logiska adressen motsvarar vårdcentralens HSA-Id |
 
 För tjänstespecifika regler kring aggregerande tjänster, se respektive tjänsteinteraktion.
@@ -522,7 +522,7 @@ I föregående version av tjänstedomänen crm:scheduling (version 1) uttrycktes
 | Attribut | Format | Mult | Domänspecifik semantik eller värde | Beslutsregler och kommentar |
 | :--- | :--- | :--- | :--- | :--- |
 | serviceDomain | Text | 1..1 | Värdet ska vara ”riv:supportprocess:logistics:scheduling” | Del av instansens unikhet. |
-| categorization | Text bestående av bokstäver i ASCII. | 1..1 | Värdet ska vara ”NA”. / - Ändring fr.o.m. version 1.1.2. | Del av instansens unikhet. |
+| categorization | Text bestående av bokstäver i ASCII. | 1..1 | Värdet ska vara ”NA”.<br/>- Ändring fr.o.m. version 1.1.2. | Del av instansens unikhet. |
 | logicalAddress | Text, enligt hsaid standard | 1..1 | Vårdcentralens/vård-enhetens HSA-id. Värdet ska vara den logiska adress som ska användas av konsumenter som ska adressera vårdcentralens tidbok genom tjänstekontrakten i denna domän. | Del av instansens unikhet. |
 | businessObjectInstanceIdentifier | Text | 1..1 | BookingId för bokningen som denna engagemangsindexpost pekar på eller kallelse. | Del av instansens unikhet. |
 
@@ -560,7 +560,7 @@ Observera att det endast är vid ändring av attributet mostRecentContent, d.v.s
 | :--- | :--- | :--- | :--- |
 | registeredResidentIdentification | Invånarens personnummer. | Del av instansens unikhet. | En ändring av detta värde innebär att posten måste tas bort och ersättas med en ny. |
 | serviceDomain | Värdet ska vara ”riv:supportprocess:logistics:scheduling”. | Del av instansens unikhet. | Detta värde kan inte ändras. |
-| categorization | Värdet ska vara "NA”. / - Ändring fr.o.m. version 1.1.2. | Del av instansens unikhet. | Detta värde kan inte ändras. |
+| categorization | Värdet ska vara "NA”.<br/>- Ändring fr.o.m. version 1.1.2. | Del av instansens unikhet. | Detta värde kan inte ändras. |
 | logicalAddress | Vårdcentralens/vårdenhetens HSA-id. | Del av instansens unikhet. | En ändring av detta värde innebär att posten måste tas bort och ersättas med en ny. |
 | businessObjectInstanceIdentifier | BookingId för bokningen. | Del av instansens unikhet. | En ändring av detta värde innebär att posten måste tas bort och ersättas med en ny. |
 | clinicalProcessInterestId | Värdet ska vara "NA”. | Del av instansens unikhet. | Detta värde kan inte ändras. |

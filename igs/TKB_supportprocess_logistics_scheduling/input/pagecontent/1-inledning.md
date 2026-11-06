@@ -4,7 +4,7 @@ Källa: *Tjänstekontraktsbeskrivning Tidbokning*, version 2.0 RC2 (2023-11-01),
 
 ### Dokumentinformation
 
-| Dokument | Tidbokning / Tjänstekontraktsbeskrivning |
+| Dokument | Tidbokning<br/>Tjänstekontraktsbeskrivning |
 | :--- | :--- |
 | Version | 2.0 RC2 |
 | Dokument-id | ARK_0015 |

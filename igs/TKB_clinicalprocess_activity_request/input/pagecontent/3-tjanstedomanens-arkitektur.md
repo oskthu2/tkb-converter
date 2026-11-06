@@ -116,11 +116,7 @@ Tjänstekontrakt som är involverade i processen ”hantera remissvar” är Pro
 #### Obligatoriska kontrakt
 Följande tabell specificerar vilka kontrakt som är obligatoriska att realisera för respektive flöde.
 
-| Tjänstekontrakt | Flöde 3.1.1 
-Skicka och ta emot remiss | Flöde 3.1.2
-Hantera mottagen remiss | Flöde 3.1.3
-Hantera remiss-komplettering | Flöde 3.1.4
-Hantera remissvar |
+| Tjänstekontrakt | Flöde 3.1.1<br/>Skicka och ta emot remiss | Flöde 3.1.2<br/>Hantera mottagen remiss | Flöde 3.1.3<br/>Hantera remiss-komplettering | Flöde 3.1.4<br/>Hantera remissvar |
 | :--- | :--- | :--- | :--- | :--- |
 | ProcessRequest | X |  | X |  |
 | ProcessRequest-Confirmation |  | X |  |  |

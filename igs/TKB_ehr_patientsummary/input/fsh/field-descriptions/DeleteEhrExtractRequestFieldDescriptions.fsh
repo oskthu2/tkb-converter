@@ -6,7 +6,15 @@ RuleSet: DeleteEhrExtractRequestFieldDescriptions
 * ehr_system ^comment = "TKB-fält: `ehr_system` (`II`, kardinalitet 1..1)."
 * subject_of_care ^definition = "Id för patienten. Det värde som skickades då anrop till tjänsten ReceiveEhrExtract gjordes."
 * subject_of_care ^comment = "TKB-fält: `subject_of_care` (`II`, kardinalitet 1..1)."
-* deletion ^definition = "Innehåller par av rcId och meaning. `<br>` rcId: `<br>` Globalt unikt id för posten som ska tas bort. Det värde som skickades då anrop till tjänsten ReceiveEhrExtract gjordes. (Värdet hittas i ”ehr_extract.all_compositions.rc_id”.) `<br>` meaning: `<br>` Den huvudinformationstyp som posten (som ska tas bort) gäller för."
+* deletion ^definition = "Innehåller par av rcId och meaning.
+
+rcId:
+
+Globalt unikt id för posten som ska tas bort. Det värde som skickades då anrop till tjänsten ReceiveEhrExtract gjordes. (Värdet hittas i ”ehr_extract.all_compositions.rc_id”.)
+
+meaning:
+
+Den huvudinformationstyp som posten (som ska tas bort) gäller för."
 * deletion ^comment = "TKB-fält: `deletion` (`DeletionType`, kardinalitet 1..*)."
 * deletion.rc_id ^comment = "TKB-fält: `../rc_id` (`II`, kardinalitet 1..1)."
 * deletion.meaning ^comment = "TKB-fält: `../meaning` (`CD`, kardinalitet 1..1)."

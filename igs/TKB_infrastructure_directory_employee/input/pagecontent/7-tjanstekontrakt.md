@@ -18,24 +18,24 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | Namn | Typ | Beskrivning, Ref Informationsspec. | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |
-| personHsaId *1) | String | Sökt persons HSA-id. / Ref. HSA-id (hsaIdentity) [R5] | 0..1 |
+| personHsaId *1) | String | Sökt persons HSA-id.<br/>Ref. HSA-id (hsaIdentity) [R5] | 0..1 |
 | personalIdentityNumber *1) | String | Sökt persons Person-id (personnummer eller samordningsnummer). Ref. person-id (personalIdentityNumber) [R5] | 0..1 |
 | searchBase *2) | DN | Sökbas. Om ingen sökbas anges används c=SE som sökbas. | 0..1 |
 | includeFeignedObject | boolean | true: om metoden ska leverera svar med fingerade objekt. Uteblivet värde tolkas som false, dvs inga fingerade objekt levereras. | 0..1 |
 | profile | String | Anger vilka attribut som returneras i svaret. Värde kan skrivas med både stora och/eller små bokstäver. Om värdet utelämnas antas värdet vara FULL. Följande värden kan användas: BASIC, TITLE, CONTACT, FULL, extended1. | 0..1 |
 | Svar |  |  |  |
 | personInformation | PersonInformationType | Information om personen. Om personen har flera person-objekt returneras en instans per objekt. | 0..* |
-| ..personHsaId | String | Personens HSA-id. / Ref. HSA-id (hsaIdentity) [R5] | 1..1 |
-| ..givenName | String | Tilltalsnamn. / Ref. tilltalsnamn (givenName, gn) [R5] | 0..1 |
-| ..middleAndSurName | String | Mellan- och Efternamn separerade med mellanslag. Ref. mellannamn (middleName) [R5] / Ref. efternamn (sn, surName) [R5] | 1..1 |
+| ..personHsaId | String | Personens HSA-id.<br/>Ref. HSA-id (hsaIdentity) [R5] | 1..1 |
+| ..givenName | String | Tilltalsnamn.<br/>Ref. tilltalsnamn (givenName, gn) [R5] | 0..1 |
+| ..middleAndSurName | String | Mellan- och Efternamn separerade med mellanslag. Ref. mellannamn (middleName) [R5]<br/>Ref. efternamn (sn, surName) [R5] | 1..1 |
 | ..nickName | String | Smeknamn. Får ej användas för presentation, endast för sökning. Ref. smeknamn (nickName) [R5] | 0..1 |
-| ..mail | String | E-postadress. / Ref. e-postadress (mail) [R5] | 0..1 |
+| ..mail | String | E-postadress.<br/>Ref. e-postadress (mail) [R5] | 0..1 |
 | ..telephoneNumber | Telefon | Publikt direkttelefonnummer. Ref. direkttelefon (telephoneNumber) [R5] | 0..* |
-| ..switchboardNumber | Telefon | Telefonnummer till växel. / Ref. växeltelefon (hsaSwitchboardNumber) [R5] | 0..1 |
+| ..switchboardNumber | Telefon | Telefonnummer till växel.<br/>Ref. växeltelefon (hsaSwitchboardNumber) [R5] | 0..1 |
 | ..nonPublicTelephoneNumber | Telefon | Tjänstetelefonnummer. Ref. tjänstetelefon (hsaTelephoneNumber) [R5] | 0..* |
-| ..mobileNumber | Telefon | Mobiltelefonnummer. / Ref. mobiltelefon (mobile) [R5] | 0..* |
-| ..facsimileTelephoneNumber | Telefon | Faxnummer. / Ref. fax (facsimileTelephoneNumber) [R5] | 0..* |
-| ..telephoneHour | TimeSpan | Telefontider för publik telefon (telephoneNumber). / Ref. telefontid (telephoneHours) [R5] | 0..* |
+| ..mobileNumber | Telefon | Mobiltelefonnummer.<br/>Ref. mobiltelefon (mobile) [R5] | 0..* |
+| ..facsimileTelephoneNumber | Telefon | Faxnummer.<br/>Ref. fax (facsimileTelephoneNumber) [R5] | 0..* |
+| ..telephoneHour | TimeSpan | Telefontider för publik telefon (telephoneNumber).<br/>Ref. telefontid (telephoneHours) [R5] | 0..* |
 | .. ..fromDay | String | Från dag. Måndag (1) – Söndag (7). | 1..1 |
 | .. ..fromTime | Time | Från tid. Format enligt ISO-8601. | 1..1 |
 | .. ..toDay | String | Till dag. Måndag (1) – Söndag (7). | 1..1 |
@@ -52,7 +52,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | .. ..premisesLetter | String | Adressplatslittera | 0..1 |
 | .. ..postCode | String | Postnummer | 1..1 |
 | .. ..town | String | Postort | 1..1 |
-| ..description | String | Generell beskrivning. / Ref. beskrivning (description) [R5] | 0..1 |
+| ..description | String | Generell beskrivning.<br/>Ref. beskrivning (description) [R5] | 0..1 |
 | ..title | String | Titel i fritext. Ref. titel (title) [R5] | 0..1 |
 | ..healthCareProfessionalLicence | String | Legitimerad yrkesgrupp. Ref. legitimerad yrkesgrupp (hsaTitle) [R5] | 0..* |
 | ..healthCareProfessionalLicenceSpeciality | HealthCareProfessionalLicenceSpecialityType | Legitimerad yrkesgrupp och specialitet för läkare och tandläkare. | 0..* |
@@ -175,7 +175,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | includeFeignedObject | boolean | true: om metoden ska leverera svar med fingerade objekt. Uteblivet värde tolkas som false. | 0..1 |
 | Svar |  |  |  |
 | personInformation | PersonInformationType | Information om personen. En person (ett HSA-id) returneras bara en gång även om personen är medlem i flera matchande vårdmedarbetaruppdrag. | 0..* |
-| ..personHsaId | String | Personens HSA-id. / Ref. HSA-id (hsaIdentity) [R5] | 1..1 |
+| ..personHsaId | String | Personens HSA-id.<br/>Ref. HSA-id (hsaIdentity) [R5] | 1..1 |
 | ..givenName | String | Tilltalsnamn. Ref. tilltalsnamn (givenName, gn) [R5] | 0..1 |
 | ..middleAndSurName | String | Mellan- och Efternamn separerade med mellanslag. | 1..1 |
 | ..nickName | String | Smeknamn. Får ej användas för presentation, endast för sökning. | 0..1 |

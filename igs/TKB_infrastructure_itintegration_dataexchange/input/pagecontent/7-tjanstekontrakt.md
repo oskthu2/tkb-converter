@@ -21,7 +21,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Referens till 
 | Namn | Typ | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |
-| id | string | Unik identifierare av binär fil i källsystemet. / Anges på det sätt identifieraren är angiven i referensen, se avsnitt 6.1.4, till den binära filen. | 1..1 |
+| id | string | Unik identifierare av binär fil i källsystemet.<br/>Anges på det sätt identifieraren är angiven i referensen, se avsnitt 6.1.4, till den binära filen. | 1..1 |
 | Svar |  |  |  |
 | binaryData | BinaryDataType | Information om det binära innehållet. | 0..1 |
 | result | ResultType | Innehåller information om det gick bra eller ej att besvara förfrågan. | 1..1 |
@@ -30,7 +30,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Referens till 
 
 | Namn | Typ | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| contentType | token | MIME-typ för det binära innehållet. / Anges enligt urvalet MimeTypes i FHIR. http://hl7.org/fhir/ValueSet/mimetypes / OID: 2.16.840.1.113883.4.642.3.1024 / Vanligt förekommande MIME-typer och deras filändelser finns här https://mimetype.io/ | 1..1 |
+| contentType | token | MIME-typ för det binära innehållet.<br/>Anges enligt urvalet MimeTypes i FHIR. http://hl7.org/fhir/ValueSet/mimetypes<br/>OID: 2.16.840.1.113883.4.642.3.1024<br/>Vanligt förekommande MIME-typer och deras filändelser finns här https://mimetype.io/ | 1..1 |
 | data | base64Binary | Det faktiska binära innehållet. | 1..1 |
 
 ##### 7.1.2.2 ResultType
@@ -55,12 +55,12 @@ Till detta tjänstekontrakt finns regler som ej uttrycks i schemafilerna och tab
 | ID | Kontext | Beskrivning |
 | :--- | :--- | :--- |
 | Regler i begäran | Regler i begäran | Regler i begäran |
-| Id | id | Tjänstekontraktet GetBinaryData kan endast anropas av en tjänstekonsument efter att tjänstekonsumenten har kännedom om identifieraren för den binära filen. Identifieraren kan t.ex. förmedlas i en referens, se bilaga [R11], i ett tjänstekontrakt eller annat meddelande som pekar ut den binära filen. / Attributet attachment.id i referensen, se bilaga [R11], ska anges som id i begäran i tjänstekontraktet GetBinaryData. |
+| Id | id | Tjänstekontraktet GetBinaryData kan endast anropas av en tjänstekonsument efter att tjänstekonsumenten har kännedom om identifieraren för den binära filen. Identifieraren kan t.ex. förmedlas i en referens, se bilaga [R11], i ett tjänstekontrakt eller annat meddelande som pekar ut den binära filen.<br/>Attributet attachment.id i referensen, se bilaga [R11], ska anges som id i begäran i tjänstekontraktet GetBinaryData. |
 | Regler i svaret | Regler i svaret | Regler i svaret |
 | MIME-typ | contentType | Vilka värden som tillåts för elementet contentType behöver beskrivas i en interoperabilitetsspecifikation. |
 | Allmänna regler | Allmänna regler | Allmänna regler |
 | Åtkomst och spärrkontroll |  | Åtkomsten till den vårddokumentation som refererar till en binär fil ligger även till grund för åtkomsthantering och spärrkontroll för den binära filen. |
-| Interoperabilitetsspecifikation |  | En specifik interoperabel lösning behöver tillhandahålla en interoperabilitetsspecifikation för att beskriva användningen av tjänstekontraktet GetBinaryData och dess innehåll utöver reglerna i denna TKB. / Tjänstekonsumenter och tjänsteproducenter behöver utöver regler och anvisningar i denna TKB även följa regler och anvisningar i interoperabilitetsspecifikationen. |
+| Interoperabilitetsspecifikation |  | En specifik interoperabel lösning behöver tillhandahålla en interoperabilitetsspecifikation för att beskriva användningen av tjänstekontraktet GetBinaryData och dess innehåll utöver reglerna i denna TKB.<br/>Tjänstekonsumenter och tjänsteproducenter behöver utöver regler och anvisningar i denna TKB även följa regler och anvisningar i interoperabilitetsspecifikationen. |
 
 ##### 7.1.3.1 Icke funktionella krav
 

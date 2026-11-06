@@ -17,22 +17,22 @@ Källa: *Tjänstekontraktsbeskrivning, Screeningstöd livmoderhals*, version 1.0
 | :--- | :--- | :--- | :--- | :--- |
 | 0.50 | 2018-10-05 | Första version | Michael Schneider |  |
 | 0.51 | 2019-01-23 | Lagt till beskrivningar i tjänstedomänens meddelande | Michael Schneider |  |
-| 0.60 | 2019-01-29 | Korrigeringar efter informatik granskning / Tagit bort termer och beskrivning / Kortat ned beskrivning i avsnitt 3.1 Flöden – hänvisning till IS / Kortat ned avsnitt 4.1 Informationssäkerhet och juridik – hänvisning till IS och Legal analys / Avsnitt 4.2 Icke funktionella krav – borttagen / Lagt till fältregler / Lagt till tekniskt domännamn / Regelverk för CVType | Michael Schneider | Emmy Damberg / / Katrin Abdulal |
-| 0.61 | 2019-01-30 | Ändrat svenskt namn/kortnamn / Uppdaterad MIM-schema | Michael Schneider |  |
+| 0.60 | 2019-01-29 | Korrigeringar efter informatik granskning<br/>Tagit bort termer och beskrivning<br/>Kortat ned beskrivning i avsnitt 3.1 Flöden – hänvisning till IS<br/>Kortat ned avsnitt 4.1 Informationssäkerhet och juridik – hänvisning till IS och Legal analys<br/>Avsnitt 4.2 Icke funktionella krav – borttagen<br/>Lagt till fältregler<br/>Lagt till tekniskt domännamn<br/>Regelverk för CVType | Michael Schneider | Emmy Damberg<br/>/ Katrin Abdulal |
+| 0.61 | 2019-01-30 | Ändrat svenskt namn/kortnamn<br/>Uppdaterad MIM-schema | Michael Schneider |  |
 | 0.62 | 2019-02-01 | Korrigerat allmän regel R1 | Michael Schneider |  |
-| 0.70 | 2019-02-08 | Diverse rättningar och korrigeringar i avsnittet 3.1 Flöden / Korrigerat avsnitt 3.3 Obligatoriska kontrakt – samma namn på flödesbeskrivning som i avsnitt 3.1 Flöden / Lagt till formatregel för Datum / Korrigerat beskrivning personId/IIType / Korrigerat beskrivning sendingRegion/RegionType / Rättat felaktig formatangivelse registeredAt/DateType / Korrigerat beskrivning riskGroups/RiskGroupType / Rättat felaktig formatangivelse inclusionDate/DateType / Korrigerat beskrivning specimen/SpecimenType / Korrigerat beskrivning HPVstatusList/HPVStatusType / Reviderat skrivningar om SLA | Michael Schneider |  |
+| 0.70 | 2019-02-08 | Diverse rättningar och korrigeringar i avsnittet 3.1 Flöden<br/>Korrigerat avsnitt 3.3 Obligatoriska kontrakt – samma namn på flödesbeskrivning som i avsnitt 3.1 Flöden<br/>Lagt till formatregel för Datum<br/>Korrigerat beskrivning personId/IIType<br/>Korrigerat beskrivning sendingRegion/RegionType<br/>Rättat felaktig formatangivelse registeredAt/DateType<br/>Korrigerat beskrivning riskGroups/RiskGroupType<br/>Rättat felaktig formatangivelse inclusionDate/DateType<br/>Korrigerat beskrivning specimen/SpecimenType<br/>Korrigerat beskrivning HPVstatusList/HPVStatusType<br/>Reviderat skrivningar om SLA | Michael Schneider |  |
 | 0.75 | 2019-02-27 | Modifierat sekvensdiagram – lagt till aktör (manuell sekretessprövning) | Michael Schneider |  |
 | 0.76 | 2019-03-12 | Bytt namn på klassen Riskgrupp till Uppföljningsgrupp och ändrat engelskt nanm | Michael Schneider |  |
-| 0.77 | 2019-03-19 | Förtydligat att uppföljningsgrupp innebär det som vårdprogrammet kallar kontrollfil. / Rättat beskrivning av fältet HPVstatusList/value i avsnitt 6.1.3. | Emmy Damberg |  |
+| 0.77 | 2019-03-19 | Förtydligat att uppföljningsgrupp innebär det som vårdprogrammet kallar kontrollfil.<br/>Rättat beskrivning av fältet HPVstatusList/value i avsnitt 6.1.3. | Emmy Damberg |  |
 | 0.80 | 2019-03-20 | Korrigeringar införda efter granskning av NMT | Michael Schneider |  |
-| 0.81 | 2019-04-11 | Lagt till SNOMED CT koder / Lagt till OID SNOMED CT kod (1.2.752.116.2.1.1) / Uppdaterat Flöde – Kvinna flyttar mellan regioner | Michael Schneider |  |
+| 0.81 | 2019-04-11 | Lagt till SNOMED CT koder<br/>Lagt till OID SNOMED CT kod (1.2.752.116.2.1.1)<br/>Uppdaterat Flöde – Kvinna flyttar mellan regioner | Michael Schneider |  |
 | 1.0_RC1 | 2019-04-25 | Version för (I, S och T) kvalitetssäkring | Michael Schneider |  |
 | 1.0 | 2019-05-22 | Granskad och godkänd version | Michael Schneider | A&R |
-| 1.0.1 | 2019-06-19 | Lagt till referens till kodverket kv/län 1.2.752.129.2.2.1.18 (verksamhetsadressering) | Michael Schneider | Thomas Siltberg / (TK-förvaltningen) |
+| 1.0.1 | 2019-06-19 | Lagt till referens till kodverket kv/län 1.2.752.129.2.2.1.18 (verksamhetsadressering) | Michael Schneider | Thomas Siltberg<br/>(TK-förvaltningen) |
 | 1.0.2 | 2919-09-15 | Ny klass för att förmedla nästa planerade kallelsetillfälle - PlannedInvitationType | Thomas Fafoutis |  |
 | 1.0_RC2 | 2019-09-25 | Version för (I, S och T) kvalitetssäkring | Michael Schneider |  |
 | 1.0_RC3 | 2019-10-21 | Version för I&S granskning. T granskning godkänd sedan tidigare för version 1.0_RC2 | Michael Schneider |  |
-| 1.0_RC4 | 2020-10-20 | Lagt till ett förtydligande om att urvalet av SNOMED CT koder kan komma att förändras vid förändringar i vårdprogrammet / I avsnitt 4.3.1.1. användes fältnamnet comment istället för resultText / Lag till ny orsak till exkludering: patient ej lämplig för åtgärd på grund av medicinskt tillstånd | Oscar Möller |  |
+| 1.0_RC4 | 2020-10-20 | Lagt till ett förtydligande om att urvalet av SNOMED CT koder kan komma att förändras vid förändringar i vårdprogrammet<br/>I avsnitt 4.3.1.1. användes fältnamnet comment istället för resultText<br/>Lag till ny orsak till exkludering: patient ej lämplig för åtgärd på grund av medicinskt tillstånd | Oscar Möller |  |
 
 #### Referenser
 

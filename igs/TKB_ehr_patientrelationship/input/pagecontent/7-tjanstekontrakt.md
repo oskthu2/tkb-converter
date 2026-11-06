@@ -267,7 +267,7 @@ Om tjänsten förväntas ingå i den nationella arkitekturen för hantering av p
 | Svarstid |  |  |
 | Tillgänglighet |  |  |
 | Last |  |  |
-| Aktualitet | Tjänsten garanterar att registrering av patientrelation skett då anropet genomförts utan fel. / Registreringen speglas omedelbart i svar från frågor till patientrelationstjänsten. |  |
+| Aktualitet | Tjänsten garanterar att registrering av patientrelation skett då anropet genomförts utan fel.<br/>Registreringen speglas omedelbart i svar från frågor till patientrelationstjänsten. |  |
 
 #### Fältregler
 
@@ -327,7 +327,7 @@ Obligatorisk för tjänsteproducent.
 | Svarstid |  |  |
 | Tillgänglighet |  |  |
 | Last |  |  |
-| Aktualitet | Tjänsten garanterar att återkallan av patientrelation skett då anropet genomförts utan fel. / Återkallan speglas omedelbart i svar från frågor genom tjänsterna. |  |
+| Aktualitet | Tjänsten garanterar att återkallan av patientrelation skett då anropet genomförts utan fel.<br/>Återkallan speglas omedelbart i svar från frågor genom tjänsterna. |  |
 
 #### Fältregler
 
@@ -382,7 +382,7 @@ Obligatorisk för tjänsteproducent.
 | Svarstid |  |  |
 | Tillgänglighet |  |  |
 | Last |  |  |
-| Aktualitet | Tjänsten garanterar att makulering av patientrelation skett då anropet genomförts utan fel. / Makuleringen speglas omedelbart i svar från frågor genom tjänsterna. |  |
+| Aktualitet | Tjänsten garanterar att makulering av patientrelation skett då anropet genomförts utan fel.<br/>Makuleringen speglas omedelbart i svar från frågor genom tjänsterna. |  |
 
 #### Fältregler
 

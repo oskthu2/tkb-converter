@@ -25,10 +25,10 @@ Datatypen AccesControlHeaderType är del av en generell gemensam datatyp som anv
 
 | Namn | Typ | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| accountableHealthcareProviderId | IIType | Unik identitet för vårdgivaren som är personuppgiftsansvarig för informationen om den fasta kontakten. Den unika identiteten ska motsvara ett HSAId som utgör en vårdgivare i den nationella HSA-katalogen. / IIType.extension = `<HSAId för organisationen>` / IIType.root = ”1.2.752.129.2.1.4.1” | 1..1 |
-| accountableCareUnitId | IIType | Unik identitet för vårdenhet inom vårdgivare som är personuppgiftsansvarig och som håller informationen om den fasta kontakten. Den unika identiteten ska motsvara ett HSAId som utgör en vårdenhet i den nationella HSA-katalogen. / IIType.extension = `<HSAId för organisationen>` / IIType.root = ”1.2.752.129.2.1.4.1” | 1..1 |
-| patientId | IIType | Personnummer/samordningsnummer för patient som tilldelats den fasta kontakten. / Om källsystemet håller information om fasta kontakter, baserat på olika identifierare, exempelvis regionalt- eller nationellt reservnummer samt personnummer eller samordningsnummer, där identifierarna är sammanlänkade (utgör samma individ), ska källsystemet förmedla ett sammanställt svar. / IIType.extension = `<personnummer, samordningsnummer >` / IIType.root: / Personnummer  = ”1.2.752.129.2.1.3.1” / Samordningsnummer = ”1.2.752.129.2.1.3.3” | 1..1 |
-| careProcessId | IIType | Referens till hälsoärende. / Socialstyrelsen definierar ett hälsoärende som ett ärende som håller samman vårddokumentation från en eller flera relaterade individanpassade vårdprocesser. / Attributet mappar gentemot FHIR resurs EpisodeOfCare. | 0..1 |
+| accountableHealthcareProviderId | IIType | Unik identitet för vårdgivaren som är personuppgiftsansvarig för informationen om den fasta kontakten. Den unika identiteten ska motsvara ett HSAId som utgör en vårdgivare i den nationella HSA-katalogen.<br/>IIType.extension = `<HSAId för organisationen>`<br/>IIType.root = ”1.2.752.129.2.1.4.1” | 1..1 |
+| accountableCareUnitId | IIType | Unik identitet för vårdenhet inom vårdgivare som är personuppgiftsansvarig och som håller informationen om den fasta kontakten. Den unika identiteten ska motsvara ett HSAId som utgör en vårdenhet i den nationella HSA-katalogen.<br/>IIType.extension = `<HSAId för organisationen>`<br/>IIType.root = ”1.2.752.129.2.1.4.1” | 1..1 |
+| patientId | IIType | Personnummer/samordningsnummer för patient som tilldelats den fasta kontakten.<br/>Om källsystemet håller information om fasta kontakter, baserat på olika identifierare, exempelvis regionalt- eller nationellt reservnummer samt personnummer eller samordningsnummer, där identifierarna är sammanlänkade (utgör samma individ), ska källsystemet förmedla ett sammanställt svar.<br/>IIType.extension = `<personnummer, samordningsnummer >`<br/>IIType.root:<br/>Personnummer  = ”1.2.752.129.2.1.3.1”<br/>Samordningsnummer = ”1.2.752.129.2.1.3.3” | 1..1 |
+| careProcessId | IIType | Referens till hälsoärende.<br/>Socialstyrelsen definierar ett hälsoärende som ett ärende som håller samman vårddokumentation från en eller flera relaterade individanpassade vårdprocesser.<br/>Attributet mappar gentemot FHIR resurs EpisodeOfCare. | 0..1 |
 | blockComparisonTime | TimeStampType | Dokumentationstidpunkt (tidsstämpel) då journalföring skett. Tidsstämpeln utgör underlag för konsuments spärrkontroll. | 1..1 |
 
 #### 5.1.3 PractitionerType
@@ -39,9 +39,9 @@ Datatypen mappar gentemot FHIR Practitioner.
 
 | Namn | Typ | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| id | IIType | HSAId eller personnummer för medarbetaren som innehar rollen fast kontakt. Om HsaId för medarbetaren finns ska detta förmedlas i första hand. / IIType.extension = `<HSAId för personal/medarbetare>` / IIType.root = ”1.2.752.129.2.1.4.1” / För personnummer ska Skatteverkets identifierare för personnummer ”1.2.752.129.2.1.3.1” användas i IIType.extension. / Det är producentens ansvar att säkerställa huruvida en konsumerande tjänst ska delges information om medarbetare som innehar rollen fast kontakt och som har skyddade personuppgifter. | 1..1 |
+| id | IIType | HSAId eller personnummer för medarbetaren som innehar rollen fast kontakt. Om HsaId för medarbetaren finns ska detta förmedlas i första hand.<br/>IIType.extension = `<HSAId för personal/medarbetare>`<br/>IIType.root = ”1.2.752.129.2.1.4.1”<br/>För personnummer ska Skatteverkets identifierare för personnummer ”1.2.752.129.2.1.3.1” användas i IIType.extension.<br/>Det är producentens ansvar att säkerställa huruvida en konsumerande tjänst ska delges information om medarbetare som innehar rollen fast kontakt och som har skyddade personuppgifter. | 1..1 |
 | name | string | Medarbetares namn | 0..1 |
-| qualification | CVType | Medarbetares befattning enligt HSA-kodverk KV_Befattning. Se referens [R10]. / OID: 1.2.752.129.2.2.1.4 | 0..1 |
+| qualification | CVType | Medarbetares befattning enligt HSA-kodverk KV_Befattning. Se referens [R10].<br/>OID: 1.2.752.129.2.2.1.4 | 0..1 |
 
 #### 5.1.4 ContactType
 
@@ -76,9 +76,9 @@ Datatypen mappar mot FHIR Address.
 
 | Namn | Typ | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| type | CVType | Typ av adress. / Kan inneha något av värdena: / postal\|physical\|both / OID: 2.16.840.1.113883.4.642.3.69 | 0..1 |
+| type | CVType | Typ av adress.<br/>Kan inneha något av värdena:<br/>postal\|physical\|both<br/>OID: 2.16.840.1.113883.4.642.3.69 | 0..1 |
 | line | string | Adressrad | 0..* |
-| city | string | Stad / kommun | 0..1 |
+| city | string | Stad<br/>kommun | 0..1 |
 | postalCode | string | Postnummer | 0..1 |
 | period | HoursOfService | Anger tidsperiod som adressen är giltig. | 0..1 |
 
@@ -90,8 +90,8 @@ Datatypen mappar gentemot FHIR ContactPointSystem.
 
 | Namn | Typ | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| system | CVType | Sätt/teknik för hur kontakten kan ske. / Kan vara en av följande: / [phone\|fax\|email\|pager\|url\|sms\|other] / OID: 2.16.840.1.113883.4.642.1.72 | 1..1 |
-| value | string | Adressen som gäller enligt kontaktsättet. / Kan exempelvis vara ett telefon-, fax- eller sökare-nummer, alternativt en URL till en e-tjänst. | 0..1 |
+| system | CVType | Sätt/teknik för hur kontakten kan ske.<br/>Kan vara en av följande:<br/>[phone\|fax\|email\|pager\|url\|sms\|other]<br/>OID: 2.16.840.1.113883.4.642.1.72 | 1..1 |
+| value | string | Adressen som gäller enligt kontaktsättet.<br/>Kan exempelvis vara ett telefon-, fax- eller sökare-nummer, alternativt en URL till en e-tjänst. | 0..1 |
 | period | HoursOfServiceType | Kalendertid då kontaktsättet är giltigt. Kan exempelvis uttrycka att kontaktsättet endast gäller specifika veckodagar, specifika månader, specifik datumperiod. Se mer detaljer under kapitel 5.2 Formatregler | 0..* |
 
 #### 5.1.7 PractitionerRoleType
@@ -102,7 +102,7 @@ Datatypen mappar gentemot FHIR PractitionerRole.
 
 | Namn | Typ | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| code | CVType | Typ av roll (typ av fast kontakt). Se kodverk enligt referens [R7]. / Observera att kodverk kan komma att kompletteras över tid vilket medför att nyttjare av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras | 1..1 |
+| code | CVType | Typ av roll (typ av fast kontakt). Se kodverk enligt referens [R7].<br/>Observera att kodverk kan komma att kompletteras över tid vilket medför att nyttjare av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras | 1..1 |
 | practitioner | PractitionerType | Medarbetaren som tilldelats denna roll, så som fast kontakt | 1..1 |
 | period | DatePeriodType | Tidsintervall då medarbetarens roll gäller. | 1..1 |
 | internalNotes | string | Intern kommentar kopplat till medarbetaren i denna roll. Kommentaren kan visas internt inom professionen. Ska ej tillgängliggöras till patient eller patients eventuella vårdnadshavare/ombud. | 0..1 |
@@ -111,7 +111,7 @@ Datatypen mappar gentemot FHIR PractitionerRole.
 | managingCareUnit | OrganizationType | Vård- eller omsorgsenhet som medarbetaren har sitt uppdrag i, kopplat till denna roll | 0..1 |
 | careProvidingCareUnit | OrganizationType | Vårdutförande enhet som medarbetaren har sitt uppdrag i, kopplat till denna roll | 0..1 |
 | contact | ContactType | Kontaktväg(ar) till medarbetaren, kopplat till medarbetarens roll | 0..* |
-| careTeam | CareTeamType | Team av medarbetare som tillsammans utgör fast kontak. / Om exempelvis ett (1) team utgörs av två medarbetare ska två instanser av PractitionerRoleType förmedlas, en för respektive medarbetare. | 0..1 |
+| careTeam | CareTeamType | Team av medarbetare som tillsammans utgör fast kontak.<br/>Om exempelvis ett (1) team utgörs av två medarbetare ska två instanser av PractitionerRoleType förmedlas, en för respektive medarbetare. | 0..1 |
 
 #### 5.1.8 CareTeamType
 
@@ -135,7 +135,7 @@ Datatypen mappar gentemot FHIR Organization.
 
 | Namn | Typ | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| hsaId | IIType | HSAId för organisationen. Organisationen kan antingen vara: / * vård- eller omsorgsgivare / * vård- eller omsorgsenhet / * vårdutförande enhet / IIType.extension = `<HSAId för organisationen>` / IIType.root = ”1.2.752.129.2.1.4.1” | 1..1 |
+| hsaId | IIType | HSAId för organisationen. Organisationen kan antingen vara:<br/>* vård- eller omsorgsgivare<br/>* vård- eller omsorgsenhet<br/>* vårdutförande enhet<br/>IIType.extension = `<HSAId för organisationen>`<br/>IIType.root = ”1.2.752.129.2.1.4.1” | 1..1 |
 | name | string | Organisationens namn. | 0..1 |
 
 #### 5.1.10 Mappning gentemot FHIR

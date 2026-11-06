@@ -14,7 +14,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | Begäran |  |  |  |
 | personId* | II | Ett personnummer eller samordningsnummer för en person | 0..1 |
 | ../ extension | String | Identitet i form av ÅÅÅÅMMDDXXXX. | 1..1 |
-| ../ root | String | Anger om identiteten är ett personnummer eller samordningsnummer. Personnummer: "1.2.752.129.2.1.3.1" / Samordningsnummer: "1.2.752.129.2.1.3.3" | 1..1 |
+| ../ root | String | Anger om identiteten är ett personnummer eller samordningsnummer. Personnummer: "1.2.752.129.2.1.3.1"<br/>Samordningsnummer: "1.2.752.129.2.1.3.3" | 1..1 |
 | födelseDatum | date | Söker personer efter födelsedatum | 0..1 |
 | efternamn | String | Söker personer efter efternamn | 0..1 |
 | fornamn | String | Söker personer efter förnamn | 0..* |
@@ -25,10 +25,10 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | ../../root | String | OID= "1.2.752.116.3.1.1". | 1..1 |
 | ../personId | II | Ett personnummer eller samordningsnummer för en person. | 0..1 |
 | ../../ extension | String | Identitet i form av ÅÅÅÅMMDDXXXX. | 1..1 |
-| ../../ root | String | Anger om identiteten är ett personnummer eller samordningsnummer. Personnummer: "1.2.752.129.2.1.3.1" / Samordningsnummer: "1.2.752.129.2.1.3.3" | 1..1 |
+| ../../ root | String | Anger om identiteten är ett personnummer eller samordningsnummer. Personnummer: "1.2.752.129.2.1.3.1"<br/>Samordningsnummer: "1.2.752.129.2.1.3.3" | 1..1 |
 | ../tidigarePersonId | II | Ett tidigare personnummer eller samordningsnummer för en person. | 0..1 |
 | ../../ extension | String | Identitet i form av ÅÅÅÅMMDDXXXX. | 1..1 |
-| ../../ root | String | Anger om identiteten är ett personnummer eller samordningsnummer. Personnummer: "1.2.752.129.2.1.3.1" / Samordningsnummer: "1.2.752.129.2.1.3.3" | 1..1 |
+| ../../ root | String | Anger om identiteten är ett personnummer eller samordningsnummer. Personnummer: "1.2.752.129.2.1.3.1"<br/>Samordningsnummer: "1.2.752.129.2.1.3.3" | 1..1 |
 | ../efternamn | String | En persons efternamn | 1..1 |
 | ../samtligaFornamn | String | En persons samtliga förnamn | 1..* |
 | ../fodelsedatum | date | Datum för en persons födelse, anges enligt ÅÅÅÅMMDD | 1..1 |
@@ -123,10 +123,10 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | ../../root | String | OID= "1.2.752.116.3.1.1". | 1..1 |
 | ../personId | II | Ett personnummer eller samordningsnummer för en person. | 0..1 |
 | ../../ extension | String | Identitet i form av ÅÅÅÅMMDDXXXX. | 1..1 |
-| ../../ root | String | Anger om identiteten är ett personnummer eller samordningsnummer. Personnummer: "1.2.752.129.2.1.3.1" / Samordningsnummer: "1.2.752.129.2.1.3.3" | 1..1 |
+| ../../ root | String | Anger om identiteten är ett personnummer eller samordningsnummer. Personnummer: "1.2.752.129.2.1.3.1"<br/>Samordningsnummer: "1.2.752.129.2.1.3.3" | 1..1 |
 | ../tidigarePersonId | II | Ett personnummer eller samordningsnummer för en person om de bytt personId. | 0..1 |
 | ../../ extension | String | Identitet i form av ÅÅÅÅMMDDXXXX. | 1..1 |
-| ../../ root | String | Anger om identiteten är ett personnummer eller samordningsnummer. Personnummer: "1.2.752.129.2.1.3.1" / Samordningsnummer: "1.2.752.129.2.1.3.3" | 1..1 |
+| ../../ root | String | Anger om identiteten är ett personnummer eller samordningsnummer. Personnummer: "1.2.752.129.2.1.3.1"<br/>Samordningsnummer: "1.2.752.129.2.1.3.3" | 1..1 |
 | ../efternamn | String | En persons efternamn | 1..1 |
 | ../mellannamn | String | En persons mellannamn. | 0..1 |
 | ../samtligaFornamn | String | En persons samtliga förnamn | 1..* |

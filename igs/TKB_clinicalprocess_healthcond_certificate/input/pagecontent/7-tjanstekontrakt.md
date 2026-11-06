@@ -223,7 +223,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. För gemensamm
 | logiskAdressMottagare* | string | Logisk adress för den vårdenhet som intygstjänsten ska vidarebefordra meddelandet till. | 1..1 | Enhet.Enhets-id.extension |
 | amne* | Amneskod (se 7.2.1) | Kodat värde som anger ämnet för frågan. | 1..1 | Meddelande.ämne |
 | rubrik | string | En valfri rubrik som beskriver meddelandet. | 0..1 | Meddelande.rubrik |
-| meddelande* | string | Meddelandets text. / Om meddelandet är av ämne “Komplettering” ska det via det här fältet skickas det generella kompletteringsmeddelandet. Kompletteringmeddelandet som gäller en specifik fråga i intyget ska skickas via fältet komplettering/text | 1..1 | Meddelande.meddelande |
+| meddelande* | string | Meddelandets text.<br/>Om meddelandet är av ämne “Komplettering” ska det via det här fältet skickas det generella kompletteringsmeddelandet. Kompletteringmeddelandet som gäller en specifik fråga i intyget ska skickas via fältet komplettering/text | 1..1 | Meddelande.meddelande |
 | paminnelseMeddelande-id* | string | Identitet på ett tidigare skickat meddelande, som detta meddelande är en påminnelse om. | 0..1 | Meddelande.meddelande-id |
 | svarPa | MeddelandeReferens (se 7.1.7) | Om detta meddelande är ett svar på en fråga från vården ska referens till frågan skickas | 0..1 | Meddelande.meddelande-id, Meddelande.referens-id |
 | skickatAv | - | - | 1..1 | - |
@@ -399,7 +399,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. För gemensamm
 | :--- | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |  |
 | intyg | Intyg (se 7.1.5) | Intygsutkast eller signerat intyg enligt den gemensamma typen Intyg. | 1..1 | Intyg, Intygsmottagare.part, Patient, HoS-personal, Enhet, Vårdgivare, Relation, Status, Part, Svar, Delsvar, Fråga.fråge-id, Delfråga.delfråge-id, Metadata.signerattidpunkt |
-| handelse | Handelse (se 7.1.3) | Information om en händelse. / Händelse kan gälla ett intygsutkast, ett signerat intyg eller ärendekommunikationen för ett intyg. | 1..1 | Händelse |
+| handelse | Handelse (se 7.1.3) | Information om en händelse.<br/>Händelse kan gälla ett intygsutkast, ett signerat intyg eller ärendekommunikationen för ett intyg. | 1..1 | Händelse |
 | skickadeFragor | Arenden (se 7.1.1) | Frågor som rör intyget och som har skickats från vården. | 1..1 | Ärenden |
 | mottagnaFragor | Arenden (se 7.1.1) | Frågor som rör intyget och som har skickats från intygsmottagaren. | 1..1 | Ärenden |
 | ref | string | Referens till något i det integrerande vårdsystemet som ska kopplas ihop med intyget. Kan exempelvis vara ett id för en vårdkontakt. | 0..1 | Referens.ref |
@@ -438,7 +438,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. För gemensamm
 | ../item | ListItem (lokalt definierad i kontraktet) | Element som håller ihop objekt för ett intyg | 0..* | - |
 | ../../intyg | Intyg (se 7.1.5) | Ett intyg enligt den gemensamma fälttypen Intyg. | 1..1 | Intyg, Intygsmottagare.part, Patient, HoS-personal, Enhet, Vårdgivare, Relation, Status, Part, Svar, Delsvar, Fråga.fråge-id, Delfråga.delfråge-id, Metadata.signerattidpunkt |
 | ../../handelser | HandelseList | En lista innehållande samtliga händelser för ett intyg. | 1..1 | - |
-| ../../../handelse | Handelse (se 7.1.3) | Information om en händelse. / En händelse kan gälla ett intygsutkast, ett signerat intyg eller ärendekommunikationen för ett intyg. | 0..* | Händelse |
+| ../../../handelse | Handelse (se 7.1.3) | Information om en händelse.<br/>En händelse kan gälla ett intygsutkast, ett signerat intyg eller ärendekommunikationen för ett intyg. | 0..* | Händelse |
 | ../../skickadeFragor | Arenden (se 7.1.1) | Frågor som rör intyget och som har skickats från vården. | 1..1 | Ärende |
 | ../../mottagnaFragor | Arenden (se 7.1.1) | Frågor som rör intyget och som har skickats från intygsmottagaren. | 1..1 | Ärende |
 | ../../ref | string | Referens till något i det integrerande vårdsystemet som ska kopplas ihop med intyget. Kan exempelvis vara ett id för en vårdkontakt. | 0..1 | Referens.ref |
@@ -481,7 +481,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. För gemensamm
 | sjukfallLista | SjukfallLista (lokalt definierad i kontraktet) | Lista med sjukfall. | 1..1 |  |
 | ../sjukfall | Sjukfall (lokalt definierad i kontraktet) | Pågående sjukfall. | 0..* | Sjukfall |
 | ../../person-id | PersonId (se 7.2.10) | Patientens person- eller samordningsnummer. | 1..1 | Patient.person.id |
-| ../../patientFullstandigtnamn | string | Patientens namn. | 0..1 | Patient.förnamn / Patient.mellannamn / Patient.efternamn |
+| ../../patientFullstandigtnamn | string | Patientens namn. | 0..1 | Patient.förnamn<br/>Patient.mellannamn<br/>Patient.efternamn |
 | ../../enhets-id | HsaId (se 7.2.5) | HSA-id för enhet. | 1..1 | Enhet.enhets-id |
 | ../../personal-id | HsaId (se 7.2.5) | HSA-id för HoS-person som har signerat nuvarande intyg i sjukfallet. | 1..1 | HoS-personal.personal-id |
 | ../../startdatum | DateType | Datum då sjukfallet startade. | 1..1 | Sjukfall.startdatum |
@@ -495,7 +495,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. För gemensamm
 | ../../../originalText | string | Beskrivande text. Används ej. | 0..1 | Sjukfall.diagnoskod |
 | ../../antalintyg | int | Antal intyg som ingår i sjukfallet. | 1..1 | Sjukfall.antal intyg |
 | ../../sjukskrivningslangd | int | Sjukfallets totala längd i dagar. | 1..1 | Sjukfall.sjukskrivningslängd |
-| ../../sjukskrivningsgrad | Sjukskrivningsgrad | Platshållare för information om sjukfallets sjukskrivningsgrad. | 1..1 | Sjukfall.sjukskrivningsgrad / Sjukfall.aktiv sjukskrivnignsgrad |
+| ../../sjukskrivningsgrad | Sjukskrivningsgrad | Platshållare för information om sjukfallets sjukskrivningsgrad. | 1..1 | Sjukfall.sjukskrivningsgrad<br/>Sjukfall.aktiv sjukskrivnignsgrad |
 | ../../../aktivGrad | int | Den sjukskrivningsgrad som är giltig vid datum för hämtning av sjukfall. | 1..1 | Sjukfall.aktiv sjukskrivnignsgrad |
 | ../../../grader | Sjukskrivningsgrader | Platshållare för information om samtliga sjukskrivningsgrader i det intyg som är giltigt vid datum för hämtning av sjukfall. | 1..1 | Sjukfall.sjukskrivningsgrad |
 | ../../../../grad | int | Samtliga sjukskrivningsgrader i det intyg som är giltigt vid datum för hämtning av sjukfall. | 1..4 | Sjukfall.sjukskrivningsgrad |

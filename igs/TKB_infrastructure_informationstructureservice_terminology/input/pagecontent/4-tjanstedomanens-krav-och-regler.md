@@ -33,8 +33,8 @@ Följande generella SLA-krav gäller för alla tjänsteproducenter som tillhanda
 
 | Kategori | Värde | Beskrivning |
 | :--- | :--- | :--- |
-| Svarstid | <2 sekunder för GetTerminologySubset / <0.5 sekunder för övriga tjänster i domänen | Exklusive nätverksfördröjningar på grund av datavolymer |
-| Tillgänglighet | Tjänst driftas med kontorstidssupport. / Tjänsten är normalt tillgänglig 24h/dygn. |  |
+| Svarstid | <2 sekunder för GetTerminologySubset<br/><0.5 sekunder för övriga tjänster i domänen | Exklusive nätverksfördröjningar på grund av datavolymer |
+| Tillgänglighet | Tjänst driftas med kontorstidssupport.<br/>Tjänsten är normalt tillgänglig 24h/dygn. |  |
 | Last | 1 transaktion per sekund |  |
 | Aktualitet | All information skall alltid vara uppdaterad |  |
 | Återställningstid | 1 dygn | Vid katastrof, bortfall av hel hall |

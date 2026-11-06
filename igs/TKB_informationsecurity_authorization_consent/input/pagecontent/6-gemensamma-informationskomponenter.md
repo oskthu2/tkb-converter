@@ -80,7 +80,7 @@ Datatypen utökar datatypen Result.
 | :--- | :--- | :--- | :--- |
 | result | ResultType |  | 1 |
 | hasConsent | xs:Boolean | Anger om aktören har ett giltigt samtycke, alternativt intyg om nödsituation, gällande åtkomst. | 1 |
-| assertionType | AssertionTypeType | Anger vilken typ av intyg som hittades. / Om olika typer av samtyckesintyg finns registrerade returneras endast typen för det senaste registrerade intyget. | 0..1 |
+| assertionType | AssertionTypeType | Anger vilken typ av intyg som hittades.<br/>Om olika typer av samtyckesintyg finns registrerade returneras endast typen för det senaste registrerade intyget. | 0..1 |
 
 #### 6.1.8 ExtendedPDLAssertionType
 
@@ -91,7 +91,7 @@ Datatypen utökar datatypen PDLAssertion.
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | pDLAssertion | PDLAssertionType |  | 1 |
-| representedBy | IIType | Personidentitet på den företrädare/vårdnadshavare som företräder patienten/brukaren. / Värdet är ej obligatoriskt men ska finnas om samtycket gavs av företrädare/vårdnadshavare. | 0..1 |
+| representedBy | IIType | Personidentitet på den företrädare/vårdnadshavare som företräder patienten/brukaren.<br/>Värdet är ej obligatoriskt men ska finnas om samtycket gavs av företrädare/vårdnadshavare. | 0..1 |
 | registrationInfo | ActionType | Innehåller information om vem som begärt och registrerat samtycket samt tidpunkten för begäran och registreringen. | 1 |
 | cancellationInfo | ActionType | Information om en eventuell utfört avslutande av samtycket, när avslutandet registrerats från vård- och omsorgen. Innehåller vem som begärt och registrerat avslutandet, tidpunkten för begäran och registreringen av avslutandet, samt anledningen till avslutandet. | 0..1 |
 | deletionInfo | ActionType | Information om en eventuell utförd makulering av samtycket. Innehåller vem som begärt och registrerat makuleringen, tidpunkten för begäran och registreringen av makuleringen, samt anledningen till makuleringen. | 0..1 |
@@ -107,7 +107,7 @@ Datatypen utökar datatypen Result.
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | result | ResultType |  | 1 |
-| moreOnOrAfter | xs:DateTime | Anger fr.o.m. vilken tidpunkt ytterligare samtyckesintyg finns att hämta. Tidpunkten kan användas iterativt i anrop till tjänsten som ett värde till parametern CreatedOnOrAfter. / Om inga fler samtyckesintyg finns att tillgå returneras ändå en tidpunkt vilket då får representera nästa möjliga hämtningstidpunkt, dvs nya samtyckesintyg kommer att bli registrerade efter denna tidpunkt. | 1 |
+| moreOnOrAfter | xs:DateTime | Anger fr.o.m. vilken tidpunkt ytterligare samtyckesintyg finns att hämta. Tidpunkten kan användas iterativt i anrop till tjänsten som ett värde till parametern CreatedOnOrAfter.<br/>Om inga fler samtyckesintyg finns att tillgå returneras ändå en tidpunkt vilket då får representera nästa möjliga hämtningstidpunkt, dvs nya samtyckesintyg kommer att bli registrerade efter denna tidpunkt. | 1 |
 | hasMore | xs:Boolean | Anger om det finns ytterligare samtycken att hämta. Om fler samtycken finns att hämta bör hämtningen utgå fr.o.m. den tidpunkt som anges i MoreOnOrAfter. | 1 |
 | assertions | PDLAssertionType | Lista med giltiga intyg. | 0..* |
 | cancelledAssertions | CancelledAssertionType | Lista med ej utgångna och makulerade intyg. | 0..* |
@@ -150,7 +150,7 @@ En universellt unik identifierare.
 
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| root | xs:String | Fältet root sätts till OID för kodverket för identifieraren (extension) / Som exempel för svenskt personnummer skall Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas. | 1 |
+| root | xs:String | Fältet root sätts till OID för kodverket för identifieraren (extension)<br/>Som exempel för svenskt personnummer skall Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas. | 1 |
 | extension | xs:String | Ett id som tillsammans med värdet i root är unikt. Som exempel för svensk personidentitet så är extension lika med personnummer. | 0..1 |
 
 #### 6.1.14 Id
@@ -182,7 +182,7 @@ Datatyp som representerar ett intyg som ger direktåtkomst till andra vårdgivar
 | careUnitId | HsaId | Vårdenhets id. Intyget kopplas till den vårdenhet som medarbetaren är kopplad till via dennes aktuella medarbetaruppdrag. | 1 |
 | employeeId | HsaId | Medarbetare id. Om samtycket är personligt anges medarbetarens id. Om samtycket gäller all behörig personal på vårdenheten skall inget värde anges. | 0..1 |
 | startDate | xs:DateTime | Startdatum för vilken giltighetstid samtycket avser. | 1 |
-| endDate | xs:DateTime | Optionellt slutdatum för vilken giltighetstid samtycket avser. Om ett slutdatum är angivet gäller samtycket t.o.m denna tidpunkt. Slutdatum kan ha angivits i samband med att samtycket inhämtades och registrerades eller om patient i efterhand valt att avsluta samtycket. / Om inget slutdatum anges, gäller samtycket tills det blir avslutat eller makulerat. | 0..1 |
+| endDate | xs:DateTime | Optionellt slutdatum för vilken giltighetstid samtycket avser. Om ett slutdatum är angivet gäller samtycket t.o.m denna tidpunkt. Slutdatum kan ha angivits i samband med att samtycket inhämtades och registrerades eller om patient i efterhand valt att avsluta samtycket.<br/>Om inget slutdatum anges, gäller samtycket tills det blir avslutat eller makulerat. | 0..1 |
 | ownerId | OwnerId | Optionell identifierare för det system som skapade samtycket. Används endast för tekniskt bruk för t.ex. uppföljning och spårning. | 0..1 |
 | patientId | IIType | Personidentitet på patienten/brukaren som intyget avser. | 1 |
 

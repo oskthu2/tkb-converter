@@ -24,7 +24,7 @@ Datatyp som håller information för vilken vårdgivare och vårdenhet som haft 
 | userId | HsaId | Vårdaktörens id. | 1 |
 | userName | UserName | Namn på vårdaktör. | 0..1 |
 | userTitle | UserTitle | Titel på vårdaktör. | 0..1 |
-| purpose | PurposeDescription | Information om syftet med aktiviten. / kan vara något av dessa värden: Vård och behandling, Kvalitetssäkring, Annan dokumentation enligt lag, Statistik, Administration och Kvalitetsregister. | 1 |
+| purpose | PurposeDescription | Information om syftet med aktiviten.<br/>kan vara något av dessa värden: Vård och behandling, Kvalitetssäkring, Annan dokumentation enligt lag, Statistik, Administration och Kvalitetsregister. | 1 |
 | resourceType | ResourceTypeValue | Typ av resurs. Se ref #7 och #8 | 1 |
 
 #### 6.1.2 AccessLogsType
@@ -50,11 +50,11 @@ Datatyp som representerar vilken typ av aktivitet som utförts, på vilken nivå
 
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| activityType | ActivityTypeValue | Värde som anger vilken typ av aktivitet som utförts. / Något av dessa värden ska anges: Läsa, Skriva, Signera, Utskrift, Vidimera, Radera och Nödöppning | 1 |
+| activityType | ActivityTypeValue | Värde som anger vilken typ av aktivitet som utförts.<br/>Något av dessa värden ska anges: Läsa, Skriva, Signera, Utskrift, Vidimera, Radera och Nödöppning | 1 |
 | activityLevel | ActivityLevel | Information om vilken nivå som aktivitet utförts på. | 0..1 |
 | activityArgs | ActivityArgs | Övrig information för aktiviteten. T.ex. parametrar för en rapport. | 0..1 |
 | startDate | xs:DateTime | Information om tidpunkt som aktivitet utfördes på. | 1 |
-| purpose | PurposeDescription | Information om syftet med aktiviteten. / Något av dessa värden ska anges: Vård och behandling, Kvalitetssäkring, Annan dokumentation enligt lag, Statistik, Administration och Kvalitetsregister. | 1 |
+| purpose | PurposeDescription | Information om syftet med aktiviteten.<br/>Något av dessa värden ska anges: Vård och behandling, Kvalitetssäkring, Annan dokumentation enligt lag, Statistik, Administration och Kvalitetsregister. | 1 |
 
 #### 6.1.5 ActivityArgs
 
@@ -146,7 +146,7 @@ En universellt unik identifierare.
 
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| root | xs:String | Fältet root sätts till OID för kodverket för identifieraren (extension) / Som exempel för svenskt personnummer skall Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas. | 1 |
+| root | xs:String | Fältet root sätts till OID för kodverket för identifieraren (extension)<br/>Som exempel för svenskt personnummer skall Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas. | 1 |
 | extension | xs:String | Ett id som tillsammans med värdet i root är unikt. Som exempel för svensk personidentitet så är extension lika med personnummer. | 0..1 |
 
 #### 6.1.16 Id
@@ -351,7 +351,7 @@ Data kan förekomma som inbäddat element eller hänvisas via en referens URL
 | :--- | :--- | :--- | :--- |
 | id | xs:String | Identitet på bilagan. Används vid referenser inom en tjänsteinteraktion. | 0..1 |
 | mediaType | CodedValue | Mediatyper i MIME-format. Se ARK_0038 för mediatyper | 1 |
-| value | xs:Base64Binary | Används vid inbäddad bilaga och innehåller då bilagans binärdata, kodat enligt base64. / Om bilagan innehåller avkodad text ska denna vara kodad enligt UTF-8-format. | 0..1 |
+| value | xs:Base64Binary | Används vid inbäddad bilaga och innehåller då bilagans binärdata, kodat enligt base64.<br/>Om bilagan innehåller avkodad text ska denna vara kodad enligt UTF-8-format. | 0..1 |
 | reference | xs:AnyURI | Används vid refererad bilaga, och innehåller då den URL där bilagan kan hämtas. | 0..1 |
 
 ### 6.2 Kodverk

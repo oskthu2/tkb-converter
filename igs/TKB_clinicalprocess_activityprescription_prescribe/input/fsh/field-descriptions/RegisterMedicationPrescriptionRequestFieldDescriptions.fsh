@@ -47,6 +47,12 @@ PU: kön
 
 RR: kön"
 * patientInformation.gender ^comment = "TKB-fält: `../gender` (`GenderEnum`, kardinalitet 0..1)."
+* medicationListVersion ^definition = "Version på patientens samlade läkemedelslista.
+
+Se kapitel 5.2 för exempel och regler kring format."
+* medicationListVersion ^comment = "TKB-fält: `medicationListVersion` (`Identifier`, kardinalitet 1..1)."
+* medicationPrescriptionList ^definition = "Lista med läkemedelsbehandlingar."
+* medicationPrescriptionList ^comment = "TKB-fält: `medicationPrescriptionList` (`MedicationPrescriptionListType_setter`, kardinalitet 1..1)."
 * medicationPrescriptionList.medicationPrescriptionSequence.medicationPrescription.prescribedBy ^definition = "Ordinatör är den som är ansvarig för det medicinska beslutet för just den här den Läkemedelsordinationen och som (verksamhetsmässigt) signerat den.
 
 Ordinatören kan i undantagsfall sakna hsa-id och behöva anges med för- och efternamn i klartext"

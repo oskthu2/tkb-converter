@@ -18,7 +18,7 @@ Engagemangsindex är (enligt T-boken [Ref4]) en stödtjänst som kan finnas i fl
 Med hjälp av uppdateringskontraktet (Update) kan verksamhetssystem skapa indexposter i enlighet med regelverk för respektive tjänstedomän. Uppdatering kan ske antingen direkt i det nationella indexet eller i en lokal instans.
 För att nationellt engagemangsindex ska kunna erbjuda sina tjänstekonsumenter en konsoliderad vy av invånarens engagemang, inklusive de som registrerats i en lokal instans, kopplas de olika instanserna av index samman med hjälp av notifieringskontraktet (ProcessNotification).
 
-| Exempel: / Verksamhetssystem i organisation A uppdaterar direkt i nationell instans med kontraktet Update. / Lokalt engagemangsindex i organisation B agerar tjänstekonsument för ProcessNotification, och uppdaterar nationellt engagemangsindex via den producenttjänst som nationellt engagemangsindex tillhandahåller. / Nationellt Engagemangsindex agerar endast producent och det lokala i organisation B agerar endast konsument mot det nationella. |
+| Exempel:<br/>Verksamhetssystem i organisation A uppdaterar direkt i nationell instans med kontraktet Update.<br/>Lokalt engagemangsindex i organisation B agerar tjänstekonsument för ProcessNotification, och uppdaterar nationellt engagemangsindex via den producenttjänst som nationellt engagemangsindex tillhandahåller.<br/>Nationellt Engagemangsindex agerar endast producent och det lokala i organisation B agerar endast konsument mot det nationella. |
 | :--- |
 Om det finns situationer där det finns flera engagemangsindex lokalt så kan även dessa agera utifrån en hierarki och i ett sådant fall så ska en lokal ”toppnod” agera producent av ProcessNotification gentemot övriga lokala engagemangsindex och som konsument mot nationellt engagemangsindex.
 
@@ -89,7 +89,7 @@ Figuren nedan visar strukturen för exemplet.
 | Namn | Beskrivning |
 | :--- | :--- |
 | Applikation | Det system som används för att konsumera information. Dvs det system som använder tjänster enligt ett tjänstekontrakt. |
-| Aggregerande tjänst | En aggregerande tjänst är en integrationstjänst som för en tjänstekonsument sammanställer en nationell vy av informationen av den typ som är aktuell för tjänsten i fråga. Är beroende av engagemangsindex för att begränsa sökningen till relevanta informationsägare. / För detaljer kring utformning av aggregerande tjänst hänvisas till RIV Tekniska Anvisningar - Tjänsteplattform [Ref7]. |
+| Aggregerande tjänst | En aggregerande tjänst är en integrationstjänst som för en tjänstekonsument sammanställer en nationell vy av informationen av den typ som är aktuell för tjänsten i fråga. Är beroende av engagemangsindex för att begränsa sökningen till relevanta informationsägare.<br/>För detaljer kring utformning av aggregerande tjänst hänvisas till RIV Tekniska Anvisningar - Tjänsteplattform [Ref7]. |
 | Engagemangsindex (EI) | Stödtjänst där det finns information om vilka verksamhetssystem som har information om en viss patient. |
 | Verksamhetssystem | Ett system som bär information om en viss patient och som tillgängliggör informationen genom ett tjänstekontrakt och registrerar informationen i engagemangsindex. |
 

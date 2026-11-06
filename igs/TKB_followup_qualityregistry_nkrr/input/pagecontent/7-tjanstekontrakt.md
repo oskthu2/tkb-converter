@@ -33,24 +33,24 @@ Nedanstående tabell beskriver varje element i begäran och svar. Referens till 
 | Namn | Typ | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |
-| type | string | Den typ av registrering i kvalitetsregistret som notifieringen avses ge upphov till. / Ska anges enligt den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret. | 0..1 |
-| patientId | IIType | Id för patienten där fältet extension sätts till patientens identitetsbeteckning. Anges med 12 tecken utan avskiljare. / Fältet root sätts till OID för typ av identifierare. / För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas. / För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas. | 1..* |
-| healthcareProviderId | IIType | Id för informationsägande vårdgivare för informationen i notifieringen. / Anges för att möjliggöra spårbarhet till informationsägande vårdgivare för informationen som lämnas ut och som hanteras av informationsmottaren eller andra parter. / I första hand HSA-id alternativt i andra hand organisationsnummer. / Om HSA-id används sätts fältet root till OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id. / Om organisationsnummer används skall fältet root sättas till OID för organisationsnummer (1.2.752.29.4.3) och fältet extension sättas till organisationsnumret. / Enskild näringsidkare har i rollen som juridisk person sitt personnummer som organisationsnummer. | 1..1 |
-| registerUnitId | string | Id för registerenhet. / Registerenhet är den minsta indelning av datatillhörighet som ett kvalitetsregister använder för registrering och analys av data. Inte sällan motsvarar en registerenhet en vårdenhet inom vårdgivaren, men inte alltid. / Ska anges enligt den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret. | 0..1 |
-| reference | ReferenceType | Information om referenser till tidigare registreringar i kvalitetsregistret. Informationen används för att ge rätt kontext på den avsedda registreringen. / Ska anges enligt den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret. | 0..* |
-| NkrrParameters | NkrrParametersType | Här kan parametrar som används i begäran för tjänstekontraktet GetFormData anges. / Parametrarna ska fyllas i enligt den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret. | 0..1 |
+| type | string | Den typ av registrering i kvalitetsregistret som notifieringen avses ge upphov till.<br/>Ska anges enligt den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret. | 0..1 |
+| patientId | IIType | Id för patienten där fältet extension sätts till patientens identitetsbeteckning. Anges med 12 tecken utan avskiljare.<br/>Fältet root sätts till OID för typ av identifierare.<br/>För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.<br/>För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas. | 1..* |
+| healthcareProviderId | IIType | Id för informationsägande vårdgivare för informationen i notifieringen.<br/>Anges för att möjliggöra spårbarhet till informationsägande vårdgivare för informationen som lämnas ut och som hanteras av informationsmottaren eller andra parter.<br/>I första hand HSA-id alternativt i andra hand organisationsnummer.<br/>Om HSA-id används sätts fältet root till OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id.<br/>Om organisationsnummer används skall fältet root sättas till OID för organisationsnummer (1.2.752.29.4.3) och fältet extension sättas till organisationsnumret.<br/>Enskild näringsidkare har i rollen som juridisk person sitt personnummer som organisationsnummer. | 1..1 |
+| registerUnitId | string | Id för registerenhet.<br/>Registerenhet är den minsta indelning av datatillhörighet som ett kvalitetsregister använder för registrering och analys av data. Inte sällan motsvarar en registerenhet en vårdenhet inom vårdgivaren, men inte alltid.<br/>Ska anges enligt den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret. | 0..1 |
+| reference | ReferenceType | Information om referenser till tidigare registreringar i kvalitetsregistret. Informationen används för att ge rätt kontext på den avsedda registreringen.<br/>Ska anges enligt den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret. | 0..* |
+| NkrrParameters | NkrrParametersType | Här kan parametrar som används i begäran för tjänstekontraktet GetFormData anges.<br/>Parametrarna ska fyllas i enligt den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret. | 0..1 |
 | Svar |  |  |  |
-| referenceId | string | Identifierare som kan lämnas som referens. / Ska specificeras och hanteras enligt den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret. | 0..1 |
+| referenceId | string | Identifierare som kan lämnas som referens.<br/>Ska specificeras och hanteras enligt den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret. | 0..1 |
 | result | ResultType | Information om mottagningen av notifieringen lyckades. | 1..1 |
-| ../resultCode | ResultCodeEnum | Anger resultatet av notifieringen. / Kan endast vara OK, INFO eller ERROR. | 1..1 |
+| ../resultCode | ResultCodeEnum | Anger resultatet av notifieringen.<br/>Kan endast vara OK, INFO eller ERROR. | 1..1 |
 | ../resultText | string | En beskrivande text som kan anges vid INFO eller ERROR. | 0..1 |
 | ReferenceType |  |  |  |
-| key | string | Nyckel för referens. / Vad som ska anges som nyckel ska framgå i den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret. | 1..1 |
+| key | string | Nyckel för referens.<br/>Vad som ska anges som nyckel ska framgå i den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret. | 1..1 |
 | value | string | Information om tidigare registrering enligt den angivna nyckeln. | 1..1 |
 | NkrrParametersType |  |  |  |
 | formId | string | Identifierare av mallen | 0..1 |
-| sampleDate | string | Datum för filtrering vid insamling av underlag. / Datum som skickas i attributet används för att populera attributen careEncounterStartDate och careEncounterEndDate i tjänstekontraktet GetFormData. / Attributet ska fyllas i enligt den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret. / Observera att ordningen på datumen som skickas kan ha betydelse och måste därför följa den ordning som beskrivs i informationsspecifikationen som kvalitetsregistret tillhandahåller. | 0..* |
-| careUnitId | IIType | Vårdenheter inom vilka underlag för registrering ska hämtas. / Fältet root sätts till OID (1.2.752.129.2.1.4.1) för HSA. / Fältet extension sätts till HSA-id på vårdenhet. | 0..* |
+| sampleDate | string | Datum för filtrering vid insamling av underlag.<br/>Datum som skickas i attributet används för att populera attributen careEncounterStartDate och careEncounterEndDate i tjänstekontraktet GetFormData.<br/>Attributet ska fyllas i enligt den informationsspecifikation som kvalitetsregistret tillhandahåller för att beskriva hanteringen av notifiering till registret.<br/>Observera att ordningen på datumen som skickas kan ha betydelse och måste därför följa den ordning som beskrivs i informationsspecifikationen som kvalitetsregistret tillhandahåller. | 0..* |
+| careUnitId | IIType | Vårdenheter inom vilka underlag för registrering ska hämtas.<br/>Fältet root sätts till OID (1.2.752.129.2.1.4.1) för HSA.<br/>Fältet extension sätts till HSA-id på vårdenhet. | 0..* |
 
 #### Övriga regler
 Till detta tjänstekontrakt finns regler som ej uttrycks i schemafilerna och tabellen ovan. Dessa återfinns nedan. Regler markerade med [sch] återfinns i schematron (constraints).
@@ -59,13 +59,13 @@ Till detta tjänstekontrakt finns regler som ej uttrycks i schemafilerna och tab
 | :--- | :--- | :--- |
 | Regler i begäran | Regler i begäran | Regler i begäran |
 | Verify OID for patientId.root [sch] | patientId | extension ska vara 1.2.752.129.2.1.3.1 eller 1.2.752.129.2.1.3.3. |
-| Verify single patient if NkrrParameters or reference is used [sch] | NkrrParameters / reference | NkrrParameters eller reference får inte anges om fler än en patient anges då dessa uppgifter är patientspecifika. Ska någon av dessa uppgifter hanteras behöver tjänstekonsumenten skicka en notifiering per patient. |
+| Verify single patient if NkrrParameters or reference is used [sch] | NkrrParameters<br/>reference | NkrrParameters eller reference får inte anges om fler än en patient anges då dessa uppgifter är patientspecifika. Ska någon av dessa uppgifter hanteras behöver tjänstekonsumenten skicka en notifiering per patient. |
 | Unik typ av registrering | type | Typen av registrering ska vara unik inom en tjänsteproducent. |
 | Regler i svaret | Regler i svaret | Regler i svaret |
 |  |  |  |
 | Allmänna regler | Allmänna regler | Allmänna regler |
 | Verify non-empty elements [sch] | Alla element. | Tomma värden får inte anges. |
-| Tillämpad specifikation | Elementen type, registerUnitId, reference och NkrrParameters behöver beskrivas i den tillämpad specifikation. / Hantering av övriga element kan också beskrivas i den tillämpade specifikationen, men det är inte nödvändigt. | Tjänsteproducenter behöver tillhandahålla en tillämpad specifikation i form av t.ex. en informationsspecifikation för att beskriva hanteringen av notifiering till registret. Den tillämpade specifikationen beskriver regler för användning av tjänstekontraktet och dess innehåll utöver reglerna i denna TKB. Den tillämpade specifikationen kan t.ex. begränsa kardinaliteten för attributet patientId som uttrycker om en eller flera patienter får skickas i en notifiering. / Tjänstekonsumenter behöver utöver denna TKB även följa regler och anvisningar i den tillämpade specifikationen. |
+| Tillämpad specifikation | Elementen type, registerUnitId, reference och NkrrParameters behöver beskrivas i den tillämpad specifikation.<br/>Hantering av övriga element kan också beskrivas i den tillämpade specifikationen, men det är inte nödvändigt. | Tjänsteproducenter behöver tillhandahålla en tillämpad specifikation i form av t.ex. en informationsspecifikation för att beskriva hanteringen av notifiering till registret. Den tillämpade specifikationen beskriver regler för användning av tjänstekontraktet och dess innehåll utöver reglerna i denna TKB. Den tillämpade specifikationen kan t.ex. begränsa kardinaliteten för attributet patientId som uttrycker om en eller flera patienter får skickas i en notifiering.<br/>Tjänstekonsumenter behöver utöver denna TKB även följa regler och anvisningar i den tillämpade specifikationen. |
 
 ##### Icke funktionella krav
 
@@ -79,8 +79,8 @@ Koden som anges i resultCode kan vara:
 | Värde | Beskrivning |
 | :--- | :--- |
 | OK | Transaktionen har utförts enligt uppdraget. |
-| INFO | Transaktionen har utförts enligt uppdraget. En beskrivande text kan anges i resultTest. / Kvalitetsregistrets informationsspecifikation eller annan tillämpad specifikation anger hantering av beskrivande text när resultatkoden INFO används. |
-| ERROR | Transaktionen har INTE kunnat utföras p.g.a. ett logiskt fel. / Kvalitetsregistrets informationsspecifikation eller annan tillämpad specifikation anger hantering av logiska fel. |
+| INFO | Transaktionen har utförts enligt uppdraget. En beskrivande text kan anges i resultTest.<br/>Kvalitetsregistrets informationsspecifikation eller annan tillämpad specifikation anger hantering av beskrivande text när resultatkoden INFO används. |
+| ERROR | Transaktionen har INTE kunnat utföras p.g.a. ett logiskt fel.<br/>Kvalitetsregistrets informationsspecifikation eller annan tillämpad specifikation anger hantering av logiska fel. |
 
 #### Annan information om kontraktet
 
@@ -125,14 +125,14 @@ Nedanstående tabell beskriver varje element i begäran och svar. Referens till 
 | Begäran |  |  |  |
 | formId | string | Identifierare av mallen. | 1..1 |
 | subjectOfCareId | SubjectOfCareIdType | Identifierare av patienten. | 1..1 |
-| careEncounterStartDate | Iso8601DateType | Datum för start av vårdhändelse. / Tjänsteproducenter kan välja att komplettera denna beskrivning om användning av attributet careEncounterStartDate i en informationsspecifikation eller annan tillämpad specifikation. | 0..1 |
-| careEncounterEndDate | Iso8601DateType | Datum för slut av vårdhändelse. / Tjänsteproducenter kan välja att komplettera denna beskrivning om användning av attributet careEncounterEndDate i en informationsspecifikation eller annan tillämpad specifikation. | 0..1 |
+| careEncounterStartDate | Iso8601DateType | Datum för start av vårdhändelse.<br/>Tjänsteproducenter kan välja att komplettera denna beskrivning om användning av attributet careEncounterStartDate i en informationsspecifikation eller annan tillämpad specifikation. | 0..1 |
+| careEncounterEndDate | Iso8601DateType | Datum för slut av vårdhändelse.<br/>Tjänsteproducenter kan välja att komplettera denna beskrivning om användning av attributet careEncounterEndDate i en informationsspecifikation eller annan tillämpad specifikation. | 0..1 |
 | careUnitHSAId | HsaIdType | Vårdenheter inom vilka underlag ska hämtas. | 0..* |
 | employeeId | HsaIdType | Identifierare av medarbetare. | 0..1 |
 | employeePersonId | string | Medarbetares personnummer. Anges med 12 tecken utan avskiljare. | 0..1 |
 | Svar |  |  |  |
 | formElement | FormElementType | Svaret består av en lista med formulärets enskilda element. | 0..* |
-| resultCode | ResultCodeEnum | OK = Hämtningen av underlag utfört utan fel. / ERROR = Fel har uppstått. / Felet beskrivs i elementet resultText. / INFO = Information finns om hämtningen. Informationen beskrivs i elementet resultText. | 1..1 |
+| resultCode | ResultCodeEnum | OK = Hämtningen av underlag utfört utan fel.<br/>ERROR = Fel har uppstått.<br/>Felet beskrivs i elementet resultText.<br/>INFO = Information finns om hämtningen. Informationen beskrivs i elementet resultText. | 1..1 |
 | resultText | string | Beskrivning av fel som uppstått alternativt information om genomförd registrering. | 0..1 |
 | logId | string | Identifierare av loggpost hos tjänsteproducenten, t.ex. ett UUID som kan användas vid felsökning. | 0..1 |
 | FormElementType |  |  |  |
@@ -156,7 +156,7 @@ Till detta tjänstekontrakt finns regler som ej uttrycks i schemafilerna och tab
 | ID | Kontext | Beskrivning |
 | :--- | :--- | :--- |
 | Regler i begäran | Regler i begäran | Regler i begäran |
-| R3 – Registrator måste anges | employeeId / employeePersonId | Vid scenariet att en sjukvårdspersonal (registrator) loggar in i aktuellt kvalitetsregister och i ett registreringsformulär, per patient, begär hämtning av uppgifter från vårddokumentationen hos vårdgivaren för automatisk förifyllnad av fält måste uppgift om registratorn anges antingen med HSA-Id i fältet employeeId eller med personnummer i fältet employeePersonId. / I ett helautomatiserat förlopp efter en notifiering ska fälten employeeId och employeePersonId inte anges. |
+| R3 – Registrator måste anges | employeeId<br/>employeePersonId | Vid scenariet att en sjukvårdspersonal (registrator) loggar in i aktuellt kvalitetsregister och i ett registreringsformulär, per patient, begär hämtning av uppgifter från vårddokumentationen hos vårdgivaren för automatisk förifyllnad av fält måste uppgift om registratorn anges antingen med HSA-Id i fältet employeeId eller med personnummer i fältet employeePersonId.<br/>I ett helautomatiserat förlopp efter en notifiering ska fälten employeeId och employeePersonId inte anges. |
 | Regler i svaret | Regler i svaret | Regler i svaret |
 | R2 – Svar är osorterade |  | Tjänsteproducenten behöver inte garantera att de svar som returneras är sorterade i en viss ordning. |
 | R4 – Filtrering på LogicalAddress |  | Filtrera enligt RIVTA-headern LogicalAddress. Svarsmeddelandet får endast innehålla information som hämtats från den vårdgivare som anges av frågemeddelandets LogicalAddress. |

@@ -55,7 +55,7 @@ Följande behöver beaktas:
 
 | Tjänstekontrakt | Konsument | Producent | Semantisk diskrepans |
 | :--- | :--- | :--- | :--- |
-| GetFormTemplate | 2.0 | 2.1 | Om formulärmallen har skapats av en 2.1 producent och innehåller media (exempelvis bilder eller videos) på formulärsidonivå (TemplatePage) eller kopplat till en grupp med frågor (TemplateQuestionBlock) kommer dessa att bli osynliga för konsumenten. / Formler för resultatberäkningar som tidigare sparats i en formulärmall av en 2.1 konsument kommer att skickas med i svaret av en 2.1 producent. Resultatberäkningarna kommer dock att vara osynliga för en 2.0 konsument. |
+| GetFormTemplate | 2.0 | 2.1 | Om formulärmallen har skapats av en 2.1 producent och innehåller media (exempelvis bilder eller videos) på formulärsidonivå (TemplatePage) eller kopplat till en grupp med frågor (TemplateQuestionBlock) kommer dessa att bli osynliga för konsumenten.<br/>Formler för resultatberäkningar som tidigare sparats i en formulärmall av en 2.1 konsument kommer att skickas med i svaret av en 2.1 producent. Resultatberäkningarna kommer dock att vara osynliga för en 2.0 konsument. |
 | GetFormTemplate | 2.1 | 2.0 | OK |
 | SaveForm | 2.0 | 2.1 | Producenten kan i detta scenario inte avgöra huruvida formulärsvaren är besvarade av invånaren själv eller av vårdnadshavare eller ombud (aktör). Producent måste anta att det är invånaren själv som svarat. |
 | SaveForm | 2.1 | 2.0 | Om konsumenten förmedlar en aktör i anropet kan producenten inte tillgodogöra sig det. Aktören blir osynlig för producenten. |

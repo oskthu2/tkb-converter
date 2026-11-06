@@ -15,7 +15,7 @@ Denna tjänst stöttar bland annat det dynamiska urvalet av orsaker till antibio
 | :--- | :--- | :--- | :--- |
 | SubsetIdentity | String | Identifierare för urvalet | 1..1 |
 | LocalOrganizationExtension | String | HSAId för organisationspost motsvarande vårdgivare i HSA-trädet. Om denna anges kommer det nationella urvalet returneras tillsammans med de koder i urvalet som är specifika för den aktuella vårdgivaren. | 0..1 |
-| TermType | String | Typ av term som ska användas. / Fixt värde: DisplayName | 1..1 |
+| TermType | String | Typ av term som ska användas.<br/>Fixt värde: DisplayName | 1..1 |
 
 #### Svar (Response)
 

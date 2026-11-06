@@ -25,7 +25,7 @@ Flödet är internt inom e-tjänster som ska kunna förseglas. Sådan e-tjänst 
 | Invånare | Person som är användare av e-tjänst. |
 | E-tjänst | Tjänst som ger invånaren direktåtkomst till journalinformation (ex. Journalen) eller som lämnar ut journalinformation till invånaren (ex. API Gateway). |
 | Nationell master | En nationellt adresserad tjänst som innehåller alla förseglingar (enligt principen master data management). Dvs. en nationell tjänsteproducent för tjänstekontraktet GetSeals. |
-| Journalinformationsssystem | System som innehåller invånarens journalinformation. / Dvs. en tjänsteproducent för något av tjänstekontrakten för återbruk av journalinformation (ex GetMedicationHistory och GetCareDocumentation) |
+| Journalinformationsssystem | System som innehåller invånarens journalinformation.<br/>Dvs. en tjänsteproducent för något av tjänstekontrakten för återbruk av journalinformation (ex GetMedicationHistory och GetCareDocumentation) |
 
 ##### 3.1.1.3 Sekvensdiagram
 
@@ -33,7 +33,7 @@ Flödet är internt inom e-tjänster som ska kunna förseglas. Sådan e-tjänst 
 
 *Figur 1: Exempel på hur e-tjänst filtrerar förseglad information.*
 
-| Invånare begär att titta på journalinformation / E-tjänst hämtar alla gällande förseglingar genom att anropa GetSeals med invånarens personnummer. / E-tjänst hämtar efterfrågad journalinformation, t.ex vårddokumentation, vårdkontakter / E-tjänst filtrerar bort journalinformation enligt de aktiva förseglingar som finns, exempelvis all vårddokumentation där organisationsenheten i en aktiv försegling matchar organisationsenhet i vårddokumentationen. / Efter filtrering visar e-tjänsten sedan återstående journalinformation till invånaren. / Alternativt / Invånare begär att titta på journalinformation / E-tjänst hämtar alla gällande förseglingar genom att anropa GetSeals med invånarens personnummer. / E-tjänstens begäran till GetSeals timear out eller får ett transient fel. / E-tjänst visar ingen information till invånaren. |
+| Invånare begär att titta på journalinformation<br/>E-tjänst hämtar alla gällande förseglingar genom att anropa GetSeals med invånarens personnummer.<br/>E-tjänst hämtar efterfrågad journalinformation, t.ex vårddokumentation, vårdkontakter<br/>E-tjänst filtrerar bort journalinformation enligt de aktiva förseglingar som finns, exempelvis all vårddokumentation där organisationsenheten i en aktiv försegling matchar organisationsenhet i vårddokumentationen.<br/>Efter filtrering visar e-tjänsten sedan återstående journalinformation till invånaren.<br/>Alternativt<br/>Invånare begär att titta på journalinformation<br/>E-tjänst hämtar alla gällande förseglingar genom att anropa GetSeals med invånarens personnummer.<br/>E-tjänstens begäran till GetSeals timear out eller får ett transient fel.<br/>E-tjänst visar ingen information till invånaren. |
 | :--- |
 
 #### 3.1.2 Obligatoriska kontrakt

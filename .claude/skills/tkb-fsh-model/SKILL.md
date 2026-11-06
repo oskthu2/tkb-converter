@@ -273,7 +273,7 @@ scripts/sync_field_descriptions.py --explain igs/TKB_{domain_id}  # vilken rad h
 
 Skriptet skriver en RuleSet per modell till `input/fsh/field-descriptions/{Modell}FieldDescriptions.fsh` och lägger `* insert {Modell}FieldDescriptions` sist i modellen:
 
-- `^definition` = hela Beskrivning/Kommentar-cellen. Wordstyckena (`" / "` i cellen) blir markdownstycken.
+- `^definition` = hela Beskrivning/Kommentar-cellen. Wordstyckena (`<br/>` i cellen, i äldre sidor " / ") blir markdownstycken.
 - `^comment` = TKB-fältets namn/XPath, TKB-typ och kardinalitet, hela texten för varje regel som raden hänvisar till ("Regel 2.1" → raden i Övriga regler), extrakolumner (Kodverk, Mappning, Fältlängder), en notering om modellens kardinalitet avviker, och tidigare modelltext (ASSUME/TODO) under "Modellanteckning".
 - `^short` lämnas orörd: den handskrivna korta etiketten i modellen.
 - Barn till element vars TKB-typ har en egen tabell (OrgUnitType, CVType, JoL-header ...) i någon sida under `pagecontent/` får texten från typtabellen.

@@ -81,9 +81,7 @@ En IIType är en numerisk eller alfanumerisk sträng som kan härledas till ett 
 | orgUnitName | string | Namn på organisationsenhet. Om tillgängligt skall detta anges. | 0..1 |
 | orgUnitTelecom | string | Telefon till organisationsenhet. | 0..1 |
 | orgUnitEmail | string | Epost till organisationsenhet. | 0..1 |
-| orgUnitAddress | string | Postadress till organisationsenhet. Skrivs på ett så naturligt sätt som möjligt, exempelvis:
-”Storgatan 12
-468 91 Lilleby” | 0..1 |
+| orgUnitAddress | string | Postadress till organisationsenhet. Skrivs på ett så naturligt sätt som möjligt, exempelvis:<br/>”Storgatan 12<br/>468 91 Lilleby” | 0..1 |
 | orgUnitLocation | string | Text som anger namnet på plats eller ort för enhetens eller funktionens fysiska placering | 0..1 |
 
 ##### ResultType
@@ -132,49 +130,47 @@ Nedanstående tabell beskriver varje element i begäran och svar. Finns ytterlig
 | Namn | Typ | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |
-| careUnit | IIType | Filtrering på vårdenhet vilket motsvarar accountableCareUnit i svaret. / root sätts till OID(1.2.752.129.2.1.4.1) för HSA / extension sätts till HSA-id på vårdenhet. | 0..* |
-| healthcareProvider | IIType | Filtrering på vårdgivare vilket motsvarar accountableHealthcareProvider i svaret. / root sätts till OID (1.2.752.129.2.1.4.1) för HSA / extension sätts till HSA-id på vårdgivare. | 0..* |
-| patientId | IIType | Id för patienten där fältet extension sätts till patientens identitetsbeteckning. Anges med 12 tecken utan avskiljare. / Tjänsteproducenten ska i svaret leverera all information om patienten på en begäran riktad mot någon av patientens identitetsbeteckningar, dvs. även information som har registrerats på andra till patienten kopplade identitetsbeteckningar (personnummer, samordningsnummer eller lokala reservnummer). / Fältet root sätts till OID för typ av identifierare. 
-1) För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas. / 2) För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas. / 3) Tjänsteproducenter ska även stödja sökning på lokal reservidentitet med hjälp av att ange lokalt definierade OID:ar för lokal reservidentitet, exempelvis SLL:s lokal reservidentitet (1.2.752.97.3.1.3). / OBS lokal reservidentitet kan ej användas tillsammans med EI och aggregerande tjänster då dessa komponenter idag inte är anpassade för att stödja typ av id, inga uppdateringar till EI ska göras av en tjänsteproducent för lokal reservidentitet. / En tjänstekonsument som vill begära mha. lokal reservidentitet måste därmed använda sig av systemadressering och ha vetskap om vilken OID för den specifika lokala reservidentitet som gäller vid anrop mot en specifik tjänsteproducent. | 1..1 |
-| datePeriod | DatePeriodType | Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där någon av tidpunkterna record.timestamp, author.timestamp, signature.timestamp i headern eller dissentingOpinion.authorTime i svaret ligger inom sökintervallets start- och slutdatum. / Notera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse konverteras datapostens tidpunkter till datum. | 0..1 |
+| careUnit | IIType | Filtrering på vårdenhet vilket motsvarar accountableCareUnit i svaret.<br/>root sätts till OID(1.2.752.129.2.1.4.1) för HSA<br/>extension sätts till HSA-id på vårdenhet. | 0..* |
+| healthcareProvider | IIType | Filtrering på vårdgivare vilket motsvarar accountableHealthcareProvider i svaret.<br/>root sätts till OID (1.2.752.129.2.1.4.1) för HSA<br/>extension sätts till HSA-id på vårdgivare. | 0..* |
+| patientId | IIType | Id för patienten där fältet extension sätts till patientens identitetsbeteckning. Anges med 12 tecken utan avskiljare.<br/>Tjänsteproducenten ska i svaret leverera all information om patienten på en begäran riktad mot någon av patientens identitetsbeteckningar, dvs. även information som har registrerats på andra till patienten kopplade identitetsbeteckningar (personnummer, samordningsnummer eller lokala reservnummer).<br/>Fältet root sätts till OID för typ av identifierare.<br/>1) För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.<br/>2) För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.<br/>3) Tjänsteproducenter ska även stödja sökning på lokal reservidentitet med hjälp av att ange lokalt definierade OID:ar för lokal reservidentitet, exempelvis SLL:s lokal reservidentitet (1.2.752.97.3.1.3).<br/>OBS lokal reservidentitet kan ej användas tillsammans med EI och aggregerande tjänster då dessa komponenter idag inte är anpassade för att stödja typ av id, inga uppdateringar till EI ska göras av en tjänsteproducent för lokal reservidentitet.<br/>En tjänstekonsument som vill begära mha. lokal reservidentitet måste därmed använda sig av systemadressering och ha vetskap om vilken OID för den specifika lokala reservidentitet som gäller vid anrop mot en specifik tjänsteproducent. | 1..1 |
+| datePeriod | DatePeriodType | Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där någon av tidpunkterna record.timestamp, author.timestamp, signature.timestamp i headern eller dissentingOpinion.authorTime i svaret ligger inom sökintervallets start- och slutdatum.<br/>Notera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse konverteras datapostens tidpunkter till datum. | 0..1 |
 | ../start | string | Startdatum. Format ÅÅÅÅMMDD. | 1..1 |
 | ../end | string | Slutdatum. Format ÅÅÅÅMMDD. | 1..1 |
-| sourceSystemId | IIType | Begränsar sökningen till anteckningar som är skapade i det angivna källsystemet. Tjänsteproducenten förväntas enbart returnera poster som tillhör efterfrågat källsystem. / Fältet root sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till källsystemets HSA-id. / Se även regel sourceSystemId. | 0..1 |
-| hasMoreReference | string | Kan anges av tjänstekonsument när man tidigare fått ett hasMore-svar från tjänsteproducent att det finns ytterligare information att hämta. / Se även regel hasMoreReference. | 0..1 |
+| sourceSystemId | IIType | Begränsar sökningen till anteckningar som är skapade i det angivna källsystemet. Tjänsteproducenten förväntas enbart returnera poster som tillhör efterfrågat källsystem.<br/>Fältet root sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till källsystemets HSA-id.<br/>Se även regel sourceSystemId. | 0..1 |
+| hasMoreReference | string | Kan anges av tjänstekonsument när man tidigare fått ett hasMore-svar från tjänsteproducent att det finns ytterligare information att hämta.<br/>Se även regel hasMoreReference. | 0..1 |
 | Svar |  |  |  |
 | careDocumentation | CareDocumentationType | De anteckningar som matchar begäran. | 0..* |
-| ../header | HeaderType | JoL-header. / Innehåller metainformation som är gemensam för patientjournalinformation, exempelvis uppgift om vilken hälso- och sjukvårdspersonal / som är angiven som författare av informationen och information om signering. | 1..1 |
-| ../../accessControlHeader | AccessControlHeaderType | Information för kontroll av åtkomst. / Syftet med denna del av headern är att den ska innehålla den information som behövs för konsumentens filtrering av informationen innan den visas upp för slutanvändaren eller på annat vis behandlas vidare, exempelvis för kontroll av spärrar (avseende vårdpersonals åtkomst till information; PDL) eller om informationen får visas för patienten eller inte (verksamhetens rätt till rådrum och menprövning). / En konsument (en konsumerande tjänst/applikation) har inte rätt att ta del av något annat än innehållet i accessControlHeader innan de för ändamålet nödvändiga säkerhetskontrollerna har utförts. | 1..1 |
-| ../../../accountableHealthcareProvider | IIType | Id för informationsägande vårdgivare. / I första hand HSAid alternativt i andra hand organisationsnummer. / Om HSA-id används sätts fältet root till oid för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id. / Om organisationsnummer används skall fältet root sättas till OID för organisationsnummer (1.2.752.29.4.3) och fältet extension sättas till organisationsnumret. / Enskild näringsidkare har i rollen som juridisk person sitt personnummer som organisationsnummer. / Se även regel Spärrhantering. | 0..1 |
-| ../../../accountableCareUnit | IIType | Id för informationsägande vårdenhet angivet med HSA-id. / Fältet root sätts OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id. / Fältet används för spärrkontroll och är obligatorisk om uppgiften i patientjournal ska kunna ses via sammanhållen journalföring. / Se även regel Spärrhantering. | 0..1 |
-| ../../../patientId | IIType | Patientens identitetsbeteckning. Den identitetsbeteckning som denna uppgift lagrades under när uppgiften skapades ska om möjligt anges. Exempel på en situation då detta förekommer är exempelvis då patienten tidigare erhållit vård dokumenterat under ett samordningsnummer för att sedan bli folkbokförd i Sverige och få ett personnummer. / Fältet root sätts till OID för kodverket för identifieraren: / 1) För personnummer skall Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas. / 2) För samordningsnummer skall Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas. / Fältet extension sätts till patientens identifierare. Anges med 12 tecken utan avskiljare. | 1..1 |
-| ../../../careProcessId | IIType | Id för den individanpassad vårdprocess som informationen journalförts inom ramen för. Består av ett lokalt genererat UUID. / UUID anges i root och extension lämnas tomt. | 0..1 |
-| ../../../blockComparisonTime | TimeStampType | Den tidpunkt mot vilken spärrkontroll sker vid åtkomst med syftet sammanhållen journalföring för kontroll av patientens (ev.) spärrade information, såväl yttre (mellan vårdgivare) som inre (mellan vårdenheter) spärr. / Tidpunkten ska i så hög grad som möjligt överensstämma med den tidpunkt som ur patientens synvinkel är den mest naturliga. Detta är vanligtvis tidpunkten för patientens vårdkontakt som låg till grund för dokumentationen. | 1..1 |
-| ../../../approvedForPatient | boolean | Ansvarig vårdpersonals beslut, alternativt baserat på verksamhetens policy och regler (men-/sekretessprövning), huruvida informationen får delas till patient för ändamålet Patients åtkomst (Individens direktåtkomst). / Om information beslutas delas sätts värdet i sådant fall till true, i annat fall till false. False innebär att informationen inte får delas till patient. / Notera att flaggans värde kan, för samma information, förändras med tiden på grund av att rådrumstid har passerats, eller att verksamheten ändrat policy för vad som lämnas ut till patient. / I sådana fall skall källsystemet uppdatera engagemangsindex för att konsumenter skall kunna bli notifierade därom. | 1..1 |
-| ../../sourceSystemId | IIType | Det källsystem som informationen lagras i. / Fältet root sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till källsystemets HSA-id. | 1..1 |
-| ../../record | RecordType | Uppgift i patientjournal / Metainformation avseende den dokumenterade informationen. | 1..1 |
-| ../../../id | IIType | Unik och beständig identifierare för uppgift i patientjournal. / För att vara konsistent och beständig med tidigare majorversioner ska tjänsteproducenter av tidigare majorversioner av GetCareDocumentation endast ange root på samma sätt som documentId i tidigare majorversioner.
-Extension utelämnas. Denna hantering krävs för att tjänstekonsumenten ska kunna filtrera bort dubbletter. / Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen. / Se även regel Verify unique recordId. | 1..1 |
+| ../header | HeaderType | JoL-header.<br/>Innehåller metainformation som är gemensam för patientjournalinformation, exempelvis uppgift om vilken hälso- och sjukvårdspersonal<br/>som är angiven som författare av informationen och information om signering. | 1..1 |
+| ../../accessControlHeader | AccessControlHeaderType | Information för kontroll av åtkomst.<br/>Syftet med denna del av headern är att den ska innehålla den information som behövs för konsumentens filtrering av informationen innan den visas upp för slutanvändaren eller på annat vis behandlas vidare, exempelvis för kontroll av spärrar (avseende vårdpersonals åtkomst till information; PDL) eller om informationen får visas för patienten eller inte (verksamhetens rätt till rådrum och menprövning).<br/>En konsument (en konsumerande tjänst/applikation) har inte rätt att ta del av något annat än innehållet i accessControlHeader innan de för ändamålet nödvändiga säkerhetskontrollerna har utförts. | 1..1 |
+| ../../../accountableHealthcareProvider | IIType | Id för informationsägande vårdgivare.<br/>I första hand HSAid alternativt i andra hand organisationsnummer.<br/>Om HSA-id används sätts fältet root till oid för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id.<br/>Om organisationsnummer används skall fältet root sättas till OID för organisationsnummer (1.2.752.29.4.3) och fältet extension sättas till organisationsnumret.<br/>Enskild näringsidkare har i rollen som juridisk person sitt personnummer som organisationsnummer.<br/>Se även regel Spärrhantering. | 0..1 |
+| ../../../accountableCareUnit | IIType | Id för informationsägande vårdenhet angivet med HSA-id.<br/>Fältet root sätts OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id.<br/>Fältet används för spärrkontroll och är obligatorisk om uppgiften i patientjournal ska kunna ses via sammanhållen journalföring.<br/>Se även regel Spärrhantering. | 0..1 |
+| ../../../patientId | IIType | Patientens identitetsbeteckning. Den identitetsbeteckning som denna uppgift lagrades under när uppgiften skapades ska om möjligt anges. Exempel på en situation då detta förekommer är exempelvis då patienten tidigare erhållit vård dokumenterat under ett samordningsnummer för att sedan bli folkbokförd i Sverige och få ett personnummer.<br/>Fältet root sätts till OID för kodverket för identifieraren:<br/>1) För personnummer skall Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.<br/>2) För samordningsnummer skall Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.<br/>Fältet extension sätts till patientens identifierare. Anges med 12 tecken utan avskiljare. | 1..1 |
+| ../../../careProcessId | IIType | Id för den individanpassad vårdprocess som informationen journalförts inom ramen för. Består av ett lokalt genererat UUID.<br/>UUID anges i root och extension lämnas tomt. | 0..1 |
+| ../../../blockComparisonTime | TimeStampType | Den tidpunkt mot vilken spärrkontroll sker vid åtkomst med syftet sammanhållen journalföring för kontroll av patientens (ev.) spärrade information, såväl yttre (mellan vårdgivare) som inre (mellan vårdenheter) spärr.<br/>Tidpunkten ska i så hög grad som möjligt överensstämma med den tidpunkt som ur patientens synvinkel är den mest naturliga. Detta är vanligtvis tidpunkten för patientens vårdkontakt som låg till grund för dokumentationen. | 1..1 |
+| ../../../approvedForPatient | boolean | Ansvarig vårdpersonals beslut, alternativt baserat på verksamhetens policy och regler (men-/sekretessprövning), huruvida informationen får delas till patient för ändamålet Patients åtkomst (Individens direktåtkomst).<br/>Om information beslutas delas sätts värdet i sådant fall till true, i annat fall till false. False innebär att informationen inte får delas till patient.<br/>Notera att flaggans värde kan, för samma information, förändras med tiden på grund av att rådrumstid har passerats, eller att verksamheten ändrat policy för vad som lämnas ut till patient.<br/>I sådana fall skall källsystemet uppdatera engagemangsindex för att konsumenter skall kunna bli notifierade därom. | 1..1 |
+| ../../sourceSystemId | IIType | Det källsystem som informationen lagras i.<br/>Fältet root sätts till OID för HSA-katalogen (1.2.752.129.2.1.4.1) och fältet extension sätts till källsystemets HSA-id. | 1..1 |
+| ../../record | RecordType | Uppgift i patientjournal<br/>Metainformation avseende den dokumenterade informationen. | 1..1 |
+| ../../../id | IIType | Unik och beständig identifierare för uppgift i patientjournal.<br/>För att vara konsistent och beständig med tidigare majorversioner ska tjänsteproducenter av tidigare majorversioner av GetCareDocumentation endast ange root på samma sätt som documentId i tidigare majorversioner.<br/>Extension utelämnas. Denna hantering krävs för att tjänstekonsumenten ska kunna filtrera bort dubbletter.<br/>Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen.<br/>Se även regel Verify unique recordId. | 1..1 |
 | ../../../timestamp | TimeStampType | Första tidpunkten då denna journalinformation skapades hos tjänsteproducenten. | 1..1 |
 | ../../author | AuthorType | Hälso- och sjukvårdspersonal som ansvarar för information i patientjournal. Notera att den som registrerar informationen från annan källa, exempelvis en medicinsk sekreterare som transkriberar ett diktat, inte är författare. | 0..1 |
-| ../../../id | IIType | HSA-id för hälso- och sjukvårdspersonal. / Fältet root sätts till oid för HSA-id (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id. | 0..1 |
+| ../../../id | IIType | HSA-id för hälso- och sjukvårdspersonal.<br/>Fältet root sätts till oid för HSA-id (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id. | 0..1 |
 | ../../../name | string | Namn på hälso- och sjukvårdspersonal. | 0..1 |
 | ../../../timestamp | TimeStampType | Tidpunkt vid vilken journalinformationen skapades eller senast uppdaterades hos tjänsteproducenten. I de fall då journalinformationen skapats i ett annat informationssystem (t.ex. laboratoriesystem eller annan remittents journalsystem) är det tidpunkten då journalinformationen ursprungligen skapades som ska anges. | 1..1 |
 | ../../../byRole | CVType | Information om hälso- och sjukvårdspersonalens befattning vid författandet av informationen. Om möjligt skall kod från kodverket KV Befattning användas för att ange personens befattning så som den var angiven i HSA-katalogen vid tidpunkten. Om kod inte är tillgänglig anges befattning i klartext i CV-typens attribut originalText. | 0..1 |
 | ../../../orgUnit | OrgUnitType | Den organisation som författaren är uppdragstagare på. | 0..1 |
 | ../../signature | SignatureType | Signeringsinformation | 0..1 |
-| ../../../id | IIType | HSA-id för hälso- och sjukvårdspersonal som signerat uppgift i patientjournal. / Fältet root sätts till oid för HSA-id (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id. | 0..1 |
+| ../../../id | IIType | HSA-id för hälso- och sjukvårdspersonal som signerat uppgift i patientjournal.<br/>Fältet root sätts till oid för HSA-id (1.2.752.129.2.1.4.1) och fältet extension sätts till HSA-id. | 0..1 |
 | ../../../name | String | Namn på hälso- och sjukvårdspersonal som signerat uppgift i patientjournal. | 0..1 |
 | ../../../timestamp | TimeStampType | Anger tidpunkten för signering av uppgift i patientjournal. | 0..1 |
 | ../../../byRole | CVType | Information om hälso- och sjukvårdspersonalens befattning vid författandet av informationen. Om möjligt skall KV Befattning användas för att ange personens befattning så som den var angiven i HSA-katalogen vid tidpunkten.  Om kod inte är tillgänglig anges befattning i klartext i CV-typens attribut originalText. | 0..1 |
 | ../body | CareDocumentationBodyType | Journalanteckning | 1..1 |
-| ../../clinicalDocumentNoteCode | CVType | Typ av anteckning. Kod tas från KV Anteckningstyp (1.2.752.129.2.2.2.11). / Kodverket kan komma att kompletteras över tid vilket medför att konsumenter av kontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 1..1 |
+| ../../clinicalDocumentNoteCode | CVType | Typ av anteckning. Kod tas från KV Anteckningstyp (1.2.752.129.2.2.2.11).<br/>Kodverket kan komma att kompletteras över tid vilket medför att konsumenter av kontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 1..1 |
 | ../../clinicalDocumentNoteTitle | string | Titel på anteckningen. | 0..1 |
-| ../../clinicalDocumentNoteText | string | Journalanteckningens innehåll i text. / Texten kan antingen skickas som vanlig text eller formaterat enligt DocBook-standarden, se 7.1.3. / Se även regel careDocumentationBody. | 0..1 |
-| ../../multimediaEntry | MultimediaType | Journalanteckningens innehåll i form av en multimediaobjekt, i form av antingen ett inbäddat objekt eller en länk till objektet. / Vid användning av multimediaEntry kompletteras reglerna i tjänstekontraktsbeskrivningen med en Interaktionsöverenskommelse som ytterligare beskriver integrationen. / Se även regel careDocumentationBody samt regel Binära bilagor. | 0..1 |
-| ../../../mediaType | string | Typ av multimedia. / Se interaktionsöverenskommelse för beskrivning av typer som hanteras. | 1..1 |
-| ../../../value | base64Binary | Value är binärdata som representerar objektet. Ett och endast ett av attributen value och reference ska anges. / Se även regel multimediaEntry. | 0..1 |
-| ../../../reference | anyURI | Referens till extern binär fil i form av en URL om interaktionsöverenskommelsen tillåter detta. Ett och endast ett av attributen value och reference ska anges. / Se interaktionsöverenskommelse för ytterligare beskrivning. / Se även regel multimediaEntry. | 0..1 |
+| ../../clinicalDocumentNoteText | string | Journalanteckningens innehåll i text.<br/>Texten kan antingen skickas som vanlig text eller formaterat enligt DocBook-standarden, se 7.1.3.<br/>Se även regel careDocumentationBody. | 0..1 |
+| ../../multimediaEntry | MultimediaType | Journalanteckningens innehåll i form av en multimediaobjekt, i form av antingen ett inbäddat objekt eller en länk till objektet.<br/>Vid användning av multimediaEntry kompletteras reglerna i tjänstekontraktsbeskrivningen med en Interaktionsöverenskommelse som ytterligare beskriver integrationen.<br/>Se även regel careDocumentationBody samt regel Binära bilagor. | 0..1 |
+| ../../../mediaType | string | Typ av multimedia.<br/>Se interaktionsöverenskommelse för beskrivning av typer som hanteras. | 1..1 |
+| ../../../value | base64Binary | Value är binärdata som representerar objektet. Ett och endast ett av attributen value och reference ska anges.<br/>Se även regel multimediaEntry. | 0..1 |
+| ../../../reference | anyURI | Referens till extern binär fil i form av en URL om interaktionsöverenskommelsen tillåter detta. Ett och endast ett av attributen value och reference ska anges.<br/>Se interaktionsöverenskommelse för ytterligare beskrivning.<br/>Se även regel multimediaEntry. | 0..1 |
 | ../../dissentingOpinion | DissentingOpinionType | Om patienten eller någon för denna ansvarig person (exempelvis vårdnadshavare) har lämnat en avvikande mening till journalanteckningen. | 0..* |
 | ../../../opinionId | IIType | En universellt unik identifierare för den avvikande meningen. Identifieraren ska vara beständig, i betydelsen att upprepade frågemeddelanden ger samma värde i svarsmeddelanden som rör samma journalnotat. | 0..1 |
 | ../../../../root | string | En universellt unik identifierare för den avvikande meningen eller en identifierare som tillsammans med värdet för ”extension” ger en universellt unik identifierare. | 1..1 |
@@ -182,17 +178,14 @@ Extension utelämnas. Denna hantering krävs för att tjänstekonsumenten ska ku
 | ../../../authorTime | TimeStampType | Tidpunkten då den avvikande meningen författades. | 1..1 |
 | ../../../opinion | string | Text som innehåller den avvikande meningen. | 1..1 |
 | ../../../personId | IIType | Id för författaren av den avvikande meningen. | 1..1 |
-| ../../../../root | string | Sätts till OID för typ av identifierare. 
-För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1) ), [R14].
-För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3) ), [R14].
-För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3) ), [R14]. | 1..1 |
+| ../../../../root | string | Sätts till OID för typ av identifierare.<br/>För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1) ), [R14].<br/>För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3) ), [R14].<br/>För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3) ), [R14]. | 1..1 |
 | ../../../../extension | string | Sätts till personens identifierare. Anges med 12 tecken utan avskiljare. | 1..1 |
 | ../../../personName | string | Namnet på författaren av den avvikande meningen. | 1..1 |
-| hasMore | HasMoreType | Anges av tjänsteproducent när det finns ytterligare information att hämta. / Not: Vid svar från tjänsteproducent är kardinaliteten 0..1. / Se även regel Partiell datahämtning. | 0..* |
+| hasMore | HasMoreType | Anges av tjänsteproducent när det finns ytterligare information att hämta.<br/>Not: Vid svar från tjänsteproducent är kardinaliteten 0..1.<br/>Se även regel Partiell datahämtning. | 0..* |
 | ../logicalAddress | string | Den logiska adressen till tjänsteproducenten som genererar svaret och har mer information. | 1..1 |
-| ../reference | string | En unik identifierare som tjänstekonsumenten anger i nästa anrop för att hämta mer data. Om det då finns ytterligare mer information hos tjänsteproducenten ska en ny, unik identifierare levereras. / Tjänsteproducenten avgör hur referensen byggs upp. / Exempel: Base64({ ”queryHash” : ”7114efbb6a761fb1a2d6dae55b5612e1", ”lastReturnedId” : 7685824}) = eyDigJ1xdWVyeUhhc2jigJ0gOiDigJ03MTE0ZWZiYjZhNzYxZmIxYTJkNmRhZTU1YjU2MTJlMSIsIOKAnWxhc3RSZXR1cm5lZElk4oCdIDogNzY4NTgyNH0= / Re även regel Referensens giltighetstid. | 1..1 |
-| result | ResultType | Innehåller information om det gick bra eller ej att besvara förfrågan. / Se avsnitt 7.1.7 för beskrivning av hantering vid logiska fel. | 1..1 |
-| ../resultCode | ResultCodeEnum | Anger resultatet av besvarad förfrågan. / Kan endast vara OK, INFO eller ERROR. | 1..1 |
+| ../reference | string | En unik identifierare som tjänstekonsumenten anger i nästa anrop för att hämta mer data. Om det då finns ytterligare mer information hos tjänsteproducenten ska en ny, unik identifierare levereras.<br/>Tjänsteproducenten avgör hur referensen byggs upp.<br/>Exempel: Base64({ ”queryHash” : ”7114efbb6a761fb1a2d6dae55b5612e1", ”lastReturnedId” : 7685824}) = eyDigJ1xdWVyeUhhc2jigJ0gOiDigJ03MTE0ZWZiYjZhNzYxZmIxYTJkNmRhZTU1YjU2MTJlMSIsIOKAnWxhc3RSZXR1cm5lZElk4oCdIDogNzY4NTgyNH0=<br/>Re även regel Referensens giltighetstid. | 1..1 |
+| result | ResultType | Innehåller information om det gick bra eller ej att besvara förfrågan.<br/>Se avsnitt 7.1.7 för beskrivning av hantering vid logiska fel. | 1..1 |
+| ../resultCode | ResultCodeEnum | Anger resultatet av besvarad förfrågan.<br/>Kan endast vara OK, INFO eller ERROR. | 1..1 |
 | ../resultText | string | Optionellt felmeddelande som innehåller information om felet som uppstod. | 0..1 |
 
 #### Partiell datahämtning
@@ -208,19 +201,19 @@ Till detta tjänstekontrakt finns regler som ej uttrycks i schemafilerna och tab
 | ID | Element | Beskrivning |
 | :--- | :--- | :--- |
 | Begäran | Begäran | Begäran |
-| hasMoreReference | `<hasMoreReference>` | Anropet skall göras direktadresserat till den logiska adressen som tjänsteproducenten levererat i `<hasMore/logicalAddress>`. hasMoreReference ska vara identiskt med den referens som tjänsteproducenten levererat i `<hasMore/reference>`. / Övriga anropsparametrar ska vara identiska med anropet som föranledde hasMore-svar. |
-| sourceSystemId | `<sourceSystemId>` | Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header). / Det innebär i praktiken att aggregerande tjänster inte används när detta fält anges. / Ska anges vid begäran på reservnummer. |
+| hasMoreReference | `<hasMoreReference>` | Anropet skall göras direktadresserat till den logiska adressen som tjänsteproducenten levererat i `<hasMore/logicalAddress>`. hasMoreReference ska vara identiskt med den referens som tjänsteproducenten levererat i `<hasMore/reference>`.<br/>Övriga anropsparametrar ska vara identiska med anropet som föranledde hasMore-svar. |
+| sourceSystemId | `<sourceSystemId>` | Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header).<br/>Det innebär i praktiken att aggregerande tjänster inte används när detta fält anges.<br/>Ska anges vid begäran på reservnummer. |
 | Svar | Svar | Svar |
-| Spärrhantering | `<header/accessControlHeader/accountableHealthcareProvider>` / `<header/accessControlHeader/accountableCareUnit>` | Uppgifterna krävs för spärrhantering, åtkomstkontroll samt loggning enligt PDL. Om HSA-id för vårdenhet inte kan lämnas kommer elementet inte visas upp av konsumenter inom sammanhållen journalföring. |
+| Spärrhantering | `<header/accessControlHeader/accountableHealthcareProvider>`<br/>`<header/accessControlHeader/accountableCareUnit>` | Uppgifterna krävs för spärrhantering, åtkomstkontroll samt loggning enligt PDL. Om HSA-id för vårdenhet inte kan lämnas kommer elementet inte visas upp av konsumenter inom sammanhållen journalföring. |
 | Verify unique recordId [sch] | `<header/record/id>` | Identifieraren ska vara unik. Samma id får inte förekomma flera gånger. |
-| careDocumentationBody [sch] | `<clinicalDocumentNoteText>` / `<multimediaEntry>` | Endast ett av attributen clinicalDocumentNoteText och multimediaEntry ska anges. |
+| careDocumentationBody [sch] | `<clinicalDocumentNoteText>`<br/>`<multimediaEntry>` | Endast ett av attributen clinicalDocumentNoteText och multimediaEntry ska anges. |
 | Binära bilagor | `<multimediaEntry>` | Producenter av GetCareDocumentation måste följa de generella riktlinjer för binära bilagor, se referens [R16]. |
-| multimediaEntry [sch] | `<multimediaEntry/value>` / `<multimediaEntry/reference>` | Endast ett av attributen value och reference ska anges. |
-| Partiell datahämtning | `<hasMore>` | Får enbart användas när antalet poster är så många att tjänsteproducenten riskerar att inte kunna svara inom 27 sekunder eller när storleken på svaret inte ryms inom gällande regelverk [R2]. / De poster som levereras måste vara de senaste posterna. / Vid svar från tjänsteproducent är kardinaliteten 0..1. |
+| multimediaEntry [sch] | `<multimediaEntry/value>`<br/>`<multimediaEntry/reference>` | Endast ett av attributen value och reference ska anges. |
+| Partiell datahämtning | `<hasMore>` | Får enbart användas när antalet poster är så många att tjänsteproducenten riskerar att inte kunna svara inom 27 sekunder eller när storleken på svaret inte ryms inom gällande regelverk [R2].<br/>De poster som levereras måste vara de senaste posterna.<br/>Vid svar från tjänsteproducent är kardinaliteten 0..1. |
 | Referensens giltighetstid | `<hasMore/reference>` | Referensen ska vara giltig i minst en timme. |
 | Allmänna regler | Allmänna regler | Allmänna regler |
 | Verify non-empty elements [sch] | Alla element i svaret. | Tomma värden får inte anges. |
-| pattern.CvType [sch] | Alla element som använder datatypen CVType. | code och/eller originalText ska anges / Om code anges ska även codeSystem anges / Om codeSystem anges ska även code anges / codeSystem ska vara en OID / Om codeSystemName anges ska även code samt codeSystem anges / Om codeSystemVersion anges ska även code samt codeSystem anges / Om displayName anges ska även code samt codeSystem anges |
+| pattern.CvType [sch] | Alla element som använder datatypen CVType. | code och/eller originalText ska anges<br/>Om code anges ska även codeSystem anges<br/>Om codeSystem anges ska även code anges<br/>codeSystem ska vara en OID<br/>Om codeSystemName anges ska även code samt codeSystem anges<br/>Om codeSystemVersion anges ska även code samt codeSystem anges<br/>Om displayName anges ska även code samt codeSystem anges |
 
 ##### Icke funktionella krav
 Inga övriga icke funktionella krav.
@@ -236,7 +229,7 @@ För återrapportering av logiska fel ska svaret innehålla ett element “resul
 ResultText skall loggas och kan visas upp för användaren i de fall då det är tillämpbart.
 Exempel:
 
-| `<MakeBookingResponse>` / `<resultCode>ERROR</resultCode>` / `<resultText>Referensen som skickats i hasMoreReference är ogiltig</resultText>` / `</MakeBookingResponse>` |
+| `<MakeBookingResponse>`<br/>`<resultCode>ERROR</resultCode>`<br/>`<resultText>Referensen som skickats i hasMoreReference är ogiltig</resultText>`<br/>`</MakeBookingResponse>` |
 | :--- |
 Inget att rapportera
 Om man inte har något speciellt att rapportera kring behandling av en tjänstebegäran sätts elementet “resultCode” till värdet OK och elementet “resultText” utelämnas.
@@ -261,26 +254,22 @@ Nedanstående tabell beskriver varje element i begäran och svar. Finns ytterlig
 | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |
 | careUnitHSAId | HSAIdType | Filtrering på vårdenhet vilket motsvarar careUnitHSAId i healthcareProfessionalType. | 0..* |
-| patientId | PersonIdType | Id för patienten där fältet id sätts till patientens identifierare. Anges med 12 tecken utan avskiljare. / Fältet type sätts till OID för typ av identifierare. 
-1) För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas), [R14]. / 2) För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas), [R14]. / 3) Tjänsteproducenter ska även stödja sökning på reservnummer med hjälp av att ange lokalt definierade OID’ar för reservnummer, exempelvis SLL reservnummer (1.2.752.97.3.1.3), [R14]. / OBS reservnummer kan ej användas tillsammans med EI och aggregerande tjänster då dessa komponenter idag inte är anpassade för att stödja typ av id, inga uppdateringar till EI ska göras av en tjänsteproducent för reservnummer. / En tjänstekonsument som vill begära mha reservnummer måste därmed använda sig av systemadressering och ha vetskap om vilken reservnummer-OID som gäller vid anrop mot en specifik tjänsteproducent. | 1..1 |
-| timePeriod | DatePeriodType | Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där någon av tidpunkterna authorTime, signatureTime eller diagnosisTime i svaret ligger inom sökintervallets start- och slutdatum. / Notera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse konverteras datapostens tidpunkter till datum. | 0..1 |
+| patientId | PersonIdType | Id för patienten där fältet id sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.<br/>Fältet type sätts till OID för typ av identifierare.<br/>1) För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas), [R14].<br/>2) För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas), [R14].<br/>3) Tjänsteproducenter ska även stödja sökning på reservnummer med hjälp av att ange lokalt definierade OID’ar för reservnummer, exempelvis SLL reservnummer (1.2.752.97.3.1.3), [R14].<br/>OBS reservnummer kan ej användas tillsammans med EI och aggregerande tjänster då dessa komponenter idag inte är anpassade för att stödja typ av id, inga uppdateringar till EI ska göras av en tjänsteproducent för reservnummer.<br/>En tjänstekonsument som vill begära mha reservnummer måste därmed använda sig av systemadressering och ha vetskap om vilken reservnummer-OID som gäller vid anrop mot en specifik tjänsteproducent. | 1..1 |
+| timePeriod | DatePeriodType | Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där någon av tidpunkterna authorTime, signatureTime eller diagnosisTime i svaret ligger inom sökintervallets start- och slutdatum.<br/>Notera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse konverteras datapostens tidpunkter till datum. | 0..1 |
 | ../start | string | Startdatum. Format ÅÅÅÅMMDD. | 1..1 |
 | ../end | string | Slutdatum. Format ÅÅÅÅMMDD. | 1..1 |
-| sourceSystemHSAId | HSAIdType | Begränsar sökningen till diagnoser som tillgängliggörs av angivet källsystem. / Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header). / Det innebär i praktiken att aggregerande tjänster inte används när detta fält anges. / Ska anges om careContactId angivits. / Ska anges vid begäran på reservnummer. / Om sourceSystemHSAId och logicalAddress är olika ska ett svar endast innehålla en resultType med result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST / Om careContactId är satt och sourceSystemHSAId är tomt ska ett svar endast innehålla en resultType med  result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST. | 0..1 |
+| sourceSystemHSAId | HSAIdType | Begränsar sökningen till diagnoser som tillgängliggörs av angivet källsystem.<br/>Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header).<br/>Det innebär i praktiken att aggregerande tjänster inte används när detta fält anges.<br/>Ska anges om careContactId angivits.<br/>Ska anges vid begäran på reservnummer.<br/>Om sourceSystemHSAId och logicalAddress är olika ska ett svar endast innehålla en resultType med result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST<br/>Om careContactId är satt och sourceSystemHSAId är tomt ska ett svar endast innehålla en resultType med  result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST. | 0..1 |
 | careContactId | string | Begränsar sökningen till de diagnoser som dokumenterades vid hälso- och sjukvårdskontakt. | 0..* |
 | Svar |  |  |  |
 | diagnosis | DiagnosisType | De diagnoser som matchar begäran. | 0..* |
 | ../diagnosisHeader | PatientSummaryHeaderType | Innehåller basinformation om dokumentet | 1..1 |
-| ../../documentId | string | Dokumentets identitet som är unik inom källsystemet. / Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter. / Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen. | 1..1 |
+| ../../documentId | string | Dokumentets identitet som är unik inom källsystemet.<br/>Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.<br/>Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen. | 1..1 |
 | ../../sourceSystemHSAId | HSAIdType | HSA-id för det system tillgängliggör informationen. | 1..1 |
 | ../../documentTitle |  | N/A | 0..0 |
 | ../../documentTime |  | N/A | 0..0 |
 | ../../patientId | PersonIdType | Identifierare för patient. | 1..1 |
 | ../../../id | string | Sätts till patientens identifierare. Anges med 12 tecken utan avskiljare. | 1..1 |
-| ../../../type | string | Sätts till OID för typ av identifierare. 
-För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1), [R14].
-För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3), [R14].
-För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3), [R14]. | 1..1 |
+| ../../../type | string | Sätts till OID för typ av identifierare.<br/>För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1), [R14].<br/>För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3), [R14].<br/>För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3), [R14]. | 1..1 |
 | ../../accountableHealthcareProfessional | HealthcareProfessionalType | Information om den hälso- och sjukvårdsperson som ansvarar för informationen i dokumentet, nedan kallas författare. | 1..1 |
 | ../../../authorTime | TimeStampType | Tidpunkt då informationen registrerades. | 1..1 |
 | ../../../healthcareProfessionalHSAId | HSAIdType | Författarens HSA-id. | 0..1 |
@@ -291,7 +280,7 @@ För reservnummer används lokalt definierade reservnummet, exempelvis SLL reser
 | ../../../../codeSystemName | string | Namn på kodsystem för befattningskod. | 0..1 |
 | ../../../../codeSystemVersion | string | Version på kodsystem för befattningskod. | 0..1 |
 | ../../../../displayName | string | Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges. | 0..1 |
-| ../../../../originalText | string | Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. / Om originalText anges ska inget annat värde i healthcareProfessionalRoleCode anges. | 0..1 |
+| ../../../../originalText | string | Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText.<br/>Om originalText anges ska inget annat värde i healthcareProfessionalRoleCode anges. | 0..1 |
 | ../../../healthcareProfessionalOrgUnit | OrgUnitType | Den organisation som författaren är uppdragstagare på. I de fall då HSA-id inte finns tillgängligt i systemet ska lokalt id anges (unikt inom källsystemet). | 0..1 |
 | ../../../../orgUnitHSAId | HSAIdType | HSA-id för organisationsenhet. I de fall då HSA-id inte finns tillgängligt i systemet ska lokalt id anges (unikt inom källsystemet). | 1..1 |
 | ../../../../orgUnitName | string | Namnet på den organisation som författaren är uppdragstagare på. | 1..1 |
@@ -299,7 +288,7 @@ För reservnummer används lokalt definierade reservnummet, exempelvis SLL reser
 | ../../../../orgUnitEmail | string | Epost till organisationsenhet. | 0..1 |
 | ../../../../orgUnitAddress | string | Postadress för den organisation som författaren är uppdragstagare på. | 0..1 |
 | ../../../../orgUnitLocation | string | Text som anger namnet på plats eller ort för organisationens fysiska placering. | 0..1 |
-| ../../../healthcareProfessionalCareUnitHSAId | HSAIdType | HSA-id för vårdenhet / (Regel: 1) | 0..1 |
+| ../../../healthcareProfessionalCareUnitHSAId | HSAIdType | HSA-id för vårdenhet<br/>(Regel: 1) | 0..1 |
 | ../../../healthcareProfessionalCareGiverHSAId | HSAIdType | HSA-id för vårdgivaren, som är vårdgivare för den enhet som författaren är uppdragstagare för. (Regel: 1) | 0..1 |
 | ../../legalAuthenticator | LegalAuthenticatorType | Information om vem som signerat informationen i dokumentet. | 0..1 |
 | ../../../signatureTime | TimeStampType | Tidpunkt för signering. | 1..1 |
@@ -319,8 +308,8 @@ För reservnummer används lokalt definierade reservnummet, exempelvis SLL reser
 | ../../../codeSystem | string | OID för kodsystem. | 0..1 |
 | ../../../codeSystemName | string | Namn på kodsystem. | 0..1 |
 | ../../../codeSystemVersion | string | Om tillämpbart, versionsangivelse som definierats av det givna kodsystemet. | 0..1 |
-| ../../../originalText | string | originalText ska användas vid överföring av värden som kommer från lokala kodverk som ej är identifierade med OID eller när kod helt saknas. I sådana fall ska en beskrivande text anges i originalText. / Om originalText anges kan inget av de övriga elementen anges. | 0..1 |
-| ../../relatedDiagnosis | RelatedDiagnosisType | Relaterad diagnos. / Associationen används för att länka samman diagnoser som relaterar till varandra. Använd om möjligt detta för att länka t.ex. bidiagnos till huvuddiagnos eller orsakskod till diagnos. | 0..* |
+| ../../../originalText | string | originalText ska användas vid överföring av värden som kommer från lokala kodverk som ej är identifierade med OID eller när kod helt saknas. I sådana fall ska en beskrivande text anges i originalText.<br/>Om originalText anges kan inget av de övriga elementen anges. | 0..1 |
+| ../../relatedDiagnosis | RelatedDiagnosisType | Relaterad diagnos.<br/>Associationen används för att länka samman diagnoser som relaterar till varandra. Använd om möjligt detta för att länka t.ex. bidiagnos till huvuddiagnos eller orsakskod till diagnos. | 0..* |
 | ../../../documentId | string | Unik identitet för diagnosen. | 1..1 |
 | result | ResultType | Innehåller information om begäran gick bra eller ej, en P av 2.1 måste skicka med resultType, för kompabilitet mellan K 2.1 och P 2.0 är den satt till icke obligatorisk i wsdl. | 1..1 |
 | ../resultCode | ResultCodeEnum | Kan endast vara OK, INFO eller ERROR | 1..1 |
@@ -333,7 +322,7 @@ För reservnummer används lokalt definierade reservnummet, exempelvis SLL reser
 
 | Namn | Regel | Element | Ändamål |
 | :--- | :--- | :--- | :--- |
-| Regel 1 | Krävs för spärrhantering, åtkomstkontroll samt loggning enligt PDL. Om HSA-id för vårdenhet och vårdgivare inte kan lämnas kommer elementet inte visas upp av konsumenter inom sammanhållen journalföring | ../../../healthcareProfessionalCareGiverHSAId / ../../../healthcareProfessionalCareUnitHSAId | Sammanhållen journalföring |
+| Regel 1 | Krävs för spärrhantering, åtkomstkontroll samt loggning enligt PDL. Om HSA-id för vårdenhet och vårdgivare inte kan lämnas kommer elementet inte visas upp av konsumenter inom sammanhållen journalföring | ../../../healthcareProfessionalCareGiverHSAId<br/>../../../healthcareProfessionalCareUnitHSAId | Sammanhållen journalföring |
 
 ##### Icke funktionella krav
 Inga övriga icke funktionella krav.
@@ -346,7 +335,7 @@ Vid ett logiskt fel ska result.resultCode sättas till ERROR och result.errorCod
 
 | Felkod | Värde | Beskrivning |
 | :--- | :--- | :--- |
-| Ogiltig begäran | INVALID_REQUEST | Informationsmängden som skickats är ej korrekt utifrån de regler som gäller för tjänstekontraktet. En förklarande result.message kan närmare peka på vilken regel som ej efterföljts. / En omsändning av information kommer att ge samma fel. |
+| Ogiltig begäran | INVALID_REQUEST | Informationsmängden som skickats är ej korrekt utifrån de regler som gäller för tjänstekontraktet. En förklarande result.message kan närmare peka på vilken regel som ej efterföljts.<br/>En omsändning av information kommer att ge samma fel. |
 
 ### GetAlertInformation
 GetAlertInformation returnerar uppmärksamhetsinformation för en patient, exempelvis överkänslighet mot läkemedel, allvarlig sjukdom eller vårdbegränsning. Meddelandeformatet baseras på NPÖ RIV 2.2.0 och är kompatibelt med HL7 v. 3 CDA v. 2. Mappning mot dessa hittas i bilaga [Error! Reference source not found.]R3.
@@ -364,28 +353,22 @@ Nedanstående tabell beskriver varje element i begäran och svar. Finns ytterlig
 | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |
 | careUnitHSAId | HSAIdType | Filtrering på vårdenhet vilket motsvarar careUnitHSAId i HealthcareProfessionalType. | 0..* |
-| patientId | PersonIdType | Id för patienten där fältet id sätts till patientens identifierare. Anges med 12 tecken utan avskiljare. / Fältet type sätts till OID för typ av identifierare. 
-1) För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas, [R14]. / 2) För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas, [R14]. / 3) Tjänsteproducenter ska även stödja sökning på reservnummer med hjälp av att ange lokalt definierade OID’ar för reservnummer, exempelvis SLL reservnummer (1.2.752.97.3.1.3), [R14]. / OBS reservnummer kan ej användas tillsammans med EI och aggregerande tjänster då dessa komponenter idag inte är anpassade för att stödja typ av id, inga uppdateringar till EI ska göras av en tjänsteproducent för reservnummer. / En tjänstekonsument som vill begära mha reservnummer måste därmed använda sig av systemadressering och ha vetskap om vilken reservnummer-OID som gäller vid anrop mot en specifik tjänsteproducent. | 1..1 |
-| timePeriod | DatePeriodType | Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där datumintervallet, som startar vid validityTimePeriod.start och slutar vid obsoleteTime eller validityTimePeriod.end om någon av dessa är satta, annars tills vidare, helt eller delvis överlappar med det angivna sökintervallet, dvs. / det bildade intervallets startdatum ligger inom sökintervallets start- och slutdatum / det bildade intervallets slutdatum ligger inom sökintervallets start- och slutdatum / det bildade intervallets startdatum ligger före sökintervallets startdatum och slutdatum ligger efter sökintervallets slutdatum / Notera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse konverteras datapostens tidpunkter till datum. | 0..1 |
+| patientId | PersonIdType | Id för patienten där fältet id sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.<br/>Fältet type sätts till OID för typ av identifierare.<br/>1) För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas, [R14].<br/>2) För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas, [R14].<br/>3) Tjänsteproducenter ska även stödja sökning på reservnummer med hjälp av att ange lokalt definierade OID’ar för reservnummer, exempelvis SLL reservnummer (1.2.752.97.3.1.3), [R14].<br/>OBS reservnummer kan ej användas tillsammans med EI och aggregerande tjänster då dessa komponenter idag inte är anpassade för att stödja typ av id, inga uppdateringar till EI ska göras av en tjänsteproducent för reservnummer.<br/>En tjänstekonsument som vill begära mha reservnummer måste därmed använda sig av systemadressering och ha vetskap om vilken reservnummer-OID som gäller vid anrop mot en specifik tjänsteproducent. | 1..1 |
+| timePeriod | DatePeriodType | Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där datumintervallet, som startar vid validityTimePeriod.start och slutar vid obsoleteTime eller validityTimePeriod.end om någon av dessa är satta, annars tills vidare, helt eller delvis överlappar med det angivna sökintervallet, dvs.<br/>det bildade intervallets startdatum ligger inom sökintervallets start- och slutdatum<br/>det bildade intervallets slutdatum ligger inom sökintervallets start- och slutdatum<br/>det bildade intervallets startdatum ligger före sökintervallets startdatum och slutdatum ligger efter sökintervallets slutdatum<br/>Notera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse konverteras datapostens tidpunkter till datum. | 0..1 |
 | ../start | string | Startdatum. Format ÅÅÅÅMMDD. | 1..1 |
 | ../end | string | Slutdatum. Format ÅÅÅÅMMDD. | 1..1 |
-| sourceSystemHSAId | HSAIdType | Begränsar sökningen till uppmärksamhetsinformation som tillgängliggörs av angivet källsystem.
-
-Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header). / Det innebär i praktiken att aggregerande tjänster inte används när detta fält anges. / Ska anges om careContactId angivits. / Ska anges vid begäran på reservnummer. / Om sourceSystemHSAId och logicalAddress är olika ska ett svar endast innehålla en resultType med result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST / Om careContactId är satt och sourceSystemHSAId är tomt ska ett svar endast innehålla en resultType med  result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST. | 0..1 |
+| sourceSystemHSAId | HSAIdType | Begränsar sökningen till uppmärksamhetsinformation som tillgängliggörs av angivet källsystem.<br/>Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header).<br/>Det innebär i praktiken att aggregerande tjänster inte används när detta fält anges.<br/>Ska anges om careContactId angivits.<br/>Ska anges vid begäran på reservnummer.<br/>Om sourceSystemHSAId och logicalAddress är olika ska ett svar endast innehålla en resultType med result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST<br/>Om careContactId är satt och sourceSystemHSAId är tomt ska ett svar endast innehålla en resultType med  result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST. | 0..1 |
 | careContactId | string | Begränsar sökningen till den uppmärksamhetsinformation som dokumenterades vid hälso- och sjukvårds kontakt. | 0..* |
 | Svar |  |  |  |
 | alertInformation | AlertInformationType | Den uppmärksamhetsinformation som matchar begäran. | 0..* |
 | ../alertInformationHeader | PatientSummaryHeaderType | Innehåller basinformation om dokumentet | 1..1 |
-| ../../documentId | string | Dokumentets identitet som är unik inom källsystemet. / Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter. / Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen. | 1..1 |
+| ../../documentId | string | Dokumentets identitet som är unik inom källsystemet.<br/>Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.<br/>Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen. | 1..1 |
 | ../../sourceSystemHSAId | HSAIdType | HSA-id för det system tillgängliggör informationen. | 1..1 |
 | ../../documentTitle |  | N/A | 0..0 |
 | ../../documentTime |  | N/A | 0..0 |
 | ../../patientId | PersonIdType | Identifierare för patient. | 1..1 |
 | ../../../id | string | Sätts till patientens identifierare. Anges med 12 tecken utan avskiljare. | 1..1 |
-| ../../../type | string | Sätts till OID för typ av identifierare. 
-För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1), [R14].
-För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3), [R14].
-För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3), [R14]. | 1..1 |
+| ../../../type | string | Sätts till OID för typ av identifierare.<br/>För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1), [R14].<br/>För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3), [R14].<br/>För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3), [R14]. | 1..1 |
 | ../../accountableHealthcareProfessional | HealthcareProfessionalType | Information om den hälso- och sjukvårdsperson som verifierat informationen i dokumentet. | 1..1 |
 | ../../../authorTime | TimeStampType | Tidpunkt då informationen registrerades. | 1..1 |
 | ../../../healthcareProfessionalHSAId | HSAIdType | hälso- och sjukvårdspersonalens HSA-id. | 0..1 |
@@ -396,7 +379,7 @@ För reservnummer används lokalt definierade reservnummet, exempelvis SLL reser
 | ../../../../codeSystemName | string | Namn på kodsystem för befattningskod. | 0..1 |
 | ../../../../codeSystemVersion | string | Version på kodsystem för befattningskod. | 0..1 |
 | ../../../../displayName | string | Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges. | 0..1 |
-| ../../../../originalText | string | Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. / Om originalText anges ska inget annat värde i healthcareProfessionalRoleCode anges. | 0..1 |
+| ../../../../originalText | string | Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText.<br/>Om originalText anges ska inget annat värde i healthcareProfessionalRoleCode anges. | 0..1 |
 | ../../../healthcareProfessionalOrgUnit | OrgUnitType | Den organisation som hälso- och sjukvårdspersonalen är uppdragstagare på. I de fall då HSA-id inte finns tillgängligt i systemet ska lokalt id anges (unikt inom källsystemet). | 0..1 |
 | ../../../../orgUnitHSAId | HSAIdType | HSA-id för organisationsenhet. I de fall då HSA-id inte finns tillgängligt i systemet ska lokalt id anges (unikt inom källsystemet). | 1..1 |
 | ../../../../orgUnitName | string | Namnet på den organisation som hälso- och sjukvårdspersonalen är uppdragstagare på. | 1..1 |
@@ -404,8 +387,8 @@ För reservnummer används lokalt definierade reservnummet, exempelvis SLL reser
 | ../../../../orgUnitEmail | string | Epost till organisationsenhet. | 0..1 |
 | ../../../../orgUnitAddress | string | Postadress för den organisation som hälso- och sjukvårdspersonalen är uppdragstagare på. | 0..1 |
 | ../../../../orgUnitLocation | string | Text som anger namnet på plats eller ort för organisationens fysiska placering. | 0..1 |
-| ../../../healthcareProfessionalCareUnitHSAId | HSAIdType | HSA-id för vårdenhet. / Se regel 1 | 0..1 |
-| ../../../healthcareProfessionalCareGiverHSAId | HSAIdType | HSA-id för vårdgivaren, som är vårdgivare för den enhet som hälso- och sjukvårdspersonalen är uppdragstagare för. / Se regel 1 | 0..1 |
+| ../../../healthcareProfessionalCareUnitHSAId | HSAIdType | HSA-id för vårdenhet.<br/>Se regel 1 | 0..1 |
+| ../../../healthcareProfessionalCareGiverHSAId | HSAIdType | HSA-id för vårdgivaren, som är vårdgivare för den enhet som hälso- och sjukvårdspersonalen är uppdragstagare för.<br/>Se regel 1 | 0..1 |
 | ../../legalAuthenticator | LegalAuthenticatorType | Information om vem som signerat informationen i dokumentet. | 0..1 |
 | ../../../signatureTime | TimeStampType | Tidpunkt för signering. | 1..1 |
 | ../../../legalAuthenticatorHSAId | HSAIdType | HSA-id för person som signerat dokumentet | 0..1 |
@@ -414,40 +397,38 @@ För reservnummer används lokalt definierade reservnummet, exempelvis SLL reser
 | ../../careContactId | string | Identitetet för den hälso- och sjukvårdskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet | 0..1 |
 | ../../nullified |  | N/A | 0..0 |
 | ../../nullifiedReason |  | N/A | 0..0 |
-| ../alertInformationBody | AlertInformation / BodyType |  | 1..1 |
-| ../../typeOfAlertInformation | CVType | Kod som anger vilken typ av uppmärksamhetssignal som avses. / Använd t.ex.  KV Uppmärksamhetstyp eller KV Informationstyp. / Se regel 2 | 1..1 |
+| ../alertInformationBody | AlertInformation<br/>BodyType |  | 1..1 |
+| ../../typeOfAlertInformation | CVType | Kod som anger vilken typ av uppmärksamhetssignal som avses.<br/>Använd t.ex.  KV Uppmärksamhetstyp eller KV Informationstyp.<br/>Se regel 2 | 1..1 |
 | ../../../code | string | Kod som anger typ av uppmärksamhetssignal. Bör tas från KV Uppmärksamhetstyp. | 0..1 |
 | ../../../displayName | string | Koden i klartext. | 0..1 |
 | ../../../codeSystem | string | OID för kodsystem. Då OID till KV Uppmärksamhetstyp saknas bör OID för KV Informationstyp anges istället (1.2.752.129.2.2.2.1), då KV Uppmärksamhetstyp är en delmängd av KV Informationstyp. | 0..1 |
 | ../../../codeSystemName | string | Klartext för kodsystemet angivet i codeSystem. | 0..1 |
 | ../../../codeSystemVersion | string | Version på kodsystem, om tillgängligt. | 0..1 |
 | ../../../originalText | string | Om typ av uppmärksamhetssignal är beskriven i ett lokalt kodsystem, eller ett kodsystem utan OID ska typ av uppmärksamhetssignal anges här. | 0..1 |
-| ../../ascertainedDate | DateType | Datum då förhållandet som föranledde uppmärksamhetssignalen konstaterades. Om inget specifikt datum för detta finns i källsystemet används
-samma tid som starttiden i attributet giltighetstid. | 0..1 |
+| ../../ascertainedDate | DateType | Datum då förhållandet som föranledde uppmärksamhetssignalen konstaterades. Om inget specifikt datum för detta finns i källsystemet används<br/>samma tid som starttiden i attributet giltighetstid. | 0..1 |
 | ../../verifiedTime | TimeStampType | Den tidpunkt då uppmärksamhetssignalen verifierades i det lokala systemet | 0..1 |
 | ../../validityTimePeriod | TimePeriodType | Tidsintervallet inom vilket uppmärksamhetssignalen är giltig. Sluttidpunkt kan vara aktuellt att ange då man i förväg bedömer att uppmärksamhetssignalen har en sluttidpunkt (t.ex. för behandlingar). | 1..1 |
 | ../../../start | TimeStampType | Format ÅÅÅÅMMDDhhmmss. | 1..1 |
 | ../../../end | TimeStampType | Format ÅÅÅÅMMDDhhmmss. | 0..1 |
-| ../../alertInformationComment | string | Text som innehåller en kommentar av den ansvarige hälso- och sjukvårdspersonalen angående uppmärksamhetssignalen. Vid läkemedelsöverkänslighet kan kommentaren avse en anamnes,
-en beskrivning av den observerade reaktionen, en beskrivning av möjliga agens, föreliggande undersökningsresultat. | 0..1 |
+| ../../alertInformationComment | string | Text som innehåller en kommentar av den ansvarige hälso- och sjukvårdspersonalen angående uppmärksamhetssignalen. Vid läkemedelsöverkänslighet kan kommentaren avse en anamnes,<br/>en beskrivning av den observerade reaktionen, en beskrivning av möjliga agens, föreliggande undersökningsresultat. | 0..1 |
 | ../../obsoleteTime | TimeStampType | Tidpunkt då uppmärksamhetssignalen registrerades som inaktuell i det lokala systemet. Används exempelvis om det uppmärksammade förhållandet bedöms som inte längre aktuellt trots att tidigare angiven gilitighetstid ej gått ut. | 0..1 |
 | ../../obsoleteComment | string | Text som innehåller information om varför uppmärksamhetssignalen gjorts inaktuell. | 0..1 |
 | ../../hypersensitivity | HyperSensitivityType | En och endast en av hypersensitivity, seriousDisease, treatment, communicableDisease, restrictionOfCare och unstructuredAlertInformation ska anges. | 0..1 |
-| ../../../typeOfHypersensitivity | CVType | Kod som anger en precisering av vilken typ av överkänslighet som uppmärksamhetssignalen avser. Koden bör hämtas ur ICD10/SNOMED, [R13]. / Exempel: / Läkemedelsöverkänslighet / Överkänslighet avs. födoämne / Överkänslighet avs. djur / Överkänslighet avs. växt / Överkänslighet av kemikalie | 0..1 |
+| ../../../typeOfHypersensitivity | CVType | Kod som anger en precisering av vilken typ av överkänslighet som uppmärksamhetssignalen avser. Koden bör hämtas ur ICD10/SNOMED, [R13].<br/>Exempel:<br/>Läkemedelsöverkänslighet<br/>Överkänslighet avs. födoämne<br/>Överkänslighet avs. djur<br/>Överkänslighet avs. växt<br/>Överkänslighet av kemikalie | 0..1 |
 | ../../../../code | string | Kod. Om code anges måste också codeSystem och displayName också anges. | 0..1 |
 | ../../../../displayName | string | Klartext. Om displayName anges måste också code och codeSystem anges. | 0..1 |
 | ../../../../codeSystem | string | OID för kodsystem. Om codeSystem anges måste också code och displayName anges. | 0..1 |
 | ../../../../codeSystemName | string | Klartext för kodsystem. | 0..1 |
 | ../../../../codeSystemVersion | string | Kodsystemsversion. | 0..1 |
 | ../../../../originalText | string | Används i de fall kod finns i ett lokalt kodverk som ej är identifierat med OID eller när kod helt saknas. I sådana fall ska en beskrivande text anges i originalText. Om originalText anges kan ingen av de övriga elementen anges. | 0..1 |
-| ../../../degreeOfSeverity | CVType | Kod som anger bedömning av överkänslighetens allvarlighet. / KV Allvarlighetsgrad (1.2.752.129.2.2.3.3), [R13] | 0..1 |
+| ../../../degreeOfSeverity | CVType | Kod som anger bedömning av överkänslighetens allvarlighet.<br/>KV Allvarlighetsgrad (1.2.752.129.2.2.3.3), [R13] | 0..1 |
 | ../../../../code | string | Kod. Om code anges måste också codeSystem och displayName också anges. | 0..1 |
 | ../../../../displayName | string | Klartext. Om displayName anges måste också code och codeSystem anges. | 0..1 |
 | ../../../../codeSystem | string | OID för kodsystem. Om codeSystem anges måste också code och displayName anges. | 0..1 |
 | ../../../../codeSystemName | string | Klartext för kodsystem. | 0..1 |
 | ../../../../codeSystemVersion | string | Kodsystemsversion. | 0..1 |
 | ../../../../originalText | string | Används i de fall kod finns i ett lokalt kodverk som ej är identifierat med OID eller när kod helt saknas. I sådana fall ska en beskrivande text anges i originalText. Om originalText anges kan ingen av de övriga elementen anges. | 0..1 |
-| ../../../degreeOfCertainty | CVType | Kod som innehåller en uppgift om med vilken visshet överkänsligheten är precis så som den har angivits. / KV Visshetsgrad (1.2.752.129.2.2.3.11) | 0..1 |
+| ../../../degreeOfCertainty | CVType | Kod som innehåller en uppgift om med vilken visshet överkänsligheten är precis så som den har angivits.<br/>KV Visshetsgrad (1.2.752.129.2.2.3.11) | 0..1 |
 | ../../../../code | string | Kod. Om code anges måste också codeSystem och displayName också anges. | 0..1 |
 | ../../../../displayName | string | Klartext. Om displayName anges måste också code och codeSystem anges. | 0..1 |
 | ../../../../codeSystem | string | OID för kodsystem. Om codeSystem anges måste också code och displayName anges. | 0..1 |
@@ -455,19 +436,16 @@ en beskrivning av den observerade reaktionen, en beskrivning av möjliga agens, 
 | ../../../../codeSystemVersion | string | Kodsystemsversion. | 0..1 |
 | ../../../../originalText | string | Används i de fall kod finns i ett lokalt kodverk som ej är identifierat med OID eller när kod helt saknas. I sådana fall ska en beskrivande text anges i originalText. Om originalText anges kan ingen av de övriga elementen anges. | 0..1 |
 | ../../../pharmaceuticalHypersensitivity | PharmaceuticalHypersensitivityType | Mer detaljerad information om läkemedelsöverkänslighet. | 0..1 |
-| ../../../../atcSubstance | CVType | Kod och klartext som anger den substans, eller grupp av substanser, som kan förorsaka en överkänslighetsreaktion. ATC-kod på minst treställig nivå ska anges för en läkemedelsöverkänslighet med en allvarlighetsgrad livshotande eller skadande, [R13]. / Om en ATC-kod ej kan anges ska attributen nonAtcSubstance
-och nonATCSubstanceComment
-användas. | 0..1 |
+| ../../../../atcSubstance | CVType | Kod och klartext som anger den substans, eller grupp av substanser, som kan förorsaka en överkänslighetsreaktion. ATC-kod på minst treställig nivå ska anges för en läkemedelsöverkänslighet med en allvarlighetsgrad livshotande eller skadande, [R13].<br/>Om en ATC-kod ej kan anges ska attributen nonAtcSubstance<br/>och nonATCSubstanceComment<br/>användas. | 0..1 |
 | ../../../../../code | string | Substansens ATC-kod. | 1..1 |
 | ../../../../../displayName | string | Klartext för substans (substansnamn) | 1..1 |
 | ../../../../../codeSystem | string | 1.2.752.129.2.2.3.1.1 | 1..1 |
 | ../../../../../ codeSystemName | string | Används ej | 0..0 |
 | ../../../../../ codeSystemVersion | string | Används ej | 0..0 |
 | ../../../../../originalText | string | Används ej | 0..0 |
-| ../../../../nonATCSubstance | string | Text som anger benämning på aktiv substans som kan förorsaka en överkänslighetsreaktion. / Ska anges om attributet atcSubstance saknas. | 0..1 |
-| ../../../../nonATCSubstanceComment | string | Text som innehåller en förklaring till varför ej ATC-kod används. / Ska anges om attributet atcSubstance saknas. | 0..1 |
-| ../../../../pharmaceuticalProductId | CVType | Identifierare för aktuell läkemedelsprodukt som kan orsaka överkänslighet. 
-NPL-id (1.2.752.129.2.1.5.1). | 0..* |
+| ../../../../nonATCSubstance | string | Text som anger benämning på aktiv substans som kan förorsaka en överkänslighetsreaktion.<br/>Ska anges om attributet atcSubstance saknas. | 0..1 |
+| ../../../../nonATCSubstanceComment | string | Text som innehåller en förklaring till varför ej ATC-kod används.<br/>Ska anges om attributet atcSubstance saknas. | 0..1 |
+| ../../../../pharmaceuticalProductId | CVType | Identifierare för aktuell läkemedelsprodukt som kan orsaka överkänslighet.<br/>NPL-id (1.2.752.129.2.1.5.1). | 0..* |
 | ../../../../../code | string | Kod. Om code anges måste också codeSystem och displayName också anges. | 0..1 |
 | ../../../../../displayName | string | Klartext. Om displayName anges måste också code och codeSystem anges. | 0..1 |
 | ../../../../../codeSystem | string | OID för kodsystem. Om codeSystem anges måste också code och displayName anges. | 0..1 |
@@ -475,7 +453,7 @@ NPL-id (1.2.752.129.2.1.5.1). | 0..* |
 | ../../../../../codeSystemVersion | string | Kodsystemsversion. | 0..1 |
 | ../../../../../originalText | string | Används i de fall kod finns i ett lokalt kodverk som ej är identifierat med OID eller när kod helt saknas. I sådana fall ska en beskrivande text anges i originalText. Om originalText anges kan ingen av de övriga elementen anges. | 0..1 |
 | ../../../otherHypersensitivity | OtherHypersensitivityType | Mer detaljerad information om överkänsligheten. Kan användas för annan överkänslighet än läkemedelsöverkänslighet. | 0..1 |
-| ../../../../hypersensitivityAgent | string | Text som beskriver det agens som bedöms kunna orsaka en överkänslighetsreaktion. / Bör anges. | 0..1 |
+| ../../../../hypersensitivityAgent | string | Text som beskriver det agens som bedöms kunna orsaka en överkänslighetsreaktion.<br/>Bör anges. | 0..1 |
 | ../../../../hypersensitivityAgentCode | CVType | Text som anger den kod som beskriver det agens som bedöms kunna orsaka en överkänslighetsreaktion. Exempelvis kan LMK-kod för överkänslighet födoämne eller CAS-kod för överkänslighet kemikalie användas. Kan användas för annan överkänslighet än läkemedelsöverkänslighet. | 0..1 |
 | ../../../../../code | string | Kod. Om code anges måste också codeSystem och displayName också anges. | 0..1 |
 | ../../../../../displayName | string | Klartext. Om displayName anges måste också code och codeSystem anges. | 0..1 |
@@ -500,8 +478,7 @@ NPL-id (1.2.752.129.2.1.5.1). | 0..* |
 | ../../../../codeSystemName | string | Klartext för kodsystem. | 0..1 |
 | ../../../../codeSystemVersion | string | Kodsystemsversion. | 0..1 |
 | ../../../../originalText | string | Används i de fall kod finns i ett lokalt kodverk som ej är identifierat med OID eller när kod helt saknas. I sådana fall ska en beskrivande text anges i originalText. Om originalText anges kan ingen av de övriga elementen anges. | 0..1 |
-| ../../../pharmaceuticalTreatment | CVType | Kod och klartext som anger uppgift om den eller de läkemedel som används vid en uppmärksammad behandling.
-ATC-kod (1.2.752.129.2.2.3.1.1), [R13]. | 0..* |
+| ../../../pharmaceuticalTreatment | CVType | Kod och klartext som anger uppgift om den eller de läkemedel som används vid en uppmärksammad behandling.<br/>ATC-kod (1.2.752.129.2.2.3.1.1), [R13]. | 0..* |
 | ../../../../code | string | Läkemedlets (ATC-)kod. Om code anges måste också codeSystem och displayName anges. | 0..1 |
 | ../../../../displayName | string | Klartext för läkemedel (namn på läkemedel). Om displayName anges måste också code och codeSystem anges. | 0..1 |
 | ../../../../codeSystem | string | OID för kodsystem. Om codeSystem anges måste också code och displayName anges. | 0..1 |
@@ -550,8 +527,8 @@ Inga fältregler utöver de som är beskrivna ovan.
 
 | Namn | Regel | Element | Ändamål |
 | :--- | :--- | :--- | :--- |
-| Regel 1 | Krävs för spärrhantering, åtkomstkontroll samt loggning enligt PDL. Om HSA-id för vårdenhet och vårdgivare inte kan lämnas kommer elementet inte visas upp av konsumenter inom sammanhållen journalföring | ../../../healthcareProfessionalCareGiverHSAId / ../../../healthcareProfessionalCareUnitHSAId | Sammanhållen journalföring |
-| Regel 2 | Då uppmärksamhetssignaler ska skickas till Nationell Patientöversikt måste någon av följande koder från kv informationstyp anges: / upp-ube / upp-ube-beh / upp-ube-lbe / upp-ube-kod / upp-uas / upp-uas-sjd / upp-vbe / upp-vbe-vbe / upp-arb / upp-arb-smf / upp-arb-smf-vag / upp-arb-smf-sjd / upp-est / upp-est-rub / upp-est-inh / Alternativt ska någon av följande koder från kv uppmärksamhetstyp anges: / Överkänslighet / Allvarlig sjukdom / Allvarlig behandling / Smittsam sjukdom / Vårdbegränsning / Historisk varningsinformation | ../../typeOfAlertInformation | Uppmärksamhets-signaler till NPÖ. |
+| Regel 1 | Krävs för spärrhantering, åtkomstkontroll samt loggning enligt PDL. Om HSA-id för vårdenhet och vårdgivare inte kan lämnas kommer elementet inte visas upp av konsumenter inom sammanhållen journalföring | ../../../healthcareProfessionalCareGiverHSAId<br/>../../../healthcareProfessionalCareUnitHSAId | Sammanhållen journalföring |
+| Regel 2 | Då uppmärksamhetssignaler ska skickas till Nationell Patientöversikt måste någon av följande koder från kv informationstyp anges:<br/>upp-ube<br/>upp-ube-beh<br/>upp-ube-lbe<br/>upp-ube-kod<br/>upp-uas<br/>upp-uas-sjd<br/>upp-vbe<br/>upp-vbe-vbe<br/>upp-arb<br/>upp-arb-smf<br/>upp-arb-smf-vag<br/>upp-arb-smf-sjd<br/>upp-est<br/>upp-est-rub<br/>upp-est-inh<br/>Alternativt ska någon av följande koder från kv uppmärksamhetstyp anges:<br/>Överkänslighet<br/>Allvarlig sjukdom<br/>Allvarlig behandling<br/>Smittsam sjukdom<br/>Vårdbegränsning<br/>Historisk varningsinformation | ../../typeOfAlertInformation | Uppmärksamhets-signaler till NPÖ. |
 
 ##### Icke funktionella krav
 Inga övriga icke funktionella krav.
@@ -564,7 +541,7 @@ Vid ett logiskt fel ska result.resultCode sättas till ERROR och result.errorCod
 
 | Felkod | Värde | Beskrivning |
 | :--- | :--- | :--- |
-| Ogiltig begäran | INVALID_REQUEST | Informationsmängden som skickats är ej korrekt utifrån de regler som gäller för tjänstekontraktet. En förklarande result.message kan närmare peka på vilken regel som ej efterföljts. / En omsändning av information kommer att ge samma fel. |
+| Ogiltig begäran | INVALID_REQUEST | Informationsmängden som skickats är ej korrekt utifrån de regler som gäller för tjänstekontraktet. En förklarande result.message kan närmare peka på vilken regel som ej efterföljts.<br/>En omsändning av information kommer att ge samma fel. |
 
 ### GetFunctionalStatus
 GetFunctionalStatus returnerar dokumenterade bedömning av funktionsnedsättningar och/eller aktivitetsförmåga för en patient. Meddelandeformatet baseras på NPÖ RIV 2.2.0.
@@ -582,38 +559,34 @@ Nedanstående tabell beskriver varje element i begäran och svar.  Finns ytterli
 | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |
 | careUnitHSAId | HSAIdType | Filtrering på vårdenhet vilket motsvarar careUnitHSAId i healthcareProfessionalType. | 0..* |
-| patientId | PersonIdType | Id för patienten där fältet id sätts till patientens identifierare. Anges med 12 tecken utan avskiljare. / Fältet type sätts till OID för typ av identifierare. 
-1) För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas, [R14]. / 2) För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas, [R14]. / 3) Tjänsteproducenter ska även stödja sökning på reservnummer med hjälp av att ange lokalt definierade OID’ar för reservnummer, exempelvis SLL reservnummer (1.2.752.97.3.1.3), [R14]. / OBS reservnummer kan ej användas tillsammans med EI och aggregerande tjänster då dessa komponenter idag inte är anpassade för att stödja typ av id, inga uppdateringar till EI ska göras av en tjänsteproducent för reservnummer. / En tjänstekonsument som vill begära mha reservnummer måste därmed använda sig av systemadressering och ha vetskap om vilken reservnummer-OID som gäller vid anrop mot en specifik tjänsteproducent. | 1..1 |
-| datePeriod | DatePeriodType | Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där documentTime i svaret ligger inom sökintervallets start- och slutdatumet. / Notera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse konverteras datapostens tidpunkter till datum. | 0..1 |
+| patientId | PersonIdType | Id för patienten där fältet id sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.<br/>Fältet type sätts till OID för typ av identifierare.<br/>1) För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas, [R14].<br/>2) För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas, [R14].<br/>3) Tjänsteproducenter ska även stödja sökning på reservnummer med hjälp av att ange lokalt definierade OID’ar för reservnummer, exempelvis SLL reservnummer (1.2.752.97.3.1.3), [R14].<br/>OBS reservnummer kan ej användas tillsammans med EI och aggregerande tjänster då dessa komponenter idag inte är anpassade för att stödja typ av id, inga uppdateringar till EI ska göras av en tjänsteproducent för reservnummer.<br/>En tjänstekonsument som vill begära mha reservnummer måste därmed använda sig av systemadressering och ha vetskap om vilken reservnummer-OID som gäller vid anrop mot en specifik tjänsteproducent. | 1..1 |
+| datePeriod | DatePeriodType | Begränsar sökningen till det angivna intervallet. Begränsningen innebär att endast poster returneras där documentTime i svaret ligger inom sökintervallets start- och slutdatumet.<br/>Notera att sökintervallet beskrivs som ett datumintervall. Vid jämförelse konverteras datapostens tidpunkter till datum. | 0..1 |
 | ../start | string | Startdatum. Format ÅÅÅÅMMDD. | 1..1 |
 | ../end | string | Slutdatum. Format ÅÅÅÅMMDD. | 1..1 |
-| sourceSystemHSAId | HSAIdType | Begränsar sökningen till information om funktionsstatus som tillgängliggörs av angivet källsystem. / Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header). / Det innebär i praktiken att aggregerande tjänster inte används när detta fält anges. / Ska anges om careContactId angivits. / Ska anges vid begäran på reservnummer. / Om sourceSystemHSAId och logicalAddress är olika ska ett svar endast innehålla en resultType med result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST / Om careContactId är satt och sourceSystemHSAId är tomt ska ett svar endast innehålla en resultType med  result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST. | 0..1 |
+| sourceSystemHSAId | HSAIdType | Begränsar sökningen till information om funktionsstatus som tillgängliggörs av angivet källsystem.<br/>Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header).<br/>Det innebär i praktiken att aggregerande tjänster inte används när detta fält anges.<br/>Ska anges om careContactId angivits.<br/>Ska anges vid begäran på reservnummer.<br/>Om sourceSystemHSAId och logicalAddress är olika ska ett svar endast innehålla en resultType med result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST<br/>Om careContactId är satt och sourceSystemHSAId är tomt ska ett svar endast innehålla en resultType med  result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST. | 0..1 |
 | careContactId | string | Begränsar sökningen till de funktionsstatusobjekt som dokumenterades vid angiven hälso- och sjukvårdskontakt. | 0..* |
 |  |  |  |  |
 | Svar |  |  |  |
 | functionalStatusAssessment | FunctionalStatusAssessmentTime | De funktionsstatusbedömningar som matchar begäran. | 0..* |
 | ../functionalStatusAssessmentHeader | PatientSummaryHeaderType | Innehåller basinformation om dokumentet | 1..1 |
-| ../../documentId | string | Funktionsbedömningens identitet som är unik inom källsystemet. / Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter. / Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen. | 1..1 |
+| ../../documentId | string | Funktionsbedömningens identitet som är unik inom källsystemet.<br/>Identifieraren ska vara konsistent och beständigt mellan olika majorversioner av ett kontrakt. Ett exempel på detta är att en vårdkontakt ska ha samma identifierare i majorversion 3 och 4 av ett tjänstekontrakt för att läsa vårdkontakter.<br/>Identifieraren ska vara konsistent och beständigt mellan olika kontrakt. Ett exempel på detta är att samma remiss-identitet ska användas i ett tjänstekontrakt för att läsa remisser, samt tjänstekontraktet som läser remissvar som refererar till den ursprungliga remissen. | 1..1 |
 | ../../sourceSystemHSAId | HSAIdType | HSA-id för det system tillgängliggör informationen. | 1..1 |
 | ../../documentTitle | string | N/A | 0..0 |
 | ../../documentTime | TimeStampType | Bedömningstidpunkt/händelsetidpunkt. | 1..1 |
 | ../../patientId | PersonIdType | Identifierare för patient. | 1..1 |
 | ../../../id | string | Sätts till patientens identifierare. Anges med 12 tecken utan avskiljare. | 1..1 |
-| ../../../type | string | Sätts till OID för typ av identifierare. 
-För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1), [R14].
-För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3), [R14].
-För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3), [R14]. | 1..1 |
+| ../../../type | string | Sätts till OID för typ av identifierare.<br/>För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1), [R14].<br/>För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3), [R14].<br/>För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3), [R14]. | 1..1 |
 | ../../accountableHealthcareProfessional | HealthcareProfessionalType | Information om den hälso- och sjukvårdsperson som ansvarar för funktionsstatusbedömninge, nedan kallas författare. | 1..1 |
 | ../../../authorTime | TimeStampType | Tidpunkt då informationen registrerades. | 1..1 |
 | ../../../healthcareProfessionalHSAId | HSAIdType | Författarens HSA-id. | 0..1 |
 | ../../../healthcareProfessionalName | string | Namn på författaren. Om tillgängligt ska detta anges. | 0..1 |
-| ../../../healthcareProfessionalRoleCode | CVType | Information om personens befattning. Om möjligt ska kodverket Befattning (OID 1.2.752.129.2.2.1.4) användas, [R13]. / I de fall kodverket Befattning ej kan användas, men information om befattning finns tillgänglig, måste vårdgivaren ange en OID på det organisationsinterna kodverk som används istället. / Information som finns kan inte utelämnas på grund av att mappning till kodverket Befattning inte är möjlig | 0..1 |
+| ../../../healthcareProfessionalRoleCode | CVType | Information om personens befattning. Om möjligt ska kodverket Befattning (OID 1.2.752.129.2.2.1.4) användas, [R13].<br/>I de fall kodverket Befattning ej kan användas, men information om befattning finns tillgänglig, måste vårdgivaren ange en OID på det organisationsinterna kodverk som används istället.<br/>Information som finns kan inte utelämnas på grund av att mappning till kodverket Befattning inte är möjlig | 0..1 |
 | ../../../../code | string | Befattningskod. Om code anges ska också codeSystem  samt displayName anges. | 0..1 |
 | ../../../../codeSystem | string | Kodsystem för befattningskod. Om codeSystem anges ska också code samt displayName anges. | 0..1 |
 | ../../../../codeSystemName | string | Namn på kodsystem för befattningskod. | 0..1 |
 | ../../../../codeSystemVersion | string | Version på kodsystem för befattningskod. | 0..1 |
 | ../../../../displayName | string | Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges. | 0..1 |
-| ../../../../originalText | string | Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. / Om originalText anges ska inget annat värde i healthcareProfessionalRoleCode anges. | 0..1 |
+| ../../../../originalText | string | Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText.<br/>Om originalText anges ska inget annat värde i healthcareProfessionalRoleCode anges. | 0..1 |
 | ../../../healthcareProfessionalOrgUnit | OrgUnitType | Den organisation som författaren är uppdragstagare på. | 0..1 |
 | ../../../../orgUnitHSAId | HSAIdType | HSA-id för organisationsenhet. | 1..1 |
 | ../../../../orgUnitName | string | Namnet på den organisation som författaren är uppdragstagare på. | 1..1 |
@@ -624,7 +597,7 @@ För reservnummer används lokalt definierade reservnummet, exempelvis SLL reser
 | ../../../healthcareProfessionalCareUnitHSAId | HSAIdType | HSA-id för vårdenhet. (Regel:1) | 0..1 |
 | ../../../healthcareProfessionalCareGiverHSAId | HSAIdType | HSA-id för vårdgivaren, som är vårdgivare för den enhet som författaren är uppdragstagare för. (Regel:1) | 0..1 |
 | ../../legalAuthenticator | LegalAuthenticatorType | Information om vem som signerat informationen i dokumentet. | 0..1 |
-| ../../../signatureTime | TimeStampType | Signaturtidpunkt. / Tid vid vilken funktionsstatusbedömningen signeras. | 1..1 |
+| ../../../signatureTime | TimeStampType | Signaturtidpunkt.<br/>Tid vid vilken funktionsstatusbedömningen signeras. | 1..1 |
 | ../../../legalAuthenticatorHSAId | HSAIdType | HSA-id för person som signerat dokumentet | 0..1 |
 | ../../../legalAuthenticatorName | string | Namnen i klartext för signerande person. | 0..1 |
 | ../../../legalAuthenticatorRoleCode | CVType | Signerande persons befattning. Om möjligt ska kodverket Befattning (OID 1.2.752.129.2.2.1.4), [R13] | 0..1 |
@@ -633,33 +606,32 @@ För reservnummer används lokalt definierade reservnummet, exempelvis SLL reser
 | ../../../../codeSystemName | string | Namn på kodsystem för befattningskod. | 0..1 |
 | ../../../../codeSystemVersion | string | Version på kodsystem för befattningskod. | 0..1 |
 | ../../../../displayName | string | Befattningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges. | 0..1 |
-| ../../../../originalText | string | Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. / Om originalText anges ska inget annat värde i healthcareProfessionalRoleCode anges. | 0..1 |
+| ../../../../originalText | string | Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText.<br/>Om originalText anges ska inget annat värde i healthcareProfessionalRoleCode anges. | 0..1 |
 | ../../approvedForPatient | boolean | Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false. | 1..1 |
-| ../../careContactId | string | Vårdkontakts-id. / Id för den vårdkontakt vid vilken funktionsstatusbedömningen gjorts. | 0..1 |
+| ../../careContactId | string | Vårdkontakts-id.<br/>Id för den vårdkontakt vid vilken funktionsstatusbedömningen gjorts. | 0..1 |
 | ../../nullified | boolean | N/A | 0..0 |
 | ../../nullifiedReason | string | N/A | 0..0 |
 | ../functionalStatusAssessmentBody | FunctionalStatusAssessmentBodyType |  | 1..1 |
-| ../../assessmentCategory | AssessmentCategoryEnum | Bedömningskategori. / Beskriver vilken kategori av bedömning som är gjord. Tillåtna värden är "pad-pad" (för PADL-bedömning) och "fun-fun" (för funktionsnedsättningsbedömningar). / Värdet här ska stämma överens med elementet categorization i den Update som tjänsteproducent skickar till EI. | 1..1 |
-| ../../comment | string | Kommentar. / Text som innehåller kommentar till totaliten av bedömningarna. Får endast användas om assessmentCategory = pad-pad. | 0..1 |
-| ../../padl | PADLType | Beskriver gjorda PADL-bedömningar. / Får enbart anges samtidigt som assessmentCategory = pad-pad. | 0..* |
-| ../../../typeOfAssessment | CVType | Typ av PADL-bedömning. Kan anges med lämpligt kodsystem.
-(Regel:2) | 1..1 |
-| ../../../../code | string | Kod för PADL-bedömning. / Om code anges ska också codeSystem  samt displayName anges. | 0..1 |
-| ../../../../codeSystem | string | Kodsystem för PADL-bedömning. / Om codeSystem anges ska också code samt displayName anges. | 0..1 |
+| ../../assessmentCategory | AssessmentCategoryEnum | Bedömningskategori.<br/>Beskriver vilken kategori av bedömning som är gjord. Tillåtna värden är "pad-pad" (för PADL-bedömning) och "fun-fun" (för funktionsnedsättningsbedömningar).<br/>Värdet här ska stämma överens med elementet categorization i den Update som tjänsteproducent skickar till EI. | 1..1 |
+| ../../comment | string | Kommentar.<br/>Text som innehåller kommentar till totaliten av bedömningarna. Får endast användas om assessmentCategory = pad-pad. | 0..1 |
+| ../../padl | PADLType | Beskriver gjorda PADL-bedömningar.<br/>Får enbart anges samtidigt som assessmentCategory = pad-pad. | 0..* |
+| ../../../typeOfAssessment | CVType | Typ av PADL-bedömning. Kan anges med lämpligt kodsystem.<br/>(Regel:2) | 1..1 |
+| ../../../../code | string | Kod för PADL-bedömning.<br/>Om code anges ska också codeSystem  samt displayName anges. | 0..1 |
+| ../../../../codeSystem | string | Kodsystem för PADL-bedömning.<br/>Om codeSystem anges ska också code samt displayName anges. | 0..1 |
 | ../../../../codeSystemName | string | Namn på kodsystem för PADL-bedömning. | 0..1 |
 | ../../../../codeSystemVersion | string | Version på kodsystem för PADL-bedömning. | 0..1 |
 | ../../../../displayName | string | PADL-bedömningskoden i klartext. Om separat displayName inte finns i producerande system ska samma värde som i code anges. | 0..1 |
-| ../../../../originalText | string | Om PADL-bedömning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. / Om originalText anges ska inget annat värde i typeOfAssessment anges. | 0..1 |
+| ../../../../originalText | string | Om PADL-bedömning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText.<br/>Om originalText anges ska inget annat värde i typeOfAssessment anges. | 0..1 |
 | ../../../assessment | string | Den textuella PADL-bedömning som gjorts i kategorin av bedömningar som beskrivs i typeOfAssessment. | 1..1 |
-| ../../disability | DisabilityType | Beskriver gjord funktionsnedsättningsbedömning. / Får endast anges om assessmentCategory = fun-fun. | 0..1 |
-| ../../../disabilityAssessment | CVType | Angivelse av kod för den funktion som bedömts nedsatt. / Om funktionen anges strukturerat ska kod från ICF [R13] användas. Koden ska anges utan bedömningsfaktor och detta ska tolkas som att det är den funktion som ICF-koden representerar som är nedsatt från normal funktion. I attributet kommentar kan nedsättningen vid behov textuellt graderas och specificeras ytterligare. / Om ICF-kod inte kan anges kan den nedsatta funktionen anges i attributet originalText / Kontraktet har i denna version inte stöd för ICFs numeriska bedömningsfaktor. | 1..1 |
-| ../../../../code | string | Kod för den funktion som bedömts nedsatt. Exempelvis ICF kod: b3101 / Om code anges ska också codeSystem  samt displayName anges, men ej originalText. | 0..1 |
+| ../../disability | DisabilityType | Beskriver gjord funktionsnedsättningsbedömning.<br/>Får endast anges om assessmentCategory = fun-fun. | 0..1 |
+| ../../../disabilityAssessment | CVType | Angivelse av kod för den funktion som bedömts nedsatt.<br/>Om funktionen anges strukturerat ska kod från ICF [R13] användas. Koden ska anges utan bedömningsfaktor och detta ska tolkas som att det är den funktion som ICF-koden representerar som är nedsatt från normal funktion. I attributet kommentar kan nedsättningen vid behov textuellt graderas och specificeras ytterligare.<br/>Om ICF-kod inte kan anges kan den nedsatta funktionen anges i attributet originalText<br/>Kontraktet har i denna version inte stöd för ICFs numeriska bedömningsfaktor. | 1..1 |
+| ../../../../code | string | Kod för den funktion som bedömts nedsatt. Exempelvis ICF kod: b3101<br/>Om code anges ska också codeSystem  samt displayName anges, men ej originalText. | 0..1 |
 | ../../../../codeSystem | string | OID för ICF: 1.2.752.116.1.1.3 | 0..1 |
 | ../../../../codeSystemName | string | Namn på kodsystem för funktionsnedsättning. | 0..0 |
 | ../../../../codeSystemVersion | string | Version på kodsystem för funktionsnedsättning. | 0..0 |
 | ../../../../displayName | string | ICF-kodens klartextbenämning, exempelvis ”röstkvalitet” . | 0..1 |
-| ../../../../originalText | string | Om ICF-kod saknas, kan en funktionsnedsättningen beskrivas i text i detta attribut. / Om originalText anges ska inget annat värde i disabilityAssessment anges. | 0..1 |
-| ../../../comment | string | Kommentar. / Text som innehåller ytterligare information om funktionsnedsättningen. Exempelvis: ”uttalssvårigheter och tillfälligt bortfall av röststyrka”. | 0..1 |
+| ../../../../originalText | string | Om ICF-kod saknas, kan en funktionsnedsättningen beskrivas i text i detta attribut.<br/>Om originalText anges ska inget annat värde i disabilityAssessment anges. | 0..1 |
+| ../../../comment | string | Kommentar.<br/>Text som innehåller ytterligare information om funktionsnedsättningen. Exempelvis: ”uttalssvårigheter och tillfälligt bortfall av röststyrka”. | 0..1 |
 | result | ResultType | Innehåller information om begäran gick bra eller ej. | 1..1 |
 | ../resultCode | ResultCodeEnum | Kan endast vara OK, INFO eller ERROR | 1..1 |
 | ../errorCode | ErrorCodeEnum | Sätts endast om resultCode är ERROR, se kapitel 4.4 för mer information. | 0..1 |
@@ -671,7 +643,7 @@ För reservnummer används lokalt definierade reservnummet, exempelvis SLL reser
 
 | Namn | Regel | Element | Ändamål |
 | :--- | :--- | :--- | :--- |
-| Regel 1 | Krävs för spärrhantering, åtkomstkontroll samt loggning enligt PDL. Om HSA-id för vårdenhet och vårdgivare inte kan lämnas kommer elementet inte visas upp av konsumenter inom sammanhållen journalföring | ../../../healthcareProfessionalCareGiverHSAId / ../../../healthcareProfessionalCareUnitHSAId | Sammanhållen journalföring |
+| Regel 1 | Krävs för spärrhantering, åtkomstkontroll samt loggning enligt PDL. Om HSA-id för vårdenhet och vårdgivare inte kan lämnas kommer elementet inte visas upp av konsumenter inom sammanhållen journalföring | ../../../healthcareProfessionalCareGiverHSAId<br/>../../../healthcareProfessionalCareUnitHSAId | Sammanhållen journalföring |
 | Regel 2 | Då attributet endast avser Personlig ADL ska endast följande och max ett av vardera av följande värden användas: "personlig hygien", "på/avklädning", "förflyttning", "toalettbesök" och "födointag". | ../../../typeOfAssessment | Följsamhet till den delen av ADL taxonomin som rör de personliga aktiviteterna [R18]. |
 
 ##### Icke funktionella krav
@@ -685,4 +657,4 @@ Vid ett logiskt fel ska result.resultCode sättas till ERROR och result.errorCod
 
 | Felkod | Värde | Beskrivning |
 | :--- | :--- | :--- |
-| Ogiltig begäran | INVALID_REQUEST | Informationsmängden som skickats är ej korrekt utifrån de regler som gäller för tjänstekontraktet. En förklarande result.message kan närmare peka på vilken regel som ej efterföljts. / En omsändning av information kommer att ge samma fel. |
+| Ogiltig begäran | INVALID_REQUEST | Informationsmängden som skickats är ej korrekt utifrån de regler som gäller för tjänstekontraktet. En förklarande result.message kan närmare peka på vilken regel som ej efterföljts.<br/>En omsändning av information kommer att ge samma fel. |

@@ -9,7 +9,7 @@ Källa: *Tjänstekontraktsbeskrivning masterdata: citizen: patient*, version 1.0
 | Domän | masterdata: citizen: patient (underlagförprocesstöd: invånare: patientuppgifter) |
 | Version | 1.0 (1.0_RC1 enligt revisionshistoriken) |
 | Datum | 2017-01-26 enligt revisionshistoriken |
-| Titelsida | Dokumentnamn(Title) / Underrubrik på titelsida / Version 1.4 / ARK_0015 / 2014-09-08 (mallens titelsida, ej ifylld) |
+| Titelsida | Dokumentnamn(Title)<br/>Underrubrik på titelsida<br/>Version 1.4<br/>ARK_0015<br/>2014-09-08 (mallens titelsida, ej ifylld) |
 
 #### Mallens anvisningar (kvar i källdokumentet)
 

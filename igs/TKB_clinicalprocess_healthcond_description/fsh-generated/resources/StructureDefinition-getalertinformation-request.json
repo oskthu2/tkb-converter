@@ -73,8 +73,8 @@
         "id": "getalertinformation-request.sourceSystemHSAId",
         "path": "getalertinformation-request.sourceSystemHSAId",
         "short": "Källsystem HSA-id",
-        "definition": "Begränsar sökningen till uppmärksamhetsinformation som tillgängliggörs av angivet källsystem.",
-        "comment": "TKB-fält: `sourceSystemHSAId` (`HSAIdType`).\n\n**Modellanteckning:** Begränsar sökning till uppmärksamhetsinformation från ett specifikt källsystem.",
+        "definition": "Begränsar sökningen till uppmärksamhetsinformation som tillgängliggörs av angivet källsystem.\n\nVärdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header).\n\nDet innebär i praktiken att aggregerande tjänster inte används när detta fält anges.\n\nSka anges om careContactId angivits.\n\nSka anges vid begäran på reservnummer.\n\nOm sourceSystemHSAId och logicalAddress är olika ska ett svar endast innehålla en resultType med result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST\n\nOm careContactId är satt och sourceSystemHSAId är tomt ska ett svar endast innehålla en resultType med  result.resultCode satt till ERROR samt result.errorCode satt till INVALID_REQUEST.",
+        "comment": "TKB-fält: `sourceSystemHSAId` (`HSAIdType`, kardinalitet 0..1).\n\n**Modellanteckning:** Begränsar sökning till uppmärksamhetsinformation från ett specifikt källsystem.",
         "min": 0,
         "max": "1",
         "type": [
@@ -87,7 +87,8 @@
         "id": "getalertinformation-request.careContactId",
         "path": "getalertinformation-request.careContactId",
         "short": "Vårdkontakts-id",
-        "definition": "Begränsar sökning till uppmärksamhetsinformation kopplad till angiven vårdkontakt.\nKardinalitet: Valfri, lista.",
+        "definition": "Begränsar sökningen till den uppmärksamhetsinformation som dokumenterades vid hälso- och sjukvårds kontakt.",
+        "comment": "TKB-fält: `careContactId` (`string`, kardinalitet 0..*).\n\n**Modellanteckning:** Begränsar sökning till uppmärksamhetsinformation kopplad till angiven vårdkontakt.",
         "min": 0,
         "max": "*",
         "type": [

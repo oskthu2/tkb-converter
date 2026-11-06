@@ -231,9 +231,8 @@ Tabellen beskriver de attribut som är unika för tjänstedomänen. Utöver neda
 | Attributnamn | Typ | Kommentar | Kardi-nalitet |
 | :--- | :--- | :--- | :--- |
 | serviceDomain | String | infrastructure:eservicesupply:forminteraction | 1..1 |
-| categorization | String | Kategorier för engagemangsindexpost. / FormCreated (Indikerar att ett specifikt formulär är skapat för användaren.) / FormComplete (Indikerar att ett specifikt formulär är avslutat) | 1..1 |
-| businessObjectInstanceIdentifier | String | Unik identifierare för händelse-bärande objekt.
-Id som motsvarar ”FormId” (i objekt Form | 1..1 |
-| LogicalAddress | String | Referens till informationskällan enligt tjänste-domänens definition till informationskälla. / < SourceSystem hsa-id> | 1..1 |
+| categorization | String | Kategorier för engagemangsindexpost.<br/>FormCreated (Indikerar att ett specifikt formulär är skapat för användaren.)<br/>FormComplete (Indikerar att ett specifikt formulär är avslutat) | 1..1 |
+| businessObjectInstanceIdentifier | String | Unik identifierare för händelse-bärande objekt.<br/>Id som motsvarar ”FormId” (i objekt Form | 1..1 |
+| LogicalAddress | String | Referens till informationskällan enligt tjänste-domänens definition till informationskälla.<br/>< SourceSystem hsa-id> | 1..1 |
 | dataController | String | Identifierare som pekar på personuppgiftsansvarig (PuA) för formuläret. Ska motsvara det HSAId som har satts i attributet healthcare_facility_CareUnit i formulärinstansen. | 1..1 |
 

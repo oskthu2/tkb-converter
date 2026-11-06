@@ -117,7 +117,7 @@ Ange regler i tabellen som gäller för fälten i begäran och Svar. Observera a
 | logicalAddress | ST | Adresseringsparameter. Adressen till tjänsteproducent | 1..1 |
 | authorOrganizationID | HSAIdType | HSA-Id för e-tjänsteproducent, motsvarar authorOrganizationID i authorType | 1..1 |
 | patientID | II | Patiententes identitet, nationellt unikt person-id. | 1..1 |
-| timePeriod | IVL_TS | Begränsning av sökningen i tid, baserat på kliniskt / relevanta datum. Händelser anses ligga inom intervallet, om de till någon del ligger inom intervallet. (Start- och slutpunkt inkluderas i intervallet.) Formatet för start- respektive slutdatum är ÅÅÅÅMMDD. | 0..1 |
+| timePeriod | IVL_TS | Begränsning av sökningen i tid, baserat på kliniskt<br/>relevanta datum. Händelser anses ligga inom intervallet, om de till någon del ligger inom intervallet. (Start- och slutpunkt inkluderas i intervallet.) Formatet för start- respektive slutdatum är ÅÅÅÅMMDD. | 0..1 |
 
 ### Svar (Response)
 
@@ -131,7 +131,7 @@ Ange regler i tabellen som gäller för fälten i begäran och Svar. Observera a
 | careDocumentationHeader | careDocumentationHeaderType | Innehåller basinformation om dokumentet | 1..1 |
 | careDocumentationBody | careDocumentationBodyType | Representerar den narrativa delen av dokumentet | 1..1 |
 
-| careDocumentationHeaderType / e | Typ | Kommentar | Kard |
+| careDocumentationHeaderType<br/>e | Typ | Kommentar | Kard |
 | :--- | :--- | :--- | :--- |
 | careDocumentID | II | Vårddokumentets unika identifierare. OID kan sättas till 1.2.752.129.2.1.2.1  (Icke-nationell identifierare Org+lokalt unikt id) | 1..1 |
 | careDocumentTitle | ST | Titel på dokumentet/anteckningen | 0..1 |
@@ -150,7 +150,7 @@ Ange regler i tabellen som gäller för fälten i begäran och Svar. Observera a
 
 | clinicalDocumentNoteType | Typ | Kommentar | Kard |
 | :--- | :--- | :--- | :--- |
-| careDocumentNoteCode | CD | Typ av vård- och omsorgsdokument. Kod tas från KV Anteckningstyp (1.2.752.129.2.2.2.11). / Tillåtna värden från kodverk Anteckningstyp: / utr = Utredning, / atb = åtgärd/Behandling, / sam = Sammanfattning, / sao = Samordning, / ins = Inskrivning, / slu = Slutanteckning, / auf = Anteckning utan fysiskt / Epikris kodas som slutanteckning (slu) | 1..1 |
+| careDocumentNoteCode | CD | Typ av vård- och omsorgsdokument. Kod tas från KV Anteckningstyp (1.2.752.129.2.2.2.11).<br/>Tillåtna värden från kodverk Anteckningstyp:<br/>utr = Utredning,<br/>atb = åtgärd/Behandling,<br/>sam = Sammanfattning,<br/>sao = Samordning,<br/>ins = Inskrivning,<br/>slu = Slutanteckning,<br/>auf = Anteckning utan fysiskt<br/>Epikris kodas som slutanteckning (slu) | 1..1 |
 | careDocumentNoteTitle | ST | Titel på dokument | 0..1 |
 | careDocumentNoteText | ST | Själva dokumentet. Formatet i textfältet ska följa HL7 CDA "Narrative Block". Om dokumentet innehåller multimedia läggs en platshållare i texten enligt formatet `<renderMultiMedia referencedObject="MM1"/>`. Innehåller dokumentet fler multimedia läggs ytterligare platshållare i texten, där referencesObject får namn "MM2", "MM3" osv | 1..1 |
 

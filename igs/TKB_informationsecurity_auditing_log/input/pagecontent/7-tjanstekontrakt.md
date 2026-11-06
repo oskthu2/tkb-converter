@@ -168,7 +168,7 @@ Max antal loggposter som kan returneras är konfigurerbart av systemet och kan �
 | careUnitId | urn:riv:informationsecurity:auditing:log:2:HsaId | Ej obligatoriskt fält för att filtrera ut loggposter för en specifik vårdenhet. | 0..1 |
 | queuedReportId* | urn:riv:informationsecurity:auditing:log:2:Id | Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigställts. | 0..1 |
 | Svar |  |  |  |
-| logsResult | urn:riv:informationsecurity:auditing:log:2:LogsResultType | Resultatobjekt med status huruvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista med loggposter samt resultatkod OK. / Vid eventuella fel i tjänsteanropet returneras inga loggposter. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande. | 1..1 |
+| logsResult | urn:riv:informationsecurity:auditing:log:2:LogsResultType | Resultatobjekt med status huruvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista med loggposter samt resultatkod OK.<br/>Vid eventuella fel i tjänsteanropet returneras inga loggposter. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande. | 1..1 |
 
 #### 7.2.3 Övriga regler
 
@@ -324,7 +324,7 @@ Max antal loggposter som kan returneras är konfigurerbart av systemet och kan �
 | toDate | xs:DateTime | Obligatoriskt slutdatum för att begränsa rapportuttaget. | 1..1 |
 | queuedReportId* | urn:riv:informationsecurity:auditing:log:2:Id | Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigställts. | 0..1 |
 | Svar |  |  |  |
-| accessLogsResult | urn:riv:informationsecurity:auditing:log:2:AccessLogsResultType | Resultatobjekt med status huruvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts korrekt returneras en lista med patientinformation och resultatkod OK. / Vid eventuella fel i tjänsteanropet returneras ingen patientinformation. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande. | 1..1 |
+| accessLogsResult | urn:riv:informationsecurity:auditing:log:2:AccessLogsResultType | Resultatobjekt med status huruvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts korrekt returneras en lista med patientinformation och resultatkod OK.<br/>Vid eventuella fel i tjänsteanropet returneras ingen patientinformation. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande. | 1..1 |
 
 #### 7.3.3 Övriga regler
 
@@ -451,7 +451,7 @@ Max antal loggposter som kan returneras är konfigurerbart av systemet och kan �
 | toDate | xs:DateTime | Obligatoriskt slutdatum för att begränsa rapportuttaget. | 1..1 |
 | queuedReportId* | urn:riv:informationsecurity:auditing:log:2:Id | Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigställts. | 0..1 |
 | Svar |  |  |  |
-| infoLogsResult | urn:riv:informationsecurity:auditing:log:2:InfoLogsResultType | Resultatobjekt med status huruvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista av vårdgivare samt resultatkod OK. / Vid eventuella fel i tjänsteanropet returneras inga vårdgivare. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande. | 1..1 |
+| infoLogsResult | urn:riv:informationsecurity:auditing:log:2:InfoLogsResultType | Resultatobjekt med status huruvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista av vårdgivare samt resultatkod OK.<br/>Vid eventuella fel i tjänsteanropet returneras inga vårdgivare. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande. | 1..1 |
 
 #### 7.4.3 Övriga regler
 
@@ -553,7 +553,7 @@ Logguttaget begränsas av nedan angiva inparametrar.
 | maxResultsPerFile | xs:int | Antal loggposter/fil (max 10000/zipfil) | 0..1 |
 |  |  |  |  |
 | Svar |  |  |  |
-| result | urn:riv:informationsecurity:auditing:log:2:ResultType | Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc. / En anropande klient skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades. / Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes. | 1..1 |
+| result | urn:riv:informationsecurity:auditing:log:2:ResultType | Datatyp som returneras som ett generellt svar från alla förändrande tjänster, t.ex. skapa, radera, etc.<br/>En anropande klient skall alltid kontrollera att resultatkoden inte innehåller fel för att på så sätt veta om anropet lyckades.<br/>Alla svarskoder förutom OK och INFO betyder att åtgärden inte genomfördes. | 1..1 |
 | orderId | Urn:riv:informationsecurity:auditing:log:2:OrderId | Det ordernummer som ska bifogas anropet till GetFilesForOrder för att få de loggposter som urvalet angavs i anropet till tjänsten. Se kap 3.1.5 | 0..1 |
 
 #### 7.5.3 Övriga regler

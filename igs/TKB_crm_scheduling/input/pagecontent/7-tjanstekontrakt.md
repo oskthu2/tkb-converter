@@ -92,7 +92,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |
 | healthcare_facility | HsaIdType (string) | HSA-id för mottagning/vårdenhet. | 1..1 |
-| subject_of_care | SubjectOfCareIdType (string) | Personnummer enl. yyyymmddxxxx. / Kan användas för att filtrera vad en tjänsteproducent ska returnera för en viss invånare (även vid nybokning). | 1..1 |
+| subject_of_care | SubjectOfCareIdType (string) | Personnummer enl. yyyymmddxxxx.<br/>Kan användas för att filtrera vad en tjänsteproducent ska returnera för en viss invånare (även vid nybokning). | 1..1 |
 | bookingId | BookingIdType (string) | Internt bokningsid. Obligatoriskt när förfrågan gäller ombokning. Detta bokningsid behövs för tjänsteproducenten ska kunna filtrera på egenskaper för en grundbokning | 0..1 |
 | Svar (healthcareFacilityInfos) | HealthcareFacilityInfoType | Lista med tillgängliga mottagningar/vårdenheter. | 0..* |
 | healthcare_facility | HsaIdType (string) | HSA-id för mottagning/vårdenhet. | 1..1 |
@@ -123,7 +123,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | careTypeIDs | CareTypeIDType (string) | Vårdtypsid för att begränsa svarslistan. Ska stödjas av producent om GetAllCaretypes stödjs. Konsument får bara skicka värden till producent som stödjer GetAllCaretypes. | 0..* |
 | subject_of_care | SubjectOfCareIdType (string) | Personnummer enl. yyyymmddxxxx för begränsa/utöka svarslistan. | 1..1 |
 | Svar (performerInfos) | PerformerInfoType | Lista med medarbetare. | 0..* |
-| perfomer | HsaIdType (string) | HSA-id för bokningsbar medarbetare. / Felstavning på namnet (”perfomer” istället för ”performer”) är enligt schema. Se issue id 19. | 1..1 |
+| perfomer | HsaIdType (string) | HSA-id för bokningsbar medarbetare.<br/>Felstavning på namnet (”perfomer” istället för ”performer”) är enligt schema. Se issue id 19. | 1..1 |
 | firstName | string | Medarbetarens förnamn. | 1..1 |
 | lastName | string | Medarbetarens efternamn. | 1..1 |
 | title | string | Medarbetarens titel. | 0..1 |
@@ -150,7 +150,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | Begäran |  |  |  |
 | healthcare_facility | HsaIdType (string) | HSA-id för mottagning/vårdenhet. | 1..1 |
 | careTypeIDs | CareTypeIDType (string) | Vårdtypsidentitet för att begränsa sökningen. Ska stödjas av producent om GetAllCaretypes stödjs. Konsument får bara skicka värden till producent som stödjer GetAllCaretypes. | 0..* |
-| subject_of_care | SubjectOfCareIdType (string) | Personnummer enl. yyyymmddxxxx. / Kan användas för att filtrera vad tjänsteproducenten ska returnera för en viss invånare. (T.ex. patient som pga. av sjukdom måste erbjudas enstaka speciella tidstyper, som inte erbjuds alla patienter). | 1..1 |
+| subject_of_care | SubjectOfCareIdType (string) | Personnummer enl. yyyymmddxxxx.<br/>Kan användas för att filtrera vad tjänsteproducenten ska returnera för en viss invånare. (T.ex. patient som pga. av sjukdom måste erbjudas enstaka speciella tidstyper, som inte erbjuds alla patienter). | 1..1 |
 | Svar (ListOfTimeTypes) | TimeTypeType | Lista med tillgängliga tidstyper. | 0..* |
 | timeTypeName | string | Namnet på tidstypen. | 1..1 |
 | timeTypeId | TimeTypeIDType (string) | Identifierare för tidstypen. | 1..1 |
@@ -322,7 +322,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | Namn | Typ | Beskrivning | Kard. |
 | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |
-| healthcare_facility | HsaIdType (string) | HSA-id för mottagning/vårdenhet. / Observera att vid adressering av aggregerande tjänst kommer detta fält att ignoreras av den aggregerande tjänsten. Fältet måste ändå finnas med av kompatibilitetsskäl. | 1..1 |
+| healthcare_facility | HsaIdType (string) | HSA-id för mottagning/vårdenhet.<br/>Observera att vid adressering av aggregerande tjänst kommer detta fält att ignoreras av den aggregerande tjänsten. Fältet måste ändå finnas med av kompatibilitetsskäl. | 1..1 |
 | subject_of_care | SubjectOfCareIdType (string) | Personnummer enl. yyyymmddxxxx. | 1..1 |
 | Svar (timeslotDetail*) | TimeslotType | Lista med användarens tider för angiven vårdenhet. | 0..* |
 | startTimeInclusive | TS (string) | Startdatum och klockslag för bokad tid, på formatet ÅÅÅÅMMDDttmmss. | 1..1 |

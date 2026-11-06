@@ -43,7 +43,7 @@ Flödena beskrivs på en teknisk nivå som syftar till att hjälpa tjänstedomä
 | Hämta sjukfall | ListSickLeavesForCare | x | - | x | - | - |
 | Skapa intygsutkast | CreateDraftCertificate | x | x | - | - | - |
 | Registrera ett intyg | RegisterCertificate | - | x | x | - | - |
-| Skicka ett intyg | SendCertificateToRecipient / RegisterCertificate | - | x | x | x | x |
+| Skicka ett intyg | SendCertificateToRecipient<br/>RegisterCertificate | - | x | x | x | x |
 | Skicka makuleringsinformation för ett intyg | RevokeCertificate | - | x | x | - | x |
 | Hämta ett intyg | GetCertificate | - | x | x | x | x |
 | Hämta intyg | ListCertficatesForCare | - | x | x | - | - |

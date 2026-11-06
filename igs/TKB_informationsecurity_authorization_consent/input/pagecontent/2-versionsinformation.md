@@ -49,9 +49,9 @@ administration 	- tjänstekontrakt för att registrera, avsluta, makulera eller 
 | RegisterExtendedConsent | Registrera samtycke, med utökad information | administration |
 | CancelExtendedConsent | Avsluta samtycke, med utökad information | administration |
 | DeleteExtendedConsent | Makulera samtycke, med utökad information | administration |
-| GetAllExtendedConsentsForPatient | Nytt tjänstekontrakt fr o m 2.0.3 / Läs samtycken för patient/brukare med utökad information. Tilltänkt aktör är patient/brukare eller dess legala ombud. | querying |
-| RegisterConsentByPatient | Nytt tjänstekontrakt fr o m 2.0.4 / Patients möjlighet att ge ett samtycke. Tilltänkt aktör är patient/brukare eller dess legala ombud. | administration |
-| EndConsentByPatient | Nytt tjänstekontrakt fr o m 2.0.4 / Patients möjlighet att avsluta ett givet samtycke i förtid. Tilltänkt aktör är patient/brukare eller dess legala ombud. | administration |
+| GetAllExtendedConsentsForPatient | Nytt tjänstekontrakt fr o m 2.0.3<br/>Läs samtycken för patient/brukare med utökad information. Tilltänkt aktör är patient/brukare eller dess legala ombud. | querying |
+| RegisterConsentByPatient | Nytt tjänstekontrakt fr o m 2.0.4<br/>Patients möjlighet att ge ett samtycke. Tilltänkt aktör är patient/brukare eller dess legala ombud. | administration |
+| EndConsentByPatient | Nytt tjänstekontrakt fr o m 2.0.4<br/>Patients möjlighet att avsluta ett givet samtycke i förtid. Tilltänkt aktör är patient/brukare eller dess legala ombud. | administration |
 
 #### 2.1.4 Utgångna tjänstekontrakt
 

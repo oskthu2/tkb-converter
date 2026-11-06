@@ -17,27 +17,27 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | Namn | Typ | Beskrivning, Ref Informationsspec. | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |
-| personHsaId *1) | String | Unik identifierare för den person vars behörighetsegenskaper ska sökas ut. / Ref. HSA-id (hsaIdentity) [R5] | 0..1 |
+| personHsaId *1) | String | Unik identifierare för den person vars behörighetsegenskaper ska sökas ut.<br/>Ref. HSA-id (hsaIdentity) [R5] | 0..1 |
 | personalIdentityNumber *1) | String | Person-id för den person vars behörighetsegenskaper ska sökas ut. Ref. person-id (personalIdentityNumber) [R5] | 0..1 |
 | searchBase *4) | DN | Sökbas. Om ingen sökbas anges används c=SE som sökbas. | 0..1 |
 | includeFeignedObject | boolean | true: om metoden ska leverera svar med fingerade objekt. Uteblivet värde tolkas som false, dvs inga fingerade objekt levereras. | 0..1 |
 | profile | String | profile kan endast ha värdet "extended1" och med detta värde satt returneras även personalIdentity, | 0..1 |
 | Svar |  |  |  |
 | credentialInformation *2) | CredentialInformationType | Behörighetsegenskaper för sökt person | 0..n |
-| ..givenName | String | Tilltalsnamn. Endast ett litet antal personer saknar helt förnamn enligt befolkningsregistret och därmed även denna parameter. / Ref. tilltalsnamn (givenName, gn) [R5] | 0..1 |
-| ..middleAndSurName | String | Personens Mellannamn och efternamn.  Namnen är separerade med mellanslag. / Ref. mellannamn (middleName) [R5] / Ref. efternamn (sn, surName) [R5] | 1..1 |
-| ..personHsaId | String | Personens HSA-id / Ref. HSA-id (hsaIdentity) [R5] | 1..1 |
-| ..healthCareProfessionalLicence | String | Personens Legitimerade yrkestitel(-lar) i klartext / Ref. legitimerad yrkesgrupp (hsaTitle) [R5] och Socialstyrelsens kodverk [R7]: 1.2.752.116.3.1.3 | 0..n |
-| .. healthCareProfessionalLicenceCode | String | Kod för personens Legitimerade yrkestitel. / Ref. legitimerad yrkesgrupp (hsaTitle) [R5] och Socialstyrelsens kodverk [R7]: 1.2.752.116.3.1.3 | 0..n |
+| ..givenName | String | Tilltalsnamn. Endast ett litet antal personer saknar helt förnamn enligt befolkningsregistret och därmed även denna parameter.<br/>Ref. tilltalsnamn (givenName, gn) [R5] | 0..1 |
+| ..middleAndSurName | String | Personens Mellannamn och efternamn.  Namnen är separerade med mellanslag.<br/>Ref. mellannamn (middleName) [R5]<br/>Ref. efternamn (sn, surName) [R5] | 1..1 |
+| ..personHsaId | String | Personens HSA-id<br/>Ref. HSA-id (hsaIdentity) [R5] | 1..1 |
+| ..healthCareProfessionalLicence | String | Personens Legitimerade yrkestitel(-lar) i klartext<br/>Ref. legitimerad yrkesgrupp (hsaTitle) [R5] och Socialstyrelsens kodverk [R7]: 1.2.752.116.3.1.3 | 0..n |
+| .. healthCareProfessionalLicenceCode | String | Kod för personens Legitimerade yrkestitel.<br/>Ref. legitimerad yrkesgrupp (hsaTitle) [R5] och Socialstyrelsens kodverk [R7]: 1.2.752.116.3.1.3 | 0..n |
 | .. healthCareProfessionalLicenceSpeciality | HCPSpecialityCodesType | Personens Specialistkoder kopplat till aktuell Legitimerade Yrkesgrupp. Ref. Leg. yrkesgrupp och specialitet för läkare och tandläkare (hsaSosTitleCodeSpeciality) [R5] | 0..n |
 | .. .. healthCareProfessionalLicenceCode | String | Kod för den Legitimerade yrkestitel som specialistkoden hör till. Ref. Socialstyrelsens kodverk [R7]: 1.2.752.116.3.1.3 | 1..1 |
 | .. ..specialityCode | String | Specialistkod, enligt något av Socialstyrelsens kodverk. | 1..1 |
 | .. ..specialityName | String | Specialitet i klartext. Klartext för specialityCode ovan. | 0..1 |
 | ..occupationalCode | String | Utökad yrkeskod, används för icke-legitimerade medarbetares åtkomst till tjänster hos eHälsomyndigheten. | 0..n |
-| ..personalIdentity *5) | IIType | Personens person- eller samordningsnummer / Ref. Person-id (personalIdentityNumber) [R5] | 0..1 |
+| ..personalIdentity *5) | IIType | Personens person- eller samordningsnummer<br/>Ref. Person-id (personalIdentityNumber) [R5] | 0..1 |
 | .. ..root | String | Anger typ av personalIdentity som returneras, för personnummer: 1.2.752.129.2.1.3.1, och för samordningsnummer: 1.2.752.129.2.1.3.3 | 1..1 |
-| .. ..extension | String | Person eller samordningsnummer. / Ref. Person-id (personalIdentityNumber) [R5] | 1..1 |
-| .. healthcareProfessionalLicenseIdentityNumber | String | Personens Hosp-Id / Ref. HOSP-id (hospIdentityNumber) [R5] | 0..1 |
+| .. ..extension | String | Person eller samordningsnummer.<br/>Ref. Person-id (personalIdentityNumber) [R5] | 1..1 |
+| .. healthcareProfessionalLicenseIdentityNumber | String | Personens Hosp-Id<br/>Ref. HOSP-id (hospIdentityNumber) [R5] | 0..1 |
 | ..personalPrescriptionCode | String | Personens förskrivarkod. Ref förskrivarkod (personalPrescriptionCode) [R5] | 0..1 |
 | ..groupPrescriptionCode | String | Gruppförskrivarkod (er) som personen tilldelats av sin arbetsgivare. Ref. gruppförskrivarkod (hsaGroupPrescriptionCode) [R5] | 0..n |
 | ..nursePrescriptionRight | NursePrescriptionRightType | Förskrivningsrätt för barnmorska/sjuksköterska. Ref. förskrivningsrätt för barnmorskor/ sjuksköterskor (hsaSosNursePrescriptionRight) [R5] | 0..n |
@@ -46,30 +46,30 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | ..hsaSystemRole | HsaSystemRoleType | Personens Individuella egenskaper för it-tjänster. Ref. individuell egenskap för it-tjänster (hsaSystemRole) [R5] | 0..n |
 | .. ..systemId | String | IT-tjänstens SystemId | 1..1 |
 | .. ..role | String | Personens Roll inom IT-tjänsten | 1..1 |
-| ..paTitleCode | String | Personens Befattningskoder / Ref. befattningskod (paTitleCode) [R5] | 0..n |
+| ..paTitleCode | String | Personens Befattningskoder<br/>Ref. befattningskod (paTitleCode) [R5] | 0..n |
 | ..protectedPerson | Boolean | true: om person har skyddade personuppgifter | 0..1 |
 | ..feignedPerson | Boolean | true: om personen är ett fingerat objekt | 0..1 |
 | ..commission | CommissionType | De vårdmedarbetaruppdrag som personen är kopplad till | 0..n |
-| .. ..commissionName | String | Vårdmedarbetaruppdragets Namn / Ref. objektnamn (cn) [R5] | 1..1 |
-| .. ..commissionHsaId | String | Vårdmedarbetaruppdragets HSA-id / Ref. HSA-id (hsaIdentity) [R5] | 1..1 |
-| .. ..commissionPurpose | String | Vårdmedarbetaruppdragets ändamål / Ref. vårdmedarbetaruppdragets ändamål (hsaCommissionPurpose) [R5] | 1..1 |
-| .. ..commissionRight | CommissionRightType | Vårdmedarbetaruppdragets rättigheter / Ref. vårdmedarbetaruppdragets rättigheter (hsaCommissionRight) [R5] | 0..n |
+| .. ..commissionName | String | Vårdmedarbetaruppdragets Namn<br/>Ref. objektnamn (cn) [R5] | 1..1 |
+| .. ..commissionHsaId | String | Vårdmedarbetaruppdragets HSA-id<br/>Ref. HSA-id (hsaIdentity) [R5] | 1..1 |
+| .. ..commissionPurpose | String | Vårdmedarbetaruppdragets ändamål<br/>Ref. vårdmedarbetaruppdragets ändamål (hsaCommissionPurpose) [R5] | 1..1 |
+| .. ..commissionRight | CommissionRightType | Vårdmedarbetaruppdragets rättigheter<br/>Ref. vårdmedarbetaruppdragets rättigheter (hsaCommissionRight) [R5] | 0..n |
 | .. .. ..activity | String | Rättighet aktivitet | 1..1 |
 | .. .. ..informationClass | String | Rättighet informationstyp | 1..1 |
 | .. .. ..scope | String | Rättighet omfång | 1..1 |
 | .. ..pharmacyIdentifier | String | Unikt id för apotek. Ref. (hsaGlnCode + hsaBusinessCode) [R5] | 0..1 |
 | .. ..feignedCommission | Boolean | true: om vårdmedarbetaruppdraget är ett fingerat objekt | 0..1 |
-| .. ..healthCareUnitHsaId *3) | String | HSA-id för vårdenhet enligt PDL / Ref. HSA-id (hsaIdentity) [R5] | 0..1 |
-| .. ..healthCareUnitName *3) | String | Vårdenhetens namn / Ref. hjälpklassen Vårdenhet (hsaHealthCareUnit) [R5] | 0..1 |
-| .. ..healthCareUnitStartDate *3) | dateTime | Startdatum för vårdenhetens verksamhet / Ref. startdatum (startDate) [R5] | 0..1 |
-| .. ..healthCareUnitEndDate *3) | dateTime | Slutdatum för vårdenhetens verksamhet / Ref. slutdatum (endDate) [R5] | 0..1 |
+| .. ..healthCareUnitHsaId *3) | String | HSA-id för vårdenhet enligt PDL<br/>Ref. HSA-id (hsaIdentity) [R5] | 0..1 |
+| .. ..healthCareUnitName *3) | String | Vårdenhetens namn<br/>Ref. hjälpklassen Vårdenhet (hsaHealthCareUnit) [R5] | 0..1 |
+| .. ..healthCareUnitStartDate *3) | dateTime | Startdatum för vårdenhetens verksamhet<br/>Ref. startdatum (startDate) [R5] | 0..1 |
+| .. ..healthCareUnitEndDate *3) | dateTime | Slutdatum för vårdenhetens verksamhet<br/>Ref. slutdatum (endDate) [R5] | 0..1 |
 | .. ..feignedHealthCareUnit | Boolean | true: om vårdenheten är ett fingerat objekt | 0..1 |
 | .. ..archivedHealthCareUnit | Boolean | true: om vårdenheten är ett arkiverat objekt | 0..1 |
-| .. ..healthCareProviderHsaId | String | Vårdgivarens HSA-id / Ref. HSA-id (hsaIdentity) [R5] | 1..1 |
+| .. ..healthCareProviderHsaId | String | Vårdgivarens HSA-id<br/>Ref. HSA-id (hsaIdentity) [R5] | 1..1 |
 | .. ..healthCareProviderName | String | Vårdgivarens Namn. Ref. hjälpklassen Vårdenhet (hsaHealthCareUnit) [R5] | 1..1 |
-| .. ..healthCareProviderOrgNo | String | Vårdgivarens organisationsnummer / Ref. organisationsnummer (orgNo) [R5] | 1..1 |
-| .. ..healthCareProviderStartDate | dateTime | Startdatum för vårdgivarens verksamhet / Ref. startdatum (startDate) [R5] | 0..1 |
-| .. ..healthCareProviderEndDate | dateTime | Slutdatum för vårdgivarens verksamhet / Ref. slutdatum (endDate) [R5] | 0..1 |
+| .. ..healthCareProviderOrgNo | String | Vårdgivarens organisationsnummer<br/>Ref. organisationsnummer (orgNo) [R5] | 1..1 |
+| .. ..healthCareProviderStartDate | dateTime | Startdatum för vårdgivarens verksamhet<br/>Ref. startdatum (startDate) [R5] | 0..1 |
+| .. ..healthCareProviderEndDate | dateTime | Slutdatum för vårdgivarens verksamhet<br/>Ref. slutdatum (endDate) [R5] | 0..1 |
 | .. ..feignedHealthCareProvider | Boolean | true: om vårdgivaren är ett fingerat objekt | 0..1 |
 | .. ..archivedHealthCareProvider | Boolean | true: om vårdgivaren är ett arkiverat objekt | 0..1 |
 
@@ -173,7 +173,7 @@ Version på detta kontrakt är 2.0.
 | Namn | Typ | Beskrivning, Ref Informationsspec. | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |
-| personHsaId *1) | String | Unik identifierare för den person vars behörighetsegenskaper ska sökas ut. / Ref. HSA-id (hsaIdentity) [R5] | 0..1 |
+| personHsaId *1) | String | Unik identifierare för den person vars behörighetsegenskaper ska sökas ut.<br/>Ref. HSA-id (hsaIdentity) [R5] | 0..1 |
 | personalIdentityNumber *1) | String | Person-id för den person vars behörighetsegenskaper ska sökas ut. Ref. person-id (personalIdentityNumber) [R5] | 0..1 |
 | authorizationScopeCode | String | Behörighetsområdeskod som ska ingå i sökt Administrativt medarbetaruppdrag. Optional. | 0..1 |
 | authorizationScopePropertyCode | String | Kod för behörighetsområdesegenskap som ska ingå i sökt Administrativt medarbetaruppdrag. Optional. | 0..1 |
@@ -183,7 +183,7 @@ Version på detta kontrakt är 2.0.
 | adminCredentialInformation | AdminCredentialInformationType |  | 0..n |
 | ..personHsaId | String | Personens HSA-id. Ref. HSA-id (hsaIdentity) [R5] | 1..1 |
 | ..givenName | String | Personens tilltalsnamn. Ref. tilltalsnamn (givenName, gn) [R5] | 0..1 |
-| ..middleAndSurName | String | Personens mellannamn och efternamn. Ref. mellannamn (middleName) [R5] / Ref. efternamn (sn, surName) [R5] | 1..1 |
+| ..middleAndSurName | String | Personens mellannamn och efternamn. Ref. mellannamn (middleName) [R5]<br/>Ref. efternamn (sn, surName) [R5] | 1..1 |
 | ..protectedPerson | Boolean | true: om person har skyddade personuppgifter | 0..1 |
 | ..feignedPerson | Boolean | true: om personen är ett fingerat objekt | 0..1 |
 | ..authorizationScopeProperties | AuthorizationScopePropertyType | Administrativa behörighetsegenskaper för sökt person | 0..n |
@@ -322,7 +322,7 @@ Version på detta kontrakt är 1.0.
 | Begäran |  |  |  |
 | personalIdentityNumber | String | Person-id för den person vars HoSp-uppgifter ska sökas ut. Ref. person-id (personalIdentityNumber) [R5] | 1..1 |
 | Svar |  |  |  |
-| personalIdentityNumber | IIType | Personens person- eller samordningsnummer / Ref. Person-id (personalIdentityNumber) [R5] | 1..1 |
+| personalIdentityNumber | IIType | Personens person- eller samordningsnummer<br/>Ref. Person-id (personalIdentityNumber) [R5] | 1..1 |
 | .. root | String | Anger typ av personalIdentity som returneras | 1..1 |
 | .. extension | String | Person eller samordningsnummer. | 1..1 |
 | healthCareProfessionalLicence | healthCareProfessionalLicenceType | Personens Legitimerade yrkestitel(-lar) | 0..n |
@@ -336,7 +336,7 @@ Version på detta kontrakt är 1.0.
 | nursePrescriptionRight | NursePrescriptionRightType | Förskrivningsrätt för barnmorska/sjuksköterska | 0..n |
 | .. healthCareProfessionalLicence | String | Personens legitimerade yrkestitel inom vilken denne har förskrivningsrätt. | 1..1 |
 | .. prescriptionRight | Boolean | Personen har förskrivningsrätt inom den angivna Legitimerade yrkestiteln | 1..1 |
-| healthcareProfessionalLicenseIdentityNumber | String | Personens HoSp-id. / Ref. HOSP-id (hospIdentityNumber) [R5] | 0..1 |
+| healthcareProfessionalLicenseIdentityNumber | String | Personens HoSp-id.<br/>Ref. HOSP-id (hospIdentityNumber) [R5] | 0..1 |
 | educationCode | String | Utbildningskod. Ref. Socialstyrelsens kodverk [R7] HoSp utbildningskod 1.2.752.116.3.1.4 | 0..n |
 | restrictions | RestrictionType |  | 0..n |
 | .. healthCareProfessionalLicenceCode | String | Kod för den Legitimerade yrkestitel som restriktionskoden hör till. | 1..1 |

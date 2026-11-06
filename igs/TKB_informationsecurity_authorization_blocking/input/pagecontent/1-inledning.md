@@ -31,12 +31,12 @@ Källa: *Spärr*, tjänstekontraktsbeskrivning version 4.0.4 (2024-10-18), [TKB_
 
 #### Referenser
 
-| RefNr | Beteckning | Dokument / Källa |
+| RefNr | Beteckning | Dokument<br/>Källa |
 | :--- | :--- | :--- |
 | #1 | RIV PDLiP | RIV Specifikation Patientdatalagen i Praktiken, http://rivta.se/documents/ARK_0031/PDLiP_RIV_1.0.pdf |
 | #2 | PDL | Patientdatalag (2008:355), http://www.regeringen.se/sb/d/6150/a/71234 |
 | #3 | HSLF-FS 2016:40 | Socialstyrelsens föreskrifter samt handbok https://www.socialstyrelsen.se/regler-och-riktlinjer/foreskrifter-och-allmanna-rad/konsoliderade-foreskrifter/201640-om-journalforing-och-behandling-av-personuppgifter-i-halso--och-sjukvarden/ |
-| #4 | RIV TA | RIV Teknisk Anvisning Basic Profile / http://rivta.se/ |
+| #4 | RIV TA | RIV Teknisk Anvisning Basic Profile<br/>http://rivta.se/ |
 | #5 | RIV Tekniska Anvisningar – Kryptografi | ARK_0036, http://rivta.se/documents/ARK_0036/ |
 | #5 | Regel #11, Logiska fel | RIV Tekniska Anvisningar - Tjänsteschema 2.1, http://rivta.se/documents/ARK_0005/ |
 | #6 | Arkitekturella beslut | AB_informationsecurity_authorization_blocking |

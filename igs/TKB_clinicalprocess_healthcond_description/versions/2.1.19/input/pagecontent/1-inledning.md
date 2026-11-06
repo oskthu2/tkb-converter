@@ -29,11 +29,11 @@ Tjänstekontrakten i denna domän hanterar specifikt patientens journalantecknin
 | R4 | Bilaga Mappningar_GetDiagnosis.xslx | - | [Bilaga](Bilaga_Mappningar_GetDiagnosis.xlsx), återgiven i [8 Bilaga Mappningar](8-bilaga-mappningar.html#mappningar-getdiagnosis) |
 | R5 | Bilaga Mappningar_GetAlertInformation.xslx | - | [Bilaga](Bilaga_Mappningar_GetAlertInformation.xlsx), återgiven i [8 Bilaga Mappningar](8-bilaga-mappningar.html#mappningar-getalertinformation) |
 | R6 | ISO8601-standarden för tidsformat | Finns på Webben | http://en.wikipedia.org/wiki/ISO_8601 |
-| R7 | RIV Tekniska  Anvisningar / Översikt. Version 2.0.4 | Finns på Webben | http://rivta.se/documents/ARK_0001/ |
+| R7 | RIV Tekniska  Anvisningar<br/>Översikt. Version 2.0.4 | Finns på Webben | http://rivta.se/documents/ARK_0001/ |
 | R8 | Tabell över godkända tjänstedomäner | Finns på Webben | http://rivta.se/domains/ |
 | R9 | Senaste version av SOSFS 2016:40 Socialstyrelsens föreskrifter och allmänna råd om journalföring och behandling av personuppgifter i hälso- och sjukvården | Finns på Webben | https://www.socialstyrelsen.se/kunskapsstod-och-regler/regler-och-riktlinjer/foreskrifter-och-allmanna-rad/konsoliderade-foreskrifter/201640-om-journalforing-och-behandling-av-personuppgifter-i-halso--och-sjukvarden/ |
 | R10 | Journalföring och behandling av personuppgifter i hälso- och sjukvården - Handbok vid tillämpningen av Socialstyrelsens föreskrifter och allmänna råd (HSLF-FS 2016:40) om journalföring och behandling av personuppgifter i hälso- och sjukvården. | Finns på Webben | https://www.socialstyrelsen.se/globalassets/sharepoint-dokument/artikelkatalog/foreskrifter-och-allmanna-rad/2016-4-44.pdf |
-| R11 | DocBook | Finns på Webben | https://docbook.org/ / https://docbook.org/schemas/ / https://docbook.org/tools/ |
+| R11 | DocBook | Finns på Webben | https://docbook.org/<br/>https://docbook.org/schemas/<br/>https://docbook.org/tools/ |
 | R12 | Apache Commons Text StringEscapeUtils | Finns på Webben | https://commons.apache.org/proper/commons-text/apidocs/org/apache/commons/text/StringEscapeUtils.html |
 | R13 | Kodverkslistan | Finns på Webben | https://inera.atlassian.net/wiki/spaces/KINT/pages/2648506471/Kodverk+och+urval+i+de+nationella+tj+nstekontrakten |
 | R14 | Lista över identifierare | Finns på Webben | https://inera.atlassian.net/wiki/spaces/KINT/pages/468746902/Identifierare+i+nationella+tj+nstekontrakt |

@@ -17,7 +17,7 @@ Nedan illustreras modellen för ”Hantera ordinationer”. Klassnamn och klassa
 | Patient.födelsetidpunkt | Patient.födelsetidpunkt | patient |
 | Patient.kön | Patient.kön | patient |
 | Ordinationsorsak.registreringstidpunkt | Saknar motsvarighet i V-TIM 2.2 | prescriptionReasonTime |
-| Enhet.enhets-id | Vård och omsorgsutövare.enhet id | prescriptionCareUnitId / prescriptionLocationId / prescriptionReasonCareUnitId / prescriptionReasonLocationId |
+| Enhet.enhets-id | Vård och omsorgsutövare.enhet id | prescriptionCareUnitId<br/>prescriptionLocationId<br/>prescriptionReasonCareUnitId<br/>prescriptionReasonLocationId |
 | Ordination.ordinations-id | Aktivitet.aktivitet_id | prescriptionId |
 | Ordinationsmoment.ordinationsmomenttid | Aktivitet.aktivitet tid | prescriptionTime |
 | Läkemedelssubstans.ATC-kod | Resursspecifikation.resurs typ | substanceCode |
@@ -32,7 +32,7 @@ Nedan illustreras modellen för ”Hantera ordinationer”. Klassnamn och klassa
 | Patient.person-id | Patient.person_id | Patient |
 | Patient.födelsetidpunkt | Patient.födelsetidpunkt | Patient |
 | Patient.kön | Patient.kön | Patient |
-| Laboratoriesvar.laboratoriesvars-id | Framställan resultat.framställan resultat_id | reportId / laboratoryReportId |
+| Laboratoriesvar.laboratoriesvars-id | Framställan resultat.framställan resultat_id | reportId<br/>laboratoryReportId |
 | Mikrobiologiskt fynd.agenskod | Saknas | findingCode |
 | Mikrobiologiskt fynd.observationstidpunkt | Saknas | observationTime |
 | Provtagning.provtagningstidpunkt | Aktivitet.aktivitet tid | testTime |

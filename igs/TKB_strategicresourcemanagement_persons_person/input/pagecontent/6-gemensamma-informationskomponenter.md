@@ -18,7 +18,7 @@ Datatyp som identifierar en aktör.
 | :--- | :--- | :--- | :--- |
 | id | IIType | Id för aktör. Se klass Aktör [R3] | 1 |
 | professional | ProfessionalType | Identifiering av aktörens organisation. Se klass ProfessionellAktör [R3] | 0..1 |
-| updateTime | Timestamp | Aktuell tidpunkt då uppdateringen sker. Se datatyp Timestamp. / OBS! detta attribut sätts av systemet som mottager requestet (tjänsteproducenten). | 0..1 |
+| updateTime | Timestamp | Aktuell tidpunkt då uppdateringen sker. Se datatyp Timestamp.<br/>OBS! detta attribut sätts av systemet som mottager requestet (tjänsteproducenten). | 0..1 |
 
 En aktör kan antingen vara personen själv och då är det personidentitet (till exempel PNR) som ska anges, eller en aktör som agerar i sin profession och då ska id vara aktörens identitet. Inom vården är det normalt ett HSAid.
 
@@ -26,7 +26,7 @@ Se tabell nedan för mer information och exempel.
 
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| root | xs:String | Fältet root sätts till OID för kodverket för identifieraren (extension) / Som exempel för svenskt personnummer skall Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas. / OID för SNR: 1.2.752.129.2.1.3.3 / OID för NRID: 1.2.752.74.9.1 / OID för en aktörs HSAid: 1.2.752.29.6.2.1 | 1 |
+| root | xs:String | Fältet root sätts till OID för kodverket för identifieraren (extension)<br/>Som exempel för svenskt personnummer skall Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.<br/>OID för SNR: 1.2.752.129.2.1.3.3<br/>OID för NRID: 1.2.752.74.9.1<br/>OID för en aktörs HSAid: 1.2.752.29.6.2.1 | 1 |
 | extension | xs:String | Ett id som tillsammans med värdet i root är unikt. Som exempel för svensk personidentitet så är extension lika med personnummer. | 0..1 |
 
 #### 6.1.2 AddressAbroadType
@@ -49,7 +49,7 @@ Grupp för adressuppgifter
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | residentialAddress | ResidentialAddressType | Folkbokföringsadress, se Folkbokföringsadress | 0..1 |
-| nationalKeys | NationalKeysType | Riksnycklar för fastighet, adressplats och lägenhet / OBS! Aviseras inte av Navet sedan 2019-09-11 | 0..1 |
+| nationalKeys | NationalKeysType | Riksnycklar för fastighet, adressplats och lägenhet<br/>OBS! Aviseras inte av Navet sedan 2019-09-11 | 0..1 |
 | district | DistrictType | Distriktskod | 0..1 |
 | specialPostalAddress | ResidentialAddressType | Särskild postadress | 0..1 |
 | addressAbroad | AddressAbroadType | Utlandsadress | 0..1 |
@@ -74,8 +74,8 @@ registreras i samband med uttag av reservidentitet (LRID/NRID).
 
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| categoryOfPerson | CodedValue | Persontypen beskriver i de flesta fall vilken debiteringskod som personen ska få. / Exempel på persontyper: Asylsökande, Anonyma (HIV-provtagning, Papperslösa), Turist...) Se klass AdministrativaUppgifter [R3] | 0..1 |
-| accountCode | CodedValue | Reservnummer behöver ha ett attribut som kan användas för att styra ekonomiflöden. / Bakgrund: inom VGR återanvänds fälten län och kommunkod på reservnummer till att lagra vem som ska betala. / T.ex. om personen har visat upp EU/EES-försäkringskort, tillhör konventionsland etc. / Se AdministrativaUppgifter samt kodverk Debiteringskod [R3] | 0..1 |
+| categoryOfPerson | CodedValue | Persontypen beskriver i de flesta fall vilken debiteringskod som personen ska få.<br/>Exempel på persontyper: Asylsökande, Anonyma (HIV-provtagning, Papperslösa), Turist...) Se klass AdministrativaUppgifter [R3] | 0..1 |
+| accountCode | CodedValue | Reservnummer behöver ha ett attribut som kan användas för att styra ekonomiflöden.<br/>Bakgrund: inom VGR återanvänds fälten län och kommunkod på reservnummer till att lagra vem som ska betala.<br/>T.ex. om personen har visat upp EU/EES-försäkringskort, tillhör konventionsland etc.<br/>Se AdministrativaUppgifter samt kodverk Debiteringskod [R3] | 0..1 |
 | comment | xs:String | Administrativ fritextkommentar | 0..1 |
 
 #### 6.1.6 ApartmentId
@@ -124,7 +124,7 @@ Grupp för medborgarskapslandkod
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | countryCode | CountryCode | Kod för medborgarskapsland, se Landskoder, kap 11, [R3] | 0..1 |
-| attested | xs:Boolean | Kod som visar om medborgarskapsland är styrkt eller ej. / Endast aktuell för personer med gällande samordningsnummer | 0..1 |
+| attested | xs:Boolean | Kod som visar om medborgarskapsland är styrkt eller ej.<br/>Endast aktuell för personer med gällande samordningsnummer | 0..1 |
 
 #### 6.1.10 CodedValue
 
@@ -155,7 +155,7 @@ Klass för personens egna angivna kontaktuppgifter
 | :--- | :--- | :--- | :--- |
 | contactType | CodedValue | Typ av kontaktuppgift (tel, mail), se  Kontaktuppgift [R3] | 1 |
 | use | CodedValue | Användningsområde, se kodverk use [R3] | 0..1 |
-| value | xs:String | Värde till typ av kontaktuppgift. / Om contactType är ett telefonnummer så ska det anges enligt ITU-standarden E.164-3. / Om contactType är en mailadress så ska mailadressen anges enligt RFC 5322 and RFC 6854 | 0..1 |
+| value | xs:String | Värde till typ av kontaktuppgift.<br/>Om contactType är ett telefonnummer så ska det anges enligt ITU-standarden E.164-3.<br/>Om contactType är en mailadress så ska mailadressen anges enligt RFC 5322 and RFC 6854 | 0..1 |
 | rank | xs:Int | Specifierar önskad ordning av kontaktväg | 0..1 |
 | comment | xs:String | Kommentar till telefon eller epost. Tex "Nås mellan 08 och 16" | 0..1 |
 | period | DatePeriodType | Tidsperiod inom vilken kontaktvägen bör användas | 0..1 |
@@ -285,8 +285,8 @@ Grupp för invandringsuppgifter
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | immigrationDate | PartialDateType | Invandringsdatum | 0..1 |
-| rightOfResidence | xs:Boolean | Anger om uppehållsrätt registrerades vid senaste invandringstillfället / true = personen har uppehållsrätt / false/null = personen saknar uppehållsrätt | 0..1 |
-| immigrationIdentity | ImmigrationIdentityType | Grupp för personnummer och vilket land det är knutet till. / Motsvarar skatteverkets NordisktPnrDa, NordisktPnrFi, NordisktPnrFo, NordisktPnrIs och NordisktPnrNo | 0..* |
+| rightOfResidence | xs:Boolean | Anger om uppehållsrätt registrerades vid senaste invandringstillfället<br/>true = personen har uppehållsrätt<br/>false/null = personen saknar uppehållsrätt | 0..1 |
+| immigrationIdentity | ImmigrationIdentityType | Grupp för personnummer och vilket land det är knutet till.<br/>Motsvarar skatteverkets NordisktPnrDa, NordisktPnrFi, NordisktPnrFo, NordisktPnrIs och NordisktPnrNo | 0..* |
 
 #### 6.1.26 ImmigrationIdentityType
 
@@ -306,7 +306,7 @@ Klass för att koppla ihop 2 identiteter. Ex en nationell reservidentitet till e
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | referredPersonalIdentity | IIType | Identitet på den identitet (hänvisat Id) som identiteten länkas till | 1 |
-| assuranceLevel | CodedValue | Tillitsdomän för angivet hänvisningsId. Dvs i vilken "tillitsdomän" har kopplingen utförts. / Detta attribut sätts av en producent till 3 när en konsument länkar (anropar LinkPersonIdentity) en reservidentitet till primär identitet. / Se kodverk assuranceLevel [R3] | 1 |
+| assuranceLevel | CodedValue | Tillitsdomän för angivet hänvisningsId. Dvs i vilken "tillitsdomän" har kopplingen utförts.<br/>Detta attribut sätts av en producent till 3 när en konsument länkar (anropar LinkPersonIdentity) en reservidentitet till primär identitet.<br/>Se kodverk assuranceLevel [R3] | 1 |
 | primaryIdentity | xs:Boolean | Indikerar ifall identiteten är huvudidentitet | 1 |
 
 #### 6.1.28 ReferredPersonalIdentityType
@@ -317,8 +317,8 @@ Klassen håller ihop personidentiteter av typerna personnummer och samordningsnu
 
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| referredPersonalIdentity | IIType | Hänvisningsnummer / Korrekt personnummer / ÅÅÅÅMMDDNNNK eller / Samordningsnummer / ÅÅÅÅMMDDNNNK där / MM = 00 - 12 / DD = 60 – 91 / OID för: / PNR: 1.2.752.129.2.1.3.1 / SNR: 1.2.752.129.2.1.3.3 | 1 |
-| referredPersonalIdentityStatus | String | SKV Termkod: 01402 / NY = NY / AS = Avslutad | 0..1 |
+| referredPersonalIdentity | IIType | Hänvisningsnummer<br/>Korrekt personnummer<br/>ÅÅÅÅMMDDNNNK eller<br/>Samordningsnummer<br/>ÅÅÅÅMMDDNNNK där<br/>MM = 00 - 12<br/>DD = 60 – 91<br/>OID för:<br/>PNR: 1.2.752.129.2.1.3.1<br/>SNR: 1.2.752.129.2.1.3.3 | 1 |
+| referredPersonalIdentityStatus | String | SKV Termkod: 01402<br/>NY = NY<br/>AS = Avslutad | 0..1 |
 
 #### 6.1.29 LookupProfileType
 
@@ -356,7 +356,7 @@ Data kan förekomma som inbäddat element eller hänvisas via en referens URL
 | :--- | :--- | :--- | :--- |
 | id | xs:String | Identitet på bilagan. Används vid referenser inom en tjänsteinteraktion. | 0..1 |
 | mediaType | CodedValue | Mediatyper i MIME-format. Se ARK_0038 för mediatyper | 1 |
-| value | xs:Base64Binary | Används vid inbäddad bilaga och innehåller då bilagans binärdata, kodat enligt base64. / Om bilagan innehåller avkodad text ska denna vara kodad enligt UTF-8-format. | 0..1 |
+| value | xs:Base64Binary | Används vid inbäddad bilaga och innehåller då bilagans binärdata, kodat enligt base64.<br/>Om bilagan innehåller avkodad text ska denna vara kodad enligt UTF-8-format. | 0..1 |
 | reference | xs:AnyURI | Används vid refererad bilaga, och innehåller då den URL där bilagan kan hämtas. | 0..1 |
 
 #### 6.1.32 NameType
@@ -378,7 +378,7 @@ Grupp för del av namn där delen kan vara styrkt eller ej
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | name | String80 | Namn | 1 |
-| attested | xs:Boolean | Anger om namnet är styrkt eller ej. / Endast aktuell för personer med gällande samordningsnummer | 0..1 |
+| attested | xs:Boolean | Anger om namnet är styrkt eller ej.<br/>Endast aktuell för personer med gällande samordningsnummer | 0..1 |
 
 #### 6.1.33 NationalKeysType
 
@@ -446,7 +446,7 @@ Grupp för personpost, se klass Person [R3]
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | personalIdentity | IIType | Personidentitet på huvudperson | 1 |
-| identityLevel | String | Grad av styrkt identitet (SNR) / Kan ha värdena: / STYRKT / SANNOLIK / OSAKER / INTE_TILLAMPLIG | 0..1 |
+| identityLevel | String | Grad av styrkt identitet (SNR)<br/>Kan ha värdena:<br/>STYRKT<br/>SANNOLIK<br/>OSAKER<br/>INTE_TILLAMPLIG | 0..1 |
 | identityLevelDate | PartialDate | När identiteten styrktes (SNR) | 0..1 |
 | gender | CodedValue | Personens kön | 0..1 |
 | protectedPersonIndicator | xs:Boolean | Uppgift om sekretessmarkering. | 1 |
@@ -494,7 +494,7 @@ Födelseort utland
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | placeOfBirthAbroad | String80 | Uppgift om födelseort i utlandet | 0..1 |
-| attested | xs:Boolean | Kod som visar om födelseort utland är styrkt eller ej. / Endast aktuell för personer med gällande samordningsnummer | 0..1 |
+| attested | xs:Boolean | Kod som visar om födelseort utland är styrkt eller ej.<br/>Endast aktuell för personer med gällande samordningsnummer | 0..1 |
 
 #### 6.1.41 PlaceOfBirthSwedenType
 
@@ -598,7 +598,7 @@ Grupp för de personer som ej är folkbokförda men som har tilldelats ett samor
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | allocationDate | PartialDateType | Datum för tilldelning av samordningsnummer | 0..1 |
-| preliminaryTransferDate | PartialDateType | Preliminärt datum för vilandeförklaring. / Vilandeförklaring: / Om någon anmälan eller ansökan om förnyelse av samordningsnummer inte sker inom en viss tid ska samordningsnumret förklaras vilande. | 0..1 |
+| preliminaryTransferDate | PartialDateType | Preliminärt datum för vilandeförklaring.<br/>Vilandeförklaring:<br/>Om någon anmälan eller ansökan om förnyelse av samordningsnummer inte sker inom en viss tid ska samordningsnumret förklaras vilande. | 0..1 |
 | renewalDate | PartialDateType | Datum för förnyelse | 0..1 |
 | deceasedDate | PartialDateType | Datum när personen avled | 0..1 |
 
@@ -610,9 +610,9 @@ Status, datum och orsak ska vara obligatoriska uppgifter, när de finns, för av
 
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| identityStatus | String | Identitetsstatus (endast för samordningsnummer) / Vilandeförklaring: / Om någon anmälan eller ansökan om förnyelse av samordningsnummer inte sker inom en viss tid ska samordningsnumret förklaras vilande. / Följande koder är möjliga: / AKTIVT / VILANDEFORKLARAT / VILANDEFORKLARAT_STANGT / AVREGISTRERAT / EJ_AKTUELLT | 0..1 |
+| identityStatus | String | Identitetsstatus (endast för samordningsnummer)<br/>Vilandeförklaring:<br/>Om någon anmälan eller ansökan om förnyelse av samordningsnummer inte sker inom en viss tid ska samordningsnumret förklaras vilande.<br/>Följande koder är möjliga:<br/>AKTIVT<br/>VILANDEFORKLARAT<br/>VILANDEFORKLARAT_STANGT<br/>AVREGISTRERAT<br/>EJ_AKTUELLT | 0..1 |
 | identityStatusDate | PartialDate | Datum för identitetsstatus | 0..1 |
-| identityStatusCause | String | Följande koder är möjliga: / TIDSFRIST / ANNAN_ORSAK / AVLIDEN / ERSATT / FELAKTIGT_REGISTERAT | 0..1 |
+| identityStatusCause | String | Följande koder är möjliga:<br/>TIDSFRIST<br/>ANNAN_ORSAK<br/>AVLIDEN<br/>ERSATT<br/>FELAKTIGT_REGISTERAT | 0..1 |
 
 #### 6.1.51 RelationshipIdType
 

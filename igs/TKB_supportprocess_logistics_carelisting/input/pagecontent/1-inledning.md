@@ -20,7 +20,7 @@ Källa: *Tjänstekontraktsbeskrivning, Listning*, version 2.1 (2025-06-13), [TKB
 | 2.0 RC1 | 2021-03-10 | Thomas Fafoutis | MIM:ar tillagda, förtydligande kring datum och tidformat |
 | 2.0 RC2 | 2021-09-17 | Thomas Fafoutis | Referens till nytt kodverk för nationella listningstyper tillagt |
 | 2.0 RC2 | 2022-05-27 | Thomas Fafoutis | Fältet Actor tillagt för tjänstekontrakt som förmedlar/avslöjar listningsinformation kopplat till invånare (CreateListing, GetListingCounty, GetListing) |
-| 2.0 RC2 | 2022-08-15 | Thomas Fafoutis | Specifika felkoder tillagda för tjänstekontrakten CreateListing och UpdateListing. / Förtydliganden kring hur en invånare går ur kön eller hur invånare kan byta fast läkarkontakt utan att byta sin listning (se CreateListing) |
+| 2.0 RC2 | 2022-08-15 | Thomas Fafoutis | Specifika felkoder tillagda för tjänstekontrakten CreateListing och UpdateListing.<br/>Förtydliganden kring hur en invånare går ur kön eller hur invånare kan byta fast läkarkontakt utan att byta sin listning (se CreateListing) |
 | 2.0 | 2023-05-31 | Thomas Fafoutis | Versionsnummer uppdaterad, ny Inera mall |
 | 2.0.1 | 2023-06-21 | Thomas Fafoutis | Detaljering av HealthcareFacility attributet i GetListing |
 | 2.1 RC1 | 2024-06-24 | Thomas Fafoutis | Utökning av datatypen HealthcareFacilityType för att förmedla kölängd på mottagningen om mottagningen har kö. |

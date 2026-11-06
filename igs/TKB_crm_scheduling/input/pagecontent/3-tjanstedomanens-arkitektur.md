@@ -210,9 +210,8 @@ För användning av en aggregerande tjänst behöver producenter uppdatera Engag
 
 | Begäran om att hämta invånares/patients bokade tider (GetSubjectOfCareSchedule) | Logisk adress |
 | :--- | :--- |
-| Nationell sammanfattning av invånares bokade tider | Ineras HSA-id: 5565594230 
-Genom att adressera på detta sätt triggas aggregerad tjänst igång på den nationella tjänsteplattformen som i sin tur baserar sina vidare anrop på innehållet i engagemangsindex. |
-| Regional sammanfattning av invånares bokade tider | Huvudmannens länskod eller annan identifierare som är TAKad på den nationella tjänsteplattformen. / Genom att adressera på detta sätt dirigeras anropet till annan (regional tjänsteplattform) som i sin tur triggar regional aggregerad tjänst. |
+| Nationell sammanfattning av invånares bokade tider | Ineras HSA-id: 5565594230<br/>Genom att adressera på detta sätt triggas aggregerad tjänst igång på den nationella tjänsteplattformen som i sin tur baserar sina vidare anrop på innehållet i engagemangsindex. |
+| Regional sammanfattning av invånares bokade tider | Huvudmannens länskod eller annan identifierare som är TAKad på den nationella tjänsteplattformen.<br/>Genom att adressera på detta sätt dirigeras anropet till annan (regional tjänsteplattform) som i sin tur triggar regional aggregerad tjänst. |
 | Invånares bokade tider på en mottagning | E-tjänst adresserar specifik mottagning direkt. Den logiska adressen motsvarar mottagningens HSA-Id |
 För tjänstespecifika regler kring aggregerande tjänster, se respektive tjänsteinteraktion.
 
@@ -227,10 +226,10 @@ Följande regler gäller för innehållet i begäran till tjänstekontraktet Upd
 | Attribut | Format | Mult | Domänspecifik semantik eller värde | Beslutsregler och kommentar |
 | :--- | :--- | :--- | :--- | :--- |
 | serviceDomain | Text | 1..1 | Värdet ska vara ”riv:crm:scheduling” | Del av instansens unikhet. |
-| categorization | Text bestående av bokstäver i ASCII. | 1..1 | Värdet ska vara ”NA”. / - Ändring fr.o.m. version 1.1.2. | Del av instansens unikhet. |
+| categorization | Text bestående av bokstäver i ASCII. | 1..1 | Värdet ska vara ”NA”.<br/>- Ändring fr.o.m. version 1.1.2. | Del av instansens unikhet. |
 | logicalAddress | Text, enligt hsaid standard | 1..1 | Mottagningens/vård-enhetens HSA-id. Denna logiska adressen ska vara den logiska adress som ska användas av konsumenter som ska adressera mottagningens tidbok genom tjänstekontrakten i denna domän. | Del av instansens unikhet. |
 | businessObjectInstanceIdentifier | Text | 1..1 | BookingId för bokningen som denna engagemangsindexpost pekar på eller kallelse. | Del av instansens unikhet. |
-| mostRecentContent | DT | 1..1 | För bokningar och tidsatta kallelser: Starttidpunkt för den bokade tiden. / För ej tidsatta (öppna) kallelser: Verksamhetens datum för kallelsen. |  |
+| mostRecentContent | DT | 1..1 | För bokningar och tidsatta kallelser: Starttidpunkt för den bokade tiden.<br/>För ej tidsatta (öppna) kallelser: Verksamhetens datum för kallelsen. |  |
 
 #### Vid ändringar i tidbokningssystemet ska tjänsteproducenten uppdatera Engagemangsindex
 Engagemangsindex ska uppdateras när en bokning eller kallelse skapas, ändras, blir inaktuell, eller av annan anledning tas bort i tidbokningssystemet. Beroende på̊ förutsättningar och implementation hos producenten så kan en ombokning innebära att befintlig post i Engagemangsindex tas bort och att en ny skapas.
@@ -255,7 +254,7 @@ Observera att det endast är vid ändring av attributet mostRecentContent, d.v.s
 | :--- | :--- | :--- | :--- |
 | registeredResidentIdentification | Invånarens personnummer. | Del av instansens unikhet. | En ändring av detta värde innebär att posten måste tas bort och ersättas med en ny. |
 | serviceDomain | Värdet ska vara ”riv:crm:scheduling”. | Del av instansens unikhet. | Detta värde kan inte ändras. |
-| categorization | Värdet ska vara "NA”. / - Ändring fr.o.m. version 1.1.2. | Del av instansens unikhet. | Detta värde kan inte ändras. |
+| categorization | Värdet ska vara "NA”.<br/>- Ändring fr.o.m. version 1.1.2. | Del av instansens unikhet. | Detta värde kan inte ändras. |
 | logicalAddress | Mottagningens/vårdenhetens HSA-id. | Del av instansens unikhet. | En ändring av detta värde innebär att posten måste tas bort och ersättas med en ny. |
 | businessObjectInstanceIdentifier | BookingId för bokningen eller kallelsen. | Del av instansens unikhet. | En ändring av detta värde innebär att posten måste tas bort och ersättas med en ny. |
 | clinicalProcessInterestId | Värdet ska vara "NA”. | Del av instansens unikhet. | Detta värde kan inte ändras. |
@@ -389,11 +388,11 @@ Texten i elementet ska vara i s.k. ”entity encoding” så att DocBook-element
 Vilka Docbook-element som är tillåtna i respektive element i SOAP-meddelandet framgår av reglerna för det aktuella tjänstekontraktet.
 Exempel på DocBook:
 
-| <?xml version="1.0"?> / <article> / <info> / <title>...</title> / </info> / <para> ... </para> / <para> ... </para> / <section> / <title>...</title> / <para> ... </para> / <para> / <ulink url="http://example.com"> ... </ulink> / </para> / </section> / <section> / <title>...</title> / <itemizedlist> / <listitem> ... </listitem> / <listitem> ... </listitem> / <listitem> ... </listitem> / </itemizedlist> / </section> / <bibliography> ... </bibliography> / </article> |
+| <?xml version="1.0"?><br/>`<article>`<br/>`<info>`<br/>`<title>`...`</title>`<br/>`</info>`<br/>`<para>` ... `</para>`<br/>`<para>` ... `</para>`<br/>`<section>`<br/>`<title>`...`</title>`<br/>`<para>` ... `</para>`<br/>`<para>`<br/><ulink url="http://example.com"> ... `</ulink>`<br/>`</para>`<br/>`</section>`<br/>`<section>`<br/>`<title>`...`</title>`<br/>`<itemizedlist>`<br/>`<listitem>` ... `</listitem>`<br/>`<listitem>` ... `</listitem>`<br/>`<listitem>` ... `</listitem>`<br/>`</itemizedlist>`<br/>`</section>`<br/>`<bibliography>` ... `</bibliography>`<br/>`</article>` |
 | :--- |
 För ovanstående DocBook-exempel ska alltså elementet i SOAP-meddelandet innehålla en version som är ”entity encoded” enligt följande:
 
-| &lt;?xml version=&quot;1.0&quot;?&gt; / &lt;article&gt; / &lt;info&gt; / &lt;title&gt;...&lt;/title&gt; / &lt;/info&gt; / &lt;para&gt; ... &lt;/para&gt; / &lt;para&gt; ... &lt;/para&gt; / &lt;section&gt; / &lt;title&gt;...&lt;/title&gt; / &lt;para&gt; ... &lt;/para&gt; / &lt;para&gt; / &lt;ulink url=&quot;http://example.com&quot;&gt; ... &lt;/ulink&gt; / &lt;/para&gt; / &lt;/section&gt; / &lt;section&gt; / &lt;title&gt;...&lt;/title&gt; / &lt;itemizedlist&gt; / &lt;listitem&gt; ... &lt;/listitem&gt; / &lt;listitem&gt; ... &lt;/listitem&gt; / &lt;listitem&gt; ... &lt;/listitem&gt; / &lt;/itemizedlist&gt; / &lt;/section&gt; / &lt;bibliography&gt; ... &lt;/bibliography&gt; / &lt;/article&gt; |
+| &lt;?xml version=&quot;1.0&quot;?&gt;<br/>&lt;article&gt;<br/>&lt;info&gt;<br/>&lt;title&gt;...&lt;/title&gt;<br/>&lt;/info&gt;<br/>&lt;para&gt; ... &lt;/para&gt;<br/>&lt;para&gt; ... &lt;/para&gt;<br/>&lt;section&gt;<br/>&lt;title&gt;...&lt;/title&gt;<br/>&lt;para&gt; ... &lt;/para&gt;<br/>&lt;para&gt;<br/>&lt;ulink url=&quot;http://example.com&quot;&gt; ... &lt;/ulink&gt;<br/>&lt;/para&gt;<br/>&lt;/section&gt;<br/>&lt;section&gt;<br/>&lt;title&gt;...&lt;/title&gt;<br/>&lt;itemizedlist&gt;<br/>&lt;listitem&gt; ... &lt;/listitem&gt;<br/>&lt;listitem&gt; ... &lt;/listitem&gt;<br/>&lt;listitem&gt; ... &lt;/listitem&gt;<br/>&lt;/itemizedlist&gt;<br/>&lt;/section&gt;<br/>&lt;bibliography&gt; ... &lt;/bibliography&gt;<br/>&lt;/article&gt; |
 | :--- |
 Konsumenten kan t.ex. använda något av tillgängliga verktyg för att generera RTF, HTML eller PDF från innehållet i elementet (efter att det återställts till ursprunglig XML-syntax).
 

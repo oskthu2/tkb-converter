@@ -9,7 +9,9 @@ RuleSet: DeleteMessagesFieldDescriptions
 * result.resultCode ^comment = "TKB-fält: `result.code` (`string`, kardinalitet 1..1).
 
 **Modellanteckning:** resultCode Heter code i schemat."
-* result.errorId ^definition = "Enda möjliga är: `<br>` 1=INTERNAL, 2=UNREAD_DELETE"
+* result.errorId ^definition = "Enda möjliga är:
+
+1=INTERNAL, 2=UNREAD_DELETE"
 * result.errorId ^comment = "TKB-fält: `result.errorId` (`string`, kardinalitet 0..1)."
 * result.errorMessage ^definition = "Text som ytterliggare beskriver felet"
 * result.errorMessage ^comment = "TKB-fält: `result.errorMessage` (`string`, kardinalitet 0..1)."

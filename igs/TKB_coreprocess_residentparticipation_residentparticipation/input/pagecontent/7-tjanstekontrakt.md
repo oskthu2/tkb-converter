@@ -33,7 +33,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Referens till 
 | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |
 | patientId | IIType | PatientId för patient vars fasta kontakter ska hämtas | 1..1 |
-| patientId.root | string | Fältet sätts till OID motsvarande typ av patientidentifierare. / Följande patientId’n kan förmedlas: / 1) För personnummer skall Skatteverkets oid för personnummer (1.2.752.129.2.1.3.1) användas. / 2) För samordningsnummer skall Skatteverkets oid för samordningsnummer (1.2.752.129.2.1.3.3) användas. / 3) För nationellt reservid skall Ineras oid för nationellt reservid (1.2.752.74.9.1) användas. / Observera: / För att en konsument och en producent ska kunna samverka behöver båda tjänstekomponenterna ha möjlighet till uppslag, antingen direkt eller indirekt, i Ineras nationella personuppgiftstjänst. | 1..1 |
+| patientId.root | string | Fältet sätts till OID motsvarande typ av patientidentifierare.<br/>Följande patientId’n kan förmedlas:<br/>1) För personnummer skall Skatteverkets oid för personnummer (1.2.752.129.2.1.3.1) användas.<br/>2) För samordningsnummer skall Skatteverkets oid för samordningsnummer (1.2.752.129.2.1.3.3) användas.<br/>3) För nationellt reservid skall Ineras oid för nationellt reservid (1.2.752.74.9.1) användas.<br/>Observera:<br/>För att en konsument och en producent ska kunna samverka behöver båda tjänstekomponenterna ha möjlighet till uppslag, antingen direkt eller indirekt, i Ineras nationella personuppgiftstjänst. | 1..1 |
 | patientId.extension | string | Id för patienten. Anges med 12 tecken utan avskiljare. | 1..1 |
 | careGiverId | HSAIdType | Frivilligt fält för filtrering av svar baserat på given vårdgivare. Sätts till HSAId för vårdgivaren. | 0..1 |
 | careUnitId | HSAIdType | Frivilligt fält för filtrering av svar baserat på given vårdenhet. Sätts till HSAId för vårdenheten. | 0..1 |
@@ -59,9 +59,9 @@ Nedanstående tabell beskriver varje element i begäran och svar. Referens till 
 | careManager.practitioner.careProvidingCareUnit | OrganizationType | Den vårdutförande vård- eller omsorgsenheten som medarbetaren har sitt uppdrag i för denna roll (typ av fast kontakt) för medarbetaren | 0..1 |
 | careManager.practitioner.careProvidingCareUnit.* | * | Se detaljerad beskrivning av datatypen OrganizationType och dess olika fält | - |
 | careManager. careProvidingCareUnit .contact.* | ContactType .* | Se detaljerad beskrivning av datatypen ContactType och dess olika fält | - |
-| careManager.careManagerHeader | HeaderType | Generell gemensam datatyp som används för tjänstekontrakt/informationsmängder som faller under Sammanhållen vård- och omsorgsdokumentation (SVOD). / Jämför med tjänstekontrakt som bär journal- och läkemedelsinformation. | 1..1 |
+| careManager.careManagerHeader | HeaderType | Generell gemensam datatyp som används för tjänstekontrakt/informationsmängder som faller under Sammanhållen vård- och omsorgsdokumentation (SVOD).<br/>Jämför med tjänstekontrakt som bär journal- och läkemedelsinformation. | 1..1 |
 | careManager. careManagerHeader.* | HeaderType.* | Se detaljerad beskrivning av datatypen HeaderType och dess olika fält | - |
-| careManagerHeader.accessControlHeader | AccessControlHeaderType | Generell information som syftar till att bl a ge underlag för konsumenters följsamhet till eventuellt spärrade journaluppgifter. / Se detaljerad beskrivning av datatypen AccessControlHeaderType och dess olika fält. | 1..1 |
+| careManagerHeader.accessControlHeader | AccessControlHeaderType | Generell information som syftar till att bl a ge underlag för konsumenters följsamhet till eventuellt spärrade journaluppgifter.<br/>Se detaljerad beskrivning av datatypen AccessControlHeaderType och dess olika fält. | 1..1 |
 
 #### 7.1.4 Övriga regler
 

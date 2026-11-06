@@ -19,10 +19,8 @@ Nedanstående tabell beskriver varje element i begäran och svar. Referens till 
 | logicalAddressRecord | LogicalAddresseeRecordType |  | 0..* |
 | logicalAddressRecord. logicalAddress | Text | Tjänstekontrakt som stöds av angiven tjänstekonsument vid tidpunkten för anropet av GetLogicalAddresseesByServiceContract. | 1..1 |
 | logicalAddressRecord.filter | FilterType |  | 0..* |
-| logicalAddressRecord.filter.
-serviceDomain | URN på formatet <regelverk>:<huvuddomän>:<underdomän>. | Namnrymd för Tjänstedomän enligt RIVTA-förvaltningens förvaltade tjänstedomäner. Anges utan versionsnummer. Ex: ”urn:riv:crm:scheduling” | 1..1 |
-| logicalAddressRecord.filter.
-categorization | Text | Kodverk enligt tjänstedomänens dokumentation. | 0..* |
+| logicalAddressRecord.filter.<br/>serviceDomain | URN på formatet `<regelverk>`:`<huvuddomän>`:`<underdomän>`. | Namnrymd för Tjänstedomän enligt RIVTA-förvaltningens förvaltade tjänstedomäner. Anges utan versionsnummer. Ex: ”urn:riv:crm:scheduling” | 1..1 |
+| logicalAddressRecord.filter.<br/>categorization | Text | Kodverk enligt tjänstedomänens dokumentation. | 0..* |
 Not: Utformandet av behörighetsfiltret, FilterType, avspeglar den första intressentens (EngagemangsIndex) direkta behov av filter-information. Om man i framtiden kan identifiera fler intressenter av behörighetsfilter kan datamodellen generaliseras baserat på de behov som då identifierats och införas i en major-version av tjänstekontraktet.
 
 #### Övriga regler

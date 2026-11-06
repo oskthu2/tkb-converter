@@ -24,17 +24,11 @@ Användaren har identifierats i vårdinformationssystemet med s.k. stark autenti
 | Namn/beteckning | Beskrivning |
 | :--- | :--- |
 | Val av patient | Patientval baserat på vilka patienter vårdinformationssystemet tillgängliggör för användaren. Hälso- och sjukvårdspersonal måste ha en vårdrelation till personen som väljs. |
-| Hantera samtycke till direktåtkomst inom sammanhållen journalföring | Kontrollera och vid behov registrera samtycke att ta del av patientens information från andra vårdgivare inom begreppet sammanhållen journalföring. Det är vårdgivaren där Hälso- och sjukvårdspersonalen har uppdrag som måste säkerställa att de har patientens samtycke. 
-Om samtycke ej kan inhämtas får nödsituation åberopas om förutsättningar för detta enligt SOSFS2008:14 är uppfyllda.
-Not: se tjänstedomänen riv:ehr:patientconsent |
-| Välj visa patientens samlade läkemedelslista | Vårdinformationssystemet kontrollerar användarens behörighet för åtgärden som avbryts om behörighet saknas. Verksamhetschef är ansvarig för att korrekt behörighet tilldelas personalen. / Vårdinformationssystemet hämtar patientens läkemedelsordinationer och förskrivningar från Tjänsteproducenten. Användaren/Tjänstekonsumenten kan t.ex. styra hur mycket historiska data som ska hämtas från Tjänsteproducenten. |
-| Filtrera bort spärrade uppgifter | Vårdinformationssystemet ansvarar för att filtrera ordinationslistan utifrån regelverket för spärr och samtycke. 
-Patientens spärrlista ska hämtas från Spärrtjänst (se riv:ehr:blocking).
-Om patienten har begärt spärr ska spärrkontroll och eventuell filtrering av läkemedelsordinationerna göras. Hänsyn ska tas dock till om patienten gjort undantag för läkemedelsinformation i spärren. / Om samtycke saknas och nödsituation inte åberopats, får endast ordinationer registrerade hos Hälso- och sjukvårdspersonalens egen vårdgivare visas. |
-| Hämta info om läkemedlen Kontrollera om interaktioner eller andra varningar | Vårdinformationssystemet hämtar kompletterande artikelinformation från SIL för de ordinerade läkemedlen. 
-Kontroll mot SIL gällande varningar (interaktions-, graviditets-, ålder- och dublettvarningar) ska utföras. |
-| Visa ordinationslista med eventuella varningar | Den samlade aktuella läkemedelslistan visas för Hälso- och sjukvårdspersonalen inklusive eventuella varningar.
-Kompletterande information är möjlig genom att t.ex. koppla vidare till texter i FASS. |
+| Hantera samtycke till direktåtkomst inom sammanhållen journalföring | Kontrollera och vid behov registrera samtycke att ta del av patientens information från andra vårdgivare inom begreppet sammanhållen journalföring. Det är vårdgivaren där Hälso- och sjukvårdspersonalen har uppdrag som måste säkerställa att de har patientens samtycke.<br/>Om samtycke ej kan inhämtas får nödsituation åberopas om förutsättningar för detta enligt SOSFS2008:14 är uppfyllda.<br/>Not: se tjänstedomänen riv:ehr:patientconsent |
+| Välj visa patientens samlade läkemedelslista | Vårdinformationssystemet kontrollerar användarens behörighet för åtgärden som avbryts om behörighet saknas. Verksamhetschef är ansvarig för att korrekt behörighet tilldelas personalen.<br/>Vårdinformationssystemet hämtar patientens läkemedelsordinationer och förskrivningar från Tjänsteproducenten. Användaren/Tjänstekonsumenten kan t.ex. styra hur mycket historiska data som ska hämtas från Tjänsteproducenten. |
+| Filtrera bort spärrade uppgifter | Vårdinformationssystemet ansvarar för att filtrera ordinationslistan utifrån regelverket för spärr och samtycke.<br/>Patientens spärrlista ska hämtas från Spärrtjänst (se riv:ehr:blocking).<br/>Om patienten har begärt spärr ska spärrkontroll och eventuell filtrering av läkemedelsordinationerna göras. Hänsyn ska tas dock till om patienten gjort undantag för läkemedelsinformation i spärren.<br/>Om samtycke saknas och nödsituation inte åberopats, får endast ordinationer registrerade hos Hälso- och sjukvårdspersonalens egen vårdgivare visas. |
+| Hämta info om läkemedlen Kontrollera om interaktioner eller andra varningar | Vårdinformationssystemet hämtar kompletterande artikelinformation från SIL för de ordinerade läkemedlen.<br/>Kontroll mot SIL gällande varningar (interaktions-, graviditets-, ålder- och dublettvarningar) ska utföras. |
+| Visa ordinationslista med eventuella varningar | Den samlade aktuella läkemedelslistan visas för Hälso- och sjukvårdspersonalen inklusive eventuella varningar.<br/>Kompletterande information är möjlig genom att t.ex. koppla vidare till texter i FASS. |
 | Logga åtkomst | Vårdinformationssystemet ansvarar för att åtgärden att visa den samlade läkemedelslistan loggas i en loggfunktion som medger uppföljning enligt PDL/SOSFS2008:14. |
 
 #### Roller
@@ -61,7 +55,7 @@ Användaren har identifierats i vårdinformationssystemet med s.k. stark autenti
 | Namn/beteckning | Beskrivning |
 | :--- | :--- |
 | Läsa patientens samlade läkemedelslista | Se flöde Läsa patientens samlade läkemedelslista. |
-| Kontrollera behörighet & samtycke | Vårdinformationssystemet kontrollerar användarens behörighet för åtgärden som avbryts om behörighet saknas. Verksamhetschef är ansvarig för att korrekt behörighet tilldelas personalen. / Vårdinformationssystemet kontrollerar om det existerar ett samtycke för användaren att läsa patientens uthämtade läkemedel från Läkemedelsförteckningen. Om inte, så måste användaren inhämta samtycke från patienten, om samtycket är tillsvidare så registrerar systemet detta. / Om samtycke ej kan inhämtas får nödsituation åberopas om förutsättningar för detta enligt SOSFS2008:14 är uppfyllda. |
+| Kontrollera behörighet & samtycke | Vårdinformationssystemet kontrollerar användarens behörighet för åtgärden som avbryts om behörighet saknas. Verksamhetschef är ansvarig för att korrekt behörighet tilldelas personalen.<br/>Vårdinformationssystemet kontrollerar om det existerar ett samtycke för användaren att läsa patientens uthämtade läkemedel från Läkemedelsförteckningen. Om inte, så måste användaren inhämta samtycke från patienten, om samtycket är tillsvidare så registrerar systemet detta.<br/>Om samtycke ej kan inhämtas får nödsituation åberopas om förutsättningar för detta enligt SOSFS2008:14 är uppfyllda. |
 | Hämta information om uthämtade läkemedel | Vårdinformationssystemet hämtar expedieringar från Läkemedelsförteckningen och anger typen av samtycke som ska användas för åtkomst. Om varningsnivån för antal slagningar är uppnådd så bör systemet visa upp ett meddelande, då fortsatt läsning från Läkemedelsförteckningen leder till temporär avstängning av användaren. |
 | Logga åtkomst | Vårdinformationssystemet ansvarar för att åtgärden att visa den samlade läkemedelslistan loggas i en loggfunktion som medger uppföljning enligt PDL/SOSFS2008:14. |
 
@@ -86,7 +80,7 @@ Användaren har identifierats i vårdinformationssystemet med s.k. stark autenti
 | :--- | :--- |
 | Val av patient | Patientval baserat på vilka patienter vårdinformationssystemet tillgängliggör för användaren. Hälso- och sjukvårdspersonal måste ha en vårdrelation till personen som väljs. |
 | Läs patientens samlade läkemedelslista | Se flöde Läsa patientens samlade läkemedelslista. |
-| Skapa ordination | Vårdinformationssystemet kontrollerar användarens behörighet för åtgärden som avbryts om behörighet saknas. Verksamhetschef är ansvarig för att korrekt behörighet tilldelas personalen. / Användaren kan antingen välja att ändra en existerande läkemedelsbehandling genom en ny ordination, eller att skapa en ny läkemedelsbehandling. Användaren anger läkemedel, styrka, form, dosering, insättningstid mm och skapar sen en eller flera nya ordinationer inom samma behandling. Om önskat kan även nya expedieringsunderlag skapas. |
+| Skapa ordination | Vårdinformationssystemet kontrollerar användarens behörighet för åtgärden som avbryts om behörighet saknas. Verksamhetschef är ansvarig för att korrekt behörighet tilldelas personalen.<br/>Användaren kan antingen välja att ändra en existerande läkemedelsbehandling genom en ny ordination, eller att skapa en ny läkemedelsbehandling. Användaren anger läkemedel, styrka, form, dosering, insättningstid mm och skapar sen en eller flera nya ordinationer inom samma behandling. Om önskat kan även nya expedieringsunderlag skapas. |
 | Läs/visa uppdaterad läkemedelslista | Vårdinformationssystemet visar upp uppdaterad läkemedelslista för användaren baserat på nya ordinations- och expedieringsunderlagsobjekt som returneras från Tjänsteproducenten. |
 
 #### Roller
@@ -110,7 +104,7 @@ Användaren har identifierats i vårdinformationssystemet med s.k. stark autenti
 | :--- | :--- |
 | Val av patient | Patientval baserat på vilka patienter vårdinformationssystemet tillgängliggör för användaren. Hälso- och sjukvårdspersonal måste ha en vårdrelation till personen som väljs. |
 | Läsa patientens samlade läkemedelslista | Se flöde Läsa patientens samlade läkemedelslista. |
-| Registrera/bekräfta ordination | Vårdinformationssystemet kontrollerar användarens behörighet för åtgärden som avbryts om behörighet saknas. Verksamhetschef är ansvarig för att korrekt behörighet tilldelas personalen. / Användare väljer om expedieringsunderlag ska kopplas till en existerande behandling, eller om en ny behandling ska skapas (se flödet Skapa ny behandling). Vårdinformationssystemet kopplar expedieringsunderlaget till läkemedelsbehandlingen. |
+| Registrera/bekräfta ordination | Vårdinformationssystemet kontrollerar användarens behörighet för åtgärden som avbryts om behörighet saknas. Verksamhetschef är ansvarig för att korrekt behörighet tilldelas personalen.<br/>Användare väljer om expedieringsunderlag ska kopplas till en existerande behandling, eller om en ny behandling ska skapas (se flödet Skapa ny behandling). Vårdinformationssystemet kopplar expedieringsunderlaget till läkemedelsbehandlingen. |
 | Läs/visa uppdaterad läkemedelslista | Vårdinformationssystemet visar upp uppdaterad läkemedelslista för användaren. |
 
 #### Roller
@@ -134,7 +128,7 @@ Användaren har identifierats i vårdinformationssystemet med s.k. stark autenti
 | :--- | :--- |
 | Val av patient | Patientval baserat på vilka patienter vårdinformationssystemet tillgängliggör för användaren. Hälso- och sjukvårdspersonal måste ha en vårdrelation till personen som väljs. |
 | Välj behandling | Användaren väljer vilken av patientens läkemedelsbehandlingar som ska avslutas. |
-| Sätt ut behandling | Användaren anger strukturerad utsättningsorsak och eventuellt en utsättningstidpunkt (om ej momentan utsättning). Vårdinformationssystemet skapar ny ordination med samma information som tidigare gällande ordination, men med ny utsättningstidpunkt. För en momentan utsättning så är ordinationens insättningstidpunkt och utsättningstidpunkt samma. / Om användaren väljer att makulera alla expedieringsunderlag i behandlingen så görs detta dels i NOD, och dels i receptdepån (om förskrivning med e-recept gjorts). Makuleringen sker momentant, även om ett framtida utsättningsdatum för behandlingen angetts. |
+| Sätt ut behandling | Användaren anger strukturerad utsättningsorsak och eventuellt en utsättningstidpunkt (om ej momentan utsättning). Vårdinformationssystemet skapar ny ordination med samma information som tidigare gällande ordination, men med ny utsättningstidpunkt. För en momentan utsättning så är ordinationens insättningstidpunkt och utsättningstidpunkt samma.<br/>Om användaren väljer att makulera alla expedieringsunderlag i behandlingen så görs detta dels i NOD, och dels i receptdepån (om förskrivning med e-recept gjorts). Makuleringen sker momentant, även om ett framtida utsättningsdatum för behandlingen angetts. |
 | Visa uppdaterad läkemedelslista | Vårdinformationssystemet visar upp en uppdaterad läkemedelslista för användaren baserad på ny ordinationsinformation som returnerats i anrop mot tjänst. |
 
 #### Roller
@@ -157,7 +151,7 @@ Användaren har identifierats i vårdinformationssystemet med s.k. stark autenti
 | Namn/beteckning | Beskrivning |
 | :--- | :--- |
 | Val av patient | Patientval baserat på vilka patienter vårdinformationssystemet tillgängliggör för användaren. Hälso- och sjukvårdspersonal måste ha en vårdrelation till personen som väljs. |
-| Registrera expedieringsunderlag | Vårdinformationssystemet kontrollerar användarens behörighet för åtgärden som avbryts om behörighet saknas. Verksamhetschef är ansvarig för att korrekt behörighet tilldelas personalen. / Om expedieringsunderlag ska skapas baserat på ordination i NOD hämtar Vårdinformationssystemet patientens läkemedelsordinationer från Tjänsteproducenten. Användaren kan sedan välja vilken ordination som expedieringsunderlaget ska baseras på. Om expedieringsunderlaget ska skapas fristående behövs inte detta. Användaren anger då läkemedel, styrka etc. |
+| Registrera expedieringsunderlag | Vårdinformationssystemet kontrollerar användarens behörighet för åtgärden som avbryts om behörighet saknas. Verksamhetschef är ansvarig för att korrekt behörighet tilldelas personalen.<br/>Om expedieringsunderlag ska skapas baserat på ordination i NOD hämtar Vårdinformationssystemet patientens läkemedelsordinationer från Tjänsteproducenten. Användaren kan sedan välja vilken ordination som expedieringsunderlaget ska baseras på. Om expedieringsunderlaget ska skapas fristående behövs inte detta. Användaren anger då läkemedel, styrka etc. |
 
 #### Roller
 
@@ -179,7 +173,7 @@ Användaren har identifierats i vårdinformationssystemet med s.k. stark autenti
 | Namn/beteckning | Beskrivning |
 | :--- | :--- |
 | Val av patient | Patientval baserat på vilka patienter vårdinformationssystemet tillgängliggör för användaren. Hälso- och sjukvårdspersonal måste ha en vårdrelation till personen som väljs. |
-| Välj expedieringsunderlag | Vårdinformationssystemet kontrollerar användarens behörighet för åtgärden som avbryts om behörighet saknas. Verksamhetschef är ansvarig för att korrekt behörighet tilldelas personalen. / Användaren väljer expedieringsunderlag att makulera, antingen genom information som Vårdinformationssystemet hämtar från NOD, eller i fallet med lösa recept, alternativt med information som Vårdinformationssystem har lagrat lokalt. / Användaren väljer sen makuleringsorsak utifrån de orsaker som finns definerade av E-hälsomyndigheten. |
+| Välj expedieringsunderlag | Vårdinformationssystemet kontrollerar användarens behörighet för åtgärden som avbryts om behörighet saknas. Verksamhetschef är ansvarig för att korrekt behörighet tilldelas personalen.<br/>Användaren väljer expedieringsunderlag att makulera, antingen genom information som Vårdinformationssystemet hämtar från NOD, eller i fallet med lösa recept, alternativt med information som Vårdinformationssystem har lagrat lokalt.<br/>Användaren väljer sen makuleringsorsak utifrån de orsaker som finns definerade av E-hälsomyndigheten. |
 
 #### Roller
 

@@ -232,14 +232,14 @@ Följande tabell specificerar vilka kontrakt som är obligatoriska att realisera
 
 | Tjänstekontrakt |  |  | Flöde 1 | Flöde 2 | Flöde 3 | Flöde 4 | Flöde 5 | Flöde 6 | Flöde 7 | Flöde 8 | Flöde 9 | Flöde 10 |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| GetPersonForProfile, / (GetPersonForProfileUnrestricted) |  |  | X |  |  |  |  | X | X | X |  |  |
-| SearchPersonsForProfile, / (SearchPersonsForProfileUnrestricted) |  |  |  | X |  |  |  |  |  |  |  |  |
-| GetPersonContactInformation, / (GetPersonContactInformationUnrestricted) |  |  |  |  | X | X |  |  |  |  |  |  |
+| GetPersonForProfile,<br/>(GetPersonForProfileUnrestricted) |  |  | X |  |  |  |  | X | X | X |  |  |
+| SearchPersonsForProfile,<br/>(SearchPersonsForProfileUnrestricted) |  |  |  | X |  |  |  |  |  |  |  |  |
+| GetPersonContactInformation,<br/>(GetPersonContactInformationUnrestricted) |  |  |  |  | X | X |  |  |  |  |  |  |
 | UpdatePersonContactInformation |  |  |  |  |  | X |  |  |  |  |  |  |
 | UpdatePerson |  |  |  |  |  |  | X | X |  |  |  |  |
 | LinkPersonIdentity |  |  |  |  |  |  |  |  | X |  |  |  |
 | UnlinkPersonIdentity |  |  |  |  |  |  |  |  |  | X |  |  |
-| SearchPersonsForProfileByOrder, / SearchPersonsForProfileByOrderUnrestricted |  |  |  |  |  |  |  |  |  |  | X |  |
+| SearchPersonsForProfileByOrder,<br/>SearchPersonsForProfileByOrderUnrestricted |  |  |  |  |  |  |  |  |  |  | X |  |
 | GetFilesForOrderId |  |  |  |  |  |  |  |  |  |  | X | X |
 | GetPersonsByFile (REST) |  |  |  |  |  |  |  |  |  |  |  | X |
 

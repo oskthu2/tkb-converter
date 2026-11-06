@@ -146,9 +146,9 @@ def table_to_md(table) -> str:
     for row in table.rows:
         cells = []
         for cell in row.cells:
-            # Alla stycken i cellen, separerade med <br>-liknande mellanrum
-            lines = [p.text.strip() for p in cell.paragraphs if p.text.strip()]
-            text = " / ".join(lines) if lines else ""
+            # Alla stycken (och mjuka radbrytningar) i cellen blir <br/>, se scripts/fix_md_tables.py
+            lines = [ln.strip() for p in cell.paragraphs for ln in p.text.split("\n") if ln.strip()]
+            text = "<br/>".join(lines) if lines else ""
             # Escapa pipe-tecken
             text = text.replace("|", "\\|")
             cells.append(text)
@@ -351,6 +351,10 @@ def write_outputs(docx_path: Path, output_dir: Path):
     print(f"Output: {output_dir}")
 
     full_md, structure = build_full_markdown(docx_path, img_dir)
+    # Samma tabellnormalisering som för färdiga sidor (<br/>, sammanslagna rader, platshållare)
+    sys.path.insert(0, str(Path(__file__).resolve().parent / "scripts"))
+    import fix_md_tables
+    full_md = fix_md_tables.fix_text(full_md)
 
     # Spara hela dokumentet
     full_path = output_dir / "full-document.md"

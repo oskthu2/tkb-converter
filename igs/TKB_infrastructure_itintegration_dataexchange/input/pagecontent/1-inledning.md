@@ -23,7 +23,7 @@ Källa: *Tjänstekontraktsbeskrivning för infrastructure: itintegration: dataex
 | :--- | :--- | :--- | :--- |
 | R1 | Arkitekturella beslut | Bilaga | AB_infrastructure_ itintegration_dataexchange.docx |
 | R2 | RIVTA flera dokument | Finns på Webben | http://rivta.se/ |
-| R3 | RIV Tekniska Anvisningar / Översikt | Finns på Webben | Länk |
+| R3 | RIV Tekniska Anvisningar<br/>Översikt | Finns på Webben | Länk |
 | R4 | Senaste version av SOSFS 2016:40 Socialstyrelsens föreskrifter och allmänna råd om journalföring och behandling av personuppgifter i hälso- och sjukvården | Finns på Webben | Länk |
 | R5 | Journalföring och behandling av personuppgifter i hälso- och sjukvården - Handbok vid tillämpningen av Socialstyrelsens föreskrifter och allmänna råd (HSLF-FS 2016:40) om journalföring och behandling av personuppgifter i hälso- och sjukvården. | Finns på Webben | Länk |
 | R6 | RIV Tekniska Anvisningar - Binära bilagor | Finns på Webben | Länk |
@@ -39,7 +39,7 @@ Källa: *Tjänstekontraktsbeskrivning för infrastructure: itintegration: dataex
 
 | Begrepp/ Förkortning | Betydelse | Kommentar |
 | :--- | :--- | :--- |
-| Interoperabilitets- specifikation | Ett samlingsbegrepp för överenskommelser som beskriver förutsättningar och krav för digitala tjänster. / I interoperabilitetsspecifikationen beskrivs de krav som ställs på den part som ska ansluta till en samverkan och som parten förväntas uppfylla. | En interoperabilitetsspecifikation beskriver regler för en specifik interoperabel lösnings användning av tjänstekontrakt och dess innehåll utöver reglerna i tjänstekontraktets tjänstekonstraksbeskrivning (TKB). / Exempel på en interoperabilitetsspecifikation är interaktionsöverenskommelser enligt Anvisning för utformning av nyttolast i tjänstekontrakt [R12]. |
+| Interoperabilitets- specifikation | Ett samlingsbegrepp för överenskommelser som beskriver förutsättningar och krav för digitala tjänster.<br/>I interoperabilitetsspecifikationen beskrivs de krav som ställs på den part som ska ansluta till en samverkan och som parten förväntas uppfylla. | En interoperabilitetsspecifikation beskriver regler för en specifik interoperabel lösnings användning av tjänstekontrakt och dess innehåll utöver reglerna i tjänstekontraktets tjänstekonstraksbeskrivning (TKB).<br/>Exempel på en interoperabilitetsspecifikation är interaktionsöverenskommelser enligt Anvisning för utformning av nyttolast i tjänstekontrakt [R12]. |
 | Interoperabel lösning | En samling digitala tjänster som via API och/eller användargränssnitt realiserar ett verksamhetsbehov [R13]. | Varje interoperabel lösning beskrivs av en interoperabilitetsspecifikation innehållande överenskommelser som beskriver förutsättningar och krav för hur lösningen kan och får användas [R13]. |
 
 #### Kompletterande dokument i källan

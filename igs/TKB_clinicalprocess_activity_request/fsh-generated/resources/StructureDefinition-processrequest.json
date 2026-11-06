@@ -174,8 +174,8 @@
         "id": "processrequest.patient.address",
         "path": "processrequest.patient.address",
         "short": "Tillfällig adress",
-        "definition": "Tillfällig adress\n\nObservera att adress används endast om tillfällig adress behöver anges, ej folkbokförd adress.",
-        "comment": "TKB-fält: `request.patient.address` (`AddressType`).\n\n**Modellanteckning:** Används endast om tillfällig adress behöver anges, ej folkbokförd adress. Avsedd för kallelse; format enligt Skatteverkets Navet.",
+        "definition": "Tillfällig adress\n\nObservera att adress används endast om tillfällig adress behöver anges, ej folkbokförd adress.\n\nAdressen är avsedd att användas vid kallelse. Formatet är baserat på Skatteverkets distributionslösning Navet.",
+        "comment": "TKB-fält: `request.patient.address` (`AddressType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -188,7 +188,8 @@
         "id": "processrequest.patient.address.careOf",
         "path": "processrequest.patient.address.careOf",
         "short": "Care of",
-        "definition": "Maxlängd 35 tecken.",
+        "definition": "”Care of”",
+        "comment": "TKB-fält: `request.patient.address.careOf` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 35 tecken\n\n**Modellanteckning:** Maxlängd 35 tecken.",
         "min": 0,
         "max": "1",
         "type": [
@@ -201,7 +202,8 @@
         "id": "processrequest.patient.address.streetName1",
         "path": "processrequest.patient.address.streetName1",
         "short": "Utdelningsadress1",
-        "definition": "Maxlängd 35 tecken.",
+        "definition": "Utdelningsadress1",
+        "comment": "TKB-fält: `request.patient.address.streetName1` (`String`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 35 tecken\n\n**Modellanteckning:** Maxlängd 35 tecken.",
         "min": 1,
         "max": "1",
         "type": [
@@ -214,7 +216,8 @@
         "id": "processrequest.patient.address.streetName2",
         "path": "processrequest.patient.address.streetName2",
         "short": "Utdelningsadress2",
-        "definition": "Maxlängd 35 tecken.",
+        "definition": "Utdelningsadress2",
+        "comment": "TKB-fält: `request.patient.address.streetName2` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 35 tecken\n\n**Modellanteckning:** Maxlängd 35 tecken.",
         "min": 0,
         "max": "1",
         "type": [
@@ -227,7 +230,8 @@
         "id": "processrequest.patient.address.postalCode",
         "path": "processrequest.patient.address.postalCode",
         "short": "Postnummer",
-        "definition": "Fem siffror utan blanksteg, t.ex. 12345.",
+        "definition": "Postnummer i formatet ”12345”, dvs fem siffror inga blanksteg.",
+        "comment": "TKB-fält: `request.patient.address.postalCode` (`String`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 5 tecken",
         "min": 1,
         "max": "1",
         "type": [
@@ -240,7 +244,8 @@
         "id": "processrequest.patient.address.postalCity",
         "path": "processrequest.patient.address.postalCity",
         "short": "Postort",
-        "definition": "Maxlängd 27 tecken.",
+        "definition": "Postort",
+        "comment": "TKB-fält: `request.patient.address.postalCity` (`String`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 27 tecken\n\n**Modellanteckning:** Maxlängd 27 tecken.",
         "min": 1,
         "max": "1",
         "type": [
@@ -253,7 +258,8 @@
         "id": "processrequest.patient.address.postBox",
         "path": "processrequest.patient.address.postBox",
         "short": "Postbox",
-        "definition": "Maxlängd 9 tecken.",
+        "definition": "Postbox",
+        "comment": "TKB-fält: `request.patient.address.postBox` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 9 tecken\n\n**Modellanteckning:** Maxlängd 9 tecken.",
         "min": 0,
         "max": "1",
         "type": [
@@ -266,7 +272,8 @@
         "id": "processrequest.patient.telecom",
         "path": "processrequest.patient.telecom",
         "short": "Telefon",
-        "definition": "Telefonnummer till patienten.",
+        "definition": "Telefon",
+        "comment": "TKB-fält: `request.patient.telecom` (`TelecomType`, kardinalitet 0..2).\n\n**Modellanteckning:** Telefonnummer till patienten.",
         "min": 0,
         "max": "2",
         "type": [
@@ -279,7 +286,8 @@
         "id": "processrequest.patient.telecom.typeOfTelecom",
         "path": "processrequest.patient.telecom.typeOfTelecom",
         "short": "Telefon typ",
-        "definition": "H = hemtelefon, MC = mobil.",
+        "definition": "Telefon typ\n\nFör att särskilja olika typer av telekomadresser används 2 olika koder ’MC’=Mobil, ’H’=Hemtelefon",
+        "comment": "TKB-fält: `request.patient.telecom.typeOfTelecom` (`CodeForTelecomType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** codes:codeForTelecomType",
         "min": 1,
         "max": "1",
         "type": [
@@ -296,7 +304,8 @@
         "id": "processrequest.patient.telecom.number",
         "path": "processrequest.patient.telecom.number",
         "short": "Telefonnummer",
-        "definition": "Maxlängd 200 tecken.",
+        "definition": "Telefonnummer",
+        "comment": "TKB-fält: `request.patient.telecom.number` (`String`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 200 tecken\n\n**Modellanteckning:** Maxlängd 200 tecken.",
         "min": 1,
         "max": "1",
         "type": [
@@ -309,7 +318,8 @@
         "id": "processrequest.patient.patientName",
         "path": "processrequest.patient.patientName",
         "short": "Namn",
-        "definition": "Personnamn enligt formatet \"Mellannamn Efternamn, Förnamn\". Maxlängd 216 tecken. RIV-TA: patient.name.",
+        "definition": "Namn\n\nPersonnamn sammanslaget enligt formatet \" Mellannamn Efternamn, Förnamn\". Om flera namn av samma typ förekommer ska dessa separeras med mellanslag.\n\nImplementationer rekommenderas att i första hand slå upp denna information från den källa till personinformation som normalt används. Detta namn är i första hand till för teknisk loggning och spårbarhet.",
+        "comment": "TKB-fält: `request.patient.name` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 216 tecken",
         "min": 0,
         "max": "1",
         "type": [
@@ -322,7 +332,8 @@
         "id": "processrequest.patient.gender",
         "path": "processrequest.patient.gender",
         "short": "Kön",
-        "definition": "Administrativt kön enligt Skatteverket (OID 1.2.752.129.2.2.1.1): 0 okänt, 1 man, 2 kvinna, 9 ej tillämpligt.",
+        "definition": "Kön\n\nAnger administrativt kön, dvs. det kön patienten har registrerat hos Skatteverket.\n\nOID för kodsystem: 1.2.752.129.2.2.1.1\n\nGiltiga värden är:\n\n0 = okänt\n\n1 = man\n\n2 = kvinna\n\n9 = ej tillämpligt",
+        "comment": "TKB-fält: `request.patient.gender` (`CodeForGenderType`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** codes:codeForGenderType",
         "min": 0,
         "max": "1",
         "type": [
@@ -339,7 +350,8 @@
         "id": "processrequest.patient.dateOfBirth",
         "path": "processrequest.patient.dateOfBirth",
         "short": "Födelsetidpunkt",
-        "definition": "Anges när patientens identitet är av annan typ än personnummer (ÅÅÅÅMMDD).",
+        "definition": "Födelsetidpunkt\n\nAnges då patientens identitetstyp är av annan typ än personnummer.",
+        "comment": "TKB-fält: `request.patient.dateOfBirth` (`DateType`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** ÅÅÅÅMMDD",
         "min": 0,
         "max": "1",
         "type": [
@@ -352,7 +364,8 @@
         "id": "processrequest.requestOrganisation",
         "path": "processrequest.requestOrganisation",
         "short": "Organisatorisk enhet",
-        "definition": "Ursprunglig remitterande organisatorisk enhet. Svaret adresseras till denna enhet som logisk adress.",
+        "definition": "Organisatorisk enhet\n\nInformation om ursprunglig remitterande organisatorisk enhet. Kan skilja sig från PDL ansvarig enhet vid behov. Det är denna enhet som svaret adresseras till i logisk adress.",
+        "comment": "TKB-fält: `request.requestOrganisation` (`FullOrganisationType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -365,7 +378,8 @@
         "id": "processrequest.requestOrganisation.careUnitId",
         "path": "processrequest.requestOrganisation.careUnitId",
         "short": "Enhet id",
-        "definition": "HSA-id för enheten. Maxlängd 64 tecken.",
+        "definition": "Enhet id\n\nHSA-id för remitterande enhet. Detta används av remissbesvarare som logisk adress för att adressera svarsmottagare.",
+        "comment": "TKB-fält: `request.requestOrganisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken\n\n**Modellanteckning:** HSA-id för enheten. Maxlängd 64 tecken.",
         "min": 1,
         "max": "1",
         "type": [
@@ -378,7 +392,8 @@
         "id": "processrequest.requestOrganisation.careUnitName",
         "path": "processrequest.requestOrganisation.careUnitName",
         "short": "Enhet namn",
-        "definition": "Namn på enhet. Maxlängd 64 tecken.",
+        "definition": "Enhet namn\n\nNamn på enhet.",
+        "comment": "TKB-fält: `request.requestOrganisation.careUnitName` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken\n\n**Modellanteckning:** Namn på enhet. Maxlängd 64 tecken.",
         "min": 0,
         "max": "1",
         "type": [
@@ -391,7 +406,8 @@
         "id": "processrequest.requestOrganisation.careUnitTelephone",
         "path": "processrequest.requestOrganisation.careUnitTelephone",
         "short": "Enhet telefon",
-        "definition": "Telefon till enhet.",
+        "definition": "Enhet telefon\n\nTelefon till enhet.",
+        "comment": "TKB-fält: `request.requestOrganisation.careUnitTelephone` (`String`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -404,7 +420,8 @@
         "id": "processrequest.requestOrganisation.careUnitEmail",
         "path": "processrequest.requestOrganisation.careUnitEmail",
         "short": "Enhet epost",
-        "definition": "E-post till enhet.",
+        "definition": "Enhet epost\n\nE-post till enhet.",
+        "comment": "TKB-fält: `request.requestOrganisation.careUnitEmail` (`String`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -418,6 +435,7 @@
         "path": "processrequest.requestOrganisation.careUnitAddress",
         "short": "Enhet adress",
         "definition": "Adress till enhet.",
+        "comment": "TKB-fält: `request.requestOrganisation.careUnitAddress` (`String`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -430,7 +448,8 @@
         "id": "processrequest.requestOrganisation.careUnitLocation",
         "path": "processrequest.requestOrganisation.careUnitLocation",
         "short": "Enhet plats",
-        "definition": "Namnet på plats eller ort för enhetens fysiska placering.",
+        "definition": "Enhet plats\n\nText som anger namnet på plats eller ort för enhetens eller funktionens fysiska placering.",
+        "comment": "TKB-fält: `request.requestOrganisation.careUnitLocation` (`String`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -443,7 +462,8 @@
         "id": "processrequest.author",
         "path": "processrequest.author",
         "short": "Remittent",
-        "definition": "Remittent (person och organisation).",
+        "definition": "Remittent\n\nInformation avseende den remitterande personen samt den organisation som personen är uppdragstagare på.",
+        "comment": "TKB-fält: `request.author` (`RequestAuthorType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -456,7 +476,8 @@
         "id": "processrequest.author.date",
         "path": "processrequest.author.date",
         "short": "Remissdatum",
-        "definition": "Datum då remissen skapades (ÅÅÅÅMMDD).",
+        "definition": "Remissdatum\n\nRemissdatum när remiss skapades måste anges. Format som ska användas är ÅÅÅÅMMDD",
+        "comment": "TKB-fält: `request.author.date` (`DateType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** ÅÅÅÅMMDD\n\n**Modellanteckning:** Datum då remissen skapades (ÅÅÅÅMMDD).",
         "min": 1,
         "max": "1",
         "type": [
@@ -469,7 +490,8 @@
         "id": "processrequest.author.healthcareProfessional",
         "path": "processrequest.author.healthcareProfessional",
         "short": "Hälso- och sjukvårdspersonal",
-        "definition": "Hälso- och sjukvårdspersonal (HealthcareProfessionalType).",
+        "definition": "Hälso- och sjukvårdspersonal",
+        "comment": "TKB-fält: `request.author.healthcareProfessional` (`HealthcareProfessionalType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -482,7 +504,8 @@
         "id": "processrequest.author.healthcareProfessional.healthcareProfessionalId",
         "path": "processrequest.author.healthcareProfessional.healthcareProfessionalId",
         "short": "Personal id",
-        "definition": "HSA-id för personen. Maxlängd 64 tecken. RIV-TA: healthcareProfessional.id.",
+        "definition": "Personal Id\n\nHSA-id för remitterande hälso- och sjukvårdspersonal.",
+        "comment": "TKB-fält: `request.author.healthcareProfessional.id` (`HsaIdType`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken\n\n**Modellanteckning:** HSA-id för personen. Maxlängd 64 tecken. RIV-TA: healthcareProfessional.id.",
         "min": 0,
         "max": "1",
         "type": [
@@ -495,7 +518,8 @@
         "id": "processrequest.author.healthcareProfessional.healthcareProfessionalName",
         "path": "processrequest.author.healthcareProfessional.healthcareProfessionalName",
         "short": "Personal namn",
-        "definition": "Namn, valfri formatering. Maxlängd 64 tecken. RIV-TA: healthcareProfessional.name.",
+        "definition": "Personal namn\n\nNamn på remitterande hälso- och sjukvårdspersonal.\n\nValfri formatering.",
+        "comment": "TKB-fält: `request.author.healthcareProfessional.name` (`String`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken\n\n**Modellanteckning:** Namn, valfri formatering. Maxlängd 64 tecken. RIV-TA: healthcareProfessional.name.",
         "min": 1,
         "max": "1",
         "type": [
@@ -508,7 +532,8 @@
         "id": "processrequest.author.typeOfHealthcareProfessional",
         "path": "processrequest.author.typeOfHealthcareProfessional",
         "short": "Typ av hälso- och sjukvårdspersonal",
-        "definition": "Yrkestitel från Snomed CT: urval_legitimerade_yrken (codeSystem 1.2.752.129.5.1.70) eller yrken_i_halso-_och_sjukvarden_ej_legitimerade (codeSystem 1.2.752.129.7.1.5). Urvalen kan kompletteras utan ny kontraktsversion.",
+        "definition": "Typ av hälso- och sjukvårdspersonal\n\nKod för yrkestitel från Snomed CT enligt urvalen nedan:\n\ncode: se urval_legitimerade_yrken\n\ncodeSystem: OID 1.2.752.129.5.1.70\n\neller\n\ncode: se yrken_i_halso-_och_sjukvarden_ej_legitimerade\n\ncodeSystem: 1.2.752.129.7.1.5\n\nUrvalen kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.",
+        "comment": "TKB-fält: `request.author.typeOfHealthcareProfessional` (`CVType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -521,7 +546,8 @@
         "id": "processrequest.author.healthcareProfessionalOrganisation",
         "path": "processrequest.author.healthcareProfessionalOrganisation",
         "short": "Organisatorisk enhet",
-        "definition": "Enhet (jmf. PDL) som ansvarar för informationen.",
+        "definition": "Organisatorisk enhet\n\nremittent",
+        "comment": "TKB-fält: `request.author.healthcareProfessionalOrganisation` (`OrganisationType`, kardinalitet 1..1).\n\n**Modellanteckning:** Enhet (jmf. PDL) som ansvarar för informationen.",
         "min": 1,
         "max": "1",
         "type": [
@@ -534,7 +560,8 @@
         "id": "processrequest.author.healthcareProfessionalOrganisation.careUnitId",
         "path": "processrequest.author.healthcareProfessionalOrganisation.careUnitId",
         "short": "Enhet id",
-        "definition": "HSA-id för enheten. Maxlängd 64 tecken.",
+        "definition": "Enhet id\n\nHSA-id för vårdenhet (jmf. PDL) som ansvarar för remissen.",
+        "comment": "TKB-fält: `request.author.healthcareProfessionalOrganisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken\n\n**Modellanteckning:** HSA-id för enheten. Maxlängd 64 tecken.",
         "min": 1,
         "max": "1",
         "type": [
@@ -547,7 +574,8 @@
         "id": "processrequest.recipient",
         "path": "processrequest.recipient",
         "short": "Mottagare",
-        "definition": "Remissmottagande organisation.",
+        "definition": "Mottagare\n\nInformation avseende den remissmottagande organisationen",
+        "comment": "TKB-fält: `request.recipient` (`RecipientType`, kardinalitet 1..1).\n\n**Modellanteckning:** Remissmottagande organisation.",
         "min": 1,
         "max": "1",
         "type": [
@@ -560,7 +588,8 @@
         "id": "processrequest.recipient.organisation",
         "path": "processrequest.recipient.organisation",
         "short": "Organisatorisk enhet",
-        "definition": "Mottagande enhet; HSA-id används som logisk adress.",
+        "definition": "Organisatorisk enhet\n\nmottagare",
+        "comment": "TKB-fält: `request.recipient.organisation` (`OrganisationType`, kardinalitet 1..1).\n\n**Modellanteckning:** Mottagande enhet; HSA-id används som logisk adress.",
         "min": 1,
         "max": "1",
         "type": [
@@ -573,7 +602,8 @@
         "id": "processrequest.recipient.organisation.careUnitId",
         "path": "processrequest.recipient.organisation.careUnitId",
         "short": "Enhet id",
-        "definition": "HSA-id för enheten. Maxlängd 64 tecken.",
+        "definition": "Enhet id\n\nHSA-id för remissmottagande enhet, till vilken remissen adresseras.\n\nMed remissmottagande enhet avses det som i SOSFS 2004:11 benämns som mottagande enhet.",
+        "comment": "TKB-fält: `request.recipient.organisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken\n\n**Modellanteckning:** HSA-id för enheten. Maxlängd 64 tecken.",
         "min": 1,
         "max": "1",
         "type": [
@@ -586,7 +616,8 @@
         "id": "processrequest.intermediaryParticipant",
         "path": "processrequest.intermediaryParticipant",
         "short": "Vidareskickare",
-        "definition": "Hälso- och sjukvårdspersonalen som vidareskickar remissen.",
+        "definition": "Vidareskickare\n\nBeskriver Hälso-och sjukvårdspersonalen som vidareskickar remissen",
+        "comment": "TKB-fält: `request.intermediaryParticipant` (`IntermediaryType`, kardinalitet 0..*).",
         "min": 0,
         "max": "*",
         "type": [
@@ -599,7 +630,8 @@
         "id": "processrequest.intermediaryParticipant.healthcareProfessionalOrganisation",
         "path": "processrequest.intermediaryParticipant.healthcareProfessionalOrganisation",
         "short": "Organisatorisk enhet",
-        "definition": "Remissmottagande enhet som vidareskickat remissen.",
+        "definition": "Organisatorisk enhet\n\nvidareskickare",
+        "comment": "TKB-fält: `request.intermediaryParticipant. healthcareProfessionalOrganisation` (`OrganisationType`, kardinalitet 1..1).\n\n**Modellanteckning:** Remissmottagande enhet som vidareskickat remissen.",
         "min": 1,
         "max": "1",
         "type": [
@@ -612,7 +644,8 @@
         "id": "processrequest.intermediaryParticipant.healthcareProfessionalOrganisation.careUnitId",
         "path": "processrequest.intermediaryParticipant.healthcareProfessionalOrganisation.careUnitId",
         "short": "Enhet id",
-        "definition": "HSA-id för enheten. Maxlängd 64 tecken.",
+        "definition": "Enhet id\n\nHSA-id på den remissmottagande enhet som vidareskickat remissen.",
+        "comment": "TKB-fält: `request.intermediaryParticipant.healthcareProfessionalOrganisation.careUnitId` (`HsaIdType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken\n\n**Modellanteckning:** HSA-id för enheten. Maxlängd 64 tecken.",
         "min": 1,
         "max": "1",
         "type": [
@@ -625,7 +658,8 @@
         "id": "processrequest.intermediaryParticipant.time",
         "path": "processrequest.intermediaryParticipant.time",
         "short": "Tidpunkt",
-        "definition": "Tidpunkt då versionen skapades för vidareskickning (ÅÅÅÅMMDDttmmss).",
+        "definition": "Tidpunkt\n\nTidpunkt då versionen skapades för vidareskickning.\n\nDenna tidpunkt kan skilja sig från tidpunkten då remissen faktiskt skickas beroende på hur detta implementeras i en lokal remissmodul.",
+        "comment": "TKB-fält: `request.intermediaryParticipant.time` (`TimeStampType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** ÅÅÅÅMMDDttmmss",
         "min": 1,
         "max": "1",
         "type": [
@@ -638,7 +672,8 @@
         "id": "processrequest.additionalInformation",
         "path": "processrequest.additionalInformation",
         "short": "Tilläggsinformation",
-        "definition": "Tilläggsinformation.",
+        "definition": "Tilläggsinformation",
+        "comment": "TKB-fält: `request.additionalInformation` (`AdditionalInformationType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -651,7 +686,8 @@
         "id": "processrequest.additionalInformation.desiredRequestRecipient",
         "path": "processrequest.additionalInformation.desiredRequestRecipient",
         "short": "Önskemål om remissmottagare",
-        "definition": "Enhet, person, yrkesroll eller fritext. Maxlängd 200 tecken.",
+        "definition": "Önskemål om remissmottagare Önskad remissmottagare: enhet, person, yrkesroll, fritext",
+        "comment": "TKB-fält: `request.additionalInformation.desiredRequestRecipient` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 200 tecken\n\n**Modellanteckning:** Enhet, person, yrkesroll eller fritext. Maxlängd 200 tecken.",
         "min": 0,
         "max": "1",
         "type": [
@@ -664,7 +700,8 @@
         "id": "processrequest.additionalInformation.administrativeInformation",
         "path": "processrequest.additionalInformation.administrativeInformation",
         "short": "Kompletterande administrativ information",
-        "definition": "T.ex. akutärende, bortrest patient, SVF-patient och datum för välgrundad misstanke.",
+        "definition": "Kompletterande administrativ information\n\nHär anges kompletterande administrativ information. Exempelvis kan denna innehålla information om detta är ett akutärende, om patienten är bortrest under en viss tid inom kallelsetiden eller annan information som kan påverka den administrativa processen kring remissen. Här läggs även information om SVF-patient (standardiserade vårdförlopp), datum för välgrundad misstanke samt aktuellt SVF-förlopp.",
+        "comment": "TKB-fält: `request.additionalInformation.administrativeInformation` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken",
         "min": 0,
         "max": "1",
         "type": [
@@ -677,7 +714,8 @@
         "id": "processrequest.additionalInformation.interpreterRequirement",
         "path": "processrequest.additionalInformation.interpreterRequirement",
         "short": "Kommentar tolkbehov",
-        "definition": "Maxlängd 200 tecken.",
+        "definition": "Kommentar tolkbehov Här beskrivs eventuellt tolkbehov.",
+        "comment": "TKB-fält: `request.additionalInformation.interpreterRequirement` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 200 tecken\n\n**Modellanteckning:** Maxlängd 200 tecken.",
         "min": 0,
         "max": "1",
         "type": [
@@ -690,7 +728,8 @@
         "id": "processrequest.awarenessInformation",
         "path": "processrequest.awarenessInformation",
         "short": "Uppmärksamhetsinformation",
-        "definition": "Uppmärksamhetsinformation om patient.",
+        "definition": "Uppmärksamhetsinformation\n\nUppmärksamhetsinformation om patient",
+        "comment": "TKB-fält: `request.awarenessInformation` (`AwarenessInformationType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -703,7 +742,8 @@
         "id": "processrequest.awarenessInformation.awarenessText",
         "path": "processrequest.awarenessInformation.awarenessText",
         "short": "Uppmärksamhetstext",
-        "definition": "Av betydelse för denna remiss; mottagande system bör inte automatiskt föra in den i egen uppmärksamhetshantering. Maxlängd 8192 tecken. RIV-TA: awarenessInformation.text.",
+        "definition": "Uppmärksamhetstext Uppmärksamhetsinformation av betydelse för denna remiss. Mottagande system bör inte med automatik föra in denna i den egna hanteringen för uppmärksamhetsinformation kring patienten utan endast lagra den i samband med remissen.",
+        "comment": "TKB-fält: `request.awarenessInformation.text` (`String`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken\n\n**Modellanteckning:** Av betydelse för denna remiss; mottagande system bör inte automatiskt föra in den i egen uppmärksamhetshantering. Maxlängd 8192 tecken. RIV-TA: awarenessInformation.text.",
         "min": 1,
         "max": "1",
         "type": [
@@ -716,7 +756,8 @@
         "id": "processrequest.questionFormulation",
         "path": "processrequest.questionFormulation",
         "short": "Frågeställning",
-        "definition": "Remissens frågeställning.",
+        "definition": "Frågeställning",
+        "comment": "TKB-fält: `request.questionFormulation` (`QuestionFormulationType`, kardinalitet 1..1).\n\n**Modellanteckning:** Remissens frågeställning.",
         "min": 1,
         "max": "1",
         "type": [
@@ -729,7 +770,8 @@
         "id": "processrequest.questionFormulation.questionText",
         "path": "processrequest.questionFormulation.questionText",
         "short": "Frågeställning text",
-        "definition": "Maxlängd 8192 tecken. RIV-TA: questionFormulation.text.",
+        "definition": "Frågeställning text\n\nHär anges remissens frågeställning.",
+        "comment": "TKB-fält: `request.questionFormulation.text` (`String`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken\n\n**Modellanteckning:** Maxlängd 8192 tecken. RIV-TA: questionFormulation.text.",
         "min": 1,
         "max": "1",
         "type": [
@@ -742,7 +784,8 @@
         "id": "processrequest.questionFormulation.clinicalInformation",
         "path": "processrequest.questionFormulation.clinicalInformation",
         "short": "Anamnes",
-        "definition": "Underbyggande klinisk information för frågeställningen.",
+        "definition": "Anamnes\n\nHär anges underbyggande klinisk information (anamnes) för remissfrågeställningen. Dessa underbyggande kliniska data är direkt kopplat till frågeställningen",
+        "comment": "TKB-fält: `request.questionFormulation.clinicalInformation` (`ClinicalInformationType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -755,7 +798,8 @@
         "id": "processrequest.questionFormulation.clinicalInformation.clinicalInformationText",
         "path": "processrequest.questionFormulation.clinicalInformation.clinicalInformationText",
         "short": "Beskrivning",
-        "definition": "Maxlängd 8192 tecken. RIV-TA: clinicalInformation.text.",
+        "definition": "Beskrivning\n\nHär anges klinisk informationsbeskrivning",
+        "comment": "TKB-fält: `request.questionFormulation.clinicalInformation.text` (`String`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken\n\n**Modellanteckning:** Maxlängd 8192 tecken. RIV-TA: clinicalInformation.text.",
         "min": 1,
         "max": "1",
         "type": [
@@ -768,7 +812,8 @@
         "id": "processrequest.questionFormulation.condition",
         "path": "processrequest.questionFormulation.condition",
         "short": "Kliniskt tillstånd",
-        "definition": "Kliniskt tillstånd (ConditionType). Antingen text eller kod, inte båda.",
+        "definition": "Kliniskt tillstånd\n\nAnger kliniska tillstånd som använts i uppslag mot stödtjänster.\n\nAnvänds som stöd för att remittent och remissmottagare ska kunna avgöra om remissuppgifterna är kompletta.",
+        "comment": "TKB-fält: `request.questionFormulation.condition` (`ConditionType`, kardinalitet 0..*).\n\n**Modellanteckning:** Kliniskt tillstånd (ConditionType). Antingen text eller kod, inte båda.",
         "min": 0,
         "max": "*",
         "type": [
@@ -790,7 +835,8 @@
         "id": "processrequest.questionFormulation.condition.conditionText",
         "path": "processrequest.questionFormulation.condition.conditionText",
         "short": "Kliniskt tillstånd beskrivning",
-        "definition": "Diagnosbeskrivning i fritext. Maxlängd 8192 tecken. RIV-TA: condition.text.",
+        "definition": "Kliniskt tillstånd beskrivning\n\nHär kan diagnosbeskrivning skrivas in.\n\nObservera att den får endast förekomma om questionFormulation.condition.code inte används.",
+        "comment": "TKB-fält: `request.questionFormulation.condition.text` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken\n\n**Modellanteckning:** Diagnosbeskrivning i fritext. Maxlängd 8192 tecken. RIV-TA: condition.text.",
         "min": 0,
         "max": "1",
         "type": [
@@ -803,7 +849,8 @@
         "id": "processrequest.questionFormulation.condition.conditionCode",
         "path": "processrequest.questionFormulation.condition.conditionCode",
         "short": "Kliniskt tillståndskod",
-        "definition": "Kod enligt ICD-10-SE (codeSystem 1.2.752.116.1.1.1). RIV-TA: condition.code.",
+        "definition": "Kliniskt tillståndskod Anger kliniska tillståndskoder.\n\ncode:  se ICD-10-SE\n\ncodeSystem: 1.2.752.116.1.1.1\n\nObservera att kod får endast förekomma om questionFormulation.condition.text inte används.\n\nKodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.",
+        "comment": "TKB-fält: `request.questionFormulation.condition.code` (`CVType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -816,7 +863,8 @@
         "id": "processrequest.questionFormulation.desiredActivity",
         "path": "processrequest.questionFormulation.desiredActivity",
         "short": "Önskad åtgärd",
-        "definition": "Önskad åtgärd (ActivityType). Antingen text eller kod, inte båda.",
+        "definition": "Åtgärd\n\nHär anges önskade åtgärder. Dessa åtgärder ska vara direkt kopplade till frågeställningen.",
+        "comment": "TKB-fält: `request.questionFormulation.desiredActivity` (`ActivityType`, kardinalitet 0..*).\n\n**Modellanteckning:** Önskad åtgärd (ActivityType). Antingen text eller kod, inte båda.",
         "min": 0,
         "max": "*",
         "type": [
@@ -838,7 +886,8 @@
         "id": "processrequest.questionFormulation.desiredActivity.activityId",
         "path": "processrequest.questionFormulation.desiredActivity.activityId",
         "short": "Åtgärd id",
-        "definition": "Unikt id i form av löpnummer för åtgärden. RIV-TA: id.",
+        "definition": "Åtgärd id\n\nUnikt id i form av löpnummer för den önskade åtgärden",
+        "comment": "TKB-fält: `request.questionFormulation. desiredActivity.id` (`ActivityIdType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -851,7 +900,8 @@
         "id": "processrequest.questionFormulation.desiredActivity.activityText",
         "path": "processrequest.questionFormulation.desiredActivity.activityText",
         "short": "Åtgärd beskrivning",
-        "definition": "Fritext. Maxlängd 8192 tecken. RIV-TA: text.",
+        "definition": "Åtgärd beskrivning\n\nObservera att text får endast förekomma om questionFormulation.desiredActivity.code inte används.",
+        "comment": "TKB-fält: `request.questionFormulation.desiredActivity.text` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken\n\n**Modellanteckning:** Fritext. Maxlängd 8192 tecken. RIV-TA: text.",
         "min": 0,
         "max": "1",
         "type": [
@@ -864,7 +914,8 @@
         "id": "processrequest.questionFormulation.desiredActivity.activityCode",
         "path": "processrequest.questionFormulation.desiredActivity.activityCode",
         "short": "Åtgärd typ",
-        "definition": "Åtgärd enligt kodsystem: KVÅ (1.2.752.116.1.3.2.1.4, obligatoriskt att hantera) eller Snomed CT. Okänt kodverk ger APPLICATION_ERROR. RIV-TA: code.code/codeSystem.",
+        "definition": "Åtgärd typ\n\nÅtgärd enligt kodsystem.\n\nObservera att code får endast förekomma om questionFormulation.desiredActivity.text inte används.",
+        "comment": "TKB-fält: `request.questionFormulation.desiredActivity.code` (`ActivityCodeType`, kardinalitet 0..1).\n\n**Modellanteckning:** Åtgärd enligt kodsystem: KVÅ (1.2.752.116.1.3.2.1.4, obligatoriskt att hantera) eller Snomed CT. Okänt kodverk ger APPLICATION_ERROR. RIV-TA: code.code/codeSystem.",
         "min": 0,
         "max": "1",
         "type": [
@@ -877,7 +928,8 @@
         "id": "processrequest.paymentCommitment",
         "path": "processrequest.paymentCommitment",
         "short": "Betalningsförbindelse",
-        "definition": "Hur remissmottagande vårdgivare ersätts av remitterande vårdgivare; aktuellt vid regionsöverskridande remissflöde (Riksavtalet).",
+        "definition": "Betalningsförbindelse Betalningsförbindelse beskriver hur remissmottagande vårdgivare ersätts för de begärda tjänsterna av remitterande vårdgivare.\n\nAktuellt vid ett regionsöverskridande remissflöde. För detaljer i användningen se även SKRs Riksavtal.",
+        "comment": "TKB-fält: `request.paymentCommitment` (`PaymentCommitmentType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -899,7 +951,8 @@
         "id": "processrequest.paymentCommitment.paymentCommitmentId",
         "path": "processrequest.paymentCommitment.paymentCommitmentId",
         "short": "Betalningsförbindelse id",
-        "definition": "Format requestId#betfor#löpnummer.",
+        "definition": "Betalningsförbindelse id Unik identitet på betalningsförbindelsen, requestId#betfor#löpnummer\n\nExempel: SE2321000012-0001#987#betfor#1",
+        "comment": "TKB-fält: `request.paymentCommitment.paymentCommitmentId` (`PaymentCommitmentIdType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -912,7 +965,8 @@
         "id": "processrequest.paymentCommitment.commitmentType",
         "path": "processrequest.paymentCommitment.commitmentType",
         "short": "Betalningsförbindelse-typ avtal",
-        "definition": "kv_betalningsförbindelsetyp avtal, codeSystem 1.2.752.129.2.2.2.44.",
+        "definition": "Betalningsförbindelse-typ avtal\n\nAnger den avtalstyp som finns att välja för betalningsförbindelse\n\ncode: se kv_betalningsförbindelse- typ avtal\n\ncodeSystem: 1.2.752.129.2.2.2.44\n\nKodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.",
+        "comment": "TKB-fält: `request.paymentCommitment.commitmentType` (`CVType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -925,7 +979,8 @@
         "id": "processrequest.paymentCommitment.commitmentTypeChapter",
         "path": "processrequest.paymentCommitment.commitmentTypeChapter",
         "short": "Betalningsförbindelse-typ kapitel",
-        "definition": "Riksavtalets kapitel, codeSystem 1.2.752.129.5.1.37. Obligatoriskt då commitmentType = 1.",
+        "definition": "Betalningsförbindelse-typ kapitel\n\nAnger kod utifrån riksavtalets kapitel som reglerar betalning.\n\nObligatoriskt då paymentCommitment.commitmentType = 1\n\ncode: kv_ betalningsförbindelsetyp kapitel\n\ncodeSystem: 1.2.752.129.5.1.37\n\nKodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.",
+        "comment": "TKB-fält: `request.paymentCommitment.commitmentTypeChapter` (`CVType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -938,7 +993,8 @@
         "id": "processrequest.paymentCommitment.validity",
         "path": "processrequest.paymentCommitment.validity",
         "short": "Giltighetstid",
-        "definition": "ÅÅÅÅMMDD. Antingen start (low) eller slut (high) måste finnas.",
+        "definition": "Giltighetstid\n\nAnges enligt ÅÅÅÅMMDD. Antingen start (low) eller slut (high) måste finnas med",
+        "comment": "TKB-fält: `request.paymentCommitment.validity` (`TimeIntervalType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -951,7 +1007,8 @@
         "id": "processrequest.paymentCommitment.clinicalResponsibilityDescription",
         "path": "processrequest.paymentCommitment.clinicalResponsibilityDescription",
         "short": "Klinisk ansvarsbeskrivning",
-        "definition": "Maxlängd 8192 tecken.",
+        "definition": "Klinisk ansvarsbeskrivning",
+        "comment": "TKB-fält: `request.paymentCommitment.clinicalResponsibilityDescription` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken\n\n**Modellanteckning:** Maxlängd 8192 tecken.",
         "min": 0,
         "max": "1",
         "type": [
@@ -964,7 +1021,8 @@
         "id": "processrequest.paymentCommitment.administrativeResponsibilityDescription",
         "path": "processrequest.paymentCommitment.administrativeResponsibilityDescription",
         "short": "Administrativ ansvarsbeskrivning",
-        "definition": "Maxlängd 8192 tecken.",
+        "definition": "Administrativ ansvarsbeskrivning",
+        "comment": "TKB-fält: `request.paymentCommitment.administrativeResponsibilityDescription` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 8192 tecken\n\n**Modellanteckning:** Maxlängd 8192 tecken.",
         "min": 0,
         "max": "1",
         "type": [
@@ -977,7 +1035,8 @@
         "id": "processrequest.paymentCommitment.validOnlyForOutpatientCare",
         "path": "processrequest.paymentCommitment.validOnlyForOutpatientCare",
         "short": "Gäller endast öppenvård",
-        "definition": "true om betalningsförbindelsen enbart gäller öppenvård.",
+        "definition": "Gäller endast öppenvård Sätts till ”true” om betalningsförbindelsen enbart gäller öppenvård. Annars sätts den till ”false”",
+        "comment": "TKB-fält: `request.paymentCommitment.validOnlyForOutpatientCare` (`Boolean`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -990,7 +1049,8 @@
         "id": "processrequest.paymentCommitment.liableCountyCouncil",
         "path": "processrequest.paymentCommitment.liableCountyCouncil",
         "short": "Betalningsansvarig region",
-        "definition": "kv_län (SCB), codeSystem 1.2.752.129.2.2.1.18.",
+        "definition": "Betalningsansvarig region\n\nRegion som ansvarar för betalningen.\n\nKod enligt förteckning utgiven av Statistiska Centralbyrån (SCB).\n\ncode: se kv_län\n\ncodeSystem: 1.2.752.129.2.2.1.18\n\nKodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.",
+        "comment": "TKB-fält: `request.paymentCommitment.liableCountyCouncil` (`CVType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Inera kodverk kv_län",
         "min": 1,
         "max": "1",
         "type": [
@@ -1003,7 +1063,8 @@
         "id": "processrequest.paymentCommitment.dateOfApproval",
         "path": "processrequest.paymentCommitment.dateOfApproval",
         "short": "Datum för godkännande",
-        "definition": "ÅÅÅÅMMDDttmmss med minst precision ÅÅÅÅMMDD.",
+        "definition": "Datum för godkännande\n\nTidpunkt för godkännande av denna betalningsförbindelse hos remittenten.\n\nAnges enligt ÅÅÅÅMMDDttmmss med minst precision ÅÅÅÅMMDD",
+        "comment": "TKB-fält: `request.paymentCommitment.dateOfApproval` (`TimeStampType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1016,7 +1077,8 @@
         "id": "processrequest.paymentCommitment.issuedInConsultationWith",
         "path": "processrequest.paymentCommitment.issuedInConsultationWith",
         "short": "Utfärdad i samråd med",
-        "definition": "Namn på ekonomisk beslutsfattare. Maxlängd 64 tecken.",
+        "definition": "Utfärdad i samråd med\n\nOm betalningsförbindelsen utfärdas i samråd med ekonomisk beslutsfattare antecknas namnet här. Valfri formatering.",
+        "comment": "TKB-fält: `request.paymentCommitment.issuedInConsultationWith` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken\n\n**Modellanteckning:** Namn på ekonomisk beslutsfattare. Maxlängd 64 tecken.",
         "min": 0,
         "max": "1",
         "type": [
@@ -1029,7 +1091,8 @@
         "id": "processrequest.paymentCommitment.costCenter",
         "path": "processrequest.paymentCommitment.costCenter",
         "short": "Kostnadsställe",
-        "definition": "Remittentens kostnadsställe. Maxlängd 64 tecken.",
+        "definition": "Kostnadsställe\n\nRemittentens kostnadsställe",
+        "comment": "TKB-fält: `request.paymentCommitment.costCenter` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken\n\n**Modellanteckning:** Remittentens kostnadsställe. Maxlängd 64 tecken.",
         "min": 0,
         "max": "1",
         "type": [
@@ -1042,7 +1105,8 @@
         "id": "processrequest.paymentCommitment.reimbursementInformation",
         "path": "processrequest.paymentCommitment.reimbursementInformation",
         "short": "Ersättningsinformation",
-        "definition": "Obligatorisk vid remiss till privat vårdgivare.",
+        "definition": "Ersättningsinformation\n\nObligatorisk vid remiss till privat vårdgivare",
+        "comment": "TKB-fält: `request.paymentCommitment.reimbursementInformation` (`ReimbursementInformationType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1055,7 +1119,8 @@
         "id": "processrequest.paymentCommitment.reimbursementInformation.reimbursementType",
         "path": "processrequest.paymentCommitment.reimbursementInformation.reimbursementType",
         "short": "Ersättningstyp",
-        "definition": "kv_betalningsförbindelse ersättningstyp, codeSystem 1.2.752.129.5.1.36.",
+        "definition": "Ersättningstyp\n\nAnger källa till ersättning.\n\ncode: se kv_betalningsförbindelse ersättningstyp\n\ncodeSystem: 1.2.752.129.5.1.36\n\nKodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.",
+        "comment": "TKB-fält: `request.paymentCommitment.reimbursementInformation.reimbursementType` (`CVType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -1068,7 +1133,8 @@
         "id": "processrequest.paymentCommitment.reimbursementInformation.ownerOfInvokedContract",
         "path": "processrequest.paymentCommitment.reimbursementInformation.ownerOfInvokedContract",
         "short": "Ägare av åberopat kontrakt",
-        "definition": "Region enligt kv_län (SCB), codeSystem 1.2.752.129.2.2.1.18.",
+        "definition": "Ägare av åberopat kontrakt\n\nÄgare (region) av åberopat kontrakt.\n\nKod enligt förteckning utgiven av Statistiska Centralbyrån (SCB).\n\ncode: se kv_län\n\ncodeSystem: 1.2.752.129.2.2.1.18\n\nKodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.",
+        "comment": "TKB-fält: `request.paymentCommitment.reimbursementInformation.ownerOfInvokedContract` (`CVType`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Inera kodverk kv_län",
         "min": 1,
         "max": "1",
         "type": [
@@ -1081,7 +1147,8 @@
         "id": "processrequest.paymentCommitment.approvedBy",
         "path": "processrequest.paymentCommitment.approvedBy",
         "short": "Godkänns av",
-        "definition": "Person hos remittenten som godkänt betalningsförbindelsen.",
+        "definition": "Godkänns av\n\nDen person hos remittenten som har godkänt betalningsförbindelsen",
+        "comment": "TKB-fält: `request.paymentCommitment.approvedBy` (`HealthcareProfessionalType`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -1094,7 +1161,8 @@
         "id": "processrequest.paymentCommitment.approvedBy.healthcareProfessionalId",
         "path": "processrequest.paymentCommitment.approvedBy.healthcareProfessionalId",
         "short": "Personal id",
-        "definition": "HSA-id för person. RIV-TA: approvedBy.id.",
+        "definition": "Personal id\n\nHSA-id för person",
+        "comment": "TKB-fält: `request.paymentCommitment.approvedBy.id` (`HsaIdType`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken\n\n**Modellanteckning:** HSA-id för person. RIV-TA: approvedBy.id.",
         "min": 0,
         "max": "1",
         "type": [
@@ -1107,7 +1175,8 @@
         "id": "processrequest.paymentCommitment.approvedBy.healthcareProfessionalName",
         "path": "processrequest.paymentCommitment.approvedBy.healthcareProfessionalName",
         "short": "Personal namn",
-        "definition": "Maxlängd 64 tecken. RIV-TA: approvedBy.name.",
+        "definition": "Personal namn",
+        "comment": "TKB-fält: `request.paymentCommitment.approvedBy.name` (`String`, kardinalitet 1..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 64 tecken\n\n**Modellanteckning:** Maxlängd 64 tecken. RIV-TA: approvedBy.name.",
         "min": 1,
         "max": "1",
         "type": [
@@ -1120,7 +1189,8 @@
         "id": "processrequest.attachment",
         "path": "processrequest.attachment",
         "short": "Bilaga",
-        "definition": "Bilaga (MultimediaType) i något av de tillåtna formaten. Totala meddelandestorleken får inte överstiga 10 MB.",
+        "definition": "Bilaga\n\nMöjlighet att skicka med en eller flera bilagor i något av de tillåtna formaten",
+        "comment": "TKB-fält: `request.attachment` (`MultimediaType`, kardinalitet 0..*).\n\n**Modellanteckning:** Bilaga (MultimediaType) i något av de tillåtna formaten. Totala meddelandestorleken får inte överstiga 10 MB.",
         "min": 0,
         "max": "*",
         "type": [
@@ -1133,7 +1203,8 @@
         "id": "processrequest.attachment.attachmentId",
         "path": "processrequest.attachment.attachmentId",
         "short": "Bilaga id",
-        "definition": "Identitet på bilagan, format requestId#löpnummer. Obligatoriskt för inbäddade bilagor. Maxlängd 256 tecken. RIV-TA: attachment.id.",
+        "definition": "Bilaga id\n\nIdentitet på bilagan. Används för inbäddade bilagor vid referenser inom en tjänsteinteraktion.\n\nFormat bilaga remiss: requestId#löpnummer = Källsystem-Id(HSA-ID)#lokalt-id#löpnummer\n\nObligatoriskt för inbäddade bilagor",
+        "comment": "TKB-fält: `request.attachment.id` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** (.*)#(.*)#(.*)\n\nMaxlängd 256 tecken",
         "min": 0,
         "max": "1",
         "type": [
@@ -1146,7 +1217,8 @@
         "id": "processrequest.attachment.mediaType",
         "path": "processrequest.attachment.mediaType",
         "short": "Multimediatyp",
-        "definition": "Filformat enligt urval_mediatyper_elektronisk_remiss (codeSystem 1.2.752.129.5.1.59): pdf, jpeg, png, html, txt, gif, bmp.",
+        "definition": "Multimediatyp\n\nTyp av multimedia, se urval med tillåtna format.\n\ncode: se urval_mediatyper_elektronisk_remiss\n\ncodeSystem: (1.2.752.129.5.1.59, se nedan)\n\nUnder codeSystem anges identifieraren för det kodverk från vilken den angivna koden hämtats. Detta medför att det kan skickas olika identifierare under codeSystem, beroende på vilket kodverk den skickade koden tillhör.\n\nKodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontrakten behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras.",
+        "comment": "TKB-fält: `request.attachment.mediaType` (`CVType`, kardinalitet 1..1).\n\n**Modellanteckning:** Filformat enligt urval_mediatyper_elektronisk_remiss (codeSystem 1.2.752.129.5.1.59): pdf, jpeg, png, html, txt, gif, bmp.",
         "min": 1,
         "max": "1",
         "type": [
@@ -1159,7 +1231,8 @@
         "id": "processrequest.attachment.attachmentValue",
         "path": "processrequest.attachment.attachmentValue",
         "short": "Binärdata",
-        "definition": "Inbäddad bilaga kodad enligt base64. Obligatoriskt när referens inte används. RIV-TA: attachment.value.",
+        "definition": "Binärdata\n\nAnvänds vid inbäddad bilaga och innehåller då bilagans binärdata, kodat enligt base64. Om bilagan innehåller avkodad text ska denna vara avkodad från UTF-8-format.\n\nObligatoriskt när referens inte används.",
+        "comment": "TKB-fält: `request.attachment.value` (`Base64Binary`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Ett meddelande med bilagor får inte vara större än 10MB",
         "min": 0,
         "max": "1",
         "type": [
@@ -1172,7 +1245,8 @@
         "id": "processrequest.attachment.reference",
         "path": "processrequest.attachment.reference",
         "short": "Referens",
-        "definition": "URL för refererad bilaga. Används inte i denna version.",
+        "definition": "Referens\n\nAnvänds vid refererad bilaga, och innehåller då den URL där bilagan kan hämtas.\n\nOBS! Används inte i denna version.",
+        "comment": "TKB-fält: `request.attachment.reference` (`AnyURI`, kardinalitet 0..0).",
         "min": 0,
         "max": "0",
         "type": [
@@ -1185,7 +1259,8 @@
         "id": "processrequest.attachment.description",
         "path": "processrequest.attachment.description",
         "short": "Beskrivning",
-        "definition": "Beskrivning av bilaga. Maxlängd 256 tecken.",
+        "definition": "Beskrivning\n\nBeskrivning av bilaga, t ex innehåll",
+        "comment": "TKB-fält: `request.attachment.description` (`String`, kardinalitet 0..1).\n\n**Kodverk/värde-mängd /ev begränsningar:** Maxlängd 256 tecken\n\n**Modellanteckning:** Beskrivning av bilaga. Maxlängd 256 tecken.",
         "min": 0,
         "max": "1",
         "type": [
@@ -1198,7 +1273,8 @@
         "id": "processrequest.careProcessId",
         "path": "processrequest.careProcessId",
         "short": "Vårdprocess id",
-        "definition": "Identifierar den individanpassade vårdprocess som remissen är en del av.",
+        "definition": "Vårdprocess id\n\nIdentifierare som unikt identifierar den individanpassade vårdprocess som denna remiss är en del av. Används för att kunna hålla samman information över aktörsgränser och koppling till patientens hälsoärende. Producentsystemet bör registrera all information som registreras kring patienten kopplat till detta id.",
+        "comment": "TKB-fält: `request.careProcessId` (`String`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [

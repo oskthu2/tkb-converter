@@ -159,6 +159,9 @@ Characteristics: #can-be-target
     Kardinalitet: Valfri.
   """
 
+// Fältbeskrivningar från TKB:ns fälttabell (scripts/sync_field_descriptions.py)
+* insert GetAlertInformationFieldDescriptions
+
 Invariant: getalertinformation-pdl-careunit-caregiver
 Description: "Regel 1: HSA-id för vårdenhet och vårdgivare krävs för spärrhantering, åtkomstkontroll och loggning enligt PDL. Saknas de visas elementet inte av konsumenter inom sammanhållen journalföring."
 Expression: "healthcareProfessionalCareUnitHSAId.exists() and healthcareProfessionalCareGiverHSAId.exists()"

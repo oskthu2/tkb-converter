@@ -38,13 +38,13 @@ Nedanstående tabell beskriver varje individuellt fält i begäran och svar. Kar
 | ..vardgivare.vardgivare-id | hsaId | Hsa-Id för Hos-vårdgivare där läkarintyget utfärdas. | 1..1 |
 | ..vardgivare.vardgivare-namn | string | Namn på Hos-vårdgivare där läkarintyget utfärdas. | 1..1 |
 | lakarutlatande.vardkontakt |  | Vårdkontakt | 0..2 |
-| ..vardkontakt.vardkontakttyp | string | Typ av vårdkontakt (min undersökning av patienten eller min telefonkontakt med patienten) / (Fält 4, de 2 översta kryssrutorna) | 0..1* |
+| ..vardkontakt.vardkontakttyp | string | Typ av vårdkontakt (min undersökning av patienten eller min telefonkontakt med patienten)<br/>(Fält 4, de 2 översta kryssrutorna) | 0..1* |
 | ..vardkontakt.vardkontaktstid | datum | Datum då vårdkontakten skedde | 0..1* |
 | lakarutlatande.referens |  | Referens | 0..2 |
-| ..referens.referenstyp | string | Typ av referens (journaluppgifter eller annat) / (Fält 4, de 2 nedre kryssrutorna) | 0..1* |
+| ..referens.referenstyp | string | Typ av referens (journaluppgifter eller annat)<br/>(Fält 4, de 2 nedre kryssrutorna) | 0..1* |
 | ..referens.datum | datum | Datum för ovanstående referens | 0..1* |
 | lakarutlatande.aktivitet |  | Aktiviteter | 0..n* |
-| ..aktivitet.aktivitetskod | string | Aktivitetskoder som representerar olika val i blanketten. / (Fält 1, Fält 6a alla kryssrutor, Fält 6b alla kryssrutor, Fält 7 alla kryssrutor, Fält 11 alla kryssrutor, Fält 12) | 0..1* |
+| ..aktivitet.aktivitetskod | string | Aktivitetskoder som representerar olika val i blanketten.<br/>(Fält 1, Fält 6a alla kryssrutor, Fält 6b alla kryssrutor, Fält 7 alla kryssrutor, Fält 11 alla kryssrutor, Fält 12) | 0..1* |
 | ..aktivitet.beskrivning |  | En eventuell fritext som hänger ihop med aktivitetskoden. | 0..1* |
 | lakarutlatande.bedomtTillstand |  | Bedömt tillstånd | 0..1 |
 | ..bedomtTillstand.beskrivning | string | Aktuellt sjukdomsförlopp (Fält 3) | 1..1 |
@@ -56,7 +56,7 @@ Nedanstående tabell beskriver varje individuellt fält i begäran och svar. Kar
 | ..tillstandskod.codeSystemName | string | Kodsystemets namn | 0..1 |
 | ..tillstandskod.codeSystemVersion | string | Version av kodsystemet | 0..1 |
 | lakarutlatande.funktionstillstand |  | Funktionstillstånd | 0..2* |
-| ..funktionstillstand.beskrivning | string | Om typAvFunktionstillstand=Kroppsfunktion avses funktionsnedsättning (Fält 4) / Om typAvFunktionstillstand=Aktivitet avses aktivitetsbegränsning (Fält 5) | 0..1* |
+| ..funktionstillstand.beskrivning | string | Om typAvFunktionstillstand=Kroppsfunktion avses funktionsnedsättning (Fält 4)<br/>Om typAvFunktionstillstand=Aktivitet avses aktivitetsbegränsning (Fält 5) | 0..1* |
 | ..funktionstillstand.typAvFunktionstillstand | string | Styr olika typer enligt ovan | 1..1 |
 | ..funktionstillstand.arbetsformaga |  | Arbetsförmåga, enbart då typAvFunktionstillstand=Aktivitet | 0..1 |
 | ..arbetsformaga.motivering | string | Arbetsförmågebedömning (Fält 9) | 0..1 |
@@ -825,7 +825,7 @@ En begäran om en lista gäller för en specifik personidentitet. Nedanstående 
 | Begäran |  |  |  |
 | nationalIdentityNumber | string | Patientens personnummer eller samordningsnummer | 1..1 |
 | certificateType | string | Typ av intyg. Om inget anges returneras alla typer. | 0..n |
-| available | string | Anger om man skall returnera tillgängliga (true) eller icke tillgängliga (false) intyg som är registrerade i intygstjänsten. Dvs om det kan användas (hämtas). / Om inget anges antas true. | 0..1 |
+| available | string | Anger om man skall returnera tillgängliga (true) eller icke tillgängliga (false) intyg som är registrerade i intygstjänsten. Dvs om det kan användas (hämtas).<br/>Om inget anges antas true. | 0..1 |
 | fromDate | datum | Startdatum för sökning för utfärdandedatum för intyget. Om inget anges görs ingen datum begränsning. | 0..1 |
 | toDate | datum | Slutdatum för sökning för utfärdandedatum för intyget. Om inget anges görs ingen datum begränsning. | 0..1 |
 | Svar |  |  |  |
@@ -900,7 +900,7 @@ En begäran om ett läkarintyg från intygstjänsten. Nedanstående tabell beskr
 | meta.status.target | string | Mottagare för en status. Ex FK | O |
 | meta.status.type | string | Typ av statusändring för intyget. | O |
 | meta.status.timestamp | datetime | När statusen sattes för intyget | O |
-| certificate | <any> | Platshållare för intyget som är generisk. Typ av intyg anges i meta.certificateType. |  |
+| certificate | `<any>` | Platshållare för intyget som är generisk. Typ av intyg anges i meta.certificateType. |  |
 | result.resultCode | string | Information om anropet gick bra(OK, ERROR, INFO) | O |
 | result.infoText | string | Text som anger extra information om anropets utgång. Anropet har gått bra, men det finns mer information kring anropet i denna text. | V |
 | result.errorId | string | Olika kategorier av fel (VALIDATION_ERROR, TRANSFORMATION_ERROR, APPLICATION_ERROR, TECHNICAL_ERROR) | V |

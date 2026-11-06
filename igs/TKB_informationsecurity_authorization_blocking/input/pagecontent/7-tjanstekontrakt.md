@@ -882,7 +882,7 @@ Tjänsten registrerar även grunddata om spärren på nationell nivå.
 | informationCareProviderId | urn:riv:informationsecurity:authorization:blocking:4:HsaId | Obligatoriskt HSA-id för den vårdgivare spärren gäller för. | 1..1 |
 | excludedInformationTypes | urn:riv:informationsecurity:authorization:blocking:4:InformationTypeIdValue | Ej obligatorisk lista med de informationstyper som skall undantas från spärren. Tillåtna värden är 'lak' och 'upp'. | 0..* |
 | registerAction | urn:riv:informationsecurity:authorization:blocking:4:ActionType | Identifierar de personer som begärt och registrerat spärren samt tidpunkter för dessa. | 1..1 |
-| replicationTimeout | xs:Int | Anger hur replikering till nationell spärrtjänst ska ske. / -   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas. / -   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt. / -   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt. | 1..1 |
+| replicationTimeout | xs:Int | Anger hur replikering till nationell spärrtjänst ska ske.<br/>-   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas.<br/>-   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt.<br/>-   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt. | 1..1 |
 | Svar |  |  |  |
 | result | urn:riv:informationsecurity:authorization:blocking:4:ResultType | Status för om operationen lyckades eller inte. | 1..1 |
 
@@ -999,7 +999,7 @@ Tjänsten avregistrerar även spärren på nationell nivå.
 | blockId | urn:riv:informationsecurity:authorization:blocking:4:Id | Unik, global identifierare för spärren. | 1..1 |
 | revokeAction | urn:riv:informationsecurity:authorization:blocking:4:ActionType | Identifierar de personer som begärt och permanent hävt spärren samt tidpunkter för dessa. | 1..1 |
 | revokeReasonText | urn:riv:informationsecurity:authorization:blocking:4:ReasonText | Orsaken till den permanenta hävningen. | 0..1 |
-| replicationTimeout | xs:Int | Anger hur replikering till nationell spärrtjänst ska ske. / -   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas. / -   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt. / -   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt. | 1..1 |
+| replicationTimeout | xs:Int | Anger hur replikering till nationell spärrtjänst ska ske.<br/>-   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas.<br/>-   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt.<br/>-   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt. | 1..1 |
 | Svar |  |  |  |
 | result | urn:riv:informationsecurity:authorization:blocking:4:ResultType | Status för om operationen lyckades eller inte. | 1..1 |
 
@@ -1104,7 +1104,7 @@ Tjänsten avregistrerar även spärren på nationell nivå.
 | blockId | urn:riv:informationsecurity:authorization:blocking:4:Id | Identifierare för den spärr som skall makuleras. | 1..1 |
 | deleteAction | urn:riv:informationsecurity:authorization:blocking:4:ActionType | Identifierar de personer som begärt och makulerat spärren samt tidpunkter för dessa. | 1..1 |
 | deleteReasonText | urn:riv:informationsecurity:authorization:blocking:4:ReasonText | Kompletterande text för orsak till makuleringen. | 0..1 |
-| replicationTimeout | xs:Int | Anger hur replikering till nationell spärrtjänst ska ske. / -   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas. / -   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt. / -   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt. | 1..1 |
+| replicationTimeout | xs:Int | Anger hur replikering till nationell spärrtjänst ska ske.<br/>-   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas.<br/>-   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt.<br/>-   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt. | 1..1 |
 | Svar |  |  |  |
 | result | urn:riv:informationsecurity:authorization:blocking:4:ResultType | Status för om operationen lyckades eller inte. | 1..1 |
 
@@ -1132,7 +1132,7 @@ N/A
 
 | Kategori | Värde | Kommentar |
 | :--- | :--- | :--- |
-| Aktualitet | Tjänsten garanterar att makulering skett då anropet genomförts utan fel. / Tjänsten garanterar även att makulering skett på nationell nivå då anropet genomförts utan fel om anroparen har begärt det. I annat fall meddelas ej anroparen status på nationell registrering. / Det är tjänstens ansvar att förmedla registreringen vidare till den nationella instansen. Detta skall ske så snart som möjligt (synkront), eller med upprepade försök om eventuella problem uppstår. |  |
+| Aktualitet | Tjänsten garanterar att makulering skett då anropet genomförts utan fel.<br/>Tjänsten garanterar även att makulering skett på nationell nivå då anropet genomförts utan fel om anroparen har begärt det. I annat fall meddelas ej anroparen status på nationell registrering.<br/>Det är tjänstens ansvar att förmedla registreringen vidare till den nationella instansen. Detta skall ske så snart som möjligt (synkront), eller med upprepade försök om eventuella problem uppstår. |  |
 
 #### 7.11.4 Exempel
 
@@ -1216,7 +1216,7 @@ Tjänsten registrerar även den tillfälliga hävningen på nationell nivå.
 | registerAction | urn:riv:informationsecurity:authorization:blocking:4:ActionType | Identifierar de personer som begärt och registrerat den tillfälliga hävningen samt tidpunkter för dessa. | 1..1 |
 | revokeReason | urn:riv:informationsecurity:authorization:blocking:4:TemporaryRevokeReasonType | Enumerationsvärde för orsak till tillfällig hävning. | 1..1 |
 | revokeReasonText | urn:riv:informationsecurity:authorization:blocking:4:ReasonText | Kompletterande text för orsak till tillfällig hävning. | 0..1 |
-| replicationTimeout | xs:Int | Anger hur replikering till nationell spärrtjänst ska ske. / -   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas. / -   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt. / -   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt. | 1..1 |
+| replicationTimeout | xs:Int | Anger hur replikering till nationell spärrtjänst ska ske.<br/>-   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas.<br/>-   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt.<br/>-   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt. | 1..1 |
 | Svar |  |  |  |
 | result | urn:riv:informationsecurity:authorization:blocking:4:ResultType | Status för om operationen lyckades eller inte. | 1..1 |
 
@@ -1244,7 +1244,7 @@ N/A
 
 | Kategori | Värde | Kommentar |
 | :--- | :--- | :--- |
-| Aktualitet | Tjänsten garanterar att registrering av den tillfälliga hävningen skett då anropet genomförts utan fel. / Tjänsten garanterar även att registrering av den tillfälliga hävningen skett på nationell nivå då anropet genomförts utan fel om anroparen har begärt det. I annat fall meddelas ej anroparen status på nationell registrering. / Det är tjänstens ansvar att förmedla registreringen vidare till den nationella instansen. Detta skall ske så snart som möjligt (synkront), eller med upprepade försök om eventuella problem uppstår. |  |
+| Aktualitet | Tjänsten garanterar att registrering av den tillfälliga hävningen skett då anropet genomförts utan fel.<br/>Tjänsten garanterar även att registrering av den tillfälliga hävningen skett på nationell nivå då anropet genomförts utan fel om anroparen har begärt det. I annat fall meddelas ej anroparen status på nationell registrering.<br/>Det är tjänstens ansvar att förmedla registreringen vidare till den nationella instansen. Detta skall ske så snart som möjligt (synkront), eller med upprepade försök om eventuella problem uppstår. |  |
 
 #### 7.12.4 Exempel
 
@@ -1331,7 +1331,7 @@ Tjänsten avregistrerar även den tillfälliga hävningen på nationell nivå.
 | temporaryRevokeId | urn:riv:informationsecurity:authorization:blocking:4:Id | Identifierare för den tillfälliga hävning som skall återkallas. | 1..1 |
 | cancellationInfo | urn:riv:informationsecurity:authorization:blocking:4:ActionType | Identifierar de personer som begärt och hävt den tillfälliga hävningen samt tidpunkter för dessa. | 1..1 |
 | cancelReasonText | urn:riv:informationsecurity:authorization:blocking:4:ReasonText | Kompletterande text för orsak till makuleringen. | 0..1 |
-| replicationTimeout | xs:Int | Anger hur replikering till nationell spärrtjänst ska ske. / -   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas. / -   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt. / -   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt. | 1..1 |
+| replicationTimeout | xs:Int | Anger hur replikering till nationell spärrtjänst ska ske.<br/>-   Om -1 anges kommer anropet att vänta på att replikering är utförd innan det avslutas eller om ws anropet gör timeout. Anropet kommer då att misslyckas.<br/>-   Om 0 anges kommer anropet att avslutas direkt och replikering sker asynkront så snabbt som möjligt.<br/>-   Om > 0 anges är det den tid, i millisekunder, som anropet väntar på att replikering ska ske innan anropet avslutas. Om anropet avslutas innan replikering är klar (ReplicationTimeout tiden uppnås) kommer replikeringen att ske asynkront så snabbt som möjligt. | 1..1 |
 | Svar |  |  |  |
 | result | urn:riv:informationsecurity:authorization:blocking:4:ResultType | Status för om operationen lyckades eller inte. | 1..1 |
 
@@ -1359,7 +1359,7 @@ N/A
 
 | Kategori | Värde | Kommentar |
 | :--- | :--- | :--- |
-| Aktualitet | Tjänsten garanterar att registrering av återkallandet skett då anropet genomförts utan fel. / Tjänsten garanterar även att registrering av återkallandet skett på nationell nivå då anropet genomförts utan fel om anroparen har begärt det. I annat fall meddelas ej anroparen status på nationell registrering. / Det är tjänstens ansvar att förmedla registreringen vidare till den nationella instansen. Detta skall ske så snart som möjligt (synkront), eller med upprepade försök om eventuella problem uppstår. |  |
+| Aktualitet | Tjänsten garanterar att registrering av återkallandet skett då anropet genomförts utan fel.<br/>Tjänsten garanterar även att registrering av återkallandet skett på nationell nivå då anropet genomförts utan fel om anroparen har begärt det. I annat fall meddelas ej anroparen status på nationell registrering.<br/>Det är tjänstens ansvar att förmedla registreringen vidare till den nationella instansen. Detta skall ske så snart som möjligt (synkront), eller med upprepade försök om eventuella problem uppstår. |  |
 
 #### 7.13.4 Exempel
 
