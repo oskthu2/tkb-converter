@@ -111,8 +111,9 @@ Characteristics: #can-be-target
       * drug 0..1 BackboneElement "Läkemedelsval (ett av: unstructured/merchandise/drugArticle/drug/generics)"
         """
         OBS: Ett och endast ett av följande alternativ ska anges.
-        ASSUME-ACT-003: XOR-villkor kan inte uttryckas direkt i FSH-kardinaliteten (alla är 0..1).
+        Regeln är modellerad som invarianten getmedicationhistory-drug-choice.
         """
+        * obeys getmedicationhistory-drug-choice
         * comment 0..1 string "Kommentar om läkemedelsval"
         * unstructuredDrugInformation 0..1 BackboneElement "Fritextval (extemporeberedning, licensläkemedel m.m.)"
           * unstructuredInformation 1..1 string "Fritextbeskrivning"
@@ -179,3 +180,8 @@ Characteristics: #can-be-target
   * subcode 0..1 string "Inga subkoder specificerade"
   * logId 1..1 string "UUID för felsökning hos producent"
   * message 0..1 string "Beskrivande text för användaren"
+
+Invariant: getmedicationhistory-drug-choice
+Description: "Exakt ett av unstructuredDrugInformation, merchandise, drugArticle, drug och generics ska anges i läkemedelsvalet (DrugChoiceType, TKB 7.2)."
+Expression: "unstructuredDrugInformation.count() + merchandise.count() + drugArticle.count() + drug.count() + generics.count() = 1"
+Severity: #error

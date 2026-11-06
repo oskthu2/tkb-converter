@@ -146,6 +146,15 @@
           {
             "code": "BackboneElement"
           }
+        ],
+        "constraint": [
+          {
+            "key": "birthregistration-request-moder-id-choice",
+            "severity": "error",
+            "human": "Exakt ett av Fodelsedatum och PersonNummer ska anges för modern (xs:choice i schemat).",
+            "expression": "Fodelsedatum.exists() xor PersonNummer.exists()",
+            "source": "https://fhir.inera.se/ig/healthcertificate-lifeline/StructureDefinition/birthregistration-request"
+          }
         ]
       },
       {
@@ -276,6 +285,15 @@
           {
             "code": "BackboneElement"
           }
+        ],
+        "constraint": [
+          {
+            "key": "birthregistration-request-modersmake-id-choice",
+            "severity": "error",
+            "human": "Exakt ett av Fodelsedatum och PersonNummer ska anges för moderns make (xs:choice i schemat).",
+            "expression": "Fodelsedatum.exists() xor PersonNummer.exists()",
+            "source": "https://fhir.inera.se/ig/healthcertificate-lifeline/StructureDefinition/birthregistration-request"
+          }
         ]
       },
       {
@@ -405,6 +423,15 @@
         "type": [
           {
             "code": "BackboneElement"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "birthregistration-request-barn-ordningsnr",
+            "severity": "error",
+            "human": "OrdningsNr och AntalBarn ska vara 1–9, och OrdningsNr får inte vara större än AntalBarn (TKB Fältregler, avsnitt 7.1.4 i IG:n).",
+            "expression": "OrdningsNr >= 1 and OrdningsNr <= 9 and AntalBarn >= 1 and AntalBarn <= 9 and OrdningsNr <= AntalBarn",
+            "source": "https://fhir.inera.se/ig/healthcertificate-lifeline/StructureDefinition/birthregistration-request"
           }
         ]
       },

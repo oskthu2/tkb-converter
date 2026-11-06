@@ -25,7 +25,16 @@
         "id": "uppdateradosmottagare-request",
         "path": "uppdateradosmottagare-request",
         "short": "UppdateraDosmottagare — Request",
-        "definition": "Logisk modell för begäran i UppdateraDosmottagare\n(urn:riv:se.apotekensservice:expo:UppdateraDosmottagareResponder:4, UppdateraDosmottagareRequestType), inklusive SOAP-huvuden enligt WSDL."
+        "definition": "Logisk modell för begäran i UppdateraDosmottagare\n(urn:riv:se.apotekensservice:expo:UppdateraDosmottagareResponder:4, UppdateraDosmottagareRequestType), inklusive SOAP-huvuden enligt WSDL.",
+        "constraint": [
+          {
+            "key": "uppdateradosmottagare-request-adress-when-d",
+            "severity": "error",
+            "human": "adress och postort ska anges när typ = 'D' (direktleverans).",
+            "expression": "typ = 'D' implies (adress.exists() and postort.exists())",
+            "source": "https://fhir.inera.se/ig/se-apotekensservice-expo/StructureDefinition/uppdateradosmottagare-request"
+          }
+        ]
       },
       {
         "id": "uppdateradosmottagare-request.logicalAddress",

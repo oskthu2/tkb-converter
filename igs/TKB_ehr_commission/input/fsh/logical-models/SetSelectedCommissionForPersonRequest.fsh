@@ -2,6 +2,11 @@
 // Kontrakt: SetSelectedCommissionForPerson v1.0 — Request
 // Genererad: 2026-04-09
 
+Invariant: setselectedcommissionforperson-request-hsaid-xor-pnr
+Description: "Exakt ett av personalHsaId och personalIdentityNumber ska anges (TKB 7.1/7.2, Regler)."
+Expression: "personalHsaId.exists() xor personalIdentityNumber.exists()"
+Severity: #error
+
 Logical: SetSelectedCommissionForPersonRequest
 Id: setselectedcommissionforperson-request
 Title: "SetSelectedCommissionForPerson — Request"
@@ -15,6 +20,7 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
+* obeys setselectedcommissionforperson-request-hsaid-xor-pnr
 * personalHsaId 0..1 string "HSA-id för den aktör vars uppdragsval ska sättas"
     """
     HSA-id för den person vars medarbetaruppdragsval ska registreras.

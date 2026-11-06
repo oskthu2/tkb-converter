@@ -16,6 +16,7 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "2.0"
+// ingen invariant: "ska anges om tillgänglig" och "ska anges om informationen ändrats" (Regel 2) går inte att avgöra ur meddelandet.
 * careContact 0..* BackboneElement "De hälso- och sjukvårdskontakter som matchar begäran"
     """
     Typ CareContactType.

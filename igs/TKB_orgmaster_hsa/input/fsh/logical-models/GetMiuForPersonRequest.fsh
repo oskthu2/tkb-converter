@@ -11,7 +11,13 @@ Description: """
 """
 Characteristics: #can-be-target
 * ^version = "1.0"
+* obeys getmiuforperson-request-hsaid-xor-pnr
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. HSA identity"
 * hsaIdentity 0..1 string "hsaIdentity" "hsaIdentity"
 * personalIdentityNumber 0..1 string "personalIdentityNumber" "personalIdentityNumber"
 * searchBase 0..1 string "searchBase" "searchBase"
+
+Invariant: getmiuforperson-request-hsaid-xor-pnr
+Description: "Exakt ett av hsaIdentity och personalIdentityNumber ska anges (xs:choice i schemat)."
+Expression: "hsaIdentity.exists() xor personalIdentityNumber.exists()"
+Severity: #error

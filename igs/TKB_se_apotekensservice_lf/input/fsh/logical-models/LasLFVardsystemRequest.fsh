@@ -11,6 +11,8 @@ Description: """
 """
 Characteristics: #can-be-target
 * ^version = "4.1"
+* obeys laslfvardsystem-request-anvandarnamn
+* obeys laslfvardsystem-request-arbetsplats
 * logicalAddress 1..1 string "logicalAddress" "SOAP-huvud LogicalAddress. Orgnr of Apotekens Service AB"
 * argosHeader 1..1 BackboneElement "argosHeader" "SOAP-huvud ArgosHeader. Argos header of Apotekens Service AB. Check documentation regarding mandatory fields for this specific service interaction"
   * forskrivarkod 0..1 string "forskrivarkod" "forskrivarkod"
@@ -45,3 +47,13 @@ Characteristics: #can-be-target
   * session 1..1 string "session" "Sessionens id i anropande system."
   * system 1..1 string "system" "Systemnamn för anropande system. GLN-kod krävs för anrop från MVK och LTj."
 * personnummer 1..1 string "personnummer" "Giltigt personnummer för patient vars läkemedelsförteckning skall hämtas."
+
+Invariant: laslfvardsystem-request-arbetsplats
+Description: "arbetsplatskod ska anges, annars både arbetsplatsnamn och arbetsplatsort."
+Expression: "arbetsplatskod.exists() or (arbetsplatsnamn.exists() and arbetsplatsort.exists())"
+Severity: #error
+
+Invariant: laslfvardsystem-request-anvandarnamn
+Description: "anvandarnamn ska anges om forskrivarkod saknas."
+Expression: "forskrivarkod.exists() or anvandarnamn.exists()"
+Severity: #error

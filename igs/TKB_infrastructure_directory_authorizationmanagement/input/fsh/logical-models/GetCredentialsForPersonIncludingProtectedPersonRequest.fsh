@@ -12,6 +12,7 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "2.2"
+* obeys getcredentialsprotected-request-hsaid-xor-pnr
 * personHsaId 0..1 string "Unik identifierare för personen vars behörighetsegenskaper söks ut"
   """
   Exakt ett av fälten personHsaId och personalIdentityNumber ska anges.
@@ -25,3 +26,8 @@ Characteristics: #can-be-target
 * searchBase 0..1 string "Sökbas (DN). Om ej angiven används c=SE."
 * includeFeignedObject 0..1 boolean "true: leverera svar med fingerade objekt"
 * profile 0..1 string "Profilval — 'extended1' returnerar även personalIdentity"
+
+Invariant: getcredentialsprotected-request-hsaid-xor-pnr
+Description: "Exakt ett av personHsaId och personalIdentityNumber ska anges."
+Expression: "personHsaId.exists() xor personalIdentityNumber.exists()"
+Severity: #error

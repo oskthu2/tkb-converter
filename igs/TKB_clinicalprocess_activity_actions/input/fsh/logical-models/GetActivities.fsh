@@ -118,6 +118,7 @@ Characteristics: #can-be-target
     Se Regel 2.4.
     Kardinalitet: Valfri.
     """
+* activityGroup.legalAuthenticator obeys getactivities-legalauthenticator-id-or-name
 * activityGroup.legalAuthenticator.legalAuthenticatorId 0..1 Identifier "HSA-id för signerande person"
     """
     HSA-id för personen som signerat aktiviteterna. Se Regel 2.4.
@@ -141,6 +142,7 @@ Characteristics: #can-be-target
     Övriga deltagare relaterat till aktiviteterna inom gruppen (AdditionalParticipantType).
     Kardinalitet: Valfri, lista.
     """
+* activityGroup.additionalParticipant obeys getactivities-additionalparticipant-one-participant
 * activityGroup.additionalParticipant.additionalParticipantId 0..1 Identifier "Identifierare för ytterligare deltagare"
     """
     Identifierare för ytterligare deltagare (IIType).
@@ -253,6 +255,7 @@ Characteristics: #can-be-target
     De aktiviteter som ligger inom denna grupp (ActivityType).
     Kardinalitet: Obligatorisk, lista (minst en).
     """
+* activityGroup.activity obeys getactivities-activity-time-when-performed
 * activityGroup.activity.activityId 1..1 Identifier "Unik identifierare för aktiviteten"
     """
     En unik identifierare för aktiviteten (IIType). Ska vara konsistent och beständig
@@ -287,6 +290,7 @@ Characteristics: #can-be-target
     Obligatorisk om status är utförd (398166005) eller saknas. Se Regel 2.3.
     Kardinalitet: Villkorlig.
     """
+* activityGroup.activity.time obeys getactivities-activity-time-start-or-end
 * activityGroup.activity.method 0..1 CodeableConcept "Tillvägagångssätt"
     """
     Kod för typ av tillvägagångssätt för genomförandet av aktiviteten (CVType).
@@ -370,3 +374,26 @@ Characteristics: #can-be-target
     Orsak = kod enligt CVType.
     Kardinalitet: Obligatorisk.
     """
+
+// Fältregler från TKB avsnitt 7.1 (Regler i svaret) som FHIRPath-invarianter.
+// Uttrycken utvärderas i kontexten för det element som har obeys-regeln.
+
+Invariant: getactivities-additionalparticipant-one-participant
+Description: "Exakt en av person, organisation, device och location ska anges i additionalParticipant (TKB 7.1, AdditionalParticipantType: 'Endast en av nedanstående')."
+Expression: "person.count() + organisation.count() + device.count() + location.count() = 1"
+Severity: #error
+
+Invariant: getactivities-activity-time-when-performed
+Description: "time ska anges när status är utförd (SNOMED CT 398166005) eller saknas (TKB Regel 2.3)."
+Expression: "(status.empty() or status.coding.where(code = '398166005').exists()) implies time.exists()"
+Severity: #error
+
+Invariant: getactivities-activity-time-start-or-end
+Description: "Minst en av start och end ska anges i aktivitetens tidsperiod (PartialTimePeriodType)."
+Expression: "start.exists() or end.exists()"
+Severity: #error
+
+Invariant: getactivities-legalauthenticator-id-or-name
+Description: "Minst ett av legalAuthenticatorId och name ska anges (TKB Regel 2.4)."
+Expression: "legalAuthenticatorId.exists() or name.exists()"
+Severity: #error

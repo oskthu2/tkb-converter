@@ -27,6 +27,7 @@ Characteristics: #can-be-target
       * slutdatum 0..1 dateTime "slutdatum" "Datum för stängning av verksamhet"
       * startdatum 1..1 dateTime "startdatum" "Datum för start av verksamhet"
   * dosmottagare 0..* BackboneElement "dosmottagare" "dosmottagare"
+    * obeys sokdosmottagare-dosmottagare-adress-when-d
     * adress 0..1 string "adress" "Adress till dosmottagare. Obligatorisk om typ = 'D'."
     * apoteksIdDosmottagare 0..1 string "apoteksIdDosmottagare" "Apoteks-id för dosmottagare om dosmottagare är av typen apotek."
     * arbetsplatskod 0..1 string "arbetsplatskod" "Arbetsplatskod till dosmottagare. Är aktuellt om dosmottagare t ex är en distriktsläkarmottagning."
@@ -38,3 +39,8 @@ Characteristics: #can-be-target
     * postnummer 0..1 string "postnummer" "Postnummer till dosmottagare."
     * postort 0..1 string "postort" "Arbetsplatsort till dosmottagare. Obligatorisk om typ = 'D'."
     * typ 1..1 string "typ" "Typ av dosmottagare, kan antingen vara Apotek (där dospatienterna kan hämta sina dosleveranser) eller direktleverans, t ex vårdboende, distriktssköterska. Giltiga värden: D (direktleverans) eller A (apotek)."
+
+Invariant: sokdosmottagare-dosmottagare-adress-when-d
+Description: "adress och postort ska anges när typ = 'D' (direktleverans)."
+Expression: "typ = 'D' implies (adress.exists() and postort.exists())"
+Severity: #error

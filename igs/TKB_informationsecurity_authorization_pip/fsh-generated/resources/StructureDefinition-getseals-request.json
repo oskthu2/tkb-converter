@@ -51,6 +51,15 @@
           {
             "code": "BackboneElement"
           }
+        ],
+        "constraint": [
+          {
+            "key": "getseals-request-patientid-pnr-sam",
+            "severity": "error",
+            "human": "ÖR6: patientId root ska vara OID för personnummer eller samordningsnummer, och extension ska ha formatet ÅÅÅÅMMDDNNNN utan bindestreck (testsvitens constraints.xml).",
+            "expression": "(root = '1.2.752.129.2.1.3.1' or root = '1.2.752.129.2.1.3.3') and iiExtension.matches('^[0-9]{8}[0-9pPtTfF][0-9]{3}$')",
+            "source": "https://fhir.inera.se/ig/informationsecurity-authorization-pip/StructureDefinition/getseals-request"
+          }
         ]
       },
       {

@@ -178,6 +178,7 @@ Characteristics: #can-be-target
     Vid besök i öppenvård sätts start och end till tidpunkt för besöket.
     Typ TimePeriodType. Kardinalitet: Valfri.
     """
+* careContact.careContactTimePeriod obeys getcarecontacts-timeperiod-start-or-end
 * careContact.careContactTimePeriod.start 0..1 dateTime "Starttidpunkt för vårdkontakten"
     """
     Vårdkontaktens starttidpunkt. Format YYYYMMDDhhmmss.
@@ -245,3 +246,8 @@ Characteristics: #can-be-target
     En beskrivande text som kan visas för användaren. På svenska.
     Kardinalitet: Valfri.
     """
+
+Invariant: getcarecontacts-timeperiod-start-or-end
+Description: "Minst ett av start och end ska anges i careContactTimePeriod."
+Expression: "start.exists() or end.exists()"
+Severity: #error

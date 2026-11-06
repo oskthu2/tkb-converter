@@ -102,13 +102,23 @@ Characteristics: #can-be-target
 | Obligatorisk, lista | `1..*` |
 | Valfri | `0..1` |
 | Valfri, lista | `0..*` |
-| Villkorlig (condition beskriven) | `0..1` + invariant eller kommentar |
+| Villkorlig (condition beskriven) | `0..1` + FHIRPath-invariant (alltid, se nedan) |
 
-**Vid villkorlig kardinalitet:** skapa en kommentar i fält-description och lägg till en öppen fråga i QUESTIONS.md om villkoret kräver en FHIR-invariant.
+**Vid villkorlig kardinalitet:** modellera fältet som `0..1` (eller `0..*`) och uttryck villkoret som en FHIRPath-invariant enligt nästa avsnitt. Beskriv villkoret även i fält-description, men fråga **inte** i QUESTIONS.md om en invariant ska läggas till — det är beslutat.
 
 #### Fältregler → FHIRPath-invarianter (KRITISKT)
 
-Fältregler i sektion 7 (kolumnen "Villkor", "Regel" eller liknande fritext) ska översättas till FSH-invarianter direkt i den logiska modellen — **inte** enbart som kommentar i fält-description.
+**Beslut (Oskar, 2026-11-06, BLOCK-CAA-001):** Regler som "exakt en av X/Y/Z", "minst en av", "inte båda", "ska anges om …", "får inte vara äldre än …" och liknande modelleras **alltid** som FHIRPath-invarianter (`Invariant:` + `obeys`) på den logiska modellen. Det gäller alla TKB:er, även kommande. Att bara dokumentera regeln i fältbeskrivningen räcker inte, och frågan "ska en invariant läggas till?" ska aldrig bli en BLOCK-post.
+
+Källor till regler som ska bli invarianter:
+- Fälttabellerna i avsnitt 7 (kolumnen "Villkor", "Regel", "Kardinalitet: villkorlig", rader som "Endast en av nedanstående").
+- Avsnitten "Övriga regler" / "Regler i svaret" (t.ex. Regel 2.3, ÖR1–ÖR7).
+- `xs:choice` i XSD:n: ett val mellan element blir en invariant (exakt ett om valet är obligatoriskt, högst ett om det är valfritt).
+- Schematron-filer i testsviten (`constraints.xml`): `assert`/`report` som avser ett enskilt meddelande.
+
+Allvarlighetsgrad:
+- `#error` när TKB:n säger "ska", "måste", "exakt", "endast", "får inte" eller när XSD:n kräver det.
+- `#warning` bara för rekommendationer ("bör", "om tillgänglig") eller när tolkningen är osäker. Logga då en ASSUME-post (inte BLOCK) som beskriver tolkningen.
 
 **Så här skriver du en invariant:**
 
@@ -138,13 +148,35 @@ Severity: #error
 | "Får ej anges om X är satt" | `X.exists() implies Y.empty()` |
 | "Antingen A eller B ska finnas" | `A.exists() or B.exists()` |
 | "Exakt ett av A, B ska finnas" | `(A.exists() xor B.exists())` |
+| "Exakt en av A, B, C, D" (tre eller fler) | `A.count() + B.count() + C.count() + D.count() = 1` |
+| "A och B får inte anges tillsammans" | `(A.exists() and B.exists()).not()` |
+| "Minst en av start och end" (tidsperiod) | `start.exists() or end.exists()` |
+| "Ska anges om status är utförd (kod) eller saknas" | `(status.empty() or status.coding.where(code = '398166005').exists()) implies time.exists()` |
+| "Ska anges om typ = 'D'" (strängkod) | `typ = 'D' implies (adress.exists() and postort.exists())` |
+| "validTo får inte vara äldre än validFrom" (TS som sträng) | `(validFrom.exists() and validTo.exists()) implies validTo.toDecimal() >= validFrom.toDecimal()` |
+| "root ska vara OID för personnummer/samordningsnummer" | `(root = '1.2.752.129.2.1.3.1' or root = '1.2.752.129.2.1.3.3')` |
+| Format (regex) | `iiExtension.matches('^[0-9]{8}[0-9pPtTfF][0-9]{3}$')` |
+
+Använd `count()`-summan i stället för en kedja av `xor` när det finns fler än två alternativ: `A xor B xor C` blir sant även när alla tre är satta.
+
+**Placering och kontext:** uttrycket utvärderas i kontexten för det element som har `obeys`. Fäst invarianten på det element vars barn regeln gäller:
+- Rotnivå (t.ex. en request där exakt ett av två fält ska anges): `* obeys {id}` direkt efter `* ^version`.
+- Punktnotation på kolumn 0: `* activityGroup.additionalParticipant obeys {id}` (uttrycket refererar `person`, `organisation`, …).
+- Indragen stil: ett naket `* obeys {id}` indraget som barn under elementet (se exemplet längre ned).
+
+**Invariantens id** ska vara ett giltigt FHIR-id: högst 64 tecken, bara `A–Z a–z 0–9 - .` (SUSHI-fel annars: `does not represent a valid FHIR id`). Förkorta långa kontraktsnamn, t.ex. `getcredentialsprotected-request-hsaid-xor-pnr`.
+
+**Testa uttrycken** mot små JSON-exempel med `fhirpath` (npm) när regeln är mer än ett enkelt `exists()`, t.ex. `npm i fhirpath` i scratch-katalogen och `require('fhirpath').evaluate(obj, expr)`.
+
 | "Värdet ska vara positivt" | `value > 0` |
 | "Längst 10 tecken" | `value.length() <= 10` |
 | "Om fritext (1), kodvärde krävs ej" | `(type = '1') implies code.empty()` |
 
-**När FHIRPath inte kan fånga regeln:** (t.ex. regelns semantik kräver extern data eller är domänspecifik)
-- Skriv regeln som `Description` på invarianten med `Severity: #warning`
-- Lägg till BLOCK i QUESTIONS.md med exakt FHIRPath-förslag för domänexpert att verifiera
+**När regeln inte går att avgöra ur meddelandet** (den kräver extern data, kunskap om avsändarens yrkesroll, jämförelse mellan poster i en lista eller tolkningsregler för konsumenten):
+- Uttryck den del som går att kontrollera som invariant och skriv i invariantens `Description` vilken del som inte kontrolleras (exempel: `sourceSystemHSAId` krävs om `careContactId` anges — men "vid begäran på reservnummer" kontrolleras inte).
+- Går ingen del att kontrollera: beskriv regeln i fält-description och lägg kommentaren `// ingen invariant: <motivering>` i modellen (det tystar lint-varningen nedan). Ingen BLOCK-post.
+
+**Lint:** `scripts/preflight_lint.py` ger fel för `obeys` som saknar `Invariant:` och för ogiltiga invariant-id, och en varning för en `Logical:` vars text innehåller en regelformulering ("exakt ett", "minst en av", "exklusiv", "xs:choice", "obligatorisk om" …) men saknar `obeys`. Åtgärda varningen med en invariant eller med `// ingen invariant: …`.
 
 **Undantag:** Enklare kardinalitetsregler (obligatorisk/valfri) behöver ingen invariant — de hanteras via kardinalitet. Invarianter används bara för villkorliga regler som inte kan uttryckas med `0..1` / `1..1` ensamt.
 

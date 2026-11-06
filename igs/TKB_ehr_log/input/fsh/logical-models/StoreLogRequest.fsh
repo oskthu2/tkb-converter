@@ -14,6 +14,7 @@ Description: """
 Characteristics: #can-be-target
 
 * ^version = "1.0"
+// ingen invariant: patientId är redan 1..1 inom patient, så villkoret "obligatorisk om patient finns" uttrycks av kardinaliteten.
 * log 1..* BackboneElement "En loggpost att lagra i loggtjänsten"
     """
     En kollektion av loggposter som ska lagras i loggtjänsten.

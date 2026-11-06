@@ -5,7 +5,7 @@
 Invariant: getbookingdetails-purpose-required
 Description: "purpose ska anges om isInvitation är true (kallelse)"
 Expression: "isInvitation = true implies purpose.exists()"
-Severity: #warning
+Severity: #error
 
 Logical: GetBookingDetails
 Id: getbookingdetails

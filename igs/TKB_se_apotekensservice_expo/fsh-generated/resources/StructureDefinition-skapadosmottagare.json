@@ -25,7 +25,16 @@
         "id": "skapadosmottagare",
         "path": "skapadosmottagare",
         "short": "SkapaDosmottagare — Response",
-        "definition": "Logisk modell för svaret i SkapaDosmottagare\n(urn:riv:se.apotekensservice:expo:SkapaDosmottagareResponder:4, SkapaDosmottagareResponseType)."
+        "definition": "Logisk modell för svaret i SkapaDosmottagare\n(urn:riv:se.apotekensservice:expo:SkapaDosmottagareResponder:4, SkapaDosmottagareResponseType).",
+        "constraint": [
+          {
+            "key": "skapadosmottagare-adress-when-d",
+            "severity": "error",
+            "human": "adress och postort ska anges när typ = 'D' (direktleverans).",
+            "expression": "typ = 'D' implies (adress.exists() and postort.exists())",
+            "source": "https://fhir.inera.se/ig/se-apotekensservice-expo/StructureDefinition/skapadosmottagare"
+          }
+        ]
       },
       {
         "id": "skapadosmottagare.adress",

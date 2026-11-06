@@ -38,6 +38,15 @@
           {
             "code": "BackboneElement"
           }
+        ],
+        "constraint": [
+          {
+            "key": "processcareencounter-request-location-when-performer",
+            "severity": "error",
+            "human": "När performerRole.performerRoleId anges (vårdpersonal) ska minst location.name anges (TKB Övriga regler, Fält 2).",
+            "expression": "performerRole.performerRoleId.exists() implies location.name.exists()",
+            "source": "https://fhir.inera.se/ig/followup-processdevelopment-infections/StructureDefinition/processcareencounter-request"
+          }
         ]
       },
       {

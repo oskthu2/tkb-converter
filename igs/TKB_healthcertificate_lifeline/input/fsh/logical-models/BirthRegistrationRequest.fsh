@@ -30,6 +30,7 @@ Characteristics: #can-be-target
       * FodelseManad 1..1 string "FodelseManad" "FodelseManad"
       * FodelseDag 1..1 string "FodelseDag" "FodelseDag"
     * PersonNummer 0..1 string "PersonNummer" "PersonNummer"
+    * obeys birthregistration-request-moder-id-choice
   * ModersMake 0..1 BackboneElement "ModersMake" "ModersMake"
     * Namn 0..1 BackboneElement "Namn" "Namn"
       * Fornamn 0..1 string "Fornamn" "Fornamn"
@@ -40,12 +41,14 @@ Characteristics: #can-be-target
       * FodelseManad 1..1 string "FodelseManad" "FodelseManad"
       * FodelseDag 1..1 string "FodelseDag" "FodelseDag"
     * PersonNummer 0..1 string "PersonNummer" "PersonNummer"
+    * obeys birthregistration-request-modersmake-id-choice
   * Barn 1..1 BackboneElement "Barn" "Barn"
     * DatumFodelse 1..1 date "DatumFodelse" "DatumFodelse"
     * Kon 0..1 code "Kon" "Kon"
     * Kon from KonVS (required)
     * OrdningsNr 1..1 integer "OrdningsNr" "OrdningsNr"
     * AntalBarn 1..1 integer "AntalBarn" "AntalBarn"
+    * obeys birthregistration-request-barn-ordningsnr
     * FodelseKommun 1..1 string "FodelseKommun" "FodelseKommun"
     * Levande 1..1 code "Levande" "Levande"
     * Levande from LevandeVS (required)
@@ -66,3 +69,18 @@ Characteristics: #can-be-target
   * KontaktTelefon3 0..1 string "KontaktTelefon3" "KontaktTelefon3"
   * KontaktTelefon4 0..1 string "KontaktTelefon4" "KontaktTelefon4"
   * KontaktTelefon5 0..1 string "KontaktTelefon5" "KontaktTelefon5"
+
+Invariant: birthregistration-request-moder-id-choice
+Description: "Exakt ett av Fodelsedatum och PersonNummer ska anges för modern (xs:choice i schemat)."
+Expression: "Fodelsedatum.exists() xor PersonNummer.exists()"
+Severity: #error
+
+Invariant: birthregistration-request-modersmake-id-choice
+Description: "Exakt ett av Fodelsedatum och PersonNummer ska anges för moderns make (xs:choice i schemat)."
+Expression: "Fodelsedatum.exists() xor PersonNummer.exists()"
+Severity: #error
+
+Invariant: birthregistration-request-barn-ordningsnr
+Description: "OrdningsNr och AntalBarn ska vara 1–9, och OrdningsNr får inte vara större än AntalBarn (TKB Fältregler, avsnitt 7.1.4 i IG:n)."
+Expression: "OrdningsNr >= 1 and OrdningsNr <= 9 and AntalBarn >= 1 and AntalBarn <= 9 and OrdningsNr <= AntalBarn"
+Severity: #error

@@ -25,7 +25,16 @@
         "id": "birthregistration",
         "path": "birthregistration",
         "short": "BirthRegistration — Response",
-        "definition": "Logisk modell för svaret i BirthRegistration\n(urn:riv:healthcertificate:lifeline:BirthRegistrationResponder:1, BirthRegistrationResponseTYPE)."
+        "definition": "Logisk modell för svaret i BirthRegistration\n(urn:riv:healthcertificate:lifeline:BirthRegistrationResponder:1, BirthRegistrationResponseTYPE).",
+        "constraint": [
+          {
+            "key": "birthregistration-personnummer-or-meddelande",
+            "severity": "error",
+            "human": "Exakt ett av PersonNummer och Meddelande ska anges i svaret (xs:choice i schemat).",
+            "expression": "PersonNummer.exists() xor Meddelande.exists()",
+            "source": "https://fhir.inera.se/ig/healthcertificate-lifeline/StructureDefinition/birthregistration"
+          }
+        ]
       },
       {
         "id": "birthregistration.FodelsesvarId",

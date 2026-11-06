@@ -36,8 +36,14 @@ Characteristics: #can-be-target
   """
   hosPersonal eller personId (invånare) — exklusivt val (XML schema choice).
   """
+* skickatAv obeys sendcertificatetorecipient-request-skickatav-choice
 * skickatAv.hosPersonal 0..1 BackboneElement "HoS-personal (anges vid anrop från vården)"
 * skickatAv.hosPersonal.personalId 1..1 Identifier "HSA-id"
 * skickatAv.hosPersonal.enhet 1..1 BackboneElement "Enhet"
 * skickatAv.hosPersonal.enhet.enhetsId 1..1 Identifier "HSA-id för enheten"
 * skickatAv.personId 0..1 Identifier "Person- eller samordningsnummer (anges vid anrop från invånartjänst)"
+
+Invariant: sendcertificatetorecipient-request-skickatav-choice
+Description: "Exakt ett av hosPersonal och personId ska anges i skickatAv (xs:choice i schemat)."
+Expression: "hosPersonal.exists() xor personId.exists()"
+Severity: #error

@@ -25,7 +25,16 @@
         "id": "skapadosmottagare-request",
         "path": "skapadosmottagare-request",
         "short": "SkapaDosmottagare — Request",
-        "definition": "Logisk modell för begäran i SkapaDosmottagare\n(urn:riv:se.apotekensservice:expo:SkapaDosmottagareResponder:4, SkapaDosmottagareRequestType), inklusive SOAP-huvuden enligt WSDL."
+        "definition": "Logisk modell för begäran i SkapaDosmottagare\n(urn:riv:se.apotekensservice:expo:SkapaDosmottagareResponder:4, SkapaDosmottagareRequestType), inklusive SOAP-huvuden enligt WSDL.",
+        "constraint": [
+          {
+            "key": "skapadosmottagare-request-adress-when-d",
+            "severity": "error",
+            "human": "adress och postort ska anges när typ = 'D' (direktleverans).",
+            "expression": "typ = 'D' implies (adress.exists() and postort.exists())",
+            "source": "https://fhir.inera.se/ig/se-apotekensservice-expo/StructureDefinition/skapadosmottagare-request"
+          }
+        ]
       },
       {
         "id": "skapadosmottagare-request.logicalAddress",

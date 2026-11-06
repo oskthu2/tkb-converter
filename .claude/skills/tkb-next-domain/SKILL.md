@@ -131,7 +131,7 @@ När `--next-pending` ger exit-kod 3 och inga pipeline-PR:er är öppna (utom `[
 ### Blockerare (kräver svar innan IG kan anses komplett)
 
 - [ ] **[BLOCK-001]** `igs/TKB_clinicalprocess_healthcond_description/input/pagecontent/7-tjanstekontrakt.md` · kontrakt `GetCareDocumentation` · fält `careUnitId`
-  Kardinaliteten är angiven som "villkorlig" utan att villkoret specificeras. Ska detta modelleras som `0..1` med invariant, eller är det alltid obligatorisk i praktiken?
+  Kardinaliteten är angiven som "villkorlig" utan att villkoret står någonstans i TKB:n eller schemat. Vilket villkor gäller? (Är villkoret känt blir det en invariant direkt, se `tkb-fsh-model` — fråga aldrig *om* en invariant ska läggas till.)
 
 ### Antaganden gjorda (verifiera med domänexpert)
 
@@ -141,7 +141,7 @@ När `--next-pending` ger exit-kod 3 och inga pipeline-PR:er är öppna (utom `[
 ### TODO (kan göras utan input men inte prioriterat)
 
 - [ ] **[TODO-001]** `igs/TKB_clinicalprocess_healthcond_description/input/fsh/logical-models/GetCareDocumentation.fsh`
-  Lägg till FHIR-invarianter för villkorliga fält när blockerare ovan är lösta.
+  Lägg till invariant för `careUnitId` när villkoret i BLOCK-001 är besvarat.
 - [ ] **[TODO-002]** `igs/TKB_clinicalprocess_healthcond_description/input/fsh/codesystems/DiagnosisTypeCS.fsh`
   Komplettera CodeSystem med alla koder från källsystemet — nuvarande fil är fragment.
 ```

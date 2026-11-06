@@ -25,7 +25,23 @@
         "id": "laslfvardsystem-request",
         "path": "laslfvardsystem-request",
         "short": "LasLFVardsystem — Request",
-        "definition": "Logisk modell för begäran i LasLFVardsystem\n(urn:riv:se.apotekensservice:lf:LasLFVardsystemResponder:4, LasLFVardsystemRequestType), inklusive SOAP-huvuden enligt WSDL."
+        "definition": "Logisk modell för begäran i LasLFVardsystem\n(urn:riv:se.apotekensservice:lf:LasLFVardsystemResponder:4, LasLFVardsystemRequestType), inklusive SOAP-huvuden enligt WSDL.",
+        "constraint": [
+          {
+            "key": "laslfvardsystem-request-anvandarnamn",
+            "severity": "error",
+            "human": "anvandarnamn ska anges om forskrivarkod saknas.",
+            "expression": "forskrivarkod.exists() or anvandarnamn.exists()",
+            "source": "https://fhir.inera.se/ig/se-apotekensservice-lf/StructureDefinition/laslfvardsystem-request"
+          },
+          {
+            "key": "laslfvardsystem-request-arbetsplats",
+            "severity": "error",
+            "human": "arbetsplatskod ska anges, annars både arbetsplatsnamn och arbetsplatsort.",
+            "expression": "arbetsplatskod.exists() or (arbetsplatsnamn.exists() and arbetsplatsort.exists())",
+            "source": "https://fhir.inera.se/ig/se-apotekensservice-lf/StructureDefinition/laslfvardsystem-request"
+          }
+        ]
       },
       {
         "id": "laslfvardsystem-request.logicalAddress",
