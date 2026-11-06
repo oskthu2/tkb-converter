@@ -106,7 +106,7 @@ Den extra underdomänen beskriver vilket tjänsteområde/namnrymd tjänsten till
 
 ## Referenser
 
-| Beteckning | Dokument / Källa |
+| Beteckning | Dokument<br/>Källa |
 | :--- | :--- |
 | RIV PDLiP | RIV Specifikation Patientdatalagen i Praktiken, 1.0, CeHis, www.cehis.se |
 | PDL | Patientdatalag (2008:355), http://www.regeringen.se/sb/d/6150/a/71234 |

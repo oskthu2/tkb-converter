@@ -28,7 +28,7 @@ Tjänstedomänen syftar till att tillmötesgå behovet av både patientens och v
 | R 2 | RIVTA flera dokument | Finns på Webben | http://rivta.se/documents/ |
 | R 3 | Bilaga_Gemensamma_typer_4.pdf |  | [Bilaga_Gemensamma_typer_4.pdf](Bilaga_Gemensamma_typer_4.pdf) |
 | R 4 | RIV Tekniska Anvisningar Översikt Utgåva E | Finns på Webben | http://rivta.se/documents/ARK_0001/ |
-| R 5 | Lista över vanligt förekommande kodverk och identifierare |  | https://inera.atlassian.net/wiki/spaces/KINT/pages/3615655 / https://inera.atlassian.net/wiki/spaces/KINT/pages/468746902 |
+| R 5 | Lista över vanligt förekommande kodverk och identifierare |  | https://inera.atlassian.net/wiki/spaces/KINT/pages/3615655<br/>https://inera.atlassian.net/wiki/spaces/KINT/pages/468746902 |
 | R 6 | CDA-mappning av konsultationsremissvar |  | [Bilaga_MIM_Mappningar_GetReferralOutcome.xlsx](Bilaga_MIM_Mappningar_GetReferralOutcome.xlsx) |
 | R 7 | CDA-mappning av labbsvar |  | [Bilaga_MIM_Mappningar_GetLaboratoryOrderOutcome.xlsx](Bilaga_MIM_Mappningar_GetLaboratoryOrderOutcome.xlsx) |
 | R 8 | Handbok vid tillämpningen av Socialstyrelsens föreskrifter och allmänna råd (HSLF-FS 2016:40) om journalföring och behandling av personuppgifter i hälso- och sjukvården | Finns på Webben | https://www.socialstyrelsen.se/globalassets/sharepoint-dokument/artikelkatalog/handbocker/2017-3-2.pdf |

@@ -17,17 +17,17 @@ Nedanstående tabell mappar mellan de svenska klass- och attributnamnen i inform
 | //*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:activity/*:method | Provrelaterad aktivitet.metod | Aktivitet.metod |
 | //*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:container/*:identifier | Provbehållare.id | Resurs.id |
 | //*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:container/*:type | Provbehållare.typ | Resurs.typ |
-| //*:header/*:accessControlHeader/*:patientId / samt / //*:header/*:accessControlHeader/*:originalPatientId | Patient.id | Patient.id |
-| //*:header/*:accessControlHeader/*:patientId / samt / //*:header/*:accessControlHeader/*:originalPatientId | Person.id | Person.person-id |
-| saknar motsvarighet | Person.namn | Person.förnamn / samt / Person.efternamn / samt / Person.mellannamn |
+| //*:header/*:accessControlHeader/*:patientId<br/>samt<br/>//*:header/*:accessControlHeader/*:originalPatientId | Patient.id | Patient.id |
+| //*:header/*:accessControlHeader/*:patientId<br/>samt<br/>//*:header/*:accessControlHeader/*:originalPatientId | Person.id | Person.person-id |
+| saknar motsvarighet | Person.namn | Person.förnamn<br/>samt<br/>Person.efternamn<br/>samt<br/>Person.mellannamn |
 | saknar motsvarighet | Person.födelsetidpunkt | Person.födelsedatum |
 | saknar motsvarighet | Person.kön | Person.kön |
-| //*:header/*:record/*:id / samt / //*:body/*:identifier | Laboratoriesvar.id | saknar motsvarighet |
+| //*:header/*:record/*:id<br/>samt<br/>//*:body/*:identifier | Laboratoriesvar.id | saknar motsvarighet |
 | //*:body/*:laboratoryIdentifier | Laboratoriesvar.laboratorie-id | Organisation.id |
 | //*:body/*:type | Laboratoriesvar.typ | saknar motsvarighet |
 | //*:body/*:text | Laboratoriesvar.text | saknar motsvarighet |
 | //*:header/*:record/*:timestamp | Laboratoriesvar.svarstidpunkt | saknar motsvarighet |
-| //*:body/*:contactInformation/*:text | Kontaktinformation.text | saknar motsvarighet. kan avse / Organisation.namn / Organisation.adress / Organisation.elektroniskAdress / eller / Hälso- och sjukvårdspersonal.adress / Hälso- och sjukvårdspersonal.elektroniskAdress |
+| //*:body/*:contactInformation/*:text | Kontaktinformation.text | saknar motsvarighet. kan avse<br/>Organisation.namn<br/>Organisation.adress<br/>Organisation.elektroniskAdress<br/>eller<br/>Hälso- och sjukvårdspersonal.adress<br/>Hälso- och sjukvårdspersonal.elektroniskAdress |
 | //*:body/*:referral/*:identifier | Remiss.remiss-id | saknar motsvarighet |
 | //*:body/*:referral/*:timestamp | Remiss.remisstidpunkt | Vårdbegäran.tidpunkt |
 | //*:body/*:referral/*:version | Remiss.versionsnummer | saknar motsvarighet |
@@ -36,19 +36,19 @@ Nedanstående tabell mappar mellan de svenska klass- och attributnamnen i inform
 | //*:body/*:referral/*:referralInformation/*:referralComment | Remiss.kommentar från beställare | saknar motsvarighet |
 | //*:body/*:referral/*:referralInformation/*referralMedicalInformation | Remiss.medicinsk information | saknar motsvarighet |
 | //*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:identifier | Prov.id | Resurs.id |
-| //*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:material/*:code och codesystem / eller / //*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:material/*:originalText | Prov.material | saknar direkt motsvarighet men kan uttryckas med / Resursegenskap.typ / Resursegenskap.värde |
-| //*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:timestamp | Prov.provtagningstidpunkt | saknar direkt motsvarighet men kan uttryckas med / Resursegenskap.typ / Resursegenskap.värde |
-| //*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:anatomicalLocation/*:code och codesystem / eller / //*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:anatomicalLocation/*:originalText | Prov.anatomisk lokalisation | saknar direkt motsvarighet men kan uttryckas med / Resursegenskap.typ / Resursegenskap.värde |
-| //*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:comment | Prov.kommentar | saknar direkt motsvarighet men kan uttryckas med / Resursegenskap.typ / Resursegenskap.värde |
+| //*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:material/*:code och codesystem<br/>eller<br/>//*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:material/*:originalText | Prov.material | saknar direkt motsvarighet men kan uttryckas med<br/>Resursegenskap.typ<br/>Resursegenskap.värde |
+| //*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:timestamp | Prov.provtagningstidpunkt | saknar direkt motsvarighet men kan uttryckas med<br/>Resursegenskap.typ<br/>Resursegenskap.värde |
+| //*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:anatomicalLocation/*:code och codesystem<br/>eller<br/>//*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:anatomicalLocation/*:originalText | Prov.anatomisk lokalisation | saknar direkt motsvarighet men kan uttryckas med<br/>Resursegenskap.typ<br/>Resursegenskap.värde |
+| //*:body/*:groupOfAnalyses/*:analysis/*:specimen/*:comment | Prov.kommentar | saknar direkt motsvarighet men kan uttryckas med<br/>Resursegenskap.typ<br/>Resursegenskap.värde |
 | //*:body/*:groupOfAnalyses/*:name | Analysgrupp.namn | saknar direkt motsvarighet |
 | //*:body/*:groupOfAnalyses/*:code | Analysgrupp.listkod | Observation.typ |
 | //*:body/*:groupOfAnalyses/*:comment | Analysgrupp.gruppkommentar | Observation.beskrivning |
-| //*:header/*:accessControlHeader/*:accountableCareGiver / samt / //*:header/*:accessControlHeader/*:accountableCareUnit / samt / //*:body/*:referral/*:requester/*:orgUnit/*:id / samt / //*:body/*:recipientUnit/*:id / samt / //*:header/*:author/*:orgUnit/*:id | Organisatorisk enhet.id | Organisation.id |
-| //*:body/*:referral/*:requester/*:orgUnit/*:name / samt / //*:body/*:recipientUnit/*:name / samt / //*:header/*:author/*:orgUnit/*:name | Organisatorisk enhet.namn | Organisation.namn |
+| //*:header/*:accessControlHeader/*:accountableCareGiver<br/>samt<br/>//*:header/*:accessControlHeader/*:accountableCareUnit<br/>samt<br/>//*:body/*:referral/*:requester/*:orgUnit/*:id<br/>samt<br/>//*:body/*:recipientUnit/*:id<br/>samt<br/>//*:header/*:author/*:orgUnit/*:id | Organisatorisk enhet.id | Organisation.id |
+| //*:body/*:referral/*:requester/*:orgUnit/*:name<br/>samt<br/>//*:body/*:recipientUnit/*:name<br/>samt<br/>//*:header/*:author/*:orgUnit/*:name | Organisatorisk enhet.namn | Organisation.namn |
 | saknar motsvarighet i TKB | Organisatorisk enhet.typ av verksamhet | Organisation.typ |
-| //*:header/*:author/*:id / samt / //*:header/*:signature/*:id / samt / //*:body/*:groupOfAnalyses/*:analysis/*:result/*:recipientSignature/*:id / samt / //*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature/*:id / samt / //*:body/*:recipientSignature/*:id / samt / //*:body/*:referral/*:requester/*:id | Hälso- och sjukvårdspersonal.id | Hälso- och sjukvårdspersonal.id |
-| //*:body/*:referral/*:requester/*:name / samt / //*:header/*:author/*:name / samt / //*:header/*:signature/*:name / samt / //*:body/*:recipientSignature/*:name / samt / //*:body/*:groupOfAnalyses/*:analysis/*:result/*:recipientSignature/*:name / samt / //*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature/*:name | Hälso- och sjukvårdspersonal.namn | Person.förnamn / samt / Person.efternamn / samt / Person.mellannamn |
-| //*:header/*:author/*:byRole / samt / //*:body/*:recipientSignature/*:byRole / samt / //*:body/*:groupOfAnalyses/*:analysis/*:result/*:recipientSignature/*:byRole / samt / //*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature/*:byRole / samt / //*:header/*:signature/*:byRole / samt / //*:body/*:referral/*:requester/*:byRole | Hälso- och sjukvårdspersonal.befattning | Hälso- och sjukvårdspersonal.befattning |
+| //*:header/*:author/*:id<br/>samt<br/>//*:header/*:signature/*:id<br/>samt<br/>//*:body/*:groupOfAnalyses/*:analysis/*:result/*:recipientSignature/*:id<br/>samt<br/>//*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature/*:id<br/>samt<br/>//*:body/*:recipientSignature/*:id<br/>samt<br/>//*:body/*:referral/*:requester/*:id | Hälso- och sjukvårdspersonal.id | Hälso- och sjukvårdspersonal.id |
+| //*:body/*:referral/*:requester/*:name<br/>samt<br/>//*:header/*:author/*:name<br/>samt<br/>//*:header/*:signature/*:name<br/>samt<br/>//*:body/*:recipientSignature/*:name<br/>samt<br/>//*:body/*:groupOfAnalyses/*:analysis/*:result/*:recipientSignature/*:name<br/>samt<br/>//*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature/*:name | Hälso- och sjukvårdspersonal.namn | Person.förnamn<br/>samt<br/>Person.efternamn<br/>samt<br/>Person.mellannamn |
+| //*:header/*:author/*:byRole<br/>samt<br/>//*:body/*:recipientSignature/*:byRole<br/>samt<br/>//*:body/*:groupOfAnalyses/*:analysis/*:result/*:recipientSignature/*:byRole<br/>samt<br/>//*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature/*:byRole<br/>samt<br/>//*:header/*:signature/*:byRole<br/>samt<br/>//*:body/*:referral/*:requester/*:byRole | Hälso- och sjukvårdspersonal.befattning | Hälso- och sjukvårdspersonal.befattning |
 | //*:body/*:groupOfAnalyses/*:analysis/*:device/*:identifier | Analysutrustning.id | Resurs.id |
 | saknar motsvarighet | Analysutrustning.typ | Resurs.typ |
 | saknar motsvarighet | Analysutrustning.beskrivning | saknar motsvarighet |
@@ -66,9 +66,9 @@ Nedanstående tabell mappar mellan de svenska klass- och attributnamnen i inform
 | //*:body/*:groupOfAnalyses/*:analysis/*:result/*:type | Laboratorieanalysresultat.typ | Observation.typ |
 | //*:body/*:groupOfAnalyses/*:analysis/*:result/*:value | Laboratorieanalysresultat.värde | Observation.värde |
 | //*:body/*:groupOfAnalyses/*:analysis/*:result/*:comment | Laboratorieanalysresultat.kommentar | Observation.beskrivning |
-| //*:body/*:groupOfAnalyses/*:analysis/*:result/*:interpretation | Laboratorieanalysresultat.tolkning | saknar direkt motsvarighet men kan uttryckas med / Observation.värde Observation.beskrivning |
+| //*:body/*:groupOfAnalyses/*:analysis/*:result/*:interpretation | Laboratorieanalysresultat.tolkning | saknar direkt motsvarighet men kan uttryckas med<br/>Observation.värde Observation.beskrivning |
 | saknar motsvarighet | Laboratorieanalysresultat.negation | Observation.negation |
-| //*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature/*:timestamp / samt / //*:body/*:groupOfAnalyses/*:analysis/*:result/*:recipientSignature/*:timestamp / samt / //*:header/*:signature/*:timestamp / samt / //*:body/*:recipientSignature/*:timestamp | Signering.tidpunkt | Deltagande.tid |
+| //*:body/*:groupOfAnalyses/*:analysis/*:result/*:performerSignature/*:timestamp<br/>samt<br/>//*:body/*:groupOfAnalyses/*:analysis/*:result/*:recipientSignature/*:timestamp<br/>samt<br/>//*:header/*:signature/*:timestamp<br/>samt<br/>//*:body/*:recipientSignature/*:timestamp | Signering.tidpunkt | Deltagande.tid |
 | //*:header/*:accessControlHeader/*:careProcessId | kan ej mappas | Individanpassad vårdprocess.id |
 | .//*:header/*:accessControlHeader/*:lockTime | kan ej mappas | kan ej mappas |
 | //*:header/*:accessControlHeader/*:blockComparisonTime | kan ej mappas | kan ej mappas |
@@ -220,7 +220,7 @@ Modellen beskriver den logiska strukturen för ett svarsmeddelande. Tjänsten ba
 | ChildPostDeliveryRecordType.apgarScore1 | maternityMedicalHistory/maternityMedicalHistoryBody/postDeliveryRecord/childPostDeliveryRecord/apgarScore1 |
 | ChildPostDeliveryRecordType.apgarScore5 | maternityMedicalHistory/maternityMedicalHistoryBody/postDeliveryRecord/childPostDeliveryRecord/apgarScore5 |
 | ChildPostDeliveryRecordType.apgarScore10 | maternityMedicalHistory/maternityMedicalHistoryBody/postDeliveryRecord/childPostDeliveryRecord/apgarScore10 |
-| MedicationType.medicament | maternityMedicalHistory/maternityMedicalHistoryBody/registrationRecord/previousGravidityAndParity/medicationDuringPregnancy/medicament / samt / maternityMedicalHistory/maternityMedicalHistoryBody/pregnancyCheckupRecord/medicationSinceRegistration/medicament |
+| MedicationType.medicament | maternityMedicalHistory/maternityMedicalHistoryBody/registrationRecord/previousGravidityAndParity/medicationDuringPregnancy/medicament<br/>samt<br/>maternityMedicalHistory/maternityMedicalHistoryBody/pregnancyCheckupRecord/medicationSinceRegistration/medicament |
 | MedicationType.dosage | maternityMedicalHistory/maternityMedicalHistoryBody/pregnancyCheckupRecord/medicationSinceRegistration/dosage |
 | ResultType | result |
 | ResultType.resultCode | result/resultCode |

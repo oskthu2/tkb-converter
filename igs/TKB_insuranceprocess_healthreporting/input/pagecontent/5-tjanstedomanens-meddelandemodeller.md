@@ -23,16 +23,16 @@ Här beskrivs de meddelandemodeller som tjänstekontrakten bygger på. För varj
 | Enhet | Enhet |
 | Enhet.enhets-id | Enhet.enhets-id |
 | Enhet.enhetsnamn | Enhet.enhetsnamn |
-| Enhet.postadress | Saknar motsvarighet i V-TIM 2.2 / Adressuppgifter.postadress i HSA |
-| Enhet.postnummer | Saknar motsvarighet i V-TIM 2.2 / Adressuppgifter.postnr i HSA |
-| Enhet.postort | Saknar motsvarighet i V-TIM 2.2 / Attributet motsvarar X i HSA |
-| Enhet.telefonnummer | Saknar motsvarighet i V-TIM 2.2 / Telefonnummer.direktnummer eller Telefonnummer.växeltelefon i HSA |
+| Enhet.postadress | Saknar motsvarighet i V-TIM 2.2<br/>Adressuppgifter.postadress i HSA |
+| Enhet.postnummer | Saknar motsvarighet i V-TIM 2.2<br/>Adressuppgifter.postnr i HSA |
+| Enhet.postort | Saknar motsvarighet i V-TIM 2.2<br/>Attributet motsvarar X i HSA |
+| Enhet.telefonnummer | Saknar motsvarighet i V-TIM 2.2<br/>Telefonnummer.direktnummer eller Telefonnummer.växeltelefon i HSA |
 | Funktionstillstånd | Bedömt tillstånd |
 | Funktionstillstånd.beskrivning | Bedömt tillstånd.beskrivning |
 | Funktionstillstånd.typ av funktionstillstånd | Ingår i Bedömt tillstånd.specifikation av det bedömda tillståndet |
-| HoS-Personal | Personal i V-TIM 2.0. / Person i HSA |
-| HoS-Personal.personal-id | Personal.personal-id i V-TIM 2.0. / Person.HSA-id i HSA |
-| HoS-Personal. fullständigt namn | Personal.fullständigt namn i V-TIM 2.0. / Person.fullständigt namn i HSA. |
+| HoS-Personal | Personal i V-TIM 2.0.<br/>Person i HSA |
+| HoS-Personal.personal-id | Personal.personal-id i V-TIM 2.0.<br/>Person.HSA-id i HSA |
+| HoS-Personal. fullständigt namn | Personal.fullständigt namn i V-TIM 2.0.<br/>Person.fullständigt namn i HSA. |
 | Läkarutlåtande | Framställan |
 | Läkarutlåtande.läkarutlåtande-id | Framställan.framställarens analysobjekts-id |
 | Läkarutlåtande.typ av utlåtande | Framställan.framställan typ |
@@ -69,16 +69,16 @@ En del av klasserna i modellen har bedömts ligga utanför V-TIMs tillämpningso
 | Enhet | Enhet |
 | Enhet.enhets-id | Enhet.enhets-id |
 | Enhet.enhetsnamn | Enhet.enhetsnamn |
-| Enhet.postadress | Saknar motsvarighet i V-TIM 2.0 / Adressuppgifter.postadress i HSA |
-| Enhet.postnummer | Saknar motsvarighet i V-TIM 2.0 / Adressuppgifter.postnr i HSA |
-| Enhet.postort | Saknar motsvarighet i V-TIM 2.0 / Attributet motsvarar X i HSA |
-| Enhet.telefonnummer | Saknar motsvarighet i V-TIM 2.0 / Telefonnummer.direktnummer eller Telefonnummer.växeltelefon i HSA |
-| Enhet.e-post | Saknar motsvarighet i V-TIM 2.0 / Internetuppgifter.e-postadress i HSA |
-| Enhet.arbetsplatskod | Saknar motsvarighet i V-TIM 2.0 / Organisationsuppgifter.arbetsplatskod i HSA |
-| HoS-Personal | Personal i V-TIM 2.0. / Person i HSA |
-| HoS-Personal.förskrivarkod | Saknar motsvarighet i V-TIM 2.0 / Förskrivarkod.förskrivarkod i HSA |
-| HoS-Personal.personal-id | Personal.personal-id i V-TIM 2.0. / Person.HSA-id i HSA |
-| HoS-Personal. fullständigt namn | Personal.fullständigt namn i V-TIM 2.0. / Person.fullständigt namn i HSA. |
+| Enhet.postadress | Saknar motsvarighet i V-TIM 2.0<br/>Adressuppgifter.postadress i HSA |
+| Enhet.postnummer | Saknar motsvarighet i V-TIM 2.0<br/>Adressuppgifter.postnr i HSA |
+| Enhet.postort | Saknar motsvarighet i V-TIM 2.0<br/>Attributet motsvarar X i HSA |
+| Enhet.telefonnummer | Saknar motsvarighet i V-TIM 2.0<br/>Telefonnummer.direktnummer eller Telefonnummer.växeltelefon i HSA |
+| Enhet.e-post | Saknar motsvarighet i V-TIM 2.0<br/>Internetuppgifter.e-postadress i HSA |
+| Enhet.arbetsplatskod | Saknar motsvarighet i V-TIM 2.0<br/>Organisationsuppgifter.arbetsplatskod i HSA |
+| HoS-Personal | Personal i V-TIM 2.0.<br/>Person i HSA |
+| HoS-Personal.förskrivarkod | Saknar motsvarighet i V-TIM 2.0<br/>Förskrivarkod.förskrivarkod i HSA |
+| HoS-Personal.personal-id | Personal.personal-id i V-TIM 2.0.<br/>Person.HSA-id i HSA |
+| HoS-Personal. fullständigt namn | Personal.fullständigt namn i V-TIM 2.0.<br/>Person.fullständigt namn i HSA. |
 | Läkarutlåtande | Framställan |
 | Läkarutlåtande.läkarutlåtande-id | Framställan.framställarens analysobjekts-id |
 | Läkarutlåtande.typ av utlåtande | Framställan.framställan typ |

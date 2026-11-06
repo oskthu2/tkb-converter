@@ -36,9 +36,9 @@ FormsTemplatesType [0..*]
 | Namn | Typ | Kommentar | Kardi-nalitet |
 | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |
-| Healthcare_Facility_CareUnit |  | Hsa-Id (Vårdenhet/enhets-id). / T.ex. se2321000016-1hz3 | 1..1 |
+| Healthcare_Facility_CareUnit |  | Hsa-Id (Vårdenhet/enhets-id).<br/>T.ex. se2321000016-1hz3 | 1..1 |
 | PublishedStatus |  | Indikerar vilken status en mall skall ha. | 0..* |
-| SubjectOfCare |  | Starkt autentiserad användares personnummer. / T.ex. 191212121212 (yyyymmddnnnn) / FormTemplate attributet ”anonymousForm” styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt. | 0..1 |
+| SubjectOfCare |  | Starkt autentiserad användares personnummer.<br/>T.ex. 191212121212 (yyyymmddnnnn)<br/>FormTemplate attributet ”anonymousForm” styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt. | 0..1 |
 | TemplateId |  | Typ av formulärmall. Kodverk. Om denna inte anges skall formulärtjänsten som default returnera ALLA tillgängliga formulär för medborgaren. | 0..* |
 | ClinicalProcessInterestId |  | Hälsoärende. | 0..* |
 | Svar |  |  |  |
@@ -106,8 +106,8 @@ Form [1..1]
 | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |
 |  |  |  |  |
-| Healthcare_Facility_CareUnit |  | Hsa-Id (Vårdenhet/enhets-id). / T.ex. se2321000016-1hz3 | 1..1 |
-| SubjectOfCare |  | Starkt autentiserad användares personnummer. / T.ex. 191212121212 (yyyymmddnnnn). FormTemplate attributet ”anonymousForm” styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt. | 0..1 |
+| Healthcare_Facility_CareUnit |  | Hsa-Id (Vårdenhet/enhets-id).<br/>T.ex. se2321000016-1hz3 | 1..1 |
+| SubjectOfCare |  | Starkt autentiserad användares personnummer.<br/>T.ex. 191212121212 (yyyymmddnnnn). FormTemplate attributet ”anonymousForm” styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt. | 0..1 |
 | TemplateId |  | Mallid. | 1..1 |
 | TemplateVersion |  | Mallens version. Utelämnas denna parameter skall producerande system använda den senaste versionen. | 0..1 |
 | ClinicalProcessInterestId |  | Hälsoärende id. Parameter indikerar att formiuläret ingår i ett Hälsoärende. | 0..1 |
@@ -188,14 +188,13 @@ Forms [0..*]
 | Attribut | Typ | Kommentar | Kardi-nalitet |
 | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |
-| Healthcare_Facility_CareUnit |  | Hsa-Id (Vårdenhet/enhets-id). / T.ex. se2321000016-1hz3 | 0..1 |
-| SubjectOfCare |  | Starkt autentiserad användares personnummer. / T.ex. 191212121212 (yyyymmddnnnn) / FormTemplate attributet ”anonymousForm” styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt. | 0..1 |
+| Healthcare_Facility_CareUnit |  | Hsa-Id (Vårdenhet/enhets-id).<br/>T.ex. se2321000016-1hz3 | 0..1 |
+| SubjectOfCare |  | Starkt autentiserad användares personnummer.<br/>T.ex. 191212121212 (yyyymmddnnnn)<br/>FormTemplate attributet ”anonymousForm” styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt. | 0..1 |
 | TemplateId |  | Ett unikt id för en formulärtyp. | 0..* |
 | ClinicalProcessInterestId |  | Hälsoärende ID | 0..* |
 |  |  |  |  |
 | Svar |  |  |  |
-| Formulär 
-(Form) | FormsType | Objekt GetFormsResponse | 0..* |
+| Formulär<br/>(Form) | FormsType | Objekt GetFormsResponse | 0..* |
 
 #### Regler
 
@@ -264,7 +263,7 @@ Form [0..1]
 | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |
 | FormID |  | Ett unikt id (GUID) för ett formulär. | 1..1 |
-| SubjectOfCare |  | Starkt autentiserad användares personnummer. / T.ex. 191212121212 (yyyymmddnnnn) / FormTemplate attributet ”anonymousForm” styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt. | 0..1 |
+| SubjectOfCare |  | Starkt autentiserad användares personnummer.<br/>T.ex. 191212121212 (yyyymmddnnnn)<br/>FormTemplate attributet ”anonymousForm” styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt. | 0..1 |
 |  |  |  |  |
 | Svar |  |  |  |
 | Form | FormType | Objekt FormResponseType | 0..1 |
@@ -407,8 +406,8 @@ comment [0..1]
 | Begäran |  |  |  |
 | FormID |  | Formulärets unika id. | 1..1 |
 | PageAnswers |  | Objek PageAnswerType. | 1..1 |
-| SubjectOfCare |  | Starkt autentiserad användares personnummer. / T.ex. 191212121212 (yyyymmddnnnn) / FormTemplate attributet ”anonymousForm” styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt. | 0..1 |
-| temporarySave |  | Parameter för att indikera temporärsparning. / True = temporär / False = normal hantering / Utelämnad parameter = normal hantering. | 0..1 |
+| SubjectOfCare |  | Starkt autentiserad användares personnummer.<br/>T.ex. 191212121212 (yyyymmddnnnn)<br/>FormTemplate attributet ”anonymousForm” styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt. | 0..1 |
+| temporarySave |  | Parameter för att indikera temporärsparning.<br/>True = temporär<br/>False = normal hantering<br/>Utelämnad parameter = normal hantering. | 0..1 |
 |  |  |  |  |
 | Svar |  |  |  |
 | Form |  | Objekt FormType. | 0..1 |
@@ -479,7 +478,7 @@ Comment [0..1]
 | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |
 | FormID |  | Formulärets ID. | 1..1 |
-| SubjectOfCare |  | Starkt autentiserad användares personnummer. / T.ex. 191212121212 (yyyymmddnnnn) / FormTemplate attributet ”anonymousForm” styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt. | 0..1 |
+| SubjectOfCare |  | Starkt autentiserad användares personnummer.<br/>T.ex. 191212121212 (yyyymmddnnnn)<br/>FormTemplate attributet ”anonymousForm” styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt. | 0..1 |
 |  |  |  |  |
 | Svar |  |  |  |
 | ResultCode | ResultCodeEnumType | Signalera status på operationen (gick det bra/uppstod fel). | 1..1 |
@@ -542,7 +541,7 @@ Comment [0..1]
 | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |
 | FormID |  | Formulärets unika id. | 1..1 |
-| subjectOfCare |  | Starkt autentiserad användares personnummer. / T.ex. 191212121212 (yyyymmddnnnn) / FormTemplate attributet ”anonymousForm” styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt. | 0..1 |
+| subjectOfCare |  | Starkt autentiserad användares personnummer.<br/>T.ex. 191212121212 (yyyymmddnnnn)<br/>FormTemplate attributet ”anonymousForm” styr huruvida formulärmotorn hanterar detta fält som obligatoriskt eller frivilligt. | 0..1 |
 | Svar |  |  |  |
 | ResultCode | ResultCodeEnumType | Objekt för att signalera status på operationen (gick det bra/uppstod fel). | 1..1 |
 | Comment |  | Attribut för felsignalering. Skall kunna visas för slutanvändaren. | 0..1 |
@@ -620,7 +619,7 @@ ResultCode [1..1]
 | Healthcare_ MedUnit |  | Hsa-id medicinskt ansvarig (informationsägare).. | 0..1 |
 | Healthcare_Facility_CareUnit |  | Hsa-id vårdenhet (informationsägare). | 1..1 |
 | healthcare_systemID |  | Hsa-id vårdsystem. | 0..1 |
-| SubjectOfCare |  | Personnummer patient/invånare. / - Utelämnas parameter hanteras formulär som anonymt. | 0..1 |
+| SubjectOfCare |  | Personnummer patient/invånare.<br/>- Utelämnas parameter hanteras formulär som anonymt. | 0..1 |
 | TemplateId |  | Formulärmall id. | 1..1 |
 | TemplateVersion |  | Formulärmall version. | 0..1 |
 | ClinicalProcessInterestId |  | Hälsoärende id. | 0..1 |

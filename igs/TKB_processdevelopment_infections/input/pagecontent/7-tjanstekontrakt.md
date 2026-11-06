@@ -35,7 +35,7 @@ Då meddelandestrukturen består av ett flertal statiska element (se avsnitt 4, 
 | ordinationsmoment: $$ATC-kod | Kod | RIV-specifikation: Läkemedelssubstans.ATC-kod | 1..* |
 | $$issuer_personid | Text | För personnummer och samordningsnummer är $$issuer_personid = Skatteverket. För lokalt reservnummer är $$issuer_personid = CeHis | 1 |
 | $$assigner_personid | Text eller HSA-id | För personnummer och samordningsnummer är $$issuer_personid = Folkbokföringen. För lokalt reservnummer är $$assigner_personid = HSA-id för den enhet inom vilket aktuellt reservnummer är unikt | 1 |
-| $$personid | Personnummer / Samordnings-nummer / Lokalt reservnummer | RIV-specifikation: Patient.person-id | 1 |
+| $$personid | Personnummer<br/>Samordnings-nummer<br/>Lokalt reservnummer | RIV-specifikation: Patient.person-id | 1 |
 | $$oid_personid | OID | OID för personnummer, samordningsnummer eller icke-nationell identifierare Org + lokalt unikt id | 1 |
 | $$födelsetidpunkt | Tid | RIV-specifikation: Patient.födelsetidpunkt | 1 |
 | $$kön | Kod | RIV-specifikation: Patient.kön | 1 |
@@ -44,7 +44,7 @@ Då meddelandestrukturen består av ett flertal statiska element (se avsnitt 4, 
 
 | ProcessPrescriptionReasonResponse | Typ | Kommentar | Kard |
 | :--- | :--- | :--- | :--- |
-| ResultCode | String | OK = Registrering genomförd / ERROR = Fel vid registrering. Felet beskrivs i elementet comment / INFO = Information finns om registreringen. Informationen beskrivs i elementet comment | 1..1 |
+| ResultCode | String | OK = Registrering genomförd<br/>ERROR = Fel vid registrering. Felet beskrivs i elementet comment<br/>INFO = Information finns om registreringen. Informationen beskrivs i elementet comment | 1..1 |
 | comment | String | Beskrivning av fel som uppstått alternativt information om genomförd registrering. | 0..1 |
 
 ##### Felkoder vid logiskt fel
@@ -98,7 +98,7 @@ Tjänsten registrerar ett nytt laboratoriesvar med tillhörande information om p
 | Mikrobiologiska fynd: $$agenskod | Kod | RIV-specifikation: Mikrobiologiskt fynd.agenskod | 1 |
 | $$issuer_personid | Text | För personnummer och samordningsnummer är $$issuer_personid = Skatteverket. För lokalt reservnummer är $$issuer_personid = CeHis | 1 |
 | $$assigner_personid | Text eller HSA-id | För personnummer och samordningsnummer är $$issuer_personid = Folkbokföringen. För lokalt reservnummer är $$assigner_personid = HSA-id för den enhet inom vilket aktuellt reservnummer är unikt | 1 |
-| $$personid | Personnummer / Samordnings-nummer / Lokalt reservnummer | RIV-specifikation: Patient.person-id | 1 |
+| $$personid | Personnummer<br/>Samordnings-nummer<br/>Lokalt reservnummer | RIV-specifikation: Patient.person-id | 1 |
 | $$oid_personid | OID | OID för personnummer, nationellt reservnummer eller samordningsnummer | 1 |
 | $$födelsetidpunkt | Tid | RIV-specifikation: Patient.födelsetidpunkt | 1 |
 | $$kön | Kod | RIV-specifikation: Patient.kön | 1 |
@@ -107,7 +107,7 @@ Tjänsten registrerar ett nytt laboratoriesvar med tillhörande information om p
 
 | ProcessLaboratoryReportResponse | Typ | Kommentar | Kard |
 | :--- | :--- | :--- | :--- |
-| ResultCode | String | OK = Registrering genomförd / ERROR = Fel vid registrering. Felet beskrivs i elementet comment / INFO = Information finns om registreringen. Informationen beskrivs i elementet comment | 1..1 |
+| ResultCode | String | OK = Registrering genomförd<br/>ERROR = Fel vid registrering. Felet beskrivs i elementet comment<br/>INFO = Information finns om registreringen. Informationen beskrivs i elementet comment | 1..1 |
 | comment | String | Beskrivning av fel som uppstått alternativt information om genomförd registrering. | 0..1 |
 
 ##### Felkoder vid logiskt fel
@@ -160,7 +160,7 @@ Tjänsten registrerar en eller flera aktiviteter som utförts på en patient på
 | $$enhet_aktivitetsid | HSA-id | HSA-id för den enhet inom vilket aktuellt aktivitets-id är unikt. | 1 |
 | $$issuer_personid | Text | För personnummer och samordningsnummer är $$issuer_personid = Skatteverket. För lokalt reservnummer är $$issuer_personid = CeHis | 1 |
 | $$assigner_personid | Text eller HSA-id | För personnummer och samordningsnummer är $$issuer_personid = Folkbokföringen. För lokalt reservnummer är $$assigner_personid = HSA-id för den enhet inom vilket aktuellt reservnummer är unikt | 1 |
-| $$personid | Personnummer / Samordnings-nummer / Lokalt reservnummer | RIV-specifikation: Patient.person-id | 1 |
+| $$personid | Personnummer<br/>Samordnings-nummer<br/>Lokalt reservnummer | RIV-specifikation: Patient.person-id | 1 |
 | $$oid_personid | OID | OID för personnummer, nationellt reservnummer eller samordningsnummer | 1 |
 | $$födelsetidpunkt | Tid | RIV-specifikation: Patient.födelsetidpunkt | 1 |
 | $$kön | Kod | RIV-specifikation: Patient.kön | 1 |
@@ -169,7 +169,7 @@ Tjänsten registrerar en eller flera aktiviteter som utförts på en patient på
 
 | ProcessActivityResponse | Typ | Kommentar | Kard |
 | :--- | :--- | :--- | :--- |
-| ResultCode | String | OK = Registrering genomförd / ERROR = Fel vid registrering. Felet beskrivs i elementet comment / INFO = Information finns om registreringen. Informationen beskrivs i elementet comment | 1..1 |
+| ResultCode | String | OK = Registrering genomförd<br/>ERROR = Fel vid registrering. Felet beskrivs i elementet comment<br/>INFO = Information finns om registreringen. Informationen beskrivs i elementet comment | 1..1 |
 | comment | String | Beskrivning av fel som uppstått alternativt information om genomförd registrering. | 0..1 |
 
 ##### Felkoder vid logiskt fel
@@ -221,7 +221,7 @@ Tjänsten registrerar ett eller flera nya bedömt hälsorelaterat tillstånd med
 | $$tillståndskod | Kod | RIV-specifikation: Bedömt hälsorelaterat tillstånd.tillståndskod | 1 |
 | $$issuer_personid | Text | För personnummer och samordningsnummer är $$issuer_personid = Skatteverket. För lokalt reservnummer är $$issuer_personid = CeHis | 1 |
 | $$assigner_personid | Text eller HSA-id | För personnummer och samordningsnummer är $$issuer_personid = Folkbokföringen. För lokalt reservnummer är $$assigner_personid = HSA-id för den enhet inom vilket aktuellt reservnummer är unikt | 1 |
-| $$personid | Personnummer / Samordnings-nummer / Lokalt reservnummer | RIV-specifikation: Patient.person-id | 1 |
+| $$personid | Personnummer<br/>Samordnings-nummer<br/>Lokalt reservnummer | RIV-specifikation: Patient.person-id | 1 |
 | $$oid_personid | OID | OID för personnummer, nationellt reservnummer eller samordningsnummer | 1 |
 | $$födelsetidpunkt | Tid | RIV-specifikation: Patient.födelsetidpunkt | 1 |
 | $$kön | Kod | RIV-specifikation: Patient.kön | 1 |
@@ -230,7 +230,7 @@ Tjänsten registrerar ett eller flera nya bedömt hälsorelaterat tillstånd med
 
 | ProcessConditionResponse | Typ | Kommentar | Kard |
 | :--- | :--- | :--- | :--- |
-| ResultCode | String | OK = Registrering genomförd / ERROR = Fel vid registrering. Felet beskrivs i elementet comment / INFO = Information finns om registreringen. Informationen beskrivs i elementet comment | 1..1 |
+| ResultCode | String | OK = Registrering genomförd<br/>ERROR = Fel vid registrering. Felet beskrivs i elementet comment<br/>INFO = Information finns om registreringen. Informationen beskrivs i elementet comment | 1..1 |
 | comment | String | Beskrivning av fel som uppstått alternativt information om genomförd registrering. | 0..1 |
 
 ##### Felkoder vid logiskt fel
@@ -281,7 +281,7 @@ Tjänsten registrerar en ny patientplacering med information om patient, organis
 | $$registrerande enhet | HSA-id | RIV-specifikation: Vårdkontakt.utförs vid.Enhet.enhets-id | 1 |
 | $$issuer_personid | Text | För personnummer och samordningsnummer är $$issuer_personid = Skatteverket. För lokalt reservnummer är $$issuer_personid = CeHis | 1 |
 | $$assigner_personid | Text eller HSA-id | För personnummer och samordningsnummer är $$issuer_personid = Folkbokföringen. För lokalt reservnummer är $$assigner_personid = HSA-id för den enhet inom vilket aktuellt reservnummer är unikt | 1 |
-| $$personid | Personnummer / Samordnings-nummer / Lokalt reservnummer | RIV-specifikation: Patient.person-id | 1 |
+| $$personid | Personnummer<br/>Samordnings-nummer<br/>Lokalt reservnummer | RIV-specifikation: Patient.person-id | 1 |
 | $$oid_personid | OID | OID för personnummer, nationellt reservnummer eller samordningsnummer | 1 |
 | $$födelsetidpunkt | Tid | RIV-specifikation: Patient.födelsetidpunkt | 1 |
 | $$kön | Kod | RIV-specifikation: Patient.kön | 1 |
@@ -290,7 +290,7 @@ Tjänsten registrerar en ny patientplacering med information om patient, organis
 
 | ProcessCareEncounterResponse | Typ | Kommentar | Kard |
 | :--- | :--- | :--- | :--- |
-| ResultCode | String | OK = Registrering genomförd / ERROR = Fel vid registrering. Felet beskrivs i elementet comment / INFO = Information finns om registreringen. Informationen beskrivs i elementet comment | 1..1 |
+| ResultCode | String | OK = Registrering genomförd<br/>ERROR = Fel vid registrering. Felet beskrivs i elementet comment<br/>INFO = Information finns om registreringen. Informationen beskrivs i elementet comment | 1..1 |
 | comment | String | Beskrivning av fel som uppstått alternativt information om genomförd registrering. | 0..1 |
 
 ##### Felkoder vid logiskt fel
@@ -337,7 +337,7 @@ DeletePrescriptionReason raderar information som tidigare har registrerats via t
 
 | DeletePrescriptionReasonResponse | Typ | Kommentar | Kard |
 | :--- | :--- | :--- | :--- |
-| ResultCode | String | OK = Registrering genomförd / ERROR = Fel vid registrering. Felet beskrivs i elementet comment / INFO = Information finns om registreringen. Informationen beskrivs i elementet comment | 1..1 |
+| ResultCode | String | OK = Registrering genomförd<br/>ERROR = Fel vid registrering. Felet beskrivs i elementet comment<br/>INFO = Information finns om registreringen. Informationen beskrivs i elementet comment | 1..1 |
 | comment | String | Beskrivning av fel som uppstått alternativt information om genomförd registrering. | 0..1 |
 
 ##### Felkoder vid logiskt fel
@@ -345,7 +345,7 @@ Det är endast felmeddelandet nedan som returneras i svaret i fältet "comment".
 
 | Felkod | Felmeddelande | Beskrivning |
 | :--- | :--- | :--- |
-| 50005 / 50006 | Kunde inte hitta ordinationsorsak för angivet (" + AktivitetId + ")/Kunde inte hitta ordinationsorsak för angivet (" + TillstandsId + ") | Angiven ordinationorsak finns inte i Infektionsverktyget |
+| 50005<br/>50006 | Kunde inte hitta ordinationsorsak för angivet (" + AktivitetId + ")/Kunde inte hitta ordinationsorsak för angivet (" + TillstandsId + ") | Angiven ordinationorsak finns inte i Infektionsverktyget |
 | 50011 | Okänd vårdgivare i logical address (" + VardgivareHsaId + ")" | Vårdgivaren finns inte i Infektionsverktyget |
 
 #### Källfiler (RIV-TA)
@@ -379,7 +379,7 @@ DeletePrescription raderar information om en ordination som tidigare har registr
 
 | DeletePrescriptionResponse | Typ | Kommentar | Kard |
 | :--- | :--- | :--- | :--- |
-| ResultCode | String | OK = Registrering genomförd / ERROR = Fel vid registrering. Felet beskrivs i elementet comment / INFO = Information finns om registreringen. Informationen beskrivs i elementet comment | 1..1 |
+| ResultCode | String | OK = Registrering genomförd<br/>ERROR = Fel vid registrering. Felet beskrivs i elementet comment<br/>INFO = Information finns om registreringen. Informationen beskrivs i elementet comment | 1..1 |
 | comment | String | Beskrivning av fel som uppstått alternativt information om genomförd registrering. | 0..1 |
 
 ##### Felkoder vid logiskt fel
@@ -421,7 +421,7 @@ DeleteLaboratoryReport raderar information som tidigare har registrerats via tj�
 
 | DeleteLaboratoryReportResponse | Typ | Kommentar | Kard |
 | :--- | :--- | :--- | :--- |
-| ResultCode | String | OK = Registrering genomförd / ERROR = Fel vid registrering. Felet beskrivs i elementet comment / INFO = Information finns om registreringen. Informationen beskrivs i elementet comment | 1..1 |
+| ResultCode | String | OK = Registrering genomförd<br/>ERROR = Fel vid registrering. Felet beskrivs i elementet comment<br/>INFO = Information finns om registreringen. Informationen beskrivs i elementet comment | 1..1 |
 | comment | String | Beskrivning av fel som uppstått alternativt information om genomförd registrering. | 0..1 |
 
 ##### Felkoder vid logiskt fel
@@ -463,7 +463,7 @@ DeleteActivity raderar information som tidigare har registrerats via tjänsten P
 
 | DeleteActivityResponse | Typ | Kommentar | Kard |
 | :--- | :--- | :--- | :--- |
-| ResultCode | String | OK = Registrering genomförd / ERROR = Fel vid registrering. Felet beskrivs i elementet comment / INFO = Information finns om registreringen. Informationen beskrivs i elementet comment | 1..1 |
+| ResultCode | String | OK = Registrering genomförd<br/>ERROR = Fel vid registrering. Felet beskrivs i elementet comment<br/>INFO = Information finns om registreringen. Informationen beskrivs i elementet comment | 1..1 |
 | comment | String | Beskrivning av fel som uppstått alternativt information om genomförd registrering. | 0..1 |
 
 ##### Felkoder vid logiskt fel
@@ -505,7 +505,7 @@ DeleteCondition raderar information som tidigare har registrerats via tjänsten 
 
 | DeleteConditionResponse | Typ | Kommentar | Kard |
 | :--- | :--- | :--- | :--- |
-| ResultCode | String | OK = Registrering genomförd / ERROR = Fel vid registrering. Felet beskrivs i elementet comment / INFO = Information finns om registreringen. Informationen beskrivs i elementet comment | 1..1 |
+| ResultCode | String | OK = Registrering genomförd<br/>ERROR = Fel vid registrering. Felet beskrivs i elementet comment<br/>INFO = Information finns om registreringen. Informationen beskrivs i elementet comment | 1..1 |
 | comment | String | Beskrivning av fel som uppstått alternativt information om genomförd registrering. | 0..1 |
 
 ##### Felkoder vid logiskt fel
@@ -547,7 +547,7 @@ DeleteCareEncounter raderar information som tidigare har registrerats via tjäns
 
 | DeleteCareEncounterResponse | Typ | Kommentar | Kard |
 | :--- | :--- | :--- | :--- |
-| ResultCode | String | OK = Registrering genomförd / ERROR = Fel vid registrering. Felet beskrivs i elementet comment / INFO = Information finns om registreringen. Informationen beskrivs i elementet comment | 1..1 |
+| ResultCode | String | OK = Registrering genomförd<br/>ERROR = Fel vid registrering. Felet beskrivs i elementet comment<br/>INFO = Information finns om registreringen. Informationen beskrivs i elementet comment | 1..1 |
 | comment | String | Beskrivning av fel som uppstått alternativt information om genomförd registrering. | 0..1 |
 
 ##### Felkoder vid logiskt fel

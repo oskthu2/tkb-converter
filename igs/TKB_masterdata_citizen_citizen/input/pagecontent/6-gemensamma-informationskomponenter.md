@@ -78,7 +78,7 @@ Grupp för medborgarskapslandkod
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | countryCode | CountryCode | Kod för medborgarskapsland | 0..1 |
-| attested | xs:boolean | Kod som visar om medborgarskapsland är styrkt eller ej. / Endast aktuell för personer med gällande samordningsnummer | 0..1 |
+| attested | xs:boolean | Kod som visar om medborgarskapsland är styrkt eller ej.<br/>Endast aktuell för personer med gällande samordningsnummer | 0..1 |
 
 #### 6.1.9 CitizenshipStatus
 
@@ -173,8 +173,8 @@ Grupp för invandringsuppgifter
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | immigrationDate | PartialDate | Invandringsdatum | 0..1 |
-| rightOfResidence | xs:boolean | Anger om uppehållsrätt registrerades vid senaste invandringstillfället / true = personen har uppehållsrätt / false/null = personen saknar uppehållsrätt | 0..1 |
-| immigrationIdentity | ImmigrationIdentity | Grupp för personnummer och vilket land det är knutet till. / Motsvarar skatteverkets NordisktPnrDa, NordisktPnrFi, NordisktPnrFo, NordisktPnrIs och NordisktPnrNo | 0..* |
+| rightOfResidence | xs:boolean | Anger om uppehållsrätt registrerades vid senaste invandringstillfället<br/>true = personen har uppehållsrätt<br/>false/null = personen saknar uppehållsrätt | 0..1 |
+| immigrationIdentity | ImmigrationIdentity | Grupp för personnummer och vilket land det är knutet till.<br/>Motsvarar skatteverkets NordisktPnrDa, NordisktPnrFi, NordisktPnrFo, NordisktPnrIs och NordisktPnrNo | 0..* |
 
 #### 6.1.21 ImmigrationIdentity
 
@@ -254,7 +254,7 @@ Grupp för del av namn där delen kan vara styrkt eller ej
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | name | String80 | Namn | 0..1 |
-| attested | xs:boolean | Anger om namnet är styrket eller ej. / Endast aktuell för personer med gällande samordningsnummer | 0..1 |
+| attested | xs:boolean | Anger om namnet är styrket eller ej.<br/>Endast aktuell för personer med gällande samordningsnummer | 0..1 |
 
 #### 6.1.28 NationalKeys
 
@@ -297,8 +297,8 @@ Personidentitet.
 
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| id | PersonalIdentityNumber | Svenskt perssonnummer på format: / ÅÅÅÅMMDDNNNK / Eller samordningsnummer: / ÅÅÅÅMMDDNNNK där / MM = 00 - 12 / DD = 60 – 91 | 1 |
-| type | xs:string | OID i enlighet med: [RIV-TA Best Practice](https://bitbucket.org/rivta-domains/best-practice/wiki/De%20facto-konventioner%20f%C3%B6r%20datatyper.md) / Anger som vilken typ som id syftar på. / Svenskt personnummer = '1.2.752.129.2.1.3.1' / Samordningsnummer = '1.2.752.129.2.1.3.3' | 1 |
+| id | PersonalIdentityNumber | Svenskt perssonnummer på format:<br/>ÅÅÅÅMMDDNNNK<br/>Eller samordningsnummer:<br/>ÅÅÅÅMMDDNNNK där<br/>MM = 00 - 12<br/>DD = 60 – 91 | 1 |
+| type | xs:string | OID i enlighet med: [RIV-TA Best Practice](https://bitbucket.org/rivta-domains/best-practice/wiki/De%20facto-konventioner%20f%C3%B6r%20datatyper.md)<br/>Anger som vilken typ som id syftar på.<br/>Svenskt personnummer = '1.2.752.129.2.1.3.1'<br/>Samordningsnummer = '1.2.752.129.2.1.3.3' | 1 |
 
 #### 6.1.33 PersonalIdentityNumber
 
@@ -331,7 +331,7 @@ Födelseort utland
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | placeOfBirthAbroad | String80 | Uppgift om födelseort i utlandet | 0..1 |
-| attested | xs:boolean | Kod som visar om födelseort utland är styrkt eller ej. / Endast aktuell för personer med gällande samordningsnummer | 0..1 |
+| attested | xs:boolean | Kod som visar om födelseort utland är styrkt eller ej.<br/>Endast aktuell för personer med gällande samordningsnummer | 0..1 |
 
 #### 6.1.36 PlaceOfBirthSweden
 

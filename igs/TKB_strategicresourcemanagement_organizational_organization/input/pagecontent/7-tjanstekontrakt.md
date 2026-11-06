@@ -33,7 +33,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | ..healthCareUnitMemberStartDate | dateTime | Startdatum för enhetens (funktionens) verksamhet | 0..1 |
 | ..healthCareUnitMemberEndDate | dateTime | Slutdatum för enhetens (funktionens) verksamhet | 0..1 |
 | ..healthCareUnitHsaId | String | Vårdenhetens HSA-id | 1..1 |
-| ..unitIsHealthCareUnit | Boolean | True, om enheten (funktionen) själv är en vårdenhet / Om enheten (funktionen) inte är vårdenhet kommer inget värde att returneras. | 0..1 |
+| ..unitIsHealthCareUnit | Boolean | True, om enheten (funktionen) själv är en vårdenhet<br/>Om enheten (funktionen) inte är vårdenhet kommer inget värde att returneras. | 0..1 |
 | ..healthCareUnitName | String | Vårdenhetens namn | 1..1 |
 | ..healthCareUnitStartDate | dateTime | Startdatum för vårdenhetens verksamhet. | 0..1 |
 | ..healthCareUnitEndDate | dateTime | Slutdatum för vårdenhetens verksamhet. | 0..1 |
@@ -153,7 +153,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |
 | healthCareProviderHsaId | String | Vårdgivarens HSA-id. | 1..1 |
-| searchBase *1) | DN | Sökbas. Om ingen sökbas anges används c=SE som sökbas. /  / searchBase används både för sökning av den kopplade enheten, vårdenheten och vårdgivaren. | 0..1 |
+| searchBase *1) | DN | Sökbas. Om ingen sökbas anges används c=SE som sökbas.<br/>/ searchBase används både för sökning av den kopplade enheten, vårdenheten och vårdgivaren. | 0..1 |
 | includeFeignedObject | boolean | true: om metoden ska leverera svar med fingerade objekt. Uteblivet värde tolkas som false, dvs inga fingerade objekt levereras. | 0..1 |
 | Svar |  |  |  |
 | healthCareUnitList | HealthCareUnitListType |  | 0..1 |
@@ -445,7 +445,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | ..countyCode | String | Kod för län. | 0..1 |
 | ..description | String | Allmän beskrivning för enheten. | 0..1 |
 | ..directoryContact | String | Mailadress till ansvarig för informationen om enheten. Uppgiften hämtas från enheten eller från något överliggande objekt (det närmast överliggande objekt där det finns definierat). | 0..1 |
-| ..displayOption | String | Används för att beräkna enhetens publika / namn (publicName). | 0..1 |
+| ..displayOption | String | Används för att beräkna enhetens publika<br/>namn (publicName). | 0..1 |
 | ..dropInHour | TimeSpan | Tider för dropin-besök (utan tidbokning). | 0..n |
 | .. ..fromDay | String | Från dag. Måndag (1) – Söndag (7). | 1..1 |
 | .. ..fromTime | Time | Från tid. Format enligt ISO-8601. | 1..1 |
@@ -478,7 +478,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | .. ..addressLine | String | Adressrad. | 1..n |
 | ..postalCode | String | Postnummer där verksamheten bedrivs | 0..1 |
 | ..priceInformation | String | Prisinformation. | 0..1 |
-| ..publicName | String | Publikt officiellt namn. / Det publika namnet beräknas i första hand utifrån enhetens DN tillsammans med värdet i attributet displayOption. / Om displayOption saknas beräknas det publika namnet enligt: / enhetens namn `<blanktecken>` location | 1..1 |
+| ..publicName | String | Publikt officiellt namn.<br/>Det publika namnet beräknas i första hand utifrån enhetens DN tillsammans med värdet i attributet displayOption.<br/>Om displayOption saknas beräknas det publika namnet enligt:<br/>enhetens namn `<blanktecken>` location | 1..1 |
 | ..relatedUnitHsaId | String | HSA-identitet på en enhet som på något sätt hör ihop med aktuell enhet. | 0..n |
 | ..route | String | Vägbeskrivning. | 0..1 |
 |  |  |  |  |
@@ -711,7 +711,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | ..healthCareUnitMemberStartDate | dateTime | Startdatum för enhetens (funktionens) verksamhet | 0..1 |
 | ..healthCareUnitMemberEndDate | dateTime | Slutdatum för enhetens (funktionens) verksamhet | 0..1 |
 | ..healthCareUnitHsaId | String | Vårdenhetens HSA-id | 1..1 |
-| ..unitIsHealthCareUnit | Boolean | True, om enheten själv är en vårdenhet / Om enhet inte är vårdenhet kommer inget värde att returneras. | 0..1 |
+| ..unitIsHealthCareUnit | Boolean | True, om enheten själv är en vårdenhet<br/>Om enhet inte är vårdenhet kommer inget värde att returneras. | 0..1 |
 | ..healthCareUnitName | String | Vårdenhetens namn | 1..1 |
 | ..healthCareUnitManager | String | HSA id till utpekad verksamhetschef | 0..1 |
 | ..healthCareUnitStartDate | dateTime | Startdatum för vårdenhetens verksamhet. | 0..1 |

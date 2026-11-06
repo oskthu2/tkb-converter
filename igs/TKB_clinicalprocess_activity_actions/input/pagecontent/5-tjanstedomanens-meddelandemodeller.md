@@ -6,12 +6,9 @@ Här beskrivs de meddelandemodeller som tjänstekontrakten bygger på. För varj
 ![img_003.jpeg](img_003.jpeg)
 Mörkblå klasser och cyanfärgade markeringar visar skillnader från NI release 2015:1. I vissa fall är det endast en avvikande kardinalitet.
 
-| XSD Schema | Mappning mot NI 2015 release 1
-(eller V-MIM enligt ovan) |
+| XSD Schema | Mappning mot NI 2015 release 1<br/>(eller V-MIM enligt ovan) |
 | :--- | :--- |
-| ActivityGroup. sourceSystem | NI 2015:1
-Saknar motsvarighet / I V-MIM
-Källsystem.id |
+| ActivityGroup. sourceSystem | NI 2015:1<br/>Saknar motsvarighet<br/>I V-MIM<br/>Källsystem.id |
 | Activity.id | Uppgift i patientjournal.id |
 | Activity.type | Aktivitet.kod |
 | Activity.status | Aktivitet.status |
@@ -19,99 +16,42 @@ Källsystem.id |
 | Activity.method | Aktivitet.metod |
 | Activity.targetSite | Aktivitet.lokalisation |
 | Activity.description | Aktivitet.beskrivning |
-| Activity.additionalInformation.key | NI 2015:1
-Saknar motsvarighet / I V-MIM
-YtterligareInfomration.typ |
-| Activity.additionalInformation.value | NI 2015:1
-Saknar motsvarighet / I V-MIM 
-YtterligareInfomration.värde |
+| Activity.additionalInformation.key | NI 2015:1<br/>Saknar motsvarighet<br/>I V-MIM<br/>YtterligareInfomration.typ |
+| Activity.additionalInformation.value | NI 2015:1<br/>Saknar motsvarighet<br/>I V-MIM<br/>YtterligareInfomration.värde |
 | Activity.RegistrationTime | Uppgift i patientjournal.dokumentationstidpunkt |
-| Activity.approvedForPatient | NI 2015:1
-Saknar motsvarighet / I V-MIM / Uppgift i patientjournal.godkändFörUtlämnandeTillPatient |
-| Location.id | NI 2015:1
-Saknar motsvarighet / I V-MIM
-Plats.id |
-| Location.name | NI 2015:1
-Saknar motsvarighet / I V-MIM
-Plats.namn |
-| Location.address | NI 2015:1
-Saknar motsvarighet / I V-MIM
-Plats.adress |
-| Location.electronicAddress | NI 2015:1
-Saknar motsvarighet / I V-MIM
-Plats.elektroniskAdress |
+| Activity.approvedForPatient | NI 2015:1<br/>Saknar motsvarighet<br/>I V-MIM<br/>Uppgift i patientjournal.godkändFörUtlämnandeTillPatient |
+| Location.id | NI 2015:1<br/>Saknar motsvarighet<br/>I V-MIM<br/>Plats.id |
+| Location.name | NI 2015:1<br/>Saknar motsvarighet<br/>I V-MIM<br/>Plats.namn |
+| Location.address | NI 2015:1<br/>Saknar motsvarighet<br/>I V-MIM<br/>Plats.adress |
+| Location.electronicAddress | NI 2015:1<br/>Saknar motsvarighet<br/>I V-MIM<br/>Plats.elektroniskAdress |
 | Patient.id | Person.person-id/Patient.id |
-| Patient.name | Person.förnamn
-Person.efternamn
-Person.mellannamn
-Person.tilltalsnamnsmarkering |
+| Patient.name | Person.förnamn<br/>Person.efternamn<br/>Person.mellannamn<br/>Person.tilltalsnamnsmarkering |
 | Patient.dateOfBirth | Person.födelsetidpunkt |
 | Patient.gender | Person.kön |
-| LegalAuthenticator.id | NI 2015:1
-Saknar motsvarighet / I V-MIM
-Deltagande(signerare)->Professionell aktör.id |
-| LegalAuthenticator.time | NI 2015:1
-Saknar motsvarighet / I V-MIM
-Deltagande(signerare).tid |
-| LegalAuthenticator.name | NI 2015:1
-Saknar motsvarighet / I V-MIM
-Deltagande(signerare)->Professionell aktör->Person.förnamn + Person.efternamn |
-| SourceSystem.id | NI 2015:1
-Saknar motsvarighet / I V-MIM
-Källsystem.id |
+| LegalAuthenticator.id | NI 2015:1<br/>Saknar motsvarighet<br/>I V-MIM<br/>Deltagande(signerare)->Professionell aktör.id |
+| LegalAuthenticator.time | NI 2015:1<br/>Saknar motsvarighet<br/>I V-MIM<br/>Deltagande(signerare).tid |
+| LegalAuthenticator.name | NI 2015:1<br/>Saknar motsvarighet<br/>I V-MIM<br/>Deltagande(signerare)->Professionell aktör->Person.förnamn + Person.efternamn |
+| SourceSystem.id | NI 2015:1<br/>Saknar motsvarighet<br/>I V-MIM<br/>Källsystem.id |
 | Relation.code | Samband.typ |
-| ReferredInformation.id | NI 2015:1
-Uppgift i patientjournal.id / I V-MIM
-Referens till Uppgift i patientjournal.id |
-| ReferredInformation.time | NI 2015:1
-Saknar motsvarighet / I V-MIM
-Referens till Uppgift i patientjournal.tidpunkt |
-| ReferredInformation.type | NI 2015:1
-Saknar motsvarighet / I V-MIM
-Saknar motsvarighet |
-| InformationOwner.id | NI 2015:1
-Saknar motsvarighet / I V-MIM
-Källsystem.id |
-| PerformerRole.id | NI 2015:1
-Saknar motsvarighet / I V-MIM
-Deltagande->Roll->Professionell aktör.id eller patient.id/person.person-id |
-| PerformerRole.code | NI 2015:1
-Saknar motsvarighet / I V-MIM
-Deltagande->Roll.typ |
+| ReferredInformation.id | NI 2015:1<br/>Uppgift i patientjournal.id<br/>I V-MIM<br/>Referens till Uppgift i patientjournal.id |
+| ReferredInformation.time | NI 2015:1<br/>Saknar motsvarighet<br/>I V-MIM<br/>Referens till Uppgift i patientjournal.tidpunkt |
+| ReferredInformation.type | NI 2015:1<br/>Saknar motsvarighet<br/>I V-MIM<br/>Saknar motsvarighet |
+| InformationOwner.id | NI 2015:1<br/>Saknar motsvarighet<br/>I V-MIM<br/>Källsystem.id |
+| PerformerRole.id | NI 2015:1<br/>Saknar motsvarighet<br/>I V-MIM<br/>Deltagande->Roll->Professionell aktör.id eller patient.id/person.person-id |
+| PerformerRole.code | NI 2015:1<br/>Saknar motsvarighet<br/>I V-MIM<br/>Deltagande->Roll.typ |
 | Person.id | Person.person-id |
-| Person.name | Person.förnamn 
-Person.mellannamn 
-Person.efternamn
-Person.tilltalsnamnsmarkering |
-| CareUnit.id | NI 2015:1
-Organisation.id / I V-MIM
-Organisation(vårdenhet).id |
-| CareUnit.name | NI 2015:1
-Organisation.namn / V-MIM
-Organisation(vårdenhet).namn |
-| CareGiver.id | NI 2015:1
-Organisation. id / V-MIM
-Organisation(vårdgivare).id |
-| CareGiver.name | NI 2015:1
-Organisation.namn / V-MIM
-Organisation(vårdgivare).namn |
-| AdditionalParticipant.id | NI 2015:1
-Saknar motsvarighet / V-MIM
-Professionell aktör.id (om sådan deltagare) |
+| Person.name | Person.förnamn<br/>Person.mellannamn<br/>Person.efternamn<br/>Person.tilltalsnamnsmarkering |
+| CareUnit.id | NI 2015:1<br/>Organisation.id<br/>I V-MIM<br/>Organisation(vårdenhet).id |
+| CareUnit.name | NI 2015:1<br/>Organisation.namn<br/>V-MIM<br/>Organisation(vårdenhet).namn |
+| CareGiver.id | NI 2015:1<br/>Organisation. id<br/>V-MIM<br/>Organisation(vårdgivare).id |
+| CareGiver.name | NI 2015:1<br/>Organisation.namn<br/>V-MIM<br/>Organisation(vårdgivare).namn |
+| AdditionalParticipant.id | NI 2015:1<br/>Saknar motsvarighet<br/>V-MIM<br/>Professionell aktör.id (om sådan deltagare) |
 | AdditionalParticipant.type | Deltagande.typ |
-| AdditionalParticipant.role | NI 2015:1
-Saknar motsvarighet / V-MIM
-Roll.typ |
+| AdditionalParticipant.role | NI 2015:1<br/>Saknar motsvarighet<br/>V-MIM<br/>Roll.typ |
 | AdditionalParticipant.time | Deltagande.tid |
-| Device.id | NI 2015:1
-Saknar motsvarighet / V-MIM
-Artefakt.id |
-| Device.type | NI 2015:1
-Saknar motsvarighet / V-MIM
-Artefakt.typ |
-| Device.model | NI 2015:1
-Saknar motsvarighet / V-MIM
-Artefakt.modell |
+| Device.id | NI 2015:1<br/>Saknar motsvarighet<br/>V-MIM<br/>Artefakt.id |
+| Device.type | NI 2015:1<br/>Saknar motsvarighet<br/>V-MIM<br/>Artefakt.typ |
+| Device.model | NI 2015:1<br/>Saknar motsvarighet<br/>V-MIM<br/>Artefakt.modell |
 
 ### Formatregler
 Inga utöver de som beskrivs i samband med fältregler.

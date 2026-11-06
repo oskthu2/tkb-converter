@@ -22,16 +22,16 @@ Ladda hem Engagemangsindex WSDL (se R6), scheman och tjänstekontraktsbeskrivnin
 
 Följande regler gäller för innehållet i begäran till engagemangsindex för uppdateringar som rör denna tjänstedomän:
 
-| Attribut | Beskrivning | Format | Kardinalitet | Kodverk/värde-mängd / /ev begränsningar | Beslutsregler och kommentar |
+| Attribut | Beskrivning | Format | Kardinalitet | Kodverk/värde-mängd<br/>/ev begränsningar | Beslutsregler och kommentar |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| Registered ResidentIdent Identification | Invånarens person-nummer | PNR eller SNR enligt skatteverkets definition (12 tecken). | 1..1 | Validering med xml-regexp uttryckt enligt: / [0-9]{8}[0-9A-Zptf]{4} | Del av instansens unikhet |
+| Registered ResidentIdent Identification | Invånarens person-nummer | PNR eller SNR enligt skatteverkets definition (12 tecken). | 1..1 | Validering med xml-regexp uttryckt enligt:<br/>[0-9]{8}[0-9A-Zptf]{4} | Del av instansens unikhet |
 | Service domain* | Den tjänstedomän som förekomsten avser. | URN på formen `<regelverk>`:`<huvuddomän>`:`<underdomän1>`:`<underdomän2>` | 1..1 | riv: financial:patientfees:exemption | Del av instansens unikhet |
 | Categori-zation* | Kategori-sering enligt kodverk som är specifikt för tjänste-domänen | Text bestående av bokstäver i ASCII. | 1..1 | Informationsmängd som finns i verksamhetsbaseradsystem för angiven patient och som indexposten avser. Anges med kortform enligt tabell nedan. | Del av instansens unikhet |
 | Logical address* | Referens till informationskällan enligt tjänste-domänens definition | Logisk adress enligt adresseringsmodell för den tjänstedomän som anges av fältet Service Domain. | 1..1 | Länskod eller källsystems-HSAId | Del av instansens unikhet |
 | Business object Instance Identifier* | Unik identifierare för händelse-bärande objekt | Text | 1..1 | ”NA” – d.v.s. ej tillämpat för tjänstedomänen. | Del av instansens unikhet |
 | Clinical process interest Id | Hälsoärende-id | UUID | 1..1 | ”NA” (ännu ej tillämpat i tjänstedomänen) | Del av instansens unikhet |
 | Most Recent Content* | Verksamhetsmässig tidpunkt för senaste informations-förekomsten i källan som indexeras av denna indexpost | DT | 1..1 | Tidpunkt för senaste händelse som matchar indexposten. Kan även avse borttag. Ex: En indexpost representerar 2 bef. dokument. Ett av dem tas bort. Det markeras genom att bef. Post uppdateras med tidpunkt för borttagshändelsen. |  |
-| Creation / Time | Tidpunkten då indexposten registrerades | DT | 1..1 | Sätts automatiskt av EI-instansen. | Genereras automatiskt av kontraktets tjänste-producent |
+| Creation<br/>Time | Tidpunkten då indexposten registrerades | DT | 1..1 | Sätts automatiskt av EI-instansen. | Genereras automatiskt av kontraktets tjänste-producent |
 | Update Time | Tidpunkten då index-posten senast upp-daterades | DT | 0..1 | Sätts automatiskt av EI-instansen. | Upp-datering innebär ny post som matchar samtliga attribut som är del av en instans unikitet. |
 | Source system | Källsystemet som genererade engagemangs-posten via Update-tjänsten | Systemets HSA-id.  För system-adresserade tjänstedomäner motsvarar detta LogicalAddress vid anrop till tjänster i tjänstedomänen i fråga. Detta är inte anslutningspunktens HSA-id utan systemet som operativt hanterar informationen i verksamheten. | 1..1 | Verksamhetsadressering samt adressering av agent tillämpas | Del av instansens unikhet |
 | Data Controller | Personuppgiftsansvarig organisation | Sjukvårdshuvudmannens länskod. | 1..1 | Länskod för sjukvårdshuvudman | Del av instansens unikhet |
@@ -61,7 +61,7 @@ Följande generella SLA-krav gäller för alla tjänsteproducenter som tillhanda
 | Svarstid | < 1 sekund för 98% av alla anrop |  |
 | Tillgänglighet | 24x7, 99,5% |  |
 | Last | Tjänsteproducenten ska kunna hantera minst dubbla mängden frågor per dygn i förhållande till antalet uppdatering per dygn. |  |
-| Aktualitet | Kraven på aktualitet varierar för olika tjänstekonsumenter. Det behöver inte vara absolut aktualitet i förhållande till källsystemet, men ju mindre fördröjning desto bättre. Ett riktmärke är att försöka undvika längre fördröjning än 60 minuter. / Uppdatering av engagemangspost måste ske så att engagemangsposten refererar data som är omedelbart tillgängligt via tjänstekontraktet. |  |
+| Aktualitet | Kraven på aktualitet varierar för olika tjänstekonsumenter. Det behöver inte vara absolut aktualitet i förhållande till källsystemet, men ju mindre fördröjning desto bättre. Ett riktmärke är att försöka undvika längre fördröjning än 60 minuter.<br/>Uppdatering av engagemangspost måste ske så att engagemangsposten refererar data som är omedelbart tillgängligt via tjänstekontraktet. |  |
 | Återställningstid | 1 dygn | Vid katastrof, bortfall av hel hall |
 | Samtidighet | Tjänsteproducenten ska hantera minst 10 samtidiga frågor. |  |
 

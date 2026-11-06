@@ -12,7 +12,7 @@ Version PA1
 
 | Revision Nr | Revision Datum | Beskrivning av ändringar | Ändringar gjorda av | Granskad av |
 | :--- | :--- | :--- | :--- | :--- |
-| PA1 | 2013-10-30 | Första version för granskning | Eva Biberg, Mawell / Torbjörn Dahlin, Mawell |  |
+| PA1 | 2013-10-30 | Första version för granskning | Eva Biberg, Mawell<br/>Torbjörn Dahlin, Mawell |  |
 #### Referenser
 
 | Namn | Dokument | Kommentar | Länk |

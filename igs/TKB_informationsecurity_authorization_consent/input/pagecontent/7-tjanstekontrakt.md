@@ -911,7 +911,7 @@ Aktören är patienten/brukaren själv eller patients legala ombud.
 | Begäran |  |  |  |
 | assertionId | urn:riv:informationsecurity:authorization:consent:2:Id | Unikt id som identifierar det intyg som skall avslutas. | 1..1 |
 | patientId | urn:riv:informationsecurity:authorization:consent:2:IIType | Personidentitet på patienten/brukaren vars samtycken skall hämtas. | 1..1 |
-| representedById | urn:riv:informationsecurity:authorization:consent:2:IIType | Personidentitet för den företrädare/vårdnadshavare som företräder patienten/brukaren. / Ska anges om samtycket avslutas av företrädare/vårdnadshavare. | 0..1 |
+| representedById | urn:riv:informationsecurity:authorization:consent:2:IIType | Personidentitet för den företrädare/vårdnadshavare som företräder patienten/brukaren.<br/>Ska anges om samtycket avslutas av företrädare/vårdnadshavare. | 0..1 |
 | endDateTime | xs:dateTime | Frivillig tidpunkt/tidsstämpel för när samtycket ska avslutas. Tidstämpeln ska som tidigast vara nuvarande tidpunkt, alternativt före en tidigare given sista giltighetstidpunkt som är i framtiden. Om ingen tidpunkt anges ska producenten tolka samtyckets nya giltighetstidpunkt t o m nuvarande tidpunkt. | 0..1 |
 | Svar |  |  |  |
 | result | urn:riv:informationsecurity:authorization:consent:2:ResultType | Status för om tjänsten utfördes. | 1..1 |

@@ -66,9 +66,9 @@ Tjänstekontraktet tillåts även anropas system-adresserat. I detta scenario pe
 
 | Begäran om utlämnande av patientens högkostnadsgrundande information | Logisk adress |
 | :--- | :--- |
-| Nationellt | Ineras HSA-id: 5565594230 / Detta adresseringssätt är normalfallet för konsument att använda. Adresseringssättet används exempelvis från vårdgivares kassasystem eller från invånares vy i 1177 Vårdguidens e-tjänster för att erhålla en nationellt sammanfattad bild över individs högkostnadsskyddsgrundande information. / Genom att adressera på detta sätt triggas aggregerad tjänst igång på den nationella tjänsteplattformen som i sin tur baserar sina vidare anrop på innehållet i engagemangsindex. |
-| För en huvudman/region | Huvudmannenslänskod / Detta adresseringssätt används normalt av aggregerad tjänst för att begära ett utlämnande av högkostnadsskyddsgrundande information från den adresserade huvudmannen. |
-| För en agent | Agentens källsystems-HSAId. / Detta adresseringssätt används normalt av aggregerad tjänst för att begära ett utlämnande av högkostnadsskyddsgrundande information från en agent |
+| Nationellt | Ineras HSA-id: 5565594230<br/>Detta adresseringssätt är normalfallet för konsument att använda. Adresseringssättet används exempelvis från vårdgivares kassasystem eller från invånares vy i 1177 Vårdguidens e-tjänster för att erhålla en nationellt sammanfattad bild över individs högkostnadsskyddsgrundande information.<br/>Genom att adressera på detta sätt triggas aggregerad tjänst igång på den nationella tjänsteplattformen som i sin tur baserar sina vidare anrop på innehållet i engagemangsindex. |
+| För en huvudman/region | Huvudmannenslänskod<br/>Detta adresseringssätt används normalt av aggregerad tjänst för att begära ett utlämnande av högkostnadsskyddsgrundande information från den adresserade huvudmannen. |
+| För en agent | Agentens källsystems-HSAId.<br/>Detta adresseringssätt används normalt av aggregerad tjänst för att begära ett utlämnande av högkostnadsskyddsgrundande information från en agent |
 
 #### 3.2.2 Sammanfattning av adresseringsmodell för tjänstekontraktet ProcessExemptionStatuses
 

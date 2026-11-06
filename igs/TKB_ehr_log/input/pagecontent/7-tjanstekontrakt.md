@@ -169,7 +169,7 @@ Obligatorisk, nationellt.
 | queuedReportId | log:Id | Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigstälts. | 0..1 |
 | careUnitId | log:HsaId | Ej obligatoriskt fält för att filtrera ut loggposter för en specifik vårdenhet. | 0..1 |
 | Svar |  |  |  |
-| getLogsForCareProvider | log.querying:LogsResult | Resultatobjekt med status hurvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista med loggposter samt resultatkod OK. / Vid eventuella fel i tjänsteanropet returneras inga loggposter. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande. | 1..1 |
+| getLogsForCareProvider | log.querying:LogsResult | Resultatobjekt med status hurvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista med loggposter samt resultatkod OK.<br/>Vid eventuella fel i tjänsteanropet returneras inga loggposter. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande. | 1..1 |
 
 ### Regler
 Tjänsten skall kontrollera om anropande system har behörighet baserat på det anropande systemets certifikat.
@@ -337,7 +337,7 @@ Obligatorisk, nationellt.
 | queuedReportId | log:Id | Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigstälts. | 0..1 |
 | careUnitId | log:HsaId | Ej obligatoriskt fält för att filtrera ut loggposter för en specifik vårdenhet. | 0..1 |
 | Svar |  |  |  |
-| getLogsForUser | log.querying:LogsResult | Resultatobjekt med status hurvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista med loggposter samt resultatkod OK. / Vid eventuella fel i tjänsteanropet returneras inga loggposter. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande. | 1..1 |
+| getLogsForUser | log.querying:LogsResult | Resultatobjekt med status hurvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista med loggposter samt resultatkod OK.<br/>Vid eventuella fel i tjänsteanropet returneras inga loggposter. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande. | 1..1 |
 
 ### Regler
 Tjänsten skall kontrollera om anropande system har behörighet baserat på det anropande systemets certifikat.
@@ -506,7 +506,7 @@ Obligatorisk, nationellt.
 | toDate | xs:dateTime | Obligatoriskt slutdatum för att begränsa rapportuttaget. | 1..1 |
 | queuedReportId | log:Id | Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigstälts. | 0..1 |
 | Svar |  |  |  |
-| getLogsForPatient | log.querying:LogsResult | Resultatobjekt med status hurvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista med loggposter samt resultatkod OK. / Vid eventuella fel i tjänsteanropet returneras inga loggposter. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande. | 1..1 |
+| getLogsForPatient | log.querying:LogsResult | Resultatobjekt med status hurvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista med loggposter samt resultatkod OK.<br/>Vid eventuella fel i tjänsteanropet returneras inga loggposter. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande. | 1..1 |
 
 ### Regler
 Tjänsten skall kontrollera om anropande system har behörighet baserat på det anropande systemets certifikat.
@@ -672,9 +672,9 @@ Obligatorisk, nationellt.
 | PatientId | log:PersonId | Patientens personnummer, samordningsnummer, alternativt reservnummer som någon vårdgivare haft åtkomst till. | 1..1 |
 | FromDate | xs:dateTime | Obligatoriskt startdatum för att begränsa rapportuttaget. | 1..1 |
 | ToDate | xs:dateTime | Obligatoriskt slutdatum för att begränsa rapportuttaget. | 1..1 |
-| QueuedReportId | log:Id | Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigstälts. / Skall inte användas när aggregerande tjänst anropas. | 0..1 |
+| QueuedReportId | log:Id | Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigstälts.<br/>Skall inte användas när aggregerande tjänst anropas. | 0..1 |
 | Svar |  |  |  |
-| AccessLogsResultType | logquerying:AccessLogsResultType | Resultatobjekt med status hurvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts korrekt returneras en lista med patientinformation och resultatkod OK. / Vid eventuella fel i tjänsteanropet returneras ingen patientinformation. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande. | 1..1 |
+| AccessLogsResultType | logquerying:AccessLogsResultType | Resultatobjekt med status hurvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts korrekt returneras en lista med patientinformation och resultatkod OK.<br/>Vid eventuella fel i tjänsteanropet returneras ingen patientinformation. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande. | 1..1 |
 
 ### Regler
 Tjänsten skall kontrollera om anropande system har behörighet till ”patientbunden” logginformation. Normalt så sker detta via behörighetskontrollen i en Tjänsteplattform. Anropande konsument har att säkerställa att patienten är starkt autentiserad.
@@ -792,7 +792,7 @@ Obligatorisk, nationellt.
 | toDate | xs:dateTime | Obligatoriskt slutdatum för att begränsa rapportuttaget. | 1..1 |
 | queuedReportId | log:Id | Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigstälts. | 0..1 |
 | Svar |  |  |  |
-| getInfoLogsForCareProvider | log.querying:InfoLogsResult | Resultatobjekt med status hurvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista av vårdgivare samt resultatkod OK. / Vid eventuella fel i tjänsteanropet returneras inga vårdgivare. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande. | 1..1 |
+| getInfoLogsForCareProvider | log.querying:InfoLogsResult | Resultatobjekt med status hurvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista av vårdgivare samt resultatkod OK.<br/>Vid eventuella fel i tjänsteanropet returneras inga vårdgivare. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande. | 1..1 |
 
 ### Regler
 Tjänsten skall kontrollera om anropande system har behörighet baserat på det anropande systemets certifikat.
@@ -901,7 +901,7 @@ Obligatorisk, nationellt.
 | toDate | xs:dateTime | Obligatoriskt slutdatum för att begränsa rapportuttaget. | 1..1 |
 | queuedReportId | log:Id | Id på en pågående rapport. Id som returnerats från ett tidigare anrop och hänvisar till rapport som ej färdigstälts. | 0..1 |
 | Svar |  |  |  |
-| getInfoLogsForPatient | log.querying:InfoLogsResult | Resultatobjekt med status hurvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista av vårdgivare samt resultatkod OK. / Vid eventuella fel i tjänsteanropet returneras inga vårdgivare. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande. | 1..1 |
+| getInfoLogsForPatient | log.querying:InfoLogsResult | Resultatobjekt med status hurvida tjänsten returnerar ok eller om fel uppstått. Om tjänsten utförts utan fel returneras en lista av vårdgivare samt resultatkod OK.<br/>Vid eventuella fel i tjänsteanropet returneras inga vårdgivare. Statuskod som beskriver orsaken till fel returneras då tillsammans med ett felmeddelande. | 1..1 |
 
 ### Regler
 Tjänsten skall kontrollera om anropande system har behörighet baserat på det anropande systemets certifikat.

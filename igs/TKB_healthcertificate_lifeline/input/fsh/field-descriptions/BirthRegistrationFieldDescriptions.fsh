@@ -6,7 +6,11 @@ RuleSet: BirthRegistrationFieldDescriptions
 * FodelsesvarId ^comment = "TKB-fält: `FodelsesvarId` (`string`, kardinalitet 1..1)."
 * AnmalningsId ^definition = "Det anmälnings-id som vården angett som identitet för den aktuella födelseanmälan. Max 80 tecken."
 * AnmalningsId ^comment = "TKB-fält: `AnmalningsId` (`string`, kardinalitet 1..1)."
-* PersonNummer ^definition = "Barnets fullständiga personnummer som Skatteverket tilldelat det nyfödda barnet.. `<br>` Sekel inkluderat. 12 tecken. `<br>` ÅÅÅÅMMDDXXXX."
+* PersonNummer ^definition = "Barnets fullständiga personnummer som Skatteverket tilldelat det nyfödda barnet..
+
+Sekel inkluderat. 12 tecken.
+
+ÅÅÅÅMMDDXXXX."
 * PersonNummer ^comment = "TKB-fält: `PersonNummer` (`long`, kardinalitet 1..1).
 
 Obs: modellen anger 0..1 där TKB:n anger 1..1."
@@ -16,9 +20,21 @@ Obs: modellen anger 0..1 där TKB:n anger 1..1."
 Obs: modellen anger 0..1 där TKB:n anger 1..1.
 
 **Modellanteckning:** Indikerar orsaken till att personnummer ej tilldelats."
-* Meddelande.AnmalanMottagen ^definition = "\"JA\" anger att anmälan är mottagen av Skatteverket och \"NEJ\" att anmälan inte har mottagits. `<br>` En mottagen anmälan ska INTE sändas in igen. En anmälan som Skatteverket inte kunnat ta emot får sändas om. `<br>` Får endast ha värde `<br>` \"JA\" `<br>` \"NEJ\""
+* Meddelande.AnmalanMottagen ^definition = "\"JA\" anger att anmälan är mottagen av Skatteverket och \"NEJ\" att anmälan inte har mottagits.
+
+En mottagen anmälan ska INTE sändas in igen. En anmälan som Skatteverket inte kunnat ta emot får sändas om.
+
+Får endast ha värde
+
+\"JA\"
+
+\"NEJ\""
 * Meddelande.AnmalanMottagen ^comment = "TKB-fält: `AnmalanMottagen` (`string`, kardinalitet 1..1)."
-* Meddelande.MeddelandeKod ^definition = "MeddelandeKod indikerar orsaken till att ett personnummer inte returnerats. `<br>` Förteckning över förekommande koder och beskrivning, se rubrik \"Lista över meddelandekoder\". `<br>` Värde inom intervallet givet av tabell med meddlandekoder."
+* Meddelande.MeddelandeKod ^definition = "MeddelandeKod indikerar orsaken till att ett personnummer inte returnerats.
+
+Förteckning över förekommande koder och beskrivning, se rubrik \"Lista över meddelandekoder\".
+
+Värde inom intervallet givet av tabell med meddlandekoder."
 * Meddelande.MeddelandeKod ^comment = "TKB-fält: `MeddelandeKod` (`int`, kardinalitet 1..1).
 
 **Modellanteckning:** Kod som indikerar orsaken till att personnummer ej returneras. datatyp = number"

@@ -215,9 +215,9 @@ Tabellen beskriver de attribut som är unika för tjänstedomänen. Utöver neda
 
 | Namn | Typ | Kommentar | Kardi-nalitet |
 | :--- | :--- | :--- | :--- |
-| categorization | String | Kategorier för engagemangsindexpost. / FormCreated (Indikerar att ett specifikt formulär är skapat för användaren.) / FormComplete (Indikerar att ett specifikt formulär är avslutat) | 1..1 |
-| businessObjectInstanceIdentifier | String | Unik identifierare för händelse-bärande objekt. / Id för categorization: / FormComplete / Id som motsvarar ”FormId” (i objekt Form). / FormCreated / Id som motsvarar ”FormId” (i objekt Form). | 1..1 |
-| LogicalAddress | String | Referens till informationskällan enligt tjänste-domänens definition till informationskälla. / < SourceSystem hsa-id> | 1..1 |
+| categorization | String | Kategorier för engagemangsindexpost.<br/>FormCreated (Indikerar att ett specifikt formulär är skapat för användaren.)<br/>FormComplete (Indikerar att ett specifikt formulär är avslutat) | 1..1 |
+| businessObjectInstanceIdentifier | String | Unik identifierare för händelse-bärande objekt.<br/>Id för categorization:<br/>FormComplete<br/>Id som motsvarar ”FormId” (i objekt Form).<br/>FormCreated<br/>Id som motsvarar ”FormId” (i objekt Form). | 1..1 |
+| LogicalAddress | String | Referens till informationskällan enligt tjänste-domänens definition till informationskälla.<br/>< SourceSystem hsa-id> | 1..1 |
 Se tjänstekontraktsbeskrivning(Engagemangsindex) för övriga attribut och beskrivning.
 
 ##### Flöde engagemangsindex

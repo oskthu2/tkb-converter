@@ -29,8 +29,21 @@ if grep -qx "igs/rivta-portal" "$DOMAINS_FILE"; then
     python3 "$SCRIPT_DIR/build_portal.py" --live || python3 "$SCRIPT_DIR/build_portal.py"
 fi
 
+# De gemensamma RIV-TA-datatyperna (igs/rivta-datatyper, paket inera.rivta.datatypes) är
+# ett beroende till TKB-IG:erna och finns inte på packages.fhir.org. Den byggs därför alltid
+# först, och paketet som IG Publisher skapar (med spec.internals, så att länkarna till
+# typerna fungerar) installeras i ~/.fhir/packages innan någon TKB-IG byggs.
+DATATYPES_DIR="igs/rivta-datatyper"
+if [ -f "$DATATYPES_DIR/sushi-config.yaml" ]; then
+    echo "[build_all] Bygger de gemensamma datatyperna först ($DATATYPES_DIR)..."
+    "$SCRIPT_DIR/build_ig.sh" "$DATATYPES_DIR"
+    python3 "$SCRIPT_DIR/install_datatypes_package.py" --from-output \
+        || python3 "$SCRIPT_DIR/install_datatypes_package.py"
+fi
+
 while IFS= read -r dir; do
     [ -z "$dir" ] && continue
+    [ "$dir" = "$DATATYPES_DIR" ] && continue
     "$SCRIPT_DIR/build_ig.sh" "$dir"
 done < "$DOMAINS_FILE"
 

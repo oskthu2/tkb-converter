@@ -36,7 +36,7 @@ Alla tjänster har ett obligatoriskt meddelandefält där mottagande vårdgivare
 | GetLogsForCareProvider | Samma som StoreLog |
 | GetLogsForUser | Samma som StoreLog |
 | GetLogsForPatient | Samma som StoreLog |
-| GetAccessLogsForPatient | För aggregerande tjänst används Ineras HSA-id: 5565594230 / Vid adressering mot vårdgivare samma som StoreLog |
+| GetAccessLogsForPatient | För aggregerande tjänst används Ineras HSA-id: 5565594230<br/>Vid adressering mot vårdgivare samma som StoreLog |
 | GetInfoLogsForCareProvider | Samma som StoreLog |
 | GetInfoLogsForPatient | Samma som StoreLog |
 

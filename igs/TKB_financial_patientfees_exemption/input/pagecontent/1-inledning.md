@@ -17,12 +17,12 @@ Källa: *Högkostnadsskydd*, tjänstekontraktbeskrivning version 1.0 (2024-03-25
 | 1.0_RC1 |  | 2017-04-16 | utkast | Ranjdar Fallyih |  |
 | 1.0_RC1 |  | 2017-08-15 | Uppdaterat fältregeltabell | Khaled Daham |  |
 | 1.0_RC1 |  | 2017-09-07 | Uppdaterat fältregeltabell | Khaled Daham |  |
-| 1.0_RC1 |  | 2017-10-30 | Lagt till giltighetstid för ett frikort / Uppdaterat adressering samt beskrivning av reservidentitet för engagemangindex / Uppdaterat MIM / Uppdaterat beskrivning för alla datumfält / Lagt till exempel under test-suite/ GetExemptionStatus/test/positive | Khaled Daham |  |
+| 1.0_RC1 |  | 2017-10-30 | Lagt till giltighetstid för ett frikort<br/>Uppdaterat adressering samt beskrivning av reservidentitet för engagemangindex<br/>Uppdaterat MIM<br/>Uppdaterat beskrivning för alla datumfält<br/>Lagt till exempel under test-suite/ GetExemptionStatus/test/positive | Khaled Daham |  |
 | 1.0_RC1 |  | 2017-12-14 | Uppdaterat beskrivning och bild under övriga regler | Khaled Daham |  |
 | 1.0_RC1 |  | 2018-01-16 | Uppdaterat schematron-regler i constraints.xml samt lagt till fler exempelfiler under test-suite/ | Khaled Daham |  |
-| 1..0_RC1 |  | 2018-02-14 | Uppdaterat MIM / Lagt till support-lib för SOAPui / Uppdaterat beskrivningar. | Khaled Daham |  |
-| 1.0_RC1 |  | 2018-03-09 | Tagit bort registeredBy / Ändrat dateOfRegistration till TimeStampType | Khaled Daham |  |
-| 1.0_RC1 |  | 2018-05-14 | Ändrar beskrivning för careGiver och careUnit från registrerad enhet till besökt enhet. / Lagt till akutalitetskrav samt samtidighetskrav. / Uppdaterat kravet på last. / Förtydligat kravet på adressering. / Förtydligat vilka belopp som får skickas (inga makulerade t.ex). / Lagt till en schematron-regel som kontrollerar belopp. / Lagt till validering av constraints.xml / Lagt till riktlinjer för hur nationellt reservId skall hanteras | Khaled Daham |  |
+| 1..0_RC1 |  | 2018-02-14 | Uppdaterat MIM<br/>Lagt till support-lib för SOAPui<br/>Uppdaterat beskrivningar. | Khaled Daham |  |
+| 1.0_RC1 |  | 2018-03-09 | Tagit bort registeredBy<br/>Ändrat dateOfRegistration till TimeStampType | Khaled Daham |  |
+| 1.0_RC1 |  | 2018-05-14 | Ändrar beskrivning för careGiver och careUnit från registrerad enhet till besökt enhet.<br/>Lagt till akutalitetskrav samt samtidighetskrav.<br/>Uppdaterat kravet på last.<br/>Förtydligat kravet på adressering.<br/>Förtydligat vilka belopp som får skickas (inga makulerade t.ex).<br/>Lagt till en schematron-regel som kontrollerar belopp.<br/>Lagt till validering av constraints.xml<br/>Lagt till riktlinjer för hur nationellt reservId skall hanteras | Khaled Daham |  |
 | 1.0_RC1 |  | 2018-06-01 | Korrigerat exempelfiler, testfall samt test-svit | Khaled Daham |  |
 | 1.0_RC1 |  | 2019-04-16 | Förtydligande kring adressering. | Khaled Daham |  |
 | 1.0_RC2 |  | 2020-04-26 | Kommunikationsmönstret ändrat från direktåtkomst (sammanhållen journalföring) till utlämnande. Tjänstekontraktet GetExemptionStatuses är därmed ändrat från synkront till asynkront där dess begäran och svar delats upp i två separata tjänstekontrakt – RequestExemptionStatuses och ProcessExemptionStatuses. | Thomas Fafoutis |  |
@@ -30,7 +30,7 @@ Källa: *Högkostnadsskydd*, tjänstekontraktbeskrivning version 1.0 (2024-03-25
 | 1.0_RC3 |  | 2021-02-08 | Komplettering om header, skickad av aggregerade tjänster (ProcessingStatus) | Thomas Fafoutis |  |
 | 1.0_RC3 |  | 2021-05-20 | Tillägg till adresseringsmönster för att stödja agenter | Thomas Fafoutis |  |
 | 1.0_RC3 |  | 2023-05-02 | Korrigerat kardinalitet för transaktionernas tidsstämplar i MIM | Thomas Fafoutis |  |
-| 1.0_RC4 |  | 2023-10-10 | Förtydliganden kring hur attributet requestId ska förmedlas. / Ändrat kardinalitet för IIType.extension [1..1]->[1..0]. / Frikortsnummer tillagt. | Thomas Fafoutis |  |
+| 1.0_RC4 |  | 2023-10-10 | Förtydliganden kring hur attributet requestId ska förmedlas.<br/>Ändrat kardinalitet för IIType.extension [1..1]->[1..0].<br/>Frikortsnummer tillagt. | Thomas Fafoutis |  |
 | 1.0 |  | 2024-03-27 | Korrigerat fel i fältet serviceDomain i kap 4.2. Namnrymden ska ha ”:” mellan samtliga delar | Thomas Fafoutis |  |
 
 #### Referenser
@@ -54,7 +54,7 @@ Källa: *Högkostnadsskydd*, tjänstekontraktbeskrivning version 1.0 (2024-03-25
 | Personnummer | För varje folkbokförd person i Sverige fastställer Skatteverket ett personnummer som identitetsbeteckning. |
 | Reservidentitet (även kallat reservnummer) | Tillfällig identitetsbeteckning för individ då säkerställt person- eller samordningsnummer saknas, t.ex. då individens identitet inte kan fastställas, vid vård i katastrofsituationer mm. |
 | Lokal reservidentitet | Reservidentiteter som ges ut och hanteras lokalt i en organisation, t.ex. i ett landsting eller en kommun. |
-| Individs huvudidentitet | Den nu gällande (aktuella) personidentifieraren för en individ. / Exempel1: En person har haft ett samordningsnummer, men får vid senare tillfälle ett personnummer. Personnumret blir personens nya huvudidentitet. / Exempel2: En patient i vården som inte är folkbokförd i Sverige får ett nationellt Reservid tilldelat hos en vårdgivare, eftersom patienten saknar personnummer/samordningsnummer. Senare konstateras hos vårdgivaren att patienten också haft en lokal reservidentitet där man dokumenterat en tidigare vårdkontakt. Vårdgivaren knyter den lokala lokal reservidentiteten till patientens nationella ReservId, vilket är patientens huvudidentitet. |
+| Individs huvudidentitet | Den nu gällande (aktuella) personidentifieraren för en individ.<br/>Exempel1: En person har haft ett samordningsnummer, men får vid senare tillfälle ett personnummer. Personnumret blir personens nya huvudidentitet.<br/>Exempel2: En patient i vården som inte är folkbokförd i Sverige får ett nationellt Reservid tilldelat hos en vårdgivare, eftersom patienten saknar personnummer/samordningsnummer. Senare konstateras hos vårdgivaren att patienten också haft en lokal reservidentitet där man dokumenterat en tidigare vårdkontakt. Vårdgivaren knyter den lokala lokal reservidentiteten till patientens nationella ReservId, vilket är patientens huvudidentitet. |
 | Kopplade personidentifierare, kopplingsinformation | Flera personidentifierare för samma individ har kopplats samman i en IT-tjänst. Exempel: en patient har tidigare registrerats på ett nationellt ReservId (NRID), men identifieras senare med hens personnummer. NRID kopplas till patientens personnummer i en stödtjänst för personuppgifter. |
 
 #### Förkortningar

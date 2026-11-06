@@ -11,7 +11,7 @@ Begäran visas nedan med rosa bakgrund och svar med vit.
 
 ![img_011.png](img_011.png)
 
-| V-MIM / Klass / Attribut | Mappning mot XSD-filer / Klass.attribut |
+| V-MIM<br/>Klass<br/>Attribut | Mappning mot XSD-filer<br/>Klass.attribut |
 | :--- | :--- |
 | AnswerInquiry | - |
 | Svar | - |
@@ -35,7 +35,7 @@ Begäran visas nedan med rosa bakgrund och svar med vit.
 
 ![img_007.png](img_007.png)
 
-| V-MIM / Klass / Attribut | Mappning mot XSD-filer / Klass.attribut |
+| V-MIM<br/>Klass<br/>Attribut | Mappning mot XSD-filer<br/>Klass.attribut |
 | :--- | :--- |
 | AnswerInquiryResponse | - |
 | Result | - |
@@ -51,7 +51,7 @@ Begäran visas nedan med rosa bakgrund och svar med vit.
 
 ![img_004.png](img_004.png)
 
-| V-MIM / Klass / Attribut | V-MIM / Klass / Attribut | Mappning mot XSD-filer / Klass.attribut |
+| V-MIM<br/>Klass<br/>Attribut | V-MIM<br/>Klass<br/>Attribut | Mappning mot XSD-filer<br/>Klass.attribut |
 | :--- | :--- | :--- |
 | Beställning | - | - |
 | referensnummer | BookingOccasionCreate.ReferenceNumber | BookingOccasionCreate.ReferenceNumber |
@@ -94,7 +94,7 @@ Begäran visas nedan med rosa bakgrund och svar med vit.
 
 ![img_003.png](img_003.png)
 
-| V-MIM / Klass / Attribut | Mappning mot XSD-filer / Klass.attribut |
+| V-MIM<br/>Klass<br/>Attribut | Mappning mot XSD-filer<br/>Klass.attribut |
 | :--- | :--- |
 | Beställning | - |
 | beställningsnummer | ReferenceNumberMapping.BookingNumber |
@@ -113,7 +113,7 @@ Begäran visas nedan med rosa bakgrund och svaret med vit.
 
 ![img_001.png](img_001.png)
 
-| V-MIM / Klass / Attribut | Mappning mot XSD-filer / Klass.attribut |
+| V-MIM<br/>Klass<br/>Attribut | Mappning mot XSD-filer<br/>Klass.attribut |
 | :--- | :--- |
 | ListBookings | - |
 | LastSequenceNumber | ListBookings.LastSequenceNumber |
@@ -122,7 +122,7 @@ Begäran visas nedan med rosa bakgrund och svaret med vit.
 
 ![img_010.png](img_010.png)
 
-| V-MIM / Klass / Attribut | Mappning mot XSD-filer / Klass.attribut |
+| V-MIM<br/>Klass<br/>Attribut | Mappning mot XSD-filer<br/>Klass.attribut |
 | :--- | :--- |
 | ListBookingsResponse | - |
 | LastSequenceNumber | ListBookingsResponseType.LastSequenceNumber |
@@ -190,7 +190,7 @@ Begäran visas nedan med rosa bakgrund och svaret med vit.
 
 ![img_005.png](img_005.png)
 
-| V-MIM / Klass / Attribut | Mappning mot XSD-filer / Klass.attribut |
+| V-MIM<br/>Klass<br/>Attribut | Mappning mot XSD-filer<br/>Klass.attribut |
 | :--- | :--- |
 | ListInquiries | - |
 | LastSequenceNumber | ListInqueries.LastSequenceNumber |
@@ -199,7 +199,7 @@ Begäran visas nedan med rosa bakgrund och svaret med vit.
 
 ![img_002.png](img_002.png)
 
-| V-MIM / Klass / Attribut | Mappning mot XSD-filer / Klass.attribut |
+| V-MIM<br/>Klass<br/>Attribut | Mappning mot XSD-filer<br/>Klass.attribut |
 | :--- | :--- |
 | ListInquiriesResponse | - |
 | HasMoreEntries | ListInquiriesResponseType.HasMoreEntries |
@@ -272,7 +272,7 @@ Begäran visas nedan med rosa bakgrund och svar med vit.
 
 ![img_012.png](img_012.png)
 
-| V-MIM / Klass / Attribut | Mappning mot XSD-filer / Klass.attribut |
+| V-MIM<br/>Klass<br/>Attribut | Mappning mot XSD-filer<br/>Klass.attribut |
 | :--- | :--- |
 | UpdateBooking | - |
 | Beställning | - |
@@ -290,7 +290,7 @@ Begäran visas nedan med rosa bakgrund och svar med vit.
 
 ![img_008.png](img_008.png)
 
-| V-MIM / Klass / Attribut | Mappning mot XSD-filer / Klass.attribut |
+| V-MIM<br/>Klass<br/>Attribut | Mappning mot XSD-filer<br/>Klass.attribut |
 | :--- | :--- |
 | UpdateBookingResponse | - |
 | Result | - |

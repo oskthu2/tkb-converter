@@ -88,12 +88,11 @@ administration 	- tjänstekontrakt för spärradministration (lokal nivå)
 
 ### Referenser
 
-| Beteckning | Dokument / Källa |
+| Beteckning | Dokument<br/>Källa |
 | :--- | :--- |
 | RIV PDLiP | RIV Specifikation Patientdatalagen i Praktiken, 1.0, CeHis, www.cehis.se |
 | PDL | Patientdatalag (2008:355), http://www.regeringen.se/sb/d/6150/a/71234 |
 | SOS2008:14 | SOSFS 2008:14 föreskrifter samt handbok http://www.sos.se/sosfs |
 | RIVAnvisning Tjänstebeskrivning | RIV_21_Anvisning_Bilaga_51_Tjanstekontraktbeskrivning_Regelverk_110220 |
-| RIV TA 2 | RIV Teknisk Anvisning Basic Profile 2.1
-http://rivta.googlecode.com/svn/wiki/specs/RIV_Tekniska_Anvisningar_Basic_profile_2.1.pdf |
+| RIV TA 2 | RIV Teknisk Anvisning Basic Profile 2.1<br/>http://rivta.googlecode.com/svn/wiki/specs/RIV_Tekniska_Anvisningar_Basic_profile_2.1.pdf |
 

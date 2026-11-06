@@ -21,7 +21,7 @@ Nedanstående diagram visar hur man kan hämta personuppgifter på en eller fler
 | Namn | Beskrivning |
 | :--- | :--- |
 | Användare | Kan vara medarbetare (vård/omsorg/administration) eller invånare |
-| Tjänstekonsument | Det system som används för att konsumera information. Dvs det system som använder tjänster enligt ett tjänstekontrakt. / Kan vara ett vårdsystem, administrativt system etc. |
+| Tjänstekonsument | Det system som används för att konsumera information. Dvs det system som använder tjänster enligt ett tjänstekontrakt.<br/>Kan vara ett vårdsystem, administrativt system etc. |
 | Tjänsteplattform | Tjänsteplattformen är det lager som hanterar virtuella tjänster, aggregerande tjänster samt anpassningstjänster. |
 | Tjänsteproducent - Personuppgiftstjänst | Tillhandahåller mellanlager med personuppgifter till visst SLA enligt domänens regler, även kallad PU-tjänst. |
 | Skatteverket/Navet | Bakomliggande register/tjänst - master för folkbokföringsuppgifter |

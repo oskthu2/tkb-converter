@@ -62,7 +62,7 @@ Datatypen utökar datatypen Result.
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | hasConsent | xs:boolean | Anger om aktören har ett giltigt samtycke, alternativt intyg om nödsituation, gällande åtkomst. | 1 |
-| assertionType | patientconsent:AssertionType | Anger vilken typ av intyg som hittades. / Om olika typer av samtyckesintyg finns registrerade returneras endast typen för det senaste registrerade intyget. | 0..1 |
+| assertionType | patientconsent:AssertionType | Anger vilken typ av intyg som hittades.<br/>Om olika typer av samtyckesintyg finns registrerade returneras endast typen för det senaste registrerade intyget. | 0..1 |
 
 #### patientconsent:ExtendedPDLAssertion
 Datatyp som representerar ett samtycke med ett utökat format. Innehåller information vem som har begärt respektive registrerat samtycket, samt om och när samtycket är återkallat eller makulerat.
@@ -82,7 +82,7 @@ Datatypen utökar datatypen Result.
 
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| moreOnOrAfter | xs:dateTime | Anger fr.o.m. vilken tidpunkt ytterligare samtyckesintyg finns att hämta. Tidpunkten kan användas iterativt i anrop till tjänsten som ett värde till parametern CreatedOnOrAfter. / Om inga fler samtyckesintyg finns att tillgå returneras ändå en tidpunkt vilket då får representera nästa möjliga hämtningstidpunkt, dvs nya samtyckesintyg kommer att bli registrerade efter denna tidpunkt. | 1 |
+| moreOnOrAfter | xs:dateTime | Anger fr.o.m. vilken tidpunkt ytterligare samtyckesintyg finns att hämta. Tidpunkten kan användas iterativt i anrop till tjänsten som ett värde till parametern CreatedOnOrAfter.<br/>Om inga fler samtyckesintyg finns att tillgå returneras ändå en tidpunkt vilket då får representera nästa möjliga hämtningstidpunkt, dvs nya samtyckesintyg kommer att bli registrerade efter denna tidpunkt. | 1 |
 | hasMore | xs:boolean | Anger om det finns ytterligare samtycken att hämta. Om fler samtycken finns att hämta bör hämtningen utgå fr.o.m. den tidpunkt som anges i MoreOnOrAfter. | 1 |
 | assertions | patientconsent:PDLAssertion | Lista med giltiga intyg. | 0..* |
 | cancelledAssertions | patientconsent:CancelledAssertion | Lista med ej utgångna makulerade och återkallade intyg. | 0..* |

@@ -1,0 +1,221 @@
+<!-- ========================================================= -->
+<!-- Enkla datatyper                                           -->
+<!-- ========================================================= -->
+
+<xs:simpleType name="DateType">
+    <xs:annotation>
+        <xs:documentation>Datum på formatet YYYYMMDD utan tidszon.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+        <xs:pattern value="(19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="PartialDateValueType">
+    <xs:annotation>
+        <xs:documentation>Datumvärde på formatet YYYY, YYYYMM eller YYYYMMDD.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+        <xs:pattern
+            value="-?([1-9][0-9]{3}|0[0-9]{3})((0[1-9]|1[0-2])((0[1-9]|[12][0-9]|3[01]))?)?"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="DecimalPrimitiveType">
+    <xs:annotation>
+        <xs:documentation>Decimaltal som bevarar signifikanta avslutande nollor.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+        <xs:pattern value="-?(0|[1-9][0-9]*)((\.|,)[0-9]+)?([eE][+-]?[0-9]+)?"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="TimeStampType">
+    <xs:annotation>
+        <xs:documentation>Tidpunkt på formatet YYYYMMDDhhmmss utan tidszon.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+        <xs:pattern
+            value="(19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])(0[0-9]|1[0-9]|2[0123])([0-5])([0-9])([0-5])([0-9])"/>
+    </xs:restriction>
+</xs:simpleType>
+
+
+<!-- ========================================================= -->
+<!-- Sammansatta datatyper                                     -->
+<!-- ========================================================= -->
+
+<xs:complexType name="ActorType">
+    <xs:annotation>
+        <xs:documentation>Medarbetare i vård och omsorg</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+        <xs:element name="hsaId" type="tns:HSAIdType" minOccurs="0"/>
+        <xs:element name="personName" type="xs:string" minOccurs="0"/>
+        <xs:element name="personTelecom" type="xs:string" minOccurs="0"/>
+        <xs:element name="personEmail" type="xs:string" minOccurs="0"/>
+        <xs:element name="personAddress" type="xs:string" minOccurs="0"/>
+        <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CVType">
+    <xs:annotation>
+        <xs:documentation>Referens till ett begrepp i ett externt kodverk.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+        <xs:element name="code" type="xs:string" minOccurs="0"/>
+        <xs:element name="codeSystem" type="xs:string" minOccurs="0"/>
+        <xs:element name="codeSystemName" type="xs:string" minOccurs="0"/>
+        <xs:element name="codeSystemVersion" type="xs:string" minOccurs="0"/>
+        <xs:element name="displayName" type="xs:string" minOccurs="0"/>
+        <xs:element name="originalText" type="xs:string" minOccurs="0"/>
+        <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DatePeriodType">
+    <xs:annotation>
+        <xs:documentation>Datumintervall med minst ett start- eller slutdatum.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+        <xs:element name="start" type="tns:DateType" minOccurs="0"/>
+        <xs:element name="end" type="tns:DateType" minOccurs="0"/>
+        <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="HealthcareProfessionalType">
+    <xs:annotation>
+        <xs:documentation>Vård- och omsorgspersonal samt organisatorisk tillhörighet.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+        <xs:element name="authorTime" type="tns:TimeStampType"/>
+        <xs:element name="healthcareProfessionalHSAId" type="tns:HSAIdType" minOccurs="0"/>
+        <xs:element name="healthcareProfessionalName" type="xs:string" minOccurs="0"/>
+        <xs:element name="healthcareProfessionalRoleCode" type="tns:CVType" minOccurs="0"/>
+        <xs:element name="healthcareProfessionalOrgUnit" type="tns:OrgUnitType" minOccurs="0"/>
+        <xs:element name="healthcareProfessionalCareUnitHSAId" type="tns:HSAIdType" minOccurs="0"/>
+        <xs:element name="healthcareProfessionalCareGiverHSAId" type="tns:HSAIdType" minOccurs="0"/>
+        <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="IIType">
+    <xs:annotation>
+        <xs:documentation>Unik identifierare för ett objekt eller en entitet.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+        <xs:element name="root" type="xs:string"/>
+        <xs:element name="extension" type="xs:string" minOccurs="0"/>
+        <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LegalAuthenticatorType">
+    <xs:annotation>
+        <xs:documentation>Signatur och uppgifter om signerande person.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+        <xs:element name="signatureTime" type="tns:TimeStampType"/>
+        <xs:element name="legalAuthenticatorHSAId" type="tns:HSAIdType" minOccurs="0"/>
+        <xs:element name="legalAuthenticatorName" type="xs:string" minOccurs="0"/>
+        <xs:element name="legalAuthenticatorRoleCode" type="tns:CVType" minOccurs="0"/>
+        <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="MultimediaType">
+    <xs:annotation>
+        <xs:documentation>Multimediaobjekt som binärdata eller extern referens.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+        <xs:element name="id" type="xs:string" minOccurs="0"/>
+        <xs:element name="mediaType" type="codes:MediaTypeEnum"/>
+        <xs:element name="value" type="xs:base64Binary" minOccurs="0"/>
+        <xs:element name="reference" type="xs:anyURI" minOccurs="0"/>
+        <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="OrgUnitType">
+    <xs:annotation>
+        <xs:documentation>Identitets-, kontakt- och adressuppgifter för en organisationsenhet.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+        <xs:element name="orgUnitHSAId" type="tns:HSAIdType" minOccurs="0"/>
+        <xs:element name="orgUnitName" type="xs:string" minOccurs="0"/>
+        <xs:element name="orgUnitTelecom" type="xs:string" minOccurs="0"/>
+        <xs:element name="orgUnitEmail" type="xs:string" minOccurs="0"/>
+        <xs:element name="orgUnitAddress" type="xs:string" minOccurs="0"/>
+        <xs:element name="orgUnitLocation" type="xs:string" minOccurs="0"/>
+        <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="PartialDateType">
+    <xs:annotation>
+        <xs:documentation>Datum med variabel noggrannhet.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+        <xs:element name="format" type="codes:DateTypeFormatEnum"/>
+        <xs:element name="value" type="tns:PartialDateValueType"/>
+        <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="PersonIdType">
+    <xs:annotation>
+        <xs:documentation>Identifierare för en person och typ av identifierare.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+        <xs:element name="id" type="xs:string"/>
+        <xs:element name="type" type="xs:string"/>
+        <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="PQIntervalType">
+    <xs:annotation>
+        <xs:documentation>Intervall av mätbara värden med enhet.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+        <xs:element name="low" type="tns:DecimalPrimitiveType" minOccurs="0"/>
+        <xs:element name="lowClosed" type="xs:boolean" minOccurs="0"/>
+        <xs:element name="high" type="tns:DecimalPrimitiveType" minOccurs="0"/>
+        <xs:element name="highClosed" type="xs:boolean" minOccurs="0"/>
+        <xs:element name="unit" type="xs:string"/>
+        <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="PQType">
+    <xs:annotation>
+        <xs:documentation>Mätbart värde med enhet.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+        <xs:element name="value" type="tns:DecimalPrimitiveType"/>
+        <xs:element name="unit" type="xs:string"/>
+    </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ResultType">
+    <xs:annotation>
+        <xs:documentation>Resultatkod och valfri text för logiska fel.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+        <xs:element name="resultCode" type="tns:ResultCodeEnum"/>
+        <xs:element name="resultText" type="xs:string" minOccurs="0"/>
+        <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="TimePeriodType">
+    <xs:annotation>
+        <xs:documentation>Tidsintervall med minst en start- eller sluttidpunkt.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+        <xs:element name="start" type="tns:TimeStampType" minOccurs="0"/>
+        <xs:element name="end" type="tns:TimeStampType" minOccurs="0"/>
+    </xs:sequence>
+</xs:complexType>

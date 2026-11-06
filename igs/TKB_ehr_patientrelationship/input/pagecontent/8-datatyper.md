@@ -83,7 +83,7 @@ Datatypen utökar datatypen Result.
 
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| moreOnOrAfter | xs:dateTime | Anger fr.o.m. vilken tidpunkt ytterligare patientrelationer finns att hämta. Tidpunkten kan användas iterativt i anrop till tjänsten som ett värde till parametern CreatedOnOrAfter. / Om inga fler patientrelationer finns att tillgå returneras ändå en tidpunkt vilket då får representera nästa möjliga hämtningstidpunkt, dvs nya patientrelationer kommer att bli registrerade efter denna tidpunkt. | 1 |
+| moreOnOrAfter | xs:dateTime | Anger fr.o.m. vilken tidpunkt ytterligare patientrelationer finns att hämta. Tidpunkten kan användas iterativt i anrop till tjänsten som ett värde till parametern CreatedOnOrAfter.<br/>Om inga fler patientrelationer finns att tillgå returneras ändå en tidpunkt vilket då får representera nästa möjliga hämtningstidpunkt, dvs nya patientrelationer kommer att bli registrerade efter denna tidpunkt. | 1 |
 | hasMore | xs:boolean | Anger om det finns ytterligare patientrelationer att hämta. Om fler patientrelationer finns att hämta bör hämtningen utgå fr.o.m. den tidpunkt som anges i MoreOnOrAfter. | 1 |
 | patientRelations | patientrelationship:PatientRelation | Lista med aktiva patientrelationer. | 0..* |
 | cancelledPatientRelations | patientrelationship:CancelledPatientRelation | Lista med makulerade och återkallade patientrelationer. | 0..* |

@@ -61,11 +61,11 @@ ResultCode kan vara:
 | :--- | :--- |
 | OK | Transaktionen har utförts enligt uppdraget i begäran. |
 | INFO | Transaktionen har utförts enligt uppdraget i begäran, men det finns ett meddelande som tjänstekonsumenten måste visa upp för användaren. |
-| ERROR | Transaktionen har INTE kunnat utföras enligt anrop p.g.a. logiskt fel. / Fältet resultText ska sättas till den rapport som skapas av schematron-reglerna eller schema-validering. / Meddelandet anses inte mottaget. |
-| ERROR_MAXIMUM_ANNUAL_UPDATES_EXCEEDED | Invånaren har redan omlistat sig det maximala antalet gånger som folkbokföringsregionen tillåter per 12-månaders period. / Felkoden är applicerbar för tjänstekontrakten CreateListing och UpdateListing och ska returneras av producent när detta fall inträffat. |
-| ERROR_MAXIMUM_CITIZEN_REACHED_ON_CAREUNIT | Vårdcentralen/mottagningen som invånaren önskar lista sig på har redan uppnått det tak på maximalt antal listade invånare som folkbokföringsregionen tillåter för vårdcentralen/mottagningen. / Felkoden är applicerbar för tjänstekontraktet CreateListing och ska returneras av producent när detta fall inträffat. |
-| ERROR_GUARDIAN_CONSENT_NEEDED | Listning eller omlistning av minderåring accepteras inte på grund av att samtycke saknas från båda vårdnadshavare. Det är regionens ansvar att avgöra huruvida samtycken krävs, likaså att inhämta och förvalta dessa. / Felkoden är applicerbar för tjänstekontraktet CreateListing och ska returneras av producent när detta fall inträffat. |
-| ERROR_AGE_LIMIT | Regionens har en åldersgräns för att tillåta listning/omlistning. / Felkoden är applicerbar för tjänstekontraktet CreateListing och ska returneras av producent när detta fall inträffat. |
+| ERROR | Transaktionen har INTE kunnat utföras enligt anrop p.g.a. logiskt fel.<br/>Fältet resultText ska sättas till den rapport som skapas av schematron-reglerna eller schema-validering.<br/>Meddelandet anses inte mottaget. |
+| ERROR_MAXIMUM_ANNUAL_UPDATES_EXCEEDED | Invånaren har redan omlistat sig det maximala antalet gånger som folkbokföringsregionen tillåter per 12-månaders period.<br/>Felkoden är applicerbar för tjänstekontrakten CreateListing och UpdateListing och ska returneras av producent när detta fall inträffat. |
+| ERROR_MAXIMUM_CITIZEN_REACHED_ON_CAREUNIT | Vårdcentralen/mottagningen som invånaren önskar lista sig på har redan uppnått det tak på maximalt antal listade invånare som folkbokföringsregionen tillåter för vårdcentralen/mottagningen.<br/>Felkoden är applicerbar för tjänstekontraktet CreateListing och ska returneras av producent när detta fall inträffat. |
+| ERROR_GUARDIAN_CONSENT_NEEDED | Listning eller omlistning av minderåring accepteras inte på grund av att samtycke saknas från båda vårdnadshavare. Det är regionens ansvar att avgöra huruvida samtycken krävs, likaså att inhämta och förvalta dessa.<br/>Felkoden är applicerbar för tjänstekontraktet CreateListing och ska returneras av producent när detta fall inträffat. |
+| ERROR_AGE_LIMIT | Regionens har en åldersgräns för att tillåta listning/omlistning.<br/>Felkoden är applicerbar för tjänstekontraktet CreateListing och ska returneras av producent när detta fall inträffat. |
 
 #### 4.3.2 Krav på en tjänstekonsument
 

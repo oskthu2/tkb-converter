@@ -41,8 +41,8 @@ PLATS FÖR BILD MED DIAGRAM
 | telefonnummer | saknas |
 | epost | saknas |
 | Fakturaunderlag vård_rad | saknas |
-| Patient | Person + / Vård- och omsorgstagare |
-| Patient id | person.person-id + / vård- och omsorgstagare.id |
+| Patient | Person +<br/>Vård- och omsorgstagare |
+| Patient id | person.person-id +<br/>vård- och omsorgstagare.id |
 | Övrig information | saknas |
 | länskod | saknas |
 | kommunkod | saknas |

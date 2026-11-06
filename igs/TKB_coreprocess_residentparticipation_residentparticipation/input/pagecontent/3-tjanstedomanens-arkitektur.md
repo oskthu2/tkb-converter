@@ -71,7 +71,7 @@ Flödet beskriver vård- eller omsorgspersonals tillgång till patients fasta ko
 | :--- | :--- |
 | Logga in i patientöversikt och navigera till tjänst | Vård- och omsorgsperson loggar in i patientöversikt via sitt tjänstekort. |
 | Väljer att se patients fasta kontakter. | Vård- och omsorgsperson söker efter patient som vård- och omsorgspersonal har en vård- eller omsorgsrelation till. |
-| Samtycker patient att vårdpersonal tar del av fasta kontakter kopplade till annan vårdgivare | Tjänst för patientöversikt kontrollerar om patient tidigare givit samtycke för att vård- eller omsorgspersonal i sitt aktuella uppdrag ska få ta del av fasta kontakter kopplade till annan vårdgivare (enligt lagen om sammanhållen vård- och omsorgsdokumentation). / Om inget samtycke finns sedan tidigare frågar tjänst för patientöversikt vård- eller omsorgspersonalen om att efterfråga samtycke från patient (eventuell nödöppning eller beslut om mognadsbedömning kan också ge vård- eller omsorgspersonal möjlighet att ta del av patients fasta kontakter). |
+| Samtycker patient att vårdpersonal tar del av fasta kontakter kopplade till annan vårdgivare | Tjänst för patientöversikt kontrollerar om patient tidigare givit samtycke för att vård- eller omsorgspersonal i sitt aktuella uppdrag ska få ta del av fasta kontakter kopplade till annan vårdgivare (enligt lagen om sammanhållen vård- och omsorgsdokumentation).<br/>Om inget samtycke finns sedan tidigare frågar tjänst för patientöversikt vård- eller omsorgspersonalen om att efterfråga samtycke från patient (eventuell nödöppning eller beslut om mognadsbedömning kan också ge vård- eller omsorgspersonal möjlighet att ta del av patients fasta kontakter). |
 | Ser patients alla fasta kontakter | Vård- eller omsorgspersonal tar del detaljer om patients fasta kontakter. |
 
 ##### 3.1.2.2 Sekvensdiagram - GetCareManagers
@@ -117,4 +117,4 @@ Om logisk adress är HSA-id för Inera eller en huvudman kommer anropet att diri
 | :--- | :--- |
 | Nationellt | Ineras HSA-id: 5565594230 |
 | För en huvudman/region | Huvudmannens/regionens HSA-id |
-| För ett källsystem | Logisk adress som källsystemet förväntas kunna adresseras genom, enligt tjänsteadresseringskatalogen i anropad tjänsteplattform. / Observera att värdet för logisk adress inte nödvändigtvis alltid har samma värde som källsystemets HsaId (så som uttryckt i källsystemets servercertifikat). / Se T-bokens styrande principer – IT4 - Lös koppling (loose coupling) & interoperabilitet, ref [R9]. |
+| För ett källsystem | Logisk adress som källsystemet förväntas kunna adresseras genom, enligt tjänsteadresseringskatalogen i anropad tjänsteplattform.<br/>Observera att värdet för logisk adress inte nödvändigtvis alltid har samma värde som källsystemets HsaId (så som uttryckt i källsystemets servercertifikat).<br/>Se T-bokens styrande principer – IT4 - Lös koppling (loose coupling) & interoperabilitet, ref [R9]. |

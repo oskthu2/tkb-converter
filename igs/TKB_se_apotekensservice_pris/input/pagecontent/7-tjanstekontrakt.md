@@ -136,7 +136,7 @@
 | ../orgAktorId | string | GLN-kod för apotek som registrerat transaktionen. Visas ej vid sekretesskydd. | 0..1 |
 | ../persNr | string | Personnummer för den som transaktionen gäller. | 1..1 |
 | ../sign | string | Typ av trans: +,-,ABC, ... Detta fält används enbart internt. | 1..1 |
-| ../transId | string | Aktörens expeditions-ID / verifikationsnr. | 1..1 |
+| ../transId | string | Aktörens expeditions-ID<br/>verifikationsnr. | 1..1 |
 | ../transPeriod | PeriodResponse | Transaktionens högkostnadsuppgifter. | 1..1 |
 | ../../balans | BalansResponse | Ackumulerad balans | 1..1 |
 | ../../../brutto | double | Bruttobelopp i kronor och ören | 1..1 |
@@ -194,7 +194,7 @@
 | ../orgAktorId | string | GLN-kod för apotek som registrerat transaktionen. Visas ej vid sekretesskydd. | 0..1 |
 | ../persNr | string | Personnummer för den som transaktionen gäller. | 1..1 |
 | ../sign | string | Typ av trans: +,-,ABC, ... Detta fält används enbart internt. | 1..1 |
-| ../transId | string | Aktörens expeditions-ID / verifikationsnr. | 1..1 |
+| ../transId | string | Aktörens expeditions-ID<br/>verifikationsnr. | 1..1 |
 | ../transPeriod | PeriodResponse | Transaktionens högkostnadsuppgifter. | 1..1 |
 | ../../balans | BalansResponse | Ackumulerad balans | 1..1 |
 | ../../../brutto | double | Bruttobelopp i kronor och ören | 1..1 |

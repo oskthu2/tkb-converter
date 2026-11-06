@@ -23,6 +23,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import tkb_version  # noqa: E402
 import gen_menu  # noqa: E402
 import sync_field_descriptions  # noqa: E402
+import fix_md_tables  # noqa: E402
 
 # Kraschar bevisligen IG Publisher/SUSHI på alla nivåer (krockar med Element.id/extension):
 RE_RESERVED_HARD = re.compile(r"(^\s*\*\s+|\.)(id|extension|modifierExtension|contained|implicitRules)\s+[0-9]+\.\.[0-9*]+")
@@ -46,11 +47,16 @@ def lint_fsh(ig: Path, errors: list, warnings: list):
     for f in sorted((ig / "input" / "fsh").rglob("*.fsh")):
         rel = f.relative_to(ig.parent.parent) if ig.parent.parent in f.parents else f
         stack = []  # [(indent, fältnamn)]
-        for n, line in enumerate(f.read_text(encoding="utf-8").splitlines(), 1):
+        text = f.read_text(encoding="utf-8")
+        # Nästlade element av typen Base (scripts/xsd_logical_models.py) har inga egna id/extension,
+        # så schemats namn får användas där (se tkb-fsh-model, "Datatyper enligt schemat").
+        base_paths = set(re.findall(r"^\*\s+([\w.]+)\s+\d+\.\.[\d*]+\s+Base\b", text, re.M))
+        for n, line in enumerate(text.splitlines(), 1):
             if re.search(r"\*\s+\^obeys", line):
                 errors.append(f"{rel}:{n}: '^obeys' — obeys tar aldrig caret (skriv '* obeys id')")
             if "logical-models" in f.parts:
-                if RE_RESERVED_HARD.search(line):
+                rm = re.match(r"^\*\s+([\w.]+)\.\w+\s+\d+\.\.", line)
+                if RE_RESERVED_HARD.search(line) and not (rm and rm.group(1) in base_paths):
                     errors.append(f"{rel}:{n}: reserverat elementnamn (krockar med Element) — {line.strip()}")
                 elif RE_RESERVED_SOFT.search(line):
                     warnings.append(f"{rel}:{n}: reserverat namn på rotnivå — prefixa enligt konvention: {line.strip()}")
@@ -187,6 +193,10 @@ def lint_pages(ig: Path, errors: list, warnings: list):
     page_names = {p.stem + ".html" for p in pages.glob("*.md")} | {"artifacts.html", "index.html"}
     resources = ig / "fsh-generated" / "resources"  # finns bara efter en lokal sushi-körning
     for f in sorted(pages.glob("*.md")):
+        text = f.read_text(encoding="utf-8")
+        if fix_md_tables.fix_text(text) != text:
+            errors.append(f"{f}: tabellceller med ' / ' som radbrytning eller tabellrader uppdelade på flera rader "
+                          f"— kör scripts/fix_md_tables.py {ig} (se tkb-ig-builder, Tabeller)")
         in_code = False
         for n, line in enumerate(f.read_text(encoding="utf-8").splitlines(), 1):
             if line.lstrip().startswith("```"):

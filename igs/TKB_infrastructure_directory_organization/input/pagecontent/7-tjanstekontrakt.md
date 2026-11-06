@@ -19,7 +19,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | healthCareUnit | HealthCareUnitType |  | 0..1 |
 | ..healthCareUnitMemberHsaId | String | Enhetens (funktionens) HSA-id. Ref. HSA-id (hsaIdentity) [R5] | 0..1 |
 | ..healthCareUnitMemberName | String | Enhetens (funktionens) namn. Ref. organisationsnamn (o), enhetsnamn (ou) resp. objektnamn (cn) [R5] | 0..1 |
-| ..healthCareUnitMemberPublicName | String | Publikt officiellt namn. Det publika namnet beräknas i första hand utifrån enhetens DN tillsammans med värdet i attributet displayOption. Om displayOption saknas beräknas det publika namnet enligt: enhetens namn blanktecken location / Ref. alternativ namnvisning (displayOption), organisationsnamn (o), enhetsnamn (ou), objektnamn (cn), resp geografisk plats (l, localityName) [R5] | 0..1 |
+| ..healthCareUnitMemberPublicName | String | Publikt officiellt namn. Det publika namnet beräknas i första hand utifrån enhetens DN tillsammans med värdet i attributet displayOption. Om displayOption saknas beräknas det publika namnet enligt: enhetens namn blanktecken location<br/>Ref. alternativ namnvisning (displayOption), organisationsnamn (o), enhetsnamn (ou), objektnamn (cn), resp geografisk plats (l, localityName) [R5] | 0..1 |
 | ..healthCareUnitMemberStartDate | dateTime | Startdatum för enhetens (funktionens) verksamhet. Ref. startdatum (startDate) [R5] | 0..1 |
 | ..healthCareUnitMemberEndDate | dateTime | Slutdatum för enhetens (funktionens) verksamhet. Ref. slutdatum (endDate) [R5] | 0..1 |
 | ..healthCareUnitHsaId | String | Vårdenhetens HSA-id. Ref. HSA-id (hsaIdentity) [R5] | 1..1 |

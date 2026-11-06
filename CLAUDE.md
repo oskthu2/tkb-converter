@@ -42,6 +42,7 @@ Detaljinstruktionerna ligger i skills under `.claude/skills/`. De laddas när st
 - `make sushi-one D=TKB_x` — lokal SUSHI-kompilering (0 errors krävs).
 - `scripts/registry_update.py` — alla ändringar i `contracts-registry.json`.
 - `scripts/tkb_version.py` — Bitbucket-tagg till IG-version (`2.0` → `2.0.0`, `1.0_RC3` → `1.0.0-rc3`). IG-versionen följer alltid taggen IG:n byggs från.
+- `scripts/fix_md_tables.py igs/TKB_x` — normaliserar sidornas tabeller: radbrytningar i celler blir `<br/>` (inte " / "), uppdelade tabellrader slås ihop.
 - `scripts/sync_field_descriptions.py igs/TKB_x` — för in fälttabellernas Beskrivning, regler och kardinalitet som `^definition`/`^comment` på modellernas element (genererade RuleSets i `input/fsh/field-descriptions/`).
 - `scripts/set_ig_version.py igs/TKB_x` — för in registrets version i sushi-config, `* ^version` på FSH-resurserna (kontraktens egen major.minor) och index.md.
 - `.claude/hooks/session-start.sh` — installerar sushi, python-docx, antiword och FHIR-baspaketet (offline-stub) i nya sessioner.

@@ -57,7 +57,7 @@ Tjänstekontrakten hanterar registrering av åtkomsloggar samt läsning av demsa
 ### Tjänsteöversikt
 Nedanstående tabell visar vilka tjänster som finns definierade.
 
-| Tjänst | Beskrivning | Underdomän | Obligatorisk / Nationellt | Obligatoriskt lokalt |
+| Tjänst | Beskrivning | Underdomän | Obligatorisk<br/>Nationellt | Obligatoriskt lokalt |
 | :--- | :--- | :--- | :--- | :--- |
 | StoreLog | Tar en samling loggposter som lagras persisten i arkivfiler. | store | Ja | Nej |
 | GetLogsForCareProvider | Tjänst som returnerar loggposter för angiven vårdgivare, all åtkomst som har skett av vårdgivarens medarbetare. | querying | Ja | Nej |
@@ -69,12 +69,11 @@ Nedanstående tabell visar vilka tjänster som finns definierade.
 
 ### Referenser
 
-| Beteckning | Dokument / Källa |
+| Beteckning | Dokument<br/>Källa |
 | :--- | :--- |
 | RIV PDLiP | RIV Specifikation Patientdatalagen i Praktiken, 1.0, CeHis, www.cehis.se |
 | PDL | Patientdatalag (2008:355), http://www.regeringen.se/sb/d/6150/a/71234 |
 | SOS2008:14 | SOSFS 2008:14 föreskrifter samt handbok http://www.sos.se/sosfs |
 | RIVAnvisning Tjänstebeskrivning | RIV_21_Anvisning_Bilaga_51_Tjanstekontraktbeskrivning_Regelverk_110220 |
-| RIV TA 2 | RIV Teknisk Anvisning Basic Profile 2.1
-http://rivta.googlecode.com/svn/wiki/specs/RIV_Tekniska_Anvisningar_Basic_profile_2.1.pdf |
+| RIV TA 2 | RIV Teknisk Anvisning Basic Profile 2.1<br/>http://rivta.googlecode.com/svn/wiki/specs/RIV_Tekniska_Anvisningar_Basic_profile_2.1.pdf |
 

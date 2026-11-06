@@ -36,7 +36,7 @@ Till detta tjänstekontrakt finns regler som ej uttrycks i schemafilerna och tab
 | Regler i begäran | Regler i begäran | Regler i begäran |
 | - | - | - |
 | Regler i svaret | Regler i svaret | Regler i svaret |
-| #1 | Producentansvar | En producent skall alltid i svaret svara med requestedPersonalIdentity samt PersonRecord. / Vilket innebär att om konsumenten skickar in 3st personidentiteter men det endast finns 2st personposter som motsvarar anropet så skall likväl 3 svar erhållas, varav 1 i så fall med en tom PersonRecord. |
+| #1 | Producentansvar | En producent skall alltid i svaret svara med requestedPersonalIdentity samt PersonRecord.<br/>Vilket innebär att om konsumenten skickar in 3st personidentiteter men det endast finns 2st personposter som motsvarar anropet så skall likväl 3 svar erhållas, varav 1 i så fall med en tom PersonRecord. |
 | #2 | Producentansvar | En producent ska alltid returnera huvudidentitetens personuppgifter om flaggan ignoreReferredIdentity är satt till False. Dvs en sökning på en reservidentitet skall returnera huvudidentitetens personuppgifter -om det finns en koppling mellan reservidentiteten och en huvudidentitet. |
 | #3 | Producentansvar | En producent ska enbart returnera enligt profil 1 (se kap 8) om protectedPersonIndicator eller protectedPopulationRecord är satt till true. |
 | Allmänna regler | Allmänna regler | Allmänna regler |
@@ -1905,7 +1905,7 @@ Nedanstående tabell beskriver varje element i begäran och svar samt vilka data
 | Begäran |  |  |  |
 | actor | urn:riv:strategicresourcemanagement:persons:person:5:ActorType | Den som utför uppdateringen. | 1..1 |
 | personId | urn:riv:strategicresourcemanagement:persons:person:5:IIType | Id på personen vars kontaktuppgifter ska uppdateras | 1..1 |
-| versionToUpdate | urn:riv:strategicresourcemanagement:persons:person:5:Timestamp | Den version av personposten som skall uppdateras. Se även Övriga regler. / Tjänstekonsumenten får värdet genom en föregående hämtning av detta attribut (version i datatypen ContactInformationRecordType). | 0..1 |
+| versionToUpdate | urn:riv:strategicresourcemanagement:persons:person:5:Timestamp | Den version av personposten som skall uppdateras. Se även Övriga regler.<br/>Tjänstekonsumenten får värdet genom en föregående hämtning av detta attribut (version i datatypen ContactInformationRecordType). | 0..1 |
 | contactInformation | urn:riv:strategicresourcemanagement:persons:person:5:ContactInformationType | Personens kontaktuppgifter | 0..* |
 | contactPerson | urn:riv:strategicresourcemanagement:persons:person:5:ContactPersonType | Uppgifter om personens kontaktpersoner | 0..* |
 | optoutPaperNotification* | Xs:Boolean | Sätts till true om personen ej önskar pappersavisering | 0..1 |
@@ -1926,7 +1926,7 @@ Till detta tjänstekontrakt finns regler som ej uttrycks i schemafilerna och tab
 | - | - | - |
 | Allmänna regler | Allmänna regler | Allmänna regler |
 | #1 | Uppdatering kontaktuppgifter | För personer med sekretessmarkering eller Skyddad folkbokföring (protectetPersonIndicator resp protectedPopulationRecord) så ska man ej kunna ange kontaktuppgifter. |
-| #2 | Uppdatering kontaktuppgifter | En update ska alltid föregås av en läsning. Detta för att i anropet till tjänsten få med sig befintlig information på personen. De attribut som skickas in utan data blir därmed raderade/tomma. / Läsningen kan antingen ske via GetPersonContactInformation eller GetPerson och med minst profil 3. |
+| #2 | Uppdatering kontaktuppgifter | En update ska alltid föregås av en läsning. Detta för att i anropet till tjänsten få med sig befintlig information på personen. De attribut som skickas in utan data blir därmed raderade/tomma.<br/>Läsningen kan antingen ske via GetPersonContactInformation eller GetPerson och med minst profil 3. |
 
 ##### 7.10.3.1 Icke funktionella krav
 
@@ -2106,7 +2106,7 @@ Till detta tjänstekontrakt finns regler som ej uttrycks i schemafilerna och tab
 | Regler i svaret | Regler i svaret | Regler i svaret |
 | - | - | - |
 | Allmänna regler | Allmänna regler | Allmänna regler |
-| #2 | Uppdatering kontaktuppgifter | En update ska alltid föregås av en läsning. Detta för att i anropet till tjänsten få med sig befintlig information på personen. De attribut som skickas in utan data blir därmed raderade/tomma. / Läsningen kan antingen ske via GetPersonContactInformation eller GetPerson och med minst profil 3. |
+| #2 | Uppdatering kontaktuppgifter | En update ska alltid föregås av en läsning. Detta för att i anropet till tjänsten få med sig befintlig information på personen. De attribut som skickas in utan data blir därmed raderade/tomma.<br/>Läsningen kan antingen ske via GetPersonContactInformation eller GetPerson och med minst profil 3. |
 
 ##### 7.11.3.1 Icke funktionella krav
 
@@ -2951,10 +2951,10 @@ Parametrar:
 
 | Namn | Beskrivning |
 | :--- | :--- |
-| profile | Obligatorisk parameter för vilken profil som önskas i svaret. Se TKB för beskrivning av profilerna P1-P5. Observera att profilen skall anges med versalt P. / Datatyp: String. / Exempel: P1 |
-| fromDate | Valfri parameter för det datum man är intresserad av förändringar från och med baserat på fältet version i personposten. / Datatyp: LocalDateTime. / Exempel: 2021-10-12T00:00:00 |
-| maxResultsPerFile | Valfri parameter för max antal personposter per fil. Ej angivet så returneras alltid resultatet i endast en fil. Detta värde får ej vara lägre än 500. / Datatyp: Integer. / Exempel: 1000 |
-| primaryidentity | Valfri parameter. Om satt till true så kommer endast personposter som är huvudidentitet inkluderas i svaret. Om satt till false eller ej angiven alls så kommer alla personposter att inkluderas i svaret, vare sig de är huvudidentiteter eller ej. / Datatyp: Boolean. / Exempel: true |
+| profile | Obligatorisk parameter för vilken profil som önskas i svaret. Se TKB för beskrivning av profilerna P1-P5. Observera att profilen skall anges med versalt P.<br/>Datatyp: String.<br/>Exempel: P1 |
+| fromDate | Valfri parameter för det datum man är intresserad av förändringar från och med baserat på fältet version i personposten.<br/>Datatyp: LocalDateTime.<br/>Exempel: 2021-10-12T00:00:00 |
+| maxResultsPerFile | Valfri parameter för max antal personposter per fil. Ej angivet så returneras alltid resultatet i endast en fil. Detta värde får ej vara lägre än 500.<br/>Datatyp: Integer.<br/>Exempel: 1000 |
+| primaryidentity | Valfri parameter. Om satt till true så kommer endast personposter som är huvudidentitet inkluderas i svaret. Om satt till false eller ej angiven alls så kommer alla personposter att inkluderas i svaret, vare sig de är huvudidentiteter eller ej.<br/>Datatyp: Boolean.<br/>Exempel: true |
 
 #### 7.15.3 Övriga regler
 

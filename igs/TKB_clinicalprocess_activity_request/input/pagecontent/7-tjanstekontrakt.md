@@ -19,28 +19,19 @@ Nedanstående tabell beskriver varje element i begäran och svar. Referens till 
 | :--- | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |  |
 | Request | RequestType | Remiss |  |  |
-| request.requestId | RequestIdType | Remiss id
-Remissens identitet. Format: Källsystem-Id(HSA-ID)#lokalt-id / Exempel: SE2321000012-0001#987 | 1..1 | (.*)#(.*) / Maxlängd 256 tecken |
-| request.typeOfRequest | CodeForRequestType | Remisstyp
-Anger typ av remiss.
-I denna version är den giltiga koden ”4” – allmänremiss | 1..1 | codes:codeRequestOutcomeType |
-| request.versionTimeStamp | TimeStampType | Versionstidpunkt / Tidpunkt då versionen skapades. / Denna tidpunkt kan skilja sig från tidpunkten då remissen skickas. | 1..1 | ÅÅÅÅMMDDttmmss |
-| request.versionNumber | VersionNumberType | Versionsnummer
-Remissens versionsnummer. / Version startar alltid på 1 och räknas sekventiellt upp för varje ny version. / Denna räknas upp vid: / Ändrad remiss / Vidareskickad remiss / Ändrat betalnings-ansvar | 1..1 | (0*[1-9]+\|[1-9])\d* |
+| request.requestId | RequestIdType | Remiss id<br/>Remissens identitet. Format: Källsystem-Id(HSA-ID)#lokalt-id<br/>Exempel: SE2321000012-0001#987 | 1..1 | (.*)#(.*)<br/>Maxlängd 256 tecken |
+| request.typeOfRequest | CodeForRequestType | Remisstyp<br/>Anger typ av remiss.<br/>I denna version är den giltiga koden ”4” – allmänremiss | 1..1 | codes:codeRequestOutcomeType |
+| request.versionTimeStamp | TimeStampType | Versionstidpunkt<br/>Tidpunkt då versionen skapades.<br/>Denna tidpunkt kan skilja sig från tidpunkten då remissen skickas. | 1..1 | ÅÅÅÅMMDDttmmss |
+| request.versionNumber | VersionNumberType | Versionsnummer<br/>Remissens versionsnummer.<br/>Version startar alltid på 1 och räknas sekventiellt upp för varje ny version.<br/>Denna räknas upp vid:<br/>Ändrad remiss<br/>Vidareskickad remiss<br/>Ändrat betalnings-ansvar | 1..1 | (0*[1-9]+\|[1-9])\d* |
 | request.reasonForVersion | ReasonForVersionType | Versionsorsak | 1..1 |  |
 | request.reasonForVersion.typeOfReason | CodeVersionReason |  | 1..1 |  |
-| request.reasonForVersion.typeOfReason.code | CodeVersionReason_values | Anger varför en ny version skapats. / Värden enligt Kv e-remiss versionsorsak, se [R5]. Giltiga värden är: / NR = Ny remiss / AR = Ändrad remiss / VR = Vidareskickad remiss / AB = Ändrat betalningsansvar | 1..1 |  |
-| request.careResponsibilityRemains | Boolean | Vårdansvar kvarstår
-Anger om remittent vill att vårdansvar ska kvarstå hos remitterande enhet eller om man vill att vårdansvar överförs till remissmottagande enhet. / Två alternativ: / True = Vårdansvar kvarstår / False = Begäran om övertagande av vårdansvar | 1..1 |  |
+| request.reasonForVersion.typeOfReason.code | CodeVersionReason_values | Anger varför en ny version skapats.<br/>Värden enligt Kv e-remiss versionsorsak, se [R5]. Giltiga värden är:<br/>NR = Ny remiss<br/>AR = Ändrad remiss<br/>VR = Vidareskickad remiss<br/>AB = Ändrat betalningsansvar | 1..1 |  |
+| request.careResponsibilityRemains | Boolean | Vårdansvar kvarstår<br/>Anger om remittent vill att vårdansvar ska kvarstå hos remitterande enhet eller om man vill att vårdansvar överförs till remissmottagande enhet.<br/>Två alternativ:<br/>True = Vårdansvar kvarstår<br/>False = Begäran om övertagande av vårdansvar | 1..1 |  |
 | request.patient | PatientType | Patient | 1..1 |  |
-| request.patient.personId | PersonIdType | Person id
-Patientens identitet | 1..1 |  |
-| request.patient.personId.extension | String | Personidentifierare för patienten. / Om identiteten är av typ personnummer, samordningsnummer eller nationellt reservId skall denna anges med 12 tecken utan skiljetecken. | 1..1 |  |
-| request.patient.personId.root | String | OID för typ av personidentifierare. / För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas. / För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas. / För nationellt reservId ska OID för nationellt reservId (1.2.752.74.9.1) användas. / För andra typer av personidentifierare sätts root till aktuell OID. | 1..1 |  |
-| request.patient.address | AddressType | Tillfällig adress
-Observera att adress används endast om tillfällig adress behöver anges, ej folkbokförd adress.
-
-Adressen är avsedd att användas vid kallelse. Formatet är baserat på Skatteverkets distributionslösning Navet. | 0..1 |  |
+| request.patient.personId | PersonIdType | Person id<br/>Patientens identitet | 1..1 |  |
+| request.patient.personId.extension | String | Personidentifierare för patienten.<br/>Om identiteten är av typ personnummer, samordningsnummer eller nationellt reservId skall denna anges med 12 tecken utan skiljetecken. | 1..1 |  |
+| request.patient.personId.root | String | OID för typ av personidentifierare.<br/>För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.<br/>För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.<br/>För nationellt reservId ska OID för nationellt reservId (1.2.752.74.9.1) användas.<br/>För andra typer av personidentifierare sätts root till aktuell OID. | 1..1 |  |
+| request.patient.address | AddressType | Tillfällig adress<br/>Observera att adress används endast om tillfällig adress behöver anges, ej folkbokförd adress.<br/>Adressen är avsedd att användas vid kallelse. Formatet är baserat på Skatteverkets distributionslösning Navet. | 0..1 |  |
 | request.patient.address.careOf | String | ”Care of” | 0..1 | Maxlängd 35 tecken |
 | request.patient.address.streetName1 | String | Utdelningsadress1 | 1..1 | Maxlängd 35 tecken |
 | request.patient.address.streetName2 | String | Utdelningsadress2 | 0..1 | Maxlängd 35 tecken |
@@ -48,111 +39,77 @@ Adressen är avsedd att användas vid kallelse. Formatet är baserat på Skattev
 | request.patient.address.postalCity | String | Postort | 1..1 | Maxlängd 27 tecken |
 | request.patient.address.postBox | String | Postbox | 0..1 | Maxlängd 9 tecken |
 | request.patient.telecom | TelecomType | Telefon | 0..2 |  |
-| request.patient.telecom.typeOfTelecom | CodeForTelecomType | Telefon typ
-För att särskilja olika typer av telekomadresser används 2 olika koder ’MC’=Mobil, ’H’=Hemtelefon | 1..1 | codes:codeForTelecomType |
+| request.patient.telecom.typeOfTelecom | CodeForTelecomType | Telefon typ<br/>För att särskilja olika typer av telekomadresser används 2 olika koder ’MC’=Mobil, ’H’=Hemtelefon | 1..1 | codes:codeForTelecomType |
 | request.patient.telecom.number | String | Telefonnummer | 1..1 | Maxlängd 200 tecken |
-| request.patient.name | String | Namn
-Personnamn sammanslaget enligt formatet " Mellannamn Efternamn, Förnamn". Om flera namn av samma typ förekommer ska dessa separeras med mellanslag. / Implementationer rekommenderas att i första hand slå upp denna information från den källa till personinformation som normalt används. Detta namn är i första hand till för teknisk loggning och spårbarhet. | 0..1 | Maxlängd 216 tecken |
-| request.patient.gender | CodeForGenderType | Kön / Anger administrativt kön, dvs. det kön patienten har registrerat hos Skatteverket. / OID för kodsystem: 1.2.752.129.2.2.1.1 / Giltiga värden är: / 0 = okänt / 1 = man / 2 = kvinna / 9 = ej tillämpligt | 0..1 | codes:codeForGenderType |
-| request.patient.dateOfBirth | DateType | Födelsetidpunkt / Anges då patientens identitetstyp är av annan typ än personnummer. | 0..1 | ÅÅÅÅMMDD |
-| request.requestOrganisation | FullOrganisationType | Organisatorisk enhet / Information om ursprunglig remitterande organisatorisk enhet. Kan skilja sig från PDL ansvarig enhet vid behov. Det är denna enhet som svaret adresseras till i logisk adress. | 1..1 |  |
-| request.requestOrganisation.careUnitId | HsaIdType | Enhet id / HSA-id för remitterande enhet. Detta används av remissbesvarare som logisk adress för att adressera svarsmottagare. | 1..1 | Maxlängd 64 tecken |
-| request.requestOrganisation.careUnitName | String | Enhet namn / Namn på enhet. | 0..1 | Maxlängd 64 tecken |
-| request.requestOrganisation.careUnitTelephone | String | Enhet telefon / Telefon till enhet. | 0..1 |  |
-| request.requestOrganisation.careUnitEmail | String | Enhet epost / E-post till enhet. | 0..1 |  |
+| request.patient.name | String | Namn<br/>Personnamn sammanslaget enligt formatet " Mellannamn Efternamn, Förnamn". Om flera namn av samma typ förekommer ska dessa separeras med mellanslag.<br/>Implementationer rekommenderas att i första hand slå upp denna information från den källa till personinformation som normalt används. Detta namn är i första hand till för teknisk loggning och spårbarhet. | 0..1 | Maxlängd 216 tecken |
+| request.patient.gender | CodeForGenderType | Kön<br/>Anger administrativt kön, dvs. det kön patienten har registrerat hos Skatteverket.<br/>OID för kodsystem: 1.2.752.129.2.2.1.1<br/>Giltiga värden är:<br/>0 = okänt<br/>1 = man<br/>2 = kvinna<br/>9 = ej tillämpligt | 0..1 | codes:codeForGenderType |
+| request.patient.dateOfBirth | DateType | Födelsetidpunkt<br/>Anges då patientens identitetstyp är av annan typ än personnummer. | 0..1 | ÅÅÅÅMMDD |
+| request.requestOrganisation | FullOrganisationType | Organisatorisk enhet<br/>Information om ursprunglig remitterande organisatorisk enhet. Kan skilja sig från PDL ansvarig enhet vid behov. Det är denna enhet som svaret adresseras till i logisk adress. | 1..1 |  |
+| request.requestOrganisation.careUnitId | HsaIdType | Enhet id<br/>HSA-id för remitterande enhet. Detta används av remissbesvarare som logisk adress för att adressera svarsmottagare. | 1..1 | Maxlängd 64 tecken |
+| request.requestOrganisation.careUnitName | String | Enhet namn<br/>Namn på enhet. | 0..1 | Maxlängd 64 tecken |
+| request.requestOrganisation.careUnitTelephone | String | Enhet telefon<br/>Telefon till enhet. | 0..1 |  |
+| request.requestOrganisation.careUnitEmail | String | Enhet epost<br/>E-post till enhet. | 0..1 |  |
 | request.requestOrganisation.careUnitAddress | String | Adress till enhet. | 0..1 |  |
-| request.requestOrganisation.careUnitLocation | String | Enhet plats / Text som anger namnet på plats eller ort för enhetens eller funktionens fysiska placering. | 0..1 |  |
-| request.author | RequestAuthorType | Remittent / Information avseende den remitterande personen samt den organisation som personen är uppdragstagare på. | 1..1 |  |
-| request.author.date | DateType | Remissdatum / Remissdatum när remiss skapades måste anges. Format som ska användas är ÅÅÅÅMMDD | 1..1 | ÅÅÅÅMMDD |
+| request.requestOrganisation.careUnitLocation | String | Enhet plats<br/>Text som anger namnet på plats eller ort för enhetens eller funktionens fysiska placering. | 0..1 |  |
+| request.author | RequestAuthorType | Remittent<br/>Information avseende den remitterande personen samt den organisation som personen är uppdragstagare på. | 1..1 |  |
+| request.author.date | DateType | Remissdatum<br/>Remissdatum när remiss skapades måste anges. Format som ska användas är ÅÅÅÅMMDD | 1..1 | ÅÅÅÅMMDD |
 | request.author.healthcareProfessional | HealthcareProfessionalType | Hälso- och sjukvårdspersonal | 1..1 |  |
-| request.author.healthcareProfessional.id | HsaIdType | Personal Id / HSA-id för remitterande hälso- och sjukvårdspersonal. | 0..1 | Maxlängd 64 tecken |
-| request.author.healthcareProfessional.name | String | Personal namn / Namn på remitterande hälso- och sjukvårdspersonal. / Valfri formatering. | 1..1 | Maxlängd 64 tecken |
-| request.author.typeOfHealthcareProfessional | CVType | Typ av hälso- och sjukvårdspersonal / Kod för yrkestitel från Snomed CT enligt urvalen nedan: / code: se urval_legitimerade_yrken / codeSystem: OID 1.2.752.129.5.1.70
-eller / code: se yrken_i_halso-_och_sjukvarden_ej_legitimerade / codeSystem: 1.2.752.129.7.1.5 / Urvalen kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 0..1 |  |
-| request.author.healthcareProfessionalOrganisation | OrganisationType | Organisatorisk enhet
-remittent | 1..1 |  |
-| request.author.healthcareProfessionalOrganisation.careUnitId | HsaIdType | Enhet id / HSA-id för vårdenhet (jmf. PDL) som ansvarar för remissen. | 1..1 | Maxlängd 64 tecken |
-| request.recipient | RecipientType | Mottagare
-Information avseende den remissmottagande organisationen | 1..1 |  |
-| request.recipient.organisation | OrganisationType | Organisatorisk enhet
-mottagare | 1..1 |  |
-| request.recipient.organisation.careUnitId | HsaIdType | Enhet id / HSA-id för remissmottagande enhet, till vilken remissen adresseras. / Med remissmottagande enhet avses det som i SOSFS 2004:11 benämns som mottagande enhet. | 1..1 | Maxlängd 64 tecken |
-| request.intermediaryParticipant | IntermediaryType | Vidareskickare / Beskriver Hälso-och sjukvårdspersonalen som vidareskickar remissen | 0..* |  |
-| request.intermediaryParticipant. healthcareProfessionalOrganisation | OrganisationType | Organisatorisk enhet
-vidareskickare | 1..1 |  |
-| request.intermediaryParticipant.healthcareProfessionalOrganisation.careUnitId | HsaIdType | Enhet id / HSA-id på den remissmottagande enhet som vidareskickat remissen. | 1..1 | Maxlängd 64 tecken |
-| request.intermediaryParticipant.time | TimeStampType | Tidpunkt 
-Tidpunkt då versionen skapades för vidareskickning. / Denna tidpunkt kan skilja sig från tidpunkten då remissen faktiskt skickas beroende på hur detta implementeras i en lokal remissmodul. | 1..1 | ÅÅÅÅMMDDttmmss |
+| request.author.healthcareProfessional.id | HsaIdType | Personal Id<br/>HSA-id för remitterande hälso- och sjukvårdspersonal. | 0..1 | Maxlängd 64 tecken |
+| request.author.healthcareProfessional.name | String | Personal namn<br/>Namn på remitterande hälso- och sjukvårdspersonal.<br/>Valfri formatering. | 1..1 | Maxlängd 64 tecken |
+| request.author.typeOfHealthcareProfessional | CVType | Typ av hälso- och sjukvårdspersonal<br/>Kod för yrkestitel från Snomed CT enligt urvalen nedan:<br/>code: se urval_legitimerade_yrken<br/>codeSystem: OID 1.2.752.129.5.1.70<br/>eller<br/>code: se yrken_i_halso-_och_sjukvarden_ej_legitimerade<br/>codeSystem: 1.2.752.129.7.1.5<br/>Urvalen kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 0..1 |  |
+| request.author.healthcareProfessionalOrganisation | OrganisationType | Organisatorisk enhet<br/>remittent | 1..1 |  |
+| request.author.healthcareProfessionalOrganisation.careUnitId | HsaIdType | Enhet id<br/>HSA-id för vårdenhet (jmf. PDL) som ansvarar för remissen. | 1..1 | Maxlängd 64 tecken |
+| request.recipient | RecipientType | Mottagare<br/>Information avseende den remissmottagande organisationen | 1..1 |  |
+| request.recipient.organisation | OrganisationType | Organisatorisk enhet<br/>mottagare | 1..1 |  |
+| request.recipient.organisation.careUnitId | HsaIdType | Enhet id<br/>HSA-id för remissmottagande enhet, till vilken remissen adresseras.<br/>Med remissmottagande enhet avses det som i SOSFS 2004:11 benämns som mottagande enhet. | 1..1 | Maxlängd 64 tecken |
+| request.intermediaryParticipant | IntermediaryType | Vidareskickare<br/>Beskriver Hälso-och sjukvårdspersonalen som vidareskickar remissen | 0..* |  |
+| request.intermediaryParticipant. healthcareProfessionalOrganisation | OrganisationType | Organisatorisk enhet<br/>vidareskickare | 1..1 |  |
+| request.intermediaryParticipant.healthcareProfessionalOrganisation.careUnitId | HsaIdType | Enhet id<br/>HSA-id på den remissmottagande enhet som vidareskickat remissen. | 1..1 | Maxlängd 64 tecken |
+| request.intermediaryParticipant.time | TimeStampType | Tidpunkt<br/>Tidpunkt då versionen skapades för vidareskickning.<br/>Denna tidpunkt kan skilja sig från tidpunkten då remissen faktiskt skickas beroende på hur detta implementeras i en lokal remissmodul. | 1..1 | ÅÅÅÅMMDDttmmss |
 | request.additionalInformation | AdditionalInformationType | Tilläggsinformation | 0..1 |  |
 | request.additionalInformation.desiredRequestRecipient | String | Önskemål om remissmottagare Önskad remissmottagare: enhet, person, yrkesroll, fritext | 0..1 | Maxlängd 200 tecken |
-| request.additionalInformation.administrativeInformation | String | Kompletterande administrativ information 
-Här anges kompletterande administrativ information. Exempelvis kan denna innehålla information om detta är ett akutärende, om patienten är bortrest under en viss tid inom kallelsetiden eller annan information som kan påverka den administrativa processen kring remissen. Här läggs även information om SVF-patient (standardiserade vårdförlopp), datum för välgrundad misstanke samt aktuellt SVF-förlopp. | 0..1 | Maxlängd 8192 tecken |
+| request.additionalInformation.administrativeInformation | String | Kompletterande administrativ information<br/>Här anges kompletterande administrativ information. Exempelvis kan denna innehålla information om detta är ett akutärende, om patienten är bortrest under en viss tid inom kallelsetiden eller annan information som kan påverka den administrativa processen kring remissen. Här läggs även information om SVF-patient (standardiserade vårdförlopp), datum för välgrundad misstanke samt aktuellt SVF-förlopp. | 0..1 | Maxlängd 8192 tecken |
 | request.additionalInformation.interpreterRequirement | String | Kommentar tolkbehov Här beskrivs eventuellt tolkbehov. | 0..1 | Maxlängd 200 tecken |
-| request.awarenessInformation | AwarenessInformationType | Uppmärksamhetsinformation
-Uppmärksamhetsinformation om patient | 0..1 |  |
+| request.awarenessInformation | AwarenessInformationType | Uppmärksamhetsinformation<br/>Uppmärksamhetsinformation om patient | 0..1 |  |
 | request.awarenessInformation.text | String | Uppmärksamhetstext Uppmärksamhetsinformation av betydelse för denna remiss. Mottagande system bör inte med automatik föra in denna i den egna hanteringen för uppmärksamhetsinformation kring patienten utan endast lagra den i samband med remissen. | 1..1 | Maxlängd 8192 tecken |
 | request.questionFormulation | QuestionFormulationType | Frågeställning | 1..1 |  |
-| request.questionFormulation.text | String | Frågeställning text 
-Här anges remissens frågeställning. | 1..1 | Maxlängd 8192 tecken |
-| request.questionFormulation.clinicalInformation | ClinicalInformationType | Anamnes 
-Här anges underbyggande klinisk information (anamnes) för remissfrågeställningen. Dessa underbyggande kliniska data är direkt kopplat till frågeställningen | 0..1 |  |
-| request.questionFormulation.clinicalInformation.text | String | Beskrivning 
-Här anges klinisk informationsbeskrivning | 1..1 | Maxlängd 8192 tecken |
-| request.questionFormulation.condition | ConditionType | Kliniskt tillstånd 
-Anger kliniska tillstånd som använts i uppslag mot stödtjänster. / Används som stöd för att remittent och remissmottagare ska kunna avgöra om remissuppgifterna är kompletta. | 0..* |  |
-| request.questionFormulation.condition.text | String | Kliniskt tillstånd beskrivning 
-Här kan diagnosbeskrivning skrivas in. / Observera att den får endast förekomma om questionFormulation.condition.code inte används. | 0..1 | Maxlängd 8192 tecken |
-| request.questionFormulation.condition.code | CVType | Kliniskt tillståndskod Anger kliniska tillståndskoder. / code:  se ICD-10-SE
-
-codeSystem: 1.2.752.116.1.1.1 / Observera att kod får endast förekomma om questionFormulation.condition.text inte används. / Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 0..1 |  |
-| request.questionFormulation.desiredActivity | ActivityType | Åtgärd
-Här anges önskade åtgärder. Dessa åtgärder ska vara direkt kopplade till frågeställningen. | 0..* |  |
-| request.questionFormulation. desiredActivity.id | ActivityIdType | Åtgärd id
-Unikt id i form av löpnummer för den önskade åtgärden | 0..1 |  |
-| request.questionFormulation.desiredActivity.text | String | Åtgärd beskrivning / Observera att text får endast förekomma om questionFormulation.desiredActivity.code inte används. | 0..1 | Maxlängd 8192 tecken |
-| request.questionFormulation.desiredActivity.code | ActivityCodeType | Åtgärd typ
-Åtgärd enligt kodsystem. / Observera att code får endast förekomma om questionFormulation.desiredActivity.text inte används. | 0..1 |  |
+| request.questionFormulation.text | String | Frågeställning text<br/>Här anges remissens frågeställning. | 1..1 | Maxlängd 8192 tecken |
+| request.questionFormulation.clinicalInformation | ClinicalInformationType | Anamnes<br/>Här anges underbyggande klinisk information (anamnes) för remissfrågeställningen. Dessa underbyggande kliniska data är direkt kopplat till frågeställningen | 0..1 |  |
+| request.questionFormulation.clinicalInformation.text | String | Beskrivning<br/>Här anges klinisk informationsbeskrivning | 1..1 | Maxlängd 8192 tecken |
+| request.questionFormulation.condition | ConditionType | Kliniskt tillstånd<br/>Anger kliniska tillstånd som använts i uppslag mot stödtjänster.<br/>Används som stöd för att remittent och remissmottagare ska kunna avgöra om remissuppgifterna är kompletta. | 0..* |  |
+| request.questionFormulation.condition.text | String | Kliniskt tillstånd beskrivning<br/>Här kan diagnosbeskrivning skrivas in.<br/>Observera att den får endast förekomma om questionFormulation.condition.code inte används. | 0..1 | Maxlängd 8192 tecken |
+| request.questionFormulation.condition.code | CVType | Kliniskt tillståndskod Anger kliniska tillståndskoder.<br/>code:  se ICD-10-SE<br/>codeSystem: 1.2.752.116.1.1.1<br/>Observera att kod får endast förekomma om questionFormulation.condition.text inte används.<br/>Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 0..1 |  |
+| request.questionFormulation.desiredActivity | ActivityType | Åtgärd<br/>Här anges önskade åtgärder. Dessa åtgärder ska vara direkt kopplade till frågeställningen. | 0..* |  |
+| request.questionFormulation. desiredActivity.id | ActivityIdType | Åtgärd id<br/>Unikt id i form av löpnummer för den önskade åtgärden | 0..1 |  |
+| request.questionFormulation.desiredActivity.text | String | Åtgärd beskrivning<br/>Observera att text får endast förekomma om questionFormulation.desiredActivity.code inte används. | 0..1 | Maxlängd 8192 tecken |
+| request.questionFormulation.desiredActivity.code | ActivityCodeType | Åtgärd typ<br/>Åtgärd enligt kodsystem.<br/>Observera att code får endast förekomma om questionFormulation.desiredActivity.text inte används. | 0..1 |  |
 | request.questionFormulation.desiredActivity.code.code | String | Kod enligt det angivna kodsystemet i codeSystem – KVÅ eller Snomed CT | 1..1 |  |
-| request.questionFormulation.desiredActivity.code.codeSystem | String | Kodsystem för tolkning av angiven kod. / Obligatoriskt att hantera 1.2.752.116.1.3.2.1.4 = KVÅ / Om remittent använder kodverk som remissmottagande system inte hanterar skall detta resultera i ett fel av typen APPLICATION_ERROR. | 1..1 |  |
-| request.paymentCommitment | PaymentCommitmentType | Betalningsförbindelse Betalningsförbindelse beskriver hur remissmottagande vårdgivare ersätts för de begärda tjänsterna av remitterande vårdgivare. / Aktuellt vid ett regionsöverskridande remissflöde. För detaljer i användningen se även SKRs Riksavtal. | 0..1 |  |
-| request.paymentCommitment.paymentCommitmentId | PaymentCommitmentIdType | Betalningsförbindelse id Unik identitet på betalningsförbindelsen, requestId#betfor#löpnummer / Exempel: SE2321000012-0001#987#betfor#1 | 0..1 |  |
-| request.paymentCommitment.commitmentType | CVType | Betalningsförbindelse-typ avtal / Anger den avtalstyp som finns att välja för betalningsförbindelse / code: se kv_betalningsförbindelse- typ avtal / codeSystem: 1.2.752.129.2.2.2.44 / Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 1..1 |  |
-| request.paymentCommitment.commitmentTypeChapter | CVType | Betalningsförbindelse-typ kapitel / Anger kod utifrån riksavtalets kapitel som reglerar betalning. / Obligatoriskt då paymentCommitment.commitmentType = 1 / code: kv_ betalningsförbindelsetyp kapitel / codeSystem: 1.2.752.129.5.1.37 / Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 0..1 |  |
-| request.paymentCommitment.validity | TimeIntervalType | Giltighetstid
-Anges enligt ÅÅÅÅMMDD. Antingen start (low) eller slut (high) måste finnas med | 1..1 |  |
+| request.questionFormulation.desiredActivity.code.codeSystem | String | Kodsystem för tolkning av angiven kod.<br/>Obligatoriskt att hantera 1.2.752.116.1.3.2.1.4 = KVÅ<br/>Om remittent använder kodverk som remissmottagande system inte hanterar skall detta resultera i ett fel av typen APPLICATION_ERROR. | 1..1 |  |
+| request.paymentCommitment | PaymentCommitmentType | Betalningsförbindelse Betalningsförbindelse beskriver hur remissmottagande vårdgivare ersätts för de begärda tjänsterna av remitterande vårdgivare.<br/>Aktuellt vid ett regionsöverskridande remissflöde. För detaljer i användningen se även SKRs Riksavtal. | 0..1 |  |
+| request.paymentCommitment.paymentCommitmentId | PaymentCommitmentIdType | Betalningsförbindelse id Unik identitet på betalningsförbindelsen, requestId#betfor#löpnummer<br/>Exempel: SE2321000012-0001#987#betfor#1 | 0..1 |  |
+| request.paymentCommitment.commitmentType | CVType | Betalningsförbindelse-typ avtal<br/>Anger den avtalstyp som finns att välja för betalningsförbindelse<br/>code: se kv_betalningsförbindelse- typ avtal<br/>codeSystem: 1.2.752.129.2.2.2.44<br/>Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 1..1 |  |
+| request.paymentCommitment.commitmentTypeChapter | CVType | Betalningsförbindelse-typ kapitel<br/>Anger kod utifrån riksavtalets kapitel som reglerar betalning.<br/>Obligatoriskt då paymentCommitment.commitmentType = 1<br/>code: kv_ betalningsförbindelsetyp kapitel<br/>codeSystem: 1.2.752.129.5.1.37<br/>Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 0..1 |  |
+| request.paymentCommitment.validity | TimeIntervalType | Giltighetstid<br/>Anges enligt ÅÅÅÅMMDD. Antingen start (low) eller slut (high) måste finnas med | 1..1 |  |
 | request.paymentCommitment.clinicalResponsibilityDescription | String | Klinisk ansvarsbeskrivning | 0..1 | Maxlängd 8192 tecken |
 | request.paymentCommitment.administrativeResponsibilityDescription | String | Administrativ ansvarsbeskrivning | 0..1 | Maxlängd 8192 tecken |
 | request.paymentCommitment.validOnlyForOutpatientCare | Boolean | Gäller endast öppenvård Sätts till ”true” om betalningsförbindelsen enbart gäller öppenvård. Annars sätts den till ”false” | 1..1 |  |
-| request.paymentCommitment.liableCountyCouncil | CVType | Betalningsansvarig region 
-Region som ansvarar för betalningen. / Kod enligt förteckning utgiven av Statistiska Centralbyrån (SCB). / code: se kv_län / codeSystem: 1.2.752.129.2.2.1.18 / Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 1..1 | Inera kodverk kv_län |
-| request.paymentCommitment.dateOfApproval | TimeStampType | Datum för godkännande
-Tidpunkt för godkännande av denna betalningsförbindelse hos remittenten. / Anges enligt ÅÅÅÅMMDDttmmss med minst precision ÅÅÅÅMMDD | 0..1 |  |
-| request.paymentCommitment.issuedInConsultationWith | String | Utfärdad i samråd med
-Om betalningsförbindelsen utfärdas i samråd med ekonomisk beslutsfattare antecknas namnet här. Valfri formatering. | 0..1 | Maxlängd 64 tecken |
-| request.paymentCommitment.costCenter | String | Kostnadsställe
-Remittentens kostnadsställe | 0..1 | Maxlängd 64 tecken |
-| request.paymentCommitment.reimbursementInformation | ReimbursementInformationType | Ersättningsinformation
-Obligatorisk vid remiss till privat vårdgivare | 0..1 |  |
-| request.paymentCommitment.reimbursementInformation.reimbursementType | CVType | Ersättningstyp / Anger källa till ersättning. / code: se kv_betalningsförbindelse ersättningstyp / codeSystem: 1.2.752.129.5.1.36 / Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 1..1 |  |
-| request.paymentCommitment.reimbursementInformation.ownerOfInvokedContract | CVType | Ägare av åberopat kontrakt
-Ägare (region) av åberopat kontrakt. / Kod enligt förteckning utgiven av Statistiska Centralbyrån (SCB). / code: se kv_län / codeSystem: 1.2.752.129.2.2.1.18 / Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 1..1 | Inera kodverk kv_län |
-| request.paymentCommitment.approvedBy | HealthcareProfessionalType | Godkänns av
-Den person hos remittenten som har godkänt betalningsförbindelsen | 0..1 |  |
-| request.paymentCommitment.approvedBy.id | HsaIdType | Personal id
-HSA-id för person | 0..1 | Maxlängd 64 tecken |
+| request.paymentCommitment.liableCountyCouncil | CVType | Betalningsansvarig region<br/>Region som ansvarar för betalningen.<br/>Kod enligt förteckning utgiven av Statistiska Centralbyrån (SCB).<br/>code: se kv_län<br/>codeSystem: 1.2.752.129.2.2.1.18<br/>Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 1..1 | Inera kodverk kv_län |
+| request.paymentCommitment.dateOfApproval | TimeStampType | Datum för godkännande<br/>Tidpunkt för godkännande av denna betalningsförbindelse hos remittenten.<br/>Anges enligt ÅÅÅÅMMDDttmmss med minst precision ÅÅÅÅMMDD | 0..1 |  |
+| request.paymentCommitment.issuedInConsultationWith | String | Utfärdad i samråd med<br/>Om betalningsförbindelsen utfärdas i samråd med ekonomisk beslutsfattare antecknas namnet här. Valfri formatering. | 0..1 | Maxlängd 64 tecken |
+| request.paymentCommitment.costCenter | String | Kostnadsställe<br/>Remittentens kostnadsställe | 0..1 | Maxlängd 64 tecken |
+| request.paymentCommitment.reimbursementInformation | ReimbursementInformationType | Ersättningsinformation<br/>Obligatorisk vid remiss till privat vårdgivare | 0..1 |  |
+| request.paymentCommitment.reimbursementInformation.reimbursementType | CVType | Ersättningstyp<br/>Anger källa till ersättning.<br/>code: se kv_betalningsförbindelse ersättningstyp<br/>codeSystem: 1.2.752.129.5.1.36<br/>Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 1..1 |  |
+| request.paymentCommitment.reimbursementInformation.ownerOfInvokedContract | CVType | Ägare av åberopat kontrakt<br/>Ägare (region) av åberopat kontrakt.<br/>Kod enligt förteckning utgiven av Statistiska Centralbyrån (SCB).<br/>code: se kv_län<br/>codeSystem: 1.2.752.129.2.2.1.18<br/>Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 1..1 | Inera kodverk kv_län |
+| request.paymentCommitment.approvedBy | HealthcareProfessionalType | Godkänns av<br/>Den person hos remittenten som har godkänt betalningsförbindelsen | 0..1 |  |
+| request.paymentCommitment.approvedBy.id | HsaIdType | Personal id<br/>HSA-id för person | 0..1 | Maxlängd 64 tecken |
 | request.paymentCommitment.approvedBy.name | String | Personal namn | 1..1 | Maxlängd 64 tecken |
-| request.attachment | MultimediaType | Bilaga / Möjlighet att skicka med en eller flera bilagor i något av de tillåtna formaten | 0..* |  |
-| request.attachment.id | String | Bilaga id / Identitet på bilagan. Används för inbäddade bilagor vid referenser inom en tjänsteinteraktion. / Format bilaga remiss: requestId#löpnummer = Källsystem-Id(HSA-ID)#lokalt-id#löpnummer / Obligatoriskt för inbäddade bilagor | 0..1 | (.*)#(.*)#(.*) / Maxlängd 256 tecken |
-| request.attachment.mediaType | CVType | Multimediatyp / Typ av multimedia, se urval med tillåtna format. / code: se urval_mediatyper_elektronisk_remiss / codeSystem: (1.2.752.129.5.1.59, se nedan) / Under codeSystem anges identifieraren för det kodverk från vilken den angivna koden hämtats. Detta medför att det kan skickas olika identifierare under codeSystem, beroende på vilket kodverk den skickade koden tillhör. / Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontrakten behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 1..1 |  |
-| request.attachment.value | Base64Binary | Binärdata
-Används vid inbäddad bilaga och innehåller då bilagans binärdata, kodat enligt base64. Om bilagan innehåller avkodad text ska denna vara avkodad från UTF-8-format.
- 
-Obligatoriskt när referens inte används. | 0..1 | Ett meddelande med bilagor får inte vara större än 10MB |
-| request.attachment.reference | AnyURI | Referens
-Används vid refererad bilaga, och innehåller då den URL där bilagan kan hämtas. / OBS! Används inte i denna version. | 0..0 |  |
-| request.attachment.description | String | Beskrivning / Beskrivning av bilaga, t ex innehåll | 0..1 | Maxlängd 256 tecken |
-| request.careProcessId | String | Vårdprocess id
-Identifierare som unikt identifierar den individanpassade vårdprocess som denna remiss är en del av. Används för att kunna hålla samman information över aktörsgränser och koppling till patientens hälsoärende. Producentsystemet bör registrera all information som registreras kring patienten kopplat till detta id. | 0..1 |  |
+| request.attachment | MultimediaType | Bilaga<br/>Möjlighet att skicka med en eller flera bilagor i något av de tillåtna formaten | 0..* |  |
+| request.attachment.id | String | Bilaga id<br/>Identitet på bilagan. Används för inbäddade bilagor vid referenser inom en tjänsteinteraktion.<br/>Format bilaga remiss: requestId#löpnummer = Källsystem-Id(HSA-ID)#lokalt-id#löpnummer<br/>Obligatoriskt för inbäddade bilagor | 0..1 | (.*)#(.*)#(.*)<br/>Maxlängd 256 tecken |
+| request.attachment.mediaType | CVType | Multimediatyp<br/>Typ av multimedia, se urval med tillåtna format.<br/>code: se urval_mediatyper_elektronisk_remiss<br/>codeSystem: (1.2.752.129.5.1.59, se nedan)<br/>Under codeSystem anges identifieraren för det kodverk från vilken den angivna koden hämtats. Detta medför att det kan skickas olika identifierare under codeSystem, beroende på vilket kodverk den skickade koden tillhör.<br/>Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontrakten behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 1..1 |  |
+| request.attachment.value | Base64Binary | Binärdata<br/>Används vid inbäddad bilaga och innehåller då bilagans binärdata, kodat enligt base64. Om bilagan innehåller avkodad text ska denna vara avkodad från UTF-8-format.<br/>Obligatoriskt när referens inte används. | 0..1 | Ett meddelande med bilagor får inte vara större än 10MB |
+| request.attachment.reference | AnyURI | Referens<br/>Används vid refererad bilaga, och innehåller då den URL där bilagan kan hämtas.<br/>OBS! Används inte i denna version. | 0..0 |  |
+| request.attachment.description | String | Beskrivning<br/>Beskrivning av bilaga, t ex innehåll | 0..1 | Maxlängd 256 tecken |
+| request.careProcessId | String | Vårdprocess id<br/>Identifierare som unikt identifierar den individanpassade vårdprocess som denna remiss är en del av. Används för att kunna hålla samman information över aktörsgränser och koppling till patientens hälsoärende. Producentsystemet bör registrera all information som registreras kring patienten kopplat till detta id. | 0..1 |  |
 | Svar |  |  |  |  |
 | result | ResultType | Innehåller information om begäran gick bra eller ej. | 1..1 |  |
 | result.resultCode | ResultCodeEnum | Kan endast vara OK, INFO eller ERROR | 1..1 |  |
@@ -213,9 +170,9 @@ Regler markerade med [sch] återfinns i schematronfil (constraints).
 | Verify commitmentType [sch] | commitmentType | codeSystem: 1.2.752.129.2.2.2.44 |
 | Verify paymentCommitment [sch] | paymentCommitment | Om commitmentType = 1 så måste commitmentTypeChapter anges |
 | Verify commitmentTypeChapter [sch] | commitmentTypeChapter | codeSystem: 1.2.752.129.5.1.37 |
-| Verify liableCountyCouncil [sch] | liableCountyCouncil | Giltig kod från 01 till 25 / codeSystem: 1.2.752.129.2.2.1.18 |
+| Verify liableCountyCouncil [sch] | liableCountyCouncil | Giltig kod från 01 till 25<br/>codeSystem: 1.2.752.129.2.2.1.18 |
 | Verify reimbursmentType code [sch] | reimbursementType | codeSystem: 1.2.752.129.5.1.36 |
-| Verify ownerOfInvokedContract [sch] | ownerOfInvokedContract | Giltig kod från 01 till 25 / codeSystem: 1.2.752.129.2.2.1.18 |
+| Verify ownerOfInvokedContract [sch] | ownerOfInvokedContract | Giltig kod från 01 till 25<br/>codeSystem: 1.2.752.129.2.2.1.18 |
 | Verify attachment [sch] | attachment | Inbäddade bilagor ska ha id och value (refererade bilagor används inte i denna version) |
 | Verify mediaType [sch] | mediaType | Endast tillåtna filformat |
 | Verify intermediaryParticipant [sch] | request | Om reasonForVersion = VR så måste intermediaryParticipant anges |
@@ -271,73 +228,38 @@ Nedanstående tabell beskriver varje element i begäran och svar. Referens till 
 | :--- | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |  |
 | requestConfirmation | RequestConfirmationType | Remissbekräftelse | 1..1 |  |
-| requestConfirmation.requestId | RequestIdType | Remiss id
-Den ursprungliga remissens remiss-id | 1..1 | (.*)#(.*) / Maxlängd 256 tecken |
-| requestConfirmation.requestConfirmationId | RequestIdType | Remissbekräftelse id
-Unik identifierare för remissbekräftelsen. / Källsystem-Id(HSA-ID)#lokalt-id / Exempel: SE2321000012-0001#456 | 1..1 | (.*)#(.*) / Maxlängd 256 tecken |
-| requestConfirmation.typeOfRequestConfirmation | CodeRequestConfirmationType | Typ av remissbekräftelse
-Anger typ av svar.
-
-Giltiga värden är:
-BEK = Bekräftelse
-VID = Besked om vidareskickning
-KOM = Kompletterings-begäran
-AVB = Avbruten remiss
-AVV = Avvisad remiss | 1..1 |  |
-| requestConfirmation.requestVersionNumber | VersionNumberType | Remissversionsnummer
-Remissens versionsnummer. / Version startar alltid på 1 och räknas sekventiellt upp för varje ny version. / Denna räknas upp vid: / - Ändrad remiss
-- Vidareskickad remiss
-- Ändrat betalningsansvar | 1..1 | (0*[1-9]+\|[1-9])\d* |
-| requestConfirmation.requestConfirmationTime | TimeStampType | Remissbekräftelse-tidpunkt
-Tidpunkt då remissbekräftelsen skapades. | 1..1 | ÅÅÅÅMMDDttmmss |
-| requestConfirmation.confirmingOrganisation | FullOrganisationType | Organisatorisk enhet
-Den faktiska enhet som skickar bekräftelsemeddelandet. Detta kan skilja sig från den ansvariga vårdenheten enligt PDL. | 1..1 |  |
-| requestConfirmation.confirmingOrganisation.careUnitId | HsaIdType | Enhet id
-HSA-id för enhet. | 1..1 | Maxlängd 64 tecken |
-| requestConfirmation.confirmingOrganisation.careUnitName | String | Enhet namn
-Namn på enhet. | 0..1 | Maxlängd 64 tecken |
-| requestConfirmation.confirmingOrganisation.careUnitTelephone | String | Enhet telefon
-Telefon till enhet. | 0..1 |  |
-| requestConfirmation.confirmingOrganisation.careUnitEmail | String | Enhet epost
-E-post till enhet. | 0..1 |  |
-| requestConfirmation.confirmingOrganisation.careUnitAddress | String | Enhet adress
-Adress till enhet. | 0..1 |  |
-| requestConfirmation.confirmingOrganisation.careUnitLocation | String | Enhet plats
-Text som anger namnet på plats eller ort för enhetens eller funktionens fysiska placering. | 0..1 |  |
+| requestConfirmation.requestId | RequestIdType | Remiss id<br/>Den ursprungliga remissens remiss-id | 1..1 | (.*)#(.*)<br/>Maxlängd 256 tecken |
+| requestConfirmation.requestConfirmationId | RequestIdType | Remissbekräftelse id<br/>Unik identifierare för remissbekräftelsen.<br/>Källsystem-Id(HSA-ID)#lokalt-id<br/>Exempel: SE2321000012-0001#456 | 1..1 | (.*)#(.*)<br/>Maxlängd 256 tecken |
+| requestConfirmation.typeOfRequestConfirmation | CodeRequestConfirmationType | Typ av remissbekräftelse<br/>Anger typ av svar.<br/>Giltiga värden är:<br/>BEK = Bekräftelse<br/>VID = Besked om vidareskickning<br/>KOM = Kompletterings-begäran<br/>AVB = Avbruten remiss<br/>AVV = Avvisad remiss | 1..1 |  |
+| requestConfirmation.requestVersionNumber | VersionNumberType | Remissversionsnummer<br/>Remissens versionsnummer.<br/>Version startar alltid på 1 och räknas sekventiellt upp för varje ny version.<br/>Denna räknas upp vid:<br/>- Ändrad remiss<br/>- Vidareskickad remiss<br/>- Ändrat betalningsansvar | 1..1 | (0*[1-9]+\|[1-9])\d* |
+| requestConfirmation.requestConfirmationTime | TimeStampType | Remissbekräftelse-tidpunkt<br/>Tidpunkt då remissbekräftelsen skapades. | 1..1 | ÅÅÅÅMMDDttmmss |
+| requestConfirmation.confirmingOrganisation | FullOrganisationType | Organisatorisk enhet<br/>Den faktiska enhet som skickar bekräftelsemeddelandet. Detta kan skilja sig från den ansvariga vårdenheten enligt PDL. | 1..1 |  |
+| requestConfirmation.confirmingOrganisation.careUnitId | HsaIdType | Enhet id<br/>HSA-id för enhet. | 1..1 | Maxlängd 64 tecken |
+| requestConfirmation.confirmingOrganisation.careUnitName | String | Enhet namn<br/>Namn på enhet. | 0..1 | Maxlängd 64 tecken |
+| requestConfirmation.confirmingOrganisation.careUnitTelephone | String | Enhet telefon<br/>Telefon till enhet. | 0..1 |  |
+| requestConfirmation.confirmingOrganisation.careUnitEmail | String | Enhet epost<br/>E-post till enhet. | 0..1 |  |
+| requestConfirmation.confirmingOrganisation.careUnitAddress | String | Enhet adress<br/>Adress till enhet. | 0..1 |  |
+| requestConfirmation.confirmingOrganisation.careUnitLocation | String | Enhet plats<br/>Text som anger namnet på plats eller ort för enhetens eller funktionens fysiska placering. | 0..1 |  |
 | requestConfirmation.patient | SimplePatientType | Patient | 1..1 |  |
-| requestConfirmation.patient.personId | PersonIdType | Person id
-Patientens identitet | 1..1 |  |
-| requestConfirmation.patient.personId.extension | String | Personidentifierare för patienten. / Om identiteten är av typ personnummer, samordningsnummer eller nationellt reservId skall denna anges med 12 tecken utan skiljetecken. | 1..1 |  |
-| requestConfirmation.patient.personId.root | String | OID för typ av personidentifierare. / För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas. / För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas. / För nationellt reservId ska OID för nationellt reservId (1.2.752.74.9.1) användas. / För andra typer av personidentifierare sätts root till aktuell OID. | 1..1 |  |
-| requestConfirmation.patient.name | String | Namn
-Alla personnamn skrivs sammanslaget enligt formatet " Mellannamn Efternamn, Förnamn". Om flera namn av samma typ förekommer ska dessa separeras med mellanslag. / Implementationer rekommenderas att i första hand slå upp denna information från den källa till personinformation som normalt används. Detta namn är i första hand till för teknisk loggning och spårbarhet. | 0..1 | Maxlängd 216 tecken |
-| requestConfirmation.author | AuthorType | Remissbesvarare
-Remissbekräftande person och organisation | 1..1 |  |
+| requestConfirmation.patient.personId | PersonIdType | Person id<br/>Patientens identitet | 1..1 |  |
+| requestConfirmation.patient.personId.extension | String | Personidentifierare för patienten.<br/>Om identiteten är av typ personnummer, samordningsnummer eller nationellt reservId skall denna anges med 12 tecken utan skiljetecken. | 1..1 |  |
+| requestConfirmation.patient.personId.root | String | OID för typ av personidentifierare.<br/>För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.<br/>För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.<br/>För nationellt reservId ska OID för nationellt reservId (1.2.752.74.9.1) användas.<br/>För andra typer av personidentifierare sätts root till aktuell OID. | 1..1 |  |
+| requestConfirmation.patient.name | String | Namn<br/>Alla personnamn skrivs sammanslaget enligt formatet " Mellannamn Efternamn, Förnamn". Om flera namn av samma typ förekommer ska dessa separeras med mellanslag.<br/>Implementationer rekommenderas att i första hand slå upp denna information från den källa till personinformation som normalt används. Detta namn är i första hand till för teknisk loggning och spårbarhet. | 0..1 | Maxlängd 216 tecken |
+| requestConfirmation.author | AuthorType | Remissbesvarare<br/>Remissbekräftande person och organisation | 1..1 |  |
 | requestConfirmation.author.healthcareProfessional | HealthcareProfessionalType | Hälso- och sjukvårdspersonal | 1..1 |  |
-| requestConfirmation.author.healthcareProfessional.id | HsaIdType | Personal id
-HSA-id för remissbekräftande personal | 0..1 | Maxlängd 64 tecken |
+| requestConfirmation.author.healthcareProfessional.id | HsaIdType | Personal id<br/>HSA-id för remissbekräftande personal | 0..1 | Maxlängd 64 tecken |
 | requestConfirmation.author.healthcareProfessional.name | String | Personalnamn | 1..1 | Maxlängd 64 tecken |
-| requestConfirmation.author.typeOfHealthcareProfessional | CVType | Typ av hälso- och sjukvårdspersonal / Kod för yrkestitel från Snomed CT enligt urvalen nedan: / code: se urval_legitimerade_yrken / codeSystem: OID 1.2.752.129.5.1.70
-
-eller / code: se yrken_i_halso-_och_sjukvarden_ej_legitimerade / codeSystem: 1.2.752.129.7.1.5 / Urvalen kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 0..1 |  |
-| requestConfirmation.author.healthcareProfessionalOrganisation | OrganisationType | Organisatorisk enhet
-remissbekräftande | 1..1 |  |
-| requestConfirmation.author.healthcareProfessionalOrganisation.careUnitId | HsaIdType | Enhet id
-HSA-id för verksamhet som ansvarar för remissbekräftelsen. | 1..1 | Maxlängd 64 tecken |
+| requestConfirmation.author.typeOfHealthcareProfessional | CVType | Typ av hälso- och sjukvårdspersonal<br/>Kod för yrkestitel från Snomed CT enligt urvalen nedan:<br/>code: se urval_legitimerade_yrken<br/>codeSystem: OID 1.2.752.129.5.1.70<br/>eller<br/>code: se yrken_i_halso-_och_sjukvarden_ej_legitimerade<br/>codeSystem: 1.2.752.129.7.1.5<br/>Urvalen kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 0..1 |  |
+| requestConfirmation.author.healthcareProfessionalOrganisation | OrganisationType | Organisatorisk enhet<br/>remissbekräftande | 1..1 |  |
+| requestConfirmation.author.healthcareProfessionalOrganisation.careUnitId | HsaIdType | Enhet id<br/>HSA-id för verksamhet som ansvarar för remissbekräftelsen. | 1..1 | Maxlängd 64 tecken |
 | requestConfirmation.recipient | RecipientType | Mottagare | 1..1 |  |
-| requestConfirmation.recipient.organisation | OrganisationType | Organisatorisk enhet
-mottagare | 1..1 |  |
-| requestConfirmation.recipient.organisation.careUnitId | HsaIdType | Enhet id
-HSA-id för remitterande enhet, till vilken remissbekräftelsen adresseras. | 1..1 | Maxlängd 64 tecken |
-| requestConfirmation.forwardingRecipient | RecipientType | Mottagare vidarebefordran
-Obligatorisk att ange när typen på requestConfirmation.typeOfRequestConfirmation är VID (Besked om vidareskickning). / Ska inte anges om typen på requestConfirmation.typeOfRequestConfirmation är annan än VID (Besked om vidareskickning). | 0..1 |  |
-| requestConfirmation.forwardingRecipient.organisation | OrganisationType | Organisatorisk enhet
-ny mottagare | 1..1 |  |
-| requestConfirmation.forwardingRecipient.organisation.careUnitId | HsaIdType | Enhet id
-HSA-id för remissmottagande enhet av den vidareskickade remissen. | 1..1 | Maxlängd 64 tecken |
+| requestConfirmation.recipient.organisation | OrganisationType | Organisatorisk enhet<br/>mottagare | 1..1 |  |
+| requestConfirmation.recipient.organisation.careUnitId | HsaIdType | Enhet id<br/>HSA-id för remitterande enhet, till vilken remissbekräftelsen adresseras. | 1..1 | Maxlängd 64 tecken |
+| requestConfirmation.forwardingRecipient | RecipientType | Mottagare vidarebefordran<br/>Obligatorisk att ange när typen på requestConfirmation.typeOfRequestConfirmation är VID (Besked om vidareskickning).<br/>Ska inte anges om typen på requestConfirmation.typeOfRequestConfirmation är annan än VID (Besked om vidareskickning). | 0..1 |  |
+| requestConfirmation.forwardingRecipient.organisation | OrganisationType | Organisatorisk enhet<br/>ny mottagare | 1..1 |  |
+| requestConfirmation.forwardingRecipient.organisation.careUnitId | HsaIdType | Enhet id<br/>HSA-id för remissmottagande enhet av den vidareskickade remissen. | 1..1 | Maxlängd 64 tecken |
 | requestConfirmation.outcome | RequestReceivedConfirmationOutcomeType | Bekräftelsemeddelande | 1..1 |  |
-| requestConfirmation.outcome.outcomeText | String | Svarstext
-Meddelande till remissens avsändare. | 1..1 | Maxlängd 8192 tecken |
+| requestConfirmation.outcome.outcomeText | String | Svarstext<br/>Meddelande till remissens avsändare. | 1..1 | Maxlängd 8192 tecken |
 | Svar |  |  |  |  |
 | result | ResultType | Innehåller information om begäran gick bra eller ej. | 1..1 |  |
 | result.resultCode | ResultCodeEnum | Kan endast vara OK, INFO eller ERROR | 1..1 |  |
@@ -408,98 +330,52 @@ Nedanstående tabell beskriver varje element i begäran och svar. Referens till 
 | Namn | Typ | Beskrivning | Kardi-nalitet | Kodverk/värde-mängd /ev begränsningar |
 | :--- | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |  |
-| requestOutcome | RequestOutcomeType | Svar
-Remissvar |  |  |
-| requestOutcome.requestId | RequestIdType | Remiss id
-Den ursprungliga remissens remiss-id | 1..1 | (.*)#(.*) / Maxlängd 256 tecken |
-| requestOutcome.requestOutcomeId | RequestIdType | Svar id
-Id för remissvar, enligt format:
-Källsystem-Id(HSA-ID)#lokalt-id / Exempel: SE162321000451-0001#456 | 1..1 | (.*)#(.*) / Maxlängd 256 tecken |
-| requestOutcome.typeOfRequestOutcome | CodeRequestOutcomeType | Svarstyp
-Anger typen av remissvar.
- 
-Giltiga värden är:
-DSV = Delsvar
-PSV = Preliminärt svar
-SSV= Slutsvar | 1..1 | codes:codeRequestOutcomeType |
-| requestOutcome.requestVersionNumber | VersionNumberType | Remissversionsnummer
-Remissens versionsnummer. / Version startar alltid på 1 och räknas sekventiellt upp för varje ny version. / Denna räknas upp vid: / Ändrad remiss
-Vidareskickad remiss
-Ändrat betalningsansvar | 1..1 | (0*[1-9]+\|[1-9])\d* |
+| requestOutcome | RequestOutcomeType | Svar<br/>Remissvar |  |  |
+| requestOutcome.requestId | RequestIdType | Remiss id<br/>Den ursprungliga remissens remiss-id | 1..1 | (.*)#(.*)<br/>Maxlängd 256 tecken |
+| requestOutcome.requestOutcomeId | RequestIdType | Svar id<br/>Id för remissvar, enligt format:<br/>Källsystem-Id(HSA-ID)#lokalt-id<br/>Exempel: SE162321000451-0001#456 | 1..1 | (.*)#(.*)<br/>Maxlängd 256 tecken |
+| requestOutcome.typeOfRequestOutcome | CodeRequestOutcomeType | Svarstyp<br/>Anger typen av remissvar.<br/>Giltiga värden är:<br/>DSV = Delsvar<br/>PSV = Preliminärt svar<br/>SSV= Slutsvar | 1..1 | codes:codeRequestOutcomeType |
+| requestOutcome.requestVersionNumber | VersionNumberType | Remissversionsnummer<br/>Remissens versionsnummer.<br/>Version startar alltid på 1 och räknas sekventiellt upp för varje ny version.<br/>Denna räknas upp vid:<br/>Ändrad remiss<br/>Vidareskickad remiss<br/>Ändrat betalningsansvar | 1..1 | (0*[1-9]+\|[1-9])\d* |
 | requestOutcome.patient | SimplePatientType | Patient | 1..1 |  |
-| requestOutcome.patient.personId | PersonIdType | Person id / Patientens identitet | 1..1 |  |
-| requestOutcome.patient.personId.extension | String | Personidentifierare för patienten. / Om identiteten är av typ personnummer, samordningsnummer eller nationellt reservId skall denna anges med 12 tecken utan skiljetecken. | 1..1 |  |
-| requestOutcome.patient.personId.root | String | OID för typ av personidentifierare. / För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas. / För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas. / För nationellt reservId ska OID för nationellt reservId (1.2.752.74.9.1) användas. / För andra typer av personidentifierare sätts root till aktuell OID. | 1..1 |  |
-| requestOutcome.patient.name | String | Namn
-Alla personnamn skrivs sammanslaget enligt formatet " Mellannamn Efternamn, Förnamn". Om flera namn av samma typ förekommer ska dessa separeras med mellanslag. / Implementationer rekommenderas att i första hand slå upp denna information från den källa till personinformation som normalt används. Detta namn är i första hand till för teknisk loggning och spårbarhet. | 0..1 | Maxlängd 216 tecken |
-| requestOutcome.requestOutcomeTime | TimeStampType | Svarstidpunkt
-Svarets skapelsetidpunkt. / Den tidpunkt då remissbesvararen skickar svaret. | 1..1 | ÅÅÅÅMMDDttmmss |
-| requestOutcome.respondingOrganisation | FullOrganisationType | Organisatorisk enhet
-Den enhet som har producerat svaret. Detta kan skilja sig från den enhet som remittenten angav som remissmottagande enhet på grund av tekniska eller organisatoriska anledningar. Exempelvis kan det ske en systemintern ”vidareskickning” till en specifik enhet från en central remissmottagning utan att detta notifieras till remittenten. | 1..1 |  |
-| requestOutcome.respondingOrganisation.careUnitId | HsaIdType | Enhet id
-HSA-id för remissbesvarande enhet. | 1..1 | Maxlängd 64 tecken |
-| requestOutcome.respondingOrganisation.careUnitName | String | Enhet namn
-Namn på enhet. | 0..1 | Maxlängd 64 tecken |
-| requestOutcome.respondingOrganisation.careUnitTelephone | String | Enhet telfon
-Telefon till enhet. | 0..1 |  |
-| requestOutcome.respondingOrganisation.careUnitEmail | String | Enhet epost
-E-post till enhet. | 0..1 |  |
-| requestOutcome.respondingOrganisation.careUnitAddress | String | Enhet adress
-Adress till enhet. | 0..1 |  |
-| requestOutcome.respondingOrganisation.careUnitLocation | String | Enhet plats
-Text som anger namnet på plats eller ort för enhetens eller funktionens fysiska placering. | 0..1 |  |
-| requestOutcome.author | AuthorType | Remissbesvarare
-Remissbesvarande person och organisation | 1..1 |  |
+| requestOutcome.patient.personId | PersonIdType | Person id<br/>Patientens identitet | 1..1 |  |
+| requestOutcome.patient.personId.extension | String | Personidentifierare för patienten.<br/>Om identiteten är av typ personnummer, samordningsnummer eller nationellt reservId skall denna anges med 12 tecken utan skiljetecken. | 1..1 |  |
+| requestOutcome.patient.personId.root | String | OID för typ av personidentifierare.<br/>För personnummer ska Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas.<br/>För samordningsnummer ska Skatteverkets OID för samordningsnummer (1.2.752.129.2.1.3.3) användas.<br/>För nationellt reservId ska OID för nationellt reservId (1.2.752.74.9.1) användas.<br/>För andra typer av personidentifierare sätts root till aktuell OID. | 1..1 |  |
+| requestOutcome.patient.name | String | Namn<br/>Alla personnamn skrivs sammanslaget enligt formatet " Mellannamn Efternamn, Förnamn". Om flera namn av samma typ förekommer ska dessa separeras med mellanslag.<br/>Implementationer rekommenderas att i första hand slå upp denna information från den källa till personinformation som normalt används. Detta namn är i första hand till för teknisk loggning och spårbarhet. | 0..1 | Maxlängd 216 tecken |
+| requestOutcome.requestOutcomeTime | TimeStampType | Svarstidpunkt<br/>Svarets skapelsetidpunkt.<br/>Den tidpunkt då remissbesvararen skickar svaret. | 1..1 | ÅÅÅÅMMDDttmmss |
+| requestOutcome.respondingOrganisation | FullOrganisationType | Organisatorisk enhet<br/>Den enhet som har producerat svaret. Detta kan skilja sig från den enhet som remittenten angav som remissmottagande enhet på grund av tekniska eller organisatoriska anledningar. Exempelvis kan det ske en systemintern ”vidareskickning” till en specifik enhet från en central remissmottagning utan att detta notifieras till remittenten. | 1..1 |  |
+| requestOutcome.respondingOrganisation.careUnitId | HsaIdType | Enhet id<br/>HSA-id för remissbesvarande enhet. | 1..1 | Maxlängd 64 tecken |
+| requestOutcome.respondingOrganisation.careUnitName | String | Enhet namn<br/>Namn på enhet. | 0..1 | Maxlängd 64 tecken |
+| requestOutcome.respondingOrganisation.careUnitTelephone | String | Enhet telfon<br/>Telefon till enhet. | 0..1 |  |
+| requestOutcome.respondingOrganisation.careUnitEmail | String | Enhet epost<br/>E-post till enhet. | 0..1 |  |
+| requestOutcome.respondingOrganisation.careUnitAddress | String | Enhet adress<br/>Adress till enhet. | 0..1 |  |
+| requestOutcome.respondingOrganisation.careUnitLocation | String | Enhet plats<br/>Text som anger namnet på plats eller ort för enhetens eller funktionens fysiska placering. | 0..1 |  |
+| requestOutcome.author | AuthorType | Remissbesvarare<br/>Remissbesvarande person och organisation | 1..1 |  |
 | requestOutcome.author.healthcareProfessional | HealthcareProfessionalType | Hälso- och sjukvårdspersonal | 1..1 |  |
-| requestOutcome.author.healthcareProfessional.id | HsaIdType | Personal id
-HSA-id för remissbesvarare | 0..1 | Maxlängd 64 tecken |
-| requestOutcome.author.healthcareProfessional.name | String | Personal namn
-Namn på remissbesvarare | 1..1 | Maxlängd 64 tecken |
-| requestOutcome.author.typeOfHealthcareProfessional | CVType | Typ av hälso- och sjukvårdspersonal / Kod för yrkestitel från Snomed CT enligt urvalen nedan: / code: se urval_legitimerade_yrken / codeSystem: OID 1.2.752.129.5.1.70
-
-eller / code: se yrken_i_halso-_och_sjukvarden_ej_legitimerade / codeSystem: 1.2.752.129.7.1.5 / Urvalen kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 0..1 |  |
-| requestOutcome.author.healthcareProfessional.Organisation | OrganisationType | Organisatorisk enhet
-Remissbesvarare | 1..1 |  |
-| requestOutcome.author.healthcareProfessional.Organisation.careUnitId | HsaIdType | Enhet id
-HSA-id för vårdenhet (jmf. PDL) som ansvarar för remissvaret. | 1..1 | Maxlängd 64 tecken |
+| requestOutcome.author.healthcareProfessional.id | HsaIdType | Personal id<br/>HSA-id för remissbesvarare | 0..1 | Maxlängd 64 tecken |
+| requestOutcome.author.healthcareProfessional.name | String | Personal namn<br/>Namn på remissbesvarare | 1..1 | Maxlängd 64 tecken |
+| requestOutcome.author.typeOfHealthcareProfessional | CVType | Typ av hälso- och sjukvårdspersonal<br/>Kod för yrkestitel från Snomed CT enligt urvalen nedan:<br/>code: se urval_legitimerade_yrken<br/>codeSystem: OID 1.2.752.129.5.1.70<br/>eller<br/>code: se yrken_i_halso-_och_sjukvarden_ej_legitimerade<br/>codeSystem: 1.2.752.129.7.1.5<br/>Urvalen kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 0..1 |  |
+| requestOutcome.author.healthcareProfessional.Organisation | OrganisationType | Organisatorisk enhet<br/>Remissbesvarare | 1..1 |  |
+| requestOutcome.author.healthcareProfessional.Organisation.careUnitId | HsaIdType | Enhet id<br/>HSA-id för vårdenhet (jmf. PDL) som ansvarar för remissvaret. | 1..1 | Maxlängd 64 tecken |
 | requestOutcome.recipient | RecipientType | Mottagare | 1..1 |  |
-| requestOutcome.recipient.organisation | OrganisationType | Organisatorisk enhet
-Mottagare | 1..1 |  |
-| requestOutcome.recipient.organisation.careUnitId | HsaIdType | Enhet id
-HSA-id för remissvarsmottagande enhet, till vilken remissvaret adresseras. | 1..1 | Maxlängd 64 tecken |
-| requestOutcome.outcome | OutcomeType | Kliniskt innehåll
-Remissvar | 1..1 |  |
-| requestOutcome.outcome.outcomeText | String | Klinisk svarstext
-Remissvarstexten | 1..1 | Maxlängd 65000 tecken |
-| requestOutcome.outcome.condition | ConditionType | Kliniskt tillstånd
-Dessa kliniska data är direkt kopplat till svaret, t.ex. funna diagnoser. | 0..* |  |
-| requestOutcome.outcome.condition.code | CVType | Kliniskt tillståndskod Anger kliniska tillståndskoder. / code:  se ICD-10-SE
-
-codeSystem: 1.2.752.116.1.1.1 / Observera att antingen måste denna eller outcome.condition.text finnas med / Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 0..1 |  |
-| requestOutcome.outcome.condition.text | String | Klinisk tillståndsbeskrivning
-Beskrivningen av det kliniska tillståndet i de fall en kod saknas. / Texten ska endast beskriva ett kliniskt tillstånd. Ska fler tillstånd beskrivas hanteras det i olika requestOutcome.outcome.condition. / Observera att antingen måste denna eller outcome.condition.code finnas. | 0..1 | Maxlängd 8192 tecken |
-| requestOutcome.outcome.accomplishedActivity | ActivityType | Åtgärd
-Svaret kan redovisa noll till många utförda åtgärder | 0..* |  |
-| requestOutcome.outcome.accomplishedActivity.id | ActivityIdType | Åtgärd id
-Unikt id som är sammansatt av requestId + accomplishedActivity + löpnummer med # som skiljer respektive del. / Exempel. / requestId = SE2321000012-0001#987 / id = SE2321000012-0001#987#accomplishedActivity#0 / och nästa id blir / accomplishedActivity.id = SE2321000012-0001#987# accomplishedActivity#1 | 0..1 |  |
-| requestOutcome.outcome.accomplishedActivity.text | String | Åtgärd beskrivning
-Här ska åtgärdsbeskrivningen in om systemet inte kan använda en kod. / Texten ska endast beskriva en utförd åtgärd. Ska fler åtgärder beskrivas hanteras det i olika requestOutcome.outcome.accomplishedActivity. / Observera att text får endast förekomma om accomplishedActivity.code inte används. | 0..1 | Maxlängd 8192 tecken |
-| requestOutcome.outcome.accomplishedActivity.code | ActivityCodeType | Åtgärd typ
-Åtgärd enligt kodsystem. / Observera att code får endast förekomma om accomplishedActivity.text inte används. | 0..1 |  |
+| requestOutcome.recipient.organisation | OrganisationType | Organisatorisk enhet<br/>Mottagare | 1..1 |  |
+| requestOutcome.recipient.organisation.careUnitId | HsaIdType | Enhet id<br/>HSA-id för remissvarsmottagande enhet, till vilken remissvaret adresseras. | 1..1 | Maxlängd 64 tecken |
+| requestOutcome.outcome | OutcomeType | Kliniskt innehåll<br/>Remissvar | 1..1 |  |
+| requestOutcome.outcome.outcomeText | String | Klinisk svarstext<br/>Remissvarstexten | 1..1 | Maxlängd 65000 tecken |
+| requestOutcome.outcome.condition | ConditionType | Kliniskt tillstånd<br/>Dessa kliniska data är direkt kopplat till svaret, t.ex. funna diagnoser. | 0..* |  |
+| requestOutcome.outcome.condition.code | CVType | Kliniskt tillståndskod Anger kliniska tillståndskoder.<br/>code:  se ICD-10-SE<br/>codeSystem: 1.2.752.116.1.1.1<br/>Observera att antingen måste denna eller outcome.condition.text finnas med<br/>Kodverket kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontraktet behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 0..1 |  |
+| requestOutcome.outcome.condition.text | String | Klinisk tillståndsbeskrivning<br/>Beskrivningen av det kliniska tillståndet i de fall en kod saknas.<br/>Texten ska endast beskriva ett kliniskt tillstånd. Ska fler tillstånd beskrivas hanteras det i olika requestOutcome.outcome.condition.<br/>Observera att antingen måste denna eller outcome.condition.code finnas. | 0..1 | Maxlängd 8192 tecken |
+| requestOutcome.outcome.accomplishedActivity | ActivityType | Åtgärd<br/>Svaret kan redovisa noll till många utförda åtgärder | 0..* |  |
+| requestOutcome.outcome.accomplishedActivity.id | ActivityIdType | Åtgärd id<br/>Unikt id som är sammansatt av requestId + accomplishedActivity + löpnummer med # som skiljer respektive del.<br/>Exempel.<br/>requestId = SE2321000012-0001#987<br/>id = SE2321000012-0001#987#accomplishedActivity#0<br/>och nästa id blir<br/>accomplishedActivity.id = SE2321000012-0001#987# accomplishedActivity#1 | 0..1 |  |
+| requestOutcome.outcome.accomplishedActivity.text | String | Åtgärd beskrivning<br/>Här ska åtgärdsbeskrivningen in om systemet inte kan använda en kod.<br/>Texten ska endast beskriva en utförd åtgärd. Ska fler åtgärder beskrivas hanteras det i olika requestOutcome.outcome.accomplishedActivity.<br/>Observera att text får endast förekomma om accomplishedActivity.code inte används. | 0..1 | Maxlängd 8192 tecken |
+| requestOutcome.outcome.accomplishedActivity.code | ActivityCodeType | Åtgärd typ<br/>Åtgärd enligt kodsystem.<br/>Observera att code får endast förekomma om accomplishedActivity.text inte används. | 0..1 |  |
 | requestOutcome.outcome.accomplishedActivity.code.code | String | Kod enligt det angivet kodsystemet – KVÅ eller Snomed CT | 1..1 |  |
-| requestOutcome.outcome.accomplishedActivity.code.codeSystem | String | Kodsystem för tolkning av angiven kod. / Obligatoriskt att hantera / 1.2.752.116.1.3.2.1.4 = KVÅ / Om remittent använder kodverk som remissmottagande system inte hanterar skall detta resultera i ett fel av typen APPLICATION_ERROR. | 1..1 |  |
-| requestOutcome .originalRequest | RequestType | Originalremissen / Detta fält skall endast vara ifyllt i de fall då remissen skickas till annan mottagare än originalremittenten. Detta flöde finns idag inte beskrivet i de nationella specifikationerna. OriginalRequest får endast vara ifylld om den faktiska implementationen kan garantera att strukturen är identisk från det som mottogs från original remittenten. | 0..1 |  |
-| requestOutcome.attachment | MultimediaType | Bilaga
-Möjlighet att skicka med en eller flera bilagor i något av de tillåtna formaten | 0..* |  |
-| requestOutcome.attachment.id | String | Bilaga id / Identitet på bilagan. Används för inbäddade bilagor vid referenser inom en tjänsteinteraktion. / Format remissvar: requestOutcomeId#löpnummer =Källsystem-Id(HSA-ID)#lokalt-id#löpnummer / Obligatoriskt för inbäddade bilagor | 0..1 | (.*)#(.*)#(.*) / Maxlängd 256 tecken |
-| requestOutcome.attachment.mediaType | CVType | Multimediatyp 
-Typ av multimedia, se urval med tillåtna format. / code: se urval_mediatyper_elektronisk_remiss / codeSystem: (1.2.752.129.5.1.59, se nedan) / Under codeSystem anges identifieraren för det kodverk från vilken den angivna koden hämtats. Detta medför att det kan skickas olika identifierare under codeSystem, beroende på vilket kodverk den skickade koden tillhör. / Urvalet kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontrakten behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 1..1 | urval_mediatyper_elektronisk_
-remiss |
-| requestOutcome.attachment.value | Base64Binary | Binärdata
-Används vid inbäddad bilaga och innehåller då bilagans binärdata, kodat enligt base64. Om bilagan innehåller avkodad text ska denna vara avkodad från UTF-8-format. Obligatoriskt när referens inte används. | 0..1 | Ett meddelande med bilagor får inte vara större än 10MB |
-| requestOutcome.attachment.reference | AnyURI | Referens
-Används vid refererad bilaga, och innehåller då den URL där bilagan kan hämtas. OBS! Används inte i denna version. | 0..0 |  |
-| requestOutcome.attachment.description | String | Beskrivning / Beskrivning av bilaga, t ex innehåll | 0..1 | Maxlängd 256 tecken |
+| requestOutcome.outcome.accomplishedActivity.code.codeSystem | String | Kodsystem för tolkning av angiven kod.<br/>Obligatoriskt att hantera<br/>1.2.752.116.1.3.2.1.4 = KVÅ<br/>Om remittent använder kodverk som remissmottagande system inte hanterar skall detta resultera i ett fel av typen APPLICATION_ERROR. | 1..1 |  |
+| requestOutcome .originalRequest | RequestType | Originalremissen<br/>Detta fält skall endast vara ifyllt i de fall då remissen skickas till annan mottagare än originalremittenten. Detta flöde finns idag inte beskrivet i de nationella specifikationerna. OriginalRequest får endast vara ifylld om den faktiska implementationen kan garantera att strukturen är identisk från det som mottogs från original remittenten. | 0..1 |  |
+| requestOutcome.attachment | MultimediaType | Bilaga<br/>Möjlighet att skicka med en eller flera bilagor i något av de tillåtna formaten | 0..* |  |
+| requestOutcome.attachment.id | String | Bilaga id<br/>Identitet på bilagan. Används för inbäddade bilagor vid referenser inom en tjänsteinteraktion.<br/>Format remissvar: requestOutcomeId#löpnummer =Källsystem-Id(HSA-ID)#lokalt-id#löpnummer<br/>Obligatoriskt för inbäddade bilagor | 0..1 | (.*)#(.*)#(.*)<br/>Maxlängd 256 tecken |
+| requestOutcome.attachment.mediaType | CVType | Multimediatyp<br/>Typ av multimedia, se urval med tillåtna format.<br/>code: se urval_mediatyper_elektronisk_remiss<br/>codeSystem: (1.2.752.129.5.1.59, se nedan)<br/>Under codeSystem anges identifieraren för det kodverk från vilken den angivna koden hämtats. Detta medför att det kan skickas olika identifierare under codeSystem, beroende på vilket kodverk den skickade koden tillhör.<br/>Urvalet kan komma att kompletteras över tid vilket medför att konsumenter och producenter av tjänstekontrakten behöver vara förberedda på att nya koder kan tillkomma utan att versionen på tjänstekontraktet uppdateras. | 1..1 | urval_mediatyper_elektronisk_<br/>remiss |
+| requestOutcome.attachment.value | Base64Binary | Binärdata<br/>Används vid inbäddad bilaga och innehåller då bilagans binärdata, kodat enligt base64. Om bilagan innehåller avkodad text ska denna vara avkodad från UTF-8-format. Obligatoriskt när referens inte används. | 0..1 | Ett meddelande med bilagor får inte vara större än 10MB |
+| requestOutcome.attachment.reference | AnyURI | Referens<br/>Används vid refererad bilaga, och innehåller då den URL där bilagan kan hämtas. OBS! Används inte i denna version. | 0..0 |  |
+| requestOutcome.attachment.description | String | Beskrivning<br/>Beskrivning av bilaga, t ex innehåll | 0..1 | Maxlängd 256 tecken |
 | Svar |  |  |  |  |
 | result | ResultType | Innehåller information om begäran gick bra eller ej. | 1..1 |  |
 | result.resultCode | ResultCodeEnum | Kan endast vara OK, INFO eller ERROR | 1..1 |  |

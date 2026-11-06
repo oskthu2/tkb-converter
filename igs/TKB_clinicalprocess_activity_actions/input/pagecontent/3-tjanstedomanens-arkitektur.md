@@ -58,10 +58,8 @@ Nedan så har t ex system 2 kännedom om diagnosen, vilket redan har förmedlats
 | Namn | Beskrivning |
 | :--- | :--- |
 | Tjänstekonsument (för uppföljning) | Det system som används för att konsumera information. D.v.s. det system som använder tjänster enligt ett tjänstekontrakt. |
-| Tjänsteplattform
-(GetActivity & GetObservation) | Tjänsteplattformen är det lager som hanterar virtuella tjänster, aggregerande tjänster samt anpassningstjänster. |
-| Vårdinformationssystem
-1, 2, & 3 | De system som i detta fall utgör källsystemet som vårdpersonal direkt registrerar/uppdaterar/raderar information i. |
+| Tjänsteplattform<br/>(GetActivity & GetObservation) | Tjänsteplattformen är det lager som hanterar virtuella tjänster, aggregerande tjänster samt anpassningstjänster. |
+| Vårdinformationssystem<br/>1, 2, & 3 | De system som i detta fall utgör källsystemet som vårdpersonal direkt registrerar/uppdaterar/raderar information i. |
 
 ### Adressering
 Tjänstedomänen tillämpar källsystemsadressering. Observera att tjänstekonsumenter främst anropar aggregerande tjänster. Tjänstekonsumenten adresserar därför den aggregerande tjänsten med antingen nationellt HSA-id (Ineras HSA-id) eller HSA-id för aktuell huvudman om det är en regional/huvudmanna-specifik (t.ex. ”regional”) aggregerande tjänst som ska adresseras.
@@ -72,9 +70,7 @@ Adressering sker i enlighet med RIV Tekniska Anvisningar Översikt, Rev PD2, avs
 
 | Åtkomstbehov för patientens journalhistorik | Logisk adress |
 | :--- | :--- |
-| Nationellt | Ineras HSA-id
-QA: 5565594230
-Prod: 5565594230 |
+| Nationellt | Ineras HSA-id<br/>QA: 5565594230<br/>Prod: 5565594230 |
 | För en huvudman/region | Huvudmannens/regionens HSA-id |
 | För ett källsystem | Källsystemets HSA-id |
 

@@ -15,8 +15,8 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | Namn | Typ | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | Begäran | Begäran | Begäran | Begäran |
-| prescriptionTime | TimeStampType | Tidpunkt då registreringen av ordinationsorsaken gjordes. / I de fall en ordination finns anges här / I annat fall lämnas detta fält tomt. | 0..1 |
-| substanceCode | CVType | Hanterar information kring en läkemedelssubstans som är del av en läkemedelsordination / Kodverk: ATC | 1..1 |
+| prescriptionTime | TimeStampType | Tidpunkt då registreringen av ordinationsorsaken gjordes.<br/>I de fall en ordination finns anges här<br/>I annat fall lämnas detta fält tomt. | 0..1 |
+| substanceCode | CVType | Hanterar information kring en läkemedelssubstans som är del av en läkemedelsordination<br/>Kodverk: ATC | 1..1 |
 | substanceCode.code | String | ATC-kod för läkemedelssubstansen. | 0..1 |
 | substanceCode.codeSystem | String | Kodsystem för ATC: 1.2.752.129.2.2.3.1.1 | 0..1 |
 | substanceCode.codeSystemName | String | ATC | 0..1 |
@@ -37,19 +37,19 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | conditionId | IIType | Id för patientens diagnos | 0..1 |
 | conditionId.root | String | Nationell OID för lokala ID:n: 1.2.752.129.2.1.2.1 | 1..1 |
 | conditionId.extension | String | HSA-id för det system inom vilket tillstånds-id är unikt + ":" + tillstånds-id. | 0..1 |
-| conditionCode | CVType | Anger koden och klartext för patientens diagnos / Kodverk: SnomedCT, IV Annan, KSH97 | 0..1 |
+| conditionCode | CVType | Anger koden och klartext för patientens diagnos<br/>Kodverk: SnomedCT, IV Annan, KSH97 | 0..1 |
 | conditionCode.code | String |  | 0..1 |
 | conditionCode.codeSystem | String |  | 0..1 |
 | conditionCode.codeSystemName | String |  | 0..1 |
 | conditionCode.codeSystemVersion | String |  | 0..1 |
 | conditionCode.displayName | String |  | 0..1 |
-| source | CVType | Kod och klartext som anger hur infektionen uppstått. Anger om det är samhälls- eller vårdförvärvad infektion eller ej infektion (vid förebyggande profylax) / Kodverk: IV Smittväg | 0..1 |
+| source | CVType | Kod och klartext som anger hur infektionen uppstått. Anger om det är samhälls- eller vårdförvärvad infektion eller ej infektion (vid förebyggande profylax)<br/>Kodverk: IV Smittväg | 0..1 |
 | source.code | String |  | 0..1 |
 | source.codeSystem | String |  | 0..1 |
 | source.codeSystemName | String |  | 0..1 |
 | source.codeSystemVersion | String |  | 0..1 |
 | source.displayName | String |  | 0..1 |
-| activityCode | CVType | Information om en aktivitet som är relevant att registrera. / Kodverk: KVÅ, SnomedCT, IV Annan | 1..1 |
+| activityCode | CVType | Information om en aktivitet som är relevant att registrera.<br/>Kodverk: KVÅ, SnomedCT, IV Annan | 1..1 |
 | activityCode.code | String |  | 0..1 |
 | activityCode.codeSystem | String |  | 0..1 |
 | activityCode.codeSystemName | String |  | 0..1 |
@@ -74,7 +74,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | prescriptionId.extension | String | HSA-id för det system inom vilket ordinations-id är unikt + ":" + ordinations-id. |  |
 | prescriptionReasonTime | TimeStampType | Tidpunkt för ordinationen. | 0..1 |
 | Svar | Svar | Svar | Svar |
-| code | String | OK = operationen genomförd utan fel / ERROR = Fel vid operationen / INFO = Information finns om operationen | 1..1 |
+| code | String | OK = operationen genomförd utan fel<br/>ERROR = Fel vid operationen<br/>INFO = Information finns om operationen | 1..1 |
 | comment | String | Beskrivning av fel som uppstått alternativt information om genomförd operation. | 0..1 |
 
 #### Övriga regler
@@ -130,7 +130,7 @@ Nedanstående tabell beskriver varje element i begäran och svar.
 | conditionId.root | String | Nationell OID för lokala ID:n: 1.2.752.129.2.1.2.1 | 1..1 |
 | conditionId.extension | String | HSA-id för det system inom vilket tillstånds-id är unikt + ":" + tillstånds-id. | 0..1 |
 | Svar | Svar | Svar | Svar |
-| code | String | OK = operationen genomförd utan fel / ERROR = Fel vid operationen / INFO = Information finns om operationen | 1..1 |
+| code | String | OK = operationen genomförd utan fel<br/>ERROR = Fel vid operationen<br/>INFO = Information finns om operationen | 1..1 |
 | comment | String | Beskrivning av fel som uppstått alternativt information om genomförd operation. | 0..1 |
 
 #### Övriga regler
@@ -173,7 +173,7 @@ DeletePrescription raderar information om en ordination som tidigare har registr
 | prescriptionId.root | String | Nationell OID för lokala ID:n: 1.2.752.129.2.1.2.1 | 1..1 |
 | prescriptionId.extension | String | HSA-id för det system inom vilket ordinations-id är unikt + ":" + ordinations-id. | 0..1 |
 | Svar | Svar | Svar | Svar |
-| code | String | OK = operationen genomförd utan fel / ERROR = Fel vid operationen / INFO = Information finns om operationen | 1..1 |
+| code | String | OK = operationen genomförd utan fel<br/>ERROR = Fel vid operationen<br/>INFO = Information finns om operationen | 1..1 |
 | comment | String | Beskrivning av fel som uppstått alternativt information om genomförd operation. | 0..1 |
 
 #### Övriga regler
@@ -220,7 +220,7 @@ Tjänsten registrerar ett nytt laboratoriesvar med tillhörande information om p
 | reportId.extension | String | HSA-id för det system inom vilket svars-id är unikt. + ":" svars-id. | 0..1 |
 | testTime | TimeStampType | Informationsspecifikation: Provtagning.provtagningstidpunkt | 1..1 |
 | observationTime | TimeStampType | Informationsspecifikation: Mikrobiologiskt fynd.observationstidpunkt | 1..1 |
-| findingCode | CVType | Informationsspecifikation: Mikrobiologiskt fynd.agenskod / Kodverk: NPU / Möjliga koder: ATCC09689 (Clostridium difficile) | 1..1 |
+| findingCode | CVType | Informationsspecifikation: Mikrobiologiskt fynd.agenskod<br/>Kodverk: NPU<br/>Möjliga koder: ATCC09689 (Clostridium difficile) | 1..1 |
 | findingCode.code | String | Koden för fyndet. Exempel: ATCC09689 | 0..1 |
 | findingCode.codeSystem | String | OID för NPU kodverket | 0..1 |
 | findingCode.codeSystemName | String | NPU | 0..1 |
@@ -228,7 +228,7 @@ Tjänsten registrerar ett nytt laboratoriesvar med tillhörande information om p
 | findingCode.displayName | String | Textuell beskrivning av det som koden anger. Exempel: Clostridium difficile | 0..1 |
 | patient | PatientType | Informationsspecifikation: Patient | 1..1 |
 | Svar | Svar | Svar | Svar |
-| code | String | OK = operationen genomförd utan fel / ERROR = Fel vid operationen / INFO = Information finns om operationen | 1..1 |
+| code | String | OK = operationen genomförd utan fel<br/>ERROR = Fel vid operationen<br/>INFO = Information finns om operationen | 1..1 |
 | comment | String | Beskrivning av fel som uppstått alternativt information om genomförd operation. | 0..1 |
 
 #### Övriga regler
@@ -271,7 +271,7 @@ DeleteLaboratoryReport raderar information som tidigare har registrerats via tj�
 | laboratoryReportId.root | String | Nationell OID för lokala ID:n: 1.2.752.129.2.1.2.1 | 1..1 |
 | laboratoryReportId.extension | String | HSA-id för det system inom vilket svars-id är unikt. + ":" svars-id. | 0..1 |
 | Svar | Svar | Svar | Svar |
-| code | String | OK = operationen genomförd utan fel / ERROR = Fel vid operationen / INFO = Information finns om operationen | 1..1 |
+| code | String | OK = operationen genomförd utan fel<br/>ERROR = Fel vid operationen<br/>INFO = Information finns om operationen | 1..1 |
 | comment | String | Beskrivning av fel som uppstått alternativt information om genomförd operation. | 0..1 |
 
 #### Övriga regler
@@ -354,7 +354,7 @@ Detta tjänstekontrakt skriver vårdkontaktsdata. En vårdkontakt kan vara av ar
 | CareGiverType.id | IIType | HSAid. Vårdgivarens identitet som enheten är anknuten till. | 1..1 |
 | CareGiverType.name | String | Vårdgivarens namn till vilken enheten är knuten. | 0..1 |
 | Svar | Svar | Svar | Svar |
-| code | String | OK = operationen genomförd utan fel / ERROR = Fel vid operationen / INFO = Information finns om operationen | 1..1 |
+| code | String | OK = operationen genomförd utan fel<br/>ERROR = Fel vid operationen<br/>INFO = Information finns om operationen | 1..1 |
 | comment | String | Beskrivning av fel som uppstått alternativt information om genomförd operation. | 0..1 |
 
 #### Övriga regler
@@ -397,7 +397,7 @@ DeleteCareEncounter raderar information som tidigare har registrerats via tjäns
 | careEncounterId.root | String | Nationell OID för lokala id:n: 1.2.752.129.2.1.2.1 |  |
 | careEncounterId.extension | String | Extension sätts till HSA-id för det system inom vilket careEncounterId är unikt + ":" + själva ID. |  |
 | Svar | Svar | Svar | Svar |
-| code | String | OK = operationen genomförd utan fel / ERROR = Fel vid operationen / INFO = Information finns om operationen | 1..1 |
+| code | String | OK = operationen genomförd utan fel<br/>ERROR = Fel vid operationen<br/>INFO = Information finns om operationen | 1..1 |
 | comment | String | Beskrivning av fel som uppstått alternativt information om genomförd operation. | 0..1 |
 
 #### Övriga regler

@@ -7,7 +7,13 @@ RuleSet: BirthRegistrationRequestFieldDescriptions
 * Dokumentuppgifter ^comment = "TKB-fält: `Dokumentuppgifter` (`DokumentuppgifterTYPE`, kardinalitet 1..1)."
 * Dokumentuppgifter.Ingivarnamn ^definition = "Namnet på sjukhus, klinik eller motsvarande samt namnet på barnmorska eller motsvarande. Max 100 tecken."
 * Dokumentuppgifter.Ingivarnamn ^comment = "TKB-fält: `Ingivarnamn` (`string`, kardinalitet 1..1)."
-* Dokumentuppgifter.AnmalningsTyp ^definition = "Får endast ha värde: `<br>` \"NYANMALD\" `<br>` \"RATTAD\" `<br>` \"MAKULERAD \""
+* Dokumentuppgifter.AnmalningsTyp ^definition = "Får endast ha värde:
+
+\"NYANMALD\"
+
+\"RATTAD\"
+
+\"MAKULERAD \""
 * Dokumentuppgifter.AnmalningsTyp ^comment = "TKB-fält: `AnmalningsTyp` (`string`, kardinalitet 1..1)."
 * Dokumentuppgifter.AnmalningsId ^definition = "Riksunikt id som sätts av vården själva. Vården bestämmer formatet. Max 80 tecken,"
 * Dokumentuppgifter.AnmalningsId ^comment = "TKB-fält: `AnmalningsId` (`string`, kardinalitet 1..1)."
@@ -37,17 +43,55 @@ RuleSet: BirthRegistrationRequestFieldDescriptions
 * Arendeuppgifter.ModersMake.Fodelsedatum.FodelseDag ^comment = "TKB-fält: `../../../FodelseDag` (`string`, kardinalitet 1..1)."
 * Arendeuppgifter.ModersMake.PersonNummer ^comment = "TKB-fält: `../../PersonNummer` (`PersonNummerTYPE`, kardinalitet 0..1)."
 * Arendeuppgifter.Barn ^comment = "TKB-fält: `/BirthRegistration/Arendeuppgifter/Barn` (kardinalitet 1..1)."
-* Arendeuppgifter.Barn.DatumFodelse ^definition = "Barnets födelsedatum. Får ej vara senare än dagens datum. Sekel inluderat. 10 tecken. `<br>` ÅÅÅÅ-MM-DD"
+* Arendeuppgifter.Barn.DatumFodelse ^definition = "Barnets födelsedatum. Får ej vara senare än dagens datum. Sekel inluderat. 10 tecken.
+
+ÅÅÅÅ-MM-DD"
 * Arendeuppgifter.Barn.DatumFodelse ^comment = "TKB-fält: `DatumFodelse` (`datum`, kardinalitet 1..1)."
-* Arendeuppgifter.Barn.Kon ^definition = "Barnets kön. Då uppgift saknas lämnas elementet tomt. `<br>` Max 6 tecken. Får endast ha värde `<br>` \"FLICKA\" `<br>` \"POJKE\""
+* Arendeuppgifter.Barn.Kon ^definition = "Barnets kön. Då uppgift saknas lämnas elementet tomt.
+
+Max 6 tecken. Får endast ha värde
+
+\"FLICKA\"
+
+\"POJKE\""
 * Arendeuppgifter.Barn.Kon ^comment = "TKB-fält: `Kon` (`string`, kardinalitet 0..1)."
-* Arendeuppgifter.Barn.OrdningsNr ^definition = "Födelseordningsnummer för barnet i förhållande till övriga syskon som fötts vid samma förlossningstillfä lle. `<br>` Det har ingen betydelse om barnen (syskonen) var levande eller döda vid förlossningen. OrdningsNr ska beskriva i vilken ordning det aktuella barnet föddes fram. `<br>` Ex 1: Om modern fött trillingar och detta är det andra barnet av de tre anges värdet \"2\" som OrdningsNr för det aktuella barnet. `<br>` Ex 2: Om födelsen avser en singel födelse anges värdet \"1\" som OrdningsNr. *(Figur saknas: bilden i originalets tabellcell kan inte extraheras ur .doc-filen.)* `<br>` 1 tecken. Värdet ska finnas i intervallet 1-9."
+* Arendeuppgifter.Barn.OrdningsNr ^definition = "Födelseordningsnummer för barnet i förhållande till övriga syskon som fötts vid samma förlossningstillfä lle.
+
+Det har ingen betydelse om barnen (syskonen) var levande eller döda vid förlossningen. OrdningsNr ska beskriva i vilken ordning det aktuella barnet föddes fram.
+
+Ex 1: Om modern fött trillingar och detta är det andra barnet av de tre anges värdet \"2\" som OrdningsNr för det aktuella barnet.
+
+Ex 2: Om födelsen avser en singel födelse anges värdet \"1\" som OrdningsNr. *(Figur saknas: bilden i originalets tabellcell kan inte extraheras ur .doc-filen.)*
+
+1 tecken. Värdet ska finnas i intervallet 1-9."
 * Arendeuppgifter.Barn.OrdningsNr ^comment = "TKB-fält: `OrdningsNr` (`int`, kardinalitet 1..1)."
-* Arendeuppgifter.Barn.AntalBarn ^definition = "Totalt antal födda barn av samma moder vid förlossningen. Det har ingen betydelse om barnen var levande eller döda vid förlossningen. Samtliga barn ska ingå. `<br>` Ex 1: Om modern fött trillingar anges värdet \"3\" för elementet AntalBarn. `<br>` Ex 2: Om det är en singel födelse anges värdet \"1\". `<br>` OBS: förhållandet mellan de värden som levereras i elementen OrdningsNr och AntalBarn måste vara rimligt. Det kan t ex aldrig förekomma OrdningsNr \"3\" tillsammans med AntalBarn \"2\". `<br>` OrdningsNr kan bara vara mindre eller lika med AntalBarn. `<br>` 1 tecken. Värdet ska finnas i intervallet 1-9."
+* Arendeuppgifter.Barn.AntalBarn ^definition = "Totalt antal födda barn av samma moder vid förlossningen. Det har ingen betydelse om barnen var levande eller döda vid förlossningen. Samtliga barn ska ingå.
+
+Ex 1: Om modern fött trillingar anges värdet \"3\" för elementet AntalBarn.
+
+Ex 2: Om det är en singel födelse anges värdet \"1\".
+
+OBS: förhållandet mellan de värden som levereras i elementen OrdningsNr och AntalBarn måste vara rimligt. Det kan t ex aldrig förekomma OrdningsNr \"3\" tillsammans med AntalBarn \"2\".
+
+OrdningsNr kan bara vara mindre eller lika med AntalBarn.
+
+1 tecken. Värdet ska finnas i intervallet 1-9."
 * Arendeuppgifter.Barn.AntalBarn ^comment = "TKB-fält: `AntalBarn` (`int`, kardinalitet 1..1)."
-* Arendeuppgifter.Barn.FodelseKommun ^definition = "Namnet på den kommun där barnet förlöstes I klartext. `<br>` T.ex kommun där födelsekliniken är belägen eller den kommun där taxin befann sig då förlossningen skedde i en taxi. `<br>` Max 30 tecken"
+* Arendeuppgifter.Barn.FodelseKommun ^definition = "Namnet på den kommun där barnet förlöstes I klartext.
+
+T.ex kommun där födelsekliniken är belägen eller den kommun där taxin befann sig då förlossningen skedde i en taxi.
+
+Max 30 tecken"
 * Arendeuppgifter.Barn.FodelseKommun ^comment = "TKB-fält: `FodelseKommun` (`string`, kardinalitet 1..1)."
-* Arendeuppgifter.Barn.Levande ^definition = "Då barnet var levande vid födelsen anges värdet \"JA\" annars anges värdet \"NEJ\". `<br>` Endast ett värde får anges: `<br>` Får endast ha värde `<br>` \"JA\" `<br>` \"NEJ\""
+* Arendeuppgifter.Barn.Levande ^definition = "Då barnet var levande vid födelsen anges värdet \"JA\" annars anges värdet \"NEJ\".
+
+Endast ett värde får anges:
+
+Får endast ha värde
+
+\"JA\"
+
+\"NEJ\""
 * Arendeuppgifter.Barn.Levande ^comment = "TKB-fält: `Levande` (`string`, kardinalitet 1..1)."
 * Arendeuppgifter.Vistelseadress ^definition = "Om uppgift om Vistelseadress lämnas är AdressRad1 obligatorisk"
 * Arendeuppgifter.Vistelseadress ^comment = "TKB-fält: `/BirthRegistration/Arendeuppgifter/Vistelseadress` (kardinalitet 0..1)."
@@ -62,7 +106,11 @@ RuleSet: BirthRegistrationRequestFieldDescriptions
 * Arendeuppgifter.Bostadsadress.AdressRad3 ^comment = "TKB-fält: `../../AdressRad3` (`AdressRadTYPE`, kardinalitet 0..1)."
 * Arendeuppgifter.Bostadsadress.AdressRad4 ^comment = "TKB-fält: `../../AdressRad4` (`AdressRadTYPE`, kardinalitet 0..1)."
 * Arendeuppgifter.Bostadsadress.AdressRad5 ^comment = "TKB-fält: `../../AdressRad5` (`AdressRadTYPE`, kardinalitet 0..1)."
-* Arendeuppgifter.KontaktTelefon ^definition = "Max 20 tecken. `<br>` Telefonnummer till moder. `<br>` Uppgiften används för att kunna nå en moder som inte är permanent bosatt I Sverige."
+* Arendeuppgifter.KontaktTelefon ^definition = "Max 20 tecken.
+
+Telefonnummer till moder.
+
+Uppgiften används för att kunna nå en moder som inte är permanent bosatt I Sverige."
 * Arendeuppgifter.KontaktTelefon ^comment = "TKB-fält: `KontaktTelefon` (`string`, kardinalitet 0..1)."
 * Arendeuppgifter.KontaktTelefon2 ^definition = "Max 20 tecken"
 * Arendeuppgifter.KontaktTelefon2 ^comment = "TKB-fält: `KontaktTelefon2` (`string`, kardinalitet 0..1)."

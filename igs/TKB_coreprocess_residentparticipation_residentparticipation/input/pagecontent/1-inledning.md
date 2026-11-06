@@ -25,13 +25,13 @@ Källa: *Tjänstekontraktsbeskrivning för coreprocess: residentparticipation: r
 | R1 | RIV PDLiP | Obligatoriskt | RIV Specifikation Patientdatalagen i Praktiken, http://rivta.se/documents/ARK_0031/PDLiP_RIV_1.0.pdf |
 | R2 | SVOD | Finns på Webben | Lag om sammanhållen vård- och omsorgsdokumentation (2022:913), https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-2022913-om-sammanhallen-vard-och_sfs-2022-913 |
 | R3 | HSLF-FS 2016:40 |  | https://www.socialstyrelsen.se/regler-och-riktlinjer/foreskrifter-och-allmanna-rad/konsoliderade-foreskrifter/201640-om-journalforing-och-behandling-av-personuppgifter-i-halso--och-sjukvarden/ |
-| R4 | RIV TA |  | RIV Teknisk Anvisning Basic Profile / http://rivta.se/ |
+| R4 | RIV TA |  | RIV Teknisk Anvisning Basic Profile<br/>http://rivta.se/ |
 | R5 | Arkitekturella beslut – | Obligatoriskt | Plats där dokumentet finns |
 | R6 | RIVTA flera dokument | Finns på Webben | http://rivta.se/ |
 | R7 | Kodverk för typ av fast kontakt | Inera kodverksförvaltning | https://inera.atlassian.net/wiki/download/attachments/2648506471/Kv%20typ%20av%20fast%20kontakt.xlsx?api=v2 |
 | R8 | Tjänstedomän för samtyckeshantering | - | https://rivta.se/tkview/#/domain/informationsecurity:authorization:consent |
 | R9 | T-Bokens styrande principer | - | https://inera.atlassian.net/wiki/spaces/RTA/pages/3632866/Referensarkitektur+f+r+v+rd+och+omsorg+-+T-boken+REV+D |
-| R10 | KV_Befattning | HSA | Befattningskoder enligt HSA-kodverk (OID: 1.2.752.129.2.2.1.4) / https://inera.atlassian.net/wiki/download/attachments/397444985/hsa_innehall_befattning_version_3.8_2025-08-26.pdf |
+| R10 | KV_Befattning | HSA | Befattningskoder enligt HSA-kodverk (OID: 1.2.752.129.2.2.1.4)<br/>https://inera.atlassian.net/wiki/download/attachments/397444985/hsa_innehall_befattning_version_3.8_2025-08-26.pdf |
 
 #### Förkortningar
 

@@ -55,7 +55,7 @@ En IIType är en numerisk eller alfanumerisk sträng som kan härledas till ett 
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | root | string | En identifierare som i sig själv eller tillsammans med värdet för extension är universellt unik. Om extension anges är root en unik identifierare av namnrymden för värdet som anges i extension. | 1..1 |
-| extension | string | En identifierare som tillsammans med värdet för root är universellt unik. Används om värdet på root inte är universellt unikt. / OBS! I schemafilen för GetLaboratoryOrderOutcome finns ett fel som innebär att både extension och root måste anges i datatypen IIType när information skickas med detta tjänstekontrakt. Se AB-2.7 i arkitekturella beslut för mer information [R1] | 0..1 |
+| extension | string | En identifierare som tillsammans med värdet för root är universellt unik. Används om värdet på root inte är universellt unikt.<br/>OBS! I schemafilen för GetLaboratoryOrderOutcome finns ett fel som innebär att både extension och root måste anges i datatypen IIType när information skickas med detta tjänstekontrakt. Se AB-2.7 i arkitekturella beslut för mer information [R1] | 0..1 |
 
 ###### Regler för IIType
 root
@@ -79,9 +79,9 @@ Notera att den specialiserade datatypen decimal-primitive används istället fö
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | low | decimal-primitive | Mätetal mätt i enheten som anges av ”unit”. Minst ett av fälten low och high måste anges. | 0..1 |
-| lowClosed | boolean | Angivelse av om värdet är en del av intervallet eller ej. / Exempel: / lowClosed = true och low = 5 motsvarar intervallet ≥ 5 / lowClosed = false och low = 5 motsvarar intervallet > 5 | 0..1 |
+| lowClosed | boolean | Angivelse av om värdet är en del av intervallet eller ej.<br/>Exempel:<br/>lowClosed = true och low = 5 motsvarar intervallet ≥ 5<br/>lowClosed = false och low = 5 motsvarar intervallet > 5 | 0..1 |
 | high | decimal-primitive | Mätetal mätt i enheten som anges av ”unit”. Minst ett av fälten low och high måste anges. | 0..1 |
-| highClosed | boolean | Angivelse av om värdet är en del av intervallet eller ej. / Exempel: / highClosed = true och high = 5 motsvarar intervallet ≤ 5 / highClosed = false och high = 5 motsvarar intervallet <5 | 0..1 |
+| highClosed | boolean | Angivelse av om värdet är en del av intervallet eller ej.<br/>Exempel:<br/>highClosed = true och high = 5 motsvarar intervallet ≤ 5<br/>highClosed = false och high = 5 motsvarar intervallet <5 | 0..1 |
 | unit | string | Enhet enligt [http://unitsofmeasure.org/ucum.html UCUM] | 1..1 |
 
 ##### PQType

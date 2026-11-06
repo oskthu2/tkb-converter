@@ -405,8 +405,7 @@ Siffrorna i diagrammet nedan kopplar ihop begäran-svar för respektive meddelan
 #### Obligatoriska kontrakt
 Följande tabell specificerar vilka kontrakt som är obligatoriska att realisera för respektive flöde.
 
-| Tjänstekontrakt | Skicka ordina-tions-data | Radera ordina-tions-orsak | Radera ordina-tions-
-data | Skicka labdata | Radera labdata | Skicka vård-kontakts-data | Radera vård-kontakts-data |
+| Tjänstekontrakt | Skicka ordina-tions-data | Radera ordina-tions-orsak | Radera ordina-tions-<br/>data | Skicka labdata | Radera labdata | Skicka vård-kontakts-data | Radera vård-kontakts-data |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | ProcessPrescriptionReason | X |  |  |  |  |  |  |
 | DeletePrescriptionReason |  | X |  |  |  |  |  |

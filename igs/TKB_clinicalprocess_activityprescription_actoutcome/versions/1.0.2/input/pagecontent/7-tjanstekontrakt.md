@@ -42,9 +42,9 @@ Modellen beskriver den logiska strukturen för ett svarsmeddelande.
 | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |
 | careUnitHSAId | HSAIdType | Filtrering på Vårdenhet vilket motsvarar careUnitHSAid i HealthCareProfessionalType. Journalposter som saknar märkning med vårdenhet ingår inte i svaret om detta fält använts i anropet. | 0..* |
-| patientId | PersonIdType | Id för patienten. / value sätts till patientens identifierare. Anges med 12 tecken utan avskiljare. / Type sätts till OID för typ av identifierare. / För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1). / För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3). / För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3) | 1..1 |
+| patientId | PersonIdType | Id för patienten.<br/>value sätts till patientens identifierare. Anges med 12 tecken utan avskiljare.<br/>Type sätts till OID för typ av identifierare.<br/>För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1).<br/>För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3).<br/>För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3) | 1..1 |
 | timePeriod | DatePeriodType | Begränsning av sökningen i tid. Begränsningen sker genom att resultatet innehåller de poster som i något av de tidsfält som ingår i vaccinationMedicalRecordHeader eller vaccinationMedicalRecordBody.registrationrecord.date anger en tidpunkt som ligger inom det sökta tidsintervallet (start- och slutpunkt inkluderas i intervallet). | 0..1 |
-| sourceSystemHSAId | HSAIdType | Begränsar sökningen till dokument som är skapade i angivet system. / Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header). / Det innebär i praktiken att aggregerande tjänster inte används när detta fält anges. / Fältet är tvingande om careContactId angivits. | 0..1 |
+| sourceSystemHSAId | HSAIdType | Begränsar sökningen till dokument som är skapade i angivet system.<br/>Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header).<br/>Det innebär i praktiken att aggregerande tjänster inte används när detta fält anges.<br/>Fältet är tvingande om careContactId angivits. | 0..1 |
 | careContactId | string | Begränsar sökningen till den vård- och omsorgskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet | 0..* |
 |  |  |  |  |
 | Svar |  |  |  |
@@ -56,30 +56,30 @@ Modellen beskriver den logiska strukturen för ett svarsmeddelande.
 | ../../documentTime | TimeStampType | Händelsetidpunkt. Tidsangivelse för den vaccinationstidpunkt dokumentet gäller. | 0..1 |
 | ../../patientId | PersonIdType | Identifierare för patient. | 1..1 |
 | ../../../id | string | Sätts till patientens identifierare. Anges med 12 tecken utan avskiljare. | 1..1 |
-| ../../../type | string | Sätts till OID för typ av identifierare. / För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1). / För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3). / För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3) | 1..1 |
+| ../../../type | string | Sätts till OID för typ av identifierare.<br/>För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1).<br/>För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3).<br/>För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3) | 1..1 |
 | ../../accountableHealthCareProfessional | HealthCareProfessionalType | Information om den hälso- och sjukvårdsperson som ansvarar för informationen i dokumentet. | 1..1 |
 | ../../../authorTime | TimeStampType | Tidpunkt då dokumentet skapades. Det är den senaste tidpunkten då informationen uppdaterats i systemet som ska finnas här i de fall informationen har ändrats efter det att den skapades. | 1..1 |
-| ../../../healthcareProfessionalHSAId | HSAIdType | Hälso- och sjukvårdspersonens HSA-id. (Enligt NPÖ riv-spec 2.2.0 avsnitt 4.1.39 beslutsregel: / I de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges.) | 0..1 |
+| ../../../healthcareProfessionalHSAId | HSAIdType | Hälso- och sjukvårdspersonens HSA-id. (Enligt NPÖ riv-spec 2.2.0 avsnitt 4.1.39 beslutsregel:<br/>I de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges.) | 0..1 |
 | ../../../healthcareProfessionalName | string | Namn på hälso- och sjukvårdspersonen. Om tillgängligt skall detta anges. | 0..1 |
-| ../../../healthcareProfessionalRoleCode | CVType | Information om personens befattning. Om möjligt skall KV Befattning (OID 1.2.752.129.2.2.1.4), se / http://www.inera.se/Documents/TJANSTER_PROJEKT/Katalogtjanst_HSA/Innehall/hsa_innehall_befattning.pdf | 0..1 |
+| ../../../healthcareProfessionalRoleCode | CVType | Information om personens befattning. Om möjligt skall KV Befattning (OID 1.2.752.129.2.2.1.4), se<br/>http://www.inera.se/Documents/TJANSTER_PROJEKT/Katalogtjanst_HSA/Innehall/hsa_innehall_befattning.pdf | 0..1 |
 | ../../../../code | string | Befattningskod. Om code anges skall också codeSystem samt displayName anges. | 0..1 |
 | ../../../../codeSystem | string | Kodsystem för befattningskod. Om codeSystem anges skall också code samt displayName anges. | 0..1 |
 | ../../../../codeSystemName | string | Namn på kodsystem för befattningskod. | 0..1 |
 | ../../../../codeSystemVersion | string | Version på kodsystem för befattningskod. | 0..1 |
 | ../../../../displayName | string | Befattningskoden i klartext. Om separat displayName inte finns i producerande system skall samma värde som i code anges. | 0..1 |
-| ../../../../originalText | string | Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. / Om originalText anges skall inget annat värde i healthcareProfessionalRoleCode anges. | 0..1 |
+| ../../../../originalText | string | Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText.<br/>Om originalText anges skall inget annat värde i healthcareProfessionalRoleCode anges. | 0..1 |
 | ../../../healthcareProfessionalOrgUnit | OrgUnitType | Den organisation som hälso- och sjukvårdspersonen är uppdragstagare på | 0..1 |
-| ../../../../orgUnitHSAId | HSAIdType | HSA-id för organisationsenhet. (Enligt NPÖ riv-spec 2.2.0 avsnitt 4.1.6 beslutsregel: / I de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges.) | 0..1 |
+| ../../../../orgUnitHSAId | HSAIdType | HSA-id för organisationsenhet. (Enligt NPÖ riv-spec 2.2.0 avsnitt 4.1.6 beslutsregel:<br/>I de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges.) | 0..1 |
 | ../../../../orgUnitName | string | Namnet på den organisation som hälso- och sjukvårdspersonen är uppdragstagare på. | 0..1 |
 | ../../../../orgUnitTelecom | string | Telefon till organisationsenhet | 0..1 |
 | ../../../../orgUnitEmail | string | Epost till enhet | 0..1 |
-| ../../../../orgUnitAddress | string | Postadress för den organisation som hälso- och sjukvårdspersonen är uppdragstagare på. Skrivs på ett så naturligt sätt som möjligt, exempelvis: / ”Storgatan 12 / 468 91 Lilleby” | 0..1 |
+| ../../../../orgUnitAddress | string | Postadress för den organisation som hälso- och sjukvårdspersonen är uppdragstagare på. Skrivs på ett så naturligt sätt som möjligt, exempelvis:<br/>”Storgatan 12<br/>468 91 Lilleby” | 0..1 |
 | ../../../../orgUnitLocation | string | Text som anger namnet på plats eller ort för organisationens fysiska placering | 0..1 |
 | ../../../healthcareProfessionalCareUnitHSAId | HSAIdType | HSA-id för Vårdenhet | 0..1 |
 | ../../../healthcareProfessionalCareGiverHSAId | HSAIdType | HSA-id för vårdgivaren, som är vårdgivare för den enhet som hälso- och sjukvårdspersonen är uppdragstagare för. | 0..1 |
 | ../../legalAuthenticator | LegalAuthenticatorType | Information om vem som signerat informationen i dokumentet. | 0..1 |
 | ../../../signatureTime | TimeStampType | Tidpunkt för signering | 1..1 |
-| ../../../legalAuthenticatorHSAId | HSAIdType | HSA-id för person som signerat dokumentet. (Enligt NPÖ riv-spec 2.2.0 avsnitt 4.1.39 beslutsregel: / I de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges.) | 0..1 |
+| ../../../legalAuthenticatorHSAId | HSAIdType | HSA-id för person som signerat dokumentet. (Enligt NPÖ riv-spec 2.2.0 avsnitt 4.1.39 beslutsregel:<br/>I de fall då HSA-id inte finns tillgängligt i systemet kan Orgnr + lokalt id anges.) | 0..1 |
 | ../../../legalAuthenticatorName | string | Namnen i klartext för signerande person. | 0..1 |
 | ../../approvedForPatient | boolean | Anger om information får delas till patient. Värdet sätts i sådant fall till true, i annat fall till false. | 1..1 |
 | ../../careContactId | string | Identitetet för den vård- och omsorgskontakt som föranlett den information som omfattas av dokumentet. Identiteten är unik inom källsystemet | 0..1 |
@@ -89,7 +89,7 @@ Modellen beskriver den logiska strukturen för ett svarsmeddelande.
 | ../../registrationRecord | RegistrationRecordType | Annan information än ovan som registreras vid eller relaterat till vaccinationstillfället | 1..1 |
 | ../../../date | DateType | Datum då nedan vaccination(er) gavs | 1..1 |
 | ../../../patientPostalCode | string | Postnummer för patientens senast kända bostadsadress | 0..1 |
-| ../../../vaccinationUnstructuredNote | string | Enligt CDA:s konvention med läsbar fritextsammanfattning av den strukturerade information kan också använda här. / Kan formateras enligt HL7NarrativeBlock. / Not: Om endast ostrukturerad vaccinationsinformation finns, kan, detta kontrakt produceras men i så fall inga administrationRecords nedan returneras. | 0..1 |
+| ../../../vaccinationUnstructuredNote | string | Enligt CDA:s konvention med läsbar fritextsammanfattning av den strukturerade information kan också använda här.<br/>Kan formateras enligt HL7NarrativeBlock.<br/>Not: Om endast ostrukturerad vaccinationsinformation finns, kan, detta kontrakt produceras men i så fall inga administrationRecords nedan returneras. | 0..1 |
 | ../../../riskCategory | CVType | Information om patientens eventuella riskgruppstillhörighet, känd vid vaccinationstillfället, baserad på i förekommande fall patientens hälsodeklaration | 0..* |
 | ../../../patientAdverseEffect | CVType | Information om patienten erfarit någon eller några reaktioner hänför bara till vaccinationstillfället men ej specifik vaccination (i fall som när flera vaccin givits vid samma tillfälle) | 0..* |
 | ../../../careGiverOrg | OrgUnitType | Information om juridisk vårdgivare; hsaid (om finns) och kontaktuppgifter namn,epost,tel,adress etc | 1..1 |

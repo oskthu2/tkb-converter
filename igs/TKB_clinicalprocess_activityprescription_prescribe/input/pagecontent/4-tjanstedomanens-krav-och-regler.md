@@ -47,9 +47,8 @@ Notera. Nedan krav är preliminära för att ge en fingervisning om kraven inom 
 | Svarstid | < 1 sekund för 95% av alla anrop |  |
 | Tillgänglighet | 24x7x365, 99,95% |  |
 | Last | Anpassas efter aktuellt behov. Följs upp kontinuerligt och kapacitetsplanering görs inför varje ny anslutning och/eller införande i verksamheter. | Notera att användningsfrekvensen inte kommer vara jämn över dygnet utan toppar kommer finnas då antalet anrop är betydligt högre än snittet. Förväntad högre belastning 08:00 - 17:00 vardagar. |
-| Aktualitet | Tjänsteproducenterna ska alltid returnera den senast sparade versionen av informationen i respektive informationskälla | Informationskällor inom domänen är / NOD (primär) / Receptdepå Human / Läkemedelsförteckningen |
-| Återställningstid | Maximalt 8 timmar | Vid katastrof, bortfall av hel hall eller dylikt.
-Hela systemet ska finnas i två separata datahallar. |
+| Aktualitet | Tjänsteproducenterna ska alltid returnera den senast sparade versionen av informationen i respektive informationskälla | Informationskällor inom domänen är<br/>NOD (primär)<br/>Receptdepå Human<br/>Läkemedelsförteckningen |
+| Återställningstid | Maximalt 8 timmar | Vid katastrof, bortfall av hel hall eller dylikt.<br/>Hela systemet ska finnas i två separata datahallar. |
 | Servicefönster | Tjänsteproducenterna ska kunna arbeta utan servicefönster. Om man måste ha servicefönster skall detta avtalas speciellt vid varje tillfälle. Vården måste då underrättas minst 10 dagar innan. |  |
 
 #### Avtal

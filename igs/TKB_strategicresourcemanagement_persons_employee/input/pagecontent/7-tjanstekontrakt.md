@@ -30,7 +30,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | searchBase *2) | DN | Sökbas. Om ingen sökbas anges används c=SE som sökbas. | 0..1 |
 | includeFeignedObject | boolean | true: om metoden ska leverera svar med fingerade objekt. Uteblivet värde tolkas som false, dvs inga fingerade objekt levereras. | 0..1 |
 | Svar |  |  |  |
-| personInformation | PersonInformationType | Information om personen. / Om personen har flera person-objekt returneras en instans per objekt. | 0..n |
+| personInformation | PersonInformationType | Information om personen.<br/>Om personen har flera person-objekt returneras en instans per objekt. | 0..n |
 | ..personHsaId | String | Personens HSA-id. | 1..1 |
 | ..givenName | String | Tilltalsnamn. | ..1 |
 | ..middleAndSurName | String | Mellan- och Efternamn separerade med mellanslag | 1..1 |
@@ -61,7 +61,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | ..specialityName | String | Specialistutbildning utöver grundutbildning. | 0..n |
 | ..specialityCode | String | Klassificeringskod för specialistutbildning utöver grundutbildning. | 0..n |
 | ..dn | DN | ”Distinguished Name”. Objektets placering (sökväg) i katalogen, t.ex. cn=Henrika Littorin,ou=Anställda,ou=Enhet Systemförvaltning,ou=Område e-tjänster Drift och Förvaltning,o=Inera AB,c=SE | 1..1 |
-| ..protectedPerson | Boolean | true: om person har skyddad identitet / (om personen inte har skyddad identitet kommer inget värde att returneras) | 0..1 |
+| ..protectedPerson | Boolean | true: om person har skyddad identitet<br/>(om personen inte har skyddad identitet kommer inget värde att returneras) | 0..1 |
 | .. | Boolean | true: om personen är ett fingerat objekt | 0..1 |
 |  |  |  |  |
 |  |  |  |  |
@@ -289,12 +289,12 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | Begäran |  |  |  |
 | healthCareUnitHsaId | String | HSA-id för vårdenhet enligt PDL. | 1..1 |
 | commissionPurpose | String | Medarbetaruppdragets ändamål enligt definierad värdemängd. | 1..1 |
-| commissionRights | String | Medarbetaruppdragets rättigheter enligt definierade värdemängder. Syntax / Aktivitet;Informationstyp;Omfång, alla delar behöver anges. | 0..n |
+| commissionRights | String | Medarbetaruppdragets rättigheter enligt definierade värdemängder. Syntax<br/>Aktivitet;Informationstyp;Omfång, alla delar behöver anges. | 0..n |
 | healthCareProfessionalLicense | String | Legitimerad yrkesgrupp enligt definierad värdemängd | 0..n |
 | searchBase *1) | DN | Sökbas. Om ingen sökbas anges används c=SE som sökbas. | 0..1 |
 | includeFeignedObject | boolean | true: om metoden ska leverera svar med fingerade objekt. Uteblivet värde tolkas som false, dvs inga fingerade objekt levereras. | 0..1 |
 | Svar |  |  |  |
-| personInformation | PersonInformationType | Information om personen. / En person (ett HSA-id) returneras bara en gång även om personen är medlem i flera matchande medarbetaruppdrag Om personen har flera person-objekt returneras en instans per objekt. | 0..n |
+| personInformation | PersonInformationType | Information om personen.<br/>En person (ett HSA-id) returneras bara en gång även om personen är medlem i flera matchande medarbetaruppdrag Om personen har flera person-objekt returneras en instans per objekt. | 0..n |
 | ..personHsaId | String | Personens HSA-id. | 1..1 |
 | ..givenName | String | Tilltalsnamn. | ..1 |
 | ..middleAndSurName | String | Mellan- och Efternamn separerade med mellanslag | 1..1 |
@@ -322,7 +322,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | .. ..paTitleCode | String | Befattningskod | ..1 |
 | ..specialityName | String | Specialistutbildning utöver grundutbildning. | 0..n |
 | ..specialityCode | String | Klassificeringskod för specialistutbildning utöver grundutbildning. | 0..n |
-| ..protectedPerson | Boolean | true: om person har skyddad identitet / (om personen inte har skyddad identitet kommer inget värde att returneras) | 0..1 |
+| ..protectedPerson | Boolean | true: om person har skyddad identitet<br/>(om personen inte har skyddad identitet kommer inget värde att returneras) | 0..1 |
 | .. | Boolean | true: om personen är ett fingerat objekt | 0..1 |
 |  |  |  |  |
 |  |  |  |  |

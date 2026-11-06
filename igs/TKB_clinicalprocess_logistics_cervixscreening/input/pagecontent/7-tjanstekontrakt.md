@@ -35,11 +35,11 @@ och beskrivs mer i detalj i stycket Regler.
 | Namn | Typ | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | CervixScreeningInformation | CervixScreeningInformationType | Kallelsegrundande information för cervixscreening. | 1..1 |
-| ../subjectOfCare | PersonType | Folkbokförd person med svenskt personnummer / Personnummer skall anges på formatet ÅÅÅÅMMDDNNNN. | 1..1 |
-| ../../personId | IIType | Personnummer: / root:  1.2.752.129.2.1.3.1 / extension: `<personnummer>` / Endast svenskt personnummer är tillåtet | 1..1 |
+| ../subjectOfCare | PersonType | Folkbokförd person med svenskt personnummer<br/>Personnummer skall anges på formatet ÅÅÅÅMMDDNNNN. | 1..1 |
+| ../../personId | IIType | Personnummer:<br/>root:  1.2.752.129.2.1.3.1<br/>extension: `<personnummer>`<br/>Endast svenskt personnummer är tillåtet | 1..1 |
 | ../sendingRegion | RegionType | Region som gör utlämnandet. | 1..1 |
 | ../../region | OrganisationType | Region. | 1..1 |
-| ../../../id | IIType | Anges med HSA-id. / root: 1.2.752.129.2.1.4.1 / extension: `<hsa-id>` | 1..1 |
+| ../../../id | IIType | Anges med HSA-id.<br/>root: 1.2.752.129.2.1.4.1<br/>extension: `<hsa-id>` | 1..1 |
 | ../../../name | String | Regionens namn i klartext. | 1..1 |
 | ../../careGiver | OrganisationType | Skall ej anges. | 0..0 |
 | ../../../id | IIType | Skall ej anges. | 0..0 |
@@ -48,45 +48,45 @@ och beskrivs mer i detalj i stycket Regler.
 | ../../../id | IIType | Skall ej anges. | 0..0 |
 | ../../../name | String | Skall ej anges. | 0..0 |
 | ../exclusion | ExclusionType | Information om exkludering från kallelse. | 0..1 |
-| ../../reason | CVType | Orsak till att kvinnan ska exkluderas från kallelser. / Urval ur SNOMED CT: / code: [31021000119100\|116140006\|702371008] / codeSystem: 1.2.752.116.2.1.1 / codeSystemName: Används ej / codeSystemVersion: Används ej / displayName: Valfritt (kan anges) / originalText: Används ej / Urvalet av koder kan komma att förändras vid förändringar i vårdprogrammet. | 1..1 |
-| ../../registeredAt | DateType | Datum då det ursprungligen registrerades att kvinnan ska exkluderas från kallelse. / Datum anges på format ”ÅÅÅÅMMDD” | 1..1 |
+| ../../reason | CVType | Orsak till att kvinnan ska exkluderas från kallelser.<br/>Urval ur SNOMED CT:<br/>code: [31021000119100\|116140006\|702371008]<br/>codeSystem: 1.2.752.116.2.1.1<br/>codeSystemName: Används ej<br/>codeSystemVersion: Används ej<br/>displayName: Valfritt (kan anges)<br/>originalText: Används ej<br/>Urvalet av koder kan komma att förändras vid förändringar i vårdprogrammet. | 1..1 |
+| ../../registeredAt | DateType | Datum då det ursprungligen registrerades att kvinnan ska exkluderas från kallelse.<br/>Datum anges på format ”ÅÅÅÅMMDD” | 1..1 |
 | ../../originalRegion | RegionType | Organisation varifrån information om exkludering ursprungligen härstammar. | 1..1 |
 | ../../../region | OrganisationType | Region. | 1..1 |
-| ../../../../id | IIType | Anges med HSA-id. / root: 1.2.752.129.2.1.4.1 / extension: `<hsa-id>` | 1..1 |
+| ../../../../id | IIType | Anges med HSA-id.<br/>root: 1.2.752.129.2.1.4.1<br/>extension: `<hsa-id>` | 1..1 |
 | ../../../../name | String | Regionens namn i klartext. | 1..1 |
 | ../../../careGiver | OrganisationType | Vårdgivare. | 0..1 |
-| ../../../../id | IIType | Anges med HSA-id. / root: 1.2.752.129.2.1.4.1 / extension: `<hsa-id>` | 1..1 |
+| ../../../../id | IIType | Anges med HSA-id.<br/>root: 1.2.752.129.2.1.4.1<br/>extension: `<hsa-id>` | 1..1 |
 | ../../../../name | String | Vårdgivarens namn i klartext. | 1..1 |
 | ../../../careUnit | OrganisationType | Vårdenhet. | 0..1 |
-| ../../../../id | IIType | Anges med HSA-id. / root: 1.2.752.129.2.1.4.1 / extension: `<hsa-id>` | 1..1 |
+| ../../../../id | IIType | Anges med HSA-id.<br/>root: 1.2.752.129.2.1.4.1<br/>extension: `<hsa-id>` | 1..1 |
 | ../../../../name | String | Vårdenhetens namn i klartext. | 1..1 |
 | ../followUpGroups | FollowUpGroupType | Information om uppföljningsgrupp (kontrollfil) för kvinna. | 0..* |
-| ../../type | CVType | Typ av uppföljningsgrupp (kontrollfil). / Urval ur SNOMED CT: / code: [59461000052109\| 59291000052102\|59321000052109\|59301000052103] / codeSystem: 1.2.752.116.2.1.1 / codeSystemName: Används ej / codeSystemVersion: Används ej / displayName: Valfritt (kan anges) / originalText: Används ej / Urvalet av koder kan komma att förändras vid förändringar i vårdprogrammet. | 1..1 |
-| ../../inclusionDate | DateType | Datum då kvinna inkluderades i uppföljningsgrupp (kontrollfil). / Datum anges på format ”ÅÅÅÅMMDD” | 1..1 |
+| ../../type | CVType | Typ av uppföljningsgrupp (kontrollfil).<br/>Urval ur SNOMED CT:<br/>code: [59461000052109\| 59291000052102\|59321000052109\|59301000052103]<br/>codeSystem: 1.2.752.116.2.1.1<br/>codeSystemName: Används ej<br/>codeSystemVersion: Används ej<br/>displayName: Valfritt (kan anges)<br/>originalText: Används ej<br/>Urvalet av koder kan komma att förändras vid förändringar i vårdprogrammet. | 1..1 |
+| ../../inclusionDate | DateType | Datum då kvinna inkluderades i uppföljningsgrupp (kontrollfil).<br/>Datum anges på format ”ÅÅÅÅMMDD” | 1..1 |
 | ../../originalRegion | RegionType | Organisation varifrån information om tillhörighet till uppföljningsgrupp (kontrollfil) ursprungligen härstammar. | 1..1 |
 | ../../../region | OrganisationType | Region. | 1..1 |
-| ../../../../id | IIType | Anges med HSA-id. / root: 1.2.752.129.2.1.4.1 / extension: `<hsa-id>` | 1..1 |
+| ../../../../id | IIType | Anges med HSA-id.<br/>root: 1.2.752.129.2.1.4.1<br/>extension: `<hsa-id>` | 1..1 |
 | ../../../../name | String | Regionens namn i klartext. | 1..1 |
 | ../../../careGiver | OrganisationType | Vårdgivare. | 0..1 |
-| ../../../../id | IIType | Anges med HSA-id. / root: 1.2.752.129.2.1.4.1 / extension: `<hsa-id>` | 1..1 |
+| ../../../../id | IIType | Anges med HSA-id.<br/>root: 1.2.752.129.2.1.4.1<br/>extension: `<hsa-id>` | 1..1 |
 | ../../../../name | String | Vårdgivarens namn i klartext. | 1..1 |
 | ../../../careUnit | OrganisationType | Vårdenhet. | 0..1 |
-| ../../../../id | IIType | Anges med HSA-id. / root: 1.2.752.129.2.1.4.1 / extension: `<hsa-id>` | 1..1 |
+| ../../../../id | IIType | Anges med HSA-id.<br/>root: 1.2.752.129.2.1.4.1<br/>extension: `<hsa-id>` | 1..1 |
 | ../../../../name | String | Vårdenhetens namn i klartext. | 1..1 |
 | ../specimen | SpecimenType | Gynekologiska cellprovtagning som ledde till ett bedömbart prov. | 0..1 |
 | ../../specimenDate | TimeStampType | Tidpunkt för senaste provtagning som ledde till ett bedömbart prov. | 1..1 |
 | ../../originalRegion | RegionType | Organisation varifrån information om provtagning ursprungligen härstammar. | 1..1 |
 | ../../../region | OrganisationType | Region. | 1..1 |
-| ../../../../id | IIType | Anges med HSA-id. / root: 1.2.752.129.2.1.4.1 / extension: `<hsa-id>` | 1..1 |
+| ../../../../id | IIType | Anges med HSA-id.<br/>root: 1.2.752.129.2.1.4.1<br/>extension: `<hsa-id>` | 1..1 |
 | ../../../../name | String | Regionens namn i klartext. | 1..1 |
 | ../../../careGiver | OrganisationType | Vårdgivare. | 0..1 |
-| ../../../../id | IIType | Anges med HSA-id. / root: 1.2.752.129.2.1.4.1 / extension: `<hsa-id>` | 1..1 |
+| ../../../../id | IIType | Anges med HSA-id.<br/>root: 1.2.752.129.2.1.4.1<br/>extension: `<hsa-id>` | 1..1 |
 | ../../../../name | String | Vårdgivarens namn i klartext. | 1..1 |
 | ../../../careUnit | OrganisationType | Vårdnhet. | 0..1 |
-| ../../../../id | IIType | Anges med HSA-id. / root: 1.2.752.129.2.1.4.1 / extension: `<hsa-id>` | 1..1 |
+| ../../../../id | IIType | Anges med HSA-id.<br/>root: 1.2.752.129.2.1.4.1<br/>extension: `<hsa-id>` | 1..1 |
 | ../../../../name | String | Vårdenhetens namn i klartext. | 1..1 |
-| ../../HPVstatusList | HPVstatusType | Provets HPV-status. / Skall anges om och endast om provet har analyserats för HPV. | 0..* |
-| ../../../value | CVType | Värde för HPV-status. / Urval ur SNOMED CT: / code: [59291000052102\|59321000052109\|59301000052103\|59311000052101] / codeSystem: 1.2.752.116.2.1.1 / codeSystemName: Används ej / codeSystemVersion: Används ej / displayName: Valfritt (kan anges) / originalText: Används ej / Urvalet av koder kan komma att förändras vid förändringar i vårdprogrammet. | 1..1 |
+| ../../HPVstatusList | HPVstatusType | Provets HPV-status.<br/>Skall anges om och endast om provet har analyserats för HPV. | 0..* |
+| ../../../value | CVType | Värde för HPV-status.<br/>Urval ur SNOMED CT:<br/>code: [59291000052102\|59321000052109\|59301000052103\|59311000052101]<br/>codeSystem: 1.2.752.116.2.1.1<br/>codeSystemName: Används ej<br/>codeSystemVersion: Används ej<br/>displayName: Valfritt (kan anges)<br/>originalText: Används ej<br/>Urvalet av koder kan komma att förändras vid förändringar i vårdprogrammet. | 1..1 |
 | ../plannedInvitation | PlannedInvitationType | Förmedlar det individuella kallelsedatum som frångår vårdprogrammets ordinarie kallelseintervall och har satts för en enskild kvinna | 0..1 |
 | ../../date | DateType | Planerat individuellt kallelsedatum | 1..1 |
 | ../../reason | String | Beskrivning av orsaken till att kvinnan har ett individuellt kallelsedatum istället för vårdprogrammets ordinarie kallelse-intervall. | 0..1 |

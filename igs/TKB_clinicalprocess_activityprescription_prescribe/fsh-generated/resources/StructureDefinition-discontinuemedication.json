@@ -111,7 +111,8 @@
         "id": "discontinuemedication.medicationPrescription.revocation.revocationReason",
         "path": "discontinuemedication.medicationPrescription.revocation.revocationReason",
         "short": "Orsak till utsättning",
-        "definition": "Orsak till utsättning",
+        "definition": "Utsättningsorsak i kodad form.",
+        "comment": "TKB-fält: `reason` (`Reason`, kardinalitet 1..*).\n\nObs: modellen anger 0..1 där TKB:n anger 1..*.",
         "min": 0,
         "max": "1",
         "type": [
@@ -137,7 +138,8 @@
         "id": "discontinuemedication.result",
         "path": "discontinuemedication.result",
         "short": "Resultat av begäran",
-        "definition": "Resultat av begäran",
+        "definition": "Innehåller information om begäran gick bra eller ej.",
+        "comment": "TKB-fält: `result` (`ResultType`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -150,7 +152,8 @@
         "id": "discontinuemedication.result.resultCode",
         "path": "discontinuemedication.result.resultCode",
         "short": "Svarskod",
-        "definition": "Svarskod",
+        "definition": "Kan endast vara OK, INFO eller ERROR",
+        "comment": "TKB-fält: `../resultCode` (`ResultCodeEnum`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -167,7 +170,8 @@
         "id": "discontinuemedication.result.errorCode",
         "path": "discontinuemedication.result.errorCode",
         "short": "Felkod",
-        "definition": "Felkod",
+        "definition": "Sätts endast om resultCode är ERROR, se kapitel 4.3 för mer information.",
+        "comment": "TKB-fält: `../errorCode` (`ErrorCodeEnum`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [
@@ -184,7 +188,8 @@
         "id": "discontinuemedication.result.logId",
         "path": "discontinuemedication.result.logId",
         "short": "UUID för felanmälan",
-        "definition": "UUID för felanmälan",
+        "definition": "En UUID som kan användas vid felanmälan för att användas vid felsökning av producent.",
+        "comment": "TKB-fält: `../logId` (`string`, kardinalitet 1..1).",
         "min": 1,
         "max": "1",
         "type": [
@@ -197,7 +202,8 @@
         "id": "discontinuemedication.result.message",
         "path": "discontinuemedication.result.message",
         "short": "Beskrivande text",
-        "definition": "Beskrivande text",
+        "definition": "En beskrivande text som kan visas för användaren.",
+        "comment": "TKB-fält: `../message` (`string`, kardinalitet 0..1).",
         "min": 0,
         "max": "1",
         "type": [

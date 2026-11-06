@@ -19,14 +19,11 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | careUnitHSAId | HSAIdType | Filtrering på PDL-enhet vilket motsvarar careUnitHSAId i healthcareProfessionalType. | 0..* |
 | patientId | PersonIdType | Id för patienten. | 1..1 |
 | ../id | String | id sätts till patientens identifierare. Anges med 12 tecken utan avskiljare. |  |
-| ../type | string | Type sätts till OID för typ av identifierare. 
-För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1).
-För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3).
-För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3) |  |
+| ../type | string | Type sätts till OID för typ av identifierare.<br/>För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1).<br/>För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3).<br/>För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3) |  |
 | datePeriod | DatePeriodType | Begränsning av sökningen i tid, vilket innebär att endast svar returneras där authorTime eller signatureTime ligger helt eller delvis inom det sökta tidsintervallet. | 0..1 |
 | ../start | string | Startdatum. Format ÅÅÅÅMMDD. | 1..1 |
 | ../end | string | Slutdatum. Format ÅÅÅÅMMDD. | 1..1 |
-| sourceSystemHSAId | HSAIdType | Begränsar sökningen till dokument som är skapade i angivet system. / Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header). / Det innebär i praktiken att aggregerande tjänster inte används när detta fält anges. / Fältet är tvingande om careContactId angivits. | 0..1 |
+| sourceSystemHSAId | HSAIdType | Begränsar sökningen till dokument som är skapade i angivet system.<br/>Värdet på detta fält måste överensstämma med värdet på logicalAddress i anropets tekniska kuvertering (ex. SOAP-header).<br/>Det innebär i praktiken att aggregerande tjänster inte används när detta fält anges.<br/>Fältet är tvingande om careContactId angivits. | 0..1 |
 | careContactId | string | Begränsar sökningen till den vård- och omsorgskontakt där den vårdbegäran som låg till grund för laboratoriesvaret skapades. | 0..* |
 |  |  |  |  |
 | Svar |  |  | 0..* |
@@ -38,21 +35,18 @@ För reservnummer används lokalt definierade reservnummet, exempelvis SLL reser
 | ../../documentTime |  |  | 0..0 |
 | ../../patientId | PersonIdType | Identifierare för patient. | 1..1 |
 | ../../../id | string | Sätts till patientens identifierare. Anges med 12 tecken utan avskiljare. | 1..1 |
-| ../../../type | string | Sätts till OID för typ av identifierare. 
-För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1).
-För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3).
-För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3) | 1..1 |
+| ../../../type | string | Sätts till OID för typ av identifierare.<br/>För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1).<br/>För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3).<br/>För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3) | 1..1 |
 | ../../accountableHealthcareProfessional | HealthcareProfessionalType | Information om den hälso- och sjukvårdsperson som ansvarar för informationen i dokumentet, nedan kallas författare. | 1..1 |
 | ../../../authorTime | TimeStampType | Tidpunkt då dokumentet skapades. Det är den senaste tidpunkten då informationen uppdaterats i systemet som ska finnas här i de fall informationen har ändrats efter det att den skapades. | 1..1 |
 | ../../../healthcareProfessionalHSAId | HSAIdType | Författarens HSA-id. | 0..1 |
 | ../../../healthcareProfessionalName | string | Namn på författaren. Om tillgängligt skall detta anges. | 0..1 |
-| ../../../healthcareProfessionalRoleCode | CVType | Information om personens befattning. Om möjligt skall KV Befattning (OID 1.2.752.129.2.2.1.4), se / http://www.inera.se/Documents/TJANSTER_PROJEKT/Katalogtjanst_HSA/Innehall/hsa_innehall_befattning.pdf | 0..1 |
+| ../../../healthcareProfessionalRoleCode | CVType | Information om personens befattning. Om möjligt skall KV Befattning (OID 1.2.752.129.2.2.1.4), se<br/>http://www.inera.se/Documents/TJANSTER_PROJEKT/Katalogtjanst_HSA/Innehall/hsa_innehall_befattning.pdf | 0..1 |
 | ../../../../code | string | Befattningskod. Om code anges skall också codeSystem  samt displayName anges. | 0..1 |
 | ../../../../codeSystem | string | Kodsystem för befattningskod. Om codeSystem anges skall också code samt displayName anges. | 0..1 |
 | ../../../../codeSystemName | string | Namn på kodsystem för befattningskod. | 0..1 |
 | ../../../../codeSystemVersion | string | Version på kodsystem för befattningskod. | 0..1 |
 | ../../../../displayName | string | Befattningskoden i klartext. Om separat displayName inte finns i producerande system skall samma värde som i code anges. | 0..1 |
-| ../../../../originalText | string | Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText. / Om originalText anges skall inget annat värde i healthcareProfessionalRoleCode anges. | 0..1 |
+| ../../../../originalText | string | Om befattning är beskriven i ett lokalt kodverk utan OID, eller när kod helt saknas, kan en beskrivande text anges i originalText.<br/>Om originalText anges skall inget annat värde i healthcareProfessionalRoleCode anges. | 0..1 |
 | ../../../healthcareProfessionalOrgUnit | OrgUnitType | Den organisation som författaren är uppdragstagare vid. | 0..1 |
 | ../../../../orgUnitHSAId | HSAIdType | HSA-id för organisationsenhet. | 0..1 |
 | ../../../../orgUnitName | string | Namnet på den organisation som författaren är uppdragstagare vid. | 0..1 |

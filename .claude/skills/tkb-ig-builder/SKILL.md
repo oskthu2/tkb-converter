@@ -172,6 +172,16 @@ IG:ns version följer Bitbucket-taggen den byggs från, och varje tjänstekontra
 
 Kör `set_ig_version.py` efter att sidorna och FSH-filerna skrivits, och igen om registrets versionsfält ändras.
 
+### Tabeller (sedan 2026-11-06)
+
+Flera stycken eller radbrytningar i en tabellcell skrivs som `<br/>`, aldrig som " / " och aldrig som en rå ny rad (den bryter kramdown-tabellen, så resten av tabellen visas som löptext). Rå platshållare som `<huvuddomän>` i en cell slås in i backticks. `scripts/fix_md_tables.py igs/TKB_x` gör allt detta mekaniskt och idempotent:
+
+1. en tabellrad som fortsätter på nästa rad (även över tomma rader) slås ihop, och radbrytningarna blir `<br/>`,
+2. " / " i en cell blir `<br/>`,
+3. `<ord>` som inte är tillåten HTML slås in i backticks.
+
+`docx_to_md.py` skriver redan `<br/>` och kör samma normalisering, men kör skriptet efter varje handredigering eller annan konvertering (wvHtml/antiword, pdf_spec_to_md.py, Excel-bilagor). `preflight_lint.py` felmarkerar en sida som inte är normaliserad. `sync_field_descriptions.py` läser `<br/>` som styckegräns, så fältbeskrivningarna i FSH blir separata stycken.
+
 ### Sidmallar
 
 **index.md** — domänens landningssida (sedan 2026-10-05). RIV-TA-portalen (`igs/rivta-portal`) länkar varje domän direkt hit och varje tjänstekontrakt direkt till dess avsnitt på kontraktssidan, så index.md ska samla fakta, länkar, kontrakt och granskningar på ett ställe. Strukturen är fast:

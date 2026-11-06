@@ -26,7 +26,7 @@ HSA-id är ett objekts unika identifierare i HSA katalogen. Inom tidbokning anv�
 
 Kortfattad beskrivning av HSA-id strukturen:
 
-| SE`<identifierare för utfärdande organisation>`-`<identifierare för objektet>` / Exempel: SE2321000016-1hz5 |
+| SE`<identifierare för utfärdande organisation>`-`<identifierare för objektet>`<br/>Exempel: SE2321000016-1hz5 |
 | :--- |
 
 Anslutande parter ska kunna hantera HSA-id skiftlägesokänsligt i såväl konsument som producent.

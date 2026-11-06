@@ -273,7 +273,7 @@ scripts/sync_field_descriptions.py --explain igs/TKB_{domain_id}  # vilken rad h
 
 Skriptet skriver en RuleSet per modell till `input/fsh/field-descriptions/{Modell}FieldDescriptions.fsh` och lägger `* insert {Modell}FieldDescriptions` sist i modellen:
 
-- `^definition` = hela Beskrivning/Kommentar-cellen. Wordstyckena (`" / "` i cellen) blir markdownstycken.
+- `^definition` = hela Beskrivning/Kommentar-cellen. Wordstyckena (`<br/>` i cellen, i äldre sidor " / ") blir markdownstycken.
 - `^comment` = TKB-fältets namn/XPath, TKB-typ och kardinalitet, hela texten för varje regel som raden hänvisar till ("Regel 2.1" → raden i Övriga regler), extrakolumner (Kodverk, Mappning, Fältlängder), en notering om modellens kardinalitet avviker, och tidigare modelltext (ASSUME/TODO) under "Modellanteckning".
 - `^short` lämnas orörd: den handskrivna korta etiketten i modellen.
 - Barn till element vars TKB-typ har en egen tabell (OrgUnitType, CVType, JoL-header ...) i någon sida under `pagecontent/` får texten från typtabellen.
@@ -287,6 +287,19 @@ Regler:
 - Ny tabellnotation som skriptet inte förstår (många "rad utan element" som uppenbart finns i modellen): utöka `name_to_path`/`classify` i skriptet i stället för att handskriva texter.
 
 Lokalt kräver caret-regler på element att offline-stubben har `ElementDefinition` (finns i `gen_fhir_stubs.py` sedan 2026-11-06). Felsignatur om stubben är gammal: `Cannot read properties of undefined (reading 'id')` på rader i `field-descriptions/*.fsh`. Kör `python3 gen_fhir_stubs.py` igen.
+
+#### Datatyper enligt schemat (sedan 2026-11-06, pilot)
+
+Oskars beslut 2026-11-06: modellerna ska **inte** längre översätta RIV-TA-datatyper till FHIR-datatyper (Identifier, CodeableConcept, instant …). Varje fält ska ha samma namn, kardinalitet och typ som i tjänstekontraktets XSD. Grunddatatyperna definieras en gång, globalt, i `igs/rivta-datatyper` (paket `inera.rivta.datatypes`, canonical `https://fhir.inera.se/ig/rivta-datatypes`), och alla TKB-IG:er refererar dit.
+
+- **Gemensamma typer:** `scripts/rivta_datatypes.py` genererar FSH och startsidan ur RIV-TA Best Practice "De facto-konventioner för datatyper" (vendrad i `igs/rivta-datatyper/source-xsd/`) plus HSAIdType och UUIDType. Sammansatta typer är Logical (`Characteristics: #can-be-type`). Enkla typer är profiler på `string` med schemats mönster som invariant. Redigera aldrig FSH-filerna där för hand.
+- **Kontraktsmodeller:** `scripts/xsd_logical_models.py igs/TKB_x --contract Kontrakt` genererar elementen ur `{Kontrakt}Responder_*.xsd` och behåller filhuvudet och `* insert …FieldDescriptions`. Kör sedan `sync_field_descriptions.py` och `set_ig_version.py`.
+  - Domänens sammansatta typer (HeaderType, …BodyType) skrivs nästlat med typen `Base` och schemats typnamn som `^short`. TKB:ns fälttabell beskriver fälten i sitt sammanhang, så de måste ligga på var sitt element.
+  - Inga namnbyten: under `Base` finns inga egna `id`/`extension`, så schemats `id`, `type`, `code`, `value` används rakt av. `preflight_lint.py` tillåter reserverade namn under ett `Base`-element, men aldrig under `BackboneElement`.
+  - En domäntyp som är **identisk** med en gemensam typ refereras direkt (`* x 1..1 IIType`, eller `* x 1..1 string` + `* x only TimeStampType`). En typ med **samma element men snävare kardinalitet** blir en lokal typ med samma namn som ärver den gemensamma (`input/fsh/datatypes/`). En typ som **skiljer sig på annat sätt** blir domänens egen (nästlad, eller en lokal profil för en enkel typ).
+  - Rekursion blir `contentReference`, xs:choice en invariant och uppräkningar `code` bundet till `{Typ}VS` om det finns.
+- **Beroende:** IG:ns `sushi-config.yaml` har `inera.rivta.datatypes: 1.0.0` under `dependencies`. Lokalt: `python3 scripts/install_datatypes_package.py` innan `sushi`. I CI bygger `build_all.sh` datatyps-IG:n först och installerar IG Publishers paket.
+- **Utrullning:** hittills bara piloten (actoutcome GetLaboratoryOrderOutcome). Tabellen nedan gäller övriga modeller tills de är genererade om.
 
 #### Datatypmappning: RIV-TA → FHIR
 

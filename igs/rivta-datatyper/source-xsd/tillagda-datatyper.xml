@@ -1,0 +1,23 @@
+<!-- ========================================================= -->
+<!-- Enkla datatyper som inte finns i "De facto-konventioner   -->
+<!-- för datatyper" men som används på samma sätt i de flesta  -->
+<!-- domänscheman (core_components). Tillagda i                -->
+<!-- tkb-converter 2026-11-06; definitionerna är hämtade ur    -->
+<!-- domänschemana (t.ex. clinicalprocess:healthcond:actoutcome).-->
+<!-- ========================================================= -->
+
+<xs:simpleType name="HSAIdType">
+    <xs:annotation>
+        <xs:documentation>HSA-id: identifierare i HSA-katalogen för en person, organisation, enhet eller funktion.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+</xs:simpleType>
+
+<xs:simpleType name="UUIDType">
+    <xs:annotation>
+        <xs:documentation>Universellt unik identifierare (UUID/GUID): 32 hexadecimala tecken, med eller utan bindestreck i mönstret 8-4-4-4-12.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+        <xs:pattern value="[A-Fa-f0-9]{32}|(\{|\()?[A-Fa-f0-9]{8}-([A-Fa-f0-9]{4}-){3}[A-Fa-f0-9]{12}(\}|\))?"/>
+    </xs:restriction>
+</xs:simpleType>

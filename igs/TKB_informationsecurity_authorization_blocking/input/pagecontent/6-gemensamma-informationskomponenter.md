@@ -79,8 +79,8 @@ Datatypen utökar datatypen Result.
 | :--- | :--- | :--- | :--- |
 | result | ResultType |  | 1 |
 | blocks | BlockType | Lista av spärrdata. | 0..* |
-| nextCreatedOnOrAfter | xs:DateTime | Tidpunkt som anger sluttidpunkten för det returnerade spärrdatat. Detta datum används lämpligen i nästa anrop för att få nytt spärrdata från den tidpunkt då föregående anrop gjordes. / Tidpunkt representerar den aktuella tidpunkten i tjänsten då anropet gjordes. | 1 |
-| latestCancellation | xs:DateTime | Tidpunkt som anger när en spärr blev återkallad eller makulerad. / Detta datum kan användas för att avgöra om en full synkronisering av spärrdata behöver göras får att få en aktuell bild över aktiva spärrar, då anropet i sig inte returnerar data om återkallade eller makulerade spärrar. / Tidpunkten representerar den tidpunkt då den senaste återkallan eller makulering av en spärr utfördes. En temporär hävning som återkallas ändrar ej detta datum då tillfälliga hävningar anses vara temporära ändringar. / På nationell nivå avses den senaste utförda avregistreringen av en spärr. | 1 |
+| nextCreatedOnOrAfter | xs:DateTime | Tidpunkt som anger sluttidpunkten för det returnerade spärrdatat. Detta datum används lämpligen i nästa anrop för att få nytt spärrdata från den tidpunkt då föregående anrop gjordes.<br/>Tidpunkt representerar den aktuella tidpunkten i tjänsten då anropet gjordes. | 1 |
+| latestCancellation | xs:DateTime | Tidpunkt som anger när en spärr blev återkallad eller makulerad.<br/>Detta datum kan användas för att avgöra om en full synkronisering av spärrdata behöver göras får att få en aktuell bild över aktiva spärrar, då anropet i sig inte returnerar data om återkallade eller makulerade spärrar.<br/>Tidpunkten representerar den tidpunkt då den senaste återkallan eller makulering av en spärr utfördes. En temporär hävning som återkallas ändrar ej detta datum då tillfälliga hävningar anses vara temporära ändringar.<br/>På nationell nivå avses den senaste utförda avregistreringen av en spärr. | 1 |
 
 #### 6.1.7 BlockTypeType
 
@@ -196,7 +196,7 @@ En universellt unik identifierare.
 
 | Namn | Datatyp | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
-| root | xs:String | Fältet root sätts till OID för kodverket för identifieraren (extension) / Som exempel för svenskt personnummer skall Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas. | 1 |
+| root | xs:String | Fältet root sätts till OID för kodverket för identifieraren (extension)<br/>Som exempel för svenskt personnummer skall Skatteverkets OID för personnummer (1.2.752.129.2.1.3.1) användas. | 1 |
 | extension | xs:String | Ett id som tillsammans med värdet i root är unikt. Som exempel för svensk personidentitet så är extension lika med personnummer. | 0..1 |
 
 #### 6.1.17 Id
@@ -217,7 +217,7 @@ Datatyp som representerar den information som behövs vid en kontroll om spärr 
 | informationEndDate | xs:DateTime | Slutdatum för vilken information i tiden som avses, dvs. när information som skall kontrolleras har registrerats. | 1 |
 | informationCareUnitId | HsaId | Anger HSA-id för den vårdenhet som informationen tillhör. | 1 |
 | informationCareProviderId | HsaId | Anger HSA-id för den vårdgivare som informationen tillhör. | 1 |
-| informationType | InformationTypeIdValue | Anger informationtypen för den entitet som skall kontrolleras. / Giltiga värden är endast 'lak' och 'upp'. Övriga informationtyper anges med att inte ange något värde. / Se även InformationTypeIdValue. | 0..1 |
+| informationType | InformationTypeIdValue | Anger informationtypen för den entitet som skall kontrolleras.<br/>Giltiga värden är endast 'lak' och 'upp'. Övriga informationtyper anges med att inte ange något värde.<br/>Se även InformationTypeIdValue. | 0..1 |
 | rowNumber | xs:Int | Detta nummer motsvarar ett element i den inskickade listan av informationsentiteter. Används för att klienten skall kunna mappa svarslistan med den inskickade informationslistan. | 1 |
 
 #### 6.1.19 InformationTypeType

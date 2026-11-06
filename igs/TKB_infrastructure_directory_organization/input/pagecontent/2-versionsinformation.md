@@ -23,8 +23,7 @@ Nedan redovisas kompatibilitet mellan konsument och producent för tjänstekontr
 | GetUnit | 4.0 | 4.1 | Kompatibel |
 |  | 4.1 | 4.0 | Kompatibel |
 |  | 4.0, 4.1 | 5.0 | Icke-kompatibel med avseende på användning av attributet texttelefon (textTelephoneNumber), Kompatibel för övriga parametrar. |
-|  | 5.0 | 4.0, 4.1 | Icke-kompatibel med avseende på användning av attributet texttelefon (textTelephoneNumber).
- Kompatibel för övriga parametrar. |
+|  | 5.0 | 4.0, 4.1 | Icke-kompatibel med avseende på användning av attributet texttelefon (textTelephoneNumber).<br/>Kompatibel för övriga parametrar. |
 | GetHealtCareUnitMembers | 2.0 | 2.1 | Kompatibel |
 |  | 2.1 | 2.0 | Kompatibel |
 

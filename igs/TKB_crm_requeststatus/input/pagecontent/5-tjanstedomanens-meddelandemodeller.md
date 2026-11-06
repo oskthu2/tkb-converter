@@ -49,10 +49,10 @@ Meddelandemodellen visar den struktur som tjänstekontraktet har med dess header
 | :--- | :--- |
 | name | namn |
 
-| OrganizationType | Remissmottagande enhet / Remitterande enhet |
+| OrganizationType | Remissmottagande enhet<br/>Remitterande enhet |
 | :--- | :--- |
-| id | Remissmottagande enhet.vårdenhet.id / Remitterande enhet.vårdenhet.id |
-| name | Remissmottagande enhet.vårdenhet.namn / Remitterande enhet.vårdenhet.namn |
+| id | Remissmottagande enhet.vårdenhet.id<br/>Remitterande enhet.vårdenhet.id |
+| name | Remissmottagande enhet.vårdenhet.namn<br/>Remitterande enhet.vårdenhet.namn |
 
 ### Formatregler
 

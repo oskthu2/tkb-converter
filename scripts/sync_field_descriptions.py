@@ -62,6 +62,8 @@ def split_row(line: str) -> list:
         s = s[1:]
     if s.endswith("|") and not s.endswith("\\|"):
         s = s[:-1]
+    # <br/> (radbrytning i cellen, se fix_md_tables.py) tolkas som den äldre separatorn " / "
+    s = re.sub(r"\s*<br\s*/?>\s*", " / ", s)
     return [c.strip().replace("\\|", "|") for c in re.split(r"(?<!\\)\|", s)]
 
 
@@ -434,7 +436,7 @@ def redundant(old: str, ref: str) -> bool:
 def build_comment(row: Row, rules: dict, elem: Elem) -> str:
     parts = []
     loc = f"`{re.sub(r'\s+', '', row.raw_name.split(' / ')[0]) if '*:' in row.raw_name else row.raw_name.split(' / ')[0].strip()}`"
-    meta = ", ".join(x for x in (row.typ and f"`{row.typ}`", row.card and f"kardinalitet {row.card}") if x)
+    meta = ", ".join(x for x in (row.typ and f"`{row.typ.strip('`')}`", row.card and f"kardinalitet {row.card}") if x)
     where = "TKB-fält" if row.source == "fälttabell" else f"TKB-fält i {row.source}"
     parts.append(f"{where}: {loc}" + (f" ({meta})" if meta else "") + ".")
     tc = RE_CARD.match(row.card or "")
@@ -449,7 +451,7 @@ def build_comment(row: Row, rules: dict, elem: Elem) -> str:
         parts.append(f"**{h}:** {md_text(v)}")
     old = "\n".join(l for l in elem.definition.strip().splitlines()
                     if not re.match(r"^\s*(Kardinalitet|Kard\.?|Multiplicitet)\s*:", l, re.I)).strip()
-    if old and not redundant(old, elem.short + " " + row.desc):
+    if old and old != elem.path[-1] and not redundant(old, elem.short + " " + row.desc):  # bara elementnamnet är ingen anteckning
         parts.append("**Modellanteckning:** " + old)
     return "\n\n".join(parts)
 

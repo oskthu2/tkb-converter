@@ -25,7 +25,7 @@ Första tabellen beskriver det enda xml-element i SOAP:Body och sedan följer de
 | Namn | Typ | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | Begäran |  |  |  |
-| CommunicatePCDData | xs:string | ihe-pcd-01 enligt Interoperability design guidelines for / personal health systems samt de fältregler som beskrivs nedan. | 1..1 |
+| CommunicatePCDData | xs:string | ihe-pcd-01 enligt Interoperability design guidelines for<br/>personal health systems samt de fältregler som beskrivs nedan. | 1..1 |
 
 Nedan följer förtydliganden utöver de som definieras av IHE-PCD-01 samt Continua guidelines som gäller för informationsutbyte över den nationella tjänsteplattformen.
 
@@ -37,11 +37,11 @@ Segmentet är obligatorisk och innehåller information som unikt identifierar no
 
 Nedanstående tabell skall tolkas tillsamman med de guidelines som finns i Annex E.4.1 i dokumentet H.812 – Observation Upload – DG2016.pdf se referens R2
 
-| Element – Segment . Subsegment | PCD-01 / HL7v2.6 MSH / (HL7 datatyp) | Beskrivning |
+| Element – Segment . Subsegment | PCD-01<br/>HL7v2.6 MSH<br/>(HL7 datatyp) | Beskrivning |
 | :--- | :--- | :--- |
-| MSH-6 | HD | Skall vara samma som logisk address. / Exempel: SE-ABCD1234 |
+| MSH-6 | HD | Skall vara samma som logisk address.<br/>Exempel: SE-ABCD1234 |
 | MSH-9 | MSG | Måste sättas till  ORU^R01^ORU_R01 |
-| MSH-18 | ID | Continua kräver att elementet skall sättas till den teckenkodning som används. / HL7 v2.x stipulerar dock att meddelanden som skickas över HTTP skall skall ange sin teckenkodning i HTTP-header “content-type” och att MSH-18 då skall ignoreras. / RIVTA kräver att UTF-8 skall användas, så både HTTP-header “content-type” samt MSH-18 skall sättas till UTF-8. |
+| MSH-18 | ID | Continua kräver att elementet skall sättas till den teckenkodning som används.<br/>HL7 v2.x stipulerar dock att meddelanden som skickas över HTTP skall skall ange sin teckenkodning i HTTP-header “content-type” och att MSH-18 då skall ignoreras.<br/>RIVTA kräver att UTF-8 skall användas, så både HTTP-header “content-type” samt MSH-18 skall sättas till UTF-8. |
 
 ###### 7.1.2.1.1 Exempel på MSH Header
 
@@ -53,15 +53,15 @@ MSH|^~\&|AcmeInc^ACDE48234567ABCD^EUI- 64|||SE-ABCD1234|20090713090030+0000||ORU
 
 Nedanstående tabell skall tolkas tillsammans med de guidelines som finns i Annex E.4.1 i dokumentet H.812 – Observtion Upload – DG2016.pdf se referens R2
 
-| Element – Segment . Subsegment | PCD-01 / HL7v2.6 PID / (HL7 datatyp) | Beskrivning |
+| Element – Segment . Subsegment | PCD-01<br/>HL7v2.6 PID<br/>(HL7 datatyp) | Beskrivning |
 | :--- | :--- | :--- |
 | PID-3 | CX [1..1] | Id för patienten, den patient som observationsgruppen avser. |
-| PID-3.1 | ST [1..1] | Personnummer/samordningsnummer,  Skall anges med 12 tecken utan avskiljare. / Exempel: 191212129876 |
-| PID-3.4 | HD [0..1] | Assigning Authority / KV OID för typ av identifierare: / För personnummer används OID: 1.2.752.129.2.1.3.1 / För samordningsnummer används OID: 1.2.752.129.2.1.3.3 |
-| PID-5 | XPN | Patientens namn / Exempel:  Tolvan^Tolvansson^Mellannamn^^^^L^A |
-| PID-5.7 |  | Kod för typ av namn i PID-5 dvs patientens namn. / Exempel: L / Tillåtna koder enligt HL7 |
-| PID-5.8 |  | Tecken-representation i PID-5 för patientens namn. / Exempel: A / Tillåtna koder |
-| PID-8 | IS | Patientens kön enligt HL7 / F : Female / M : Male / O : Other / U : Unknown / A : Ambiguous / N : Not applicable / Exempel: M |
+| PID-3.1 | ST [1..1] | Personnummer/samordningsnummer,  Skall anges med 12 tecken utan avskiljare.<br/>Exempel: 191212129876 |
+| PID-3.4 | HD [0..1] | Assigning Authority<br/>KV OID för typ av identifierare:<br/>För personnummer används OID: 1.2.752.129.2.1.3.1<br/>För samordningsnummer används OID: 1.2.752.129.2.1.3.3 |
+| PID-5 | XPN | Patientens namn<br/>Exempel:  Tolvan^Tolvansson^Mellannamn^^^^L^A |
+| PID-5.7 |  | Kod för typ av namn i PID-5 dvs patientens namn.<br/>Exempel: L<br/>Tillåtna koder enligt HL7 |
+| PID-5.8 |  | Tecken-representation i PID-5 för patientens namn.<br/>Exempel: A<br/>Tillåtna koder |
+| PID-8 | IS | Patientens kön enligt HL7<br/>F : Female<br/>M : Male<br/>O : Other<br/>U : Unknown<br/>A : Ambiguous<br/>N : Not applicable<br/>Exempel: M |
 
 ###### 7.1.2.2.1 Exempel på PID
 
@@ -73,9 +73,9 @@ PID|||191212129876^^^1.2.752.129.2.1.3.1^PI||Tolvan^Tolvansson^Mellannamn^^^^L^A
 
 Nedanstående tabell skall tolkas tillsammans med de guidelines som finns i Annex E.4.1 i dokumentet H.812 – Observation Upload – DG2016.pdf se referens R2
 
-| Element – Segment . Subsegment | PCD-01 / HL7v2.6 PID / (HL7 datatyp) | Beskrivning |
+| Element – Segment . Subsegment | PCD-01<br/>HL7v2.6 PID<br/>(HL7 datatyp) | Beskrivning |
 | :--- | :--- | :--- |
-| OBR-3.2 | OBR-3.2 / (IS) | OBR-3.2 innehåller det unika ID som observatiosgruppen/undersökningen fått i det utförande systemet. Det varierar dock hur olika system tolkar standarden och således hur de olika efterföljande subfälten ska sättas. / Bör sättas till systemets HSA ID. / Exempel: SE-123456789 |
+| OBR-3.2 | OBR-3.2<br/>(IS) | OBR-3.2 innehåller det unika ID som observatiosgruppen/undersökningen fått i det utförande systemet. Det varierar dock hur olika system tolkar standarden och således hur de olika efterföljande subfälten ska sättas.<br/>Bör sättas till systemets HSA ID.<br/>Exempel: SE-123456789 |
 
 ###### 7.1.2.3.1 Exempel på OBR
 
@@ -89,15 +89,15 @@ Nedanstående tabell skall tolkas tillsammans med de guidelines som finns i Anne
 
 För utrustning som följer IEEE/ISO 11073-20601 finns det generella guidelines för hur dessa skall mappas in i ett OBX-segment, se H.812 – Observation Upload – DG2016.pdf Annex D.0.4 för mer information.
 
-| Element – Segment . Subsegment | PCD-01 / HL7v2.6 OBX / (HL7 datatyp) | PCD-01 / HL7v2.6 OBX / (HL7 datatyp) | Beskrivning |
+| Element – Segment . Subsegment | PCD-01<br/>HL7v2.6 OBX<br/>(HL7 datatyp) | PCD-01<br/>HL7v2.6 OBX<br/>(HL7 datatyp) | Beskrivning |
 | :--- | :--- | :--- | :--- |
-| OBX-3 | CWE | CWE | Typ av observation t.ex vikt, pulsmätning. / Exempel: MDC (IEEE/ISO 11073-20601): / 150456^MDC_PULS_OXIM_SAT_O2^MDC / 188736^MDC_MASS_BODY_ACTUAL^MDC / 149530^MDC_PULS_OXIM_PULS_RATE^MDC / Se även Appendix E.3 i  H.812 – Observation Upload – DG2016.pdf |
-| OBX-5 | Varies | Varies | OBX-5 innehåller observationen. / Värdet för mätningen. / Exempel (vikt): 153.6\| |
-| OBX-6 |  |  | Den enhet observationen är uttryckt med, t.ex centimeter för längd, eller kilogram för vikt. / Exempel med MDC: / 263875^MDC_DIM_KILO_G^MDC |
-| OBR-7,OBR-8,OBX-14 |  | Tidstämpel (start/stop) som sätts i OBR-7 / Och OBR-8 gäller för gruppen av observationer, d v s alla efterföljande OBX segment. / Om varje observation har en egen tidsstämpel, kan OBX-14 användas. Denna position tillåter då istället endast en tidsstämpel, således inte ett intervall. / Tidsperiod för observationen. / Består av TimeStampType intervallerna startTime respektive endTime. Vardera uttrycks på formatet ÅÅÅÅMMDDttmmss. / Om observationen är en tidpunkt, inte ett intervall, sätts sluttid till samma tid som starttid. / NI 2015:1 / Angivelse av den tid då det som observerats faktiskt förekom eller förväntas förekomma. Exempelvis så kan tidsattributet ange att patienten hade huvudvärk igår kväll mellan kl. 20.00 och 21.45 även om detta berättades på morgonen efter och det dokumenterades först då. Om observationen är ett måltillstånd anger tidsattributet när detta tillstånd önskas vara uppnått. / Observationens tid skiljer sig vanligtvis från dokumentationstidpunkt i journalhandling som beskriver när tillståndet dokumenterades, vilket alltid sker i efterhand. | Tidstämpel (start/stop) som sätts i OBR-7 / Och OBR-8 gäller för gruppen av observationer, d v s alla efterföljande OBX segment. / Om varje observation har en egen tidsstämpel, kan OBX-14 användas. Denna position tillåter då istället endast en tidsstämpel, således inte ett intervall. / Tidsperiod för observationen. / Består av TimeStampType intervallerna startTime respektive endTime. Vardera uttrycks på formatet ÅÅÅÅMMDDttmmss. / Om observationen är en tidpunkt, inte ett intervall, sätts sluttid till samma tid som starttid. / NI 2015:1 / Angivelse av den tid då det som observerats faktiskt förekom eller förväntas förekomma. Exempelvis så kan tidsattributet ange att patienten hade huvudvärk igår kväll mellan kl. 20.00 och 21.45 även om detta berättades på morgonen efter och det dokumenterades först då. Om observationen är ett måltillstånd anger tidsattributet när detta tillstånd önskas vara uppnått. / Observationens tid skiljer sig vanligtvis från dokumentationstidpunkt i journalhandling som beskriver när tillståndet dokumenterades, vilket alltid sker i efterhand. |
-| OBR-7 | DT | Observation Date/Time / Tillåtet format: / YYYY[MM[DD[HH[MM[SS[.S[S[S[S]]]]]]]]][+/-ZZZZ] | Observation Date/Time / Tillåtet format: / YYYY[MM[DD[HH[MM[SS[.S[S[S[S]]]]]]]]][+/-ZZZZ] |
-| OBR-8 | DT | Observation End Date/Time / Tillåtet format: / YYYY[MM[DD[HH[MM[SS[.S[S[S[S]]]]]]]]][+/-ZZZZ] | Observation End Date/Time / Tillåtet format: / YYYY[MM[DD[HH[MM[SS[.S[S[S[S]]]]]]]]][+/-ZZZZ] |
-| OBX-14 | DTM | Tidsstämpel för observation. OBR-7/8 segmenten gäller om inte OBX-14 är satt. / OBX-14 skall inte vara >= OBR-7 och / skall inte vara <= OBR-8. | Tidsstämpel för observation. OBR-7/8 segmenten gäller om inte OBX-14 är satt. / OBX-14 skall inte vara >= OBR-7 och / skall inte vara <= OBR-8. |
+| OBX-3 | CWE | CWE | Typ av observation t.ex vikt, pulsmätning.<br/>Exempel: MDC (IEEE/ISO 11073-20601):<br/>150456^MDC_PULS_OXIM_SAT_O2^MDC<br/>188736^MDC_MASS_BODY_ACTUAL^MDC<br/>149530^MDC_PULS_OXIM_PULS_RATE^MDC<br/>Se även Appendix E.3 i  H.812 – Observation Upload – DG2016.pdf |
+| OBX-5 | Varies | Varies | OBX-5 innehåller observationen.<br/>Värdet för mätningen.<br/>Exempel (vikt): 153.6\| |
+| OBX-6 |  |  | Den enhet observationen är uttryckt med, t.ex centimeter för längd, eller kilogram för vikt.<br/>Exempel med MDC:<br/>263875^MDC_DIM_KILO_G^MDC |
+| OBR-7,OBR-8,OBX-14 |  | Tidstämpel (start/stop) som sätts i OBR-7<br/>Och OBR-8 gäller för gruppen av observationer, d v s alla efterföljande OBX segment.<br/>Om varje observation har en egen tidsstämpel, kan OBX-14 användas. Denna position tillåter då istället endast en tidsstämpel, således inte ett intervall.<br/>Tidsperiod för observationen.<br/>Består av TimeStampType intervallerna startTime respektive endTime. Vardera uttrycks på formatet ÅÅÅÅMMDDttmmss.<br/>Om observationen är en tidpunkt, inte ett intervall, sätts sluttid till samma tid som starttid.<br/>NI 2015:1<br/>Angivelse av den tid då det som observerats faktiskt förekom eller förväntas förekomma. Exempelvis så kan tidsattributet ange att patienten hade huvudvärk igår kväll mellan kl. 20.00 och 21.45 även om detta berättades på morgonen efter och det dokumenterades först då. Om observationen är ett måltillstånd anger tidsattributet när detta tillstånd önskas vara uppnått.<br/>Observationens tid skiljer sig vanligtvis från dokumentationstidpunkt i journalhandling som beskriver när tillståndet dokumenterades, vilket alltid sker i efterhand. | Tidstämpel (start/stop) som sätts i OBR-7<br/>Och OBR-8 gäller för gruppen av observationer, d v s alla efterföljande OBX segment.<br/>Om varje observation har en egen tidsstämpel, kan OBX-14 användas. Denna position tillåter då istället endast en tidsstämpel, således inte ett intervall.<br/>Tidsperiod för observationen.<br/>Består av TimeStampType intervallerna startTime respektive endTime. Vardera uttrycks på formatet ÅÅÅÅMMDDttmmss.<br/>Om observationen är en tidpunkt, inte ett intervall, sätts sluttid till samma tid som starttid.<br/>NI 2015:1<br/>Angivelse av den tid då det som observerats faktiskt förekom eller förväntas förekomma. Exempelvis så kan tidsattributet ange att patienten hade huvudvärk igår kväll mellan kl. 20.00 och 21.45 även om detta berättades på morgonen efter och det dokumenterades först då. Om observationen är ett måltillstånd anger tidsattributet när detta tillstånd önskas vara uppnått.<br/>Observationens tid skiljer sig vanligtvis från dokumentationstidpunkt i journalhandling som beskriver när tillståndet dokumenterades, vilket alltid sker i efterhand. |
+| OBR-7 | DT | Observation Date/Time<br/>Tillåtet format:<br/>YYYY[MM[DD[HH[MM[SS[.S[S[S[S]]]]]]]]][+/-ZZZZ] | Observation Date/Time<br/>Tillåtet format:<br/>YYYY[MM[DD[HH[MM[SS[.S[S[S[S]]]]]]]]][+/-ZZZZ] |
+| OBR-8 | DT | Observation End Date/Time<br/>Tillåtet format:<br/>YYYY[MM[DD[HH[MM[SS[.S[S[S[S]]]]]]]]][+/-ZZZZ] | Observation End Date/Time<br/>Tillåtet format:<br/>YYYY[MM[DD[HH[MM[SS[.S[S[S[S]]]]]]]]][+/-ZZZZ] |
+| OBX-14 | DTM | Tidsstämpel för observation. OBR-7/8 segmenten gäller om inte OBX-14 är satt.<br/>OBX-14 skall inte vara >= OBR-7 och<br/>skall inte vara <= OBR-8. | Tidsstämpel för observation. OBR-7/8 segmenten gäller om inte OBX-14 är satt.<br/>OBX-14 skall inte vara >= OBR-7 och<br/>skall inte vara <= OBR-8. |
 
 ###### 7.1.2.4.1 Exempel på OBX
 

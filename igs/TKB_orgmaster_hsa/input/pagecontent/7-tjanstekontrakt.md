@@ -23,7 +23,7 @@ Detta är första versionen av tjänsten.
 | Parameter | Datatyp | Antal | Beskrivning |
 | :--- | :--- | :--- | :--- |
 | hsaIdentity | String | 1 - 1 | HSA-identitet på den enhet som skall sökas ut. |
-| searchBase | DN | 0 - 1 | Sökbas för sökning i HSA-katalogen. / Om ingen sökbas anges används c=SE som sökbas. |
+| searchBase | DN | 0 - 1 | Sökbas för sökning i HSA-katalogen.<br/>Om ingen sökbas anges används c=SE som sökbas. |
 | getParentInfo | Boolean | 1 | true: om careGiver och parentHsaIdentity svarsparametrar ska returneras. |
 
 #### 7.1.4 Svar (Response)
@@ -37,75 +37,75 @@ För detaljerad information om respektive parameter se HSA-specifikationen (ref 
 
 | Parameter | Underparameter | Datatyp | Antal | Beskrivning |
 | :--- | :--- | :--- | :--- | :--- |
-| careGiver |  | String | 0 – 1 | Hsa-identitet för vårdgivaren som vårdenheten tillhör. Returneras bara om aktuell enhet är en vårdenhet. /  / (ny parameter för E-remiss) |
-| parentHsaIdentity |  | String | 0 - 1 | Hsa-identitet för den överliggande enheten. Om ingen överliggande enhet finns ska fältet sättas till NULL. /  / Förälder för en enhet är överliggande enhet i DN, med andra ord närmsta OU eller O. / Returneras bara om getParentInfo är true. /  / (ny parameter för E-remiss) |
+| careGiver |  | String | 0 – 1 | Hsa-identitet för vårdgivaren som vårdenheten tillhör. Returneras bara om aktuell enhet är en vårdenhet.<br/>/ (ny parameter för E-remiss) |
+| parentHsaIdentity |  | String | 0 - 1 | Hsa-identitet för den överliggande enheten. Om ingen överliggande enhet finns ska fältet sättas till NULL.<br/>/ Förälder för en enhet är överliggande enhet i DN, med andra ord närmsta OU eller O.<br/>Returneras bara om getParentInfo är true.<br/>/ (ny parameter för E-remiss) |
 | unitPrescriptionCodes |  | String | 1 - 1 | (ny parameter för E-remiss) |
-|  | unitPrescriptionCode / HSA: Arbetsplatskod / LDAP: unitPrescriptionCode | String | 0 – n | Arbetsplatskod för enheten |
+|  | unitPrescriptionCode<br/>HSA: Arbetsplatskod<br/>LDAP: unitPrescriptionCode | String | 0 – n | Arbetsplatskod för enheten |
 | alternateNames |  |  | 1 – 1 |  |
-|  | alternateName / HSA: Alternativt namn / LDAP: ouShort | String | 0 – n | Alternativt namn på enheten som används vid sidan av det officiella namnet (publicName). |
-| alternateText / HSA: alt-text / LDAP: hsaAltText |  | String | 0 – 1 | Beskrivande text som alternativ till bild på enhet. |
+|  | alternateName<br/>HSA: Alternativt namn<br/>LDAP: ouShort | String | 0 – n | Alternativt namn på enheten som används vid sidan av det officiella namnet (publicName). |
+| alternateText<br/>HSA: alt-text<br/>LDAP: hsaAltText |  | String | 0 – 1 | Beskrivande text som alternativ till bild på enhet. |
 | businessClassifications |  |  | 1 – 1 |  |
-|  | businessClassification / HSA: Verksamhet / LDAP: businessClassification Name | String | 0 – n | Typ av verksamhet (klartext). |
+|  | businessClassification<br/>HSA: Verksamhet<br/>LDAP: businessClassification Name | String | 0 – n | Typ av verksamhet (klartext). |
 | businessClassificationCodes |  |  | 1 – 1 |  |
-|  | businessClassificationCode / HSA: Verksamhetskod / LDAP: businessClassification Code | String | 0 – n | Typ av verksamhet (kod) |
+|  | businessClassificationCode<br/>HSA: Verksamhetskod<br/>LDAP: businessClassification Code | String | 0 – n | Typ av verksamhet (kod) |
 | businessTypes |  |  | 1 – 1 |  |
-|  | businessType / HSA: Enhetstyp / LDAP: hsaBusinessType | String | 0 – n | Klassificering av enhet (t.ex. sjukhus). |
+|  | businessType<br/>HSA: Enhetstyp<br/>LDAP: hsaBusinessType | String | 0 – n | Klassificering av enhet (t.ex. sjukhus). |
 | careTypes |  |  | 1 – 1 |  |
-|  | careType / HSA: Vårdform / LDAP: careType | String | 0 – n | Vårdform. |
-| county / HSA: Länsnamn / LDAP: countyName |  | String | 0 – 1 | Namn på län. |
-| countyCode / HSA: Länskod / LDAP: countyCode |  | String | 0 – 1 | Kod för län. |
-| description / HSA:Beskrivning / LDAP: description |  | String | 0 – 1 | Allmän beskrivning för enheten. |
-| directoryContact / HSA: Innehållsansvarig / LDAP: hsaDirectoryContact (hämtad från överliggande o eller ou-objekt) |  | String | 0 – 1 | Ansvarig för informationen om enheten (emailadress). |
-| displayOption / HSA:Alternativ namnvisning / LDAP: displayOption |  | String | 0 – 1 | Alternativ namnvisning, se Hsa Schemat för syntax. |
+|  | careType<br/>HSA: Vårdform<br/>LDAP: careType | String | 0 – n | Vårdform. |
+| county<br/>HSA: Länsnamn<br/>LDAP: countyName |  | String | 0 – 1 | Namn på län. |
+| countyCode<br/>HSA: Länskod<br/>LDAP: countyCode |  | String | 0 – 1 | Kod för län. |
+| description<br/>HSA:Beskrivning<br/>LDAP: description |  | String | 0 – 1 | Allmän beskrivning för enheten. |
+| directoryContact<br/>HSA: Innehållsansvarig<br/>LDAP: hsaDirectoryContact (hämtad från överliggande o eller ou-objekt) |  | String | 0 – 1 | Ansvarig för informationen om enheten (emailadress). |
+| displayOption<br/>HSA:Alternativ namnvisning<br/>LDAP: displayOption |  | String | 0 – 1 | Alternativ namnvisning, se Hsa Schemat för syntax. |
 | dropInHours |  |  | 1 – 1 |  |
-|  | dropInHour / HSA: Tid för dropin-besök utan tidsbokning / LDAP: dropInHours | Time Span | 0 – n | Tider för så dropin-besök (utan tidbokning). |
-| Email / HSA: e-postadress / LDAP: mail |  | String | 0 – 1 | Officiell emailadress till enheten. |
+|  | dropInHour<br/>HSA: Tid för dropin-besök utan tidsbokning<br/>LDAP: dropInHours | Time Span | 0 – n | Tider för så dropin-besök (utan tidbokning). |
+| Email<br/>HSA: e-postadress<br/>LDAP: mail |  | String | 0 – 1 | Officiell emailadress till enheten. |
 | faxNumbers |  |  | 1 – 1 |  |
-|  | faxNumber / HSA: Fax / LDAP: facsimileTelephone Number | Telefon | 0 – n | Faxnummer till enheten. |
-| geographicalCoordinatesRt90 / HSA: Geografiska koordinater / LDAP: geographicalCoordinates |  | Geo Coord | 0 – 1 | Geografiska koordinater för enhetens huvudsakliga fysiska placering. Koordinaterna anges enligt RT90. |
-| healthCareArea / HSA: Områdesansvar / LDAP: hsaHealthCareArea |  | String | 0 – 1 | Geografiskt område för någon typ av administrativt område. |
+|  | faxNumber<br/>HSA: Fax<br/>LDAP: facsimileTelephone Number | Telefon | 0 – n | Faxnummer till enheten. |
+| geographicalCoordinatesRt90<br/>HSA: Geografiska koordinater<br/>LDAP: geographicalCoordinates |  | Geo Coord | 0 – 1 | Geografiska koordinater för enhetens huvudsakliga fysiska placering. Koordinaterna anges enligt RT90. |
+| healthCareArea<br/>HSA: Områdesansvar<br/>LDAP: hsaHealthCareArea |  | String | 0 – 1 | Geografiskt område för någon typ av administrativt område. |
 | hsaDestinationIndicators |  |  | 1 – 1 |  |
-|  | hsaDestinationIndicator / HSA: Visas för / LDAP: hsaDestinationIndicator | String | 0 – n | Anger vilka parter som får ta del av enhetens information. |
-| hsaIdentity / HSA: HSA-id / LDAP: hsaIdentity |  | String | 1 – 1 | HSA-identitet |
-| hsaJpegLogotype / HSA: Logotyp / LDAP: hsaJpegLogotype |  | String | 0 – 1 | Logotype för enheten. / Logotypen är en binär bild i JPEG-format. Bildinformationen returneras Base64-kodat. |
-| invoiceAddress / HSA: Fakturaadress / LDAP: hsaInvoiceAddress |  | Address | 0 – 1 | Fakturaadress. |
-| jpegPhoto / HSA: Bild / LDAP: jpegPhoto |  | String | 0 – 1 | Allmän bild för enheten. / Bilden är en binär bild i JPEG-format. Bildinformationen returneras Base64-kodat. |
-| labeledUri / HSA: Webbadress / LDAP: labeledURI |  | String | 0 – 1 | Fullständig webbadress (inklusive http://  eller https://) |
-| Location / HSA: Geografisk plats / LDAP: l |  | String | 0 – 1 | Namn på geografiskt område där enheten i huvudsak är placerad. |
-| webPage1177 / HSA: 1177-kontaktkortslänk / LDAP: hsaVpwWebPage |  |  |  | Länk till Enhetens sida på 1177.se (om enheten är publik och finns på 1177.se) |
+|  | hsaDestinationIndicator<br/>HSA: Visas för<br/>LDAP: hsaDestinationIndicator | String | 0 – n | Anger vilka parter som får ta del av enhetens information. |
+| hsaIdentity<br/>HSA: HSA-id<br/>LDAP: hsaIdentity |  | String | 1 – 1 | HSA-identitet |
+| hsaJpegLogotype<br/>HSA: Logotyp<br/>LDAP: hsaJpegLogotype |  | String | 0 – 1 | Logotype för enheten.<br/>Logotypen är en binär bild i JPEG-format. Bildinformationen returneras Base64-kodat. |
+| invoiceAddress<br/>HSA: Fakturaadress<br/>LDAP: hsaInvoiceAddress |  | Address | 0 – 1 | Fakturaadress. |
+| jpegPhoto<br/>HSA: Bild<br/>LDAP: jpegPhoto |  | String | 0 – 1 | Allmän bild för enheten.<br/>Bilden är en binär bild i JPEG-format. Bildinformationen returneras Base64-kodat. |
+| labeledUri<br/>HSA: Webbadress<br/>LDAP: labeledURI |  | String | 0 – 1 | Fullständig webbadress (inklusive http://  eller https://) |
+| Location<br/>HSA: Geografisk plats<br/>LDAP: l |  | String | 0 – 1 | Namn på geografiskt område där enheten i huvudsak är placerad. |
+| webPage1177<br/>HSA: 1177-kontaktkortslänk<br/>LDAP: hsaVpwWebPage |  |  |  | Länk till Enhetens sida på 1177.se (om enheten är publik och finns på 1177.se) |
 | managements |  |  | 1 – 1 |  |
-|  | management / HSA: Ägarform / LDAP: management | String | 0 – n | Ägarform i klartext. |
-| municipality / HSA: Kommunnamn / LDAP: municipalityName |  | String | 0 – 1 | Namn på kommun. |
-| municipalityCode / HSA: Kommunkod / LDAP: municipalityCode |  | String | 0 – 1 | Kod för kommun. |
-| municipalitySection / HSA: Kommundelsnamn / LDAP: municipalitySectionName |  | String | 0 – 1 | Namn på kommundel. |
-| name / HSA: Organisationsnamn, Enhetsnamn eller Objektnamn, / LDAP: o, ou eller cn (beroende på objekttyp) |  | String | 1 – 1 | Namn / Namn i detta sammanhang definieras som värdet i LDAP-attributet o (organization), ou (organisationsenhet) eller cn (organisationsroll). |
-| patientInformation / HSA: Information till patient / LDAP: hsaVpwInformation4 |  | String | 0 – 1 | Informationstext till patienter. |
-| postalAddress / HSA: Postadress / LDAP: postalAddress |  | Address | 0 – 1 | Postadress. |
-| postalCode / HSA: Postnummer / LDAP: postalCode |  | String | 0 – 1 | Postnummer. |
-| priceInformation / HSA: Prisinformation / LDAP: hsaVpwInformation3 |  | String | 0 – 1 | Prisinformation. |
-| publicName / (Namn som sätts samman utifrån flera olika Hsa-attribut, se beskrivningen) |  | String | 1 – 1 | Publikt officiellt namn. / Det publika namnet beräknas i första hand utifrån enhetens DN tillsammans med värdet i attributet displayOption i enlighet med beskrivningen i HSA-specifikationen (se ref 3). / Om enheten inte har något värde för displayOption beräknas det publika namnet utifrån följande attributkombinationer, i prioritetsordning; / ou`<blanktecken>`l / o`<blanktecken>`l / cn`<blanktecken>`l |
+|  | management<br/>HSA: Ägarform<br/>LDAP: management | String | 0 – n | Ägarform i klartext. |
+| municipality<br/>HSA: Kommunnamn<br/>LDAP: municipalityName |  | String | 0 – 1 | Namn på kommun. |
+| municipalityCode<br/>HSA: Kommunkod<br/>LDAP: municipalityCode |  | String | 0 – 1 | Kod för kommun. |
+| municipalitySection<br/>HSA: Kommundelsnamn<br/>LDAP: municipalitySectionName |  | String | 0 – 1 | Namn på kommundel. |
+| name<br/>HSA: Organisationsnamn, Enhetsnamn eller Objektnamn,<br/>LDAP: o, ou eller cn (beroende på objekttyp) |  | String | 1 – 1 | Namn<br/>Namn i detta sammanhang definieras som värdet i LDAP-attributet o (organization), ou (organisationsenhet) eller cn (organisationsroll). |
+| patientInformation<br/>HSA: Information till patient<br/>LDAP: hsaVpwInformation4 |  | String | 0 – 1 | Informationstext till patienter. |
+| postalAddress<br/>HSA: Postadress<br/>LDAP: postalAddress |  | Address | 0 – 1 | Postadress. |
+| postalCode<br/>HSA: Postnummer<br/>LDAP: postalCode |  | String | 0 – 1 | Postnummer. |
+| priceInformation<br/>HSA: Prisinformation<br/>LDAP: hsaVpwInformation3 |  | String | 0 – 1 | Prisinformation. |
+| publicName<br/>(Namn som sätts samman utifrån flera olika Hsa-attribut, se beskrivningen) |  | String | 1 – 1 | Publikt officiellt namn.<br/>Det publika namnet beräknas i första hand utifrån enhetens DN tillsammans med värdet i attributet displayOption i enlighet med beskrivningen i HSA-specifikationen (se ref 3).<br/>Om enheten inte har något värde för displayOption beräknas det publika namnet utifrån följande attributkombinationer, i prioritetsordning;<br/>ou`<blanktecken>`l<br/>o`<blanktecken>`l<br/>cn`<blanktecken>`l |
 | relatedUnits |  |  | 1 – 1 |  |
-|  | relatedUnit / HSA: Relaterad enhet / LDAP: hsaVpwNeighbouring Object | String | 0 – n | HSA-identitet på en enhet som på något sätt hör ihop med aktuell enhet. / Informationen hämtas från LDAP-attributet hsaVpwNeighbouringObject. |
-| route / HSA: Vägbeskrivning / LDAP: route |  | String | 0 – 1 | Vägbeskrivning. |
-| street / HSA: Besöksadress / LDAP: street |  | String | 0 – 1 | Besöksadress (gatuadress). |
+|  | relatedUnit<br/>HSA: Relaterad enhet<br/>LDAP: hsaVpwNeighbouring Object | String | 0 – n | HSA-identitet på en enhet som på något sätt hör ihop med aktuell enhet.<br/>Informationen hämtas från LDAP-attributet hsaVpwNeighbouringObject. |
+| route<br/>HSA: Vägbeskrivning<br/>LDAP: route |  | String | 0 – 1 | Vägbeskrivning. |
+| street<br/>HSA: Besöksadress<br/>LDAP: street |  | String | 0 – 1 | Besöksadress (gatuadress). |
 | surgeryHours |  |  | 1 – 1 |  |
-|  | surgeryHour / HSA: Öppettider / LDAP: surgeryHours | Time Span | 0 – n | Öppetider. |
-| switchboardNumber / HSA: Växeltelefon / LDAP: hsaSwitchboardNumber |  | Telefon | 0 – 1 | Telefonnummer till växel |
+|  | surgeryHour<br/>HSA: Öppettider<br/>LDAP: surgeryHours | Time Span | 0 – n | Öppetider. |
+| switchboardNumber<br/>HSA: Växeltelefon<br/>LDAP: hsaSwitchboardNumber |  | Telefon | 0 – 1 | Telefonnummer till växel |
 | telephoneHours |  |  | 1 – 1 |  |
-|  | telephoneHour / HSA: Telefontid / LDAP: telephoneHours | Time Span | 0 – n | Telefontider för telefonnummer i parametern telephoneNumbers. |
+|  | telephoneHour<br/>HSA: Telefontid<br/>LDAP: telephoneHours | Time Span | 0 – n | Telefontider för telefonnummer i parametern telephoneNumbers. |
 | telephoneNumbers |  |  | 1 – 1 |  |
-|  | telephoneNumber / HSA: Telefonnummer / LDAP: telephoneNumber | Telefon | 0 – n | Publikt direkttelefonnummer. |
+|  | telephoneNumber<br/>HSA: Telefonnummer<br/>LDAP: telephoneNumber | Telefon | 0 – n | Publikt direkttelefonnummer. |
 | textTelephoneNumbers |  |  | 1 – 1 |  |
-|  | textTelephoneNumber / HSA: Texttelefon / LDAP: hsaTextTelephone Number | String | 0 – n | Texttelefonnummer för personer med tal- eller hörselhandikapp. |
-| unitExtraInformation / HSA:  Mer om / LDAP: hsaVpwInformation1 |  | String | 0 – 1 | Kompleterande information om enheten |
+|  | textTelephoneNumber<br/>HSA: Texttelefon<br/>LDAP: hsaTextTelephone Number | String | 0 – n | Texttelefonnummer för personer med tal- eller hörselhandikapp. |
+| unitExtraInformation<br/>HSA:  Mer om<br/>LDAP: hsaVpwInformation1 |  | String | 0 – 1 | Kompleterande information om enheten |
 | unitFunctions |  |  | 1 – 1 |  |
-|  | unitFunction / (se nedan för Hsa och Ldapnamn) | UnitFunc | 0 – n | Reserverade funktionsnamn kopplade till aktuell enhet. |
-| unitTemporaryInformation / HSA: Tillfällig information / LDAP: hsaVpwInformation2 |  | DateSpan | 0 – 1 | Temporär information om enheten. |
+|  | unitFunction<br/>(se nedan för Hsa och Ldapnamn) | UnitFunc | 0 – n | Reserverade funktionsnamn kopplade till aktuell enhet. |
+| unitTemporaryInformation<br/>HSA: Tillfällig information<br/>LDAP: hsaVpwInformation2 |  | DateSpan | 0 – 1 | Temporär information om enheten. |
 | visitingHours |  |  | 1 – 1 |  |
-|  | visitingHour / HSA: Besökstider för anhöriga / LDAP: visitingHours | TimeSpan | 0 – n | Besökstider för anhöriga. |
-| visitingRuleAge / HSA: Åldersregler för vårdkontakt / LDAP: hsaVisitingRuleAge |  | AgeSpan | 0 – 1 | Åldersintervall på patienter som tas emot. |
-| visitingRuleReferral / HSA: Remisskrav / LDAP: hsaVisitingRuleReferral |  | String | 0 – 1 | Beskrivning av remisskrav. |
-| visitingRules / HSA: Besöksregler / LDAP: hsaVisitingRules |  | String | 0 – 1 | Besöksregler |
+|  | visitingHour<br/>HSA: Besökstider för anhöriga<br/>LDAP: visitingHours | TimeSpan | 0 – n | Besökstider för anhöriga. |
+| visitingRuleAge<br/>HSA: Åldersregler för vårdkontakt<br/>LDAP: hsaVisitingRuleAge |  | AgeSpan | 0 – 1 | Åldersintervall på patienter som tas emot. |
+| visitingRuleReferral<br/>HSA: Remisskrav<br/>LDAP: hsaVisitingRuleReferral |  | String | 0 – 1 | Beskrivning av remisskrav. |
+| visitingRules<br/>HSA: Besöksregler<br/>LDAP: hsaVisitingRules |  | String | 0 – 1 | Besöksregler |
 | referralReceiver |  | Boolean | 0 – 1 | Flagga som anger om enheten kan ta emot remisser. |
 | referralTypes |  | Collection | 1 – 1 |  |
 | referralType |  | String | 0 – n | Vilken typ av remisser som en enhet kan ta emot |
@@ -116,9 +116,9 @@ Tidsintervall.
 
 | Parameter | Datatyp | Antal | Beskrivning |
 | :--- | :--- | :--- | :--- |
-| fromDay | String | 1 – 1 | Från dag. / Måndag (1) – Söndag (7). |
+| fromDay | String | 1 – 1 | Från dag.<br/>Måndag (1) – Söndag (7). |
 | fromTime | Time (XML) | 1 – 1 | Från tid. |
-| toDay | String | 1 – 1 | Till dag. / Måndag (1) – Söndag (7). |
+| toDay | String | 1 – 1 | Till dag.<br/>Måndag (1) – Söndag (7). |
 | toTime | Time (XML) | 1 – 1 | Till tid. |
 | Comment | String | 0 – 1 | Information om aktuellt tidsintervall. |
 
@@ -128,7 +128,7 @@ Geografiska koordinater.
 
 | Parameter | Datatyp | Antal | Beskrivning |
 | :--- | :--- | :--- | :--- |
-| Type | String | 1 – 1 | Typ av geografisk koordinat. / Idag används enbart RT90. |
+| Type | String | 1 – 1 | Typ av geografisk koordinat.<br/>Idag används enbart RT90. |
 | X | String | 1 – 1 | X-koordinat. |
 | Y | String | 1 – 1 | Y-koordinat. |
 
@@ -151,11 +151,11 @@ Rådgivning
 
 | Parameter | Underparameter | Datatyp | Antal | Beskrivning |
 | :--- | :--- | :--- | :--- | :--- |
-| namn / HSA: Objektnamn / LDAP: cn |  | String | 1 – 1 | Enhetsfunktionens namn (se ovanstående lista). |
+| namn<br/>HSA: Objektnamn<br/>LDAP: cn |  | String | 1 – 1 | Enhetsfunktionens namn (se ovanstående lista). |
 | telephoneHours |  |  | 1 – 1 |  |
-|  | telephoneHour / HSA: Telefontid / LDAP: telephoneHours | TimeSpan | 0 – n | Telefontider för telefonnummer i parametern telephoneNumbers. |
+|  | telephoneHour<br/>HSA: Telefontid<br/>LDAP: telephoneHours | TimeSpan | 0 – n | Telefontider för telefonnummer i parametern telephoneNumbers. |
 | telephoneNumbers |  |  | 1 – 1 |  |
-|  | telephoneNumber / HSA: Telefonnummer / LDAP: telephoneNumber | Telefon | 0 – n | Publikt direkttelefonnummer. |
+|  | telephoneNumber<br/>HSA: Telefonnummer<br/>LDAP: telephoneNumber | Telefon | 0 – n | Publikt direkttelefonnummer. |
 
 #### 7.1.10 AgeSpan
 
@@ -176,8 +176,8 @@ Datumintervall.
 
 | Parameter | Datatyp | Antal | Beskrivning |
 | :--- | :--- | :--- | :--- |
-| fromDate | String | 1 – 1 | Från datum. / Exempel: 20101123 |
-| toDate | String | 1 – 1 | Till datum. / Exempel: 20101131 |
+| fromDate | String | 1 – 1 | Från datum.<br/>Exempel: 20101123 |
+| toDate | String | 1 – 1 | Till datum.<br/>Exempel: 20101131 |
 
 #### 7.1.13 Regler
 
@@ -372,7 +372,7 @@ Endast en av parametrarna hsaIdentity och personalIdentityNumber skall och måst
 | :--- | :--- | :--- | :--- |
 | hsaIdentity | String | 0 - 1 | HSA-identitet för användaren vars information skall hämtas. |
 | personalIdentityNumber | String | 0 – 1 | Personnummer för användaren vars information skall hämtas. |
-| searchBase | DN | 0 - 1 | Sökbas för sökning i HSA-katalogen. / Om ingen sökbas anges används c=SE som sökbas. |
+| searchBase | DN | 0 - 1 | Sökbas för sökning i HSA-katalogen.<br/>Om ingen sökbas anges används c=SE som sökbas. |
 
 #### 7.2.4 Svar (Response)
 
@@ -385,7 +385,7 @@ För närvarande (se ref. 3) finns inte något sätt att koppla paTitleCode till
 | Parameter | Underparameter | Datatyp | Antal | Beskrivning |
 | :--- | :--- | :--- | :--- | :--- |
 | userInformations |  | Collection | 1 – 1 |  |
-|  | userInformation | User Information | 0 – n | Information om personen. / Om personen har flera HSA-objekt returneras en instans per HSA-objekt. |
+|  | userInformation | User Information | 0 – n | Information om personen.<br/>Om personen har flera HSA-objekt returneras en instans per HSA-objekt. |
 
 #### 7.2.6 UserInformation
 
@@ -393,41 +393,41 @@ Information om HSA-personen i form av GetHsaPersonHsaUserType. För detaljerad i
 
 | Parameter | Underparameter | Datatyp | Antal | Beskrivning |
 | :--- | :--- | :--- | :--- | :--- |
-| personalPrescriptionCode / HSA: förskrivarkod / LDAP: personalPrescriptionCode |  | String | 0 - 1 | Kod som identifierar en förskrivare eller en grupp av förskrivare. /  / (ny parameter för E-remiss) |
+| personalPrescriptionCode<br/>HSA: förskrivarkod<br/>LDAP: personalPrescriptionCode |  | String | 0 - 1 | Kod som identifierar en förskrivare eller en grupp av förskrivare.<br/>/ (ny parameter för E-remiss) |
 | paTitleCodes |  | Collection | 1 - 1 |  |
-| paTitleCode / HSA: befattningskod / LDAP: paTitleCode |  | String | 0 - n | Kod för personens befattning. /  / (ny parameter för E-remiss) |
+| paTitleCode<br/>HSA: befattningskod<br/>LDAP: paTitleCode |  | String | 0 - n | Kod för personens befattning.<br/>/ (ny parameter för E-remiss) |
 | paTitleNames |  | Collection | 1 - 1 |  |
-| paTitleName / HSA: befattning / LDAP: paTitleName |  | String | 0 - n | Uppgift om vad personen är anställd som. Klartext för personens befattning. /  / (ny parameter för E-remiss) |
-| hsaIdentity / HSA: HSA-id / LDAP: hsaIdentity |  | String | 1 – 1 | HSA-identitet. |
-| givenName / HSA: tilltalsnamn / LDAP: givenName |  | String | 1 – 1 | Tilltalsnamn. |
-| sn / HSA: efternamn / LDAP: sn |  | String | 1 – 1 | Efternamn. |
-| middleName / HSA: mellannamn / LDAP: middleName |  | String | 0 – 1 | Mellannamn för person |
-| nickName / HSA: smeknamn / LDAP: nickName |  | String | 0 – 1 | Smeknamn för användning istället för tilltalsnamn. |
-| mail / HSA: e-postadress / LDAP: mail |  | String | 0 – 1 | Epostadress. |
+| paTitleName<br/>HSA: befattning<br/>LDAP: paTitleName |  | String | 0 - n | Uppgift om vad personen är anställd som. Klartext för personens befattning.<br/>/ (ny parameter för E-remiss) |
+| hsaIdentity<br/>HSA: HSA-id<br/>LDAP: hsaIdentity |  | String | 1 – 1 | HSA-identitet. |
+| givenName<br/>HSA: tilltalsnamn<br/>LDAP: givenName |  | String | 1 – 1 | Tilltalsnamn. |
+| sn<br/>HSA: efternamn<br/>LDAP: sn |  | String | 1 – 1 | Efternamn. |
+| middleName<br/>HSA: mellannamn<br/>LDAP: middleName |  | String | 0 – 1 | Mellannamn för person |
+| nickName<br/>HSA: smeknamn<br/>LDAP: nickName |  | String | 0 – 1 | Smeknamn för användning istället för tilltalsnamn. |
+| mail<br/>HSA: e-postadress<br/>LDAP: mail |  | String | 0 – 1 | Epostadress. |
 | telephoneNumbers |  | Collection | 1 – 1 |  |
-|  | telephoneNumber / HSA: direkttelefon / LDAP: telephoneNumber | Telefon | 0 – n | Publikt direkttelefonnummer. |
+|  | telephoneNumber<br/>HSA: direkttelefon<br/>LDAP: telephoneNumber | Telefon | 0 – n | Publikt direkttelefonnummer. |
 | hsaSwitchboardNumber |  | Telefon | 0 – 1 | Telefonnummer till växel. |
 | hsaTelephoneNumbers |  | Collection | 1 – 1 |  |
-|  | hsaTelephoneNumber / HSA: tjänstetelefon / LDAP: hsaTelephoneNumber | Telefon | 0 – 1 | Tjänstetelefonnummer. / Skall inte visas för allmänheten. |
+|  | hsaTelephoneNumber<br/>HSA: tjänstetelefon<br/>LDAP: hsaTelephoneNumber | Telefon | 0 – 1 | Tjänstetelefonnummer.<br/>Skall inte visas för allmänheten. |
 | mobileNumbers |  | Collection | 1 – 1 |  |
-|  | mobileNumber / HSA: mobiltelefon / LDAP: mobile | String | 0 – n | Mobiltelefonnummer. |
-| smsTelephoneNumber / HSA: SMS-telefon / LDAP: smsTelephoneNumber |  | Telefon | 0 – 1 | Telefonnummer för SMS-meddelanden. |
+|  | mobileNumber<br/>HSA: mobiltelefon<br/>LDAP: mobile | String | 0 – n | Mobiltelefonnummer. |
+| smsTelephoneNumber<br/>HSA: SMS-telefon<br/>LDAP: smsTelephoneNumber |  | Telefon | 0 – 1 | Telefonnummer för SMS-meddelanden. |
 | facsimilleTelephoneNumbers |  | Collection | 1 – 1 |  |
-|  | facsimilleTelephoneNumber HSA: faxnummer / LDAP: facsimilleTelephoneNumber | Telefon | 0 – n | Faxnummer. |
+|  | facsimilleTelephoneNumber HSA: faxnummer<br/>LDAP: facsimilleTelephoneNumber | Telefon | 0 – n | Faxnummer. |
 | telephoneHours |  | Collection | 1 – 1 |  |
-|  | telephoneHour / HSA: telefontid / LDAP: telephoneHour | TimeSpan | 0 – n | Telefontider för publik telefon (telephoneNumbers). / För mer information se avsnitt 4.4.3.3.2. |
-| postalAddress / HSA: postadress / LDAP: postalAddress |  | AddressType |  | Postadress. |
-| labeledUri / HSA: webbadress / LDAP: labeledURI |  | String | 0 – 1 | Webbadress. |
-| description / HSA: beskrivning / LDAP: description |  | String | 0 – 1 | Generell beskrivning. |
+|  | telephoneHour<br/>HSA: telefontid<br/>LDAP: telephoneHour | TimeSpan | 0 – n | Telefontider för publik telefon (telephoneNumbers).<br/>För mer information se avsnitt 4.4.3.3.2. |
+| postalAddress<br/>HSA: postadress<br/>LDAP: postalAddress |  | AddressType |  | Postadress. |
+| labeledUri<br/>HSA: webbadress<br/>LDAP: labeledURI |  | String | 0 – 1 | Webbadress. |
+| description<br/>HSA: beskrivning<br/>LDAP: description |  | String | 0 – 1 | Generell beskrivning. |
 | languageKnowledgeCodes |  | Collection | 1 – 1 |  |
-|  | languageKnowledgeCode / HSA: språkkod / LDAP: languageKnowledge Code | String | 0 – n | Kod för språk personen har tillräcklig kunskap om för att kunna ta emot patienter som talar detta språk. |
-| title / HSA: titel / LDAP: title |  | String | 0 – 1 | Yrkestitel i fritext |
+|  | languageKnowledgeCode<br/>HSA: språkkod<br/>LDAP: languageKnowledge Code | String | 0 – n | Kod för språk personen har tillräcklig kunskap om för att kunna ta emot patienter som talar detta språk. |
+| title<br/>HSA: titel<br/>LDAP: title |  | String | 0 – 1 | Yrkestitel i fritext |
 | hsaTitles |  | Collection | 1 – 1 |  |
-|  | hsaTitle / HSA: Legitimerad yrkesgrupp / LDAP: hsaTitle | String | 0 – n | HSA-titel för specificerad person. / Aktuella HSA-titlar specificeras i HSA kodtabell. |
+|  | hsaTitle<br/>HSA: Legitimerad yrkesgrupp<br/>LDAP: hsaTitle | String | 0 – n | HSA-titel för specificerad person.<br/>Aktuella HSA-titlar specificeras i HSA kodtabell. |
 | specialityNames |  | Collection | 1 – 1 |  |
-|  | specialityName / HSA: specialitet / LDAP: specialityName | String | 0 – n | Specialistutbildning utöver grundutbildning. |
+|  | specialityName<br/>HSA: specialitet<br/>LDAP: specialityName | String | 0 – n | Specialistutbildning utöver grundutbildning. |
 | specialityCodes |  | Collection | 1 – 1 |  |
-|  | specialityCode / HSA: specialitetskod / LDAP: specialityCode | String | 0 – n | Klassificeringskod för specialistutbildning utöver grundutbildning. |
+|  | specialityCode<br/>HSA: specialitetskod<br/>LDAP: specialityCode | String | 0 – n | Klassificeringskod för specialistutbildning utöver grundutbildning. |
 | DN |  | DN | 1 | DN för person |
 
 #### 7.2.7 Regler
@@ -547,7 +547,7 @@ Endast en av parametrarna hsaIdentity och personalIdentityNumber skall och måst
 | :--- | :--- | :--- | :--- |
 | hsaIdentity | String | 0 – 1 | HSA-identitet på den person vars behörighetsegenskaper (MiU) skall utsökas.. |
 | personalIdentityNumber | String | 0 – 1 | Personnummer på den person vars behörighetsegenskaper (MiU) skall utsökas. |
-| searchBase | DN | 0 – 1 | Sökbas för sökning i HSA-katalogen. / Om ingen sökbas anges används c=SE som sökbas. |
+| searchBase | DN | 0 – 1 | Sökbas för sökning i HSA-katalogen.<br/>Om ingen sökbas anges används c=SE som sökbas. |
 
 #### 7.3.4 Svar (Response)
 
@@ -565,26 +565,26 @@ Om personen inte har några behörighetsegenskaper (personen är inte kopplad ti
 
 | Parameter | Underparameter | Datatyp | Antal | Beskrivning |
 | :--- | :--- | :--- | :--- | :--- |
-| miuName / HSA: Objektnamn / LDAP: cn |  | String | 1 – 1 | Namn på aktuell MiU (commission). |
-| hsaIdentity / HSA: HSA-id / LDAP: hsaIdentity |  | String | 1 – 1 | HSA-identitet för aktuell MiU (commission). |
-| miuPurpose / HSA: medarbetaruppdragets syfte / LDAP: hsaCommissionPurpose |  | String | 1 – 1 | Syfte med aktuell MiU. / Aktuella syften specificeras i HSA kodtabell. |
-| careUnitHsaIdentity / HSA: HSA-id / LDAP: hsaIdentity |  | String | 1 – 1 | HSA-identitet på den vårdenhet aktuell MiU (commission)  tillhör. |
-| careUnitName / HSA: Enhetsnamn eller Organisationsnamn / LDAP: ou eller o |  | String | 1 – 1 | Namn på den vårdenhet aktuell MiU (commission)  tillhör. |
-| careGiver / HSA: HSA-id / LDAP: hsaIdentity |  | String | 0 – 1 | HSA-identitet på den vårdgivare aktuell MiU (commission) tillhör. Observera att en MiU inte är direkt kopplad till en vårdgivare utan tillhör den vårdgivare som MiU:ns vårdenhet tillhör. |
-| careGiverName / HSA: Enhetsnamn eller Organisationsnamn / LDAP: ou eller o |  | String | 0 – 1 | Namn på den vårdgivare aktuell MiU tillhör. |
-| careGiverOrgNo / HSA:  Organisationsnummer / LDAP: orgNo |  | String | 0 – 1 | Organisationsnummer för den vårdgivare aktuell MiU (commission) tillhör. |
-| personalPrescriptionCode / HSA: Förskrivarkod / LDAP: personalPrescriptionCode |  | String | 0 – 1 | Förskrivarkod för specificerad person. |
+| miuName<br/>HSA: Objektnamn<br/>LDAP: cn |  | String | 1 – 1 | Namn på aktuell MiU (commission). |
+| hsaIdentity<br/>HSA: HSA-id<br/>LDAP: hsaIdentity |  | String | 1 – 1 | HSA-identitet för aktuell MiU (commission). |
+| miuPurpose<br/>HSA: medarbetaruppdragets syfte<br/>LDAP: hsaCommissionPurpose |  | String | 1 – 1 | Syfte med aktuell MiU.<br/>Aktuella syften specificeras i HSA kodtabell. |
+| careUnitHsaIdentity<br/>HSA: HSA-id<br/>LDAP: hsaIdentity |  | String | 1 – 1 | HSA-identitet på den vårdenhet aktuell MiU (commission)  tillhör. |
+| careUnitName<br/>HSA: Enhetsnamn eller Organisationsnamn<br/>LDAP: ou eller o |  | String | 1 – 1 | Namn på den vårdenhet aktuell MiU (commission)  tillhör. |
+| careGiver<br/>HSA: HSA-id<br/>LDAP: hsaIdentity |  | String | 0 – 1 | HSA-identitet på den vårdgivare aktuell MiU (commission) tillhör. Observera att en MiU inte är direkt kopplad till en vårdgivare utan tillhör den vårdgivare som MiU:ns vårdenhet tillhör. |
+| careGiverName<br/>HSA: Enhetsnamn eller Organisationsnamn<br/>LDAP: ou eller o |  | String | 0 – 1 | Namn på den vårdgivare aktuell MiU tillhör. |
+| careGiverOrgNo<br/>HSA:  Organisationsnummer<br/>LDAP: orgNo |  | String | 0 – 1 | Organisationsnummer för den vårdgivare aktuell MiU (commission) tillhör. |
+| personalPrescriptionCode<br/>HSA: Förskrivarkod<br/>LDAP: personalPrescriptionCode |  | String | 0 – 1 | Förskrivarkod för specificerad person. |
 | hsaTitles |  | Collection | 1 – 1 |  |
-|  | hsaTitle / HSA: Legitimerad yrkesgrupp / LDAP: hsaTitle | String | 0 – n | HSA-titel för specificerad person. / Aktuella HSA-titlar specificeras i HSA kodtabell. |
+|  | hsaTitle<br/>HSA: Legitimerad yrkesgrupp<br/>LDAP: hsaTitle | String | 0 – n | HSA-titel för specificerad person.<br/>Aktuella HSA-titlar specificeras i HSA kodtabell. |
 | miuRights |  | Collection | 1 – 1 |  |
-|  | miuRight / HSA: Medarbetaruppdragets rättigheter / LDAP: hsaCommissionRight | String | 0 – n | Rättighet för aktuell MiU (commission), / För mer information se avsnitt 4.4.5.3.3. |
+|  | miuRight<br/>HSA: Medarbetaruppdragets rättigheter<br/>LDAP: hsaCommissionRight | String | 0 – n | Rättighet för aktuell MiU (commission),<br/>För mer information se avsnitt 4.4.5.3.3. |
 | hsaSystemRoles |  | Collection | 1 – 1 |  |
-|  | hsaSystemRole / HSA: individuell behörighets-egenskap för it-tjänster / LDAP: hsaSystemRole | String | 0 – n | Systemroller kopplade till specificerad person. / För mer information se avsnitt 4.4.5.3.4. |
-| hsaIdentityPerson / HSA: HSA-id / LDAP: hsaIdentity |  | String | 1 – 1 | HSA-identitet för aktuell Person |
+|  | hsaSystemRole<br/>HSA: individuell behörighets-egenskap för it-tjänster<br/>LDAP: hsaSystemRole | String | 0 – n | Systemroller kopplade till specificerad person.<br/>För mer information se avsnitt 4.4.5.3.4. |
+| hsaIdentityPerson<br/>HSA: HSA-id<br/>LDAP: hsaIdentity |  | String | 1 – 1 | HSA-identitet för aktuell Person |
 | paTitleCodes |  | Collection | 1 - 1 |  |
-| paTitleCode / HSA: befattningskod / LDAP: paTitleCode |  | String | 0 – n | Befattningskoder kopplade till specificerad person. |
-| givenName / HSA: förnamn / LDAP: givenName |  | String | 1 – 1 | Förnamn för person |
-| middleAndSurName / HSA: mellannamn + efternamn / LDAP: middleName + surName (sn) |  | String | 1 – 1 | Mellannamn + efternamn för person.  Namnen är separerade med bindestreck. |
+| paTitleCode<br/>HSA: befattningskod<br/>LDAP: paTitleCode |  | String | 0 – n | Befattningskoder kopplade till specificerad person. |
+| givenName<br/>HSA: förnamn<br/>LDAP: givenName |  | String | 1 – 1 | Förnamn för person |
+| middleAndSurName<br/>HSA: mellannamn + efternamn<br/>LDAP: middleName + surName (sn) |  | String | 1 – 1 | Mellannamn + efternamn för person.  Namnen är separerade med bindestreck. |
 
 #### 7.3.7 MiuRights
 
@@ -687,7 +687,7 @@ Detta är första versionen av tjänsten.
 | Parameter | Datatyp | Antal | Beskrivning |
 | :--- | :--- | :--- | :--- |
 | hsaIdentity | String | 0 - 1 | HSA-identitet för enheten eller organisationen från vilken alla underliggande enheter ska hämtas. |
-| searchBase | DN | 0 - 1 | Sökbas för sökning i HSA-katalogen. / Om ingen sökbas anges används c=SE som sökbas. |
+| searchBase | DN | 0 - 1 | Sökbas för sökning i HSA-katalogen.<br/>Om ingen sökbas anges används c=SE som sökbas. |
 
 #### 7.4.4 Svar (Response)
 
@@ -705,9 +705,9 @@ Om inga objekt hittas returneras en tom lista.
 
 | Parameter | Datatyp | Antal | Beskrivning |
 | :--- | :--- | :--- | :--- |
-| hsaIdentity / HSA: HSA-id / LDAP: hsaIdentity | String | 1 – 1 | Enhetens HSA-identitet. |
-| name / HSA: Organisationsnamn, Enhetsnamn, / LDAP: ou | String | 1 – 1 | Namn / Namn i detta sammanhang definieras som värdet i LDAP-attributet ou (organisationsenhet). |
-| parentHsaIdentity | String | 0 - 1 | Hsa-identitet för den överliggande enheten. Om ingen överliggande enhet finns ska fältet sättas till NULL. /  / Förälder för en enhet är överliggande enhet i DN, med andra ord närmsta OU eller O. |
+| hsaIdentity<br/>HSA: HSA-id<br/>LDAP: hsaIdentity | String | 1 – 1 | Enhetens HSA-identitet. |
+| name<br/>HSA: Organisationsnamn, Enhetsnamn,<br/>LDAP: ou | String | 1 – 1 | Namn<br/>Namn i detta sammanhang definieras som värdet i LDAP-attributet ou (organisationsenhet). |
+| parentHsaIdentity | String | 0 - 1 | Hsa-identitet för den överliggande enheten. Om ingen överliggande enhet finns ska fältet sättas till NULL.<br/>/ Förälder för en enhet är överliggande enhet i DN, med andra ord närmsta OU eller O. |
 
 #### 7.4.7 Regler
 
@@ -782,7 +782,7 @@ Detta är första versionen av tjänsten.
 | Parameter | Datatyp | Antal | Beskrivning |
 | :--- | :--- | :--- | :--- |
 | hsaIdentity | String | 1 - 1 | HSA-identitet för användaren vars information skall hämtas. |
-| searchBase | DN | 0 - 1 | Sökbas för sökning i HSA-katalogen. / Om ingen sökbas anges används c=SE som sökbas. |
+| searchBase | DN | 0 - 1 | Sökbas för sökning i HSA-katalogen.<br/>Om ingen sökbas anges används c=SE som sökbas. |
 | paTitleCodes | Collection | 1 - 1 |  |
 | paTitleCode | String | 0 – n | Om angiven skall endast anställda med angiven befattning visas. Klartext för personens befattning. |
 | hsaTitles | Collection | 1 - 1 |  |
@@ -804,16 +804,16 @@ Om inga objekt hittas returneras en tom lista.
 
 | Parameter | Datatyp | Antal | Beskrivning |
 | :--- | :--- | :--- | :--- |
-| hsaIdentity / HSA: HSA-id / LDAP: hsaIdentity | String | 1 – 1 | Personens HSA-identitet. |
-| givenName / HSA: tilltalsnamn / LDAP: givenName | String | 1 – 1 | Tilltalsnamn. |
-| sn / HSA: efternamn / LDAP: sn | String | 1 – 1 | Efternamn. |
-| personalPrescriptionCode / HSA: förskrivarkod / LDAP: personalPrescriptionCode | String | 0 - 1 | Kod som identifierar en förskrivare eller en grupp av förskrivare. |
+| hsaIdentity<br/>HSA: HSA-id<br/>LDAP: hsaIdentity | String | 1 – 1 | Personens HSA-identitet. |
+| givenName<br/>HSA: tilltalsnamn<br/>LDAP: givenName | String | 1 – 1 | Tilltalsnamn. |
+| sn<br/>HSA: efternamn<br/>LDAP: sn | String | 1 – 1 | Efternamn. |
+| personalPrescriptionCode<br/>HSA: förskrivarkod<br/>LDAP: personalPrescriptionCode | String | 0 - 1 | Kod som identifierar en förskrivare eller en grupp av förskrivare. |
 | paTitleCodes | Collection | 1 – 1 |  |
-| paTitleCode / HSA: befattningskod / LDAP: paTitleCode | String | 0 - n | Kod för personens befattning. |
+| paTitleCode<br/>HSA: befattningskod<br/>LDAP: paTitleCode | String | 0 - n | Kod för personens befattning. |
 | paTitleNames | Collection | 1 – 1 |  |
-| paTitleName / HSA: befattning / LDAP: paTitleName | String | 0 - n | Uppgift om vad personen är anställd som. Klartext för personens befattning. |
+| paTitleName<br/>HSA: befattning<br/>LDAP: paTitleName | String | 0 - n | Uppgift om vad personen är anställd som. Klartext för personens befattning. |
 | hsaTitles | Collection | 1 – 1 |  |
-| hsaTitle / HSA: Legitimerad yrkesgrupp / LDAP: hsaTitle | String | 0 - n | Legitimerad yrkesgrupp som personen tillhör. |
+| hsaTitle<br/>HSA: Legitimerad yrkesgrupp<br/>LDAP: hsaTitle | String | 0 - n | Legitimerad yrkesgrupp som personen tillhör. |
 
 #### 7.5.7 Regler
 

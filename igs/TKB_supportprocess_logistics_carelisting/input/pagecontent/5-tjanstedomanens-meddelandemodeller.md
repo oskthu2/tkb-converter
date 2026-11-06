@@ -6,7 +6,7 @@ Tjänstedomänens meddelandemodeller som tjänstekontrakten bygger på finns bes
 
 Mappning av informationsklass gentemot schema
 
-| Klass.attribut / (enligt Informationsmodell i [R3]) | Mappning mot Schema |
+| Klass.attribut<br/>(enligt Informationsmodell i [R3]) | Mappning mot Schema |
 | :--- | :--- |
 | Listningsbar mottagning | HealthcareFacilityType |
 | Invånares listning på listningsbar mottagning | ListingHealthcareFacilityType |

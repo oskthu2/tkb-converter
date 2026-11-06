@@ -16,7 +16,7 @@ Källdokumentet saknar en separat, fast strukturerad "Versionsinformation"-sekti
 | PA1.2 | 2011-10-03 | Kristin Schoug Bertilsson, Mawell | Förändring i variabeln $$enhet_aktivitetsid samt tillägg av variablerna $$id_typ och $$id_utgivare i tjänsten ProcessPrescriptionReason. |
 | P1.3 | 2011-12-16 | Kristin Schoug Bertilsson, Mawell | Förtydligande av text i avsnitt 2.6. |
 | P1.4 | 2012-04-26 | Kristin Schoug Bertilsson, Mawell | Förtydligande av text kring att det är patientens faktiska placering som avses. Variabeln $$kön_text i ConditionMessage borttagen då denna var felaktig. |
-| P1.5 | 2012-09-12 | Torbjörn Dahlin, Mawell / Eva Biberg, Mawell | Korrigering av beskrivande texter för attributet "$$enhet_aktivitetsid". Lagt till förtydligande av "$$aktivitetsid". Förtydligande av ProcessPrescriptionReasonResponse. Korrigering: tagit bort att fler ordinationsorsaker kan skickas i ett meddelande. Ändrat beskrivning av Annan vårdgivare i ProcessPrescriptionReason. |
+| P1.5 | 2012-09-12 | Torbjörn Dahlin, Mawell<br/>Eva Biberg, Mawell | Korrigering av beskrivande texter för attributet "$$enhet_aktivitetsid". Lagt till förtydligande av "$$aktivitetsid". Förtydligande av ProcessPrescriptionReasonResponse. Korrigering: tagit bort att fler ordinationsorsaker kan skickas i ett meddelande. Ändrat beskrivning av Annan vårdgivare i ProcessPrescriptionReason. |
 | P1.6 | 2012-11-01 | Eva Biberg, Mawell | Lagt till max antal tecken för unik identifierare |
 | P1.7 | 2013-03-27 | Eva Biberg, Mawell | Korrigering inledning för respektive avsnitt. Korrigerat $$oid_personid samt lagt till $$födelsetidpunkt i tjänsten ProcessCondition |
 | P1.8 | 2013-09-12 | Eva Biberg, Mawell | Lagt till $$id_terminologi i ProcessActivity samt ProcessCondition |

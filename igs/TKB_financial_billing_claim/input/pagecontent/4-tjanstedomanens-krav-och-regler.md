@@ -35,7 +35,7 @@ Följande generella SLA-krav gäller för alla tjänsteproducenter som tillhanda
 | Kategori | Värde | Beskrivning |
 | :--- | :--- | :--- |
 | Tillgänglighet | 24x7, 99,5% |  |
-| Last | 10 transaktioner per sekund | En producent ska hantera 10 samtidiga transaktioner. / En tjänstekonsument ska ej i en och samma transaktion skicka en nyttolast som är större än 5MB. |
+| Last | 10 transaktioner per sekund | En producent ska hantera 10 samtidiga transaktioner.<br/>En tjänstekonsument ska ej i en och samma transaktion skicka en nyttolast som är större än 5MB. |
 | Aktualitet | Ej tillämpbar |  |
 | Återställningstid | 1 dygn | Vid katastrof, bortfall av hel hall |
 | Svarstid | < 3s | för anrop med en nyttolast på   < 1MB |
@@ -75,7 +75,7 @@ ResultCode kan vara:
 | :--- | :--- |
 | OK | Transaktionen har utförts enligt uppdraget i begäran. |
 | INFO | Transaktionen har utförts enligt uppdraget i begäran, men det finns ett meddelande som tjänstekonsumenten måste visa upp för användaren. Används ej i ProcessClaimSpecification. |
-| ERROR | Transaktionen har INTE kunnat utföras enligt anrop p.g.a. logiskt fel. / Fältet comment ska sättas till den rapport som skapas av schematron-reglerna eller schema-validering. / Meddelandet anses inte mottaget. / Exempel meddelande i comment (schematron): / Error: Total summa: 729001 fakturerat i fakturan är fel / Location: /urn1:ProcessClaimSpecification/urn1:claimSpecification/urn2:payableAmount/urn2:amount / Id: R5 / Test: . = sum(//urn2:invoicedAmountDetails/urn2:patientCareInvoiceNetAmount/urn2:amount) |
+| ERROR | Transaktionen har INTE kunnat utföras enligt anrop p.g.a. logiskt fel.<br/>Fältet comment ska sättas till den rapport som skapas av schematron-reglerna eller schema-validering.<br/>Meddelandet anses inte mottaget.<br/>Exempel meddelande i comment (schematron):<br/>Error: Total summa: 729001 fakturerat i fakturan är fel<br/>Location: /urn1:ProcessClaimSpecification/urn1:claimSpecification/urn2:payableAmount/urn2:amount<br/>Id: R5<br/>Test: . = sum(//urn2:invoicedAmountDetails/urn2:patientCareInvoiceNetAmount/urn2:amount) |
 
 #### 4.3.2 Krav på en tjänstekonsument
 

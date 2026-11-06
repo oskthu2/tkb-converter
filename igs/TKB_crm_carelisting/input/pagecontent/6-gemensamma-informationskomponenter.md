@@ -16,10 +16,10 @@ Klassen Enhet hanterar information om organisatoriska enheter inom vård och oms
 
 | Attribut | Beskrivning | Format | Mult | Kodverk/ värdemängd | Beslutsregel | Motsvarighet i carelisting.xsd |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| enhets-id | Identitetsbeteckningen för den organisatoriska enheten / Motsvarighet i HSA: HSA-id | II | 1 | | HSA-ID eller Orgnr+lokalt id. | Facility/facilityId |
-| namn | Enhetens officiella namn / Motsvarighet i HSA: Enhetsnamn | TXT | 1 | | | Facility/facilityName |
+| enhets-id | Identitetsbeteckningen för den organisatoriska enheten<br/>Motsvarighet i HSA: HSA-id | II | 1 | | HSA-ID eller Orgnr+lokalt id. | Facility/facilityId |
+| namn | Enhetens officiella namn<br/>Motsvarighet i HSA: Enhetsnamn | TXT | 1 | | | Facility/facilityName |
 | har kö | Boolskt värde som indikerar om vårdenheten har kö vid listningar | BL | 0..1 | | | Facility/hasQueue |
-| listningstyper | Lista med listningstyper som vårdeneheten stödjer. / Motsvarighet i V-TIM 1.1: Ingen motsvarighet finns i V-TIM 1.1 | KTOV | 0..* | KV Listningstyp | | Facility/supportedListingTypes |
+| listningstyper | Lista med listningstyper som vårdeneheten stödjer.<br/>Motsvarighet i V-TIM 1.1: Ingen motsvarighet finns i V-TIM 1.1 | KTOV | 0..* | KV Listningstyp | | Facility/supportedListingTypes |
 
 Associationer:
 * En Enhet tillhandahåller noll eller flera Primärvårdstjänst(er)
@@ -31,7 +31,7 @@ Klassen Primärvårdstjänst hanterar information om vård- och omsorgstagarens 
 
 | Attribut | Beskrivning | Format | Mult | Kodverk/ värdemängd | Beslutsregel | Motsvarighet i carelisting.xsd |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| tidsintervall | Datum som listning är skapad. Kan även innehålla slutdatum om något sådant finns. / Motsvarighet i V-TIM 1.1: Ingen motsvarighet finns i V-TIM 1.1 | IVL | 1 | | | Listing/validFromDate, Listing/validToDate |
+| tidsintervall | Datum som listning är skapad. Kan även innehålla slutdatum om något sådant finns.<br/>Motsvarighet i V-TIM 1.1: Ingen motsvarighet finns i V-TIM 1.1 | IVL | 1 | | | Listing/validFromDate, Listing/validToDate |
 | listningstyp | Motsvarighet i V-TIM 1.1: Ingen motsvarighet finns i V-TIM 1.1 | KTOV | 1 | KV Listningstyp | | Listing/listingType |
 
 Associationer:
@@ -45,8 +45,8 @@ Klassen Vård- och omsorgspersonal hanterar information som rör personal inom v
 
 | Attribut | Beskrivning | Format | Mult | Kodverk/ värdemängd | Beslutsregel | Motsvarighet i carelisting.xsd |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| personal-id | Identitetsbeteckning för personal inom vård och omsorg / Motsvarighet i HSA: HSA-id i de fall HSA-id kan anges | II | 1 | HSA-id | I de fall då HSA-id inte finns tillgängligt i systemet kan alternativ id-beteckning användas | Resource/resourceId |
-| namn | Aktuell persons förnamn och efternamn / Motsvarighet i HSA: Fullständigt namn | TXT | 1 | | | Resource/resourceName |
+| personal-id | Identitetsbeteckning för personal inom vård och omsorg<br/>Motsvarighet i HSA: HSA-id i de fall HSA-id kan anges | II | 1 | HSA-id | I de fall då HSA-id inte finns tillgängligt i systemet kan alternativ id-beteckning användas | Resource/resourceId |
+| namn | Aktuell persons förnamn och efternamn<br/>Motsvarighet i HSA: Fullständigt namn | TXT | 1 | | | Resource/resourceName |
 
 Associationer:
 * En Vård- och omsorgspersonal ansvarar för noll eller flera Primärvårdstjänst(er)
@@ -57,7 +57,7 @@ Klassen Vård- och omsorgstagare hanterar information om vård- och omsorgstagar
 
 | Attribut | Beskrivning | Format | Mult | Kodverk/ värdemängd | Beslutsregel | Motsvarighet i carelisting.xsd |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| person-id | Identitetsbeteckning för vård- och omsorgstagaren / Motsvarighet i V-TIM 1.1: person-id | II | 1 | Personnummer enligt SKV 704:08 / Samordningsnummer enligt SKV 707:02 / Reservnummer enligt Carelinks rekommendation. / Katastrofnummer enligt Socialstyrelsens anvisning | Identitetsbeteckningen måste vara unik inom Sverige. | SubjectOfCare/personId |
+| person-id | Identitetsbeteckning för vård- och omsorgstagaren<br/>Motsvarighet i V-TIM 1.1: person-id | II | 1 | Personnummer enligt SKV 704:08<br/>Samordningsnummer enligt SKV 707:02<br/>Reservnummer enligt Carelinks rekommendation.<br/>Katastrofnummer enligt Socialstyrelsens anvisning | Identitetsbeteckningen måste vara unik inom Sverige. | SubjectOfCare/personId |
 
 Associationer:
 * En Vård- och omsorgstagare är listad för noll eller flera Primärvårdstjänst(er) (SubjectOfCare/listing)

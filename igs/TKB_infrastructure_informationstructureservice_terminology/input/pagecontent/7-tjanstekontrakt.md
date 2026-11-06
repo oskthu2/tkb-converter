@@ -21,7 +21,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | GetTerminologySubsetResponseType | Typ | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | Subset | SubsetType | Urval | 0..1 |
-| ResultCode | String | OK = Subset hämtades utan avvikelser / ERROR = Fel vid hämtningen. Felet beskrivs i elementet comment / INFO = Information finns. Informationen beskrivs i elementet comment | 1..1 |
+| ResultCode | String | OK = Subset hämtades utan avvikelser<br/>ERROR = Fel vid hämtningen. Felet beskrivs i elementet comment<br/>INFO = Information finns. Informationen beskrivs i elementet comment | 1..1 |
 | comment | String | Beskrivning av fel som uppstått alternativt information om felaktiga parametrar. | 0..1 |
 
 #### 7.1.3 Övriga regler
@@ -112,7 +112,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | GetTerminologySubset InformationResponseType | Typ | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | SubsetInformation | Subset Information Type | Information om urval | 0..* |
-| ResultCode | String | OK = Information hämtades / ERROR = Fel vid hämtningen. Felet beskrivs i elementet comment / INFO = Information finns. Informationen beskrivs i elementet comment | 1..1 |
+| ResultCode | String | OK = Information hämtades<br/>ERROR = Fel vid hämtningen. Felet beskrivs i elementet comment<br/>INFO = Information finns. Informationen beskrivs i elementet comment | 1..1 |
 | comment | String | Beskrivning av fel som uppstått alternativt information om felaktiga parametrar. | 0..1 |
 
 #### 7.2.3 Övriga regler
@@ -194,7 +194,7 @@ Nedanstående tabell beskriver varje element i begäran och svar. Har namnet en 
 | GetConceptsResponseType | Typ | Beskrivning | Kardinalitet |
 | :--- | :--- | :--- | :--- |
 | Subset | SubsetType | Urval | 0..1 |
-| ResultCode | String | OK = Sökningen lyckades och alla poster returnerades / ERROR = Fel vid hämtningen. Felet beskrivs i elementet comment / INFO = Information finns. Informationen beskrivs i elementet comment | 1..1 |
+| ResultCode | String | OK = Sökningen lyckades och alla poster returnerades<br/>ERROR = Fel vid hämtningen. Felet beskrivs i elementet comment<br/>INFO = Information finns. Informationen beskrivs i elementet comment | 1..1 |
 | comment | String | Beskrivning av fel som uppstått alternativt information om felaktiga parametrar. | 0..1 |
 
 #### 7.3.3 Övriga regler

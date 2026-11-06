@@ -8,7 +8,7 @@ All uppdatering av engagemangsindex sker genom att källsystemet anropar engagem
 
 Följande regler gäller för innehållet i begäran till engagemangsindex för uppdateringar som rör denna tjänstedomän:
 
-| Attribut | Beskrivning | Format | Kardinalitet | Kodverk/värde-mängd / / ev begränsningar | Beslutsregler och kommentar |
+| Attribut | Beskrivning | Format | Kardinalitet | Kodverk/värde-mängd<br/>/ ev begränsningar | Beslutsregler och kommentar |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | Registered ResidentIdent Identification | Invånarens personnummer | Person- eller samordningsnummer enligt skatteverkets definition (12 tecken). | 1..1 |  | Del av instansens unikhet |
 | Service domain* | Den tjänstedomän som förekomsten avser. | URN på formen `<regelverk>`:`<huvuddomän>`:`<underdomän>`. | 1..1 | Värdet ska vara ”riv:clinicalprocess:logistics:logistics” | Del av instansens unikhet |
@@ -17,7 +17,7 @@ Följande regler gäller för innehållet i begäran till engagemangsindex för 
 | Business object Instance Identifier* | Unik identifierare för händelse-bärande objekt | Text | 1..1 | ”NA” – dvs ej tillämpat för tjänstedomänen. | Del av instansens unikhet |
 | Clinical process interest Id | Hälsoärende-id | GUID | 1..1 | ”NA” (ännu ej tillämpat i tjänstedomänen) | Del av instansens unikhet |
 | Most Recent Content* | Verksamhetsmässig tidpunkt för senaste informations-förekomsten i källan som indexeras av denna indexpost | DT | 1..1 | Tidpunkt för senaste uppdatering av den informationstyp och patient i den källa som denna indexpost avser. |  |
-| Creation / Time | Tidpunkten då index-posten registrerades | DT | 1..1 | Sätts automatiskt av EI-instansen. | Genereras automatiskt av kontraktets tjänste-producent |
+| Creation<br/>Time | Tidpunkten då index-posten registrerades | DT | 1..1 | Sätts automatiskt av EI-instansen. | Genereras automatiskt av kontraktets tjänste-producent |
 | Update Time | Tidpunkten då indexposten senast upp-daterades | DT | 0..1 | Sätts automatiskt av EI-instansen. | Uppdatering innebär ny post som matchar samtliga attribut som är del av en instans unikitet. |
 | Data Controller | Personuppgitsansvarig organisation | Organisationsnummer | 1..1 | ”SE”`<organisationsnummer>`. Exempel: ”SE5565594230” | Del av instansens unikhet |
 
@@ -53,7 +53,7 @@ Följande generella SLA-krav gäller för alla tjänsteproducenter som tillhanda
 | Svarstid | Svarstiden för ett anrop får inte överstiga 27 sekunder. |
 | Tillgänglighet | 24x7, 99,5% |
 | Last | Tjänsteproducenten ska kunna hantera minst dubbla mängden frågor per dygn i förhållande till antalet kontaktregistreringar per dygn. |
-| Aktualitet | Kraven på aktualitet varierar för olika tjänstekonsumenter. Det behöver inte vara absolut aktualitet i förhållande till källsystemet, men ju mindre fördröjning desto bättre. Ett riktmärke är att försöka undvika längre fördröjning än 60 minuter. Fördröjningen avser både journaldata och uppdatering av engagemangsindex. / Uppdatering av engagemangspost måste ske så att engagemangsposten refererar data som är omedelbart tillgängligt via tjänstekontraktet. |
+| Aktualitet | Kraven på aktualitet varierar för olika tjänstekonsumenter. Det behöver inte vara absolut aktualitet i förhållande till källsystemet, men ju mindre fördröjning desto bättre. Ett riktmärke är att försöka undvika längre fördröjning än 60 minuter. Fördröjningen avser både journaldata och uppdatering av engagemangsindex.<br/>Uppdatering av engagemangspost måste ske så att engagemangsposten refererar data som är omedelbart tillgängligt via tjänstekontraktet. |
 | Robusthet | Om tidsintervall inte angivits i frågan kan tjänsteproducenten kan välja att lämna ett delsvar i syfte att uppfylla svarstidskravet. Delsvaret måste då vara avgränsat i tiden genom att det finns äldre men inte nyare data än det äldsta som returnerats. |
 | Samtidighet | Tjänsteproducenten ska hantera minst 10 samtidiga frågor. |
 

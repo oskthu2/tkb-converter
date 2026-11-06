@@ -24,7 +24,7 @@ Här beskrivs de meddelandemodeller som tjänstekontrakten bygger på. För varj
 | HealthcareProfessionalOrgUnit.orgUnitname | Vård- och omsorgsutövare.enhet namn | rheumatoidArthritisData/RheumatoidArthritisDataHeader/AccountableHealthcareProfessional/HealthcareProfessionalOrgUnit/orgUnitname |
 | HealthcareProfessionalOrgUnit.orgUnitTelecom | Tele och eKommunikation.tele ekom adress | rheumatoidArthritisData/RheumatoidArthritisDataHeader/AccountableHealthcareProfessional/HealthcareProfessionalOrgUnit/orgUnitTelecom |
 | HealthcareProfessionalOrgUnit.orgUnitEmail | Tele och eKommunikation.tele ekom adress | rheumatoidArthritisData/RheumatoidArthritisDataHeader/AccountableHealthcareProfessional/HealthcareProfessionalOrgUnit/orgUnitEmail |
-| HealthcareProfessionalOrgUnit.orgUnitAddress | Adress.adress 1, / Adress.postnummer & / Adress.postort | rheumatoidArthritisData/RheumatoidArthritisDataHeader/AccountableHealthcareProfessional/HealthcareProfessionalOrgUnit/orgUnitAddress |
+| HealthcareProfessionalOrgUnit.orgUnitAddress | Adress.adress 1,<br/>Adress.postnummer &<br/>Adress.postort | rheumatoidArthritisData/RheumatoidArthritisDataHeader/AccountableHealthcareProfessional/HealthcareProfessionalOrgUnit/orgUnitAddress |
 | HealthcareProfessionalOrgUnit.orgUnitLocation | Saknar motsvarighet i V-TIM 2.2 | rheumatoidArthritisData/RheumatoidArthritisDataHeader/AccountableHealthcareProfessional/HealthcareProfessionalOrgUnit/orgUnitLocation |
 | AccountableHealthcareProfessional.healthcareProfessionalCareUnitHSAId | Informationsresurs.vårdenhet id | rheumatoidArthritisData/RheumatoidArthritisDataHeader/AccountableHealthcareProfessional/healthcareProfessionalCareUnitHSAId |
 | AccountableHealthcareProfessional.healthcareProfessionalCareGiverHSAId | Informationsresurs.vårdgivare id | rheumatoidArthritisData/RheumatoidArthritisDataHeader/AccountableHealthcareProfessional/healthcareProfessionalCareGiverHSAId |
@@ -39,11 +39,11 @@ Här beskrivs de meddelandemodeller som tjänstekontrakten bygger på. För varj
 | Drug.name | Specifikation läkemedel.varumärke namn | rheumatoidArthritisData/rheumatoidArthritisDataBody/ |
 | Drug.OfDrug | Läkemedelsform.läkemedelsform | rheumatoidArthritisData/rheumatoidArthritisDataBody/Drug/name |
 | Drug.dose | Dosspecifikation.kvantitet | rheumatoidArthritisData/rheumatoidArthritisDataBody/Drug/dose |
-| Drug.datePeriod | Sammansatta format.Dosering.starttidpunkt & / Sammansatta format.Dosering.sluttidpunkt | rheumatoidArthritisData/rheumatoidArthritisDataBody/Drug/datePeriod |
+| Drug.datePeriod | Sammansatta format.Dosering.starttidpunkt &<br/>Sammansatta format.Dosering.sluttidpunkt | rheumatoidArthritisData/rheumatoidArthritisDataBody/Drug/datePeriod |
 | Drug.interval | Dosspecifikation.frekvens | rheumatoidArthritisData/rheumatoidArthritisDataBody/Drug/interval |
 | Drug.endCause | Saknar motsvarighet i V-TIM 2.2 | rheumatoidArthritisData/rheumatoidArthritisDataBody/Drug/endCause |
-| LabVariables.sedimentationRate | Observerat uppfattat tillstånd Värde.enhet / & / Observerat uppfattat tillstånd Värde.värde | rheumatoidArthritisData/rheumatoidArthritisDataBody/LabVariables/sedimentationRate |
-| LabVariables.cReactiveProtein | Observerat uppfattat tillstånd Värde.enhet / & / Observerat uppfattat tillstånd Värde.värde | rheumatoidArthritisData/rheumatoidArthritisDataBody/LabVariables/cReactiveProtein |
+| LabVariables.sedimentationRate | Observerat uppfattat tillstånd Värde.enhet<br/>&<br/>Observerat uppfattat tillstånd Värde.värde | rheumatoidArthritisData/rheumatoidArthritisDataBody/LabVariables/sedimentationRate |
+| LabVariables.cReactiveProtein | Observerat uppfattat tillstånd Värde.enhet<br/>&<br/>Observerat uppfattat tillstånd Värde.värde | rheumatoidArthritisData/rheumatoidArthritisDataBody/LabVariables/cReactiveProtein |
 | PhysiciansVariables.physiciansGlobal | Bedömt tillstånd Svårighetsgrad.svårighetsgrad | rheumatoidArthritisData/rheumatoidArthritisDataBody/PhysiciansVariables/physiciansGlobal |
 | PhysiciansVariables.tenderJoints28 | Observerat uppfattat tillstånd Värde.värde | rheumatoidArthritisData/rheumatoidArthritisDataBody/PhysiciansVariables/tenderJoints28 |
 | PhysiciansVariables.swollenJoints28 | Observerat uppfattat tillstånd Värde.värde | rheumatoidArthritisData/rheumatoidArthritisDataBody/PhysiciansVariables/swollenJoints28 |

@@ -98,7 +98,7 @@ Domänschema `se.apotekensservice_pris_1.0.xsd` (namnrymd `urn:riv:se.apotekenss
 | orgAktorId | string | GLN-kod för apotek som registrerat transaktionen. Visas ej vid sekretesskydd. | 0..1 |
 | persNr | string | Personnummer för den som transaktionen gäller. | 1..1 |
 | sign | string | Typ av trans: +,-,ABC, ... Detta fält används enbart internt. | 1..1 |
-| transId | string | Aktörens expeditions-ID / verifikationsnr. | 1..1 |
+| transId | string | Aktörens expeditions-ID<br/>verifikationsnr. | 1..1 |
 | transPeriod | PeriodResponse | Transaktionens högkostnadsuppgifter. | 1..1 |
 | transTid | dateTime | Transaktionstidpunkt. | 1..1 |
 | transaktionBehandlades | dateTime | Tidpunkt då transaktionen behandlades av HKDB | 1..1 |

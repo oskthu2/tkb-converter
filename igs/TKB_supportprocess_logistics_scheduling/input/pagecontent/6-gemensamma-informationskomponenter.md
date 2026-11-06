@@ -13,9 +13,9 @@ Flera tjänsteinteraktioner i domänen har ett obligatoriskt attribut för att f
 | Namn | Typ | Beskrivning | Kard. |
 | :--- | :--- | :--- | :--- |
 | actor.actorId | IIType | Identifierare för aktören. Kan vara ett personnummer, samordningsnummer eller HSAId beroende på typ av aktör | 1..1 |
-| actor.actorId.root | string | OID som definierar typ av identifierare. / 1) För PNR ska Skatteverkets oid för PNR (1.2.752.129.2.1.3.1) användas. / 2) För SNR ska Skatteverkets oid för SNR (1.2.752.129.2.1.3.3) användas. / 3) För HSAId ska oid för HSAId (1.2.752.129.2.1.4.1) användas. | 1..1 |
-| actor.actorType | SnomedCtType / (CVType) | Kod som definierar typ av aktör | 1..1 |
-| actor.actorType.code | string | Följande aktörstyper kan uttryckas enligt följande koder (Se Snomed-CT, Svenska upplagan): / Invånare är själv aktören = 116154003 / Vårdnadshavare = 60101000052104 / God man = 60081000052107 / Förmyndare = 60121000052105 / Hälso- och sjukvårdspersonal = 223366009 | 1..1 |
+| actor.actorId.root | string | OID som definierar typ av identifierare.<br/>1) För PNR ska Skatteverkets oid för PNR (1.2.752.129.2.1.3.1) användas.<br/>2) För SNR ska Skatteverkets oid för SNR (1.2.752.129.2.1.3.3) användas.<br/>3) För HSAId ska oid för HSAId (1.2.752.129.2.1.4.1) användas. | 1..1 |
+| actor.actorType | SnomedCtType<br/>(CVType) | Kod som definierar typ av aktör | 1..1 |
+| actor.actorType.code | string | Följande aktörstyper kan uttryckas enligt följande koder (Se Snomed-CT, Svenska upplagan):<br/>Invånare är själv aktören = 116154003<br/>Vårdnadshavare = 60101000052104<br/>God man = 60081000052107<br/>Förmyndare = 60121000052105<br/>Hälso- och sjukvårdspersonal = 223366009 | 1..1 |
 | actor.actorType.codeSystem | string | Aktörstypen uttrycks som en Snomed-CT kod. Attributet codeSystem sätts till ”1.2.752.116.2.1.1” | 1..1 |
 
 Följande exempel på xml-struktur anger att aktören är en patient/invånare. ActorId ska då vara personnummer/samordningsnummer:
@@ -92,7 +92,7 @@ Datatypen PersonIdType ärver från datatypen IIType och har i sin utökning en 
 
 | Namn | Typ | Beskrivning | Kard. |
 | :--- | :--- | :--- | :--- |
-| root | string | OID som definierar typ av identifierare. / 1) För PNR ska Skatteverkets oid för PNR (1.2.752.129.2.1.3.1) användas. / 2) För SNR ska Skatteverkets oid för SNR (1.2.752.129.2.1.3.3) användas. | 1..1 |
+| root | string | OID som definierar typ av identifierare.<br/>1) För PNR ska Skatteverkets oid för PNR (1.2.752.129.2.1.3.1) användas.<br/>2) För SNR ska Skatteverkets oid för SNR (1.2.752.129.2.1.3.3) användas. | 1..1 |
 | extension | string | Personnummer eller samordningsnummer | 1..1 |
 
 ### 6.5 ReferenceType
@@ -112,7 +112,7 @@ Datatypen förmedlar en resurs som är relaterad till besöket eller den lediga 
 | Namn | Typ | Beskrivning | Kard. |
 | :--- | :--- | :--- | :--- |
 | description | string | Beskrivning av resurs | 0..1 |
-| typeOfResource | CVType | Typ av resurs. Kan exempelvis uttryckas som en Snomed-CT kod / Exempel: / 272181003 / 1.2.752.116.2.1.1 = ”klinisk utrustning och/eller kliniska” hjälpmedel / 466808009 / 1.2.752.116.2.1.1 = ”videoprocessor” m fl | 0..1 |
+| typeOfResource | CVType | Typ av resurs. Kan exempelvis uttryckas som en Snomed-CT kod<br/>Exempel:<br/>272181003<br/>1.2.752.116.2.1.1 = ”klinisk utrustning och/eller kliniska” hjälpmedel<br/>466808009<br/>1.2.752.116.2.1.1 = ”videoprocessor” m fl | 0..1 |
 | resourceAttribute | CVType | Detaljerade egenskaper för resursen | 0..1 |
 
 ### 6.7 TimeslotType
@@ -147,9 +147,9 @@ Generell typ för att uttrycka regler kopplade till tidstypen, i kombination med
 
 | Namn | Typ | Beskrivning | Kard. |
 | :--- | :--- | :--- | :--- |
-| type | ProcessEnum | Definierar vilken process/vilket tidbokningsflöde som reglerna gäller. Möjliga värden är: / NYBOKNING = nybokningsflöde / AVBOKNING = avbokningsflöde / OMBOKNING = ombokningsflöde | 1..1 |
-| reasonTextRequired | ReasonRequiredEnum | Definierar huruvida invånaren ska ange en anledning till ny-, om eller avbokningen. Vilket av flödena det gäller definieras av föregående attribut (type). / Att ange anledning i form av fritext kan kombineras med anledning i form ett fördefinierat val (reasonCodeRequired). / Möjliga värden är: / Mandatory = Invånaren måste ange en anledning / Optional = Invånaren kan ange en anledning (frivilligt) / ReasonNotSupported = Invånaren kan inte ange en anledning | 1..1 |
-| reasonCodeRequired | ReasonRequiredEnum | Definierar huruvida invånaren ska ange en anledning till ny-, om eller avbokningen, uttryckt som ett av flera fördefinierade anledningar som verksamheten i förväg har definierat. Vilket av flödena det gäller definieras av föregående attribut (type). / Att ange anledning i form av ett förval kan kombineras med anledning i form av fritext (reasonTextRequired). / Möjliga värden är: / Mandatory = Invånaren måste ange en anledning / Optional = Invånaren kan ange en anledning (frivilligt) / ReasonNotSupported = Invånaren kan inte ange en anledning | 1..1 |
+| type | ProcessEnum | Definierar vilken process/vilket tidbokningsflöde som reglerna gäller. Möjliga värden är:<br/>NYBOKNING = nybokningsflöde<br/>AVBOKNING = avbokningsflöde<br/>OMBOKNING = ombokningsflöde | 1..1 |
+| reasonTextRequired | ReasonRequiredEnum | Definierar huruvida invånaren ska ange en anledning till ny-, om eller avbokningen. Vilket av flödena det gäller definieras av föregående attribut (type).<br/>Att ange anledning i form av fritext kan kombineras med anledning i form ett fördefinierat val (reasonCodeRequired).<br/>Möjliga värden är:<br/>Mandatory = Invånaren måste ange en anledning<br/>Optional = Invånaren kan ange en anledning (frivilligt)<br/>ReasonNotSupported = Invånaren kan inte ange en anledning | 1..1 |
+| reasonCodeRequired | ReasonRequiredEnum | Definierar huruvida invånaren ska ange en anledning till ny-, om eller avbokningen, uttryckt som ett av flera fördefinierade anledningar som verksamheten i förväg har definierat. Vilket av flödena det gäller definieras av föregående attribut (type).<br/>Att ange anledning i form av ett förval kan kombineras med anledning i form av fritext (reasonTextRequired).<br/>Möjliga värden är:<br/>Mandatory = Invånaren måste ange en anledning<br/>Optional = Invånaren kan ange en anledning (frivilligt)<br/>ReasonNotSupported = Invånaren kan inte ange en anledning | 1..1 |
 | reasonCodes | CVType | Lista med förval som invånaren ska välja bland, så som anledning till ny-, om- eller avbokningen. | 0..* |
 | information | InformationType | Informationstext att presentera till invånaren, kopplat till tidstypen samt till aktuellt flöde | 0..* |
 | conditionToConfirm | InformationType | Villkorstext att presentera till invånaren, kopplat till tidstypen samt till aktuellt flöde | 0..* |
