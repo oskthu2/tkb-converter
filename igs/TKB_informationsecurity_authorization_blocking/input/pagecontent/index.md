@@ -50,11 +50,12 @@ Domänen innehåller följande tjänstekontrakt:
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>4.0.3</td><td>AB, TKB, IS</td><td><a href="http://rivta.se/downloads//informationsecurity_authorization_blocking/4.0.3/T-granskning%20-%20%20informationsecurity_authorization_blocking_4.0.3.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a><br/><a href="http://rivta.se/downloads//informationsecurity_authorization_blocking/4.0.3/VIS_granskning%20-%20informationsecurity_authorization_blocking_4.0.3.docx">Arkitektur &amp; Regelverk: Informatik: Godkänd</a><br/><a href="http://rivta.se/downloads//informationsecurity_authorization_blocking/4.0.3/VIS_granskning%20-%20informationsecurity_authorization_blocking_4.0.3.docx">Arkitektur &amp; Regelverk: Säkerhet: Godkänd</a></td><td><a href="http://rivta.se/downloads//informationsecurity_authorization_blocking/4.0.3/ServiceContracts_informationsecurity_authorization_blocking_4.0.3.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.informationsecurity.authorization.blocking/src/4.0.3">källkod</a></td></tr>
-<tr><td>4.0.1</td><td>AB, IS, TKB</td><td><a href="http://rivta.se/downloads//informationsecurity_authorization_blocking/4.0.1/T-Granskning-riv.informationsecurity.authorization.blocking_4_0_1.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a></td><td><a href="http://rivta.se/downloads//informationsecurity_authorization_blocking/4.0.1/ServiceContracts_informationsecurity_authorization_blocking_4.0.1.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.informationsecurity.authorization.blocking/src/4.0.1">källkod</a></td></tr>
+<tr><td>4.0.3</td><td>AB, TKB, IS</td><td>Arkitektur &amp; Regelverk: Teknik: Godkänd<br/>Arkitektur &amp; Regelverk: Informatik: Godkänd<br/>Arkitektur &amp; Regelverk: Säkerhet: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.informationsecurity.authorization.blocking/get/4.0.3.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.informationsecurity.authorization.blocking/src/4.0.3">källkod</a></td></tr>
+<tr><td>4.0.1</td><td>AB, IS, TKB</td><td>Arkitektur &amp; Regelverk: Teknik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.informationsecurity.authorization.blocking/get/4.0.1.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.informationsecurity.authorization.blocking/src/4.0.1">källkod</a></td></tr>
 <tr><td>trunk</td><td></td><td></td><td></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 

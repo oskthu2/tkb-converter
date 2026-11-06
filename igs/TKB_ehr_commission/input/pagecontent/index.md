@@ -39,10 +39,11 @@ Domänen innehåller följande tjänstekontrakt:
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>1.0</td><td>AB, TKB</td><td>Äldre granskningsprocess: Teknik: Godkänd</td><td><a href="http://rivta.se/downloads/ehr_commission/1.0/ServiceContracts_ehr_commission_1_0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.ehr.commission/src/ehr_commission_1.0_RC1">källkod</a></td></tr>
+<tr><td>1.0</td><td>AB, TKB</td><td>Äldre granskningsprocess: Teknik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.ehr.commission/get/ehr_commission_1.0_RC1.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.ehr.commission/src/ehr_commission_1.0_RC1">källkod</a></td></tr>
 <tr><td>trunk</td><td>TKB, AB</td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.ehr.commission/src/master">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 

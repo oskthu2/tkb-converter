@@ -53,10 +53,11 @@ Domänen innehåller följande tjänstekontrakt:
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>2.0</td><td>TKB, AB</td><td><a href="http://rivta.se/downloads//infrastructure_eservicesupply_forminteraction/2.0/VIS_granskning_infrastructure_eservicesupply_forminteraction_2.0.docx">Arkitektur &amp; Regelverk: Säkerhet: Delvis Godkänd</a><br/><a href="http://rivta.se/downloads//infrastructure_eservicesupply_forminteraction/2.0/VIS_granskning_infrastructure_eservicesupply_forminteraction_2.0.docx">Arkitektur &amp; Regelverk: Informatik: Underkänd</a><br/><a href="http://rivta.se/downloads//infrastructure_eservicesupply_forminteraction/2.0/T-granskning%20-%20infrastructure_eservicesupply_forminteraction_2.0.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a></td><td><a href="http://rivta.se/downloads//infrastructure_eservicesupply_forminteraction/2.0/ServiceContracts_infrastructure_eservicesupply_forminteraction_2.0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.infrastructure.eservicesupply.forminteraction/src/2.0">källkod</a></td></tr>
+<tr><td>2.0</td><td>TKB, AB</td><td>Arkitektur &amp; Regelverk: Säkerhet: Delvis Godkänd<br/>Arkitektur &amp; Regelverk: Informatik: Underkänd<br/>Arkitektur &amp; Regelverk: Teknik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.infrastructure.eservicesupply.forminteraction/get/2.0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.infrastructure.eservicesupply.forminteraction/src/2.0">källkod</a></td></tr>
 <tr><td>trunk</td><td>TKB, AB</td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.infrastructure.eservicesupply.forminteraction/src/master">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 

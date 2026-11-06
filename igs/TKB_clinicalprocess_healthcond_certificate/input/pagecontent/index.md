@@ -53,11 +53,12 @@ Domänen innehåller följande tjänstekontrakt:
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>4.0.5</td><td>AB, TKB, IS</td><td><a href="http://rivta.se/downloads//clinicalprocess_healthcond_certificate/4.0.5/T-granskning_clinicalprocess_healthcond_certificate_4.0.5.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a><br/><a href="http://rivta.se/downloads//clinicalprocess_healthcond_certificate/4.0.5/VIS_granskning_clinicalprocess.healthcond.certificate_4.0.5.docx">Arkitektur &amp; Regelverk: Säkerhet: Godkänd</a><br/><a href="http://rivta.se/downloads//clinicalprocess_healthcond_certificate/4.0.5/VIS_granskning_clinicalprocess.healthcond.certificate_4.0.5.docx">Arkitektur &amp; Regelverk: Informatik: Godkänd</a></td><td><a href="http://rivta.se/downloads//clinicalprocess_healthcond_certificate/4.0.5/ServiceContracts_clinicalprocess_healthcond_certificate_4.0.5.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.healthcond.certificate/src/4.0.5">källkod</a></td></tr>
-<tr><td>4.0.4</td><td>AB, IS, TKB</td><td><a href="http://rivta.se/downloads//clinicalprocess_healthcond_certificate/4.0.4/T-granskning_clinicalprocess_healthcond_certificate_4.0.4.dotx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a></td><td><a href="http://rivta.se/downloads//clinicalprocess_healthcond_certificate/4.0.4/ServiceContracts_clinicalprocess_healthcond_certificate_4.0.4.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.healthcond.certificate/src/4.0.4">källkod</a></td></tr>
+<tr><td>4.0.5</td><td>AB, TKB, IS</td><td>Arkitektur &amp; Regelverk: Teknik: Godkänd<br/>Arkitektur &amp; Regelverk: Säkerhet: Godkänd<br/>Arkitektur &amp; Regelverk: Informatik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.healthcond.certificate/get/4.0.5.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.healthcond.certificate/src/4.0.5">källkod</a></td></tr>
+<tr><td>4.0.4</td><td>AB, IS, TKB</td><td>Arkitektur &amp; Regelverk: Teknik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.healthcond.certificate/get/4.0.4.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.healthcond.certificate/src/4.0.4">källkod</a></td></tr>
 <tr><td>trunk</td><td>AB, IS, TKB</td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.healthcond.certificate/src/master">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 

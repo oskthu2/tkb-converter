@@ -40,10 +40,11 @@ Domänen innehåller följande tjänstekontrakt:
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>1.0.1</td><td>IS, AB, TKB</td><td><a href="http://rivta.se/downloads//supportprocess_serviceprovisioning_healthcareoffering/1.0.1/T-granskning%20supportprocess_serviceprovisioning_healthcareoffering_1.0.1.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a><br/><a href="http://rivta.se/downloads//supportprocess_serviceprovisioning_healthcareoffering/1.0.1/VIS_granskning_supportprocess_serviceprovisioning_healthcareoffering_1.0.1.docx">Arkitektur &amp; Regelverk: Informatik: Godkänd</a><br/><a href="http://rivta.se/downloads//supportprocess_serviceprovisioning_healthcareoffering/1.0.1/VIS_granskning_supportprocess_serviceprovisioning_healthcareoffering_1.0.1.docx">Arkitektur &amp; Regelverk: Säkerhet: Godkänd</a></td><td><a href="http://rivta.se/downloads//supportprocess_serviceprovisioning_healthcareoffering/1.0.1/ServiceContracts_supportprocess_serviceprovisioning_healthcareoffering_1.0.1.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.supportprocess.serviceprovisioning.healthcareoffering/src/1.0.1">källkod</a></td></tr>
+<tr><td>1.0.1</td><td>IS, AB, TKB</td><td>Arkitektur &amp; Regelverk: Teknik: Godkänd<br/>Arkitektur &amp; Regelverk: Informatik: Godkänd<br/>Arkitektur &amp; Regelverk: Säkerhet: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.supportprocess.serviceprovisioning.healthcareoffering/get/1.0.1.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.supportprocess.serviceprovisioning.healthcareoffering/src/1.0.1">källkod</a></td></tr>
 <tr><td>trunk</td><td>TKB, AB, IS</td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.supportprocess.serviceprovisioning.healthcareoffering/src/master">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 

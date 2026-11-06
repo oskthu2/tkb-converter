@@ -51,10 +51,11 @@ Domänen innehåller följande tjänstekontrakt:
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>1.1.0</td><td></td><td></td><td><a href="http://rivta.se/downloads/druglogistics_dosedispensing/1.1.0/ServiceContracts_druglogistics_dosedispensing_1.1.0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.druglogistics.dosedispensing/src/TD_DRUGLOGISTICS_DOSEDISPENSING_1_1_0">källkod</a></td></tr>
+<tr><td>1.1.0</td><td></td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.druglogistics.dosedispensing/get/TD_DRUGLOGISTICS_DOSEDISPENSING_1_1_0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.druglogistics.dosedispensing/src/TD_DRUGLOGISTICS_DOSEDISPENSING_1_1_0">källkod</a></td></tr>
 <tr><td>trunk</td><td></td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.druglogistics.dosedispensing/src/master">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 

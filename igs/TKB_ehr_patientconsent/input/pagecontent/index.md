@@ -45,10 +45,11 @@ Domänen innehåller följande tjänstekontrakt:
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>1.0.1</td><td>TKB, AB</td><td>Äldre granskningsprocess: Teknik: Godkänd</td><td><a href="http://rivta.se/downloads/ehr_patientconsent/1.0.1/ServiceContracts_ehr_patientconsent_1_0_1.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.ehr.patientconsent/src/ehr_patientconsent_1.0.1_RC1">källkod</a></td></tr>
+<tr><td>1.0.1</td><td>TKB, AB</td><td>Äldre granskningsprocess: Teknik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.ehr.patientconsent/get/ehr_patientconsent_1.0.1_RC1.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.ehr.patientconsent/src/ehr_patientconsent_1.0.1_RC1">källkod</a></td></tr>
 <tr><td>trunk</td><td>AB, TKB</td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.ehr.patientconsent/src/master">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 

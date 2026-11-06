@@ -47,11 +47,12 @@ Domänen innehåller följande tjänstekontrakt:
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>3.0.9</td><td>TKB, AB</td><td><a href="http://rivta.se/downloads//clinicalprocess_logistics_logistics/3.0.9/VIS_granskning%20-%20%20clinicalprocess_logistic_logistic_3.0.9.docx">Arkitektur &amp; Regelverk: Säkerhet: Godkänd</a><br/><a href="http://rivta.se/downloads//clinicalprocess_logistics_logistics/3.0.9/VIS_granskning%20-%20%20clinicalprocess_logistic_logistic_3.0.9.docx">Arkitektur &amp; Regelverk: Informatik: Godkänd</a><br/><a href="http://rivta.se/downloads//clinicalprocess_logistics_logistics/3.0.9/T-granskning%20-%20%20clinicalprocess_logistic_logistic_3.0.9.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a></td><td><a href="http://rivta.se/downloads//clinicalprocess_logistics_logistics/3.0.9/ServiceContracts_clinicalprocess_logistics_logistics_3.0.9.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.logistics.logistics/src/3.0.9">källkod</a></td></tr>
-<tr><td>2.0.3</td><td>TKB</td><td><a href="http://rivta.se/downloads//clinicalprocess_logistics_logistics/2.0.3/T-granskning%20clinicalprocess_logistics_logistics_2.0.3.docx">Äldre granskningsprocess: Teknik: Godkänd</a></td><td><a href="http://rivta.se/downloads//clinicalprocess_logistics_logistics/2.0.3/ServiceContracts_clinicalprocess_logistics_logistics_2.0.3.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.logistics.logistics/src/2.0.3">källkod</a></td></tr>
+<tr><td>3.0.9</td><td>TKB, AB</td><td>Arkitektur &amp; Regelverk: Säkerhet: Godkänd<br/>Arkitektur &amp; Regelverk: Informatik: Godkänd<br/>Arkitektur &amp; Regelverk: Teknik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.logistics.logistics/get/3.0.9.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.logistics.logistics/src/3.0.9">källkod</a></td></tr>
+<tr><td>2.0.3</td><td>TKB</td><td>Äldre granskningsprocess: Teknik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.logistics.logistics/get/2.0.3.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.logistics.logistics/src/2.0.3">källkod</a></td></tr>
 <tr><td>trunk</td><td>AB, TKB</td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.logistics.logistics/src/master">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 

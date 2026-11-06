@@ -50,11 +50,12 @@ Domänen innehåller följande tjänstekontrakt:
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>3.1.1</td><td>AB, TKB</td><td><a href="http://rivta.se/downloads/insuranceprocess_healthreporting/3.1.1/AL-T%20Granskning%20av%20insuranceprocess_healthreporting_3.1.1_RC2.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a></td><td><a href="http://rivta.se/downloads/insuranceprocess_healthreporting/3.1.1/ServiceContracts_insuranceprocess_healthreporting_3.1.1.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.insuranceprocess.healthreporting/src/insuranceprocess_healthreporting_3.1.1">källkod</a></td></tr>
-<tr><td>3.0.0</td><td>TKB</td><td>Äldre granskningsprocess: Teknik: Godkänd</td><td><a href="http://rivta.se/downloads/insuranceprocess_healthreporting/3.0.0/Servicecontracts_insuranceprocess_healthreporting_3.0.0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.insuranceprocess.healthreporting/src/TD_3_0_0_R">källkod</a></td></tr>
+<tr><td>3.1.1</td><td>AB, TKB</td><td>Arkitektur &amp; Regelverk: Teknik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.insuranceprocess.healthreporting/get/insuranceprocess_healthreporting_3.1.1.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.insuranceprocess.healthreporting/src/insuranceprocess_healthreporting_3.1.1">källkod</a></td></tr>
+<tr><td>3.0.0</td><td>TKB</td><td>Äldre granskningsprocess: Teknik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.insuranceprocess.healthreporting/get/TD_3_0_0_R.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.insuranceprocess.healthreporting/src/TD_3_0_0_R">källkod</a></td></tr>
 <tr><td>trunk</td><td>TKB, AB</td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.insuranceprocess.healthreporting/src/master">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 

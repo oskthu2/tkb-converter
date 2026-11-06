@@ -50,11 +50,12 @@ Domänen innehåller följande tjänstekontrakt:
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>2.0_RC1</td><td>AB</td><td></td><td><a href="http://rivta.se/downloads//se_apotekensservice_expo/2.0_RC1/ServiceContracts_se_apotekensservice_expo_2.0_RC1.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.se.apotekensservice.expo/src/2.0_RC1">källkod</a></td></tr>
-<tr><td>1.0_beta_r588</td><td></td><td></td><td><a href="http://rivta.se/downloads/se_apotekensservice_expo/1.0-beta-r588/ServiceContracts_se.apotekensservice_expo_1.0-beta-r588.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.se.apotekensservice.expo/src/1.0-beta-r588">källkod</a></td></tr>
+<tr><td>2.0_RC1</td><td>AB</td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.se.apotekensservice.expo/get/2.0_RC1.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.se.apotekensservice.expo/src/2.0_RC1">källkod</a></td></tr>
+<tr><td>1.0_beta_r588</td><td></td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.se.apotekensservice.expo/get/1.0-beta-r588.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.se.apotekensservice.expo/src/1.0-beta-r588">källkod</a></td></tr>
 <tr><td>trunk</td><td></td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.se.apotekensservice.expo/src/master">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 

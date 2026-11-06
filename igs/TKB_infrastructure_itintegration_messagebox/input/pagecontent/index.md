@@ -42,10 +42,11 @@ Domänen innehåller följande tjänstekontrakt:
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>1.0</td><td>TKB</td><td>Äldre granskningsprocess: Informatik: Godkänd<br/>Äldre granskningsprocess: Säkerhet: Godkänd<br/>Äldre granskningsprocess: Teknik: Godkänd</td><td><a href="http://rivta.se/downloads/infrastructure_itintegration_messagebox/1.0/ServiceContracts_infrastructure_itintegration_messagebox_1.0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.infrastructure.itintegration.messagebox/src/infrastructure_itintegration_messagebox_1.0">källkod</a></td></tr>
+<tr><td>1.0</td><td>TKB</td><td>Äldre granskningsprocess: Informatik: Godkänd<br/>Äldre granskningsprocess: Säkerhet: Godkänd<br/>Äldre granskningsprocess: Teknik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.infrastructure.itintegration.messagebox/get/infrastructure_itintegration_messagebox_1.0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.infrastructure.itintegration.messagebox/src/infrastructure_itintegration_messagebox_1.0">källkod</a></td></tr>
 <tr><td>trunk</td><td>TKB</td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.infrastructure.itintegration.messagebox/src/master">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 

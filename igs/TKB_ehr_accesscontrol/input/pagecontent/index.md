@@ -37,11 +37,12 @@ Domänen innehåller följande tjänstekontrakt:
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>1.0.5</td><td>AB, TKB</td><td><a href="http://rivta.se/downloads//ehr_accesscontrol/1.0.5/T-granskning%20-%20%20ehr_accesscontrol_1.0.5.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a><br/><a href="http://rivta.se/downloads//ehr_accesscontrol/1.0.5/VIS_granskning%20-%20ehr_accesscontrol_1.0.5.docx">Arkitektur &amp; Regelverk: Informatik: Godkänd</a><br/><a href="http://rivta.se/downloads//ehr_accesscontrol/1.0.5/VIS_granskning%20-%20ehr_accesscontrol_1.0.5.docx">Arkitektur &amp; Regelverk: Säkerhet: Godkänd</a></td><td><a href="http://rivta.se/downloads//ehr_accesscontrol/1.0.5/ServiceContracts_ehr_accesscontrol_1.0.5.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.ehr.accesscontrol/src/1.0.5">källkod</a></td></tr>
-<tr><td>1.0.4</td><td>AB, TKB</td><td><a href="http://rivta.se/downloads//ehr_accesscontrol/1.0.4/VIS_granskningsmall_patientrelation%20(TGP)%20V1.0.4.docx">Arkitektur &amp; Regelverk: Informatik: Godkänd</a><br/><a href="http://rivta.se/downloads//ehr_accesscontrol/1.0.4/VIS_granskningsmall_patientrelation%20(TGP)%20V1.0.4.docx">Arkitektur &amp; Regelverk: Säkerhet: Godkänd</a><br/><a href="http://rivta.se/downloads//ehr_accesscontrol/1.0.4/AL-T%20Granskning%20av%20ehr_accesscontrol_1.0.4.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a></td><td><a href="http://rivta.se/downloads//ehr_accesscontrol/1.0.4/ServiceContracts_ehr_accesscontrol_1.0.4.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.ehr.accesscontrol/src/ehr_accesscontrol_1.0.4">källkod</a></td></tr>
+<tr><td>1.0.5</td><td>AB, TKB</td><td>Arkitektur &amp; Regelverk: Teknik: Godkänd<br/>Arkitektur &amp; Regelverk: Informatik: Godkänd<br/>Arkitektur &amp; Regelverk: Säkerhet: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.ehr.accesscontrol/get/1.0.5.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.ehr.accesscontrol/src/1.0.5">källkod</a></td></tr>
+<tr><td>1.0.4</td><td>AB, TKB</td><td>Arkitektur &amp; Regelverk: Informatik: Godkänd<br/>Arkitektur &amp; Regelverk: Säkerhet: Godkänd<br/>Arkitektur &amp; Regelverk: Teknik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.ehr.accesscontrol/get/ehr_accesscontrol_1.0.4.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.ehr.accesscontrol/src/ehr_accesscontrol_1.0.4">källkod</a></td></tr>
 <tr><td>trunk</td><td>AB, TKB</td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.ehr.accesscontrol/src/master">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 

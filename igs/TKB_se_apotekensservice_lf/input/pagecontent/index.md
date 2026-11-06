@@ -44,12 +44,13 @@ Domänen innehåller följande tjänstekontrakt:
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>5.0</td><td>AB</td><td></td><td><a href="http://rivta.se/downloads//se_apotekensservice_lf/5.0/ServiceContracts_se_apotekensservice_lf_5.0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.se.apotekensservice.lf/src/5.0">källkod</a></td></tr>
-<tr><td>4.0</td><td></td><td></td><td><a href="http://rivta.se/downloads//se_apotekensservice_lf/4.0/ServiceContracts_se.apotekensservice_lf_4.0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.se.apotekensservice.lf/src/4.0">källkod</a></td></tr>
-<tr><td>1.0.0</td><td></td><td></td><td><a href="http://rivta.se/downloads/se_apotekensservice_lf/1.0.0/ServiceContracts_se.apotekensservice_lf_1.0.0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.se.apotekensservice.lf/src/TD_APSE_LF_1_0_0_R">källkod</a></td></tr>
+<tr><td>5.0</td><td>AB</td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.se.apotekensservice.lf/get/5.0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.se.apotekensservice.lf/src/5.0">källkod</a></td></tr>
+<tr><td>4.0</td><td></td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.se.apotekensservice.lf/get/4.0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.se.apotekensservice.lf/src/4.0">källkod</a></td></tr>
+<tr><td>1.0.0</td><td></td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.se.apotekensservice.lf/get/TD_APSE_LF_1_0_0_R.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.se.apotekensservice.lf/src/TD_APSE_LF_1_0_0_R">källkod</a></td></tr>
 <tr><td>trunk</td><td></td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.se.apotekensservice.lf/src/master">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 

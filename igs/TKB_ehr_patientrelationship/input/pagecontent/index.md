@@ -46,10 +46,11 @@ Domänen innehåller följande tjänstekontrakt:
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>1.0.1</td><td>AB, TKB</td><td>Äldre granskningsprocess: Teknik: Godkänd</td><td><a href="http://rivta.se/downloads/ehr_patientrelationship/1.0.1/ServiceContracts_ehr_patientrelationship_1.0.1.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.ehr.patientrelationship/src/ehr_patientrelationship_1.0.1_RC1">källkod</a></td></tr>
+<tr><td>1.0.1</td><td>AB, TKB</td><td>Äldre granskningsprocess: Teknik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.ehr.patientrelationship/get/ehr_patientrelationship_1.0.1_RC1.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.ehr.patientrelationship/src/ehr_patientrelationship_1.0.1_RC1">källkod</a></td></tr>
 <tr><td>trunk</td><td>TKB, AB</td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.ehr.patientrelationship/src/master">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 

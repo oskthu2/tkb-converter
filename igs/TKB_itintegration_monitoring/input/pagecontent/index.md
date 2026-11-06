@@ -43,10 +43,11 @@ Domänen innehåller följande tjänstekontrakt:
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>1.0.0</td><td></td><td>Äldre granskningsprocess: Teknik: Godkänd</td><td><a href="http://rivta.se/downloads/itintegration_monitoring/1.0.0/ServiceContracts_itintegration_monitoring-1.0.0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.itintegration.monitoring/src/TD_MONITORING_1_0_0_R">källkod</a></td></tr>
+<tr><td>1.0.0</td><td></td><td>Äldre granskningsprocess: Teknik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.itintegration.monitoring/get/TD_MONITORING_1_0_0_R.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.itintegration.monitoring/src/TD_MONITORING_1_0_0_R">källkod</a></td></tr>
 <tr><td>trunk</td><td>TKB</td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.itintegration.monitoring/src/master">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 

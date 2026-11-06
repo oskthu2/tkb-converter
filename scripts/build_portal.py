@@ -432,6 +432,26 @@ def domdb_facts(d):
     ]
 
 
+def is_rivta(url) -> bool:
+    return bool(url) and re.match(r"https?://(www\.)?rivta\.se(/|$)", url.strip()) is not None
+
+
+def bitbucket_zip(v):
+    """Zip-arkiv för versionen från Bitbucket, i stället för rivta.se/downloads.
+
+    DOMDB:s zipUrl pekar på rivta.se. Taggen finns i sourceControlPath
+    (https://bitbucket.org/rivta-domains/<repo>/src/<tagg>), och Bitbucket
+    levererar taggens innehåll som zip under <repo>/get/<tagg>.zip. Versioner
+    som saknar zip i DOMDB (t.ex. trunk) får ingen."""
+    if not v.get("zipUrl"):
+        return None
+    m = re.match(r"(https://bitbucket\.org/[^/]+/[^/]+)/src/([^/?#]+)/?$", (v.get("sourceControlPath") or "").strip())
+    if m:
+        return f"{m.group(1)}/get/{m.group(2)}.zip"
+    zip_url = v.get("zipUrl")
+    return None if is_rivta(zip_url) else zip_url
+
+
 def versions_table(d) -> str:
     versions = [v for v in d.get("versions") or [] if not v.get("hidden")]
     if not versions:
@@ -440,13 +460,17 @@ def versions_table(d) -> str:
            "<th>Granskningar</th><th>Nedladdning</th></tr></thead>\n<tbody>\n"]
     for v in sorted(versions, key=lambda v: version_key(v.get("name", "")), reverse=True):
         docs = ", ".join(esc(x.get("documentType") or x.get("fileName")) for x in v.get("descriptionDocuments") or [])
+        # Granskningsprotokollen ligger bara på rivta.se: utfallet visas, men utan länk.
         reviews = "<br/>".join(
             (link(r.get("reportUrl"), f'{r["reviewProtocol"]["name"]}: {r["reviewOutcome"]["name"]}')
-             if r.get("reportUrl") else esc(f'{r["reviewProtocol"]["name"]}: {r["reviewOutcome"]["name"]}'))
+             if r.get("reportUrl") and not is_rivta(r["reportUrl"])
+             else esc(f'{r["reviewProtocol"]["name"]}: {r["reviewOutcome"]["name"]}'))
             for r in v.get("reviews") or [])
-        dl = " · ".join(x for x in (link(v.get("zipUrl"), "zip"), link(v.get("sourceControlPath"), "källkod")) if x)
+        dl = " · ".join(x for x in (link(bitbucket_zip(v), "zip"), link(v.get("sourceControlPath"), "källkod")) if x)
         out.append(f'<tr><td>{esc(v.get("name"))}</td><td>{docs}</td><td>{reviews}</td><td>{dl}</td></tr>\n')
     out.append("</tbody>\n</table>\n")
+    out.append("<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på "
+               "rivta.se och länkas inte härifrån.</i></p>\n")
     return "".join(out)
 
 

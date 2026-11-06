@@ -45,10 +45,11 @@ Domänen innehåller följande tjänstekontrakt:
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>1.0.0_beta_r2037</td><td></td><td>Äldre granskningsprocess: Informatik: Godkänd<br/>Äldre granskningsprocess: Säkerhet: Godkänd<br/>Äldre granskningsprocess: Teknik: Godkänd</td><td><a href="http://rivta.se/downloads/clinicalprocess_activityprescription_logistics/1.0.0-beta_r2037/ServiceContracts_clinicalprocess_activityprescription_logistics_1.0.0-beta_r2037.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.activityprescription.logistics/src/69b4fefff3e9a58dc886d0c62b1ce6f2631e829f">källkod</a></td></tr>
+<tr><td>1.0.0_beta_r2037</td><td></td><td>Äldre granskningsprocess: Informatik: Godkänd<br/>Äldre granskningsprocess: Säkerhet: Godkänd<br/>Äldre granskningsprocess: Teknik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.activityprescription.logistics/get/69b4fefff3e9a58dc886d0c62b1ce6f2631e829f.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.activityprescription.logistics/src/69b4fefff3e9a58dc886d0c62b1ce6f2631e829f">källkod</a></td></tr>
 <tr><td>trunk</td><td>TKB</td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv.clinicalprocess.activityprescription.logistics/src/master">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><i>Källa: ögonblicksbild av DOMDB från 2021-08-24, via RIV-TA-portalen.</i></p>
 

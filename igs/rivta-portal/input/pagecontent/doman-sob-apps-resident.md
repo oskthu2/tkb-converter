@@ -34,10 +34,11 @@
 <table class="grid">
 <thead><tr><th>Version</th><th>Dokument</th><th>Granskningar</th><th>Nedladdning</th></tr></thead>
 <tbody>
-<tr><td>1.0_RC3</td><td>IS, AB, TKB</td><td><a href="http://rivta.se/downloads//sob_apps_resident/1.0_RC3/T-granskning%20sob_apps_resident_1.0_RC3.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a></td><td><a href="http://rivta.se/downloads//sob_apps_resident/1.0_RC3/ServiceContracts_sob_apps_resident_1.0_RC3.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv-application.sob.apps.resident/src/1.0_RC3">källkod</a></td></tr>
-<tr><td>1.0</td><td>AB, IS, TKB</td><td><a href="http://rivta.se/downloads//sob_apps_resident/1.0/T-granskning%20-%20riv-application_sob_apps_resident%20-%201.0.docx">Arkitektur &amp; Regelverk: Teknik: Godkänd</a></td><td><a href="http://rivta.se/downloads//sob_apps_resident/1.0/ServiceContracts_sob_apps_resident_1.0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv-application.sob.apps.resident/src/1.0">källkod</a></td></tr>
+<tr><td>1.0_RC3</td><td>IS, AB, TKB</td><td>Arkitektur &amp; Regelverk: Teknik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv-application.sob.apps.resident/get/1.0_RC3.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv-application.sob.apps.resident/src/1.0_RC3">källkod</a></td></tr>
+<tr><td>1.0</td><td>AB, IS, TKB</td><td>Arkitektur &amp; Regelverk: Teknik: Godkänd</td><td><a href="https://bitbucket.org/rivta-domains/riv-application.sob.apps.resident/get/1.0.zip">zip</a> · <a href="https://bitbucket.org/rivta-domains/riv-application.sob.apps.resident/src/1.0">källkod</a></td></tr>
 <tr><td>trunk</td><td></td><td></td><td><a href="https://bitbucket.org/rivta-domains/riv-application.sob.apps.resident/src">källkod</a></td></tr>
 </tbody>
 </table>
+<p><i>Zip-arkiven hämtas från taggarna på Bitbucket. Granskningsprotokollen publicerades på rivta.se och länkas inte härifrån.</i></p>
 
 <p><a href="tjanstedomaner.html">← Alla tjänstedomäner</a></p>
